@@ -174,10 +174,11 @@ export default function JoinPage() {
       }
 
       if (!res.ok) {
-        setServerError(
-          (data.error ?? "Something went wrong.") +
-          (data.detail ? ` (${data.detail})` : " Please try again."),
-        );
+        const parts = [data.error ?? "Something went wrong."];
+        if (data.detail) parts.push(data.detail);
+        if (data.code) parts.push(`Code: ${data.code}`);
+        if (data.hint) parts.push(data.hint);
+        setServerError(parts.join(" — "));
         return;
       }
 
