@@ -129,6 +129,8 @@ const STEP_FIELDS: (keyof FormData)[][] = [
 export default function ForJobSeekers() {
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
     register,
@@ -165,8 +167,30 @@ export default function ForJobSeekers() {
 
   const back = () => setStep((s) => Math.max(s - 1, 0));
 
-  const onSubmit = (_data: FormData) => {
-    setSubmitted(true);
+  const onSubmit = async (data: FormData) => {
+    setSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const res = await fetch("/api/candidates", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        setSubmitError(result.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Network error. Please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   /* ---- toggle helpers ---- */
@@ -671,6 +695,13 @@ export default function ForJobSeekers() {
             </div>
           )}
 
+          {/* ---------- Error message ---------- */}
+          {submitError && (
+            <div className="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+              {submitError}
+            </div>
+          )}
+
           {/* ---------- Navigation buttons ---------- */}
           <div className="mt-8 flex items-center justify-between">
             {step > 0 ? (
@@ -678,6 +709,7 @@ export default function ForJobSeekers() {
                 type="button"
                 variant="ghost"
                 onClick={back}
+                disabled={submitting}
                 className="text-stone-600 hover:text-stone-900"
               >
                 <ArrowLeft className="size-4" /> Back
@@ -697,9 +729,14 @@ export default function ForJobSeekers() {
             ) : (
               <Button
                 type="submit"
+                disabled={submitting}
                 className="bg-amber-500 text-stone-900 shadow-lg hover:bg-amber-400"
               >
-                Submit Profile <Rocket className="size-4" />
+                {submitting ? (
+                  <>Submitting...</>
+                ) : (
+                  <>Submit Profile <Rocket className="size-4" /></>
+                )}
               </Button>
             )}
           </div>
