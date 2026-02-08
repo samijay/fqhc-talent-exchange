@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/jobs", label: "Jobs" },
-  { href: "/job-seekers", label: "For Job Seekers" },
-  { href: "/employers", label: "For Employers" },
+  { href: "/for-job-seekers", label: "For Job Seekers" },
+  { href: "/for-employers", label: "For Employers" },
   { href: "/pricing", label: "Pricing" },
 ];
 
@@ -46,13 +46,13 @@ export default function Header() {
             className="border-teal-600 text-teal-600 hover:bg-teal-50 hover:text-teal-700"
             asChild
           >
-            <Link href="/join">Join as Candidate</Link>
+            <Link href="/for-job-seekers">Join as Candidate</Link>
           </Button>
           <Button
             className="bg-teal-600 text-white hover:bg-teal-700"
             asChild
           >
-            <Link href="/post-job">Post a Job</Link>
+            <Link href="/for-employers">Post a Job</Link>
           </Button>
         </div>
 
@@ -87,13 +87,13 @@ export default function Header() {
                 className="w-full border-teal-600 text-teal-600 hover:bg-teal-50 hover:text-teal-700"
                 asChild
               >
-                <Link href="/join">Join as Candidate</Link>
+                <Link href="/for-job-seekers">Join as Candidate</Link>
               </Button>
               <Button
                 className="w-full bg-teal-600 text-white hover:bg-teal-700"
                 asChild
               >
-                <Link href="/post-job">Post a Job</Link>
+                <Link href="/for-employers">Post a Job</Link>
               </Button>
             </div>
           </div>
