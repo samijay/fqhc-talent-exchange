@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { resend, ADMIN_EMAIL, FROM_EMAIL } from "@/lib/resend";
+import {
+  candidateConfirmationHtml,
+  adminCandidateNotificationHtml,
+} from "@/lib/emails";
 
 export async function POST(request: Request) {
   try {
@@ -51,9 +56,49 @@ export async function POST(request: Request) {
       .from("candidate_waitlist")
       .select("*", { count: "exact", head: true });
 
+    const position = count ?? 1;
+
+    // Send emails (non-blocking — don't let email failures break the form)
+    if (resend) {
+      try {
+        await Promise.all([
+          // Confirmation to candidate
+          resend.emails.send({
+            from: FROM_EMAIL,
+            to: email,
+            subject: `You're on the list, ${firstName}! — FQHC Talent Exchange`,
+            html: candidateConfirmationHtml({ firstName, position }),
+          }),
+          // Notification to admin
+          resend.emails.send({
+            from: FROM_EMAIL,
+            to: ADMIN_EMAIL,
+            subject: `New Candidate Signup: ${firstName} ${lastName} (#${position})`,
+            html: adminCandidateNotificationHtml({
+              firstName,
+              lastName,
+              email,
+              phone,
+              region,
+              currentRole,
+              yearsExperience,
+              ehrSystems,
+              programs,
+              bilingual,
+              notes,
+              position,
+            }),
+          }),
+        ]);
+      } catch (emailErr) {
+        // Log but don't fail the request
+        console.error("Email send error:", emailErr);
+      }
+    }
+
     return NextResponse.json({
       message: "You're on the list!",
-      position: count ?? 1,
+      position,
       data,
     });
   } catch {
