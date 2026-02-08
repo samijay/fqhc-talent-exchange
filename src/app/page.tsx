@@ -118,8 +118,8 @@ export default function Home() {
                 className="w-full bg-amber-500 text-stone-900 shadow-lg hover:bg-amber-400 sm:w-auto"
                 asChild
               >
-                <Link href="/for-job-seekers">
-                  I&apos;m Looking for Work <ArrowRight className="size-4" />
+                <Link href="/join">
+                  Apply for Early Access <ArrowRight className="size-4" />
                 </Link>
               </Button>
               <Button
@@ -128,7 +128,7 @@ export default function Home() {
                 className="w-full border-white/30 text-white hover:bg-white/10 sm:w-auto"
                 asChild
               >
-                <Link href="/for-employers">I&apos;m Hiring</Link>
+                <Link href="/hire">Request Priority Access</Link>
               </Button>
             </div>
           </div>

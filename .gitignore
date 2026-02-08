@@ -36,6 +36,18 @@ yarn-error.log*
 # vercel
 .vercel
 
+# seo package files
+*.zip
+/fqhc-seo-extracted/
+
+# duplicate top-level folders (real source is in /src)
+/app/
+/components/
+/lib/
+/mnt/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel

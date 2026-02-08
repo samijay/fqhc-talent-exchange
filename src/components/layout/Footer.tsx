@@ -4,15 +4,14 @@ import { Heart } from "lucide-react";
 const footerLinks = {
   "For Job Seekers": [
     { href: "/jobs", label: "Browse Jobs" },
-    { href: "/job-seekers", label: "How It Works" },
-    { href: "/resources", label: "Career Resources" },
-    { href: "/faq", label: "FAQ" },
+    { href: "/join", label: "Apply for Early Access" },
+    { href: "/blog", label: "Career Resources" },
+    { href: "/directory", label: "FQHC Directory" },
   ],
   "For Employers": [
-    { href: "/post-job", label: "Post a Job" },
-    { href: "/employers", label: "Why FQHC Talent" },
+    { href: "/hire", label: "Request Priority Access" },
     { href: "/pricing", label: "Pricing" },
-    { href: "/contact", label: "Contact Sales" },
+    { href: "/directory", label: "FQHC Directory" },
   ],
   Company: [
     { href: "/about", label: "About Us" },
@@ -48,7 +47,7 @@ export default function Footer() {
               <h3 className="text-sm font-semibold text-stone-900">{heading}</h3>
               <ul className="mt-4 space-y-2">
                 {links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.href + link.label}>
                     <Link
                       href={link.href}
                       className="text-sm text-stone-500 transition-colors hover:text-teal-600"

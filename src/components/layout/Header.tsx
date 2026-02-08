@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/jobs", label: "Jobs" },
-  { href: "/for-job-seekers", label: "For Job Seekers" },
-  { href: "/for-employers", label: "For Employers" },
+  { href: "/directory", label: "Directory" },
+  { href: "/join", label: "For Job Seekers" },
+  { href: "/hire", label: "For Employers" },
   { href: "/pricing", label: "Pricing" },
 ];
 
@@ -46,13 +47,13 @@ export default function Header() {
             className="border-teal-600 text-teal-600 hover:bg-teal-50 hover:text-teal-700"
             asChild
           >
-            <Link href="/for-job-seekers">Join as Candidate</Link>
+            <Link href="/join">Apply for Early Access</Link>
           </Button>
           <Button
             className="bg-teal-600 text-white hover:bg-teal-700"
             asChild
           >
-            <Link href="/for-employers">Post a Job</Link>
+            <Link href="/hire">Request Priority Access</Link>
           </Button>
         </div>
 
@@ -87,13 +88,13 @@ export default function Header() {
                 className="w-full border-teal-600 text-teal-600 hover:bg-teal-50 hover:text-teal-700"
                 asChild
               >
-                <Link href="/for-job-seekers">Join as Candidate</Link>
+                <Link href="/join" onClick={() => setMobileOpen(false)}>Apply for Early Access</Link>
               </Button>
               <Button
                 className="w-full bg-teal-600 text-white hover:bg-teal-700"
                 asChild
               >
-                <Link href="/for-employers">Post a Job</Link>
+                <Link href="/hire" onClick={() => setMobileOpen(false)}>Request Priority Access</Link>
               </Button>
             </div>
           </div>

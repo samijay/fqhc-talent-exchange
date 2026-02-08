@@ -1,3 +1,7 @@
+import { pageMetadata } from "@/lib/seo-config";
+
+export const metadata = pageMetadata.pricing;
+
 import Link from "next/link";
 import {
   Check,
@@ -190,7 +194,7 @@ export default function PricingPage() {
                 variant={tier.accent ? "default" : "outline"}
                 asChild
               >
-                <Link href="/for-employers">
+                <Link href="/hire">
                   {tier.cta} <ArrowRight className="size-4" />
                 </Link>
               </Button>
@@ -297,7 +301,7 @@ export default function PricingPage() {
             className="bg-teal-600 text-white hover:bg-teal-700"
             asChild
           >
-            <Link href="/for-employers">
+            <Link href="/hire">
               Get Started Free <ArrowRight className="size-4" />
             </Link>
           </Button>
@@ -307,8 +311,8 @@ export default function PricingPage() {
             className="border-stone-500 text-stone-200 hover:bg-stone-800 hover:text-white"
             asChild
           >
-            <Link href="/for-job-seekers">
-              I&apos;m a Job Seeker <Shield className="size-4" />
+            <Link href="/join">
+              Apply for Early Access <Shield className="size-4" />
             </Link>
           </Button>
         </div>
