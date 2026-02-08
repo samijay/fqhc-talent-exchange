@@ -175,7 +175,8 @@ export default function JoinPage() {
 
       if (!res.ok) {
         setServerError(
-          data.error ?? "Something went wrong. Please try again.",
+          (data.error ?? "Something went wrong.") +
+          (data.detail ? ` (${data.detail})` : " Please try again."),
         );
         return;
       }
