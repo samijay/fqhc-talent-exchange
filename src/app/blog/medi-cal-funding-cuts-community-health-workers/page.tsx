@@ -1,6 +1,7 @@
 // app/blog/medi-cal-funding-cuts-community-health-workers/page.tsx
 
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
@@ -45,13 +46,13 @@ export default function MediCalFundingCutsArticle() {
         <div className="max-w-3xl mx-auto">
           {/* Breadcrumb */}
           <nav className="text-sm text-stone-500 mb-6">
-            <a href="/" className="hover:text-stone-700">
+            <Link href="/" className="hover:text-stone-700">
               Home
-            </a>{" "}
+            </Link>{" "}
             →{" "}
-            <a href="/blog" className="hover:text-stone-700">
+            <Link href="/blog" className="hover:text-stone-700">
               Blog
-            </a>{" "}
+            </Link>{" "}
             → Medi-Cal Funding Cuts
           </nav>
 

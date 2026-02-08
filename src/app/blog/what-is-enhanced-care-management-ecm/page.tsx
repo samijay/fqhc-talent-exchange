@@ -1,6 +1,7 @@
 // app/blog/what-is-enhanced-care-management-ecm/page.tsx
 
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
@@ -46,13 +47,13 @@ export default function WhatIsECMArticle() {
         <div className="max-w-3xl mx-auto">
           {/* Breadcrumb */}
           <nav className="text-sm text-stone-500 mb-6">
-            <a href="/" className="hover:text-stone-700">
+            <Link href="/" className="hover:text-stone-700">
               Home
-            </a>{" "}
+            </Link>{" "}
             &rarr;{" "}
-            <a href="/blog" className="hover:text-stone-700">
+            <Link href="/blog" className="hover:text-stone-700">
               Blog
-            </a>{" "}
+            </Link>{" "}
             &rarr; What Is ECM?
           </nav>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -273,7 +274,7 @@ export default function ForJobSeekers() {
               className="mt-10 bg-teal-600 text-white hover:bg-teal-700"
               asChild
             >
-              <a href="/">Back to Home</a>
+              <Link href="/">Back to Home</Link>
             </Button>
           </div>
         </div>

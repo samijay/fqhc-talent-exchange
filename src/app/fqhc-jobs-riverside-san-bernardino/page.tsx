@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
@@ -35,13 +36,13 @@ export default function FqhcJobsInlandEmpire() {
       <section className="bg-gradient-to-br from-teal-50 via-teal-50 to-stone-50 py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <nav className="text-sm text-stone-500 mb-6">
-            <a href="/" className="hover:text-stone-700">
+            <Link href="/" className="hover:text-stone-700">
               Home
-            </a>{" "}
+            </Link>{" "}
             &rarr;{" "}
-            <a href="/jobs" className="hover:text-stone-700">
+            <Link href="/jobs" className="hover:text-stone-700">
               Jobs
-            </a>{" "}
+            </Link>{" "}
             &rarr; Inland Empire
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
