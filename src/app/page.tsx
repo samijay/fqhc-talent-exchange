@@ -84,6 +84,8 @@ const roles = [
 
 export default function Home() {
   const [email, setEmail] = useState("");
+  const [emailStatus, setEmailStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [emailMessage, setEmailMessage] = useState("");
 
   return (
     <div className="bg-stone-50">
@@ -261,9 +263,28 @@ export default function Home() {
             </p>
 
             <form
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                setEmail("");
+                setEmailStatus("loading");
+                try {
+                  const res = await fetch("/api/early-access", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email }),
+                  });
+                  const result = await res.json();
+                  if (!res.ok) {
+                    setEmailStatus("error");
+                    setEmailMessage(result.error || "Something went wrong.");
+                  } else {
+                    setEmailStatus("success");
+                    setEmailMessage(result.message);
+                    setEmail("");
+                  }
+                } catch {
+                  setEmailStatus("error");
+                  setEmailMessage("Network error. Please try again.");
+                }
               }}
               className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
             >
@@ -273,20 +294,38 @@ export default function Home() {
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={emailStatus === "loading"}
                 className="h-12 w-full border-stone-700 bg-stone-800 text-white placeholder:text-stone-500 focus-visible:border-teal-500 focus-visible:ring-teal-500/30 sm:w-72"
               />
               <Button
                 type="submit"
                 size="lg"
+                disabled={emailStatus === "loading"}
                 className="w-full bg-teal-600 text-white hover:bg-teal-500 sm:w-auto"
               >
-                Subscribe <ArrowRight className="size-4" />
+                {emailStatus === "loading" ? (
+                  "Signing up..."
+                ) : (
+                  <>Subscribe <ArrowRight className="size-4" /></>
+                )}
               </Button>
             </form>
 
-            <p className="mt-4 text-xs text-stone-500">
-              Unsubscribe anytime. We respect your inbox.
-            </p>
+            {emailStatus === "success" && (
+              <p className="mt-4 text-sm font-medium text-teal-400">
+                {emailMessage}
+              </p>
+            )}
+            {emailStatus === "error" && (
+              <p className="mt-4 text-sm font-medium text-red-400">
+                {emailMessage}
+              </p>
+            )}
+            {emailStatus === "idle" && (
+              <p className="mt-4 text-xs text-stone-500">
+                Unsubscribe anytime. We respect your inbox.
+              </p>
+            )}
           </div>
         </div>
       </section>
