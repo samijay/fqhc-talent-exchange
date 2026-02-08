@@ -39,9 +39,9 @@ export async function POST(request: Request) {
           { status: 409 }
         );
       }
-      console.error("Supabase error:", error);
+      console.error("Supabase candidate-waitlist error:", JSON.stringify(error, null, 2));
       return NextResponse.json(
-        { error: "Something went wrong. Please try again." },
+        { error: "Something went wrong. Please try again.", detail: error.message },
         { status: 500 }
       );
     }
