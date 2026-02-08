@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
         last_name: lastName,
         email,
         phone,
-        current_role: currentRole,
+        job_role: currentRole,
         years_experience: yearsExperience,
         skills,
         preferred_locations: preferredLocations,

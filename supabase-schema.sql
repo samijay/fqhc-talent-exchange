@@ -5,7 +5,7 @@ CREATE TABLE candidates (
   last_name TEXT NOT NULL,
   email TEXT NOT NULL UNIQUE,
   phone TEXT,
-  current_role TEXT,
+  job_role TEXT,
   years_experience TEXT,
   skills TEXT[],
   preferred_locations TEXT[],
