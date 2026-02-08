@@ -1,7 +1,36 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      // Redirect fqhctalent.org → fqhctalent.com
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "fqhctalent.org" }],
+        destination: "https://fqhctalent.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.fqhctalent.org" }],
+        destination: "https://fqhctalent.com/:path*",
+        permanent: true,
+      },
+      // Redirect healthcaretalent.org → fqhctalent.com
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "healthcaretalent.org" }],
+        destination: "https://fqhctalent.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.healthcaretalent.org" }],
+        destination: "https://fqhctalent.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
