@@ -5,6 +5,24 @@ import { useTranslations } from "next-intl";
 
 const posts = [
   {
+    slug: "working-at-top-of-scope-fqhc",
+    title: "Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access",
+    description:
+      "Learn how FQHCs use team-based care to maximize provider scope of practice. Discover how RNs, MAs, and providers work together to increase patient access and reduce burnout while maintaining quality care.",
+    date: "February 10, 2026",
+    category: "Clinical Operations",
+    readTime: "11 min read",
+  },
+  {
+    slug: "fqhc-career-ladder-ma-rn-provider",
+    title: "The FQHC MA, RN & Provider Career Ladder: How to Advance in Community Health",
+    description:
+      "Explore career advancement paths at FQHCs for MAs, RNs, and providers. Learn about progression opportunities, certifications that accelerate growth, salary ranges, and how bilingual skills unlock faster advancement.",
+    date: "February 10, 2026",
+    category: "Career Growth",
+    readTime: "12 min read",
+  },
+  {
     slug: "how-to-write-fqhc-resume",
     title: "How to Write an FQHC Resume That Gets Noticed",
     description:
@@ -40,7 +58,7 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen">
-      <section className="bg-gradient-to-br from-teal-50 via-teal-50 to-stone-50 py-16 px-6">
+      <section className="bg-gradient-to-br from-violet-50 via-violet-50 to-stone-50 py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
             {t("title")}
@@ -60,7 +78,7 @@ export default function BlogPage() {
                 href={`/blog/${post.slug}`}
                 className="block bg-white rounded-xl border border-stone-200 p-8 hover:shadow-md transition-all hover:-translate-y-1"
               >
-                <p className="text-sm text-teal-600 font-semibold mb-2">
+                <p className="text-sm text-violet-600 font-semibold mb-2">
                   {post.category}
                 </p>
                 <h2 className="text-2xl font-bold text-stone-900 mb-3">

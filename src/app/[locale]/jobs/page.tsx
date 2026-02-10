@@ -188,7 +188,7 @@ function urgencyColor(urgency: string | null) {
   if (!urgency) return "bg-stone-100 text-stone-600";
   const u = urgency.toLowerCase();
   if (u.includes("immediately")) return "bg-red-100 text-red-700";
-  if (u.includes("30")) return "bg-amber-100 text-amber-700";
+  if (u.includes("30")) return "bg-emerald-100 text-emerald-700";
   return "bg-green-100 text-green-700";
 }
 
@@ -280,15 +280,15 @@ export default function JobsPage() {
   return (
     <div className="bg-stone-50">
       {/* ---------- Header ---------- */}
-      <section className="bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 py-14 text-center text-white sm:py-20">
+      <section className="bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 py-14 text-center text-white sm:py-20">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
           {t("title")}
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-base text-teal-100/80 sm:text-lg">
+        <p className="mx-auto mt-4 max-w-xl text-base text-violet-100/80 sm:text-lg">
           {t("subtitle")}
         </p>
         {!loading && !error && (
-          <Badge className="mt-4 border-teal-400/30 bg-teal-500/20 text-teal-100">
+          <Badge className="mt-4 border-violet-400/30 bg-violet-500/20 text-violet-100">
             {jobs.length + sampleJobs.length} positions available
           </Badge>
         )}
@@ -296,11 +296,11 @@ export default function JobsPage() {
 
       {/* ---------- Info Banner ---------- */}
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-        <div className="flex items-start gap-3 rounded-xl border border-teal-200 bg-teal-50 p-4">
-          <Info className="mt-0.5 size-5 shrink-0 text-teal-600" />
-          <p className="text-sm text-teal-800">
+        <div className="flex items-start gap-3 rounded-xl border border-violet-200 bg-violet-50 p-4">
+          <Info className="mt-0.5 size-5 shrink-0 text-violet-600" />
+          <p className="text-sm text-violet-800">
             Showing representative roles currently available through our network.{" "}
-            <Link href="/join" className="font-semibold underline underline-offset-2 hover:text-teal-900">
+            <Link href="/join" className="font-semibold underline underline-offset-2 hover:text-violet-900">
               Join the waitlist
             </Link>{" "}
             to see all open positions and get personally matched.
@@ -343,13 +343,13 @@ export default function JobsPage() {
         {/* Loading */}
         {loading && (
           <div className="flex items-center justify-center py-20">
-            <Loader2 className="size-8 animate-spin text-teal-600" />
+            <Loader2 className="size-8 animate-spin text-violet-600" />
           </div>
         )}
 
         {/* Error — still show sample jobs */}
         {error && (
-          <div className="mx-auto mb-6 max-w-md rounded-lg border border-amber-200 bg-amber-50 px-6 py-4 text-center text-sm text-amber-700">
+          <div className="mx-auto mb-6 max-w-md rounded-lg border border-emerald-200 bg-emerald-50 px-6 py-4 text-center text-sm text-emerald-700">
             Live positions are temporarily unavailable. Showing representative roles below.
           </div>
         )}
@@ -399,7 +399,7 @@ export default function JobsPage() {
 
                     {/* Salary */}
                     {formatSalary(job.salary_min, job.salary_max) && (
-                      <div className="mt-1 flex items-center gap-1.5 text-sm font-medium text-teal-700">
+                      <div className="mt-1 flex items-center gap-1.5 text-sm font-medium text-violet-700">
                         <DollarSign className="size-3.5" />
                         {formatSalary(job.salary_min, job.salary_max)}
                       </div>
@@ -408,7 +408,7 @@ export default function JobsPage() {
 
                   {/* Apply button */}
                   <Button
-                    className="mt-5 w-full bg-teal-600 text-white hover:bg-teal-700"
+                    className="mt-5 w-full bg-violet-600 text-white hover:bg-violet-700"
                     asChild
                   >
                     <Link href="/join">
@@ -452,7 +452,7 @@ export default function JobsPage() {
                     </div>
 
                     {/* Salary */}
-                    <div className="mt-1 flex items-center gap-1.5 text-sm font-medium text-teal-700">
+                    <div className="mt-1 flex items-center gap-1.5 text-sm font-medium text-violet-700">
                       <DollarSign className="size-3.5" />
                       {formatSalary(job.salaryMin, job.salaryMax)}
                     </div>
@@ -466,7 +466,7 @@ export default function JobsPage() {
                       {job.tags.map((tag) => (
                         <Badge
                           key={tag}
-                          className="bg-teal-50 text-teal-700 text-xs"
+                          className="bg-violet-50 text-violet-700 text-xs"
                         >
                           {tag}
                         </Badge>
@@ -476,7 +476,7 @@ export default function JobsPage() {
 
                   {/* CTA button */}
                   <Button
-                    className="mt-5 w-full bg-teal-600 text-white hover:bg-teal-700"
+                    className="mt-5 w-full bg-violet-600 text-white hover:bg-violet-700"
                     asChild
                   >
                     <Link href="/join">

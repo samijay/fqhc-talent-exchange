@@ -193,8 +193,8 @@ export default function ForEmployers() {
       <div className="bg-stone-50">
         <div className="mx-auto max-w-2xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
           <div className="rounded-2xl border border-stone-200 bg-white p-8 text-center shadow-sm sm:p-12">
-            <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-teal-100">
-              <CheckCircle2 className="size-8 text-teal-600" />
+            <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-violet-100">
+              <CheckCircle2 className="size-8 text-violet-600" />
             </div>
 
             <h1 className="text-2xl font-bold text-stone-900 sm:text-3xl">
@@ -229,7 +229,7 @@ export default function ForEmployers() {
                   key={item.title}
                   className="rounded-xl border border-stone-200 bg-stone-50 p-5"
                 >
-                  <item.icon className="mb-3 size-6 text-teal-600" />
+                  <item.icon className="mb-3 size-6 text-violet-600" />
                   <h3 className="text-sm font-semibold text-stone-900">
                     {item.title}
                   </h3>
@@ -241,7 +241,7 @@ export default function ForEmployers() {
             </div>
 
             <Button
-              className="mt-10 bg-teal-600 text-white hover:bg-teal-700"
+              className="mt-10 bg-violet-600 text-white hover:bg-violet-700"
               asChild
             >
               <Link href="/">Back to Home</Link>
@@ -258,14 +258,14 @@ export default function ForEmployers() {
   return (
     <div className="bg-stone-50">
       {/* ---------- Mini Hero ---------- */}
-      <section className="bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 py-14 text-center text-white sm:py-20">
-        <Badge className="mb-4 border-teal-400/30 bg-teal-500/20 text-teal-100 hover:bg-teal-500/30">
+      <section className="bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 py-14 text-center text-white sm:py-20">
+        <Badge className="mb-4 border-violet-400/30 bg-violet-500/20 text-violet-100 hover:bg-violet-500/30">
           Fill critical roles faster
         </Badge>
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
           Hire for Your FQHC
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-base text-teal-100/80 sm:text-lg">
+        <p className="mx-auto mt-4 max-w-xl text-base text-violet-100/80 sm:text-lg">
           Tell us what you need and we&apos;ll deliver pre-vetted,
           mission-aligned candidates within days.
         </p>
@@ -286,9 +286,9 @@ export default function ForEmployers() {
                 <div
                   className={`flex size-9 items-center justify-center rounded-full text-sm font-semibold transition-colors ${
                     isDone
-                      ? "bg-teal-600 text-white"
+                      ? "bg-violet-600 text-white"
                       : isActive
-                        ? "bg-teal-600 text-white ring-4 ring-teal-200"
+                        ? "bg-violet-600 text-white ring-4 ring-violet-200"
                         : "bg-stone-200 text-stone-500"
                   }`}
                 >
@@ -300,7 +300,7 @@ export default function ForEmployers() {
                 </div>
                 <span
                   className={`hidden text-xs font-medium sm:block ${
-                    isActive ? "text-teal-700" : "text-stone-400"
+                    isActive ? "text-violet-700" : "text-stone-400"
                   }`}
                 >
                   {s.label}
@@ -311,7 +311,7 @@ export default function ForEmployers() {
         </div>
         <div className="mt-1 h-2 w-full overflow-hidden rounded-full bg-stone-200">
           <div
-            className="h-full rounded-full bg-teal-600 transition-all duration-300"
+            className="h-full rounded-full bg-violet-600 transition-all duration-300"
             style={{ width: `${((step + 1) / 3) * 100}%` }}
           />
         </div>
@@ -598,7 +598,7 @@ export default function ForEmployers() {
                     urgency: "",
                   })
                 }
-                className="w-full border-dashed border-stone-300 text-stone-500 hover:border-teal-400 hover:text-teal-600"
+                className="w-full border-dashed border-stone-300 text-stone-500 hover:border-violet-400 hover:text-violet-600"
               >
                 <Plus className="size-4" /> Add Another Position
               </Button>
@@ -651,7 +651,7 @@ export default function ForEmployers() {
                             </span>
                             <Badge
                               variant="secondary"
-                              className="bg-teal-100 text-teal-800"
+                              className="bg-violet-100 text-violet-800"
                             >
                               {pos.urgency}
                             </Badge>
@@ -703,7 +703,7 @@ export default function ForEmployers() {
               <Button
                 type="button"
                 onClick={next}
-                className="bg-teal-600 text-white hover:bg-teal-700"
+                className="bg-violet-600 text-white hover:bg-violet-700"
               >
                 Continue <ArrowRight className="size-4" />
               </Button>
@@ -711,7 +711,7 @@ export default function ForEmployers() {
               <Button
                 type="submit"
                 disabled={submitting}
-                className="bg-amber-500 text-stone-900 shadow-lg hover:bg-amber-400"
+                className="bg-emerald-500 text-stone-900 shadow-lg hover:bg-emerald-400"
               >
                 {submitting ? (
                   <>Submitting...</>

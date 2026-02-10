@@ -19,7 +19,6 @@ export default function Header() {
     { href: "/directory" as const, label: t("directory") },
     { href: "/join" as const, label: t("forJobSeekers") },
     { href: "/hire" as const, label: t("forEmployers") },
-    { href: "/pricing" as const, label: t("pricing") },
   ];
 
   function switchLocale() {
@@ -32,9 +31,9 @@ export default function Header() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-          <Heart className="size-7 fill-teal-600 text-teal-600" />
+          <Heart className="size-7 fill-violet-600 text-violet-600" />
           <span className="text-xl font-bold tracking-tight text-stone-900">
-            FQHC <span className="text-teal-600">Talent</span>
+            FQHC <span className="text-violet-600">Talent</span>
           </span>
         </Link>
 
@@ -65,13 +64,13 @@ export default function Header() {
 
           <Button
             variant="outline"
-            className="border-teal-600 text-teal-600 hover:bg-teal-50 hover:text-teal-700"
+            className="border-violet-600 text-violet-600 hover:bg-violet-50 hover:text-violet-700"
             asChild
           >
             <Link href="/join">{t("earlyAccess")}</Link>
           </Button>
           <Button
-            className="bg-teal-600 text-white hover:bg-teal-700"
+            className="bg-violet-600 text-white hover:bg-violet-700"
             asChild
           >
             <Link href="/hire">{t("priorityAccess")}</Link>
@@ -119,13 +118,13 @@ export default function Header() {
             <div className="flex flex-col gap-2 pt-3">
               <Button
                 variant="outline"
-                className="w-full border-teal-600 text-teal-600 hover:bg-teal-50 hover:text-teal-700"
+                className="w-full border-violet-600 text-violet-600 hover:bg-violet-50 hover:text-violet-700"
                 asChild
               >
                 <Link href="/join" onClick={() => setMobileOpen(false)}>{t("earlyAccess")}</Link>
               </Button>
               <Button
-                className="w-full bg-teal-600 text-white hover:bg-teal-700"
+                className="w-full bg-violet-600 text-white hover:bg-violet-700"
                 asChild
               >
                 <Link href="/hire" onClick={() => setMobileOpen(false)}>{t("priorityAccess")}</Link>

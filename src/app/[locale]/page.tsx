@@ -94,14 +94,14 @@ export default function Home() {
   return (
     <div className="bg-stone-50">
       {/* ==================== HERO ==================== */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 text-white">
         {/* decorative blobs */}
-        <div className="absolute -left-32 -top-32 size-96 rounded-full bg-teal-500/20 blur-3xl" />
-        <div className="absolute -bottom-40 -right-40 size-[28rem] rounded-full bg-amber-500/10 blur-3xl" />
+        <div className="absolute -left-32 -top-32 size-96 rounded-full bg-violet-500/20 blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 size-[28rem] rounded-full bg-emerald-500/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
           <div className="mx-auto max-w-3xl text-center">
-            <Badge className="mb-6 border-teal-400/30 bg-teal-500/20 text-teal-100 hover:bg-teal-500/30">
+            <Badge className="mb-6 border-violet-400/30 bg-violet-500/20 text-violet-100 hover:bg-violet-500/30">
               {t("badge")}
             </Badge>
 
@@ -109,14 +109,14 @@ export default function Home() {
               {t("heroTitle", { days: "21" })}
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-teal-100/90 sm:text-xl">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-violet-100/90 sm:text-xl">
               {t("heroSubtitle")}
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button
                 size="lg"
-                className="w-full bg-amber-500 text-stone-900 shadow-lg hover:bg-amber-400 sm:w-auto"
+                className="w-full bg-emerald-500 text-stone-900 shadow-lg hover:bg-emerald-400 sm:w-auto"
                 asChild
               >
                 <Link href="/join">
@@ -141,7 +141,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-4xl grid-cols-1 divide-y divide-stone-200 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {stats.map((s) => (
             <div key={s.label} className="flex flex-col items-center py-8">
-              <span className="text-3xl font-extrabold text-teal-600">
+              <span className="text-3xl font-extrabold text-violet-600">
                 {s.value}
               </span>
               <span className="mt-1 text-sm font-medium text-stone-500">
@@ -167,7 +167,7 @@ export default function Home() {
                 key={card.title}
                 className="group rounded-2xl border border-stone-200 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
               >
-                <div className="mb-5 inline-flex size-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600 transition-colors group-hover:bg-teal-600 group-hover:text-white">
+                <div className="mb-5 inline-flex size-12 items-center justify-center rounded-xl bg-violet-50 text-violet-600 transition-colors group-hover:bg-violet-600 group-hover:text-white">
                   <card.icon className="size-6" />
                 </div>
                 <h3 className="text-lg font-semibold text-stone-900">
@@ -183,7 +183,7 @@ export default function Home() {
       </section>
 
       {/* ==================== HOW IT WORKS ==================== */}
-      <section className="bg-teal-600 py-20 sm:py-28">
+      <section className="bg-violet-600 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -195,18 +195,18 @@ export default function Home() {
             {steps.map((s) => (
               <div
                 key={s.step}
-                className="group rounded-2xl border border-teal-500/30 bg-teal-700/50 p-8 backdrop-blur transition-all hover:-translate-y-1 hover:bg-teal-700/70"
+                className="group rounded-2xl border border-violet-500/30 bg-violet-700/50 p-8 backdrop-blur transition-all hover:-translate-y-1 hover:bg-violet-700/70"
               >
-                <span className="mb-4 inline-flex size-10 items-center justify-center rounded-full bg-amber-500 text-lg font-bold text-stone-900">
+                <span className="mb-4 inline-flex size-10 items-center justify-center rounded-full bg-emerald-500 text-lg font-bold text-stone-900">
                   {s.step}
                 </span>
                 <div className="mb-3 inline-flex items-center gap-2">
-                  <s.icon className="size-5 text-teal-200" />
+                  <s.icon className="size-5 text-violet-200" />
                   <h3 className="text-lg font-semibold text-white">
                     {s.title}
                   </h3>
                 </div>
-                <p className="text-sm leading-relaxed text-teal-100/80">
+                <p className="text-sm leading-relaxed text-violet-100/80">
                   {s.body}
                 </p>
               </div>
@@ -232,7 +232,7 @@ export default function Home() {
               <Badge
                 key={role}
                 variant="outline"
-                className="cursor-default border-stone-300 bg-white px-4 py-2 text-sm font-medium text-stone-700 transition-colors hover:border-teal-400 hover:bg-teal-50 hover:text-teal-700"
+                className="cursor-default border-stone-300 bg-white px-4 py-2 text-sm font-medium text-stone-700 transition-colors hover:border-violet-400 hover:bg-violet-50 hover:text-violet-700"
               >
                 {role}
               </Badge>
@@ -245,7 +245,7 @@ export default function Home() {
       <section className="bg-stone-900 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-xl text-center">
-            <Mail className="mx-auto mb-4 size-10 text-amber-400" />
+            <Mail className="mx-auto mb-4 size-10 text-emerald-400" />
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
               {t("newsletterTitle")}
             </h2>
@@ -286,13 +286,13 @@ export default function Home() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={emailStatus === "loading"}
-                className="h-12 w-full border-stone-700 bg-stone-800 text-white placeholder:text-stone-500 focus-visible:border-teal-500 focus-visible:ring-teal-500/30 sm:w-72"
+                className="h-12 w-full border-stone-700 bg-stone-800 text-white placeholder:text-stone-500 focus-visible:border-violet-500 focus-visible:ring-violet-500/30 sm:w-72"
               />
               <Button
                 type="submit"
                 size="lg"
                 disabled={emailStatus === "loading"}
-                className="w-full bg-teal-600 text-white hover:bg-teal-500 sm:w-auto"
+                className="w-full bg-violet-600 text-white hover:bg-violet-500 sm:w-auto"
               >
                 {emailStatus === "loading" ? (
                   "Signing up..."
@@ -303,7 +303,7 @@ export default function Home() {
             </form>
 
             {emailStatus === "success" && (
-              <p className="mt-4 text-sm font-medium text-teal-400">
+              <p className="mt-4 text-sm font-medium text-violet-400">
                 {emailMessage}
               </p>
             )}

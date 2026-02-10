@@ -33,7 +33,7 @@ export default function FqhcJobsFresno() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-50 via-teal-50 to-stone-50 py-16 px-6">
+      <section className="bg-gradient-to-br from-violet-50 via-violet-50 to-stone-50 py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <nav className="text-sm text-stone-500 mb-6">
             <Link href="/" className="hover:text-stone-700">
@@ -163,7 +163,7 @@ export default function FqhcJobsFresno() {
           </div>
 
           {/* CTA */}
-          <div className="mt-12 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
+          <div className="mt-12 bg-violet-50 border border-violet-200 rounded-xl p-8 text-center">
             <h3 className="text-2xl font-bold text-stone-900 mb-4">
               Looking for an FQHC Role in the Central Valley?
             </h3>
@@ -174,7 +174,7 @@ export default function FqhcJobsFresno() {
             </p>
             <a
               href="/join"
-              className="inline-flex items-center justify-center rounded-lg bg-teal-600 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-700 transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-violet-600 px-8 py-4 text-lg font-semibold text-white hover:bg-violet-700 transition-colors"
             >
               Apply for Early Access
             </a>
@@ -199,7 +199,7 @@ export default function FqhcJobsFresno() {
               <a
                 key={slug}
                 href={`/fqhc-jobs-${slug}`}
-                className="bg-white rounded-lg p-4 text-center font-medium text-stone-700 hover:text-teal-600 hover:shadow-md transition-all"
+                className="bg-white rounded-lg p-4 text-center font-medium text-stone-700 hover:text-violet-600 hover:shadow-md transition-all"
               >
                 {name}
               </a>

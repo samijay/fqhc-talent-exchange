@@ -95,16 +95,16 @@ export default function FQHCMap({ fqhcs }: FQHCMapProps) {
 
       // Add ECM badge if applicable
       if (fqhc.ecmProvider) {
-        popupHTML += `<p><span class="inline-block bg-teal-100 text-teal-800 text-xs px-2 py-1 rounded font-semibold">ECM Provider</span></p>`;
+        popupHTML += `<p><span class="inline-block bg-violet-100 text-violet-800 text-xs px-2 py-1 rounded font-semibold">ECM Provider</span></p>`;
       }
 
       // Add website link
       if (fqhc.website) {
-        popupHTML += `<p class="mt-3"><a href="${escapeHtml(fqhc.website)}" target="_blank" rel="noopener noreferrer" class="text-teal-600 hover:text-teal-700 font-semibold">Visit Website →</a></p>`;
+        popupHTML += `<p class="mt-3"><a href="${escapeHtml(fqhc.website)}" target="_blank" rel="noopener noreferrer" class="text-violet-600 hover:text-violet-700 font-semibold">Visit Website →</a></p>`;
       }
 
       // Add View Details link
-      popupHTML += `<p class="mt-3"><a href="/directory/${escapeHtml(fqhc.slug)}" class="text-teal-600 hover:text-teal-700 font-semibold">View Details →</a></p>`;
+      popupHTML += `<p class="mt-3"><a href="/directory/${escapeHtml(fqhc.slug)}" class="text-violet-600 hover:text-violet-700 font-semibold">View Details →</a></p>`;
       popupHTML += `</div></div>`;
 
       marker.bindPopup(popupHTML, {

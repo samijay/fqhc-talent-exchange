@@ -128,18 +128,6 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/for-employers` },
   },
-  pricing: {
-    title: "Pricing | FQHC Staffing & Recruitment Plans",
-    description:
-      "Transparent pricing for FQHC recruitment. Always free for job seekers. Employer subscription plans with placement support, candidate vetting, and retention guarantees.",
-    openGraph: {
-      title: "Pricing — FQHC Talent Exchange",
-      description:
-        "Transparent FQHC recruitment pricing. Free for candidates, employer plans starting at competitive rates.",
-      url: `${SITE_URL}/pricing`,
-    },
-    alternates: { canonical: `${SITE_URL}/pricing` },
-  },
   blog: {
     title: "FQHC Career Resources & Community Health Insights",
     description:

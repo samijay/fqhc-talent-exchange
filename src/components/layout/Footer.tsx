@@ -16,7 +16,6 @@ export default function Footer() {
     ],
     [t("forEmployers")]: [
       { href: "/hire" as const, label: t("requestAccess") },
-      { href: "/pricing" as const, label: t("pricingPlans") },
       { href: "/directory" as const, label: t("fqhcDirectory") },
     ],
     [t("resources")]: [
@@ -33,9 +32,9 @@ export default function Footer() {
           {/* Logo & description */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Heart className="size-6 fill-teal-600 text-teal-600" />
+              <Heart className="size-6 fill-violet-600 text-violet-600" />
               <span className="text-lg font-bold tracking-tight text-stone-900">
-                FQHC <span className="text-teal-600">Talent</span>
+                FQHC <span className="text-violet-600">Talent</span>
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-stone-500">
@@ -52,7 +51,7 @@ export default function Footer() {
                   <li key={link.href + link.label + i}>
                     <Link
                       href={link.href}
-                      className="text-sm text-stone-500 transition-colors hover:text-teal-600"
+                      className="text-sm text-stone-500 transition-colors hover:text-violet-600"
                     >
                       {link.label}
                     </Link>

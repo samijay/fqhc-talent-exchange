@@ -226,8 +226,8 @@ export default function ForJobSeekers() {
       <div className="bg-stone-50">
         <div className="mx-auto max-w-2xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
           <div className="rounded-2xl border border-stone-200 bg-white p-8 text-center shadow-sm sm:p-12">
-            <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-teal-100">
-              <CheckCircle2 className="size-8 text-teal-600" />
+            <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-violet-100">
+              <CheckCircle2 className="size-8 text-violet-600" />
             </div>
 
             <h1 className="text-2xl font-bold text-stone-900 sm:text-3xl">
@@ -259,7 +259,7 @@ export default function ForJobSeekers() {
                   key={item.title}
                   className="rounded-xl border border-stone-200 bg-stone-50 p-5"
                 >
-                  <item.icon className="mb-3 size-6 text-teal-600" />
+                  <item.icon className="mb-3 size-6 text-violet-600" />
                   <h3 className="text-sm font-semibold text-stone-900">
                     {item.title}
                   </h3>
@@ -271,7 +271,7 @@ export default function ForJobSeekers() {
             </div>
 
             <Button
-              className="mt-10 bg-teal-600 text-white hover:bg-teal-700"
+              className="mt-10 bg-violet-600 text-white hover:bg-violet-700"
               asChild
             >
               <Link href="/">Back to Home</Link>
@@ -288,14 +288,14 @@ export default function ForJobSeekers() {
   return (
     <div className="bg-stone-50">
       {/* ---------- Mini Hero ---------- */}
-      <section className="bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 py-14 text-center text-white sm:py-20">
-        <Badge className="mb-4 border-teal-400/30 bg-teal-500/20 text-teal-100 hover:bg-teal-500/30">
+      <section className="bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 py-14 text-center text-white sm:py-20">
+        <Badge className="mb-4 border-violet-400/30 bg-violet-500/20 text-violet-100 hover:bg-violet-500/30">
           Free for candidates — always
         </Badge>
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
           Let&apos;s Find Your Next Role
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-base text-teal-100/80 sm:text-lg">
+        <p className="mx-auto mt-4 max-w-xl text-base text-violet-100/80 sm:text-lg">
           Complete your profile in under 3 minutes and get matched with
           mission-driven FQHCs.
         </p>
@@ -317,9 +317,9 @@ export default function ForJobSeekers() {
                 <div
                   className={`flex size-9 items-center justify-center rounded-full text-sm font-semibold transition-colors ${
                     isDone
-                      ? "bg-teal-600 text-white"
+                      ? "bg-violet-600 text-white"
                       : isActive
-                        ? "bg-teal-600 text-white ring-4 ring-teal-200"
+                        ? "bg-violet-600 text-white ring-4 ring-violet-200"
                         : "bg-stone-200 text-stone-500"
                   }`}
                 >
@@ -331,7 +331,7 @@ export default function ForJobSeekers() {
                 </div>
                 <span
                   className={`hidden text-xs font-medium sm:block ${
-                    isActive ? "text-teal-700" : "text-stone-400"
+                    isActive ? "text-violet-700" : "text-stone-400"
                   }`}
                 >
                   {s.label}
@@ -344,7 +344,7 @@ export default function ForJobSeekers() {
         {/* Bar */}
         <div className="mt-1 h-2 w-full overflow-hidden rounded-full bg-stone-200">
           <div
-            className="h-full rounded-full bg-teal-600 transition-all duration-300"
+            className="h-full rounded-full bg-violet-600 transition-all duration-300"
             style={{ width: `${((step + 1) / 4) * 100}%` }}
           />
         </div>
@@ -522,13 +522,13 @@ export default function ForJobSeekers() {
                         key={skill}
                         className={`flex cursor-pointer items-center gap-2.5 rounded-lg border px-3 py-2.5 text-sm transition-colors ${
                           checked
-                            ? "border-teal-500 bg-teal-50 text-teal-800"
+                            ? "border-violet-500 bg-violet-50 text-violet-800"
                             : "border-stone-200 bg-white text-stone-700 hover:border-stone-300"
                         }`}
                       >
                         <input
                           type="checkbox"
-                          className="size-4 rounded border-stone-300 text-teal-600 focus:ring-teal-500"
+                          className="size-4 rounded border-stone-300 text-violet-600 focus:ring-violet-500"
                           checked={checked}
                           onChange={() => toggleSkill(skill)}
                         />
@@ -574,8 +574,8 @@ export default function ForJobSeekers() {
                         onClick={() => toggleLocation(loc)}
                         className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
                           selected
-                            ? "border-teal-500 bg-teal-600 text-white"
-                            : "border-stone-300 bg-white text-stone-600 hover:border-teal-400 hover:bg-teal-50 hover:text-teal-700"
+                            ? "border-violet-500 bg-violet-600 text-white"
+                            : "border-stone-300 bg-white text-stone-600 hover:border-violet-400 hover:bg-violet-50 hover:text-violet-700"
                         }`}
                       >
                         {loc}
@@ -661,7 +661,7 @@ export default function ForJobSeekers() {
                             <Badge
                               key={s}
                               variant="secondary"
-                              className="bg-teal-100 text-teal-800"
+                              className="bg-violet-100 text-violet-800"
                             >
                               {s}
                             </Badge>
@@ -723,7 +723,7 @@ export default function ForJobSeekers() {
               <Button
                 type="button"
                 onClick={next}
-                className="bg-teal-600 text-white hover:bg-teal-700"
+                className="bg-violet-600 text-white hover:bg-violet-700"
               >
                 Continue <ArrowRight className="size-4" />
               </Button>
@@ -731,7 +731,7 @@ export default function ForJobSeekers() {
               <Button
                 type="submit"
                 disabled={submitting}
-                className="bg-amber-500 text-stone-900 shadow-lg hover:bg-amber-400"
+                className="bg-emerald-500 text-stone-900 shadow-lg hover:bg-emerald-400"
               >
                 {submitting ? (
                   <>Submitting...</>
