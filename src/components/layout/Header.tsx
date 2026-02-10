@@ -1,20 +1,31 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { Heart, Menu, X } from "lucide-react";
+import { Heart, Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const navLinks = [
-  { href: "/jobs", label: "Jobs" },
-  { href: "/directory", label: "Directory" },
-  { href: "/join", label: "For Job Seekers" },
-  { href: "/hire", label: "For Employers" },
-  { href: "/pricing", label: "Pricing" },
-];
+import { useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const t = useTranslations("nav");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const navLinks = [
+    { href: "/jobs" as const, label: t("jobs") },
+    { href: "/directory" as const, label: t("directory") },
+    { href: "/join" as const, label: t("forJobSeekers") },
+    { href: "/hire" as const, label: t("forEmployers") },
+    { href: "/pricing" as const, label: t("pricing") },
+  ];
+
+  function switchLocale() {
+    const newLocale = locale === "en" ? "es" : "en";
+    router.replace(pathname, { locale: newLocale });
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-stone-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
@@ -40,20 +51,30 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop CTA buttons */}
+        {/* Desktop CTA buttons + Language toggle */}
         <div className="hidden items-center gap-3 md:flex">
+          {/* Language toggle */}
+          <button
+            onClick={switchLocale}
+            className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-900"
+            title={t("languageToggle")}
+          >
+            <Globe className="size-4" />
+            {locale === "en" ? "ES" : "EN"}
+          </button>
+
           <Button
             variant="outline"
             className="border-teal-600 text-teal-600 hover:bg-teal-50 hover:text-teal-700"
             asChild
           >
-            <Link href="/join">Apply for Early Access</Link>
+            <Link href="/join">{t("earlyAccess")}</Link>
           </Button>
           <Button
             className="bg-teal-600 text-white hover:bg-teal-700"
             asChild
           >
-            <Link href="/hire">Request Priority Access</Link>
+            <Link href="/hire">{t("priorityAccess")}</Link>
           </Button>
         </div>
 
@@ -82,19 +103,32 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Mobile language toggle */}
+            <button
+              onClick={() => {
+                switchLocale();
+                setMobileOpen(false);
+              }}
+              className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+            >
+              <Globe className="size-4" />
+              {t("languageToggle")}
+            </button>
+
             <div className="flex flex-col gap-2 pt-3">
               <Button
                 variant="outline"
                 className="w-full border-teal-600 text-teal-600 hover:bg-teal-50 hover:text-teal-700"
                 asChild
               >
-                <Link href="/join" onClick={() => setMobileOpen(false)}>Apply for Early Access</Link>
+                <Link href="/join" onClick={() => setMobileOpen(false)}>{t("earlyAccess")}</Link>
               </Button>
               <Button
                 className="w-full bg-teal-600 text-white hover:bg-teal-700"
                 asChild
               >
-                <Link href="/hire" onClick={() => setMobileOpen(false)}>Request Priority Access</Link>
+                <Link href="/hire" onClick={() => setMobileOpen(false)}>{t("priorityAccess")}</Link>
               </Button>
             </div>
           </div>

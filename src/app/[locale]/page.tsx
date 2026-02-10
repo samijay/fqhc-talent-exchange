@@ -1,0 +1,325 @@
+// FQHC Talent Exchange v1
+"use client";
+
+import { useState } from "react";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
+import {
+  Shield,
+  Users,
+  Zap,
+  ClipboardList,
+  Handshake,
+  Rocket,
+  ArrowRight,
+  Mail,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+
+export default function Home() {
+  const t = useTranslations("home");
+  const tRoles = useTranslations("roles");
+  const tNav = useTranslations("nav");
+
+  const [email, setEmail] = useState("");
+  const [emailStatus, setEmailStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [emailMessage, setEmailMessage] = useState("");
+
+  /* ---------- Stats ---------- */
+  const stats = [
+    { value: t("stat1Value"), label: t("stat1Label") },
+    { value: t("stat2Value"), label: t("stat2Label") },
+    { value: t("stat3Value"), label: t("stat3Label") },
+  ];
+
+  /* ---------- Why Cards ---------- */
+  const whyCards = [
+    {
+      icon: Shield,
+      title: t("why1Title"),
+      body: t("why1Description"),
+    },
+    {
+      icon: Users,
+      title: t("why2Title"),
+      body: t("why2Description"),
+    },
+    {
+      icon: Zap,
+      title: t("why3Title"),
+      body: t("why3Description"),
+    },
+  ];
+
+  /* ---------- How It Works ---------- */
+  const steps = [
+    {
+      icon: ClipboardList,
+      step: "1",
+      title: t("step1Title"),
+      body: t("step1Description"),
+    },
+    {
+      icon: Handshake,
+      step: "2",
+      title: t("step2Title"),
+      body: t("step2Description"),
+    },
+    {
+      icon: Rocket,
+      step: "3",
+      title: t("step3Title"),
+      body: t("step3Description"),
+    },
+  ];
+
+  /* ---------- Role Badges ---------- */
+  const roles = [
+    tRoles("communityHealthWorker"),
+    tRoles("careCoordinator"),
+    tRoles("medicalAssistant"),
+    tRoles("caseManager"),
+    tRoles("behavioralHealthSpecialist"),
+    tRoles("registeredNurse"),
+    tRoles("nursePractitioner"),
+    tRoles("licensedClinicalSocialWorker"),
+    tRoles("dentalHygienist"),
+    tRoles("healthEducator"),
+    tRoles("patientServicesRep"),
+    tRoles("medicalDirector"),
+  ];
+
+  return (
+    <div className="bg-stone-50">
+      {/* ==================== HERO ==================== */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 text-white">
+        {/* decorative blobs */}
+        <div className="absolute -left-32 -top-32 size-96 rounded-full bg-teal-500/20 blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 size-[28rem] rounded-full bg-amber-500/10 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+          <div className="mx-auto max-w-3xl text-center">
+            <Badge className="mb-6 border-teal-400/30 bg-teal-500/20 text-teal-100 hover:bg-teal-500/30">
+              {t("badge")}
+            </Badge>
+
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+              {t("heroTitle", { days: "21" })}
+            </h1>
+
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-teal-100/90 sm:text-xl">
+              {t("heroSubtitle")}
+            </p>
+
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button
+                size="lg"
+                className="w-full bg-amber-500 text-stone-900 shadow-lg hover:bg-amber-400 sm:w-auto"
+                asChild
+              >
+                <Link href="/join">
+                  {tNav("earlyAccess")} <ArrowRight className="size-4" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full border-white/30 text-white hover:bg-white/10 sm:w-auto"
+                asChild
+              >
+                <Link href="/hire">{tNav("priorityAccess")}</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== STATS BAR ==================== */}
+      <section className="border-b border-stone-200 bg-white">
+        <div className="mx-auto grid max-w-4xl grid-cols-1 divide-y divide-stone-200 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          {stats.map((s) => (
+            <div key={s.label} className="flex flex-col items-center py-8">
+              <span className="text-3xl font-extrabold text-teal-600">
+                {s.value}
+              </span>
+              <span className="mt-1 text-sm font-medium text-stone-500">
+                {s.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ==================== WHY WE'RE DIFFERENT ==================== */}
+      <section className="bg-stone-50 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+              {t("whyTitle")}
+            </h2>
+          </div>
+
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {whyCards.map((card) => (
+              <div
+                key={card.title}
+                className="group rounded-2xl border border-stone-200 bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="mb-5 inline-flex size-12 items-center justify-center rounded-xl bg-teal-50 text-teal-600 transition-colors group-hover:bg-teal-600 group-hover:text-white">
+                  <card.icon className="size-6" />
+                </div>
+                <h3 className="text-lg font-semibold text-stone-900">
+                  {card.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-stone-500">
+                  {card.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== HOW IT WORKS ==================== */}
+      <section className="bg-teal-600 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              {t("howTitle")}
+            </h2>
+          </div>
+
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {steps.map((s) => (
+              <div
+                key={s.step}
+                className="group rounded-2xl border border-teal-500/30 bg-teal-700/50 p-8 backdrop-blur transition-all hover:-translate-y-1 hover:bg-teal-700/70"
+              >
+                <span className="mb-4 inline-flex size-10 items-center justify-center rounded-full bg-amber-500 text-lg font-bold text-stone-900">
+                  {s.step}
+                </span>
+                <div className="mb-3 inline-flex items-center gap-2">
+                  <s.icon className="size-5 text-teal-200" />
+                  <h3 className="text-lg font-semibold text-white">
+                    {s.title}
+                  </h3>
+                </div>
+                <p className="text-sm leading-relaxed text-teal-100/80">
+                  {s.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== ROLES WE FILL ==================== */}
+      <section className="bg-stone-50 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+              {t("rolesTitle")}
+            </h2>
+            <p className="mt-4 text-lg text-stone-500">
+              {t("rolesSubtitle")}
+            </p>
+          </div>
+
+          <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-3">
+            {roles.map((role) => (
+              <Badge
+                key={role}
+                variant="outline"
+                className="cursor-default border-stone-300 bg-white px-4 py-2 text-sm font-medium text-stone-700 transition-colors hover:border-teal-400 hover:bg-teal-50 hover:text-teal-700"
+              >
+                {role}
+              </Badge>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== EMAIL SIGNUP ==================== */}
+      <section className="bg-stone-900 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-xl text-center">
+            <Mail className="mx-auto mb-4 size-10 text-amber-400" />
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              {t("newsletterTitle")}
+            </h2>
+            <p className="mt-4 text-base text-stone-400">
+              {t("newsletterSubtitle")}
+            </p>
+
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setEmailStatus("loading");
+                try {
+                  const res = await fetch("/api/early-access", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email }),
+                  });
+                  const result = await res.json();
+                  if (!res.ok) {
+                    setEmailStatus("error");
+                    setEmailMessage(result.error || "Something went wrong.");
+                  } else {
+                    setEmailStatus("success");
+                    setEmailMessage(result.message);
+                    setEmail("");
+                  }
+                } catch {
+                  setEmailStatus("error");
+                  setEmailMessage("Network error. Please try again.");
+                }
+              }}
+              className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+            >
+              <Input
+                type="email"
+                required
+                placeholder={t("newsletterPlaceholder")}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={emailStatus === "loading"}
+                className="h-12 w-full border-stone-700 bg-stone-800 text-white placeholder:text-stone-500 focus-visible:border-teal-500 focus-visible:ring-teal-500/30 sm:w-72"
+              />
+              <Button
+                type="submit"
+                size="lg"
+                disabled={emailStatus === "loading"}
+                className="w-full bg-teal-600 text-white hover:bg-teal-500 sm:w-auto"
+              >
+                {emailStatus === "loading" ? (
+                  "Signing up..."
+                ) : (
+                  <>{t("newsletterButton")} <ArrowRight className="size-4" /></>
+                )}
+              </Button>
+            </form>
+
+            {emailStatus === "success" && (
+              <p className="mt-4 text-sm font-medium text-teal-400">
+                {emailMessage}
+              </p>
+            )}
+            {emailStatus === "error" && (
+              <p className="mt-4 text-sm font-medium text-red-400">
+                {emailMessage}
+              </p>
+            )}
+            {emailStatus === "idle" && (
+              <p className="mt-4 text-xs text-stone-500">
+                {t("newsletterDisclaimer")}
+              </p>
+            )}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

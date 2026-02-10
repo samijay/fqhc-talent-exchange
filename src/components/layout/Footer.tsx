@@ -1,27 +1,31 @@
-import Link from "next/link";
-import { Heart } from "lucide-react";
+"use client";
 
-const footerLinks = {
-  "For Job Seekers": [
-    { href: "/jobs", label: "Browse Jobs" },
-    { href: "/join", label: "Apply for Early Access" },
-    { href: "/blog", label: "Career Resources" },
-    { href: "/directory", label: "FQHC Directory" },
-  ],
-  "For Employers": [
-    { href: "/hire", label: "Request Priority Access" },
-    { href: "/pricing", label: "Pricing" },
-    { href: "/directory", label: "FQHC Directory" },
-  ],
-  Company: [
-    { href: "/about", label: "About Us" },
-    { href: "/blog", label: "Blog" },
-    { href: "/privacy", label: "Privacy Policy" },
-    { href: "/terms", label: "Terms of Service" },
-  ],
-};
+import { Heart } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+
+  const footerLinks = {
+    [t("forJobSeekers")]: [
+      { href: "/jobs" as const, label: t("browseJobs") },
+      { href: "/join" as const, label: t("applyEarlyAccess") },
+      { href: "/blog" as const, label: t("resumeTips") },
+      { href: "/directory" as const, label: t("fqhcDirectory") },
+    ],
+    [t("forEmployers")]: [
+      { href: "/hire" as const, label: t("requestAccess") },
+      { href: "/pricing" as const, label: t("pricingPlans") },
+      { href: "/directory" as const, label: t("fqhcDirectory") },
+    ],
+    [t("resources")]: [
+      { href: "/about" as const, label: t("aboutUs") },
+      { href: "/blog" as const, label: t("resumeTips") },
+      { href: "/directory" as const, label: t("fqhcDirectory") },
+    ],
+  };
+
   return (
     <footer className="border-t border-stone-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -35,9 +39,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-stone-500">
-              The only talent exchange built exclusively for Federally Qualified
-              Health Centers. Connecting mission-driven professionals with
-              community health organizations.
+              {t("description")}
             </p>
           </div>
 
@@ -46,8 +48,8 @@ export default function Footer() {
             <div key={heading}>
               <h3 className="text-sm font-semibold text-stone-900">{heading}</h3>
               <ul className="mt-4 space-y-2">
-                {links.map((link) => (
-                  <li key={link.href + link.label}>
+                {links.map((link, i) => (
+                  <li key={link.href + link.label + i}>
                     <Link
                       href={link.href}
                       className="text-sm text-stone-500 transition-colors hover:text-teal-600"
@@ -64,8 +66,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 border-t border-stone-200 pt-6">
           <p className="text-center text-sm text-stone-400">
-            &copy; {new Date().getFullYear()} FQHC Talent Exchange. All rights
-            reserved.
+            {t("copyright", { year: new Date().getFullYear() })}
           </p>
         </div>
       </div>

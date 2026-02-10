@@ -1,22 +1,10 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
-import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
-import { rootMetadata } from "@/lib/seo-config";
 import "./globals.css";
+import type { Metadata } from "next";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata = rootMetadata;
+export const metadata: Metadata = {
+  title: "FQHC Talent Exchange",
+  description: "The talent exchange built for community health",
+};
 
 export default function RootLayout({
   children,
@@ -24,17 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <GoogleAnalytics />
-        <OrganizationJsonLd />
-        <WebSiteJsonLd />
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-      </body>
+    <html>
+      <body>{children}</body>
     </html>
   );
 }
