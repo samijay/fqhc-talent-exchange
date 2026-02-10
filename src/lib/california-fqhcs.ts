@@ -20,6 +20,7 @@ export interface CaliforniaFQHC {
   glassdoorReviewCount: number | null;
   ecmProvider: boolean;
   nhscApproved: boolean;
+  careersUrl: string | null;
 }
 
 export const regions = [
@@ -102,6 +103,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: 391,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.careers.altamed.org/",
   },
   {
     name: "APLA Health",
@@ -123,6 +125,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://aplahealth.org/about/careers-and-internships-with-apla-health/",
   },
   {
     name: "ChapCare",
@@ -144,6 +147,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.chapcare.org/careers/",
   },
   {
     name: "Eisner Health",
@@ -165,6 +169,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.eisnerhealth.org/careers/",
   },
   {
     name: "JWCH Institute",
@@ -186,6 +191,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.jwchinstitute.org/careers/",
   },
   {
     name: "Los Angeles Christian Health Centers",
@@ -207,6 +213,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.lachc.com/careers/",
   },
   {
     name: "Northeast Valley Health Corporation",
@@ -228,6 +235,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: 46,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://nevhc.org/jobs/",
   },
   {
     name: "South Central Family Health Center",
@@ -249,6 +257,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://scfhc.org/join-our-team/",
   },
   {
     name: "St. John's Community Health",
@@ -270,6 +279,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.sjch.org/employment",
   },
   {
     name: "T.H.E. Health and Wellness Centers",
@@ -291,6 +301,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.thehealthandwellness.org/careers/",
   },
   {
     name: "Venice Family Clinic",
@@ -312,6 +323,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://venicefamilyclinic.org/careers/",
   },
   {
     name: "Watts Healthcare Corporation",
@@ -333,6 +345,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.wattshealth.org/careers/",
   },
   {
     name: "Herald Christian Health Center",
@@ -354,6 +367,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.heraldhealth.org/careers/",
   },
   {
     name: "Community Health Alliance of Pasadena",
@@ -375,6 +389,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.chaphealth.org/careers/",
   },
   {
     name: "UMMA Community Clinic",
@@ -396,6 +411,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.ummaclinic.org/careers/",
   },
   {
     name: "Comprehensive Community Health Centers",
@@ -417,6 +433,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.cchs-la.org/careers/",
   },
   {
     name: "Central Neighborhood Health Foundation",
@@ -438,6 +455,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.cnhf-la.org/careers/",
   },
   {
     name: "Kheir Clinic",
@@ -459,6 +477,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.kheirclinic.org/careers/",
   },
   {
     name: "South Bay Family Health Care",
@@ -480,6 +499,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.sbfhc.org/careers/",
   },
   {
     name: "QueensCare Health Centers",
@@ -501,6 +521,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.queenscare.org/careers/",
   },
   {
     name: "Kedren Community Health Center",
@@ -522,6 +543,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.kedren.org/careers/",
   },
   {
     name: "Westside Family Health Center",
@@ -543,6 +565,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.wfhc-la.org/careers/",
   },
 
   // ─────────────────────────────────────────────
@@ -568,6 +591,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.fhcsd.org/careers/",
   },
   {
     name: "La Maestra Community Health Centers",
@@ -589,6 +613,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.lamaestra.org/careers/",
   },
   {
     name: "San Ysidro Health",
@@ -610,6 +635,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.syhealth.org/careers/",
   },
   {
     name: "Neighborhood Healthcare",
@@ -631,6 +657,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.nhcare.org/careers/",
   },
   {
     name: "Vista Community Clinic",
@@ -652,6 +679,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.vistacommunityclinic.org/careers/",
   },
   {
     name: "Mountain Health and Community Services",
@@ -673,6 +701,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.mtnhealth.org/careers/",
   },
   {
     name: "Borrego Health - San Diego",
@@ -694,6 +723,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.borregohealth.org/careers/",
   },
   {
     name: "Imperial Beach Health Center",
@@ -715,6 +745,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.ibhealthcenter.org/careers/",
   },
   {
     name: "TrueCare",
@@ -736,6 +767,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.truecare.org/careers/",
   },
   {
     name: "Planned Parenthood of the Pacific Southwest",
@@ -757,6 +789,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: false,
     nhscApproved: true,
+    careersUrl: "https://www.plannedparenthood.org/careers/",
   },
 
   // ─────────────────────────────────────────────
@@ -782,6 +815,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: 32,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.mnhc.org/careers/",
   },
   {
     name: "LifeLong Medical Care",
@@ -803,6 +837,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://lifelongmedical.org/job-opportunities/",
   },
   {
     name: "Asian Health Services",
@@ -824,6 +859,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://jobs.lever.co/ahschc",
   },
   {
     name: "La Clinica de La Raza",
@@ -845,6 +881,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://laclinica.org/careers/",
   },
   {
     name: "North East Medical Services",
@@ -866,6 +903,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.nems.org/careers/",
   },
   {
     name: "Ravenswood Family Health Network",
@@ -887,6 +925,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://ravenswoodfhn.org/get-involved/careers/",
   },
   {
     name: "Gardner Health Services",
@@ -908,6 +947,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.gardnerhealthservices.org/careers/",
   },
   {
     name: "San Francisco Community Health Center",
@@ -929,6 +969,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.sfcommunityhealth.org/careers/",
   },
   {
     name: "Native American Health Center",
@@ -950,6 +991,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.nativehealth.org/careers/",
   },
   {
     name: "Tiburcio Vasquez Health Center",
@@ -971,6 +1013,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.tvhc.org/careers/",
   },
   {
     name: "Axis Community Health",
@@ -992,6 +1035,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.axishealth.org/careers/",
   },
   {
     name: "Bay Area Community Health (BACH)",
@@ -1013,6 +1057,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.bach-health.org/careers/",
   },
   {
     name: "Marin Community Clinics",
@@ -1034,6 +1079,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.marinclinics.org/careers/",
   },
   {
     name: "West Oakland Health Council",
@@ -1055,6 +1101,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.wohc.org/careers/",
   },
   {
     name: "Tri-City Health Center",
@@ -1076,6 +1123,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.tricityhealth.org/careers/",
   },
   {
     name: "HealthRIGHT 360",
@@ -1097,6 +1145,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.healthright360.org/careers/",
   },
   {
     name: "Planned Parenthood Mar Monte",
@@ -1118,6 +1167,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: false,
     nhscApproved: true,
+    careersUrl: "https://www.ppmarmonte.org/careers/",
   },
   {
     name: "Sausal Creek Health Center",
@@ -1139,6 +1189,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.sausalcreekhealth.org/careers/",
   },
   {
     name: "Salud Para La Gente",
@@ -1160,6 +1211,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.saludparalaagente.org/careers/",
   },
 
   // ─────────────────────────────────────────────
@@ -1185,6 +1237,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.wellspacehealth.org/careers/",
   },
   {
     name: "Sacramento Native American Health Center",
@@ -1206,6 +1259,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.snahc.org/careers/",
   },
   {
     name: "Elica Health Centers",
@@ -1227,6 +1281,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.elicahealth.org/careers/",
   },
   {
     name: "CommuniCare Health Centers",
@@ -1248,6 +1303,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://communicareole.org/careers/",
   },
   {
     name: "One Community Health",
@@ -1269,6 +1325,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.onecommunityhealth.com/careers/",
   },
   {
     name: "Sierra Vista Community Health",
@@ -1290,6 +1347,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.sierravistahc.org/careers/",
   },
   {
     name: "Ampla Health - Sacramento",
@@ -1311,6 +1369,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.amplahealth.org/careers/",
   },
 
   // ─────────────────────────────────────────────
@@ -1336,6 +1395,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.clinicasierravista.org/careers/",
   },
   {
     name: "United Health Centers",
@@ -1357,6 +1417,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.unitedhealthcenters.org/careers/",
   },
   {
     name: "Family HealthCare Network",
@@ -1378,6 +1439,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.fhcn.org/careers/",
   },
   {
     name: "Camarena Health",
@@ -1399,6 +1461,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.camarenahealth.org/careers/",
   },
   {
     name: "Golden Valley Health Centers",
@@ -1420,6 +1483,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.gvhc.org/careers/",
   },
   {
     name: "Omni Family Health",
@@ -1441,6 +1505,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.omnifamilyhealth.org/careers/",
   },
   {
     name: "Livingston Community Health",
@@ -1462,6 +1527,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.livingstoncommhealth.org/careers/",
   },
   {
     name: "Adventist Health - Central Valley",
@@ -1483,6 +1549,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.adventisthealth.org/careers/",
   },
   {
     name: "Salud Para La Gente - Central Valley",
@@ -1504,6 +1571,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.saludparalaagente.org/careers/",
   },
 
   // ─────────────────────────────────────────────
@@ -1529,6 +1597,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.borregohealth.org/careers/",
   },
   {
     name: "SAC Health",
@@ -1550,6 +1619,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: 20,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.sachealthsystem.org/careers/",
   },
   {
     name: "Desert Healthcare District & Foundation",
@@ -1571,6 +1641,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.dhcd.org/careers/",
   },
   {
     name: "Riverside University Health System - Community Health Centers",
@@ -1592,6 +1663,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.ruhealth.org/careers/",
   },
   {
     name: "Loma Linda University Health - SAC Health",
@@ -1613,6 +1685,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.lluh.org/careers/",
   },
   {
     name: "Community Health Systems, Inc.",
@@ -1634,6 +1707,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.chsica.org/careers/",
   },
   {
     name: "Inland Faculty Medical Group",
@@ -1655,6 +1729,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.arrowheadmedcenter.org/careers/",
   },
   {
     name: "Clinicas de Salud del Pueblo",
@@ -1676,6 +1751,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.csdp.org/careers/",
   },
   {
     name: "Desert AIDS Project/DAP Health",
@@ -1697,6 +1773,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.daphealth.org/careers/",
   },
 
   // ─────────────────────────────────────────────
@@ -1722,6 +1799,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: 30,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.chccc.org/careers/",
   },
   {
     name: "Dignity Health Community Clinics - Ventura",
@@ -1743,6 +1821,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.dignityhealth.org/careers/",
   },
   {
     name: "Clinicas del Camino Real",
@@ -1764,6 +1843,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.caminoreal.org/careers/",
   },
   {
     name: "Santa Barbara Neighborhood Clinics",
@@ -1785,6 +1865,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.sbnc.org/careers/",
   },
 
   // ─────────────────────────────────────────────
@@ -1810,6 +1891,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.shastahealth.org/careers/",
   },
   {
     name: "Peach Tree Health",
@@ -1831,6 +1913,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://pickpeach.org/careers/",
   },
   {
     name: "Health Alliance of Northern California",
@@ -1852,6 +1935,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.hoanc.org/careers/",
   },
   {
     name: "Hill Country Community Clinic",
@@ -1873,6 +1957,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.hillcountryclinic.org/careers/",
   },
   {
     name: "Shingletown Medical Center",
@@ -1894,6 +1979,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.shingletownmedical.org/careers/",
   },
 
   // ─────────────────────────────────────────────
@@ -1919,6 +2005,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.opendoorhealth.com/careers/",
   },
   {
     name: "MCHC Health Centers",
@@ -1940,6 +2027,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.mchcinc.org/careers/",
   },
   {
     name: "Redwood Community Health Coalition",
@@ -1961,6 +2049,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.rchc-health.org/careers/",
   },
   {
     name: "San Luis Obispo Community Health Centers",
@@ -1982,5 +2071,6 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
+    careersUrl: "https://www.slohealthcenter.org/careers/",
   },
 ];

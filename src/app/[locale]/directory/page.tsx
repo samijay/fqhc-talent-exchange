@@ -54,6 +54,8 @@ import {
 } from "@/lib/california-fqhcs";
 import type { CaliforniaFQHC } from "@/lib/california-fqhcs";
 import DynamicMap from "@/components/directory/DynamicMap";
+import CareerAssessment from "@/components/career-assessment/CareerAssessment";
+import { getJobsForFqhc } from "@/lib/fqhc-job-listings";
 
 type SortKey = "name" | "patientCount" | "siteCount" | "glassdoorRating" | "staffCount";
 type SortDir = "asc" | "desc";
@@ -146,6 +148,7 @@ export default function DirectoryPage() {
   const [showBenefits, setShowBenefits] = useState(false);
   const [selectedFqhc, setSelectedFqhc] = useState<CaliforniaFQHC | null>(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const [showAssessment, setShowAssessment] = useState(false);
 
   const filtered = useMemo(() => {
     let list = [...californiaFQHCs];
@@ -722,39 +725,98 @@ export default function DirectoryPage() {
                   </div>
                 </div>
 
+                {/* Career Assessment CTA */}
+                <div className="border-t border-stone-100 pt-6">
+                  <div className="rounded-xl bg-gradient-to-br from-violet-50 to-emerald-50 p-6 border border-violet-200">
+                    <h3 className="font-semibold text-stone-900 text-lg mb-2">
+                      Find Your Role Here
+                    </h3>
+                    <p className="text-sm text-stone-600 mb-4">
+                      Take a quick 5-question career screener to see how well you match with {selectedFqhc.name} and get personalized role suggestions.
+                    </p>
+                    <Button
+                      className="w-full bg-gradient-to-r from-violet-600 to-emerald-600 text-white hover:shadow-lg"
+                      onClick={() => {
+                        setDetailsOpen(false);
+                        setShowAssessment(true);
+                      }}
+                    >
+                      Take Career Screener <ArrowRight className="ml-2 size-4" />
+                    </Button>
+                  </div>
+                </div>
+
                 {/* Job Listings */}
                 <div className="space-y-3 border-t border-stone-100 pt-6">
-                  <h3 className="font-semibold text-stone-900">Current Openings</h3>
-                  <p className="text-xs text-stone-500">
-                    Sample positions available at {selectedFqhc.name}
-                  </p>
+                  <h3 className="font-semibold text-stone-900">
+                    Open Positions ({getJobsForFqhc(selectedFqhc.slug).length || generateSampleJobs(selectedFqhc).length})
+                  </h3>
                   <div className="space-y-3">
-                    {generateSampleJobs(selectedFqhc).map((job) => (
-                      <div
-                        key={job.id}
-                        className="rounded-lg border border-stone-200 bg-stone-50 p-4"
-                      >
-                        <div className="flex items-start gap-3">
-                          <Briefcase className="mt-0.5 size-4 text-violet-600 shrink-0" />
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-stone-900">{job.title}</h4>
-                            <p className="mt-1 text-sm text-stone-600">
-                              ${(job.salaryMin / 1000).toFixed(0)}k – $
-                              {(job.salaryMax / 1000).toFixed(0)}k/year
-                            </p>
-                          </div>
-                        </div>
-                        <div className="mt-3">
-                          <Button
-                            size="sm"
-                            className="w-full bg-emerald-500 text-stone-900 hover:bg-emerald-400"
-                            asChild
+                    {(getJobsForFqhc(selectedFqhc.slug).length > 0
+                      ? getJobsForFqhc(selectedFqhc.slug).map((job) => (
+                          <div
+                            key={job.id}
+                            className="rounded-lg border border-stone-200 bg-stone-50 p-4"
                           >
-                            <Link href="/join">Express Interest</Link>
-                          </Button>
-                        </div>
-                      </div>
-                    ))}
+                            <div className="flex items-start gap-3">
+                              <Briefcase className="mt-0.5 size-4 text-violet-600 shrink-0" />
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-stone-900">{job.title}</h4>
+                                <div className="mt-1 flex flex-wrap items-center gap-2">
+                                  <span className="text-sm font-medium text-violet-700">
+                                    ${(job.salaryMin / 1000).toFixed(0)}k – ${(job.salaryMax / 1000).toFixed(0)}k
+                                  </span>
+                                  <Badge className="bg-stone-100 text-stone-600 text-xs">{job.type}</Badge>
+                                  {job.bilingual && (
+                                    <Badge className="bg-emerald-50 text-emerald-700 text-xs">Bilingual</Badge>
+                                  )}
+                                </div>
+                                <p className="mt-1.5 text-xs text-stone-500">{job.department}</p>
+                              </div>
+                            </div>
+                            <div className="mt-3">
+                              <Button
+                                size="sm"
+                                className="w-full bg-emerald-500 text-stone-900 hover:bg-emerald-400"
+                                onClick={() => {
+                                  setDetailsOpen(false);
+                                  setShowAssessment(true);
+                                }}
+                              >
+                                Take Career Screener <ArrowRight className="ml-1 size-3" />
+                              </Button>
+                            </div>
+                          </div>
+                        ))
+                      : generateSampleJobs(selectedFqhc).map((job) => (
+                          <div
+                            key={job.id}
+                            className="rounded-lg border border-stone-200 bg-stone-50 p-4"
+                          >
+                            <div className="flex items-start gap-3">
+                              <Briefcase className="mt-0.5 size-4 text-violet-600 shrink-0" />
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-stone-900">{job.title}</h4>
+                                <p className="mt-1 text-sm font-medium text-violet-700">
+                                  ${(job.salaryMin / 1000).toFixed(0)}k – ${(job.salaryMax / 1000).toFixed(0)}k
+                                </p>
+                              </div>
+                            </div>
+                            <div className="mt-3">
+                              <Button
+                                size="sm"
+                                className="w-full bg-emerald-500 text-stone-900 hover:bg-emerald-400"
+                                onClick={() => {
+                                  setDetailsOpen(false);
+                                  setShowAssessment(true);
+                                }}
+                              >
+                                Take Career Screener <ArrowRight className="ml-1 size-3" />
+                              </Button>
+                            </div>
+                          </div>
+                        ))
+                    )}
                   </div>
                 </div>
 
@@ -772,20 +834,44 @@ export default function DirectoryPage() {
                 </div>
 
                 {/* Call to Action */}
-                <div className="space-y-2 border-t border-stone-100 pt-6">
+                <div className="space-y-3 border-t border-stone-100 pt-6">
+                  {selectedFqhc.careersUrl && (
+                    <Button
+                      variant="outline"
+                      className="w-full border-violet-300 text-violet-700 hover:bg-violet-50"
+                      asChild
+                    >
+                      <a href={selectedFqhc.careersUrl} target="_blank" rel="noopener noreferrer">
+                        View Careers Page <ExternalLink className="ml-2 size-4" />
+                      </a>
+                    </Button>
+                  )}
                   <Button
-                    className="w-full bg-violet-600 text-white hover:bg-violet-700"
+                    variant="outline"
+                    className="w-full border-stone-300 text-stone-700 hover:bg-stone-50"
                     asChild
                   >
                     <a href={selectedFqhc.website} target="_blank" rel="noopener noreferrer">
-                      Visit Organization Website
-                      <ExternalLink className="ml-2 size-4" />
+                      Visit Website <ExternalLink className="ml-2 size-4" />
                     </a>
                   </Button>
                 </div>
               </div>
             </SheetContent>
           </Sheet>
+        )}
+
+        {/* Career Assessment Overlay */}
+        {showAssessment && selectedFqhc && (
+          <div className="fixed inset-0 z-[60] overflow-y-auto bg-white">
+            <CareerAssessment
+              fqhcName={selectedFqhc.name}
+              fqhcSlug={selectedFqhc.slug}
+              fqhcPrograms={selectedFqhc.programs}
+              fqhcEhrSystem={selectedFqhc.ehrSystem}
+              onClose={() => setShowAssessment(false)}
+            />
+          </div>
         )}
 
         {/* CTA */}

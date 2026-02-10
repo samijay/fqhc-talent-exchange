@@ -15,6 +15,8 @@ import {
   Info,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { fqhcJobListings } from "@/lib/fqhc-job-listings";
+import { californiaFQHCs } from "@/lib/california-fqhcs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -47,120 +49,36 @@ interface JobOpening {
 interface SampleJob {
   id: string;
   title: string;
+  orgName: string;
   orgType: string;
   city: string;
   salaryMin: number;
   salaryMax: number;
   ehrSystem: string;
   tags: string[];
+  bilingual: boolean;
+  type: string;
 }
 
 /* ------------------------------------------------------------------ */
-/*  Sample Jobs                                                        */
+/*  Build job listings from FQHC data                                  */
 /* ------------------------------------------------------------------ */
 
-const sampleJobs: SampleJob[] = [
-  {
-    id: "s1",
-    title: "Community Health Worker — ECM Program",
-    orgType: "Large multi-site FQHC",
-    city: "Los Angeles",
-    salaryMin: 44000,
-    salaryMax: 56000,
-    ehrSystem: "OCHIN Epic",
-    tags: ["ECM"],
-  },
-  {
-    id: "s2",
-    title: "Care Coordinator — Enhanced Care Management",
-    orgType: "Regional FQHC network",
-    city: "San Diego",
-    salaryMin: 52000,
-    salaryMax: 68000,
-    ehrSystem: "NextGen",
-    tags: ["ECM", "Community Supports"],
-  },
-  {
-    id: "s3",
-    title: "Behavioral Health Specialist — FQHC",
-    orgType: "Urban community health center",
-    city: "Oakland",
-    salaryMin: 65000,
-    salaryMax: 85000,
-    ehrSystem: "OCHIN Epic",
-    tags: ["ECM", "BH Integration"],
-  },
-  {
-    id: "s4",
-    title: "Patient Navigator — Bilingual Spanish",
-    orgType: "Agricultural community FQHC",
-    city: "Fresno",
-    salaryMin: 38000,
-    salaryMax: 48000,
-    ehrSystem: "NextGen",
-    tags: ["Community Supports"],
-  },
-  {
-    id: "s5",
-    title: "EHR Analyst — OCHIN Epic",
-    orgType: "Multi-site FQHC",
-    city: "Sacramento",
-    salaryMin: 60000,
-    salaryMax: 78000,
-    ehrSystem: "OCHIN Epic",
-    tags: [],
-  },
-  {
-    id: "s6",
-    title: "Community Health Worker — Community Supports",
-    orgType: "Inland Empire FQHC",
-    city: "Riverside",
-    salaryMin: 40000,
-    salaryMax: 52000,
-    ehrSystem: "NextGen",
-    tags: ["Community Supports"],
-  },
-  {
-    id: "s7",
-    title: "Licensed Clinical Social Worker",
-    orgType: "Bay Area community health center",
-    city: "San Jose",
-    salaryMin: 72000,
-    salaryMax: 95000,
-    ehrSystem: "OCHIN Epic",
-    tags: ["ECM", "BH-ASO"],
-  },
-  {
-    id: "s8",
-    title: "Care Manager — CCM Program",
-    orgType: "Central Valley FQHC",
-    city: "Bakersfield",
-    salaryMin: 50000,
-    salaryMax: 64000,
-    ehrSystem: "NextGen",
-    tags: ["CCM"],
-  },
-  {
-    id: "s9",
-    title: "Program Manager — ECM",
-    orgType: "Large multi-site FQHC",
-    city: "Los Angeles",
-    salaryMin: 80000,
-    salaryMax: 105000,
-    ehrSystem: "Epic",
-    tags: ["ECM", "Leadership"],
-  },
-  {
-    id: "s10",
-    title: "Medical Assistant — Bilingual",
-    orgType: "Border community FQHC",
-    city: "San Diego",
-    salaryMin: 36000,
-    salaryMax: 45000,
-    ehrSystem: "NextGen",
-    tags: [],
-  },
-];
+const fqhcNameMap = new Map(californiaFQHCs.map((f) => [f.slug, f.name]));
+
+const sampleJobs: SampleJob[] = fqhcJobListings.map((job) => ({
+  id: job.id,
+  title: job.title,
+  orgName: fqhcNameMap.get(job.fqhcSlug) || "",
+  orgType: job.department,
+  city: job.location,
+  salaryMin: job.salaryMin,
+  salaryMax: job.salaryMax,
+  ehrSystem: job.ehrSystem,
+  tags: job.programs,
+  bilingual: job.bilingual,
+  type: job.type,
+}));
 
 /* ------------------------------------------------------------------ */
 /*  Constants                                                          */
@@ -261,18 +179,29 @@ export default function JobsPage() {
 
   /* filtered sample jobs */
   const filteredSample = useMemo(() => {
+    let list = sampleJobs;
+
+    if (roleFilter !== "All Roles") {
+      list = list.filter((j) =>
+        j.title.toLowerCase().includes(roleFilter.toLowerCase()) ||
+        j.orgType.toLowerCase().includes(roleFilter.toLowerCase())
+      );
+    }
+
     if (search.trim()) {
       const q = search.toLowerCase();
-      return sampleJobs.filter(
+      list = list.filter(
         (j) =>
           j.title.toLowerCase().includes(q) ||
           j.city.toLowerCase().includes(q) ||
           j.orgType.toLowerCase().includes(q) ||
+          (j.orgName && j.orgName.toLowerCase().includes(q)) ||
           j.tags.some((t) => t.toLowerCase().includes(q))
       );
     }
-    return sampleJobs;
-  }, [search]);
+
+    return list;
+  }, [search, roleFilter]);
 
   /* ================================================================ */
   /*  Render                                                           */
@@ -289,7 +218,7 @@ export default function JobsPage() {
         </p>
         {!loading && !error && (
           <Badge className="mt-4 border-violet-400/30 bg-violet-500/20 text-violet-100">
-            {jobs.length + sampleJobs.length} positions available
+            {jobs.length + fqhcJobListings.length} positions available
           </Badge>
         )}
       </section>
@@ -421,14 +350,14 @@ export default function JobsPage() {
           </>
         )}
 
-        {/* Sample jobs */}
+        {/* Network jobs from FQHC data */}
         {!loading && filteredSample.length > 0 && (
           <>
             <p className="mb-4 text-sm font-medium text-stone-700">
               {filtered.length > 0 ? "More Roles in Our Network" : "Roles in Our Network"} ({filteredSample.length})
             </p>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {filteredSample.map((job) => (
+              {filteredSample.slice(0, 30).map((job) => (
                 <div
                   key={job.id}
                   className="group flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
@@ -439,9 +368,17 @@ export default function JobsPage() {
                       {job.title}
                     </h3>
 
-                    {/* Org type */}
-                    <div className="mt-1.5 flex items-center gap-1.5 text-sm text-stone-500">
-                      <Building2 className="size-3.5" />
+                    {/* Org name */}
+                    {job.orgName && (
+                      <div className="mt-1.5 flex items-center gap-1.5 text-sm font-medium text-stone-700">
+                        <Building2 className="size-3.5" />
+                        {job.orgName}
+                      </div>
+                    )}
+
+                    {/* Department */}
+                    <div className="mt-1 flex items-center gap-1.5 text-sm text-stone-500">
+                      <Briefcase className="size-3.5" />
                       {job.orgType}
                     </div>
 
@@ -457,12 +394,17 @@ export default function JobsPage() {
                       {formatSalary(job.salaryMin, job.salaryMax)}
                     </div>
 
-                    {/* EHR + Tags */}
+                    {/* Tags row */}
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       <Badge className="bg-stone-100 text-stone-600 text-xs">
                         <Monitor className="mr-1 size-3" />
                         {job.ehrSystem}
                       </Badge>
+                      {job.bilingual && (
+                        <Badge className="bg-emerald-50 text-emerald-700 text-xs">
+                          Bilingual
+                        </Badge>
+                      )}
                       {job.tags.map((tag) => (
                         <Badge
                           key={tag}
@@ -486,6 +428,17 @@ export default function JobsPage() {
                 </div>
               ))}
             </div>
+            {filteredSample.length > 30 && (
+              <div className="mt-8 text-center">
+                <p className="text-sm text-stone-500 mb-4">
+                  Showing 30 of {filteredSample.length} positions.{" "}
+                  <Link href="/join" className="text-violet-600 font-semibold hover:underline">
+                    Join the waitlist
+                  </Link>{" "}
+                  to see all roles and get personally matched.
+                </p>
+              </div>
+            )}
           </>
         )}
 

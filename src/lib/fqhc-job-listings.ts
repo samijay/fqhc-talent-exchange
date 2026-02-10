@@ -1,0 +1,2827 @@
+// fqhc-job-listings.ts
+// Realistic job listing data for California FQHCs
+// Used to populate the directory's job listings section
+
+export interface FQHCJobListing {
+  id: string;
+  fqhcSlug: string;      // matches the FQHC slug in california-fqhcs.ts
+  title: string;
+  roleType: string;       // e.g., "CHW", "Care Coordinator", "RN", "Medical Assistant", etc.
+  department: string;     // e.g., "ECM Program", "Primary Care", "Behavioral Health", "Administration"
+  salaryMin: number;
+  salaryMax: number;
+  type: "Full-time" | "Part-time" | "Per Diem";
+  location: string;       // city name
+  bilingual: boolean;     // Spanish/English preferred
+  ehrSystem: string;      // matches the FQHC's EHR
+  programs: string[];     // relevant programs (ECM, CCM, etc.)
+  postedDate: string;     // ISO date string
+  description: string;    // 1-2 sentence description
+  requirements: string[]; // 3-4 bullet points
+}
+
+export const fqhcJobListings: FQHCJobListing[] = [
+  // ─────────────────────────────────────────────
+  // ALTAMED HEALTH SERVICES (8 listings - major FQHC)
+  // ─────────────────────────────────────────────
+  {
+    id: "altamed-001",
+    fqhcSlug: "altamed-health-services",
+    title: "Community Health Worker - ECM Program",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 48000,
+    salaryMax: 58000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Join AltaMed's ECM Program as a Community Health Worker, providing patient engagement and care coordination for complex patients with multiple chronic conditions.",
+    requirements: [
+      "High school diploma or GED required; some college preferred",
+      "Fluent in Spanish and English",
+      "Proven ability to build trust with diverse populations",
+      "Valid driver's license with reliable transportation"
+    ]
+  },
+  {
+    id: "altamed-002",
+    fqhcSlug: "altamed-health-services",
+    title: "Care Coordinator - Behavioral Health",
+    roleType: "Care Coordinator",
+    department: "Behavioral Health",
+    salaryMin: 50000,
+    salaryMax: 65000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-07",
+    description: "Support patients with mental health needs and substance use disorders in coordinating their care across multiple providers and services.",
+    requirements: [
+      "Bachelor's degree in social work, psychology, or health sciences",
+      "Experience with care coordination or patient navigation",
+      "Strong organizational and communication skills",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "altamed-003",
+    fqhcSlug: "altamed-health-services",
+    title: "Registered Nurse - Primary Care",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 85000,
+    salaryMax: 105000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-06",
+    description: "Provide nursing care in our busy primary care clinic, conducting assessments, patient education, and chronic disease management.",
+    requirements: [
+      "Current California RN license",
+      "BSN preferred; ADN with plan to complete BSN within 2 years",
+      "Experience in primary care or community health setting",
+      "Knowledge of EPIC EHR system preferred"
+    ]
+  },
+  {
+    id: "altamed-004",
+    fqhcSlug: "altamed-health-services",
+    title: "Program Manager - Community Supports",
+    roleType: "Program Manager",
+    department: "Administration",
+    salaryMin: 78000,
+    salaryMax: 98000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["Community Supports"],
+    postedDate: "2026-02-05",
+    description: "Oversee AltaMed's Community Supports program, managing staff, budget, and program outcomes for services addressing social determinants of health.",
+    requirements: [
+      "Master's degree in public health, business administration, or related field",
+      "3+ years of experience in program management",
+      "Strong leadership and fiscal management skills",
+      "Experience with grants management and evaluation"
+    ]
+  },
+  {
+    id: "altamed-005",
+    fqhcSlug: "altamed-health-services",
+    title: "Medical Assistant - Multi-Site",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 42000,
+    salaryMax: 54000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-04",
+    description: "Support clinical staff at AltaMed's primary care clinics by assisting with patient care, vital signs, and EHR documentation.",
+    requirements: [
+      "High school diploma or GED",
+      "CMA certification preferred or willingness to obtain within 1 year",
+      "Phlebotomy certification preferred",
+      "Bilingual Spanish/English strongly preferred"
+    ]
+  },
+  {
+    id: "altamed-006",
+    fqhcSlug: "altamed-health-services",
+    title: "Behavioral Health Specialist",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 58000,
+    salaryMax: 78000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-03",
+    description: "Deliver mental health counseling and treatment services to AltaMed patients in a culturally competent, compassionate manner.",
+    requirements: [
+      "Master's degree in mental health field or equivalent experience",
+      "LMFT, LPCC, or LCSW licensure in California",
+      "Experience in community mental health settings",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "altamed-007",
+    fqhcSlug: "altamed-health-services",
+    title: "Nurse Practitioner - Senior Health",
+    roleType: "Nurse Practitioner",
+    department: "Primary Care",
+    salaryMin: 128000,
+    salaryMax: 155000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-02",
+    description: "Serve as lead provider for AltaMed's senior health services, managing complex patients and building strong team relationships.",
+    requirements: [
+      "Current California NP license with prescribing authority",
+      "Master's or DNP degree required",
+      "Experience in primary care, geriatrics, or community health",
+      "Strong clinical and leadership capabilities"
+    ]
+  },
+  {
+    id: "altamed-008",
+    fqhcSlug: "altamed-health-services",
+    title: "EHR Analyst",
+    roleType: "EHR Analyst",
+    department: "Administration",
+    salaryMin: 62000,
+    salaryMax: 76000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-01",
+    description: "Support OCHIN Epic implementation and optimization across AltaMed sites, providing training and troubleshooting to clinical and administrative staff.",
+    requirements: [
+      "2+ years of EHR support or analyst experience",
+      "EPIC experience required; OCHIN experience preferred",
+      "Strong problem-solving and technical skills",
+      "Excellent communication and training abilities"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // NORTHEAST VALLEY HEALTH CORPORATION (7 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "nevhc-001",
+    fqhcSlug: "northeast-valley-health-corporation",
+    title: "Community Health Worker - Care Coordination",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 56000,
+    type: "Full-time",
+    location: "San Fernando",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Work with high-risk patients in the San Fernando Valley to coordinate care, manage medications, and support lifestyle changes.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Spanish/English bilingual required",
+      "Experience in community outreach preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "nevhc-002",
+    fqhcSlug: "northeast-valley-health-corporation",
+    title: "Medical Assistant - Multi-Clinic",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 41000,
+    salaryMax: 52000,
+    type: "Full-time",
+    location: "Santa Clarita",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-07",
+    description: "Assist with patient intake, vital signs, and clinical support across NEVHC's Santa Clarita Valley clinics.",
+    requirements: [
+      "CMA certification or equivalent",
+      "Phlebotomy experience preferred",
+      "Spanish language skills preferred",
+      "Ability to manage multiple patients efficiently"
+    ]
+  },
+  {
+    id: "nevhc-003",
+    fqhcSlug: "northeast-valley-health-corporation",
+    title: "Licensed Clinical Social Worker",
+    roleType: "Licensed Clinical Social Worker",
+    department: "Behavioral Health",
+    salaryMin: 82000,
+    salaryMax: 102000,
+    type: "Full-time",
+    location: "San Fernando",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-06",
+    description: "Provide clinical social work services to NEVHC patients addressing mental health, substance use, and psychosocial issues.",
+    requirements: [
+      "Current California LCSW license",
+      "Master's degree in social work",
+      "3+ years of clinical experience",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "nevhc-004",
+    fqhcSlug: "northeast-valley-health-corporation",
+    title: "Case Manager - CCM Program",
+    roleType: "Case Manager",
+    department: "CCM Program",
+    salaryMin: 52000,
+    salaryMax: 68000,
+    type: "Full-time",
+    location: "San Fernando",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["CCM"],
+    postedDate: "2026-02-05",
+    description: "Manage Chronic Care Management cases for NEVHC patients, coordinating multidisciplinary care teams and tracking outcomes.",
+    requirements: [
+      "Bachelor's degree or equivalent work experience",
+      "RN licensure or Master's degree in related field preferred",
+      "2+ years care management experience",
+      "Knowledge of CCM/TCM billing preferred"
+    ]
+  },
+  {
+    id: "nevhc-005",
+    fqhcSlug: "northeast-valley-health-corporation",
+    title: "Registered Nurse - Behavioral Health",
+    roleType: "Registered Nurse",
+    department: "Behavioral Health",
+    salaryMin: 88000,
+    salaryMax: 108000,
+    type: "Full-time",
+    location: "San Fernando",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-04",
+    description: "Lead nursing care for NEVHC's behavioral health clinic, conducting assessments and collaborating with mental health specialists.",
+    requirements: [
+      "Current California RN license",
+      "BSN preferred; ADN acceptable with experience",
+      "Experience in behavioral health nursing",
+      "Knowledge of psychiatric medications and crisis intervention"
+    ]
+  },
+  {
+    id: "nevhc-006",
+    fqhcSlug: "northeast-valley-health-corporation",
+    title: "Health Educator",
+    roleType: "Health Educator",
+    department: "Community Supports",
+    salaryMin: 48000,
+    salaryMax: 62000,
+    type: "Full-time",
+    location: "Santa Clarita",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["Community Supports"],
+    postedDate: "2026-02-03",
+    description: "Develop and deliver health education programs for NEVHC patients focusing on chronic disease management and prevention.",
+    requirements: [
+      "Bachelor's degree in health education or public health",
+      "Experience developing educational materials",
+      "Excellent presentation and facilitation skills",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "nevhc-007",
+    fqhcSlug: "northeast-valley-health-corporation",
+    title: "Nurse Practitioner - Primary Care",
+    roleType: "Nurse Practitioner",
+    department: "Primary Care",
+    salaryMin: 130000,
+    salaryMax: 160000,
+    type: "Full-time",
+    location: "San Fernando",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-02",
+    description: "Provide comprehensive primary care services to diverse San Fernando Valley communities as part of NEVHC's care team.",
+    requirements: [
+      "California NP license with prescribing authority",
+      "Master's or DNP degree",
+      "Minimum 2 years primary care experience",
+      "Strong communication and cultural competency skills"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // ST. JOHN'S COMMUNITY HEALTH (6 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "stjohns-001",
+    fqhcSlug: "st-johns-community-health",
+    title: "Community Health Worker - TCM",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "TCM"],
+    postedDate: "2026-02-08",
+    description: "Support transitional care management for St. John's patients moving between hospital and community settings.",
+    requirements: [
+      "High school diploma or GED",
+      "Bilingual Spanish/English preferred",
+      "Experience with patient advocacy",
+      "Valid driver's license and reliable transportation"
+    ]
+  },
+  {
+    id: "stjohns-002",
+    fqhcSlug: "st-johns-community-health",
+    title: "Medical Assistant",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 43000,
+    salaryMax: 55000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-07",
+    description: "Provide direct patient care support at St. John's primary care clinics across Los Angeles.",
+    requirements: [
+      "CMA or RMA certification",
+      "Phlebotomy and EHR experience",
+      "Spanish language skills preferred",
+      "Commitment to serving underserved populations"
+    ]
+  },
+  {
+    id: "stjohns-003",
+    fqhcSlug: "st-johns-community-health",
+    title: "Care Coordinator - Complex Cases",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 51000,
+    salaryMax: 67000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-06",
+    description: "Coordinate care for St. John's most complex patients with multiple chronic conditions and psychosocial needs.",
+    requirements: [
+      "Bachelor's degree in healthcare field or equivalent experience",
+      "Certification in care coordination or case management preferred",
+      "3+ years in similar role",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "stjohns-004",
+    fqhcSlug: "st-johns-community-health",
+    title: "Registered Nurse - Chronic Disease",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 87000,
+    salaryMax: 107000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-05",
+    description: "Lead care for patients with multiple chronic diseases at St. John's Community Health centers.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with experience",
+      "Experience with chronic disease management",
+      "Knowledge of community resources"
+    ]
+  },
+  {
+    id: "stjohns-005",
+    fqhcSlug: "st-johns-community-health",
+    title: "Program Manager - Community Supports",
+    roleType: "Program Manager",
+    department: "Community Supports",
+    salaryMin: 76000,
+    salaryMax: 96000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["Community Supports"],
+    postedDate: "2026-02-04",
+    description: "Oversee St. John's community support services addressing social determinants of health.",
+    requirements: [
+      "Master's degree in public health or related field",
+      "3+ years program management experience",
+      "Strong organizational and fiscal skills",
+      "Experience with vulnerable populations"
+    ]
+  },
+  {
+    id: "stjohns-006",
+    fqhcSlug: "st-johns-community-health",
+    title: "Nurse Practitioner",
+    roleType: "Nurse Practitioner",
+    department: "Primary Care",
+    salaryMin: 132000,
+    salaryMax: 162000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-03",
+    description: "Provide comprehensive primary care services as part of St. John's clinical team.",
+    requirements: [
+      "California NP license with prescribing authority",
+      "Master's or DNP degree",
+      "Minimum 1-2 years primary care experience",
+      "Commitment to serving homeless and underserved populations"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // FAMILY HEALTH CENTERS OF SAN DIEGO (6 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "fhcsd-001",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Community Health Worker - Housing Support",
+    roleType: "Community Health Worker",
+    department: "Community Supports",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["Community Supports"],
+    postedDate: "2026-02-08",
+    description: "Support homeless and unstably housed patients in accessing housing, benefits, and other social services through Family Health Centers.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Lived experience with housing insecurity preferred",
+      "Spanish/English bilingual preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "fhcsd-002",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 49000,
+    salaryMax: 64000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for FHCSD patients with complex medical and social needs.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience preferred",
+      "Strong cultural competency skills",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "fhcsd-003",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Medical Assistant",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 42000,
+    salaryMax: 53000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: [],
+    postedDate: "2026-02-06",
+    description: "Provide clinical support across FHCSD's 47 San Diego County sites.",
+    requirements: [
+      "CMA certification preferred",
+      "Phlebotomy experience",
+      "Spanish language skills preferred",
+      "Ability to work in fast-paced environment"
+    ]
+  },
+  {
+    id: "fhcsd-004",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Registered Nurse - Primary Care",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 86000,
+    salaryMax: 106000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: false,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-05",
+    description: "Provide nursing care across Family Health Centers' primary care clinics.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with experience",
+      "Experience in community health settings",
+      "Knowledge of NextGen EHR preferred"
+    ]
+  },
+  {
+    id: "fhcsd-005",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Behavioral Health Specialist",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 57000,
+    salaryMax: 76000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-04",
+    description: "Deliver mental health services to diverse San Diego communities through FHCSD.",
+    requirements: [
+      "Master's degree in mental health field",
+      "LMFT, LPCC, or LCSW license",
+      "Experience in community mental health",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "fhcsd-006",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Nurse Practitioner - Primary Care",
+    roleType: "Nurse Practitioner",
+    department: "Primary Care",
+    salaryMin: 131000,
+    salaryMax: 161000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: false,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-03",
+    description: "Serve as lead provider for FHCSD's comprehensive primary care services.",
+    requirements: [
+      "California NP license with prescribing authority",
+      "Master's or DNP degree",
+      "2+ years primary care experience",
+      "Strong clinical decision-making abilities"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // SAN YSIDRO HEALTH (6 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "syhealth-001",
+    fqhcSlug: "san-ysidro-health",
+    title: "Community Health Worker - Border Health",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "San Ysidro",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Serve border communities in San Ysidro and surrounding areas, providing community outreach and care coordination.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English required",
+      "Knowledge of border health issues preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "syhealth-002",
+    fqhcSlug: "san-ysidro-health",
+    title: "Care Coordinator - CCM",
+    roleType: "Care Coordinator",
+    department: "CCM Program",
+    salaryMin: 50000,
+    salaryMax: 66000,
+    type: "Full-time",
+    location: "San Ysidro",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["CCM"],
+    postedDate: "2026-02-07",
+    description: "Manage chronic care cases for San Ysidro Health patients with a focus on medication management and disease outcomes.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination or case management experience",
+      "Knowledge of CCM billing preferred",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "syhealth-003",
+    fqhcSlug: "san-ysidro-health",
+    title: "Medical Assistant - Multi-Site",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 41000,
+    salaryMax: 52000,
+    type: "Full-time",
+    location: "San Ysidro",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: [],
+    postedDate: "2026-02-06",
+    description: "Support clinical operations across San Ysidro Health's 35 locations.",
+    requirements: [
+      "CMA certification preferred",
+      "Phlebotomy experience",
+      "Spanish language skills strongly preferred",
+      "Ability to manage multiple patients"
+    ]
+  },
+  {
+    id: "syhealth-004",
+    fqhcSlug: "san-ysidro-health",
+    title: "Registered Nurse - Women's Health",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 87000,
+    salaryMax: 108000,
+    type: "Full-time",
+    location: "San Ysidro",
+    bilingual: false,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-05",
+    description: "Provide nursing care for San Ysidro Health's women's health and prenatal services.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with experience",
+      "Experience in obstetrics or women's health preferred",
+      "Knowledge of prenatal care"
+    ]
+  },
+  {
+    id: "syhealth-005",
+    fqhcSlug: "san-ysidro-health",
+    title: "Behavioral Health Specialist",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 59000,
+    salaryMax: 79000,
+    type: "Full-time",
+    location: "San Ysidro",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-04",
+    description: "Deliver mental health and substance abuse treatment services to San Ysidro's diverse communities.",
+    requirements: [
+      "Master's degree in mental health field",
+      "LMFT, LPCC, or LCSW license",
+      "Experience with substance use disorders",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "syhealth-006",
+    fqhcSlug: "san-ysidro-health",
+    title: "Nurse Practitioner - Primary Care",
+    roleType: "Nurse Practitioner",
+    department: "Primary Care",
+    salaryMin: 130000,
+    salaryMax: 160000,
+    type: "Full-time",
+    location: "San Ysidro",
+    bilingual: false,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-03",
+    description: "Provide comprehensive primary care as part of San Ysidro Health's clinical leadership.",
+    requirements: [
+      "California NP license with prescribing authority",
+      "Master's or DNP degree",
+      "Experience in primary care or urgent care",
+      "Commitment to border health populations"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // LA CLINICA DE LA RAZA (6 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "laclinica-001",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Community Health Worker - ECM",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support La Clinica's ECM program serving low-income families in the East Bay with care coordination.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English required",
+      "Community advocacy experience preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "laclinica-002",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Care Coordinator - Complex Cases",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 51000,
+    salaryMax: 68000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for La Clinica's most complex patients addressing medical and social needs.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "3+ years care coordination experience",
+      "Strong communication skills",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "laclinica-003",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Medical Assistant",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 42000,
+    salaryMax: 54000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-06",
+    description: "Provide clinical support across La Clinica's East Bay primary care sites.",
+    requirements: [
+      "CMA certification preferred",
+      "Phlebotomy and EHR experience",
+      "Spanish language skills preferred",
+      "Patient-centered care orientation"
+    ]
+  },
+  {
+    id: "laclinica-004",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Registered Nurse - Primary Care",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 87000,
+    salaryMax: 107000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-05",
+    description: "Lead nursing care at La Clinica's primary care clinics across the East Bay.",
+    requirements: [
+      "Current California RN license",
+      "BSN preferred; ADN acceptable with experience",
+      "Community health experience",
+      "Knowledge of EPIC EHR preferred"
+    ]
+  },
+  {
+    id: "laclinica-005",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Behavioral Health Specialist",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 58000,
+    salaryMax: 77000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-04",
+    description: "Deliver mental health services to La Clinica's diverse East Bay communities.",
+    requirements: [
+      "Master's degree in mental health field",
+      "LMFT, LPCC, or LCSW license",
+      "Community mental health experience",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "laclinica-006",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Nurse Practitioner - Primary Care",
+    roleType: "Nurse Practitioner",
+    department: "Primary Care",
+    salaryMin: 132000,
+    salaryMax: 162000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-03",
+    description: "Serve as primary care provider for La Clinica's East Bay communities.",
+    requirements: [
+      "California NP license with prescribing authority",
+      "Master's or DNP degree",
+      "Primary care or community health experience",
+      "Commitment to serving low-income families"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // CLINICA SIERRA VISTA (7 listings - major Central Valley FQHC)
+  // ─────────────────────────────────────────────
+  {
+    id: "csv-001",
+    fqhcSlug: "clinica-sierra-vista",
+    title: "Community Health Worker - Farmworker Program",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 58000,
+    type: "Full-time",
+    location: "Bakersfield",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Engage farmworker families in Kern County through Clinica Sierra Vista's health outreach and education.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English required",
+      "Experience with farmworker communities preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "csv-002",
+    fqhcSlug: "clinica-sierra-vista",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 49000,
+    salaryMax: 65000,
+    type: "Full-time",
+    location: "Bakersfield",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for Clinica Sierra Vista patients across Kern County's agricultural communities.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience",
+      "Bilingual Spanish/English preferred",
+      "Understanding of agricultural health concerns"
+    ]
+  },
+  {
+    id: "csv-003",
+    fqhcSlug: "clinica-sierra-vista",
+    title: "Medical Assistant",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 41000,
+    salaryMax: 53000,
+    type: "Full-time",
+    location: "Bakersfield",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-06",
+    description: "Provide clinical support at Clinica Sierra Vista's 38 Kern County sites.",
+    requirements: [
+      "CMA certification preferred",
+      "Phlebotomy experience",
+      "Spanish language skills strongly preferred",
+      "Ability to manage multiple patients"
+    ]
+  },
+  {
+    id: "csv-004",
+    fqhcSlug: "clinica-sierra-vista",
+    title: "Registered Nurse - Maternal Health",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 86000,
+    salaryMax: 107000,
+    type: "Full-time",
+    location: "Bakersfield",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-05",
+    description: "Provide nursing care for Clinica Sierra Vista's prenatal and maternal health services.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with experience",
+      "Obstetric nursing experience preferred",
+      "Knowledge of health disparities in farmworker populations"
+    ]
+  },
+  {
+    id: "csv-005",
+    fqhcSlug: "clinica-sierra-vista",
+    title: "Behavioral Health Specialist",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 57000,
+    salaryMax: 76000,
+    type: "Full-time",
+    location: "Bakersfield",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-04",
+    description: "Deliver mental health services to Clinica Sierra Vista's Kern County communities.",
+    requirements: [
+      "Master's degree in mental health field",
+      "LMFT, LPCC, or LCSW license",
+      "Community mental health experience",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "csv-006",
+    fqhcSlug: "clinica-sierra-vista",
+    title: "Program Manager - WIC Services",
+    roleType: "Program Manager",
+    department: "Community Supports",
+    salaryMin: 75000,
+    salaryMax: 95000,
+    type: "Full-time",
+    location: "Bakersfield",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["Community Supports"],
+    postedDate: "2026-02-03",
+    description: "Oversee Clinica Sierra Vista's WIC and nutrition services across Kern County.",
+    requirements: [
+      "Bachelor's degree in public health or nutrition preferred",
+      "3+ years program management experience",
+      "WIC program knowledge preferred",
+      "Strong organizational skills"
+    ]
+  },
+  {
+    id: "csv-007",
+    fqhcSlug: "clinica-sierra-vista",
+    title: "Nurse Practitioner - Primary Care",
+    roleType: "Nurse Practitioner",
+    department: "Primary Care",
+    salaryMin: 130000,
+    salaryMax: 160000,
+    type: "Full-time",
+    location: "Bakersfield",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-02",
+    description: "Provide comprehensive primary care to Clinica Sierra Vista's diverse Kern County population.",
+    requirements: [
+      "California NP license with prescribing authority",
+      "Master's or DNP degree",
+      "Primary care experience required",
+      "Commitment to serving agricultural communities"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // FAMILY HEALTHCARE NETWORK (6 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "fhcn-001",
+    fqhcSlug: "family-healthcare-network",
+    title: "Community Health Worker - Farmworker Health",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "Visalia",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support farmworker families across Tulare and Kings counties through FHCN's community outreach.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English required",
+      "Agricultural community experience preferred",
+      "Valid driver's license and reliable transportation"
+    ]
+  },
+  {
+    id: "fhcn-002",
+    fqhcSlug: "family-healthcare-network",
+    title: "Care Coordinator - CCM Program",
+    roleType: "Care Coordinator",
+    department: "CCM Program",
+    salaryMin: 50000,
+    salaryMax: 66000,
+    type: "Full-time",
+    location: "Visalia",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["CCM"],
+    postedDate: "2026-02-07",
+    description: "Manage chronic care for FHCN patients across Tulare and Kings counties.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination or case management background",
+      "Knowledge of CCM billing preferred",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "fhcn-003",
+    fqhcSlug: "family-healthcare-network",
+    title: "Medical Assistant - Multi-Clinic",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 41000,
+    salaryMax: 52000,
+    type: "Full-time",
+    location: "Visalia",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-06",
+    description: "Provide clinical support across FHCN's 45 primary care sites.",
+    requirements: [
+      "CMA certification preferred",
+      "Phlebotomy experience",
+      "Spanish language skills strongly preferred",
+      "Experience with EHR systems"
+    ]
+  },
+  {
+    id: "fhcn-004",
+    fqhcSlug: "family-healthcare-network",
+    title: "Registered Nurse - Chronic Disease",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 86000,
+    salaryMax: 106000,
+    type: "Full-time",
+    location: "Visalia",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-05",
+    description: "Lead nursing care for FHCN's chronic disease management programs.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with community health experience",
+      "Chronic disease management knowledge",
+      "Understanding of farmworker health issues"
+    ]
+  },
+  {
+    id: "fhcn-005",
+    fqhcSlug: "family-healthcare-network",
+    title: "Behavioral Health Specialist",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 58000,
+    salaryMax: 77000,
+    type: "Full-time",
+    location: "Visalia",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-04",
+    description: "Deliver mental health services to FHCN's Tulare and Kings County communities.",
+    requirements: [
+      "Master's degree in mental health field",
+      "LMFT, LPCC, or LCSW license",
+      "Community mental health experience",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "fhcn-006",
+    fqhcSlug: "family-healthcare-network",
+    title: "Nurse Practitioner - Primary Care",
+    roleType: "Nurse Practitioner",
+    department: "Primary Care",
+    salaryMin: 131000,
+    salaryMax: 161000,
+    type: "Full-time",
+    location: "Visalia",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-03",
+    description: "Provide primary care leadership for FHCN's farmworker-serving clinics.",
+    requirements: [
+      "California NP license with prescribing authority",
+      "Master's or DNP degree",
+      "Primary care experience",
+      "Commitment to serving farmworker populations"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // UNITED HEALTH CENTERS (5 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "uhc-001",
+    fqhcSlug: "united-health-centers",
+    title: "Community Health Worker - Agricultural Health",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 58000,
+    type: "Full-time",
+    location: "Parlier",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Engage farmworker families across the San Joaquin Valley through UHC's community health programs.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English required",
+      "Experience with agricultural communities preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "uhc-002",
+    fqhcSlug: "united-health-centers",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 49000,
+    salaryMax: 64000,
+    type: "Full-time",
+    location: "Parlier",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for UHC patients across Fresno, Kings, and Tulare counties.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience preferred",
+      "Bilingual Spanish/English preferred",
+      "Knowledge of San Joaquin Valley health issues"
+    ]
+  },
+  {
+    id: "uhc-003",
+    fqhcSlug: "united-health-centers",
+    title: "Medical Assistant",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 41000,
+    salaryMax: 52000,
+    type: "Full-time",
+    location: "Parlier",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: [],
+    postedDate: "2026-02-06",
+    description: "Provide clinical support across UHC's 22 San Joaquin Valley sites.",
+    requirements: [
+      "CMA certification preferred",
+      "Phlebotomy experience",
+      "Spanish language skills strongly preferred",
+      "Multi-site experience helpful"
+    ]
+  },
+  {
+    id: "uhc-004",
+    fqhcSlug: "united-health-centers",
+    title: "Registered Nurse - Optometry Services",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 86000,
+    salaryMax: 106000,
+    type: "Full-time",
+    location: "Parlier",
+    bilingual: false,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-05",
+    description: "Provide nursing support for UHC's comprehensive optometry and vision services.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with experience",
+      "Optometry clinic experience preferred",
+      "Patient education skills"
+    ]
+  },
+  {
+    id: "uhc-005",
+    fqhcSlug: "united-health-centers",
+    title: "Behavioral Health Specialist",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 57000,
+    salaryMax: 76000,
+    type: "Full-time",
+    location: "Parlier",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-04",
+    description: "Deliver mental health services across UHC's San Joaquin Valley communities.",
+    requirements: [
+      "Master's degree in mental health field",
+      "LMFT, LPCC, or LCSW license",
+      "Community mental health experience",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // WELLSPACE HEALTH (5 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "wellspace-001",
+    fqhcSlug: "wellspace-health",
+    title: "Community Health Worker - Behavioral Health",
+    roleType: "Community Health Worker",
+    department: "BH Integration",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-08",
+    description: "Support WellSpace Health's behavioral health initiatives in Sacramento communities.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English preferred",
+      "Experience with mental health or substance use preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "wellspace-002",
+    fqhcSlug: "wellspace-health",
+    title: "Care Coordinator - Addiction Services",
+    roleType: "Care Coordinator",
+    department: "Behavioral Health",
+    salaryMin: 51000,
+    salaryMax: 68000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for WellSpace Health's addiction medicine and substance use treatment patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience",
+      "Experience with substance use disorders preferred",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "wellspace-003",
+    fqhcSlug: "wellspace-health",
+    title: "Medical Assistant",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 42000,
+    salaryMax: 54000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-06",
+    description: "Provide clinical support across WellSpace Health's Sacramento sites.",
+    requirements: [
+      "CMA certification preferred",
+      "Phlebotomy experience",
+      "Spanish language skills preferred",
+      "Experience with behavioral health settings helpful"
+    ]
+  },
+  {
+    id: "wellspace-004",
+    fqhcSlug: "wellspace-health",
+    title: "Licensed Clinical Social Worker - Crisis Services",
+    roleType: "Licensed Clinical Social Worker",
+    department: "Behavioral Health",
+    salaryMin: 83000,
+    salaryMax: 103000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-05",
+    description: "Provide clinical social work services for WellSpace Health's crisis intervention and stabilization programs.",
+    requirements: [
+      "Current California LCSW license",
+      "Master's degree in social work",
+      "Experience in crisis intervention",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "wellspace-005",
+    fqhcSlug: "wellspace-health",
+    title: "Nurse Practitioner - Addiction Medicine",
+    roleType: "Nurse Practitioner",
+    department: "Behavioral Health",
+    salaryMin: 135000,
+    salaryMax: 165000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-04",
+    description: "Lead clinical care for WellSpace Health's addiction medicine programs.",
+    requirements: [
+      "California NP license with prescribing authority",
+      "Master's or DNP degree",
+      "Experience in addiction medicine preferred",
+      "Knowledge of medication-assisted treatment"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // BORREGO HEALTH (5 listings - Inland Empire)
+  // ─────────────────────────────────────────────
+  {
+    id: "borrego-001",
+    fqhcSlug: "borrego-health",
+    title: "Community Health Worker - Desert Health",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "Brawley",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support Borrego Health's ECM program serving Imperial Valley and Coachella Valley communities.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English required",
+      "Experience with underserved populations preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "borrego-002",
+    fqhcSlug: "borrego-health",
+    title: "Care Coordinator - Complex Cases",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 50000,
+    salaryMax: 66000,
+    type: "Full-time",
+    location: "Brawley",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for Borrego Health's most complex patients across multiple counties.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "3+ years care coordination experience",
+      "Bilingual Spanish/English preferred",
+      "Ability to manage high-risk populations"
+    ]
+  },
+  {
+    id: "borrego-003",
+    fqhcSlug: "borrego-health",
+    title: "Medical Assistant",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 41000,
+    salaryMax: 52000,
+    type: "Full-time",
+    location: "Brawley",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: [],
+    postedDate: "2026-02-06",
+    description: "Provide clinical support across Borrego Health's 28 sites.",
+    requirements: [
+      "CMA certification preferred",
+      "Phlebotomy experience",
+      "Spanish language skills strongly preferred",
+      "Ability to work in fast-paced environment"
+    ]
+  },
+  {
+    id: "borrego-004",
+    fqhcSlug: "borrego-health",
+    title: "Registered Nurse - Primary Care",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 86000,
+    salaryMax: 106000,
+    type: "Full-time",
+    location: "Brawley",
+    bilingual: false,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-05",
+    description: "Provide nursing care at Borrego Health's primary care clinics.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with experience",
+      "Community health setting experience",
+      "Patient education skills"
+    ]
+  },
+  {
+    id: "borrego-005",
+    fqhcSlug: "borrego-health",
+    title: "Behavioral Health Specialist",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 57000,
+    salaryMax: 76000,
+    type: "Full-time",
+    location: "Brawley",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-04",
+    description: "Deliver mental health services across Borrego Health's Desert and Coachella Valley communities.",
+    requirements: [
+      "Master's degree in mental health field",
+      "LMFT, LPCC, or LCSW license",
+      "Community mental health experience",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // LIFELONG MEDICAL CARE (4 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "lifelong-001",
+    fqhcSlug: "lifelong-medical-care",
+    title: "Community Health Worker - Homeless Services",
+    roleType: "Community Health Worker",
+    department: "Community Supports",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "Berkeley",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["Community Supports"],
+    postedDate: "2026-02-08",
+    description: "Support LifeLong's services for homeless and unstably housed populations across the East Bay.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Lived experience with homelessness preferred",
+      "Bilingual Spanish/English preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "lifelong-002",
+    fqhcSlug: "lifelong-medical-care",
+    title: "Care Coordinator - TCM Program",
+    roleType: "Care Coordinator",
+    department: "TCM Program",
+    salaryMin: 51000,
+    salaryMax: 68000,
+    type: "Full-time",
+    location: "Berkeley",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["TCM"],
+    postedDate: "2026-02-07",
+    description: "Manage transitional care for LifeLong patients moving between hospital and community settings.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "TCM or care coordination experience preferred",
+      "Knowledge of health equity issues",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "lifelong-003",
+    fqhcSlug: "lifelong-medical-care",
+    title: "Registered Nurse - Behavioral Health",
+    roleType: "Registered Nurse",
+    department: "Behavioral Health",
+    salaryMin: 87000,
+    salaryMax: 108000,
+    type: "Full-time",
+    location: "Berkeley",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-06",
+    description: "Provide nursing care for LifeLong's behavioral health and substance use services.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with psychiatric nursing experience",
+      "Knowledge of trauma-informed care",
+      "Commitment to serving vulnerable populations"
+    ]
+  },
+  {
+    id: "lifelong-004",
+    fqhcSlug: "lifelong-medical-care",
+    title: "Nurse Practitioner - Primary Care",
+    roleType: "Nurse Practitioner",
+    department: "Primary Care",
+    salaryMin: 131000,
+    salaryMax: 161000,
+    type: "Full-time",
+    location: "Berkeley",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-05",
+    description: "Provide primary care to LifeLong's East Bay communities.",
+    requirements: [
+      "California NP license with prescribing authority",
+      "Master's or DNP degree",
+      "Primary care or community health experience",
+      "Commitment to health equity"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // ASIAN HEALTH SERVICES (4 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "ahs-001",
+    fqhcSlug: "asian-health-services",
+    title: "Community Health Worker - Multilingual",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Serve Asian Health Services' diverse communities in Oakland with multilingual health outreach.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Fluency in Asian language preferred (Cantonese, Mandarin, Vietnamese, etc.)",
+      "Community outreach experience",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "ahs-002",
+    fqhcSlug: "asian-health-services",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 50000,
+    salaryMax: 66000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for Asian Health Services' Asian American patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience preferred",
+      "Cultural competency with Asian populations",
+      "Multilingual capabilities preferred"
+    ]
+  },
+  {
+    id: "ahs-003",
+    fqhcSlug: "asian-health-services",
+    title: "Medical Assistant",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 42000,
+    salaryMax: 54000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-06",
+    description: "Provide clinical support at Asian Health Services' Oakland sites.",
+    requirements: [
+      "CMA certification preferred",
+      "Phlebotomy experience",
+      "Multilingual skills preferred",
+      "Experience with diverse populations"
+    ]
+  },
+  {
+    id: "ahs-004",
+    fqhcSlug: "asian-health-services",
+    title: "Registered Nurse - Primary Care",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 87000,
+    salaryMax: 107000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-05",
+    description: "Provide nursing care at Asian Health Services' primary care clinics.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with experience",
+      "Community health experience",
+      "Cultural humility and competency skills"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // APLA HEALTH (3 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "apla-001",
+    fqhcSlug: "apla-health",
+    title: "Community Health Worker - LGBTQ+",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Serve APLA Health's LGBTQ+ communities with health outreach and care coordination.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Experience with LGBTQ+ populations preferred",
+      "Bilingual Spanish/English preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "apla-002",
+    fqhcSlug: "apla-health",
+    title: "Care Coordinator - HIV Specialty",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 51000,
+    salaryMax: 68000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for APLA Health's HIV-positive patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "HIV/AIDS care experience preferred",
+      "Compassionate and non-judgmental care approach",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "apla-003",
+    fqhcSlug: "apla-health",
+    title: "Registered Nurse - Behavioral Health",
+    roleType: "Registered Nurse",
+    department: "Behavioral Health",
+    salaryMin: 87000,
+    salaryMax: 107000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "eClinicalWorks",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-06",
+    description: "Provide nursing care for APLA Health's mental health and substance use services.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with psychiatric nursing experience",
+      "LGBTQ+ cultural competency",
+      "Experience with substance use disorders"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // VENICE FAMILY CLINIC (4 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "vfc-001",
+    fqhcSlug: "venice-family-clinic",
+    title: "Community Health Worker - Homeless Outreach",
+    roleType: "Community Health Worker",
+    department: "Community Supports",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["Community Supports"],
+    postedDate: "2026-02-08",
+    description: "Provide community outreach for Venice Family Clinic's homeless and precariously housed populations.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Experience with homeless populations preferred",
+      "Bilingual Spanish/English preferred",
+      "Valid driver's license and reliable transportation"
+    ]
+  },
+  {
+    id: "vfc-002",
+    fqhcSlug: "venice-family-clinic",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 50000,
+    salaryMax: 66000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for Venice Family Clinic's complex and vulnerable patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination in free clinic setting preferred",
+      "Compassion for vulnerable populations",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "vfc-003",
+    fqhcSlug: "venice-family-clinic",
+    title: "Registered Nurse - Dental Support",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 86000,
+    salaryMax: 106000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-06",
+    description: "Provide nursing support for Venice Family Clinic's dental and primary care services.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with experience",
+      "Dental nursing experience preferred",
+      "Commitment to serving vulnerable populations"
+    ]
+  },
+  {
+    id: "vfc-004",
+    fqhcSlug: "venice-family-clinic",
+    title: "Nurse Practitioner - Primary Care",
+    roleType: "Nurse Practitioner",
+    department: "Primary Care",
+    salaryMin: 130000,
+    salaryMax: 160000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-05",
+    description: "Provide primary care services as part of Venice Family Clinic's medical team.",
+    requirements: [
+      "California NP license with prescribing authority",
+      "Master's or DNP degree",
+      "Free clinic or safety-net experience preferred",
+      "Passion for serving homeless and low-income populations"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // CHAPCARE (3 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "chapcare-001",
+    fqhcSlug: "chapcare",
+    title: "Community Health Worker",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "Pasadena",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support ChapCare's health outreach in the San Gabriel Valley communities.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English preferred",
+      "Community engagement experience",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "chapcare-002",
+    fqhcSlug: "chapcare",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 49000,
+    salaryMax: 64000,
+    type: "Full-time",
+    location: "Pasadena",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for ChapCare's San Gabriel Valley patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination background preferred",
+      "Bilingual Spanish/English preferred",
+      "Understanding of diverse cultural populations"
+    ]
+  },
+  {
+    id: "chapcare-003",
+    fqhcSlug: "chapcare",
+    title: "Registered Nurse",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 86000,
+    salaryMax: 106000,
+    type: "Full-time",
+    location: "Pasadena",
+    bilingual: false,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-06",
+    description: "Provide nursing care at ChapCare's San Gabriel Valley clinics.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with community health experience",
+      "Primary care nursing background",
+      "Patient education skills"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // EISNER HEALTH (3 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "eisner-001",
+    fqhcSlug: "eisner-health",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 50000,
+    salaryMax: 65000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-08",
+    description: "Coordinate care for Eisner Health's downtown Los Angeles patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "3+ years care coordination experience",
+      "Bilingual Spanish/English preferred",
+      "Experience with vulnerable populations"
+    ]
+  },
+  {
+    id: "eisner-002",
+    fqhcSlug: "eisner-health",
+    title: "Medical Assistant",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 42000,
+    salaryMax: 53000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: [],
+    postedDate: "2026-02-07",
+    description: "Provide clinical support at Eisner Health's Los Angeles sites.",
+    requirements: [
+      "CMA certification preferred",
+      "Phlebotomy experience",
+      "Spanish language skills preferred",
+      "Experience in busy clinic environment"
+    ]
+  },
+  {
+    id: "eisner-003",
+    fqhcSlug: "eisner-health",
+    title: "Registered Nurse - Women's Health",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 87000,
+    salaryMax: 107000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM"],
+    postedDate: "2026-02-06",
+    description: "Provide nursing care for Eisner Health's women's health and pediatrics services.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with women's health experience",
+      "Pediatric nursing knowledge preferred",
+      "Cultural competency and communication skills"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // JWCH INSTITUTE (3 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "jwch-001",
+    fqhcSlug: "jwch-institute",
+    title: "Community Health Worker - Homeless Health",
+    roleType: "Community Health Worker",
+    department: "Community Supports",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["Community Supports"],
+    postedDate: "2026-02-08",
+    description: "Support JWCH Institute's outreach to homeless populations in Los Angeles County.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Lived experience with homelessness preferred",
+      "Bilingual Spanish/English preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "jwch-002",
+    fqhcSlug: "jwch-institute",
+    title: "Care Coordinator - HIV Services",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 51000,
+    salaryMax: 68000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for JWCH's HIV-positive homeless and unstably housed patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "HIV/AIDS care experience preferred",
+      "Experience with homelessness issues",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "jwch-003",
+    fqhcSlug: "jwch-institute",
+    title: "Registered Nurse - Substance Use Services",
+    roleType: "Registered Nurse",
+    department: "Behavioral Health",
+    salaryMin: 87000,
+    salaryMax: 108000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "eClinicalWorks",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-06",
+    description: "Provide nursing care for JWCH's substance use treatment and harm reduction programs.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with substance use disorder nursing experience",
+      "Experience with homeless populations",
+      "Knowledge of harm reduction approaches"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // MISSION NEIGHBORHOOD HEALTH CENTER (3 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "mnhc-001",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Community Health Worker - Latino Health",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support MNHC's Mission District communities through health outreach and care coordination.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English required",
+      "Community advocacy experience preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "mnhc-002",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 50000,
+    salaryMax: 66000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for MNHC's diverse immigrant and Latino patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience preferred",
+      "Cultural competency with immigrant populations",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "mnhc-003",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Registered Nurse - Chronic Disease",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 87000,
+    salaryMax: 107000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-06",
+    description: "Provide nursing care for MNHC's chronic disease management programs.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with community health experience",
+      "Chronic disease management knowledge",
+      "Ability to work with diverse populations"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // NORTH EAST MEDICAL SERVICES (2 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "nems-001",
+    fqhcSlug: "north-east-medical-services",
+    title: "Community Health Worker - Multilingual",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support NEMS' Asian American communities with multilingual health outreach.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Fluency in Asian language preferred",
+      "Community outreach experience",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "nems-002",
+    fqhcSlug: "north-east-medical-services",
+    title: "Registered Nurse",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 87000,
+    salaryMax: 107000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-07",
+    description: "Provide nursing care for NEMS' primary care clinics serving Asian American communities.",
+    requirements: [
+      "Current California RN license",
+      "BSN or ADN with experience",
+      "Cultural humility and competency skills",
+      "Commitment to serving underserved populations"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // HEALTHRIGHT 360 (2 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "hr360-001",
+    fqhcSlug: "healthright-360",
+    title: "Care Coordinator - Homeless Health",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 51000,
+    salaryMax: 68000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Coordinate care for HealthRIGHT 360's homeless and vulnerable populations.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Homelessness and health equity experience",
+      "Trauma-informed care knowledge",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "hr360-002",
+    fqhcSlug: "healthright-360",
+    title: "Licensed Clinical Social Worker",
+    roleType: "Licensed Clinical Social Worker",
+    department: "Behavioral Health",
+    salaryMin: 83000,
+    salaryMax: 103000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-07",
+    description: "Provide clinical social work services for HealthRIGHT 360's vulnerable populations.",
+    requirements: [
+      "Current California LCSW license",
+      "Master's degree in social work",
+      "Experience with homeless/vulnerable populations",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // RAVENSWOOD FAMILY HEALTH NETWORK (2 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "ravenswood-001",
+    fqhcSlug: "ravenswood-family-health-network",
+    title: "Community Health Worker",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "East Palo Alto",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support Ravenswood's East Palo Alto and Peninsula communities with health outreach.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English preferred",
+      "Community engagement experience",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "ravenswood-002",
+    fqhcSlug: "ravenswood-family-health-network",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 49000,
+    salaryMax: 64000,
+    type: "Full-time",
+    location: "East Palo Alto",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for Ravenswood's underserved Peninsula communities.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience preferred",
+      "Bilingual Spanish/English preferred",
+      "Understanding of economic inequality in health"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // GARDNER HEALTH SERVICES (2 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "gardner-001",
+    fqhcSlug: "gardner-health-services",
+    title: "Community Health Worker - Farmworker Health",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "San Jose",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support Gardner Health's farmworker communities in Santa Clara County.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English preferred",
+      "Agricultural worker health knowledge",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "gardner-002",
+    fqhcSlug: "gardner-health-services",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 49000,
+    salaryMax: 64000,
+    type: "Full-time",
+    location: "San Jose",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for Gardner Health's Santa Clara County farmworker patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience preferred",
+      "Bilingual Spanish/English preferred",
+      "Understanding of migrant farmworker health"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // NEIGHBORHOOD HEALTHCARE (2 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "nhcare-001",
+    fqhcSlug: "neighborhood-healthcare",
+    title: "Community Health Worker",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "Escondido",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support Neighborhood Healthcare's North County San Diego communities.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English preferred",
+      "Community outreach experience",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "nhcare-002",
+    fqhcSlug: "neighborhood-healthcare",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 49000,
+    salaryMax: 64000,
+    type: "Full-time",
+    location: "Escondido",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for Neighborhood Healthcare's North County patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience preferred",
+      "Bilingual Spanish/English preferred",
+      "Commitment to health equity"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // VISTA COMMUNITY CLINIC (2 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "vista-001",
+    fqhcSlug: "vista-community-clinic",
+    title: "Community Health Worker",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "Vista",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support Vista Community Clinic's North San Diego County health outreach.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English preferred",
+      "Community engagement experience",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "vista-002",
+    fqhcSlug: "vista-community-clinic",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 49000,
+    salaryMax: 64000,
+    type: "Full-time",
+    location: "Vista",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for Vista Community Clinic's North County patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience preferred",
+      "Bilingual Spanish/English preferred",
+      "Understanding of prenatal and pediatric populations"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // LA MAESTRA COMMUNITY HEALTH CENTERS (2 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "lamaestra-001",
+    fqhcSlug: "la-maestra-community-health-centers",
+    title: "Community Health Worker - Refugee Health",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support La Maestra's refugee and immigrant communities in San Diego.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Refugee/immigrant community experience preferred",
+      "Bilingual capabilities preferred",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "lamaestra-002",
+    fqhcSlug: "la-maestra-community-health-centers",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 50000,
+    salaryMax: 66000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for La Maestra's City Heights and refugee communities.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Refugee/immigrant health experience preferred",
+      "Multilingual capabilities preferred",
+      "Cultural competency with diverse populations"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // ELICA HEALTH CENTERS (2 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "elica-001",
+    fqhcSlug: "elica-health-centers",
+    title: "Community Health Worker - Multilingual",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 47000,
+    salaryMax: 59000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support Elica Health's diverse refugee and immigrant communities in Sacramento.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Multilingual (40+ languages served) preferred",
+      "Refugee/immigrant community experience",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "elica-002",
+    fqhcSlug: "elica-health-centers",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 50000,
+    salaryMax: 66000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for Elica Health's refugee and immigrant patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Multilingual background preferred",
+      "Experience with diverse populations",
+      "Cultural humility and competency"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // TIBURCIO VASQUEZ HEALTH CENTER (2 listings)
+  // ─────────────────────────────────────────────
+  {
+    id: "tvhc-001",
+    fqhcSlug: "tiburcio-vasquez-health-center",
+    title: "Community Health Worker",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "Hayward",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support TVHC's South Alameda County communities with health outreach.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English preferred",
+      "Community engagement experience",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "tvhc-002",
+    fqhcSlug: "tiburcio-vasquez-health-center",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 49000,
+    salaryMax: 64000,
+    type: "Full-time",
+    location: "Hayward",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-07",
+    description: "Coordinate care for TVHC's Hayward and South Alameda County patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience preferred",
+      "Bilingual Spanish/English preferred",
+      "Commitment to underserved populations"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // ADDITIONAL MEDIUM/SMALL FQHC LISTINGS (distributed across regions)
+  // ─────────────────────────────────────────────
+  {
+    id: "south-central-001",
+    fqhcSlug: "south-central-family-health-center",
+    title: "Community Health Worker",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support South Central FHC's South Los Angeles communities.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English preferred",
+      "Community advocacy experience",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "queenscare-001",
+    fqhcSlug: "queenscare-health-centers",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 50000,
+    salaryMax: 66000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-08",
+    description: "Coordinate care for QueensCare's low-income families across Los Angeles.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience",
+      "Bilingual Spanish/English preferred",
+      "Commitment to health equity"
+    ]
+  },
+  {
+    id: "kedren-001",
+    fqhcSlug: "kedren-community-health-center",
+    title: "Behavioral Health Specialist",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 57000,
+    salaryMax: 76000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-08",
+    description: "Deliver behavioral health and substance abuse treatment services at Kedren.",
+    requirements: [
+      "Master's degree in mental health field",
+      "LMFT, LPCC, or LCSW license",
+      "Substance abuse disorder experience",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "watts-001",
+    fqhcSlug: "watts-healthcare-corporation",
+    title: "Community Health Worker",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support Watts Healthcare's Watts community health outreach.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English preferred",
+      "Community roots in Watts area helpful",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "sac-health-001",
+    fqhcSlug: "sac-health",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 50000,
+    salaryMax: 66000,
+    type: "Full-time",
+    location: "San Bernardino",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-08",
+    description: "Coordinate care for SAC Health's San Bernardino County communities.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience",
+      "Bilingual Spanish/English preferred",
+      "Understanding of Inland Empire health disparities"
+    ]
+  },
+  {
+    id: "community-health-centers-central-coast-001",
+    fqhcSlug: "community-health-centers-central-coast",
+    title: "Community Health Worker - Farmworker",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "Santa Maria",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support CHCCC's farmworker communities in Central Coast.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English required",
+      "Agricultural community experience",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "open-door-001",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "Community Health Worker - Rural",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "Arcata",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support Open Door's rural North Coast communities.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English preferred",
+      "Rural health experience",
+      "Valid driver's license and reliable transportation"
+    ]
+  },
+  {
+    id: "marin-001",
+    fqhcSlug: "marin-community-clinics",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 49000,
+    salaryMax: 64000,
+    type: "Full-time",
+    location: "San Rafael",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-08",
+    description: "Coordinate care for Marin Community Clinics' underserved populations.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience preferred",
+      "Bilingual Spanish/English preferred",
+      "Knowledge of Marin health disparities"
+    ]
+  },
+  {
+    id: "camarena-001",
+    fqhcSlug: "camarena-health",
+    title: "Community Health Worker - Farmworker",
+    roleType: "Community Health Worker",
+    department: "ECM Program",
+    salaryMin: 46000,
+    salaryMax: 57000,
+    type: "Full-time",
+    location: "Madera",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-08",
+    description: "Support Camarena Health's Madera County farmworker communities.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English required",
+      "Agricultural health knowledge",
+      "Valid driver's license"
+    ]
+  },
+  {
+    id: "golden-valley-001",
+    fqhcSlug: "golden-valley-health-centers",
+    title: "Care Coordinator",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 49000,
+    salaryMax: 64000,
+    type: "Full-time",
+    location: "Merced",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-08",
+    description: "Coordinate care for Golden Valley's Merced and Stanislaus County patients.",
+    requirements: [
+      "Bachelor's degree or equivalent experience",
+      "Care coordination experience preferred",
+      "Bilingual Spanish/English preferred",
+      "Central Valley health knowledge"
+    ]
+  }
+];
+
+export function getJobsForFqhc(slug: string): FQHCJobListing[] {
+  return fqhcJobListings.filter(j => j.fqhcSlug === slug);
+}
