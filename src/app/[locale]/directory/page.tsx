@@ -900,8 +900,8 @@ export default function DirectoryPage() {
               className="bg-amber-500 text-stone-900 shadow-lg hover:bg-amber-400"
               asChild
             >
-              <Link href="/join">
-                Apply for Early Access <ArrowRight className="size-4" />
+              <Link href="/resume-builder">
+                Build Your Resume <ArrowRight className="size-4" />
               </Link>
             </Button>
             <Button
@@ -910,7 +910,7 @@ export default function DirectoryPage() {
               className="border-white/30 text-white hover:bg-white/10"
               asChild
             >
-              <Link href="/hire">Request Priority Access</Link>
+              <Link href="/hire">Hire Talent</Link>
             </Button>
           </div>
         </div>

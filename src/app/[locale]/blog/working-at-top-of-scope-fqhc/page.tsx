@@ -295,10 +295,10 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
               Join FQHC Talent Exchange and connect with community health centers that are building real team-based care models and want staff who can work at the top of their scope.
             </p>
             <a
-              href="/join"
+              href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-amber-600 px-8 py-4 text-lg font-semibold text-white hover:bg-amber-700 transition-colors"
             >
-              Apply for Early Access
+              Build Your Free Resume
             </a>
           </div>
 

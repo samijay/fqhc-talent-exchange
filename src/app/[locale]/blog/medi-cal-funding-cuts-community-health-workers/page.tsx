@@ -136,7 +136,7 @@ const enContent: ArticleContent = {
   ctaTitle: "Were You Affected by FQHC Layoffs?",
   ctaDescription:
     "Join FQHC Talent Exchange — completely free for job seekers. Get matched with FQHCs that are actively hiring for your exact skills.",
-  ctaButtonText: "Apply for Early Access",
+  ctaButtonText: "Build Your Free Resume",
   relatedArticles: [
     {
       href: "/blog/what-is-enhanced-care-management-ecm",
@@ -254,7 +254,7 @@ const esContent: ArticleContent = {
   ctaTitle: "¿Fuiste Afectado por Despidos de FQHC?",
   ctaDescription:
     "Únete a FQHC Talent Exchange — completamente gratuito para buscadores de trabajo. Obten coincidencias con FQHCs que están activamente contratando para tus habilidades exactas.",
-  ctaButtonText: "Solicitar Acceso Temprano",
+  ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {
       href: "/blog/what-is-enhanced-care-management-ecm",
@@ -361,7 +361,7 @@ export default function MediCalFundingCutsArticle() {
               {content.ctaDescription}
             </p>
             <a
-              href="/join"
+              href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
               {content.ctaButtonText}

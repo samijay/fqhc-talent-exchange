@@ -274,7 +274,7 @@ const enContent: ArticleContent = {
   ctaTitle: "Ready to Find Your ECM Role?",
   ctaDescription:
     "Join FQHC Talent Exchange and get matched with FQHCs that are actively hiring for Enhanced Care Management positions across California.",
-  ctaButtonText: "Apply for Early Access",
+  ctaButtonText: "Build Your Free Resume",
   relatedArticles: [
     {
       href: "/blog/medi-cal-funding-cuts-community-health-workers",
@@ -484,7 +484,7 @@ const esContent: ArticleContent = {
   ctaTitle: "¿Listo para Encontrar Tu Rol en ECM?",
   ctaDescription:
     "Únete a FQHC Talent Exchange y obten coincidencias con FQHCs que están contratando activamente para posiciones de Gestión de Atención Mejorada en toda California.",
-  ctaButtonText: "Solicitar Acceso Temprano",
+  ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {
       href: "/blog/medi-cal-funding-cuts-community-health-workers",
@@ -618,7 +618,7 @@ export default function WhatIsECMArticle() {
               {content.ctaDescription}
             </p>
             <a
-              href="/join"
+              href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
               {content.ctaButtonText}

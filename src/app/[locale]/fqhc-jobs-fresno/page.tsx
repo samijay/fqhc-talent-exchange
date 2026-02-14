@@ -173,10 +173,10 @@ export default function FqhcJobsFresno() {
               in as little as 5 days.
             </p>
             <a
-              href="/join"
+              href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
-              Apply for Early Access
+              Build Your Free Resume
             </a>
           </div>
         </div>

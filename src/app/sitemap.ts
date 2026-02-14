@@ -2,6 +2,7 @@
 // Next.js automatically serves this at /sitemap.xml
 
 import type { MetadataRoute } from "next";
+import { californiaFQHCs } from "@/lib/california-fqhcs";
 
 const SITE_URL = "https://fqhctalent.com";
 
@@ -56,6 +57,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/resume-builder`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${SITE_URL}/for-job-seekers`,
@@ -132,5 +139,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   //   priority: 0.7,
   // }));
 
-  return [...staticPages, ...locationPages, ...blogPages];
+  // FQHC profile pages (87 organizations)
+  const fqhcProfilePages: MetadataRoute.Sitemap = californiaFQHCs.map((fqhc) => ({
+    url: `${SITE_URL}/directory/${fqhc.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticPages, ...locationPages, ...blogPages, ...fqhcProfilePages];
 }

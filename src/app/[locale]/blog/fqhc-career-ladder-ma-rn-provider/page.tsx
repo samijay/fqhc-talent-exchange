@@ -499,10 +499,10 @@ export default function FqhcCareerLadderArticle() {
               Join FQHC Talent Exchange to connect with community health centers that are investing in staff development and promoting from within. Find the right role to launch your FQHC career ladder.
             </p>
             <a
-              href="/join"
+              href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
-              Apply for Early Access
+              Build Your Free Resume
             </a>
           </div>
 

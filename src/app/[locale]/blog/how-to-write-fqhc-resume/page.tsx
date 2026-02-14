@@ -221,7 +221,7 @@ const enContent: ArticleContent = {
   ctaTitle: "Ready to Put Your FQHC Resume to Work?",
   ctaDescription:
     "Join FQHC Talent Exchange and get matched with community health centers that are actively hiring for your exact skills and experience.",
-  ctaButtonText: "Apply for Early Access",
+  ctaButtonText: "Build Your Free Resume",
   relatedArticles: [
     {
       href: "/blog/medi-cal-funding-cuts-community-health-workers",
@@ -424,7 +424,7 @@ const esContent: ArticleContent = {
   ctaTitle: "¿Listo para Poner Tu Currículum de FQHC a Trabajar?",
   ctaDescription:
     "Únete a FQHC Talent Exchange y obten coincidencias con centros de salud comunitarios que están contratando activamente para tus habilidades y experiencia exactas.",
-  ctaButtonText: "Solicitar Acceso Temprano",
+  ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {
       href: "/blog/medi-cal-funding-cuts-community-health-workers",
@@ -542,7 +542,7 @@ export default function HowToWriteFqhcResumeArticle() {
               {content.ctaDescription}
             </p>
             <a
-              href="/join"
+              href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
               {content.ctaButtonText}
