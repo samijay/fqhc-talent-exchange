@@ -58,7 +58,7 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen">
-      <section className="bg-gradient-to-br from-violet-50 via-violet-50 to-stone-50 py-16 px-6">
+      <section className="bg-gradient-to-br from-teal-50 via-teal-50 to-stone-50 py-16 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
             {t("title")}
@@ -78,7 +78,7 @@ export default function BlogPage() {
                 href={`/blog/${post.slug}`}
                 className="block bg-white rounded-xl border border-stone-200 p-8 hover:shadow-md transition-all hover:-translate-y-1"
               >
-                <p className="text-sm text-violet-600 font-semibold mb-2">
+                <p className="text-sm text-teal-700 font-semibold mb-2">
                   {post.category}
                 </p>
                 <h2 className="text-2xl font-bold text-stone-900 mb-3">

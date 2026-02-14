@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-violet-50 via-violet-50 to-stone-50 py-20 px-6">
+      <section className="bg-gradient-to-br from-teal-50 via-teal-50 to-stone-50 py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
             {t("heroTitle")}
@@ -106,7 +106,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why It Matters */}
-      <section className="bg-gradient-to-br from-violet-50 via-violet-50 to-stone-50 py-16 px-6">
+      <section className="bg-gradient-to-br from-teal-50 via-teal-50 to-stone-50 py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-stone-900 mb-8">
             {t("mattersTitle")}
@@ -133,16 +133,16 @@ export default function AboutPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/join"
-              className="inline-flex items-center justify-center rounded-lg bg-violet-600 px-8 py-4 text-lg font-semibold text-white hover:bg-violet-700 transition-colors"
+              href="/resume-builder"
+              className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
-              {tNav("earlyAccess")}
+              {tNav("buildResume")}
             </Link>
             <Link
               href="/hire"
               className="inline-flex items-center justify-center rounded-lg border-2 border-stone-300 px-8 py-4 text-lg font-semibold text-stone-700 hover:border-stone-400 transition-colors"
             >
-              {tNav("priorityAccess")}
+              {tNav("hireTalent")}
             </Link>
           </div>
         </div>

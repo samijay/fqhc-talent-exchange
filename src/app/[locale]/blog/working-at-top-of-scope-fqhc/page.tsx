@@ -56,7 +56,7 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
 
           {/* Header */}
           <header className="mb-12">
-            <p className="text-emerald-600 font-semibold mb-3">
+            <p className="text-amber-600 font-semibold mb-3">
               Clinical Operations
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
@@ -287,7 +287,7 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-emerald-50 border border-emerald-200 rounded-xl p-8 text-center">
+          <div className="mt-16 bg-amber-50 border border-amber-200 rounded-xl p-8 text-center">
             <h3 className="text-2xl font-bold text-stone-900 mb-4">
               Ready to Find an FQHC That Values Top-of-Scope Practice?
             </h3>
@@ -296,7 +296,7 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
             </p>
             <a
               href="/join"
-              className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-8 py-4 text-lg font-semibold text-white hover:bg-emerald-700 transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-amber-600 px-8 py-4 text-lg font-semibold text-white hover:bg-amber-700 transition-colors"
             >
               Apply for Early Access
             </a>
@@ -312,7 +312,7 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
                 href="/blog/fqhc-career-ladder-ma-rn-provider"
                 className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
               >
-                <p className="text-sm text-emerald-600 mb-2">Career Growth</p>
+                <p className="text-sm text-amber-600 mb-2">Career Growth</p>
                 <h4 className="font-semibold text-stone-900">
                   The FQHC MA, RN & Provider Career Ladder: How to Advance in Community Health
                 </h4>
@@ -321,7 +321,7 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
                 href="/blog/how-to-write-fqhc-resume"
                 className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
               >
-                <p className="text-sm text-emerald-600 mb-2">Career Resources</p>
+                <p className="text-sm text-amber-600 mb-2">Career Resources</p>
                 <h4 className="font-semibold text-stone-900">
                   How to Write an FQHC Resume That Gets Noticed
                 </h4>

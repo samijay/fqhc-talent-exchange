@@ -313,7 +313,7 @@ export default function ResumeBuilder() {
       </div>
       <div className="h-2 overflow-hidden rounded-full bg-stone-200">
         <div
-          className="h-full bg-gradient-to-r from-violet-500 to-emerald-500 transition-all duration-500"
+          className="h-full bg-gradient-to-r from-teal-500 to-amber-500 transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -336,7 +336,7 @@ export default function ResumeBuilder() {
       )}
       <Button
         onClick={handleNext}
-        className="flex items-center gap-2 bg-gradient-to-r from-violet-600 to-emerald-600 px-6 py-3 font-semibold text-white hover:shadow-lg"
+        className="flex items-center gap-2 bg-gradient-to-r from-teal-700 to-amber-600 px-6 py-3 font-semibold text-white hover:shadow-lg"
       >
         {step === TOTAL_STEPS - 1 ? "Preview Resume" : "Next"}{" "}
         <ChevronRight className="size-5" />
@@ -352,14 +352,14 @@ export default function ResumeBuilder() {
     return (
       <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
         {/* Hero */}
-        <section className="bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 py-14 text-center text-white sm:py-20">
+        <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
           <div className="mx-auto flex items-center justify-center gap-2 mb-4">
             <FileText className="size-8" />
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
             FQHC Resume Builder
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-violet-100/80 sm:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-teal-100/80 sm:text-lg">
             Build a professional resume tailored for community health center
             roles. Free, with pre-written bullet points optimized for FQHC
             hiring.
@@ -524,18 +524,18 @@ export default function ResumeBuilder() {
                       onClick={() => handleSelectRole(role.id)}
                       className={`rounded-xl border-2 p-4 transition-all duration-200 ${
                         isSelected
-                          ? "border-violet-500 bg-violet-50 shadow-lg"
+                          ? "border-teal-500 bg-teal-50 shadow-lg"
                           : "border-stone-200 bg-white hover:border-stone-300 hover:shadow-md"
                       }`}
                     >
                       <Icon
                         className={`mx-auto mb-2 size-7 ${
-                          isSelected ? "text-violet-600" : "text-stone-400"
+                          isSelected ? "text-teal-700" : "text-stone-400"
                         }`}
                       />
                       <p
                         className={`text-center text-xs font-medium ${
-                          isSelected ? "text-violet-900" : "text-stone-700"
+                          isSelected ? "text-teal-950" : "text-stone-700"
                         }`}
                       >
                         {role.label}
@@ -628,7 +628,7 @@ export default function ResumeBuilder() {
                       onChange={() =>
                         toggleCheckbox(system, formData.ehrSystems, "ehrSystems")
                       }
-                      className="size-4 rounded border-stone-300 text-violet-600 focus:ring-violet-500"
+                      className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
                     />
                     {system}
                   </label>
@@ -653,7 +653,7 @@ export default function ResumeBuilder() {
                       onChange={() =>
                         toggleCheckbox(program, formData.programs, "programs")
                       }
-                      className="size-4 rounded border-stone-300 text-violet-600 focus:ring-violet-500"
+                      className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
                     />
                     {program}
                   </label>
@@ -682,7 +682,7 @@ export default function ResumeBuilder() {
                           "certifications",
                         )
                       }
-                      className="size-4 rounded border-stone-300 text-violet-600 focus:ring-violet-500"
+                      className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
                     />
                     {cert}
                   </label>
@@ -707,7 +707,7 @@ export default function ResumeBuilder() {
                       onChange={() =>
                         toggleCheckbox(lang, formData.languages, "languages")
                       }
-                      className="size-4 rounded border-stone-300 text-violet-600 focus:ring-violet-500"
+                      className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
                     />
                     {lang}
                   </label>
@@ -765,7 +765,7 @@ export default function ResumeBuilder() {
                         }
                         className={`w-full rounded-lg border-2 p-3 text-left transition-all duration-200 ${
                           isSelected
-                            ? "border-emerald-500 bg-emerald-50"
+                            ? "border-amber-500 bg-amber-50"
                             : "border-stone-200 bg-white hover:border-stone-300"
                         }`}
                       >
@@ -773,7 +773,7 @@ export default function ResumeBuilder() {
                           <div
                             className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded border-2 ${
                               isSelected
-                                ? "border-emerald-500 bg-emerald-500"
+                                ? "border-amber-500 bg-amber-500"
                                 : "border-stone-300"
                             }`}
                           >
@@ -783,7 +783,7 @@ export default function ResumeBuilder() {
                           </div>
                           <span
                             className={`text-sm ${
-                              isSelected ? "text-emerald-900" : "text-stone-700"
+                              isSelected ? "text-amber-900" : "text-stone-700"
                             }`}
                           >
                             {bullet.text}
@@ -804,7 +804,7 @@ export default function ResumeBuilder() {
                 </h3>
                 <button
                   onClick={addWorkEntry}
-                  className="flex items-center gap-1 text-sm font-medium text-violet-600 hover:text-violet-700"
+                  className="flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
                 >
                   <Plus className="size-4" /> Add Position
                 </button>
@@ -885,7 +885,7 @@ export default function ResumeBuilder() {
                                 endDate: e.target.checked ? "" : entry.endDate,
                               })
                             }
-                            className="size-3.5 rounded border-stone-300 text-violet-600"
+                            className="size-3.5 rounded border-stone-300 text-teal-700"
                           />
                           I currently work here
                         </label>
@@ -902,7 +902,7 @@ export default function ResumeBuilder() {
                 <h3 className="text-lg font-bold text-stone-900">Education</h3>
                 <button
                   onClick={addEducation}
-                  className="flex items-center gap-1 text-sm font-medium text-violet-600 hover:text-violet-700"
+                  className="flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
                 >
                   <Plus className="size-4" /> Add Education
                 </button>
@@ -1000,7 +1000,7 @@ export default function ResumeBuilder() {
               onClick={handleSaveProfile}
               disabled={isSaving}
               variant="outline"
-              className="flex items-center gap-1.5 border-violet-600 text-violet-600 hover:bg-violet-50"
+              className="flex items-center gap-1.5 border-teal-700 text-teal-700 hover:bg-teal-50"
             >
               <Save className="size-4" />
               {isSaving ? "Saving..." : "Save Profile"}
@@ -1008,7 +1008,7 @@ export default function ResumeBuilder() {
             <Button
               onClick={handleDownloadPDF}
               disabled={isDownloading}
-              className="flex items-center gap-1.5 bg-gradient-to-r from-violet-600 to-emerald-600 text-white hover:shadow-lg"
+              className="flex items-center gap-1.5 bg-gradient-to-r from-teal-700 to-amber-600 text-white hover:shadow-lg"
             >
               <Download className="size-4" />
               {isDownloading ? "Generating..." : "Download PDF"}
@@ -1017,7 +1017,7 @@ export default function ResumeBuilder() {
         </div>
 
         {saveSuccess && (
-          <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">
+          <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
             Profile saved! You can return anytime to update your resume.
           </div>
         )}
@@ -1038,7 +1038,7 @@ export default function ResumeBuilder() {
           <Button
             onClick={handleDownloadPDF}
             disabled={isDownloading}
-            className="flex items-center gap-2 bg-gradient-to-r from-violet-600 to-emerald-600 px-6 py-3 font-semibold text-white hover:shadow-lg"
+            className="flex items-center gap-2 bg-gradient-to-r from-teal-700 to-amber-600 px-6 py-3 font-semibold text-white hover:shadow-lg"
           >
             <Download className="size-5" />
             {isDownloading ? "Generating PDF..." : "Download PDF"}

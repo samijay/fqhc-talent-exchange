@@ -477,7 +477,7 @@ export default function HowToWriteFqhcResumeArticle() {
 
           {/* Header */}
           <header className="mb-12">
-            <p className="text-violet-600 font-semibold mb-3">
+            <p className="text-teal-700 font-semibold mb-3">
               {content.category}
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6 leading-tight">
@@ -534,7 +534,7 @@ export default function HowToWriteFqhcResumeArticle() {
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-violet-50 border border-violet-200 rounded-xl p-8 text-center">
+          <div className="mt-16 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
             <h3 className="text-2xl font-bold text-stone-900 mb-4">
               {content.ctaTitle}
             </h3>
@@ -543,7 +543,7 @@ export default function HowToWriteFqhcResumeArticle() {
             </p>
             <a
               href="/join"
-              className="inline-flex items-center justify-center rounded-lg bg-violet-600 px-8 py-4 text-lg font-semibold text-white hover:bg-violet-700 transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
               {content.ctaButtonText}
             </a>
@@ -561,7 +561,7 @@ export default function HowToWriteFqhcResumeArticle() {
                   href={article.href}
                   className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
                 >
-                  <p className="text-sm text-violet-600 mb-2">{content.category}</p>
+                  <p className="text-sm text-teal-700 mb-2">{content.category}</p>
                   <h4 className="font-semibold text-stone-900">
                     {article.title}
                   </h4>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { CheckCircle2, Loader2, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -188,14 +189,14 @@ export default function JoinPage() {
     return (
       <div className="bg-stone-50">
         {/* Hero (abbreviated) */}
-        <section className="bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 py-14 text-center text-white sm:py-20">
+        <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
             {t("heroTitle")}
           </h1>
         </section>
 
         <div className="mx-auto max-w-lg px-4 py-20 text-center">
-          <CheckCircle2 className="mx-auto size-16 text-violet-600" />
+          <CheckCircle2 className="mx-auto size-16 text-teal-700" />
           <h2 className="mt-6 text-2xl font-bold text-stone-900 sm:text-3xl">
             {t("successTitle")}
           </h2>
@@ -214,18 +215,18 @@ export default function JoinPage() {
   return (
     <div className="bg-stone-50">
       {/* ---------- Hero ---------- */}
-      <section className="bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 py-14 text-center text-white sm:py-20">
+      <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
           {t("heroTitle")}
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-violet-100/80 sm:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-teal-100/80 sm:text-lg">
           {t("heroSubtitle")}
         </p>
 
         {/* Live count */}
         {waitlistCount !== null && waitlistCount > 0 && (
           <div className="mx-auto mt-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur">
-            <Users className="size-4 text-emerald-400" />
+            <Users className="size-4 text-amber-400" />
             <span>
               {t("liveCount", { count: waitlistCount })}
             </span>
@@ -378,7 +379,7 @@ export default function JoinPage() {
                     onChange={() =>
                       toggleCheckbox(system, ehrSystems, setEhrSystems)
                     }
-                    className="size-4 rounded border-stone-300 text-violet-600 focus:ring-violet-500"
+                    className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
                   />
                   {system}
                 </label>
@@ -403,7 +404,7 @@ export default function JoinPage() {
                     onChange={() =>
                       toggleCheckbox(program, programs, setPrograms)
                     }
-                    className="size-4 rounded border-stone-300 text-violet-600 focus:ring-violet-500"
+                    className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
                   />
                   {program}
                 </label>
@@ -424,7 +425,7 @@ export default function JoinPage() {
                   value="Spanish/English"
                   checked={bilingual === "Spanish/English"}
                   onChange={(e) => setBilingual(e.target.value)}
-                  className="size-4 border-stone-300 text-violet-600 focus:ring-violet-500"
+                  className="size-4 border-stone-300 text-teal-700 focus:ring-teal-500"
                 />
                 {t("bilingualYesSpanish")}
               </label>
@@ -435,7 +436,7 @@ export default function JoinPage() {
                   value="Other"
                   checked={bilingual === "Other"}
                   onChange={(e) => setBilingual(e.target.value)}
-                  className="size-4 border-stone-300 text-violet-600 focus:ring-violet-500"
+                  className="size-4 border-stone-300 text-teal-700 focus:ring-teal-500"
                 />
                 {t("bilingualYesOther")}
               </label>
@@ -446,7 +447,7 @@ export default function JoinPage() {
                   value="No"
                   checked={bilingual === "No"}
                   onChange={(e) => setBilingual(e.target.value)}
-                  className="size-4 border-stone-300 text-violet-600 focus:ring-violet-500"
+                  className="size-4 border-stone-300 text-teal-700 focus:ring-teal-500"
                 />
                 {t("bilingualNo")}
               </label>
@@ -481,7 +482,7 @@ export default function JoinPage() {
           <Button
             type="submit"
             disabled={submitting}
-            className="mt-8 h-11 w-full bg-violet-600 text-base font-semibold text-white hover:bg-violet-700"
+            className="mt-8 h-11 w-full bg-teal-700 text-base font-semibold text-white hover:bg-teal-800"
           >
             {submitting ? (
               <>
@@ -493,6 +494,14 @@ export default function JoinPage() {
             )}
           </Button>
         </form>
+
+        {/* Cross-link to employer signup */}
+        <div className="mt-8 text-center text-sm text-stone-500">
+          {t("lookingToHire")}{" "}
+          <Link href="/hire" className="font-medium text-teal-700 underline hover:text-teal-800">
+            {t("goToEmployerSignup")} →
+          </Link>
+        </div>
       </div>
     </div>
   );

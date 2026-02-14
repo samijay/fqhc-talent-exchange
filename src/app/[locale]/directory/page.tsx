@@ -127,9 +127,9 @@ function StarRating({ rating }: { rating: number | null }) {
   return (
     <span className="inline-flex items-center gap-0.5">
       {Array.from({ length: full }).map((_, i) => (
-        <Star key={i} className="size-3.5 fill-emerald-400 text-emerald-400" />
+        <Star key={i} className="size-3.5 fill-amber-400 text-amber-400" />
       ))}
-      {half && <Star className="size-3.5 fill-emerald-400/50 text-emerald-400" />}
+      {half && <Star className="size-3.5 fill-amber-400/50 text-amber-400" />}
       <span className="ml-1 text-sm font-medium text-stone-700">{rating.toFixed(1)}</span>
     </span>
   );
@@ -222,11 +222,11 @@ export default function DirectoryPage() {
   return (
     <div className="bg-stone-50 min-h-screen">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 py-14 text-center text-white sm:py-20">
+      <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
           California FQHC Directory
         </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-base text-violet-100/80 sm:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-base text-teal-100/80 sm:text-lg">
           Explore {californiaFQHCs.length} Federally Qualified Health Centers
           across California — with staff data, Glassdoor ratings, ECM status, and
           an interactive map.
@@ -236,26 +236,26 @@ export default function DirectoryPage() {
         <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-6 text-sm sm:text-base">
           <div className="flex flex-col items-center">
             <span className="text-2xl font-bold sm:text-3xl">{californiaFQHCs.length}</span>
-            <span className="text-violet-200">Organizations</span>
+            <span className="text-teal-200">Organizations</span>
           </div>
-          <div className="h-8 w-px bg-violet-500/50" />
+          <div className="h-8 w-px bg-teal-500/50" />
           <div className="flex flex-col items-center">
             <span className="text-2xl font-bold sm:text-3xl">{regions.length}</span>
-            <span className="text-violet-200">Regions</span>
+            <span className="text-teal-200">Regions</span>
           </div>
-          <div className="h-8 w-px bg-violet-500/50" />
+          <div className="h-8 w-px bg-teal-500/50" />
           <div className="flex flex-col items-center">
             <span className="text-2xl font-bold sm:text-3xl">
               {californiaFQHCs.reduce((sum, f) => sum + f.siteCount, 0).toLocaleString()}+
             </span>
-            <span className="text-violet-200">Health Center Sites</span>
+            <span className="text-teal-200">Health Center Sites</span>
           </div>
-          <div className="h-8 w-px bg-violet-500/50" />
+          <div className="h-8 w-px bg-teal-500/50" />
           <div className="flex flex-col items-center">
             <span className="text-2xl font-bold sm:text-3xl">
               {californiaFQHCs.filter((f) => f.ecmProvider).length}
             </span>
-            <span className="text-violet-200">ECM Providers</span>
+            <span className="text-teal-200">ECM Providers</span>
           </div>
         </div>
       </section>
@@ -270,7 +270,7 @@ export default function DirectoryPage() {
               className="flex w-full items-center justify-between p-4 text-left"
             >
               <div className="flex items-center gap-2">
-                <DollarSign className="size-5 text-violet-600" />
+                <DollarSign className="size-5 text-teal-700" />
                 <span className="font-semibold text-stone-900">FQHC Salary Ranges (California)</span>
               </div>
               {showSalary ? <ChevronUp className="size-4 text-stone-400" /> : <ChevronDown className="size-4 text-stone-400" />}
@@ -301,7 +301,7 @@ export default function DirectoryPage() {
               className="flex w-full items-center justify-between p-4 text-left"
             >
               <div className="flex items-center gap-2">
-                <Heart className="size-5 text-violet-600" />
+                <Heart className="size-5 text-teal-700" />
                 <span className="font-semibold text-stone-900">Typical FQHC Benefits</span>
               </div>
               {showBenefits ? <ChevronUp className="size-4 text-stone-400" /> : <ChevronDown className="size-4 text-stone-400" />}
@@ -311,7 +311,7 @@ export default function DirectoryPage() {
                 <div className="space-y-1.5">
                   {typicalFqhcBenefits.map((b) => (
                     <div key={b} className="flex items-start gap-2 text-sm text-stone-600">
-                      <BadgeCheck className="mt-0.5 size-3.5 shrink-0 text-violet-500" />
+                      <BadgeCheck className="mt-0.5 size-3.5 shrink-0 text-teal-500" />
                       {b}
                     </div>
                   ))}
@@ -389,7 +389,7 @@ export default function DirectoryPage() {
             onClick={() => setEcmOnly(!ecmOnly)}
             className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
               ecmOnly
-                ? "border-violet-600 bg-violet-50 text-violet-700"
+                ? "border-teal-700 bg-teal-50 text-teal-800"
                 : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
             }`}
           >
@@ -421,7 +421,7 @@ export default function DirectoryPage() {
             <button
               onClick={() => setView("cards")}
               className={`rounded-md px-2.5 py-1.5 text-sm transition-colors ${
-                view === "cards" ? "bg-violet-600 text-white" : "text-stone-500 hover:text-stone-700"
+                view === "cards" ? "bg-teal-700 text-white" : "text-stone-500 hover:text-stone-700"
               }`}
               title="Card view"
             >
@@ -430,7 +430,7 @@ export default function DirectoryPage() {
             <button
               onClick={() => setView("table")}
               className={`rounded-md px-2.5 py-1.5 text-sm transition-colors ${
-                view === "table" ? "bg-violet-600 text-white" : "text-stone-500 hover:text-stone-700"
+                view === "table" ? "bg-teal-700 text-white" : "text-stone-500 hover:text-stone-700"
               }`}
               title="Table view"
             >
@@ -439,7 +439,7 @@ export default function DirectoryPage() {
             <button
               onClick={() => setView("map")}
               className={`rounded-md px-2.5 py-1.5 text-sm transition-colors ${
-                view === "map" ? "bg-violet-600 text-white" : "text-stone-500 hover:text-stone-700"
+                view === "map" ? "bg-teal-700 text-white" : "text-stone-500 hover:text-stone-700"
               }`}
               title="Map view"
             >
@@ -495,7 +495,7 @@ export default function DirectoryPage() {
                   <thead>
                     <tr className="border-b border-stone-100 bg-stone-50/50">
                       <th
-                        className="cursor-pointer px-4 py-3 font-semibold text-stone-700 hover:text-violet-700"
+                        className="cursor-pointer px-4 py-3 font-semibold text-stone-700 hover:text-teal-800"
                         onClick={() => toggleSort("name")}
                       >
                         <span className="flex items-center gap-1">
@@ -505,7 +505,7 @@ export default function DirectoryPage() {
                       </th>
                       <th className="px-4 py-3 font-semibold text-stone-700">Location</th>
                       <th
-                        className="cursor-pointer px-4 py-3 font-semibold text-stone-700 hover:text-violet-700"
+                        className="cursor-pointer px-4 py-3 font-semibold text-stone-700 hover:text-teal-800"
                         onClick={() => toggleSort("siteCount")}
                       >
                         <span className="flex items-center gap-1">
@@ -514,7 +514,7 @@ export default function DirectoryPage() {
                         </span>
                       </th>
                       <th
-                        className="cursor-pointer px-4 py-3 font-semibold text-stone-700 hover:text-violet-700"
+                        className="cursor-pointer px-4 py-3 font-semibold text-stone-700 hover:text-teal-800"
                         onClick={() => toggleSort("patientCount")}
                       >
                         <span className="flex items-center gap-1">
@@ -523,7 +523,7 @@ export default function DirectoryPage() {
                         </span>
                       </th>
                       <th
-                        className="cursor-pointer px-4 py-3 font-semibold text-stone-700 hover:text-violet-700"
+                        className="cursor-pointer px-4 py-3 font-semibold text-stone-700 hover:text-teal-800"
                         onClick={() => toggleSort("staffCount")}
                       >
                         <span className="flex items-center gap-1">
@@ -533,7 +533,7 @@ export default function DirectoryPage() {
                       </th>
                       <th className="px-4 py-3 font-semibold text-stone-700">EHR</th>
                       <th
-                        className="cursor-pointer px-4 py-3 font-semibold text-stone-700 hover:text-violet-700"
+                        className="cursor-pointer px-4 py-3 font-semibold text-stone-700 hover:text-teal-800"
                         onClick={() => toggleSort("glassdoorRating")}
                       >
                         <span className="flex items-center gap-1">
@@ -554,14 +554,12 @@ export default function DirectoryPage() {
                         }`}
                       >
                         <td className="px-4 py-3">
-                          <a
-                            href={fqhc.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-medium text-violet-700 hover:text-violet-800 hover:underline"
+                          <Link
+                            href={`/directory/${fqhc.slug}` as "/directory"}
+                            className="font-medium text-teal-800 hover:text-teal-900 hover:underline"
                           >
                             {fqhc.name}
-                          </a>
+                          </Link>
                         </td>
                         <td className="px-4 py-3 text-stone-600">
                           {fqhc.city}, {fqhc.county}
@@ -584,7 +582,7 @@ export default function DirectoryPage() {
                         </td>
                         <td className="px-4 py-3">
                           {fqhc.ecmProvider ? (
-                            <Badge className="bg-violet-50 text-violet-700 text-xs">ECM</Badge>
+                            <Badge className="bg-teal-50 text-teal-800 text-xs">ECM</Badge>
                           ) : (
                             <span className="text-xs text-stone-400">—</span>
                           )}
@@ -631,19 +629,19 @@ export default function DirectoryPage() {
                   <div className="space-y-2">
                     {selectedFqhc.website && (
                       <div className="flex items-start gap-3">
-                        <Globe className="mt-0.5 size-4 text-violet-600 shrink-0" />
+                        <Globe className="mt-0.5 size-4 text-teal-700 shrink-0" />
                         <a
                           href={selectedFqhc.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-violet-600 hover:text-violet-700 break-all"
+                          className="text-sm text-teal-700 hover:text-teal-800 break-all"
                         >
                           {selectedFqhc.website}
                         </a>
                       </div>
                     )}
                     <div className="flex items-start gap-3">
-                      <MapPinIcon className="mt-0.5 size-4 text-violet-600 shrink-0" />
+                      <MapPinIcon className="mt-0.5 size-4 text-teal-700 shrink-0" />
                       <div className="text-sm text-stone-600">
                         {selectedFqhc.city}, {selectedFqhc.county} County
                       </div>
@@ -655,25 +653,25 @@ export default function DirectoryPage() {
                 <div className="space-y-3">
                   <h3 className="font-semibold text-stone-900">Key Statistics</h3>
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="rounded-lg bg-violet-50 p-3">
+                    <div className="rounded-lg bg-teal-50 p-3">
                       <p className="text-xs font-medium text-stone-500">Patient Count</p>
                       <p className="mt-1 text-sm font-semibold text-stone-900">
                         {selectedFqhc.patientCount}
                       </p>
                     </div>
-                    <div className="rounded-lg bg-emerald-50 p-3">
+                    <div className="rounded-lg bg-amber-50 p-3">
                       <p className="text-xs font-medium text-stone-500">Staff Count</p>
                       <p className="mt-1 text-sm font-semibold text-stone-900">
                         {selectedFqhc.staffCount}
                       </p>
                     </div>
-                    <div className="rounded-lg bg-violet-50 p-3">
+                    <div className="rounded-lg bg-teal-50 p-3">
                       <p className="text-xs font-medium text-stone-500">Health Center Sites</p>
                       <p className="mt-1 text-sm font-semibold text-stone-900">
                         {selectedFqhc.siteCount}
                       </p>
                     </div>
-                    <div className="rounded-lg bg-emerald-50 p-3">
+                    <div className="rounded-lg bg-amber-50 p-3">
                       <p className="text-xs font-medium text-stone-500">Glassdoor Rating</p>
                       <p className="mt-1 text-sm font-semibold text-stone-900">
                         <StarRating rating={selectedFqhc.glassdoorRating} />
@@ -699,13 +697,13 @@ export default function DirectoryPage() {
                       {selectedFqhc.ehrSystem}
                     </Badge>
                     {selectedFqhc.ecmProvider && (
-                      <Badge className="bg-violet-50 text-violet-700">
+                      <Badge className="bg-teal-50 text-teal-800">
                         <Shield className="mr-0.5 size-3" />
                         ECM Provider
                       </Badge>
                     )}
                     {selectedFqhc.nhscApproved && (
-                      <Badge className="bg-emerald-50 text-emerald-700">
+                      <Badge className="bg-amber-50 text-amber-700">
                         <GraduationCap className="mr-0.5 size-3" />
                         NHSC Approved
                       </Badge>
@@ -718,7 +716,7 @@ export default function DirectoryPage() {
                   <h3 className="font-semibold text-stone-900">Programs Offered</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedFqhc.programs.map((prog) => (
-                      <Badge key={prog} className="bg-violet-50 text-violet-700">
+                      <Badge key={prog} className="bg-teal-50 text-teal-800">
                         {prog}
                       </Badge>
                     ))}
@@ -727,7 +725,7 @@ export default function DirectoryPage() {
 
                 {/* Career Assessment CTA */}
                 <div className="border-t border-stone-100 pt-6">
-                  <div className="rounded-xl bg-gradient-to-br from-violet-50 to-emerald-50 p-6 border border-violet-200">
+                  <div className="rounded-xl bg-gradient-to-br from-teal-50 to-amber-50 p-6 border border-teal-200">
                     <h3 className="font-semibold text-stone-900 text-lg mb-2">
                       Find Your Role Here
                     </h3>
@@ -735,7 +733,7 @@ export default function DirectoryPage() {
                       Take a quick 5-question career screener to see how well you match with {selectedFqhc.name} and get personalized role suggestions.
                     </p>
                     <Button
-                      className="w-full bg-gradient-to-r from-violet-600 to-emerald-600 text-white hover:shadow-lg"
+                      className="w-full bg-gradient-to-r from-teal-700 to-amber-600 text-white hover:shadow-lg"
                       onClick={() => {
                         setDetailsOpen(false);
                         setShowAssessment(true);
@@ -744,6 +742,19 @@ export default function DirectoryPage() {
                       Take Career Screener <ArrowRight className="ml-2 size-4" />
                     </Button>
                   </div>
+                </div>
+
+                {/* View Full Profile Link */}
+                <div className="border-t border-stone-100 pt-4">
+                  <Button
+                    variant="outline"
+                    className="w-full border-teal-200 text-teal-700 hover:bg-teal-50"
+                    asChild
+                  >
+                    <Link href={`/directory/${selectedFqhc.slug}` as "/directory"}>
+                      View Full Profile <ArrowRight className="ml-2 size-4" />
+                    </Link>
+                  </Button>
                 </div>
 
                 {/* Job Listings */}
@@ -759,16 +770,16 @@ export default function DirectoryPage() {
                             className="rounded-lg border border-stone-200 bg-stone-50 p-4"
                           >
                             <div className="flex items-start gap-3">
-                              <Briefcase className="mt-0.5 size-4 text-violet-600 shrink-0" />
+                              <Briefcase className="mt-0.5 size-4 text-teal-700 shrink-0" />
                               <div className="flex-1">
                                 <h4 className="font-semibold text-stone-900">{job.title}</h4>
                                 <div className="mt-1 flex flex-wrap items-center gap-2">
-                                  <span className="text-sm font-medium text-violet-700">
+                                  <span className="text-sm font-medium text-teal-800">
                                     ${(job.salaryMin / 1000).toFixed(0)}k – ${(job.salaryMax / 1000).toFixed(0)}k
                                   </span>
                                   <Badge className="bg-stone-100 text-stone-600 text-xs">{job.type}</Badge>
                                   {job.bilingual && (
-                                    <Badge className="bg-emerald-50 text-emerald-700 text-xs">Bilingual</Badge>
+                                    <Badge className="bg-amber-50 text-amber-700 text-xs">Bilingual</Badge>
                                   )}
                                 </div>
                                 <p className="mt-1.5 text-xs text-stone-500">{job.department}</p>
@@ -777,7 +788,7 @@ export default function DirectoryPage() {
                             <div className="mt-3">
                               <Button
                                 size="sm"
-                                className="w-full bg-emerald-500 text-stone-900 hover:bg-emerald-400"
+                                className="w-full bg-amber-500 text-stone-900 hover:bg-amber-400"
                                 onClick={() => {
                                   setDetailsOpen(false);
                                   setShowAssessment(true);
@@ -794,10 +805,10 @@ export default function DirectoryPage() {
                             className="rounded-lg border border-stone-200 bg-stone-50 p-4"
                           >
                             <div className="flex items-start gap-3">
-                              <Briefcase className="mt-0.5 size-4 text-violet-600 shrink-0" />
+                              <Briefcase className="mt-0.5 size-4 text-teal-700 shrink-0" />
                               <div className="flex-1">
                                 <h4 className="font-semibold text-stone-900">{job.title}</h4>
-                                <p className="mt-1 text-sm font-medium text-violet-700">
+                                <p className="mt-1 text-sm font-medium text-teal-800">
                                   ${(job.salaryMin / 1000).toFixed(0)}k – ${(job.salaryMax / 1000).toFixed(0)}k
                                 </p>
                               </div>
@@ -805,7 +816,7 @@ export default function DirectoryPage() {
                             <div className="mt-3">
                               <Button
                                 size="sm"
-                                className="w-full bg-emerald-500 text-stone-900 hover:bg-emerald-400"
+                                className="w-full bg-amber-500 text-stone-900 hover:bg-amber-400"
                                 onClick={() => {
                                   setDetailsOpen(false);
                                   setShowAssessment(true);
@@ -826,7 +837,7 @@ export default function DirectoryPage() {
                   <div className="space-y-2">
                     {typicalFqhcBenefits.slice(0, 5).map((b) => (
                       <div key={b} className="flex items-start gap-2 text-sm text-stone-600">
-                        <BadgeCheck className="mt-0.5 size-3.5 shrink-0 text-emerald-500" />
+                        <BadgeCheck className="mt-0.5 size-3.5 shrink-0 text-amber-500" />
                         {b}
                       </div>
                     ))}
@@ -838,7 +849,7 @@ export default function DirectoryPage() {
                   {selectedFqhc.careersUrl && (
                     <Button
                       variant="outline"
-                      className="w-full border-violet-300 text-violet-700 hover:bg-violet-50"
+                      className="w-full border-teal-300 text-teal-800 hover:bg-teal-50"
                       asChild
                     >
                       <a href={selectedFqhc.careersUrl} target="_blank" rel="noopener noreferrer">
@@ -875,18 +886,18 @@ export default function DirectoryPage() {
         )}
 
         {/* CTA */}
-        <div className="mt-16 rounded-2xl bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 p-8 sm:p-12 text-center text-white">
+        <div className="mt-16 rounded-2xl bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 p-8 sm:p-12 text-center text-white">
           <h2 className="text-2xl font-bold sm:text-3xl">
             Ready to Join the Network?
           </h2>
-          <p className="mx-auto mt-3 max-w-lg text-violet-100/80 sm:text-lg">
+          <p className="mx-auto mt-3 max-w-lg text-teal-100/80 sm:text-lg">
             Whether you&apos;re a health professional looking for your next role or an
             FQHC with positions to fill, we&apos;re here to connect you.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
               size="lg"
-              className="bg-emerald-500 text-stone-900 shadow-lg hover:bg-emerald-400"
+              className="bg-amber-500 text-stone-900 shadow-lg hover:bg-amber-400"
               asChild
             >
               <Link href="/join">
@@ -916,17 +927,17 @@ function FQHCCard({
   onViewDetails?: () => void;
 }) {
   return (
-    <div className="flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-violet-300 cursor-pointer group"
+    <div className="flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-teal-300 cursor-pointer group"
       onClick={onViewDetails}
     >
       <div>
         {/* Header with ECM badge */}
         <div className="flex items-start justify-between gap-2">
-          <h3 className="text-lg font-semibold text-stone-900 leading-tight group-hover:text-violet-700 transition-colors">
+          <h3 className="text-lg font-semibold text-stone-900 leading-tight group-hover:text-teal-800 transition-colors">
             {fqhc.name}
           </h3>
           {fqhc.ecmProvider && (
-            <Badge className="shrink-0 bg-violet-50 text-violet-700 text-xs">
+            <Badge className="shrink-0 bg-teal-50 text-teal-800 text-xs">
               <Shield className="mr-0.5 size-3" /> ECM
             </Badge>
           )}
@@ -947,11 +958,11 @@ function FQHCCard({
 
         {/* Key Stats Grid */}
         <div className="mt-3 grid grid-cols-2 gap-2">
-          <div className="rounded-lg bg-violet-50 px-2 py-1.5">
+          <div className="rounded-lg bg-teal-50 px-2 py-1.5">
             <p className="text-xs font-medium text-stone-500">Patients</p>
             <p className="text-sm font-semibold text-stone-900">{fqhc.patientCount}</p>
           </div>
-          <div className="rounded-lg bg-emerald-50 px-2 py-1.5">
+          <div className="rounded-lg bg-amber-50 px-2 py-1.5">
             <p className="text-xs font-medium text-stone-500">Staff</p>
             <p className="text-sm font-semibold text-stone-900">{fqhc.staffCount}</p>
           </div>
@@ -972,7 +983,7 @@ function FQHCCard({
           {fqhc.programs.slice(0, 2).map((prog) => (
             <Badge
               key={prog}
-              className="bg-violet-50 text-violet-700 text-xs"
+              className="bg-teal-50 text-teal-800 text-xs"
             >
               {prog}
             </Badge>
@@ -992,7 +1003,7 @@ function FQHCCard({
             e.stopPropagation();
             onViewDetails?.();
           }}
-          className="flex-1 text-sm font-medium text-violet-600 hover:text-violet-700 transition-colors text-left"
+          className="flex-1 text-sm font-medium text-teal-700 hover:text-teal-800 transition-colors text-left"
         >
           View Details <ArrowRight className="ml-1 inline size-3" />
         </button>

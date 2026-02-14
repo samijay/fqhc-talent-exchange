@@ -229,7 +229,7 @@ export default function CareerAssessment({
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-violet-900">Career Screener</h1>
+            <h1 className="text-3xl font-bold text-teal-950">Career Screener</h1>
             <p className="mt-2 text-stone-600">{fqhcName}</p>
           </div>
 
@@ -240,7 +240,7 @@ export default function CareerAssessment({
               <span className="text-sm text-stone-600">20% complete</span>
             </div>
             <div className="h-2 bg-stone-200 rounded-full overflow-hidden">
-              <div className="h-full w-1/5 bg-gradient-to-r from-violet-500 to-emerald-500 transition-all duration-500"></div>
+              <div className="h-full w-1/5 bg-gradient-to-r from-teal-500 to-amber-500 transition-all duration-500"></div>
             </div>
           </div>
 
@@ -261,18 +261,18 @@ export default function CareerAssessment({
                     onClick={() => handleRoleSelect(role.id)}
                     className={`p-6 rounded-xl border-2 transition-all duration-200 ${
                       isSelected
-                        ? 'border-violet-500 bg-violet-50 shadow-lg'
+                        ? 'border-teal-500 bg-teal-50 shadow-lg'
                         : 'border-stone-200 bg-white hover:border-stone-300 hover:shadow-md'
                     }`}
                   >
                     <Icon
                       className={`w-8 h-8 mx-auto mb-3 ${
-                        isSelected ? 'text-violet-600' : 'text-stone-400'
+                        isSelected ? 'text-teal-700' : 'text-stone-400'
                       }`}
                     />
                     <p
                       className={`text-sm font-medium text-center ${
-                        isSelected ? 'text-violet-900' : 'text-stone-700'
+                        isSelected ? 'text-teal-950' : 'text-stone-700'
                       }`}
                     >
                       {role.label}
@@ -294,7 +294,7 @@ export default function CareerAssessment({
             <button
               onClick={handleNext}
               disabled={!isStepValid()}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-600 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal-700 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
               Next <ChevronRight className="w-5 h-5" />
             </button>
@@ -319,7 +319,7 @@ export default function CareerAssessment({
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-violet-900">Career Screener</h1>
+            <h1 className="text-3xl font-bold text-teal-950">Career Screener</h1>
             <p className="mt-2 text-stone-600">{fqhcName}</p>
           </div>
 
@@ -330,7 +330,7 @@ export default function CareerAssessment({
               <span className="text-sm text-stone-600">40% complete</span>
             </div>
             <div className="h-2 bg-stone-200 rounded-full overflow-hidden">
-              <div className="h-full w-2/5 bg-gradient-to-r from-violet-500 to-emerald-500 transition-all duration-500"></div>
+              <div className="h-full w-2/5 bg-gradient-to-r from-teal-500 to-amber-500 transition-all duration-500"></div>
             </div>
           </div>
 
@@ -350,7 +350,7 @@ export default function CareerAssessment({
                     onClick={() => handleExperienceSelect(option)}
                     className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-200 ${
                       isSelected
-                        ? 'border-violet-500 bg-violet-50'
+                        ? 'border-teal-500 bg-teal-50'
                         : 'border-stone-200 bg-white hover:border-stone-300'
                     }`}
                   >
@@ -358,7 +358,7 @@ export default function CareerAssessment({
                       <div
                         className={`w-5 h-5 rounded-full border-2 mr-4 flex items-center justify-center ${
                           isSelected
-                            ? 'border-violet-500 bg-violet-500'
+                            ? 'border-teal-500 bg-teal-500'
                             : 'border-stone-300'
                         }`}
                       >
@@ -366,7 +366,7 @@ export default function CareerAssessment({
                       </div>
                       <span
                         className={`font-medium ${
-                          isSelected ? 'text-violet-900' : 'text-stone-700'
+                          isSelected ? 'text-teal-950' : 'text-stone-700'
                         }`}
                       >
                         {option}
@@ -389,7 +389,7 @@ export default function CareerAssessment({
             <button
               onClick={handleNext}
               disabled={!isStepValid()}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-600 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal-700 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
               Next <ChevronRight className="w-5 h-5" />
             </button>
@@ -406,7 +406,7 @@ export default function CareerAssessment({
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-violet-900">Career Screener</h1>
+            <h1 className="text-3xl font-bold text-teal-950">Career Screener</h1>
             <p className="mt-2 text-stone-600">{fqhcName}</p>
           </div>
 
@@ -417,7 +417,7 @@ export default function CareerAssessment({
               <span className="text-sm text-stone-600">60% complete</span>
             </div>
             <div className="h-2 bg-stone-200 rounded-full overflow-hidden">
-              <div className="h-full w-3/5 bg-gradient-to-r from-violet-500 to-emerald-500 transition-all duration-500"></div>
+              <div className="h-full w-3/5 bg-gradient-to-r from-teal-500 to-amber-500 transition-all duration-500"></div>
             </div>
           </div>
 
@@ -439,7 +439,7 @@ export default function CareerAssessment({
                     onClick={() => handleEhrToggle(ehr)}
                     className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-200 ${
                       isSelected
-                        ? 'border-emerald-500 bg-emerald-50'
+                        ? 'border-amber-500 bg-amber-50'
                         : 'border-stone-200 bg-white hover:border-stone-300'
                     }`}
                   >
@@ -448,7 +448,7 @@ export default function CareerAssessment({
                         <div
                           className={`w-5 h-5 rounded border-2 flex items-center justify-center ${
                             isSelected
-                              ? 'border-emerald-500 bg-emerald-500'
+                              ? 'border-amber-500 bg-amber-500'
                               : 'border-stone-300'
                           }`}
                         >
@@ -456,14 +456,14 @@ export default function CareerAssessment({
                         </div>
                         <span
                           className={`font-medium ${
-                            isSelected ? 'text-emerald-900' : 'text-stone-700'
+                            isSelected ? 'text-amber-900' : 'text-stone-700'
                           }`}
                         >
                           {ehr}
                         </span>
                       </div>
                       {isOrgEhr && (
-                        <span className="inline-block px-3 py-1 bg-emerald-200 text-emerald-800 text-xs font-semibold rounded-full">
+                        <span className="inline-block px-3 py-1 bg-amber-200 text-amber-800 text-xs font-semibold rounded-full">
                           This org uses
                         </span>
                       )}
@@ -489,7 +489,7 @@ export default function CareerAssessment({
             </button>
             <button
               onClick={handleNext}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-600 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal-700 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200"
             >
               Next <ChevronRight className="w-5 h-5" />
             </button>
@@ -506,7 +506,7 @@ export default function CareerAssessment({
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-violet-900">Career Screener</h1>
+            <h1 className="text-3xl font-bold text-teal-950">Career Screener</h1>
             <p className="mt-2 text-stone-600">{fqhcName}</p>
           </div>
 
@@ -517,7 +517,7 @@ export default function CareerAssessment({
               <span className="text-sm text-stone-600">80% complete</span>
             </div>
             <div className="h-2 bg-stone-200 rounded-full overflow-hidden">
-              <div className="h-full w-4/5 bg-gradient-to-r from-violet-500 to-emerald-500 transition-all duration-500"></div>
+              <div className="h-full w-4/5 bg-gradient-to-r from-teal-500 to-amber-500 transition-all duration-500"></div>
             </div>
           </div>
 
@@ -543,7 +543,7 @@ export default function CareerAssessment({
                     onClick={() => handleProgramToggle(program.id)}
                     className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-200 ${
                       isSelected
-                        ? 'border-emerald-500 bg-emerald-50'
+                        ? 'border-amber-500 bg-amber-50'
                         : 'border-stone-200 bg-white hover:border-stone-300'
                     }`}
                   >
@@ -552,7 +552,7 @@ export default function CareerAssessment({
                         <div
                           className={`w-5 h-5 rounded border-2 flex items-center justify-center ${
                             isSelected
-                              ? 'border-emerald-500 bg-emerald-500'
+                              ? 'border-amber-500 bg-amber-500'
                               : 'border-stone-300'
                           }`}
                         >
@@ -560,14 +560,14 @@ export default function CareerAssessment({
                         </div>
                         <span
                           className={`font-medium ${
-                            isSelected ? 'text-emerald-900' : 'text-stone-700'
+                            isSelected ? 'text-amber-900' : 'text-stone-700'
                           }`}
                         >
                           {program.label}
                         </span>
                       </div>
                       {isOrgProgram && (
-                        <span className="inline-block px-3 py-1 bg-violet-200 text-violet-800 text-xs font-semibold rounded-full">
+                        <span className="inline-block px-3 py-1 bg-teal-200 text-teal-900 text-xs font-semibold rounded-full">
                           This org runs
                         </span>
                       )}
@@ -593,7 +593,7 @@ export default function CareerAssessment({
             </button>
             <button
               onClick={handleNext}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-600 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal-700 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200"
             >
               Next <ChevronRight className="w-5 h-5" />
             </button>
@@ -612,7 +612,7 @@ export default function CareerAssessment({
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-violet-900">Career Screener</h1>
+            <h1 className="text-3xl font-bold text-teal-950">Career Screener</h1>
             <p className="mt-2 text-stone-600">{fqhcName}</p>
           </div>
 
@@ -623,7 +623,7 @@ export default function CareerAssessment({
               <span className="text-sm text-stone-600">100% complete</span>
             </div>
             <div className="h-2 bg-stone-200 rounded-full overflow-hidden">
-              <div className="h-full w-full bg-gradient-to-r from-violet-500 to-emerald-500 transition-all duration-500"></div>
+              <div className="h-full w-full bg-gradient-to-r from-teal-500 to-amber-500 transition-all duration-500"></div>
             </div>
           </div>
 
@@ -641,7 +641,7 @@ export default function CareerAssessment({
                     onClick={() => handleBilingualSelect(option)}
                     className={`w-full p-4 text-left rounded-lg border-2 transition-all duration-200 ${
                       isSelected
-                        ? 'border-violet-500 bg-violet-50'
+                        ? 'border-teal-500 bg-teal-50'
                         : 'border-stone-200 bg-white hover:border-stone-300'
                     }`}
                   >
@@ -649,7 +649,7 @@ export default function CareerAssessment({
                       <div
                         className={`w-5 h-5 rounded-full border-2 mr-4 flex items-center justify-center ${
                           isSelected
-                            ? 'border-violet-500 bg-violet-500'
+                            ? 'border-teal-500 bg-teal-500'
                             : 'border-stone-300'
                         }`}
                       >
@@ -657,7 +657,7 @@ export default function CareerAssessment({
                       </div>
                       <span
                         className={`font-medium ${
-                          isSelected ? 'text-violet-900' : 'text-stone-700'
+                          isSelected ? 'text-teal-950' : 'text-stone-700'
                         }`}
                       >
                         {option}
@@ -685,7 +685,7 @@ export default function CareerAssessment({
             <button
               onClick={handleNext}
               disabled={!isStepValid()}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-violet-600 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal-700 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
               See Your Results <ChevronRight className="w-5 h-5" />
             </button>
@@ -729,10 +729,10 @@ export default function CareerAssessment({
             {/* Success Message */}
             <div className="text-center py-16">
               <div className="mx-auto mb-6">
-                <CheckCircle className="w-20 h-20 text-emerald-500 mx-auto" />
+                <CheckCircle className="w-20 h-20 text-amber-500 mx-auto" />
               </div>
 
-              <h1 className="text-4xl font-bold text-emerald-900 mb-4">You're on the waitlist!</h1>
+              <h1 className="text-4xl font-bold text-amber-900 mb-4">You're on the waitlist!</h1>
 
               <p className="text-lg text-stone-600 max-w-2xl mx-auto mb-8">
                 Thanks for completing the career screener. We've added you to {fqhcName}'s
@@ -744,7 +744,7 @@ export default function CareerAssessment({
 
               <button
                 onClick={onClose}
-                className="px-8 py-3 bg-gradient-to-r from-violet-600 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200"
+                className="px-8 py-3 bg-gradient-to-r from-teal-700 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200"
               >
                 Close
               </button>
@@ -759,12 +759,12 @@ export default function CareerAssessment({
         <div className="mx-auto max-w-4xl">
           {/* Header */}
           <div className="mb-12">
-            <h1 className="text-4xl font-bold text-violet-900 mb-2">Your Career Match</h1>
+            <h1 className="text-4xl font-bold text-teal-950 mb-2">Your Career Match</h1>
             <p className="text-lg text-stone-600">{fqhcName}</p>
           </div>
 
           {/* Match Score */}
-          <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-t-4 border-emerald-500">
+          <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-t-4 border-amber-500">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-stone-600 text-lg mb-2">Match Score</p>
@@ -773,7 +773,7 @@ export default function CareerAssessment({
                 </p>
               </div>
               <div className="text-right">
-                <div className="text-6xl font-bold text-emerald-600">{matchScore}%</div>
+                <div className="text-6xl font-bold text-amber-600">{matchScore}%</div>
                 <p className="text-stone-600 mt-2">Strong match</p>
               </div>
             </div>
@@ -788,9 +788,9 @@ export default function CareerAssessment({
                 return (
                   <div
                     key={role.id}
-                    className="p-6 bg-white rounded-lg border-2 border-violet-200 hover:border-violet-400 hover:shadow-lg transition-all duration-200"
+                    className="p-6 bg-white rounded-lg border-2 border-teal-200 hover:border-teal-400 hover:shadow-lg transition-all duration-200"
                   >
-                    <Icon className="w-10 h-10 text-violet-600 mb-4" />
+                    <Icon className="w-10 h-10 text-teal-700 mb-4" />
                     <h3 className="text-lg font-semibold text-stone-900">{role.label}</h3>
                     <p className="text-stone-600 text-sm mt-2">
                       A great fit based on your background and interests
@@ -802,7 +802,7 @@ export default function CareerAssessment({
           </div>
 
           {/* Waitlist Form */}
-          <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-t-4 border-violet-500">
+          <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-t-4 border-teal-500">
             <h2 className="text-2xl font-semibold text-stone-900 mb-6">
               Join the Waitlist & Get Matched
             </h2>
@@ -817,7 +817,7 @@ export default function CareerAssessment({
                   type="text"
                   value={waitlistName}
                   onChange={(e) => setWaitlistName(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-violet-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-teal-500 transition-colors"
                   placeholder="Jane Doe"
                 />
               </div>
@@ -831,7 +831,7 @@ export default function CareerAssessment({
                   type="email"
                   value={waitlistEmail}
                   onChange={(e) => setWaitlistEmail(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-violet-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-teal-500 transition-colors"
                   placeholder="jane@example.com"
                 />
               </div>
@@ -842,7 +842,7 @@ export default function CareerAssessment({
             <button
               onClick={handleWaitlistSubmit}
               disabled={isSubmitting}
-              className="w-full px-6 py-3 bg-gradient-to-r from-violet-600 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+              className="w-full px-6 py-3 bg-gradient-to-r from-teal-700 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
               {isSubmitting ? 'Submitting...' : 'Join Waitlist'}
             </button>

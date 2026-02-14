@@ -1,0 +1,371 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Building2,
+  ExternalLink,
+  Globe,
+  MapPin,
+  Star,
+  Users,
+  Briefcase,
+  Heart,
+  CheckCircle2,
+  Shield,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { californiaFQHCs, fqhcSalaryRanges, typicalFqhcBenefits } from "@/lib/california-fqhcs";
+import { fqhcJobListings } from "@/lib/fqhc-job-listings";
+
+/* ------------------------------------------------------------------ */
+/*  Static Params                                                      */
+/* ------------------------------------------------------------------ */
+
+export async function generateStaticParams() {
+  return californiaFQHCs.map((fqhc) => ({ slug: fqhc.slug }));
+}
+
+/* ------------------------------------------------------------------ */
+/*  Metadata                                                           */
+/* ------------------------------------------------------------------ */
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const fqhc = californiaFQHCs.find((f) => f.slug === slug);
+  if (!fqhc) return { title: "Not Found" };
+
+  return {
+    title: `${fqhc.name} Jobs & Salaries | FQHC Talent Exchange`,
+    description: `View open positions, salary ranges, programs, and employee ratings at ${fqhc.name} in ${fqhc.city}, California. ${fqhc.description}`,
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/*  Helpers                                                            */
+/* ------------------------------------------------------------------ */
+
+function formatSalary(n: number): string {
+  return `$${(n / 1000).toFixed(0)}k`;
+}
+
+function formatCount(s: string): string {
+  return s.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+/* ------------------------------------------------------------------ */
+/*  Page Component                                                     */
+/* ------------------------------------------------------------------ */
+
+export default async function FQHCProfilePage({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: string }>;
+}) {
+  const { slug } = await params;
+  const fqhc = californiaFQHCs.find((f) => f.slug === slug);
+  if (!fqhc) notFound();
+
+  const t = await getTranslations("directory");
+  const jobs = fqhcJobListings.filter((j) => j.fqhcSlug === slug);
+
+  return (
+    <div className="bg-stone-50">
+      {/* ==================== HERO ==================== */}
+      <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-12 text-white sm:py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          {/* Back link */}
+          <Link
+            href="/directory"
+            className="mb-6 inline-flex items-center gap-1.5 text-sm text-teal-200 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="size-4" />
+            {t("backToDirectory")}
+          </Link>
+
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                {fqhc.name}
+              </h1>
+              <div className="mt-2 flex flex-wrap items-center gap-3 text-teal-100">
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin className="size-4" />
+                  {fqhc.city}, {fqhc.county} County
+                </span>
+                <span className="inline-flex items-center gap-1.5">
+                  <Building2 className="size-4" />
+                  {fqhc.region}
+                </span>
+              </div>
+
+              {/* Badges */}
+              <div className="mt-4 flex flex-wrap gap-2">
+                {fqhc.ecmProvider && (
+                  <Badge className="border-amber-400/30 bg-amber-500/20 text-amber-100">
+                    ECM Provider
+                  </Badge>
+                )}
+                {fqhc.nhscApproved && (
+                  <Badge className="border-teal-300/30 bg-teal-400/20 text-teal-100">
+                    <Shield className="mr-1 size-3" />
+                    {t("nhscApproved")}
+                  </Badge>
+                )}
+              </div>
+            </div>
+
+            {/* Glassdoor rating */}
+            {fqhc.glassdoorRating && (
+              <div className="rounded-xl bg-white/10 px-5 py-3 text-center backdrop-blur">
+                <div className="flex items-center gap-1.5">
+                  <Star className="size-5 fill-amber-400 text-amber-400" />
+                  <span className="text-2xl font-bold">{fqhc.glassdoorRating.toFixed(1)}</span>
+                </div>
+                <p className="mt-0.5 text-xs text-teal-200">
+                  {t("glassdoorRating")}
+                  {fqhc.glassdoorReviewCount && (
+                    <> ({fqhc.glassdoorReviewCount} {t("reviews")})</>
+                  )}
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== STATS BAR ==================== */}
+      <section className="border-b border-stone-200 bg-white">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 divide-x divide-stone-200 sm:grid-cols-4">
+          <div className="flex flex-col items-center py-6">
+            <span className="text-2xl font-bold text-stone-900">{fqhc.siteCount}</span>
+            <span className="text-sm text-stone-500">{t("sites")}</span>
+          </div>
+          <div className="flex flex-col items-center py-6">
+            <span className="text-2xl font-bold text-stone-900">{formatCount(fqhc.patientCount)}</span>
+            <span className="text-sm text-stone-500">{t("patients")}</span>
+          </div>
+          <div className="flex flex-col items-center py-6">
+            <span className="text-2xl font-bold text-stone-900">{formatCount(fqhc.staffCount)}</span>
+            <span className="text-sm text-stone-500">{t("staff")}</span>
+          </div>
+          <div className="flex flex-col items-center py-6">
+            <span className="text-2xl font-bold text-stone-900">{jobs.length}</span>
+            <span className="text-sm text-stone-500">{t("openPositions")}</span>
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-3">
+          {/* ==================== LEFT COLUMN (2/3) ==================== */}
+          <div className="space-y-8 lg:col-span-2">
+            {/* About */}
+            <div className="rounded-xl border border-stone-200 bg-white p-6">
+              <h2 className="text-lg font-bold text-stone-900">{t("aboutOrg")} {fqhc.name}</h2>
+              <p className="mt-3 leading-relaxed text-stone-600">{fqhc.description}</p>
+            </div>
+
+            {/* Programs */}
+            {fqhc.programs.length > 0 && (
+              <div className="rounded-xl border border-stone-200 bg-white p-6">
+                <h2 className="text-lg font-bold text-stone-900">{t("programs")}</h2>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {fqhc.programs.map((program) => (
+                    <Badge
+                      key={program}
+                      variant="secondary"
+                      className="bg-teal-50 text-teal-800"
+                    >
+                      {program}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Open Positions */}
+            <div className="rounded-xl border border-stone-200 bg-white p-6">
+              <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+                <Briefcase className="size-5" />
+                {t("openPositions")} ({jobs.length})
+              </h2>
+
+              {jobs.length === 0 ? (
+                <p className="mt-4 text-stone-500">{t("noOpenPositions")}</p>
+              ) : (
+                <div className="mt-4 space-y-4">
+                  {jobs.map((job) => (
+                    <div
+                      key={job.id}
+                      className="rounded-lg border border-stone-200 p-4 transition-colors hover:border-teal-200 hover:bg-teal-50/30"
+                    >
+                      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                        <div>
+                          <h3 className="font-semibold text-stone-900">{job.title}</h3>
+                          <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-stone-500">
+                            <span>{job.department}</span>
+                            <span>·</span>
+                            <span>{job.type}</span>
+                            <span>·</span>
+                            <span>{job.location}</span>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-sm font-semibold text-teal-700">
+                            {formatSalary(job.salaryMin)} – {formatSalary(job.salaryMax)}
+                          </span>
+                        </div>
+                      </div>
+
+                      <p className="mt-2 text-sm text-stone-600">{job.description}</p>
+
+                      <div className="mt-3 flex flex-wrap gap-1.5">
+                        {job.bilingual && (
+                          <Badge variant="secondary" className="bg-amber-50 text-amber-700 text-xs">
+                            Bilingual
+                          </Badge>
+                        )}
+                        {job.programs.map((p) => (
+                          <Badge key={p} variant="secondary" className="text-xs">
+                            {p}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Salary Ranges */}
+            <div className="rounded-xl border border-stone-200 bg-white p-6">
+              <h2 className="text-lg font-bold text-stone-900">
+                {t("salaryRangesAt", { name: fqhc.name })}
+              </h2>
+              <div className="mt-4 overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-stone-200 text-left text-stone-500">
+                      <th className="pb-2 font-medium">{t("role")}</th>
+                      <th className="pb-2 text-right font-medium">{t("range")}</th>
+                      <th className="pb-2 text-right font-medium">{t("average")}</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-stone-100">
+                    {Object.entries(fqhcSalaryRanges).map(([role, data]) => (
+                      <tr key={role}>
+                        <td className="py-2.5 font-medium text-stone-800">{role}</td>
+                        <td className="py-2.5 text-right text-stone-600">
+                          {formatSalary(data.min)} – {formatSalary(data.max)}
+                        </td>
+                        <td className="py-2.5 text-right font-semibold text-teal-700">
+                          {formatSalary(data.avg)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-3 text-xs text-stone-400">{t("salarySource")}</p>
+            </div>
+          </div>
+
+          {/* ==================== RIGHT COLUMN (1/3) ==================== */}
+          <div className="space-y-6">
+            {/* Quick Info */}
+            <div className="rounded-xl border border-stone-200 bg-white p-6">
+              <h3 className="font-semibold text-stone-900">Details</h3>
+              <dl className="mt-4 space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <dt className="text-stone-500">{t("ehrSystemLabel")}</dt>
+                  <dd className="font-medium text-stone-800">{fqhc.ehrSystem}</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="text-stone-500">{t("ecmProviderLabel")}</dt>
+                  <dd className="font-medium text-stone-800">{fqhc.ecmProvider ? "Yes" : "No"}</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt className="text-stone-500">{t("nhscApproved")}</dt>
+                  <dd className="font-medium text-stone-800">{fqhc.nhscApproved ? "Yes" : "No"}</dd>
+                </div>
+              </dl>
+
+              {/* Links */}
+              <div className="mt-6 space-y-2">
+                {fqhc.website && (
+                  <a
+                    href={fqhc.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-lg border border-stone-200 px-4 py-2.5 text-sm font-medium text-stone-700 transition-colors hover:border-teal-200 hover:bg-teal-50"
+                  >
+                    <Globe className="size-4" />
+                    {t("viewWebsite")}
+                    <ExternalLink className="ml-auto size-3.5 text-stone-400" />
+                  </a>
+                )}
+                {fqhc.careersUrl && (
+                  <a
+                    href={fqhc.careersUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-lg border border-stone-200 px-4 py-2.5 text-sm font-medium text-stone-700 transition-colors hover:border-teal-200 hover:bg-teal-50"
+                  >
+                    <Briefcase className="size-4" />
+                    {t("viewCareers")}
+                    <ExternalLink className="ml-auto size-3.5 text-stone-400" />
+                  </a>
+                )}
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <div className="rounded-xl border border-stone-200 bg-white p-6">
+              <h3 className="font-semibold text-stone-900">
+                {t("benefitsAt", { name: fqhc.name })}
+              </h3>
+              <ul className="mt-4 space-y-2">
+                {typicalFqhcBenefits.map((benefit) => (
+                  <li
+                    key={benefit}
+                    className="flex items-start gap-2 text-sm text-stone-600"
+                  >
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-teal-600" />
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CTA: Build Resume */}
+            <div className="rounded-xl border border-teal-200 bg-teal-50 p-6 text-center">
+              <Heart className="mx-auto size-8 text-teal-700" />
+              <h3 className="mt-3 font-bold text-stone-900">
+                {t("buildResumeFor", { name: fqhc.name })}
+              </h3>
+              <p className="mt-2 text-sm text-stone-600">
+                {t("buildResumeCta")}
+              </p>
+              <Button
+                className="mt-4 w-full bg-teal-700 text-white hover:bg-teal-800"
+                asChild
+              >
+                <Link href="/resume-builder">
+                  Build Resume <ArrowRight className="size-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

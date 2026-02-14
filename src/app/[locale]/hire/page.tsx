@@ -192,8 +192,8 @@ export default function HirePage() {
       <div className="bg-stone-50">
         <div className="mx-auto max-w-2xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
           <div className="rounded-2xl border border-stone-200 bg-white p-8 text-center shadow sm:p-12">
-            <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-violet-100">
-              <CheckCircle2 className="size-8 text-violet-600" />
+            <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-teal-100">
+              <CheckCircle2 className="size-8 text-teal-700" />
             </div>
 
             <h1 className="text-2xl font-bold text-stone-900 sm:text-3xl">
@@ -205,7 +205,7 @@ export default function HirePage() {
             </p>
 
             <Button
-              className="mt-10 bg-violet-600 text-white hover:bg-violet-700"
+              className="mt-10 bg-teal-700 text-white hover:bg-teal-800"
               asChild
             >
               <Link href="/">{t("backToHome")}</Link>
@@ -223,23 +223,23 @@ export default function HirePage() {
   return (
     <div className="bg-stone-50">
       {/* ---------- Hero ---------- */}
-      <section className="bg-gradient-to-br from-violet-600 via-violet-700 to-violet-800 py-14 text-center text-white sm:py-20">
+      <section className="bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 py-14 text-center text-white sm:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-5 flex size-14 items-center justify-center rounded-2xl bg-white/10 backdrop-blur">
-            <Building2 className="size-7 text-emerald-400" />
+          <div className="mx-auto mb-5 flex size-14 items-center justify-center rounded-2xl bg-amber-500/20 backdrop-blur">
+            <Building2 className="size-7 text-amber-400" />
           </div>
 
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {t("heroTitle")}
+            {t("heroTitleNew")}
           </h1>
 
-          <p className="mx-auto mt-4 max-w-xl text-base text-violet-100/80 sm:text-lg">
-            {t("heroSubtitle")}
+          <p className="mx-auto mt-4 max-w-xl text-base text-stone-300 sm:text-lg">
+            {t("heroSubtitleNew")}
           </p>
 
           {/* Live waitlist count */}
           {waitlistCount !== null && waitlistCount > 0 && (
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/20 px-4 py-2 text-sm font-medium text-violet-100">
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-500/20 px-4 py-2 text-sm font-medium text-amber-100">
               <Users className="size-4" />
               {t("liveCount", { count: waitlistCount })}
             </div>
@@ -368,7 +368,7 @@ export default function HirePage() {
                   {ROLES_NEEDED.map((role) => (
                     <label
                       key={role}
-                      className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2.5 text-sm text-stone-700 transition-colors hover:border-violet-300 hover:bg-violet-50 has-[:checked]:border-violet-500 has-[:checked]:bg-violet-50 has-[:checked]:text-violet-800"
+                      className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2.5 text-sm text-stone-700 transition-colors hover:border-teal-300 hover:bg-teal-50 has-[:checked]:border-teal-500 has-[:checked]:bg-teal-50 has-[:checked]:text-teal-900"
                     >
                       <input
                         type="checkbox"
@@ -376,7 +376,7 @@ export default function HirePage() {
                         onChange={() =>
                           toggleCheckbox(role, rolesNeeded, setRolesNeeded)
                         }
-                        className="size-4 rounded border-stone-300 text-violet-600 accent-violet-600"
+                        className="size-4 rounded border-stone-300 text-teal-700 accent-teal-700"
                       />
                       {role}
                     </label>
@@ -393,7 +393,7 @@ export default function HirePage() {
                   {PROGRAMS_ACTIVE.map((program) => (
                     <label
                       key={program}
-                      className="flex cursor-pointer items-center gap-2 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2.5 text-sm text-stone-700 transition-colors hover:border-violet-300 hover:bg-violet-50 has-[:checked]:border-violet-500 has-[:checked]:bg-violet-50 has-[:checked]:text-violet-800"
+                      className="flex cursor-pointer items-center gap-2 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2.5 text-sm text-stone-700 transition-colors hover:border-teal-300 hover:bg-teal-50 has-[:checked]:border-teal-500 has-[:checked]:bg-teal-50 has-[:checked]:text-teal-900"
                     >
                       <input
                         type="checkbox"
@@ -405,7 +405,7 @@ export default function HirePage() {
                             setProgramsActive,
                           )
                         }
-                        className="size-4 rounded border-stone-300 text-violet-600 accent-violet-600"
+                        className="size-4 rounded border-stone-300 text-teal-700 accent-teal-700"
                       />
                       {program}
                     </label>
@@ -439,7 +439,7 @@ export default function HirePage() {
                   {TIMELINE_OPTIONS.map((option) => (
                     <label
                       key={option}
-                      className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2.5 text-sm text-stone-700 transition-colors hover:border-violet-300 hover:bg-violet-50 has-[:checked]:border-violet-500 has-[:checked]:bg-violet-50 has-[:checked]:text-violet-800"
+                      className="flex cursor-pointer items-center gap-2.5 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2.5 text-sm text-stone-700 transition-colors hover:border-teal-300 hover:bg-teal-50 has-[:checked]:border-teal-500 has-[:checked]:bg-teal-50 has-[:checked]:text-teal-900"
                     >
                       <input
                         type="radio"
@@ -447,7 +447,7 @@ export default function HirePage() {
                         value={option}
                         checked={timeline === option}
                         onChange={() => setTimeline(option)}
-                        className="size-4 border-stone-300 text-violet-600 accent-violet-600"
+                        className="size-4 border-stone-300 text-teal-700 accent-teal-700"
                       />
                       {option}
                     </label>
@@ -483,7 +483,7 @@ export default function HirePage() {
               <Button
                 type="submit"
                 disabled={submitting}
-                className="w-full bg-violet-600 text-white hover:bg-violet-700 disabled:opacity-60"
+                className="w-full bg-stone-800 text-white hover:bg-stone-900 disabled:opacity-60"
                 size="lg"
               >
                 {submitting ? (
@@ -501,6 +501,14 @@ export default function HirePage() {
             </div>
           </div>
         </form>
+
+        {/* Cross-link to candidate signup */}
+        <div className="mt-8 text-center text-sm text-stone-500">
+          {t("areYouJobSeeker")}{" "}
+          <Link href="/join" className="font-medium text-teal-700 underline hover:text-teal-800">
+            {t("goToCandidateSignup")} →
+          </Link>
+        </div>
       </div>
     </div>
   );
