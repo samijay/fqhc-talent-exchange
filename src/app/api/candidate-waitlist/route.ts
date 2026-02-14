@@ -46,7 +46,7 @@ export async function POST(request: Request) {
       }
       console.error("Supabase candidate-waitlist error:", JSON.stringify(error, null, 2));
       return NextResponse.json(
-        { error: "Something went wrong. Please try again.", detail: error.message, code: error.code, hint: error.hint },
+        { error: "Something went wrong. Please try again." },
         { status: 500 }
       );
     }

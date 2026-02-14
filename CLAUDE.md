@@ -1,7 +1,7 @@
 # Memory
 
 ## Me
-Jonathan (jweingard@gmail.com), founder of FQHC Talent Exchange — a job marketplace connecting community health professionals with Federally Qualified Health Centers in California.
+Founder of FQHC Talent Exchange — a job marketplace connecting community health professionals with Federally Qualified Health Centers in California.
 
 ## Terms
 | Term | Meaning |
@@ -60,6 +60,9 @@ Jonathan (jweingard@gmail.com), founder of FQHC Talent Exchange — a job market
 | **Color Rebrand** | Done | All files | teal-700/800/900 primary, amber-500 accent, stone neutrals |
 | **Separate Signups** | Done | Header, /join, /hire, Footer | Distinct visual identity, cross-links between flows |
 | **Sitemap** | Done | `src/app/sitemap.ts` | Includes all pages + 87 FQHC profiles |
+| **Pitch Deck** | Done | `src/app/pitchdeck/route.ts` | Hidden URL at /pitchdeck, serves PPTX download |
+| **Security Hardening** | Done | API routes, CLAUDE.md | Removed PII from public files, stopped leaking DB errors to clients |
+| **CTA Cleanup** | Done | All pages | Replaced all "Apply for Early Access" with "Build Your Free Resume" sitewide |
 
 ### Data Sources
 - `src/lib/california-fqhcs.ts` (74KB) — 87 FQHCs with slug, stats, programs, EHR, Glassdoor ratings, careers URLs
