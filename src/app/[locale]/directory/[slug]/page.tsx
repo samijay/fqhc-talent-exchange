@@ -121,6 +121,12 @@ export default async function FQHCProfilePage({
                     {t("nhscApproved")}
                   </Badge>
                 )}
+                {fqhc.fundingImpactLevel === "high" && (
+                  <Badge className="border-rose-400/30 bg-rose-500/20 text-rose-100">
+                    <Heart className="mr-1 size-3" />
+                    {locale === "es" ? "Alto Riesgo de Financiamiento" : "High Funding Risk"}
+                  </Badge>
+                )}
               </div>
             </div>
 
@@ -169,6 +175,20 @@ export default async function FQHCProfilePage({
         <div className="grid gap-8 lg:grid-cols-3">
           {/* ==================== LEFT COLUMN (2/3) ==================== */}
           <div className="space-y-8 lg:col-span-2">
+            {/* Mission Statement */}
+            {fqhc.missionStatement && (
+              <div className="rounded-xl border border-teal-200 bg-gradient-to-br from-teal-50 to-white p-6">
+                <h2 className="text-lg font-bold text-stone-900">
+                  {locale === "es" ? "Misión" : "Mission"}
+                </h2>
+                <div className="mt-3 border-l-4 border-teal-600 pl-4">
+                  <p className="text-base text-stone-700 italic leading-relaxed">
+                    &ldquo;{fqhc.missionStatement}&rdquo;
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* About */}
             <div className="rounded-xl border border-stone-200 bg-white p-6">
               <h2 className="text-lg font-bold text-stone-900">{t("aboutOrg")} {fqhc.name}</h2>
@@ -346,6 +366,73 @@ export default async function FQHCProfilePage({
                 ))}
               </ul>
             </div>
+
+            {/* Funding Vulnerability */}
+            {fqhc.coverageVulnerabilityPercent !== null && (
+              <div className={`rounded-xl border p-6 ${
+                fqhc.fundingImpactLevel === "high"
+                  ? "border-rose-200 bg-rose-50"
+                  : fqhc.fundingImpactLevel === "moderate"
+                    ? "border-amber-200 bg-amber-50"
+                    : "border-stone-200 bg-stone-50"
+              }`}>
+                <h3 className="font-semibold text-stone-900">
+                  {locale === "es" ? "Vulnerabilidad de Financiamiento" : "Funding Vulnerability"}
+                </h3>
+                <div className="mt-3 space-y-3">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-stone-600">
+                      {locale === "es" ? "Pacientes en Riesgo de Cobertura" : "Patients at Coverage Risk"}
+                    </span>
+                    <span className={`text-lg font-bold ${
+                      fqhc.fundingImpactLevel === "high"
+                        ? "text-rose-700"
+                        : fqhc.fundingImpactLevel === "moderate"
+                          ? "text-amber-700"
+                          : "text-stone-600"
+                    }`}>
+                      ~{fqhc.coverageVulnerabilityPercent}%
+                    </span>
+                  </div>
+                  <div className="h-2 rounded-full bg-white/80 overflow-hidden">
+                    <div
+                      className={`h-full rounded-full ${
+                        fqhc.fundingImpactLevel === "high"
+                          ? "bg-rose-500"
+                          : fqhc.fundingImpactLevel === "moderate"
+                            ? "bg-amber-500"
+                            : "bg-stone-400"
+                      }`}
+                      style={{ width: `${fqhc.coverageVulnerabilityPercent}%` }}
+                    />
+                  </div>
+                  <Badge className={`text-xs ${
+                    fqhc.fundingImpactLevel === "high"
+                      ? "bg-rose-100 text-rose-700"
+                      : fqhc.fundingImpactLevel === "moderate"
+                        ? "bg-amber-100 text-amber-700"
+                        : "bg-stone-100 text-stone-600"
+                  }`}>
+                    {fqhc.fundingImpactLevel === "high"
+                      ? (locale === "es" ? "Alto Riesgo" : "High Risk")
+                      : fqhc.fundingImpactLevel === "moderate"
+                        ? (locale === "es" ? "Riesgo Moderado" : "Moderate Risk")
+                        : (locale === "es" ? "Riesgo Bajo" : "Low Risk")}
+                  </Badge>
+                  <p className="text-xs text-stone-500">
+                    {locale === "es"
+                      ? "Porcentaje estimado de pacientes en riesgo de perder cobertura de Medi-Cal debido a cambios en políticas."
+                      : "Estimated percentage of patients at risk of losing Medi-Cal coverage due to policy changes."}
+                  </p>
+                  <Link
+                    href="/funding-impact"
+                    className="inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
+                  >
+                    {locale === "es" ? "Ver Panel de Impacto Financiero" : "View Funding Impact Dashboard"} <ArrowRight className="size-3" />
+                  </Link>
+                </div>
+              </div>
+            )}
 
             {/* CTA: Build Resume */}
             <div className="rounded-xl border border-teal-200 bg-teal-50 p-6 text-center">

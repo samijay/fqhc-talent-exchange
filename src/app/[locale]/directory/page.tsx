@@ -204,6 +204,17 @@ export default function DirectoryPage() {
     // Empty state
     noResults: isEs ? "No hay organizaciones que coincidan con sus filtros" : "No organizations match your filters",
     noResultsHint: isEs ? "Intente ajustar su búsqueda o criterios de filtro." : "Try adjusting your search or filter criteria.",
+    // Coverage vulnerability & funding impact
+    highImpact: isEs ? "Alto Impacto" : "High Impact",
+    moderateImpact: isEs ? "Impacto Moderado" : "Moderate Impact",
+    lowImpact: isEs ? "Bajo Impacto" : "Low Impact",
+    fundingImpact: isEs ? "Vulnerabilidad de Financiamiento" : "Funding Vulnerability",
+    coverageRisk: isEs ? "Pacientes en Riesgo de Cobertura" : "Patients at Coverage Risk",
+    coverageRiskDesc: isEs
+      ? "Porcentaje estimado de pacientes en riesgo de perder cobertura de Medi-Cal debido a cambios en políticas federales y estatales"
+      : "Estimated percentage of patients at risk of losing Medi-Cal coverage due to federal and state policy changes",
+    highImpactOnly: isEs ? "Alto Riesgo de Financiamiento" : "High Funding Risk",
+    missionLabel: isEs ? "Misión" : "Mission",
     // CTA
     ctaTitle: isEs ? "¿Listo para Unirse a la Red?" : "Ready to Join the Network?",
     ctaSubtitle: isEs
@@ -218,6 +229,7 @@ export default function DirectoryPage() {
   const [ehrFilter, setEhrFilter] = useState("All EHR Systems");
   const [programFilter, setProgramFilter] = useState("All Programs");
   const [ecmOnly, setEcmOnly] = useState(false);
+  const [highImpactOnly, setHighImpactOnly] = useState(false);
   const [view, setView] = useState<ViewMode>("cards");
   const [sortKey, setSortKey] = useState<SortKey>("name");
   const [sortDir, setSortDir] = useState<SortDir>("asc");
@@ -241,6 +253,9 @@ export default function DirectoryPage() {
     }
     if (ecmOnly) {
       list = list.filter((f) => f.ecmProvider);
+    }
+    if (highImpactOnly) {
+      list = list.filter((f) => f.fundingImpactLevel === "high");
     }
     if (search.trim()) {
       const q = search.toLowerCase();
@@ -277,7 +292,7 @@ export default function DirectoryPage() {
     });
 
     return list;
-  }, [search, regionFilter, ehrFilter, programFilter, ecmOnly, sortKey, sortDir]);
+  }, [search, regionFilter, ehrFilter, programFilter, ecmOnly, highImpactOnly, sortKey, sortDir]);
 
   function toggleSort(key: SortKey) {
     if (sortKey === key) {
@@ -472,6 +487,19 @@ export default function DirectoryPage() {
           >
             <Shield className="size-3.5" />
             {t.ecmOnly}
+          </button>
+
+          {/* High Funding Impact toggle */}
+          <button
+            onClick={() => setHighImpactOnly(!highImpactOnly)}
+            className={`flex items-center justify-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
+              highImpactOnly
+                ? "border-amber-600 bg-amber-50 text-amber-800"
+                : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
+            }`}
+          >
+            <Heart className="size-3.5" />
+            {t.highImpactOnly}
           </button>
 
           {/* Sort */}
@@ -758,6 +786,18 @@ export default function DirectoryPage() {
                   </div>
                 </div>
 
+                {/* Mission Statement */}
+                {selectedFqhc.missionStatement && (
+                  <div className="space-y-2">
+                    <h3 className="font-semibold text-stone-900">{t.missionLabel}</h3>
+                    <div className="rounded-lg border-l-4 border-teal-600 bg-teal-50/50 px-4 py-3">
+                      <p className="text-sm text-stone-700 italic leading-relaxed">
+                        &ldquo;{selectedFqhc.missionStatement}&rdquo;
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 {/* About */}
                 <div className="space-y-2">
                   <h3 className="font-semibold text-stone-900">{t.about}</h3>
@@ -765,6 +805,82 @@ export default function DirectoryPage() {
                     {selectedFqhc.description}
                   </p>
                 </div>
+
+                {/* Coverage Vulnerability / Funding Risk */}
+                {selectedFqhc.coverageVulnerabilityPercent !== null && (
+                  <div className="space-y-3">
+                    <h3 className="font-semibold text-stone-900">{t.fundingImpact}</h3>
+                    <div className={`rounded-lg border p-4 ${
+                      selectedFqhc.fundingImpactLevel === "high"
+                        ? "border-rose-200 bg-rose-50"
+                        : selectedFqhc.fundingImpactLevel === "moderate"
+                          ? "border-amber-200 bg-amber-50"
+                          : "border-stone-200 bg-stone-50"
+                    }`}>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Users className={`size-4 ${
+                            selectedFqhc.fundingImpactLevel === "high"
+                              ? "text-rose-600"
+                              : selectedFqhc.fundingImpactLevel === "moderate"
+                                ? "text-amber-600"
+                                : "text-stone-500"
+                          }`} />
+                          <span className="text-sm font-medium text-stone-900">
+                            {t.coverageRisk}
+                          </span>
+                        </div>
+                        <span className={`text-lg font-bold ${
+                          selectedFqhc.fundingImpactLevel === "high"
+                            ? "text-rose-700"
+                            : selectedFqhc.fundingImpactLevel === "moderate"
+                              ? "text-amber-700"
+                              : "text-stone-600"
+                        }`}>
+                          ~{selectedFqhc.coverageVulnerabilityPercent}%
+                        </span>
+                      </div>
+                      <div className="mt-2">
+                        <div className="h-2 rounded-full bg-stone-200 overflow-hidden">
+                          <div
+                            className={`h-full rounded-full ${
+                              selectedFqhc.fundingImpactLevel === "high"
+                                ? "bg-rose-500"
+                                : selectedFqhc.fundingImpactLevel === "moderate"
+                                  ? "bg-amber-500"
+                                  : "bg-stone-400"
+                            }`}
+                            style={{ width: `${selectedFqhc.coverageVulnerabilityPercent}%` }}
+                          />
+                        </div>
+                      </div>
+                      <div className="mt-2 flex items-center gap-1.5">
+                        <Badge className={`text-xs ${
+                          selectedFqhc.fundingImpactLevel === "high"
+                            ? "bg-rose-100 text-rose-700"
+                            : selectedFqhc.fundingImpactLevel === "moderate"
+                              ? "bg-amber-100 text-amber-700"
+                              : "bg-stone-100 text-stone-600"
+                        }`}>
+                          {selectedFqhc.fundingImpactLevel === "high"
+                            ? t.highImpact
+                            : selectedFqhc.fundingImpactLevel === "moderate"
+                              ? t.moderateImpact
+                              : t.lowImpact}
+                        </Badge>
+                      </div>
+                      <p className="mt-2 text-xs text-stone-500">
+                        {t.coverageRiskDesc}
+                      </p>
+                    </div>
+                    <Link
+                      href="/funding-impact"
+                      className="inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
+                    >
+                      {isEs ? "Ver Panel de Impacto Financiero" : "View Funding Impact Dashboard"} <ArrowRight className="size-3" />
+                    </Link>
+                  </div>
+                )}
 
                 {/* EHR & Certifications */}
                 <div className="space-y-3">
@@ -1006,16 +1122,23 @@ function FQHCCard({
       onClick={onViewDetails}
     >
       <div>
-        {/* Header with ECM badge */}
+        {/* Header with badges */}
         <div className="flex items-start justify-between gap-2">
           <h3 className="text-lg font-semibold text-stone-900 leading-tight group-hover:text-teal-800 transition-colors">
             {fqhc.name}
           </h3>
-          {fqhc.ecmProvider && (
-            <Badge className="shrink-0 bg-teal-50 text-teal-800 text-xs">
-              <Shield className="mr-0.5 size-3" /> ECM
-            </Badge>
-          )}
+          <div className="flex shrink-0 flex-col items-end gap-1">
+            {fqhc.ecmProvider && (
+              <Badge className="bg-teal-50 text-teal-800 text-xs">
+                <Shield className="mr-0.5 size-3" /> ECM
+              </Badge>
+            )}
+            {fqhc.fundingImpactLevel === "high" && (
+              <Badge className="bg-amber-50 text-amber-700 text-xs">
+                <Heart className="mr-0.5 size-3" /> {isEs ? "Alto Impacto" : "High Impact"}
+              </Badge>
+            )}
+          </div>
         </div>
 
         {/* Location and Region */}
@@ -1042,6 +1165,17 @@ function FQHCCard({
             <p className="text-sm font-semibold text-stone-900">{fqhc.staffCount}</p>
           </div>
         </div>
+
+        {/* Coverage vulnerability indicator */}
+        {fqhc.coverageVulnerabilityPercent !== null && fqhc.coverageVulnerabilityPercent >= 20 && (
+          <div className="mt-2 flex items-center gap-1.5 rounded-lg bg-rose-50 px-2 py-1.5">
+            <Users className="size-3.5 text-rose-600 shrink-0" />
+            <p className="text-xs text-rose-700">
+              <span className="font-semibold">~{fqhc.coverageVulnerabilityPercent}%</span>{" "}
+              {isEs ? "pacientes en riesgo de cobertura" : "patients at coverage risk"}
+            </p>
+          </div>
+        )}
 
         {/* Glassdoor Rating */}
         <div className="mt-3">
