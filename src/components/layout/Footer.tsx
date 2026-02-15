@@ -12,6 +12,7 @@ export default function Footer() {
       { href: "/jobs" as const, label: t("browseJobs") },
       { href: "/resume-builder" as const, label: t("buildResume") },
       { href: "/join" as const, label: t("joinNetwork") },
+      { href: "/fast-track" as const, label: t("fastTrack") },
       { href: "/resources" as const, label: t("careerResources") },
     ],
     [t("forEmployers")]: [

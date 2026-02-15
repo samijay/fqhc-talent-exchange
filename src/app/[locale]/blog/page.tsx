@@ -5,6 +5,16 @@ import { useTranslations } from "next-intl";
 
 const posts = [
   {
+    slug: "laid-off-fqhc-fast-track-job-search",
+    title:
+      "Laid Off from an FQHC? Here\u2019s How to Get Rehired in 48 Hours",
+    description:
+      "Thousands of community health workers in California are being displaced by Medi-Cal funding cuts and FQHC restructuring. But many FQHCs are still hiring. Learn how the Fast-Track program can connect you to your next role in 48 hours.",
+    date: "February 15, 2026",
+    category: "Career Resources",
+    readTime: "8 min read",
+  },
+  {
     slug: "fqhc-career-insights-assessment",
     title:
       "Career Insights Assessment: A Behavioral Assessment Built for Community Health",

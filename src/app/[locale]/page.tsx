@@ -157,6 +157,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ==================== DISPLACED WORKER BANNER ==================== */}
+      <section className="bg-gradient-to-r from-amber-50 to-teal-50 border-b border-amber-200">
+        <Link
+          href="/fast-track"
+          className="group mx-auto flex max-w-4xl items-center gap-4 px-4 py-4 sm:px-6 lg:px-8"
+        >
+          <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-amber-100">
+            <Zap className="size-5 text-amber-600" />
+          </div>
+          <div className="flex-1">
+            <p className="font-bold text-stone-900 text-sm sm:text-base">
+              {t("fastTrackTitle")}
+            </p>
+            <p className="text-xs sm:text-sm text-stone-600">
+              {t("fastTrackSubtitle")}
+            </p>
+          </div>
+          <ArrowRight className="size-5 shrink-0 text-stone-400 transition-transform group-hover:translate-x-1" />
+        </Link>
+      </section>
+
       {/* ==================== WHY WE'RE DIFFERENT ==================== */}
       <section className="bg-stone-50 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
