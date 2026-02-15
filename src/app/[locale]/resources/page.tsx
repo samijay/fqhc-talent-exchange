@@ -69,6 +69,62 @@ const quickLinks = [
 
 const blogPosts = [
   {
+    slug: "laid-off-fqhc-fast-track-job-search",
+    title: "Laid Off from an FQHC? Here's How to Fast-Track Your Job Search",
+    description:
+      "Get priority matching in 48 hours with our Fast-Track program for displaced community health workers.",
+    category: "Fast-Track",
+  },
+  {
+    slug: "fqhc-career-insights-assessment",
+    title: "Discover Your FQHC Career Strengths with Our Free Assessment",
+    description:
+      "Take a 3-minute behavioral assessment to uncover your strengths across 4 key domains.",
+    category: "Assessment Tools",
+  },
+  {
+    slug: "fqhc-vs-private-practice",
+    title: "FQHC vs. Private Practice: Which Is Right for Your Career?",
+    description:
+      "Compare salary, benefits, mission, and culture to find the best fit for your healthcare career.",
+    category: "Career Resources",
+  },
+  {
+    slug: "top-10-fqhc-interview-questions",
+    title: "Top 10 FQHC Interview Questions (and How to Answer Them)",
+    description:
+      "Prepare for your FQHC interview with these common questions and expert answer strategies.",
+    category: "Interview Prep",
+  },
+  {
+    slug: "nhsc-loan-repayment-guide",
+    title: "NHSC Loan Repayment: The Complete Guide for FQHC Workers",
+    description:
+      "Everything you need to know about qualifying for up to $50,000 in student loan repayment.",
+    category: "Benefits",
+  },
+  {
+    slug: "medi-cal-funding-cuts-community-health-workers",
+    title: "Medi-Cal Funding Cuts: What Community Health Workers Need to Know in 2026",
+    description:
+      "California's Medi-Cal funding cuts are displacing thousands of community health workers.",
+    category: "Industry News",
+  },
+  {
+    slug: "what-is-enhanced-care-management-ecm",
+    title: "What Is Enhanced Care Management (ECM)? A Career Guide",
+    description:
+      "Learn what ECM is, what roles it creates, and how to land an ECM job.",
+    category: "Career Resources",
+  },
+  {
+    slug: "how-to-write-fqhc-resume",
+    title: "How to Write an FQHC Resume That Gets Noticed",
+    description:
+      "Highlight programs, EHR systems, and competencies to stand out.",
+    category: "Career Resources",
+  },
+  {
     slug: "working-at-top-of-scope-fqhc",
     title: "Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access",
     description:
@@ -81,27 +137,6 @@ const blogPosts = [
     description:
       "Explore career advancement paths at FQHCs for MAs, RNs, and providers.",
     category: "Career Growth",
-  },
-  {
-    slug: "how-to-write-fqhc-resume",
-    title: "How to Write an FQHC Resume That Gets Noticed",
-    description:
-      "Learn how to write a community health resume that highlights programs, EHR systems, and competencies.",
-    category: "Career Resources",
-  },
-  {
-    slug: "what-is-enhanced-care-management-ecm",
-    title: "What Is Enhanced Care Management (ECM)? A Career Guide",
-    description:
-      "Learn what ECM is, what roles it creates, and how to land an ECM job.",
-    category: "Career Resources",
-  },
-  {
-    slug: "medi-cal-funding-cuts-community-health-workers",
-    title: "Medi-Cal Funding Cuts: What Community Health Workers Need to Know in 2026",
-    description:
-      "California's Medi-Cal funding cuts are displacing thousands of community health workers. Here's what it means for your career.",
-    category: "Career Resources",
   },
 ];
 

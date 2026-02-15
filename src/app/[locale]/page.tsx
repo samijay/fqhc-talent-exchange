@@ -17,6 +17,7 @@ import {
   MapPin,
   Building2,
   Quote,
+  BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -372,6 +373,71 @@ export default function Home() {
             <Button variant="outline" size="lg" asChild>
               <Link href="/directory">
                 {t("viewAllFqhcs")} <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== LATEST FROM BLOG ==================== */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="mb-3 flex items-center justify-center gap-2">
+              <BookOpen className="size-6 text-teal-700" />
+              <h2 className="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+                {t("blogSectionTitle")}
+              </h2>
+            </div>
+            <p className="mt-2 text-lg text-stone-500">
+              {t("blogSectionSubtitle")}
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                slug: "laid-off-fqhc-fast-track-job-search",
+                title: "Laid Off from an FQHC? Fast-Track Your Job Search",
+                category: "Fast-Track",
+              },
+              {
+                slug: "fqhc-career-insights-assessment",
+                title: "Discover Your FQHC Career Strengths",
+                category: "Assessment",
+              },
+              {
+                slug: "fqhc-vs-private-practice",
+                title: "FQHC vs. Private Practice: Which Is Right?",
+                category: "Career Guide",
+              },
+            ].map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}` as "/blog"}
+                className="group flex flex-col rounded-2xl border border-stone-200 bg-stone-50 p-6 transition-all hover:-translate-y-1 hover:shadow-md hover:bg-white"
+              >
+                <Badge
+                  variant="secondary"
+                  className="mb-3 w-fit bg-teal-50 text-teal-700 hover:bg-teal-100"
+                >
+                  {post.category}
+                </Badge>
+                <h3 className="mb-3 font-semibold text-stone-900 leading-snug group-hover:text-teal-700">
+                  {post.title}
+                </h3>
+                <span className="mt-auto inline-flex items-center gap-1 text-sm font-medium text-teal-700">
+                  {t("blogSectionReadMore")}
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Button variant="outline" size="lg" asChild>
+              <Link href="/blog">
+                {t("blogSectionViewAll")} <ArrowRight className="size-4" />
               </Link>
             </Button>
           </div>

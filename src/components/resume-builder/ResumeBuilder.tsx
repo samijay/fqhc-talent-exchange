@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "next-intl";
 import {
   ChevronRight,
   ChevronLeft,
@@ -123,6 +124,8 @@ interface FormErrors {
 /* ------------------------------------------------------------------ */
 
 export default function ResumeBuilder() {
+  const locale = useLocale();
+
   // Upload vs build-from-scratch mode
   const [mode, setMode] = useState<"choose" | "upload" | "build">("choose");
   const [uploadedFileUrl, setUploadedFileUrl] = useState("");
@@ -1364,7 +1367,8 @@ export default function ResumeBuilder() {
             onClick={() => setStep(4)}
             className="flex items-center gap-2 px-6 py-2 font-medium text-stone-700 hover:text-stone-900"
           >
-            <ChevronLeft className="size-5" /> Back to Editing
+            <ChevronLeft className="size-5" />{" "}
+            {locale === "es" ? "Volver a Editar" : "Back to Editing"}
           </button>
           <Button
             onClick={handleDownloadPDF}
@@ -1372,7 +1376,9 @@ export default function ResumeBuilder() {
             className="flex items-center gap-2 bg-gradient-to-r from-teal-700 to-amber-600 px-6 py-3 font-semibold text-white hover:shadow-lg"
           >
             <Download className="size-5" />
-            {isDownloading ? "Generating PDF..." : "Download PDF"}
+            {isDownloading
+              ? (locale === "es" ? "Generando PDF..." : "Generating PDF...")
+              : (locale === "es" ? "Descargar PDF" : "Download PDF")}
           </Button>
         </div>
 
@@ -1385,18 +1391,22 @@ export default function ResumeBuilder() {
               </div>
               <div className="flex-1">
                 <h3 className="text-lg font-bold text-stone-900">
-                  Get Your Career Insights
+                  {locale === "es"
+                    ? "Obtén Tus Perspectivas Profesionales"
+                    : "Get Your Career Insights"}
                 </h3>
                 <p className="mt-1 text-sm text-stone-500">
-                  Take a 3-minute behavioral assessment to discover your strengths
-                  and fastest path to career growth in community health.
+                  {locale === "es"
+                    ? "Realiza una evaluación de comportamiento de 3 minutos para descubrir tus fortalezas y el camino más rápido hacia el crecimiento profesional en salud comunitaria."
+                    : "Take a 3-minute behavioral assessment to discover your strengths and fastest path to career growth in community health."}
                 </p>
               </div>
               <Button
                 onClick={() => setShowAssessment(true)}
                 className="mt-4 flex items-center gap-2 bg-gradient-to-r from-teal-700 to-amber-600 px-6 py-3 font-semibold text-white hover:shadow-lg sm:mt-0"
               >
-                Start Assessment <ArrowRight className="size-4" />
+                {locale === "es" ? "Iniciar Evaluación" : "Start Assessment"}{" "}
+                <ArrowRight className="size-4" />
               </Button>
             </div>
           </div>
@@ -1409,15 +1419,21 @@ export default function ResumeBuilder() {
               <CheckCircle className="size-6 text-teal-600" />
               <div>
                 <p className="font-semibold text-teal-800">
-                  Career Insights Complete!
+                  {locale === "es"
+                    ? "¡Perspectivas Profesionales Completas!"
+                    : "Career Insights Complete!"}
                 </p>
                 <p className="text-sm text-teal-600">
-                  Your overall score: {assessmentResults.overallScore}/100.{" "}
+                  {locale === "es"
+                    ? `Tu puntuación general: ${assessmentResults.overallScore}/100. `
+                    : `Your overall score: ${assessmentResults.overallScore}/100. `}
                   <button
                     onClick={() => setShowAssessment(true)}
                     className="font-medium underline hover:text-teal-800"
                   >
-                    View full results
+                    {locale === "es"
+                      ? "Ver resultados completos"
+                      : "View full results"}
                   </button>
                 </p>
               </div>
