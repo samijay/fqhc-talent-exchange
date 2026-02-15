@@ -682,18 +682,64 @@ function generateInsights(
   };
 }
 
+/* --- i18n helpers ------------------------------------------------- */
+
+const DOMAIN_NAMES_ES: Record<DomainId, string> = {
+  mission: "Misión y Motivación",
+  people: "Personas y Comunicación",
+  execution: "Ejecución y Adaptabilidad",
+  growth: "Mentalidad de Crecimiento",
+};
+
+const DOMAIN_DESCRIPTIONS_ES: Record<DomainId, string> = {
+  mission:
+    "Propósito, perseverancia y compromiso con comunidades desatendidas. Predice la retención y el éxito a largo plazo en FQHCs.",
+  people:
+    "Inteligencia emocional, empatía, competencia cultural y colaboración en equipo. Predice satisfacción del paciente y efectividad del equipo.",
+  execution:
+    "Resolución de problemas, manejo de complejidad, iniciativa y aprendizaje rápido. Predice desempeño en entornos dinámicos de FQHC.",
+  growth:
+    "Curiosidad, receptividad a retroalimentación, ambición profesional y resiliencia. Predice la trayectoria de desarrollo profesional.",
+};
+
+/**
+ * Returns the description for a domain.
+ * @param locale — "en" | "es" (defaults to "en")
+ */
+export function getDomainDescription(domainId: DomainId, locale?: string): string {
+  if (locale === "es") {
+    return DOMAIN_DESCRIPTIONS_ES[domainId] || "";
+  }
+  const domain = DOMAIN_DEFINITIONS.find((d) => d.id === domainId);
+  return domain?.description || "";
+}
+
+const LEVEL_LABELS_ES: Record<DomainScore["level"], string> = {
+  strength: "Fortaleza",
+  developing: "En Desarrollo",
+  growth_area: "Área de Crecimiento",
+};
+
 /**
  * Returns the display name for a domain.
+ * @param locale — "en" | "es" (defaults to "en")
  */
-export function getDomainName(domainId: DomainId): string {
+export function getDomainName(domainId: DomainId, locale?: string): string {
+  if (locale === "es") {
+    return DOMAIN_NAMES_ES[domainId] || domainId;
+  }
   const domain = DOMAIN_DEFINITIONS.find((d) => d.id === domainId);
   return domain?.name || domainId;
 }
 
 /**
  * Returns the level label for display.
+ * @param locale — "en" | "es" (defaults to "en")
  */
-export function getLevelLabel(level: DomainScore["level"]): string {
+export function getLevelLabel(level: DomainScore["level"], locale?: string): string {
+  if (locale === "es") {
+    return LEVEL_LABELS_ES[level] || level;
+  }
   switch (level) {
     case "strength":
       return "Strength";

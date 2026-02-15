@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useLocale } from "next-intl";
 import {
   ChevronRight,
   ChevronLeft,
@@ -21,10 +22,70 @@ import {
   DOMAIN_DEFINITIONS,
   calculateAssessmentResults,
   getDomainName,
+  getDomainDescription,
   getLevelLabel,
   type AssessmentResults,
   type DomainId,
 } from "@/lib/career-assessment-engine";
+
+/* ------------------------------------------------------------------ */
+/*  i18n — EN / ES UI strings                                         */
+/* ------------------------------------------------------------------ */
+
+const UI_STRINGS = {
+  en: {
+    title: "Career Insights Assessment",
+    subtitle:
+      "Take this 3-minute behavioral assessment to discover your strengths and fastest path to career growth in community health.",
+    howItWorks: "How it works",
+    bullet1: "12 scenario-based questions across 4 domains",
+    bullet2: "No right or wrong answers — just pick what fits you best",
+    bullet3: "Get a personalized report with strengths and growth areas",
+    startAssessment: "Start Assessment",
+    skipForNow: "Skip for now",
+    resultsTitle: "Your Career Insights",
+    resultsSubtitle: "Based on your responses across 4 key domains",
+    overallScore: "Overall Score",
+    topStrength: "Top Strength",
+    biggestOpportunity: "Biggest Opportunity",
+    yourStrengths: "Your Strengths",
+    growthOpportunities: "Growth Opportunities",
+    recommendedNextSteps: "Recommended Next Steps",
+    done: "Done",
+    questionOf: (current: number, total: number) =>
+      `Question ${current} of ${total}`,
+    next: "Next",
+    seeResults: "See Results",
+    back: "Back",
+    skipAssessment: "Skip assessment",
+  },
+  es: {
+    title: "Evaluación de Perspectivas Profesionales",
+    subtitle:
+      "Realiza esta evaluación de comportamiento de 3 minutos para descubrir tus fortalezas y el camino más rápido hacia el crecimiento profesional en salud comunitaria.",
+    howItWorks: "Cómo funciona",
+    bullet1: "12 preguntas basadas en escenarios en 4 dominios",
+    bullet2: "No hay respuestas correctas o incorrectas — solo elige lo que mejor te represente",
+    bullet3: "Obtén un informe personalizado con fortalezas y áreas de crecimiento",
+    startAssessment: "Iniciar Evaluación",
+    skipForNow: "Omitir por ahora",
+    resultsTitle: "Tus Perspectivas Profesionales",
+    resultsSubtitle: "Basado en tus respuestas en 4 dominios clave",
+    overallScore: "Puntuación General",
+    topStrength: "Mayor Fortaleza",
+    biggestOpportunity: "Mayor Oportunidad",
+    yourStrengths: "Tus Fortalezas",
+    growthOpportunities: "Oportunidades de Crecimiento",
+    recommendedNextSteps: "Próximos Pasos Recomendados",
+    done: "Listo",
+    questionOf: (current: number, total: number) =>
+      `Pregunta ${current} de ${total}`,
+    next: "Siguiente",
+    seeResults: "Ver Resultados",
+    back: "Atrás",
+    skipAssessment: "Omitir evaluación",
+  },
+} as const;
 
 /* ------------------------------------------------------------------ */
 /*  Props                                                               */
@@ -105,6 +166,9 @@ function seededShuffle<T>(arr: T[], seed: string): T[] {
 /* ------------------------------------------------------------------ */
 
 export default function CareerInsights({ onComplete, onSkip }: CareerInsightsProps) {
+  const locale = useLocale();
+  const t = UI_STRINGS[locale === "es" ? "es" : "en"];
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -163,11 +227,10 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
               <BarChart3 className="size-8 text-teal-700" />
             </div>
             <h2 className="text-2xl font-bold text-stone-900">
-              Career Insights Assessment
+              {t.title}
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-stone-500">
-              Take this 3-minute behavioral assessment to discover your
-              strengths and fastest path to career growth in community health.
+              {t.subtitle}
             </p>
           </div>
 
@@ -183,10 +246,10 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
                 >
                   <Icon className={`mb-2 size-5 ${colors.text}`} />
                   <p className={`text-sm font-semibold ${colors.text}`}>
-                    {domain.name}
+                    {getDomainName(domain.id, locale)}
                   </p>
                   <p className="mt-1 text-xs text-stone-500 line-clamp-2">
-                    {domain.description}
+                    {getDomainDescription(domain.id, locale)}
                   </p>
                 </div>
               );
@@ -197,11 +260,11 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
             <div className="flex items-start gap-3">
               <Lightbulb className="mt-0.5 size-5 shrink-0 text-amber-500" />
               <div className="text-sm text-stone-600">
-                <p className="font-medium text-stone-700">How it works</p>
+                <p className="font-medium text-stone-700">{t.howItWorks}</p>
                 <ul className="mt-1.5 space-y-1 text-xs">
-                  <li>12 scenario-based questions across 4 domains</li>
-                  <li>No right or wrong answers — just pick what fits you best</li>
-                  <li>Get a personalized report with strengths and growth areas</li>
+                  <li>{t.bullet1}</li>
+                  <li>{t.bullet2}</li>
+                  <li>{t.bullet3}</li>
                 </ul>
               </div>
             </div>
@@ -212,13 +275,13 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
               onClick={() => setStarted(true)}
               className="flex items-center gap-2 bg-gradient-to-r from-teal-700 to-amber-600 px-8 py-3 font-semibold text-white hover:shadow-lg"
             >
-              Start Assessment <ArrowRight className="size-4" />
+              {t.startAssessment} <ArrowRight className="size-4" />
             </Button>
             <button
               onClick={onSkip}
               className="text-sm font-medium text-stone-500 hover:text-stone-700"
             >
-              Skip for now
+              {t.skipForNow}
             </button>
           </div>
         </div>
@@ -240,10 +303,10 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
               <Trophy className="size-8 text-amber-600" />
             </div>
             <h2 className="text-2xl font-bold text-stone-900">
-              Your Career Insights
+              {t.resultsTitle}
             </h2>
             <p className="mt-2 text-sm text-stone-500">
-              Based on your responses across 4 key domains
+              {t.resultsSubtitle}
             </p>
           </div>
 
@@ -255,7 +318,7 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
               </span>
             </div>
             <p className="mt-2 text-sm font-medium text-stone-500">
-              Overall Score
+              {t.overallScore}
             </p>
           </div>
 
@@ -288,22 +351,22 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
                       </div>
                       <div>
                         <p className="text-sm font-semibold text-stone-900">
-                          {getDomainName(domainId)}
+                          {getDomainName(domainId, locale)}
                         </p>
                         <div className="flex items-center gap-2">
                           <span
                             className={`inline-block rounded-full border px-2 py-0.5 text-xs font-medium ${LEVEL_COLORS[score.level]}`}
                           >
-                            {getLevelLabel(score.level)}
+                            {getLevelLabel(score.level, locale)}
                           </span>
                           {isStrength && (
                             <span className="text-xs text-teal-600 font-medium">
-                              Top Strength
+                              {t.topStrength}
                             </span>
                           )}
                           {isGrowthArea && (
                             <span className="text-xs text-amber-600 font-medium">
-                              Biggest Opportunity
+                              {t.biggestOpportunity}
                             </span>
                           )}
                         </div>
@@ -330,7 +393,7 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
             <div className="mb-3 flex items-center gap-2">
               <Trophy className="size-5 text-teal-600" />
               <h3 className="text-lg font-bold text-stone-900">
-                Your Strengths
+                {t.yourStrengths}
               </h3>
             </div>
             <div className="space-y-2">
@@ -351,7 +414,7 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
             <div className="mb-3 flex items-center gap-2">
               <TrendingUp className="size-5 text-amber-600" />
               <h3 className="text-lg font-bold text-stone-900">
-                Growth Opportunities
+                {t.growthOpportunities}
               </h3>
             </div>
             <div className="space-y-2">
@@ -372,7 +435,7 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
             <div className="mb-3 flex items-center gap-2">
               <Lightbulb className="size-5 text-blue-600" />
               <h3 className="text-lg font-bold text-stone-900">
-                Recommended Next Steps
+                {t.recommendedNextSteps}
               </h3>
             </div>
             <div className="space-y-2">
@@ -396,7 +459,7 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
               onClick={onSkip}
               className="bg-gradient-to-r from-teal-700 to-amber-600 px-8 py-3 font-semibold text-white hover:shadow-lg"
             >
-              Done
+              {t.done}
             </Button>
           </div>
         </div>
@@ -418,7 +481,7 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
       <div className="mb-6">
         <div className="mb-2 flex items-center justify-between">
           <span className="text-sm font-semibold text-stone-700">
-            Question {currentQuestion + 1} of {totalQuestions}
+            {t.questionOf(currentQuestion + 1, totalQuestions)}
           </span>
           <span className="text-sm text-stone-500">
             {Math.round(progress)}%
@@ -439,7 +502,7 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
         >
           <DomainIcon className={`size-4 ${domainColors.text}`} />
           <span className={`text-xs font-semibold ${domainColors.text}`}>
-            {currentDomain?.name}
+            {locale === "es" ? getDomainName(question.domain, "es") : currentDomain?.name}
           </span>
         </div>
 
@@ -501,14 +564,14 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
               onClick={handleBack}
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-stone-600 hover:text-stone-900"
             >
-              <ChevronLeft className="size-4" /> Back
+              <ChevronLeft className="size-4" /> {t.back}
             </button>
           ) : (
             <button
               onClick={onSkip}
               className="text-sm font-medium text-stone-500 hover:text-stone-700"
             >
-              Skip assessment
+              {t.skipAssessment}
             </button>
           )}
           <Button
@@ -516,7 +579,7 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
             disabled={!selectedOption}
             className="flex items-center gap-2 bg-gradient-to-r from-teal-700 to-amber-600 px-6 py-2.5 font-semibold text-white hover:shadow-lg disabled:opacity-50"
           >
-            {currentQuestion === totalQuestions - 1 ? "See Results" : "Next"}
+            {currentQuestion === totalQuestions - 1 ? t.seeResults : t.next}
             <ChevronRight className="size-4" />
           </Button>
         </div>

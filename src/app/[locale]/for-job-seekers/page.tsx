@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,6 +17,7 @@ import {
   Briefcase,
   MapPin,
   ClipboardCheck,
+  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -128,6 +130,7 @@ const STEP_FIELDS: (keyof FormData)[][] = [
 /* ------------------------------------------------------------------ */
 
 export default function ForJobSeekers() {
+  const locale = useLocale();
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -301,8 +304,33 @@ export default function ForJobSeekers() {
         </p>
       </section>
 
+      {/* ---------- Fast-Track Banner ---------- */}
+      <div className="mx-auto max-w-2xl px-4 pt-8 sm:px-6 lg:px-8">
+        <Link
+          href="/fast-track"
+          className="group flex items-center gap-4 rounded-xl border-2 border-amber-300 bg-gradient-to-r from-amber-50 to-teal-50 p-4 transition-all hover:shadow-md hover:border-amber-400"
+        >
+          <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-amber-100">
+            <Zap className="size-5 text-amber-600" />
+          </div>
+          <div className="flex-1">
+            <p className="font-bold text-stone-900 text-sm sm:text-base">
+              {locale === "es"
+                ? "¿Despedido/a recientemente de un FQHC?"
+                : "Recently laid off from an FQHC?"}
+            </p>
+            <p className="text-xs sm:text-sm text-stone-600">
+              {locale === "es"
+                ? "Obtén matching prioritario en 48 horas con nuestro programa Fast-Track →"
+                : "Get priority matching in 48 hours with our Fast-Track program →"}
+            </p>
+          </div>
+          <ArrowRight className="size-5 shrink-0 text-stone-400 transition-transform group-hover:translate-x-1" />
+        </Link>
+      </div>
+
       {/* ---------- Progress bar ---------- */}
-      <div className="mx-auto max-w-2xl px-4 pt-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-2xl px-4 pt-6 sm:px-6 lg:px-8">
         {/* Step indicators */}
         <div className="mb-2 flex items-center justify-between">
           {STEP_LABELS.map((s, i) => {

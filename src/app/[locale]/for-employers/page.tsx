@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "next-intl";
 import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -18,6 +19,7 @@ import {
   ClipboardCheck,
   Plus,
   Trash2,
+  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -112,6 +114,7 @@ const STEP_FIELDS: (keyof FormData)[][] = [
 /* ------------------------------------------------------------------ */
 
 export default function ForEmployers() {
+  const locale = useLocale();
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -271,8 +274,29 @@ export default function ForEmployers() {
         </p>
       </section>
 
+      {/* ---------- Fast-Track Talent Pool Banner ---------- */}
+      <div className="mx-auto max-w-2xl px-4 pt-8 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-4 rounded-xl border-2 border-amber-300 bg-gradient-to-r from-amber-50 to-teal-50 p-4">
+          <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-amber-100">
+            <Zap className="size-5 text-amber-600" />
+          </div>
+          <div className="flex-1">
+            <p className="font-bold text-stone-900 text-sm sm:text-base">
+              {locale === "es"
+                ? "⚡ Grupo de talento Fast-Track disponible"
+                : "⚡ Fast-Track talent pool available"}
+            </p>
+            <p className="text-xs sm:text-sm text-stone-600">
+              {locale === "es"
+                ? "Profesionales experimentados de FQHC recientemente desplazados, listos para trabajar de inmediato. Pregunte al enviar."
+                : "Experienced FQHC professionals recently displaced and ready to work immediately. Ask when you submit."}
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* ---------- Progress bar ---------- */}
-      <div className="mx-auto max-w-2xl px-4 pt-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-2xl px-4 pt-6 sm:px-6 lg:px-8">
         <div className="mb-2 flex items-center justify-between">
           {STEP_LABELS.map((s, i) => {
             const Icon = s.icon;

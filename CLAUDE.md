@@ -56,13 +56,17 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Career Assessment** | Done | `src/components/career-assessment/CareerAssessment.tsx` | 5-question screener, role recommendations |
 | **Candidate Waitlist** | Done | `src/app/[locale]/join/page.tsx`, `src/app/api/candidate-waitlist/` | Supabase, email via Resend |
 | **Employer Waitlist** | Done | `src/app/[locale]/hire/page.tsx`, `src/app/api/employer-waitlist/` | Dark theme (stone gradient + amber), distinct from candidate |
-| **Blog** | Done | `src/app/[locale]/blog/` | 5 articles, EN/ES, SEO metadata |
+| **Blog** | Done | `src/app/[locale]/blog/` | 10 articles, EN/ES, SEO metadata |
 | **Color Rebrand** | Done | All files | teal-700/800/900 primary, amber-500 accent, stone neutrals |
 | **Separate Signups** | Done | Header, /join, /hire, Footer | Distinct visual identity, cross-links between flows |
 | **Sitemap** | Done | `src/app/sitemap.ts` | Includes all pages + 87 FQHC profiles |
 | **Pitch Deck** | Done | `src/app/pitchdeck/route.ts` | Hidden URL at /pitchdeck, serves PPTX download |
 | **Security Hardening** | Done | API routes, CLAUDE.md | Removed PII from public files, stopped leaking DB errors to clients |
 | **CTA Cleanup** | Done | All pages | Replaced all "Apply for Early Access" with "Build Your Free Resume" sitewide |
+| **Career Insights Assessment** | Done | `src/lib/career-assessment-engine.ts`, `src/components/resume-builder/CareerInsights.tsx` | 12-question behavioral assessment, 4 domains, integrated into resume builder, seeded answer shuffle |
+| **Resume Upload & Parse** | Done | `src/app/api/parse-resume/route.ts` | Upload PDF/DOCX, parse with pdf-parse/mammoth, Supabase storage |
+| **GA4 Analytics** | Done | `src/components/analytics/GoogleAnalytics.tsx` | Google Analytics 4 tracking component |
+| **Displaced Worker Fast-Track** | Done | `src/app/[locale]/fast-track/page.tsx`, `src/app/api/displaced-candidates/` | EN/ES form for laid-off workers, 48-hour intro guarantee, priority emails |
 
 ### Data Sources
 - `src/lib/california-fqhcs.ts` (74KB) — 87 FQHCs with slug, stats, programs, EHR, Glassdoor ratings, careers URLs
@@ -72,7 +76,9 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ### Database (Supabase)
 - `candidate_waitlist` — candidate signups (live)
 - `employer_waitlist` — employer signups (live)
-- `resume_profiles` — resume data (SQL migration created but NOT YET RUN — `supabase-resume-profiles.sql`)
+- `resume_profiles` — resume data (migration: `supabase-resume-profiles.sql` — NOT YET RUN)
+- `displaced_candidates` — fast-track displaced worker signups (migration: `supabase-displaced-candidates.sql` — NOT YET RUN)
+- `assessment_results` column — JSONB on resume_profiles (migration: `supabase-assessment-migration.sql` — NOT YET RUN)
 
 ### Key Patterns
 - **Multi-step form**: `useState(step)` with conditional rendering, progress bar
@@ -85,10 +91,10 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - AI-powered matching algorithm
 - Employer dashboard / portal
 - Talent Drop system (batch candidate delivery)
-- Full assessment engine (beyond 5-question screener)
 - User authentication / accounts
 - Real job application flow (currently links to external careers pages)
-- Supabase resume_profiles table (migration written, not executed)
+- Employer-initiated offboarding (Phase 2/3 of displaced worker funnel)
+- Supabase migrations need to be run (resume_profiles, displaced_candidates, assessment_results)
 
 ### Color Palette
 | Role | Tailwind | Hex |
@@ -108,5 +114,6 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | Resume Builder | /resume-builder | Free template-based resume builder |
 | Find a Job | /join | Candidate waitlist signup |
 | Post a Job | /hire | Employer waitlist signup (dark theme) |
+| Fast-Track | /fast-track | Displaced worker fast-track signup |
 | CTA: Build Resume | /resume-builder | Primary CTA button |
 | CTA: Hire Talent | /hire | Secondary CTA button (dark) |
