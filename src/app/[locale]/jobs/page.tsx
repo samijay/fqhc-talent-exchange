@@ -218,7 +218,7 @@ export default function JobsPage() {
         </p>
         {!loading && !error && (
           <Badge className="mt-4 border-teal-400/30 bg-teal-500/20 text-teal-100">
-            {jobs.length + fqhcJobListings.length} positions available
+            {t("positionsAvailable", { count: jobs.length + fqhcJobListings.length })}
           </Badge>
         )}
       </section>
@@ -228,11 +228,11 @@ export default function JobsPage() {
         <div className="flex items-start gap-3 rounded-xl border border-teal-200 bg-teal-50 p-4">
           <Info className="mt-0.5 size-5 shrink-0 text-teal-700" />
           <p className="text-sm text-teal-900">
-            Showing representative roles currently available through our network.{" "}
+            {t("infoBanner")}{" "}
             <Link href="/join" className="font-semibold underline underline-offset-2 hover:text-teal-950">
-              Join the waitlist
+              {t("joinWaitlist")}
             </Link>{" "}
-            to see all open positions and get personally matched.
+            {t("infoBannerEnd")}
           </p>
         </div>
       </div>
@@ -254,12 +254,12 @@ export default function JobsPage() {
           {/* Role type filter */}
           <Select value={roleFilter} onValueChange={setRoleFilter}>
             <SelectTrigger className="h-11 w-full sm:w-48">
-              <SelectValue placeholder="Role type" />
+              <SelectValue placeholder={t("allRoles")} />
             </SelectTrigger>
             <SelectContent>
               {ROLE_TYPE_OPTIONS.map((r) => (
                 <SelectItem key={r} value={r}>
-                  {r}
+                  {r === "All Roles" ? t("allRoles") : r}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -279,7 +279,7 @@ export default function JobsPage() {
         {/* Error — still show sample jobs */}
         {error && (
           <div className="mx-auto mb-6 max-w-md rounded-lg border border-amber-200 bg-amber-50 px-6 py-4 text-center text-sm text-amber-700">
-            Live positions are temporarily unavailable. Showing representative roles below.
+            {t("liveUnavailable")}
           </div>
         )}
 
@@ -287,7 +287,7 @@ export default function JobsPage() {
         {!loading && filtered.length > 0 && (
           <>
             <p className="mb-4 text-sm font-medium text-stone-700">
-              Live Positions ({filtered.length})
+              {t("livePositions")} ({filtered.length})
             </p>
             <div className="mb-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.map((job) => (
@@ -354,7 +354,7 @@ export default function JobsPage() {
         {!loading && filteredSample.length > 0 && (
           <>
             <p className="mb-4 text-sm font-medium text-stone-700">
-              {filtered.length > 0 ? "More Roles in Our Network" : "Roles in Our Network"} ({filteredSample.length})
+              {filtered.length > 0 ? t("moreRoles") : t("rolesInNetwork")} ({filteredSample.length})
             </p>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {filteredSample.slice(0, 30).map((job) => (
@@ -402,7 +402,7 @@ export default function JobsPage() {
                       </Badge>
                       {job.bilingual && (
                         <Badge className="bg-amber-50 text-amber-700 text-xs">
-                          Bilingual
+                          {t("bilingual")}
                         </Badge>
                       )}
                       {job.tags.map((tag) => (
@@ -422,7 +422,7 @@ export default function JobsPage() {
                     asChild
                   >
                     <Link href="/join">
-                      Join Waitlist to Apply <ArrowRight className="size-4" />
+                      {t("joinWaitlistToApply")} <ArrowRight className="size-4" />
                     </Link>
                   </Button>
                 </div>
@@ -431,11 +431,11 @@ export default function JobsPage() {
             {filteredSample.length > 30 && (
               <div className="mt-8 text-center">
                 <p className="text-sm text-stone-500 mb-4">
-                  Showing 30 of {filteredSample.length} positions.{" "}
+                  {t("showingOf", { count: filteredSample.length })}{" "}
                   <Link href="/join" className="text-teal-700 font-semibold hover:underline">
-                    Join the waitlist
+                    {t("joinWaitlist")}
                   </Link>{" "}
-                  to see all roles and get personally matched.
+                  {t("showingOfEnd")}
                 </p>
               </div>
             )}
@@ -450,7 +450,7 @@ export default function JobsPage() {
               {t("noJobs")}
             </h2>
             <p className="mt-2 text-sm text-stone-500">
-              Try adjusting your search or filters.
+              {t("noJobsHint")}
             </p>
           </div>
         )}

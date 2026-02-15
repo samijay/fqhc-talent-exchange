@@ -10,6 +10,9 @@
     "buildResume": "Crear CV",
     "hireTalent": "Contratar Talento",
     "resumeBuilder": "Constructor de CV",
+    "jobPostingBuilder": "Creador de Publicaciones de Empleo",
+    "layoffs": "Rastreador de Despidos",
+    "fundingImpact": "Impacto Financiero",
     "languageToggle": "English"
   },
   "footer": {
@@ -19,6 +22,8 @@
     "buildResume": "Constructor de CV",
     "joinNetwork": "Unirse a la Red de Talento",
     "fastTrack": "Fast-Track (\u00bfDespedido/a?)",
+    "layoffTracker": "Rastreador de Despidos",
+    "fundingImpact": "Impacto Financiero",
     "careerResources": "Recursos de Carrera",
     "forEmployers": "Para Empleadores",
     "hireTalent": "Contratar Talento",
@@ -380,7 +385,21 @@
     "postedDate": "Publicado el {date}",
     "filters": "Filtros",
     "clearFilters": "Limpiar Filtros",
-    "searchPlaceholder": "Buscar por título, ciudad o programa..."
+    "searchPlaceholder": "Buscar por título, ciudad o programa...",
+    "positionsAvailable": "{count} posiciones disponibles",
+    "infoBanner": "Mostrando puestos representativos actualmente disponibles a través de nuestra red.",
+    "joinWaitlist": "Únete a la lista de espera",
+    "infoBannerEnd": "para ver todas las posiciones abiertas y recibir matching personalizado.",
+    "livePositions": "Posiciones en Vivo",
+    "moreRoles": "Más Puestos en Nuestra Red",
+    "rolesInNetwork": "Puestos en Nuestra Red",
+    "joinWaitlistToApply": "Únete a la Lista para Aplicar",
+    "bilingual": "Bilingüe",
+    "showingOf": "Mostrando 30 de {count} posiciones.",
+    "showingOfEnd": "para ver todos los puestos y recibir matching personalizado.",
+    "noJobsHint": "Intenta ajustar tu búsqueda o filtros.",
+    "liveUnavailable": "Las posiciones en vivo no están disponibles temporalmente. Mostrando puestos representativos.",
+    "allRoles": "Todos los Puestos"
   },
   "blog": {
     "title": "Recursos Profesionales FQHC",

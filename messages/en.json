@@ -10,6 +10,9 @@
     "buildResume": "Build Resume",
     "hireTalent": "Hire Talent",
     "resumeBuilder": "Resume Builder",
+    "jobPostingBuilder": "Job Posting Builder",
+    "layoffs": "Layoff Tracker",
+    "fundingImpact": "Funding Impact",
     "languageToggle": "Español"
   },
   "footer": {
@@ -19,6 +22,8 @@
     "buildResume": "Resume Builder",
     "joinNetwork": "Join Talent Network",
     "fastTrack": "Fast-Track (Laid Off?)",
+    "layoffTracker": "Layoff Tracker",
+    "fundingImpact": "Funding Impact",
     "careerResources": "Career Resources",
     "forEmployers": "For Employers",
     "hireTalent": "Hire Talent",
@@ -381,7 +386,21 @@
     "postedDate": "Posted {date}",
     "filters": "Filters",
     "clearFilters": "Clear Filters",
-    "searchPlaceholder": "Search by title, city, or program..."
+    "searchPlaceholder": "Search by title, city, or program...",
+    "positionsAvailable": "{count} positions available",
+    "infoBanner": "Showing representative roles currently available through our network.",
+    "joinWaitlist": "Join the waitlist",
+    "infoBannerEnd": "to see all open positions and get personally matched.",
+    "livePositions": "Live Positions",
+    "moreRoles": "More Roles in Our Network",
+    "rolesInNetwork": "Roles in Our Network",
+    "joinWaitlistToApply": "Join Waitlist to Apply",
+    "bilingual": "Bilingual",
+    "showingOf": "Showing 30 of {count} positions.",
+    "showingOfEnd": "to see all roles and get personally matched.",
+    "noJobsHint": "Try adjusting your search or filters.",
+    "liveUnavailable": "Live positions are temporarily unavailable. Showing representative roles below.",
+    "allRoles": "All Roles"
   },
   "blog": {
     "title": "FQHC Career Resources",

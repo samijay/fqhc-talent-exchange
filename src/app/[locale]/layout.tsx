@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import CookieConsent from "@/components/analytics/CookieConsent";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { rootMetadata } from "@/lib/seo-config";
 
@@ -22,6 +23,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = rootMetadata;
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -34,6 +39,9 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
 
+  // Enable static rendering for this layout
+  setRequestLocale(locale);
+
   const messages = await getMessages();
 
   return (
@@ -45,6 +53,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer />
+          <CookieConsent />
         </NextIntlClientProvider>
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />

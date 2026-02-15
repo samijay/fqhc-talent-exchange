@@ -13,6 +13,8 @@ export default function Footer() {
       { href: "/resume-builder" as const, label: t("buildResume") },
       { href: "/join" as const, label: t("joinNetwork") },
       { href: "/fast-track" as const, label: t("fastTrack") },
+      { href: "/layoffs" as const, label: t("layoffTracker") },
+      { href: "/funding-impact" as const, label: t("fundingImpact") },
       { href: "/resources" as const, label: t("careerResources") },
     ],
     [t("forEmployers")]: [

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   Search,
@@ -120,8 +121,8 @@ function generateSampleJobs(fqhc: CaliforniaFQHC): SampleJob[] {
   }));
 }
 
-function StarRating({ rating }: { rating: number | null }) {
-  if (rating === null) return <span className="text-xs text-stone-400">No rating</span>;
+function StarRating({ rating, noRatingText }: { rating: number | null; noRatingText?: string }) {
+  if (rating === null) return <span className="text-xs text-stone-400">{noRatingText || "No rating"}</span>;
   const full = Math.floor(rating);
   const half = rating - full >= 0.3;
   return (
@@ -136,6 +137,82 @@ function StarRating({ rating }: { rating: number | null }) {
 }
 
 export default function DirectoryPage() {
+  const locale = useLocale();
+  const isEs = locale === "es";
+
+  const t = {
+    // Hero
+    heroTitle: isEs ? "Directorio de FQHCs en California" : "California FQHC Directory",
+    heroSubtitle: isEs
+      ? `Explore ${californiaFQHCs.length} Centros de Salud Calificados Federalmente en California — con datos de personal, calificaciones de Glassdoor, estado ECM y un mapa interactivo.`
+      : `Explore ${californiaFQHCs.length} Federally Qualified Health Centers across California — with staff data, Glassdoor ratings, ECM status, and an interactive map.`,
+    organizations: isEs ? "Organizaciones" : "Organizations",
+    regions: isEs ? "Regiones" : "Regions",
+    healthCenterSites: isEs ? "Sitios de Salud" : "Health Center Sites",
+    ecmProviders: isEs ? "Proveedores ECM" : "ECM Providers",
+    // Salary & Benefits
+    salaryTitle: isEs ? "Rangos Salariales de FQHC (California)" : "FQHC Salary Ranges (California)",
+    salarySource: isEs
+      ? "Basado en datos de Glassdoor, Indeed y ZipRecruiter para FQHCs de California (2026)"
+      : "Based on Glassdoor, Indeed, and ZipRecruiter data for California FQHCs (2026)",
+    benefitsTitle: isEs ? "Beneficios Típicos de FQHC" : "Typical FQHC Benefits",
+    // Filters
+    searchPlaceholder: isEs ? "Buscar por nombre, ciudad o condado..." : "Search by name, city, or county...",
+    allRegions: isEs ? "Todas las Regiones" : "All Regions",
+    allEhrSystems: isEs ? "Todos los Sistemas EHR" : "All EHR Systems",
+    allPrograms: isEs ? "Todos los Programas" : "All Programs",
+    ecmOnly: isEs ? "Solo Proveedores ECM" : "ECM Providers Only",
+    nameAZ: isEs ? "Nombre (A-Z)" : "Name (A-Z)",
+    nameZA: isEs ? "Nombre (Z-A)" : "Name (Z-A)",
+    mostPatients: isEs ? "Más Pacientes" : "Most Patients",
+    mostSites: isEs ? "Más Sitios" : "Most Sites",
+    largestStaff: isEs ? "Mayor Personal" : "Largest Staff",
+    highestRated: isEs ? "Mejor Calificados" : "Highest Rated",
+    showing: (filtered: number, total: number) =>
+      isEs ? `Mostrando ${filtered} de ${total} organizaciones` : `Showing ${filtered} of ${total} organizations`,
+    // Table
+    organization: isEs ? "Organización" : "Organization",
+    location: isEs ? "Ubicación" : "Location",
+    sites: isEs ? "Sitios" : "Sites",
+    patients: isEs ? "Pacientes" : "Patients",
+    staff: isEs ? "Personal" : "Staff",
+    rating: isEs ? "Calificación" : "Rating",
+    noRating: isEs ? "Sin calificación" : "No rating",
+    // Sheet modal
+    orgDetails: isEs ? "Detalles de la Organización" : "Organization Details",
+    keyStats: isEs ? "Estadísticas Clave" : "Key Statistics",
+    patientCount: isEs ? "Cantidad de Pacientes" : "Patient Count",
+    staffCount: isEs ? "Cantidad de Personal" : "Staff Count",
+    healthSites: isEs ? "Sitios de Salud" : "Health Center Sites",
+    glassdoorRating: isEs ? "Calificación Glassdoor" : "Glassdoor Rating",
+    about: isEs ? "Acerca de" : "About",
+    techCerts: isEs ? "Tecnología y Certificaciones" : "Technology & Certifications",
+    ecmProvider: isEs ? "Proveedor ECM" : "ECM Provider",
+    nhscApproved: isEs ? "Aprobado por NHSC" : "NHSC Approved",
+    programsOffered: isEs ? "Programas Ofrecidos" : "Programs Offered",
+    findYourRole: isEs ? "Encuentre su Puesto Aquí" : "Find Your Role Here",
+    findYourRoleDesc: (name: string) =>
+      isEs
+        ? `Realice una evaluación de carrera rápida de 5 preguntas para ver qué tan bien coincide con ${name} y obtener sugerencias de roles personalizadas.`
+        : `Take a quick 5-question career screener to see how well you match with ${name} and get personalized role suggestions.`,
+    takeScreener: isEs ? "Realizar Evaluación" : "Take Career Screener",
+    viewFullProfile: isEs ? "Ver Perfil Completo" : "View Full Profile",
+    openPositions: (count: number) => isEs ? `Posiciones Abiertas (${count})` : `Open Positions (${count})`,
+    viewCareers: isEs ? "Ver Página de Carreras" : "View Careers Page",
+    visitWebsite: isEs ? "Visitar Sitio Web" : "Visit Website",
+    bilingual: isEs ? "Bilingüe" : "Bilingual",
+    // Empty state
+    noResults: isEs ? "No hay organizaciones que coincidan con sus filtros" : "No organizations match your filters",
+    noResultsHint: isEs ? "Intente ajustar su búsqueda o criterios de filtro." : "Try adjusting your search or filter criteria.",
+    // CTA
+    ctaTitle: isEs ? "¿Listo para Unirse a la Red?" : "Ready to Join the Network?",
+    ctaSubtitle: isEs
+      ? "Ya sea un profesional de salud buscando su próximo puesto o un FQHC con posiciones para cubrir, estamos aquí para conectarlo."
+      : "Whether you're a health professional looking for your next role or an FQHC with positions to fill, we're here to connect you.",
+    findAJob: isEs ? "Buscar Empleo" : "Find a Job",
+    hireTalent: isEs ? "Contratar Talento" : "Hire Talent",
+  };
+
   const [search, setSearch] = useState("");
   const [regionFilter, setRegionFilter] = useState("All Regions");
   const [ehrFilter, setEhrFilter] = useState("All EHR Systems");
@@ -224,38 +301,36 @@ export default function DirectoryPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-          California FQHC Directory
+          {t.heroTitle}
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-base text-teal-100/80 sm:text-lg">
-          Explore {californiaFQHCs.length} Federally Qualified Health Centers
-          across California — with staff data, Glassdoor ratings, ECM status, and
-          an interactive map.
+          {t.heroSubtitle}
         </p>
 
         {/* Quick stats */}
         <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-6 text-sm sm:text-base">
           <div className="flex flex-col items-center">
             <span className="text-2xl font-bold sm:text-3xl">{californiaFQHCs.length}</span>
-            <span className="text-teal-200">Organizations</span>
+            <span className="text-teal-200">{t.organizations}</span>
           </div>
           <div className="h-8 w-px bg-teal-500/50" />
           <div className="flex flex-col items-center">
             <span className="text-2xl font-bold sm:text-3xl">{regions.length}</span>
-            <span className="text-teal-200">Regions</span>
+            <span className="text-teal-200">{t.regions}</span>
           </div>
           <div className="h-8 w-px bg-teal-500/50" />
           <div className="flex flex-col items-center">
             <span className="text-2xl font-bold sm:text-3xl">
               {californiaFQHCs.reduce((sum, f) => sum + f.siteCount, 0).toLocaleString()}+
             </span>
-            <span className="text-teal-200">Health Center Sites</span>
+            <span className="text-teal-200">{t.healthCenterSites}</span>
           </div>
           <div className="h-8 w-px bg-teal-500/50" />
           <div className="flex flex-col items-center">
             <span className="text-2xl font-bold sm:text-3xl">
               {californiaFQHCs.filter((f) => f.ecmProvider).length}
             </span>
-            <span className="text-teal-200">ECM Providers</span>
+            <span className="text-teal-200">{t.ecmProviders}</span>
           </div>
         </div>
       </section>
@@ -272,7 +347,7 @@ export default function DirectoryPage() {
             >
               <div className="flex items-center gap-2">
                 <DollarSign className="size-5 text-teal-700" />
-                <span className="font-semibold text-stone-900">FQHC Salary Ranges (California)</span>
+                <span className="font-semibold text-stone-900">{t.salaryTitle}</span>
               </div>
               {showSalary ? <ChevronUp className="size-4 text-stone-400" /> : <ChevronDown className="size-4 text-stone-400" />}
             </button>
@@ -289,7 +364,7 @@ export default function DirectoryPage() {
                   ))}
                 </div>
                 <p className="mt-3 text-xs text-stone-400">
-                  Based on Glassdoor, Indeed, and ZipRecruiter data for California FQHCs (2026)
+                  {t.salarySource}
                 </p>
               </div>
             )}
@@ -304,7 +379,7 @@ export default function DirectoryPage() {
             >
               <div className="flex items-center gap-2">
                 <Heart className="size-5 text-teal-700" />
-                <span className="font-semibold text-stone-900">Typical FQHC Benefits</span>
+                <span className="font-semibold text-stone-900">{t.benefitsTitle}</span>
               </div>
               {showBenefits ? <ChevronUp className="size-4 text-stone-400" /> : <ChevronDown className="size-4 text-stone-400" />}
             </button>
@@ -331,7 +406,7 @@ export default function DirectoryPage() {
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
             <Input
-              placeholder="Search by name, city, or county..."
+              placeholder={t.searchPlaceholder}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="h-11 pl-10"
@@ -344,7 +419,7 @@ export default function DirectoryPage() {
               <SelectValue placeholder="Region" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="All Regions">All Regions</SelectItem>
+              <SelectItem value="All Regions">{t.allRegions}</SelectItem>
               {regions.map((r) => (
                 <SelectItem key={r} value={r}>
                   {r} ({regionCounts[r] || 0})
@@ -359,7 +434,7 @@ export default function DirectoryPage() {
               <SelectValue placeholder="EHR System" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="All EHR Systems">All EHR Systems</SelectItem>
+              <SelectItem value="All EHR Systems">{t.allEhrSystems}</SelectItem>
               {allEhrSystems.map((e) => (
                 <SelectItem key={e} value={e}>
                   {e}
@@ -374,7 +449,7 @@ export default function DirectoryPage() {
               <SelectValue placeholder="Program" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="All Programs">All Programs</SelectItem>
+              <SelectItem value="All Programs">{t.allPrograms}</SelectItem>
               {allPrograms.map((p) => (
                 <SelectItem key={p} value={p}>
                   {p}
@@ -396,7 +471,7 @@ export default function DirectoryPage() {
             }`}
           >
             <Shield className="size-3.5" />
-            ECM Providers Only
+            {t.ecmOnly}
           </button>
 
           {/* Sort */}
@@ -410,12 +485,12 @@ export default function DirectoryPage() {
               <SelectValue placeholder="Sort by..." />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="name-asc">Name (A-Z)</SelectItem>
-              <SelectItem value="name-desc">Name (Z-A)</SelectItem>
-              <SelectItem value="patientCount-desc">Most Patients</SelectItem>
-              <SelectItem value="siteCount-desc">Most Sites</SelectItem>
-              <SelectItem value="staffCount-desc">Largest Staff</SelectItem>
-              <SelectItem value="glassdoorRating-desc">Highest Rated</SelectItem>
+              <SelectItem value="name-asc">{t.nameAZ}</SelectItem>
+              <SelectItem value="name-desc">{t.nameZA}</SelectItem>
+              <SelectItem value="patientCount-desc">{t.mostPatients}</SelectItem>
+              <SelectItem value="siteCount-desc">{t.mostSites}</SelectItem>
+              <SelectItem value="staffCount-desc">{t.largestStaff}</SelectItem>
+              <SelectItem value="glassdoorRating-desc">{t.highestRated}</SelectItem>
             </SelectContent>
           </Select>
 
@@ -451,7 +526,7 @@ export default function DirectoryPage() {
         </div>
 
         <p className="mt-4 text-sm text-stone-500">
-          Showing {filtered.length} of {californiaFQHCs.length} organizations
+          {t.showing(filtered.length, californiaFQHCs.length)}
         </p>
       </div>
 
@@ -468,13 +543,14 @@ export default function DirectoryPage() {
         {view === "cards" && (
           <>
             {filtered.length === 0 ? (
-              <EmptyState />
+              <EmptyState isEs={isEs} />
             ) : (
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {filtered.map((fqhc) => (
                   <FQHCCard
                     key={fqhc.slug}
                     fqhc={fqhc}
+                    isEs={isEs}
                     onViewDetails={() => {
                       setSelectedFqhc(fqhc);
                       setDetailsOpen(true);
@@ -490,7 +566,7 @@ export default function DirectoryPage() {
         {view === "table" && (
           <>
             {filtered.length === 0 ? (
-              <EmptyState />
+              <EmptyState isEs={isEs} />
             ) : (
               <div className="overflow-x-auto rounded-xl border border-stone-200 bg-white shadow-sm">
                 <table className="w-full text-left text-sm">
@@ -501,17 +577,17 @@ export default function DirectoryPage() {
                         onClick={() => toggleSort("name")}
                       >
                         <span className="flex items-center gap-1">
-                          Organization
+                          {t.organization}
                           {sortKey === "name" && (sortDir === "asc" ? <ChevronUp className="size-3" /> : <ChevronDown className="size-3" />)}
                         </span>
                       </th>
-                      <th className="px-4 py-3 font-semibold text-stone-700">Location</th>
+                      <th className="px-4 py-3 font-semibold text-stone-700">{t.location}</th>
                       <th
                         className="cursor-pointer px-4 py-3 font-semibold text-stone-700 hover:text-teal-800"
                         onClick={() => toggleSort("siteCount")}
                       >
                         <span className="flex items-center gap-1">
-                          Sites
+                          {t.sites}
                           {sortKey === "siteCount" && (sortDir === "asc" ? <ChevronUp className="size-3" /> : <ChevronDown className="size-3" />)}
                         </span>
                       </th>
@@ -520,7 +596,7 @@ export default function DirectoryPage() {
                         onClick={() => toggleSort("patientCount")}
                       >
                         <span className="flex items-center gap-1">
-                          Patients
+                          {t.patients}
                           {sortKey === "patientCount" && (sortDir === "asc" ? <ChevronUp className="size-3" /> : <ChevronDown className="size-3" />)}
                         </span>
                       </th>
@@ -529,7 +605,7 @@ export default function DirectoryPage() {
                         onClick={() => toggleSort("staffCount")}
                       >
                         <span className="flex items-center gap-1">
-                          Staff
+                          {t.staff}
                           {sortKey === "staffCount" && (sortDir === "asc" ? <ChevronUp className="size-3" /> : <ChevronDown className="size-3" />)}
                         </span>
                       </th>
@@ -539,12 +615,12 @@ export default function DirectoryPage() {
                         onClick={() => toggleSort("glassdoorRating")}
                       >
                         <span className="flex items-center gap-1">
-                          Rating
+                          {t.rating}
                           {sortKey === "glassdoorRating" && (sortDir === "asc" ? <ChevronUp className="size-3" /> : <ChevronDown className="size-3" />)}
                         </span>
                       </th>
                       <th className="px-4 py-3 font-semibold text-stone-700">ECM</th>
-                      <th className="px-4 py-3 font-semibold text-stone-700">Programs</th>
+                      <th className="px-4 py-3 font-semibold text-stone-700">{t.programsOffered}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -575,7 +651,7 @@ export default function DirectoryPage() {
                           </Badge>
                         </td>
                         <td className="px-4 py-3">
-                          <StarRating rating={fqhc.glassdoorRating} />
+                          <StarRating rating={fqhc.glassdoorRating} noRatingText={t.noRating} />
                           {fqhc.glassdoorReviewCount && (
                             <span className="ml-1 text-xs text-stone-400">
                               ({fqhc.glassdoorReviewCount})
@@ -627,7 +703,7 @@ export default function DirectoryPage() {
               <div className="space-y-6 px-6 py-4">
                 {/* Organization Details */}
                 <div className="space-y-3">
-                  <h3 className="font-semibold text-stone-900">Organization Details</h3>
+                  <h3 className="font-semibold text-stone-900">{t.orgDetails}</h3>
                   <div className="space-y-2">
                     {selectedFqhc.website && (
                       <div className="flex items-start gap-3">
@@ -645,7 +721,7 @@ export default function DirectoryPage() {
                     <div className="flex items-start gap-3">
                       <MapPinIcon className="mt-0.5 size-4 text-teal-700 shrink-0" />
                       <div className="text-sm text-stone-600">
-                        {selectedFqhc.city}, {selectedFqhc.county} County
+                        {selectedFqhc.city}, {isEs ? `Condado de ${selectedFqhc.county}` : `${selectedFqhc.county} County`}
                       </div>
                     </div>
                   </div>
@@ -653,30 +729,30 @@ export default function DirectoryPage() {
 
                 {/* Key Stats */}
                 <div className="space-y-3">
-                  <h3 className="font-semibold text-stone-900">Key Statistics</h3>
+                  <h3 className="font-semibold text-stone-900">{t.keyStats}</h3>
                   <div className="grid grid-cols-2 gap-3">
                     <div className="rounded-lg bg-teal-50 p-3">
-                      <p className="text-xs font-medium text-stone-500">Patient Count</p>
+                      <p className="text-xs font-medium text-stone-500">{t.patientCount}</p>
                       <p className="mt-1 text-sm font-semibold text-stone-900">
                         {selectedFqhc.patientCount}
                       </p>
                     </div>
                     <div className="rounded-lg bg-amber-50 p-3">
-                      <p className="text-xs font-medium text-stone-500">Staff Count</p>
+                      <p className="text-xs font-medium text-stone-500">{t.staffCount}</p>
                       <p className="mt-1 text-sm font-semibold text-stone-900">
                         {selectedFqhc.staffCount}
                       </p>
                     </div>
                     <div className="rounded-lg bg-teal-50 p-3">
-                      <p className="text-xs font-medium text-stone-500">Health Center Sites</p>
+                      <p className="text-xs font-medium text-stone-500">{t.healthSites}</p>
                       <p className="mt-1 text-sm font-semibold text-stone-900">
                         {selectedFqhc.siteCount}
                       </p>
                     </div>
                     <div className="rounded-lg bg-amber-50 p-3">
-                      <p className="text-xs font-medium text-stone-500">Glassdoor Rating</p>
+                      <p className="text-xs font-medium text-stone-500">{t.glassdoorRating}</p>
                       <p className="mt-1 text-sm font-semibold text-stone-900">
-                        <StarRating rating={selectedFqhc.glassdoorRating} />
+                        <StarRating rating={selectedFqhc.glassdoorRating} noRatingText={t.noRating} />
                       </p>
                     </div>
                   </div>
@@ -684,7 +760,7 @@ export default function DirectoryPage() {
 
                 {/* About */}
                 <div className="space-y-2">
-                  <h3 className="font-semibold text-stone-900">About</h3>
+                  <h3 className="font-semibold text-stone-900">{t.about}</h3>
                   <p className="text-sm text-stone-600 leading-relaxed">
                     {selectedFqhc.description}
                   </p>
@@ -692,7 +768,7 @@ export default function DirectoryPage() {
 
                 {/* EHR & Certifications */}
                 <div className="space-y-3">
-                  <h3 className="font-semibold text-stone-900">Technology & Certifications</h3>
+                  <h3 className="font-semibold text-stone-900">{t.techCerts}</h3>
                   <div className="flex flex-wrap gap-2">
                     <Badge className="bg-stone-100 text-stone-700">
                       <Monitor className="mr-1 size-3" />
@@ -701,13 +777,13 @@ export default function DirectoryPage() {
                     {selectedFqhc.ecmProvider && (
                       <Badge className="bg-teal-50 text-teal-800">
                         <Shield className="mr-0.5 size-3" />
-                        ECM Provider
+                        {t.ecmProvider}
                       </Badge>
                     )}
                     {selectedFqhc.nhscApproved && (
                       <Badge className="bg-amber-50 text-amber-700">
                         <GraduationCap className="mr-0.5 size-3" />
-                        NHSC Approved
+                        {t.nhscApproved}
                       </Badge>
                     )}
                   </div>
@@ -715,7 +791,7 @@ export default function DirectoryPage() {
 
                 {/* Programs */}
                 <div className="space-y-3">
-                  <h3 className="font-semibold text-stone-900">Programs Offered</h3>
+                  <h3 className="font-semibold text-stone-900">{t.programsOffered}</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedFqhc.programs.map((prog) => (
                       <Badge key={prog} className="bg-teal-50 text-teal-800">
@@ -729,10 +805,10 @@ export default function DirectoryPage() {
                 <div className="border-t border-stone-100 pt-6">
                   <div className="rounded-xl bg-gradient-to-br from-teal-50 to-amber-50 p-6 border border-teal-200">
                     <h3 className="font-semibold text-stone-900 text-lg mb-2">
-                      Find Your Role Here
+                      {t.findYourRole}
                     </h3>
                     <p className="text-sm text-stone-600 mb-4">
-                      Take a quick 5-question career screener to see how well you match with {selectedFqhc.name} and get personalized role suggestions.
+                      {t.findYourRoleDesc(selectedFqhc.name)}
                     </p>
                     <Button
                       className="w-full bg-gradient-to-r from-teal-700 to-amber-600 text-white hover:shadow-lg"
@@ -741,7 +817,7 @@ export default function DirectoryPage() {
                         setShowAssessment(true);
                       }}
                     >
-                      Take Career Screener <ArrowRight className="ml-2 size-4" />
+                      {t.takeScreener} <ArrowRight className="ml-2 size-4" />
                     </Button>
                   </div>
                 </div>
@@ -749,12 +825,11 @@ export default function DirectoryPage() {
                 {/* View Full Profile Link */}
                 <div className="border-t border-stone-100 pt-4">
                   <Button
-                    variant="outline"
-                    className="w-full border-teal-200 text-teal-700 hover:bg-teal-50"
+                    className="w-full border border-teal-300 bg-teal-50 text-teal-700 hover:bg-teal-100"
                     asChild
                   >
                     <Link href={`/directory/${selectedFqhc.slug}` as "/directory"}>
-                      View Full Profile <ArrowRight className="ml-2 size-4" />
+                      {t.viewFullProfile} <ArrowRight className="ml-2 size-4" />
                     </Link>
                   </Button>
                 </div>
@@ -762,7 +837,7 @@ export default function DirectoryPage() {
                 {/* Job Listings */}
                 <div className="space-y-3 border-t border-stone-100 pt-6">
                   <h3 className="font-semibold text-stone-900">
-                    Open Positions ({getJobsForFqhc(selectedFqhc.slug).length || generateSampleJobs(selectedFqhc).length})
+                    {t.openPositions(getJobsForFqhc(selectedFqhc.slug).length || generateSampleJobs(selectedFqhc).length)}
                   </h3>
                   <div className="space-y-3">
                     {(getJobsForFqhc(selectedFqhc.slug).length > 0
@@ -781,7 +856,7 @@ export default function DirectoryPage() {
                                   </span>
                                   <Badge className="bg-stone-100 text-stone-600 text-xs">{job.type}</Badge>
                                   {job.bilingual && (
-                                    <Badge className="bg-amber-50 text-amber-700 text-xs">Bilingual</Badge>
+                                    <Badge className="bg-amber-50 text-amber-700 text-xs">{t.bilingual}</Badge>
                                   )}
                                 </div>
                                 <p className="mt-1.5 text-xs text-stone-500">{job.department}</p>
@@ -796,7 +871,7 @@ export default function DirectoryPage() {
                                   setShowAssessment(true);
                                 }}
                               >
-                                Take Career Screener <ArrowRight className="ml-1 size-3" />
+                                {t.takeScreener} <ArrowRight className="ml-1 size-3" />
                               </Button>
                             </div>
                           </div>
@@ -824,7 +899,7 @@ export default function DirectoryPage() {
                                   setShowAssessment(true);
                                 }}
                               >
-                                Take Career Screener <ArrowRight className="ml-1 size-3" />
+                                {t.takeScreener} <ArrowRight className="ml-1 size-3" />
                               </Button>
                             </div>
                           </div>
@@ -835,7 +910,7 @@ export default function DirectoryPage() {
 
                 {/* Benefits Summary */}
                 <div className="space-y-3 border-t border-stone-100 pt-6">
-                  <h3 className="font-semibold text-stone-900">Typical FQHC Benefits</h3>
+                  <h3 className="font-semibold text-stone-900">{t.benefitsTitle}</h3>
                   <div className="space-y-2">
                     {typicalFqhcBenefits.slice(0, 5).map((b) => (
                       <div key={b} className="flex items-start gap-2 text-sm text-stone-600">
@@ -850,22 +925,20 @@ export default function DirectoryPage() {
                 <div className="space-y-3 border-t border-stone-100 pt-6">
                   {selectedFqhc.careersUrl && (
                     <Button
-                      variant="outline"
-                      className="w-full border-teal-300 text-teal-800 hover:bg-teal-50"
+                      className="w-full border border-teal-300 bg-teal-50 text-teal-800 hover:bg-teal-100"
                       asChild
                     >
                       <a href={selectedFqhc.careersUrl} target="_blank" rel="noopener noreferrer">
-                        View Careers Page <ExternalLink className="ml-2 size-4" />
+                        {t.viewCareers} <ExternalLink className="ml-2 size-4" />
                       </a>
                     </Button>
                   )}
                   <Button
-                    variant="outline"
-                    className="w-full border-stone-300 text-stone-700 hover:bg-stone-50"
+                    className="w-full border border-stone-300 bg-stone-50 text-stone-700 hover:bg-stone-100"
                     asChild
                   >
                     <a href={selectedFqhc.website} target="_blank" rel="noopener noreferrer">
-                      Visit Website <ExternalLink className="ml-2 size-4" />
+                      {t.visitWebsite} <ExternalLink className="ml-2 size-4" />
                     </a>
                   </Button>
                 </div>
@@ -890,11 +963,10 @@ export default function DirectoryPage() {
         {/* CTA */}
         <div className="mt-16 rounded-2xl bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 p-8 sm:p-12 text-center text-white">
           <h2 className="text-2xl font-bold sm:text-3xl">
-            Ready to Join the Network?
+            {t.ctaTitle}
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-teal-100/80 sm:text-lg">
-            Whether you're a health professional looking for your next role or an
-            FQHC with positions to fill, we're here to connect you.
+            {t.ctaSubtitle}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button
@@ -903,16 +975,15 @@ export default function DirectoryPage() {
               asChild
             >
               <Link href="/resume-builder">
-                Build Your Resume <ArrowRight className="size-4" />
+                {isEs ? "Crear Tu CV" : "Build Your Resume"} <ArrowRight className="size-4" />
               </Link>
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
+              className="border border-white/40 bg-white/10 text-white hover:bg-white/20"
               asChild
             >
-              <Link href="/hire">Hire Talent</Link>
+              <Link href="/hire">{t.hireTalent}</Link>
             </Button>
           </div>
         </div>
@@ -924,9 +995,11 @@ export default function DirectoryPage() {
 function FQHCCard({
   fqhc,
   onViewDetails,
+  isEs,
 }: {
   fqhc: CaliforniaFQHC;
   onViewDetails?: () => void;
+  isEs: boolean;
 }) {
   return (
     <div className="flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-teal-300 cursor-pointer group"
@@ -961,18 +1034,18 @@ function FQHCCard({
         {/* Key Stats Grid */}
         <div className="mt-3 grid grid-cols-2 gap-2">
           <div className="rounded-lg bg-teal-50 px-2 py-1.5">
-            <p className="text-xs font-medium text-stone-500">Patients</p>
+            <p className="text-xs font-medium text-stone-500">{isEs ? "Pacientes" : "Patients"}</p>
             <p className="text-sm font-semibold text-stone-900">{fqhc.patientCount}</p>
           </div>
           <div className="rounded-lg bg-amber-50 px-2 py-1.5">
-            <p className="text-xs font-medium text-stone-500">Staff</p>
+            <p className="text-xs font-medium text-stone-500">{isEs ? "Personal" : "Staff"}</p>
             <p className="text-sm font-semibold text-stone-900">{fqhc.staffCount}</p>
           </div>
         </div>
 
         {/* Glassdoor Rating */}
         <div className="mt-3">
-          <StarRating rating={fqhc.glassdoorRating} />
+          <StarRating rating={fqhc.glassdoorRating} noRatingText={isEs ? "Sin calificación" : "No rating"} />
           {fqhc.glassdoorReviewCount && (
             <span className="ml-1 text-xs text-stone-400">
               ({fqhc.glassdoorReviewCount})
@@ -1007,22 +1080,22 @@ function FQHCCard({
           }}
           className="flex-1 text-sm font-medium text-teal-700 hover:text-teal-800 transition-colors text-left"
         >
-          View Details <ArrowRight className="ml-1 inline size-3" />
+          {isEs ? "Ver Detalles" : "View Details"} <ArrowRight className="ml-1 inline size-3" />
         </button>
       </div>
     </div>
   );
 }
 
-function EmptyState() {
+function EmptyState({ isEs }: { isEs: boolean }) {
   return (
     <div className="mx-auto max-w-md py-20 text-center">
       <Building2 className="mx-auto mb-4 size-12 text-stone-300" />
       <h2 className="text-lg font-semibold text-stone-700">
-        No organizations match your filters
+        {isEs ? "No hay organizaciones que coincidan con sus filtros" : "No organizations match your filters"}
       </h2>
       <p className="mt-2 text-sm text-stone-500">
-        Try adjusting your search or filter criteria.
+        {isEs ? "Intente ajustar su búsqueda o criterios de filtro." : "Try adjusting your search or filter criteria."}
       </p>
     </div>
   );

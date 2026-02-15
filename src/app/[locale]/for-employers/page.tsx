@@ -63,45 +63,209 @@ const ROLE_TYPES = [
   "Other",
 ] as const;
 
-const URGENCY_OPTIONS = [
+const URGENCY_OPTIONS_EN = [
   "Immediately",
   "Within 30 days",
   "Within 60 days",
   "Planning ahead",
 ] as const;
 
-const STEP_LABELS = [
-  { label: "Organization", icon: Building2 },
-  { label: "Open Roles", icon: Briefcase },
-  { label: "Review", icon: ClipboardCheck },
-];
+const URGENCY_OPTIONS_ES = [
+  "Inmediatamente",
+  "Dentro de 30 días",
+  "Dentro de 60 días",
+  "Planificando a futuro",
+] as const;
+
+/* ------------------------------------------------------------------ */
+/*  i18n content                                                       */
+/* ------------------------------------------------------------------ */
+
+const content = {
+  en: {
+    stepLabels: ["Organization", "Open Roles", "Review"],
+    badge: "Fill critical roles faster",
+    heroTitle: "Hire for Your FQHC",
+    heroSubtitle: "Tell us what you need and we'll deliver pre-vetted, mission-aligned candidates within days.",
+    fastTrackTitle: "⚡ Fast-Track talent pool available",
+    fastTrackDesc: "Experienced FQHC professionals recently displaced and ready to work immediately. Ask when you submit.",
+    // Step 1
+    step1Title: "Your Organization",
+    step1Desc: "Tell us about your health center.",
+    orgName: "Organization Name",
+    orgNamePlaceholder: "Community Health Center of...",
+    website: "Website",
+    optional: "(optional)",
+    websitePlaceholder: "https://yourfqhc.org",
+    contactName: "Contact Name",
+    contactNamePlaceholder: "Jane Smith",
+    contactEmail: "Contact Email",
+    contactEmailPlaceholder: "jane@yourfqhc.org",
+    phone: "Phone",
+    phonePlaceholder: "(555) 123-4567",
+    ehrSystem: "EHR System",
+    selectEhr: "Select EHR",
+    // Step 2
+    step2Title: "Open Positions",
+    step2Desc: "Add the roles you're looking to fill.",
+    position: "Position",
+    jobTitle: "Job Title",
+    jobTitlePlaceholder: "e.g. Care Manager",
+    roleType: "Role Type",
+    selectType: "Select type",
+    salaryMin: "Salary Min",
+    salaryMax: "Salary Max",
+    opt: "(opt)",
+    urgency: "Urgency",
+    timeline: "Timeline",
+    addAnother: "Add Another Position",
+    // Step 3
+    step3Title: "Review & Submit",
+    step3Desc: "Confirm everything looks right.",
+    reviewOrg: "Organization",
+    reviewName: "Name",
+    reviewWebsite: "Website",
+    reviewContact: "Contact",
+    reviewEmail: "Email",
+    reviewPhone: "Phone",
+    reviewEhr: "EHR",
+    openPositions: "Open Positions",
+    // Nav
+    back: "Back",
+    continue: "Continue",
+    submitting: "Submitting...",
+    submitOpenings: "Submit Openings",
+    backToHome: "Back to Home",
+    // Errors
+    networkError: "Network error. Please check your connection and try again.",
+    genericError: "Something went wrong. Please try again.",
+    // Validation
+    orgNameRequired: "Organization name is required",
+    contactNameRequired: "Contact name is required",
+    emailRequired: "Email is required",
+    emailInvalid: "Enter a valid email",
+    jobTitleRequired: "Job title is required",
+    selectRoleType: "Select a role type",
+    selectUrgency: "Select urgency",
+    addPosition: "Add at least one open position",
+    // Success
+    successTitle: "We're on It!",
+    successMessage: (name: string, count: number) =>
+      `Thanks, ${name}! Your ${count} open ${count === 1 ? "role has" : "roles have"} been received.`,
+    acknowledgmentTitle: "Same-Day Acknowledgment",
+    acknowledgmentBody: "A member of our team will confirm receipt and ask any clarifying questions.",
+    sourcingTitle: "Candidate Sourcing Begins",
+    sourcingBody: "We tap our pre-vetted FQHC talent pool and begin matching within 48 hours.",
+    introsTitle: "First Intros in 5 Days",
+    introsBody: "Expect your first qualified candidate introductions within five business days.",
+  },
+  es: {
+    stepLabels: ["Organización", "Roles Abiertos", "Revisar"],
+    badge: "Cubra roles críticos más rápido",
+    heroTitle: "Contrate para su FQHC",
+    heroSubtitle: "Díganos lo que necesita y le entregaremos candidatos pre-evaluados y alineados con su misión en días.",
+    fastTrackTitle: "⚡ Grupo de talento Fast-Track disponible",
+    fastTrackDesc: "Profesionales experimentados de FQHC recientemente desplazados, listos para trabajar de inmediato. Pregunte al enviar.",
+    // Step 1
+    step1Title: "Su Organización",
+    step1Desc: "Cuéntenos sobre su centro de salud.",
+    orgName: "Nombre de la Organización",
+    orgNamePlaceholder: "Centro de Salud Comunitario de...",
+    website: "Sitio Web",
+    optional: "(opcional)",
+    websitePlaceholder: "https://sufqhc.org",
+    contactName: "Nombre de Contacto",
+    contactNamePlaceholder: "María García",
+    contactEmail: "Correo de Contacto",
+    contactEmailPlaceholder: "maria@sufqhc.org",
+    phone: "Teléfono",
+    phonePlaceholder: "(555) 123-4567",
+    ehrSystem: "Sistema EHR",
+    selectEhr: "Seleccionar EHR",
+    // Step 2
+    step2Title: "Posiciones Abiertas",
+    step2Desc: "Agregue los roles que busca cubrir.",
+    position: "Posición",
+    jobTitle: "Título del Puesto",
+    jobTitlePlaceholder: "ej. Gestor de Casos",
+    roleType: "Tipo de Rol",
+    selectType: "Seleccionar tipo",
+    salaryMin: "Salario Mín.",
+    salaryMax: "Salario Máx.",
+    opt: "(opc.)",
+    urgency: "Urgencia",
+    timeline: "Plazo",
+    addAnother: "Agregar Otra Posición",
+    // Step 3
+    step3Title: "Revisar y Enviar",
+    step3Desc: "Confirme que todo se vea bien.",
+    reviewOrg: "Organización",
+    reviewName: "Nombre",
+    reviewWebsite: "Sitio Web",
+    reviewContact: "Contacto",
+    reviewEmail: "Correo",
+    reviewPhone: "Teléfono",
+    reviewEhr: "EHR",
+    openPositions: "Posiciones Abiertas",
+    // Nav
+    back: "Atrás",
+    continue: "Continuar",
+    submitting: "Enviando...",
+    submitOpenings: "Enviar Vacantes",
+    backToHome: "Volver al Inicio",
+    // Errors
+    networkError: "Error de red. Por favor verifique su conexión e intente de nuevo.",
+    genericError: "Algo salió mal. Por favor intente de nuevo.",
+    // Validation
+    orgNameRequired: "El nombre de la organización es obligatorio",
+    contactNameRequired: "El nombre de contacto es obligatorio",
+    emailRequired: "El correo electrónico es obligatorio",
+    emailInvalid: "Ingrese un correo electrónico válido",
+    jobTitleRequired: "El título del puesto es obligatorio",
+    selectRoleType: "Seleccione un tipo de rol",
+    selectUrgency: "Seleccione la urgencia",
+    addPosition: "Agregue al menos una posición abierta",
+    // Success
+    successTitle: "¡Estamos en ello!",
+    successMessage: (name: string, count: number) =>
+      `¡Gracias, ${name}! ${count === 1 ? "Su rol abierto ha sido" : `Sus ${count} roles abiertos han sido`} recibido${count === 1 ? "" : "s"}.`,
+    acknowledgmentTitle: "Confirmación el mismo día",
+    acknowledgmentBody: "Un miembro de nuestro equipo confirmará la recepción y hará preguntas aclaratorias.",
+    sourcingTitle: "Comienza la búsqueda de candidatos",
+    sourcingBody: "Utilizamos nuestro grupo de talento FQHC pre-evaluado y comenzamos a buscar coincidencias en 48 horas.",
+    introsTitle: "Primeras presentaciones en 5 días",
+    introsBody: "Espere sus primeras presentaciones de candidatos calificados dentro de cinco días hábiles.",
+  },
+};
 
 /* ------------------------------------------------------------------ */
 /*  Schema                                                             */
 /* ------------------------------------------------------------------ */
 
-const positionSchema = z.object({
-  title: z.string().min(1, "Job title is required"),
-  roleType: z.string().min(1, "Select a role type"),
-  salaryMin: z.string().optional(),
-  salaryMax: z.string().optional(),
-  urgency: z.string().min(1, "Select urgency"),
-});
+function createSchema(t: typeof content.en) {
+  const positionSchema = z.object({
+    title: z.string().min(1, t.jobTitleRequired),
+    roleType: z.string().min(1, t.selectRoleType),
+    salaryMin: z.string().optional(),
+    salaryMax: z.string().optional(),
+    urgency: z.string().min(1, t.selectUrgency),
+  });
 
-const formSchema = z.object({
-  organizationName: z.string().min(1, "Organization name is required"),
-  website: z.string().optional(),
-  contactName: z.string().min(1, "Contact name is required"),
-  contactEmail: z
-    .string()
-    .min(1, "Email is required")
-    .email("Enter a valid email"),
-  contactPhone: z.string().optional(),
-  ehrSystem: z.string().optional(),
-  positions: z.array(positionSchema).min(1, "Add at least one open position"),
-});
+  return z.object({
+    organizationName: z.string().min(1, t.orgNameRequired),
+    website: z.string().optional(),
+    contactName: z.string().min(1, t.contactNameRequired),
+    contactEmail: z
+      .string()
+      .min(1, t.emailRequired)
+      .email(t.emailInvalid),
+    contactPhone: z.string().optional(),
+    ehrSystem: z.string().optional(),
+    positions: z.array(positionSchema).min(1, t.addPosition),
+  });
+}
 
-type FormData = z.infer<typeof formSchema>;
+type FormData = z.infer<ReturnType<typeof createSchema>>;
 
 const STEP_FIELDS: (keyof FormData)[][] = [
   ["organizationName", "contactName", "contactEmail"],
@@ -109,12 +273,19 @@ const STEP_FIELDS: (keyof FormData)[][] = [
   [],
 ];
 
+const STEP_ICONS = [Building2, Briefcase, ClipboardCheck];
+
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
 export default function ForEmployers() {
   const locale = useLocale();
+  const isEs = locale === "es";
+  const t = isEs ? content.es : content.en;
+  const urgencyOptions = isEs ? URGENCY_OPTIONS_ES : URGENCY_OPTIONS_EN;
+  const formSchema = createSchema(t);
+
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -171,17 +342,13 @@ export default function ForEmployers() {
       const result = await res.json();
 
       if (!res.ok) {
-        setSubmitError(
-          result.error || "Something went wrong. Please try again."
-        );
+        setSubmitError(result.error || t.genericError);
         return;
       }
 
       setSubmitted(true);
     } catch {
-      setSubmitError(
-        "Network error. Please check your connection and try again."
-      );
+      setSubmitError(t.networkError);
     } finally {
       setSubmitting(false);
     }
@@ -201,31 +368,31 @@ export default function ForEmployers() {
             </div>
 
             <h1 className="text-2xl font-bold text-stone-900 sm:text-3xl">
-              We're on It!
+              {t.successTitle}
             </h1>
             <p className="mx-auto mt-3 max-w-md text-stone-500">
-              Thanks, {data.contactName.split(" ")[0]}! Your{" "}
-              {data.positions.length} open{" "}
-              {data.positions.length === 1 ? "role has" : "roles have"} been
-              received.
+              {t.successMessage(
+                data.contactName.split(" ")[0],
+                data.positions.length
+              )}
             </p>
 
             <div className="mt-10 grid gap-6 text-left sm:grid-cols-3">
               {[
                 {
                   icon: Clock,
-                  title: "Same-Day Acknowledgment",
-                  body: "A member of our team will confirm receipt and ask any clarifying questions.",
+                  title: t.acknowledgmentTitle,
+                  body: t.acknowledgmentBody,
                 },
                 {
                   icon: Users,
-                  title: "Candidate Sourcing Begins",
-                  body: "We tap our pre-vetted FQHC talent pool and begin matching within 48 hours.",
+                  title: t.sourcingTitle,
+                  body: t.sourcingBody,
                 },
                 {
                   icon: Handshake,
-                  title: "First Intros in 5 Days",
-                  body: "Expect your first qualified candidate introductions within five business days.",
+                  title: t.introsTitle,
+                  body: t.introsBody,
                 },
               ].map((item) => (
                 <div
@@ -247,7 +414,7 @@ export default function ForEmployers() {
               className="mt-10 bg-teal-700 text-white hover:bg-teal-800"
               asChild
             >
-              <Link href="/">Back to Home</Link>
+              <Link href="/">{t.backToHome}</Link>
             </Button>
           </div>
         </div>
@@ -263,14 +430,13 @@ export default function ForEmployers() {
       {/* ---------- Mini Hero ---------- */}
       <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
         <Badge className="mb-4 border-teal-400/30 bg-teal-500/20 text-teal-100 hover:bg-teal-500/30">
-          Fill critical roles faster
+          {t.badge}
         </Badge>
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-          Hire for Your FQHC
+          {t.heroTitle}
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-base text-teal-100/80 sm:text-lg">
-          Tell us what you need and we'll deliver pre-vetted,
-          mission-aligned candidates within days.
+          {t.heroSubtitle}
         </p>
       </section>
 
@@ -282,14 +448,10 @@ export default function ForEmployers() {
           </div>
           <div className="flex-1">
             <p className="font-bold text-stone-900 text-sm sm:text-base">
-              {locale === "es"
-                ? "⚡ Grupo de talento Fast-Track disponible"
-                : "⚡ Fast-Track talent pool available"}
+              {t.fastTrackTitle}
             </p>
             <p className="text-xs sm:text-sm text-stone-600">
-              {locale === "es"
-                ? "Profesionales experimentados de FQHC recientemente desplazados, listos para trabajar de inmediato. Pregunte al enviar."
-                : "Experienced FQHC professionals recently displaced and ready to work immediately. Ask when you submit."}
+              {t.fastTrackDesc}
             </p>
           </div>
         </div>
@@ -298,13 +460,13 @@ export default function ForEmployers() {
       {/* ---------- Progress bar ---------- */}
       <div className="mx-auto max-w-2xl px-4 pt-6 sm:px-6 lg:px-8">
         <div className="mb-2 flex items-center justify-between">
-          {STEP_LABELS.map((s, i) => {
-            const Icon = s.icon;
+          {t.stepLabels.map((label, i) => {
+            const Icon = STEP_ICONS[i];
             const isActive = i === step;
             const isDone = i < step;
             return (
               <div
-                key={s.label}
+                key={label}
                 className="flex flex-1 flex-col items-center gap-1"
               >
                 <div
@@ -327,7 +489,7 @@ export default function ForEmployers() {
                     isActive ? "text-teal-800" : "text-stone-400"
                   }`}
                 >
-                  {s.label}
+                  {label}
                 </span>
               </div>
             );
@@ -352,18 +514,18 @@ export default function ForEmployers() {
             <div className="space-y-6">
               <div>
                 <h2 className="text-xl font-bold text-stone-900">
-                  Your Organization
+                  {t.step1Title}
                 </h2>
                 <p className="mt-1 text-sm text-stone-500">
-                  Tell us about your health center.
+                  {t.step1Desc}
                 </p>
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="organizationName">Organization Name</Label>
+                <Label htmlFor="organizationName">{t.orgName}</Label>
                 <Input
                   id="organizationName"
-                  placeholder="Community Health Center of..."
+                  placeholder={t.orgNamePlaceholder}
                   {...register("organizationName")}
                   aria-invalid={!!errors.organizationName}
                 />
@@ -376,22 +538,22 @@ export default function ForEmployers() {
 
               <div className="space-y-1.5">
                 <Label htmlFor="website">
-                  Website{" "}
-                  <span className="text-stone-400 font-normal">(optional)</span>
+                  {t.website}{" "}
+                  <span className="text-stone-400 font-normal">{t.optional}</span>
                 </Label>
                 <Input
                   id="website"
-                  placeholder="https://yourfqhc.org"
+                  placeholder={t.websitePlaceholder}
                   {...register("website")}
                 />
               </div>
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-1.5">
-                  <Label htmlFor="contactName">Contact Name</Label>
+                  <Label htmlFor="contactName">{t.contactName}</Label>
                   <Input
                     id="contactName"
-                    placeholder="Jane Smith"
+                    placeholder={t.contactNamePlaceholder}
                     {...register("contactName")}
                     aria-invalid={!!errors.contactName}
                   />
@@ -403,11 +565,11 @@ export default function ForEmployers() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <Label htmlFor="contactEmail">Contact Email</Label>
+                  <Label htmlFor="contactEmail">{t.contactEmail}</Label>
                   <Input
                     id="contactEmail"
                     type="email"
-                    placeholder="jane@yourfqhc.org"
+                    placeholder={t.contactEmailPlaceholder}
                     {...register("contactEmail")}
                     aria-invalid={!!errors.contactEmail}
                   />
@@ -422,24 +584,24 @@ export default function ForEmployers() {
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="space-y-1.5">
                   <Label htmlFor="contactPhone">
-                    Phone{" "}
+                    {t.phone}{" "}
                     <span className="text-stone-400 font-normal">
-                      (optional)
+                      {t.optional}
                     </span>
                   </Label>
                   <Input
                     id="contactPhone"
                     type="tel"
-                    placeholder="(555) 123-4567"
+                    placeholder={t.phonePlaceholder}
                     {...register("contactPhone")}
                   />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label>
-                    EHR System{" "}
+                    {t.ehrSystem}{" "}
                     <span className="text-stone-400 font-normal">
-                      (optional)
+                      {t.optional}
                     </span>
                   </Label>
                   <Select
@@ -449,7 +611,7 @@ export default function ForEmployers() {
                     }
                   >
                     <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select EHR" />
+                      <SelectValue placeholder={t.selectEhr} />
                     </SelectTrigger>
                     <SelectContent>
                       {EHR_SYSTEMS.map((sys) => (
@@ -469,10 +631,10 @@ export default function ForEmployers() {
             <div className="space-y-6">
               <div>
                 <h2 className="text-xl font-bold text-stone-900">
-                  Open Positions
+                  {t.step2Title}
                 </h2>
                 <p className="mt-1 text-sm text-stone-500">
-                  Add the roles you're looking to fill.
+                  {t.step2Desc}
                 </p>
               </div>
 
@@ -483,7 +645,7 @@ export default function ForEmployers() {
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold text-stone-700">
-                      Position {index + 1}
+                      {t.position} {index + 1}
                     </span>
                     {fields.length > 1 && (
                       <button
@@ -498,9 +660,9 @@ export default function ForEmployers() {
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
-                      <Label>Job Title</Label>
+                      <Label>{t.jobTitle}</Label>
                       <Input
-                        placeholder="e.g. Care Manager"
+                        placeholder={t.jobTitlePlaceholder}
                         {...register(`positions.${index}.title`)}
                         aria-invalid={!!errors.positions?.[index]?.title}
                       />
@@ -512,7 +674,7 @@ export default function ForEmployers() {
                     </div>
 
                     <div className="space-y-1.5">
-                      <Label>Role Type</Label>
+                      <Label>{t.roleType}</Label>
                       <Select
                         value={watch(`positions.${index}.roleType`)}
                         onValueChange={(v) =>
@@ -525,7 +687,7 @@ export default function ForEmployers() {
                           className="w-full"
                           aria-invalid={!!errors.positions?.[index]?.roleType}
                         >
-                          <SelectValue placeholder="Select type" />
+                          <SelectValue placeholder={t.selectType} />
                         </SelectTrigger>
                         <SelectContent>
                           {ROLE_TYPES.map((r) => (
@@ -546,9 +708,9 @@ export default function ForEmployers() {
                   <div className="grid gap-4 sm:grid-cols-3">
                     <div className="space-y-1.5">
                       <Label>
-                        Salary Min{" "}
+                        {t.salaryMin}{" "}
                         <span className="text-stone-400 font-normal">
-                          (opt)
+                          {t.opt}
                         </span>
                       </Label>
                       <Input
@@ -559,9 +721,9 @@ export default function ForEmployers() {
                     </div>
                     <div className="space-y-1.5">
                       <Label>
-                        Salary Max{" "}
+                        {t.salaryMax}{" "}
                         <span className="text-stone-400 font-normal">
-                          (opt)
+                          {t.opt}
                         </span>
                       </Label>
                       <Input
@@ -571,7 +733,7 @@ export default function ForEmployers() {
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <Label>Urgency</Label>
+                      <Label>{t.urgency}</Label>
                       <Select
                         value={watch(`positions.${index}.urgency`)}
                         onValueChange={(v) =>
@@ -584,10 +746,10 @@ export default function ForEmployers() {
                           className="w-full"
                           aria-invalid={!!errors.positions?.[index]?.urgency}
                         >
-                          <SelectValue placeholder="Timeline" />
+                          <SelectValue placeholder={t.timeline} />
                         </SelectTrigger>
                         <SelectContent>
-                          {URGENCY_OPTIONS.map((u) => (
+                          {urgencyOptions.map((u) => (
                             <SelectItem key={u} value={u}>
                               {u}
                             </SelectItem>
@@ -624,7 +786,7 @@ export default function ForEmployers() {
                 }
                 className="w-full border-dashed border-stone-300 text-stone-500 hover:border-teal-400 hover:text-teal-700"
               >
-                <Plus className="size-4" /> Add Another Position
+                <Plus className="size-4" /> {t.addAnother}
               </Button>
             </div>
           )}
@@ -634,10 +796,10 @@ export default function ForEmployers() {
             <div className="space-y-6">
               <div>
                 <h2 className="text-xl font-bold text-stone-900">
-                  Review & Submit
+                  {t.step3Title}
                 </h2>
                 <p className="mt-1 text-sm text-stone-500">
-                  Confirm everything looks right.
+                  {t.step3Desc}
                 </p>
               </div>
 
@@ -645,25 +807,25 @@ export default function ForEmployers() {
                 const data = getValues();
                 return (
                   <div className="divide-y divide-stone-100 rounded-xl border border-stone-200 bg-stone-50">
-                    <ReviewSection title="Organization">
+                    <ReviewSection title={t.reviewOrg}>
                       <ReviewRow
-                        label="Name"
+                        label={t.reviewName}
                         value={data.organizationName}
                       />
                       {data.website && (
-                        <ReviewRow label="Website" value={data.website} />
+                        <ReviewRow label={t.reviewWebsite} value={data.website} />
                       )}
-                      <ReviewRow label="Contact" value={data.contactName} />
-                      <ReviewRow label="Email" value={data.contactEmail} />
+                      <ReviewRow label={t.reviewContact} value={data.contactName} />
+                      <ReviewRow label={t.reviewEmail} value={data.contactEmail} />
                       {data.contactPhone && (
-                        <ReviewRow label="Phone" value={data.contactPhone} />
+                        <ReviewRow label={t.reviewPhone} value={data.contactPhone} />
                       )}
                       {data.ehrSystem && (
-                        <ReviewRow label="EHR" value={data.ehrSystem} />
+                        <ReviewRow label={t.reviewEhr} value={data.ehrSystem} />
                       )}
                     </ReviewSection>
 
-                    <ReviewSection title={`Open Positions (${data.positions.length})`}>
+                    <ReviewSection title={`${t.openPositions} (${data.positions.length})`}>
                       {data.positions.map((pos, i) => (
                         <div
                           key={i}
@@ -717,7 +879,7 @@ export default function ForEmployers() {
                 disabled={submitting}
                 className="text-stone-600 hover:text-stone-900"
               >
-                <ArrowLeft className="size-4" /> Back
+                <ArrowLeft className="size-4" /> {t.back}
               </Button>
             ) : (
               <span />
@@ -729,7 +891,7 @@ export default function ForEmployers() {
                 onClick={next}
                 className="bg-teal-700 text-white hover:bg-teal-800"
               >
-                Continue <ArrowRight className="size-4" />
+                {t.continue} <ArrowRight className="size-4" />
               </Button>
             ) : (
               <Button
@@ -738,9 +900,9 @@ export default function ForEmployers() {
                 className="bg-amber-500 text-stone-900 shadow-lg hover:bg-amber-400"
               >
                 {submitting ? (
-                  <>Submitting...</>
+                  <>{t.submitting}</>
                 ) : (
-                  <>Submit Openings <Rocket className="size-4" /></>
+                  <>{t.submitOpenings} <Rocket className="size-4" /></>
                 )}
               </Button>
             )}
