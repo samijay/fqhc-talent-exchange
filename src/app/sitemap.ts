@@ -18,11 +18,13 @@ const locationSlugs = [
 
 // Blog post slugs — add new posts here as you publish them
 const blogSlugs = [
+  "top-10-fqhc-interview-questions",
+  "nhsc-loan-repayment-guide",
   "medi-cal-funding-cuts-community-health-workers",
   "what-is-enhanced-care-management-ecm",
-  "fqhc-community-health-worker-salary-california",
   "how-to-write-fqhc-resume",
-  "ecm-ccm-community-supports-explained",
+  "working-at-top-of-scope-fqhc",
+  "fqhc-career-ladder-ma-rn-provider",
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

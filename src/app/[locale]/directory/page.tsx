@@ -144,8 +144,8 @@ export default function DirectoryPage() {
   const [view, setView] = useState<ViewMode>("cards");
   const [sortKey, setSortKey] = useState<SortKey>("name");
   const [sortDir, setSortDir] = useState<SortDir>("asc");
-  const [showSalary, setShowSalary] = useState(false);
-  const [showBenefits, setShowBenefits] = useState(false);
+  const [showSalary, setShowSalary] = useState(true);
+  const [showBenefits, setShowBenefits] = useState(true);
   const [selectedFqhc, setSelectedFqhc] = useState<CaliforniaFQHC | null>(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [showAssessment, setShowAssessment] = useState(false);
@@ -264,10 +264,11 @@ export default function DirectoryPage() {
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
         <div className="grid gap-4 sm:grid-cols-2">
           {/* Salary Card */}
-          <div className="rounded-xl border border-stone-200 bg-white shadow-sm">
+          <div className="rounded-xl border border-stone-200 bg-white shadow-sm overflow-hidden">
             <button
+              type="button"
               onClick={() => setShowSalary(!showSalary)}
-              className="flex w-full items-center justify-between p-4 text-left"
+              className="flex w-full items-center justify-between p-4 text-left bg-white hover:bg-stone-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
             >
               <div className="flex items-center gap-2">
                 <DollarSign className="size-5 text-teal-700" />
@@ -276,7 +277,7 @@ export default function DirectoryPage() {
               {showSalary ? <ChevronUp className="size-4 text-stone-400" /> : <ChevronDown className="size-4 text-stone-400" />}
             </button>
             {showSalary && (
-              <div className="border-t border-stone-100 p-4">
+              <div className="border-t border-stone-100 bg-white p-4">
                 <div className="space-y-2">
                   {Object.entries(fqhcSalaryRanges).map(([role, data]) => (
                     <div key={role} className="flex items-center justify-between text-sm">
@@ -295,10 +296,11 @@ export default function DirectoryPage() {
           </div>
 
           {/* Benefits Card */}
-          <div className="rounded-xl border border-stone-200 bg-white shadow-sm">
+          <div className="rounded-xl border border-stone-200 bg-white shadow-sm overflow-hidden">
             <button
+              type="button"
               onClick={() => setShowBenefits(!showBenefits)}
-              className="flex w-full items-center justify-between p-4 text-left"
+              className="flex w-full items-center justify-between p-4 text-left bg-white hover:bg-stone-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
             >
               <div className="flex items-center gap-2">
                 <Heart className="size-5 text-teal-700" />
@@ -307,7 +309,7 @@ export default function DirectoryPage() {
               {showBenefits ? <ChevronUp className="size-4 text-stone-400" /> : <ChevronDown className="size-4 text-stone-400" />}
             </button>
             {showBenefits && (
-              <div className="border-t border-stone-100 p-4">
+              <div className="border-t border-stone-100 bg-white p-4">
                 <div className="space-y-1.5">
                   {typicalFqhcBenefits.map((b) => (
                     <div key={b} className="flex items-start gap-2 text-sm text-stone-600">
@@ -907,7 +909,7 @@ export default function DirectoryPage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white/10"
+              className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
               asChild
             >
               <Link href="/hire">Hire Talent</Link>

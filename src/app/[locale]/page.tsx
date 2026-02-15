@@ -13,10 +13,15 @@ import {
   Rocket,
   ArrowRight,
   Mail,
+  Star,
+  MapPin,
+  Building2,
+  Quote,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { californiaFQHCs } from "@/lib/california-fqhcs";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -126,7 +131,7 @@ export default function Home() {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full border-white/30 text-white hover:bg-white/10 sm:w-auto"
+                className="w-full border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white sm:w-auto"
                 asChild
               >
                 <Link href="/hire">{tNav("hireTalent")}</Link>
@@ -237,6 +242,117 @@ export default function Home() {
                 {role}
               </Badge>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== TESTIMONIALS ==================== */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+              {t("testimonialsTitle")}
+            </h2>
+            <p className="mt-4 text-lg text-stone-500">
+              {t("testimonialsSubtitle")}
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3].map((i) => (
+              <div
+                key={i}
+                className="relative rounded-2xl border border-stone-200 bg-stone-50 p-8"
+              >
+                <Quote className="mb-4 size-8 text-teal-200" />
+                <p className="text-sm leading-relaxed text-stone-600 italic">
+                  &ldquo;{t(`testimonial${i}Quote`)}&rdquo;
+                </p>
+                <div className="mt-6 flex items-center gap-3">
+                  <div className="flex size-10 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">
+                    {t(`testimonial${i}Name`).charAt(0)}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-stone-900">
+                      {t(`testimonial${i}Name`)}
+                    </p>
+                    <p className="text-xs text-stone-500">
+                      {t(`testimonial${i}Role`)}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== FEATURED FQHCS ==================== */}
+      <section className="bg-stone-50 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-stone-900 sm:text-4xl">
+              {t("featuredTitle")}
+            </h2>
+            <p className="mt-4 text-lg text-stone-500">
+              {t("featuredSubtitle")}
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {californiaFQHCs
+              .filter((f) => f.glassdoorRating || parseInt(f.staffCount) > 500)
+              .slice(0, 6)
+              .map((fqhc) => (
+                <Link
+                  key={fqhc.slug}
+                  href={`/directory/${fqhc.slug}` as "/directory"}
+                  className="group rounded-2xl border border-stone-200 bg-white p-6 transition-all hover:-translate-y-1 hover:border-teal-200 hover:shadow-md"
+                >
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h3 className="font-semibold text-stone-900 group-hover:text-teal-700">
+                        {fqhc.name}
+                      </h3>
+                      <p className="mt-1 flex items-center gap-1 text-sm text-stone-500">
+                        <MapPin className="size-3.5" />
+                        {fqhc.city}, CA
+                      </p>
+                    </div>
+                    {fqhc.glassdoorRating && (
+                      <div className="flex items-center gap-1 rounded-lg bg-amber-50 px-2 py-1">
+                        <Star className="size-3.5 fill-amber-500 text-amber-500" />
+                        <span className="text-sm font-semibold text-amber-700">
+                          {fqhc.glassdoorRating.toFixed(1)}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="mt-4 flex items-center gap-4 text-xs text-stone-500">
+                    <span className="flex items-center gap-1">
+                      <Building2 className="size-3.5" />
+                      {fqhc.siteCount} {t("featuredSites")}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Users className="size-3.5" />
+                      {fqhc.staffCount} {t("featuredStaff")}
+                    </span>
+                  </div>
+
+                  <p className="mt-3 text-xs font-medium text-teal-700 opacity-0 transition-opacity group-hover:opacity-100">
+                    {t("viewProfile")} <ArrowRight className="inline size-3" />
+                  </p>
+                </Link>
+              ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Button variant="outline" size="lg" asChild>
+              <Link href="/directory">
+                {t("viewAllFqhcs")} <ArrowRight className="size-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

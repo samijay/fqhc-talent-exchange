@@ -5,6 +5,24 @@ import { useTranslations } from "next-intl";
 
 const posts = [
   {
+    slug: "top-10-fqhc-interview-questions",
+    title: "Top 10 FQHC Interview Questions and How to Answer Them",
+    description:
+      "Prepare for your FQHC job interview with these common questions and expert answers. From ECM program knowledge to cultural competency, learn exactly what community health centers are looking for.",
+    date: "February 14, 2026",
+    category: "Interview Prep",
+    readTime: "12 min read",
+  },
+  {
+    slug: "nhsc-loan-repayment-guide",
+    title: "NHSC Loan Repayment for FQHC Workers: Complete Guide",
+    description:
+      "Learn how the National Health Service Corps loan repayment program can pay off up to $50,000 of your student loans for working at an FQHC. Eligibility, application tips, and which California FQHCs qualify.",
+    date: "February 14, 2026",
+    category: "Benefits & Compensation",
+    readTime: "10 min read",
+  },
+  {
     slug: "working-at-top-of-scope-fqhc",
     title: "Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access",
     description:
