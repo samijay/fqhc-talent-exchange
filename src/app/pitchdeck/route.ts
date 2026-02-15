@@ -6,17 +6,16 @@ import { join } from "path";
 export const runtime = "nodejs";
 
 export async function GET(request: NextRequest) {
-  const filePath = join(process.cwd(), "public", "FQHC_Talent_Drop_Pitch_Deck.pptx");
+  const filePath = join(process.cwd(), "public", "FQHC_Talent_Drop_Pitch_Deck.pdf");
 
   try {
     const fileBuffer = await readFile(filePath);
 
     return new NextResponse(fileBuffer, {
       headers: {
-        "Content-Type":
-          "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "Content-Type": "application/pdf",
         "Content-Disposition":
-          'attachment; filename="FQHC_Talent_Exchange_Pitch_Deck.pptx"',
+          'attachment; filename="FQHC_Talent_Exchange_Pitch_Deck.pdf"',
         "Cache-Control": "public, max-age=3600",
       },
     });
