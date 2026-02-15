@@ -18,6 +18,8 @@ const locationSlugs = [
 
 // Blog post slugs — add new posts here as you publish them
 const blogSlugs = [
+  "fqhc-salary-negotiation-guide",
+  "fqhc-benefits-guide-community-health",
   "laid-off-fqhc-fast-track-job-search",
   "fqhc-career-insights-assessment",
   "fqhc-vs-private-practice",

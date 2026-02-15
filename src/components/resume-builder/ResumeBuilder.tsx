@@ -431,10 +431,10 @@ export default function ResumeBuilder() {
     <div className="mb-8">
       <div className="mb-2 flex items-center justify-between">
         <span className="text-sm font-semibold text-stone-700">
-          Step {step} of {TOTAL_STEPS}
+          {locale === "es" ? `Paso ${step} de ${TOTAL_STEPS}` : `Step ${step} of ${TOTAL_STEPS}`}
         </span>
         <span className="text-sm text-stone-500">
-          {Math.round(progress)}% complete
+          {Math.round(progress)}% {locale === "es" ? "completo" : "complete"}
         </span>
       </div>
       <div className="h-2 overflow-hidden rounded-full bg-stone-200">
@@ -455,7 +455,7 @@ export default function ResumeBuilder() {
           onClick={handleBack}
           className="flex items-center gap-2 px-6 py-2 font-medium text-stone-700 hover:text-stone-900"
         >
-          <ChevronLeft className="size-5" /> Back
+          <ChevronLeft className="size-5" /> {locale === "es" ? "Atrás" : "Back"}
         </button>
       ) : (
         <div />
@@ -464,7 +464,9 @@ export default function ResumeBuilder() {
         onClick={handleNext}
         className="flex items-center gap-2 bg-gradient-to-r from-teal-700 to-amber-600 px-6 py-3 font-semibold text-white hover:shadow-lg"
       >
-        {step === TOTAL_STEPS - 1 ? "Preview Resume" : "Next"}{" "}
+        {step === TOTAL_STEPS - 1
+          ? (locale === "es" ? "Vista Previa" : "Preview Resume")
+          : (locale === "es" ? "Siguiente" : "Next")}{" "}
         <ChevronRight className="size-5" />
       </Button>
     </div>
@@ -483,23 +485,24 @@ export default function ResumeBuilder() {
             <FileText className="size-8" />
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            FQHC Resume Builder
+            {locale === "es" ? "Creador de Currículum FQHC" : "FQHC Resume Builder"}
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-teal-100/80 sm:text-lg">
-            Build a professional resume tailored for community health center
-            roles. Free, with pre-written bullet points optimized for FQHC
-            hiring.
+            {locale === "es"
+              ? "Crea un currículum profesional adaptado para puestos en centros de salud comunitarios. Gratis, con puntos clave optimizados para contratación FQHC."
+              : "Build a professional resume tailored for community health center roles. Free, with pre-written bullet points optimized for FQHC hiring."}
           </p>
         </section>
 
         <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
           <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
             <h2 className="mb-2 text-xl font-bold text-stone-900 text-center">
-              How would you like to get started?
+              {locale === "es" ? "¿Cómo te gustaría comenzar?" : "How would you like to get started?"}
             </h2>
             <p className="mb-8 text-sm text-stone-500 text-center">
-              Upload an existing resume to pre-fill your information, or start
-              fresh with our guided builder.
+              {locale === "es"
+                ? "Sube un currículum existente para completar tu información automáticamente, o comienza desde cero con nuestro constructor guiado."
+                : "Upload an existing resume to pre-fill your information, or start fresh with our guided builder."}
             </p>
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -512,11 +515,12 @@ export default function ResumeBuilder() {
                   <Upload className="size-6" />
                 </div>
                 <h3 className="text-lg font-bold text-stone-900">
-                  Upload Your Resume
+                  {locale === "es" ? "Subir Tu Currículum" : "Upload Your Resume"}
                 </h3>
                 <p className="mt-1 text-sm text-stone-500">
-                  Upload a PDF, DOCX, or text file and we&apos;ll pre-fill your
-                  information automatically.
+                  {locale === "es"
+                    ? "Sube un archivo PDF, DOCX o de texto y completaremos tu información automáticamente."
+                    : "Upload a PDF, DOCX, or text file and we\u0027ll pre-fill your information automatically."}
                 </p>
               </button>
 
@@ -532,11 +536,12 @@ export default function ResumeBuilder() {
                   <Pencil className="size-6" />
                 </div>
                 <h3 className="text-lg font-bold text-stone-900">
-                  Build From Scratch
+                  {locale === "es" ? "Crear Desde Cero" : "Build From Scratch"}
                 </h3>
                 <p className="mt-1 text-sm text-stone-500">
-                  Start fresh with our guided builder and FQHC-optimized
-                  templates.
+                  {locale === "es"
+                    ? "Comienza desde cero con nuestro constructor guiado y plantillas optimizadas para FQHC."
+                    : "Start fresh with our guided builder and FQHC-optimized templates."}
                 </p>
               </button>
             </div>
@@ -558,11 +563,12 @@ export default function ResumeBuilder() {
             <Upload className="size-8" />
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            Upload Your Resume
+            {locale === "es" ? "Subir Tu Currículum" : "Upload Your Resume"}
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-teal-100/80 sm:text-lg">
-            We&apos;ll extract your information and create an enhanced,
-            FQHC-optimized resume using our professional template.
+            {locale === "es"
+              ? "Extraeremos tu información y crearemos un currículum mejorado y optimizado para FQHC usando nuestra plantilla profesional."
+              : "We\u0027ll extract your information and create an enhanced, FQHC-optimized resume using our professional template."}
           </p>
         </section>
 
@@ -591,10 +597,10 @@ export default function ResumeBuilder() {
                 <div className="flex flex-col items-center gap-3">
                   <Loader2 className="size-10 animate-spin text-teal-700" />
                   <p className="text-sm font-medium text-stone-700">
-                    Processing your resume...
+                    {locale === "es" ? "Procesando tu currículum..." : "Processing your resume..."}
                   </p>
                   <p className="text-xs text-stone-500">
-                    Extracting text and parsing your information
+                    {locale === "es" ? "Extrayendo texto y analizando tu información" : "Extracting text and parsing your information"}
                   </p>
                 </div>
               ) : (
@@ -604,13 +610,18 @@ export default function ResumeBuilder() {
                   </div>
                   <div className="text-center">
                     <p className="text-sm font-medium text-stone-700">
-                      Drag and drop your resume here, or{" "}
-                      <span className="text-teal-700 underline">
-                        click to browse
-                      </span>
+                      {locale === "es" ? (
+                        <>Arrastra y suelta tu currículum aquí, o{" "}
+                        <span className="text-teal-700 underline">haz clic para buscar</span></>
+                      ) : (
+                        <>Drag and drop your resume here, or{" "}
+                        <span className="text-teal-700 underline">click to browse</span></>
+                      )}
                     </p>
                     <p className="mt-1 text-xs text-stone-500">
-                      Supports PDF, DOCX, and TXT files (max 5MB)
+                      {locale === "es"
+                        ? "Soporta archivos PDF, DOCX y TXT (máx. 5MB)"
+                        : "Supports PDF, DOCX, and TXT files (max 5MB)"}
                     </p>
                   </div>
                 </div>
@@ -634,7 +645,7 @@ export default function ResumeBuilder() {
                 }}
                 className="text-sm font-medium text-stone-600 hover:text-stone-900"
               >
-                &larr; Back to options
+                &larr; {locale === "es" ? "Volver a opciones" : "Back to options"}
               </button>
               <span className="mx-3 text-stone-300">|</span>
               <button
@@ -644,7 +655,7 @@ export default function ResumeBuilder() {
                 }}
                 className="text-sm font-medium text-teal-700 hover:text-teal-800"
               >
-                Build from scratch instead
+                {locale === "es" ? "Crear desde cero" : "Build from scratch instead"}
               </button>
             </div>
           </div>
@@ -666,12 +677,12 @@ export default function ResumeBuilder() {
             <FileText className="size-8" />
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            FQHC Resume Builder
+            {locale === "es" ? "Creador de Currículum FQHC" : "FQHC Resume Builder"}
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-teal-100/80 sm:text-lg">
-            Build a professional resume tailored for community health center
-            roles. Free, with pre-written bullet points optimized for FQHC
-            hiring.
+            {locale === "es"
+              ? "Crea un currículum profesional adaptado para puestos en centros de salud comunitarios. Gratis, con puntos clave optimizados para contratación FQHC."
+              : "Build a professional resume tailored for community health center roles. Free, with pre-written bullet points optimized for FQHC hiring."}
           </p>
         </section>
 
@@ -679,14 +690,16 @@ export default function ResumeBuilder() {
           {uploadedFileUrl && (
             <div className="mb-4 rounded-lg border border-teal-200 bg-teal-50 px-4 py-3 text-sm text-teal-700">
               <CheckCircle className="mr-1.5 inline-block size-4" />
-              Resume uploaded! Review and edit your pre-filled information below.
+              {locale === "es"
+                ? "¡Currículum subido! Revisa y edita tu información completada a continuación."
+                : "Resume uploaded! Review and edit your pre-filled information below."}
             </div>
           )}
           {progressBar}
 
           <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
             <h2 className="mb-6 text-xl font-bold text-stone-900">
-              Personal Information
+              {locale === "es" ? "Información Personal" : "Personal Information"}
             </h2>
 
             {/* Name row */}
@@ -820,7 +833,7 @@ export default function ResumeBuilder() {
 
           <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
             <h2 className="mb-6 text-xl font-bold text-stone-900">
-              Role & Experience
+              {locale === "es" ? "Puesto y Experiencia" : "Role & Experience"}
             </h2>
 
             {/* Role selection */}
@@ -923,7 +936,7 @@ export default function ResumeBuilder() {
 
           <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
             <h2 className="mb-6 text-xl font-bold text-stone-900">
-              Skills & Qualifications
+              {locale === "es" ? "Habilidades y Calificaciones" : "Skills & Qualifications"}
             </h2>
 
             {/* EHR Systems */}
@@ -1056,7 +1069,7 @@ export default function ResumeBuilder() {
             {roleTemplate && (
               <div className="mb-8">
                 <h2 className="mb-2 text-xl font-bold text-stone-900">
-                  Describe Your Experience
+                  {locale === "es" ? "Describe Tu Experiencia" : "Describe Your Experience"}
                 </h2>
                 <p className="mb-4 text-sm text-stone-500">
                   Select the bullet points that describe your experience. These
@@ -1321,14 +1334,14 @@ export default function ResumeBuilder() {
         {/* Actions */}
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-2xl font-bold text-stone-900">
-            Your Resume Preview
+            {locale === "es" ? "Vista Previa de Tu Currículum" : "Your Resume Preview"}
           </h2>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
             <button
               onClick={() => setStep(1)}
               className="flex items-center justify-center gap-1.5 text-sm font-medium text-stone-600 hover:text-stone-900"
             >
-              <Pencil className="size-4" /> Edit
+              <Pencil className="size-4" /> {locale === "es" ? "Editar" : "Edit"}
             </button>
             <Button
               onClick={handleSaveProfile}
@@ -1337,7 +1350,9 @@ export default function ResumeBuilder() {
               className="flex w-full items-center justify-center gap-1.5 border-teal-700 text-teal-700 hover:bg-teal-50 sm:w-auto"
             >
               <Save className="size-4" />
-              {isSaving ? "Saving..." : "Save Profile"}
+              {isSaving
+                ? (locale === "es" ? "Guardando..." : "Saving...")
+                : (locale === "es" ? "Guardar Perfil" : "Save Profile")}
             </Button>
             <Button
               onClick={handleDownloadPDF}
@@ -1345,14 +1360,18 @@ export default function ResumeBuilder() {
               className="flex w-full items-center justify-center gap-1.5 bg-gradient-to-r from-teal-700 to-amber-600 text-white hover:shadow-lg sm:w-auto"
             >
               <Download className="size-4" />
-              {isDownloading ? "Generating..." : "Download PDF"}
+              {isDownloading
+                ? (locale === "es" ? "Generando..." : "Generating...")
+                : (locale === "es" ? "Descargar PDF" : "Download PDF")}
             </Button>
           </div>
         </div>
 
         {saveSuccess && (
           <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
-            Profile saved! You can return anytime to update your resume.
+            {locale === "es"
+              ? "¡Perfil guardado! Puedes regresar en cualquier momento para actualizar tu currículum."
+              : "Profile saved! You can return anytime to update your resume."}
           </div>
         )}
 

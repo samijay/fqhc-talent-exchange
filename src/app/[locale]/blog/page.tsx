@@ -5,6 +5,26 @@ import { useTranslations } from "next-intl";
 
 const posts = [
   {
+    slug: "fqhc-salary-negotiation-guide",
+    title:
+      "How to Negotiate Your FQHC Salary: A Guide for Community Health Professionals",
+    description:
+      "Learn proven salary negotiation strategies tailored to FQHCs. Understand grant-funded pay structures, leverage your bilingual and ECM skills, and negotiate total compensation packages worth $20k+ beyond base salary.",
+    date: "February 15, 2026",
+    category: "Career Resources",
+    readTime: "8 min read",
+  },
+  {
+    slug: "fqhc-benefits-guide-community-health",
+    title:
+      "The Complete Guide to FQHC Benefits: What Community Health Workers Actually Get",
+    description:
+      "Discover the full value of FQHC benefits packages \u2014 from health insurance and NHSC loan repayment to retirement plans, generous PTO, and professional development. Learn how a $65k FQHC salary can equal $85k+ in total compensation.",
+    date: "February 15, 2026",
+    category: "Benefits",
+    readTime: "9 min read",
+  },
+  {
     slug: "laid-off-fqhc-fast-track-job-search",
     title:
       "Laid Off from an FQHC? Here\u2019s How to Get Rehired in 48 Hours",
