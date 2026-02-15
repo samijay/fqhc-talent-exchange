@@ -11,17 +11,18 @@ export default function Footer() {
     [t("forJobSeekers")]: [
       { href: "/jobs" as const, label: t("browseJobs") },
       { href: "/resume-builder" as const, label: t("buildResume") },
-      { href: "/join" as const, label: t("applyEarlyAccess") },
-      { href: "/blog" as const, label: t("resumeTips") },
+      { href: "/join" as const, label: t("joinNetwork") },
+      { href: "/resources" as const, label: t("careerResources") },
     ],
     [t("forEmployers")]: [
-      { href: "/hire" as const, label: t("requestAccess") },
+      { href: "/hire" as const, label: t("hireTalent") },
       { href: "/directory" as const, label: t("fqhcDirectory") },
+      { href: "/for-employers" as const, label: t("whyFqhcTalent") },
     ],
-    [t("resources")]: [
+    [t("company")]: [
       { href: "/about" as const, label: t("aboutUs") },
-      { href: "/blog" as const, label: t("resumeTips") },
-      { href: "/directory" as const, label: t("fqhcDirectory") },
+      { href: "/blog" as const, label: t("blog") },
+      { href: "/resources" as const, label: t("careerResources") },
     ],
   };
 
@@ -64,9 +65,25 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 border-t border-stone-200 pt-6">
-          <p className="text-center text-sm text-stone-400">
-            {t("copyright", { year: new Date().getFullYear() })}
-          </p>
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
+            <p className="text-sm text-stone-400">
+              {t("copyright", { year: new Date().getFullYear() })}
+            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/privacy"
+                className="text-sm text-stone-400 transition-colors hover:text-teal-700"
+              >
+                {t("privacy")}
+              </Link>
+              <Link
+                href="/terms"
+                className="text-sm text-stone-400 transition-colors hover:text-teal-700"
+              >
+                {t("terms")}
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

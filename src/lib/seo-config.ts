@@ -46,20 +46,11 @@ export const rootMetadata = {
     siteName: SITE_NAME,
     title: "FQHC Talent Exchange | Find Your Next Community Health Role",
     description: SITE_DESCRIPTION,
-    images: [
-      {
-        url: `${SITE_URL}/og-image.png`, // Create a 1200x630 OG image
-        width: 1200,
-        height: 630,
-        alt: "FQHC Talent Exchange — Connecting community health professionals with FQHCs across California",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "FQHC Talent Exchange | FQHC Jobs & Community Health Careers",
     description: SITE_DESCRIPTION,
-    images: [`${SITE_URL}/og-image.png`],
   },
   robots: {
     index: true,
@@ -151,6 +142,40 @@ export const pageMetadata = {
       url: `${SITE_URL}/directory`,
     },
     alternates: { canonical: `${SITE_URL}/directory` },
+  },
+  resources: {
+    title: "FQHC Career Resources | Salary Guides, Tools & Links",
+    description:
+      "Guides, salary data, tools, and links for community health professionals. Resume builder, FQHC directory, career assessment, and external resources for FQHC workers in California.",
+    openGraph: {
+      title: "Career Resources — FQHC Talent Exchange",
+      description:
+        "Salary guides, career tools, and resources for FQHC professionals in California.",
+      url: `${SITE_URL}/resources`,
+    },
+    alternates: { canonical: `${SITE_URL}/resources` },
+  },
+  privacy: {
+    title: "Privacy Policy | FQHC Talent Exchange",
+    description:
+      "Learn how FQHC Talent Exchange collects, uses, and protects your personal information. We are committed to transparency and data privacy for all job seekers and employers.",
+    openGraph: {
+      title: "Privacy Policy — FQHC Talent Exchange",
+      description: "How we handle your data at FQHC Talent Exchange.",
+      url: `${SITE_URL}/privacy`,
+    },
+    alternates: { canonical: `${SITE_URL}/privacy` },
+  },
+  terms: {
+    title: "Terms of Service | FQHC Talent Exchange",
+    description:
+      "Terms of service for using FQHC Talent Exchange, the talent platform connecting community health professionals with Federally Qualified Health Centers in California.",
+    openGraph: {
+      title: "Terms of Service — FQHC Talent Exchange",
+      description: "Terms of service for FQHC Talent Exchange.",
+      url: `${SITE_URL}/terms`,
+    },
+    alternates: { canonical: `${SITE_URL}/terms` },
   },
   about: {
     title:
