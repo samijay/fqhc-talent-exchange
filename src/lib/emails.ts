@@ -2,12 +2,26 @@
 /*  Email templates for FQHC Talent Exchange                           */
 /* ------------------------------------------------------------------ */
 
+import { escapeHtml } from "@/lib/security";
+
+// Unsubscribe footer for user-facing emails (CAN-SPAM compliance)
+function unsubscribeFooter(isEs: boolean): string {
+  return `
+  <p style="font-size: 11px; color: #a8a29e; text-align: center; margin-top: 16px;">
+    ${isEs
+      ? 'Si no deseas recibir más correos, responde con "cancelar suscripción" y te eliminaremos de nuestra lista.'
+      : 'If you no longer wish to receive these emails, reply with "unsubscribe" and we will remove you from our list.'}<br />
+    FQHC Talent Exchange · California, USA
+  </p>`;
+}
+
 export function candidateConfirmationHtml(data: {
   firstName: string;
   position: number;
   locale?: string;
 }) {
   const isEs = data.locale === "es";
+  const name = escapeHtml(data.firstName);
 
   return `
 <!DOCTYPE html>
@@ -18,7 +32,7 @@ export function candidateConfirmationHtml(data: {
     <h1 style="color: #0d9488; font-size: 24px; margin: 0;">FQHC Talent Exchange</h1>
   </div>
 
-  <h2 style="font-size: 20px; color: #1c1917;">${isEs ? `¡Bienvenido/a, ${data.firstName}!` : `Welcome, ${data.firstName}!`}</h2>
+  <h2 style="font-size: 20px; color: #1c1917;">${isEs ? `¡Bienvenido/a, ${name}!` : `Welcome, ${name}!`}</h2>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
     ${isEs
@@ -56,6 +70,7 @@ export function candidateConfirmationHtml(data: {
       : "FQHC Talent Exchange — The only talent platform built exclusively for community health centers."}<br />
     <a href="https://fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
   </p>
+  ${unsubscribeFooter(isEs)}
 </body>
 </html>`.trim();
 }
@@ -66,6 +81,8 @@ export function employerConfirmationHtml(data: {
   locale?: string;
 }) {
   const isEs = data.locale === "es";
+  const name = escapeHtml(data.contactName);
+  const org = escapeHtml(data.orgName);
 
   return `
 <!DOCTYPE html>
@@ -76,12 +93,12 @@ export function employerConfirmationHtml(data: {
     <h1 style="color: #0d9488; font-size: 24px; margin: 0;">FQHC Talent Exchange</h1>
   </div>
 
-  <h2 style="font-size: 20px; color: #1c1917;">${isEs ? `¡Gracias, ${data.contactName}!` : `Thank you, ${data.contactName}!`}</h2>
+  <h2 style="font-size: 20px; color: #1c1917;">${isEs ? `¡Gracias, ${name}!` : `Thank you, ${name}!`}</h2>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
     ${isEs
-      ? `Hemos recibido la solicitud de acceso para <strong>${data.orgName}</strong>. Estamos emocionados de ayudarle a encontrar talento comprometido con la misión para su centro de salud.`
-      : `We've received the access request for <strong>${data.orgName}</strong>. We're excited to help you find mission-driven talent for your health center.`}
+      ? `Hemos recibido la solicitud de acceso para <strong>${org}</strong>. Estamos emocionados de ayudarle a encontrar talento comprometido con la misión para su centro de salud.`
+      : `We've received the access request for <strong>${org}</strong>. We're excited to help you find mission-driven talent for your health center.`}
   </p>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
@@ -114,6 +131,7 @@ export function employerConfirmationHtml(data: {
       : "FQHC Talent Exchange — The only talent platform built exclusively for community health centers."}<br />
     <a href="https://fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
   </p>
+  ${unsubscribeFooter(isEs)}
 </body>
 </html>`.trim();
 }
@@ -132,9 +150,10 @@ export function adminCandidateNotificationHtml(data: {
   notes?: string;
   position: number;
 }) {
+  const h = escapeHtml;
   const row = (label: string, value: string | undefined | null) =>
     value
-      ? `<tr><td style="padding: 8px 12px; font-weight: 600; color: #44403c; white-space: nowrap; vertical-align: top;">${label}</td><td style="padding: 8px 12px; color: #1c1917;">${value}</td></tr>`
+      ? `<tr><td style="padding: 8px 12px; font-weight: 600; color: #44403c; white-space: nowrap; vertical-align: top;">${label}</td><td style="padding: 8px 12px; color: #1c1917;">${h(value)}</td></tr>`
       : "";
 
   return `
@@ -146,7 +165,7 @@ export function adminCandidateNotificationHtml(data: {
 
   <table style="width: 100%; border-collapse: collapse; font-size: 14px; border: 1px solid #e7e5e4; border-radius: 8px;">
     ${row("Name", `${data.firstName} ${data.lastName}`)}
-    ${row("Email", `<a href="mailto:${data.email}" style="color: #0d9488;">${data.email}</a>`)}
+    ${row("Email", data.email)}
     ${row("Phone", data.phone)}
     ${row("Region", data.region)}
     ${row("Current Role", data.currentRole)}
@@ -158,7 +177,7 @@ export function adminCandidateNotificationHtml(data: {
   </table>
 
   <p style="font-size: 13px; color: #a8a29e; margin-top: 24px;">
-    View all signups in your <a href="https://supabase.com/dashboard" style="color: #0d9488;">Supabase dashboard</a>.
+    View all signups in your Supabase dashboard.
   </p>
 </body>
 </html>`.trim();
@@ -173,6 +192,7 @@ export function displacedCandidateConfirmationHtml(data: {
   locale?: string;
 }) {
   const isEs = data.locale === "es";
+  const name = escapeHtml(data.firstName);
   const sitePrefix = isEs ? "es/" : "";
 
   return `
@@ -186,8 +206,8 @@ export function displacedCandidateConfirmationHtml(data: {
   </div>
 
   <h2 style="font-size: 20px; color: #1c1917;">${isEs
-    ? `¡Estás en el grupo Fast-Track, ${data.firstName}!`
-    : `You're in the Fast-Track pool, ${data.firstName}!`}</h2>
+    ? `¡Estás en el grupo Fast-Track, ${name}!`
+    : `You're in the Fast-Track pool, ${name}!`}</h2>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
     ${isEs
@@ -224,10 +244,11 @@ export function displacedCandidateConfirmationHtml(data: {
 
   <p style="font-size: 13px; color: #a8a29e; text-align: center;">
     ${isEs
-      ? "FQHC Talent Exchange &mdash; La única plataforma de talento creada exclusivamente para centros de salud comunitarios."
-      : "FQHC Talent Exchange &mdash; The only talent platform built exclusively for community health centers."}<br />
+      ? "FQHC Talent Exchange — La única plataforma de talento creada exclusivamente para centros de salud comunitarios."
+      : "FQHC Talent Exchange — The only talent platform built exclusively for community health centers."}<br />
     <a href="https://fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
   </p>
+  ${unsubscribeFooter(isEs)}
 </body>
 </html>`.trim();
 }
@@ -250,9 +271,10 @@ export function adminDisplacedCandidateNotificationHtml(data: {
   willingToRelocate?: boolean;
   notes?: string;
 }) {
+  const h = escapeHtml;
   const row = (label: string, value: string | undefined | null) =>
     value
-      ? `<tr><td style="padding: 8px 12px; font-weight: 600; color: #44403c; white-space: nowrap; vertical-align: top;">${label}</td><td style="padding: 8px 12px; color: #1c1917;">${value}</td></tr>`
+      ? `<tr><td style="padding: 8px 12px; font-weight: 600; color: #44403c; white-space: nowrap; vertical-align: top;">${label}</td><td style="padding: 8px 12px; color: #1c1917;">${h(value)}</td></tr>`
       : "";
 
   return `
@@ -260,12 +282,12 @@ export function adminDisplacedCandidateNotificationHtml(data: {
 <html>
 <head><meta charset="utf-8" /></head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1c1917;">
-  <h2 style="color: #f59e0b; font-size: 20px;">&#9889; FAST-TRACK: ${data.firstName} ${data.lastName}</h2>
-  <p style="color: #44403c; font-size: 14px; margin-top: -8px;">Displaced worker &mdash; needs immediate placement</p>
+  <h2 style="color: #f59e0b; font-size: 20px;">&#9889; FAST-TRACK: ${h(data.firstName)} ${h(data.lastName)}</h2>
+  <p style="color: #44403c; font-size: 14px; margin-top: -8px;">Displaced worker — needs immediate placement</p>
 
   <table style="width: 100%; border-collapse: collapse; font-size: 14px; border: 1px solid #e7e5e4; border-radius: 8px;">
     ${row("Name", `${data.firstName} ${data.lastName}`)}
-    ${row("Email", `<a href="mailto:${data.email}" style="color: #0d9488;">${data.email}</a>`)}
+    ${row("Email", data.email)}
     ${row("Phone", data.phone)}
     ${row("Previous Employer", data.previousEmployer)}
     ${row("Previous Role", data.previousRole)}
@@ -282,7 +304,7 @@ export function adminDisplacedCandidateNotificationHtml(data: {
   </table>
 
   <p style="font-size: 13px; color: #a8a29e; margin-top: 24px;">
-    View all signups in your <a href="https://supabase.com/dashboard" style="color: #0d9488;">Supabase dashboard</a>.
+    View all signups in your Supabase dashboard.
   </p>
 </body>
 </html>`.trim();
@@ -301,9 +323,10 @@ export function adminEmployerNotificationHtml(data: {
   timeline?: string;
   notes?: string;
 }) {
+  const h = escapeHtml;
   const row = (label: string, value: string | undefined | null) =>
     value
-      ? `<tr><td style="padding: 8px 12px; font-weight: 600; color: #44403c; white-space: nowrap; vertical-align: top;">${label}</td><td style="padding: 8px 12px; color: #1c1917;">${value}</td></tr>`
+      ? `<tr><td style="padding: 8px 12px; font-weight: 600; color: #44403c; white-space: nowrap; vertical-align: top;">${label}</td><td style="padding: 8px 12px; color: #1c1917;">${h(value)}</td></tr>`
       : "";
 
   return `
@@ -317,7 +340,7 @@ export function adminEmployerNotificationHtml(data: {
     ${row("Organization", data.orgName)}
     ${row("Contact", data.contactName)}
     ${row("Title", data.contactTitle)}
-    ${row("Email", `<a href="mailto:${data.email}" style="color: #0d9488;">${data.email}</a>`)}
+    ${row("Email", data.email)}
     ${row("Phone", data.phone)}
     ${row("Open Positions", data.positionsCount)}
     ${row("Roles Needed", data.rolesNeeded?.length ? data.rolesNeeded.join(", ") : undefined)}
@@ -328,7 +351,7 @@ export function adminEmployerNotificationHtml(data: {
   </table>
 
   <p style="font-size: 13px; color: #a8a29e; margin-top: 24px;">
-    View all signups in your <a href="https://supabase.com/dashboard" style="color: #0d9488;">Supabase dashboard</a>.
+    View all signups in your Supabase dashboard.
   </p>
 </body>
 </html>`.trim();

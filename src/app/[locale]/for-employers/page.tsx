@@ -201,7 +201,7 @@ export default function ForEmployers() {
             </div>
 
             <h1 className="text-2xl font-bold text-stone-900 sm:text-3xl">
-              We&apos;re on It!
+              We're on It!
             </h1>
             <p className="mx-auto mt-3 max-w-md text-stone-500">
               Thanks, {data.contactName.split(" ")[0]}! Your{" "}
@@ -269,7 +269,7 @@ export default function ForEmployers() {
           Hire for Your FQHC
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-base text-teal-100/80 sm:text-lg">
-          Tell us what you need and we&apos;ll deliver pre-vetted,
+          Tell us what you need and we'll deliver pre-vetted,
           mission-aligned candidates within days.
         </p>
       </section>
@@ -472,7 +472,7 @@ export default function ForEmployers() {
                   Open Positions
                 </h2>
                 <p className="mt-1 text-sm text-stone-500">
-                  Add the roles you&apos;re looking to fill.
+                  Add the roles you're looking to fill.
                 </p>
               </div>
 

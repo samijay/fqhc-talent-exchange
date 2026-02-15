@@ -893,8 +893,8 @@ export default function DirectoryPage() {
             Ready to Join the Network?
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-teal-100/80 sm:text-lg">
-            Whether you&apos;re a health professional looking for your next role or an
-            FQHC with positions to fill, we&apos;re here to connect you.
+            Whether you're a health professional looking for your next role or an
+            FQHC with positions to fill, we're here to connect you.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button

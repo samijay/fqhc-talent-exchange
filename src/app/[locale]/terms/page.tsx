@@ -205,7 +205,7 @@ export default function TermsPage() {
             <Link href="/" className="hover:text-stone-700">
               {content.breadcrumbHome}
             </Link>{" "}
-            &rarr; {content.breadcrumbTerms}
+            → {content.breadcrumbTerms}
           </nav>
 
           {/* Header */}

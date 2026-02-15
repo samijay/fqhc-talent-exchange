@@ -200,7 +200,7 @@ export default function BlogPage() {
                 </p>
                 <div className="flex items-center gap-4 text-sm text-stone-500">
                   <time>{isEs ? post.esDate : post.date}</time>
-                  <span>&middot;</span>
+                  <span>·</span>
                   <span>{isEs ? post.esReadTime : post.readTime}</span>
                 </div>
               </Link>

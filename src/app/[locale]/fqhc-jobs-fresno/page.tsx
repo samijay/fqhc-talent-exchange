@@ -39,17 +39,17 @@ export default function FqhcJobsFresno() {
             <Link href="/" className="hover:text-stone-700">
               Home
             </Link>{" "}
-            &rarr;{" "}
+            →{" "}
             <Link href="/jobs" className="hover:text-stone-700">
               Jobs
             </Link>{" "}
-            &rarr; Fresno / Central Valley
+            → Fresno / Central Valley
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
             FQHC Jobs in Fresno &amp; the Central Valley
           </h1>
           <p className="text-xl text-stone-600 leading-relaxed">
-            The Central Valley&apos;s FQHCs serve California&apos;s
+            The Central Valley's FQHCs serve California's
             agricultural heartland, providing essential healthcare to farming
             communities, migrant workers, and underserved rural populations.
             With 15+ FQHCs across the region, demand for bilingual community
@@ -66,12 +66,12 @@ export default function FqhcJobsFresno() {
           </h2>
           <div className="space-y-6 text-stone-700 text-lg leading-relaxed">
             <p>
-              The Central Valley&apos;s FQHC network includes organizations
+              The Central Valley's FQHC network includes organizations
               like Clinica Sierra Vista, United Health Centers of the San
               Joaquin Valley, Family Healthcare Network, Camarena Health, and
               Golden Valley Health Centers. These health centers operate across
               a vast geographic area stretching from Bakersfield to Stockton,
-              serving some of California&apos;s most medically underserved
+              serving some of California's most medically underserved
               communities.
             </p>
             <p>
@@ -155,7 +155,7 @@ export default function FqhcJobsFresno() {
             <p>
               <strong>Chronic Disease Management</strong> programs addressing
               diabetes, hypertension, and obesity are expanding rapidly, driven
-              by high rates of chronic conditions in the region&apos;s
+              by high rates of chronic conditions in the region's
               underserved populations. FQHCs need care coordinators and health
               educators with experience in culturally tailored prevention
               programs.
@@ -168,7 +168,7 @@ export default function FqhcJobsFresno() {
               Looking for an FQHC Role in the Central Valley?
             </h3>
             <p className="text-stone-600 mb-6 text-lg">
-              Join FQHC Talent Exchange — it&apos;s completely free for job
+              Join FQHC Talent Exchange — it's completely free for job
               seekers. Get matched with Central Valley community health centers
               in as little as 5 days.
             </p>

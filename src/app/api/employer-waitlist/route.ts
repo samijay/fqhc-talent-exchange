@@ -1,25 +1,53 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { z } from "zod";
+import { supabaseAdmin } from "@/lib/supabase";
 import { resend, ADMIN_EMAIL, FROM_EMAIL } from "@/lib/resend";
+import { checkRateLimit, getClientIp } from "@/lib/security";
 import {
   employerConfirmationHtml,
   adminEmployerNotificationHtml,
 } from "@/lib/emails";
 
+const employerSchema = z.object({
+  orgName: z.string().min(1).max(200),
+  contactName: z.string().min(1).max(100),
+  contactTitle: z.string().max(100).optional().default(""),
+  email: z.string().email().max(255),
+  phone: z.string().max(30).optional().default(""),
+  positionsCount: z.string().max(20).optional().default(""),
+  rolesNeeded: z.array(z.string().max(100)).max(20).optional().default([]),
+  programsActive: z.array(z.string().max(100)).max(20).optional().default([]),
+  ehrSystem: z.string().max(100).optional().default(""),
+  timeline: z.string().max(100).optional().default(""),
+  notes: z.string().max(2000).optional().default(""),
+  locale: z.string().max(5).optional().default("en"),
+});
+
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-
-    const { orgName, contactName, contactTitle, email, phone, positionsCount, rolesNeeded, programsActive, ehrSystem, timeline, notes, locale } = body;
-
-    if (!orgName || !contactName || !email) {
+    // Rate limit: 5 signups per minute per IP
+    const ip = getClientIp(request);
+    const { allowed } = checkRateLimit(`employer-waitlist:${ip}`, { limit: 5, windowMs: 60_000 });
+    if (!allowed) {
       return NextResponse.json(
-        { error: "Organization name, contact name, and email are required." },
+        { error: "Too many requests. Please wait a moment and try again." },
+        { status: 429 }
+      );
+    }
+
+    const body = await request.json();
+    const result = employerSchema.safeParse(body);
+
+    if (!result.success) {
+      return NextResponse.json(
+        { error: "Please check your form and try again." },
         { status: 400 }
       );
     }
 
-    const { data, error } = await supabase
+    const { orgName, contactName, contactTitle, email, phone, positionsCount, rolesNeeded, programsActive, ehrSystem, timeline, notes, locale } = result.data;
+
+    const { error } = await supabaseAdmin
       .from("employer_waitlist")
       .insert({
         org_name: orgName,
@@ -28,14 +56,12 @@ export async function POST(request: Request) {
         email,
         phone: phone || null,
         positions_count: positionsCount || null,
-        roles_needed: rolesNeeded || [],
-        programs_active: programsActive || [],
+        roles_needed: rolesNeeded,
+        programs_active: programsActive,
         ehr_system: ehrSystem || null,
         timeline: timeline || null,
         notes: notes || null,
-      })
-      .select()
-      .single();
+      });
 
     if (error) {
       if (error.code === "23505") {
@@ -44,18 +70,17 @@ export async function POST(request: Request) {
           { status: 409 }
         );
       }
-      console.error("Supabase employer-waitlist error:", JSON.stringify(error, null, 2));
+      console.error("Supabase employer-waitlist error:", error.code, error.message);
       return NextResponse.json(
         { error: "Something went wrong. Please try again." },
         { status: 500 }
       );
     }
 
-    // Send emails (non-blocking — don't let email failures break the form)
+    // Send emails (non-blocking)
     if (resend) {
       try {
         await Promise.all([
-          // Confirmation to employer
           resend.emails.send({
             from: FROM_EMAIL,
             to: email,
@@ -64,35 +89,24 @@ export async function POST(request: Request) {
               : `Request received, ${contactName}! — FQHC Talent Exchange`,
             html: employerConfirmationHtml({ contactName, orgName, locale }),
           }),
-          // Notification to admin
           resend.emails.send({
             from: FROM_EMAIL,
             to: ADMIN_EMAIL,
             subject: `New Employer Request: ${orgName}`,
             html: adminEmployerNotificationHtml({
-              orgName,
-              contactName,
-              contactTitle,
-              email,
-              phone,
-              positionsCount,
-              rolesNeeded,
-              programsActive,
-              ehrSystem,
-              timeline,
-              notes,
+              orgName, contactName, contactTitle, email, phone,
+              positionsCount, rolesNeeded, programsActive, ehrSystem, timeline, notes,
             }),
           }),
         ]);
       } catch (emailErr) {
-        // Log but don't fail the request
         console.error("Email send error:", emailErr);
       }
     }
 
+    // Only return success message — no database row
     return NextResponse.json({
       message: "Request received!",
-      data,
     });
   } catch {
     return NextResponse.json(
@@ -103,7 +117,7 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
-  const { count, error } = await supabase
+  const { count, error } = await supabaseAdmin
     .from("employer_waitlist")
     .select("*", { count: "exact", head: true });
 

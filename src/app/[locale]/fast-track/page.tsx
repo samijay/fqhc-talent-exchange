@@ -907,7 +907,7 @@ export default function FastTrackPage() {
               href="/join"
               className="font-medium text-teal-700 underline hover:text-teal-800"
             >
-              {t.joinRegular} &rarr;
+              {t.joinRegular} →
             </Link>
           </div>
         </div>

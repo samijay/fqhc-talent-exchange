@@ -38,17 +38,17 @@ export default function FqhcJobsSanDiego() {
             <Link href="/" className="hover:text-stone-700">
               Home
             </Link>{" "}
-            &rarr;{" "}
+            →{" "}
             <Link href="/jobs" className="hover:text-stone-700">
               Jobs
             </Link>{" "}
-            &rarr; San Diego
+            → San Diego
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
             FQHC Jobs in San Diego
           </h1>
           <p className="text-xl text-stone-600 leading-relaxed">
-            San Diego County&apos;s Federally Qualified Health Centers serve
+            San Diego County's Federally Qualified Health Centers serve
             diverse border communities with specialized programs in behavioral
             health, chronic disease management, and integrated primary care.
             With 15+ FQHCs operating across the county, opportunities span from
@@ -65,14 +65,14 @@ export default function FqhcJobsSanDiego() {
           </h2>
           <div className="space-y-6 text-stone-700 text-lg leading-relaxed">
             <p>
-              San Diego&apos;s FQHC network includes major organizations like
+              San Diego's FQHC network includes major organizations like
               Family Health Centers of San Diego, La Maestra Community Health
               Centers, San Ysidro Health, Neighborhood Healthcare, and Vista
               Community Clinic. These centers serve hundreds of thousands of
               patients across urban, suburban, and border communities.
             </p>
             <p>
-              The region&apos;s proximity to the U.S.–Mexico border creates
+              The region's proximity to the U.S.–Mexico border creates
               unique workforce needs. Bilingual (Spanish-English) community
               health workers and patient navigators are in especially high
               demand, as are professionals experienced with cross-border health
@@ -137,7 +137,7 @@ export default function FqhcJobsSanDiego() {
           <div className="space-y-6 text-stone-700 text-lg leading-relaxed">
             <p>
               <strong>Enhanced Care Management (ECM)</strong> is expanding
-              rapidly across San Diego&apos;s FQHCs, with programs targeting
+              rapidly across San Diego's FQHCs, with programs targeting
               high-need Medi-Cal members including those experiencing
               homelessness, individuals with serious mental illness, and
               patients with multiple chronic conditions.
@@ -162,7 +162,7 @@ export default function FqhcJobsSanDiego() {
               Looking for an FQHC Role in San Diego?
             </h3>
             <p className="text-stone-600 mb-6 text-lg">
-              Join FQHC Talent Exchange — it&apos;s completely free for job
+              Join FQHC Talent Exchange — it's completely free for job
               seekers. Get matched with San Diego-area community health centers
               in as little as 5 days.
             </p>

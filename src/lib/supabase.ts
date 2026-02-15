@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 
+// ── Public client (for client-side use only — limited by RLS) ──
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
@@ -10,7 +11,25 @@ if (!supabaseUrl || !supabaseAnonKey) {
   );
 }
 
+/** Public Supabase client — use only in client components or non-sensitive reads */
 export const supabase = createClient(
   supabaseUrl || "",
   supabaseAnonKey || ""
 );
+
+// ── Server-only client (bypasses RLS — NEVER expose to the browser) ──
+const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+
+/**
+ * Server-side Supabase client using the service role key.
+ * This bypasses RLS and should ONLY be used in API routes (server-side).
+ * Falls back to the anon client if the service role key is not set.
+ */
+export const supabaseAdmin = supabaseServiceRoleKey
+  ? createClient(supabaseUrl || "", supabaseServiceRoleKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    })
+  : supabase; // Fallback so existing code doesn't break if key isn't set yet

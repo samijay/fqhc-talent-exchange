@@ -595,11 +595,11 @@ export default function FqhcSalaryNegotiationGuideArticle() {
             <Link href="/" className="hover:text-stone-700">
               {locale === "es" ? "Inicio" : "Home"}
             </Link>{" "}
-            &rarr;{" "}
+            →{" "}
             <Link href="/blog" className="hover:text-stone-700">
               Blog
             </Link>{" "}
-            &rarr; {content.breadcrumbTitle}
+            → {content.breadcrumbTitle}
           </nav>
 
           {/* Header */}
@@ -612,7 +612,7 @@ export default function FqhcSalaryNegotiationGuideArticle() {
             </h1>
             <div className="flex items-center gap-4 text-stone-500">
               <time dateTime={content.datePublished}>{content.dateDisplay}</time>
-              <span>&middot;</span>
+              <span>·</span>
               <span>{content.readTime}</span>
             </div>
           </header>

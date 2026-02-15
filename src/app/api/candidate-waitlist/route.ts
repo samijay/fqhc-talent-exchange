@@ -1,25 +1,53 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { z } from "zod";
+import { supabaseAdmin } from "@/lib/supabase";
 import { resend, ADMIN_EMAIL, FROM_EMAIL } from "@/lib/resend";
+import { checkRateLimit, getClientIp } from "@/lib/security";
 import {
   candidateConfirmationHtml,
   adminCandidateNotificationHtml,
 } from "@/lib/emails";
 
+const candidateSchema = z.object({
+  firstName: z.string().min(1).max(100),
+  lastName: z.string().min(1).max(100),
+  email: z.string().email().max(255),
+  phone: z.string().max(30).optional().default(""),
+  region: z.string().max(100).optional().default(""),
+  currentRole: z.string().max(200).optional().default(""),
+  yearsExperience: z.string().max(50).optional().default(""),
+  ehrSystems: z.array(z.string().max(100)).max(20).optional().default([]),
+  programs: z.array(z.string().max(100)).max(20).optional().default([]),
+  bilingual: z.string().max(50).optional().default(""),
+  notes: z.string().max(2000).optional().default(""),
+  locale: z.string().max(5).optional().default("en"),
+});
+
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-
-    const { firstName, lastName, email, phone, region, currentRole, yearsExperience, ehrSystems, programs, bilingual, notes, locale } = body;
-
-    if (!firstName || !lastName || !email) {
+    // Rate limit: 5 signups per minute per IP
+    const ip = getClientIp(request);
+    const { allowed } = checkRateLimit(`candidate-waitlist:${ip}`, { limit: 5, windowMs: 60_000 });
+    if (!allowed) {
       return NextResponse.json(
-        { error: "First name, last name, and email are required." },
+        { error: "Too many requests. Please wait a moment and try again." },
+        { status: 429 }
+      );
+    }
+
+    const body = await request.json();
+    const result = candidateSchema.safeParse(body);
+
+    if (!result.success) {
+      return NextResponse.json(
+        { error: "Please check your form and try again." },
         { status: 400 }
       );
     }
 
-    const { data, error } = await supabase
+    const { firstName, lastName, email, phone, region, currentRole, yearsExperience, ehrSystems, programs, bilingual, notes, locale } = result.data;
+
+    const { error } = await supabaseAdmin
       .from("candidate_waitlist")
       .insert({
         first_name: firstName,
@@ -29,13 +57,11 @@ export async function POST(request: Request) {
         region: region || null,
         role_title: currentRole || null,
         years_experience: yearsExperience || null,
-        ehr_systems: ehrSystems || [],
-        programs: programs || [],
+        ehr_systems: ehrSystems,
+        programs: programs,
         bilingual: bilingual || null,
         notes: notes || null,
-      })
-      .select()
-      .single();
+      });
 
     if (error) {
       if (error.code === "23505") {
@@ -44,7 +70,7 @@ export async function POST(request: Request) {
           { status: 409 }
         );
       }
-      console.error("Supabase candidate-waitlist error:", JSON.stringify(error, null, 2));
+      console.error("Supabase candidate-waitlist error:", error.code, error.message);
       return NextResponse.json(
         { error: "Something went wrong. Please try again." },
         { status: 500 }
@@ -52,7 +78,7 @@ export async function POST(request: Request) {
     }
 
     // Get the count for position number
-    const { count } = await supabase
+    const { count } = await supabaseAdmin
       .from("candidate_waitlist")
       .select("*", { count: "exact", head: true });
 
@@ -62,7 +88,6 @@ export async function POST(request: Request) {
     if (resend) {
       try {
         await Promise.all([
-          // Confirmation to candidate
           resend.emails.send({
             from: FROM_EMAIL,
             to: email,
@@ -71,37 +96,25 @@ export async function POST(request: Request) {
               : `You're on the list, ${firstName}! — FQHC Talent Exchange`,
             html: candidateConfirmationHtml({ firstName, position, locale }),
           }),
-          // Notification to admin
           resend.emails.send({
             from: FROM_EMAIL,
             to: ADMIN_EMAIL,
             subject: `New Candidate Signup: ${firstName} ${lastName} (#${position})`,
             html: adminCandidateNotificationHtml({
-              firstName,
-              lastName,
-              email,
-              phone,
-              region,
-              currentRole,
-              yearsExperience,
-              ehrSystems,
-              programs,
-              bilingual,
-              notes,
-              position,
+              firstName, lastName, email, phone, region, currentRole,
+              yearsExperience, ehrSystems, programs, bilingual, notes, position,
             }),
           }),
         ]);
       } catch (emailErr) {
-        // Log but don't fail the request
         console.error("Email send error:", emailErr);
       }
     }
 
+    // Only return what the client needs — no database row
     return NextResponse.json({
       message: "You're on the list!",
       position,
-      data,
     });
   } catch {
     return NextResponse.json(
@@ -112,7 +125,7 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
-  const { count, error } = await supabase
+  const { count, error } = await supabaseAdmin
     .from("candidate_waitlist")
     .select("*", { count: "exact", head: true });
 

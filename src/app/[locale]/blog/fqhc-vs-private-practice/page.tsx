@@ -760,11 +760,11 @@ export default function FqhcVsPrivatePracticeArticle() {
             <Link href="/" className="hover:text-stone-700">
               {locale === "es" ? "Inicio" : "Home"}
             </Link>{" "}
-            &rarr;{" "}
+            →{" "}
             <Link href="/blog" className="hover:text-stone-700">
               Blog
             </Link>{" "}
-            &rarr; {content.breadcrumbTitle}
+            → {content.breadcrumbTitle}
           </nav>
 
           {/* Header */}
@@ -779,7 +779,7 @@ export default function FqhcVsPrivatePracticeArticle() {
               <time dateTime={content.datePublished}>
                 {content.dateDisplay}
               </time>
-              <span>&middot;</span>
+              <span>·</span>
               <span>{content.readTime}</span>
             </div>
           </header>

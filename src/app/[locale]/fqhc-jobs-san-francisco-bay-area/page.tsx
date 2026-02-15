@@ -39,19 +39,19 @@ export default function FqhcJobsBayArea() {
             <Link href="/" className="hover:text-stone-700">
               Home
             </Link>{" "}
-            &rarr;{" "}
+            →{" "}
             <Link href="/jobs" className="hover:text-stone-700">
               Jobs
             </Link>{" "}
-            &rarr; Bay Area
+            → Bay Area
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
             FQHC Jobs in the San Francisco Bay Area
           </h1>
           <p className="text-xl text-stone-600 leading-relaxed">
-            The Bay Area&apos;s 40+ Federally Qualified Health Centers span San
+            The Bay Area's 40+ Federally Qualified Health Centers span San
             Francisco, Oakland, San Jose, and surrounding communities, serving
-            some of California&apos;s most diverse patient populations. From
+            some of California's most diverse patient populations. From
             Marin County to Silicon Valley, FQHCs are hiring across clinical,
             care coordination, and community outreach roles.
           </p>
@@ -68,14 +68,14 @@ export default function FqhcJobsBayArea() {
             <p>
               The Bay Area hosts a dense network of community health centers
               including LifeLong Medical Care, Asian Health Services, La
-              Cl&iacute;nica de La Raza, North East Medical Services (NEMS),
+              Clínica de La Raza, North East Medical Services (NEMS),
               Ravenswood Family Health Network, Gardner Health Services, and San
               Francisco Community Health Center. These organizations serve
               multilingual communities speaking Cantonese, Mandarin, Spanish,
               Vietnamese, Tagalog, and dozens of other languages.
             </p>
             <p>
-              The region&apos;s high cost of living creates unique recruitment
+              The region's high cost of living creates unique recruitment
               challenges for FQHCs, making competitive salaries and benefits
               packages essential. Many Bay Area health centers offer loan
               repayment programs, housing assistance, and other incentives to
@@ -141,7 +141,7 @@ export default function FqhcJobsBayArea() {
               <strong>Enhanced Care Management (ECM)</strong> programs in the
               Bay Area focus heavily on individuals experiencing homelessness
               and those with serious mental health conditions — reflecting the
-              region&apos;s acute housing and behavioral health challenges.
+              region's acute housing and behavioral health challenges.
               FQHCs are hiring care managers and outreach workers with
               street-level experience.
             </p>
@@ -166,7 +166,7 @@ export default function FqhcJobsBayArea() {
               Looking for an FQHC Role in the Bay Area?
             </h3>
             <p className="text-stone-600 mb-6 text-lg">
-              Join FQHC Talent Exchange — it&apos;s completely free for job
+              Join FQHC Talent Exchange — it's completely free for job
               seekers. Get matched with Bay Area community health centers in as
               little as 5 days.
             </p>

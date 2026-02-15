@@ -594,9 +594,132 @@ export default function JobPostingBuilder() {
     return lines.join("\n");
   }
 
+  /**
+   * Generate a single interwoven bilingual posting.
+   * Strategy: Job title bilingual, summary both languages, responsibilities/qualifications
+   * paired EN→ES per bullet, benefits paired, apply section bilingual, screening EN-only
+   * (internal hiring tool). This creates one cohesive post that speaks to both audiences.
+   */
+  function generateBilingualPosting(): string {
+    const template = JOB_POSTING_TEMPLATES.find((t) => t.roleId === selectedRole);
+    const tEn = content.en;
+    const tEs = content.es;
+
+    const lines: string[] = [];
+
+    // ── HEADER: Bilingual title ──
+    lines.push("═".repeat(60));
+    const esRoleLabel = template?.esLabel;
+    if (esRoleLabel && esRoleLabel.toLowerCase() !== jobTitle.toLowerCase()) {
+      lines.push(`${jobTitle.toUpperCase()} / ${esRoleLabel.toUpperCase()}`);
+    } else {
+      lines.push(jobTitle.toUpperCase());
+    }
+    lines.push(`${orgName}`);
+    if (city && region) lines.push(`📍 ${city}, ${region}`);
+    else if (region) lines.push(`📍 ${region}`);
+    if (employmentType) {
+      const empType = EMPLOYMENT_TYPES.find((e) => e.value === employmentType);
+      if (empType) lines.push(`🕐 ${empType.en} / ${empType.es}`);
+    }
+    if (minNum && maxNum) {
+      lines.push(`💰 ${formatSalary(minNum)} – ${formatSalary(maxNum)}`);
+    }
+    lines.push("═".repeat(60));
+    lines.push("");
+
+    // ── SUMMARY: EN paragraph, then ES paragraph ──
+    if (summary) {
+      lines.push(summary);
+      lines.push("");
+      if (template?.esSummaryTemplate) {
+        lines.push(template.esSummaryTemplate);
+        lines.push("");
+      }
+    }
+
+    // ── ABOUT US: Keep as-is (org writes in their preferred language) ──
+    if (orgNotes) {
+      lines.push(`── About Us / Sobre Nosotros ${"─".repeat(25)}`);
+      lines.push(orgNotes);
+      lines.push("");
+    }
+
+    // ── RESPONSIBILITIES: Interwoven — EN bullet with ES indented below ──
+    const enResps = responsibilities.filter(Boolean);
+    const esResps = template?.esResponsibilities ?? [];
+    if (enResps.length > 0) {
+      lines.push(`── Responsibilities / Responsabilidades ${"─".repeat(14)}`);
+      enResps.forEach((r, i) => {
+        lines.push(`• ${r}`);
+        if (esResps[i]) lines.push(`  ${esResps[i]}`);
+      });
+      lines.push("");
+    }
+
+    // ── QUALIFICATIONS: Interwoven — EN bullet with ES indented below ──
+    const enQuals = qualifications.filter(Boolean);
+    const esQuals = template?.esQualifications ?? [];
+    if (enQuals.length > 0) {
+      lines.push(`── Qualifications / Requisitos ${"─".repeat(22)}`);
+      enQuals.forEach((q, i) => {
+        lines.push(`• ${q}`);
+        if (esQuals[i]) lines.push(`  ${esQuals[i]}`);
+      });
+      lines.push("");
+    }
+
+    // ── PREFERRED SKILLS: EN / ES on same line ──
+    const enPrefs = preferredSkills.filter(Boolean);
+    const esPrefs = template?.esPreferredSkills ?? [];
+    if (enPrefs.length > 0) {
+      lines.push(`── Preferred / Preferido ${"─".repeat(28)}`);
+      enPrefs.forEach((p, i) => {
+        if (esPrefs[i]) {
+          lines.push(`• ${p} / ${esPrefs[i]}`);
+        } else {
+          lines.push(`• ${p}`);
+        }
+      });
+      lines.push("");
+    }
+
+    // ── BENEFITS: Bilingual on each line ──
+    if (selectedBenefits.length > 0 || additionalBenefits) {
+      lines.push(`── Benefits / Beneficios ${"─".repeat(28)}`);
+      selectedBenefits.forEach((id) => {
+        const benefit = STANDARD_BENEFITS.find((b) => b.id === id);
+        if (benefit) lines.push(`✓ ${benefit.text} / ${benefit.esText}`);
+      });
+      if (additionalBenefits) lines.push(`✓ ${additionalBenefits}`);
+      lines.push("");
+    }
+
+    // ── SCREENING QUESTIONS: EN only (internal hiring process) ──
+    if (screeningQuestions.filter(Boolean).length > 0) {
+      lines.push(`── Screening Questions ${"─".repeat(30)}`);
+      screeningQuestions.filter(Boolean).forEach((q, i) => lines.push(`${i + 1}. ${q}`));
+      lines.push("");
+    }
+
+    // ── HOW TO APPLY: Fully bilingual ──
+    lines.push(`── How to Apply / Cómo Aplicar ${"─".repeat(22)}`);
+    lines.push(`${tEn.outputApplyText} ${contactEmail}`);
+    lines.push(`${tEs.outputApplyText} ${contactEmail}`);
+    lines.push("");
+
+    // ── EQUAL OPPORTUNITY: Fully bilingual ──
+    lines.push(`── Equal Opportunity / Igualdad de Oportunidades ${"─".repeat(4)}`);
+    lines.push(tEn.outputEqualOppText);
+    lines.push("");
+    lines.push(tEs.outputEqualOppText);
+
+    return lines.join("\n");
+  }
+
   function getFullOutput(): string {
     if (outputLang === "bilingual") {
-      return generatePosting("en") + "\n\n" + "═".repeat(60) + "\n" + "🇪🇸 VERSIÓN EN ESPAÑOL / SPANISH VERSION\n" + "═".repeat(60) + "\n\n" + generatePosting("es");
+      return generateBilingualPosting();
     }
     return generatePosting(outputLang);
   }

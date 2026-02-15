@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   Shield,
   Users,
@@ -18,6 +18,7 @@ import {
   Building2,
   Quote,
   BookOpen,
+  Briefcase,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -28,6 +29,8 @@ export default function Home() {
   const t = useTranslations("home");
   const tRoles = useTranslations("roles");
   const tNav = useTranslations("nav");
+  const locale = useLocale();
+  const isEs = locale === "es";
 
   const [email, setEmail] = useState("");
   const [emailStatus, setEmailStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -288,7 +291,7 @@ export default function Home() {
               >
                 <Quote className="mb-4 size-8 text-teal-200" />
                 <p className="text-sm leading-relaxed text-stone-600 italic">
-                  &ldquo;{t(`testimonial${i}Quote`)}&rdquo;
+                  “{t(`testimonial${i}Quote`)}”
                 </p>
                 <div className="mt-6 flex items-center gap-3">
                   <div className="flex size-10 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">
@@ -399,17 +402,23 @@ export default function Home() {
               {
                 slug: "laid-off-fqhc-fast-track-job-search",
                 title: "Laid Off from an FQHC? Fast-Track Your Job Search",
+                esTitle: "¿Despedido/a de un FQHC? Acelera Tu Búsqueda",
                 category: "Fast-Track",
+                esCategory: "Fast-Track",
               },
               {
                 slug: "fqhc-career-insights-assessment",
                 title: "Discover Your FQHC Career Strengths",
+                esTitle: "Descubre Tus Fortalezas Profesionales en FQHC",
                 category: "Assessment",
+                esCategory: "Evaluación",
               },
               {
                 slug: "fqhc-vs-private-practice",
                 title: "FQHC vs. Private Practice: Which Is Right?",
+                esTitle: "FQHC vs. Práctica Privada: ¿Cuál Es Mejor?",
                 category: "Career Guide",
+                esCategory: "Guía Profesional",
               },
             ].map((post) => (
               <Link
@@ -421,10 +430,10 @@ export default function Home() {
                   variant="secondary"
                   className="mb-3 w-fit bg-teal-50 text-teal-700 hover:bg-teal-100"
                 >
-                  {post.category}
+                  {isEs ? post.esCategory : post.category}
                 </Badge>
                 <h3 className="mb-3 font-semibold text-stone-900 leading-snug group-hover:text-teal-700">
-                  {post.title}
+                  {isEs ? post.esTitle : post.title}
                 </h3>
                 <span className="mt-auto inline-flex items-center gap-1 text-sm font-medium text-teal-700">
                   {t("blogSectionReadMore")}
@@ -440,6 +449,86 @@ export default function Home() {
                 {t("blogSectionViewAll")} <ArrowRight className="size-4" />
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== FOR EMPLOYERS ==================== */}
+      <section className="bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <Badge className="mb-6 border-amber-400/30 bg-amber-500/20 text-amber-200 hover:bg-amber-500/30">
+              {isEs ? "Para Empleadores FQHC" : "For FQHC Employers"}
+            </Badge>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              {isEs
+                ? "Herramientas Gratuitas para Atraer Talento de Salud Comunitaria"
+                : "Free Tools to Attract Community Health Talent"}
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-stone-400">
+              {isEs
+                ? "Crea publicaciones de empleo optimizadas con puntos de referencia salariales, preguntas de selección y salida bilingüe. Sin costo."
+                : "Create optimized job postings with salary benchmarks, screening questions, and bilingual output. No cost."}
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Card 1: Job Posting Builder */}
+            <Link
+              href="/job-posting-builder"
+              className="group rounded-2xl border border-stone-700 bg-stone-800/50 p-8 transition-all hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-lg"
+            >
+              <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400">
+                <Briefcase className="size-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-white">
+                {isEs ? "Creador de Publicaciones de Empleo" : "Job Posting Builder"}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-stone-400">
+                {isEs
+                  ? "Genera publicaciones profesionales con plantillas para CHW, coordinadores de atención, asistentes médicos y más. Incluye puntos de referencia salariales de California."
+                  : "Generate professional postings with templates for CHWs, care coordinators, medical assistants, and more. Includes California salary benchmarks."}
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-amber-400">
+                {isEs ? "Crear Publicación Gratis" : "Create Free Posting"} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+
+            {/* Card 2: Screening Questions */}
+            <div className="rounded-2xl border border-stone-700 bg-stone-800/50 p-8">
+              <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400">
+                <Shield className="size-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-white">
+                {isEs ? "Preguntas de Selección FQHC" : "FQHC Screening Questions"}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-stone-400">
+                {isEs
+                  ? "Preguntas prediseñadas para identificar experiencia en co-visitas, gestión de atención, recuperación de ingresos y operaciones clínicas."
+                  : "Pre-built questions to screen for co-visit experience, care management, revenue recovery, and clinic operations expertise."}
+              </p>
+            </div>
+
+            {/* Card 3: Hire Talent */}
+            <Link
+              href="/hire"
+              className="group rounded-2xl border border-stone-700 bg-stone-800/50 p-8 transition-all hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-lg"
+            >
+              <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400">
+                <Users className="size-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-white">
+                {isEs ? "Acceda a Candidatos Pre-evaluados" : "Access Pre-Vetted Candidates"}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-stone-400">
+                {isEs
+                  ? "Únase a nuestra lista de espera para empleadores y obtenga acceso a candidatos de salud comunitaria examinados con experiencia en FQHC."
+                  : "Join our employer waitlist and get access to vetted community health candidates with real FQHC experience."}
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-amber-400">
+                {isEs ? "Solicitar Acceso" : "Request Access"} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
           </div>
         </div>
       </section>
@@ -498,7 +587,7 @@ export default function Home() {
                 className="w-full bg-teal-700 text-white hover:bg-teal-500 sm:w-auto"
               >
                 {emailStatus === "loading" ? (
-                  "Signing up..."
+                  isEs ? "Registrando..." : "Signing up..."
                 ) : (
                   <>{t("newsletterButton")} <ArrowRight className="size-4" /></>
                 )}

@@ -39,21 +39,21 @@ export default function FqhcJobsInlandEmpire() {
             <Link href="/" className="hover:text-stone-700">
               Home
             </Link>{" "}
-            &rarr;{" "}
+            →{" "}
             <Link href="/jobs" className="hover:text-stone-700">
               Jobs
             </Link>{" "}
-            &rarr; Inland Empire
+            → Inland Empire
           </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">
             FQHC Jobs in the Inland Empire
           </h1>
           <p className="text-xl text-stone-600 leading-relaxed">
-            The Inland Empire&apos;s rapidly growing FQHC network is expanding
-            to meet the needs of one of California&apos;s fastest-growing
+            The Inland Empire's rapidly growing FQHC network is expanding
+            to meet the needs of one of California's fastest-growing
             regions. With 20+ Federally Qualified Health Centers across
             Riverside and San Bernardino counties, community health career
-            opportunities are growing alongside the region&apos;s population.
+            opportunities are growing alongside the region's population.
           </p>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function FqhcJobsInlandEmpire() {
           </h2>
           <div className="space-y-6 text-stone-700 text-lg leading-relaxed">
             <p>
-              The Inland Empire&apos;s FQHC network includes organizations like
+              The Inland Empire's FQHC network includes organizations like
               Borrego Health, Inland Empire Health Plan partners, SAC Health,
               Desert Healthcare District, Riverside University Health System
               Community Health Centers, and Loma Linda University Health
@@ -143,18 +143,18 @@ export default function FqhcJobsInlandEmpire() {
               with FQHCs to serve high-need Medi-Cal populations. New ECM
               programs are driving demand for care managers, community health
               workers, and outreach specialists who can serve patients across
-              the region&apos;s sprawling geography.
+              the region's sprawling geography.
             </p>
             <p>
               <strong>Community Supports</strong> programs are a growing area
               of FQHC activity in the Inland Empire, particularly housing
               navigation and medically tailored meals services. The
-              region&apos;s affordable housing challenges are creating new roles
+              region's affordable housing challenges are creating new roles
               that bridge healthcare and social services.
             </p>
             <p>
               <strong>Telehealth &amp; Mobile Health</strong> services are
-              essential in the Inland Empire&apos;s vast geography, especially
+              essential in the Inland Empire's vast geography, especially
               in eastern San Bernardino County where patients may live hours
               from the nearest clinic. FQHCs are hiring staff experienced in
               remote patient engagement and mobile clinic operations.
@@ -167,7 +167,7 @@ export default function FqhcJobsInlandEmpire() {
               Looking for an FQHC Role in the Inland Empire?
             </h3>
             <p className="text-stone-600 mb-6 text-lg">
-              Join FQHC Talent Exchange — it&apos;s completely free for job
+              Join FQHC Talent Exchange — it's completely free for job
               seekers. Get matched with Inland Empire community health centers
               in as little as 5 days.
             </p>

@@ -10,5 +10,5 @@ if (!resendApiKey) {
 
 export const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
-export const ADMIN_EMAIL = "fqhctalent@gmail.com";
-export const FROM_EMAIL = "FQHC Talent Exchange <onboarding@resend.dev>";
+export const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "fqhctalent@gmail.com";
+export const FROM_EMAIL = process.env.FROM_EMAIL || "FQHC Talent Exchange <onboarding@resend.dev>";

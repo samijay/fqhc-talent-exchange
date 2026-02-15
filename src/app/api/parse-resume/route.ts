@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabase";
 import { parseResumeText } from "@/lib/resume-parser";
+import { checkRateLimit, getClientIp } from "@/lib/security";
 
 // Max file size: 5MB
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
@@ -21,6 +22,16 @@ const EXTENSION_TYPE_MAP: Record<string, string> = {
 
 export async function POST(request: Request) {
   try {
+    // Rate limit: 3 uploads per minute per IP (CPU-intensive)
+    const ip = getClientIp(request);
+    const { allowed } = checkRateLimit(`parse-resume:${ip}`, { limit: 3, windowMs: 60_000 });
+    if (!allowed) {
+      return NextResponse.json(
+        { error: "Too many uploads. Please wait a moment and try again." },
+        { status: 429 },
+      );
+    }
+
     const formData = await request.formData();
     const file = formData.get("file") as File | null;
 
@@ -60,12 +71,12 @@ export async function POST(request: Request) {
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
-    // Upload to Supabase Storage
+    // Upload to Supabase Storage (private bucket — use signed URLs)
     const timestamp = Date.now();
     const safeFileName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
     const storagePath = `uploads/${timestamp}_${safeFileName}`;
 
-    const { error: uploadError } = await supabase.storage
+    const { error: uploadError } = await supabaseAdmin.storage
       .from("resumes")
       .upload(storagePath, buffer, {
         contentType: fileType,
@@ -75,13 +86,13 @@ export async function POST(request: Request) {
     // Storage upload is best-effort — don't fail the entire request if it fails
     let fileUrl = "";
     if (uploadError) {
-      console.error("Supabase storage upload error:", uploadError);
+      console.error("Supabase storage upload error:", uploadError.message);
     } else {
-      // Get the public URL (or signed URL for private buckets)
-      const {
-        data: { publicUrl },
-      } = supabase.storage.from("resumes").getPublicUrl(storagePath);
-      fileUrl = publicUrl;
+      // Use signed URL instead of public URL for privacy
+      const { data: signedUrlData } = await supabaseAdmin.storage
+        .from("resumes")
+        .createSignedUrl(storagePath, 60 * 60); // 1-hour expiration
+      fileUrl = signedUrlData?.signedUrl || "";
     }
 
     // Extract text from file

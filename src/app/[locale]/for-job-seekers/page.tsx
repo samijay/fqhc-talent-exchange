@@ -234,10 +234,10 @@ export default function ForJobSeekers() {
             </div>
 
             <h1 className="text-2xl font-bold text-stone-900 sm:text-3xl">
-              You&apos;re In, {data.firstName}!
+              You're In, {data.firstName}!
             </h1>
             <p className="mx-auto mt-3 max-w-md text-stone-500">
-              Your profile has been submitted. Here&apos;s what happens next:
+              Your profile has been submitted. Here's what happens next:
             </p>
 
             <div className="mt-10 grid gap-6 text-left sm:grid-cols-3">
@@ -296,7 +296,7 @@ export default function ForJobSeekers() {
           Free for candidates — always
         </Badge>
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-          Let&apos;s Find Your Next Role
+          Let's Find Your Next Role
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-base text-teal-100/80 sm:text-lg">
           Complete your profile in under 3 minutes and get matched with
@@ -590,7 +590,7 @@ export default function ForJobSeekers() {
               <div className="space-y-2">
                 <Label>Preferred Locations</Label>
                 <p className="text-xs text-stone-400">
-                  Click all cities you&apos;d consider.
+                  Click all cities you'd consider.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {LOCATIONS.map((loc) => {

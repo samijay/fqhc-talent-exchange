@@ -182,7 +182,7 @@ export default function PrivacyPage() {
             <Link href="/" className="hover:text-stone-700">
               {content.breadcrumbHome}
             </Link>{" "}
-            &rarr; {content.breadcrumbPrivacy}
+            → {content.breadcrumbPrivacy}
           </nav>
 
           {/* Header */}
