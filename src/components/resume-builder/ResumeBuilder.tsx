@@ -162,6 +162,9 @@ export default function ResumeBuilder() {
   const [showAssessment, setShowAssessment] = useState(false);
   const [assessmentResults, setAssessmentResults] = useState<AssessmentResults | null>(null);
 
+  // Resume output language
+  const [resumeLanguage, setResumeLanguage] = useState<"auto" | "en" | "es">("auto");
+
   /* --- Helpers ---------------------------------------------------- */
 
   function toggleCheckbox(
@@ -260,6 +263,11 @@ export default function ResumeBuilder() {
     }));
   }
 
+  function getResumeLanguageOverride(): "en" | "es" | undefined {
+    if (resumeLanguage === "auto") return undefined; // use locale default
+    return resumeLanguage;
+  }
+
   async function handleDownloadPDF() {
     const element = document.getElementById("resume-preview");
     if (!element) return;
@@ -267,10 +275,11 @@ export default function ResumeBuilder() {
     setIsDownloading(true);
     try {
       const html2pdf = (await import("html2pdf.js")).default;
+      const langSuffix = resumeLanguage === "es" ? "_ES" : resumeLanguage === "en" ? "_EN" : "";
       await html2pdf()
         .set({
           margin: [0.4, 0.4, 0.4, 0.4],
-          filename: `${formData.firstName}_${formData.lastName}_Resume.pdf`,
+          filename: `${formData.firstName}_${formData.lastName}_Resume${langSuffix}.pdf`,
           image: { type: "jpeg", quality: 0.98 },
           html2canvas: { scale: 2, useCORS: true },
           jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
@@ -1380,6 +1389,39 @@ export default function ResumeBuilder() {
           </div>
         </div>
 
+        {/* Resume Language Selector */}
+        <div className="mb-6 rounded-xl border border-stone-200 bg-white p-4">
+          <p className="mb-3 text-sm font-semibold text-stone-700">
+            {locale === "es" ? "Idioma del Currículum:" : "Resume Language:"}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { value: "auto" as const, label: locale === "es" ? "Automático (Español)" : "Automatic (English)", shortLabel: locale === "es" ? "Auto (ES)" : "Auto (EN)" },
+              { value: "en" as const, label: "English" },
+              { value: "es" as const, label: "Español" },
+            ].map((option) => (
+              <button
+                key={option.value}
+                onClick={() => setResumeLanguage(option.value)}
+                className={`rounded-lg border-2 px-4 py-2 text-sm font-medium transition-all ${
+                  resumeLanguage === option.value
+                    ? "border-teal-500 bg-teal-50 text-teal-800"
+                    : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+          {resumeLanguage !== "auto" && (
+            <p className="mt-2 text-xs text-stone-500">
+              {locale === "es"
+                ? `Tu currículum se generará en ${resumeLanguage === "en" ? "inglés" : "español"}. Los encabezados de sección y los puntos de la plantilla se traducirán automáticamente.`
+                : `Your resume will be generated in ${resumeLanguage === "en" ? "English" : "Spanish"}. Section headers and template bullet points will be translated automatically.`}
+            </p>
+          )}
+        </div>
+
         {saveSuccess && (
           <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
             {locale === "es"
@@ -1390,7 +1432,7 @@ export default function ResumeBuilder() {
 
         {/* Resume Preview */}
         <div className="overflow-hidden rounded-xl border border-stone-200 shadow-lg">
-          <ResumePreview data={formData} />
+          <ResumePreview data={formData} languageOverride={getResumeLanguageOverride()} />
         </div>
 
         {/* Bottom actions */}

@@ -53,9 +53,9 @@ function formatDate(dateStr: string, locale: string): string {
   return `${months[parseInt(month, 10) - 1]} ${year}`;
 }
 
-export default function ResumePreview({ data }: { data: ResumeData }) {
+export default function ResumePreview({ data, languageOverride }: { data: ResumeData; languageOverride?: "en" | "es" }) {
   const locale = useLocale();
-  const isEs = locale === "es";
+  const isEs = languageOverride ? languageOverride === "es" : locale === "es";
 
   const roleTemplate = ROLE_TEMPLATES.find((r) => r.roleId === data.roleType);
   const selectedBulletTexts = roleTemplate
