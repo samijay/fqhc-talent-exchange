@@ -22,6 +22,8 @@ export async function POST(request: Request) {
       selectedBullets,
       workHistory,
       education,
+      originalResumeUrl,
+      originalResumeText,
     } = body;
 
     if (!firstName || !lastName || !email || !roleType) {
@@ -51,6 +53,8 @@ export async function POST(request: Request) {
           selected_bullets: selectedBullets || [],
           work_history: workHistory || [],
           education: education || [],
+          original_resume_url: originalResumeUrl || null,
+          original_resume_text: originalResumeText || null,
           updated_at: new Date().toISOString(),
         },
         { onConflict: "email" },

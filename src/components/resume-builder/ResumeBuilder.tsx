@@ -16,6 +16,9 @@ import {
   Brain,
   Briefcase,
   FileText,
+  Upload,
+  Loader2,
+  AlertCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -116,6 +119,14 @@ interface FormErrors {
 /* ------------------------------------------------------------------ */
 
 export default function ResumeBuilder() {
+  // Upload vs build-from-scratch mode
+  const [mode, setMode] = useState<"choose" | "upload" | "build">("choose");
+  const [uploadedFileUrl, setUploadedFileUrl] = useState("");
+  const [originalResumeText, setOriginalResumeText] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
+  const [isDragOver, setIsDragOver] = useState(false);
+
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<ResumeData>({
     firstName: "",
@@ -284,6 +295,8 @@ export default function ResumeBuilder() {
           selectedBullets: formData.selectedBullets,
           workHistory: formData.workHistory.filter((w) => w.employer || w.title),
           education: formData.education.filter((e) => e.institution || e.degree),
+          originalResumeUrl: uploadedFileUrl || undefined,
+          originalResumeText: originalResumeText || undefined,
         }),
       });
 
@@ -295,6 +308,107 @@ export default function ResumeBuilder() {
     } finally {
       setIsSaving(false);
     }
+  }
+
+  /* --- Resume Upload ----------------------------------------------- */
+
+  async function handleFileUpload(file: File) {
+    // Validate file type
+    const allowedTypes = [
+      "application/pdf",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "text/plain",
+    ];
+    const extension = file.name.split(".").pop()?.toLowerCase();
+    const isAllowedExt = ["pdf", "docx", "txt"].includes(extension || "");
+
+    if (!allowedTypes.includes(file.type) && !isAllowedExt) {
+      setUploadError(
+        "Unsupported file type. Please upload a PDF, DOCX, or TXT file."
+      );
+      return;
+    }
+
+    // Validate file size (5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      setUploadError("File is too large. Maximum size is 5MB.");
+      return;
+    }
+
+    setIsUploading(true);
+    setUploadError("");
+
+    try {
+      const formDataUpload = new FormData();
+      formDataUpload.append("file", file);
+
+      const res = await fetch("/api/parse-resume", {
+        method: "POST",
+        body: formDataUpload,
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setUploadError(data.error || "Could not process this file.");
+        return;
+      }
+
+      // Store upload metadata
+      setUploadedFileUrl(data.fileUrl || "");
+      setOriginalResumeText(data.rawText || "");
+
+      // Pre-fill form with parsed data
+      const parsed = data.parsed;
+      setFormData((prev) => ({
+        ...prev,
+        firstName: parsed.firstName || prev.firstName,
+        lastName: parsed.lastName || prev.lastName,
+        email: parsed.email || prev.email,
+        phone: parsed.phone || prev.phone,
+        city: parsed.city || prev.city,
+        region: parsed.region || prev.region,
+        objective: parsed.objective || prev.objective,
+        ehrSystems: parsed.ehrSystems?.length > 0 ? parsed.ehrSystems : prev.ehrSystems,
+        programs: parsed.programs?.length > 0 ? parsed.programs : prev.programs,
+        certifications: parsed.certifications?.length > 0 ? parsed.certifications : prev.certifications,
+        languages: parsed.languages?.length > 0 ? parsed.languages : prev.languages,
+        workHistory: parsed.workHistory?.length > 0 ? parsed.workHistory : prev.workHistory,
+        education: parsed.education?.length > 0 ? parsed.education : prev.education,
+      }));
+
+      // Move to the build flow
+      setMode("build");
+      setStep(1);
+    } catch {
+      setUploadError(
+        "Something went wrong processing your resume. Please try again or build from scratch."
+      );
+    } finally {
+      setIsUploading(false);
+    }
+  }
+
+  function handleDrop(e: React.DragEvent) {
+    e.preventDefault();
+    setIsDragOver(false);
+    const file = e.dataTransfer.files[0];
+    if (file) handleFileUpload(file);
+  }
+
+  function handleDragOver(e: React.DragEvent) {
+    e.preventDefault();
+    setIsDragOver(true);
+  }
+
+  function handleDragLeave(e: React.DragEvent) {
+    e.preventDefault();
+    setIsDragOver(false);
+  }
+
+  function handleFileInput(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (file) handleFileUpload(file);
   }
 
   /* --- Progress Bar ----------------------------------------------- */
@@ -345,6 +459,189 @@ export default function ResumeBuilder() {
   );
 
   /* ================================================================ */
+  /*  Step 0: Choose Mode (Upload vs Build)                            */
+  /* ================================================================ */
+
+  if (mode === "choose") {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+        {/* Hero */}
+        <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
+          <div className="mx-auto flex items-center justify-center gap-2 mb-4">
+            <FileText className="size-8" />
+          </div>
+          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+            FQHC Resume Builder
+          </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-teal-100/80 sm:text-lg">
+            Build a professional resume tailored for community health center
+            roles. Free, with pre-written bullet points optimized for FQHC
+            hiring.
+          </p>
+        </section>
+
+        <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
+            <h2 className="mb-2 text-xl font-bold text-stone-900 text-center">
+              How would you like to get started?
+            </h2>
+            <p className="mb-8 text-sm text-stone-500 text-center">
+              Upload an existing resume to pre-fill your information, or start
+              fresh with our guided builder.
+            </p>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {/* Upload Option */}
+              <button
+                onClick={() => setMode("upload")}
+                className="group rounded-xl border-2 border-stone-200 p-6 text-left transition-all duration-200 hover:border-teal-500 hover:shadow-lg"
+              >
+                <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 group-hover:bg-teal-100">
+                  <Upload className="size-6" />
+                </div>
+                <h3 className="text-lg font-bold text-stone-900">
+                  Upload Your Resume
+                </h3>
+                <p className="mt-1 text-sm text-stone-500">
+                  Upload a PDF, DOCX, or text file and we&apos;ll pre-fill your
+                  information automatically.
+                </p>
+              </button>
+
+              {/* Build From Scratch Option */}
+              <button
+                onClick={() => {
+                  setMode("build");
+                  setStep(1);
+                }}
+                className="group rounded-xl border-2 border-stone-200 p-6 text-left transition-all duration-200 hover:border-amber-500 hover:shadow-lg"
+              >
+                <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-amber-50 text-amber-600 group-hover:bg-amber-100">
+                  <Pencil className="size-6" />
+                </div>
+                <h3 className="text-lg font-bold text-stone-900">
+                  Build From Scratch
+                </h3>
+                <p className="mt-1 text-sm text-stone-500">
+                  Start fresh with our guided builder and FQHC-optimized
+                  templates.
+                </p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  /* ================================================================ */
+  /*  Upload Mode: File Upload Screen                                  */
+  /* ================================================================ */
+
+  if (mode === "upload") {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+        <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
+          <div className="mx-auto flex items-center justify-center gap-2 mb-4">
+            <Upload className="size-8" />
+          </div>
+          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+            Upload Your Resume
+          </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-teal-100/80 sm:text-lg">
+            We&apos;ll extract your information and create an enhanced,
+            FQHC-optimized resume using our professional template.
+          </p>
+        </section>
+
+        <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
+            {/* Drag & Drop Zone */}
+            <div
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+              className={`relative flex min-h-[200px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed p-8 transition-all duration-200 ${
+                isDragOver
+                  ? "border-teal-500 bg-teal-50"
+                  : "border-stone-300 bg-stone-50 hover:border-teal-400 hover:bg-stone-100"
+              }`}
+            >
+              <input
+                type="file"
+                accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"
+                onChange={handleFileInput}
+                className="absolute inset-0 cursor-pointer opacity-0"
+                disabled={isUploading}
+              />
+
+              {isUploading ? (
+                <div className="flex flex-col items-center gap-3">
+                  <Loader2 className="size-10 animate-spin text-teal-700" />
+                  <p className="text-sm font-medium text-stone-700">
+                    Processing your resume...
+                  </p>
+                  <p className="text-xs text-stone-500">
+                    Extracting text and parsing your information
+                  </p>
+                </div>
+              ) : (
+                <div className="flex flex-col items-center gap-3">
+                  <div className="flex size-14 items-center justify-center rounded-full bg-teal-100 text-teal-700">
+                    <Upload className="size-7" />
+                  </div>
+                  <div className="text-center">
+                    <p className="text-sm font-medium text-stone-700">
+                      Drag and drop your resume here, or{" "}
+                      <span className="text-teal-700 underline">
+                        click to browse
+                      </span>
+                    </p>
+                    <p className="mt-1 text-xs text-stone-500">
+                      Supports PDF, DOCX, and TXT files (max 5MB)
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Upload Error */}
+            {uploadError && (
+              <div className="mt-4 flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                <AlertCircle className="mt-0.5 size-4 shrink-0" />
+                <p>{uploadError}</p>
+              </div>
+            )}
+
+            {/* Back to choice */}
+            <div className="mt-6 text-center">
+              <button
+                onClick={() => {
+                  setMode("choose");
+                  setUploadError("");
+                }}
+                className="text-sm font-medium text-stone-600 hover:text-stone-900"
+              >
+                &larr; Back to options
+              </button>
+              <span className="mx-3 text-stone-300">|</span>
+              <button
+                onClick={() => {
+                  setMode("build");
+                  setStep(1);
+                }}
+                className="text-sm font-medium text-teal-700 hover:text-teal-800"
+              >
+                Build from scratch instead
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  /* ================================================================ */
   /*  Step 1: Personal Information                                     */
   /* ================================================================ */
 
@@ -367,6 +664,12 @@ export default function ResumeBuilder() {
         </section>
 
         <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+          {uploadedFileUrl && (
+            <div className="mb-4 rounded-lg border border-teal-200 bg-teal-50 px-4 py-3 text-sm text-teal-700">
+              <CheckCircle className="mr-1.5 inline-block size-4" />
+              Resume uploaded! Review and edit your pre-filled information below.
+            </div>
+          )}
           {progressBar}
 
           <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
