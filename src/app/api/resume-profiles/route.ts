@@ -24,6 +24,7 @@ export async function POST(request: Request) {
       education,
       originalResumeUrl,
       originalResumeText,
+      assessmentResults,
     } = body;
 
     if (!firstName || !lastName || !email || !roleType) {
@@ -55,6 +56,7 @@ export async function POST(request: Request) {
           education: education || [],
           original_resume_url: originalResumeUrl || null,
           original_resume_text: originalResumeText || null,
+          assessment_results: assessmentResults || null,
           updated_at: new Date().toISOString(),
         },
         { onConflict: "email" },

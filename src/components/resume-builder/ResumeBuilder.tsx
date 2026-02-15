@@ -19,6 +19,8 @@ import {
   Upload,
   Loader2,
   AlertCircle,
+  BarChart3,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,6 +35,8 @@ import {
 } from "@/components/ui/select";
 import ResumePreview from "./ResumePreview";
 import type { ResumeData, WorkHistoryEntry, EducationEntry } from "./ResumePreview";
+import CareerInsights from "./CareerInsights";
+import type { AssessmentResults } from "@/lib/career-assessment-engine";
 import {
   ROLE_TEMPLATES,
   COMMON_CERTIFICATIONS,
@@ -150,6 +154,10 @@ export default function ResumeBuilder() {
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
+
+  // Career Insights Assessment
+  const [showAssessment, setShowAssessment] = useState(false);
+  const [assessmentResults, setAssessmentResults] = useState<AssessmentResults | null>(null);
 
   /* --- Helpers ---------------------------------------------------- */
 
@@ -297,6 +305,7 @@ export default function ResumeBuilder() {
           education: formData.education.filter((e) => e.institution || e.degree),
           originalResumeUrl: uploadedFileUrl || undefined,
           originalResumeText: originalResumeText || undefined,
+          assessmentResults: assessmentResults || undefined,
         }),
       });
 
@@ -1281,6 +1290,25 @@ export default function ResumeBuilder() {
   }
 
   /* ================================================================ */
+  /*  Career Insights Assessment (after Step 5)                        */
+  /* ================================================================ */
+
+  if (showAssessment) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+        <CareerInsights
+          onComplete={(results) => {
+            setAssessmentResults(results);
+            // Auto-save assessment results with profile
+            handleSaveProfile();
+          }}
+          onSkip={() => setShowAssessment(false)}
+        />
+      </div>
+    );
+  }
+
+  /* ================================================================ */
   /*  Step 5: Preview & Download                                       */
   /* ================================================================ */
 
@@ -1347,6 +1375,55 @@ export default function ResumeBuilder() {
             {isDownloading ? "Generating PDF..." : "Download PDF"}
           </Button>
         </div>
+
+        {/* Career Insights Assessment CTA */}
+        {!assessmentResults && (
+          <div className="mt-10 rounded-2xl border-2 border-dashed border-teal-200 bg-gradient-to-br from-teal-50/50 to-amber-50/50 p-6 sm:p-8">
+            <div className="flex flex-col items-center text-center sm:flex-row sm:text-left sm:gap-6">
+              <div className="mb-4 flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-100 to-amber-100 sm:mb-0">
+                <BarChart3 className="size-7 text-teal-700" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-stone-900">
+                  Get Your Career Insights
+                </h3>
+                <p className="mt-1 text-sm text-stone-500">
+                  Take a 3-minute behavioral assessment to discover your strengths
+                  and fastest path to career growth in community health.
+                </p>
+              </div>
+              <Button
+                onClick={() => setShowAssessment(true)}
+                className="mt-4 flex items-center gap-2 bg-gradient-to-r from-teal-700 to-amber-600 px-6 py-3 font-semibold text-white hover:shadow-lg sm:mt-0"
+              >
+                Start Assessment <ArrowRight className="size-4" />
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {/* Assessment completed badge */}
+        {assessmentResults && (
+          <div className="mt-10 rounded-2xl border border-teal-200 bg-teal-50 p-6">
+            <div className="flex items-center gap-3">
+              <CheckCircle className="size-6 text-teal-600" />
+              <div>
+                <p className="font-semibold text-teal-800">
+                  Career Insights Complete!
+                </p>
+                <p className="text-sm text-teal-600">
+                  Your overall score: {assessmentResults.overallScore}/100.{" "}
+                  <button
+                    onClick={() => setShowAssessment(true)}
+                    className="font-medium underline hover:text-teal-800"
+                  >
+                    View full results
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
