@@ -18,6 +18,8 @@ const locationSlugs = [
 
 // Blog post slugs — add new posts here as you publish them
 const blogSlugs = [
+  "fqhc-career-insights-assessment",
+  "fqhc-vs-private-practice",
   "top-10-fqhc-interview-questions",
   "nhsc-loan-repayment-guide",
   "medi-cal-funding-cuts-community-health-workers",

@@ -5,6 +5,26 @@ import { useTranslations } from "next-intl";
 
 const posts = [
   {
+    slug: "fqhc-career-insights-assessment",
+    title:
+      "Career Insights Assessment: A Behavioral Assessment Built for Community Health",
+    description:
+      "Discover the Career Insights Assessment \u2014 a scenario-based behavioral evaluation across 4 domains adapted from the TPB Universal Assessment framework. Understand your strengths, growth areas, and biggest opportunity for rapid improvement in community health careers.",
+    date: "February 15, 2026",
+    category: "Assessment Tools",
+    readTime: "9 min read",
+  },
+  {
+    slug: "fqhc-vs-private-practice",
+    title:
+      "FQHC vs Private Practice: Which Is Right for Your Healthcare Career in California?",
+    description:
+      "Compare working at a Federally Qualified Health Center vs private practice or hospitals. Explore compensation, benefits, loan repayment, scope of practice, career growth, and cultural fit to find the right path for your community health career.",
+    date: "February 15, 2026",
+    category: "Career Guidance",
+    readTime: "10 min read",
+  },
+  {
     slug: "top-10-fqhc-interview-questions",
     title: "Top 10 FQHC Interview Questions and How to Answer Them",
     description:
