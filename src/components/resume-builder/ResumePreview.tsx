@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import { ROLE_TEMPLATES } from "./resume-templates";
 
 export interface WorkHistoryEntry {
@@ -35,22 +36,32 @@ export interface ResumeData {
   education: EducationEntry[];
 }
 
-function formatDate(dateStr: string): string {
+const MONTHS_EN = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+const MONTHS_ES = [
+  "Ene", "Feb", "Mar", "Abr", "May", "Jun",
+  "Jul", "Ago", "Sep", "Oct", "Nov", "Dic",
+];
+
+function formatDate(dateStr: string, locale: string): string {
   if (!dateStr) return "";
   const [year, month] = dateStr.split("-");
-  const months = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-  ];
+  const months = locale === "es" ? MONTHS_ES : MONTHS_EN;
   return `${months[parseInt(month, 10) - 1]} ${year}`;
 }
 
 export default function ResumePreview({ data }: { data: ResumeData }) {
+  const locale = useLocale();
+  const isEs = locale === "es";
+
   const roleTemplate = ROLE_TEMPLATES.find((r) => r.roleId === data.roleType);
   const selectedBulletTexts = roleTemplate
     ? roleTemplate.bullets
         .filter((b) => data.selectedBullets.includes(b.id))
-        .map((b) => b.text)
+        .map((b) => isEs ? b.esText : b.text)
     : [];
 
   const hasSkills =
@@ -82,14 +93,14 @@ export default function ResumePreview({ data }: { data: ResumeData }) {
         </div>
       </div>
 
-      {/* Professional Objective */}
+      {/* Professional Summary */}
       {data.objective && (
         <div className="mt-5">
           <h2
             className="mb-2 text-sm font-bold uppercase tracking-widest text-stone-700"
             style={{ letterSpacing: "0.15em" }}
           >
-            Professional Summary
+            {isEs ? "Resumen Profesional" : "Professional Summary"}
           </h2>
           <p className="text-sm text-stone-700">{data.objective}</p>
         </div>
@@ -102,30 +113,30 @@ export default function ResumePreview({ data }: { data: ResumeData }) {
             className="mb-2 text-sm font-bold uppercase tracking-widest text-stone-700"
             style={{ letterSpacing: "0.15em" }}
           >
-            Skills & Qualifications
+            {isEs ? "Habilidades y Calificaciones" : "Skills & Qualifications"}
           </h2>
           <div className="text-sm text-stone-700">
             {data.programs.length > 0 && (
               <p>
-                <span className="font-semibold">Programs:</span>{" "}
+                <span className="font-semibold">{isEs ? "Programas:" : "Programs:"}</span>{" "}
                 {data.programs.join(", ")}
               </p>
             )}
             {data.ehrSystems.length > 0 && (
               <p>
-                <span className="font-semibold">EHR Systems:</span>{" "}
+                <span className="font-semibold">{isEs ? "Sistemas EHR:" : "EHR Systems:"}</span>{" "}
                 {data.ehrSystems.join(", ")}
               </p>
             )}
             {data.certifications.length > 0 && (
               <p>
-                <span className="font-semibold">Certifications:</span>{" "}
+                <span className="font-semibold">{isEs ? "Certificaciones:" : "Certifications:"}</span>{" "}
                 {data.certifications.join(", ")}
               </p>
             )}
             {data.languages.length > 0 && (
               <p>
-                <span className="font-semibold">Languages:</span>{" "}
+                <span className="font-semibold">{isEs ? "Idiomas:" : "Languages:"}</span>{" "}
                 {data.languages.join(", ")}
               </p>
             )}
@@ -140,7 +151,7 @@ export default function ResumePreview({ data }: { data: ResumeData }) {
             className="mb-2 text-sm font-bold uppercase tracking-widest text-stone-700"
             style={{ letterSpacing: "0.15em" }}
           >
-            Professional Experience
+            {isEs ? "Experiencia Profesional" : "Professional Experience"}
           </h2>
 
           {data.workHistory.length > 0 ? (
@@ -149,7 +160,7 @@ export default function ResumePreview({ data }: { data: ResumeData }) {
                 <div className="flex items-baseline justify-between">
                   <div>
                     <span className="text-sm font-bold text-stone-900">
-                      {job.title || roleTemplate?.roleLabel || ""}
+                      {job.title || (isEs ? roleTemplate?.esRoleLabel : roleTemplate?.roleLabel) || ""}
                     </span>
                     {job.employer && (
                       <span className="text-sm text-stone-600">
@@ -158,9 +169,9 @@ export default function ResumePreview({ data }: { data: ResumeData }) {
                     )}
                   </div>
                   <span className="text-xs text-stone-500">
-                    {formatDate(job.startDate)}
+                    {formatDate(job.startDate, locale)}
                     {(job.endDate || job.current) && " – "}
-                    {job.current ? "Present" : formatDate(job.endDate)}
+                    {job.current ? (isEs ? "Presente" : "Present") : formatDate(job.endDate, locale)}
                   </span>
                 </div>
                 {/* Show selected bullets under the first work entry */}
@@ -192,7 +203,7 @@ export default function ResumePreview({ data }: { data: ResumeData }) {
               className="mb-2 text-sm font-bold uppercase tracking-widest text-stone-700"
               style={{ letterSpacing: "0.15em" }}
             >
-              Education
+              {isEs ? "Educación" : "Education"}
             </h2>
             {data.education.map((edu, i) => (
               <div key={i} className="flex items-baseline justify-between text-sm">

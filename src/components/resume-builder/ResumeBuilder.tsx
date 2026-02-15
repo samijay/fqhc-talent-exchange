@@ -59,11 +59,11 @@ const REGIONS = [
 ] as const;
 
 const YEARS_OPTIONS = [
-  "Less than 1 year",
-  "1-2 years",
-  "3-5 years",
-  "6-10 years",
-  "10+ years",
+  { en: "Less than 1 year", es: "Menos de 1 año" },
+  { en: "1-2 years", es: "1-2 años" },
+  { en: "3-5 years", es: "3-5 años" },
+  { en: "6-10 years", es: "6-10 años" },
+  { en: "10+ years", es: "10+ años" },
 ] as const;
 
 const EHR_SYSTEMS = [
@@ -85,11 +85,11 @@ const PROGRAMS = [
 ] as const;
 
 const ROLE_OPTIONS = [
-  { id: "chw", label: "Community Health Worker", icon: Heart },
-  { id: "care_coordinator", label: "Care Coordinator", icon: Users },
-  { id: "medical_assistant", label: "Medical Assistant", icon: Stethoscope },
-  { id: "case_manager", label: "Case Manager", icon: Briefcase },
-  { id: "behavioral_health", label: "Behavioral Health Specialist", icon: Brain },
+  { id: "chw", label: "Community Health Worker", esLabel: "Promotor/a de Salud", icon: Heart },
+  { id: "care_coordinator", label: "Care Coordinator", esLabel: "Coordinador/a de Atención", icon: Users },
+  { id: "medical_assistant", label: "Medical Assistant", esLabel: "Asistente Médico/a", icon: Stethoscope },
+  { id: "case_manager", label: "Case Manager", esLabel: "Administrador/a de Casos", icon: Briefcase },
+  { id: "behavioral_health", label: "Behavioral Health Specialist", esLabel: "Especialista en Salud Conductual", icon: Brain },
 ] as const;
 
 const TOTAL_STEPS = 5;
@@ -224,16 +224,16 @@ export default function ResumeBuilder() {
   function validateStep(): boolean {
     const next: FormErrors = {};
     if (step === 1) {
-      if (!formData.firstName.trim()) next.firstName = "First name is required";
-      if (!formData.lastName.trim()) next.lastName = "Last name is required";
+      if (!formData.firstName.trim()) next.firstName = locale === "es" ? "El nombre es obligatorio" : "First name is required";
+      if (!formData.lastName.trim()) next.lastName = locale === "es" ? "El apellido es obligatorio" : "Last name is required";
       if (!formData.email.trim()) {
-        next.email = "Email is required";
+        next.email = locale === "es" ? "El correo electrónico es obligatorio" : "Email is required";
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-        next.email = "Please enter a valid email";
+        next.email = locale === "es" ? "Ingresa un correo electrónico válido" : "Please enter a valid email";
       }
     }
     if (step === 2) {
-      if (!formData.roleType) next.roleType = "Please select a role type";
+      if (!formData.roleType) next.roleType = locale === "es" ? "Selecciona un tipo de puesto" : "Please select a role type";
     }
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -253,7 +253,9 @@ export default function ResumeBuilder() {
     setFormData((prev) => ({
       ...prev,
       roleType: roleId,
-      objective: template?.objectiveTemplate || prev.objective,
+      objective: template
+        ? (locale === "es" ? template.esObjectiveTemplate : template.objectiveTemplate)
+        : prev.objective,
       selectedBullets: [], // reset bullets when role changes
     }));
   }
@@ -336,14 +338,20 @@ export default function ResumeBuilder() {
 
     if (!allowedTypes.includes(file.type) && !isAllowedExt) {
       setUploadError(
-        "Unsupported file type. Please upload a PDF, DOCX, or TXT file."
+        locale === "es"
+          ? "Tipo de archivo no soportado. Sube un archivo PDF, DOCX o TXT."
+          : "Unsupported file type. Please upload a PDF, DOCX, or TXT file."
       );
       return;
     }
 
     // Validate file size (5MB)
     if (file.size > 5 * 1024 * 1024) {
-      setUploadError("File is too large. Maximum size is 5MB.");
+      setUploadError(
+        locale === "es"
+          ? "El archivo es demasiado grande. Tamaño máximo: 5MB."
+          : "File is too large. Maximum size is 5MB."
+      );
       return;
     }
 
@@ -394,7 +402,9 @@ export default function ResumeBuilder() {
       setStep(1);
     } catch {
       setUploadError(
-        "Something went wrong processing your resume. Please try again or build from scratch."
+        locale === "es"
+          ? "Algo salió mal al procesar tu currículum. Intenta de nuevo o crea desde cero."
+          : "Something went wrong processing your resume. Please try again or build from scratch."
       );
     } finally {
       setIsUploading(false);
@@ -706,7 +716,7 @@ export default function ResumeBuilder() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <Label htmlFor="firstName">
-                  First Name <span className="text-red-500">*</span>
+                  {locale === "es" ? "Nombre" : "First Name"} <span className="text-red-500">*</span>
                 </Label>
                 <Input
                   id="firstName"
@@ -714,7 +724,7 @@ export default function ResumeBuilder() {
                   onChange={(e) =>
                     setFormData((p) => ({ ...p, firstName: e.target.value }))
                   }
-                  placeholder="Maria"
+                  placeholder={locale === "es" ? "María" : "Maria"}
                   className="mt-1.5"
                   aria-invalid={!!errors.firstName}
                 />
@@ -724,7 +734,7 @@ export default function ResumeBuilder() {
               </div>
               <div>
                 <Label htmlFor="lastName">
-                  Last Name <span className="text-red-500">*</span>
+                  {locale === "es" ? "Apellido" : "Last Name"} <span className="text-red-500">*</span>
                 </Label>
                 <Input
                   id="lastName"
@@ -732,7 +742,7 @@ export default function ResumeBuilder() {
                   onChange={(e) =>
                     setFormData((p) => ({ ...p, lastName: e.target.value }))
                   }
-                  placeholder="Garcia"
+                  placeholder={locale === "es" ? "García" : "Garcia"}
                   className="mt-1.5"
                   aria-invalid={!!errors.lastName}
                 />
@@ -746,7 +756,7 @@ export default function ResumeBuilder() {
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <div>
                 <Label htmlFor="email">
-                  Email <span className="text-red-500">*</span>
+                  {locale === "es" ? "Correo Electrónico" : "Email"} <span className="text-red-500">*</span>
                 </Label>
                 <Input
                   id="email"
@@ -755,7 +765,7 @@ export default function ResumeBuilder() {
                   onChange={(e) =>
                     setFormData((p) => ({ ...p, email: e.target.value }))
                   }
-                  placeholder="maria@example.com"
+                  placeholder={locale === "es" ? "maria@ejemplo.com" : "maria@example.com"}
                   className="mt-1.5"
                   aria-invalid={!!errors.email}
                 />
@@ -764,7 +774,7 @@ export default function ResumeBuilder() {
                 )}
               </div>
               <div>
-                <Label htmlFor="phone">Phone</Label>
+                <Label htmlFor="phone">{locale === "es" ? "Teléfono" : "Phone"}</Label>
                 <Input
                   id="phone"
                   type="tel"
@@ -781,7 +791,7 @@ export default function ResumeBuilder() {
             {/* City + Region */}
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               <div>
-                <Label htmlFor="city">City</Label>
+                <Label htmlFor="city">{locale === "es" ? "Ciudad" : "City"}</Label>
                 <Input
                   id="city"
                   value={formData.city}
@@ -793,7 +803,7 @@ export default function ResumeBuilder() {
                 />
               </div>
               <div>
-                <Label htmlFor="region">Region</Label>
+                <Label htmlFor="region">{locale === "es" ? "Región" : "Region"}</Label>
                 <Select
                   value={formData.region}
                   onValueChange={(v) =>
@@ -801,7 +811,7 @@ export default function ResumeBuilder() {
                   }
                 >
                   <SelectTrigger className="mt-1.5 w-full">
-                    <SelectValue placeholder="Select your region" />
+                    <SelectValue placeholder={locale === "es" ? "Selecciona tu región" : "Select your region"} />
                   </SelectTrigger>
                   <SelectContent>
                     {REGIONS.map((r) => (
@@ -839,7 +849,7 @@ export default function ResumeBuilder() {
             {/* Role selection */}
             <div className="mb-6">
               <Label className="mb-3 block">
-                What type of role are you applying for?{" "}
+                {locale === "es" ? "¿Para qué tipo de puesto te estás postulando?" : "What type of role are you applying for?"}{" "}
                 <span className="text-red-500">*</span>
               </Label>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -866,7 +876,7 @@ export default function ResumeBuilder() {
                           isSelected ? "text-teal-950" : "text-stone-700"
                         }`}
                       >
-                        {role.label}
+                        {locale === "es" ? role.esLabel : role.label}
                       </p>
                     </button>
                   );
@@ -879,7 +889,7 @@ export default function ResumeBuilder() {
 
             {/* Years of experience */}
             <div className="mb-6">
-              <Label htmlFor="years">Years of Healthcare Experience</Label>
+              <Label htmlFor="years">{locale === "es" ? "Años de Experiencia en Salud" : "Years of Healthcare Experience"}</Label>
               <Select
                 value={formData.yearsExperience}
                 onValueChange={(v) =>
@@ -887,12 +897,12 @@ export default function ResumeBuilder() {
                 }
               >
                 <SelectTrigger className="mt-1.5 w-full">
-                  <SelectValue placeholder="Select experience level" />
+                  <SelectValue placeholder={locale === "es" ? "Selecciona nivel de experiencia" : "Select experience level"} />
                 </SelectTrigger>
                 <SelectContent>
                   {YEARS_OPTIONS.map((y) => (
-                    <SelectItem key={y} value={y}>
-                      {y}
+                    <SelectItem key={y.en} value={y.en}>
+                      {locale === "es" ? y.es : y.en}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -901,9 +911,11 @@ export default function ResumeBuilder() {
 
             {/* Professional objective */}
             <div>
-              <Label htmlFor="objective">Professional Summary</Label>
+              <Label htmlFor="objective">{locale === "es" ? "Resumen Profesional" : "Professional Summary"}</Label>
               <p className="mt-1 text-xs text-stone-500">
-                Pre-filled based on your role. Feel free to customize it.
+                {locale === "es"
+                  ? "Pre-completado según tu puesto. Siéntete libre de personalizarlo."
+                  : "Pre-filled based on your role. Feel free to customize it."}
               </p>
               <Textarea
                 id="objective"
@@ -913,7 +925,7 @@ export default function ResumeBuilder() {
                 }
                 rows={4}
                 className="mt-1.5"
-                placeholder="Write a brief professional summary..."
+                placeholder={locale === "es" ? "Escribe un breve resumen profesional..." : "Write a brief professional summary..."}
               />
             </div>
 
@@ -942,7 +954,7 @@ export default function ResumeBuilder() {
             {/* EHR Systems */}
             <fieldset className="mb-6">
               <legend className="text-sm font-medium text-stone-900">
-                EHR Systems
+                {locale === "es" ? "Sistemas EHR" : "EHR Systems"}
               </legend>
               <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-3">
                 {EHR_SYSTEMS.map((system) => (
@@ -967,7 +979,7 @@ export default function ResumeBuilder() {
             {/* Programs */}
             <fieldset className="mb-6">
               <legend className="text-sm font-medium text-stone-900">
-                Programs
+                {locale === "es" ? "Programas" : "Programs"}
               </legend>
               <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-3">
                 {PROGRAMS.map((program) => (
@@ -992,7 +1004,7 @@ export default function ResumeBuilder() {
             {/* Certifications */}
             <fieldset className="mb-6">
               <legend className="text-sm font-medium text-stone-900">
-                Certifications
+                {locale === "es" ? "Certificaciones" : "Certifications"}
               </legend>
               <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-3">
                 {COMMON_CERTIFICATIONS.map((cert) => (
@@ -1021,7 +1033,7 @@ export default function ResumeBuilder() {
             {/* Languages */}
             <fieldset>
               <legend className="text-sm font-medium text-stone-900">
-                Languages
+                {locale === "es" ? "Idiomas" : "Languages"}
               </legend>
               <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-3">
                 {LANGUAGE_OPTIONS.map((lang) => (
@@ -1072,8 +1084,9 @@ export default function ResumeBuilder() {
                   {locale === "es" ? "Describe Tu Experiencia" : "Describe Your Experience"}
                 </h2>
                 <p className="mb-4 text-sm text-stone-500">
-                  Select the bullet points that describe your experience. These
-                  will appear on your resume.
+                  {locale === "es"
+                    ? "Selecciona los puntos que describen tu experiencia. Estos aparecerán en tu currículum."
+                    : "Select the bullet points that describe your experience. These will appear on your resume."}
                 </p>
 
                 <div className="space-y-2.5">
@@ -1114,7 +1127,7 @@ export default function ResumeBuilder() {
                               isSelected ? "text-amber-900" : "text-stone-700"
                             }`}
                           >
-                            {bullet.text}
+                            {locale === "es" ? bullet.esText : bullet.text}
                           </span>
                         </div>
                       </button>
@@ -1128,13 +1141,13 @@ export default function ResumeBuilder() {
             <div className="mb-8">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-lg font-bold text-stone-900">
-                  Work History
+                  {locale === "es" ? "Historial Laboral" : "Work History"}
                 </h3>
                 <button
                   onClick={addWorkEntry}
                   className="flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
                 >
-                  <Plus className="size-4" /> Add Position
+                  <Plus className="size-4" /> {locale === "es" ? "Agregar Puesto" : "Add Position"}
                 </button>
               </div>
 
@@ -1146,43 +1159,43 @@ export default function ResumeBuilder() {
                   >
                     <div className="mb-3 flex items-center justify-between">
                       <span className="text-sm font-semibold text-stone-600">
-                        Position {i + 1}
+                        {locale === "es" ? `Puesto ${i + 1}` : `Position ${i + 1}`}
                       </span>
                       {formData.workHistory.length > 1 && (
                         <button
                           onClick={() => removeWorkEntry(i)}
                           className="flex items-center gap-1 text-xs text-red-500 hover:text-red-600"
                         >
-                          <Trash2 className="size-3" /> Remove
+                          <Trash2 className="size-3" /> {locale === "es" ? "Eliminar" : "Remove"}
                         </button>
                       )}
                     </div>
 
                     <div className="grid gap-3 sm:grid-cols-2">
                       <div>
-                        <Label className="text-xs">Employer / Organization</Label>
+                        <Label className="text-xs">{locale === "es" ? "Empleador / Organización" : "Employer / Organization"}</Label>
                         <Input
                           value={entry.employer}
                           onChange={(e) =>
                             updateWorkHistory(i, { employer: e.target.value })
                           }
-                          placeholder="Community Health Center of..."
+                          placeholder={locale === "es" ? "Centro de Salud Comunitario de..." : "Community Health Center of..."}
                           className="mt-1"
                         />
                       </div>
                       <div>
-                        <Label className="text-xs">Job Title</Label>
+                        <Label className="text-xs">{locale === "es" ? "Título del Puesto" : "Job Title"}</Label>
                         <Input
                           value={entry.title}
                           onChange={(e) =>
                             updateWorkHistory(i, { title: e.target.value })
                           }
-                          placeholder="Care Coordinator"
+                          placeholder={locale === "es" ? "Coordinador/a de Atención" : "Care Coordinator"}
                           className="mt-1"
                         />
                       </div>
                       <div>
-                        <Label className="text-xs">Start Date</Label>
+                        <Label className="text-xs">{locale === "es" ? "Fecha de Inicio" : "Start Date"}</Label>
                         <Input
                           type="month"
                           value={entry.startDate}
@@ -1193,7 +1206,7 @@ export default function ResumeBuilder() {
                         />
                       </div>
                       <div>
-                        <Label className="text-xs">End Date</Label>
+                        <Label className="text-xs">{locale === "es" ? "Fecha de Fin" : "End Date"}</Label>
                         <Input
                           type="month"
                           value={entry.endDate}
@@ -1215,7 +1228,7 @@ export default function ResumeBuilder() {
                             }
                             className="size-3.5 rounded border-stone-300 text-teal-700"
                           />
-                          I currently work here
+                          {locale === "es" ? "Trabajo aquí actualmente" : "I currently work here"}
                         </label>
                       </div>
                     </div>
@@ -1227,12 +1240,12 @@ export default function ResumeBuilder() {
             {/* Education */}
             <div>
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-stone-900">Education</h3>
+                <h3 className="text-lg font-bold text-stone-900">{locale === "es" ? "Educación" : "Education"}</h3>
                 <button
                   onClick={addEducation}
                   className="flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
                 >
-                  <Plus className="size-4" /> Add Education
+                  <Plus className="size-4" /> {locale === "es" ? "Agregar Educación" : "Add Education"}
                 </button>
               </div>
 
@@ -1244,21 +1257,21 @@ export default function ResumeBuilder() {
                   >
                     <div className="mb-3 flex items-center justify-between">
                       <span className="text-sm font-semibold text-stone-600">
-                        Education {i + 1}
+                        {locale === "es" ? `Educación ${i + 1}` : `Education ${i + 1}`}
                       </span>
                       {formData.education.length > 1 && (
                         <button
                           onClick={() => removeEducation(i)}
                           className="flex items-center gap-1 text-xs text-red-500 hover:text-red-600"
                         >
-                          <Trash2 className="size-3" /> Remove
+                          <Trash2 className="size-3" /> {locale === "es" ? "Eliminar" : "Remove"}
                         </button>
                       )}
                     </div>
 
                     <div className="grid gap-3 sm:grid-cols-3">
                       <div>
-                        <Label className="text-xs">School / Institution</Label>
+                        <Label className="text-xs">{locale === "es" ? "Escuela / Institución" : "School / Institution"}</Label>
                         <Input
                           value={entry.institution}
                           onChange={(e) =>
@@ -1266,23 +1279,23 @@ export default function ResumeBuilder() {
                               institution: e.target.value,
                             })
                           }
-                          placeholder="City College of..."
+                          placeholder={locale === "es" ? "Colegio Comunitario de..." : "City College of..."}
                           className="mt-1"
                         />
                       </div>
                       <div>
-                        <Label className="text-xs">Degree / Certificate</Label>
+                        <Label className="text-xs">{locale === "es" ? "Título / Certificado" : "Degree / Certificate"}</Label>
                         <Input
                           value={entry.degree}
                           onChange={(e) =>
                             updateEducation(i, { degree: e.target.value })
                           }
-                          placeholder="Associate's in Health Science"
+                          placeholder={locale === "es" ? "Asociado en Ciencias de la Salud" : "Associate's in Health Science"}
                           className="mt-1"
                         />
                       </div>
                       <div>
-                        <Label className="text-xs">Year</Label>
+                        <Label className="text-xs">{locale === "es" ? "Año" : "Year"}</Label>
                         <Input
                           value={entry.year}
                           onChange={(e) =>
