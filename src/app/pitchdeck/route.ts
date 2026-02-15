@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition":
-          'attachment; filename="FQHC_Talent_Exchange_Pitch_Deck.pdf"',
+          'inline; filename="FQHC_Talent_Exchange_Pitch_Deck.pdf"',
         "Cache-Control": "public, max-age=3600",
       },
     });
