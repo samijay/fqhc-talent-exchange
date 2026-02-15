@@ -23,6 +23,7 @@
     "forEmployers": "Para Empleadores",
     "hireTalent": "Contratar Talento",
     "fqhcDirectory": "Directorio FQHC",
+    "jobPostingBuilder": "Creador de Publicaciones",
     "whyFqhcTalent": "¿Por Qué FQHC Talent?",
     "company": "Empresa",
     "aboutUs": "Sobre Nosotros",
@@ -205,6 +206,8 @@
     "emailInvalid": "Ingresa un correo electrónico válido.",
     "heroTitleNew": "Encuentra Talento FQHC Pre-Evaluado",
     "heroSubtitleNew": "Deja de adivinar. Te conectamos con profesionales de salud comunitaria que ya tienen las habilidades, certificaciones y competencias culturales que tu FQHC necesita.",
+    "needJobPosting": "¿Necesitas una publicación de empleo?",
+    "useJobPostingBuilder": "Usa nuestro Creador de Publicaciones gratis",
     "areYouJobSeeker": "¿Buscas empleo?",
     "goToCandidateSignup": "Ir al registro de candidatos"
   },

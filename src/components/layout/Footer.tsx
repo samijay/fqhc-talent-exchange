@@ -17,6 +17,7 @@ export default function Footer() {
     ],
     [t("forEmployers")]: [
       { href: "/hire" as const, label: t("hireTalent") },
+      { href: "/job-posting-builder" as const, label: t("jobPostingBuilder") },
       { href: "/directory" as const, label: t("fqhcDirectory") },
       { href: "/for-employers" as const, label: t("whyFqhcTalent") },
     ],

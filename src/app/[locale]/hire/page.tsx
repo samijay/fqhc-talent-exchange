@@ -502,8 +502,18 @@ export default function HirePage() {
           </div>
         </form>
 
+        {/* Cross-link to Job Posting Builder */}
+        <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-center">
+          <p className="text-sm font-medium text-stone-800">
+            {t("needJobPosting") ?? "Need a job posting?"}{" "}
+            <Link href="/job-posting-builder" className="font-semibold text-teal-700 underline hover:text-teal-800">
+              {t("useJobPostingBuilder") ?? "Use our free Job Posting Builder"} →
+            </Link>
+          </p>
+        </div>
+
         {/* Cross-link to candidate signup */}
-        <div className="mt-8 text-center text-sm text-stone-500">
+        <div className="mt-4 text-center text-sm text-stone-500">
           {t("areYouJobSeeker")}{" "}
           <Link href="/join" className="font-medium text-teal-700 underline hover:text-teal-800">
             {t("goToCandidateSignup")} →

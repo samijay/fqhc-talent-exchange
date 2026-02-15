@@ -23,6 +23,7 @@
     "forEmployers": "For Employers",
     "hireTalent": "Hire Talent",
     "fqhcDirectory": "FQHC Directory",
+    "jobPostingBuilder": "Job Posting Builder",
     "whyFqhcTalent": "Why FQHC Talent",
     "company": "Company",
     "aboutUs": "About Us",
@@ -206,6 +207,8 @@
     "emailInvalid": "Enter a valid email address.",
     "heroTitleNew": "Find Pre-Assessed FQHC Talent",
     "heroSubtitleNew": "Skip the guesswork. We connect you with community health professionals who already have the skills, certifications, and cultural competencies your FQHC needs.",
+    "needJobPosting": "Need a job posting?",
+    "useJobPostingBuilder": "Use our free Job Posting Builder",
     "areYouJobSeeker": "Are you a job seeker?",
     "goToCandidateSignup": "Go to candidate signup"
   },
