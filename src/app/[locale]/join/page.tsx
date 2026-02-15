@@ -159,6 +159,7 @@ export default function JoinPage() {
           programs,
           bilingual: bilingual || undefined,
           notes: notes.trim() || undefined,
+          locale,
         }),
       });
 

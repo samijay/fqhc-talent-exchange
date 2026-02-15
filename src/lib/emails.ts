@@ -5,7 +5,10 @@
 export function candidateConfirmationHtml(data: {
   firstName: string;
   position: number;
+  locale?: string;
 }) {
+  const isEs = data.locale === "es";
+
   return `
 <!DOCTYPE html>
 <html>
@@ -15,30 +18,42 @@ export function candidateConfirmationHtml(data: {
     <h1 style="color: #0d9488; font-size: 24px; margin: 0;">FQHC Talent Exchange</h1>
   </div>
 
-  <h2 style="font-size: 20px; color: #1c1917;">Welcome, ${data.firstName}!</h2>
+  <h2 style="font-size: 20px; color: #1c1917;">${isEs ? `¡Bienvenido/a, ${data.firstName}!` : `Welcome, ${data.firstName}!`}</h2>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
-    You're officially on the waitlist! Your position is <strong style="color: #0d9488;">#${data.position}</strong>.
+    ${isEs
+      ? `¡Estás oficialmente en la lista de espera! Tu posición es <strong style="color: #0d9488;">#${data.position}</strong>.`
+      : `You're officially on the waitlist! Your position is <strong style="color: #0d9488;">#${data.position}</strong>.`}
   </p>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
-    Here's what happens next:
+    ${isEs ? "Esto es lo que sigue:" : "Here's what happens next:"}
   </p>
 
   <ol style="font-size: 16px; line-height: 1.8; color: #44403c; padding-left: 20px;">
-    <li>We'll review your profile within <strong>5 business days</strong></li>
-    <li>You'll receive an email to schedule your intake call</li>
-    <li>We'll start matching you with FQHC opportunities</li>
+    <li>${isEs
+      ? "Revisaremos tu perfil dentro de <strong>5 días hábiles</strong>"
+      : "We'll review your profile within <strong>5 business days</strong>"}</li>
+    <li>${isEs
+      ? "Recibirás un correo para programar tu llamada de admisión"
+      : "You'll receive an email to schedule your intake call"}</li>
+    <li>${isEs
+      ? "Comenzaremos a conectarte con oportunidades en FQHCs"
+      : "We'll start matching you with FQHC opportunities"}</li>
   </ol>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
-    In the meantime, check out our <a href="https://fqhctalent.com/blog" style="color: #0d9488;">career resources</a> for FQHC professionals.
+    ${isEs
+      ? `Mientras tanto, consulta nuestros <a href="https://fqhctalent.com/es/blog" style="color: #0d9488;">recursos profesionales</a> para profesionales de FQHC.`
+      : `In the meantime, check out our <a href="https://fqhctalent.com/blog" style="color: #0d9488;">career resources</a> for FQHC professionals.`}
   </p>
 
   <hr style="border: none; border-top: 1px solid #e7e5e4; margin: 32px 0;" />
 
   <p style="font-size: 13px; color: #a8a29e; text-align: center;">
-    FQHC Talent Exchange — The only talent platform built exclusively for community health centers.<br />
+    ${isEs
+      ? "FQHC Talent Exchange — La única plataforma de talento creada exclusivamente para centros de salud comunitarios."
+      : "FQHC Talent Exchange — The only talent platform built exclusively for community health centers."}<br />
     <a href="https://fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
   </p>
 </body>
@@ -48,7 +63,10 @@ export function candidateConfirmationHtml(data: {
 export function employerConfirmationHtml(data: {
   contactName: string;
   orgName: string;
+  locale?: string;
 }) {
+  const isEs = data.locale === "es";
+
   return `
 <!DOCTYPE html>
 <html>
@@ -58,30 +76,42 @@ export function employerConfirmationHtml(data: {
     <h1 style="color: #0d9488; font-size: 24px; margin: 0;">FQHC Talent Exchange</h1>
   </div>
 
-  <h2 style="font-size: 20px; color: #1c1917;">Thank you, ${data.contactName}!</h2>
+  <h2 style="font-size: 20px; color: #1c1917;">${isEs ? `¡Gracias, ${data.contactName}!` : `Thank you, ${data.contactName}!`}</h2>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
-    We've received the access request for <strong>${data.orgName}</strong>. We're excited to help you find mission-driven talent for your health center.
+    ${isEs
+      ? `Hemos recibido la solicitud de acceso para <strong>${data.orgName}</strong>. Estamos emocionados de ayudarle a encontrar talento comprometido con la misión para su centro de salud.`
+      : `We've received the access request for <strong>${data.orgName}</strong>. We're excited to help you find mission-driven talent for your health center.`}
   </p>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
-    Here's what happens next:
+    ${isEs ? "Esto es lo que sigue:" : "Here's what happens next:"}
   </p>
 
   <ol style="font-size: 16px; line-height: 1.8; color: #44403c; padding-left: 20px;">
-    <li>Our team will review your request within <strong>3 business days</strong></li>
-    <li>We'll schedule a brief call to understand your hiring needs</li>
-    <li>You'll get access to our pre-vetted candidate pool</li>
+    <li>${isEs
+      ? "Nuestro equipo revisará su solicitud dentro de <strong>3 días hábiles</strong>"
+      : "Our team will review your request within <strong>3 business days</strong>"}</li>
+    <li>${isEs
+      ? "Programaremos una breve llamada para entender sus necesidades de contratación"
+      : "We'll schedule a brief call to understand your hiring needs"}</li>
+    <li>${isEs
+      ? "Tendrá acceso a nuestro grupo de candidatos preseleccionados"
+      : "You'll get access to our pre-vetted candidate pool"}</li>
   </ol>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
-    Questions? Reply to this email or reach us at <a href="mailto:fqhctalent@gmail.com" style="color: #0d9488;">fqhctalent@gmail.com</a>.
+    ${isEs
+      ? `¿Preguntas? Responda a este correo o contáctenos en <a href="mailto:fqhctalent@gmail.com" style="color: #0d9488;">fqhctalent@gmail.com</a>.`
+      : `Questions? Reply to this email or reach us at <a href="mailto:fqhctalent@gmail.com" style="color: #0d9488;">fqhctalent@gmail.com</a>.`}
   </p>
 
   <hr style="border: none; border-top: 1px solid #e7e5e4; margin: 32px 0;" />
 
   <p style="font-size: 13px; color: #a8a29e; text-align: center;">
-    FQHC Talent Exchange — The only talent platform built exclusively for community health centers.<br />
+    ${isEs
+      ? "FQHC Talent Exchange — La única plataforma de talento creada exclusivamente para centros de salud comunitarios."
+      : "FQHC Talent Exchange — The only talent platform built exclusively for community health centers."}<br />
     <a href="https://fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
   </p>
 </body>
@@ -140,7 +170,11 @@ export function adminCandidateNotificationHtml(data: {
 
 export function displacedCandidateConfirmationHtml(data: {
   firstName: string;
+  locale?: string;
 }) {
+  const isEs = data.locale === "es";
+  const sitePrefix = isEs ? "es/" : "";
+
   return `
 <!DOCTYPE html>
 <html>
@@ -151,35 +185,47 @@ export function displacedCandidateConfirmationHtml(data: {
     <p style="color: #f59e0b; font-size: 14px; font-weight: 600; margin: 4px 0 0;">FAST-TRACK</p>
   </div>
 
-  <h2 style="font-size: 20px; color: #1c1917;">You're in the Fast-Track pool, ${data.firstName}!</h2>
+  <h2 style="font-size: 20px; color: #1c1917;">${isEs
+    ? `¡Estás en el grupo Fast-Track, ${data.firstName}!`
+    : `You're in the Fast-Track pool, ${data.firstName}!`}</h2>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
-    We understand how stressful a layoff can be. That's why we've put you in our <strong style="color: #0d9488;">Fast-Track queue</strong> for priority matching.
+    ${isEs
+      ? `Entendemos lo estresante que puede ser un despido. Por eso te hemos puesto en nuestra <strong style="color: #0d9488;">cola Fast-Track</strong> para emparejamiento prioritario.`
+      : `We understand how stressful a layoff can be. That's why we've put you in our <strong style="color: #0d9488;">Fast-Track queue</strong> for priority matching.`}
   </p>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
-    Here's what happens next:
+    ${isEs ? "Esto es lo que sigue:" : "Here's what happens next:"}
   </p>
 
   <ol style="font-size: 16px; line-height: 1.8; color: #44403c; padding-left: 20px;">
-    <li>A placement advocate reviews your profile <strong>within 24 hours</strong></li>
-    <li>We match you with hiring FQHCs that need your skills</li>
-    <li>You'll receive your first introduction <strong>within 48 hours</strong></li>
+    <li>${isEs
+      ? "Un asesor de colocación revisa tu perfil <strong>dentro de 24 horas</strong>"
+      : "A placement advocate reviews your profile <strong>within 24 hours</strong>"}</li>
+    <li>${isEs
+      ? "Te emparejamos con FQHCs que necesitan tus habilidades"
+      : "We match you with hiring FQHCs that need your skills"}</li>
+    <li>${isEs
+      ? "Recibirás tu primera presentación <strong>dentro de 48 horas</strong>"
+      : "You'll receive your first introduction <strong>within 48 hours</strong>"}</li>
   </ol>
 
   <div style="background-color: #f0fdfa; border: 1px solid #ccfbf1; border-radius: 8px; padding: 16px; margin: 24px 0;">
-    <p style="font-size: 14px; color: #0d9488; margin: 0; font-weight: 600;">While you wait:</p>
+    <p style="font-size: 14px; color: #0d9488; margin: 0; font-weight: 600;">${isEs ? "Mientras esperas:" : "While you wait:"}</p>
     <ul style="font-size: 14px; color: #44403c; line-height: 1.8; padding-left: 16px; margin: 8px 0 0;">
-      <li><a href="https://fqhctalent.com/resume-builder" style="color: #0d9488;">Build a free FQHC-optimized resume</a></li>
-      <li><a href="https://fqhctalent.com/jobs" style="color: #0d9488;">Browse open positions across California</a></li>
-      <li><a href="https://fqhctalent.com/blog" style="color: #0d9488;">Read our career resources</a></li>
+      <li><a href="https://fqhctalent.com/${sitePrefix}resume-builder" style="color: #0d9488;">${isEs ? "Crea un currículum optimizado para FQHC gratis" : "Build a free FQHC-optimized resume"}</a></li>
+      <li><a href="https://fqhctalent.com/${sitePrefix}jobs" style="color: #0d9488;">${isEs ? "Explora posiciones abiertas en toda California" : "Browse open positions across California"}</a></li>
+      <li><a href="https://fqhctalent.com/${sitePrefix}blog" style="color: #0d9488;">${isEs ? "Lee nuestros recursos profesionales" : "Read our career resources"}</a></li>
     </ul>
   </div>
 
   <hr style="border: none; border-top: 1px solid #e7e5e4; margin: 32px 0;" />
 
   <p style="font-size: 13px; color: #a8a29e; text-align: center;">
-    FQHC Talent Exchange &mdash; The only talent platform built exclusively for community health centers.<br />
+    ${isEs
+      ? "FQHC Talent Exchange &mdash; La única plataforma de talento creada exclusivamente para centros de salud comunitarios."
+      : "FQHC Talent Exchange &mdash; The only talent platform built exclusively for community health centers."}<br />
     <a href="https://fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
   </p>
 </body>

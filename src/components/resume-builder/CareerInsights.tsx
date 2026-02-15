@@ -202,7 +202,7 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
       setCurrentQuestion(currentQuestion + 1);
     } else {
       // Calculate results
-      const assessmentResults = calculateAssessmentResults(updatedAnswers);
+      const assessmentResults = calculateAssessmentResults(updatedAnswers, locale);
       setResults(assessmentResults);
       onComplete(assessmentResults);
     }
@@ -509,13 +509,13 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
         {/* Scenario */}
         <div className="mb-4 rounded-lg bg-stone-50 p-4">
           <p className="text-sm font-medium leading-relaxed text-stone-700">
-            {question.scenario}
+            {locale === "es" ? question.esScenario : question.scenario}
           </p>
         </div>
 
         {/* Question */}
         <h3 className="mb-4 text-lg font-bold text-stone-900">
-          {question.question}
+          {locale === "es" ? question.esQuestion : question.question}
         </h3>
 
         {/* Answer options (shuffled to prevent gaming) */}
@@ -549,7 +549,7 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
                       isSelected ? "text-teal-900 font-medium" : "text-stone-700"
                     }`}
                   >
-                    {option.text}
+                    {locale === "es" ? option.esText : option.text}
                   </span>
                 </div>
               </button>

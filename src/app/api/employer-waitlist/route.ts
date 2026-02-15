@@ -10,7 +10,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    const { orgName, contactName, contactTitle, email, phone, positionsCount, rolesNeeded, programsActive, ehrSystem, timeline, notes } = body;
+    const { orgName, contactName, contactTitle, email, phone, positionsCount, rolesNeeded, programsActive, ehrSystem, timeline, notes, locale } = body;
 
     if (!orgName || !contactName || !email) {
       return NextResponse.json(
@@ -59,8 +59,10 @@ export async function POST(request: Request) {
           resend.emails.send({
             from: FROM_EMAIL,
             to: email,
-            subject: `Request received, ${contactName}! — FQHC Talent Exchange`,
-            html: employerConfirmationHtml({ contactName, orgName }),
+            subject: locale === "es"
+              ? `¡Solicitud recibida, ${contactName}! — FQHC Talent Exchange`
+              : `Request received, ${contactName}! — FQHC Talent Exchange`,
+            html: employerConfirmationHtml({ contactName, orgName, locale }),
           }),
           // Notification to admin
           resend.emails.send({

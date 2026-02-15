@@ -356,6 +356,7 @@ export default function FastTrackPage() {
           openToRegions,
           willingToRelocate,
           notes: notes.trim() || undefined,
+          locale,
         }),
       });
 

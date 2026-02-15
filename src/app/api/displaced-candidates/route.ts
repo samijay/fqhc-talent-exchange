@@ -27,6 +27,7 @@ export async function POST(request: Request) {
       openToRegions,
       willingToRelocate,
       notes,
+      locale,
     } = body;
 
     if (!firstName || !lastName || !email) {
@@ -84,8 +85,10 @@ export async function POST(request: Request) {
           resend.emails.send({
             from: FROM_EMAIL,
             to: email,
-            subject: `You're in the Fast-Track pool, ${firstName}! — FQHC Talent Exchange`,
-            html: displacedCandidateConfirmationHtml({ firstName }),
+            subject: locale === "es"
+              ? `¡Estás en el grupo Fast-Track, ${firstName}! — FQHC Talent Exchange`
+              : `You're in the Fast-Track pool, ${firstName}! — FQHC Talent Exchange`,
+            html: displacedCandidateConfirmationHtml({ firstName, locale }),
           }),
           // Admin notification (priority)
           resend.emails.send({

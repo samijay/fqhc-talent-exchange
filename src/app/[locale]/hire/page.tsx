@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   CheckCircle2,
   Loader2,
@@ -79,6 +79,7 @@ interface FormErrors {
 
 export default function HirePage() {
   const t = useTranslations("hire");
+  const locale = useLocale();
 
   /* ---------- Waitlist count ---------- */
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
@@ -161,6 +162,7 @@ export default function HirePage() {
           ehrSystem: ehrSystem || undefined,
           timeline: timeline || undefined,
           notes: notes.trim() || undefined,
+          locale,
         }),
       });
 

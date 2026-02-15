@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import {
   FileText,
   Building2,
@@ -71,72 +71,92 @@ const blogPosts = [
   {
     slug: "laid-off-fqhc-fast-track-job-search",
     title: "Laid Off from an FQHC? Here's How to Fast-Track Your Job Search",
-    description:
-      "Get priority matching in 48 hours with our Fast-Track program for displaced community health workers.",
+    esTitle: "¿Despedido/a de un FQHC? Cómo Acelerar Tu Búsqueda de Empleo",
+    description: "Get priority matching in 48 hours with our Fast-Track program for displaced community health workers.",
+    esDescription: "Obtén matching prioritario en 48 horas con nuestro programa Fast-Track para trabajadores de salud comunitaria desplazados.",
     category: "Fast-Track",
+    esCategory: "Fast-Track",
   },
   {
     slug: "fqhc-career-insights-assessment",
     title: "Discover Your FQHC Career Strengths with Our Free Assessment",
-    description:
-      "Take a 3-minute behavioral assessment to uncover your strengths across 4 key domains.",
+    esTitle: "Descubre Tus Fortalezas Profesionales en FQHC con Nuestra Evaluación Gratis",
+    description: "Take a 3-minute behavioral assessment to uncover your strengths across 4 key domains.",
+    esDescription: "Toma una evaluación conductual de 3 minutos para descubrir tus fortalezas en 4 dominios clave.",
     category: "Assessment Tools",
+    esCategory: "Herramientas de Evaluación",
   },
   {
     slug: "fqhc-vs-private-practice",
     title: "FQHC vs. Private Practice: Which Is Right for Your Career?",
-    description:
-      "Compare salary, benefits, mission, and culture to find the best fit for your healthcare career.",
+    esTitle: "FQHC vs. Práctica Privada: ¿Cuál Es Mejor para Tu Carrera?",
+    description: "Compare salary, benefits, mission, and culture to find the best fit for your healthcare career.",
+    esDescription: "Compara salario, beneficios, misión y cultura para encontrar el mejor ajuste para tu carrera de salud.",
     category: "Career Resources",
+    esCategory: "Recursos Profesionales",
   },
   {
     slug: "top-10-fqhc-interview-questions",
     title: "Top 10 FQHC Interview Questions (and How to Answer Them)",
-    description:
-      "Prepare for your FQHC interview with these common questions and expert answer strategies.",
+    esTitle: "Las 10 Principales Preguntas de Entrevista en FQHC (y Cómo Responderlas)",
+    description: "Prepare for your FQHC interview with these common questions and expert answer strategies.",
+    esDescription: "Prepárate para tu entrevista en FQHC con estas preguntas comunes y estrategias de respuesta de expertos.",
     category: "Interview Prep",
+    esCategory: "Preparación de Entrevistas",
   },
   {
     slug: "nhsc-loan-repayment-guide",
     title: "NHSC Loan Repayment: The Complete Guide for FQHC Workers",
-    description:
-      "Everything you need to know about qualifying for up to $50,000 in student loan repayment.",
+    esTitle: "Reembolso de Préstamos NHSC: Guía Completa para Trabajadores de FQHC",
+    description: "Everything you need to know about qualifying for up to $50,000 in student loan repayment.",
+    esDescription: "Todo lo que necesitas saber sobre calificar para hasta $50,000 en reembolso de préstamos estudiantiles.",
     category: "Benefits",
+    esCategory: "Beneficios",
   },
   {
     slug: "medi-cal-funding-cuts-community-health-workers",
     title: "Medi-Cal Funding Cuts: What Community Health Workers Need to Know in 2026",
-    description:
-      "California's Medi-Cal funding cuts are displacing thousands of community health workers.",
+    esTitle: "Recortes de Fondos de Medi-Cal: Lo Que Necesitan Saber los Trabajadores de Salud Comunitaria en 2026",
+    description: "California's Medi-Cal funding cuts are displacing thousands of community health workers.",
+    esDescription: "Los recortes de fondos de Medi-Cal de California están desplazando a miles de trabajadores de salud comunitaria.",
     category: "Industry News",
+    esCategory: "Noticias de la Industria",
   },
   {
     slug: "what-is-enhanced-care-management-ecm",
     title: "What Is Enhanced Care Management (ECM)? A Career Guide",
-    description:
-      "Learn what ECM is, what roles it creates, and how to land an ECM job.",
+    esTitle: "¿Qué Es Enhanced Care Management (ECM)? Guía Profesional",
+    description: "Learn what ECM is, what roles it creates, and how to land an ECM job.",
+    esDescription: "Aprende qué es ECM, qué puestos crea y cómo conseguir un trabajo en ECM.",
     category: "Career Resources",
+    esCategory: "Recursos Profesionales",
   },
   {
     slug: "how-to-write-fqhc-resume",
     title: "How to Write an FQHC Resume That Gets Noticed",
-    description:
-      "Highlight programs, EHR systems, and competencies to stand out.",
+    esTitle: "Cómo Escribir un Currículum para FQHC Que Llame la Atención",
+    description: "Highlight programs, EHR systems, and competencies to stand out.",
+    esDescription: "Destaca programas, sistemas EHR y competencias para sobresalir.",
     category: "Career Resources",
+    esCategory: "Recursos Profesionales",
   },
   {
     slug: "working-at-top-of-scope-fqhc",
     title: "Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access",
-    description:
-      "Learn how FQHCs use team-based care to maximize provider scope of practice.",
+    esTitle: "Trabajar al Máximo de Tu Alcance: Cómo los FQHCs Revolucionan el Acceso al Paciente",
+    description: "Learn how FQHCs use team-based care to maximize provider scope of practice.",
+    esDescription: "Aprende cómo los FQHCs usan atención basada en equipos para maximizar el alcance de práctica.",
     category: "Clinical Operations",
+    esCategory: "Operaciones Clínicas",
   },
   {
     slug: "fqhc-career-ladder-ma-rn-provider",
     title: "The FQHC MA, RN & Provider Career Ladder",
-    description:
-      "Explore career advancement paths at FQHCs for MAs, RNs, and providers.",
+    esTitle: "La Escalera Profesional de MA, RN y Proveedores en FQHC",
+    description: "Explore career advancement paths at FQHCs for MAs, RNs, and providers.",
+    esDescription: "Explora caminos de avance profesional en FQHCs para MAs, RNs y proveedores.",
     category: "Career Growth",
+    esCategory: "Crecimiento Profesional",
   },
 ];
 
@@ -169,6 +189,8 @@ const externalResources = [
 
 export default async function ResourcesPage() {
   const t = await getTranslations("resources");
+  const locale = await getLocale();
+  const isEs = locale === "es";
 
   const salaryEntries = Object.entries(fqhcSalaryRanges) as [
     string,
@@ -332,13 +354,13 @@ export default async function ResourcesPage() {
                   variant="secondary"
                   className="mb-3 w-fit bg-teal-50 text-teal-700 hover:bg-teal-100"
                 >
-                  {post.category}
+                  {isEs ? post.esCategory : post.category}
                 </Badge>
                 <h3 className="mb-2 font-semibold text-stone-900 leading-snug">
-                  {post.title}
+                  {isEs ? post.esTitle : post.title}
                 </h3>
                 <p className="mb-4 flex-1 text-sm text-stone-600 leading-relaxed">
-                  {post.description}
+                  {isEs ? post.esDescription : post.description}
                 </p>
                 <span className="inline-flex items-center gap-1 text-sm font-medium text-teal-700">
                   {t("blogReadMore")}
