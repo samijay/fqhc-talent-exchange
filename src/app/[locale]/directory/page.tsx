@@ -385,11 +385,11 @@ export default function DirectoryPage() {
         </div>
 
         {/* Second row: ECM toggle, sort, view toggle */}
-        <div className="mt-3 flex flex-wrap items-center gap-3">
+        <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           {/* ECM toggle */}
           <button
             onClick={() => setEcmOnly(!ecmOnly)}
-            className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
+            className={`flex items-center justify-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
               ecmOnly
                 ? "border-teal-700 bg-teal-50 text-teal-800"
                 : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
@@ -405,7 +405,7 @@ export default function DirectoryPage() {
             setSortKey(key);
             setSortDir(dir);
           }}>
-            <SelectTrigger className="h-9 w-48 text-sm">
+            <SelectTrigger className="h-9 w-full text-sm sm:w-48">
               <ArrowUpDown className="mr-1 size-3.5" />
               <SelectValue placeholder="Sort by..." />
             </SelectTrigger>
@@ -419,7 +419,7 @@ export default function DirectoryPage() {
             </SelectContent>
           </Select>
 
-          <div className="ml-auto flex items-center gap-1 rounded-lg border border-stone-200 bg-white p-0.5">
+          <div className="flex items-center justify-center gap-1 rounded-lg border border-stone-200 bg-white p-0.5 sm:ml-auto">
             <button
               onClick={() => setView("cards")}
               className={`rounded-md px-2.5 py-1.5 text-sm transition-colors ${

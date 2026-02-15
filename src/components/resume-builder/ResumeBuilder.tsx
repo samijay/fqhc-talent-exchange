@@ -1316,14 +1316,14 @@ export default function ResumeBuilder() {
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
       <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
         {/* Actions */}
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-2xl font-bold text-stone-900">
             Your Resume Preview
           </h2>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
             <button
               onClick={() => setStep(1)}
-              className="flex items-center gap-1.5 text-sm font-medium text-stone-600 hover:text-stone-900"
+              className="flex items-center justify-center gap-1.5 text-sm font-medium text-stone-600 hover:text-stone-900"
             >
               <Pencil className="size-4" /> Edit
             </button>
@@ -1331,7 +1331,7 @@ export default function ResumeBuilder() {
               onClick={handleSaveProfile}
               disabled={isSaving}
               variant="outline"
-              className="flex items-center gap-1.5 border-teal-700 text-teal-700 hover:bg-teal-50"
+              className="flex w-full items-center justify-center gap-1.5 border-teal-700 text-teal-700 hover:bg-teal-50 sm:w-auto"
             >
               <Save className="size-4" />
               {isSaving ? "Saving..." : "Save Profile"}
@@ -1339,7 +1339,7 @@ export default function ResumeBuilder() {
             <Button
               onClick={handleDownloadPDF}
               disabled={isDownloading}
-              className="flex items-center gap-1.5 bg-gradient-to-r from-teal-700 to-amber-600 text-white hover:shadow-lg"
+              className="flex w-full items-center justify-center gap-1.5 bg-gradient-to-r from-teal-700 to-amber-600 text-white hover:shadow-lg sm:w-auto"
             >
               <Download className="size-4" />
               {isDownloading ? "Generating..." : "Download PDF"}

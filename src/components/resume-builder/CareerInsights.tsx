@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   ChevronRight,
   ChevronLeft,
@@ -80,6 +80,27 @@ const LEVEL_COLORS: Record<string, string> = {
 };
 
 /* ------------------------------------------------------------------ */
+/*  Seeded shuffle — consistent per question, prevents gaming          */
+/* ------------------------------------------------------------------ */
+
+function seededShuffle<T>(arr: T[], seed: string): T[] {
+  const shuffled = [...arr];
+  // Simple hash from seed string
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = (hash << 5) - hash + seed.charCodeAt(i);
+    hash |= 0;
+  }
+  // Fisher-Yates with seeded pseudo-random
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    hash = (hash * 1103515245 + 12345) & 0x7fffffff;
+    const j = hash % (i + 1);
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+/* ------------------------------------------------------------------ */
 /*  Component                                                           */
 /* ------------------------------------------------------------------ */
 
@@ -93,6 +114,12 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
   const question = ASSESSMENT_QUESTIONS[currentQuestion];
   const totalQuestions = ASSESSMENT_QUESTIONS.length;
   const progress = ((currentQuestion + 1) / totalQuestions) * 100;
+
+  // Shuffle answer options so the "best" answer isn't always first
+  const shuffledOptions = useMemo(
+    () => seededShuffle(question.options, question.id),
+    [question],
+  );
 
   /* --- Handlers ---------------------------------------------------- */
 
@@ -428,9 +455,9 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
           {question.question}
         </h3>
 
-        {/* Answer options */}
+        {/* Answer options (shuffled to prevent gaming) */}
         <div className="space-y-3">
-          {question.options.map((option) => {
+          {shuffledOptions.map((option) => {
             const isSelected = selectedOption === option.id;
             return (
               <button
