@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-import { CheckCircle2, Loader2, Users } from "lucide-react";
+import { CheckCircle2, Loader2, Users, Zap, ArrowRight } from "lucide-react";
+import { useLocale } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -78,6 +79,7 @@ interface SuccessPayload {
 
 export default function JoinPage() {
   const t = useTranslations("join");
+  const locale = useLocale();
 
   /* --- live count ------------------------------------------------- */
   const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
@@ -234,8 +236,33 @@ export default function JoinPage() {
         )}
       </section>
 
+      {/* ---------- Fast-Track Banner ---------- */}
+      <div className="mx-auto max-w-2xl px-4 pt-8 sm:px-6 lg:px-8">
+        <Link
+          href="/fast-track"
+          className="group flex items-center gap-4 rounded-xl border-2 border-amber-300 bg-gradient-to-r from-amber-50 to-teal-50 p-4 transition-all hover:shadow-md hover:border-amber-400 sm:p-5"
+        >
+          <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-amber-100">
+            <Zap className="size-5 text-amber-600" />
+          </div>
+          <div className="flex-1">
+            <p className="font-bold text-stone-900">
+              {locale === "es"
+                ? "\u00bfFuiste despedido/a recientemente de un FQHC?"
+                : "Recently laid off from an FQHC?"}
+            </p>
+            <p className="text-sm text-stone-600">
+              {locale === "es"
+                ? "Obt\u00e9n matching prioritario en 48 horas \u2014 sin per\u00edodo de aviso necesario."
+                : "Get priority matching in 48 hours \u2014 no notice period needed."}
+            </p>
+          </div>
+          <ArrowRight className="size-5 shrink-0 text-stone-400 transition-transform group-hover:translate-x-1" />
+        </Link>
+      </div>
+
       {/* ---------- Form Card ---------- */}
-      <div className="mx-auto max-w-2xl px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:px-8">
         <form
           onSubmit={handleSubmit}
           noValidate

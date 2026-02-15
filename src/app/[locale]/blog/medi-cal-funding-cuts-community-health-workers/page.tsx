@@ -360,12 +360,20 @@ export default function MediCalFundingCutsArticle() {
             <p className="text-stone-600 mb-6 text-lg">
               {content.ctaDescription}
             </p>
-            <a
-              href="/resume-builder"
-              className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
-            >
-              {content.ctaButtonText}
-            </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="/fast-track"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-teal-700 to-amber-600 px-8 py-4 text-lg font-semibold text-white hover:shadow-lg transition-all"
+              >
+                {locale === "es" ? "Fast-Track Mi B\u00fasqueda" : "Fast-Track My Job Search"}
+              </a>
+              <a
+                href="/resume-builder"
+                className="inline-flex items-center justify-center rounded-lg border-2 border-teal-700 px-8 py-4 text-lg font-semibold text-teal-700 hover:bg-teal-100 transition-colors"
+              >
+                {content.ctaButtonText}
+              </a>
+            </div>
           </div>
 
           {/* Related Articles */}
