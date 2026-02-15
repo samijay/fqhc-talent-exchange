@@ -563,7 +563,7 @@ export default function DirectoryPage() {
         {/* Map View */}
         {view === "map" && (
           <div className="mb-8 overflow-hidden rounded-xl border border-stone-200 shadow-sm">
-            <DynamicMap fqhcs={filtered} />
+            <DynamicMap fqhcs={filtered} locale={locale} />
           </div>
         )}
 

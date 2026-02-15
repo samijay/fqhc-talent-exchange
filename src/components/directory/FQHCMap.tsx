@@ -38,9 +38,11 @@ function renderStars(rating: number | null): string {
 
 interface FQHCMapProps {
   fqhcs: CaliforniaFQHC[];
+  locale?: string;
 }
 
-export default function FQHCMap({ fqhcs }: FQHCMapProps) {
+export default function FQHCMap({ fqhcs, locale = "en" }: FQHCMapProps) {
+  const isEs = locale === "es";
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<L.CircleMarker[]>([]);
@@ -77,34 +79,34 @@ export default function FQHCMap({ fqhcs }: FQHCMapProps) {
         <div class="p-3 w-64">
           <h3 class="font-bold text-base mb-2">${escapeHtml(fqhc.name)}</h3>
           <div class="text-sm space-y-1 text-gray-700">
-            <p><strong>Location:</strong> ${escapeHtml(fqhc.city)}, ${escapeHtml(fqhc.county)}</p>
-            <p><strong>Region:</strong> ${escapeHtml(fqhc.region)}</p>
-            <p><strong>Patients:</strong> ${escapeHtml(fqhc.patientCount)}</p>
-            <p><strong>Staff:</strong> ${escapeHtml(fqhc.staffCount)}</p>
+            <p><strong>${isEs ? "Ubicación:" : "Location:"}</strong> ${escapeHtml(fqhc.city)}, ${escapeHtml(fqhc.county)}</p>
+            <p><strong>${isEs ? "Región:" : "Region:"}</strong> ${escapeHtml(fqhc.region)}</p>
+            <p><strong>${isEs ? "Pacientes:" : "Patients:"}</strong> ${escapeHtml(fqhc.patientCount)}</p>
+            <p><strong>${isEs ? "Personal:" : "Staff:"}</strong> ${escapeHtml(fqhc.staffCount)}</p>
       `;
 
       // Add Glassdoor rating if available
       if (fqhc.glassdoorRating) {
         const stars = renderStars(fqhc.glassdoorRating);
-        popupHTML += `<p><strong>Rating:</strong> <span class="text-yellow-500">${stars}</span> ${fqhc.glassdoorRating.toFixed(1)}/5.0`;
+        popupHTML += `<p><strong>${isEs ? "Calificación:" : "Rating:"}</strong> <span class="text-yellow-500">${stars}</span> ${fqhc.glassdoorRating.toFixed(1)}/5.0`;
         if (fqhc.glassdoorReviewCount) {
-          popupHTML += ` (${fqhc.glassdoorReviewCount} reviews)`;
+          popupHTML += ` (${fqhc.glassdoorReviewCount} ${isEs ? "reseñas" : "reviews"})`;
         }
         popupHTML += `</p>`;
       }
 
       // Add ECM badge if applicable
       if (fqhc.ecmProvider) {
-        popupHTML += `<p><span class="inline-block bg-teal-100 text-teal-900 text-xs px-2 py-1 rounded font-semibold">ECM Provider</span></p>`;
+        popupHTML += `<p><span class="inline-block bg-teal-100 text-teal-900 text-xs px-2 py-1 rounded font-semibold">${isEs ? "Proveedor ECM" : "ECM Provider"}</span></p>`;
       }
 
       // Add website link
       if (fqhc.website) {
-        popupHTML += `<p class="mt-3"><a href="${escapeHtml(fqhc.website)}" target="_blank" rel="noopener noreferrer" class="text-teal-700 hover:text-teal-800 font-semibold">Visit Website →</a></p>`;
+        popupHTML += `<p class="mt-3"><a href="${escapeHtml(fqhc.website)}" target="_blank" rel="noopener noreferrer" class="text-teal-700 hover:text-teal-800 font-semibold">${isEs ? "Visitar Sitio Web →" : "Visit Website →"}</a></p>`;
       }
 
       // Add View Details link
-      popupHTML += `<p class="mt-3"><a href="/directory/${escapeHtml(fqhc.slug)}" class="text-teal-700 hover:text-teal-800 font-semibold">View Details →</a></p>`;
+      popupHTML += `<p class="mt-3"><a href="/directory/${escapeHtml(fqhc.slug)}" class="text-teal-700 hover:text-teal-800 font-semibold">${isEs ? "Ver Detalles →" : "View Details →"}</a></p>`;
       popupHTML += `</div></div>`;
 
       marker.bindPopup(popupHTML, {
@@ -128,7 +130,7 @@ export default function FQHCMap({ fqhcs }: FQHCMapProps) {
       div.style.borderRadius = "8px";
       div.style.boxShadow = "0 2px 8px rgba(0,0,0,0.15)";
 
-      let html = `<div class="text-sm font-bold mb-2">Regions</div>`;
+      let html = `<div class="text-sm font-bold mb-2">${isEs ? "Regiones" : "Regions"}</div>`;
       Object.entries(REGION_COLORS).forEach(([region, color]) => {
         html += `
           <div class="flex items-center gap-2 mb-1.5">
@@ -148,7 +150,7 @@ export default function FQHCMap({ fqhcs }: FQHCMapProps) {
       map.remove();
       markersRef.current = [];
     };
-  }, [fqhcs]);
+  }, [fqhcs, isEs]);
 
   return (
     <div

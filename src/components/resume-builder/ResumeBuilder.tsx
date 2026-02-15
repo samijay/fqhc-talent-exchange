@@ -379,7 +379,7 @@ export default function ResumeBuilder() {
       const data = await res.json();
 
       if (!res.ok) {
-        setUploadError(data.error || "Could not process this file.");
+        setUploadError(data.error || (locale === "es" ? "No se pudo procesar este archivo." : "Could not process this file."));
         return;
       }
 
@@ -791,7 +791,7 @@ export default function ResumeBuilder() {
                   onChange={(e) =>
                     setFormData((p) => ({ ...p, phone: e.target.value }))
                   }
-                  placeholder="(555) 123-4567"
+                  placeholder={locale === "es" ? "(555) 123-4567" : "(555) 123-4567"}
                   className="mt-1.5"
                 />
               </div>

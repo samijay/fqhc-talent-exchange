@@ -12,6 +12,6 @@ const FQHCMap = dynamic(() => import("./FQHCMap"), {
   ),
 });
 
-export default function DynamicMap({ fqhcs }: { fqhcs: CaliforniaFQHC[] }) {
-  return <FQHCMap fqhcs={fqhcs} />;
+export default function DynamicMap({ fqhcs, locale }: { fqhcs: CaliforniaFQHC[]; locale?: string }) {
+  return <FQHCMap fqhcs={fqhcs} locale={locale} />;
 }
