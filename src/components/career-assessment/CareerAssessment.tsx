@@ -17,6 +17,7 @@ import {
   DollarSign,
 } from 'lucide-react';
 import { SALARY_BENCHMARKS, type SalaryBenchmark } from '@/lib/job-posting-templates';
+import { ROLE_INSIGHTS } from '@/lib/role-insights';
 
 interface CareerAssessmentProps {
   fqhcName: string;
@@ -926,6 +927,75 @@ export default function CareerAssessment({
               </p>
             </div>
           )}
+
+          {/* What Employers Want — role-specific qualification tips */}
+          {formData.roleInterest && ROLE_INSIGHTS[formData.roleInterest] && (() => {
+            const insight = ROLE_INSIGHTS[formData.roleInterest];
+            return (
+              <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-t-4 border-stone-400">
+                <div className="flex items-center gap-2 mb-5">
+                  <Briefcase className="w-6 h-6 text-teal-700" />
+                  <h2 className="text-xl font-semibold text-stone-900">
+                    {isEs ? 'Lo que buscan los empleadores de FQHCs' : 'What FQHC Hiring Managers Look For'}
+                  </h2>
+                </div>
+
+                {/* Top Qualifications */}
+                <div className="mb-5">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                    {isEs ? 'Calificaciones principales' : 'Top Qualifications'}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {(isEs ? insight.employerWants.esTopQualifications : insight.employerWants.topQualifications).map((qual, i) => (
+                      <span
+                        key={i}
+                        className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-medium text-teal-800"
+                      >
+                        <CheckCircle className="w-3 h-3" />
+                        {qual}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Key Skills */}
+                <div className="mb-5">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                    {isEs ? 'Habilidades clave' : 'Key Skills'}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {(isEs ? insight.employerWants.esTopSkills : insight.employerWants.topSkills).map((skill, i) => (
+                      <span
+                        key={i}
+                        className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Valued Certifications */}
+                {insight.employerWants.certifications.length > 0 && (
+                  <div>
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                      {isEs ? 'Certificaciones valoradas' : 'Valued Certifications'}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {(isEs ? insight.employerWants.esCertifications : insight.employerWants.certifications).map((cert, i) => (
+                        <span
+                          key={i}
+                          className="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800"
+                        >
+                          {cert}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })()}
 
           {/* Waitlist Form */}
           <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-t-4 border-teal-500">
