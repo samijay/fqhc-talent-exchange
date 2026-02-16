@@ -22,6 +22,9 @@ import {
   AlertCircle,
   BarChart3,
   ArrowRight,
+  Activity,
+  Phone,
+  DollarSign,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -90,6 +93,9 @@ const ROLE_OPTIONS = [
   { id: "medical_assistant", label: "Medical Assistant", esLabel: "Asistente Médico/a", icon: Stethoscope },
   { id: "case_manager", label: "Case Manager", esLabel: "Administrador/a de Casos", icon: Briefcase },
   { id: "behavioral_health", label: "Behavioral Health Specialist", esLabel: "Especialista en Salud Conductual", icon: Brain },
+  { id: "registered_nurse", label: "Registered Nurse (RN)", esLabel: "Enfermera/o Registrada/o (RN)", icon: Activity },
+  { id: "patient_services", label: "Patient Services Representative", esLabel: "Representante de Servicios al Paciente", icon: Phone },
+  { id: "revenue_cycle", label: "Revenue Cycle / Billing", esLabel: "Ciclo de Ingresos / Facturación", icon: DollarSign },
 ] as const;
 
 const TOTAL_STEPS = 5;

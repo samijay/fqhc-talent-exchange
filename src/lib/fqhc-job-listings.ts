@@ -2819,6 +2819,766 @@ export const fqhcJobListings: FQHCJobListing[] = [
       "Bilingual Spanish/English preferred",
       "Central Valley health knowledge"
     ]
+  },
+
+  // ─────────────────────────────────────────────
+  // NEW ROLE TYPES — Patient Services, Revenue Cycle, Clinical, Dental, Pharmacy, etc.
+  // ─────────────────────────────────────────────
+
+  // --- Patient Services Representative (3 listings) ---
+  {
+    id: "fqhc-166",
+    fqhcSlug: "altamed-health-services",
+    title: "Patient Services Representative - Front Desk",
+    roleType: "Patient Services Representative",
+    department: "Patient Services",
+    salaryMin: 38000,
+    salaryMax: 50000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["Community Supports"],
+    postedDate: "2026-02-10",
+    description: "Greet and check in patients, verify insurance eligibility, schedule appointments, and provide excellent front desk support at one of AltaMed's high-volume clinic sites.",
+    requirements: [
+      "High school diploma or equivalent required",
+      "1+ year of front desk or customer service experience in a healthcare setting",
+      "Bilingual Spanish/English required",
+      "Proficiency with OCHIN Epic or similar EHR preferred"
+    ]
+  },
+  {
+    id: "fqhc-167",
+    fqhcSlug: "neighborhood-healthcare",
+    title: "Patient Services Representative",
+    roleType: "Patient Services Representative",
+    department: "Administration",
+    salaryMin: 36000,
+    salaryMax: 48000,
+    type: "Full-time",
+    location: "Escondido",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: [],
+    postedDate: "2026-01-28",
+    description: "Serve as the first point of contact for patients at Neighborhood Healthcare's Escondido clinic, handling check-in, scheduling, and insurance verification.",
+    requirements: [
+      "High school diploma or GED",
+      "Customer service experience preferred",
+      "Bilingual Spanish/English strongly preferred",
+      "Ability to multitask in a fast-paced clinic environment"
+    ]
+  },
+  {
+    id: "fqhc-168",
+    fqhcSlug: "asian-health-services",
+    title: "Patient Services Representative - Bilingual",
+    roleType: "Patient Services Representative",
+    department: "Patient Services",
+    salaryMin: 40000,
+    salaryMax: 52000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-03",
+    description: "Provide culturally competent front desk services for Asian Health Services' diverse patient population, including appointment scheduling, registration, and referral coordination.",
+    requirements: [
+      "High school diploma required; associate degree preferred",
+      "Bilingual in English and Cantonese, Mandarin, Vietnamese, or Korean",
+      "Experience in a community health or medical office setting",
+      "Strong attention to detail and data entry skills"
+    ]
+  },
+
+  // --- Call Center Specialist (2 listings) ---
+  {
+    id: "fqhc-169",
+    fqhcSlug: "northeast-valley-health-corporation",
+    title: "Call Center Specialist",
+    roleType: "Call Center Specialist",
+    department: "Patient Services",
+    salaryMin: 36000,
+    salaryMax: 46000,
+    type: "Full-time",
+    location: "San Fernando",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: [],
+    postedDate: "2026-02-05",
+    description: "Handle high-volume inbound and outbound patient calls for scheduling, appointment reminders, prescription refill requests, and general clinic inquiries.",
+    requirements: [
+      "High school diploma or equivalent",
+      "1+ year of call center or customer service experience",
+      "Bilingual Spanish/English required",
+      "Comfortable with multi-line phone systems and EHR data entry"
+    ]
+  },
+  {
+    id: "fqhc-170",
+    fqhcSlug: "sacramento-covered",
+    title: "Call Center Specialist - Patient Scheduling",
+    roleType: "Call Center Specialist",
+    department: "Patient Services",
+    salaryMin: 34000,
+    salaryMax: 48000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-01-22",
+    description: "Schedule patient appointments across multiple Sacramento Covered clinic sites, triage incoming calls, and ensure patients are connected to the right services.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Experience in healthcare scheduling or call center environment",
+      "Strong communication and organizational skills",
+      "Familiarity with Epic scheduling modules preferred"
+    ]
+  },
+
+  // --- Health Enrollment Navigator (3 listings) ---
+  {
+    id: "fqhc-171",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Health Enrollment Navigator - Medi-Cal",
+    roleType: "Health Enrollment Navigator",
+    department: "Enrollment Services",
+    salaryMin: 42000,
+    salaryMax: 55000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["Community Supports"],
+    postedDate: "2026-02-12",
+    description: "Assist uninsured and underinsured patients with Medi-Cal enrollment, Covered California applications, and sliding-fee eligibility determinations at La Clinica's Oakland sites.",
+    requirements: [
+      "High school diploma required; bachelor's degree preferred",
+      "Certified Enrollment Counselor (CEC) certification or willingness to obtain",
+      "Bilingual Spanish/English required",
+      "Knowledge of Medi-Cal, Covered California, and FQHC sliding fee programs"
+    ]
+  },
+  {
+    id: "fqhc-172",
+    fqhcSlug: "clinica-de-salud-del-valle",
+    title: "Health Enrollment Navigator",
+    roleType: "Health Enrollment Navigator",
+    department: "Community Supports",
+    salaryMin: 38000,
+    salaryMax: 50000,
+    type: "Full-time",
+    location: "Calexico",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["Community Supports"],
+    postedDate: "2026-01-30",
+    description: "Guide Imperial Valley residents through Medi-Cal enrollment and renewal processes, conduct community outreach, and help patients maintain continuous health coverage.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Spanish/English required",
+      "Experience with public benefits enrollment or community outreach",
+      "Valid California driver's license and reliable transportation"
+    ]
+  },
+  {
+    id: "fqhc-173",
+    fqhcSlug: "borrego-health",
+    title: "Health Enrollment Navigator - Eligibility Specialist",
+    roleType: "Health Enrollment Navigator",
+    department: "Enrollment Services",
+    salaryMin: 40000,
+    salaryMax: 54000,
+    type: "Full-time",
+    location: "San Bernardino",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["Community Supports"],
+    postedDate: "2026-02-08",
+    description: "Screen patients for Medi-Cal eligibility, assist with enrollment applications, and coordinate with county social services to ensure coverage for Borrego Health's Inland Empire patient population.",
+    requirements: [
+      "Associate degree or 2+ years of enrollment/eligibility experience",
+      "Bilingual Spanish/English strongly preferred",
+      "Familiarity with Medi-Cal managed care plans in San Bernardino County",
+      "Strong interpersonal skills and ability to work with vulnerable populations"
+    ]
+  },
+
+  // --- Revenue Cycle Specialist (2 listings) ---
+  {
+    id: "fqhc-174",
+    fqhcSlug: "community-health-center-network",
+    title: "Revenue Cycle Specialist",
+    roleType: "Revenue Cycle Specialist",
+    department: "Revenue Cycle",
+    salaryMin: 55000,
+    salaryMax: 72000,
+    type: "Full-time",
+    location: "Fremont",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-01",
+    description: "Manage the full revenue cycle for CHCN member clinics, including claims submission, denial management, accounts receivable follow-up, and payer contract analysis.",
+    requirements: [
+      "Bachelor's degree in healthcare administration, finance, or related field",
+      "3+ years of revenue cycle experience, preferably in an FQHC or community health setting",
+      "Proficiency with OCHIN Epic billing modules",
+      "Knowledge of Medi-Cal, Medicare, and managed care billing"
+    ]
+  },
+  {
+    id: "fqhc-175",
+    fqhcSlug: "altamed-health-services",
+    title: "Revenue Cycle Specialist - Claims & Denials",
+    roleType: "Revenue Cycle Specialist",
+    department: "Finance",
+    salaryMin: 52000,
+    salaryMax: 75000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-01-25",
+    description: "Analyze and resolve denied claims, monitor A/R aging, and work cross-functionally with clinical teams to reduce claim rejection rates across AltaMed's multi-site network.",
+    requirements: [
+      "Associate degree required; bachelor's preferred",
+      "2+ years of claims and denial management experience",
+      "Experience with FQHC PPS and wrap-around billing preferred",
+      "Proficiency in Excel and EHR-based billing systems"
+    ]
+  },
+
+  // --- Billing Specialist (2 listings) ---
+  {
+    id: "fqhc-176",
+    fqhcSlug: "wellspace-health",
+    title: "Billing Specialist",
+    roleType: "Billing Specialist",
+    department: "Revenue Cycle",
+    salaryMin: 48000,
+    salaryMax: 62000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-06",
+    description: "Process and submit medical claims to Medi-Cal, Medicare, and commercial payers, resolve billing discrepancies, and ensure timely reimbursement for WellSpace Health clinic services.",
+    requirements: [
+      "High school diploma required; associate degree in health information or billing preferred",
+      "2+ years of medical billing experience",
+      "Knowledge of CPT, ICD-10, and HCPCS coding",
+      "Experience with Medi-Cal billing and FQHC PPS rates preferred"
+    ]
+  },
+  {
+    id: "fqhc-177",
+    fqhcSlug: "golden-valley-health-centers",
+    title: "Billing Specialist - Medi-Cal",
+    roleType: "Billing Specialist",
+    department: "Revenue Cycle",
+    salaryMin: 45000,
+    salaryMax: 60000,
+    type: "Full-time",
+    location: "Merced",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-01-20",
+    description: "Handle Medi-Cal claims submissions, follow up on unpaid claims, post payments, and support the revenue cycle team at Golden Valley Health Centers.",
+    requirements: [
+      "High school diploma with billing certification or equivalent experience",
+      "1+ year of medical billing experience, Medi-Cal preferred",
+      "Familiarity with FQHC billing practices",
+      "Detail-oriented with strong analytical skills"
+    ]
+  },
+
+  // --- Medical Coder (2 listings) ---
+  {
+    id: "fqhc-178",
+    fqhcSlug: "apla-health",
+    title: "Certified Medical Coder",
+    roleType: "Medical Coder",
+    department: "Revenue Cycle",
+    salaryMin: 52000,
+    salaryMax: 68000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "eClinicalWorks",
+    programs: [],
+    postedDate: "2026-02-11",
+    description: "Review clinical documentation and assign accurate CPT, ICD-10, and HCPCS codes for APLA Health's primary care, behavioral health, and dental encounters.",
+    requirements: [
+      "CPC, CCS, or equivalent coding certification required",
+      "2+ years of medical coding experience in an outpatient or FQHC setting",
+      "Proficiency with ICD-10-CM and CPT coding guidelines",
+      "Experience coding for behavioral health and HIV services preferred"
+    ]
+  },
+  {
+    id: "fqhc-179",
+    fqhcSlug: "northeast-valley-health-corporation",
+    title: "Medical Coder - Outpatient",
+    roleType: "Medical Coder",
+    department: "Revenue Cycle",
+    salaryMin: 48000,
+    salaryMax: 65000,
+    type: "Full-time",
+    location: "San Fernando",
+    bilingual: false,
+    ehrSystem: "eClinicalWorks",
+    programs: [],
+    postedDate: "2026-01-27",
+    description: "Assign diagnosis and procedure codes for outpatient visits, conduct coding audits, and educate providers on documentation improvement to optimize reimbursement.",
+    requirements: [
+      "CPC or CCS-P certification required",
+      "2+ years of outpatient medical coding experience",
+      "Knowledge of Medi-Cal and Medicare coding requirements",
+      "Strong attention to detail and ability to meet productivity standards"
+    ]
+  },
+
+  // --- Licensed Vocational Nurse (3 listings) ---
+  {
+    id: "fqhc-180",
+    fqhcSlug: "borrego-health",
+    title: "Licensed Vocational Nurse - Primary Care",
+    roleType: "Licensed Vocational Nurse",
+    department: "Primary Care",
+    salaryMin: 55000,
+    salaryMax: 68000,
+    type: "Full-time",
+    location: "Brawley",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-09",
+    description: "Provide clinical nursing support in Borrego Health's primary care clinic, including medication administration, patient assessments, wound care, and assisting providers with procedures.",
+    requirements: [
+      "Active California LVN license in good standing",
+      "1+ year of clinical experience, community health preferred",
+      "Bilingual Spanish/English preferred",
+      "BLS/CPR certification required"
+    ]
+  },
+  {
+    id: "fqhc-181",
+    fqhcSlug: "altamed-health-services",
+    title: "Licensed Vocational Nurse - Pediatrics",
+    roleType: "Licensed Vocational Nurse",
+    department: "Primary Care",
+    salaryMin: 56000,
+    salaryMax: 70000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-01-31",
+    description: "Support AltaMed's pediatric care team by administering immunizations, conducting patient intake, assisting with well-child exams, and providing patient education to families.",
+    requirements: [
+      "Active California LVN license required",
+      "Pediatric experience strongly preferred",
+      "Bilingual Spanish/English required",
+      "IV certification preferred"
+    ]
+  },
+  {
+    id: "fqhc-182",
+    fqhcSlug: "shasta-community-health-center",
+    title: "Licensed Vocational Nurse",
+    roleType: "Licensed Vocational Nurse",
+    department: "Nursing",
+    salaryMin: 52000,
+    salaryMax: 65000,
+    type: "Full-time",
+    location: "Redding",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-04",
+    description: "Deliver direct nursing care to patients at Shasta Community Health Center, including vitals, injections, lab draws, and care coordination with the primary care team.",
+    requirements: [
+      "Active California LVN license in good standing",
+      "Experience in primary care or community health setting preferred",
+      "BLS/CPR certification required",
+      "Strong clinical assessment and documentation skills"
+    ]
+  },
+
+  // --- Physician (2 listings) ---
+  {
+    id: "fqhc-183",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Family Medicine Physician",
+    roleType: "Physician",
+    department: "Primary Care",
+    salaryMin: 220000,
+    salaryMax: 310000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-13",
+    description: "Provide comprehensive family medicine services to a diverse, predominantly Latino patient population at La Clinica de La Raza. NHSC loan repayment eligible.",
+    requirements: [
+      "MD or DO with active California medical license",
+      "Board certified or board eligible in Family Medicine",
+      "Bilingual Spanish/English strongly preferred",
+      "Commitment to serving underserved communities; FQHC experience preferred"
+    ]
+  },
+  {
+    id: "fqhc-184",
+    fqhcSlug: "wellspace-health",
+    title: "Internal Medicine Physician",
+    roleType: "Physician",
+    department: "Primary Care",
+    salaryMin: 230000,
+    salaryMax: 350000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-01-18",
+    description: "Join WellSpace Health's primary care team providing internal medicine services to Sacramento's underserved populations. Competitive salary with NHSC loan repayment eligibility.",
+    requirements: [
+      "MD or DO with active California medical license",
+      "Board certified in Internal Medicine",
+      "Experience managing complex, multi-morbid patients",
+      "Passion for community health and health equity"
+    ]
+  },
+
+  // --- Physician Assistant (2 listings) ---
+  {
+    id: "fqhc-185",
+    fqhcSlug: "neighborhood-healthcare",
+    title: "Physician Assistant - Primary Care",
+    roleType: "Physician Assistant",
+    department: "Primary Care",
+    salaryMin: 120000,
+    salaryMax: 165000,
+    type: "Full-time",
+    location: "Escondido",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM"],
+    postedDate: "2026-02-07",
+    description: "Provide primary care services including diagnosis, treatment, and preventive care for patients across the lifespan at Neighborhood Healthcare's Escondido clinic.",
+    requirements: [
+      "Graduate of accredited PA program with active California PA license",
+      "NCCPA certification required",
+      "1+ year of primary care experience preferred",
+      "Bilingual Spanish/English preferred; DEA license required"
+    ]
+  },
+  {
+    id: "fqhc-186",
+    fqhcSlug: "clinica-de-salud-del-valle",
+    title: "Physician Assistant - Family Medicine",
+    roleType: "Physician Assistant",
+    department: "Primary Care",
+    salaryMin: 115000,
+    salaryMax: 155000,
+    type: "Full-time",
+    location: "El Centro",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-01-24",
+    description: "Deliver family medicine services to Imperial Valley communities, managing acute and chronic conditions for a predominantly Spanish-speaking patient population.",
+    requirements: [
+      "Active California PA license and NCCPA certification",
+      "Bilingual Spanish/English required",
+      "Experience in community health or rural health preferred",
+      "NHSC loan repayment eligible site"
+    ]
+  },
+
+  // --- Dental Hygienist (2 listings) ---
+  {
+    id: "fqhc-187",
+    fqhcSlug: "community-health-center-network",
+    title: "Registered Dental Hygienist",
+    roleType: "Dental Hygienist",
+    department: "Dental",
+    salaryMin: 80000,
+    salaryMax: 105000,
+    type: "Full-time",
+    location: "San Leandro",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-10",
+    description: "Perform dental prophylaxis, periodontal assessments, fluoride treatments, sealants, and patient education at CHCN member dental clinics serving East Bay communities.",
+    requirements: [
+      "Active California RDH license in good standing",
+      "Current CPR/BLS certification",
+      "Experience with Denti-Cal billing and documentation preferred",
+      "Commitment to preventive dental care for underserved populations"
+    ]
+  },
+  {
+    id: "fqhc-188",
+    fqhcSlug: "central-coast-community-health",
+    title: "Dental Hygienist",
+    roleType: "Dental Hygienist",
+    department: "Dental",
+    salaryMin: 75000,
+    salaryMax: 100000,
+    type: "Part-time",
+    location: "Santa Maria",
+    bilingual: true,
+    ehrSystem: "Cerner",
+    programs: [],
+    postedDate: "2026-01-29",
+    description: "Provide preventive dental hygiene services at Central Coast Community Health's Santa Maria dental clinic, with a focus on pediatric and adult prophylaxis.",
+    requirements: [
+      "Active California RDH license required",
+      "Bilingual Spanish/English preferred",
+      "1+ year of clinical dental hygiene experience",
+      "Familiarity with FQHC dental workflows preferred"
+    ]
+  },
+
+  // --- Dental Assistant (2 listings) ---
+  {
+    id: "fqhc-189",
+    fqhcSlug: "golden-valley-health-centers",
+    title: "Dental Assistant",
+    roleType: "Dental Assistant",
+    department: "Dental",
+    salaryMin: 38000,
+    salaryMax: 50000,
+    type: "Full-time",
+    location: "Merced",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-02",
+    description: "Assist dentists with clinical procedures, prepare treatment rooms, take dental radiographs, and provide chairside support at Golden Valley's Merced dental clinic.",
+    requirements: [
+      "Dental Assistant certificate from accredited program",
+      "X-ray and coronal polishing certificates required",
+      "Bilingual Spanish/English preferred",
+      "Experience with four-handed dentistry techniques"
+    ]
+  },
+  {
+    id: "fqhc-190",
+    fqhcSlug: "altamed-health-services",
+    title: "Registered Dental Assistant",
+    roleType: "Dental Assistant",
+    department: "Dental",
+    salaryMin: 40000,
+    salaryMax: 52000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-01-21",
+    description: "Provide chairside assistance during dental procedures, sterilize instruments, manage patient flow, and take digital radiographs at AltaMed's Los Angeles dental sites.",
+    requirements: [
+      "Active California RDA license required",
+      "1+ year of dental assisting experience preferred",
+      "Bilingual Spanish/English required",
+      "Current BLS/CPR certification"
+    ]
+  },
+
+  // --- Pharmacist (2 listings) ---
+  {
+    id: "fqhc-191",
+    fqhcSlug: "northeast-valley-health-corporation",
+    title: "Clinical Pharmacist",
+    roleType: "Pharmacist",
+    department: "Pharmacy",
+    salaryMin: 140000,
+    salaryMax: 175000,
+    type: "Full-time",
+    location: "San Fernando",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM", "CCM"],
+    postedDate: "2026-02-14",
+    description: "Provide clinical pharmacy services including medication therapy management, chronic disease consultations, and 340B program oversight at NEVHC's on-site pharmacy.",
+    requirements: [
+      "PharmD from accredited school of pharmacy",
+      "Active California pharmacist license in good standing",
+      "Experience with 340B Drug Pricing Program required",
+      "Bilingual Spanish/English preferred; PGY-1 residency preferred"
+    ]
+  },
+  {
+    id: "fqhc-192",
+    fqhcSlug: "sacramento-covered",
+    title: "Pharmacist - 340B Program",
+    roleType: "Pharmacist",
+    department: "Pharmacy",
+    salaryMin: 130000,
+    salaryMax: 168000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-01-15",
+    description: "Manage Sacramento Covered's 340B pharmacy program, dispense medications, counsel patients on drug therapy, and collaborate with care teams to optimize medication outcomes.",
+    requirements: [
+      "PharmD with active California pharmacist license",
+      "340B program management experience strongly preferred",
+      "Knowledge of Medi-Cal pharmacy billing",
+      "Experience in ambulatory care or community health pharmacy"
+    ]
+  },
+
+  // --- Pharmacy Technician (2 listings) ---
+  {
+    id: "fqhc-193",
+    fqhcSlug: "apla-health",
+    title: "Pharmacy Technician",
+    roleType: "Pharmacy Technician",
+    department: "Pharmacy",
+    salaryMin: 40000,
+    salaryMax: 52000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: true,
+    ehrSystem: "eClinicalWorks",
+    programs: [],
+    postedDate: "2026-02-03",
+    description: "Support APLA Health's pharmacy operations by filling prescriptions, managing inventory, processing 340B claims, and assisting patients at the pharmacy window.",
+    requirements: [
+      "Active California Pharmacy Technician license",
+      "CPhT certification preferred",
+      "Experience with 340B split-billing or contract pharmacy preferred",
+      "Bilingual Spanish/English preferred"
+    ]
+  },
+  {
+    id: "fqhc-194",
+    fqhcSlug: "borrego-health",
+    title: "Pharmacy Technician - Bilingual",
+    roleType: "Pharmacy Technician",
+    department: "Pharmacy",
+    salaryMin: 38000,
+    salaryMax: 50000,
+    type: "Full-time",
+    location: "San Bernardino",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: [],
+    postedDate: "2026-01-19",
+    description: "Assist pharmacists with prescription processing, patient intake, medication packaging, and inventory management at Borrego Health's Inland Empire pharmacy locations.",
+    requirements: [
+      "Active California Pharmacy Technician license required",
+      "Bilingual Spanish/English required",
+      "1+ year of pharmacy technician experience preferred",
+      "Familiarity with Medi-Cal pharmacy claims processing"
+    ]
+  },
+
+  // --- Licensed Marriage & Family Therapist (2 listings) ---
+  {
+    id: "fqhc-195",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Licensed Marriage & Family Therapist",
+    roleType: "Licensed Marriage & Family Therapist",
+    department: "Behavioral Health",
+    salaryMin: 78000,
+    salaryMax: 102000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-11",
+    description: "Provide individual, couples, and family therapy services integrated into La Clinica's primary care model, focusing on trauma-informed care for Latino and immigrant communities.",
+    requirements: [
+      "Active California LMFT license in good standing",
+      "2+ years of post-licensure clinical experience",
+      "Bilingual Spanish/English required",
+      "Experience with integrated behavioral health in a primary care setting preferred"
+    ]
+  },
+  {
+    id: "fqhc-196",
+    fqhcSlug: "wellspace-health",
+    title: "Licensed Marriage & Family Therapist - Integrated Care",
+    roleType: "Licensed Marriage & Family Therapist",
+    department: "Behavioral Health",
+    salaryMin: 72000,
+    salaryMax: 98000,
+    type: "Full-time",
+    location: "Sacramento",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration", "CCM"],
+    postedDate: "2026-01-26",
+    description: "Deliver brief therapy and crisis intervention as part of WellSpace Health's integrated behavioral health team, supporting patients with anxiety, depression, substance use, and family conflict.",
+    requirements: [
+      "Active California LMFT license required",
+      "Experience in brief, solution-focused therapy models",
+      "Familiarity with SBIRT and warm handoff workflows",
+      "Comfort working in a fast-paced, team-based primary care environment"
+    ]
+  },
+
+  // --- Referral Coordinator (2 listings) ---
+  {
+    id: "fqhc-197",
+    fqhcSlug: "community-health-center-network",
+    title: "Referral Coordinator",
+    roleType: "Referral Coordinator",
+    department: "Patient Services",
+    salaryMin: 44000,
+    salaryMax: 56000,
+    type: "Full-time",
+    location: "Fremont",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-05",
+    description: "Coordinate specialist referrals, track authorization statuses, schedule follow-up appointments, and ensure timely care transitions for CHCN patients across the East Bay.",
+    requirements: [
+      "High school diploma required; associate degree preferred",
+      "2+ years of referral coordination or medical office experience",
+      "Experience with prior authorizations and insurance verification",
+      "Proficiency with EHR referral management modules"
+    ]
+  },
+  {
+    id: "fqhc-198",
+    fqhcSlug: "clinica-de-salud-del-valle",
+    title: "Referral Coordinator - Bilingual",
+    roleType: "Referral Coordinator",
+    department: "Administration",
+    salaryMin: 40000,
+    salaryMax: 54000,
+    type: "Full-time",
+    location: "El Centro",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["ECM", "TCM"],
+    postedDate: "2026-01-23",
+    description: "Manage patient referrals to specialty providers, obtain authorizations from Medi-Cal managed care plans, and follow up to ensure Imperial Valley patients receive timely specialty care.",
+    requirements: [
+      "High school diploma or equivalent required",
+      "Bilingual Spanish/English required",
+      "Experience with Medi-Cal managed care authorization processes",
+      "Strong organizational skills and attention to follow-through"
+    ]
   }
 ];
 

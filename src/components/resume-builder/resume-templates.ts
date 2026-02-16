@@ -268,6 +268,159 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
       },
     ],
   },
+  {
+    roleId: "registered_nurse",
+    roleLabel: "Registered Nurse (RN)",
+    esRoleLabel: "Enfermera/o Registrada/o (RN)",
+    objectiveTemplate:
+      "Registered Nurse with experience providing patient-centered care in Federally Qualified Health Centers. Skilled in clinical assessment, chronic disease management, and care coordination for underserved populations.",
+    esObjectiveTemplate:
+      "Enfermera/o Registrada/o con experiencia proporcionando atención centrada en el paciente en Centros de Salud Comunitarios Federalmente Calificados. Habilidades en evaluación clínica, manejo de enfermedades crónicas y coordinación de atención para poblaciones desatendidas.",
+    bullets: [
+      {
+        id: "rn-1",
+        text: "Performed comprehensive nursing assessments, triage, and developed individualized care plans for diverse patient populations",
+        esText: "Realizó evaluaciones de enfermería integrales, triaje y desarrolló planes de atención individualizados para diversas poblaciones de pacientes",
+        keywords: ["nursing assessment", "triage", "care plans"],
+      },
+      {
+        id: "rn-2",
+        text: "Managed chronic disease panels including diabetes, hypertension, and asthma through patient education and medication management",
+        esText: "Gestionó paneles de enfermedades crónicas incluyendo diabetes, hipertensión y asma mediante educación al paciente y manejo de medicamentos",
+        keywords: ["chronic disease", "diabetes", "hypertension", "medication management"],
+      },
+      {
+        id: "rn-3",
+        text: "Administered medications, immunizations, and treatments following established clinical protocols and standing orders",
+        esText: "Administró medicamentos, inmunizaciones y tratamientos siguiendo protocolos clínicos establecidos y órdenes permanentes",
+        keywords: ["medications", "immunizations", "clinical protocols"],
+      },
+      {
+        id: "rn-4",
+        text: "Coordinated care transitions and follow-up for patients discharged from emergency departments and hospitals",
+        esText: "Coordinó transiciones de atención y seguimiento para pacientes dados de alta de departamentos de emergencia y hospitales",
+        keywords: ["care transitions", "discharge", "follow-up"],
+      },
+      {
+        id: "rn-5",
+        text: "Collaborated with providers, care coordinators, and behavioral health team in multidisciplinary huddles and case conferences",
+        esText: "Colaboró con proveedores, coordinadores de atención y equipo de salud conductual en reuniones multidisciplinarias y conferencias de casos",
+        keywords: ["multidisciplinary", "care team", "case conferences"],
+      },
+      {
+        id: "rn-6",
+        text: "Documented patient encounters accurately in EHR system, ensuring compliance with Medi-Cal billing and HIPAA requirements",
+        esText: "Documentó encuentros con pacientes de manera precisa en sistema EHR, asegurando cumplimiento con facturación Medi-Cal y requisitos HIPAA",
+        keywords: ["EHR", "documentation", "Medi-Cal", "HIPAA"],
+      },
+      {
+        id: "rn-7",
+        text: "Provided patient and family education on disease management, preventive care, and community resources",
+        esText: "Proporcionó educación al paciente y familia sobre manejo de enfermedades, atención preventiva y recursos comunitarios",
+        keywords: ["patient education", "preventive care", "health literacy"],
+      },
+    ],
+  },
+  {
+    roleId: "patient_services",
+    roleLabel: "Patient Services Representative",
+    esRoleLabel: "Representante de Servicios al Paciente",
+    objectiveTemplate:
+      "Patient Services Representative with experience in healthcare front office operations at Federally Qualified Health Centers. Skilled in patient scheduling, insurance verification, and registration for Medi-Cal and uninsured populations.",
+    esObjectiveTemplate:
+      "Representante de Servicios al Paciente con experiencia en operaciones de recepción en Centros de Salud Comunitarios Federalmente Calificados. Habilidades en programación de citas, verificación de seguro y registro para poblaciones de Medi-Cal y sin seguro.",
+    bullets: [
+      {
+        id: "ps-1",
+        text: "Managed patient check-in, registration, and demographic verification for high-volume community health center",
+        esText: "Gestionó registro de pacientes, inscripción y verificación demográfica para centro de salud comunitario de alto volumen",
+        keywords: ["patient registration", "check-in", "front desk"],
+      },
+      {
+        id: "ps-2",
+        text: "Verified insurance eligibility including Medi-Cal, Medicare, and sliding fee scale for uninsured patients",
+        esText: "Verificó elegibilidad de seguro incluyendo Medi-Cal, Medicare y escala de tarifas deslizantes para pacientes sin seguro",
+        keywords: ["insurance verification", "Medi-Cal", "sliding fee scale"],
+      },
+      {
+        id: "ps-3",
+        text: "Scheduled and coordinated patient appointments across multiple providers and departments using EHR scheduling system",
+        esText: "Programó y coordinó citas de pacientes con múltiples proveedores y departamentos usando sistema de programación EHR",
+        keywords: ["scheduling", "EHR", "appointment coordination"],
+      },
+      {
+        id: "ps-4",
+        text: "Provided bilingual (English/Spanish) customer service to diverse patient populations, resolving concerns and ensuring positive patient experience",
+        esText: "Proporcionó servicio al cliente bilingüe (inglés/español) a diversas poblaciones de pacientes, resolviendo inquietudes y asegurando experiencia positiva",
+        keywords: ["bilingual", "customer service", "patient experience"],
+      },
+      {
+        id: "ps-5",
+        text: "Processed referrals, authorizations, and medical records requests in compliance with HIPAA regulations",
+        esText: "Procesó referencias, autorizaciones y solicitudes de registros médicos en cumplimiento con regulaciones HIPAA",
+        keywords: ["referrals", "authorizations", "HIPAA", "medical records"],
+      },
+      {
+        id: "ps-6",
+        text: "Assisted patients with Medi-Cal enrollment applications, benefit renewals, and eligibility questions",
+        esText: "Asistió a pacientes con solicitudes de inscripción en Medi-Cal, renovaciones de beneficios y preguntas de elegibilidad",
+        keywords: ["Medi-Cal enrollment", "benefits", "eligibility"],
+      },
+      {
+        id: "ps-7",
+        text: "Collected co-payments, processed sliding fee applications, and maintained accurate financial records",
+        esText: "Cobró copagos, procesó solicitudes de tarifa deslizante y mantuvo registros financieros precisos",
+        keywords: ["co-payments", "sliding fee", "financial records"],
+      },
+    ],
+  },
+  {
+    roleId: "revenue_cycle",
+    roleLabel: "Revenue Cycle / Billing Specialist",
+    esRoleLabel: "Especialista en Ciclo de Ingresos / Facturación",
+    objectiveTemplate:
+      "Revenue Cycle Specialist with experience in healthcare billing and claims processing for Federally Qualified Health Centers. Skilled in Medi-Cal billing, denial management, and compliance with FQHC PPS reimbursement requirements.",
+    esObjectiveTemplate:
+      "Especialista en Ciclo de Ingresos con experiencia en facturación y procesamiento de reclamos en Centros de Salud Comunitarios Federalmente Calificados. Habilidades en facturación Medi-Cal, gestión de denegaciones y cumplimiento con requisitos de reembolso PPS de FQHC.",
+    bullets: [
+      {
+        id: "rc-1",
+        text: "Processed and submitted medical claims for Medi-Cal, Medicare, and commercial insurance payers, maintaining high clean claim rate",
+        esText: "Procesó y envió reclamos médicos para Medi-Cal, Medicare y aseguradoras comerciales, manteniendo alta tasa de reclamos limpios",
+        keywords: ["claims processing", "Medi-Cal", "Medicare", "billing"],
+      },
+      {
+        id: "rc-2",
+        text: "Managed denial follow-up and appeals process, recovering revenue through timely resubmissions and corrective actions",
+        esText: "Gestionó seguimiento de denegaciones y proceso de apelaciones, recuperando ingresos mediante reenvíos oportunos y acciones correctivas",
+        keywords: ["denial management", "appeals", "revenue recovery"],
+      },
+      {
+        id: "rc-3",
+        text: "Verified patient eligibility and benefits, ensuring accurate insurance information for proper claim submission",
+        esText: "Verificó elegibilidad y beneficios de pacientes, asegurando información de seguro precisa para envío correcto de reclamos",
+        keywords: ["eligibility verification", "benefits", "insurance"],
+      },
+      {
+        id: "rc-4",
+        text: "Applied ICD-10 and CPT coding for outpatient encounters in compliance with FQHC Prospective Payment System (PPS) requirements",
+        esText: "Aplicó codificación ICD-10 y CPT para encuentros ambulatorios en cumplimiento con requisitos del Sistema de Pago Prospectivo (PPS) de FQHC",
+        keywords: ["ICD-10", "CPT", "coding", "PPS", "FQHC"],
+      },
+      {
+        id: "rc-5",
+        text: "Generated and analyzed revenue cycle reports including A/R aging, collection rates, and payer mix dashboards",
+        esText: "Generó y analizó reportes de ciclo de ingresos incluyendo antigüedad de cuentas por cobrar, tasas de cobro y tableros de mezcla de pagadores",
+        keywords: ["revenue cycle", "A/R", "reporting", "analytics"],
+      },
+      {
+        id: "rc-6",
+        text: "Collaborated with clinical staff to resolve coding discrepancies and improve documentation for accurate reimbursement",
+        esText: "Colaboró con personal clínico para resolver discrepancias de codificación y mejorar documentación para reembolso preciso",
+        keywords: ["coding", "documentation", "reimbursement", "collaboration"],
+      },
+    ],
+  },
 ];
 
 export const COMMON_CERTIFICATIONS = [

@@ -23,7 +23,9 @@ import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -51,6 +53,7 @@ interface SampleJob {
   title: string;
   orgName: string;
   orgType: string;
+  roleType: string;
   city: string;
   salaryMin: number;
   salaryMax: number;
@@ -71,6 +74,7 @@ const sampleJobs: SampleJob[] = fqhcJobListings.map((job) => ({
   title: job.title,
   orgName: fqhcNameMap.get(job.fqhcSlug) || "",
   orgType: job.department,
+  roleType: job.roleType,
   city: job.location,
   salaryMin: job.salaryMin,
   salaryMax: job.salaryMax,
@@ -84,22 +88,70 @@ const sampleJobs: SampleJob[] = fqhcJobListings.map((job) => ({
 /*  Constants                                                          */
 /* ------------------------------------------------------------------ */
 
-const ROLE_TYPE_OPTIONS = [
-  "All Roles",
-  "Care Manager",
-  "RN",
-  "CHW",
-  "LCSW",
-  "Medical Assistant",
-  "Behavioral Health Specialist",
-  "Patient Navigator",
-  "Physician",
-  "Nurse Practitioner",
-  "Dentist",
-  "Pharmacist",
-  "Medical Director",
-  "CEO / Executive",
-  "Other",
+const ROLE_TYPE_GROUPS = [
+  {
+    label: "Care Coordination",
+    esLabel: "Coordinación de Atención",
+    options: [
+      "Community Health Worker",
+      "Care Coordinator",
+      "Case Manager",
+      "Patient Navigator",
+      "Health Educator",
+      "Referral Coordinator",
+    ],
+  },
+  {
+    label: "Clinical",
+    esLabel: "Clínico",
+    options: [
+      "Registered Nurse",
+      "Licensed Vocational Nurse",
+      "Nurse Practitioner",
+      "Physician",
+      "Physician Assistant",
+      "Medical Assistant",
+      "Phlebotomist",
+    ],
+  },
+  {
+    label: "Behavioral Health",
+    esLabel: "Salud Conductual",
+    options: [
+      "Behavioral Health Specialist",
+      "Licensed Clinical Social Worker",
+      "Licensed Marriage & Family Therapist",
+      "Psychologist",
+    ],
+  },
+  {
+    label: "Dental",
+    esLabel: "Dental",
+    options: ["Dentist", "Dental Hygienist", "Dental Assistant"],
+  },
+  {
+    label: "Pharmacy",
+    esLabel: "Farmacia",
+    options: ["Pharmacist", "Pharmacy Technician"],
+  },
+  {
+    label: "Administrative",
+    esLabel: "Administrativo",
+    options: [
+      "Patient Services Representative",
+      "Call Center Specialist",
+      "Health Enrollment Navigator",
+      "Revenue Cycle Specialist",
+      "Billing Specialist",
+      "Medical Coder",
+      "EHR Analyst",
+    ],
+  },
+  {
+    label: "Leadership",
+    esLabel: "Liderazgo",
+    options: ["Program Manager", "Medical Director", "Director"],
+  },
 ];
 
 function urgencyColor(urgency: string | null) {
@@ -183,8 +235,8 @@ export default function JobsPage() {
 
     if (roleFilter !== "All Roles") {
       list = list.filter((j) =>
-        j.title.toLowerCase().includes(roleFilter.toLowerCase()) ||
-        j.orgType.toLowerCase().includes(roleFilter.toLowerCase())
+        j.roleType === roleFilter ||
+        j.title.toLowerCase().includes(roleFilter.toLowerCase())
       );
     }
 
@@ -253,14 +305,22 @@ export default function JobsPage() {
 
           {/* Role type filter */}
           <Select value={roleFilter} onValueChange={setRoleFilter}>
-            <SelectTrigger className="h-11 w-full sm:w-48">
+            <SelectTrigger className="h-11 w-full sm:w-56">
               <SelectValue placeholder={t("allRoles")} />
             </SelectTrigger>
-            <SelectContent>
-              {ROLE_TYPE_OPTIONS.map((r) => (
-                <SelectItem key={r} value={r}>
-                  {r === "All Roles" ? t("allRoles") : r}
-                </SelectItem>
+            <SelectContent className="max-h-80">
+              <SelectItem value="All Roles">{t("allRoles")}</SelectItem>
+              {ROLE_TYPE_GROUPS.map((group) => (
+                <SelectGroup key={group.label}>
+                  <SelectLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                    {group.label}
+                  </SelectLabel>
+                  {group.options.map((role) => (
+                    <SelectItem key={role} value={role}>
+                      {role}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
               ))}
             </SelectContent>
           </Select>

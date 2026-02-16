@@ -40,18 +40,44 @@ export interface BenefitTemplate {
 /* ------------------------------------------------------------------ */
 
 export const SALARY_BENCHMARKS: SalaryBenchmark[] = [
+  // Care Coordination
   { roleId: "chw", label: "Community Health Worker", esLabel: "Promotor/a de Salud", p25: 38000, p50: 45000, p75: 55000 },
   { roleId: "care_coordinator", label: "Care Coordinator", esLabel: "Coordinador/a de Atención", p25: 45000, p50: 55000, p75: 65000 },
-  { roleId: "medical_assistant", label: "Medical Assistant", esLabel: "Asistente Médico/a", p25: 36000, p50: 42000, p75: 50000 },
   { roleId: "case_manager", label: "Case Manager", esLabel: "Administrador/a de Casos", p25: 50000, p50: 60000, p75: 72000 },
-  { roleId: "behavioral_health", label: "Behavioral Health Specialist", esLabel: "Especialista en Salud Conductual", p25: 55000, p50: 68000, p75: 85000 },
   { roleId: "patient_navigator", label: "Patient Navigator", esLabel: "Navegador/a de Pacientes", p25: 40000, p50: 48000, p75: 58000 },
   { roleId: "health_educator", label: "Health Educator", esLabel: "Educador/a de Salud", p25: 42000, p50: 52000, p75: 62000 },
-  { roleId: "enrollment_specialist", label: "Enrollment / Registration Specialist", esLabel: "Especialista de Inscripción / Registro", p25: 35000, p50: 42000, p75: 50000 },
-  { roleId: "nurse_rn", label: "Registered Nurse (RN)", esLabel: "Enfermera Registrada (RN)", p25: 85000, p50: 105000, p75: 125000 },
-  { roleId: "nurse_lvn", label: "Licensed Vocational Nurse (LVN)", esLabel: "Enfermera Vocacional (LVN)", p25: 52000, p50: 60000, p75: 70000 },
+  { roleId: "referral_coordinator", label: "Referral Coordinator", esLabel: "Coordinador/a de Referencias", p25: 40000, p50: 48000, p75: 58000 },
+  // Clinical
+  { roleId: "medical_assistant", label: "Medical Assistant", esLabel: "Asistente Médico/a", p25: 36000, p50: 42000, p75: 50000 },
+  { roleId: "nurse_rn", label: "Registered Nurse (RN)", esLabel: "Enfermera/o Registrada/o (RN)", p25: 85000, p50: 105000, p75: 125000 },
+  { roleId: "nurse_lvn", label: "Licensed Vocational Nurse (LVN)", esLabel: "Enfermera/o Vocacional (LVN)", p25: 52000, p50: 60000, p75: 70000 },
+  { roleId: "nurse_practitioner", label: "Nurse Practitioner (NP)", esLabel: "Enfermera/o Practicante (NP)", p25: 120000, p50: 145000, p75: 175000 },
+  { roleId: "physician", label: "Physician (MD/DO)", esLabel: "Médico/a (MD/DO)", p25: 200000, p50: 270000, p75: 340000 },
+  { roleId: "physician_assistant", label: "Physician Assistant (PA)", esLabel: "Asistente Médico (PA)", p25: 115000, p50: 140000, p75: 165000 },
+  { roleId: "phlebotomist", label: "Phlebotomist", esLabel: "Flebotomista", p25: 38000, p50: 44000, p75: 50000 },
+  // Behavioral Health
+  { roleId: "behavioral_health", label: "Behavioral Health Specialist", esLabel: "Especialista en Salud Conductual", p25: 55000, p50: 68000, p75: 85000 },
   { roleId: "social_worker", label: "Social Worker (LCSW/ASW)", esLabel: "Trabajador/a Social (LCSW/ASW)", p25: 58000, p50: 72000, p75: 88000 },
+  { roleId: "lmft", label: "Licensed Marriage & Family Therapist", esLabel: "Terapeuta de Matrimonio y Familia", p25: 72000, p50: 85000, p75: 100000 },
+  { roleId: "psychologist", label: "Psychologist", esLabel: "Psicólogo/a", p25: 90000, p50: 110000, p75: 135000 },
+  // Dental
+  { roleId: "dentist", label: "Dentist", esLabel: "Dentista", p25: 150000, p50: 185000, p75: 215000 },
   { roleId: "dental_hygienist", label: "Dental Hygienist", esLabel: "Higienista Dental", p25: 75000, p50: 90000, p75: 110000 },
+  { roleId: "dental_assistant", label: "Dental Assistant", esLabel: "Asistente Dental", p25: 36000, p50: 42000, p75: 50000 },
+  // Pharmacy
+  { roleId: "pharmacist", label: "Pharmacist", esLabel: "Farmacéutico/a", p25: 130000, p50: 155000, p75: 175000 },
+  { roleId: "pharmacy_tech", label: "Pharmacy Technician", esLabel: "Técnico/a de Farmacia", p25: 38000, p50: 45000, p75: 52000 },
+  // Administrative & Revenue Cycle
+  { roleId: "patient_services", label: "Patient Services Representative", esLabel: "Representante de Servicios al Paciente", p25: 36000, p50: 41000, p75: 48000 },
+  { roleId: "call_center", label: "Call Center Specialist", esLabel: "Especialista de Centro de Llamadas", p25: 34000, p50: 40000, p75: 46000 },
+  { roleId: "enrollment_specialist", label: "Health Enrollment Navigator", esLabel: "Navegador/a de Inscripción de Salud", p25: 35000, p50: 42000, p75: 50000 },
+  { roleId: "revenue_cycle", label: "Revenue Cycle Specialist", esLabel: "Especialista de Ciclo de Ingresos", p25: 50000, p50: 62000, p75: 72000 },
+  { roleId: "billing_specialist", label: "Billing Specialist", esLabel: "Especialista en Facturación", p25: 45000, p50: 55000, p75: 63000 },
+  { roleId: "medical_coder", label: "Medical Coder", esLabel: "Codificador/a Médico/a", p25: 48000, p50: 58000, p75: 66000 },
+  // Leadership
+  { roleId: "program_manager", label: "Program Manager", esLabel: "Gerente de Programa", p25: 65000, p50: 80000, p75: 95000 },
+  { roleId: "medical_director", label: "Medical Director", esLabel: "Director/a Médico/a", p25: 250000, p50: 339000, p75: 390000 },
+  { roleId: "director", label: "Director", esLabel: "Director/a", p25: 100000, p50: 135000, p75: 170000 },
 ];
 
 /* ------------------------------------------------------------------ */

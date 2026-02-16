@@ -30,6 +30,13 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Redirect www.fqhctalent.com → fqhctalent.com (canonical)
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.fqhctalent.com" }],
+        destination: "https://fqhctalent.com/:path*",
+        permanent: true,
+      },
       // Redirect fqhctalent.org → fqhctalent.com
       {
         source: "/:path*",

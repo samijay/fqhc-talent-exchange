@@ -59,16 +59,43 @@ export const allEhrSystems = [
 ] as const;
 
 export const fqhcSalaryRanges = {
+  // Care Coordination
   "Community Health Worker": { min: 44000, max: 60000, avg: 52000 },
   "Care Coordinator": { min: 46000, max: 66000, avg: 56000 },
-  "Medical Assistant": { min: 40000, max: 60000, avg: 49000 },
   "Case Manager": { min: 47000, max: 82000, avg: 68000 },
-  "Licensed Clinical Social Worker": { min: 79000, max: 114000, avg: 93000 },
+  "Patient Navigator": { min: 40000, max: 58000, avg: 48000 },
+  "Health Educator": { min: 42000, max: 62000, avg: 52000 },
+  "Referral Coordinator": { min: 40000, max: 58000, avg: 48000 },
+  // Clinical
+  "Medical Assistant": { min: 40000, max: 60000, avg: 49000 },
   "Registered Nurse": { min: 85000, max: 140000, avg: 110000 },
+  "Licensed Vocational Nurse": { min: 52000, max: 70000, avg: 60000 },
   "Nurse Practitioner": { min: 120000, max: 180000, avg: 145000 },
+  "Physician": { min: 200000, max: 350000, avg: 270000 },
+  "Physician Assistant": { min: 115000, max: 170000, avg: 140000 },
+  "Phlebotomist": { min: 38000, max: 52000, avg: 44000 },
+  // Behavioral Health
+  "Licensed Clinical Social Worker": { min: 79000, max: 114000, avg: 93000 },
+  "Licensed Marriage & Family Therapist": { min: 72000, max: 105000, avg: 85000 },
+  "Psychologist": { min: 90000, max: 140000, avg: 110000 },
+  // Dental
   "Dentist": { min: 150000, max: 220000, avg: 185000 },
+  "Dental Hygienist": { min: 75000, max: 110000, avg: 90000 },
+  "Dental Assistant": { min: 36000, max: 52000, avg: 42000 },
+  // Pharmacy
+  "Pharmacist": { min: 130000, max: 180000, avg: 155000 },
+  "Pharmacy Technician": { min: 38000, max: 55000, avg: 45000 },
+  // Administrative & Revenue Cycle
+  "Patient Services Representative": { min: 36000, max: 52000, avg: 41000 },
+  "Call Center Specialist": { min: 34000, max: 48000, avg: 40000 },
+  "Health Enrollment Navigator": { min: 38000, max: 55000, avg: 45000 },
+  "Revenue Cycle Specialist": { min: 50000, max: 75000, avg: 62000 },
+  "Billing Specialist": { min: 45000, max: 65000, avg: 55000 },
+  "Medical Coder": { min: 48000, max: 68000, avg: 58000 },
+  // Leadership
   "Medical Director": { min: 250000, max: 400000, avg: 339000 },
-  "Patient Services Coordinator": { min: 36000, max: 52000, avg: 41000 },
+  "Director": { min: 100000, max: 180000, avg: 135000 },
+  "Program Manager": { min: 65000, max: 100000, avg: 80000 },
 } as const;
 
 export const typicalFqhcBenefits = [
