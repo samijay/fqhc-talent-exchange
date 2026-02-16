@@ -31,9 +31,12 @@ import {
   SEIU_CLINIC_WORKERS_UNITED,
   LABOR_TIMELINE,
   CURATED_RESOURCES,
+  COMMON_INTEREST_FRAMEWORK,
+  COMMON_INTEREST_INTRO,
   type UnionProfile,
   type LaborTimelineEvent,
   type CuratedResource,
+  type CommonInterestItem,
 } from "@/lib/union-data";
 
 /* ------------------------------------------------------------------ */
@@ -393,7 +396,7 @@ function ResourceCard({
 export default function UnionsPage() {
   const locale = useLocale();
   const [searchTerm, setSearchTerm] = useState("");
-  const [activeTab, setActiveTab] = useState<"directory" | "timeline" | "resources">("directory");
+  const [activeTab, setActiveTab] = useState<"directory" | "timeline" | "resources" | "partnership">("directory");
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [resourceTypeFilter, setResourceTypeFilter] = useState<string>("all");
 
@@ -423,6 +426,7 @@ export default function UnionsPage() {
     { id: "directory" as const, label: locale === "es" ? "Directorio" : "Directory", icon: Building2 },
     { id: "timeline" as const, label: locale === "es" ? "Historia" : "History", icon: Calendar },
     { id: "resources" as const, label: locale === "es" ? "Recursos" : "Resources", icon: BookOpen },
+    { id: "partnership" as const, label: locale === "es" ? "Colaboración" : "Partnership", icon: Handshake },
   ];
 
   const timelineCategories = [
@@ -702,6 +706,92 @@ export default function UnionsPage() {
                 </p>
               </div>
             )}
+          </div>
+        )}
+
+        {/* ── Partnership Tab ── */}
+        {activeTab === "partnership" && (
+          <div className="space-y-8">
+            {/* Intro */}
+            <div className="rounded-xl bg-gradient-to-br from-teal-50 to-amber-50 border border-teal-200 p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <Handshake className="h-5 w-5 text-teal-700" />
+                <h3 className="text-lg font-bold text-teal-900">
+                  {locale === "es"
+                    ? "El Enfoque de Interés Común"
+                    : "The Common Interest Approach"}
+                </h3>
+              </div>
+              <p className="text-sm text-stone-700 leading-relaxed">
+                {t(COMMON_INTEREST_INTRO, locale)}
+              </p>
+            </div>
+
+            {/* Three categories */}
+            {(["patients", "staff", "organization"] as const).map((category) => {
+              const items = COMMON_INTEREST_FRAMEWORK.filter((ci) => ci.category === category);
+              const categoryLabels = {
+                patients: { en: "Patient Outcomes", es: "Resultados para Pacientes", color: "teal" },
+                staff: { en: "Staff Wellbeing", es: "Bienestar del Personal", color: "amber" },
+                organization: { en: "Organizational Sustainability", es: "Sostenibilidad Organizacional", color: "stone" },
+              };
+              const { en: catLabelEn, es: catLabelEs, color } = categoryLabels[category];
+              const colorClasses: Record<string, string> = {
+                teal: "bg-teal-100 text-teal-800 border-teal-200",
+                amber: "bg-amber-100 text-amber-800 border-amber-200",
+                stone: "bg-stone-100 text-stone-800 border-stone-200",
+              };
+
+              return (
+                <div key={category}>
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className={`inline-flex items-center rounded-full border px-3 py-1 text-sm font-semibold ${colorClasses[color]}`}>
+                      {locale === "es" ? catLabelEs : catLabelEn}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {items.map((item) => (
+                      <div
+                        key={item.id}
+                        className="rounded-xl border border-stone-200 bg-white p-5 hover:shadow-sm transition-shadow"
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-xl">{item.icon}</span>
+                          <h4 className="font-semibold text-stone-900">
+                            {t(item.title, locale)}
+                          </h4>
+                        </div>
+                        <p className="text-sm text-stone-600 mb-3 leading-relaxed">
+                          {t(item.description, locale)}
+                        </p>
+                        <ul className="space-y-1.5">
+                          {item.examples.map((example, i) => (
+                            <li key={i} className="flex items-start gap-2 text-xs text-stone-500">
+                              <span className="text-teal-500 mt-0.5">•</span>
+                              <span>{t(example, locale)}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Key takeaway */}
+            <div className="rounded-xl bg-teal-800 text-white p-6">
+              <h3 className="text-lg font-bold mb-2">
+                {locale === "es"
+                  ? "La conclusión para trabajadores de salud comunitaria"
+                  : "The bottom line for community health workers"}
+              </h3>
+              <p className="text-sm text-teal-100 leading-relaxed">
+                {locale === "es"
+                  ? "En los FQHCs impulsados por la misión, el sindicato y la administración no están en lados opuestos — están del mismo lado del paciente. Cuando los trabajadores tienen salarios justos, cargas manejables y oportunidades de crecimiento, los pacientes reciben mejor atención, y la organización prospera. Este es el enfoque de interés común, y está transformando la salud comunitaria en California."
+                  : "In mission-driven FQHCs, the union and management aren't on opposite sides — they're on the same side as the patient. When workers have fair wages, manageable caseloads, and growth opportunities, patients get better care, and the organization thrives. This is the common interest approach, and it's transforming community health in California."}
+              </p>
+            </div>
           </div>
         )}
       </div>

@@ -15,32 +15,43 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | EHR | Electronic Health Record |
 | OCHIN Epic | Common FQHC EHR system |
 | Medi-Cal | California's Medicaid program |
+| H.R. 1 | "One Big Beautiful Bill" — largest Medicaid cuts in history |
+| CalAIM | California Advancing and Innovating Medi-Cal |
+| SB 525 | Healthcare minimum wage law ($25/hr by 2027 for FQHCs) |
+| PPS | Prospective Payment System (FQHC reimbursement method) |
+| NHSC | National Health Service Corps (loan repayment program) |
 
 ## Project: FQHC Talent Exchange
 | Detail | Value |
 |--------|-------|
 | **Stack** | Next.js 16, React 19, TypeScript, Tailwind 4, Supabase |
-| **URL** | https://fqhctalent.com |
+| **URL** | https://www.fqhctalent.com |
 | **Repo** | github.com/samijay/fqhc-talent-exchange |
 | **UI** | shadcn/ui (New York style), teal/amber palette |
 | **Hosting** | Vercel |
-| **Regions** | LA, San Diego, SF Bay, Sacramento, Fresno, Riverside/SB |
-| **Roles** | CHWs, care coordinators, medical assistants, case managers, behavioral health, dental, etc. |
+| **Regions** | LA, San Diego, SF Bay, Sacramento, Central Valley, Inland Empire, Central Coast, North State, North Coast |
+| **Roles** | 30+ roles across care coordination, clinical, behavioral health, dental, pharmacy, admin, leadership |
 
-## Active Priorities
-- Mobile responsiveness polish
-- New SEO-optimized blog content (English + Spanish)
-- More content across all pages
-- Employer portal / dashboard (future)
-- Full assessment engine with matching algorithm (future)
-- Talent Drop system (future — see pitch deck)
+## Mission & Vision
+- **Mission:** To strengthen California's safety-net workforce by connecting mission-driven health professionals with FQHCs — faster, smarter, and with the cultural fit that matters.
+- **Vision:** A California where every community health center is fully staffed with professionals who reflect the communities they serve.
+- **Brand Pillars:** Candidate Advocacy, FQHC Expertise, Speed to Placement, Health Equity Impact
+
+## Active Priorities (as of 2026-02-16)
+- **Building:** Market Intelligence Dashboard (`/insights`) — data-driven insights from 90 FQHCs, 156 listings, layoff tracking
+- **Planned:** Blog article upgrades (data viz, citations, shorter), Union partnership tab, Why FQHC page, Calendly booking, HTML pitch deck + branding
+- **GTM:** Ready for outbound to FQHC HR directors. First dollar = manual placement from fast-track pipeline.
+- **See:** `ROADMAP.md` for full feature tracker, backlog, and GTM strategy
 
 ## Preferences
 - Wants to review plans before code execution
-- Uses Claude.ai Projects for content drafting, Cowork for implementation
+- Uses Claude.ai Projects for content drafting, Claude Code for implementation
 - Prefers Git for backups (not OneDrive for code)
 - Audience is bilingual (English/Spanish) healthcare workers in California
 - NO Claude API integration for resume builder — uses template-based approach instead
+- Wants high-quality content with data visualizations, not SEO slop
+- Wants strategic foresight generated from the data assets
+- Track all feature ideas in ROADMAP.md
 
 ## What's Built (Progress Log)
 
@@ -48,30 +59,44 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | Feature | Status | Key Files | Notes |
 |---------|--------|-----------|-------|
 | **i18n (EN/ES)** | Done | `messages/en.json`, `messages/es.json`, `src/i18n/` | next-intl v4, `localePrefix: "as-needed"`, browser detection |
-| **FQHC Directory** | Done | `src/app/[locale]/directory/page.tsx`, `src/lib/california-fqhcs.ts` | 87 CA FQHCs, interactive map, sheet modal, search/filter/sort |
+| **FQHC Directory** | Done | `src/app/[locale]/directory/page.tsx`, `src/lib/california-fqhcs.ts` | 90 CA FQHCs, interactive map, sheet modal, search/filter/sort |
 | **FQHC Profile Pages** | Done | `src/app/[locale]/directory/[slug]/page.tsx` | SSG with generateStaticParams, org stats, jobs, salary table, benefits |
-| **Job Listings** | Done | `src/app/[locale]/jobs/page.tsx`, `src/lib/fqhc-job-listings.ts` | 165 listings with fqhcSlug linking |
+| **Job Listings** | Done | `src/app/[locale]/jobs/page.tsx`, `src/lib/fqhc-job-listings.ts` | 156 listings with fqhcSlug linking, grouped role filter |
 | **Regional Job Pages** | Done | `src/app/[locale]/fqhc-jobs-*/page.tsx` | 6 CA regions, SEO-optimized |
-| **Resume Builder** | Done | `src/components/resume-builder/` | Template-based, 5 role templates, html2pdf.js, multi-step form |
-| **Career Assessment** | Done | `src/components/career-assessment/CareerAssessment.tsx` | 5-question screener, role recommendations |
+| **Resume Builder** | Done | `src/components/resume-builder/` | Template-based, 8 role templates, html2pdf.js, multi-step form |
+| **Career Assessment** | Done | `src/lib/career-assessment-engine.ts`, `src/components/resume-builder/CareerInsights.tsx` | 12-question behavioral, 4 domains, role-specific scenarios, employer insights |
 | **Candidate Waitlist** | Done | `src/app/[locale]/join/page.tsx`, `src/app/api/candidate-waitlist/` | Supabase, email via Resend |
-| **Employer Waitlist** | Done | `src/app/[locale]/hire/page.tsx`, `src/app/api/employer-waitlist/` | Dark theme (stone gradient + amber), distinct from candidate |
-| **Blog** | Done | `src/app/[locale]/blog/` | 10 articles, EN/ES, SEO metadata |
-| **Color Rebrand** | Done | All files | teal-700/800/900 primary, amber-500 accent, stone neutrals |
-| **Separate Signups** | Done | Header, /join, /hire, Footer | Distinct visual identity, cross-links between flows |
-| **Sitemap** | Done | `src/app/sitemap.ts` | Includes all pages + 87 FQHC profiles |
-| **Pitch Deck** | Done | `src/app/pitchdeck/route.ts` | Hidden URL at /pitchdeck, serves PPTX download |
-| **Security Hardening** | Done | API routes, CLAUDE.md | Removed PII from public files, stopped leaking DB errors to clients |
-| **CTA Cleanup** | Done | All pages | Replaced all "Apply for Early Access" with "Build Your Free Resume" sitewide |
-| **Career Insights Assessment** | Done | `src/lib/career-assessment-engine.ts`, `src/components/resume-builder/CareerInsights.tsx` | 12-question behavioral assessment, 4 domains, integrated into resume builder, seeded answer shuffle |
-| **Resume Upload & Parse** | Done | `src/app/api/parse-resume/route.ts` | Upload PDF/DOCX, parse with pdf-parse/mammoth, Supabase storage |
-| **GA4 Analytics** | Done | `src/components/analytics/GoogleAnalytics.tsx` | Google Analytics 4 tracking component |
-| **Displaced Worker Fast-Track** | Done | `src/app/[locale]/fast-track/page.tsx`, `src/app/api/displaced-candidates/` | EN/ES form for laid-off workers, 48-hour intro guarantee, priority emails |
+| **Employer Waitlist** | Done | `src/app/[locale]/hire/page.tsx`, `src/app/api/employer-waitlist/` | Dark theme (stone gradient + amber) |
+| **Blog** | Done | `src/app/[locale]/blog/` | 12 articles, EN/ES, SEO metadata, FQHC-specific content |
+| **Sitemap** | Done | `src/app/sitemap.ts` | All pages + 90 FQHC profiles |
+| **Pitch Deck** | Done | `src/app/pitchdeck/route.ts` | Serves PDF from /public/ (to be replaced with HTML) |
+| **Security Hardening** | Done | API routes | PII removed, DB errors not leaked |
+| **Resume Upload & Parse** | Done | `src/app/api/parse-resume/route.ts` | PDF/DOCX, Supabase storage |
+| **GA4 Analytics** | Done | `src/components/analytics/GoogleAnalytics.tsx` | G-CDE54Q86SR |
+| **Fast-Track Displaced Worker** | Done | `src/app/[locale]/fast-track/page.tsx`, `src/app/api/displaced-candidates/` | EN/ES, 48-hour guarantee, priority emails |
+| **Fast-Track Resume** | Done | `src/components/resume-builder/FastTrackResume.tsx` | Lightweight 4-step from fast-track flow |
+| **Role Expansion** | Done | Multiple files | 30+ roles, grouped filter, 3 new resume templates, 18 salary ranges |
+| **Role-Tailored Assessment** | Done | `src/lib/career-assessment-engine.ts`, `src/lib/role-experience-questions.ts` | Role-specific questions, employer insights, salary benchmarks |
+| **Language Proficiency** | Done | `resume-templates.ts`, `ResumeBuilder.tsx` | 17 languages, proficiency levels |
+| **Union Directory** | Done | `src/app/[locale]/unions/page.tsx`, `src/lib/union-data.ts` | 3-tab page: directory, timeline, resources |
+| **Healthcare Timeline** | Done | `src/app/[locale]/healthcare-timeline/page.tsx` | US history 1798-2026, legislation tracker, milestones |
+| **Funding Impact Tracker** | Done | `src/app/[locale]/funding-impact/`, `src/lib/funding-impact-data.ts` | H.R. 1 policy timeline, revenue strategies, enrollment strategies |
+| **Layoff Tracker** | Done | `src/app/[locale]/layoffs/`, `src/lib/california-fqhc-layoffs.ts` | 11 orgs, 2,300+ workers affected |
+| **FQHC Union Data** | Done | `src/lib/california-fqhcs.ts` | 10 FQHCs with verified union info (NUHW, SEIU locals) |
+| **Canonical URL Migration** | Done | middleware, seo-config | www.fqhctalent.com |
 
-### Data Sources
-- `src/lib/california-fqhcs.ts` (74KB) — 87 FQHCs with slug, stats, programs, EHR, Glassdoor ratings, careers URLs
-- `src/lib/fqhc-job-listings.ts` (96KB) — 165 job listings linked by fqhcSlug
-- `src/components/resume-builder/resume-templates.ts` — 5 role templates with FQHC-optimized bullet points
+### Data Sources (Strategic Assets)
+| File | Size | Contents |
+|------|------|----------|
+| `src/lib/california-fqhcs.ts` | 103KB | 90 FQHCs: slug, stats, programs, EHR, Glassdoor, salary ranges, funding vulnerability, union info |
+| `src/lib/fqhc-job-listings.ts` | 125KB | 156 job listings: salary, role, region, department, EHR, programs, language requirements |
+| `src/lib/funding-impact-data.ts` | 123KB | Policy timeline, impact stats, program impacts, revenue model, legislation sources, revenue strategies, enrollment strategies, implementation milestones |
+| `src/lib/california-fqhc-layoffs.ts` | 19KB | 11 layoff entries with WARN Act data, 2,300+ workers affected |
+| `src/lib/job-posting-templates.ts` | 38KB | 30 salary benchmarks (p25/p50/p75), posting templates, screening questions |
+| `src/lib/union-data.ts` | 63KB | 7 union profiles, 40+ resources, labor timeline 1798-2025 |
+| `src/lib/career-assessment-engine.ts` | 40KB | 12 universal + 32 role-specific questions, 4 behavioral domains |
+| `src/lib/role-insights.ts` | 69KB | Role-specific career guidance, employer wants, next steps |
+| `src/lib/role-experience-questions.ts` | ~36 questions | Experience questions per role with resume bullet mappings |
 
 ### Database (Supabase)
 - `candidate_waitlist` — candidate signups (live)
@@ -83,9 +108,10 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ### Key Patterns
 - **Multi-step form**: `useState(step)` with conditional rendering, progress bar
 - **API route**: POST to `/api/`, upsert to Supabase, handle 409 duplicates
-- **i18n**: `useTranslations("namespace")` client-side, `getTranslations()` server-side
+- **i18n**: `useTranslations("namespace")` client-side, `getTranslations()` server-side; many pages use inline `const t = (obj: {en, es}, locale) => ...` pattern
 - **PDF generation**: html2pdf.js with dynamic import (client-side only)
 - **Static generation**: `generateStaticParams()` for /directory/[slug]
+- **Data viz**: Tailwind CSS inline bars/cards (no charting library)
 
 ### Not Yet Built (MVP Gaps)
 - AI-powered matching algorithm
@@ -109,11 +135,12 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ### Nav Structure
 | Label (EN) | Route | Purpose |
 |------------|-------|---------|
-| Jobs | /jobs | Browse 165 job listings |
-| Directory | /directory | 87 FQHC directory with map |
+| Jobs | /jobs | Browse 156 job listings |
+| Directory | /directory | 90 FQHC directory with map |
+| Layoffs | /layoffs | Layoff tracker (11 orgs, 2,300+ workers) |
+| Funding Impact | /funding-impact | H.R. 1 policy tracker + revenue strategies |
 | Resume Builder | /resume-builder | Free template-based resume builder |
 | Find a Job | /join | Candidate waitlist signup |
 | Post a Job | /hire | Employer waitlist signup (dark theme) |
-| Fast-Track | /fast-track | Displaced worker fast-track signup |
 | CTA: Build Resume | /resume-builder | Primary CTA button |
 | CTA: Hire Talent | /hire | Secondary CTA button (dark) |

@@ -1143,3 +1143,151 @@ export function getTimelineByRegion(region: LaborTimelineEvent["region"]): Labor
 export function getTimelineByCategory(category: LaborTimelineEvent["category"]): LaborTimelineEvent[] {
   return LABOR_TIMELINE.filter((e) => e.category === category);
 }
+
+/* ------------------------------------------------------------------ */
+/*  Common Interest Framework — Labor-Management Partnership            */
+/* ------------------------------------------------------------------ */
+
+export interface CommonInterestItem {
+  id: string;
+  category: "patients" | "staff" | "organization";
+  title: { en: string; es: string };
+  description: { en: string; es: string };
+  examples: { en: string; es: string }[];
+  icon: string; // emoji
+}
+
+export const COMMON_INTEREST_INTRO = {
+  en: "In mission-driven healthcare, labor and management share a fundamental goal: better outcomes for patients, staff, and the organization. Unlike adversarial bargaining, the common interest approach recognizes that when staff are supported, patients get better care — and when patients get better care, the FQHC hits its quality metrics and secures its funding. Everyone wins.",
+  es: "En la atención médica impulsada por la misión, el trabajo y la administración comparten un objetivo fundamental: mejores resultados para pacientes, personal y la organización. A diferencia de la negociación adversarial, el enfoque de interés común reconoce que cuando el personal está apoyado, los pacientes reciben mejor atención — y cuando los pacientes reciben mejor atención, el FQHC cumple sus métricas de calidad y asegura su financiamiento. Todos ganan.",
+};
+
+export const COMMON_INTEREST_FRAMEWORK: CommonInterestItem[] = [
+  // ── Patient Outcomes ──
+  {
+    id: "ci-patient-continuity",
+    category: "patients",
+    title: {
+      en: "Care Continuity & Trust",
+      es: "Continuidad de Atención y Confianza",
+    },
+    description: {
+      en: "When staff are retained through fair contracts and working conditions, patients see the same CHW, nurse, or care coordinator visit after visit. This continuity builds the deep trust that makes community health work effective — especially in underserved populations with historical distrust of healthcare systems.",
+      es: "Cuando el personal es retenido mediante contratos justos y condiciones de trabajo, los pacientes ven al mismo promotor, enfermera o coordinador de atención visita tras visita. Esta continuidad construye la confianza profunda que hace efectivo el trabajo de salud comunitaria — especialmente en poblaciones desatendidas con desconfianza histórica del sistema de salud.",
+    },
+    examples: [
+      { en: "Union contracts that include retention bonuses reduce turnover by 15-25%", es: "Los contratos sindicales que incluyen bonos de retención reducen la rotación en 15-25%" },
+      { en: "Patients in continuity-of-care models show 30% better chronic disease management", es: "Los pacientes en modelos de continuidad de atención muestran 30% mejor manejo de enfermedades crónicas" },
+      { en: "SEIU-UHW's $1,000 retention bonus at California FQHCs directly supports care continuity", es: "El bono de retención de $1,000 de SEIU-UHW en FQHCs de California apoya directamente la continuidad de atención" },
+    ],
+    icon: "🤝",
+  },
+  {
+    id: "ci-patient-language",
+    category: "patients",
+    title: {
+      en: "Language-Concordant Care",
+      es: "Atención Concordante con el Idioma",
+    },
+    description: {
+      en: "Union advocacy for bilingual pay differentials and culturally competent staffing directly improves patient outcomes. When a Spanish-speaking patient can communicate directly with their CHW, medication adherence improves, emergency visits decrease, and preventive care utilization increases.",
+      es: "La defensa sindical por diferenciales salariales bilingües y personal culturalmente competente mejora directamente los resultados de los pacientes. Cuando un paciente hispanohablante puede comunicarse directamente con su promotor, la adherencia a medicamentos mejora, las visitas de emergencia disminuyen y la utilización de atención preventiva aumenta.",
+    },
+    examples: [
+      { en: "Language-concordant care reduces 30-day hospital readmissions by 25%", es: "La atención concordante con el idioma reduce las rehospitalizaciones a 30 días en un 25%" },
+      { en: "Bilingual CHWs typically earn $2,000-$5,000 more through union-negotiated differentials", es: "Los promotores bilingües típicamente ganan $2,000-$5,000 más a través de diferenciales negociados por sindicatos" },
+    ],
+    icon: "🗣️",
+  },
+  // ── Staff Wellbeing ──
+  {
+    id: "ci-staff-wages",
+    category: "staff",
+    title: {
+      en: "Fair Wages & SB 525",
+      es: "Salarios Justos y SB 525",
+    },
+    description: {
+      en: "SB 525 established a $25/hour minimum wage for healthcare workers at FQHCs (phased by 2027). This landmark legislation — championed by SEIU-UHW — creates a wage floor that reduces turnover, improves financial stability for workers, and ensures FQHCs can compete with hospitals for talent.",
+      es: "SB 525 estableció un salario mínimo de $25/hora para trabajadores de salud en FQHCs (gradual hasta 2027). Esta legislación histórica — liderada por SEIU-UHW — crea un piso salarial que reduce la rotación, mejora la estabilidad financiera de los trabajadores y asegura que los FQHCs puedan competir con hospitales por talento.",
+    },
+    examples: [
+      { en: "SB 525 will raise wages for an estimated 400,000+ healthcare workers in California", es: "SB 525 aumentará los salarios de un estimado de 400,000+ trabajadores de salud en California" },
+      { en: "For FQHCs, the $25/hr floor phases to $25 by June 2027 — with annual increases thereafter", es: "Para los FQHCs, el piso de $25/hr llega a $25 para junio de 2027 — con aumentos anuales después" },
+      { en: "Union-negotiated wages already exceed SB 525 minimums at many FQHCs", es: "Los salarios negociados por sindicatos ya superan los mínimos de SB 525 en muchos FQHCs" },
+    ],
+    icon: "💰",
+  },
+  {
+    id: "ci-staff-training",
+    category: "staff",
+    title: {
+      en: "Professional Development & Career Ladders",
+      es: "Desarrollo Profesional y Escaleras de Carrera",
+    },
+    description: {
+      en: "The SEIU-UHW High-Road Training Partnership secured $13.3 million for community health worker training and upskilling. Union-negotiated training funds allow CHWs to earn certifications, care coordinators to advance to supervisory roles, and MAs to pursue nursing degrees — all while staying employed at FQHCs.",
+      es: "La Asociación de Capacitación High-Road de SEIU-UHW aseguró $13.3 millones para la capacitación y mejora de habilidades de promotores de salud. Los fondos de capacitación negociados por sindicatos permiten a los promotores obtener certificaciones, a los coordinadores avanzar a roles de supervisión y a los asistentes médicos buscar títulos de enfermería — todo mientras permanecen empleados en FQHCs.",
+    },
+    examples: [
+      { en: "$13.3 million SEIU-UHW High-Road Training Partnership for community health workers", es: "$13.3 millones de la Asociación de Capacitación High-Road de SEIU-UHW para promotores de salud" },
+      { en: "Asian Health Services' 2023 union contract included 21% raises over 3 years", es: "El contrato sindical 2023 de Asian Health Services incluyó aumentos del 21% en 3 años" },
+      { en: "Union contracts often include tuition reimbursement ($1,500-$5,000/year)", es: "Los contratos sindicales a menudo incluyen reembolso de matrícula ($1,500-$5,000/año)" },
+    ],
+    icon: "📈",
+  },
+  {
+    id: "ci-staff-burnout",
+    category: "staff",
+    title: {
+      en: "Burnout Prevention & Manageable Caseloads",
+      es: "Prevención del Agotamiento y Cargas de Trabajo Manejables",
+    },
+    description: {
+      en: "Community health workers carry some of the heaviest emotional loads in healthcare — serving patients experiencing homelessness, addiction, domestic violence, and immigration trauma. Union contracts that cap caseloads and guarantee mental health support days protect workers from the burnout that destroys FQHC workforce stability.",
+      es: "Los promotores de salud llevan algunas de las cargas emocionales más pesadas en atención médica — sirviendo a pacientes que experimentan falta de vivienda, adicción, violencia doméstica y trauma migratorio. Los contratos sindicales que limitan las cargas de trabajo y garantizan días de apoyo de salud mental protegen a los trabajadores del agotamiento que destruye la estabilidad de la fuerza laboral de los FQHCs.",
+    },
+    examples: [
+      { en: "Union-negotiated caseload caps: CHW 40-60 patients (vs. 80-100 without contract)", es: "Límites de caseload negociados por sindicatos: promotor 40-60 pacientes (vs. 80-100 sin contrato)" },
+      { en: "Mental health days and EAP (Employee Assistance Program) access in union contracts", es: "Días de salud mental y acceso a EAP en contratos sindicales" },
+    ],
+    icon: "🛡️",
+  },
+  // ── Organizational Sustainability ──
+  {
+    id: "ci-org-retention",
+    category: "organization",
+    title: {
+      en: "Workforce Retention Reduces Costs",
+      es: "La Retención de Personal Reduce Costos",
+    },
+    description: {
+      en: "Replacing a single CHW costs $8,000-$15,000 (recruiting, onboarding, training, lost productivity). For an RN, that number is $40,000-$60,000. Union contracts that improve retention through fair wages, career ladders, and working conditions directly save FQHCs money — and protect the institutional knowledge that takes years to build.",
+      es: "Reemplazar a un solo promotor cuesta $8,000-$15,000 (reclutamiento, incorporación, capacitación, productividad perdida). Para una enfermera, ese número es $40,000-$60,000. Los contratos sindicales que mejoran la retención a través de salarios justos, escaleras de carrera y condiciones de trabajo directamente ahorran dinero a los FQHCs — y protegen el conocimiento institucional que toma años construir.",
+    },
+    examples: [
+      { en: "FQHC average turnover: 25-35% annually; unionized FQHCs report 15-20%", es: "Rotación promedio en FQHCs: 25-35% anual; FQHCs sindicalizados reportan 15-20%" },
+      { en: "Cost of turnover per CHW: $8,000-$15,000; per RN: $40,000-$60,000", es: "Costo de rotación por promotor: $8,000-$15,000; por enfermera: $40,000-$60,000" },
+      { en: "Stable teams score 15-20% higher on HEDIS quality measures", es: "Equipos estables obtienen 15-20% más en medidas de calidad HEDIS" },
+    ],
+    icon: "📊",
+  },
+  {
+    id: "ci-org-quality",
+    category: "organization",
+    title: {
+      en: "Quality Metrics & Funding Compliance",
+      es: "Métricas de Calidad y Cumplimiento de Fondos",
+    },
+    description: {
+      en: "FQHCs that maintain stable, well-trained workforces consistently perform better on UDS (Uniform Data System) reporting, HEDIS measures, and managed care contract performance benchmarks. These metrics directly affect grant renewals, managed care capitation rates, and CalAIM ECM contract awards. Labor-management partnership is a strategy for financial sustainability.",
+      es: "Los FQHCs que mantienen fuerzas laborales estables y bien capacitadas consistentemente tienen mejor desempeño en reportes UDS (Sistema Uniforme de Datos), medidas HEDIS y benchmarks de desempeño de contratos de atención administrada. Estas métricas afectan directamente las renovaciones de subvenciones, las tasas de capitación de atención administrada y la adjudicación de contratos CalAIM ECM. La asociación laboral-administrativa es una estrategia para la sostenibilidad financiera.",
+    },
+    examples: [
+      { en: "HRSA Section 330 grant renewals require strong UDS performance — driven by stable teams", es: "Las renovaciones de subvenciones HRSA Sección 330 requieren buen desempeño UDS — impulsado por equipos estables" },
+      { en: "Managed care plans increasingly tie capitation bonuses to quality metrics", es: "Los planes de atención administrada cada vez más vinculan bonos de capitación a métricas de calidad" },
+      { en: "CalAIM ECM contracts award to FQHCs that demonstrate 85%+ member engagement rates", es: "Los contratos CalAIM ECM se otorgan a FQHCs que demuestran tasas de compromiso de miembros del 85%+" },
+    ],
+    icon: "✅",
+  },
+];

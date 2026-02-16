@@ -17,8 +17,8 @@ export default function Header() {
   const navLinks = [
     { href: "/jobs" as const, label: t("jobs") },
     { href: "/directory" as const, label: t("directory") },
+    { href: "/insights" as const, label: t("insights") },
     { href: "/layoffs" as const, label: t("layoffs") },
-    { href: "/funding-impact" as const, label: t("fundingImpact") },
     { href: "/resume-builder" as const, label: t("resumeBuilder") },
     { href: "/join" as const, label: t("findAJob") },
     { href: "/hire" as const, label: t("postAJob") },
