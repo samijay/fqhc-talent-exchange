@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "FQHC Jobs in Fresno & Central Valley",
     description:
       "Browse community health center jobs across the Central Valley. 15+ FQHCs hiring now.",
-    url: "https://fqhctalent.com/fqhc-jobs-fresno",
+    url: "https://www.fqhctalent.com/fqhc-jobs-fresno",
   },
   alternates: {
-    canonical: "https://fqhctalent.com/fqhc-jobs-fresno",
+    canonical: "https://www.fqhctalent.com/fqhc-jobs-fresno",
   },
 };
 
@@ -23,11 +23,11 @@ export default function FqhcJobsFresno() {
     <main className="min-h-screen">
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: "https://fqhctalent.com" },
-          { name: "Jobs", url: "https://fqhctalent.com/jobs" },
+          { name: "Home", url: "https://www.fqhctalent.com" },
+          { name: "Jobs", url: "https://www.fqhctalent.com/jobs" },
           {
             name: "Fresno / Central Valley",
-            url: "https://fqhctalent.com/fqhc-jobs-fresno",
+            url: "https://www.fqhctalent.com/fqhc-jobs-fresno",
           },
         ]}
       />

@@ -441,11 +441,11 @@ export default function LaidOffFqhcFastTrackArticle() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: locale === "es" ? "Inicio" : "Home", url: "https://fqhctalent.com" },
-          { name: "Blog", url: "https://fqhctalent.com/blog" },
+          { name: locale === "es" ? "Inicio" : "Home", url: "https://www.fqhctalent.com" },
+          { name: "Blog", url: "https://www.fqhctalent.com/blog" },
           {
             name: content.breadcrumbTitle,
-            url: "https://fqhctalent.com/blog/laid-off-fqhc-fast-track-job-search",
+            url: "https://www.fqhctalent.com/blog/laid-off-fqhc-fast-track-job-search",
           },
         ]}
       />

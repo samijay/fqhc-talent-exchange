@@ -4,7 +4,7 @@
 import type { MetadataRoute } from "next";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
 
-const SITE_URL = "https://fqhctalent.com";
+const SITE_URL = "https://www.fqhctalent.com";
 
 // California metro areas for location pages
 const locationSlugs = [

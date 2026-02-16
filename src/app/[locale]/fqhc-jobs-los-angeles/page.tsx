@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     title: "FQHC Jobs in Los Angeles",
     description:
       "Browse community health center jobs across Los Angeles County. 70+ FQHCs hiring now.",
-    url: "https://fqhctalent.com/fqhc-jobs-los-angeles",
+    url: "https://www.fqhctalent.com/fqhc-jobs-los-angeles",
   },
   alternates: {
-    canonical: "https://fqhctalent.com/fqhc-jobs-los-angeles",
+    canonical: "https://www.fqhctalent.com/fqhc-jobs-los-angeles",
   },
 };
 
@@ -26,11 +26,11 @@ export default function FqhcJobsLosAngeles() {
     <main className="min-h-screen">
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: "https://fqhctalent.com" },
-          { name: "Jobs", url: "https://fqhctalent.com/jobs" },
+          { name: "Home", url: "https://www.fqhctalent.com" },
+          { name: "Jobs", url: "https://www.fqhctalent.com/jobs" },
           {
             name: "Los Angeles",
-            url: "https://fqhctalent.com/fqhc-jobs-los-angeles",
+            url: "https://www.fqhctalent.com/fqhc-jobs-los-angeles",
           },
         ]}
       />

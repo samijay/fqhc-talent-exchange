@@ -12,11 +12,11 @@ export const metadata: Metadata = {
     title: "The FQHC MA, RN & Provider Career Ladder: How to Advance in Community Health",
     description:
       "Understand the multiple career pathways available at FQHCs and how to strategically advance from entry-level roles to leadership positions.",
-    url: "https://fqhctalent.com/blog/fqhc-career-ladder-ma-rn-provider",
+    url: "https://www.fqhctalent.com/blog/fqhc-career-ladder-ma-rn-provider",
     type: "article",
   },
   alternates: {
-    canonical: "https://fqhctalent.com/blog/fqhc-career-ladder-ma-rn-provider",
+    canonical: "https://www.fqhctalent.com/blog/fqhc-career-ladder-ma-rn-provider",
   },
 };
 
@@ -31,11 +31,11 @@ export default function FqhcCareerLadderArticle() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: "https://fqhctalent.com" },
-          { name: "Blog", url: "https://fqhctalent.com/blog" },
+          { name: "Home", url: "https://www.fqhctalent.com" },
+          { name: "Blog", url: "https://www.fqhctalent.com/blog" },
           {
             name: "The FQHC Career Ladder",
-            url: "https://fqhctalent.com/blog/fqhc-career-ladder-ma-rn-provider",
+            url: "https://www.fqhctalent.com/blog/fqhc-career-ladder-ma-rn-provider",
           },
         ]}
       />

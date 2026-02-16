@@ -30,37 +30,37 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Redirect www.fqhctalent.com → fqhctalent.com (canonical)
+      // Redirect fqhctalent.com → www.fqhctalent.com (canonical)
       {
         source: "/:path*",
-        has: [{ type: "host", value: "www.fqhctalent.com" }],
-        destination: "https://fqhctalent.com/:path*",
+        has: [{ type: "host", value: "fqhctalent.com" }],
+        destination: "https://www.fqhctalent.com/:path*",
         permanent: true,
       },
-      // Redirect fqhctalent.org → fqhctalent.com
+      // Redirect fqhctalent.org → www.fqhctalent.com
       {
         source: "/:path*",
         has: [{ type: "host", value: "fqhctalent.org" }],
-        destination: "https://fqhctalent.com/:path*",
+        destination: "https://www.fqhctalent.com/:path*",
         permanent: true,
       },
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.fqhctalent.org" }],
-        destination: "https://fqhctalent.com/:path*",
+        destination: "https://www.fqhctalent.com/:path*",
         permanent: true,
       },
-      // Redirect healthcaretalent.org → fqhctalent.com
+      // Redirect healthcaretalent.org → www.fqhctalent.com
       {
         source: "/:path*",
         has: [{ type: "host", value: "healthcaretalent.org" }],
-        destination: "https://fqhctalent.com/:path*",
+        destination: "https://www.fqhctalent.com/:path*",
         permanent: true,
       },
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.healthcaretalent.org" }],
-        destination: "https://fqhctalent.com/:path*",
+        destination: "https://www.fqhctalent.com/:path*",
         permanent: true,
       },
     ];

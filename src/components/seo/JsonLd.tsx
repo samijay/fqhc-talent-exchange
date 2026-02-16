@@ -6,8 +6,8 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "FQHC Talent Exchange",
-    url: "https://fqhctalent.com",
-    logo: "https://fqhctalent.com/logo.png",
+    url: "https://www.fqhctalent.com",
+    logo: "https://www.fqhctalent.com/logo.png",
     description:
       "The only talent platform built exclusively for Federally Qualified Health Centers. Connecting mission-driven professionals with community health organizations across California.",
     sameAs: [
@@ -48,12 +48,12 @@ export function WebSiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "FQHC Talent Exchange",
-    url: "https://fqhctalent.com",
+    url: "https://www.fqhctalent.com",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://fqhctalent.com/jobs?q={search_term_string}",
+        urlTemplate: "https://www.fqhctalent.com/jobs?q={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },
@@ -191,16 +191,16 @@ export function ArticleJsonLd({
     description,
     datePublished,
     dateModified: dateModified || datePublished,
-    url: `https://fqhctalent.com/blog/${slug}`,
+    url: `https://www.fqhctalent.com/blog/${slug}`,
     publisher: {
       "@type": "Organization",
       name: "FQHC Talent Exchange",
-      url: "https://fqhctalent.com",
+      url: "https://www.fqhctalent.com",
     },
     ...(imageUrl && { image: imageUrl }),
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://fqhctalent.com/blog/${slug}`,
+      "@id": `https://www.fqhctalent.com/blog/${slug}`,
     },
   };
 

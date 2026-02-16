@@ -10,10 +10,10 @@ export const metadata: Metadata = {
     title: "FQHC Jobs in San Diego",
     description:
       "Browse community health center jobs across San Diego County. 15+ FQHCs hiring now.",
-    url: "https://fqhctalent.com/fqhc-jobs-san-diego",
+    url: "https://www.fqhctalent.com/fqhc-jobs-san-diego",
   },
   alternates: {
-    canonical: "https://fqhctalent.com/fqhc-jobs-san-diego",
+    canonical: "https://www.fqhctalent.com/fqhc-jobs-san-diego",
   },
 };
 
@@ -22,11 +22,11 @@ export default function FqhcJobsSanDiego() {
     <main className="min-h-screen">
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: "https://fqhctalent.com" },
-          { name: "Jobs", url: "https://fqhctalent.com/jobs" },
+          { name: "Home", url: "https://www.fqhctalent.com" },
+          { name: "Jobs", url: "https://www.fqhctalent.com/jobs" },
           {
             name: "San Diego",
-            url: "https://fqhctalent.com/fqhc-jobs-san-diego",
+            url: "https://www.fqhctalent.com/fqhc-jobs-san-diego",
           },
         ]}
       />

@@ -10,10 +10,10 @@ export const metadata: Metadata = {
     title: "FQHC Jobs in Sacramento",
     description:
       "Browse community health center jobs in the Sacramento region. 10+ FQHCs hiring now.",
-    url: "https://fqhctalent.com/fqhc-jobs-sacramento",
+    url: "https://www.fqhctalent.com/fqhc-jobs-sacramento",
   },
   alternates: {
-    canonical: "https://fqhctalent.com/fqhc-jobs-sacramento",
+    canonical: "https://www.fqhctalent.com/fqhc-jobs-sacramento",
   },
 };
 
@@ -22,11 +22,11 @@ export default function FqhcJobsSacramento() {
     <main className="min-h-screen">
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: "https://fqhctalent.com" },
-          { name: "Jobs", url: "https://fqhctalent.com/jobs" },
+          { name: "Home", url: "https://www.fqhctalent.com" },
+          { name: "Jobs", url: "https://www.fqhctalent.com/jobs" },
           {
             name: "Sacramento",
-            url: "https://fqhctalent.com/fqhc-jobs-sacramento",
+            url: "https://www.fqhctalent.com/fqhc-jobs-sacramento",
           },
         ]}
       />

@@ -58,8 +58,8 @@ export function candidateConfirmationHtml(data: {
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
     ${isEs
-      ? `Mientras tanto, consulta nuestros <a href="https://fqhctalent.com/es/blog" style="color: #0d9488;">recursos profesionales</a> para profesionales de FQHC.`
-      : `In the meantime, check out our <a href="https://fqhctalent.com/blog" style="color: #0d9488;">career resources</a> for FQHC professionals.`}
+      ? `Mientras tanto, consulta nuestros <a href="https://www.fqhctalent.com/es/blog" style="color: #0d9488;">recursos profesionales</a> para profesionales de FQHC.`
+      : `In the meantime, check out our <a href="https://www.fqhctalent.com/blog" style="color: #0d9488;">career resources</a> for FQHC professionals.`}
   </p>
 
   <hr style="border: none; border-top: 1px solid #e7e5e4; margin: 32px 0;" />
@@ -68,7 +68,7 @@ export function candidateConfirmationHtml(data: {
     ${isEs
       ? "FQHC Talent Exchange — La única plataforma de talento creada exclusivamente para centros de salud comunitarios."
       : "FQHC Talent Exchange — The only talent platform built exclusively for community health centers."}<br />
-    <a href="https://fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
+    <a href="https://www.fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
   </p>
   ${unsubscribeFooter(isEs)}
 </body>
@@ -129,7 +129,7 @@ export function employerConfirmationHtml(data: {
     ${isEs
       ? "FQHC Talent Exchange — La única plataforma de talento creada exclusivamente para centros de salud comunitarios."
       : "FQHC Talent Exchange — The only talent platform built exclusively for community health centers."}<br />
-    <a href="https://fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
+    <a href="https://www.fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
   </p>
   ${unsubscribeFooter(isEs)}
 </body>
@@ -234,9 +234,9 @@ export function displacedCandidateConfirmationHtml(data: {
   <div style="background-color: #f0fdfa; border: 1px solid #ccfbf1; border-radius: 8px; padding: 16px; margin: 24px 0;">
     <p style="font-size: 14px; color: #0d9488; margin: 0; font-weight: 600;">${isEs ? "Mientras esperas:" : "While you wait:"}</p>
     <ul style="font-size: 14px; color: #44403c; line-height: 1.8; padding-left: 16px; margin: 8px 0 0;">
-      <li><a href="https://fqhctalent.com/${sitePrefix}resume-builder" style="color: #0d9488;">${isEs ? "Crea un currículum optimizado para FQHC gratis" : "Build a free FQHC-optimized resume"}</a></li>
-      <li><a href="https://fqhctalent.com/${sitePrefix}jobs" style="color: #0d9488;">${isEs ? "Explora posiciones abiertas en toda California" : "Browse open positions across California"}</a></li>
-      <li><a href="https://fqhctalent.com/${sitePrefix}blog" style="color: #0d9488;">${isEs ? "Lee nuestros recursos profesionales" : "Read our career resources"}</a></li>
+      <li><a href="https://www.fqhctalent.com/${sitePrefix}resume-builder" style="color: #0d9488;">${isEs ? "Crea un currículum optimizado para FQHC gratis" : "Build a free FQHC-optimized resume"}</a></li>
+      <li><a href="https://www.fqhctalent.com/${sitePrefix}jobs" style="color: #0d9488;">${isEs ? "Explora posiciones abiertas en toda California" : "Browse open positions across California"}</a></li>
+      <li><a href="https://www.fqhctalent.com/${sitePrefix}blog" style="color: #0d9488;">${isEs ? "Lee nuestros recursos profesionales" : "Read our career resources"}</a></li>
     </ul>
   </div>
 
@@ -246,7 +246,7 @@ export function displacedCandidateConfirmationHtml(data: {
     ${isEs
       ? "FQHC Talent Exchange — La única plataforma de talento creada exclusivamente para centros de salud comunitarios."
       : "FQHC Talent Exchange — The only talent platform built exclusively for community health centers."}<br />
-    <a href="https://fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
+    <a href="https://www.fqhctalent.com" style="color: #0d9488;">fqhctalent.com</a>
   </p>
   ${unsubscribeFooter(isEs)}
 </body>

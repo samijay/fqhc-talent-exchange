@@ -483,11 +483,11 @@ export default function TopFqhcInterviewQuestionsArticle() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: locale === "es" ? "Inicio" : "Home", url: "https://fqhctalent.com" },
-          { name: "Blog", url: "https://fqhctalent.com/blog" },
+          { name: locale === "es" ? "Inicio" : "Home", url: "https://www.fqhctalent.com" },
+          { name: "Blog", url: "https://www.fqhctalent.com/blog" },
           {
             name: content.breadcrumbTitle,
-            url: "https://fqhctalent.com/blog/top-10-fqhc-interview-questions",
+            url: "https://www.fqhctalent.com/blog/top-10-fqhc-interview-questions",
           },
         ]}
       />

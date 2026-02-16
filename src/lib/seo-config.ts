@@ -1,7 +1,7 @@
 // lib/seo-config.ts
 // Central SEO configuration for all pages
 
-export const SITE_URL = "https://fqhctalent.com";
+export const SITE_URL = "https://www.fqhctalent.com";
 export const SITE_NAME = "FQHC Talent Exchange";
 export const SITE_DESCRIPTION =
   "The only talent platform built exclusively for Federally Qualified Health Centers. Find FQHC jobs in California — community health workers, care coordinators, behavioral health specialists, and more.";

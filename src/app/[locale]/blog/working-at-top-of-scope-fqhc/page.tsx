@@ -12,11 +12,11 @@ export const metadata: Metadata = {
     title: "Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access",
     description:
       "Understand the top of scope strategy that FQHCs use to see more patients, improve access, and reduce provider burnout through team-based care models.",
-    url: "https://fqhctalent.com/blog/working-at-top-of-scope-fqhc",
+    url: "https://www.fqhctalent.com/blog/working-at-top-of-scope-fqhc",
     type: "article",
   },
   alternates: {
-    canonical: "https://fqhctalent.com/blog/working-at-top-of-scope-fqhc",
+    canonical: "https://www.fqhctalent.com/blog/working-at-top-of-scope-fqhc",
   },
 };
 
@@ -31,11 +31,11 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: "https://fqhctalent.com" },
-          { name: "Blog", url: "https://fqhctalent.com/blog" },
+          { name: "Home", url: "https://www.fqhctalent.com" },
+          { name: "Blog", url: "https://www.fqhctalent.com/blog" },
           {
             name: "Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access",
-            url: "https://fqhctalent.com/blog/working-at-top-of-scope-fqhc",
+            url: "https://www.fqhctalent.com/blog/working-at-top-of-scope-fqhc",
           },
         ]}
       />

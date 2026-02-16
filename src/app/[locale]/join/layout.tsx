@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Join the FQHC Talent Network — Free Job Placement",
     description: "Free job placement for community health professionals.",
-    url: "https://fqhctalent.com/join",
+    url: "https://www.fqhctalent.com/join",
   },
-  alternates: { canonical: "https://fqhctalent.com/join" },
+  alternates: { canonical: "https://www.fqhctalent.com/join" },
 };
 
 export default function JoinLayout({

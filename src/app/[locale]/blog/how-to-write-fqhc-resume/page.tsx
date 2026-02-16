@@ -452,11 +452,11 @@ export default function HowToWriteFqhcResumeArticle() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: locale === "es" ? "Inicio" : "Home", url: "https://fqhctalent.com" },
-          { name: locale === "es" ? "Blog" : "Blog", url: "https://fqhctalent.com/blog" },
+          { name: locale === "es" ? "Inicio" : "Home", url: "https://www.fqhctalent.com" },
+          { name: locale === "es" ? "Blog" : "Blog", url: "https://www.fqhctalent.com/blog" },
           {
             name: content.breadcrumbTitle,
-            url: "https://fqhctalent.com/blog/how-to-write-fqhc-resume",
+            url: "https://www.fqhctalent.com/blog/how-to-write-fqhc-resume",
           },
         ]}
       />

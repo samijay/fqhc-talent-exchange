@@ -743,12 +743,12 @@ export default function FqhcVsPrivatePracticeArticle() {
         items={[
           {
             name: locale === "es" ? "Inicio" : "Home",
-            url: "https://fqhctalent.com",
+            url: "https://www.fqhctalent.com",
           },
-          { name: "Blog", url: "https://fqhctalent.com/blog" },
+          { name: "Blog", url: "https://www.fqhctalent.com/blog" },
           {
             name: content.breadcrumbTitle,
-            url: "https://fqhctalent.com/blog/fqhc-vs-private-practice",
+            url: "https://www.fqhctalent.com/blog/fqhc-vs-private-practice",
           },
         ]}
       />

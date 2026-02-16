@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "FQHC Jobs in San Francisco Bay Area",
     description:
       "Browse community health center jobs across the Bay Area. 40+ FQHCs hiring now.",
-    url: "https://fqhctalent.com/fqhc-jobs-san-francisco-bay-area",
+    url: "https://www.fqhctalent.com/fqhc-jobs-san-francisco-bay-area",
   },
   alternates: {
-    canonical: "https://fqhctalent.com/fqhc-jobs-san-francisco-bay-area",
+    canonical: "https://www.fqhctalent.com/fqhc-jobs-san-francisco-bay-area",
   },
 };
 
@@ -23,11 +23,11 @@ export default function FqhcJobsBayArea() {
     <main className="min-h-screen">
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: "https://fqhctalent.com" },
-          { name: "Jobs", url: "https://fqhctalent.com/jobs" },
+          { name: "Home", url: "https://www.fqhctalent.com" },
+          { name: "Jobs", url: "https://www.fqhctalent.com/jobs" },
           {
             name: "Bay Area",
-            url: "https://fqhctalent.com/fqhc-jobs-san-francisco-bay-area",
+            url: "https://www.fqhctalent.com/fqhc-jobs-san-francisco-bay-area",
           },
         ]}
       />

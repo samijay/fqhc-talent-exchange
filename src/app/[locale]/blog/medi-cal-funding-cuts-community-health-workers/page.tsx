@@ -281,11 +281,11 @@ export default function MediCalFundingCutsArticle() {
       />
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: "https://fqhctalent.com" },
-          { name: "Blog", url: "https://fqhctalent.com/blog" },
+          { name: "Home", url: "https://www.fqhctalent.com" },
+          { name: "Blog", url: "https://www.fqhctalent.com/blog" },
           {
             name: "Medi-Cal Funding Cuts",
-            url: "https://fqhctalent.com/blog/medi-cal-funding-cuts-community-health-workers",
+            url: "https://www.fqhctalent.com/blog/medi-cal-funding-cuts-community-health-workers",
           },
         ]}
       />

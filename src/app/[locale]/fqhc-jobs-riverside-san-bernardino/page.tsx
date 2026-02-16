@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "FQHC Jobs in the Inland Empire",
     description:
       "Browse community health center jobs across Riverside and San Bernardino counties. 20+ FQHCs hiring now.",
-    url: "https://fqhctalent.com/fqhc-jobs-riverside-san-bernardino",
+    url: "https://www.fqhctalent.com/fqhc-jobs-riverside-san-bernardino",
   },
   alternates: {
-    canonical: "https://fqhctalent.com/fqhc-jobs-riverside-san-bernardino",
+    canonical: "https://www.fqhctalent.com/fqhc-jobs-riverside-san-bernardino",
   },
 };
 
@@ -23,11 +23,11 @@ export default function FqhcJobsInlandEmpire() {
     <main className="min-h-screen">
       <BreadcrumbJsonLd
         items={[
-          { name: "Home", url: "https://fqhctalent.com" },
-          { name: "Jobs", url: "https://fqhctalent.com/jobs" },
+          { name: "Home", url: "https://www.fqhctalent.com" },
+          { name: "Jobs", url: "https://www.fqhctalent.com/jobs" },
           {
             name: "Inland Empire",
-            url: "https://fqhctalent.com/fqhc-jobs-riverside-san-bernardino",
+            url: "https://www.fqhctalent.com/fqhc-jobs-riverside-san-bernardino",
           },
         ]}
       />
