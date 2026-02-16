@@ -1,24 +1,9 @@
 // app/blog/fqhc-career-ladder-ma-rn-provider/page.tsx
+"use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
-
-export const metadata: Metadata = {
-  title: "The FQHC MA, RN & Provider Career Ladder: How to Advance in Community Health",
-  description:
-    "Explore career advancement paths at FQHCs for MAs, RNs, and providers. Learn about progression opportunities, certifications that accelerate growth, salary ranges, and how bilingual skills unlock faster advancement.",
-  openGraph: {
-    title: "The FQHC MA, RN & Provider Career Ladder: How to Advance in Community Health",
-    description:
-      "Understand the multiple career pathways available at FQHCs and how to strategically advance from entry-level roles to leadership positions.",
-    url: "https://www.fqhctalent.com/blog/fqhc-career-ladder-ma-rn-provider",
-    type: "article",
-  },
-  alternates: {
-    canonical: "https://www.fqhctalent.com/blog/fqhc-career-ladder-ma-rn-provider",
-  },
-};
+import { TLDRCard, CareerLadderViz, SalaryRangeChart } from "@/components/blog/BlogDataViz";
 
 export default function FqhcCareerLadderArticle() {
   return (
@@ -72,8 +57,40 @@ export default function FqhcCareerLadderArticle() {
           {/* Article Body */}
           <div className="prose prose-lg prose-stone max-w-none">
             <p className="text-xl text-stone-600 leading-relaxed">
-              One of the best-kept secrets in healthcare is that FQHCs offer some of the clearest career progression paths available. Unlike hospitals, where advancement can feel stalled, or private practices, where there's nowhere to go, community health centers have explicit ladders for every role. And they're actively promoting from within. If you're willing to develop new skills, earn relevant certifications, and demonstrate leadership, you can move from an entry-level MA or RN role to a director-level position in 5–10 years. Here's how the ladders work and how to climb them strategically.
+              One of the best-kept secrets in healthcare is that FQHCs offer some of the clearest career progression paths available. Unlike hospitals, where advancement can feel stalled, or private practices, where there&apos;s nowhere to go, community health centers have explicit ladders for every role. And they&apos;re actively promoting from within. If you&apos;re willing to develop new skills, earn relevant certifications, and demonstrate leadership, you can move from an entry-level MA or RN role to a director-level position in 5–10 years. Here&apos;s how the ladders work and how to climb them strategically.
             </p>
+
+            {/* TL;DR */}
+            <TLDRCard
+              items={[
+                "FQHCs promote from within — MA to Clinical Supervisor in 5–6 years, CHW to Program Manager in 3–4 years",
+                "Key certifications that accelerate growth: RN license, CHW Certification, Epic superuser, ECM/CalAIM training",
+                "Bilingual staff advance 40% faster at most California FQHCs due to patient population needs",
+              ]}
+              esItems={[
+                "Los FQHCs promueven internamente — MA a Supervisor Clínico en 5–6 años, CHW a Gerente de Programa en 3–4 años",
+                "Certificaciones clave que aceleran el crecimiento: licencia RN, Certificación CHW, superusuario Epic, capacitación ECM/CalAIM",
+                "El personal bilingüe avanza 40% más rápido en la mayoría de los FQHCs de California debido a las necesidades de la población de pacientes",
+              ]}
+            />
+
+            {/* Career Ladder Visualization */}
+            <CareerLadderViz
+              steps={[
+                { role: { en: "Medical Assistant", es: "Asistente Médico/a" }, salary: "$36K–$50K", timeline: { en: "Entry level", es: "Nivel de entrada" } },
+                { role: { en: "Lead MA / LVN", es: "MA Líder / LVN" }, salary: "$42K–$60K", timeline: { en: "+1–2 years", es: "+1–2 años" } },
+                { role: { en: "Registered Nurse", es: "Enfermera/o Registrada/o" }, salary: "$85K–$125K", timeline: { en: "+2–3 years + license", es: "+2–3 años + licencia" } },
+                { role: { en: "Charge Nurse / Supervisor", es: "Enfermera Jefe / Supervisor" }, salary: "$95K–$145K", timeline: { en: "+4–6 years total", es: "+4–6 años total" } },
+                { role: { en: "Clinical Director", es: "Director/a Clínico/a" }, salary: "$100K–$170K", timeline: { en: "+6–10 years total", es: "+6–10 años total" } },
+              ]}
+            />
+
+            {/* Salary Chart */}
+            <SalaryRangeChart
+              roleIds={["medical_assistant", "nurse_lvn", "nurse_rn", "nurse_practitioner", "program_manager", "director"]}
+              title="FQHC Career Ladder — Salary Progression"
+              esTitle="Escalera Profesional FQHC — Progresión Salarial"
+            />
 
             <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
               The Medical Assistant (MA) Career Path

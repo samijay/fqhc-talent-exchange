@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { TLDRCard, FundingCliffCard, StatCallout } from "@/components/blog/BlogDataViz";
 
 interface ArticleContent {
   category: string;
@@ -324,6 +325,53 @@ export default function MediCalFundingCutsArticle() {
             <p className="text-xl text-stone-600 leading-relaxed">
               {content.openingParagraph}
             </p>
+
+            {/* TL;DR Card */}
+            <TLDRCard
+              items={[
+                "Three major Medi-Cal funding changes are hitting FQHCs: PPS rate elimination (Oct 2026), dental reimbursement cuts (Jul 2026), and CalAIM waiver uncertainty (Dec 2026)",
+                "CHWs and care coordinators are most at risk — these roles are often funded by the grants being cut",
+                "Take action now: build your FQHC resume, diversify your skills into ECM/CalAIM, and track openings at stable organizations",
+              ]}
+              esItems={[
+                "Tres cambios importantes de financiamiento Medi-Cal están afectando a los FQHCs: eliminación de tasas PPS (Oct 2026), recortes de reembolso dental (Jul 2026), e incertidumbre de la exención CalAIM (Dic 2026)",
+                "Los CHWs y coordinadores de atención están en mayor riesgo — estos roles frecuentemente son financiados por las subvenciones que se están recortando",
+                "Actúa ahora: crea tu CV FQHC, diversifica tus habilidades en ECM/CalAIM, y rastrea vacantes en organizaciones estables",
+              ]}
+            />
+
+            {/* Funding Cliff Countdown */}
+            <FundingCliffCard
+              cliffs={[
+                {
+                  title: { en: "Medi-Cal Dental Reimbursement Cuts", es: "Recortes de Reembolso Dental Medi-Cal" },
+                  date: "2026-07-01",
+                  impact: { en: "Reduced reimbursement rates for dental services — may force FQHCs to cut dental staff", es: "Tasas de reembolso reducidas para servicios dentales — puede forzar a FQHCs a recortar personal dental" },
+                  urgency: "high",
+                },
+                {
+                  title: { en: "PPS Rate Elimination", es: "Eliminación de Tasas PPS" },
+                  date: "2026-10-01",
+                  impact: { en: "Prospective Payment System rate structure ends — FQHCs lose guaranteed per-visit reimbursement floor", es: "La estructura de tasas del Sistema de Pago Prospectivo termina — FQHCs pierden piso garantizado de reembolso por visita" },
+                  urgency: "critical",
+                },
+                {
+                  title: { en: "CalAIM 1115 Waiver Expiration", es: "Expiración de Exención CalAIM 1115" },
+                  date: "2026-12-31",
+                  impact: { en: "CalAIM waiver renewal uncertain — ECM and Community Supports funding at risk", es: "Renovación de exención CalAIM incierta — financiamiento de ECM y Apoyos Comunitarios en riesgo" },
+                  urgency: "critical",
+                },
+              ]}
+            />
+
+            {/* Stat callout */}
+            <StatCallout
+              stat="90+"
+              label="California FQHCs tracked in our directory"
+              esLabel="FQHCs de California rastreados en nuestro directorio"
+              detail="See which FQHCs have high, moderate, or low funding vulnerability at fqhctalent.com/insights"
+              esDetail="Ve qué FQHCs tienen vulnerabilidad de financiamiento alta, moderada o baja en fqhctalent.com/insights"
+            />
 
             {content.sections.map((section, idx) => (
               <div key={idx}>

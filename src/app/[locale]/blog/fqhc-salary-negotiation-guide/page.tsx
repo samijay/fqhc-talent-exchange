@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { TLDRCard, SalaryRangeChart, TotalCompVisual } from "@/components/blog/BlogDataViz";
 
 interface ArticleContent {
   category: string;
@@ -623,6 +624,27 @@ export default function FqhcSalaryNegotiationGuideArticle() {
               {content.openingParagraph}
             </p>
 
+            {/* TL;DR Card */}
+            <TLDRCard
+              items={[
+                "FQHC salaries are constrained by grant funding and PPS rates — negotiate total comp, not just base salary",
+                "Bilingual skills ($1–3/hr extra), ECM/CCM experience (+10–15%), and EHR proficiency are your biggest leverage points",
+                "NHSC loan repayment adds $50K–$75K tax-free — factor this into your total compensation analysis",
+              ]}
+              esItems={[
+                "Los salarios FQHC están limitados por financiamiento de subvenciones y tasas PPS — negocia compensación total, no solo salario base",
+                "Habilidades bilingües ($1–3/hr extra), experiencia ECM/CCM (+10–15%), y dominio de EHR son tus mayores puntos de negociación",
+                "El pago de préstamos NHSC agrega $50K–$75K libre de impuestos — incluye esto en tu análisis de compensación total",
+              ]}
+            />
+
+            {/* Salary Range Visual */}
+            <SalaryRangeChart
+              roleIds={["chw", "medical_assistant", "care_coordinator", "behavioral_health", "nurse_rn", "nurse_practitioner", "dentist", "physician", "program_manager"]}
+              title="California FQHC Salary Ranges by Role (2025–2026)"
+              esTitle="Rangos Salariales FQHC en California por Puesto (2025–2026)"
+            />
+
             {content.sections.map((section, idx) => (
               <div key={idx}>
                 <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
@@ -659,6 +681,18 @@ export default function FqhcSalaryNegotiationGuideArticle() {
               </div>
             ))}
           </div>
+
+          {/* Total Comp Visual */}
+          <TotalCompVisual
+            roleLabel="Care Coordinator"
+            esRoleLabel="Coordinador/a de Atención"
+            baseSalary={55000}
+            nhscAnnualized={25000}
+            benefitsValue={12000}
+            retirementMatch={3300}
+            bilingualDiff={3000}
+            ceStipend={1500}
+          />
 
           {/* CTA */}
           <div className="mt-16 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">

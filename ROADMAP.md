@@ -39,19 +39,19 @@ A California where every community health center is fully staffed with professio
 | 21 | **Canonical URL Migration** | Feb 2026 | www.fqhctalent.com |
 | 22 | **GA4 Analytics** | Feb 2026 | Google Analytics 4 tracking |
 | 23 | **Sitemap** | Feb 2026 | All pages + 90 FQHC profiles |
+| 24 | **Market Intelligence Dashboard** | Feb 2026 | `/insights` — funding cliffs, regional snapshots, role demand, salary intel |
+| 25 | **Union Partnership Tab** | Feb 2026 | 4th tab on unions page: common interest framework (patients, staff, org) |
+| 26 | **"Why Work at an FQHC" Page** | Feb 2026 | `/why-fqhc` — career ladders, salary data, comparison table, total comp |
+| 27 | **BookingCTA (Calendly)** | Feb 2026 | Reusable CTA in assessments (≥60%), hire success, fast-track success |
+| 28 | **HTML Pitch Deck** | Feb 2026 | `/pitchdeck` — 9-slide interactive deck with real data, replaces PDF |
+| 29 | **Blog Data Viz Upgrades** | Feb 2026 | TL;DR cards, salary bars, total comp, comparison tables, career ladders — 5 articles |
+| 30 | **Blog Data Viz Components** | Feb 2026 | `BlogDataViz.tsx` — reusable TLDRCard, SalaryRangeChart, TotalCompVisual, ComparisonTable, CareerLadderViz, FundingCliffCard, StatCallout |
 
 ---
 
 ## 🔨 In Progress (Current Sprint)
 
-| # | Feature | Status | Notes |
-|---|---------|--------|-------|
-| 24 | **Market Intelligence Dashboard** (`/insights`) | Building | Data-driven insights from 90 FQHCs, 156 listings, layoff data |
-| 25 | **Blog Article Upgrades** | Planned | Data viz, source citations, TL;DR cards, 30% shorter |
-| 26 | **Union Partnership Tab** | Planned | Labor-management common interest content |
-| 27 | **"Why Work at an FQHC" Page** | Planned | Career advantages vs. private healthcare |
-| 28 | **Calendly Booking Integration** | Planned | 20-min slots for qualified candidates + interested employers |
-| 29 | **HTML Pitch Deck + Branding** | Planned | Replace PDF, add mission/vision/pillars |
+*All items from previous sprint are shipped! Next sprint focuses on GTM and remaining platform features.*
 
 ---
 

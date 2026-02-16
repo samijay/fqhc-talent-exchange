@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
+import { BookingCTA } from "@/components/booking/BookingCTA";
 import {
   CheckCircle2,
   Loader2,
@@ -485,6 +486,11 @@ export default function FastTrackPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Booking CTA */}
+          <div className="mt-10">
+            <BookingCTA variant="fastTrack" />
           </div>
 
           {/* While you wait */}

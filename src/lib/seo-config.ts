@@ -177,6 +177,18 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/terms` },
   },
+  whyFqhc: {
+    title: "Why Work at an FQHC? | Career Growth, Loan Repayment & Mission-Driven Healthcare",
+    description:
+      "Discover why mission-driven healthcare professionals choose FQHCs over hospital systems and private practice. Faster career growth, NHSC loan repayment ($50K–$75K tax-free), broader scope of practice, and meaningful impact serving California's underserved communities.",
+    openGraph: {
+      title: "Why Work at an FQHC? — FQHC Talent Exchange",
+      description:
+        "Lead sooner. Impact more. Earn more than you think. See how FQHC careers compare to hospitals and private practice.",
+      url: `${SITE_URL}/why-fqhc`,
+    },
+    alternates: { canonical: `${SITE_URL}/why-fqhc` },
+  },
   about: {
     title:
       "About FQHC Talent Exchange | Our Mission to Strengthen Community Health",

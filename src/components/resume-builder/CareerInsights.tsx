@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
+import { BookingCTA } from "@/components/booking/BookingCTA";
+import { BOOKING_THRESHOLDS } from "@/lib/booking-config";
 import {
   ChevronRight,
   ChevronLeft,
@@ -585,6 +587,11 @@ export default function CareerInsights({ onComplete, onSkip, roleId }: CareerIns
                 {isEs ? `Salario mediano: $${(salaryBenchmark.p50 / 1000).toFixed(0)}K/año` : `Median salary: $${(salaryBenchmark.p50 / 1000).toFixed(0)}K/year`}
               </p>
             </div>
+          )}
+
+          {/* Booking CTA — show for high scorers */}
+          {results.overallScore >= BOOKING_THRESHOLDS.careerInsights && (
+            <BookingCTA variant="candidate" className="mt-8" />
           )}
 
           {/* Done button */}

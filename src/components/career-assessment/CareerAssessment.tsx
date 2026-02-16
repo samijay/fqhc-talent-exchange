@@ -18,6 +18,8 @@ import {
 } from 'lucide-react';
 import { SALARY_BENCHMARKS, type SalaryBenchmark } from '@/lib/job-posting-templates';
 import { ROLE_INSIGHTS } from '@/lib/role-insights';
+import { BookingCTA } from '@/components/booking/BookingCTA';
+import { BOOKING_THRESHOLDS } from '@/lib/booking-config';
 
 interface CareerAssessmentProps {
   fqhcName: string;
@@ -826,6 +828,10 @@ export default function CareerAssessment({
 
               <p className="text-stone-500 mb-8">{t.checkEmail}</p>
 
+              <div className="mb-8 mx-auto max-w-md">
+                <BookingCTA variant="candidate" />
+              </div>
+
               <button
                 onClick={onClose}
                 className="px-8 py-3 bg-gradient-to-r from-teal-700 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200"
@@ -996,6 +1002,13 @@ export default function CareerAssessment({
               </div>
             );
           })()}
+
+          {/* Booking CTA — show for high match scores */}
+          {matchScore >= BOOKING_THRESHOLDS.careerAssessment && (
+            <div className="mb-12">
+              <BookingCTA variant="candidate" />
+            </div>
+          )}
 
           {/* Waitlist Form */}
           <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-t-4 border-teal-500">

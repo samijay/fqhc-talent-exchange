@@ -15,6 +15,7 @@ export default function Footer() {
       { href: "/fast-track" as const, label: t("fastTrack") },
       { href: "/layoffs" as const, label: t("layoffTracker") },
       { href: "/funding-impact" as const, label: t("fundingImpact") },
+      { href: "/why-fqhc" as const, label: t("whyFqhc") },
       { href: "/resources" as const, label: t("careerResources") },
     ],
     [t("forEmployers")]: [

@@ -41,6 +41,7 @@ import {
 import ResumePreview from "./ResumePreview";
 import type { ResumeData, WorkHistoryEntry, EducationEntry } from "./ResumePreview";
 import CareerInsights from "./CareerInsights";
+import { generateResumeDocx } from "@/lib/docx-generator";
 import type { AssessmentResults } from "@/lib/career-assessment-engine";
 import {
   ROLE_TEMPLATES,
@@ -329,6 +330,41 @@ export default function ResumeBuilder() {
         .save();
     } catch (err) {
       console.error("PDF generation error:", err);
+    } finally {
+      setIsDownloading(false);
+    }
+  }
+
+  async function handleDownloadDocx() {
+    setIsDownloading(true);
+    try {
+      const isEs = resumeLanguage === "es" || (resumeLanguage === "auto" && locale === "es");
+      const roleTemplate = ROLE_TEMPLATES.find((r) => r.roleId === formData.roleType);
+      const bulletTexts = roleTemplate
+        ? roleTemplate.bullets
+            .filter((b) => formData.selectedBullets.includes(b.id))
+            .map((b) => (isEs ? b.esText : b.text))
+        : [];
+      await generateResumeDocx({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        city: formData.city,
+        region: formData.region,
+        objective: formData.objective,
+        programs: formData.programs,
+        ehrSystems: formData.ehrSystems,
+        certifications: formData.certifications,
+        languages: formData.languages,
+        languageProficiencies: formData.languageProficiencies,
+        selectedBulletTexts: bulletTexts,
+        workHistory: formData.workHistory,
+        education: formData.education,
+        isEs,
+      });
+    } catch (err) {
+      console.error("DOCX generation error:", err);
     } finally {
       setIsDownloading(false);
     }
@@ -1586,6 +1622,17 @@ export default function ResumeBuilder() {
                 ? (locale === "es" ? "Generando..." : "Generating...")
                 : (locale === "es" ? "Descargar PDF" : "Download PDF")}
             </Button>
+            <Button
+              onClick={handleDownloadDocx}
+              disabled={isDownloading}
+              variant="outline"
+              className="flex w-full items-center justify-center gap-1.5 border-stone-300 text-stone-700 hover:bg-stone-50 sm:w-auto"
+            >
+              <FileText className="size-4" />
+              {isDownloading
+                ? (locale === "es" ? "Generando..." : "Generating...")
+                : (locale === "es" ? "Descargar Word" : "Download Word")}
+            </Button>
           </div>
         </div>
 
@@ -1636,7 +1683,7 @@ export default function ResumeBuilder() {
         </div>
 
         {/* Bottom actions */}
-        <div className="mt-8 flex items-center justify-between">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <button
             onClick={() => setStep(4)}
             className="flex items-center gap-2 px-6 py-2 font-medium text-stone-700 hover:text-stone-900"
@@ -1644,16 +1691,29 @@ export default function ResumeBuilder() {
             <ChevronLeft className="size-5" />{" "}
             {locale === "es" ? "Volver a Editar" : "Back to Editing"}
           </button>
-          <Button
-            onClick={handleDownloadPDF}
-            disabled={isDownloading}
-            className="flex items-center gap-2 bg-gradient-to-r from-teal-700 to-amber-600 px-6 py-3 font-semibold text-white hover:shadow-lg"
-          >
-            <Download className="size-5" />
-            {isDownloading
-              ? (locale === "es" ? "Generando PDF..." : "Generating PDF...")
-              : (locale === "es" ? "Descargar PDF" : "Download PDF")}
-          </Button>
+          <div className="flex flex-col gap-2 sm:flex-row">
+            <Button
+              onClick={handleDownloadDocx}
+              disabled={isDownloading}
+              variant="outline"
+              className="flex items-center gap-2 border-stone-300 px-6 py-3 font-semibold text-stone-700 hover:bg-stone-50"
+            >
+              <FileText className="size-5" />
+              {isDownloading
+                ? (locale === "es" ? "Generando..." : "Generating...")
+                : (locale === "es" ? "Descargar Word" : "Download Word")}
+            </Button>
+            <Button
+              onClick={handleDownloadPDF}
+              disabled={isDownloading}
+              className="flex items-center gap-2 bg-gradient-to-r from-teal-700 to-amber-600 px-6 py-3 font-semibold text-white hover:shadow-lg"
+            >
+              <Download className="size-5" />
+              {isDownloading
+                ? (locale === "es" ? "Generando PDF..." : "Generating PDF...")
+                : (locale === "es" ? "Descargar PDF" : "Download PDF")}
+            </Button>
+          </div>
         </div>
 
         {/* Career Insights Assessment CTA */}

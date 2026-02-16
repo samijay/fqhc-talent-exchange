@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { TLDRCard, TotalCompVisual } from "@/components/blog/BlogDataViz";
 
 interface ArticleContent {
   category: string;
@@ -630,6 +631,31 @@ export default function FqhcBenefitsGuideArticle() {
             <p className="text-xl text-stone-600 leading-relaxed">
               {content.openingParagraph}
             </p>
+
+            {/* TL;DR Card */}
+            <TLDRCard
+              items={[
+                "FQHC benefits often add $20K–$35K beyond base salary when you count health insurance, retirement, loan repayment, and CE stipends",
+                "NHSC Loan Repayment ($50K–$75K tax-free) is the single biggest financial advantage of FQHC employment for eligible roles",
+                "Many FQHCs offer 4-day work weeks, bilingual pay differentials, and mileage reimbursement that private practices rarely match",
+              ]}
+              esItems={[
+                "Los beneficios FQHC frecuentemente agregan $20K–$35K más allá del salario base contando seguro médico, jubilación, pago de préstamos y estipendios de CE",
+                "El Pago de Préstamos NHSC ($50K–$75K libre de impuestos) es la mayor ventaja financiera del empleo FQHC para roles elegibles",
+                "Muchos FQHCs ofrecen semanas de 4 días, diferenciales bilingües y reembolso de millaje que las prácticas privadas raramente igualan",
+              ]}
+            />
+
+            {/* Total Comp Visual */}
+            <TotalCompVisual
+              roleLabel="Registered Nurse (RN)"
+              esRoleLabel="Enfermera/o Registrada/o (RN)"
+              baseSalary={105000}
+              nhscAnnualized={25000}
+              benefitsValue={15000}
+              retirementMatch={6300}
+              ceStipend={2000}
+            />
 
             {content.sections.map((section, idx) => (
               <div key={idx}>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { TLDRCard, ComparisonTable, SalaryRangeChart } from "@/components/blog/BlogDataViz";
 
 interface TableRow {
   factor: string;
@@ -789,6 +790,63 @@ export default function FqhcVsPrivatePracticeArticle() {
             <p className="text-xl text-stone-600 leading-relaxed">
               {content.openingParagraph}
             </p>
+
+            {/* TL;DR Card */}
+            <TLDRCard
+              items={[
+                "FQHCs offer faster career growth (2–4 years to leadership vs 5–10 at hospitals) and broader scope of practice",
+                "NHSC loan repayment ($50K–$75K) and SB 525 $25/hr minimum make FQHC total comp surprisingly competitive",
+                "FQHCs are mission-driven with smaller teams — you know your patients by name and practice at top of scope",
+              ]}
+              esItems={[
+                "Los FQHCs ofrecen crecimiento profesional más rápido (2–4 años al liderazgo vs 5–10 en hospitales) y alcance de práctica más amplio",
+                "El pago de préstamos NHSC ($50K–$75K) y SB 525 $25/hr mínimo hacen la compensación total FQHC sorprendentemente competitiva",
+                "Los FQHCs son impulsados por la misión con equipos más pequeños — conoces a tus pacientes por nombre y practicas al máximo de tu alcance",
+              ]}
+            />
+
+            {/* Data-driven comparison */}
+            <ComparisonTable
+              rows={[
+                {
+                  dimension: { en: "Time to Leadership", es: "Tiempo al Liderazgo" },
+                  fqhc: { en: "2–4 years", es: "2–4 años" },
+                  hospital: { en: "5–10 years", es: "5–10 años" },
+                  private: { en: "Varies widely", es: "Varía mucho" },
+                },
+                {
+                  dimension: { en: "Patient Panel", es: "Panel de Pacientes" },
+                  fqhc: { en: "150–300 (continuity)", es: "150–300 (continuidad)" },
+                  hospital: { en: "Rotating, low continuity", es: "Rotatorio, baja continuidad" },
+                  private: { en: "High volume", es: "Alto volumen" },
+                },
+                {
+                  dimension: { en: "Loan Repayment", es: "Pago de Préstamos" },
+                  fqhc: { en: "$50K–$75K (NHSC)", es: "$50K–$75K (NHSC)" },
+                  hospital: { en: "Rare", es: "Raro" },
+                  private: { en: "None", es: "Ninguno" },
+                },
+                {
+                  dimension: { en: "Scope of Practice", es: "Alcance de Práctica" },
+                  fqhc: { en: "Broad, top-of-scope", es: "Amplio, máximo alcance" },
+                  hospital: { en: "Narrow, specialized", es: "Estrecho, especializado" },
+                  private: { en: "Physician-dependent", es: "Dependiente del médico" },
+                },
+                {
+                  dimension: { en: "CA Min Wage", es: "Salario Mín CA" },
+                  fqhc: { en: "$25/hr (SB 525)", es: "$25/hr (SB 525)" },
+                  hospital: { en: "$25/hr (SB 525)", es: "$25/hr (SB 525)" },
+                  private: { en: "$16.50/hr", es: "$16.50/hr" },
+                },
+              ]}
+            />
+
+            {/* Salary chart */}
+            <SalaryRangeChart
+              roleIds={["chw", "care_coordinator", "nurse_rn", "behavioral_health", "nurse_practitioner"]}
+              title="FQHC Salary Ranges — Key Roles"
+              esTitle="Rangos Salariales FQHC — Puestos Clave"
+            />
 
             {/* Sections before comparison table */}
             {sectionsBeforeTable.map((section, idx) => (

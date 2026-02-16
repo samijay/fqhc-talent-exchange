@@ -10,6 +10,7 @@ import {
   ArrowRight,
   Building2,
 } from "lucide-react";
+import { BookingCTA } from "@/components/booking/BookingCTA";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -206,8 +207,12 @@ export default function HirePage() {
               {t("successMessage")}
             </p>
 
+            <div className="mt-8">
+              <BookingCTA variant="employer" />
+            </div>
+
             <Button
-              className="mt-10 bg-teal-700 text-white hover:bg-teal-800"
+              className="mt-6 bg-teal-700 text-white hover:bg-teal-800"
               asChild
             >
               <Link href="/">{t("backToHome")}</Link>

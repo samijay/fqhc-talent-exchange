@@ -45,6 +45,7 @@ import {
   type PostingTemplate,
   type SalaryBenchmark,
 } from "@/lib/job-posting-templates";
+import { generateJobPostingDocx } from "@/lib/docx-generator";
 
 /* ------------------------------------------------------------------ */
 /*  Constants                                                          */
@@ -744,6 +745,14 @@ export default function JobPostingBuilder() {
     URL.revokeObjectURL(url);
   }
 
+  async function handleDownloadDocx() {
+    try {
+      await generateJobPostingDocx(getFullOutput(), selectedRole, orgName);
+    } catch (err) {
+      console.error("DOCX generation error:", err);
+    }
+  }
+
   /* ---------------------------------------------------------------- */
   /*  Submit / Save                                                    */
   /* ---------------------------------------------------------------- */
@@ -848,6 +857,14 @@ export default function JobPostingBuilder() {
             >
               <Download className="size-4" />
               {t.downloadPosting}
+            </Button>
+            <Button
+              onClick={handleDownloadDocx}
+              variant="outline"
+              className="flex-1 border-stone-300 text-stone-700 hover:bg-stone-50"
+            >
+              <FileText className="size-4" />
+              {locale === "es" ? "Descargar Word" : "Download Word"}
             </Button>
           </div>
 
@@ -1583,6 +1600,15 @@ export default function JobPostingBuilder() {
                 >
                   <Download className="size-4" />
                   {t.downloadPosting}
+                </Button>
+                <Button
+                  type="button"
+                  onClick={handleDownloadDocx}
+                  variant="outline"
+                  className="flex-1 border-stone-300 text-stone-700 hover:bg-stone-50"
+                >
+                  <FileText className="size-4" />
+                  {locale === "es" ? "Descargar Word" : "Download Word"}
                 </Button>
               </div>
 

@@ -38,9 +38,9 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - **Brand Pillars:** Candidate Advocacy, FQHC Expertise, Speed to Placement, Health Equity Impact
 
 ## Active Priorities (as of 2026-02-16)
-- **Building:** Market Intelligence Dashboard (`/insights`) — data-driven insights from 90 FQHCs, 156 listings, layoff tracking
-- **Planned:** Blog article upgrades (data viz, citations, shorter), Union partnership tab, Why FQHC page, Calendly booking, HTML pitch deck + branding
-- **GTM:** Ready for outbound to FQHC HR directors. First dollar = manual placement from fast-track pipeline.
+- **Just Shipped:** Market Intelligence Dashboard (`/insights`), Why FQHC page, BookingCTA (Calendly), HTML pitch deck, blog upgrades with data viz, union partnership tab
+- **Next Up:** Deploy to Vercel, outbound to FQHC HR directors, first manual placement
+- **GTM:** Ready for outbound. First dollar = manual placement from fast-track pipeline.
 - **See:** `ROADMAP.md` for full feature tracker, backlog, and GTM strategy
 
 ## Preferences
@@ -84,6 +84,12 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Layoff Tracker** | Done | `src/app/[locale]/layoffs/`, `src/lib/california-fqhc-layoffs.ts` | 11 orgs, 2,300+ workers affected |
 | **FQHC Union Data** | Done | `src/lib/california-fqhcs.ts` | 10 FQHCs with verified union info (NUHW, SEIU locals) |
 | **Canonical URL Migration** | Done | middleware, seo-config | www.fqhctalent.com |
+| **Market Intelligence Dashboard** | Done | `src/app/[locale]/insights/`, `src/lib/market-intelligence.ts` | Funding cliffs, regional snapshots, role demand, salary intelligence, EHR/program data |
+| **Union Partnership Tab** | Done | `src/app/[locale]/unions/page.tsx`, `src/lib/union-data.ts` | 4th tab with common interest framework (patients, staff, org) |
+| **Why FQHC Page** | Done | `src/app/[locale]/why-fqhc/page.tsx` | Career ladders, salary data, comparison table, total comp visual, bilingual |
+| **BookingCTA (Calendly)** | Done | `src/components/booking/BookingCTA.tsx`, `src/lib/booking-config.ts` | Reusable CTA in CareerInsights (≥60%), CareerAssessment, hire, fast-track |
+| **HTML Pitch Deck** | Done | `src/app/pitchdeck/page.tsx` | 9-slide interactive presentation with real data, replaces PDF |
+| **Blog Data Viz Upgrades** | Done | `src/components/blog/BlogDataViz.tsx` | TL;DR cards, salary bars, total comp, comparison tables, career ladders, funding cliffs — 5 articles upgraded |
 
 ### Data Sources (Strategic Assets)
 | File | Size | Contents |
@@ -97,6 +103,8 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | `src/lib/career-assessment-engine.ts` | 40KB | 12 universal + 32 role-specific questions, 4 behavioral domains |
 | `src/lib/role-insights.ts` | 69KB | Role-specific career guidance, employer wants, next steps |
 | `src/lib/role-experience-questions.ts` | ~36 questions | Experience questions per role with resume bullet mappings |
+| `src/lib/market-intelligence.ts` | ~570 lines | Aggregation layer: market overview, regional snapshots, role demand, salary intel, funding cliffs, EHR/program adoption |
+| `src/lib/booking-config.ts` | ~65 lines | Calendly URL, score thresholds, copy variants (candidate/employer/fastTrack) |
 
 ### Database (Supabase)
 - `candidate_waitlist` — candidate signups (live)
@@ -137,10 +145,19 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 |------------|-------|---------|
 | Jobs | /jobs | Browse 156 job listings |
 | Directory | /directory | 90 FQHC directory with map |
+| Insights | /insights | Market intelligence dashboard (funding cliffs, salary, demand) |
 | Layoffs | /layoffs | Layoff tracker (11 orgs, 2,300+ workers) |
-| Funding Impact | /funding-impact | H.R. 1 policy tracker + revenue strategies |
 | Resume Builder | /resume-builder | Free template-based resume builder |
 | Find a Job | /join | Candidate waitlist signup |
 | Post a Job | /hire | Employer waitlist signup (dark theme) |
 | CTA: Build Resume | /resume-builder | Primary CTA button |
 | CTA: Hire Talent | /hire | Secondary CTA button (dark) |
+
+### Hidden Pages
+| Route | Purpose |
+|-------|---------|
+| /pitchdeck | HTML pitch deck (9 slides, interactive) |
+| /why-fqhc | SEO page: why work at an FQHC |
+| /unions | Union directory + labor partnership |
+| /healthcare-timeline | US healthcare history 1798-2026 |
+| /funding-impact | H.R. 1 policy tracker + revenue strategies |
