@@ -25,6 +25,7 @@ import {
   Activity,
   Phone,
   DollarSign,
+  Star,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -45,7 +46,14 @@ import {
   ROLE_TEMPLATES,
   COMMON_CERTIFICATIONS,
   LANGUAGE_OPTIONS,
+  PROFICIENCY_LEVELS,
+  type LanguageProficiency,
+  type ProficiencyLevel,
 } from "./resume-templates";
+import {
+  getExperienceQuestionsForRole,
+  getRecommendedBullets,
+} from "@/lib/role-experience-questions";
 
 /* ------------------------------------------------------------------ */
 /*  Constants                                                          */
@@ -155,6 +163,7 @@ export default function ResumeBuilder() {
     programs: [],
     certifications: [],
     languages: [],
+    languageProficiencies: [],
     selectedBullets: [],
     workHistory: [{ ...EMPTY_WORK_ENTRY }],
     education: [{ ...EMPTY_EDUCATION }],
@@ -167,6 +176,14 @@ export default function ResumeBuilder() {
   // Career Insights Assessment
   const [showAssessment, setShowAssessment] = useState(false);
   const [assessmentResults, setAssessmentResults] = useState<AssessmentResults | null>(null);
+
+  // Role experience answers (maps question ID → selected option ID(s))
+  const [experienceAnswers, setExperienceAnswers] = useState<Record<string, string | string[]>>({});
+
+  // Compute recommended bullet IDs from experience answers
+  const recommendedBulletIds = formData.roleType
+    ? getRecommendedBullets(experienceAnswers, formData.roleType)
+    : [];
 
   // Resume output language
   const [resumeLanguage, setResumeLanguage] = useState<"auto" | "en" | "es">("auto");
@@ -267,6 +284,24 @@ export default function ResumeBuilder() {
         : prev.objective,
       selectedBullets: [], // reset bullets when role changes
     }));
+    setExperienceAnswers({}); // reset experience answers when role changes
+  }
+
+  /** Toggle a single option for a multi-select experience question */
+  function handleExperienceMultiToggle(questionId: string, optionId: string) {
+    setExperienceAnswers((prev) => {
+      const current = prev[questionId];
+      const currentArray = Array.isArray(current) ? current : [];
+      const updated = currentArray.includes(optionId)
+        ? currentArray.filter((id) => id !== optionId)
+        : [...currentArray, optionId];
+      return { ...prev, [questionId]: updated };
+    });
+  }
+
+  /** Set a single option for a single-select experience question */
+  function handleExperienceSingleSelect(questionId: string, optionId: string) {
+    setExperienceAnswers((prev) => ({ ...prev, [questionId]: optionId }));
   }
 
   function getResumeLanguageOverride(): "en" | "es" | undefined {
@@ -320,6 +355,7 @@ export default function ResumeBuilder() {
           programs: formData.programs,
           certifications: formData.certifications,
           languages: formData.languages,
+          languageProficiencies: formData.languageProficiencies,
           selectedBullets: formData.selectedBullets,
           workHistory: formData.workHistory.filter((w) => w.employer || w.title),
           education: formData.education.filter((e) => e.institution || e.degree),
@@ -944,6 +980,83 @@ export default function ResumeBuilder() {
               />
             </div>
 
+            {/* Role-specific experience questions */}
+            {formData.roleType && (() => {
+              const expQuestions = getExperienceQuestionsForRole(formData.roleType);
+              if (expQuestions.length === 0) return null;
+              return (
+                <div className="mt-8 rounded-xl border border-teal-200 bg-teal-50/30 p-5">
+                  <div className="mb-4">
+                    <h3 className="text-base font-bold text-stone-900">
+                      {locale === "es" ? "Cuéntanos sobre tu experiencia" : "Tell us about your experience"}
+                    </h3>
+                    <p className="mt-1 text-xs text-stone-500">
+                      {locale === "es"
+                        ? "Tus respuestas nos ayudan a recomendar los mejores puntos para tu currículum."
+                        : "Your answers help us recommend the best bullet points for your resume."}
+                    </p>
+                  </div>
+                  <div className="space-y-6">
+                    {expQuestions.map((q) => {
+                      const currentAnswer = experienceAnswers[q.id];
+                      const selectedIds = Array.isArray(currentAnswer) ? currentAnswer : (currentAnswer ? [currentAnswer] : []);
+                      return (
+                        <div key={q.id}>
+                          <p className="mb-2 text-sm font-semibold text-stone-800">
+                            {locale === "es" ? q.esQuestion : q.question}
+                          </p>
+                          {q.helpText && (
+                            <p className="mb-2 text-xs text-stone-500">
+                              {locale === "es" ? q.esHelpText : q.helpText}
+                            </p>
+                          )}
+                          <div className="space-y-1.5">
+                            {q.options.map((opt) => {
+                              const isSelected = selectedIds.includes(opt.id);
+                              const isMulti = q.answerType === "multi";
+                              return (
+                                <button
+                                  key={opt.id}
+                                  type="button"
+                                  onClick={() =>
+                                    isMulti
+                                      ? handleExperienceMultiToggle(q.id, opt.id)
+                                      : handleExperienceSingleSelect(q.id, opt.id)
+                                  }
+                                  className={`w-full rounded-lg border-2 px-3 py-2.5 text-left text-sm transition-all duration-150 ${
+                                    isSelected
+                                      ? "border-teal-500 bg-teal-50 text-teal-900 font-medium"
+                                      : "border-stone-200 bg-white text-stone-700 hover:border-stone-300"
+                                  }`}
+                                >
+                                  <div className="flex items-center gap-2.5">
+                                    <div
+                                      className={`flex size-4.5 shrink-0 items-center justify-center ${
+                                        isMulti ? "rounded" : "rounded-full"
+                                      } border-2 ${
+                                        isSelected
+                                          ? "border-teal-500 bg-teal-500"
+                                          : "border-stone-300"
+                                      }`}
+                                    >
+                                      {isSelected && (
+                                        <CheckCircle className="size-3 text-white" />
+                                      )}
+                                    </div>
+                                    <span>{locale === "es" ? opt.esText : opt.text}</span>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })()}
+
             {navButtons}
           </div>
         </div>
@@ -1050,7 +1163,7 @@ export default function ResumeBuilder() {
               <legend className="text-sm font-medium text-stone-900">
                 {locale === "es" ? "Idiomas" : "Languages"}
               </legend>
-              <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-3">
+              <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-4">
                 {LANGUAGE_OPTIONS.map((lang) => (
                   <label
                     key={lang}
@@ -1059,15 +1172,73 @@ export default function ResumeBuilder() {
                     <input
                       type="checkbox"
                       checked={formData.languages.includes(lang)}
-                      onChange={() =>
-                        toggleCheckbox(lang, formData.languages, "languages")
-                      }
+                      onChange={() => {
+                        const isSelected = formData.languages.includes(lang);
+                        const updatedLangs = isSelected
+                          ? formData.languages.filter((l) => l !== lang)
+                          : [...formData.languages, lang];
+                        const updatedProfs = isSelected
+                          ? (formData.languageProficiencies || []).filter((lp) => lp.language !== lang)
+                          : [...(formData.languageProficiencies || []), { language: lang, proficiency: "professional" as ProficiencyLevel }];
+                        setFormData((prev) => ({
+                          ...prev,
+                          languages: updatedLangs,
+                          languageProficiencies: updatedProfs,
+                        }));
+                      }}
                       className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
                     />
                     {lang}
                   </label>
                 ))}
               </div>
+
+              {/* Proficiency selectors for selected languages */}
+              {formData.languages.length > 0 && (
+                <div className="mt-4 space-y-2">
+                  <p className="text-xs font-medium text-stone-500">
+                    {locale === "es" ? "Nivel de competencia" : "Proficiency level"}
+                  </p>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {formData.languages.map((lang) => {
+                      const prof = (formData.languageProficiencies || []).find(
+                        (lp) => lp.language === lang,
+                      );
+                      return (
+                        <div
+                          key={lang}
+                          className="flex items-center gap-2 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2"
+                        >
+                          <span className="min-w-[80px] text-sm font-medium text-stone-700">
+                            {lang}
+                          </span>
+                          <select
+                            value={prof?.proficiency || "professional"}
+                            onChange={(e) => {
+                              const newProf = e.target.value as ProficiencyLevel;
+                              setFormData((prev) => ({
+                                ...prev,
+                                languageProficiencies: (prev.languageProficiencies || []).map((lp) =>
+                                  lp.language === lang
+                                    ? { ...lp, proficiency: newProf }
+                                    : lp,
+                                ),
+                              }));
+                            }}
+                            className="flex-1 rounded-md border border-stone-300 bg-white px-2 py-1 text-sm text-stone-700 focus:border-teal-500 focus:ring-teal-500"
+                          >
+                            {PROFICIENCY_LEVELS.map((level) => (
+                              <option key={level.value} value={level.value}>
+                                {locale === "es" ? level.esLabel : level.label}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </fieldset>
 
             {navButtons}
@@ -1104,11 +1275,23 @@ export default function ResumeBuilder() {
                     : "Select the bullet points that describe your experience. These will appear on your resume."}
                 </p>
 
+                {/* Show recommended hint if any experience answers exist */}
+                {recommendedBulletIds.length > 0 && (
+                  <div className="mb-3 flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700">
+                    <Star className="size-3.5 shrink-0" />
+                    <span>
+                      {locale === "es"
+                        ? "Los puntos marcados como \"Recomendado\" coinciden con la experiencia que describiste."
+                        : "Bullets marked \"Recommended\" match the experience you described."}
+                    </span>
+                  </div>
+                )}
                 <div className="space-y-2.5">
                   {roleTemplate.bullets.map((bullet) => {
                     const isSelected = formData.selectedBullets.includes(
                       bullet.id,
                     );
+                    const isRecommended = recommendedBulletIds.includes(bullet.id);
                     return (
                       <button
                         key={bullet.id}
@@ -1122,7 +1305,9 @@ export default function ResumeBuilder() {
                         className={`w-full rounded-lg border-2 p-3 text-left transition-all duration-200 ${
                           isSelected
                             ? "border-amber-500 bg-amber-50"
-                            : "border-stone-200 bg-white hover:border-stone-300"
+                            : isRecommended
+                              ? "border-teal-300 bg-teal-50/30 hover:border-teal-400"
+                              : "border-stone-200 bg-white hover:border-stone-300"
                         }`}
                       >
                         <div className="flex items-start gap-3">
@@ -1137,13 +1322,21 @@ export default function ResumeBuilder() {
                               <CheckCircle className="size-4 text-white" />
                             )}
                           </div>
-                          <span
-                            className={`text-sm ${
-                              isSelected ? "text-amber-900" : "text-stone-700"
-                            }`}
-                          >
-                            {locale === "es" ? bullet.esText : bullet.text}
-                          </span>
+                          <div className="flex-1">
+                            <span
+                              className={`text-sm ${
+                                isSelected ? "text-amber-900" : "text-stone-700"
+                              }`}
+                            >
+                              {locale === "es" ? bullet.esText : bullet.text}
+                            </span>
+                            {isRecommended && !isSelected && (
+                              <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700">
+                                <Star className="size-3" />
+                                {locale === "es" ? "Recomendado" : "Recommended"}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </button>
                     );
@@ -1341,6 +1534,7 @@ export default function ResumeBuilder() {
     return (
       <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
         <CareerInsights
+          roleId={formData.roleType}
           onComplete={(results) => {
             setAssessmentResults(results);
             // Auto-save assessment results with profile

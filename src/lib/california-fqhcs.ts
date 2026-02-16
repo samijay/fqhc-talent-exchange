@@ -26,6 +26,12 @@ export interface CaliforniaFQHC {
   coverageVulnerabilityPercent: number | null; // Estimated % of patients at risk of coverage loss (null = unknown)
   fundingImpactLevel: "high" | "moderate" | "low" | null; // Estimated revenue impact from coverage changes
   missionStatement: string | null; // Organization's mission statement
+  unionInfo: {
+    unionized: boolean;
+    unions: string[];            // e.g., ["SEIU-UHW", "CNA/NNU"]
+    representedRoles: string[];  // e.g., ["Clinical Staff", "Administrative Staff"]
+    notes: string | null;
+  } | null; // null = unknown status
 }
 
 export const regions = [
@@ -140,6 +146,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 35,
     fundingImpactLevel: "high",
     missionStatement: "AltaMed provides comprehensive health services to all, regardless of ability to pay or immigration status, with a special commitment to Latino and multi-ethnic communities.",
+    unionInfo: { unionized: true, unions: ["SEIU-UHW"], representedRoles: ["Clinical Staff", "Administrative Staff"], notes: "Largest independent FQHC in CA; SEIU-UHW represents most non-management staff" },
   },
   {
     name: "APLA Health",
@@ -166,6 +173,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "APLA Health provides comprehensive medical, dental, behavioral health, and HIV specialty care with a focus on LGBTQ+ communities.",
+    unionInfo: null,
   },
   {
     name: "ChapCare",
@@ -192,6 +200,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "ChapCare provides comprehensive healthcare to families in the San Gabriel Valley and greater Pasadena area.",
+    unionInfo: null,
   },
   {
     name: "Eisner Health",
@@ -218,6 +227,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 20,
     fundingImpactLevel: "moderate",
     missionStatement: "Eisner Health provides comprehensive, high-quality healthcare that is affordable and accessible to everyone.",
+    unionInfo: null,
   },
   {
     name: "JWCH Institute",
@@ -244,6 +254,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 20,
     fundingImpactLevel: "moderate",
     missionStatement: "JWCH Institute provides healthcare and education to underserved populations, including homeless and near-homeless individuals.",
+    unionInfo: { unionized: true, unions: ["SEIU-UHW"], representedRoles: ["Clinical Staff"], notes: null },
   },
   {
     name: "Los Angeles Christian Health Centers",
@@ -270,6 +281,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 20,
     fundingImpactLevel: "moderate",
     missionStatement: "LACHC provides quality healthcare to uninsured, low-income residents of Los Angeles.",
+    unionInfo: null,
   },
   {
     name: "Northeast Valley Health Corporation",
@@ -296,6 +308,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 20,
     fundingImpactLevel: "moderate",
     missionStatement: "Northeast Valley Health Corporation provides quality, comprehensive health care to all.",
+    unionInfo: { unionized: true, unions: ["SEIU Local 721"], representedRoles: ["Clinical Staff", "Administrative Staff"], notes: null },
   },
   {
     name: "South Central Family Health Center",
@@ -322,6 +335,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "South Central Family Health Center provides quality, affordable health care and support services to families in the South Los Angeles area.",
+    unionInfo: null,
   },
   {
     name: "St. John's Community Health",
@@ -348,6 +362,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 40,
     fundingImpactLevel: "high",
     missionStatement: "St. John's is dedicated to improving the health of the under-served, particularly in the Santa Monica, Mar Vista, and South Los Angeles areas.",
+    unionInfo: { unionized: true, unions: ["SEIU-UHW"], representedRoles: ["Clinical Staff"], notes: null },
   },
   {
     name: "T.H.E. Health and Wellness Centers",
@@ -374,6 +389,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "T.H.E. Health and Wellness Centers provides holistic health care to underserved communities in South Los Angeles.",
+    unionInfo: null,
   },
   {
     name: "Venice Family Clinic",
@@ -400,6 +416,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 20,
     fundingImpactLevel: "moderate",
     missionStatement: "Venice Family Clinic provides quality primary healthcare to people in need.",
+    unionInfo: null,
   },
   {
     name: "Watts Healthcare Corporation",
@@ -426,6 +443,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Watts Healthcare Corporation provides quality healthcare to the residents of Watts and surrounding communities.",
+    unionInfo: null,
   },
   {
     name: "Herald Christian Health Center",
@@ -452,6 +470,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 35,
     fundingImpactLevel: "high",
     missionStatement: "Herald Christian Health Center provides quality healthcare to all, regardless of ability to pay, particularly serving Asian and Pacific Islander communities.",
+    unionInfo: null,
   },
   {
     name: "Community Health Alliance of Pasadena",
@@ -478,6 +497,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "CHAP is dedicated to providing quality healthcare to all, regardless of ability to pay.",
+    unionInfo: null,
   },
   {
     name: "UMMA Community Clinic",
@@ -504,6 +524,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 45,
     fundingImpactLevel: "high",
     missionStatement: "UMMA Community Clinic provides high-quality healthcare for all, regardless of ability to pay, in the spirit of giving.",
+    unionInfo: null,
   },
   {
     name: "Comprehensive Community Health Centers",
@@ -530,6 +551,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "Comprehensive Community Health Centers provides quality primary healthcare and social services to the underserved in the South Los Angeles community.",
+    unionInfo: null,
   },
   {
     name: "Central Neighborhood Health Foundation",
@@ -556,6 +578,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "CNHF promotes better health outcomes for the uninsured and underserved communities in South Los Angeles.",
+    unionInfo: null,
   },
   {
     name: "Kheir Clinic",
@@ -582,6 +605,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 40,
     fundingImpactLevel: "high",
     missionStatement: "Kheir Clinic delivers culturally sensitive healthcare and community services to underserved populations in the greater Los Angeles area.",
+    unionInfo: null,
   },
   {
     name: "South Bay Family Health Care",
@@ -608,6 +632,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "South Bay Family Health Care provides quality healthcare to the communities of the South Bay.",
+    unionInfo: null,
   },
   {
     name: "QueensCare Health Centers",
@@ -634,6 +659,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "QueensCare Health Centers provides quality healthcare and social services to underserved communities in Greater Los Angeles.",
+    unionInfo: null,
   },
   {
     name: "Kedren Community Health Center",
@@ -660,6 +686,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Kedren Community Health Center provides quality health and human services to underserved communities in South Los Angeles.",
+    unionInfo: null,
   },
   {
     name: "Westside Family Health Center",
@@ -686,6 +713,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Westside Family Health Center provides accessible, quality healthcare to all, regardless of ability to pay.",
+    unionInfo: null,
   },
 
   // ─────────────────────────────────────────────
@@ -716,6 +744,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 25,
     fundingImpactLevel: "high",
     missionStatement: "Family Health Centers of San Diego provides caring, affordable, high-quality healthcare and supportive services to everyone, with a special commitment to uninsured, low-income, and medically underserved persons.",
+    unionInfo: null,
   },
   {
     name: "La Maestra Community Health Centers",
@@ -742,6 +771,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 40,
     fundingImpactLevel: "high",
     missionStatement: "La Maestra provides accessible and affordable quality health and human services to culturally diverse communities in the San Diego area.",
+    unionInfo: null,
   },
   {
     name: "San Ysidro Health",
@@ -768,6 +798,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 45,
     fundingImpactLevel: "high",
     missionStatement: "San Ysidro Health is committed to providing quality, compassionate healthcare to all in need, regardless of circumstance, in the border region.",
+    unionInfo: null,
   },
   {
     name: "Neighborhood Healthcare",
@@ -794,6 +825,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Neighborhood Healthcare provides quality, comprehensive healthcare to everyone.",
+    unionInfo: null,
   },
   {
     name: "Vista Community Clinic",
@@ -820,6 +852,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 20,
     fundingImpactLevel: "moderate",
     missionStatement: "Vista Community Clinic provides quality healthcare to the communities of North County San Diego.",
+    unionInfo: null,
   },
   {
     name: "Mountain Health and Community Services",
@@ -846,6 +879,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Mountain Health provides comprehensive healthcare and community services to the rural communities of San Diego's backcountry.",
+    unionInfo: null,
   },
   {
     name: "Borrego Health - San Diego",
@@ -872,6 +906,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "Borrego Health provides quality healthcare to all, regardless of their ability to pay or immigration status.",
+    unionInfo: null,
   },
   {
     name: "Imperial Beach Health Center",
@@ -898,6 +933,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Imperial Beach Health Center provides quality healthcare to the Imperial Beach community.",
+    unionInfo: null,
   },
   {
     name: "TrueCare",
@@ -924,6 +960,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "TrueCare provides quality, compassionate healthcare to all community members.",
+    unionInfo: null,
   },
   {
     name: "Planned Parenthood of the Pacific Southwest",
@@ -950,6 +987,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Planned Parenthood of the Pacific Southwest provides expert healthcare and education.",
+    unionInfo: null,
   },
 
   // ─────────────────────────────────────────────
@@ -980,6 +1018,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "Mission Neighborhood Health Center provides quality healthcare and support services to the diverse communities of the Mission District.",
+    unionInfo: null,
   },
   {
     name: "LifeLong Medical Care",
@@ -1006,6 +1045,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "LifeLong Medical Care provides quality healthcare and support services to underserved communities in the East Bay.",
+    unionInfo: { unionized: true, unions: ["SEIU-UHW"], representedRoles: ["Clinical Staff", "Administrative Staff"], notes: null },
   },
   {
     name: "Asian Health Services",
@@ -1032,6 +1072,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 20,
     fundingImpactLevel: "moderate",
     missionStatement: "Asian Health Services provides health, social, and advocacy services to the medically underserved in Alameda County.",
+    unionInfo: { unionized: true, unions: ["SEIU-UHW"], representedRoles: ["Clinical Staff"], notes: null },
   },
   {
     name: "La Clinica de La Raza",
@@ -1058,6 +1099,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "La Clínica provides culturally appropriate, quality, and accessible health care to the diverse communities of the San Francisco Bay Area.",
+    unionInfo: { unionized: true, unions: ["SEIU-UHW", "CNA/NNU"], representedRoles: ["Clinical Staff", "Nursing Staff", "Administrative Staff"], notes: "CNA/NNU represents RNs; SEIU-UHW represents other staff" },
   },
   {
     name: "North East Medical Services",
@@ -1084,6 +1126,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "North East Medical Services provides quality healthcare to medically underserved communities in the San Francisco Bay Area.",
+    unionInfo: null,
   },
   {
     name: "Ravenswood Family Health Network",
@@ -1110,6 +1153,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Ravenswood Family Health Network provides healthcare services to the diverse communities of the mid-Peninsula.",
+    unionInfo: null,
   },
   {
     name: "Gardner Health Services",
@@ -1136,6 +1180,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Gardner Health Services provides comprehensive healthcare to the diverse communities of Santa Clara County.",
+    unionInfo: null,
   },
   {
     name: "San Francisco Community Health Center",
@@ -1162,6 +1207,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "San Francisco Community Health Center provides quality, compassionate care to the diverse communities of San Francisco.",
+    unionInfo: { unionized: true, unions: ["SEIU-UHW"], representedRoles: ["Clinical Staff", "Administrative Staff"], notes: null },
   },
   {
     name: "Native American Health Center",
@@ -1188,6 +1234,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Native American Health Center provides comprehensive healthcare to the Native American community and all people.",
+    unionInfo: null,
   },
   {
     name: "Tiburcio Vasquez Health Center",
@@ -1214,6 +1261,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 20,
     fundingImpactLevel: "moderate",
     missionStatement: "Tiburcio Vasquez Health Center provides quality healthcare and community services in southern Alameda County.",
+    unionInfo: null,
   },
   {
     name: "Axis Community Health",
@@ -1240,6 +1288,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Axis Community Health provides quality healthcare services to all community members in the Tri-Valley.",
+    unionInfo: null,
   },
   {
     name: "Bay Area Community Health (BACH)",
@@ -1266,6 +1315,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Bay Area Community Health provides quality healthcare to the communities of the Tri-City area.",
+    unionInfo: null,
   },
   {
     name: "Marin Community Clinics",
@@ -1292,6 +1342,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Marin Community Clinics provides quality healthcare to all Marin County residents, regardless of ability to pay.",
+    unionInfo: null,
   },
   {
     name: "West Oakland Health Council",
@@ -1318,6 +1369,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "West Oakland Health Council provides quality healthcare to the communities of West Oakland.",
+    unionInfo: null,
   },
   {
     name: "Tri-City Health Center",
@@ -1344,6 +1396,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Tri-City Health Center provides quality healthcare to the communities of the southern Alameda County.",
+    unionInfo: null,
   },
   {
     name: "HealthRIGHT 360",
@@ -1370,6 +1423,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "HealthRIGHT 360 provides integrated healthcare and social services to people in need.",
+    unionInfo: null,
   },
   {
     name: "Planned Parenthood Mar Monte",
@@ -1396,6 +1450,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Planned Parenthood Mar Monte provides healthcare and education to communities across Northern and Central California.",
+    unionInfo: null,
   },
   {
     name: "Sausal Creek Health Center",
@@ -1422,6 +1477,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Sausal Creek Health Center provides quality healthcare to the diverse communities of the Oakland Hills.",
+    unionInfo: null,
   },
   {
     name: "Salud Para La Gente",
@@ -1448,6 +1504,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 35,
     fundingImpactLevel: "high",
     missionStatement: "Salud Para La Gente provides quality, comprehensive healthcare to uninsured and underserved communities in Santa Cruz County.",
+    unionInfo: null,
   },
 
   // ─────────────────────────────────────────────
@@ -1478,6 +1535,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "WellSpace Health provides quality, integrated healthcare to all community members in the Sacramento region.",
+    unionInfo: null,
   },
   {
     name: "Sacramento Native American Health Center",
@@ -1504,6 +1562,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Sacramento Native American Health Center provides quality healthcare to the Native American community and all underserved populations.",
+    unionInfo: null,
   },
   {
     name: "Elica Health Centers",
@@ -1530,6 +1589,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Elica Health Centers provides quality healthcare services to all, with a special commitment to diverse communities.",
+    unionInfo: null,
   },
   {
     name: "CommuniCare Health Centers",
@@ -1556,6 +1616,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "CommuniCare Health Centers provides quality, affordable healthcare to the communities of Yolo County.",
+    unionInfo: null,
   },
   {
     name: "One Community Health",
@@ -1582,6 +1643,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "One Community Health provides quality, integrated healthcare to all in the Sacramento region.",
+    unionInfo: null,
   },
   {
     name: "Sierra Vista Community Health",
@@ -1608,6 +1670,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Sierra Vista Community Health provides quality healthcare to the communities of Sacramento.",
+    unionInfo: null,
   },
   {
     name: "Ampla Health - Sacramento",
@@ -1634,6 +1697,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Ampla Health provides quality healthcare to the communities of Northern California.",
+    unionInfo: null,
   },
 
   // ─────────────────────────────────────────────
@@ -1664,6 +1728,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "Clinica Sierra Vista provides accessible, quality healthcare with compassion and respect to all.",
+    unionInfo: null,
   },
   {
     name: "United Health Centers",
@@ -1690,6 +1755,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "United Health Centers provides quality health care services to our communities regardless of ability to pay.",
+    unionInfo: null,
   },
   {
     name: "Family HealthCare Network",
@@ -1716,6 +1782,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 25,
     fundingImpactLevel: "high",
     missionStatement: "Family HealthCare Network provides quality health care to all community members regardless of barriers.",
+    unionInfo: null,
   },
   {
     name: "Camarena Health",
@@ -1742,6 +1809,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "Camarena Health is dedicated to providing accessible, quality healthcare to the communities of Madera County.",
+    unionInfo: null,
   },
   {
     name: "Golden Valley Health Centers",
@@ -1768,6 +1836,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "Golden Valley Health Centers provides quality, affordable healthcare to underserved communities in the Central Valley.",
+    unionInfo: null,
   },
   {
     name: "Omni Family Health",
@@ -1794,6 +1863,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 25,
     fundingImpactLevel: "high",
     missionStatement: "Omni Family Health provides quality health care and support services to the communities we serve.",
+    unionInfo: null,
   },
   {
     name: "Livingston Community Health",
@@ -1820,6 +1890,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 35,
     fundingImpactLevel: "high",
     missionStatement: "Livingston Community Health provides high-quality health services to underserved communities in Merced County.",
+    unionInfo: null,
   },
   {
     name: "Adventist Health - Central Valley",
@@ -1846,6 +1917,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Adventist Health provides quality, compassionate healthcare to communities in the Central Valley.",
+    unionInfo: null,
   },
   {
     name: "Salud Para La Gente - Central Valley",
@@ -1872,6 +1944,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 35,
     fundingImpactLevel: "high",
     missionStatement: "Salud Para La Gente provides quality, comprehensive healthcare to uninsured and underserved communities.",
+    unionInfo: null,
   },
 
   // ─────────────────────────────────────────────
@@ -1902,6 +1975,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "Borrego Health provides quality healthcare to all, regardless of their ability to pay or immigration status.",
+    unionInfo: null,
   },
   {
     name: "SAC Health",
@@ -1928,6 +2002,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 20,
     fundingImpactLevel: "moderate",
     missionStatement: "SAC Health provides compassionate, quality healthcare to all, regardless of ability to pay.",
+    unionInfo: null,
   },
   {
     name: "Desert Healthcare District & Foundation",
@@ -1954,6 +2029,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Desert Healthcare District promotes healthy communities in the Coachella Valley.",
+    unionInfo: null,
   },
   {
     name: "Riverside University Health System - Community Health Centers",
@@ -1980,6 +2056,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Riverside University Health System provides quality healthcare to all Riverside County residents.",
+    unionInfo: null,
   },
   {
     name: "Loma Linda University Health - SAC Health",
@@ -2006,6 +2083,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Loma Linda University Health provides quality, faith-based healthcare to all communities.",
+    unionInfo: null,
   },
   {
     name: "Community Health Systems, Inc.",
@@ -2032,6 +2110,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Community Health Systems provides quality healthcare services to the community.",
+    unionInfo: null,
   },
   {
     name: "Inland Faculty Medical Group",
@@ -2058,6 +2137,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Inland Faculty Medical Group provides quality healthcare services to the Inland Empire.",
+    unionInfo: null,
   },
   {
     name: "Clinicas de Salud del Pueblo",
@@ -2084,6 +2164,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 50,
     fundingImpactLevel: "high",
     missionStatement: "Clinicas de Salud del Pueblo provides quality, comprehensive health services to residents of the Imperial and Coachella Valleys, regardless of ability to pay.",
+    unionInfo: null,
   },
   {
     name: "Desert AIDS Project/DAP Health",
@@ -2110,6 +2191,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "DAP Health provides quality healthcare with a focus on HIV/AIDS and LGBTQ+ communities in the Coachella Valley.",
+    unionInfo: null,
   },
 
   // ─────────────────────────────────────────────
@@ -2140,6 +2222,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "Community Health Centers provides quality primary care to everyone in the Central Coast community, regardless of ability to pay.",
+    unionInfo: null,
   },
   {
     name: "Dignity Health Community Clinics - Ventura",
@@ -2166,6 +2249,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Dignity Health Community Clinics provides quality, compassionate healthcare to underserved communities in Ventura County.",
+    unionInfo: null,
   },
   {
     name: "Clinicas del Camino Real",
@@ -2192,6 +2276,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 35,
     fundingImpactLevel: "high",
     missionStatement: "Clinicas del Camino Real provides quality primary healthcare and support services to individuals and families regardless of their ability to pay.",
+    unionInfo: null,
   },
   {
     name: "Santa Barbara Neighborhood Clinics",
@@ -2218,6 +2303,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Santa Barbara Neighborhood Clinics provides quality healthcare to all community members, regardless of ability to pay.",
+    unionInfo: null,
   },
 
   // ─────────────────────────────────────────────
@@ -2248,6 +2334,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Shasta Community Health Center provides quality, comprehensive healthcare to all in the Shasta County area.",
+    unionInfo: null,
   },
   {
     name: "Peach Tree Health",
@@ -2274,6 +2361,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Peach Tree Health provides quality healthcare to underserved communities in Yuba-Sutter.",
+    unionInfo: null,
   },
   {
     name: "Health Alliance of Northern California",
@@ -2300,6 +2388,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Health Alliance of Northern California provides quality healthcare to rural communities in Northern California.",
+    unionInfo: null,
   },
   {
     name: "Hill Country Community Clinic",
@@ -2326,6 +2415,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Hill Country Community Clinic provides quality healthcare to rural communities in Northern California.",
+    unionInfo: null,
   },
   {
     name: "Shingletown Medical Center",
@@ -2352,6 +2442,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Shingletown Medical Center provides quality healthcare to the rural communities of eastern Shasta County.",
+    unionInfo: null,
   },
 
   // ─────────────────────────────────────────────
@@ -2382,6 +2473,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Open Door Community Health Centers provides quality healthcare to the communities of the North Coast.",
+    unionInfo: null,
   },
   {
     name: "MCHC Health Centers",
@@ -2408,6 +2500,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "MCHC Health Centers provides quality healthcare to the communities of Lake and Mendocino counties.",
+    unionInfo: null,
   },
   {
     name: "Redwood Community Health Coalition",
@@ -2434,6 +2527,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "Redwood Community Health Coalition provides quality healthcare to underserved communities in Sonoma County.",
+    unionInfo: null,
   },
   {
     name: "San Luis Obispo Community Health Centers",
@@ -2460,5 +2554,6 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "San Luis Obispo Community Health Centers provides quality healthcare to all, regardless of ability to pay.",
+    unionInfo: null,
   },
 ];

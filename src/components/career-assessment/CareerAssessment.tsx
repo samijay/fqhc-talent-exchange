@@ -14,7 +14,9 @@ import {
   ChevronRight,
   ChevronLeft,
   CheckCircle,
+  DollarSign,
 } from 'lucide-react';
+import { SALARY_BENCHMARKS, type SalaryBenchmark } from '@/lib/job-posting-templates';
 
 interface CareerAssessmentProps {
   fqhcName: string;
@@ -38,11 +40,11 @@ const ROLE_OPTIONS = [
   { id: 'chw', label: 'Community Health Worker', esLabel: 'Promotor/a de Salud', icon: Heart },
   { id: 'care_coordinator', label: 'Care Coordinator', esLabel: 'Coordinador/a de Atención', icon: Users },
   { id: 'medical_assistant', label: 'Medical Assistant', esLabel: 'Asistente Médico/a', icon: Stethoscope },
-  { id: 'behavioral_health', label: 'Behavioral Health', esLabel: 'Salud Conductual', icon: Brain },
-  { id: 'nursing', label: 'Nursing (RN)', esLabel: 'Enfermería (RN)', icon: Activity },
-  { id: 'provider', label: 'Provider (NP/PA/MD)', esLabel: 'Proveedor (NP/PA/MD)', icon: User },
   { id: 'case_manager', label: 'Case Manager', esLabel: 'Gestor/a de Casos', icon: Briefcase },
-  { id: 'administrative', label: 'Administrative/Other', esLabel: 'Administrativo/Otro', icon: Zap },
+  { id: 'behavioral_health', label: 'Behavioral Health', esLabel: 'Salud Conductual', icon: Brain },
+  { id: 'registered_nurse', label: 'Registered Nurse (RN)', esLabel: 'Enfermera/o Registrada/o (RN)', icon: Activity },
+  { id: 'patient_services', label: 'Patient Services', esLabel: 'Servicios al Paciente', icon: User },
+  { id: 'revenue_cycle', label: 'Revenue Cycle / Billing', esLabel: 'Ciclo de Ingresos / Facturación', icon: Zap },
 ];
 
 const EHR_OPTIONS = [
@@ -782,10 +784,28 @@ export default function CareerAssessment({
     handleSubmitWaitlist(waitlistName, waitlistEmail);
   };
 
+  // Map CareerAssessment roleIds to salary benchmark roleIds
+  const ROLE_TO_BENCHMARK: Record<string, string> = {
+    chw: 'chw',
+    care_coordinator: 'care_coordinator',
+    medical_assistant: 'medical_assistant',
+    case_manager: 'case_manager',
+    behavioral_health: 'behavioral_health',
+    registered_nurse: 'nurse_rn',
+    patient_services: 'patient_services',
+    revenue_cycle: 'revenue_cycle',
+  };
+
+  function getSalaryForRole(roleId: string): SalaryBenchmark | undefined {
+    const benchmarkId = ROLE_TO_BENCHMARK[roleId];
+    return benchmarkId ? SALARY_BENCHMARKS.find((b) => b.roleId === benchmarkId) : undefined;
+  }
+
   // Step 6: Results Screen
   if (step === 6) {
     const matchScore = calculateMatchScore();
     const suggestedRoles = getSuggestedRoles();
+    const selectedSalary = getSalaryForRole(formData.roleInterest);
 
     if (submitSuccess) {
       return (
@@ -865,6 +885,47 @@ export default function CareerAssessment({
               })}
             </div>
           </div>
+
+          {/* Salary Benchmark Card */}
+          {selectedSalary && (
+            <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-t-4 border-green-500">
+              <div className="flex items-center gap-2 mb-4">
+                <DollarSign className="w-6 h-6 text-green-600" />
+                <h2 className="text-xl font-semibold text-stone-900">
+                  {isEs ? 'Rango Salarial en California' : 'California Salary Range'}
+                </h2>
+              </div>
+              <p className="text-sm text-stone-600 mb-4">
+                {isEs
+                  ? `Salarios típicos para ${selectedSalary.esLabel} en FQHCs de California`
+                  : `Typical salaries for ${selectedSalary.label} at California FQHCs`}
+              </p>
+              <div className="flex items-center justify-between gap-3">
+                <div className="text-center">
+                  <p className="text-xs text-stone-500">{isEs ? '25° percentil' : '25th percentile'}</p>
+                  <p className="text-xl font-bold text-stone-700">
+                    ${Math.round(selectedSalary.p25 / 1000)}K
+                  </p>
+                </div>
+                <div className="flex-1 px-4">
+                  <div className="relative h-3 rounded-full bg-stone-200">
+                    <div className="absolute inset-y-0 left-0 right-0 rounded-full bg-gradient-to-r from-teal-300 via-teal-500 to-amber-500" />
+                  </div>
+                </div>
+                <div className="text-center">
+                  <p className="text-xs text-stone-500">{isEs ? '75° percentil' : '75th percentile'}</p>
+                  <p className="text-xl font-bold text-stone-700">
+                    ${Math.round(selectedSalary.p75 / 1000)}K
+                  </p>
+                </div>
+              </div>
+              <p className="mt-3 text-center text-sm text-stone-500">
+                {isEs
+                  ? `Salario mediano: $${(selectedSalary.p50 / 1000).toFixed(0)}K/año`
+                  : `Median salary: $${(selectedSalary.p50 / 1000).toFixed(0)}K/year`}
+              </p>
+            </div>
+          )}
 
           {/* Waitlist Form */}
           <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-t-4 border-teal-500">

@@ -269,6 +269,56 @@ export const ASSESSMENT_QUESTIONS: AssessmentQuestion[] = [
   },
 ];
 
+/* --- Role-Specific Questions (imported from dedicated data file) ---- */
+
+import { ROLE_SPECIFIC_QUESTIONS as _ROLE_SPECIFIC_QUESTIONS_DATA } from "./role-specific-questions";
+
+/**
+ * Role-specific behavioral scenario questions.
+ * 4 per role (one per domain) × 8 roles = 32 questions.
+ * These are mixed with universal questions to create a tailored assessment.
+ */
+export const ROLE_SPECIFIC_QUESTIONS: (AssessmentQuestion & { roleId: string })[] = _ROLE_SPECIFIC_QUESTIONS_DATA;
+
+/**
+ * Returns 12 assessment questions tailored for the given role:
+ *   8 universal (first 2 per domain from ASSESSMENT_QUESTIONS)
+ * + 4 role-specific (1 per domain from ROLE_SPECIFIC_QUESTIONS)
+ *
+ * Falls back to the original 12 universal questions if the role has no
+ * role-specific questions defined yet.
+ */
+export function getQuestionsForRole(roleId?: string): AssessmentQuestion[] {
+  if (!roleId) return ASSESSMENT_QUESTIONS;
+
+  const roleQuestions = ROLE_SPECIFIC_QUESTIONS.filter(
+    (q) => q.roleId === roleId,
+  );
+
+  // If we don't have role-specific questions for this role, use all universal
+  if (roleQuestions.length === 0) return ASSESSMENT_QUESTIONS;
+
+  // Take first 2 universal questions per domain
+  const domainIds: DomainId[] = ["mission", "people", "execution", "growth"];
+  const universalPicks: AssessmentQuestion[] = [];
+
+  for (const domain of domainIds) {
+    const domainQuestions = ASSESSMENT_QUESTIONS.filter(
+      (q) => q.domain === domain,
+    );
+    universalPicks.push(...domainQuestions.slice(0, 2));
+  }
+
+  // Add 1 role-specific question per domain
+  const roleSpecificPicks: AssessmentQuestion[] = [];
+  for (const domain of domainIds) {
+    const rq = roleQuestions.find((q) => q.domain === domain);
+    if (rq) roleSpecificPicks.push(rq);
+  }
+
+  return [...universalPicks, ...roleSpecificPicks];
+}
+
 /* --- Scoring Functions --------------------------------------------- */
 
 function getLevel(score: number): DomainScore["level"] {
@@ -281,11 +331,16 @@ function getLevel(score: number): DomainScore["level"] {
  * Calculates domain scores from the user's answers.
  * @param answers — Record of questionId → selected optionId
  * @param locale — "en" | "es" (defaults to "en")
+ * @param roleId — Optional role ID for role-tailored questions and insights
  */
 export function calculateAssessmentResults(
   answers: Record<string, string>,
   locale?: string,
+  roleId?: string,
 ): AssessmentResults {
+  // Use role-specific question set if roleId provided
+  const questions = getQuestionsForRole(roleId);
+
   const domainTotals: Record<DomainId, number> = {
     mission: 0,
     people: 0,
@@ -294,7 +349,7 @@ export function calculateAssessmentResults(
   };
 
   // Sum scores per domain
-  for (const question of ASSESSMENT_QUESTIONS) {
+  for (const question of questions) {
     const selectedOptionId = answers[question.id];
     if (!selectedOptionId) continue;
     const option = question.options.find((o) => o.id === selectedOptionId);
@@ -303,8 +358,8 @@ export function calculateAssessmentResults(
     }
   }
 
-  // Build domain scores
-  const MAX_PER_DOMAIN = 12; // 3 questions × 4 max score
+  // Build domain scores (3 questions per domain × 4 max = 12)
+  const MAX_PER_DOMAIN = 12;
   const domainScores: Record<DomainId, DomainScore> = {} as Record<
     DomainId,
     DomainScore
@@ -344,8 +399,8 @@ export function calculateAssessmentResults(
     }
   }
 
-  // Generate insights
-  const insights = generateInsights(domainScores, topStrength, topGrowthArea, locale);
+  // Generate insights (role-aware if roleId provided)
+  const insights = generateInsights(domainScores, topStrength, topGrowthArea, locale, roleId);
 
   return {
     domainScores,
@@ -482,46 +537,103 @@ const NEXT_STEPS_ES: Record<DomainId, string[]> = {
   ],
 };
 
+/* --- Role-Specific Insights (imported from dedicated data file) ----- */
+
+import { ROLE_INSIGHTS as _ROLE_INSIGHTS_DATA } from "./role-insights";
+
+export interface RoleInsightData {
+  strengthMessages: Record<DomainId, string>;
+  esStrengthMessages: Record<DomainId, string>;
+  growthMessages: Record<DomainId, string>;
+  esGrowthMessages: Record<DomainId, string>;
+  nextSteps: Record<DomainId, string>;
+  esNextSteps: Record<DomainId, string>;
+  employerWants: {
+    topQualifications: string[];
+    esTopQualifications: string[];
+    topSkills: string[];
+    esTopSkills: string[];
+    certifications: string[];
+    esCertifications: string[];
+  };
+}
+
+export const ROLE_INSIGHTS: Record<string, RoleInsightData> = _ROLE_INSIGHTS_DATA;
+
 function generateInsights(
   domainScores: Record<DomainId, DomainScore>,
   topStrength: DomainId,
   topGrowthArea: DomainId,
   locale?: string,
+  roleId?: string,
 ): AssessmentResults["insights"] {
   const isEs = locale === "es";
-  const strengthMsgs = isEs ? STRENGTH_MESSAGES_ES : STRENGTH_MESSAGES;
-  const growthMsgs = isEs ? GROWTH_MESSAGES_ES : GROWTH_MESSAGES;
-  const nextStepsMsgs = isEs ? NEXT_STEPS_ES : NEXT_STEPS;
 
-  // Gather strength messages for domains scoring as "strength"
+  // Check if we have role-specific insights
+  const roleInsight = roleId ? ROLE_INSIGHTS[roleId] : undefined;
+
+  // --- Strength messages ---
   const strengths: string[] = [];
   const domainIds: DomainId[] = ["mission", "people", "execution", "growth"];
 
-  for (const domain of domainIds) {
-    if (domainScores[domain].level === "strength") {
-      strengths.push(strengthMsgs[domain][0]);
+  if (roleInsight) {
+    // Use role-specific strength message for the top strength domain
+    const msgs = isEs ? roleInsight.esStrengthMessages : roleInsight.strengthMessages;
+    strengths.push(msgs[topStrength]);
+
+    // Add a second strength if another domain also scored well
+    for (const domain of domainIds) {
+      if (domain !== topStrength && domainScores[domain].level === "strength") {
+        strengths.push(msgs[domain]);
+        break; // only add one more
+      }
+    }
+  } else {
+    // Fall back to generic messages
+    const strengthMsgs = isEs ? STRENGTH_MESSAGES_ES : STRENGTH_MESSAGES;
+    for (const domain of domainIds) {
+      if (domainScores[domain].level === "strength") {
+        strengths.push(strengthMsgs[domain][0]);
+      }
+    }
+    if (strengths.length === 0) {
+      strengths.push(strengthMsgs[topStrength][1]);
     }
   }
 
-  // If no domain reached "strength" level, still highlight the top one
-  if (strengths.length === 0) {
-    strengths.push(strengthMsgs[topStrength][1]);
-  }
-
-  // Cap at 3 strength messages
   const finalStrengths = strengths.slice(0, 3);
 
-  // Growth area messages for the lowest-scoring domain
-  const growthAreas = growthMsgs[topGrowthArea].slice(0, 2);
+  // --- Growth area messages ---
+  let growthAreas: string[];
+  if (roleInsight) {
+    const msgs = isEs ? roleInsight.esGrowthMessages : roleInsight.growthMessages;
+    growthAreas = [msgs[topGrowthArea]];
+  } else {
+    const growthMsgs = isEs ? GROWTH_MESSAGES_ES : GROWTH_MESSAGES;
+    growthAreas = growthMsgs[topGrowthArea].slice(0, 2);
+  }
 
-  // Next steps: 1 from growth area + 2 general
-  const nextSteps = [
-    nextStepsMsgs[topGrowthArea][0],
-    nextStepsMsgs[topGrowthArea][1],
-    isEs
-      ? "Usa el Creador de Currículum FQHC para destacar tus fortalezas en tu currículum"
-      : "Use the FQHC Resume Builder to highlight your strengths on your resume",
-  ];
+  // --- Next steps ---
+  let nextSteps: string[];
+  if (roleInsight) {
+    const msgs = isEs ? roleInsight.esNextSteps : roleInsight.nextSteps;
+    nextSteps = [
+      msgs[topGrowthArea],
+      msgs[topStrength],
+      isEs
+        ? "Usa el Creador de Currículum FQHC para destacar tus fortalezas en tu currículum"
+        : "Use the FQHC Resume Builder to highlight your strengths on your resume",
+    ];
+  } else {
+    const nextStepsMsgs = isEs ? NEXT_STEPS_ES : NEXT_STEPS;
+    nextSteps = [
+      nextStepsMsgs[topGrowthArea][0],
+      nextStepsMsgs[topGrowthArea][1],
+      isEs
+        ? "Usa el Creador de Currículum FQHC para destacar tus fortalezas en tu currículum"
+        : "Use the FQHC Resume Builder to highlight your strengths on your resume",
+    ];
+  }
 
   return {
     strengths: finalStrengths,

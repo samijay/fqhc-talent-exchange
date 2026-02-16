@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { ROLE_TEMPLATES } from "./resume-templates";
+import { ROLE_TEMPLATES, type LanguageProficiency } from "./resume-templates";
 
 export interface WorkHistoryEntry {
   employer: string;
@@ -31,6 +31,7 @@ export interface ResumeData {
   programs: string[];
   certifications: string[];
   languages: string[];
+  languageProficiencies?: LanguageProficiency[];
   selectedBullets: string[];
   workHistory: WorkHistoryEntry[];
   education: EducationEntry[];
@@ -137,7 +138,15 @@ export default function ResumePreview({ data, languageOverride }: { data: Resume
             {data.languages.length > 0 && (
               <p>
                 <span className="font-semibold">{isEs ? "Idiomas:" : "Languages:"}</span>{" "}
-                {data.languages.join(", ")}
+                {data.languageProficiencies && data.languageProficiencies.length > 0
+                  ? data.languageProficiencies.map((lp) => {
+                      const profLabel = isEs
+                        ? { native: "Nativo", professional: "Profesional", conversational: "Conversacional", basic: "Básico" }[lp.proficiency]
+                        : { native: "Native", professional: "Professional", conversational: "Conversational", basic: "Basic" }[lp.proficiency];
+                      return `${lp.language} (${profLabel})`;
+                    }).join(", ")
+                  : data.languages.join(", ")
+                }
               </p>
             )}
           </div>

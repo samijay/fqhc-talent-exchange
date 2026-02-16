@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import CookieConsent from "@/components/analytics/CookieConsent";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { rootMetadata } from "@/lib/seo-config";
@@ -50,6 +51,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider messages={messages}>
           <OrganizationJsonLd />
           <WebSiteJsonLd />
+          <AnnouncementBar />
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer />

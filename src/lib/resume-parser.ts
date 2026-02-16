@@ -56,11 +56,20 @@ const COMMON_CERTIFICATIONS = [
 const LANGUAGE_OPTIONS = [
   "English",
   "Spanish",
-  "Mandarin",
-  "Cantonese",
-  "Vietnamese",
   "Tagalog",
+  "Cantonese",
+  "Mandarin",
+  "Vietnamese",
   "Korean",
+  "Armenian",
+  "Farsi",
+  "Arabic",
+  "Hmong",
+  "Russian",
+  "Khmer",
+  "Japanese",
+  "Hindi",
+  "Punjabi",
 ] as const;
 
 // California cities for region detection

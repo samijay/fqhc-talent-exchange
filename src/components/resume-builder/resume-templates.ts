@@ -444,10 +444,33 @@ export const COMMON_CERTIFICATIONS = [
 export const LANGUAGE_OPTIONS = [
   "English",
   "Spanish",
-  "Mandarin",
-  "Cantonese",
-  "Vietnamese",
   "Tagalog",
+  "Cantonese",
+  "Mandarin",
+  "Vietnamese",
   "Korean",
+  "Armenian",
+  "Farsi",
+  "Arabic",
+  "Hmong",
+  "Russian",
+  "Khmer",
+  "Japanese",
+  "Hindi",
+  "Punjabi",
   "Other",
 ] as const;
+
+export const PROFICIENCY_LEVELS = [
+  { value: "native", label: "Native", esLabel: "Nativo" },
+  { value: "professional", label: "Professional", esLabel: "Profesional" },
+  { value: "conversational", label: "Conversational", esLabel: "Conversacional" },
+  { value: "basic", label: "Basic", esLabel: "Básico" },
+] as const;
+
+export type ProficiencyLevel = "native" | "professional" | "conversational" | "basic";
+
+export interface LanguageProficiency {
+  language: string;
+  proficiency: ProficiencyLevel;
+}

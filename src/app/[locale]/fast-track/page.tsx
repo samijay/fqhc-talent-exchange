@@ -12,7 +12,9 @@ import {
   Briefcase,
   MapPin,
   ArrowRight,
+  FileText,
 } from "lucide-react";
+import FastTrackResume from "@/components/resume-builder/FastTrackResume";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -139,10 +141,11 @@ const content = {
     selectExperience: "Select experience",
     ehrSystems: "EHR systems you've used",
     programs: "Programs you've worked in",
-    bilingual: "Bilingual?",
-    bilingualYesSpanish: "Yes \u2014 Spanish/English",
-    bilingualYesOther: "Yes \u2014 Other language",
-    bilingualNo: "No",
+    bilingual: "Languages spoken",
+    bilingualYesSpanish: "Spanish/English",
+    bilingualYesOther: "Other language(s)",
+    bilingualNo: "English only",
+    selectLanguages: "Select other languages",
     currentRegion: "Where are you now?",
     selectRegion: "Select region",
     openToRegions: "Regions you'd work in",
@@ -179,6 +182,8 @@ const content = {
     emailInvalid: "Please enter a valid email address.",
     lookingForJob: "Not recently laid off?",
     joinRegular: "Join our regular talent network",
+    quickResume: "Build Quick Resume",
+    quickResumeDesc: "Use the info you just entered to generate a professional resume in 2 minutes.",
   },
   es: {
     heroTitle: "\u00bfFuiste despedido/a recientemente de un FQHC?",
@@ -220,10 +225,11 @@ const content = {
     selectExperience: "Selecciona experiencia",
     ehrSystems: "Sistemas EHR que has usado",
     programs: "Programas en los que has trabajado",
-    bilingual: "\u00bfBiling\u00fce?",
-    bilingualYesSpanish: "S\u00ed \u2014 Espa\u00f1ol/Ingl\u00e9s",
-    bilingualYesOther: "S\u00ed \u2014 Otro idioma",
-    bilingualNo: "No",
+    bilingual: "Idiomas que hablas",
+    bilingualYesSpanish: "Español/Inglés",
+    bilingualYesOther: "Otro(s) idioma(s)",
+    bilingualNo: "Solo inglés",
+    selectLanguages: "Selecciona otros idiomas",
     currentRegion: "\u00bfD\u00f3nde est\u00e1s ahora?",
     selectRegion: "Selecciona regi\u00f3n",
     openToRegions: "Regiones donde trabajar\u00edas",
@@ -261,8 +267,10 @@ const content = {
     emailRequired: "El correo electr\u00f3nico es obligatorio.",
     emailInvalid:
       "Por favor ingresa un correo electr\u00f3nico v\u00e1lido.",
-    lookingForJob: "\u00bfNo fuiste despedido/a recientemente?",
-    joinRegular: "\u00danete a nuestra red de talento regular",
+    lookingForJob: "¿No fuiste despedido/a recientemente?",
+    joinRegular: "Únete a nuestra red de talento regular",
+    quickResume: "Crear CV Rápido",
+    quickResumeDesc: "Usa la información que acabas de ingresar para generar un CV profesional en 2 minutos.",
   },
 };
 
@@ -297,6 +305,7 @@ export default function FastTrackPage() {
   const [ehrSystems, setEhrSystems] = useState<string[]>([]);
   const [programs, setPrograms] = useState<string[]>([]);
   const [bilingual, setBilingual] = useState("");
+  const [additionalLanguages, setAdditionalLanguages] = useState<string[]>([]);
   const [currentRegion, setCurrentRegion] = useState("");
   const [openToRegions, setOpenToRegions] = useState<string[]>([]);
   const [willingToRelocate, setWillingToRelocate] = useState(false);
@@ -307,6 +316,7 @@ export default function FastTrackPage() {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [serverError, setServerError] = useState("");
+  const [showResume, setShowResume] = useState(false);
 
   /* --- helpers ---------------------------------------------------- */
   function toggleCheckbox(
@@ -359,6 +369,7 @@ export default function FastTrackPage() {
           ehrSystems,
           programs,
           bilingual: bilingual || undefined,
+          additionalLanguages: additionalLanguages.length > 0 ? additionalLanguages : undefined,
           currentRegion: currentRegion || undefined,
           openToRegions,
           willingToRelocate,
@@ -392,6 +403,31 @@ export default function FastTrackPage() {
   /* ================================================================ */
 
   if (success) {
+    // Show FastTrackResume if user clicked "Build Quick Resume"
+    if (showResume) {
+      return (
+        <div className="bg-stone-50 min-h-screen">
+          <FastTrackResume
+            prefillData={{
+              firstName,
+              lastName,
+              email,
+              phone,
+              previousRole: previousRole,
+              previousEmployer: previousEmployer,
+              ehrSystems,
+              programs,
+              bilingual,
+              currentRegion,
+              yearsExperience,
+              additionalLanguages,
+            }}
+            onBack={() => setShowResume(false)}
+          />
+        </div>
+      );
+    }
+
     return (
       <div className="bg-stone-50">
         <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
@@ -410,6 +446,25 @@ export default function FastTrackPage() {
         </section>
 
         <div className="mx-auto max-w-2xl px-4 py-14">
+          {/* Quick Resume Card */}
+          <div className="mb-8 rounded-2xl border-2 border-amber-300 bg-gradient-to-br from-amber-50 to-white p-6 shadow-md">
+            <div className="flex items-start gap-4">
+              <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-amber-100">
+                <FileText className="size-6 text-amber-700" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-stone-900">{t.quickResume}</h3>
+                <p className="mt-1 text-sm text-stone-600">{t.quickResumeDesc}</p>
+                <button
+                  onClick={() => setShowResume(true)}
+                  className="mt-4 inline-flex items-center gap-2 rounded-lg bg-amber-500 px-5 py-2.5 text-sm font-semibold text-stone-900 shadow hover:bg-amber-400 transition-colors"
+                >
+                  {t.quickResume} <ArrowRight className="size-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* Timeline */}
           <div className="space-y-6">
             {[
@@ -762,7 +817,7 @@ export default function FastTrackPage() {
               </div>
             </fieldset>
 
-            {/* Bilingual */}
+            {/* Languages */}
             <fieldset className="mt-5">
               <legend className="text-sm font-medium text-stone-900">
                 {t.bilingual}
@@ -782,13 +837,47 @@ export default function FastTrackPage() {
                       name="bilingual"
                       value={opt.value}
                       checked={bilingual === opt.value}
-                      onChange={(e) => setBilingual(e.target.value)}
+                      onChange={(e) => {
+                        setBilingual(e.target.value);
+                        if (e.target.value !== "Other") setAdditionalLanguages([]);
+                      }}
                       className="size-4 border-stone-300 text-teal-700 focus:ring-teal-500"
                     />
                     {opt.label}
                   </label>
                 ))}
               </div>
+
+              {/* Show language checkboxes when "Other" is selected */}
+              {bilingual === "Other" && (
+                <div className="mt-3 rounded-lg border border-stone-200 bg-stone-50 p-3">
+                  <p className="mb-2 text-xs font-medium text-stone-500">{t.selectLanguages}</p>
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 sm:grid-cols-3">
+                    {["Spanish", "Tagalog", "Cantonese", "Mandarin", "Vietnamese", "Korean",
+                      "Armenian", "Farsi", "Arabic", "Hmong", "Russian", "Khmer",
+                      "Japanese", "Hindi", "Punjabi"].map((lang) => (
+                      <label
+                        key={lang}
+                        className="flex cursor-pointer items-center gap-2 text-sm text-stone-700"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={additionalLanguages.includes(lang)}
+                          onChange={() =>
+                            setAdditionalLanguages((prev) =>
+                              prev.includes(lang)
+                                ? prev.filter((l) => l !== lang)
+                                : [...prev, lang],
+                            )
+                          }
+                          className="size-3.5 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
+                        />
+                        {lang}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
             </fieldset>
 
             {/* === Section: Location === */}

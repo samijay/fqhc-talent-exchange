@@ -189,6 +189,10 @@ export default function DirectoryPage() {
     techCerts: isEs ? "Tecnología y Certificaciones" : "Technology & Certifications",
     ecmProvider: isEs ? "Proveedor ECM" : "ECM Provider",
     nhscApproved: isEs ? "Aprobado por NHSC" : "NHSC Approved",
+    unionized: isEs ? "Sindicalizado" : "Union",
+    unionOnly: isEs ? "Solo Sindicalizados" : "Unionized Only",
+    unionInfo: isEs ? "Información Sindical" : "Union Info",
+    represents: isEs ? "Representa a" : "Represents",
     programsOffered: isEs ? "Programas Ofrecidos" : "Programs Offered",
     findYourRole: isEs ? "Encuentre su Puesto Aquí" : "Find Your Role Here",
     findYourRoleDesc: (name: string) =>
@@ -230,6 +234,7 @@ export default function DirectoryPage() {
   const [programFilter, setProgramFilter] = useState("All Programs");
   const [ecmOnly, setEcmOnly] = useState(false);
   const [highImpactOnly, setHighImpactOnly] = useState(false);
+  const [unionOnly, setUnionOnly] = useState(false);
   const [view, setView] = useState<ViewMode>("cards");
   const [sortKey, setSortKey] = useState<SortKey>("name");
   const [sortDir, setSortDir] = useState<SortDir>("asc");
@@ -256,6 +261,9 @@ export default function DirectoryPage() {
     }
     if (highImpactOnly) {
       list = list.filter((f) => f.fundingImpactLevel === "high");
+    }
+    if (unionOnly) {
+      list = list.filter((f) => f.unionInfo?.unionized);
     }
     if (search.trim()) {
       const q = search.toLowerCase();
@@ -292,7 +300,7 @@ export default function DirectoryPage() {
     });
 
     return list;
-  }, [search, regionFilter, ehrFilter, programFilter, ecmOnly, highImpactOnly, sortKey, sortDir]);
+  }, [search, regionFilter, ehrFilter, programFilter, ecmOnly, highImpactOnly, unionOnly, sortKey, sortDir]);
 
   function toggleSort(key: SortKey) {
     if (sortKey === key) {
@@ -500,6 +508,18 @@ export default function DirectoryPage() {
           >
             <Heart className="size-3.5" />
             {t.highImpactOnly}
+          </button>
+
+          {/* Union toggle */}
+          <button
+            onClick={() => setUnionOnly(!unionOnly)}
+            className={`flex items-center justify-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
+              unionOnly
+                ? "border-blue-600 bg-blue-50 text-blue-800"
+                : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
+            }`}
+          >
+            {t.unionOnly}
           </button>
 
           {/* Sort */}
@@ -902,8 +922,33 @@ export default function DirectoryPage() {
                         {t.nhscApproved}
                       </Badge>
                     )}
+                    {selectedFqhc.unionInfo?.unionized && (
+                      <Badge className="bg-blue-50 text-blue-700">
+                        {t.unionized}
+                      </Badge>
+                    )}
                   </div>
                 </div>
+
+                {/* Union Info */}
+                {selectedFqhc.unionInfo?.unionized && (
+                  <div className="space-y-3">
+                    <h3 className="font-semibold text-stone-900">{t.unionInfo}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedFqhc.unionInfo.unions.map((u) => (
+                        <Badge key={u} className="bg-blue-50 text-blue-700 text-xs">{u}</Badge>
+                      ))}
+                    </div>
+                    {selectedFqhc.unionInfo.representedRoles.length > 0 && (
+                      <p className="text-xs text-stone-500">
+                        {t.represents}: {selectedFqhc.unionInfo.representedRoles.join(", ")}
+                      </p>
+                    )}
+                    {selectedFqhc.unionInfo.notes && (
+                      <p className="text-xs text-stone-400 italic">{selectedFqhc.unionInfo.notes}</p>
+                    )}
+                  </div>
+                )}
 
                 {/* Programs */}
                 <div className="space-y-3">
@@ -1136,6 +1181,11 @@ function FQHCCard({
             {fqhc.fundingImpactLevel === "high" && (
               <Badge className="bg-amber-50 text-amber-700 text-xs">
                 <Heart className="mr-0.5 size-3" /> {isEs ? "Alto Impacto" : "High Impact"}
+              </Badge>
+            )}
+            {fqhc.unionInfo?.unionized && (
+              <Badge className="bg-blue-50 text-blue-700 text-xs">
+                {isEs ? "Sindicalizado" : "Union"}
               </Badge>
             )}
           </div>

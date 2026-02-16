@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   Search,
   Briefcase,
@@ -61,6 +61,8 @@ interface SampleJob {
   tags: string[];
   bilingual: boolean;
   type: string;
+  languageRequired?: string | null;
+  languagePreferred?: string[] | null;
 }
 
 /* ------------------------------------------------------------------ */
@@ -82,6 +84,8 @@ const sampleJobs: SampleJob[] = fqhcJobListings.map((job) => ({
   tags: job.programs,
   bilingual: job.bilingual,
   type: job.type,
+  languageRequired: job.languageRequired,
+  languagePreferred: job.languagePreferred,
 }));
 
 /* ------------------------------------------------------------------ */
@@ -176,6 +180,7 @@ function formatSalary(min: number | null, max: number | null) {
 /* ------------------------------------------------------------------ */
 
 export default function JobsPage() {
+  const locale = useLocale();
   const t = useTranslations("jobs");
   const tNav = useTranslations("nav");
 
@@ -186,6 +191,7 @@ export default function JobsPage() {
   /* filters */
   const [search, setSearch] = useState("");
   const [roleFilter, setRoleFilter] = useState("All Roles");
+  const [languageFilter, setLanguageFilter] = useState("All Languages");
 
   /* fetch jobs on mount */
   useEffect(() => {
@@ -240,6 +246,18 @@ export default function JobsPage() {
       );
     }
 
+    if (languageFilter !== "All Languages") {
+      if (languageFilter === "Bilingual (Any)") {
+        list = list.filter((j) => j.bilingual);
+      } else {
+        list = list.filter(
+          (j) =>
+            j.languageRequired === languageFilter ||
+            (j.languagePreferred && j.languagePreferred.includes(languageFilter))
+        );
+      }
+    }
+
     if (search.trim()) {
       const q = search.toLowerCase();
       list = list.filter(
@@ -253,7 +271,7 @@ export default function JobsPage() {
     }
 
     return list;
-  }, [search, roleFilter]);
+  }, [search, roleFilter, languageFilter]);
 
   /* ================================================================ */
   /*  Render                                                           */
@@ -321,6 +339,24 @@ export default function JobsPage() {
                     </SelectItem>
                   ))}
                 </SelectGroup>
+              ))}
+            </SelectContent>
+          </Select>
+
+          {/* Language filter */}
+          <Select value={languageFilter} onValueChange={setLanguageFilter}>
+            <SelectTrigger className="h-11 w-full sm:w-48">
+              <SelectValue placeholder={locale === "es" ? "Todos los idiomas" : "All Languages"} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="All Languages">
+                {locale === "es" ? "Todos los idiomas" : "All Languages"}
+              </SelectItem>
+              <SelectItem value="Bilingual (Any)">
+                {locale === "es" ? "Bilingüe (cualquier)" : "Bilingual (Any)"}
+              </SelectItem>
+              {["Spanish", "Tagalog", "Cantonese", "Mandarin", "Vietnamese", "Korean"].map((lang) => (
+                <SelectItem key={lang} value={lang}>{lang}</SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -462,7 +498,9 @@ export default function JobsPage() {
                       </Badge>
                       {job.bilingual && (
                         <Badge className="bg-amber-50 text-amber-700 text-xs">
-                          {t("bilingual")}
+                          {job.languageRequired
+                            ? `${t("bilingual")}: ${job.languageRequired}`
+                            : t("bilingual")}
                         </Badge>
                       )}
                       {job.tags.map((tag) => (

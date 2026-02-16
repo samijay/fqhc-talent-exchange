@@ -15,18 +15,24 @@ import {
   Trophy,
   TrendingUp,
   Lightbulb,
+  Briefcase,
+  DollarSign,
+  Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-  ASSESSMENT_QUESTIONS,
   DOMAIN_DEFINITIONS,
   calculateAssessmentResults,
+  getQuestionsForRole,
   getDomainName,
   getDomainDescription,
   getLevelLabel,
+  ROLE_INSIGHTS,
   type AssessmentResults,
+  type AssessmentQuestion,
   type DomainId,
 } from "@/lib/career-assessment-engine";
+import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 
 /* ------------------------------------------------------------------ */
 /*  i18n — EN / ES UI strings                                         */
@@ -94,6 +100,7 @@ const UI_STRINGS = {
 interface CareerInsightsProps {
   onComplete: (results: AssessmentResults) => void;
   onSkip: () => void;
+  roleId?: string;
 }
 
 /* ------------------------------------------------------------------ */
@@ -165,9 +172,16 @@ function seededShuffle<T>(arr: T[], seed: string): T[] {
 /*  Component                                                           */
 /* ------------------------------------------------------------------ */
 
-export default function CareerInsights({ onComplete, onSkip }: CareerInsightsProps) {
+export default function CareerInsights({ onComplete, onSkip, roleId }: CareerInsightsProps) {
   const locale = useLocale();
   const t = UI_STRINGS[locale === "es" ? "es" : "en"];
+  const isEs = locale === "es";
+
+  // Get role-tailored questions (falls back to universal if no roleId)
+  const questions: AssessmentQuestion[] = useMemo(
+    () => getQuestionsForRole(roleId),
+    [roleId],
+  );
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -175,9 +189,28 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
   const [results, setResults] = useState<AssessmentResults | null>(null);
   const [started, setStarted] = useState(false);
 
-  const question = ASSESSMENT_QUESTIONS[currentQuestion];
-  const totalQuestions = ASSESSMENT_QUESTIONS.length;
+  const question = questions[currentQuestion];
+  const totalQuestions = questions.length;
   const progress = ((currentQuestion + 1) / totalQuestions) * 100;
+
+  // Role-specific insight data (for results page)
+  const roleInsight = roleId ? ROLE_INSIGHTS[roleId] : undefined;
+
+  // Salary benchmark for this role (map resume roleIds to benchmark roleIds)
+  const ROLE_TO_BENCHMARK: Record<string, string> = {
+    chw: "chw",
+    care_coordinator: "care_coordinator",
+    medical_assistant: "medical_assistant",
+    case_manager: "case_manager",
+    behavioral_health: "behavioral_health",
+    registered_nurse: "nurse_rn",
+    patient_services: "patient_services",
+    revenue_cycle: "revenue_cycle",
+  };
+  const benchmarkRoleId = roleId ? ROLE_TO_BENCHMARK[roleId] : undefined;
+  const salaryBenchmark = benchmarkRoleId
+    ? SALARY_BENCHMARKS.find((b) => b.roleId === benchmarkRoleId)
+    : undefined;
 
   // Shuffle answer options so the "best" answer isn't always first
   const shuffledOptions = useMemo(
@@ -201,8 +234,8 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
     if (currentQuestion < totalQuestions - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      // Calculate results
-      const assessmentResults = calculateAssessmentResults(updatedAnswers, locale);
+      // Calculate results (role-aware)
+      const assessmentResults = calculateAssessmentResults(updatedAnswers, locale, roleId);
       setResults(assessmentResults);
       onComplete(assessmentResults);
     }
@@ -210,7 +243,7 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
 
   function handleBack() {
     if (currentQuestion > 0) {
-      const prevQuestion = ASSESSMENT_QUESTIONS[currentQuestion - 1];
+      const prevQuestion = questions[currentQuestion - 1];
       setSelectedOption(answers[prevQuestion.id] || null);
       setCurrentQuestion(currentQuestion - 1);
     }
@@ -452,6 +485,107 @@ export default function CareerInsights({ onComplete, onSkip }: CareerInsightsPro
               ))}
             </div>
           </div>
+
+          {/* What Employers Want — only shown for role-specific assessments */}
+          {roleInsight && (
+            <div className="mt-8 rounded-xl border-2 border-stone-200 bg-gradient-to-br from-stone-50 to-teal-50/30 p-5">
+              <div className="mb-4 flex items-center gap-2">
+                <Briefcase className="size-5 text-teal-700" />
+                <h3 className="text-lg font-bold text-stone-900">
+                  {isEs ? "Lo que buscan los empleadores de FQHCs" : "What FQHC Hiring Managers Look For"}
+                </h3>
+              </div>
+
+              {/* Top Qualifications */}
+              <div className="mb-4">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                  {isEs ? "Calificaciones principales" : "Top Qualifications"}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {(isEs ? roleInsight.employerWants.esTopQualifications : roleInsight.employerWants.topQualifications).map((qual, i) => (
+                    <span
+                      key={i}
+                      className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-medium text-teal-800"
+                    >
+                      <CheckCircle className="size-3" />
+                      {qual}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Top Skills */}
+              <div className="mb-4">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                  {isEs ? "Habilidades clave" : "Key Skills"}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {(isEs ? roleInsight.employerWants.esTopSkills : roleInsight.employerWants.topSkills).map((skill, i) => (
+                    <span
+                      key={i}
+                      className="inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Certifications */}
+              {roleInsight.employerWants.certifications.length > 0 && (
+                <div>
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                    {isEs ? "Certificaciones valoradas" : "Valued Certifications"}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {(isEs ? roleInsight.employerWants.esCertifications : roleInsight.employerWants.certifications).map((cert, i) => (
+                      <span
+                        key={i}
+                        className="inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-800"
+                      >
+                        <Award className="size-3" />
+                        {cert}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Salary Benchmark — only shown when we have data */}
+          {salaryBenchmark && (
+            <div className="mt-4 rounded-xl border border-stone-200 bg-white p-5">
+              <div className="mb-3 flex items-center gap-2">
+                <DollarSign className="size-5 text-green-600" />
+                <h3 className="text-base font-bold text-stone-900">
+                  {isEs ? "Rango salarial en California" : "California Salary Range"}
+                </h3>
+              </div>
+              <div className="flex items-center justify-between gap-2">
+                <div className="text-center">
+                  <p className="text-xs text-stone-500">{isEs ? "25° percentil" : "25th percentile"}</p>
+                  <p className="text-lg font-bold text-stone-700">
+                    ${Math.round(salaryBenchmark.p25 / 1000)}K
+                  </p>
+                </div>
+                <div className="flex-1 px-4">
+                  <div className="relative h-3 rounded-full bg-stone-200">
+                    <div className="absolute inset-y-0 left-0 right-0 rounded-full bg-gradient-to-r from-teal-300 via-teal-500 to-amber-500" />
+                  </div>
+                </div>
+                <div className="text-center">
+                  <p className="text-xs text-stone-500">{isEs ? "75° percentil" : "75th percentile"}</p>
+                  <p className="text-lg font-bold text-stone-700">
+                    ${Math.round(salaryBenchmark.p75 / 1000)}K
+                  </p>
+                </div>
+              </div>
+              <p className="mt-2 text-center text-xs text-stone-500">
+                {isEs ? `Salario mediano: $${(salaryBenchmark.p50 / 1000).toFixed(0)}K/año` : `Median salary: $${(salaryBenchmark.p50 / 1000).toFixed(0)}K/year`}
+              </p>
+            </div>
+          )}
 
           {/* Done button */}
           <div className="mt-8 text-center">

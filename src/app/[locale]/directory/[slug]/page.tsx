@@ -127,6 +127,11 @@ export default async function FQHCProfilePage({
                     {locale === "es" ? "Alto Riesgo de Financiamiento" : "High Funding Risk"}
                   </Badge>
                 )}
+                {fqhc.unionInfo?.unionized && (
+                  <Badge className="border-blue-300/30 bg-blue-400/20 text-blue-100">
+                    {locale === "es" ? "Sindicalizado" : "Union"}
+                  </Badge>
+                )}
               </div>
             </div>
 
@@ -318,7 +323,35 @@ export default async function FQHCProfilePage({
                   <dt className="text-stone-500">{t("nhscApproved")}</dt>
                   <dd className="font-medium text-stone-800">{fqhc.nhscApproved ? "Yes" : "No"}</dd>
                 </div>
+                {fqhc.unionInfo && (
+                  <div className="flex justify-between">
+                    <dt className="text-stone-500">{locale === "es" ? "Sindicalizado" : "Union"}</dt>
+                    <dd className="font-medium text-stone-800">{fqhc.unionInfo.unionized ? (locale === "es" ? "Sí" : "Yes") : "No"}</dd>
+                  </div>
+                )}
               </dl>
+
+              {/* Union Details */}
+              {fqhc.unionInfo?.unionized && (
+                <div className="mt-4 rounded-lg border border-blue-100 bg-blue-50/50 p-3">
+                  <p className="text-xs font-semibold text-blue-800">
+                    {locale === "es" ? "Sindicato(s)" : "Union(s)"}
+                  </p>
+                  <div className="mt-1.5 flex flex-wrap gap-1">
+                    {fqhc.unionInfo.unions.map((u) => (
+                      <Badge key={u} className="bg-blue-100 text-blue-700 text-xs">{u}</Badge>
+                    ))}
+                  </div>
+                  {fqhc.unionInfo.representedRoles.length > 0 && (
+                    <p className="mt-2 text-xs text-blue-600">
+                      {locale === "es" ? "Representa:" : "Represents:"} {fqhc.unionInfo.representedRoles.join(", ")}
+                    </p>
+                  )}
+                  {fqhc.unionInfo.notes && (
+                    <p className="mt-1.5 text-xs text-stone-500 italic">{fqhc.unionInfo.notes}</p>
+                  )}
+                </div>
+              )}
 
               {/* Links */}
               <div className="mt-6 space-y-2">
