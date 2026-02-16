@@ -362,7 +362,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 40,
     fundingImpactLevel: "high",
     missionStatement: "St. John's is dedicated to improving the health of the under-served, particularly in the Santa Monica, Mar Vista, and South Los Angeles areas.",
-    unionInfo: { unionized: true, unions: ["SEIU-UHW"], representedRoles: ["Clinical Staff"], notes: null },
+    unionInfo: { unionized: true, unions: ["SEIU-UHW"], representedRoles: ["Clinical Staff", "Administrative Staff"], notes: "SEIU-UHW represents clinic workers. Also a named partner in the SEIU Community Clinic Workers United coalition." },
   },
   {
     name: "T.H.E. Health and Wellness Centers",
@@ -798,7 +798,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 45,
     fundingImpactLevel: "high",
     missionStatement: "San Ysidro Health is committed to providing quality, compassionate healthcare to all in need, regardless of circumstance, in the border region.",
-    unionInfo: null,
+    unionInfo: { unionized: false, unions: [], representedRoles: [], notes: "SEIU 221 represents county clinic workers in the San Diego region. San Ysidro Health's specific union status is unconfirmed — direct verification needed. SEIU Community Clinic Workers United organizing campaign is active statewide." },
   },
   {
     name: "Neighborhood Healthcare",
@@ -933,7 +933,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "Imperial Beach Health Center provides quality healthcare to the Imperial Beach community.",
-    unionInfo: null,
+    unionInfo: { unionized: true, unions: ["NUHW"], representedRoles: ["Clinical Staff", "Administrative Staff"], notes: "Professionals at Imperial Beach Community Clinic organized with NUHW in January 2026. Two sites — Imperial Beach and San Diego." },
   },
   {
     name: "TrueCare",
@@ -1018,7 +1018,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "Mission Neighborhood Health Center provides quality healthcare and support services to the diverse communities of the Mission District.",
-    unionInfo: null,
+    unionInfo: { unionized: true, unions: ["NUHW"], representedRoles: ["Clinical Staff", "Administrative Staff", "Medical Assistants"], notes: "NUHW has represented workers since 2012. One of NUHW's verified FQHC bargaining units in San Francisco." },
   },
   {
     name: "LifeLong Medical Care",
@@ -1045,7 +1045,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "LifeLong Medical Care provides quality healthcare and support services to underserved communities in the East Bay.",
-    unionInfo: { unionized: true, unions: ["SEIU-UHW"], representedRoles: ["Clinical Staff", "Administrative Staff"], notes: null },
+    unionInfo: { unionized: true, unions: ["SEIU-UHW"], representedRoles: ["Clinical Staff", "Administrative Staff", "Medical Assistants"], notes: "SEIU-UHW representation verified via NLRB Case 32-RC-284951. Covers non-management staff across 15 sites in the East Bay." },
   },
   {
     name: "Asian Health Services",
@@ -1072,7 +1072,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 20,
     fundingImpactLevel: "moderate",
     missionStatement: "Asian Health Services provides health, social, and advocacy services to the medically underserved in Alameda County.",
-    unionInfo: { unionized: true, unions: ["SEIU-UHW"], representedRoles: ["Clinical Staff"], notes: null },
+    unionInfo: { unionized: true, unions: ["SEIU Local 1021"], representedRoles: ["Clinical Staff", "Administrative Staff", "Medical Assistants", "Health Educators"], notes: "SEIU 1021 represents 500+ employees. Won a historic contract in 2023 with a 21% raise over 3 years — the largest in the organization's history." },
   },
   {
     name: "La Clinica de La Raza",
@@ -1099,7 +1099,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 30,
     fundingImpactLevel: "high",
     missionStatement: "La Clínica provides culturally appropriate, quality, and accessible health care to the diverse communities of the San Francisco Bay Area.",
-    unionInfo: { unionized: true, unions: ["SEIU-UHW", "CNA/NNU"], representedRoles: ["Clinical Staff", "Nursing Staff", "Administrative Staff"], notes: "CNA/NNU represents RNs; SEIU-UHW represents other staff" },
+    unionInfo: { unionized: true, unions: ["SEIU Local 1021", "CNA/NNU"], representedRoles: ["Clinical Staff", "Nursing Staff", "Administrative Staff", "Medical Assistants", "Community Health Workers"], notes: "SEIU 1021 represents 800+ non-nursing staff across 35 sites. CNA/NNU represents registered nurses. Multiple contract negotiations and picket actions documented. Part of $13.3M SEIU training partnership." },
   },
   {
     name: "North East Medical Services",
@@ -1180,7 +1180,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 15,
     fundingImpactLevel: "moderate",
     missionStatement: "Gardner Health Services provides comprehensive healthcare to the diverse communities of Santa Clara County.",
-    unionInfo: null,
+    unionInfo: { unionized: true, unions: ["SEIU Local 521"], representedRoles: ["Clinical Staff", "Administrative Staff", "Medical Assistants"], notes: "SEIU 521 partnership. Negotiated retention bonuses during post-COVID workforce crisis using AB 204 framework." },
   },
   {
     name: "San Francisco Community Health Center",
@@ -1369,7 +1369,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 10,
     fundingImpactLevel: "low",
     missionStatement: "West Oakland Health Council provides quality healthcare to the communities of West Oakland.",
-    unionInfo: null,
+    unionInfo: { unionized: true, unions: ["SEIU Local 1021"], representedRoles: ["Clinical Staff", "Administrative Staff", "Community Health Workers"], notes: "Part of SEIU 1021's Bay Area community clinic worker network. Benefited from the $13.3M SEIU training partnership for clinic workers." },
   },
   {
     name: "Tri-City Health Center",
@@ -1423,7 +1423,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 5,
     fundingImpactLevel: "low",
     missionStatement: "HealthRIGHT 360 provides integrated healthcare and social services to people in need.",
-    unionInfo: null,
+    unionInfo: { unionized: true, unions: ["SEIU Local 1021"], representedRoles: ["Clinical Staff", "Behavioral Health Staff", "Substance Use Counselors", "Medical Assistants", "Administrative Staff"], notes: "850+ behavioral health and clinic workers voted to join SEIU in 2023. Workers at 100+ clinics in Northern and Southern California organized; Bay Area workers joined SEIU 1021." },
   },
   {
     name: "Planned Parenthood Mar Monte",
@@ -2164,7 +2164,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 50,
     fundingImpactLevel: "high",
     missionStatement: "Clinicas de Salud del Pueblo provides quality, comprehensive health services to residents of the Imperial and Coachella Valleys, regardless of ability to pay.",
-    unionInfo: null,
+    unionInfo: { unionized: false, unions: ["SEIU-UHW"], representedRoles: [], notes: "SEIU-UHW filed NLRB organizing petition (Case 28-RC-304498). Workers at sister organization Innercare also subject to NLRB complaint for alleged union suppression. Organizing is active but not yet certified." },
   },
   {
     name: "Desert AIDS Project/DAP Health",

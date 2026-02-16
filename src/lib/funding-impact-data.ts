@@ -1097,3 +1097,918 @@ export function getLegislationByLevel(level: "federal" | "state" | "local"): Leg
 export function getLegislationByTag(tag: string): LegislationSource[] {
   return legislationSources.filter((l) => l.tags.includes(tag));
 }
+
+/* ------------------------------------------------------------------ */
+/*  FQHC Revenue Optimization Strategies                               */
+/*  California-focused strategies to increase, diversify, and unlock    */
+/*  hidden revenue — especially critical during Medicaid restructuring  */
+/* ------------------------------------------------------------------ */
+
+export interface RevenueStrategy {
+  id: string;
+  title: { en: string; es: string };
+  category: "billing" | "program" | "grants" | "operations" | "partnerships";
+  difficulty: "low" | "medium" | "high";
+  potentialRevenue: string;
+  timeToImplement: string;
+  description: { en: string; es: string };
+  steps: { en: string; es: string }[];
+  keyBillingCodes: string[] | null;
+  relevantLegislation: string[] | null; // IDs from legislationSources
+  sources: { title: string; url: string }[];
+}
+
+export const revenueStrategies: RevenueStrategy[] = [
+  {
+    id: "same-day-covisits",
+    title: {
+      en: "Same-Day Medical + Behavioral Health Co-Visits",
+      es: "Co-Visitas Médicas + Salud Mental el Mismo Día",
+    },
+    category: "billing",
+    difficulty: "medium",
+    potentialRevenue: "$150–400 additional per co-visit",
+    timeToImplement: "1–3 months",
+    description: {
+      en: "FQHCs can bill for two separate PPS visits on the same day when a patient sees a medical provider AND a behavioral health provider (clinical psychologist or LCSW). Many FQHCs already have behavioral health staff but don't schedule or bill co-visits. Under both Medicare PPS and Medi-Cal, this is a fully reimbursable second encounter.",
+      es: "Los FQHCs pueden facturar dos visitas PPS separadas el mismo día cuando un paciente ve a un proveedor médico Y a un proveedor de salud mental (psicólogo clínico o LCSW). Muchos FQHCs ya tienen personal de salud mental pero no programan ni facturan co-visitas. Bajo Medicare PPS y Medi-Cal, este es un segundo encuentro completamente reembolsable.",
+    },
+    steps: [
+      {
+        en: "Audit current patient panels — identify patients with both medical and BH needs",
+        es: "Auditar los paneles de pacientes actuales — identificar pacientes con necesidades médicas y de salud mental",
+      },
+      {
+        en: "Implement warm handoffs: medical provider walks patient to BH provider same day",
+        es: "Implementar transferencias directas: el proveedor médico acompaña al paciente al proveedor de salud mental el mismo día",
+      },
+      {
+        en: "Train scheduling staff to pre-schedule co-visits for identified patients",
+        es: "Capacitar al personal de programación para pre-programar co-visitas para pacientes identificados",
+      },
+      {
+        en: "Submit two separate claims with different revenue codes (medical: 521, BH: 900)",
+        es: "Enviar dos reclamos separados con diferentes códigos de ingresos (médico: 521, salud mental: 900)",
+      },
+    ],
+    keyBillingCodes: ["Revenue Code 521 (medical)", "Revenue Code 900 (BH)", "90791", "90832-90838", "96150-96155"],
+    relevantLegislation: null,
+    sources: [
+      {
+        title: "Same-Day Billing for Medical and Mental Health Services at FQHCs — CHCF",
+        url: "https://www.chcf.org/resource/same-day-billing-medical-mental-health-services-fqhcs/",
+      },
+      {
+        title: "Can FQHCs bill for more than one visit on the same day? — AMA",
+        url: "https://www.ama-assn.org/practice-management/sustainability/can-fqhcs-bill-more-one-visit-same-day-patient",
+      },
+    ],
+  },
+  {
+    id: "care-management-cpt-codes",
+    title: {
+      en: "Chronic Care Management & Care Coordination (CPT Codes)",
+      es: "Manejo de Cuidados Crónicos y Coordinación de Cuidados (Códigos CPT)",
+    },
+    category: "billing",
+    difficulty: "medium",
+    potentialRevenue: "$50–150/patient/month for qualifying patients",
+    timeToImplement: "2–4 months",
+    description: {
+      en: "As of late 2025, FQHCs transitioned from the bundled G0511 code to individual CPT codes for care management services. This actually opens MORE billing opportunities — each service is now billed separately. Services include Chronic Care Management (CCM/99490, 99487, 99489), Behavioral Health Integration (BHI/99484), Remote Patient Monitoring (RPM/99457-99458), Community Health Integration (CHI), and Principal Illness Navigation (PIN). Multiple services can be billed for the same patient in a single month.",
+      es: "Desde finales de 2025, los FQHCs pasaron del código agrupado G0511 a códigos CPT individuales para servicios de manejo de cuidados. Esto en realidad abre MÁS oportunidades de facturación — cada servicio se factura por separado. Los servicios incluyen Manejo de Cuidados Crónicos (CCM/99490, 99487, 99489), Integración de Salud Mental (BHI/99484), Monitoreo Remoto de Pacientes (RPM/99457-99458), Integración de Salud Comunitaria (CHI) y Navegación de Enfermedad Principal (PIN). Se pueden facturar múltiples servicios para el mismo paciente en un solo mes.",
+    },
+    steps: [
+      {
+        en: "Identify all patients with 2+ chronic conditions (CCM-eligible) in your EHR",
+        es: "Identificar todos los pacientes con 2+ condiciones crónicas (elegibles para CCM) en su EHR",
+      },
+      {
+        en: "Assign care management staff (RN, LVN, MA, CHW) to panels of chronic patients",
+        es: "Asignar personal de manejo de cuidados (RN, LVN, MA, CHW) a paneles de pacientes crónicos",
+      },
+      {
+        en: "Document at least 20 minutes of non-face-to-face care coordination monthly per patient",
+        es: "Documentar al menos 20 minutos de coordinación de cuidados no presencial mensualmente por paciente",
+      },
+      {
+        en: "Bill individual CPT codes (99490 for CCM, 99484 for BHI, etc.) — no longer use G0511",
+        es: "Facturar códigos CPT individuales (99490 para CCM, 99484 para BHI, etc.) — ya no usar G0511",
+      },
+      {
+        en: "Layer RPM codes for patients with devices (blood pressure cuffs, glucometers)",
+        es: "Agregar códigos RPM para pacientes con dispositivos (tensiómetros, glucómetros)",
+      },
+    ],
+    keyBillingCodes: ["99490", "99487", "99489", "99484", "99457", "99458", "99491"],
+    relevantLegislation: null,
+    sources: [
+      {
+        title: "New Code G0511 Transition: What FQHCs Should Know for 2025 — Prevounce",
+        url: "https://blog.prevounce.com/whats-happening-with-care-management-code-g0511",
+      },
+      {
+        title: "CMS 2025 Update: FQHC Billing for G0511 Replacement — Medcor Group",
+        url: "https://medcorinc.com/cms-2025-update-fqhc-and-rhc-billing-deadline-for-g0511-replacement/",
+      },
+      {
+        title: "Reimbursement Tips: CCM/CCCM/PCM — NACHC",
+        url: "https://www.nachc.org/nachc-content/uploads/2023/07/Reimbursement-Tips_CCM-CCCM-PCM.pdf",
+      },
+    ],
+  },
+  {
+    id: "chw-medi-cal-billing",
+    title: {
+      en: "Community Health Worker Medi-Cal Billing",
+      es: "Facturación de Trabajadores Comunitarios de Salud por Medi-Cal",
+    },
+    category: "billing",
+    difficulty: "medium",
+    potentialRevenue: "Varies — managed care plan rates; up to 150% of Medi-Cal fee schedule at some plans",
+    timeToImplement: "3–6 months (credentialing + contracting)",
+    description: {
+      en: "California added CHW services as a Medi-Cal benefit (AB 2697). FQHCs that employ CHWs can now bill managed care plans for health navigation, health education, social needs screening, and individual advocacy. DHCS issued a statewide standing recommendation for CHW services. While CHW services are NOT PPS-eligible, FQHCs can either bill managed care directly OR incorporate CHW costs into their PPS rate through a change-in-scope request. Some plans pay up to 150% of Medi-Cal rates, and there are $65K capacity grants available ($75K for bilingual CHWs).",
+      es: "California agregó los servicios de CHW como un beneficio de Medi-Cal (AB 2697). Los FQHCs que emplean CHWs ahora pueden facturar a planes de atención administrada por navegación de salud, educación sanitaria, evaluación de necesidades sociales y defensa individual. DHCS emitió una recomendación permanente estatal para servicios de CHW. Aunque los servicios de CHW NO son elegibles para PPS, los FQHCs pueden facturar directamente a la atención administrada O incorporar costos de CHW en su tasa PPS mediante una solicitud de cambio de alcance. Algunos planes pagan hasta 150% de las tasas de Medi-Cal, y hay subvenciones de capacidad de $65K disponibles ($75K para CHWs bilingües).",
+    },
+    steps: [
+      {
+        en: "Ensure CHWs meet DHCS certification requirements (or are working toward certification)",
+        es: "Asegurar que los CHWs cumplan los requisitos de certificación del DHCS (o estén trabajando hacia la certificación)",
+      },
+      {
+        en: "Contract with managed care plans to bill for CHW services",
+        es: "Contratar con planes de atención administrada para facturar servicios de CHW",
+      },
+      {
+        en: "Screen Medi-Cal patients for CHW eligibility criteria (chronic conditions, ACEs, social needs)",
+        es: "Evaluar pacientes de Medi-Cal para criterios de elegibilidad de CHW (condiciones crónicas, ACEs, necesidades sociales)",
+      },
+      {
+        en: "Apply for Medi-Cal Capacity Grant ($65K per CHW, +$10K bilingual incentive)",
+        es: "Solicitar Subvención de Capacidad de Medi-Cal ($65K por CHW, +$10K incentivo bilingüe)",
+      },
+      {
+        en: "File change-in-scope to incorporate CHW costs into PPS rate (long-term strategy)",
+        es: "Presentar cambio de alcance para incorporar costos de CHW en la tasa PPS (estrategia a largo plazo)",
+      },
+    ],
+    keyBillingCodes: null,
+    relevantLegislation: ["ca-ab-2697"],
+    sources: [
+      {
+        title: "Medi-Cal Billing for Community Health Worker Services — Pear Suite",
+        url: "https://www.pearsuite.com/post/medi-cal-billing-for-community-health-workers/",
+      },
+      {
+        title: "CHW FAQs for FQHCs, RHCs, and IHS — DHCS",
+        url: "https://www.dhcs.ca.gov/services/medi-cal/Documents/CHW-FAQs-FQHC-RHC-IHS.pdf",
+      },
+      {
+        title: "Community Health Worker Services — Health Net California",
+        url: "https://providerlibrary.healthnetcalifornia.com/medi-cal/provider-manual/calaim/community-health-worker-services-medi-cal.html",
+      },
+    ],
+  },
+  {
+    id: "340b-optimization",
+    title: {
+      en: "340B Drug Pricing Program Optimization",
+      es: "Optimización del Programa de Precios de Medicamentos 340B",
+    },
+    category: "program",
+    difficulty: "high",
+    potentialRevenue: "Avg. 5% of total operating budget; $500K–$2M+ annually for larger FQHCs",
+    timeToImplement: "3–12 months (depending on current program maturity)",
+    description: {
+      en: "The 340B program allows FQHCs to purchase outpatient drugs at deeply discounted prices, generating significant savings that can be reinvested in patient care. Many FQHCs underutilize their 340B programs. Key optimization areas include: contract pharmacy analysis and expansion, specialty drug capture, virtual inventory models, 340B-specific software, and compliance oversight committees. WARNING: The 340B program faces significant threats in 2025-2026 — a potential shift from upfront discounts to a rebate model could create cash flow crises.",
+      es: "El programa 340B permite a los FQHCs comprar medicamentos ambulatorios a precios profundamente descontados, generando ahorros significativos que pueden reinvertirse en atención al paciente. Muchos FQHCs subutilizan sus programas 340B. Las áreas clave de optimización incluyen: análisis y expansión de farmacias por contrato, captura de medicamentos especializados, modelos de inventario virtual, software específico para 340B y comités de supervisión de cumplimiento. ADVERTENCIA: El programa 340B enfrenta amenazas significativas en 2025-2026 — un posible cambio de descuentos iniciales a un modelo de reembolso podría crear crisis de flujo de efectivo.",
+    },
+    steps: [
+      {
+        en: "Audit current 340B capture rate — many FQHCs capture only 40-60% of eligible prescriptions",
+        es: "Auditar la tasa de captura 340B actual — muchos FQHCs capturan solo el 40-60% de las recetas elegibles",
+      },
+      {
+        en: "Evaluate and expand contract pharmacy relationships (specialty, mail order, retail)",
+        es: "Evaluar y expandir relaciones con farmacias por contrato (especializadas, correo, minoristas)",
+      },
+      {
+        en: "Invest in 340B-specific software that integrates with your EHR",
+        es: "Invertir en software específico para 340B que se integre con su EHR",
+      },
+      {
+        en: "Establish a monthly 340B oversight committee to review capture rates and compliance",
+        es: "Establecer un comité mensual de supervisión 340B para revisar tasas de captura y cumplimiento",
+      },
+      {
+        en: "Model financial impact of potential rebate-model shift and build cash reserves",
+        es: "Modelar el impacto financiero del posible cambio al modelo de reembolso y construir reservas de efectivo",
+      },
+    ],
+    keyBillingCodes: null,
+    relevantLegislation: null,
+    sources: [
+      {
+        title: "340B Discounts at Risk: What It Means for FQHCs — AAFCPAs",
+        url: "https://www.aafcpa.com/2025/03/19/340b-discounts-at-risk-what-it-means-for-fqhcs-and-patient-care/",
+      },
+      {
+        title: "340B Participation and Safety Net Engagement Among FQHCs — PMC",
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11452821/",
+      },
+      {
+        title: "The Hidden Revenue Opportunities Most FQHCs Are Missing — Jill Steeley",
+        url: "https://www.jillsteeley.com/blog/the-hidden-revenue-opportunities-most-fqhcs-are-missing",
+      },
+    ],
+  },
+  {
+    id: "ecm-community-supports",
+    title: {
+      en: "Enhanced Care Management & Community Supports (CalAIM)",
+      es: "Manejo Mejorado de Cuidados y Apoyos Comunitarios (CalAIM)",
+    },
+    category: "program",
+    difficulty: "medium",
+    potentialRevenue: "Varies — ECM capitation rates per member per month",
+    timeToImplement: "3–6 months to become ECM lead entity",
+    description: {
+      en: "CalAIM's Enhanced Care Management (ECM) program pays FQHCs capitated rates for intensive care coordination for highest-need Medi-Cal members. Community Supports pays for housing navigation, medically tailored meals, and SDOH services. FQHCs can serve as ECM lead entities or subcontract with managed care plans. This revenue stream funds CHWs, care coordinators, and patient navigators. Critical risk: the CalAIM 1115 waiver expires December 2026.",
+      es: "El programa de Manejo Mejorado de Cuidados (ECM) de CalAIM paga a los FQHCs tasas capitadas por coordinación intensiva de cuidados para los miembros de Medi-Cal de mayor necesidad. Los Apoyos Comunitarios pagan por navegación de vivienda, comidas adaptadas médicamente y servicios de SDOH. Los FQHCs pueden servir como entidades líderes de ECM o subcontratar con planes de atención administrada. Este flujo de ingresos financia CHWs, coordinadores de cuidados y navegadores de pacientes. Riesgo crítico: el waiver 1115 de CalAIM expira en diciembre de 2026.",
+    },
+    steps: [
+      {
+        en: "Apply to become an ECM lead entity with your managed care plan(s)",
+        es: "Solicitar ser una entidad líder de ECM con su(s) plan(es) de atención administrada",
+      },
+      {
+        en: "Identify patients meeting ECM target population criteria in your panel",
+        es: "Identificar pacientes que cumplan los criterios de población objetivo de ECM en su panel",
+      },
+      {
+        en: "Build or expand care coordination team (CHWs, care coordinators, navigators)",
+        es: "Construir o expandir el equipo de coordinación de cuidados (CHWs, coordinadores de cuidados, navegadores)",
+      },
+      {
+        en: "Negotiate Community Supports contracts for housing navigation, medically tailored meals",
+        es: "Negociar contratos de Apoyos Comunitarios para navegación de vivienda, comidas adaptadas médicamente",
+      },
+      {
+        en: "Advocate for CalAIM waiver renewal — engage with DHCS and managed care plan partners",
+        es: "Abogar por la renovación del waiver CalAIM — involucrarse con DHCS y socios de planes de atención administrada",
+      },
+    ],
+    keyBillingCodes: null,
+    relevantLegislation: ["ca-ab-133"],
+    sources: [
+      {
+        title: "CalAIM — DHCS",
+        url: "https://www.dhcs.ca.gov/CalAIM",
+      },
+      {
+        title: "CalAIM ECM and Community Supports — CA Legislative Analyst's Office",
+        url: "https://lao.ca.gov/Publications/Report/5003",
+      },
+    ],
+  },
+  {
+    id: "sliding-fee-insurance-screening",
+    title: {
+      en: "Sliding Fee + Insurance Screening Optimization",
+      es: "Optimización de Escala Deslizante + Evaluación de Seguro",
+    },
+    category: "operations",
+    difficulty: "low",
+    potentialRevenue: "Significant — converting uninsured to Medi-Cal increases revenue per visit 3-5x",
+    timeToImplement: "1–2 months",
+    description: {
+      en: "Many FQHCs process sliding fee applications without checking if the patient qualifies for Medi-Cal, Covered California, or other insurance. By integrating systematic insurance screening into the sliding fee application process, FQHCs can convert uninsured patients to insured status — dramatically increasing revenue per visit from sliding-fee rates ($20-50) to PPS rates ($200-400). This is one of the simplest and highest-impact revenue strategies available.",
+      es: "Muchos FQHCs procesan solicitudes de escala deslizante sin verificar si el paciente califica para Medi-Cal, Covered California u otro seguro. Al integrar la evaluación sistemática de seguro en el proceso de solicitud de escala deslizante, los FQHCs pueden convertir pacientes sin seguro a estado asegurado — aumentando dramáticamente los ingresos por visita de tasas de escala deslizante ($20-50) a tasas PPS ($200-400). Esta es una de las estrategias de ingresos más simples y de mayor impacto disponibles.",
+    },
+    steps: [
+      {
+        en: "Train front desk and eligibility staff to screen every sliding-fee applicant for Medi-Cal/Covered CA",
+        es: "Capacitar al personal de recepción y elegibilidad para evaluar a cada solicitante de escala deslizante para Medi-Cal/Covered CA",
+      },
+      {
+        en: "Add insurance screening questions to the sliding fee application form",
+        es: "Agregar preguntas de evaluación de seguro al formulario de solicitud de escala deslizante",
+      },
+      {
+        en: "Partner with a Certified Enrollment Entity (CEE) or train staff as Certified Application Assistors",
+        es: "Asociarse con una Entidad de Inscripción Certificada (CEE) o capacitar personal como Asistentes de Solicitud Certificados",
+      },
+      {
+        en: "Track conversion rates monthly: what % of sliding-fee patients were enrolled in coverage?",
+        es: "Rastrear tasas de conversión mensualmente: ¿qué % de pacientes de escala deslizante fueron inscritos en cobertura?",
+      },
+    ],
+    keyBillingCodes: null,
+    relevantLegislation: null,
+    sources: [
+      {
+        title: "Unlocking Hidden Revenue Potential in Your FQHC Sliding Fee Program — Community Link Consulting",
+        url: "https://www.communitylinkconsulting.com/blog/revenue-potential-fqhc-sliding-fee-programs",
+      },
+    ],
+  },
+  {
+    id: "pps-rate-rebasing",
+    title: {
+      en: "PPS Rate Rebasing & Change-in-Scope Requests",
+      es: "Rebase de Tasas PPS y Solicitudes de Cambio de Alcance",
+    },
+    category: "operations",
+    difficulty: "high",
+    potentialRevenue: "10–30% PPS rate increase if costs have grown since last rebase",
+    timeToImplement: "6–12 months",
+    description: {
+      en: "FQHCs' PPS rates are based on historical costs and adjusted annually by the Medicare Economic Index (MEI). If an FQHC has significantly expanded services, added new providers, or increased costs since its PPS rate was last set, a change-in-scope request can reset the rate to reflect current costs. Adding new service types (dental, behavioral health, CHW services, pharmacy) or new sites qualifies as a change in scope. This is one of the most impactful but underutilized strategies for increasing per-visit revenue.",
+      es: "Las tasas PPS de los FQHCs se basan en costos históricos y se ajustan anualmente por el Índice Económico de Medicare (MEI). Si un FQHC ha expandido significativamente sus servicios, agregado nuevos proveedores o aumentado costos desde que se estableció su tasa PPS por última vez, una solicitud de cambio de alcance puede restablecer la tasa para reflejar los costos actuales. Agregar nuevos tipos de servicio (dental, salud mental, servicios de CHW, farmacia) o nuevos sitios califica como cambio de alcance. Esta es una de las estrategias más impactantes pero subutilizadas para aumentar los ingresos por visita.",
+    },
+    steps: [
+      {
+        en: "Compare current costs per visit to your existing PPS rate — if costs exceed PPS, consider rebasing",
+        es: "Comparar costos actuales por visita con su tasa PPS existente — si los costos exceden PPS, considerar el rebase",
+      },
+      {
+        en: "Document all new services added since last PPS rate setting (dental, BH, CHW, new sites)",
+        es: "Documentar todos los nuevos servicios agregados desde la última fijación de tasa PPS (dental, salud mental, CHW, nuevos sitios)",
+      },
+      {
+        en: "Work with a PPS rate consultant to prepare the change-in-scope application",
+        es: "Trabajar con un consultor de tasas PPS para preparar la solicitud de cambio de alcance",
+      },
+      {
+        en: "Submit to your Medicare Administrative Contractor (MAC) and Medi-Cal simultaneously",
+        es: "Enviar simultáneamente a su Contratista Administrativo de Medicare (MAC) y Medi-Cal",
+      },
+    ],
+    keyBillingCodes: null,
+    relevantLegislation: null,
+    sources: [
+      {
+        title: "Medi-Cal Explained: How Health Centers Are Paid — CHCF",
+        url: "https://www.chcf.org/resource/medi-cal-explained-how-health-centers-paid/",
+      },
+      {
+        title: "FQHC Payment Guide — NACHC",
+        url: "https://www.nachc.org/wp-content/uploads/2025/05/FQHC-Payment-Guide.pdf",
+      },
+    ],
+  },
+  {
+    id: "revenue-cycle-management",
+    title: {
+      en: "Revenue Cycle Management & Clinical Documentation Improvement",
+      es: "Manejo del Ciclo de Ingresos y Mejora de Documentación Clínica",
+    },
+    category: "operations",
+    difficulty: "medium",
+    potentialRevenue: "3–5% improvement in collections; 15% reduction in claim denials",
+    timeToImplement: "1–3 months for initial audit; ongoing",
+    description: {
+      en: "Many FQHCs leave significant revenue uncollected due to billing errors, under-coding, incomplete documentation, and high denial rates. A structured Clinical Documentation Improvement (CDI) program ensures providers document to the level of complexity they deliver. Quarterly billing audits catch missed charges and coding errors. A 3-5% improvement in collections efficiency can equal hundreds of thousands in additional annual revenue without adding a single new service.",
+      es: "Muchos FQHCs dejan ingresos significativos sin cobrar debido a errores de facturación, sub-codificación, documentación incompleta y altas tasas de denegación. Un programa estructurado de Mejora de Documentación Clínica (CDI) asegura que los proveedores documenten al nivel de complejidad que brindan. Las auditorías de facturación trimestrales detectan cargos perdidos y errores de codificación. Una mejora del 3-5% en la eficiencia de cobranza puede equivaler a cientos de miles en ingresos anuales adicionales sin agregar un solo servicio nuevo.",
+    },
+    steps: [
+      {
+        en: "Conduct a baseline revenue cycle audit: denials, AR days, collections rate, charge capture",
+        es: "Realizar una auditoría de referencia del ciclo de ingresos: denegaciones, días de cuentas por cobrar, tasa de cobranza, captura de cargos",
+      },
+      {
+        en: "Implement a CDI program: train providers on documentation requirements for billable visit levels",
+        es: "Implementar un programa CDI: capacitar a proveedores sobre requisitos de documentación para niveles de visita facturables",
+      },
+      {
+        en: "Set up quarterly coding audits with an AAPC-certified coder",
+        es: "Establecer auditorías de codificación trimestrales con un codificador certificado AAPC",
+      },
+      {
+        en: "Implement denial tracking and root-cause analysis — focus on top 5 denial reasons",
+        es: "Implementar seguimiento de denegaciones y análisis de causa raíz — enfocarse en las 5 principales razones de denegación",
+      },
+      {
+        en: "Consider AI-driven tools for predictive denial management (can reduce denials by up to 45%)",
+        es: "Considerar herramientas impulsadas por IA para manejo predictivo de denegaciones (puede reducir denegaciones hasta un 45%)",
+      },
+    ],
+    keyBillingCodes: null,
+    relevantLegislation: null,
+    sources: [
+      {
+        title: "FQHC Financial Health: Key Indicators — Community Link Consulting",
+        url: "https://www.communitylinkconsulting.com/blog/fqhc-financial-health-decline-indicators",
+      },
+      {
+        title: "Best Practices for Managing Revenue Cycle in FQHCs — CPa Medical Billing",
+        url: "https://cpamedicalbilling.com/best-practices-for-managing-revenue-cycle-in-fqhcs/",
+      },
+    ],
+  },
+  {
+    id: "grant-diversification",
+    title: {
+      en: "Grant Diversification Beyond Section 330",
+      es: "Diversificación de Subvenciones Más Allá de la Sección 330",
+    },
+    category: "grants",
+    difficulty: "medium",
+    potentialRevenue: "Varies widely — $50K to $5M+ per grant",
+    timeToImplement: "Ongoing — grant cycles vary",
+    description: {
+      en: "Beyond HRSA Section 330 grants, FQHCs can pursue a wide range of federal, state, and private funding sources. Key opportunities include: SAMHSA grants for substance use and mental health, CDC community health grants, California Endowment and CHCF grants, local public health department contracts, university research partnerships, and corporate/pharmaceutical foundation grants. Building a dedicated grants team (even part-time) can significantly diversify revenue.",
+      es: "Más allá de las subvenciones HRSA Sección 330, los FQHCs pueden buscar una amplia gama de fuentes de financiamiento federal, estatal y privado. Las oportunidades clave incluyen: subvenciones de SAMHSA para uso de sustancias y salud mental, subvenciones de salud comunitaria del CDC, subvenciones de California Endowment y CHCF, contratos de departamentos de salud pública locales, asociaciones de investigación universitaria y subvenciones de fundaciones corporativas/farmacéuticas. Construir un equipo dedicado de subvenciones (incluso a tiempo parcial) puede diversificar significativamente los ingresos.",
+    },
+    steps: [
+      {
+        en: "Inventory current grants and identify gaps — what programs are you NOT funded for?",
+        es: "Inventariar subvenciones actuales e identificar brechas — ¿para qué programas NO tiene financiamiento?",
+      },
+      {
+        en: "Subscribe to Grants.gov alerts for HRSA, SAMHSA, CDC, and DHCS funding opportunities",
+        es: "Suscribirse a alertas de Grants.gov para oportunidades de financiamiento de HRSA, SAMHSA, CDC y DHCS",
+      },
+      {
+        en: "Apply for California-specific grants: CHCF Innovation Fund, CA Endowment, CPCA awards",
+        es: "Solicitar subvenciones específicas de California: Fondo de Innovación CHCF, CA Endowment, premios CPCA",
+      },
+      {
+        en: "Partner with universities for FQHC-based research (brings indirect cost recovery)",
+        es: "Asociarse con universidades para investigación basada en FQHCs (genera recuperación de costos indirectos)",
+      },
+    ],
+    keyBillingCodes: null,
+    relevantLegislation: ["phs-act-section-330"],
+    sources: [
+      {
+        title: "Beyond the Grant: Practical Ways FQHCs Can Diversify Revenue — Synergy Billing",
+        url: "https://synergybilling.com/news/insights/beyond-the-grant-practical-ways-fqhcs-can-diversify-revenue-streams",
+      },
+      {
+        title: "The Funding Landscape for Community Health Centers in 2026 — Synergy Billing",
+        url: "https://synergybilling.com/news/insights/the-funding-landscape-for-community-health-centers-in-2026",
+      },
+    ],
+  },
+  {
+    id: "value-based-care",
+    title: {
+      en: "Value-Based Payment Model Participation",
+      es: "Participación en Modelos de Pago Basado en Valor",
+    },
+    category: "partnerships",
+    difficulty: "high",
+    potentialRevenue: "5–15% bonus on quality metrics; shared savings from reduced ER/hospital utilization",
+    timeToImplement: "6–18 months",
+    description: {
+      en: "Value-based payment (VBP) models reward FQHCs for improving health outcomes rather than visit volume. Managed care plans offer quality incentive payments (QIPs) for meeting HEDIS measures, closing care gaps, and reducing unnecessary ER visits. FQHCs with strong data infrastructure and care management teams can earn significant bonus revenue. In California, Medi-Cal managed care plans are increasingly shifting to VBP arrangements.",
+      es: "Los modelos de pago basado en valor (VBP) recompensan a los FQHCs por mejorar los resultados de salud en lugar del volumen de visitas. Los planes de atención administrada ofrecen pagos de incentivos de calidad (QIPs) por cumplir medidas HEDIS, cerrar brechas de cuidado y reducir visitas innecesarias a urgencias. Los FQHCs con infraestructura de datos sólida y equipos de manejo de cuidados pueden ganar ingresos significativos por bonificaciones. En California, los planes de atención administrada de Medi-Cal están cambiando cada vez más a acuerdos VBP.",
+    },
+    steps: [
+      {
+        en: "Review managed care plan contracts for quality incentive payment opportunities",
+        es: "Revisar contratos de planes de atención administrada para oportunidades de pagos de incentivos de calidad",
+      },
+      {
+        en: "Invest in population health management tools and dashboards (HEDIS tracking)",
+        es: "Invertir en herramientas de manejo de salud poblacional y tableros (seguimiento HEDIS)",
+      },
+      {
+        en: "Focus care management on high-utilizer patients to reduce ER visits and hospitalizations",
+        es: "Enfocar el manejo de cuidados en pacientes de alta utilización para reducir visitas a urgencias y hospitalizaciones",
+      },
+      {
+        en: "Negotiate shared savings arrangements with your managed care plans",
+        es: "Negociar acuerdos de ahorros compartidos con sus planes de atención administrada",
+      },
+    ],
+    keyBillingCodes: null,
+    relevantLegislation: ["ca-ab-133"],
+    sources: [
+      {
+        title: "Strategic Funding for FQHCs: 2025 Reauthorization Playbook — Oatmeal Health",
+        url: "https://oatmealhealth.com/strategic-funding-for-fqhcs/",
+      },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Enrollment Assistance & Retention Strategies                        */
+/*  What FQHCs can do to help patients enroll, stay enrolled,           */
+/*  and navigate new requirements — California focused                  */
+/* ------------------------------------------------------------------ */
+
+export interface EnrollmentStrategy {
+  id: string;
+  title: { en: string; es: string };
+  category: "enrollment" | "retention" | "work-requirements" | "outreach";
+  urgency: "immediate" | "soon" | "planning";
+  targetDate: string | null;
+  description: { en: string; es: string };
+  actionItems: { en: string; es: string }[];
+  resources: { title: string; url: string }[];
+}
+
+export const enrollmentStrategies: EnrollmentStrategy[] = [
+  {
+    id: "pre-redetermination-outreach",
+    title: {
+      en: "Pre-Redetermination Outreach Campaign",
+      es: "Campaña de Alcance Pre-Redeterminación",
+    },
+    category: "retention",
+    urgency: "immediate",
+    targetDate: "2027-01-01",
+    description: {
+      en: "Starting January 1, 2027, ACA expansion adults will face eligibility redeterminations every 6 months instead of annually (Section 71107). FQHCs should proactively contact patients BEFORE their renewal deadline to help them complete paperwork. During the Medicaid unwinding (2023-2024), millions lost coverage for procedural reasons — not because they were ineligible. FQHCs that ran proactive outreach campaigns retained significantly more patients.",
+      es: "A partir del 1 de enero de 2027, los adultos de expansión ACA enfrentarán redeterminaciones de elegibilidad cada 6 meses en lugar de anualmente (Sección 71107). Los FQHCs deben contactar proactivamente a los pacientes ANTES de su fecha límite de renovación para ayudarlos a completar el papeleo. Durante la desvinculación de Medicaid (2023-2024), millones perdieron cobertura por razones de procedimiento — no porque fueran inelegibles. Los FQHCs que ejecutaron campañas de alcance proactivo retuvieron significativamente más pacientes.",
+    },
+    actionItems: [
+      {
+        en: "Build a redetermination tracking system in your EHR: flag patients 60, 30, and 14 days before renewal",
+        es: "Construir un sistema de seguimiento de redeterminaciones en su EHR: marcar pacientes 60, 30 y 14 días antes de la renovación",
+      },
+      {
+        en: "Train front desk staff to verify Medi-Cal status at every visit and update contact information",
+        es: "Capacitar al personal de recepción para verificar el estatus de Medi-Cal en cada visita y actualizar información de contacto",
+      },
+      {
+        en: "Assign CHWs or eligibility workers to outreach panels: call, text, and mail renewal reminders",
+        es: "Asignar CHWs o trabajadores de elegibilidad a paneles de alcance: llamar, enviar mensajes de texto y correo con recordatorios de renovación",
+      },
+      {
+        en: "Offer in-clinic renewal assistance: dedicate a station where patients can complete paperwork on-site",
+        es: "Ofrecer asistencia de renovación en la clínica: dedicar una estación donde los pacientes puedan completar el papeleo en el sitio",
+      },
+      {
+        en: "Partner with county eligibility offices for warm referrals and shared data (where permitted)",
+        es: "Asociarse con oficinas de elegibilidad del condado para referencias directas y datos compartidos (donde sea permitido)",
+      },
+    ],
+    resources: [
+      {
+        title: "DHCS H.R. 1 Implementation Plan",
+        url: "https://www.dhcs.ca.gov/federal-impacts/Documents/DHCS-HR1-Implementation-Plan.pdf",
+      },
+      {
+        title: "Medi-Cal Changes and What You Need to Know — Health Consumer Alliance",
+        url: "https://healthconsumer.org/medi-cal-changes-and-what-you-need-to-know/",
+      },
+    ],
+  },
+  {
+    id: "work-requirements-preparation",
+    title: {
+      en: "Work Requirements Compliance Support for Patients",
+      es: "Apoyo de Cumplimiento de Requisitos de Trabajo para Pacientes",
+    },
+    category: "work-requirements",
+    urgency: "soon",
+    targetDate: "2027-01-01",
+    description: {
+      en: "Section 71119 mandates 80 hours/month of work, education, job training, or community service for non-disabled expansion adults ages 19-64. States must implement by January 1, 2027 (possible extension to December 31, 2028). In California, 8.2 million adults are potentially affected — but 62% already work. The biggest risk isn't that people don't work; it's that working people lose coverage because they can't navigate the reporting requirements. FQHCs can play a critical role helping patients document compliance and claim exemptions.",
+      es: "La Sección 71119 exige 80 horas/mes de trabajo, educación, capacitación laboral o servicio comunitario para adultos de expansión no discapacitados de 19-64 años. Los estados deben implementar antes del 1 de enero de 2027 (posible extensión hasta el 31 de diciembre de 2028). En California, 8.2 millones de adultos están potencialmente afectados — pero el 62% ya trabajan. El mayor riesgo no es que las personas no trabajen; es que las personas que trabajan pierdan cobertura porque no pueden navegar los requisitos de informes. Los FQHCs pueden desempeñar un papel crítico ayudando a los pacientes a documentar el cumplimiento y reclamar exenciones.",
+    },
+    actionItems: [
+      {
+        en: "Identify patients who may qualify for exemptions: disability, pregnancy, caregiving, students, tribal members, seasonal workers already meeting SNAP requirements",
+        es: "Identificar pacientes que puedan calificar para exenciones: discapacidad, embarazo, cuidado de personas, estudiantes, miembros tribales, trabajadores estacionales que ya cumplen requisitos de SNAP",
+      },
+      {
+        en: "Create patient-facing materials (bilingual) explaining work requirements, exemptions, and how to report",
+        es: "Crear materiales para pacientes (bilingües) explicando los requisitos de trabajo, exenciones y cómo informar",
+      },
+      {
+        en: "Train CHWs and patient navigators to help patients document compliance and file exemption paperwork",
+        es: "Capacitar CHWs y navegadores de pacientes para ayudar a los pacientes a documentar cumplimiento y presentar papeleo de exención",
+      },
+      {
+        en: "Partner with workforce development agencies, community colleges, and job training programs for referrals",
+        es: "Asociarse con agencias de desarrollo laboral, colegios comunitarios y programas de capacitación laboral para referencias",
+      },
+      {
+        en: "Monitor CMS guidance (due June 1, 2026) for California-specific implementation details",
+        es: "Monitorear la guía del CMS (prevista para el 1 de junio de 2026) para detalles de implementación específicos de California",
+      },
+      {
+        en: "Advocate: engage with DHCS on state implementation plan to minimize coverage losses",
+        es: "Abogar: involucrarse con DHCS en el plan de implementación estatal para minimizar las pérdidas de cobertura",
+      },
+    ],
+    resources: [
+      {
+        title: "A Summary of Federal Medicaid Work Requirements — CHCS",
+        url: "https://www.chcs.org/resource/a-summary-of-national-medicaid-work-requirements/",
+      },
+      {
+        title: "Eight Million Medi-Cal Enrollees at Risk — UC Berkeley Labor Center",
+        url: "https://laborcenter.berkeley.edu/eight-million-medi-cal-enrollees-at-risk-of-losing-health-coverage-if-congress-imposes-work-requirements/",
+      },
+      {
+        title: "CMS Community Engagement Requirements Guidance (Dec 2025)",
+        url: "https://www.medicaid.gov/federal-policy-guidance/downloads/cib12082025.pdf",
+      },
+      {
+        title: "Work Requirements Implementation Milestones — SHVS",
+        url: "https://shvs.org/wp-content/uploads/2025/08/HR-1-Work-Requirements-Implementation-Milestones.pdf",
+      },
+    ],
+  },
+  {
+    id: "copay-exemption-marketing",
+    title: {
+      en: "Promote FQHC Copay Exemption Advantage",
+      es: "Promover la Ventaja de Exención de Copagos de FQHCs",
+    },
+    category: "outreach",
+    urgency: "planning",
+    targetDate: "2028-10-01",
+    description: {
+      en: "Starting October 1, 2028, ACA expansion adults with income above 100% FPL will face copays up to $35/service at most providers — but FQHCs, behavioral health clinics, and rural health clinics are explicitly exempt. This creates a significant competitive advantage for FQHCs. Patients who learn about the exemption may actively choose FQHCs over other providers. FQHCs should prepare messaging and capacity now.",
+      es: "A partir del 1 de octubre de 2028, los adultos de expansión ACA con ingresos superiores al 100% FPL enfrentarán copagos de hasta $35/servicio en la mayoría de proveedores — pero los FQHCs, clínicas de salud mental y clínicas rurales están explícitamente exentos. Esto crea una ventaja competitiva significativa para los FQHCs. Los pacientes que se enteren de la exención pueden elegir activamente los FQHCs sobre otros proveedores. Los FQHCs deben preparar mensajes y capacidad ahora.",
+    },
+    actionItems: [
+      {
+        en: "Develop bilingual marketing materials: 'No copays at [FQHC name] — ever'",
+        es: "Desarrollar materiales de marketing bilingües: 'Sin copagos en [nombre del FQHC] — nunca'",
+      },
+      {
+        en: "Train front desk and scheduling staff to communicate the copay exemption benefit",
+        es: "Capacitar al personal de recepción y programación para comunicar el beneficio de exención de copagos",
+      },
+      {
+        en: "Plan for increased patient volume — may need to extend hours, add providers, or open new access points",
+        es: "Planificar para mayor volumen de pacientes — puede necesitar extender horarios, agregar proveedores o abrir nuevos puntos de acceso",
+      },
+      {
+        en: "Partner with managed care plans on member communications highlighting FQHC copay exemption",
+        es: "Asociarse con planes de atención administrada en comunicaciones a miembros destacando la exención de copagos de FQHCs",
+      },
+    ],
+    resources: [
+      {
+        title: "FQHC Leaders: Preparing for Healthcare Policy Changes — Community Link Consulting",
+        url: "https://www.communitylinkconsulting.com/blog/fqhc-healthcare-policy-changes-2025",
+      },
+    ],
+  },
+  {
+    id: "enrollment-assistance-infrastructure",
+    title: {
+      en: "Build Enrollment Assistance Infrastructure",
+      es: "Construir Infraestructura de Asistencia de Inscripción",
+    },
+    category: "enrollment",
+    urgency: "immediate",
+    targetDate: null,
+    description: {
+      en: "With coverage churn increasing due to 6-month redeterminations, work requirements, and premium requirements for undocumented enrollees, FQHCs need dedicated enrollment infrastructure. This means certified application assistors on staff, warm handoff processes with county eligibility offices, and systems to quickly re-enroll patients who fall off coverage. FQHCs are uniquely positioned because they see patients regularly — every visit is an opportunity to check and maintain coverage.",
+      es: "Con la rotación de cobertura aumentando debido a redeterminaciones semestrales, requisitos de trabajo y requisitos de primas para inscritos indocumentados, los FQHCs necesitan infraestructura dedicada de inscripción. Esto significa asistentes de solicitud certificados en el personal, procesos de referencia directa con oficinas de elegibilidad del condado y sistemas para reinscribir rápidamente a pacientes que pierdan cobertura. Los FQHCs están en una posición única porque ven pacientes regularmente — cada visita es una oportunidad para verificar y mantener la cobertura.",
+    },
+    actionItems: [
+      {
+        en: "Hire or train Certified Application Assistors (CAAs) or Certified Enrollment Counselors (CECs)",
+        es: "Contratar o capacitar Asistentes de Solicitud Certificados (CAAs) o Consejeros de Inscripción Certificados (CECs)",
+      },
+      {
+        en: "Implement coverage verification at every patient visit — add to intake workflow",
+        es: "Implementar verificación de cobertura en cada visita del paciente — agregar al flujo de trabajo de admisión",
+      },
+      {
+        en: "Create a rapid re-enrollment protocol for patients who lose coverage mid-treatment",
+        es: "Crear un protocolo de reinscripción rápida para pacientes que pierdan cobertura durante el tratamiento",
+      },
+      {
+        en: "Track and report coverage churn metrics: how many patients lost and regained coverage per month?",
+        es: "Rastrear e informar métricas de rotación de cobertura: ¿cuántos pacientes perdieron y recuperaron cobertura por mes?",
+      },
+      {
+        en: "Apply for state outreach and enrollment funding ($200M federal allocation for FY2026)",
+        es: "Solicitar financiamiento estatal de alcance e inscripción (asignación federal de $200M para el año fiscal 2026)",
+      },
+    ],
+    resources: [
+      {
+        title: "Do Medi-Cal Enrollees Work? Policy at a Glance — CHCF",
+        url: "https://www.chcf.org/resource/do-medi-cal-enrollees-work-policy-glance/",
+      },
+      {
+        title: "Q&A: Understanding Medi-Cal Coverage, Funding, and Federal Cuts — Cal Budget Center",
+        url: "https://calbudgetcenter.org/resources/qa-understanding-medi-cal-coverage-funding-and-the-threat-of-federal-cuts/",
+      },
+    ],
+  },
+  {
+    id: "undocumented-premium-navigation",
+    title: {
+      en: "Help Undocumented Enrollees Navigate $30/Month Premiums",
+      es: "Ayudar a Inscritos Indocumentados a Navegar Primas de $30/Mes",
+    },
+    category: "retention",
+    urgency: "soon",
+    targetDate: "2027-07-01",
+    description: {
+      en: "Starting July 1, 2027, undocumented Medi-Cal members aged 19-59 who are not pregnant must pay a $30/month premium to retain full-scope coverage. Research shows that even modest premiums cause 15-25% of eligible enrollees to drop coverage. FQHCs must help patients understand this requirement and set up payment. For patients who cannot afford the premium, FQHCs should be prepared to serve them under sliding fee or connect them with emergency/limited-scope coverage.",
+      es: "A partir del 1 de julio de 2027, los miembros indocumentados de Medi-Cal de 19-59 años que no estén embarazadas deben pagar una prima mensual de $30 para mantener la cobertura completa. La investigación muestra que incluso primas modestas causan que el 15-25% de los inscritos elegibles abandonen la cobertura. Los FQHCs deben ayudar a los pacientes a entender este requisito y establecer el pago. Para pacientes que no puedan pagar la prima, los FQHCs deben estar preparados para atenderlos bajo escala deslizante o conectarlos con cobertura de emergencia/alcance limitado.",
+    },
+    actionItems: [
+      {
+        en: "Identify all undocumented patients aged 19-59 in your panel before July 2027",
+        es: "Identificar todos los pacientes indocumentados de 19-59 años en su panel antes de julio 2027",
+      },
+      {
+        en: "Create bilingual FAQ materials explaining the premium, payment options, and what happens if unpaid",
+        es: "Crear materiales FAQ bilingües explicando la prima, opciones de pago y qué sucede si no se paga",
+      },
+      {
+        en: "Set up payment assistance programs or connect with community organizations that can help",
+        es: "Establecer programas de asistencia de pago o conectar con organizaciones comunitarias que puedan ayudar",
+      },
+      {
+        en: "Prepare sliding-fee-scale capacity for patients who lose full-scope coverage",
+        es: "Preparar capacidad de escala deslizante para pacientes que pierdan cobertura completa",
+      },
+    ],
+    resources: [
+      {
+        title: "Medi-Cal Changes and What You Need to Know — Health Consumer Alliance",
+        url: "https://healthconsumer.org/medi-cal-changes-and-what-you-need-to-know/",
+      },
+    ],
+  },
+  {
+    id: "scenario-planning",
+    title: {
+      en: "Financial Scenario Planning for Multiple Policy Outcomes",
+      es: "Planificación de Escenarios Financieros para Múltiples Resultados de Política",
+    },
+    category: "outreach",
+    urgency: "immediate",
+    targetDate: null,
+    description: {
+      en: "With unprecedented policy uncertainty — H.R. 1 implementation, CalAIM waiver expiration, state budget cuts, 340B changes, and SB 525 wage increases all converging — FQHCs need formal scenario planning. Model at least three scenarios (optimistic, baseline, severe) across key variables: Medicaid enrollment loss, PPS rate changes, grant funding levels, 340B revenue, and labor costs. The most effective leadership teams are preparing for different futures rather than reacting to present circumstances.",
+      es: "Con una incertidumbre de política sin precedentes — implementación de H.R. 1, expiración del waiver CalAIM, recortes presupuestarios estatales, cambios al 340B e incrementos salariales SB 525 convergiendo — los FQHCs necesitan planificación formal de escenarios. Modelar al menos tres escenarios (optimista, base, severo) a través de variables clave: pérdida de inscripción en Medicaid, cambios en tasas PPS, niveles de financiamiento de subvenciones, ingresos 340B y costos laborales. Los equipos de liderazgo más efectivos se preparan para diferentes futuros en lugar de reaccionar a las circunstancias presentes.",
+    },
+    actionItems: [
+      {
+        en: "Model 3 scenarios: 10% patient loss (mild), 20% (moderate), 35% (severe) — with corresponding revenue impact",
+        es: "Modelar 3 escenarios: 10% pérdida de pacientes (leve), 20% (moderado), 35% (severo) — con impacto de ingresos correspondiente",
+      },
+      {
+        en: "Calculate the revenue impact of losing PPS rates for undocumented patients (50-70% cut per visit)",
+        es: "Calcular el impacto en ingresos de perder tasas PPS para pacientes indocumentados (recorte del 50-70% por visita)",
+      },
+      {
+        en: "Model CalAIM waiver non-renewal: what positions are funded by ECM/Community Supports?",
+        es: "Modelar la no renovación del waiver CalAIM: ¿qué posiciones son financiadas por ECM/Apoyos Comunitarios?",
+      },
+      {
+        en: "Identify revenue strategies that offset each scenario — which strategies in this guide apply?",
+        es: "Identificar estrategias de ingresos que compensen cada escenario — ¿cuáles estrategias de esta guía aplican?",
+      },
+      {
+        en: "Build a 90-day cash reserve target to weather coverage transition periods",
+        es: "Construir una meta de reserva de efectivo de 90 días para resistir períodos de transición de cobertura",
+      },
+    ],
+    resources: [
+      {
+        title: "Strategic Scenario Planning: How FQHCs Can Respond to Federal Policy Uncertainty — Community Link",
+        url: "https://www.communitylinkconsulting.com/clc-articles-tips/scenario-planning-fqhc-federal-funding-uncertainty",
+      },
+      {
+        title: "National Context for California's Renewal of CalAIM in 2026 — CHCS",
+        url: "https://www.chcs.org/resource/national-context-for-californias-renewal-of-calaim-in-2026/",
+      },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Key implementation dates timeline                                   */
+/*  Critical milestones FQHCs need to prepare for                       */
+/* ------------------------------------------------------------------ */
+
+export interface ImplementationMilestone {
+  date: string;
+  title: { en: string; es: string };
+  description: { en: string; es: string };
+  category: "federal" | "state";
+  relatedLegislation: string; // ID from legislationSources
+}
+
+export const implementationTimeline: ImplementationMilestone[] = [
+  {
+    date: "2026-01-01",
+    title: { en: "Medi-Cal enrollment freeze for undocumented adults", es: "Congelamiento de inscripción en Medi-Cal para adultos indocumentados" },
+    description: { en: "New undocumented applicants aged 19+ limited to emergency/pregnancy care only", es: "Nuevos solicitantes indocumentados de 19+ años limitados solo a atención de emergencia/embarazo" },
+    category: "state",
+    relatedLegislation: "ca-ab-133",
+  },
+  {
+    date: "2026-06-01",
+    title: { en: "HHS must issue work requirement guidance to states", es: "HHS debe emitir guía de requisitos de trabajo a los estados" },
+    description: { en: "Federal guidance on implementing Section 71119 community engagement requirements", es: "Guía federal sobre implementación de requisitos de participación comunitaria Sección 71119" },
+    category: "federal",
+    relatedLegislation: "hr1-obbba",
+  },
+  {
+    date: "2026-06-30",
+    title: { en: "State outreach period begins (work requirements)", es: "Período de alcance estatal comienza (requisitos de trabajo)" },
+    description: { en: "States must begin notifying affected Medicaid enrollees about community engagement requirements", es: "Los estados deben comenzar a notificar a los inscritos de Medicaid afectados sobre los requisitos de participación comunitaria" },
+    category: "federal",
+    relatedLegislation: "hr1-obbba",
+  },
+  {
+    date: "2026-07-01",
+    title: { en: "Dental coverage eliminated for undocumented adults", es: "Cobertura dental eliminada para adultos indocumentados" },
+    description: { en: "Only emergency dental services remain for Medi-Cal members with unsatisfactory immigration status", es: "Solo quedan servicios dentales de emergencia para miembros de Medi-Cal con estatus migratorio insatisfactorio" },
+    category: "state",
+    relatedLegislation: "ca-ab-133",
+  },
+  {
+    date: "2026-07-01",
+    title: { en: "PPS rates eliminated for undocumented patient services", es: "Tasas PPS eliminadas para servicios a pacientes indocumentados" },
+    description: { en: "FQHCs reimbursed at standard Medi-Cal fee schedule (50-70% cut per visit) for undocumented patients", es: "FQHCs reembolsados al calendario de tarifas estándar de Medi-Cal (recorte del 50-70% por visita) para pacientes indocumentados" },
+    category: "state",
+    relatedLegislation: "ca-ab-133",
+  },
+  {
+    date: "2026-12-31",
+    title: { en: "CalAIM 1115 waiver expires", es: "Waiver 1115 de CalAIM expira" },
+    description: { en: "ECM ($956M) and Community Supports ($231M) at risk. Renewal submission in progress but uncertain under current federal administration.", es: "ECM ($956M) y Apoyos Comunitarios ($231M) en riesgo. Solicitud de renovación en proceso pero incierta bajo la administración federal actual." },
+    category: "federal",
+    relatedLegislation: "ca-ab-133",
+  },
+  {
+    date: "2027-01-01",
+    title: { en: "6-month redeterminations begin", es: "Redeterminaciones semestrales comienzan" },
+    description: { en: "ACA expansion adults must complete eligibility renewal every 6 months instead of annually", es: "Adultos de expansión ACA deben completar renovación de elegibilidad cada 6 meses en lugar de anualmente" },
+    category: "federal",
+    relatedLegislation: "hr1-obbba",
+  },
+  {
+    date: "2027-01-01",
+    title: { en: "Work requirements take effect (states without extension)", es: "Requisitos de trabajo entran en vigor (estados sin extensión)" },
+    description: { en: "80 hours/month requirement for non-disabled expansion adults ages 19-64. States may request extension to Dec 2028.", es: "Requisito de 80 horas/mes para adultos de expansión no discapacitados de 19-64 años. Los estados pueden solicitar extensión hasta dic 2028." },
+    category: "federal",
+    relatedLegislation: "hr1-obbba",
+  },
+  {
+    date: "2027-01-01",
+    title: { en: "Retroactive coverage reduced", es: "Cobertura retroactiva reducida" },
+    description: { en: "Retroactive coverage cut from 3 months to 1 month (expansion adults) or 2 months (others)", es: "Cobertura retroactiva reducida de 3 meses a 1 mes (adultos de expansión) o 2 meses (otros)" },
+    category: "federal",
+    relatedLegislation: "hr1-obbba",
+  },
+  {
+    date: "2027-06-01",
+    title: { en: "SB 525: $25/hr minimum for specified clinics (including FQHCs)", es: "SB 525: Mínimo de $25/hr para clínicas especificadas (incluyendo FQHCs)" },
+    description: { en: "Most mid-size FQHCs reach the $25/hr healthcare worker minimum wage floor", es: "La mayoría de los FQHCs medianos alcanzan el piso de salario mínimo de $25/hr para trabajadores de salud" },
+    category: "state",
+    relatedLegislation: "ca-sb-525",
+  },
+  {
+    date: "2027-07-01",
+    title: { en: "$30/month premiums for undocumented Medi-Cal members", es: "Primas de $30/mes para miembros indocumentados de Medi-Cal" },
+    description: { en: "Undocumented enrollees aged 19-59 must pay monthly premium to retain full-scope coverage", es: "Inscritos indocumentados de 19-59 años deben pagar prima mensual para mantener cobertura completa" },
+    category: "state",
+    relatedLegislation: "ca-ab-133",
+  },
+  {
+    date: "2028-10-01",
+    title: { en: "$35 copays begin (FQHCs exempt)", es: "Copagos de $35 comienzan (FQHCs exentos)" },
+    description: { en: "Expansion adults over 100% FPL face copays at non-exempt providers. FQHCs explicitly exempt — competitive advantage.", es: "Adultos de expansión sobre 100% FPL enfrentan copagos en proveedores no exentos. FQHCs explícitamente exentos — ventaja competitiva." },
+    category: "federal",
+    relatedLegislation: "hr1-obbba",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Helper functions for revenue strategies and enrollment              */
+/* ------------------------------------------------------------------ */
+
+export function getStrategiesByCategory(category: RevenueStrategy["category"]): RevenueStrategy[] {
+  return revenueStrategies.filter((s) => s.category === category);
+}
+
+export function getStrategiesByDifficulty(difficulty: RevenueStrategy["difficulty"]): RevenueStrategy[] {
+  return revenueStrategies.filter((s) => s.difficulty === difficulty);
+}
+
+export function getEnrollmentByCategory(category: EnrollmentStrategy["category"]): EnrollmentStrategy[] {
+  return enrollmentStrategies.filter((s) => s.category === category);
+}
+
+export function getEnrollmentByUrgency(urgency: EnrollmentStrategy["urgency"]): EnrollmentStrategy[] {
+  return enrollmentStrategies.filter((s) => s.urgency === urgency);
+}
+
+export function getUpcomingMilestones(fromDate: string = new Date().toISOString().split("T")[0]): ImplementationMilestone[] {
+  return implementationTimeline
+    .filter((m) => m.date >= fromDate)
+    .sort((a, b) => a.date.localeCompare(b.date));
+}
