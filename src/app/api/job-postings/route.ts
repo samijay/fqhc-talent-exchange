@@ -90,9 +90,10 @@ export async function POST(request: Request) {
         post_on_site: postOnSite,
         locale: locale || "en",
       });
-    } catch {
+    } catch (dbError) {
       // Table might not exist yet — still send the email notification
-      console.log("Supabase insert skipped (table may not exist yet)");
+      // Log enough detail to diagnose, but don't expose to client
+      console.error("Supabase job_postings insert error:", dbError instanceof Error ? dbError.message : "unknown");
     }
 
     // Send admin notification email with HTML-escaped user input

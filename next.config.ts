@@ -16,6 +16,22 @@ const securityHeaders = [
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
   // Block XSS attacks (defense-in-depth, largely superseded by CSP)
   { key: "X-XSS-Protection", value: "1; mode=block" },
+  // Content Security Policy — primary XSS defense
+  {
+    key: "Content-Security-Policy",
+    value: [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https://*.tile.openstreetmap.org",
+      "font-src 'self'",
+      "connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://region1.google-analytics.com",
+      "frame-src 'none'",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+    ].join("; "),
+  },
 ];
 
 const nextConfig: NextConfig = {

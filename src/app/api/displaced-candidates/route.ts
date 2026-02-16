@@ -131,7 +131,14 @@ export async function POST(request: Request) {
   }
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  // Rate limit: 30 reads per minute per IP
+  const ip = getClientIp(request);
+  const { allowed } = checkRateLimit(`displaced-candidates-get:${ip}`, { limit: 30, windowMs: 60_000 });
+  if (!allowed) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  }
+
   const { count, error } = await supabaseAdmin
     .from("displaced_candidates")
     .select("*", { count: "exact", head: true });
