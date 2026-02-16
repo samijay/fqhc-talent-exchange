@@ -506,6 +506,71 @@ export const californiaFQHCLayoffs: LayoffEntry[] = [
     notes:
       "Affects multiple FQHC partners including Borrego Health, Desert Healthcare District clinics, and SAC Health. ~120 positions across the region.",
   },
+
+  {
+    id: "memorialcare-2025",
+    organization: "MemorialCare",
+    slug: null,
+    city: "Long Beach",
+    county: "Los Angeles",
+    region: "Los Angeles",
+    dateAnnounced: "2025-05-02",
+    dateEffective: "2025-07-01",
+    employeesAffected: 115,
+    employeesTotal: 12000,
+    percentOfWorkforce: 0.96,
+    rolesAffected: [
+      "Registered Nurse",
+      "Medical Assistant",
+      "Administrative Staff",
+      "Support Services",
+    ],
+    departments: ["Operations", "Clinical Services", "Administration"],
+    reason:
+      "Operational and workflow restructuring across MemorialCare's Long Beach and Fountain Valley campuses.",
+    reasonCategory: "operational-changes",
+    source:
+      "https://www.beckershospitalreview.com/finance/20-hospitals-health-systems-cutting-jobs/",
+    sourceTitle: "Becker's Hospital Review",
+    warnActFiled: false,
+    isFQHC: false,
+    status: "completed",
+    notes:
+      "Workforce restructuring at Long Beach Medical Center and Orange Coast facilities. Affected staff include nurses and administrative support.",
+  },
+
+  {
+    id: "prospect-medical-2025",
+    organization: "Prospect Medical Holdings",
+    slug: null,
+    city: "Orange",
+    county: "Orange",
+    region: "Los Angeles",
+    dateAnnounced: "2025-06-20",
+    dateEffective: "2025-09-01",
+    employeesAffected: 125,
+    employeesTotal: null,
+    percentOfWorkforce: null,
+    rolesAffected: [
+      "Physician",
+      "Registered Nurse",
+      "Medical Assistant",
+      "Care Coordinator",
+      "Administrative Staff",
+    ],
+    departments: ["Prospect Medical Group", "Clinical Services"],
+    reason:
+      "Selling assets at the Orange County facility. Prospect Medical has been divesting hospital assets across multiple states.",
+    reasonCategory: "financial-restructuring",
+    source:
+      "https://www.beckershospitalreview.com/finance/20-hospitals-health-systems-cutting-jobs/",
+    sourceTitle: "Becker's Hospital Review",
+    warnActFiled: true,
+    isFQHC: false,
+    status: "completed",
+    notes:
+      "Prospect Medical has been selling off hospitals. WARN Act filed June 20, 2025 for Orange County medical group closure.",
+  },
 ];
 
 /* ------------------------------------------------------------------ */
