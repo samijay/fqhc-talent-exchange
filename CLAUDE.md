@@ -90,6 +90,11 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **BookingCTA (Calendly)** | Done | `src/components/booking/BookingCTA.tsx`, `src/lib/booking-config.ts` | Reusable CTA in CareerInsights (≥60%), CareerAssessment, hire, fast-track |
 | **HTML Pitch Deck** | Done | `src/app/pitchdeck/page.tsx` | 9-slide interactive presentation with real data, replaces PDF |
 | **Blog Data Viz Upgrades** | Done | `src/components/blog/BlogDataViz.tsx` | TL;DR cards, salary bars, total comp, comparison tables, career ladders, funding cliffs — 5 articles upgraded |
+| **Transition Readiness (Phase 1)** | Done | `src/lib/career-assessment-engine.ts`, `src/lib/first-90-days.ts` | 5th domain, 11 new questions, FOGLAMP checklist, Five Conversations, failure factor coaching |
+| **Pitch Deck Update** | Done | `src/app/pitchdeck/page.tsx` | Updated to 5-domain/15-question + competitive moat callout |
+| **Interactive Demo Page** | Done | `src/app/[locale]/demo/page.tsx` | 9-section product walkthrough, bilingual, real market intelligence data |
+| **Manager Team Readiness Tool** | Done | `src/app/[locale]/team-readiness/`, `src/lib/manager-assessment-engine.ts` | 5-domain leadership assessment, 35 questions, 4 roles, STARS, management actions, Liberating Structures |
+| **Security Audit** | Done | All API routes, headers, deps | 14 categories passed, 0 critical vulnerabilities |
 
 ### Data Sources (Strategic Assets)
 | File | Size | Contents |
@@ -100,11 +105,15 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | `src/lib/california-fqhc-layoffs.ts` | 19KB | 11 layoff entries with WARN Act data, 2,300+ workers affected |
 | `src/lib/job-posting-templates.ts` | 38KB | 30 salary benchmarks (p25/p50/p75), posting templates, screening questions |
 | `src/lib/union-data.ts` | 63KB | 7 union profiles, 40+ resources, labor timeline 1798-2025 |
-| `src/lib/career-assessment-engine.ts` | 40KB | 12 universal + 32 role-specific questions, 4 behavioral domains |
+| `src/lib/career-assessment-engine.ts` | 40KB+ | 15 universal + 40 role-specific questions, 5 behavioral domains (incl. Transition Readiness) |
 | `src/lib/role-insights.ts` | 69KB | Role-specific career guidance, employer wants, next steps |
 | `src/lib/role-experience-questions.ts` | ~36 questions | Experience questions per role with resume bullet mappings |
 | `src/lib/market-intelligence.ts` | ~570 lines | Aggregation layer: market overview, regional snapshots, role demand, salary intel, funding cliffs, EHR/program adoption |
-| `src/lib/booking-config.ts` | ~65 lines | Calendly URL, score thresholds, copy variants (candidate/employer/fastTrack) |
+| `src/lib/booking-config.ts` | ~80 lines | Calendly URL, score thresholds, copy variants (candidate/employer/fastTrack/manager) |
+| `src/lib/first-90-days.ts` | ~655 lines | STARS types, Five Conversations (candidate + manager), FOGLAMP (candidate + team), role-specific 30/60/90 plans |
+| `src/lib/manager-assessment-engine.ts` | ~1,087 lines | 35 manager questions (15 universal + 20 role-specific), 4 leadership roles, STARS inference, failure factor detection |
+| `src/lib/manager-role-insights.ts` | ~430 lines | Strength/growth/next steps for 4 leadership roles (EN+ES), employer qualifications |
+| `src/lib/management-actions.ts` | ~330 lines | 15 management actions by domain, 8 Liberating Structures with step-by-step instructions |
 
 ### Database (Supabase)
 - `candidate_waitlist` — candidate signups (live)
@@ -120,8 +129,10 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - **PDF generation**: html2pdf.js with dynamic import (client-side only)
 - **Static generation**: `generateStaticParams()` for /directory/[slug]
 - **Data viz**: Tailwind CSS inline bars/cards (no charting library)
+- **Manager assessment**: Separate engine (`manager-assessment-engine.ts`) imports core types from candidate engine, has own questions/scoring/insights
 
 ### Not Yet Built (MVP Gaps)
+- Feedback / bug reporter button (floating, "we appreciate all feedback" messaging)
 - AI-powered matching algorithm
 - Employer dashboard / portal
 - Talent Drop system (batch candidate delivery)
@@ -129,6 +140,9 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - Real job application flow (currently links to external careers pages)
 - Employer-initiated offboarding (Phase 2/3 of displaced worker funnel)
 - Supabase migrations need to be run (resume_profiles, displaced_candidates, assessment_results)
+- Manager 90-Day Plan Generator (extend first-90-days.ts for 4 leadership roles)
+- Persist team readiness results to Supabase
+- Distributed rate limiting (@upstash/ratelimit with Redis)
 
 ### Color Palette
 | Role | Tailwind | Hex |
@@ -161,3 +175,5 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | /unions | Union directory + labor partnership |
 | /healthcare-timeline | US healthcare history 1798-2026 |
 | /funding-impact | H.R. 1 policy tracker + revenue strategies |
+| /demo | Interactive 9-section product walkthrough |
+| /team-readiness | Manager Team Readiness Assessment (5-domain, 4 roles, STARS) |

@@ -1,6 +1,6 @@
 # FQHC Talent Exchange — Product Roadmap & Feature Tracker
 
-*Last updated: 2026-02-16*
+*Last updated: 2026-02-17*
 
 ---
 
@@ -20,7 +20,7 @@ A California where every community health center is fully staffed with professio
 | 2 | **Job Listings** | Jan 2026 | 156 listings, linked to FQHCs, grouped role filter |
 | 3 | **Regional Job Pages** | Jan 2026 | 6 CA regions, SEO-optimized |
 | 4 | **Resume Builder** | Jan 2026 | Template-based, 8 role templates, html2pdf.js, multi-step |
-| 5 | **Career Assessment** | Jan 2026 | 12-question behavioral, 4 domains, role-specific scenarios |
+| 5 | **Career Assessment** | Jan 2026 | 15-question behavioral, 5 domains (incl. Transition Readiness), role-specific scenarios |
 | 6 | **Candidate Waitlist** | Jan 2026 | Supabase, email via Resend |
 | 7 | **Employer Waitlist** | Jan 2026 | Dark theme, distinct from candidate |
 | 8 | **Blog** | Jan 2026 | 12 articles, EN/ES, FQHC-specific content |
@@ -46,12 +46,17 @@ A California where every community health center is fully staffed with professio
 | 28 | **HTML Pitch Deck** | Feb 2026 | `/pitchdeck` — 9-slide interactive deck with real data, replaces PDF |
 | 29 | **Blog Data Viz Upgrades** | Feb 2026 | TL;DR cards, salary bars, total comp, comparison tables, career ladders — 5 articles |
 | 30 | **Blog Data Viz Components** | Feb 2026 | `BlogDataViz.tsx` — reusable TLDRCard, SalaryRangeChart, TotalCompVisual, ComparisonTable, CareerLadderViz, FundingCliffCard, StatCallout |
+| 31 | **Transition Readiness (Phase 1)** | Feb 2026 | 5th assessment domain, FOGLAMP checklist, Five Conversations, failure factor coaching, First 90 Days plan generator |
+| 32 | **Pitch Deck Update** | Feb 2026 | Updated to 5-domain/15-question assessment + competitive moat callout |
+| 33 | **Interactive Demo Page** | Feb 2026 | `/demo` — 9-section product walkthrough, bilingual, real market intelligence data |
+| 34 | **Manager Team Readiness Tool** | Feb 2026 | `/team-readiness` — 5-domain leadership assessment, 35 questions, 4 roles, STARS diagnosis, management actions, Liberating Structures |
+| 35 | **Security Audit** | Feb 2026 | Full audit: 14 categories passed, 0 critical vulnerabilities, CSP/HSTS/Zod/rate limiting verified |
 
 ---
 
 ## 🔨 In Progress (Current Sprint)
 
-*All items from previous sprint are shipped! Next sprint focuses on GTM and remaining platform features.*
+*All items shipped! Next sprint: GTM outreach, feedback button, and first manual placement.*
 
 ---
 
@@ -59,16 +64,21 @@ A California where every community health center is fully staffed with professio
 
 | # | Feature | Priority | Value | Notes |
 |---|---------|----------|-------|-------|
-| 30 | **Talent Drop System** | High | Revenue | Batch delivery of pre-vetted candidates to employers. Core revenue model. |
-| 31 | **Employer Dashboard** | High | Revenue | Portal for FQHCs to review candidates, track pipeline, manage postings |
-| 32 | **User Authentication** | High | Foundation | Accounts for candidates + employers. Required for dashboard/drops. |
-| 33 | **Real Job Application Flow** | Medium | UX | Apply directly instead of linking to external careers pages |
-| 34 | **Employer-Initiated Offboarding** | Medium | Unique | FQHCs notify us of upcoming layoffs → we fast-track those workers |
-| 35 | **FQHC Resilience Scorecard** | Medium | Content | Rank 90 FQHCs by funding vulnerability, program diversity, stability |
-| 36 | **Displaced Worker Matching** | Medium | Value | Auto-match laid-off workers to similar roles at hiring FQHCs |
-| 37 | **Regional Labor Market Reports** | Medium | Content | Quarterly reports per CA region with salary, demand, layoff data |
-| 38 | **Career Roadmap Generator** | Medium | Engagement | "CHW → Care Coordinator → Program Manager" with salary + timeline |
-| 39 | **Email Drip Campaigns** | Medium | Engagement | Post-signup nurture sequences for candidates + employers |
+| 36 | **Feedback / Bug Reporter Button** | High | UX/Trust | Floating button on all pages: "This is a brand new website that is continuously improving — we appreciate all feedback!" Quick message form. |
+| 37 | **Talent Drop System** | High | Revenue | Batch delivery of pre-vetted candidates to employers. Core revenue model. |
+| 38 | **Employer Dashboard** | High | Revenue | Portal for FQHCs to review candidates, track pipeline, manage postings |
+| 39 | **User Authentication** | High | Foundation | Accounts for candidates + employers. Required for dashboard/drops. |
+| 40 | **Manager 90-Day Plan Generator** | Medium | B2B | Extend first-90-days.ts for 4 leadership roles with team-specific plans |
+| 41 | **Team Readiness Results to Supabase** | Medium | Data | Persist manager assessment results, enable comparisons over time |
+| 42 | **Real Job Application Flow** | Medium | UX | Apply directly instead of linking to external careers pages |
+| 43 | **Employer-Initiated Offboarding** | Medium | Unique | FQHCs notify us of upcoming layoffs → we fast-track those workers |
+| 44 | **FQHC Resilience Scorecard** | Medium | Content | Rank 90 FQHCs by funding vulnerability, program diversity, stability |
+| 45 | **Displaced Worker Matching** | Medium | Value | Auto-match laid-off workers to similar roles at hiring FQHCs |
+| 46 | **Regional Labor Market Reports** | Medium | Content | Quarterly reports per CA region with salary, demand, layoff data |
+| 47 | **Career Roadmap Generator** | Medium | Engagement | "CHW → Care Coordinator → Program Manager" with salary + timeline |
+| 48 | **Email Drip Campaigns** | Medium | Engagement | Post-signup nurture sequences for candidates + employers |
+| 49 | **Distributed Rate Limiting** | Medium | Security | Migrate to @upstash/ratelimit with Redis for multi-instance Vercel |
+| 50 | **Manager-to-Candidate Matching** | Medium | Core | Assess both sides of the hire — match manager needs to candidate strengths |
 
 ---
 
@@ -76,17 +86,18 @@ A California where every community health center is fully staffed with professio
 
 | # | Feature | Priority | Value | Notes |
 |---|---------|----------|-------|-------|
-| 40 | **AI-Powered Matching** | High | Core | Match candidates to jobs based on assessment, experience, preferences |
-| 41 | **Candidate Profile Pages** | Medium | UX | Public or semi-public profiles for vetted candidates |
-| 42 | **Employer Reviews** | Medium | Content | "Glassdoor for FQHCs" — employee reviews + ratings |
-| 43 | **Salary Transparency Tool** | Medium | SEO | Interactive salary explorer by role + region + experience |
-| 44 | **Interview Prep Tool** | Medium | Engagement | Role-specific mock interview with scoring |
-| 45 | **Mobile App** | Low | Reach | PWA or native app for on-the-go job seekers |
-| 46 | **Certification Tracker** | Medium | Value | Track CHW cert, CPC, BLS etc. with expiration reminders |
-| 47 | **Continuing Education Hub** | Low | Engagement | Curated CEU/CME courses for FQHC professionals |
-| 48 | **EHR Skills Assessment** | Medium | Matching | OCHIN Epic, NextGen, eCW proficiency assessment |
-| 49 | **Union Organizing Risk Map** | Low | Content | Score FQHCs on unionization likelihood |
-| 50 | **Legislative Alert System** | Medium | Value | Track bills affecting FQHC funding, notify subscribers |
+| 51 | **AI-Powered Matching** | High | Core | Match candidates to jobs based on assessment, experience, preferences |
+| 52 | **Admin Dashboard** | High | Operations | View assessment results, candidate pipeline, employer activity |
+| 53 | **Candidate Profile Pages** | Medium | UX | Public or semi-public profiles for vetted candidates |
+| 54 | **Employer Reviews** | Medium | Content | "Glassdoor for FQHCs" — employee reviews + ratings |
+| 55 | **Salary Transparency Tool** | Medium | SEO | Interactive salary explorer by role + region + experience |
+| 56 | **Interview Prep Tool** | Medium | Engagement | Role-specific mock interview with scoring |
+| 57 | **Mobile App** | Low | Reach | PWA or native app for on-the-go job seekers |
+| 58 | **Certification Tracker** | Medium | Value | Track CHW cert, CPC, BLS etc. with expiration reminders |
+| 59 | **Continuing Education Hub** | Low | Engagement | Curated CEU/CME courses for FQHC professionals |
+| 60 | **EHR Skills Assessment** | Medium | Matching | OCHIN Epic, NextGen, eCW proficiency assessment |
+| 61 | **Union Organizing Risk Map** | Low | Content | Score FQHCs on unionization likelihood |
+| 62 | **Legislative Alert System** | Medium | Value | Track bills affecting FQHC funding, notify subscribers |
 
 ---
 
@@ -94,14 +105,14 @@ A California where every community health center is fully staffed with professio
 
 | # | Feature | Priority | Value | Notes |
 |---|---------|----------|-------|-------|
-| 51 | **Multi-State Expansion** | High | Growth | Expand beyond California (TX, NY, FL have most FQHCs) |
-| 52 | **Staffing Agency Partnership** | Medium | Revenue | White-label platform for FQHC staffing agencies |
-| 53 | **Grant Writing Assistance** | Medium | Value | Help FQHCs write HRSA grants for workforce positions |
-| 54 | **Predictive Workforce Analytics** | High | Premium | Forecast hiring needs 6-12 months ahead from funding data |
-| 55 | **FQHC Benchmarking Tool** | Medium | B2B | Compare FQHCs on staff ratios, salaries, programs, quality |
-| 56 | **Training Program Marketplace** | Low | Revenue | Connect FQHCs with CHW training providers, MA programs, etc. |
-| 57 | **Locum/Travel Healthcare** | Low | Revenue | Short-term FQHC placements for hard-to-fill roles |
-| 58 | **API for FQHC Data** | Low | Revenue | Paid API access to FQHC intelligence data |
+| 63 | **Multi-State Expansion** | High | Growth | Expand beyond California (TX, NY, FL have most FQHCs) |
+| 64 | **Staffing Agency Partnership** | Medium | Revenue | White-label platform for FQHC staffing agencies |
+| 65 | **Grant Writing Assistance** | Medium | Value | Help FQHCs write HRSA grants for workforce positions |
+| 66 | **Predictive Workforce Analytics** | High | Premium | Forecast hiring needs 6-12 months ahead from funding data |
+| 67 | **FQHC Benchmarking Tool** | Medium | B2B | Compare FQHCs on staff ratios, salaries, programs, quality |
+| 68 | **Training Program Marketplace** | Low | Revenue | Connect FQHCs with CHW training providers, MA programs, etc. |
+| 69 | **Locum/Travel Healthcare** | Low | Revenue | Short-term FQHC placements for hard-to-fill roles |
+| 70 | **API for FQHC Data** | Low | Revenue | Paid API access to FQHC intelligence data |
 
 ---
 
@@ -112,10 +123,12 @@ A California where every community health center is fully staffed with professio
 **What you have today that's monetizable:**
 1. **90 FQHC profiles** with verified data no other platform has (funding vulnerability, union status, programs, EHR systems)
 2. **156 job listings** with real salary data
-3. **Career assessment** that scores candidates on 4 behavioral domains
+3. **Career assessment** that scores candidates on 5 behavioral domains (including transition readiness)
 4. **Resume builder** that generates FQHC-optimized resumes
 5. **Displaced worker pipeline** capturing laid-off community health workers
 6. **Layoff intelligence** tracking 2,300+ affected workers across 11 organizations
+7. **Manager Team Readiness assessment** — B2B lead gen tool for employer outreach (assess their team, then offer to help hire)
+8. **Interactive demo page** at `/demo` for sharing with prospects
 
 ### Who Pays First?
 
@@ -175,3 +188,9 @@ The platform is an MVP. The content is strong. The data is unique. What's needed
 - [ ] Spanish-first content strategy (not just translation)
 - [ ] WhatsApp integration for candidate communication
 - [ ] SMS reminders for assessment completion / resume download
+- [ ] Team Readiness comparison (manager retakes quarterly, sees trends over time)
+- [ ] Liberating Structures library page (standalone reference for FQHC managers)
+- [ ] Manager peer network / community feature
+- [ ] Export Team Readiness results as PDF
+- [ ] Onboarding playbook generator (auto-create 30/60/90 plan from assessment)
+- [ ] Feedback / bug reporter floating button with "we appreciate all feedback" messaging
