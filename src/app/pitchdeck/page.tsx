@@ -83,14 +83,10 @@ const slides: Slide[] = [
             </span>
           </div>
 
-          <h1 className="mt-2 text-xl font-bold text-stone-700 sm:text-2xl lg:text-3xl">
-            The FQHC Job Market Supercharger &amp;<br />
-            Layoff-to-Hire Accelerator
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-stone-500">
-            Industry insights, mission-driven career tools, expert assessments, and labor
-            intelligence — purpose-built for community health center professionals and the
-            FQHCs that employ them.
+          <p className="mx-auto mt-4 max-w-2xl text-base font-medium text-stone-600">
+            Strengthening California&apos;s safety-net workforce by connecting
+            mission-driven health professionals with FQHCs — faster, smarter,
+            and with the cultural fit that matters.
           </p>
           <p className="mt-4 text-sm font-medium text-stone-400">
             MVP Business Plan &middot; February 2026
@@ -1221,10 +1217,11 @@ const slides: Slide[] = [
               FQHC <span className="text-teal-700">Talent Exchange</span>
             </span>
           </div>
-          <p className="text-sm text-stone-500">
-            Market intelligence &middot; Career tools &middot; Expert assessments &middot; Labor insights
+          <p className="mx-auto mt-2 max-w-lg text-sm text-stone-500">
+            A California where every community health center is fully staffed
+            with professionals who reflect the communities they serve.
           </p>
-          <p className="mt-3 text-lg font-bold text-teal-700">fqhctalent.com</p>
+          <p className="mt-4 text-lg font-bold text-teal-700">fqhctalent.com</p>
           <p className="mt-1 text-sm text-stone-500">info@fqhctalent.com</p>
           <p className="mt-6 text-xs text-stone-400">
             Built with Claude Code &middot; Solo founder &middot; 39 features shipped

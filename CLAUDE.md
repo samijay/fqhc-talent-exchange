@@ -70,7 +70,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Employer Waitlist** | Done | `src/app/[locale]/hire/page.tsx`, `src/app/api/employer-waitlist/` | Dark theme (stone gradient + amber) |
 | **Blog** | Done | `src/app/[locale]/blog/` | 13 articles, EN/ES, SEO metadata, FQHC-specific content |
 | **Sitemap** | Done | `src/app/sitemap.ts` | All pages + 90 FQHC profiles |
-| **Pitch Deck** | Done | `src/app/pitchdeck/page.tsx` | 9-slide interactive HTML presentation with real data |
+| **Pitch Deck** | Done | `src/app/pitchdeck/page.tsx` | 16-slide interactive presentation: FQHC Job Market Supercharger & Layoff-to-Hire Accelerator (TAM/SAM/SOM, competitors, AI matching, pricing, playbook, metrics) |
 | **Security Hardening** | Done | API routes | PII removed, DB errors not leaked |
 | **Resume Upload & Parse** | Done | `src/app/api/parse-resume/route.ts` | PDF/DOCX, Supabase storage |
 | **GA4 Analytics** | Done | `src/components/analytics/GoogleAnalytics.tsx` | G-CDE54Q86SR |
@@ -89,10 +89,8 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Union Partnership Tab** | Done | `src/app/[locale]/unions/page.tsx`, `src/lib/union-data.ts` | 4th tab with common interest framework (patients, staff, org) |
 | **Why FQHC Page** | Done | `src/app/[locale]/why-fqhc/page.tsx` | Career ladders, salary data, comparison table, total comp visual, bilingual |
 | **BookingCTA (Calendly)** | Done | `src/components/booking/BookingCTA.tsx`, `src/lib/booking-config.ts` | Reusable CTA in CareerInsights (≥60%), CareerAssessment, hire, fast-track |
-| **HTML Pitch Deck** | Done | `src/app/pitchdeck/page.tsx` | 16-slide interactive presentation matching PDF template (TAM/SAM/SOM, competitors, AI matching, pricing, playbook, metrics) with keyboard nav |
 | **Blog Data Viz Upgrades** | Done | `src/components/blog/BlogDataViz.tsx` | TL;DR cards, salary bars, total comp, comparison tables, career ladders, funding cliffs — 5 articles upgraded |
 | **Transition Readiness (Phase 1)** | Done | `src/lib/career-assessment-engine.ts`, `src/lib/first-90-days.ts` | 5th domain, 11 new questions, FOGLAMP checklist, Five Conversations, failure factor coaching |
-| **Pitch Deck Update** | Done | `src/app/pitchdeck/page.tsx` | Updated to 5-domain/15-question + competitive moat callout |
 | **Interactive Demo Page** | Done | `src/app/[locale]/demo/page.tsx` | 9-section product walkthrough, bilingual, real market intelligence data |
 | **Manager Team Readiness Tool** | Done | `src/app/[locale]/team-readiness/`, `src/lib/manager-assessment-engine.ts` | 5-domain leadership assessment, 35 questions, 4 roles, STARS, management actions, Liberating Structures |
 | **Security Audit** | Done | All API routes, headers, deps | 14 categories passed, 0 critical vulnerabilities |
@@ -180,6 +178,6 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ### Hidden Pages (no nav or footer link)
 | Route | Purpose |
 |-------|---------|
-| /pitchdeck | HTML pitch deck (9 slides, interactive) |
+| /pitchdeck | HTML pitch deck (16 slides, keyboard nav) |
 | /unions | Union directory + labor partnership |
 | /healthcare-timeline | US healthcare history 1798-2026 |
