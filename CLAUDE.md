@@ -38,8 +38,8 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - **Brand Pillars:** Candidate Advocacy, FQHC Expertise, Speed to Placement, Health Equity Impact
 
 ## Active Priorities (as of 2026-02-17)
-- **Just Shipped:** Manager Team Readiness Tool, Interactive Demo, Transition Readiness, Security Audit, Nav/Homepage/Footer updates
-- **Live at:** https://www.fqhctalent.com — 36 features shipped, deployed on Vercel
+- **Just Shipped:** Homepage Redesign (layoff counter, tool cards, market intel, trending articles), Healthcare Hiring Trends blog article, Pitch Deck rebuild (16 slides with TAM/SAM/SOM)
+- **Live at:** https://www.fqhctalent.com — 39 features shipped, deployed on Vercel
 - **Next Up:** GTM outreach to FQHC HR directors, feedback button, first manual placement
 - **GTM:** Ready for outbound. First dollar = manual placement from fast-track pipeline.
 - **See:** `ROADMAP.md` for full feature tracker, backlog, and GTM strategy
@@ -68,7 +68,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Career Assessment** | Done | `src/lib/career-assessment-engine.ts`, `src/components/resume-builder/CareerInsights.tsx` | 15-question behavioral, 5 domains (incl. Transition Readiness), role-specific scenarios, employer insights |
 | **Candidate Waitlist** | Done | `src/app/[locale]/join/page.tsx`, `src/app/api/candidate-waitlist/` | Supabase, email via Resend |
 | **Employer Waitlist** | Done | `src/app/[locale]/hire/page.tsx`, `src/app/api/employer-waitlist/` | Dark theme (stone gradient + amber) |
-| **Blog** | Done | `src/app/[locale]/blog/` | 12 articles, EN/ES, SEO metadata, FQHC-specific content |
+| **Blog** | Done | `src/app/[locale]/blog/` | 13 articles, EN/ES, SEO metadata, FQHC-specific content |
 | **Sitemap** | Done | `src/app/sitemap.ts` | All pages + 90 FQHC profiles |
 | **Pitch Deck** | Done | `src/app/pitchdeck/page.tsx` | 9-slide interactive HTML presentation with real data |
 | **Security Hardening** | Done | API routes | PII removed, DB errors not leaked |
@@ -89,7 +89,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Union Partnership Tab** | Done | `src/app/[locale]/unions/page.tsx`, `src/lib/union-data.ts` | 4th tab with common interest framework (patients, staff, org) |
 | **Why FQHC Page** | Done | `src/app/[locale]/why-fqhc/page.tsx` | Career ladders, salary data, comparison table, total comp visual, bilingual |
 | **BookingCTA (Calendly)** | Done | `src/components/booking/BookingCTA.tsx`, `src/lib/booking-config.ts` | Reusable CTA in CareerInsights (≥60%), CareerAssessment, hire, fast-track |
-| **HTML Pitch Deck** | Done | `src/app/pitchdeck/page.tsx` | 9-slide interactive presentation with real data, replaces PDF |
+| **HTML Pitch Deck** | Done | `src/app/pitchdeck/page.tsx` | 16-slide interactive presentation matching PDF template (TAM/SAM/SOM, competitors, AI matching, pricing, playbook, metrics) with keyboard nav |
 | **Blog Data Viz Upgrades** | Done | `src/components/blog/BlogDataViz.tsx` | TL;DR cards, salary bars, total comp, comparison tables, career ladders, funding cliffs — 5 articles upgraded |
 | **Transition Readiness (Phase 1)** | Done | `src/lib/career-assessment-engine.ts`, `src/lib/first-90-days.ts` | 5th domain, 11 new questions, FOGLAMP checklist, Five Conversations, failure factor coaching |
 | **Pitch Deck Update** | Done | `src/app/pitchdeck/page.tsx` | Updated to 5-domain/15-question + competitive moat callout |
