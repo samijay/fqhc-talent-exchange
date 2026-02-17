@@ -37,9 +37,10 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - **Vision:** A California where every community health center is fully staffed with professionals who reflect the communities they serve.
 - **Brand Pillars:** Candidate Advocacy, FQHC Expertise, Speed to Placement, Health Equity Impact
 
-## Active Priorities (as of 2026-02-16)
-- **Just Shipped:** Market Intelligence Dashboard (`/insights`), Why FQHC page, BookingCTA (Calendly), HTML pitch deck, blog upgrades with data viz, union partnership tab
-- **Next Up:** Deploy to Vercel, outbound to FQHC HR directors, first manual placement
+## Active Priorities (as of 2026-02-17)
+- **Just Shipped:** Manager Team Readiness Tool, Interactive Demo, Transition Readiness, Security Audit, Nav/Homepage/Footer updates
+- **Live at:** https://www.fqhctalent.com — 36 features shipped, deployed on Vercel
+- **Next Up:** GTM outreach to FQHC HR directors, feedback button, first manual placement
 - **GTM:** Ready for outbound. First dollar = manual placement from fast-track pipeline.
 - **See:** `ROADMAP.md` for full feature tracker, backlog, and GTM strategy
 
@@ -64,12 +65,12 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Job Listings** | Done | `src/app/[locale]/jobs/page.tsx`, `src/lib/fqhc-job-listings.ts` | 156 listings with fqhcSlug linking, grouped role filter |
 | **Regional Job Pages** | Done | `src/app/[locale]/fqhc-jobs-*/page.tsx` | 6 CA regions, SEO-optimized |
 | **Resume Builder** | Done | `src/components/resume-builder/` | Template-based, 8 role templates, html2pdf.js, multi-step form |
-| **Career Assessment** | Done | `src/lib/career-assessment-engine.ts`, `src/components/resume-builder/CareerInsights.tsx` | 12-question behavioral, 4 domains, role-specific scenarios, employer insights |
+| **Career Assessment** | Done | `src/lib/career-assessment-engine.ts`, `src/components/resume-builder/CareerInsights.tsx` | 15-question behavioral, 5 domains (incl. Transition Readiness), role-specific scenarios, employer insights |
 | **Candidate Waitlist** | Done | `src/app/[locale]/join/page.tsx`, `src/app/api/candidate-waitlist/` | Supabase, email via Resend |
 | **Employer Waitlist** | Done | `src/app/[locale]/hire/page.tsx`, `src/app/api/employer-waitlist/` | Dark theme (stone gradient + amber) |
 | **Blog** | Done | `src/app/[locale]/blog/` | 12 articles, EN/ES, SEO metadata, FQHC-specific content |
 | **Sitemap** | Done | `src/app/sitemap.ts` | All pages + 90 FQHC profiles |
-| **Pitch Deck** | Done | `src/app/pitchdeck/route.ts` | Serves PDF from /public/ (to be replaced with HTML) |
+| **Pitch Deck** | Done | `src/app/pitchdeck/page.tsx` | 9-slide interactive HTML presentation with real data |
 | **Security Hardening** | Done | API routes | PII removed, DB errors not leaked |
 | **Resume Upload & Parse** | Done | `src/app/api/parse-resume/route.ts` | PDF/DOCX, Supabase storage |
 | **GA4 Analytics** | Done | `src/components/analytics/GoogleAnalytics.tsx` | G-CDE54Q86SR |
@@ -162,18 +163,23 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | Insights | /insights | Market intelligence dashboard (funding cliffs, salary, demand) |
 | Layoffs | /layoffs | Layoff tracker (11 orgs, 2,300+ workers) |
 | Resume Builder | /resume-builder | Free template-based resume builder |
+| Team Readiness | /team-readiness | Manager Team Readiness Assessment (B2B tool) |
 | Find a Job | /join | Candidate waitlist signup |
 | Post a Job | /hire | Employer waitlist signup (dark theme) |
 | CTA: Build Resume | /resume-builder | Primary CTA button |
 | CTA: Hire Talent | /hire | Secondary CTA button (dark) |
 
-### Hidden Pages
+### Footer-Only Pages (not in main nav)
+| Route | Purpose |
+|-------|---------|
+| /demo | Interactive 9-section product walkthrough (footer: For Employers) |
+| /why-fqhc | SEO page: why work at an FQHC (footer: For Job Seekers) |
+| /fast-track | Displaced worker fast-track form (footer: For Job Seekers) |
+| /funding-impact | H.R. 1 policy tracker + revenue strategies (footer: For Job Seekers) |
+
+### Hidden Pages (no nav or footer link)
 | Route | Purpose |
 |-------|---------|
 | /pitchdeck | HTML pitch deck (9 slides, interactive) |
-| /why-fqhc | SEO page: why work at an FQHC |
 | /unions | Union directory + labor partnership |
 | /healthcare-timeline | US healthcare history 1798-2026 |
-| /funding-impact | H.R. 1 policy tracker + revenue strategies |
-| /demo | Interactive 9-section product walkthrough |
-| /team-readiness | Manager Team Readiness Assessment (5-domain, 4 roles, STARS) |
