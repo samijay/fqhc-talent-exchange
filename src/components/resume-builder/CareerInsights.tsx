@@ -11,6 +11,7 @@ import {
   Handshake,
   Zap,
   Sprout,
+  Compass,
   CheckCircle,
   ArrowRight,
   BarChart3,
@@ -20,6 +21,7 @@ import {
   Briefcase,
   DollarSign,
   Award,
+  Calendar,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,6 +37,7 @@ import {
   type DomainId,
 } from "@/lib/career-assessment-engine";
 import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
+import { FIVE_CONVERSATIONS, FOGLAMP } from "@/lib/first-90-days";
 
 /* ------------------------------------------------------------------ */
 /*  i18n — EN / ES UI strings                                         */
@@ -44,15 +47,15 @@ const UI_STRINGS = {
   en: {
     title: "Career Insights Assessment",
     subtitle:
-      "Take this 3-minute behavioral assessment to discover your strengths and fastest path to career growth in community health.",
+      "Take this 4-minute behavioral assessment to discover your strengths and fastest path to career growth in community health.",
     howItWorks: "How it works",
-    bullet1: "12 scenario-based questions across 4 domains",
+    bullet1: "15 scenario-based questions across 5 domains",
     bullet2: "No right or wrong answers — just pick what fits you best",
     bullet3: "Get a personalized report with strengths and growth areas",
     startAssessment: "Start Assessment",
     skipForNow: "Skip for now",
     resultsTitle: "Your Career Insights",
-    resultsSubtitle: "Based on your responses across 4 key domains",
+    resultsSubtitle: "Based on your responses across 5 key domains",
     overallScore: "Overall Score",
     topStrength: "Top Strength",
     biggestOpportunity: "Biggest Opportunity",
@@ -70,15 +73,15 @@ const UI_STRINGS = {
   es: {
     title: "Evaluación de Perspectivas Profesionales",
     subtitle:
-      "Realiza esta evaluación de comportamiento de 3 minutos para descubrir tus fortalezas y el camino más rápido hacia el crecimiento profesional en salud comunitaria.",
+      "Realiza esta evaluación de comportamiento de 4 minutos para descubrir tus fortalezas y el camino más rápido hacia el crecimiento profesional en salud comunitaria.",
     howItWorks: "Cómo funciona",
-    bullet1: "12 preguntas basadas en escenarios en 4 dominios",
+    bullet1: "15 preguntas basadas en escenarios en 5 dominios",
     bullet2: "No hay respuestas correctas o incorrectas — solo elige lo que mejor te represente",
     bullet3: "Obtén un informe personalizado con fortalezas y áreas de crecimiento",
     startAssessment: "Iniciar Evaluación",
     skipForNow: "Omitir por ahora",
     resultsTitle: "Tus Perspectivas Profesionales",
-    resultsSubtitle: "Basado en tus respuestas en 4 dominios clave",
+    resultsSubtitle: "Basado en tus respuestas en 5 dominios clave",
     overallScore: "Puntuación General",
     topStrength: "Mayor Fortaleza",
     biggestOpportunity: "Mayor Oportunidad",
@@ -114,6 +117,7 @@ const DOMAIN_ICONS: Record<DomainId, typeof Target> = {
   people: Handshake,
   execution: Zap,
   growth: Sprout,
+  transition: Compass,
 };
 
 const DOMAIN_COLORS: Record<DomainId, { bg: string; text: string; bar: string; border: string }> = {
@@ -140,6 +144,12 @@ const DOMAIN_COLORS: Record<DomainId, { bg: string; text: string; bar: string; b
     text: "text-green-700",
     bar: "bg-green-500",
     border: "border-green-200",
+  },
+  transition: {
+    bg: "bg-purple-50",
+    text: "text-purple-700",
+    bar: "bg-purple-500",
+    border: "border-purple-200",
   },
 };
 
@@ -190,6 +200,7 @@ export default function CareerInsights({ onComplete, onSkip, roleId }: CareerIns
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [results, setResults] = useState<AssessmentResults | null>(null);
   const [started, setStarted] = useState(false);
+  const [showTransitionDeepDive, setShowTransitionDeepDive] = useState(false);
 
   const question = questions[currentQuestion];
   const totalQuestions = questions.length;
@@ -465,6 +476,36 @@ export default function CareerInsights({ onComplete, onSkip, roleId }: CareerIns
             </div>
           </div>
 
+          {/* Failure Factor Coaching — growth-oriented coaching nudges */}
+          {results.failureFactors && results.failureFactors.length > 0 && (
+            <div className="mt-6">
+              <div className="mb-3 flex items-center gap-2">
+                <Sprout className="size-5 text-green-600" />
+                <h3 className="text-lg font-bold text-stone-900">
+                  {isEs ? "Oportunidades de Desarrollo" : "Development Opportunities"}
+                </h3>
+              </div>
+              <div className="space-y-3">
+                {results.failureFactors.map((ff, i) => (
+                  <div
+                    key={i}
+                    className="rounded-xl border border-green-100 bg-gradient-to-br from-green-50/50 to-teal-50/30 p-4"
+                  >
+                    <div className="mb-2 flex items-center gap-2">
+                      <span className="text-lg">{ff.icon}</span>
+                      <span className="text-sm font-semibold text-green-800">
+                        {isEs ? ff.esFactor : ff.factor}
+                      </span>
+                    </div>
+                    <p className="text-sm leading-relaxed text-stone-600">
+                      {isEs ? ff.esCoaching : ff.coaching}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Next Steps */}
           <div className="mt-6">
             <div className="mb-3 flex items-center gap-2">
@@ -593,6 +634,157 @@ export default function CareerInsights({ onComplete, onSkip, roleId }: CareerIns
           {results.overallScore >= BOOKING_THRESHOLDS.careerInsights && (
             <BookingCTA variant="candidate" className="mt-8" />
           )}
+
+          {/* Transition Readiness Deep Dive — show when transition domain score exists */}
+          {results.domainScores.transition && (() => {
+            const transitionDomain = results.domainScores.transition;
+            const transitionPct = Math.round(transitionDomain.percentage);
+
+            // Prioritize Five Conversations based on lowest-scoring domains
+            const sortedDomains = Object.entries(results.domainScores)
+              .sort(([, a], [, b]) => a.score - b.score)
+              .map(([id]) => id as DomainId);
+
+            // Map domains to relevant conversations
+            const domainToConversation: Record<string, number> = {
+              mission: 0,    // The Situation
+              execution: 1,  // Expectations
+              growth: 2,     // Resources
+              people: 3,     // Style
+              transition: 4, // Personal Development
+            };
+
+            const prioritizedConversations = sortedDomains
+              .slice(0, 3)
+              .map((d) => FIVE_CONVERSATIONS[domainToConversation[d] ?? 0])
+              .filter(Boolean);
+
+            if (!showTransitionDeepDive) {
+              return (
+                <div className="mt-8 rounded-2xl border-2 border-dashed border-purple-300 bg-gradient-to-br from-purple-50 to-teal-50/30 p-6 text-center">
+                  <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-purple-100 to-teal-100">
+                    <Compass className="size-6 text-purple-700" />
+                  </div>
+                  <h3 className="text-lg font-bold text-stone-900">
+                    {isEs ? "Tu Preparación para la Transición" : "Your Transition Readiness"}
+                  </h3>
+                  <p className="mx-auto mt-2 max-w-md text-sm text-stone-500">
+                    {isEs
+                      ? "Tu evaluación revela cómo manejas nuevas situaciones, buscas alineación con supervisores, y te auto-organizas. Haz clic para ver tu plan personalizado."
+                      : "Your assessment reveals how you handle new situations, seek alignment with supervisors, and self-organize. Click to see your personalized action plan."
+                    }
+                  </p>
+                  <Button
+                    onClick={() => setShowTransitionDeepDive(true)}
+                    className="mt-4 inline-flex items-center gap-2 bg-gradient-to-r from-purple-700 to-purple-600 px-6 py-2.5 font-semibold text-white hover:shadow-lg"
+                  >
+                    <Compass className="size-4" />
+                    {isEs ? "Ver Mi Plan de Transición" : "View Transition Plan"}
+                  </Button>
+                </div>
+              );
+            }
+
+            return (
+              <div className="mt-8 space-y-6">
+                {/* Transition Score Card */}
+                <div className="rounded-2xl border border-purple-200 bg-gradient-to-br from-purple-50 to-white p-6">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex size-10 items-center justify-center rounded-xl bg-purple-100">
+                      <Compass className="size-5 text-purple-700" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-stone-900">
+                        {isEs ? "Preparación para la Transición" : "Transition Readiness"}
+                      </h3>
+                      <p className="text-sm text-stone-500">
+                        {transitionPct >= 75
+                          ? (isEs ? "Fuerte — estás listo/a para acelerar en un nuevo rol" : "Strong — you're ready to hit the ground running")
+                          : transitionPct >= 50
+                          ? (isEs ? "En desarrollo — puedes fortalecerte con práctica intencional" : "Developing — you can strengthen this with intentional practice")
+                          : (isEs ? "Área de crecimiento — estos pasos te ayudarán a prepararte" : "Growth area — these steps will help you prepare")}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mb-2 h-3 w-full rounded-full bg-stone-200">
+                    <div
+                      className="h-full rounded-full bg-purple-500 transition-all duration-500"
+                      style={{ width: `${transitionPct}%` }}
+                    />
+                  </div>
+                  <p className="text-right text-xs font-medium text-purple-700">{transitionPct}%</p>
+                </div>
+
+                {/* Five Conversations — Prioritized */}
+                <div className="rounded-2xl border border-stone-200 bg-white p-6">
+                  <div className="mb-4 flex items-center gap-2">
+                    <Calendar className="size-5 text-teal-700" />
+                    <h3 className="text-base font-bold text-stone-900">
+                      {isEs ? "Tus Conversaciones Prioritarias" : "Your Priority Conversations"}
+                    </h3>
+                  </div>
+                  <p className="mb-4 text-sm text-stone-500">
+                    {isEs
+                      ? "Basado en tus resultados, estas son las conversaciones más importantes que debes tener con tu supervisor en tus primeras semanas:"
+                      : "Based on your results, these are the most important conversations to have with your supervisor in your first weeks:"}
+                  </p>
+                  <div className="space-y-3">
+                    {prioritizedConversations.map((conv, i) => (
+                      <div key={conv.name} className="rounded-lg border border-stone-100 bg-stone-50 p-4">
+                        <div className="mb-1 flex items-center gap-2">
+                          <span className="flex size-6 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-teal-700">
+                            {i + 1}
+                          </span>
+                          <h4 className="text-sm font-bold text-stone-800">
+                            {isEs ? conv.esName : conv.name}
+                          </h4>
+                        </div>
+                        <p className="mb-2 pl-8 text-xs text-stone-500">
+                          {isEs ? conv.esDescription : conv.description}
+                        </p>
+                        <p className="pl-8 text-xs font-medium italic text-teal-700">
+                          &ldquo;{isEs ? conv.esSampleQuestion : conv.sampleQuestion}&rdquo;
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* FOGLAMP Self-Assessment Checklist */}
+                <div className="rounded-2xl border border-stone-200 bg-white p-6">
+                  <div className="mb-4 flex items-center gap-2">
+                    <CheckCircle className="size-5 text-amber-600" />
+                    <h3 className="text-base font-bold text-stone-900">
+                      {isEs ? "Lista de Preparación FOGLAMP" : "FOGLAMP Readiness Checklist"}
+                    </h3>
+                  </div>
+                  <p className="mb-4 text-sm text-stone-500">
+                    {isEs
+                      ? "Usa esta lista antes de tu primer día para asegurarte de que estás preparado/a:"
+                      : "Use this checklist before your first day to make sure you're prepared:"}
+                  </p>
+                  <div className="space-y-2">
+                    {FOGLAMP.map((item) => (
+                      <div key={item.letter} className="flex items-start gap-3 rounded-lg p-2 hover:bg-stone-50">
+                        <span className="flex size-7 shrink-0 items-center justify-center rounded-md bg-amber-100 text-xs font-bold text-amber-700">
+                          {item.letter}
+                        </span>
+                        <div>
+                          <p className="text-sm font-medium text-stone-800">
+                            {isEs ? item.esLabel : item.label}
+                          </p>
+                          <p className="text-xs text-stone-500">
+                            {isEs ? item.esAction : item.action}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
 
           {/* Done button */}
           <div className="mt-8 text-center">

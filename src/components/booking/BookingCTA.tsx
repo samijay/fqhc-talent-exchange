@@ -4,7 +4,7 @@ import { Calendar, ArrowRight } from "lucide-react";
 import { useLocale } from "next-intl";
 import { CALENDLY_URL, BOOKING_VARIANTS } from "@/lib/booking-config";
 
-type BookingVariant = "candidate" | "employer" | "fastTrack";
+type BookingVariant = "candidate" | "employer" | "fastTrack" | "manager";
 
 interface BookingCTAProps {
   /** Which copy variant to show */
@@ -53,6 +53,13 @@ export function BookingCTA({ variant, calendlyUrl, className = "" }: BookingCTAP
       heading: "text-amber-900",
       button: "bg-amber-600 hover:bg-amber-700 text-white",
       icon: "text-amber-600",
+    },
+    manager: {
+      bg: "bg-gradient-to-br from-indigo-50 to-indigo-100/50",
+      border: "border-indigo-200",
+      heading: "text-indigo-900",
+      button: "bg-indigo-700 hover:bg-indigo-800 text-white",
+      icon: "text-indigo-600",
     },
   };
 

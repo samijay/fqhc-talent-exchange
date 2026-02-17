@@ -5,7 +5,7 @@
 
 /* --- Types --------------------------------------------------------- */
 
-export type DomainId = "mission" | "people" | "execution" | "growth";
+export type DomainId = "mission" | "people" | "execution" | "growth" | "transition";
 
 export interface AnswerOption {
   id: string;
@@ -40,6 +40,14 @@ export interface DomainScore {
   level: "strength" | "developing" | "growth_area";
 }
 
+export interface FailureFactorInsight {
+  factor: string;
+  esFactor: string;
+  coaching: string;
+  esCoaching: string;
+  icon: string; // emoji
+}
+
 export interface AssessmentResults {
   domainScores: Record<DomainId, DomainScore>;
   overallScore: number; // 0-100
@@ -50,6 +58,7 @@ export interface AssessmentResults {
     growthAreas: string[];
     nextSteps: string[];
   };
+  failureFactors?: FailureFactorInsight[];
 }
 
 /* --- Domain Definitions -------------------------------------------- */
@@ -86,6 +95,14 @@ export const DOMAIN_DEFINITIONS: DomainDefinition[] = [
       "Curiosity, feedback receptivity, career ambition, and resilience. Predicts professional development trajectory and long-term career growth.",
     icon: "\u{1F331}", // seedling
     color: "green",
+  },
+  {
+    id: "transition",
+    name: "Transition Readiness",
+    description:
+      "Ability to diagnose new situations, build alignment with managers, and self-organize onboarding. Predicts speed-to-productivity and first-year success.",
+    icon: "\u{1F9ED}", // compass
+    color: "purple",
   },
 ];
 
@@ -267,6 +284,49 @@ export const ASSESSMENT_QUESTIONS: AssessmentQuestion[] = [
       { id: "g3_d", text: "Stay where you are — you've built good relationships and know the job well", esText: "Quedarte donde estás — has construido buenas relaciones y conoces bien el trabajo", score: 1, behaviorTag: "comfort-seeking" },
     ],
   },
+  /* ---- Domain 5: Transition Readiness ---- */
+  {
+    id: "transition_1",
+    domain: "transition",
+    scenario: "You just accepted a new role at an FQHC. Before your first day, you have a week to prepare. You know very little about the team or the current state of the program.",
+    esScenario: "Acabas de aceptar un nuevo puesto en un FQHC. Antes de tu primer día, tienes una semana para prepararte. Sabes muy poco sobre el equipo o el estado actual del programa.",
+    question: "What's the MOST important thing to find out before you start?",
+    esQuestion: "¿Qué es lo MÁS importante que debes averiguar antes de empezar?",
+    options: [
+      { id: "t1_a", text: "Research the FQHC's current challenges — are they launching new programs, recovering from staff turnover, growing fast, or restructuring? Then plan your first-week approach based on what you learn", esText: "Investigar los desafíos actuales del FQHC — ¿están lanzando nuevos programas, recuperándose de rotación de personal, creciendo rápido o reestructurándose? Luego planificar tu enfoque de la primera semana basándote en lo que aprendas", score: 4, behaviorTag: "situation-aware" },
+      { id: "t1_b", text: "Find out who your key teammates and stakeholders are so you can schedule introductions early", esText: "Averiguar quiénes son tus compañeros y stakeholders clave para programar presentaciones temprano", score: 3, behaviorTag: "relationship-focused" },
+      { id: "t1_c", text: "Review the job description carefully and make sure you can perform all the listed duties", esText: "Revisar la descripción del puesto cuidadosamente y asegurarte de que puedes realizar todas las funciones listadas", score: 2, behaviorTag: "task-oriented" },
+      { id: "t1_d", text: "Wait until your first day — you'll learn what you need to know once you're there", esText: "Esperar hasta tu primer día — aprenderás lo que necesitas saber una vez que estés ahí", score: 1, behaviorTag: "waits-for-direction" },
+    ],
+  },
+  {
+    id: "transition_2",
+    domain: "transition",
+    scenario: "You're two weeks into a new FQHC role. Your supervisor mentioned during your interview that they'd 'set up check-ins to discuss expectations and goals.' But since you started, they've been in back-to-back meetings and haven't scheduled anything. You don't have clear priorities.",
+    esScenario: "Llevas dos semanas en un nuevo puesto en un FQHC. Tu supervisor mencionó durante la entrevista que 'programaría reuniones para discutir expectativas y metas.' Pero desde que empezaste, ha estado en reuniones consecutivas y no ha programado nada. No tienes prioridades claras.",
+    question: "What do you do?",
+    esQuestion: "¿Qué haces?",
+    options: [
+      { id: "t2_a", text: "Proactively schedule a meeting with your supervisor. Come prepared with specific questions: What does success look like at 30/60/90 days? What are the biggest challenges right now? What resources are available to me?", esText: "Programar proactivamente una reunión con tu supervisor. Ir preparado/a con preguntas específicas: ¿Cómo se ve el éxito a los 30/60/90 días? ¿Cuáles son los mayores desafíos ahora mismo? ¿Qué recursos están disponibles para mí?", score: 4, behaviorTag: "proactive-aligner" },
+      { id: "t2_b", text: "Send a polite email asking when they might be available for a check-in, and in the meantime ask teammates about team priorities", esText: "Enviar un correo amable preguntando cuándo podría estar disponible para una reunión, y mientras tanto preguntar a compañeros sobre las prioridades del equipo", score: 3, behaviorTag: "respectful-initiative" },
+      { id: "t2_c", text: "Focus on learning the systems and processes on your own — your supervisor will reach out when they're ready", esText: "Enfocarte en aprender los sistemas y procesos por tu cuenta — tu supervisor se comunicará cuando esté listo/a", score: 2, behaviorTag: "passive-learner" },
+      { id: "t2_d", text: "Keep waiting — it's only been two weeks and you don't want to seem pushy", esText: "Seguir esperando — solo han sido dos semanas y no quieres parecer insistente", score: 1, behaviorTag: "no-diagnosis" },
+    ],
+  },
+  {
+    id: "transition_3",
+    domain: "transition",
+    scenario: "You're one month into a new FQHC role. There was no formal onboarding program — your predecessor left before you started, and your supervisor has been too busy to create a structured plan. You've been picking things up as you go, but you feel like you're missing important context.",
+    esScenario: "Llevas un mes en un nuevo puesto en un FQHC. No hubo programa formal de incorporación — tu predecesor se fue antes de que empezaras, y tu supervisor ha estado demasiado ocupado para crear un plan estructurado. Has estado aprendiendo sobre la marcha, pero sientes que te falta contexto importante.",
+    question: "How do you take control of your own onboarding?",
+    esQuestion: "¿Cómo tomas control de tu propia incorporación?",
+    options: [
+      { id: "t3_a", text: "Create your own learning plan: list what you need to know, identify knowledge gaps, find allies who can teach you, set milestones for the next 60 days, and share the plan with your supervisor for alignment", esText: "Crear tu propio plan de aprendizaje: listar lo que necesitas saber, identificar brechas de conocimiento, encontrar aliados que puedan enseñarte, establecer hitos para los próximos 60 días, y compartir el plan con tu supervisor para alineación", score: 4, behaviorTag: "self-organizer" },
+      { id: "t3_b", text: "Schedule meetings with key colleagues to learn about their roles and how your work connects, and start building a resource list for yourself", esText: "Programar reuniones con colegas clave para aprender sobre sus roles y cómo se conecta tu trabajo, y comenzar a crear una lista de recursos para ti mismo/a", score: 3, behaviorTag: "network-builder" },
+      { id: "t3_c", text: "Ask your supervisor to create an onboarding plan for you — that's really their responsibility", esText: "Pedir a tu supervisor que cree un plan de incorporación para ti — esa es realmente su responsabilidad", score: 2, behaviorTag: "unstructured" },
+      { id: "t3_d", text: "Keep learning as you go — most people figure things out eventually without a formal plan", esText: "Seguir aprendiendo sobre la marcha — la mayoría de las personas eventualmente descubren las cosas sin un plan formal", score: 1, behaviorTag: "passive-onboarder" },
+    ],
+  },
 ];
 
 /* --- Role-Specific Questions (imported from dedicated data file) ---- */
@@ -298,8 +358,8 @@ export function getQuestionsForRole(roleId?: string): AssessmentQuestion[] {
   // If we don't have role-specific questions for this role, use all universal
   if (roleQuestions.length === 0) return ASSESSMENT_QUESTIONS;
 
-  // Take first 2 universal questions per domain
-  const domainIds: DomainId[] = ["mission", "people", "execution", "growth"];
+  // Take first 2 universal questions per domain (5 domains)
+  const domainIds: DomainId[] = ["mission", "people", "execution", "growth", "transition"];
   const universalPicks: AssessmentQuestion[] = [];
 
   for (const domain of domainIds) {
@@ -309,7 +369,7 @@ export function getQuestionsForRole(roleId?: string): AssessmentQuestion[] {
     universalPicks.push(...domainQuestions.slice(0, 2));
   }
 
-  // Add 1 role-specific question per domain
+  // Add 1 role-specific question per domain (if available)
   const roleSpecificPicks: AssessmentQuestion[] = [];
   for (const domain of domainIds) {
     const rq = roleQuestions.find((q) => q.domain === domain);
@@ -317,6 +377,112 @@ export function getQuestionsForRole(roleId?: string): AssessmentQuestion[] {
   }
 
   return [...universalPicks, ...roleSpecificPicks];
+}
+
+/* --- Failure Factor Detection -------------------------------------- */
+/*  Based on the Talent Exchange Methodology's 4 failure factors.      */
+/*  These are NOT disqualifiers — they're growth opportunities         */
+/*  surfaced as kind, encouraging coaching insights.                   */
+/* ------------------------------------------------------------------ */
+
+interface FailureFactorPattern {
+  name: string;
+  esName: string;
+  /** behaviorTag values that indicate this pattern */
+  tags: string[];
+  /** Minimum matches to trigger (out of 12 answers) */
+  threshold: number;
+  coaching: string;
+  esCoaching: string;
+  icon: string;
+}
+
+const FAILURE_FACTOR_PATTERNS: FailureFactorPattern[] = [
+  {
+    name: "Comfort Zone Preference",
+    esName: "Preferencia por la Zona de Confort",
+    tags: ["avoidant", "comfort-seeking", "complacent", "conditional", "risk-averse"],
+    threshold: 2,
+    coaching: "Your responses suggest you may sometimes hold back from stepping outside your comfort zone. The most successful FQHC professionals embrace discomfort as growth. Try saying 'yes' to one challenging opportunity this month — even if you don't feel 100% ready. That's exactly how the best community health leaders are built.",
+    esCoaching: "Tus respuestas sugieren que a veces podrías contenerte de salir de tu zona de confort. Los profesionales de FQHC más exitosos abrazan la incomodidad como crecimiento. Intenta decir 'sí' a una oportunidad desafiante este mes — incluso si no te sientes 100% listo/a. Así es exactamente como se construyen los mejores líderes de salud comunitaria.",
+    icon: "\u{1F331}", // seedling
+  },
+  {
+    name: "Conflict Avoidance",
+    esName: "Evitación de Conflictos",
+    tags: ["conflict-avoidant", "passive", "passive-aggressive", "surface-receptive"],
+    threshold: 2,
+    coaching: "You may tend to avoid direct conversations when things get uncomfortable. In community health, the ability to address issues early — with empathy and directness — prevents small problems from becoming big ones. Practice the SBI model: describe the Situation, the specific Behavior, and its Impact. You'll be surprised how well it works.",
+    esCoaching: "Puede que tiendas a evitar conversaciones directas cuando las cosas se ponen incómodas. En salud comunitaria, la capacidad de abordar problemas temprano — con empatía y franqueza — previene que problemas pequeños se conviertan en grandes. Practica el modelo SBI: describe la Situación, el Comportamiento específico y su Impacto. Te sorprenderá lo bien que funciona.",
+    icon: "\u{1F4AC}", // speech bubble
+  },
+  {
+    name: "Engagement Sustainability",
+    esName: "Sostenibilidad del Compromiso",
+    tags: ["disengaging", "flight-risk", "wavering", "depleted"],
+    threshold: 2,
+    coaching: "Your responses suggest you may be running low on resilience or feeling uncertain about your commitment. That's okay — community health work is demanding. The key is building sustainable energy: develop a self-care routine, find a mentor who understands the mission, and remember that even small contributions change lives. You don't have to save the world every day.",
+    esCoaching: "Tus respuestas sugieren que podrías estar bajo en resiliencia o sintiéndote inseguro/a sobre tu compromiso. Está bien — el trabajo en salud comunitaria es exigente. La clave es construir energía sostenible: desarrolla una rutina de autocuidado, encuentra un mentor que entienda la misión y recuerda que incluso pequeñas contribuciones cambian vidas. No tienes que salvar el mundo todos los días.",
+    icon: "\u{1F50B}", // battery
+  },
+  {
+    name: "Initiative Gap",
+    esName: "Brecha de Iniciativa",
+    tags: ["passive-contributor", "narrow-scope", "dependent", "single-track"],
+    threshold: 2,
+    coaching: "You may tend to stay within your defined responsibilities rather than looking for ways to contribute beyond your role. FQHCs thrive when team members take initiative. Start small: identify one thing in your daily work that could be better and propose a fix. That bias toward action is what separates good employees from great ones — and it's a skill you can build.",
+    esCoaching: "Puede que tiendas a mantenerte dentro de tus responsabilidades definidas en lugar de buscar formas de contribuir más allá de tu rol. Los FQHCs prosperan cuando los miembros del equipo toman la iniciativa. Empieza pequeño: identifica una cosa en tu trabajo diario que podría ser mejor y propone una solución. Esa tendencia a la acción es lo que separa a los buenos empleados de los excelentes — y es una habilidad que puedes desarrollar.",
+    icon: "\u{1F680}", // rocket
+  },
+  {
+    name: "Transition Passivity",
+    esName: "Pasividad en la Transición",
+    tags: ["waits-for-direction", "no-diagnosis", "unstructured", "passive-onboarder", "passive-learner", "task-oriented"],
+    threshold: 2,
+    coaching: "Your responses suggest you may wait for others to structure your onboarding rather than taking charge of your own transition. The most successful FQHC professionals proactively diagnose their new situation — Is this team growing? Rebuilding? Stable? — then schedule alignment conversations with their manager and create their own learning plan within the first two weeks. This is a learnable skill that dramatically accelerates how fast you become effective.",
+    esCoaching: "Tus respuestas sugieren que podrías esperar a que otros estructuren tu incorporación en lugar de tomar las riendas de tu propia transición. Los profesionales de FQHC más exitosos diagnostican proactivamente su nueva situación — ¿Este equipo está creciendo? ¿Reconstruyéndose? ¿Estable? — luego programan conversaciones de alineación con su gerente y crean su propio plan de aprendizaje dentro de las primeras dos semanas. Esta es una habilidad que se puede aprender y que acelera dramáticamente qué tan rápido te vuelves efectivo/a.",
+    icon: "\u{1F9ED}", // compass
+  },
+];
+
+/**
+ * Detects failure factor patterns from assessment answers.
+ * Returns coaching insights for patterns that exceed the threshold.
+ * These are framed as growth opportunities, not red flags.
+ */
+export function detectFailureFactors(
+  answers: Record<string, string>,
+  questions: AssessmentQuestion[],
+): FailureFactorInsight[] {
+  // Collect all behaviorTags from selected answers
+  const selectedTags: string[] = [];
+
+  for (const question of questions) {
+    const selectedOptionId = answers[question.id];
+    if (!selectedOptionId) continue;
+    const option = question.options.find((o) => o.id === selectedOptionId);
+    if (option) {
+      selectedTags.push(option.behaviorTag);
+    }
+  }
+
+  // Check each failure factor pattern
+  const insights: FailureFactorInsight[] = [];
+
+  for (const pattern of FAILURE_FACTOR_PATTERNS) {
+    const matches = selectedTags.filter((tag) => pattern.tags.includes(tag)).length;
+    if (matches >= pattern.threshold) {
+      insights.push({
+        factor: pattern.name,
+        esFactor: pattern.esName,
+        coaching: pattern.coaching,
+        esCoaching: pattern.esCoaching,
+        icon: pattern.icon,
+      });
+    }
+  }
+
+  return insights;
 }
 
 /* --- Scoring Functions --------------------------------------------- */
@@ -346,6 +512,7 @@ export function calculateAssessmentResults(
     people: 0,
     execution: 0,
     growth: 0,
+    transition: 0,
   };
 
   // Sum scores per domain
@@ -365,7 +532,7 @@ export function calculateAssessmentResults(
     DomainScore
   >;
 
-  const domainIds: DomainId[] = ["mission", "people", "execution", "growth"];
+  const domainIds: DomainId[] = ["mission", "people", "execution", "growth", "transition"];
 
   for (const domain of domainIds) {
     const score = domainTotals[domain];
@@ -379,7 +546,7 @@ export function calculateAssessmentResults(
 
   // Overall score (0-100)
   const totalScore = domainIds.reduce((sum, d) => sum + domainTotals[d], 0);
-  const totalMax = MAX_PER_DOMAIN * 4; // 48
+  const totalMax = MAX_PER_DOMAIN * 5; // 60 (5 domains × 12 max per domain)
   const overallScore = Math.round((totalScore / totalMax) * 100);
 
   // Find top strength and top growth area
@@ -402,12 +569,16 @@ export function calculateAssessmentResults(
   // Generate insights (role-aware if roleId provided)
   const insights = generateInsights(domainScores, topStrength, topGrowthArea, locale, roleId);
 
+  // Detect failure factor patterns (growth opportunities)
+  const failureFactors = detectFailureFactors(answers, questions);
+
   return {
     domainScores,
     overallScore,
     topStrength,
     topGrowthArea,
     insights,
+    ...(failureFactors.length > 0 ? { failureFactors } : {}),
   };
 }
 
@@ -430,6 +601,10 @@ const STRENGTH_MESSAGES: Record<DomainId, string[]> = {
     "Your learning orientation and resilience position you for rapid career advancement. You see challenges as opportunities, which accelerates professional growth.",
     "Your career ambition combined with genuine curiosity means you\u2019ll continuously develop new skills and take on increasing responsibility.",
   ],
+  transition: [
+    "You instinctively know how to read a new situation before jumping in. This ability to diagnose whether you're walking into a startup, turnaround, or sustaining environment is what separates fast starters from slow ones.",
+    "You take ownership of your own onboarding. Rather than waiting for direction, you proactively build alignment, seek out resources, and create your own learning plan \u2014 a trait that predicts first-year success.",
+  ],
 };
 
 const GROWTH_MESSAGES: Record<DomainId, string[]> = {
@@ -448,6 +623,10 @@ const GROWTH_MESSAGES: Record<DomainId, string[]> = {
   growth: [
     "Pushing yourself to take on new challenges \u2014 even when you don\u2019t feel 100% ready \u2014 is how the strongest community health leaders are built.",
     "Building resilience requires intentional self-care and reflection. Develop routines that help you recover from difficult days so you can show up at your best.",
+  ],
+  transition: [
+    "Taking more initiative during transitions \u2014 diagnosing your situation, scheduling alignment conversations, building your own learning plan \u2014 will dramatically accelerate your ramp-up time in any new role.",
+    "The most successful FQHC professionals don't wait for someone to tell them what to learn. They identify their own knowledge gaps, find allies who can help, and create structure even when none is provided.",
   ],
 };
 
@@ -472,6 +651,11 @@ const NEXT_STEPS: Record<DomainId, string[]> = {
     "Create a 12-month career development plan with specific milestones",
     "Find a career mentor who has advanced through FQHC roles",
   ],
+  transition: [
+    "Before starting any new role, research the organization's current situation — are they growing, restructuring, or stabilizing?",
+    "In your first week at any new role, schedule alignment meetings to discuss expectations, resources, and working style",
+    "Create a personal 30/60/90 day plan with specific learning goals and milestones for your current role",
+  ],
 };
 
 /* --- Spanish Insight Messages ---------------------------------------- */
@@ -493,6 +677,10 @@ const STRENGTH_MESSAGES_ES: Record<DomainId, string[]> = {
     "Tu orientación al aprendizaje y resiliencia te posicionan para un avance profesional rápido. Ves los desafíos como oportunidades, lo que acelera el crecimiento profesional.",
     "Tu ambición profesional combinada con genuina curiosidad significa que continuamente desarrollarás nuevas habilidades y asumirás responsabilidades crecientes.",
   ],
+  transition: [
+    "Sabes instintivamente cómo leer una nueva situación antes de actuar. Esta capacidad de diagnosticar si estás entrando a un programa nuevo, un cambio organizacional o un ambiente estable es lo que separa a los que arrancan rápido de los que tardan.",
+    "Tomas responsabilidad de tu propia incorporación. En lugar de esperar dirección, construyes alineación proactivamente, buscas recursos y creas tu propio plan de aprendizaje — un rasgo que predice el éxito en el primer año.",
+  ],
 };
 
 const GROWTH_MESSAGES_ES: Record<DomainId, string[]> = {
@@ -511,6 +699,10 @@ const GROWTH_MESSAGES_ES: Record<DomainId, string[]> = {
   growth: [
     "Impulsarte a asumir nuevos desafíos — incluso cuando no te sientes 100% listo/a — es como se construyen los líderes más fuertes de salud comunitaria.",
     "Construir resiliencia requiere autocuidado y reflexión intencionales. Desarrolla rutinas que te ayuden a recuperarte de días difíciles para que puedas dar lo mejor de ti.",
+  ],
+  transition: [
+    "Tomar más iniciativa durante las transiciones — diagnosticar tu situación, programar conversaciones de alineación, crear tu propio plan de aprendizaje — acelerará dramáticamente tu tiempo de adaptación en cualquier nuevo puesto.",
+    "Los profesionales de FQHC más exitosos no esperan a que alguien les diga qué aprender. Identifican sus propias brechas de conocimiento, encuentran aliados que puedan ayudar y crean estructura incluso cuando no se les proporciona.",
   ],
 };
 
@@ -534,6 +726,11 @@ const NEXT_STEPS_ES: Record<DomainId, string[]> = {
     "Inscribirte en el próximo entrenamiento disponible de ECM/CCM para expandir tus habilidades",
     "Crear un plan de desarrollo profesional de 12 meses con hitos específicos",
     "Encontrar un mentor profesional que haya avanzado a través de puestos en FQHC",
+  ],
+  transition: [
+    "Antes de empezar cualquier nuevo puesto, investiga la situación actual de la organización — ¿están creciendo, reestructurándose o estabilizándose?",
+    "En tu primera semana en cualquier nuevo puesto, programa reuniones de alineación para discutir expectativas, recursos y estilo de trabajo",
+    "Crea un plan personal de 30/60/90 días con metas específicas de aprendizaje e hitos para tu puesto actual",
   ],
 };
 
@@ -574,7 +771,7 @@ function generateInsights(
 
   // --- Strength messages ---
   const strengths: string[] = [];
-  const domainIds: DomainId[] = ["mission", "people", "execution", "growth"];
+  const domainIds: DomainId[] = ["mission", "people", "execution", "growth", "transition"];
 
   if (roleInsight) {
     // Use role-specific strength message for the top strength domain
@@ -649,6 +846,7 @@ const DOMAIN_NAMES_ES: Record<DomainId, string> = {
   people: "Personas y Comunicación",
   execution: "Ejecución y Adaptabilidad",
   growth: "Mentalidad de Crecimiento",
+  transition: "Preparación para la Transición",
 };
 
 const DOMAIN_DESCRIPTIONS_ES: Record<DomainId, string> = {
@@ -660,6 +858,8 @@ const DOMAIN_DESCRIPTIONS_ES: Record<DomainId, string> = {
     "Resolución de problemas, manejo de complejidad, iniciativa y aprendizaje rápido. Predice desempeño en entornos dinámicos de FQHC.",
   growth:
     "Curiosidad, receptividad a retroalimentación, ambición profesional y resiliencia. Predice la trayectoria de desarrollo profesional.",
+  transition:
+    "Capacidad de diagnosticar nuevas situaciones, construir alineación con gerentes y auto-organizar la incorporación. Predice la velocidad de productividad y el éxito en el primer año.",
 };
 
 /**

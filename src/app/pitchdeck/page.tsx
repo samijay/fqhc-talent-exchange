@@ -179,7 +179,7 @@ const slides: Slide[] = [
             { icon: Building2, label: `${overview.totalFQHCs} FQHC Directory`, desc: "Every CA FQHC with programs, EHR, Glassdoor ratings, and careers links" },
             { icon: Briefcase, label: `${overview.totalJobs}+ Job Listings`, desc: "Searchable by role, region, salary, language, and FQHC" },
             { icon: FileText, label: "Resume Builder", desc: "FQHC-optimized templates with role-specific bullet points, bilingual" },
-            { icon: Brain, label: "Career Assessment", desc: "12-question behavioral assessment with role-specific insights and employer intel" },
+            { icon: Brain, label: "Career Assessment", desc: "15-question behavioral assessment across 5 domains with transition readiness and role-specific insights" },
             { icon: Shield, label: "Displaced Worker Fast-Track", desc: "48-hour intake for laid-off FQHC workers with priority placement" },
             { icon: BarChart3, label: "Market Intelligence", desc: "Funding cliff tracking, salary data, regional snapshots, role demand" },
             { icon: Globe, label: "Union Directory", desc: "Labor data for 90 FQHCs with healthcare policy timeline" },
@@ -259,13 +259,14 @@ const slides: Slide[] = [
 
         <div className="mt-10 grid gap-8 sm:grid-cols-2">
           <div>
-            <h4 className="mb-4 text-lg font-bold text-stone-900">4-Domain Behavioral Assessment</h4>
+            <h4 className="mb-4 text-lg font-bold text-stone-900">5-Domain Behavioral Assessment</h4>
             <div className="space-y-3">
               {[
                 { domain: "Mission Alignment", desc: "Do they connect with community health's purpose?" },
                 { domain: "People & Communication", desc: "Can they build trust across cultures and languages?" },
                 { domain: "Execution & Reliability", desc: "Can they handle caseloads and documentation under pressure?" },
                 { domain: "Growth & Adaptability", desc: "Will they learn CalAIM, ECM, and new program requirements?" },
+                { domain: "Transition Readiness", desc: "Can they diagnose a new situation, align with their manager, and self-organize onboarding?" },
               ].map((d) => (
                 <div key={d.domain} className="flex items-start gap-3 rounded-lg bg-stone-50 p-3">
                   <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-teal-600" />
@@ -296,6 +297,19 @@ const slides: Slide[] = [
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="mt-8 rounded-xl border border-purple-200 bg-purple-50/50 p-5">
+          <h4 className="mb-2 text-sm font-bold uppercase tracking-widest text-purple-600">
+            Our Competitive Moat
+          </h4>
+          <p className="text-sm leading-relaxed text-stone-700">
+            Unlike generic personality tests, our 5-domain framework is purpose-built for
+            community health. <strong>Transition Readiness</strong> — the ability to diagnose
+            a new situation, build alignment with your manager, and self-organize your own
+            onboarding — is the #1 predictor of first-year success that no other healthcare
+            staffing platform measures.
+          </p>
         </div>
       </SlideWrapper>
     ),

@@ -189,6 +189,18 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/why-fqhc` },
   },
+  demo: {
+    title: "Platform Demo | See FQHC Talent Exchange in Action",
+    description:
+      "Take a visual tour of FQHC Talent Exchange — California's only talent platform built for community health centers. See our FQHC directory, job search, resume builder, career assessment, and market intelligence tools.",
+    openGraph: {
+      title: "Platform Demo — FQHC Talent Exchange",
+      description:
+        "See how we connect community health professionals with FQHCs across California.",
+      url: `${SITE_URL}/demo`,
+    },
+    alternates: { canonical: `${SITE_URL}/demo` },
+  },
   about: {
     title:
       "About FQHC Talent Exchange | Our Mission to Strengthen Community Health",
@@ -201,6 +213,18 @@ export const pageMetadata = {
       url: `${SITE_URL}/about`,
     },
     alternates: { canonical: `${SITE_URL}/about` },
+  },
+  teamReadiness: {
+    title: "Team Readiness Assessment for FQHC Managers | Leadership Tool",
+    description:
+      "Assess your team's readiness across 5 behavioral domains. Built for FQHC managers, supervisors, and directors. Get personalized management actions, Liberating Structures, and team-building strategies.",
+    openGraph: {
+      title: "Team Readiness Assessment — FQHC Talent Exchange",
+      description:
+        "Assess your FQHC team's readiness with our 5-domain leadership assessment. Get management actions and team-building tools.",
+      url: `${SITE_URL}/team-readiness`,
+    },
+    alternates: { canonical: `${SITE_URL}/team-readiness` },
   },
 };
 

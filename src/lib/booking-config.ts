@@ -66,4 +66,16 @@ export const BOOKING_VARIANTS = {
       buttonText: "Reservar Consulta Prioritaria",
     },
   },
+  manager: {
+    en: {
+      heading: "Get Strategic Team Support",
+      description: "Book a free 20-minute consultation. We'll review your team readiness results and discuss strategies for building a high-performing FQHC team.",
+      buttonText: "Book a Manager Consultation",
+    },
+    es: {
+      heading: "Obtén Apoyo Estratégico para tu Equipo",
+      description: "Reserva una consulta gratuita de 20 minutos. Revisaremos tus resultados de preparación del equipo y discutiremos estrategias para construir un equipo FQHC de alto rendimiento.",
+      buttonText: "Reservar Consulta para Gerentes",
+    },
+  },
 } as const;

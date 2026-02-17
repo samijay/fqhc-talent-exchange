@@ -1423,4 +1423,353 @@ export const ROLE_SPECIFIC_QUESTIONS: (AssessmentQuestion & { roleId: RoleId })[
       },
     ],
   },
+
+  // ============================================================
+  // TRANSITION READINESS — Role-Specific Questions (1 per role)
+  // Tests: situation diagnosis, alignment-seeking, self-organization
+  // ============================================================
+
+  // CHW — Previous CHW left no community contacts or outreach documentation
+  {
+    id: "rs_chw_t",
+    roleId: "chw",
+    domain: "transition",
+    scenario:
+      "You just started as a CHW at a new FQHC. The previous CHW left abruptly with no documentation — no community contact lists, no outreach logs, no notes on which apartment complexes or community organizations they worked with. Your supervisor says, 'You'll figure it out — just start doing outreach.' You have a panel of 80 patients assigned to you, and many haven't been contacted in months.",
+    esScenario:
+      "Acabas de comenzar como CHW en un nuevo FQHC. El CHW anterior se fue abruptamente sin documentación — sin listas de contactos comunitarios, sin registros de alcance, sin notas sobre qué complejos de apartamentos u organizaciones comunitarias trabajaban. Tu supervisor dice, 'Lo resolverás — solo empieza a hacer alcance.' Tienes un panel de 80 pacientes asignados, y muchos no han sido contactados en meses.",
+    question: "How do you approach your first two weeks?",
+    esQuestion: "¿Cómo enfocas tus primeras dos semanas?",
+    options: [
+      {
+        id: "rs_chw_t_a",
+        text: "Before any outreach, spend 3-4 days diagnosing the situation: pull patient data from the EHR to identify who's highest-risk, talk to medical assistants and front desk staff about which patients they've seen recently, research community organizations in the service area, and schedule a sit-down with your supervisor to clarify expectations and success metrics for your first 90 days",
+        esText: "Antes de cualquier alcance, dedica 3-4 días a diagnosticar la situación: revisar datos de pacientes en el EHR para identificar quiénes son de mayor riesgo, hablar con asistentes médicos y personal de recepción sobre qué pacientes han visto recientemente, investigar organizaciones comunitarias en el área de servicio, y programar una reunión con tu supervisor para clarificar expectativas y métricas de éxito para tus primeros 90 días",
+        score: 4,
+        behaviorTag: "situation-aware",
+      },
+      {
+        id: "rs_chw_t_b",
+        text: "Start outreach immediately with the highest-risk patients on your panel — call them, attempt home visits, and rebuild the contact list as you go. Ask colleagues informally about what worked before",
+        esText: "Comenzar alcance inmediatamente con los pacientes de mayor riesgo en tu panel — llamarlos, intentar visitas domiciliarias, y reconstruir la lista de contactos sobre la marcha. Preguntar informalmente a colegas qué funcionaba antes",
+        score: 3,
+        behaviorTag: "bias-to-action",
+      },
+      {
+        id: "rs_chw_t_c",
+        text: "Ask your supervisor for a more detailed onboarding plan and request to shadow another CHW at the FQHC for a week before starting your own outreach",
+        esText: "Pedir a tu supervisor un plan de incorporación más detallado y solicitar observar a otro CHW en el FQHC durante una semana antes de comenzar tu propio alcance",
+        score: 2,
+        behaviorTag: "waits-for-direction",
+      },
+      {
+        id: "rs_chw_t_d",
+        text: "Focus on getting your own workspace set up — computer access, EHR training, badge, parking — and wait for your supervisor to schedule a proper orientation before starting any patient contact",
+        esText: "Enfocarte en preparar tu propio espacio de trabajo — acceso a computadora, capacitación del EHR, credencial, estacionamiento — y esperar a que tu supervisor programe una orientación adecuada antes de iniciar cualquier contacto con pacientes",
+        score: 1,
+        behaviorTag: "passive-onboarder",
+      },
+    ],
+  },
+
+  // Care Coordinator — Inherit ECM panel with incomplete care plans
+  {
+    id: "rs_cc_t",
+    roleId: "care_coordinator",
+    domain: "transition",
+    scenario:
+      "You've been hired as a Care Coordinator inheriting an ECM panel of 40 patients. The previous coordinator was overwhelmed and left. Looking at the records, you find that 15 patients have incomplete care plans, 8 haven't been contacted in over 60 days (a compliance risk), and 5 have upcoming specialist appointments that haven't been confirmed. Your new supervisor is in back-to-back meetings all week and tells you to 'prioritize as you see fit.'",
+    esScenario:
+      "Te contrataron como Coordinador de Cuidado heredando un panel ECM de 40 pacientes. El coordinador anterior estaba abrumado y se fue. Al revisar los registros, encuentras que 15 pacientes tienen planes de cuidado incompletos, 8 no han sido contactados en más de 60 días (un riesgo de cumplimiento), y 5 tienen citas con especialistas próximas que no han sido confirmadas. Tu nuevo supervisor está en reuniones seguidas toda la semana y te dice que 'priorices como mejor te parezca.'",
+    question: "How do you organize your first week?",
+    esQuestion: "¿Cómo organizas tu primera semana?",
+    options: [
+      {
+        id: "rs_cc_t_a",
+        text: "Create a triage system: immediately address the 5 upcoming specialist appointments (time-sensitive), then contact the 8 patients at compliance risk within 48 hours, then schedule a meeting with your supervisor — even if brief — to align on what 'success' looks like at 30/60/90 days and to understand the team's compliance reporting deadlines. Build your own tracking spreadsheet to manage the inherited panel systematically",
+        esText: "Crear un sistema de triaje: abordar inmediatamente las 5 citas con especialistas próximas (urgentes en tiempo), luego contactar a los 8 pacientes en riesgo de cumplimiento dentro de 48 horas, después programar una reunión con tu supervisor — aunque sea breve — para alinear qué significa 'éxito' a los 30/60/90 días y entender los plazos de reportes de cumplimiento del equipo. Crear tu propia hoja de seguimiento para manejar el panel heredado sistemáticamente",
+        score: 4,
+        behaviorTag: "self-organizer",
+      },
+      {
+        id: "rs_cc_t_b",
+        text: "Start calling patients right away — begin with the 8 who haven't been contacted in 60+ days since that's the biggest risk. Work through the list and deal with care plans as you go",
+        esText: "Empezar a llamar pacientes de inmediato — comenzar con los 8 que no han sido contactados en más de 60 días ya que es el mayor riesgo. Trabajar la lista y resolver los planes de cuidado sobre la marcha",
+        score: 3,
+        behaviorTag: "bias-to-action",
+      },
+      {
+        id: "rs_cc_t_c",
+        text: "Email your supervisor asking for a detailed handoff document and a list of the team's priority patients before you start making any calls",
+        esText: "Enviar un correo a tu supervisor pidiendo un documento detallado de transferencia y una lista de los pacientes prioritarios del equipo antes de comenzar a hacer llamadas",
+        score: 2,
+        behaviorTag: "waits-for-direction",
+      },
+      {
+        id: "rs_cc_t_d",
+        text: "Spend the week reading through all 40 patient charts to fully understand each case before reaching out to anyone. You want to be prepared before making contact",
+        esText: "Pasar la semana leyendo los 40 expedientes de pacientes para entender completamente cada caso antes de contactar a alguien. Quieres estar preparado antes de hacer contacto",
+        score: 1,
+        behaviorTag: "no-diagnosis",
+      },
+    ],
+  },
+
+  // Medical Assistant — New clinic, different EHR, different provider preferences
+  {
+    id: "rs_ma_t",
+    roleId: "medical_assistant",
+    domain: "transition",
+    scenario:
+      "You just transferred to a new FQHC clinic after 3 years at your previous site. This clinic uses a different EHR system you've never worked with, the providers have different preferences for rooming patients and vitals workflows, and the front desk team seems hesitant to help you learn the ropes. One provider has already complained that you're 'too slow' on your second day.",
+    esScenario:
+      "Acabas de transferirte a una nueva clínica FQHC después de 3 años en tu sitio anterior. Esta clínica usa un sistema EHR diferente que nunca has usado, los proveedores tienen preferencias diferentes para el flujo de trabajo de habitaciones y signos vitales, y el equipo de recepción parece reacio a ayudarte a aprender. Un proveedor ya se quejó de que eres 'muy lento/a' en tu segundo día.",
+    question: "How do you handle this transition?",
+    esQuestion: "¿Cómo manejas esta transición?",
+    options: [
+      {
+        id: "rs_ma_t_a",
+        text: "Schedule a 10-minute conversation with each provider to learn their specific preferences and workflow expectations. Ask the clinic lead for EHR training resources or to shadow a veteran MA for a half-day. Create a cheat sheet of each provider's preferences. Address the speed complaint directly with the provider: 'I'm investing time this week to learn your preferences so I can be efficient long-term — can you tell me your top 3 priorities for rooming?'",
+        esText: "Programar una conversación de 10 minutos con cada proveedor para aprender sus preferencias específicas y expectativas de flujo de trabajo. Pedir al líder de clínica recursos de capacitación del EHR o observar a un MA veterano por medio día. Crear una hoja de referencia con las preferencias de cada proveedor. Abordar la queja de velocidad directamente con el proveedor: 'Estoy invirtiendo tiempo esta semana para aprender tus preferencias y ser eficiente a largo plazo — ¿puedes decirme tus 3 prioridades principales para preparar pacientes?'",
+        score: 4,
+        behaviorTag: "proactive-aligner",
+      },
+      {
+        id: "rs_ma_t_b",
+        text: "Watch what other MAs do and try to mirror their workflows. Stay late to practice the EHR system on your own. Keep your head down until you're up to speed",
+        esText: "Observar lo que hacen otros MAs e intentar replicar sus flujos de trabajo. Quedarte tarde para practicar el sistema EHR por tu cuenta. Mantener perfil bajo hasta que estés al día",
+        score: 2,
+        behaviorTag: "passive-learner",
+      },
+      {
+        id: "rs_ma_t_c",
+        text: "Ask your clinic manager to arrange a formal training schedule for your first two weeks — EHR modules, provider shadowing, and front desk orientation",
+        esText: "Pedir a tu gerente de clínica que organice un programa formal de capacitación para tus primeras dos semanas — módulos del EHR, observación de proveedores, y orientación de recepción",
+        score: 3,
+        behaviorTag: "structured-learner",
+      },
+      {
+        id: "rs_ma_t_d",
+        text: "Tell the provider who complained that you just started and need time. Focus on doing things correctly rather than quickly, even if it means longer patient wait times for now",
+        esText: "Decirle al proveedor que se quejó que acabas de empezar y necesitas tiempo. Enfocarte en hacer las cosas correctamente en lugar de rápido, aunque signifique tiempos de espera más largos por ahora",
+        score: 1,
+        behaviorTag: "unstructured",
+      },
+    ],
+  },
+
+  // Case Manager — Take over high-acuity caseload with no case notes
+  {
+    id: "rs_cm_t",
+    roleId: "case_manager",
+    domain: "transition",
+    scenario:
+      "You're starting as a Case Manager at an FQHC taking over a caseload of 25 high-acuity patients from a colleague who was terminated. There are almost no case notes in the system — just names, diagnoses, and insurance information. Several patients are in active housing transitions, two have pending SSI applications with court dates, and one was recently hospitalized. Your supervisor hands you the list and says, 'These patients can't wait — they need someone now.'",
+    esScenario:
+      "Estás comenzando como Case Manager en un FQHC tomando un caseload de 25 pacientes de alta agudeza de un colega que fue despedido. Casi no hay notas de caso en el sistema — solo nombres, diagnósticos e información de seguro. Varios pacientes están en transiciones activas de vivienda, dos tienen solicitudes de SSI pendientes con fechas de corte, y uno fue hospitalizado recientemente. Tu supervisor te entrega la lista y dice, 'Estos pacientes no pueden esperar — necesitan a alguien ahora.'",
+    question: "What's your approach?",
+    esQuestion: "¿Cuál es tu enfoque?",
+    options: [
+      {
+        id: "rs_cm_t_a",
+        text: "Immediately triage by urgency: contact the hospitalized patient first, verify the SSI court dates and prepare documentation, then assess the housing transitions. Simultaneously, schedule a meeting with your supervisor within 48 hours to define expectations, learn who the key community partners are (housing authorities, legal aid, SSI advocates), and set up a systematic tracking tool for all 25 patients with status, next action, and deadline columns",
+        esText: "Triaje inmediato por urgencia: contactar primero al paciente hospitalizado, verificar las fechas de corte de SSI y preparar documentación, luego evaluar las transiciones de vivienda. Simultáneamente, programar una reunión con tu supervisor dentro de 48 horas para definir expectativas, conocer quiénes son los socios comunitarios clave (autoridades de vivienda, asistencia legal, defensores de SSI), y establecer una herramienta de seguimiento sistemático para los 25 pacientes con columnas de estado, próxima acción y fecha límite",
+        score: 4,
+        behaviorTag: "self-organizer",
+      },
+      {
+        id: "rs_cm_t_b",
+        text: "Start calling all 25 patients this week to introduce yourself and assess their current needs. Document everything as you go to rebuild the case files",
+        esText: "Empezar a llamar a los 25 pacientes esta semana para presentarte y evaluar sus necesidades actuales. Documentar todo sobre la marcha para reconstruir los expedientes",
+        score: 3,
+        behaviorTag: "bias-to-action",
+      },
+      {
+        id: "rs_cm_t_c",
+        text: "Ask your supervisor to identify the top 5 most critical patients and focus only on those until you've gotten proper orientation and understand the FQHC's referral network",
+        esText: "Pedir a tu supervisor que identifique los 5 pacientes más críticos y enfocarte solo en esos hasta que hayas recibido una orientación adecuada y entiendas la red de referidos del FQHC",
+        score: 2,
+        behaviorTag: "waits-for-direction",
+      },
+      {
+        id: "rs_cm_t_d",
+        text: "Tell your supervisor this situation is untenable — you can't safely manage 25 high-acuity patients with no documentation. Request a reduced caseload or a two-week ramp-up period before taking full responsibility",
+        esText: "Decirle a tu supervisor que esta situación es insostenible — no puedes manejar de forma segura 25 pacientes de alta agudeza sin documentación. Solicitar un caseload reducido o un período de dos semanas de preparación antes de asumir responsabilidad completa",
+        score: 1,
+        behaviorTag: "task-oriented",
+      },
+    ],
+  },
+
+  // Behavioral Health — Join integrated BH team where providers don't understand your role
+  {
+    id: "rs_bh_t",
+    roleId: "behavioral_health",
+    domain: "transition",
+    scenario:
+      "You've joined an FQHC as a Behavioral Health Specialist on their new integrated care team. During your first week, you realize the medical providers don't understand what you do — they either refer every patient to you ('she's stressed, send her to BH') or none at all. The warm handoff process exists on paper but isn't happening in practice. Your BH supervisor is at a different site and available only by phone. The clinic manager says, 'We're glad you're here — make it work.'",
+    esScenario:
+      "Te uniste a un FQHC como Especialista en Salud Conductual en su nuevo equipo de cuidado integrado. Durante tu primera semana, te das cuenta de que los proveedores médicos no entienden lo que haces — o te refieren a todos los pacientes ('está estresada, envíala a BH') o a ninguno. El proceso de transferencia en caliente existe en papel pero no sucede en la práctica. Tu supervisor de BH está en otro sitio y disponible solo por teléfono. El gerente de clínica dice, 'Nos alegra que estés aquí — hazlo funcionar.'",
+    question: "How do you establish your role in the first month?",
+    esQuestion: "¿Cómo estableces tu rol en el primer mes?",
+    options: [
+      {
+        id: "rs_bh_t_a",
+        text: "Diagnose the situation first: observe the clinic flow for 2-3 days to understand when and how patients move through visits. Then schedule brief 1:1 meetings with each provider to learn their perspective on behavioral health needs and explain when warm handoffs are most valuable. Create a simple one-page guide ('When to refer to BH') and post it in each exam room. Set up weekly check-ins with your BH supervisor to align on integration goals and metrics",
+        esText: "Diagnosticar la situación primero: observar el flujo de la clínica durante 2-3 días para entender cuándo y cómo los pacientes se mueven durante las visitas. Luego programar reuniones breves 1:1 con cada proveedor para conocer su perspectiva sobre necesidades de salud conductual y explicar cuándo las transferencias en caliente son más valiosas. Crear una guía simple de una página ('Cuándo referir a BH') y publicarla en cada sala de examen. Establecer check-ins semanales con tu supervisor de BH para alinear metas y métricas de integración",
+        score: 4,
+        behaviorTag: "situation-aware",
+      },
+      {
+        id: "rs_bh_t_b",
+        text: "Start showing up to provider huddles uninvited, introduce yourself, and offer to do same-day consultations. Make yourself visible and available so providers naturally start referring appropriately over time",
+        esText: "Empezar a presentarte en las reuniones de proveedores sin invitación, presentarte y ofrecer hacer consultas del mismo día. Hacerte visible y disponible para que los proveedores naturalmente comiencen a referir apropiadamente con el tiempo",
+        score: 3,
+        behaviorTag: "network-builder",
+      },
+      {
+        id: "rs_bh_t_c",
+        text: "Ask the clinic manager to send an email to all providers explaining your role, the warm handoff process, and when to refer patients to behavioral health",
+        esText: "Pedir al gerente de clínica que envíe un correo a todos los proveedores explicando tu rol, el proceso de transferencia en caliente, y cuándo referir pacientes a salud conductual",
+        score: 2,
+        behaviorTag: "waits-for-direction",
+      },
+      {
+        id: "rs_bh_t_d",
+        text: "Accept whatever referrals come your way and focus on building your patient panel. The providers will learn the appropriate referral patterns over time as they see what kinds of patients benefit most from BH services",
+        esText: "Aceptar cualquier referido que llegue y enfocarte en construir tu panel de pacientes. Los proveedores aprenderán los patrones de referido apropiados con el tiempo al ver qué tipos de pacientes se benefician más de los servicios de BH",
+        score: 1,
+        behaviorTag: "passive-onboarder",
+      },
+    ],
+  },
+
+  // Registered Nurse — Float to new clinic with different protocols
+  {
+    id: "rs_rn_t",
+    roleId: "registered_nurse",
+    domain: "transition",
+    scenario:
+      "You're an RN who just accepted a position at a multi-site FQHC. You'll be floating between 3 clinic sites, each with different patient populations, slightly different protocols, and different care teams. Your first day at Site A, you discover their triage protocols differ from what you learned in orientation (which was based on Site B). The charge nurse is busy and says, 'Just do what makes clinical sense.' You also don't know where supplies are stored or who to call for urgent situations.",
+    esScenario:
+      "Eres un/a RN que acaba de aceptar una posición en un FQHC con múltiples sitios. Estarás rotando entre 3 sitios clínicos, cada uno con diferentes poblaciones de pacientes, protocolos ligeramente diferentes, y diferentes equipos de cuidado. Tu primer día en el Sitio A, descubres que sus protocolos de triaje difieren de lo que aprendiste en orientación (que estaba basada en el Sitio B). La enfermera a cargo está ocupada y dice, 'Solo haz lo que tenga sentido clínico.' Tampoco sabes dónde están los suministros ni a quién llamar para situaciones urgentes.",
+    question: "How do you navigate this?",
+    esQuestion: "¿Cómo manejas esto?",
+    options: [
+      {
+        id: "rs_rn_t_a",
+        text: "Create your own 'site readiness' system: for each of the 3 sites, build a quick-reference card with key contacts (charge nurse, provider on call, pharmacy), supply locations, and site-specific protocol variations. Start by asking the MAs at Site A — they know the practical details better than anyone. Schedule a conversation with your nursing supervisor to discuss expectations for float nurses and clarify which protocols take precedence when sites differ",
+        esText: "Crear tu propio sistema de 'preparación por sitio': para cada uno de los 3 sitios, hacer una tarjeta de referencia rápida con contactos clave (enfermera a cargo, proveedor de guardia, farmacia), ubicaciones de suministros, y variaciones de protocolo específicas del sitio. Empezar preguntando a los MAs del Sitio A — ellos conocen los detalles prácticos mejor que nadie. Programar una conversación con tu supervisor de enfermería para discutir expectativas para enfermeras rotativas y clarificar qué protocolos tienen prioridad cuando los sitios difieren",
+        score: 4,
+        behaviorTag: "self-organizer",
+      },
+      {
+        id: "rs_rn_t_b",
+        text: "Follow the charge nurse's advice — use your clinical judgment for today, take notes on how things work at this site, and bring up the protocol discrepancies at the next staff meeting",
+        esText: "Seguir el consejo de la enfermera a cargo — usar tu juicio clínico por hoy, tomar notas sobre cómo funcionan las cosas en este sitio, y plantear las discrepancias de protocolo en la próxima reunión de personal",
+        score: 3,
+        behaviorTag: "adaptive-learner",
+      },
+      {
+        id: "rs_rn_t_c",
+        text: "Email your nursing supervisor about the protocol discrepancy and ask for written clarification before you see any more patients at Site A",
+        esText: "Enviar un correo a tu supervisor de enfermería sobre la discrepancia de protocolo y pedir clarificación por escrito antes de ver más pacientes en el Sitio A",
+        score: 2,
+        behaviorTag: "waits-for-direction",
+      },
+      {
+        id: "rs_rn_t_d",
+        text: "Just follow the orientation protocols from Site B consistently across all sites — at least you'll have a standard approach, and if there's an issue, you can point to your training",
+        esText: "Simplemente seguir los protocolos de orientación del Sitio B consistentemente en todos los sitios — al menos tendrás un enfoque estándar, y si hay un problema, puedes señalar tu capacitación",
+        score: 1,
+        behaviorTag: "unstructured",
+      },
+    ],
+  },
+
+  // Patient Services — FQHC just switched billing systems
+  {
+    id: "rs_ps_t",
+    roleId: "patient_services",
+    domain: "transition",
+    scenario:
+      "You've been hired as a Patient Services Representative at an FQHC that just switched to a new billing and scheduling system two weeks before you started. The staff are frustrated and still learning the system themselves. Patients are experiencing longer wait times, scheduling errors, and insurance verification issues. Your training consisted of a 2-hour video module. On your first full day, the phone queue has 15 patients waiting, two walk-ins are upset about appointment mix-ups, and a colleague asks you to help with a Medi-Cal eligibility check you don't know how to do in the new system.",
+    esScenario:
+      "Te contrataron como Representante de Servicios al Paciente en un FQHC que cambió a un nuevo sistema de facturación y programación dos semanas antes de que empezaras. El personal está frustrado y aún aprendiendo el sistema. Los pacientes experimentan tiempos de espera más largos, errores de programación y problemas de verificación de seguro. Tu capacitación consistió en un módulo de video de 2 horas. En tu primer día completo, la cola telefónica tiene 15 pacientes esperando, dos pacientes sin cita están molestos por confusiones de citas, y un colega te pide ayuda con una verificación de elegibilidad de Medi-Cal que no sabes hacer en el nuevo sistema.",
+    question: "How do you handle this situation?",
+    esQuestion: "¿Cómo manejas esta situación?",
+    options: [
+      {
+        id: "rs_ps_t_a",
+        text: "Triage the immediate needs: help the two upset walk-in patients first (they're in front of you), then join the phone queue. For the Medi-Cal eligibility check, ask your colleague to show you how to do it once so you can handle it next time. After the morning rush, approach your supervisor to request a buddy system — pair you with an experienced rep for your first week. Create your own 'cheat sheet' of common tasks in the new system as you learn them, and share it with the team",
+        esText: "Triaje de necesidades inmediatas: ayudar primero a los dos pacientes sin cita que están molestos (están frente a ti), luego unirte a la cola telefónica. Para la verificación de elegibilidad de Medi-Cal, pedir a tu colega que te muestre cómo hacerlo una vez para que puedas manejarlo la próxima vez. Después del rush de la mañana, acercarte a tu supervisor para solicitar un sistema de compañero — emparejarte con un representante experimentado para tu primera semana. Crear tu propia 'hoja de referencia' de tareas comunes en el nuevo sistema conforme las aprendas, y compartirla con el equipo",
+        score: 4,
+        behaviorTag: "proactive-aligner",
+      },
+      {
+        id: "rs_ps_t_b",
+        text: "Jump into the phone queue immediately — that's where the biggest backlog is. Figure out the new system by doing. Ask questions as they come up and learn in real-time",
+        esText: "Unirte a la cola telefónica inmediatamente — ahí es donde está el mayor atraso. Aprender el nuevo sistema haciéndolo. Hacer preguntas conforme surjan y aprender en tiempo real",
+        score: 3,
+        behaviorTag: "bias-to-action",
+      },
+      {
+        id: "rs_ps_t_c",
+        text: "Tell your supervisor that a 2-hour video isn't sufficient training for a new system and request additional formal training before being put on the phones or front desk",
+        esText: "Decirle a tu supervisor que un video de 2 horas no es capacitación suficiente para un nuevo sistema y solicitar capacitación formal adicional antes de que te pongan en los teléfonos o recepción",
+        score: 2,
+        behaviorTag: "waits-for-direction",
+      },
+      {
+        id: "rs_ps_t_d",
+        text: "Focus on the tasks you can do with confidence — greeting patients, taking messages, filing paperwork — and redirect anything system-related to your more experienced colleagues until you've completed more training",
+        esText: "Enfocarte en las tareas que puedes hacer con confianza — saludar pacientes, tomar mensajes, archivar documentos — y redirigir cualquier cosa relacionada con el sistema a tus colegas más experimentados hasta que hayas completado más capacitación",
+        score: 1,
+        behaviorTag: "passive-onboarder",
+      },
+    ],
+  },
+
+  // Revenue Cycle — New payer contracts changed, denial rates spiking
+  {
+    id: "rs_rc_t",
+    roleId: "revenue_cycle",
+    domain: "transition",
+    scenario:
+      "You've just started as a Revenue Cycle Specialist at an FQHC. During your first week, you discover that three major Medi-Cal managed care plans just changed their authorization requirements and fee schedules, but nobody at the FQHC has updated the billing workflows or documented the new rules. Denial rates have spiked 40% in the past month. The billing team is small (3 people including you), stressed, and behind on appeals. Your supervisor says, 'We need someone who can hit the ground running — figure out what's changed and fix it.'",
+    esScenario:
+      "Acabas de comenzar como Especialista en Ciclo de Ingresos en un FQHC. Durante tu primera semana, descubres que tres planes principales de managed care de Medi-Cal acaban de cambiar sus requisitos de autorización y tarifas, pero nadie en el FQHC ha actualizado los flujos de facturación ni documentado las nuevas reglas. Las tasas de denegación han aumentado 40% en el último mes. El equipo de facturación es pequeño (3 personas incluyéndote), estresado y atrasado en apelaciones. Tu supervisor dice, 'Necesitamos a alguien que pueda empezar fuerte — averigua qué cambió y arréglalo.'",
+    question: "How do you tackle this?",
+    esQuestion: "¿Cómo abordas esto?",
+    options: [
+      {
+        id: "rs_rc_t_a",
+        text: "Start by diagnosing the root cause: pull denial reports for the past 3 months and categorize by payer and denial reason code. Contact each of the 3 managed care plans directly to get the updated authorization requirements and fee schedules. Create a comparison document showing what changed. Meet with your supervisor to align on priorities — should you focus on stopping new denials (update workflows) or recovering revenue (work the appeals backlog)? Propose a 30-day action plan with both tracks",
+        esText: "Empezar diagnosticando la causa raíz: obtener reportes de denegaciones de los últimos 3 meses y categorizar por pagador y código de razón de denegación. Contactar directamente a cada uno de los 3 planes de managed care para obtener los requisitos de autorización y tarifas actualizados. Crear un documento comparativo mostrando qué cambió. Reunirte con tu supervisor para alinear prioridades — ¿debes enfocarte en detener nuevas denegaciones (actualizar flujos) o recuperar ingresos (trabajar el atraso de apelaciones)? Proponer un plan de acción de 30 días con ambas líneas",
+        score: 4,
+        behaviorTag: "situation-aware",
+      },
+      {
+        id: "rs_rc_t_b",
+        text: "Dive into the appeals backlog immediately — that's the most urgent revenue recovery. Call payers to understand the denials as you work through each appeal, and learn the new rules through the process",
+        esText: "Sumergirte en el atraso de apelaciones inmediatamente — esa es la recuperación de ingresos más urgente. Llamar a pagadores para entender las denegaciones mientras trabajas cada apelación, y aprender las nuevas reglas a través del proceso",
+        score: 3,
+        behaviorTag: "bias-to-action",
+      },
+      {
+        id: "rs_rc_t_c",
+        text: "Ask your supervisor for the payer contracts and previous billing guidelines so you can understand what the old rules were before trying to figure out what changed",
+        esText: "Pedir a tu supervisor los contratos con pagadores y las guías de facturación anteriores para entender cuáles eran las reglas antiguas antes de intentar averiguar qué cambió",
+        score: 2,
+        behaviorTag: "waits-for-direction",
+      },
+      {
+        id: "rs_rc_t_d",
+        text: "Focus on processing current claims correctly using whatever guidelines you can find. The denials from the past month are someone else's problem — you need to make sure YOUR claims going forward are clean",
+        esText: "Enfocarte en procesar las reclamaciones actuales correctamente usando las guías que puedas encontrar. Las denegaciones del mes pasado son problema de alguien más — necesitas asegurarte de que TUS reclamaciones en adelante estén limpias",
+        score: 1,
+        behaviorTag: "no-diagnosis",
+      },
+    ],
+  },
 ];
