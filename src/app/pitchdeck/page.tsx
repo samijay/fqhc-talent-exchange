@@ -83,15 +83,16 @@ const slides: Slide[] = [
             </span>
           </div>
 
-          <p className="text-lg font-medium text-amber-600">
-            &ldquo;The Talent Drop&rdquo;
-          </p>
-          <h1 className="mt-2 text-2xl font-bold text-stone-700 sm:text-3xl">
-            AI-Powered Weekly Candidate Matching for<br />
-            Community Health Centers
+          <h1 className="mt-2 text-xl font-bold text-stone-700 sm:text-2xl lg:text-3xl">
+            The FQHC Job Market Supercharger &amp;<br />
+            Layoff-to-Hire Accelerator
           </h1>
-
-          <p className="mx-auto mt-4 text-sm font-medium text-stone-400">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-stone-500">
+            Industry insights, mission-driven career tools, expert assessments, and labor
+            intelligence — purpose-built for community health center professionals and the
+            FQHCs that employ them.
+          </p>
+          <p className="mt-4 text-sm font-medium text-stone-400">
             MVP Business Plan &middot; February 2026
           </p>
 
@@ -249,14 +250,14 @@ const slides: Slide[] = [
     content: (
       <SlideWrapper>
         <h2 className="mb-2 text-sm font-bold uppercase tracking-widest text-amber-600">
-          The Product
+          Revenue Engine
         </h2>
         <h3 className="text-3xl font-bold text-stone-900 sm:text-4xl">
-          Introducing: The Talent Drop
+          The Talent Drop: Our MVP Revenue Model
         </h3>
         <p className="mt-3 max-w-2xl text-lg text-stone-600">
-          A weekly curated batch of pre-assessed, role-matched candidates — delivered
-          every Wednesday at 9 AM.
+          One key feature of the platform — a weekly curated batch of pre-assessed,
+          role-matched candidates delivered every Wednesday at 9 AM.
         </p>
 
         <div className="mt-10 grid gap-1 sm:grid-cols-4">
@@ -986,7 +987,7 @@ const slides: Slide[] = [
         </h3>
         <p className="mt-3 max-w-2xl text-stone-600">
           Entire platform built by solo founder using AI-assisted development.
-          36 features shipped. Zero external developers.
+          39 features shipped. Zero external developers.
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -1029,11 +1030,11 @@ const slides: Slide[] = [
             },
             {
               phase: "Phase 4",
-              title: "Talent Drop",
+              title: "Matching & Revenue",
               status: "building",
               items: [
                 "AI Matching Engine",
-                "Weekly Drop System",
+                "Talent Drop (weekly delivery)",
                 "Employer Dashboard",
                 "Candidate Pipeline",
                 "Analytics & Reporting",
@@ -1138,14 +1139,14 @@ const slides: Slide[] = [
 
           <h3 className="mt-6 text-2xl font-bold leading-relaxed text-white sm:text-3xl">
             &ldquo;Community health centers serve 30 million Americans but can&apos;t
-            keep their teams staffed. They waste months and thousands of dollars
-            on generic recruiters who don&apos;t understand FQHC hiring.
+            keep their teams staffed — and when funding cuts hit, displaced workers
+            have nowhere FQHC-specific to turn.
           </h3>
 
           <h3 className="mt-6 text-2xl font-bold leading-relaxed text-amber-300 sm:text-3xl">
-            We built the only talent platform that matches candidates to FQHCs using
-            behavioral assessment, program experience, and cultural fit — then delivers
-            3-5 pre-vetted candidates every Wednesday.&rdquo;
+            We built the only platform that combines FQHC market intelligence, expert career
+            assessments, a layoff-to-hire accelerator, and mission-driven tools — so the right
+            professionals find the right health centers, faster.&rdquo;
           </h3>
 
           <div className="mt-10 rounded-xl bg-white/10 p-5 backdrop-blur">
@@ -1220,10 +1221,13 @@ const slides: Slide[] = [
               FQHC <span className="text-teal-700">Talent Exchange</span>
             </span>
           </div>
-          <p className="text-lg font-bold text-teal-700">fqhctalent.com</p>
+          <p className="text-sm text-stone-500">
+            Market intelligence &middot; Career tools &middot; Expert assessments &middot; Labor insights
+          </p>
+          <p className="mt-3 text-lg font-bold text-teal-700">fqhctalent.com</p>
           <p className="mt-1 text-sm text-stone-500">info@fqhctalent.com</p>
           <p className="mt-6 text-xs text-stone-400">
-            Built with Claude Code &middot; Solo founder &middot; 36 features shipped
+            Built with Claude Code &middot; Solo founder &middot; 39 features shipped
           </p>
         </div>
       </SlideWrapper>
