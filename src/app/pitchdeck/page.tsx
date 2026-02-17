@@ -44,7 +44,6 @@ import {
 const overview = getMarketOverview();
 const regions = getRegionalSnapshots();
 const roles = getRoleDemand();
-const hotRoles = roles.filter((r) => r.demandSignal === "hot").length;
 
 /* ------------------------------------------------------------------ */
 /*  Slide types                                                        */
@@ -64,7 +63,7 @@ function SlideWrapper({ children }: { children: React.ReactNode }) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  All 16 slides matching PDF template                                */
+/*  All 16 slides — matching PDF exactly                               */
 /* ------------------------------------------------------------------ */
 const slides: Slide[] = [
   /* ================================================================ */
@@ -83,10 +82,11 @@ const slides: Slide[] = [
             </span>
           </div>
 
-          <p className="mx-auto mt-4 max-w-2xl text-base font-medium text-stone-600">
-            Strengthening California&apos;s safety-net workforce by connecting
-            mission-driven health professionals with FQHCs — faster, smarter,
-            and with the cultural fit that matters.
+          <h1 className="mt-2 text-2xl font-bold text-stone-700 sm:text-3xl">
+            The Talent Drop
+          </h1>
+          <p className="mt-2 text-lg text-stone-500">
+            AI-Powered Weekly Candidate Matching for Community Health Centers
           </p>
           <p className="mt-4 text-sm font-medium text-stone-400">
             MVP Business Plan &middot; February 2026
@@ -153,20 +153,33 @@ const slides: Slide[] = [
         <div className="mt-8 rounded-xl border-2 border-red-200 bg-red-50 p-5">
           <h4 className="flex items-center gap-2 text-sm font-bold text-red-700">
             <AlertTriangle className="size-4" />
-            The Perfect Storm
+            The Perfect Storm (2025-2026)
           </h4>
-          <p className="mt-2 text-sm leading-relaxed text-stone-700">
-            H.R. 1 Medicaid cuts + Medi-Cal PPS rate elimination (Oct 2026) + CalAIM waiver
-            uncertainty + SB 525 minimum wage increase = FQHCs simultaneously losing revenue
-            and needing to pay more. The staffing crisis is accelerating.
-          </p>
+          <ul className="mt-3 space-y-2 text-sm text-stone-700">
+            <li className="flex items-start gap-2">
+              <span className="mt-0.5 text-red-500">&bull;</span>
+              <span><strong>H.R. 1 Medicaid cuts</strong> threaten $8.3B in annual FQHC funding nationally</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-0.5 text-red-500">&bull;</span>
+              <span><strong>Alameda Health System closure</strong> displaced 3,500+ workers — largest CA healthcare layoff in a decade</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-0.5 text-red-500">&bull;</span>
+              <span><strong>ECM/CCM program uncertainty</strong> freezing hiring in care coordination roles statewide</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="mt-0.5 text-red-500">&bull;</span>
+              <span><strong>SB 525 minimum wage</strong> increasing FQHC labor costs 15-25% by 2027</span>
+            </li>
+          </ul>
         </div>
       </SlideWrapper>
     ),
   },
 
   /* ================================================================ */
-  /*  Slide 3: Why Existing Solutions Fail                             */
+  /*  Slide 3: Why Existing Solutions Fail FQHCs                       */
   /* ================================================================ */
   {
     id: "competitors",
@@ -177,60 +190,55 @@ const slides: Slide[] = [
           Competitive Landscape
         </h2>
         <h3 className="text-3xl font-bold text-stone-900 sm:text-4xl">
-          Why Existing Solutions Fail
+          Why Existing Solutions Fail FQHCs
         </h3>
 
-        <div className="mt-10 overflow-hidden rounded-xl border border-stone-200">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-stone-50 text-left">
-                <th className="px-4 py-3 font-semibold text-stone-700">Solution</th>
-                <th className="px-4 py-3 font-semibold text-stone-700">What They Do</th>
-                <th className="px-4 py-3 font-semibold text-stone-700">Why It Fails for FQHCs</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-stone-200">
-              {[
-                {
-                  name: "Indeed / LinkedIn",
-                  does: "Generic job boards with broad healthcare listings",
-                  fails: "500+ unqualified applicants per post. No FQHC filters (EHR, programs, mission fit). HR teams drown in volume.",
-                },
-                {
-                  name: "Traditional Recruiters",
-                  does: "Agency staffing at 20-25% of first-year salary",
-                  fails: "Cost $15-25K per placement. Don't understand FQHC pay scales, programs, or cultural requirements.",
-                },
-                {
-                  name: "NACHC Job Board",
-                  does: "National health center job postings",
-                  fails: "Job board only — no matching, no assessment, no market intelligence. Passive listing, not active placement.",
-                },
-                {
-                  name: "AMN / CHG (Locum Firms)",
-                  does: "Temporary clinical staffing",
-                  fails: "Temporary workers at 2-3x cost. No cultural fit assessment. Workers leave when contract ends.",
-                },
-              ].map((row) => (
-                <tr key={row.name}>
-                  <td className="whitespace-nowrap px-4 py-3 font-semibold text-stone-900">{row.name}</td>
-                  <td className="px-4 py-3 text-stone-600">{row.does}</td>
-                  <td className="px-4 py-3 text-stone-600">{row.fails}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="mt-10 space-y-4">
+          {[
+            {
+              name: "Indeed / LinkedIn",
+              icon: XCircle,
+              problem: "500+ unqualified applicants per post. No FQHC-specific filters. HR teams spend 20+ hours per role screening.",
+              color: "text-red-500",
+            },
+            {
+              name: "Traditional Recruiters",
+              icon: XCircle,
+              problem: "$15-25K per placement (20-25% of salary). Don't understand PPS, CalAIM, or FQHC program requirements.",
+              color: "text-red-500",
+            },
+            {
+              name: "NACHC Job Board",
+              icon: XCircle,
+              problem: "Passive job postings only. No matching, no assessment, no intelligence. A bulletin board, not a platform.",
+              color: "text-red-500",
+            },
+            {
+              name: "Locum Firms (AMN/CHG)",
+              icon: XCircle,
+              problem: "Temporary workers at 2-3x cost. No cultural fit. No commitment to community health mission. Workers leave when contract ends.",
+              color: "text-red-500",
+            },
+          ].map((item) => (
+            <div key={item.name} className="flex items-start gap-4 rounded-xl border border-stone-200 bg-white p-5">
+              <item.icon className={`mt-0.5 size-5 shrink-0 ${item.color}`} />
+              <div>
+                <h4 className="font-bold text-stone-900">{item.name}</h4>
+                <p className="mt-1 text-sm text-stone-600">{item.problem}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
         <div className="mt-6 rounded-xl bg-teal-50 p-5">
           <h4 className="flex items-center gap-2 text-sm font-bold text-teal-700">
-            <Star className="size-4 fill-teal-700" />
-            Our Differentiator
+            <CheckCircle2 className="size-4" />
+            FQHC Talent Exchange: The Only FQHC-Native Solution
           </h4>
           <p className="mt-2 text-sm leading-relaxed text-stone-700">
-            <strong>FQHC Talent Exchange</strong> is the only platform that combines FQHC-specific
-            AI matching, behavioral assessment, market intelligence, and weekly curated candidate
-            delivery — at 50-70% less than traditional recruiters.
+            Purpose-built for community health. Every feature — from assessment to matching
+            to market intelligence — is designed exclusively for FQHCs and the mission-driven
+            professionals who work in them.
           </p>
         </div>
       </SlideWrapper>
@@ -245,59 +253,44 @@ const slides: Slide[] = [
     title: "Talent Drop",
     content: (
       <SlideWrapper>
-        <h2 className="mb-2 text-sm font-bold uppercase tracking-widest text-amber-600">
-          Revenue Engine
-        </h2>
-        <h3 className="text-3xl font-bold text-stone-900 sm:text-4xl">
-          The Talent Drop: Our MVP Revenue Model
-        </h3>
-        <p className="mt-3 max-w-2xl text-lg text-stone-600">
-          One key feature of the platform — a weekly curated batch of pre-assessed,
-          role-matched candidates delivered every Wednesday at 9 AM.
-        </p>
+        <div className="rounded-2xl bg-gradient-to-br from-teal-800 to-teal-900 p-8 sm:p-12">
+          <h2 className="mb-2 text-sm font-bold uppercase tracking-widest text-teal-300">
+            The Product
+          </h2>
+          <h3 className="text-3xl font-bold text-white sm:text-4xl">
+            Introducing the Talent Drop
+          </h3>
+          <p className="mt-3 max-w-2xl text-teal-200">
+            Every Wednesday at 9 AM, subscribing FQHCs receive a curated batch
+            of pre-assessed, role-matched candidates — ranked by fit score.
+          </p>
 
-        <div className="mt-10 grid gap-1 sm:grid-cols-4">
-          {[
-            {
-              step: "1",
-              icon: FileText,
-              title: "Candidates Build Profiles",
-              desc: "Free resume builder, career assessment, EHR/program/language data collected",
-              color: "bg-teal-700",
-            },
-            {
-              step: "2",
-              icon: Brain,
-              title: "AI Scores & Matches",
-              desc: "5-domain behavioral assessment + hard filters (EHR, certs, language, region) = match score",
-              color: "bg-teal-600",
-            },
-            {
-              step: "3",
-              icon: Mail,
-              title: "Wednesday 9AM Drop",
-              desc: "Employers receive 3-5 curated candidates per open role, ranked by match score",
-              color: "bg-amber-500",
-            },
-            {
-              step: "4",
-              icon: Calendar,
-              title: "Employers Claim by Friday",
-              desc: "Review profiles, request intros, schedule interviews. Unclaimed candidates roll to next week.",
-              color: "bg-teal-700",
-            },
-          ].map((item) => (
-            <div key={item.step} className="relative rounded-xl border border-stone-200 bg-white p-5 text-center">
-              <div className={`mx-auto mb-3 flex size-12 items-center justify-center rounded-full ${item.color} text-white`}>
-                <item.icon className="size-6" />
-              </div>
-              <span className="mb-2 inline-block rounded-full bg-stone-100 px-2 py-0.5 text-xs font-bold text-stone-600">
-                Step {item.step}
-              </span>
-              <h4 className="mt-1 text-sm font-bold text-stone-900">{item.title}</h4>
-              <p className="mt-2 text-xs leading-relaxed text-stone-500">{item.desc}</p>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            <div className="rounded-xl bg-white/10 p-6 backdrop-blur">
+              <Mail className="size-8 text-amber-400" />
+              <h4 className="mt-3 text-lg font-bold text-white">Wednesday 9 AM</h4>
+              <p className="mt-2 text-sm text-teal-200">
+                Top 10 matched candidates delivered per open role. Ranked by AI match score.
+                Full profiles, assessment results, salary expectations.
+              </p>
             </div>
-          ))}
+            <div className="rounded-xl bg-white/10 p-6 backdrop-blur">
+              <Calendar className="size-8 text-amber-400" />
+              <h4 className="mt-3 text-lg font-bold text-white">Claim by Friday</h4>
+              <p className="mt-2 text-sm text-teal-200">
+                Employers review, claim candidates, request intros. Friday 5 PM deadline
+                creates urgency. Unclaimed candidates roll to next week.
+              </p>
+            </div>
+            <div className="rounded-xl bg-white/10 p-6 backdrop-blur">
+              <TrendingUp className="size-8 text-amber-400" />
+              <h4 className="mt-3 text-lg font-bold text-white">Feedback Loop</h4>
+              <p className="mt-2 text-sm text-teal-200">
+                Every claim, pass, and hire improves the matching algorithm.
+                More data = better matches = more employers = more candidates.
+              </p>
+            </div>
+          </div>
         </div>
       </SlideWrapper>
     ),
@@ -317,37 +310,40 @@ const slides: Slide[] = [
         <h3 className="text-3xl font-bold text-stone-900 sm:text-4xl">
           Why the Weekly Drop Changes Everything
         </h3>
+        <p className="mt-3 max-w-2xl text-stone-500 italic">
+          Inspired by &ldquo;The Dore Drop&rdquo; at Stanford &mdash; scarcity and cadence drive action.
+        </p>
 
         <div className="mt-10 space-y-4">
           {[
             {
               icon: Zap,
               title: "Urgency Creates Action",
-              desc: "Friday claim deadline forces fast decisions. No more months-long requisitions sitting open.",
+              desc: "Friday claim deadline forces fast decisions. No more months-long requisitions sitting open. FQHCs that don't act lose candidates to competitors.",
               color: "text-amber-600 bg-amber-50",
             },
             {
               icon: Filter,
-              title: "No Overload",
-              desc: "3-5 curated candidates per role, not 500 unfiltered applicants. HR teams can actually review every profile.",
+              title: "Quality Over Volume",
+              desc: "Top 10 curated candidates per role, not 500 unfiltered applicants. HR teams can actually review every profile in 30 minutes.",
               color: "text-teal-600 bg-teal-50",
             },
             {
               icon: TrendingUp,
-              title: "Feedback Loop = Moat",
-              desc: "Every claim/pass/hire improves our matching algorithm. More data = better matches = more employers = more candidates. Network effect compounds weekly.",
+              title: "Network Effect = Competitive Moat",
+              desc: "Every claim/pass/hire improves matching. More data = better matches = more employers = more candidates. Weekly cadence compounds the advantage.",
               color: "text-purple-600 bg-purple-50",
             },
             {
               icon: Users,
-              title: "Candidate Engagement",
-              desc: "Candidates know their profile is being actively reviewed every week. They stay engaged, update their profiles, complete assessments — unlike passive job boards.",
+              title: "Candidates Stay Engaged",
+              desc: "Candidates know their profile is being actively reviewed every week. They stay current, complete assessments, update availability — unlike passive job boards where profiles go stale.",
               color: "text-blue-600 bg-blue-50",
             },
             {
               icon: Layers,
-              title: "Tiered Value",
-              desc: "Free tier: see match count. Paid tier: see full profiles + scores. Premium: exclusive first-look + priority candidates.",
+              title: "Tiered Access Drives Revenue",
+              desc: "Free tier: see that matches exist. Paid tier: see full profiles + scores. Premium: exclusive first-look before other FQHCs.",
               color: "text-amber-600 bg-amber-50",
             },
           ].map((item) => (
@@ -381,18 +377,16 @@ const slides: Slide[] = [
           AI Matching Engine
         </h3>
         <p className="mt-3 max-w-2xl text-stone-600">
-          Three-layer scoring system that goes far beyond keyword matching.
+          Three-layer scoring system. Match Score: 0-100 per candidate per role.
         </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {/* Hard Filters */}
           <div className="rounded-xl border-2 border-red-200 bg-red-50/30 p-6">
             <h4 className="mb-1 text-xs font-bold uppercase tracking-wider text-red-600">
-              Layer 1: Hard Filters
+              Layer 1: Hard Filters (Pass/Fail)
             </h4>
-            <p className="mb-4 text-sm font-bold text-stone-900">Must-Have Requirements</p>
-            <div className="space-y-2">
-              {["Active license/certification", "EHR system match (Epic, NextGen, eCW)", "Geographic availability", "Language requirements", "Minimum experience years"].map((item, i) => (
+            <div className="mt-4 space-y-2">
+              {["Active license/certification required", "EHR system match (Epic, NextGen, eCW, Athena)", "Geographic availability (commute ≤45 min or remote)", "Language requirements (verified proficiency)", "Minimum experience threshold"].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-sm text-stone-700">
                   <Shield className="size-3.5 shrink-0 text-red-500" />
                   {item}
@@ -400,23 +394,21 @@ const slides: Slide[] = [
               ))}
             </div>
             <p className="mt-4 text-xs font-medium text-red-600">
-              Pass/fail — no exceptions
+              Fail any filter = excluded from drop
             </p>
           </div>
 
-          {/* Scored Criteria */}
           <div className="rounded-xl border-2 border-teal-200 bg-teal-50/30 p-6">
             <h4 className="mb-1 text-xs font-bold uppercase tracking-wider text-teal-600">
-              Layer 2: Scored Criteria
+              Layer 2: Weighted Scoring (0-80 pts)
             </h4>
-            <p className="mb-4 text-sm font-bold text-stone-900">Weighted Match Scoring</p>
-            <div className="space-y-2">
+            <div className="mt-4 space-y-2">
               {[
-                "Behavioral assessment (5 domains)",
-                "Program experience (ECM, CCM, CalAIM)",
-                "Revenue-generation capability",
-                "Bilingual proficiency depth",
-                "Career trajectory alignment",
+                "Behavioral assessment (5 domains, 25 pts)",
+                "Program experience — ECM, CCM, CalAIM (15 pts)",
+                "Revenue-generation capability (15 pts)",
+                "Bilingual proficiency depth (15 pts)",
+                "Career trajectory alignment (10 pts)",
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-sm text-stone-700">
                   <BarChart3 className="size-3.5 shrink-0 text-teal-600" />
@@ -425,22 +417,20 @@ const slides: Slide[] = [
               ))}
             </div>
             <p className="mt-4 text-xs font-medium text-teal-600">
-              0-100 weighted score
+              Data from assessment + resume + profile
             </p>
           </div>
 
-          {/* Preference Match */}
           <div className="rounded-xl border-2 border-amber-200 bg-amber-50/30 p-6">
             <h4 className="mb-1 text-xs font-bold uppercase tracking-wider text-amber-600">
-              Layer 3: Preference Match
+              Layer 3: Preference Match (0-20 pts)
             </h4>
-            <p className="mb-4 text-sm font-bold text-stone-900">Cultural & Values Fit</p>
-            <div className="space-y-2">
+            <div className="mt-4 space-y-2">
               {[
-                "Mission alignment score",
-                "Work style preferences",
-                "Commute/remote tolerance",
-                "Salary expectation fit",
+                "Mission alignment score (verified)",
+                "Work style compatibility",
+                "Commute / remote preference fit",
+                "Salary expectation alignment",
                 "Organization size preference",
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-sm text-stone-700">
@@ -450,28 +440,8 @@ const slides: Slide[] = [
               ))}
             </div>
             <p className="mt-4 text-xs font-medium text-amber-600">
-              Satisfaction multiplier
+              Reduces early turnover risk
             </p>
-          </div>
-        </div>
-
-        {/* Match Score Bar */}
-        <div className="mt-8 rounded-xl bg-stone-50 p-5">
-          <div className="flex items-center justify-between text-sm">
-            <span className="font-bold text-stone-900">Combined Match Score</span>
-            <span className="font-bold text-teal-700">87/100</span>
-          </div>
-          <div className="mt-2 h-4 w-full overflow-hidden rounded-full bg-stone-200">
-            <div className="flex h-4">
-              <div className="h-4 bg-red-400" style={{ width: "25%" }} />
-              <div className="h-4 bg-teal-500" style={{ width: "45%" }} />
-              <div className="h-4 bg-amber-400" style={{ width: "17%" }} />
-            </div>
-          </div>
-          <div className="mt-2 flex justify-between text-xs text-stone-500">
-            <span>Hard Filters: Pass</span>
-            <span>Scored: 72/80</span>
-            <span>Preference: 15/20</span>
           </div>
         </div>
       </SlideWrapper>
@@ -479,7 +449,7 @@ const slides: Slide[] = [
   },
 
   /* ================================================================ */
-  /*  Slide 7: Content-First: Build the Moat                           */
+  /*  Slide 7: Content-First: Build the Moat Before You Sell           */
   /* ================================================================ */
   {
     id: "content-moat",
@@ -487,48 +457,66 @@ const slides: Slide[] = [
     content: (
       <SlideWrapper>
         <h2 className="mb-2 text-sm font-bold uppercase tracking-widest text-teal-600">
-          Growth Strategy
+          Strategy
         </h2>
         <h3 className="text-3xl font-bold text-stone-900 sm:text-4xl">
           Content-First: Build the Moat Before You Sell
         </h3>
+        <p className="mt-3 max-w-2xl text-stone-600">
+          We don&apos;t start with sales. We start with value. Free tools attract traffic.
+          Traffic becomes profiles. Profiles feed the Talent Drop.
+        </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
           {[
             {
-              phase: "Phase 1",
-              title: "SEO Hook",
-              desc: "Free tools + content attract organic traffic. Blog, FQHC directory, salary data, funding tracker — all indexable, all useful.",
-              items: ["12 SEO-optimized blog articles", "90-FQHC directory with profiles", "Market intelligence dashboard", "Bilingual (EN/ES) everything"],
+              phase: "Phase 1: SEO + Free Tools",
+              status: "Live Now",
+              items: [
+                `${overview.totalFQHCs} FQHC directory (searchable, with profiles)`,
+                `${overview.totalJobs}+ job listings (role, region, salary)`,
+                "13 SEO-optimized blog articles (EN/ES)",
+                "Market intelligence dashboard",
+                "Resume builder (8 FQHC templates)",
+                "Layoff tracker (2,300+ workers tracked)",
+              ],
               color: "border-teal-300 bg-teal-50",
               badge: "bg-teal-100 text-teal-700",
+            },
+            {
+              phase: "Phase 2: Profile Capture",
               status: "Live Now",
+              items: [
+                "Resume builder captures structured profiles",
+                "Career assessment (5 domains, 15 universal + 40 role-specific questions)",
+                "Fast-track pipeline for displaced workers",
+                "Language proficiency verification (17 languages)",
+                "EHR + program experience data",
+                "Salary expectation calibration (30 role benchmarks)",
+              ],
+              color: "border-teal-300 bg-teal-50",
+              badge: "bg-teal-100 text-teal-700",
             },
             {
-              phase: "Phase 2",
-              title: "Talent Drop",
-              desc: "Traffic converts to profiles. Profiles feed the Talent Drop. Employers pay for curated, pre-assessed candidates.",
-              items: ["Resume builder captures profiles", "Assessment creates candidate scores", "Weekly batch delivery to employers", "Feedback loop improves matching"],
-              color: "border-amber-300 bg-amber-50",
-              badge: "bg-amber-100 text-amber-700",
-              status: "Building",
-            },
-            {
-              phase: "Phase 3",
-              title: "Platform Scale",
-              desc: "Data moat deepens. More matches = better algorithm = more employers = more candidates. Winner-take-most dynamics.",
-              items: ["AI matching improves with every hire", "Network effect across 90+ FQHCs", "Expand beyond California", "Talent analytics for workforce planning"],
+              phase: "Phase 3: Talent Drop",
+              status: "Next",
+              items: [
+                "AI matching scores every candidate-role pair",
+                "Weekly curated delivery to subscribing FQHCs",
+                "Claim/pass feedback improves algorithm",
+                "Network effect compounds weekly",
+                "Expand beyond California",
+                "Workforce planning analytics",
+              ],
               color: "border-purple-300 bg-purple-50",
               badge: "bg-purple-100 text-purple-700",
-              status: "Vision",
             },
           ].map((phase) => (
             <div key={phase.phase} className={`rounded-xl border-2 ${phase.color} p-6`}>
               <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-bold ${phase.badge}`}>
-                {phase.phase} — {phase.status}
+                {phase.status}
               </span>
-              <h4 className="mt-3 text-lg font-bold text-stone-900">{phase.title}</h4>
-              <p className="mt-2 text-sm leading-relaxed text-stone-600">{phase.desc}</p>
+              <h4 className="mt-3 text-sm font-bold text-stone-900">{phase.phase}</h4>
               <ul className="mt-4 space-y-1.5">
                 {phase.items.map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-xs text-stone-700">
@@ -545,7 +533,7 @@ const slides: Slide[] = [
   },
 
   /* ================================================================ */
-  /*  Slide 8: Assessment-First Tiers                                  */
+  /*  Slide 8: Assessment-First                                        */
   /* ================================================================ */
   {
     id: "assessment-tiers",
@@ -553,76 +541,75 @@ const slides: Slide[] = [
     content: (
       <SlideWrapper>
         <h2 className="mb-2 text-sm font-bold uppercase tracking-widest text-teal-600">
-          Candidate Quality
+          Quality Control
         </h2>
         <h3 className="text-3xl font-bold text-stone-900 sm:text-4xl">
-          Assessment-First: Know Before You Hire
+          Assessment-First: Promise Only What You Can Deliver
         </h3>
         <p className="mt-3 max-w-2xl text-stone-600">
-          Every candidate is scored across 5 behavioral domains and placed into a readiness tier
-          before employers ever see their profile.
+          Every candidate completes a 5-domain behavioral assessment (15 universal +
+          40 role-specific questions) before employers see their profile. No unvetted
+          candidates. No surprises.
         </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {/* Tier A */}
           <div className="rounded-xl border-2 border-green-300 bg-green-50 p-6">
             <div className="mb-3 flex items-center justify-between">
               <span className="text-3xl font-extrabold text-green-700">A</span>
               <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-bold text-green-700">
-                ~30% of candidates
+                Score 80-100
               </span>
             </div>
             <h4 className="text-lg font-bold text-stone-900">Ready Now</h4>
             <p className="mt-2 text-sm leading-relaxed text-stone-600">
-              Score 80%+. Strong across all 5 domains. Can start immediately. High behavioral
-              fit, verified credentials, relevant program experience.
+              Strong across all domains. Verified credentials. Relevant program
+              experience. Can start within 2 weeks.
             </p>
             <div className="mt-4 rounded-lg bg-white p-3">
-              <p className="text-xs font-bold text-green-700">Employer sees:</p>
+              <p className="text-xs font-bold text-green-700">In Talent Drop:</p>
               <p className="mt-1 text-xs text-stone-600">
-                Full profile, assessment scores, match explanation, salary expectations
+                Full profile, scores, match explanation, salary data. Priority placement.
               </p>
             </div>
           </div>
 
-          {/* Tier B */}
           <div className="rounded-xl border-2 border-amber-300 bg-amber-50 p-6">
             <div className="mb-3 flex items-center justify-between">
               <span className="text-3xl font-extrabold text-amber-700">B</span>
               <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700">
-                ~45% of candidates
+                Score 60-79
               </span>
             </div>
             <h4 className="text-lg font-bold text-stone-900">Near-Ready</h4>
             <p className="mt-2 text-sm leading-relaxed text-stone-600">
-              Score 60-79%. Strong in most domains but has 1-2 growth areas. May need specific
-              training (e.g., new EHR system, CalAIM orientation).
+              Strong in most areas, 1-2 gaps identified. May need EHR training
+              or program orientation (CalAIM, ECM).
             </p>
             <div className="mt-4 rounded-lg bg-white p-3">
-              <p className="text-xs font-bold text-amber-700">Employer sees:</p>
+              <p className="text-xs font-bold text-amber-700">In Talent Drop:</p>
               <p className="mt-1 text-xs text-stone-600">
-                Profile with growth areas flagged, recommended onboarding actions
+                Profile with growth areas flagged. Recommended onboarding actions included.
               </p>
             </div>
           </div>
 
-          {/* Tier C */}
           <div className="rounded-xl border-2 border-stone-300 bg-stone-50 p-6">
             <div className="mb-3 flex items-center justify-between">
               <span className="text-3xl font-extrabold text-stone-500">C</span>
               <span className="rounded-full bg-stone-200 px-3 py-1 text-xs font-bold text-stone-600">
-                ~25% of candidates
+                Score &lt;60
               </span>
             </div>
             <h4 className="text-lg font-bold text-stone-900">Developing</h4>
             <p className="mt-2 text-sm leading-relaxed text-stone-600">
-              Score below 60%. Career changers or entry-level. Need significant development.
-              Routed to training resources and career pathway guidance.
+              Career changers or entry-level. Need significant development
+              before placement. Routed to training resources.
             </p>
             <div className="mt-4 rounded-lg bg-white p-3">
-              <p className="text-xs font-bold text-stone-600">Employer sees:</p>
+              <p className="text-xs font-bold text-stone-600">Not in Talent Drop:</p>
               <p className="mt-1 text-xs text-stone-600">
-                Not included in Talent Drop. Available in self-service search only.
+                Get career pathway guidance, free resume builder, and assessment feedback.
+                Re-assess in 90 days.
               </p>
             </div>
           </div>
@@ -643,10 +630,9 @@ const slides: Slide[] = [
           Pricing
         </h2>
         <h3 className="text-3xl font-bold text-stone-900 sm:text-4xl">
-          50-70% Cheaper Than Traditional Recruiting
+          50-70% Less Than Traditional Recruiters
         </h3>
 
-        {/* Comparison */}
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           <div className="rounded-xl border border-red-200 bg-red-50/50 p-6">
             <h4 className="flex items-center gap-2 text-lg font-bold text-red-700">
@@ -656,7 +642,7 @@ const slides: Slide[] = [
             <div className="mt-4 space-y-2 text-sm text-stone-700">
               <p>20-25% of first-year salary</p>
               <p>= <strong className="text-red-600">$15,000 - $25,000</strong> per placement</p>
-              <p className="text-xs text-stone-500">No guarantee of cultural fit. No FQHC expertise. No retention data.</p>
+              <p className="text-xs text-stone-500">No FQHC expertise. No cultural fit guarantee. No retention data.</p>
             </div>
           </div>
           <div className="rounded-xl border-2 border-teal-300 bg-teal-50 p-6">
@@ -666,36 +652,35 @@ const slides: Slide[] = [
             </h4>
             <div className="mt-4 space-y-2 text-sm text-stone-700">
               <p>Subscription + per-placement</p>
-              <p>= <strong className="text-teal-700">$999 - $5,000</strong> per hire</p>
-              <p className="text-xs text-stone-500">Pre-assessed. Culturally matched. FQHC-specific. Retention tracked.</p>
+              <p>= <strong className="text-teal-700">$5,000 - $8,000</strong> per hire (all-in)</p>
+              <p className="text-xs text-stone-500">Pre-assessed. Culturally matched. FQHC-specific. 90-day retention tracked.</p>
             </div>
           </div>
         </div>
 
-        {/* Subscription Tiers */}
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           {[
             {
               tier: "Explorer",
-              price: "$0",
-              period: "Free forever",
-              features: ["Job board access", "FQHC directory", "Market intelligence", "See Talent Drop match counts"],
+              price: "Free",
+              period: "forever",
+              features: ["Job board access", "FQHC directory + profiles", "Market intelligence", "See Talent Drop match counts (not profiles)"],
               color: "border-stone-300",
               badge: "bg-stone-100 text-stone-700",
             },
             {
               tier: "Growth",
-              price: "$999",
+              price: "$1,500",
               period: "/month",
-              features: ["Weekly Talent Drop (3-5 candidates/role)", "Full candidate profiles + scores", "Priority support", "Employer dashboard"],
+              features: ["Weekly Talent Drop (Top 10 per role)", "Full candidate profiles + scores", "Priority support", "Employer dashboard + analytics"],
               color: "border-teal-300",
               badge: "bg-teal-100 text-teal-700",
             },
             {
               tier: "Enterprise",
-              price: "$2,499",
+              price: "$3,500",
               period: "/month",
-              features: ["Everything in Growth", "Exclusive first-look on A-tier candidates", "Custom screening criteria", "Dedicated account manager", "Workforce analytics"],
+              features: ["Everything in Growth", "Exclusive first-look (Tuesday preview)", "Custom screening criteria", "Dedicated account manager", "Workforce planning reports"],
               color: "border-amber-300",
               badge: "bg-amber-100 text-amber-700",
             },
@@ -706,7 +691,7 @@ const slides: Slide[] = [
               </span>
               <p className="mt-3 text-3xl font-extrabold text-stone-900">
                 {plan.price}
-                <span className="text-sm font-medium text-stone-500">{plan.period}</span>
+                <span className="text-sm font-medium text-stone-500"> {plan.period}</span>
               </p>
               <ul className="mt-4 space-y-1.5">
                 {plan.features.map((f, i) => (
@@ -777,6 +762,11 @@ const slides: Slide[] = [
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-stone-200">
+                  <tr className="bg-teal-50">
+                    <td className="px-4 py-2 font-medium text-stone-900">California Only (Y1-2)</td>
+                    <td className="px-4 py-2 font-bold text-teal-700">$8.5M ARR</td>
+                    <td className="px-4 py-2 text-stone-600">Year 1-2 target</td>
+                  </tr>
                   <tr>
                     <td className="px-4 py-2 font-medium text-stone-900">1% of SAM</td>
                     <td className="px-4 py-2 font-bold text-teal-700">$21M ARR</td>
@@ -787,20 +777,15 @@ const slides: Slide[] = [
                     <td className="px-4 py-2 font-bold text-teal-700">$105M ARR</td>
                     <td className="px-4 py-2 text-stone-600">Year 5+</td>
                   </tr>
-                  <tr className="bg-teal-50">
-                    <td className="px-4 py-2 font-medium text-stone-900">California Only (Y1-2)</td>
-                    <td className="px-4 py-2 font-bold text-teal-700">$8.5M ARR</td>
-                    <td className="px-4 py-2 text-stone-600">Year 1-2 target</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
 
             <div className="mt-4 rounded-lg bg-stone-50 p-4">
               <p className="text-xs leading-relaxed text-stone-600">
-                <strong>Bottom-up calculation:</strong> 270 CA health centers &times; avg. 15
-                placements/year &times; $2,100 avg. revenue per placement = $8.5M addressable
-                in California alone. 1% of national SAM = profitability.
+                <strong>Bottom-up:</strong> 270 CA health centers &times; avg. 15
+                placements/year &times; $2,100 avg. revenue per placement = $8.5M
+                addressable in California alone.
               </p>
             </div>
           </div>
@@ -825,19 +810,18 @@ const slides: Slide[] = [
         </h3>
 
         <div className="mt-10 grid gap-8 sm:grid-cols-2">
-          {/* Candidate Acquisition */}
           <div className="rounded-xl border border-stone-200 bg-white p-6">
             <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-teal-700">
               <Users className="size-5" />
-              Candidate Acquisition
+              Candidate Acquisition (Supply)
             </h4>
             <div className="space-y-3">
               {[
-                { ch: "SEO Content", desc: "12 blog articles, FQHC directory, salary data — all ranking for FQHC career queries" },
-                { ch: "Displaced Worker Pipeline", desc: "Fast-Track form captures laid-off FQHC workers. 2,300+ already tracked in our layoff database." },
-                { ch: "Resume Builder", desc: "Free FQHC-optimized resume tool captures profiles + assessment data" },
-                { ch: "Community Outreach", desc: "Partnerships with CPCA, unions (NUHW, SEIU), workforce development boards" },
-                { ch: "Referral Network", desc: "Placed candidates refer colleagues. FQHCs recommend to displaced staff." },
+                { ch: "SEO Content", desc: "13 blog articles, FQHC directory, salary data — all ranking for FQHC career queries" },
+                { ch: "Displaced Worker Fast-Track", desc: "Layoff-to-hire accelerator captures workers within 48 hours of displacement. 2,300+ tracked." },
+                { ch: "Free Resume Builder", desc: "FQHC-optimized templates capture structured profile data + assessment scores" },
+                { ch: "Community Partners", desc: "CPCA, unions (NUHW, SEIU), workforce development boards, CHW associations" },
+                { ch: "Word of Mouth", desc: "Placed candidates refer colleagues. FQHCs recommend to displaced staff." },
               ].map((item) => (
                 <div key={item.ch} className="rounded-lg bg-stone-50 p-3">
                   <p className="text-sm font-semibold text-stone-900">{item.ch}</p>
@@ -847,19 +831,18 @@ const slides: Slide[] = [
             </div>
           </div>
 
-          {/* Employer Conversion */}
           <div className="rounded-xl border border-stone-200 bg-white p-6">
             <h4 className="mb-4 flex items-center gap-2 text-lg font-bold text-amber-600">
               <Building2 className="size-5" />
-              Employer Conversion
+              Employer Conversion (Demand)
             </h4>
             <div className="space-y-3">
               {[
-                { ch: "Free Value First", desc: "Job posting builder, screening questions, market intelligence — give value before asking for money" },
+                { ch: "Free Value First", desc: "Market intelligence, job posting builder, salary benchmarks — give value before asking for money" },
                 { ch: "Manual First Placement", desc: "Identify 1 FQHC with urgent need. Match from our pipeline. Prove the model with a real hire." },
-                { ch: "Warm Outreach", desc: "Target HR directors at 10 high-vulnerability FQHCs with specific candidate matches" },
-                { ch: "Talent Drop Pilot", desc: "3 FQHCs get 4-week free trial of weekly candidate drops. Convert to paid subscription." },
-                { ch: "CPCA Conference", desc: "Demo at CPCA Annual Conference. 200+ health center leaders in one room." },
+                { ch: "Warm Outreach to 10 FQHCs", desc: "Target HR directors at high-vulnerability FQHCs with specific candidate matches ready" },
+                { ch: "Talent Drop Pilot", desc: "3 FQHCs get 4-week free trial. Weekly candidate drops. Convert to paid subscription." },
+                { ch: "CPCA Conference Demo", desc: "Present at CPCA Annual Conference. 200+ health center leaders in one room." },
               ].map((item) => (
                 <div key={item.ch} className="rounded-lg bg-stone-50 p-3">
                   <p className="text-sm font-semibold text-stone-900">{item.ch}</p>
@@ -959,8 +942,7 @@ const slides: Slide[] = [
           </h4>
           <p className="mt-2 text-sm leading-relaxed text-stone-700">
             If by Week 8 we have &lt;3 employer conversations, &lt;25 candidate profiles, and
-            zero revenue signals — pivot or shut down. No zombie companies. Clear milestones,
-            honest assessment.
+            zero revenue signals — pivot or shut down. No zombie companies.
           </p>
         </div>
       </SlideWrapper>
@@ -979,11 +961,10 @@ const slides: Slide[] = [
           Technical
         </h2>
         <h3 className="text-3xl font-bold text-stone-900 sm:text-4xl">
-          MVP Build Plan: Claude Code + Founder
+          What&apos;s Built &amp; What&apos;s Next
         </h3>
         <p className="mt-3 max-w-2xl text-stone-600">
-          Entire platform built by solo founder using AI-assisted development.
-          39 features shipped. Zero external developers.
+          Solo founder + Claude Code. 39 features shipped. Zero external developers.
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -995,9 +976,9 @@ const slides: Slide[] = [
               items: [
                 "FQHC Directory (90 orgs)",
                 "Job Listings (156+)",
-                "Blog (12 articles)",
-                "Bilingual (EN/ES)",
+                "Blog (13 articles, EN/ES)",
                 "Market Intelligence",
+                "Sitemap + SEO",
               ],
             },
             {
@@ -1006,10 +987,10 @@ const slides: Slide[] = [
               status: "complete",
               items: [
                 "Resume Builder (8 templates)",
-                "Career Assessment (5 domains)",
-                "Fast-Track Pipeline",
-                "Layoff Tracker",
-                "Career Pathways",
+                "Career Assessment (5 domains, 55 questions)",
+                "Fast-Track Displaced Worker Pipeline",
+                "Layoff Tracker (2,300+ workers)",
+                "Funding Impact Tracker (H.R. 1)",
               ],
             },
             {
@@ -1017,11 +998,11 @@ const slides: Slide[] = [
               title: "Employer Tools",
               status: "complete",
               items: [
-                "Job Posting Builder",
-                "Team Readiness Assessment",
-                "Interactive Demo",
-                "Screening Questions",
-                "Salary Benchmarks",
+                "Job Posting Builder + Screening Questions",
+                "Team Readiness Assessment (35 questions)",
+                "Interactive Demo (9 sections)",
+                "Manager 90-Day Onboarding (STARS/FOGLAMP)",
+                "Salary Benchmarks (30 roles, P25/P50/P75)",
               ],
             },
             {
@@ -1032,8 +1013,8 @@ const slides: Slide[] = [
                 "AI Matching Engine",
                 "Talent Drop (weekly delivery)",
                 "Employer Dashboard",
-                "Candidate Pipeline",
-                "Analytics & Reporting",
+                "Candidate Pipeline CRM",
+                "Placement Tracking",
               ],
             },
           ].map((phase) => (
@@ -1093,20 +1074,17 @@ const slides: Slide[] = [
           Tracking Success
         </h2>
         <h3 className="text-3xl font-bold text-stone-900 sm:text-4xl">
-          Success Metrics
+          Success Metrics (16-Week Targets)
         </h3>
-        <p className="mt-3 max-w-2xl text-stone-600">
-          16-week targets that prove product-market fit.
-        </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { value: "500+", label: "Candidate Resumes", desc: "Profiles in our system with assessment data by Week 16", icon: FileText, color: "text-teal-600 bg-teal-50" },
-            { value: "60%", label: "Assessment Completion", desc: "Of candidates complete full 5-domain behavioral assessment", icon: Brain, color: "text-purple-600 bg-purple-50" },
-            { value: "<21 days", label: "Time to Placement", desc: "Average days from candidate intake to employer hire", icon: Clock, color: "text-amber-600 bg-amber-50" },
+            { value: "500+", label: "Candidate Profiles", desc: "With assessment data in our system by Week 16", icon: FileText, color: "text-teal-600 bg-teal-50" },
+            { value: "60%", label: "Assessment Completion", desc: "Of candidates complete full behavioral assessment", icon: Brain, color: "text-purple-600 bg-purple-50" },
+            { value: "<21 days", label: "Time to Placement", desc: "From candidate intake to employer hire", icon: Clock, color: "text-amber-600 bg-amber-50" },
             { value: "10+", label: "Employer Accounts", desc: "FQHCs actively receiving weekly Talent Drops", icon: Building2, color: "text-teal-600 bg-teal-50" },
-            { value: "$10K", label: "Monthly Recurring Revenue", desc: "MRR by Week 16 — combination of subscriptions and placement fees", icon: DollarSign, color: "text-green-600 bg-green-50" },
-            { value: "85%", label: "90-Day Retention", desc: "Of placed candidates still employed after 90 days", icon: Award, color: "text-amber-600 bg-amber-50" },
+            { value: "$10K", label: "Monthly Recurring Revenue", desc: "MRR by Week 16 — subscriptions + placement fees", icon: DollarSign, color: "text-green-600 bg-green-50" },
+            { value: "85%", label: "90-Day Retention", desc: "Placed candidates still employed after 90 days", icon: Award, color: "text-amber-600 bg-amber-50" },
           ].map((metric) => (
             <div key={metric.label} className="rounded-xl border border-stone-200 bg-white p-6 text-center">
               <div className={`mx-auto mb-3 flex size-12 items-center justify-center rounded-full ${metric.color}`}>
@@ -1135,14 +1113,14 @@ const slides: Slide[] = [
 
           <h3 className="mt-6 text-2xl font-bold leading-relaxed text-white sm:text-3xl">
             &ldquo;Community health centers serve 30 million Americans but can&apos;t
-            keep their teams staffed — and when funding cuts hit, displaced workers
-            have nowhere FQHC-specific to turn.
+            keep their teams staffed — 70% face critical shortages while spending
+            $15-25K per hire on recruiters who don&apos;t understand their world.
           </h3>
 
           <h3 className="mt-6 text-2xl font-bold leading-relaxed text-amber-300 sm:text-3xl">
-            We built the only platform that combines FQHC market intelligence, expert career
-            assessments, a layoff-to-hire accelerator, and mission-driven tools — so the right
-            professionals find the right health centers, faster.&rdquo;
+            We built the only talent platform exclusively for FQHCs. Every Wednesday,
+            our AI delivers the top 10 pre-assessed, mission-aligned candidates for
+            every open role — at 50-70% less than traditional recruiting.&rdquo;
           </h3>
 
           <div className="mt-10 rounded-xl bg-white/10 p-5 backdrop-blur">
@@ -1175,12 +1153,12 @@ const slides: Slide[] = [
 
         <div className="mt-10 space-y-3">
           {[
-            { time: "This Week", action: "Ship Talent Drop MVP. Begin manual outreach to 10 target FQHCs.", status: "active" },
-            { time: "Week 2-4", action: "Collect 50 candidate profiles. First employer pilot conversations.", status: "upcoming" },
-            { time: "Week 4-8", action: "First paid placement. 3 FQHCs on weekly Talent Drop pilot.", status: "upcoming" },
-            { time: "Week 8-12", action: "100+ profiles. Refine AI matching. Track placement outcomes.", status: "upcoming" },
+            { time: "This Week", action: "Ship Talent Drop MVP. Begin outreach to 10 target FQHCs with specific candidate matches.", status: "active" },
+            { time: "Week 2-4", action: "Collect 50 candidate profiles. First employer pilot conversations. First manual match.", status: "upcoming" },
+            { time: "Week 4-8", action: "First paid placement. 3 FQHCs on weekly Talent Drop pilot. 100 profiles.", status: "upcoming" },
+            { time: "Week 8-12", action: "10+ employer accounts. 250 profiles. Refine AI matching with claim/pass data.", status: "upcoming" },
             { time: "Week 13-16", action: "Hit $10K MRR or kill criteria. Scale decision point.", status: "upcoming" },
-            { time: "Month 6+", action: "Expand to 2nd state. Add employer dashboard. Series Seed if warranted.", status: "future" },
+            { time: "Month 6+", action: "Expand to 2nd state. Employer dashboard. Series Seed if warranted.", status: "future" },
           ].map((step) => (
             <div
               key={step.time}
@@ -1217,14 +1195,10 @@ const slides: Slide[] = [
               FQHC <span className="text-teal-700">Talent Exchange</span>
             </span>
           </div>
-          <p className="mx-auto mt-2 max-w-lg text-sm text-stone-500">
-            A California where every community health center is fully staffed
-            with professionals who reflect the communities they serve.
-          </p>
-          <p className="mt-4 text-lg font-bold text-teal-700">fqhctalent.com</p>
+          <p className="mt-3 text-lg font-bold text-teal-700">fqhctalent.com</p>
           <p className="mt-1 text-sm text-stone-500">info@fqhctalent.com</p>
           <p className="mt-6 text-xs text-stone-400">
-            Built with Claude Code &middot; Solo founder &middot; 39 features shipped
+            Solo founder &middot; 39 features shipped &middot; Built with Claude Code
           </p>
         </div>
       </SlideWrapper>
@@ -1276,7 +1250,6 @@ export default function PitchDeckPage() {
           </div>
 
           <div className="flex items-center gap-4">
-            {/* Slide indicators */}
             <div className="hidden items-center gap-0.5 sm:flex">
               {slides.map((slide, i) => (
                 <button
@@ -1316,7 +1289,6 @@ export default function PitchDeckPage() {
             Previous
           </button>
 
-          {/* Slide titles (scrollable on larger screens) */}
           <div className="hidden overflow-x-auto sm:block">
             <div className="flex items-center gap-1">
               {slides.map((slide, i) => (

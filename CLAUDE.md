@@ -70,7 +70,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Employer Waitlist** | Done | `src/app/[locale]/hire/page.tsx`, `src/app/api/employer-waitlist/` | Dark theme (stone gradient + amber) |
 | **Blog** | Done | `src/app/[locale]/blog/` | 13 articles, EN/ES, SEO metadata, FQHC-specific content |
 | **Sitemap** | Done | `src/app/sitemap.ts` | All pages + 90 FQHC profiles |
-| **Pitch Deck** | Done | `src/app/pitchdeck/page.tsx` | 16-slide interactive presentation: FQHC Job Market Supercharger & Layoff-to-Hire Accelerator (TAM/SAM/SOM, competitors, AI matching, pricing, playbook, metrics) |
+| **Pitch Deck** | Done | `src/app/pitchdeck/page.tsx` | 16-slide interactive presentation with mission/vision framing, TAM/SAM/SOM, competitors, AI matching, pricing, playbook, metrics, keyboard nav |
 | **Security Hardening** | Done | API routes | PII removed, DB errors not leaked |
 | **Resume Upload & Parse** | Done | `src/app/api/parse-resume/route.ts` | PDF/DOCX, Supabase storage |
 | **GA4 Analytics** | Done | `src/components/analytics/GoogleAnalytics.tsx` | G-CDE54Q86SR |
