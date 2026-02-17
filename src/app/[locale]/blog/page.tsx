@@ -5,6 +5,19 @@ import { useTranslations, useLocale } from "next-intl";
 
 const posts = [
   {
+    slug: "healthcare-hiring-trends-2026",
+    title: "Healthcare Hiring Trends 2026: What the Jobs Data Tells Us About FQHC Careers",
+    esTitle: "Tendencias de Contratación en Salud 2026: Lo Que los Datos Revelan Sobre Carreras en FQHCs",
+    description: "Healthcare added 82,000 jobs in January 2026 — 63% of all U.S. job growth. We break down the BLS data, HRSA workforce projections, and what it means for community health center careers in California.",
+    esDescription: "El sector de salud añadió 82,000 empleos en enero 2026 — el 63% de todo el crecimiento laboral en EE.UU. Analizamos los datos del BLS, proyecciones de HRSA, y qué significa para carreras en centros de salud comunitarios en California.",
+    date: "February 16, 2026",
+    esDate: "16 de febrero de 2026",
+    category: "Data Report",
+    esCategory: "Informe de Datos",
+    readTime: "10 min read",
+    esReadTime: "10 min de lectura",
+  },
+  {
     slug: "fqhc-salary-negotiation-guide",
     title: "How to Negotiate Your FQHC Salary: A Guide for Community Health Professionals",
     esTitle: "Cómo Negociar Tu Salario en un FQHC: Guía para Profesionales de Salud Comunitaria",
