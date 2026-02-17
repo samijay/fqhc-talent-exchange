@@ -14,6 +14,8 @@
     "layoffs": "Layoff Tracker",
     "fundingImpact": "Funding Impact",
     "insights": "Insights",
+    "teamReadiness": "Team Readiness",
+    "demo": "Demo",
     "languageToggle": "Español"
   },
   "footer": {
@@ -32,6 +34,9 @@
     "fqhcDirectory": "FQHC Directory",
     "jobPostingBuilder": "Job Posting Builder",
     "whyFqhcTalent": "Why FQHC Talent",
+    "teamReadiness": "Team Readiness",
+    "demo": "Interactive Demo",
+    "insights": "Market Insights",
     "company": "Company",
     "aboutUs": "About Us",
     "blog": "Blog",

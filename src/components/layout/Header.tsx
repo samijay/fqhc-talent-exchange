@@ -20,6 +20,7 @@ export default function Header() {
     { href: "/insights" as const, label: t("insights") },
     { href: "/layoffs" as const, label: t("layoffs") },
     { href: "/resume-builder" as const, label: t("resumeBuilder") },
+    { href: "/team-readiness" as const, label: t("teamReadiness") },
     { href: "/join" as const, label: t("findAJob") },
     { href: "/hire" as const, label: t("postAJob") },
   ];

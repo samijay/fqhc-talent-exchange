@@ -19,6 +19,8 @@ import {
   Quote,
   BookOpen,
   Briefcase,
+  BarChart3,
+  Play,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -467,13 +469,34 @@ export default function Home() {
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-stone-400">
               {isEs
-                ? "Crea publicaciones de empleo optimizadas con puntos de referencia salariales, preguntas de selección y salida bilingüe. Sin costo."
-                : "Create optimized job postings with salary benchmarks, screening questions, and bilingual output. No cost."}
+                ? "Herramientas gratuitas de contratación, evaluación de equipos e inteligencia de mercado — diseñadas para líderes de FQHCs."
+                : "Free hiring tools, team assessments, and market intelligence — built for FQHC leaders."}
             </p>
           </div>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Card 1: Job Posting Builder */}
+            {/* Card 1: Team Readiness Assessment */}
+            <Link
+              href="/team-readiness"
+              className="group rounded-2xl border border-indigo-500/30 bg-stone-800/50 p-8 transition-all hover:-translate-y-1 hover:border-indigo-400/60 hover:shadow-lg"
+            >
+              <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400">
+                <BarChart3 className="size-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-white">
+                {isEs ? "Evaluación de Preparación del Equipo" : "Team Readiness Assessment"}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-stone-400">
+                {isEs
+                  ? "Evalúa tu liderazgo en 5 dominios. Obtén un diagnóstico STARS, acciones de gestión priorizadas y herramientas de Liberating Structures para tu equipo."
+                  : "Assess your leadership across 5 domains. Get a STARS diagnosis, prioritized management actions, and Liberating Structures tools for your team."}
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-indigo-400">
+                {isEs ? "Evaluar Mi Equipo" : "Assess My Team"} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+
+            {/* Card 2: Job Posting Builder */}
             <Link
               href="/job-posting-builder"
               className="group rounded-2xl border border-stone-700 bg-stone-800/50 p-8 transition-all hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-lg"
@@ -486,28 +509,13 @@ export default function Home() {
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-stone-400">
                 {isEs
-                  ? "Genera publicaciones profesionales con plantillas para CHW, coordinadores de atención, asistentes médicos y más. Incluye puntos de referencia salariales de California."
-                  : "Generate professional postings with templates for CHWs, care coordinators, medical assistants, and more. Includes California salary benchmarks."}
+                  ? "Genera publicaciones profesionales con plantillas para CHW, coordinadores de atención, asistentes médicos y más. Incluye puntos de referencia salariales."
+                  : "Generate professional postings with templates for CHWs, care coordinators, medical assistants, and more. Includes salary benchmarks."}
               </p>
               <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-amber-400">
                 {isEs ? "Crear Publicación Gratis" : "Create Free Posting"} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
-
-            {/* Card 2: Screening Questions */}
-            <div className="rounded-2xl border border-stone-700 bg-stone-800/50 p-8">
-              <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400">
-                <Shield className="size-6" />
-              </div>
-              <h3 className="text-lg font-semibold text-white">
-                {isEs ? "Preguntas de Selección FQHC" : "FQHC Screening Questions"}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-stone-400">
-                {isEs
-                  ? "Preguntas prediseñadas para identificar experiencia en co-visitas, gestión de atención, recuperación de ingresos y operaciones clínicas."
-                  : "Pre-built questions to screen for co-visit experience, care management, revenue recovery, and clinic operations expertise."}
-              </p>
-            </div>
 
             {/* Card 3: Hire Talent */}
             <Link
@@ -529,6 +537,42 @@ export default function Home() {
                 {isEs ? "Solicitar Acceso" : "Request Access"} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
+
+            {/* Card 4: Interactive Demo */}
+            <Link
+              href="/demo"
+              className="group rounded-2xl border border-stone-700 bg-stone-800/50 p-8 transition-all hover:-translate-y-1 hover:border-amber-500/50 hover:shadow-lg sm:col-span-2 lg:col-span-1"
+            >
+              <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400">
+                <Play className="size-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-white">
+                {isEs ? "Demo Interactivo del Producto" : "Interactive Product Demo"}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-stone-400">
+                {isEs
+                  ? "Recorre las 9 secciones de nuestra plataforma: inteligencia de mercado, evaluaciones, herramientas de contratación y más."
+                  : "Walk through all 9 sections of our platform: market intelligence, assessments, hiring tools, and more."}
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-400">
+                {isEs ? "Ver Demo" : "Watch Demo"} <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+
+            {/* Card 5: Screening Questions */}
+            <div className="rounded-2xl border border-stone-700 bg-stone-800/50 p-8">
+              <div className="mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-teal-500/20 text-teal-400">
+                <Shield className="size-6" />
+              </div>
+              <h3 className="text-lg font-semibold text-white">
+                {isEs ? "Preguntas de Selección FQHC" : "FQHC Screening Questions"}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-stone-400">
+                {isEs
+                  ? "Preguntas prediseñadas para identificar experiencia en co-visitas, gestión de atención, recuperación de ingresos y operaciones clínicas."
+                  : "Pre-built questions to screen for co-visit experience, care management, revenue recovery, and clinic operations expertise."}
+              </p>
+            </div>
           </div>
         </div>
       </section>

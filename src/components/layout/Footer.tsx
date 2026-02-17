@@ -16,12 +16,15 @@ export default function Footer() {
       { href: "/layoffs" as const, label: t("layoffTracker") },
       { href: "/funding-impact" as const, label: t("fundingImpact") },
       { href: "/why-fqhc" as const, label: t("whyFqhc") },
+      { href: "/insights" as const, label: t("insights") },
       { href: "/resources" as const, label: t("careerResources") },
     ],
     [t("forEmployers")]: [
       { href: "/hire" as const, label: t("hireTalent") },
+      { href: "/team-readiness" as const, label: t("teamReadiness") },
       { href: "/job-posting-builder" as const, label: t("jobPostingBuilder") },
       { href: "/directory" as const, label: t("fqhcDirectory") },
+      { href: "/demo" as const, label: t("demo") },
       { href: "/for-employers" as const, label: t("whyFqhcTalent") },
     ],
     [t("company")]: [

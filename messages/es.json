@@ -14,6 +14,8 @@
     "layoffs": "Rastreador de Despidos",
     "fundingImpact": "Impacto Financiero",
     "insights": "Inteligencia",
+    "teamReadiness": "Equipo",
+    "demo": "Demo",
     "languageToggle": "English"
   },
   "footer": {
@@ -32,6 +34,9 @@
     "fqhcDirectory": "Directorio FQHC",
     "jobPostingBuilder": "Creador de Publicaciones",
     "whyFqhcTalent": "¿Por Qué FQHC Talent?",
+    "teamReadiness": "Preparación del Equipo",
+    "demo": "Demo Interactivo",
+    "insights": "Inteligencia de Mercado",
     "company": "Empresa",
     "aboutUs": "Sobre Nosotros",
     "blog": "Blog",
