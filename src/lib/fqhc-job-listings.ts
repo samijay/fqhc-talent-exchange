@@ -24,7 +24,7 @@ export interface FQHCJobListing {
 
 export const fqhcJobListings: FQHCJobListing[] = [
   // ─────────────────────────────────────────────
-  // ALTAMED HEALTH SERVICES (8 listings - major FQHC)
+  // ALTAMED HEALTH SERVICES (16 listings - major FQHC)
   // ─────────────────────────────────────────────
   {
     id: "altamed-001",
@@ -206,6 +206,189 @@ export const fqhcJobListings: FQHCJobListing[] = [
       "Strong problem-solving and technical skills",
       "Excellent communication and training abilities"
     ]
+  },
+
+  // ── NEW: AltaMed listings from Workday API (2026-02-18) ──
+  {
+    id: "altamed-009",
+    fqhcSlug: "altamed-health-services",
+    title: "Retail Pharmacy Technician",
+    roleType: "Pharmacist",
+    department: "Pharmacy",
+    salaryMin: 52000,
+    salaryMax: 61000,
+    type: "Full-time",
+    location: "El Monte",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["340B"],
+    postedDate: "2026-02-18",
+    description: "Support AltaMed's retail pharmacy operations including prescription processing, patient counseling, and inventory management under pharmacist supervision.",
+    requirements: [
+      "CA Pharmacy Technician License required",
+      "1+ year pharmacy tech experience preferred",
+      "High school diploma or equivalent",
+      "BLS certification required"
+    ],
+    languagePreferred: ["Spanish"],
+  },
+  {
+    id: "altamed-010",
+    fqhcSlug: "altamed-health-services",
+    title: "Social Worker, MSW - PACE Program",
+    roleType: "Behavioral Health Specialist",
+    department: "Social & Behavioral Services",
+    salaryMin: 71503,
+    salaryMax: 89379,
+    type: "Full-time",
+    location: "Huntington Park",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CalAIM"],
+    postedDate: "2026-02-18",
+    description: "Provide case management, social advocacy, and mental health support for PACE program participants, connecting elderly patients with community resources.",
+    requirements: [
+      "Master's Degree in Social Work (MSW) required",
+      "2+ years case management or mental health experience",
+      "Bilingual Spanish/English strongly preferred",
+      "BLS certification required"
+    ],
+    languagePreferred: ["Spanish", "Chinese"],
+  },
+  {
+    id: "altamed-011",
+    fqhcSlug: "altamed-health-services",
+    title: "Licensed Behavioral Health Therapist (LCSW/LMFT)",
+    roleType: "Licensed Therapist",
+    department: "Behavioral Health",
+    salaryMin: 85796,
+    salaryMax: 109733,
+    type: "Full-time",
+    location: "Commerce",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-18",
+    description: "Provide individual, group, and family therapy services as part of AltaMed's integrated behavioral health team, working across primary care and behavioral health settings.",
+    requirements: [
+      "LCSW or LMFT licensure in California required",
+      "Master's degree in social work or counseling",
+      "1+ year experience with children and clinical populations",
+      "BLS certification required"
+    ],
+    languagePreferred: ["Spanish"],
+  },
+  {
+    id: "altamed-012",
+    fqhcSlug: "altamed-health-services",
+    title: "Nurse Practitioner - Home Visit Program",
+    roleType: "Nurse Practitioner",
+    department: "Geriatric Care",
+    salaryMin: 160680,
+    salaryMax: 175000,
+    type: "Full-time",
+    location: "Commerce",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CalAIM"],
+    postedDate: "2026-02-18",
+    description: "Deliver in-home primary care to homebound elderly patients across AltaMed's PACE service area, managing complex chronic conditions and coordinating with interdisciplinary care teams.",
+    requirements: [
+      "California NP license with prescribing authority",
+      "Adult/Family/Geriatric NP certification",
+      "Geriatric or home health experience preferred",
+      "BSN from accredited nursing school"
+    ],
+  },
+  {
+    id: "altamed-013",
+    fqhcSlug: "altamed-health-services",
+    title: "Patient Navigator",
+    roleType: "Care Coordinator",
+    department: "Community Health",
+    salaryMin: 55973,
+    salaryMax: 69742,
+    type: "Full-time",
+    location: "Commerce",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CalAIM"],
+    postedDate: "2026-02-18",
+    description: "Guide patients through the healthcare system, coordinating appointments, referrals, and follow-up care to reduce barriers to accessing health services.",
+    requirements: [
+      "Associate degree or high school diploma with clinical training",
+      "Medical Assistant certification or equivalent preferred",
+      "Experience in patient-facing healthcare role",
+      "Strong organizational and communication skills"
+    ],
+  },
+  {
+    id: "altamed-014",
+    fqhcSlug: "altamed-health-services",
+    title: "Dentist",
+    roleType: "Dental Hygienist",
+    department: "Dental",
+    salaryMin: 165547,
+    salaryMax: 206934,
+    type: "Full-time",
+    location: "Commerce",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-18",
+    description: "Provide comprehensive dental care including preventive, restorative, and emergency services at AltaMed dental clinics serving underserved communities.",
+    requirements: [
+      "DDS/DMD from accredited dental school",
+      "California dental license required",
+      "BLS certification required",
+      "Community health or FQHC experience preferred"
+    ],
+  },
+  {
+    id: "altamed-015",
+    fqhcSlug: "altamed-health-services",
+    title: "Patient Services Advocate II - Dental",
+    roleType: "Patient Services Representative",
+    department: "Dental",
+    salaryMin: 52000,
+    salaryMax: 61110,
+    type: "Full-time",
+    location: "Huntington Beach",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-18",
+    description: "Serve as the first point of contact for dental patients, managing check-in, scheduling, insurance verification, and referral coordination at AltaMed dental clinics.",
+    requirements: [
+      "High school diploma or equivalent required",
+      "1-2 years customer service or reception experience",
+      "Bilingual English/Spanish strongly preferred",
+      "BLS certification required"
+    ],
+    languagePreferred: ["Spanish", "Mandarin", "Cantonese"],
+  },
+  {
+    id: "altamed-016",
+    fqhcSlug: "altamed-health-services",
+    title: "Registered Dietitian - PACE Program",
+    roleType: "Administrative",
+    department: "Nutrition Services",
+    salaryMin: 83200,
+    salaryMax: 104000,
+    type: "Full-time",
+    location: "Compton",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-18",
+    description: "Conduct nutrition assessments, provide medical nutrition therapy, and manage food service compliance for AltaMed's PACE program serving the frail elderly.",
+    requirements: [
+      "Active RD or RDN credential required",
+      "CA Food Handler or Food Protection Manager certification within 90 days",
+      "1+ year clinical nutrition experience preferred",
+      "BLS certification required"
+    ],
+    languagePreferred: ["Spanish", "Mandarin", "Cantonese"],
   },
 
   // ─────────────────────────────────────────────
@@ -512,7 +695,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
 
   // ─────────────────────────────────────────────
-  // FAMILY HEALTH CENTERS OF SAN DIEGO (6 listings)
+  // FAMILY HEALTH CENTERS OF SAN DIEGO (12 listings)
   // ─────────────────────────────────────────────
   {
     id: "fhcsd-001",
@@ -649,6 +832,143 @@ export const fqhcJobListings: FQHCJobListing[] = [
       "2+ years primary care experience",
       "Strong clinical decision-making abilities"
     ]
+  },
+
+  // ── NEW: FHCSD listings from Workday API (2026-02-18) ──
+  {
+    id: "fhcsd-007",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Case Manager II - Street Medicine",
+    roleType: "Case Manager",
+    department: "Street Medicine",
+    salaryMin: 60320,
+    salaryMax: 73528,
+    type: "Full-time",
+    location: "Lemon Grove",
+    bilingual: false,
+    ehrSystem: "NextGen",
+    programs: ["ECM", "CalAIM"],
+    postedDate: "2026-02-18",
+    description: "Provide intensive case management for unsheltered individuals through FHCSD's Street Medicine program, connecting clients to housing, healthcare, and social services.",
+    requirements: [
+      "Bachelor's degree in social work or related field",
+      "2+ years case management experience",
+      "Experience with homeless or underserved populations preferred",
+      "Valid CA driver's license required"
+    ],
+  },
+  {
+    id: "fhcsd-008",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Licensed Therapist (LCSW/LMFT/LPCC)",
+    roleType: "Licensed Therapist",
+    department: "Behavioral Health",
+    salaryMin: 100000,
+    salaryMax: 125987,
+    type: "Full-time",
+    location: "El Cajon",
+    bilingual: false,
+    ehrSystem: "NextGen",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-18",
+    description: "Provide individual and group therapy at FHCSD's East County Wellness Center. Includes $5,000 signing bonus for qualified candidates.",
+    requirements: [
+      "LCSW, LMFT, LPCC, or LCP licensure in California",
+      "Master's degree in counseling or social work",
+      "Experience in community mental health",
+      "Strong assessment and crisis intervention skills"
+    ],
+  },
+  {
+    id: "fhcsd-009",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Licensed Vocational Nurse - Charge Nurse",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 74880,
+    salaryMax: 93995,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: [],
+    postedDate: "2026-02-18",
+    description: "Serve as charge nurse at FHCSD's City College clinic, overseeing daily nursing operations, managing MA staff, and providing direct patient care.",
+    requirements: [
+      "Current California LVN license",
+      "2+ years clinical nursing experience",
+      "Leadership or charge nurse experience preferred",
+      "Bilingual English/Spanish preferred"
+    ],
+    languagePreferred: ["Spanish"],
+  },
+  {
+    id: "fhcsd-010",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Dental Patient Service Representative",
+    roleType: "Patient Services Representative",
+    department: "Dental",
+    salaryMin: 47840,
+    salaryMax: 57179,
+    type: "Full-time",
+    location: "Spring Valley",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: [],
+    postedDate: "2026-02-18",
+    description: "Manage front desk operations for FHCSD's Grossmont dental clinic, including patient check-in, scheduling, insurance verification, and treatment plan coordination.",
+    requirements: [
+      "High school diploma or equivalent",
+      "1+ year dental front office experience preferred",
+      "Bilingual English/Spanish strongly preferred",
+      "Knowledge of dental insurance and Denti-Cal"
+    ],
+    languagePreferred: ["Spanish"],
+  },
+  {
+    id: "fhcsd-011",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Substance Use Disorder Counselor",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 63440,
+    salaryMax: 69680,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    ehrSystem: "NextGen",
+    programs: ["BH Integration", "CalAIM"],
+    postedDate: "2026-02-18",
+    description: "Provide substance use disorder counseling and treatment services, including individual and group therapy, crisis intervention, and treatment planning.",
+    requirements: [
+      "CADC, RADT, or equivalent SUD certification",
+      "2+ years experience in substance abuse counseling",
+      "Knowledge of MAT and harm reduction approaches",
+      "Bilingual English/Spanish preferred"
+    ],
+    languagePreferred: ["Spanish"],
+  },
+  {
+    id: "fhcsd-012",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Supervisor, Enhanced Care Management",
+    roleType: "Program Manager",
+    department: "ECM Program",
+    salaryMin: 72000,
+    salaryMax: 92000,
+    type: "Full-time",
+    location: "El Cajon",
+    bilingual: false,
+    ehrSystem: "NextGen",
+    programs: ["ECM", "CalAIM"],
+    postedDate: "2026-02-18",
+    description: "Lead and supervise FHCSD's Enhanced Care Management team, overseeing care coordinators and community health workers serving high-need Medi-Cal beneficiaries.",
+    requirements: [
+      "Bachelor's degree in social work, public health, or related field",
+      "3+ years supervisory experience in healthcare or social services",
+      "Knowledge of CalAIM and ECM program requirements",
+      "Strong team leadership and data-driven management skills"
+    ],
   },
 
   // ─────────────────────────────────────────────
@@ -790,7 +1110,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
 
   // ─────────────────────────────────────────────
-  // LA CLINICA DE LA RAZA (6 listings)
+  // LA CLINICA DE LA RAZA (10 listings)
   // ─────────────────────────────────────────────
   {
     id: "laclinica-001",
@@ -923,6 +1243,99 @@ export const fqhcJobListings: FQHCJobListing[] = [
       "Primary care or community health experience",
       "Commitment to serving low-income families"
     ]
+  },
+
+  // ── NEW: La Clinica listings from HRMDirect (2026-02-18) ──
+  {
+    id: "laclinica-007",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Dental Hygienist",
+    roleType: "Dental Hygienist",
+    department: "Dental",
+    salaryMin: 95000,
+    salaryMax: 120000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-18",
+    description: "Provide preventive dental care services including cleanings, X-rays, sealants, and patient education across La Clinica's East Bay dental clinics. Multiple openings in Oakland and Concord.",
+    requirements: [
+      "California Registered Dental Hygienist (RDH) license",
+      "Associate's degree in dental hygiene",
+      "Experience in community health or FQHC preferred",
+      "Bilingual Spanish/English preferred"
+    ],
+    languagePreferred: ["Spanish"],
+  },
+  {
+    id: "laclinica-008",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Case Manager I",
+    roleType: "Case Manager",
+    department: "Care Coordination",
+    salaryMin: 48000,
+    salaryMax: 62000,
+    type: "Full-time",
+    location: "Vallejo",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CalAIM"],
+    postedDate: "2026-02-18",
+    description: "Coordinate care for patients with complex health and social needs, connecting them with community resources, benefits enrollment, and follow-up services in Solano County.",
+    requirements: [
+      "Bachelor's degree in social work, public health, or related field",
+      "1+ year case management or social services experience",
+      "Bilingual Spanish/English strongly preferred",
+      "Knowledge of Medi-Cal and CalAIM programs helpful"
+    ],
+    languagePreferred: ["Spanish"],
+  },
+  {
+    id: "laclinica-009",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Health Educator I/II",
+    roleType: "Community Health Worker",
+    department: "Community Health Education",
+    salaryMin: 42000,
+    salaryMax: 55000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: ["CalAIM"],
+    postedDate: "2026-02-18",
+    description: "Deliver culturally responsive health education to Latino and immigrant communities across East Bay, covering diabetes prevention, nutrition, reproductive health, and chronic disease management.",
+    requirements: [
+      "Associate's degree or equivalent community health experience",
+      "CHW certification or willingness to obtain",
+      "Bilingual Spanish/English required",
+      "Experience with health education in underserved communities"
+    ],
+    languageRequired: "Spanish",
+  },
+  {
+    id: "laclinica-010",
+    fqhcSlug: "la-clinica-de-la-raza",
+    title: "Billing Specialist I",
+    roleType: "Revenue Cycle Specialist",
+    department: "Revenue Cycle",
+    salaryMin: 45000,
+    salaryMax: 58000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-18",
+    description: "Process Medi-Cal, Medicare, and commercial insurance claims, manage denials and appeals, and ensure accurate billing for La Clinica's East Bay clinics.",
+    requirements: [
+      "High school diploma required; associate's degree preferred",
+      "1+ year medical billing experience",
+      "Knowledge of Medi-Cal, Medicare, and CPT/ICD-10 coding",
+      "OCHIN Epic or EHR billing module experience preferred"
+    ],
   },
 
   // ─────────────────────────────────────────────
@@ -1654,7 +2067,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
 
   // ─────────────────────────────────────────────
-  // ASIAN HEALTH SERVICES (4 listings)
+  // ASIAN HEALTH SERVICES (8 listings)
   // ─────────────────────────────────────────────
   {
     id: "ahs-001",
@@ -1743,6 +2156,100 @@ export const fqhcJobListings: FQHCJobListing[] = [
       "Community health experience",
       "Cultural humility and competency skills"
     ]
+  },
+
+  // ── NEW: AHS listings from Lever API (2026-02-18) ──
+  {
+    id: "ahs-005",
+    fqhcSlug: "asian-health-services",
+    title: "Licensed Clinical Social Worker",
+    roleType: "Licensed Therapist",
+    department: "Behavioral Health",
+    salaryMin: 80000,
+    salaryMax: 100000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration"],
+    postedDate: "2026-02-18",
+    description: "Provide clinical social work services including therapy, crisis intervention, and care coordination for Asian immigrant and refugee patients at AHS's Oakland behavioral health department.",
+    requirements: [
+      "LCSW licensure in California required",
+      "Master's degree in social work",
+      "Experience with immigrant and refugee populations preferred",
+      "Cultural humility and trauma-informed care approach"
+    ],
+    languagePreferred: ["Cantonese", "Mandarin", "Vietnamese", "Korean"],
+  },
+  {
+    id: "ahs-006",
+    fqhcSlug: "asian-health-services",
+    title: "Registered Dental Assistant",
+    roleType: "Dental Hygienist",
+    department: "Dental",
+    salaryMin: 50000,
+    salaryMax: 62000,
+    type: "Part-time",
+    location: "Alameda",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-18",
+    description: "Assist dentists with clinical procedures, take X-rays, prepare treatment rooms, and support patient education at AHS dental clinics serving multilingual Asian communities.",
+    requirements: [
+      "California Registered Dental Assistant (RDA) certification",
+      "Dental X-ray license required",
+      "1+ year clinical dental assisting experience",
+      "Language skills in Cantonese, Vietnamese, or Korean preferred"
+    ],
+    languagePreferred: ["Cantonese", "Vietnamese", "Korean"],
+  },
+  {
+    id: "ahs-007",
+    fqhcSlug: "asian-health-services",
+    title: "Family Practice Physician",
+    roleType: "Administrative",
+    department: "Primary Care",
+    salaryMin: 200000,
+    salaryMax: 250000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-02-18",
+    description: "Provide comprehensive primary care and clinical leadership at AHS, serving diverse Asian immigrant communities with culturally and linguistically appropriate care.",
+    requirements: [
+      "Board-certified in Family Medicine or Internal Medicine",
+      "California medical license and DEA registration",
+      "Experience serving immigrant and refugee populations preferred",
+      "Language skills in Cantonese, Mandarin, or Vietnamese strongly preferred"
+    ],
+    languagePreferred: ["Cantonese", "Mandarin", "Vietnamese"],
+  },
+  {
+    id: "ahs-008",
+    fqhcSlug: "asian-health-services",
+    title: "Dental Service Representative - Cantonese",
+    roleType: "Patient Services Representative",
+    department: "Dental",
+    salaryMin: 42000,
+    salaryMax: 52000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-02-18",
+    description: "Serve as bilingual patient liaison for AHS dental clinics, managing scheduling, insurance verification, and patient communications in Cantonese and English.",
+    requirements: [
+      "High school diploma or equivalent",
+      "Bilingual Cantonese/English required",
+      "1+ year customer service or front office experience",
+      "Knowledge of Denti-Cal and dental insurance helpful"
+    ],
+    languageRequired: "Cantonese",
   },
 
   // ─────────────────────────────────────────────

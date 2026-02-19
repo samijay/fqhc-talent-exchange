@@ -1,6 +1,6 @@
 # FQHC Talent Exchange — Product Roadmap & Feature Tracker
 
-*Last updated: 2026-02-17*
+*Last updated: 2026-02-18*
 
 ---
 
@@ -55,12 +55,17 @@ A California where every community health center is fully staffed with professio
 | 37 | **Homepage Redesign** | Feb 2026 | Removed generic Why/How/Testimonials, added: Free Tools (6 cards), Market Intelligence teaser, Layoff Counter (2,300+ workers), Trending Articles section, live data stats bar |
 | 38 | **Healthcare Hiring Trends Article** | Feb 2026 | `/blog/healthcare-hiring-trends-2026` — BLS data (82K Jan jobs), HRSA projections, CA FQHC workforce analysis, bilingual, data viz bars |
 | 39 | **Pitch Deck Rebuild (16 slides)** | Feb 2026 | Full rewrite from 9→16 slides matching PDF template: TAM/SAM/SOM ($20.5B/$2.1B/$8.5M), competitors, AI matching, pricing, 16-week playbook, metrics, keyboard nav |
+| 40 | **Feedback Button** | Feb 2026 | Floating feedback widget on all pages, Supabase `feedback_submissions` table, bilingual EN/ES, 4 feedback types |
+| 41 | **Career Roadmap Page** | Feb 2026 | `/career-roadmap` — 5 career tracks with 4 levels each, CA salary data (P25/P50/P75), 9 regional multipliers, certifications at each level, bilingual |
+| 42 | **Certification Catalog** | Feb 2026 | `/certifications` — 15 CA-specific certifications with cost, duration, salary impact, training programs, filterable by role/cost/type |
+| 43 | **Career Insights Dashboard** | Feb 2026 | `/career-insights` — standalone career assessment page wrapping existing CareerInsights + First90DaysPlan components, role selector, post-assessment pathway/cert links |
+| 44 | **Daily Content Pipeline** | Feb 2026 | 4 Claude Code slash commands: `/update-layoffs` (WARN Act XLSX → LayoffEntry), `/scrape-jobs` (FQHC career pages → FQHCJobListing), `/draft-blog` (bilingual article drafter), `/daily-update` (orchestrator). Career page config for 15 FQHCs. |
 
 ---
 
 ## 🔨 In Progress (Current Sprint)
 
-*All items shipped! Next sprint: GTM outreach, feedback button, and first manual placement.*
+*All items shipped! Next sprint: GTM outreach and first manual placement.*
 
 ---
 
@@ -68,7 +73,7 @@ A California where every community health center is fully staffed with professio
 
 | # | Feature | Priority | Value | Notes |
 |---|---------|----------|-------|-------|
-| 40 | **Feedback / Bug Reporter Button** | High | UX/Trust | Floating button on all pages: "This is a brand new website that is continuously improving — we appreciate all feedback!" Quick message form. |
+| ~~40~~ | ~~Feedback / Bug Reporter Button~~ | ~~High~~ | ~~UX/Trust~~ | ✅ Shipped — see #40 above |
 | 41 | **Talent Drop System** | High | Revenue | Batch delivery of pre-vetted candidates to employers. Core revenue model. |
 | 42 | **Employer Dashboard** | High | Revenue | Portal for FQHCs to review candidates, track pipeline, manage postings |
 | 43 | **User Authentication** | High | Foundation | Accounts for candidates + employers. Required for dashboard/drops. |
@@ -79,10 +84,14 @@ A California where every community health center is fully staffed with professio
 | 48 | **FQHC Resilience Scorecard** | Medium | Content | Rank 90 FQHCs by funding vulnerability, program diversity, stability |
 | 49 | **Displaced Worker Matching** | Medium | Value | Auto-match laid-off workers to similar roles at hiring FQHCs |
 | 50 | **Regional Labor Market Reports** | Medium | Content | Quarterly reports per CA region with salary, demand, layoff data |
-| 51 | **Career Roadmap Generator** | Medium | Engagement | "CHW → Care Coordinator → Program Manager" with salary + timeline |
+| ~~51~~ | ~~Career Roadmap Generator~~ | ~~Medium~~ | ~~Engagement~~ | ✅ Shipped — see #41 above |
 | 52 | **Email Drip Campaigns** | Medium | Engagement | Post-signup nurture sequences for candidates + employers |
 | 53 | **Distributed Rate Limiting** | Medium | Security | Migrate to @upstash/ratelimit with Redis for multi-instance Vercel |
 | 54 | **Manager-to-Candidate Matching** | Medium | Core | Assess both sides of the hire — match manager needs to candidate strengths |
+| 75 | **Assessment Philosophy Page** | High | Trust/SEO | `/our-assessment` — domain methodology, objective hiring values, bilingual |
+| 76 | **The Drop Explainer + Waitlist** | High | Revenue | `/the-drop` — exclusive matching explainer, candidate + employer waitlists |
+| 77 | **Email System Upgrade** | High | Engagement | Branded domain (`hello@fqhctalent.com`), mission/values in all emails, market snapshots, assessment results email, Drop invitation |
+| 78 | **Adaptive Assessment Engine** | Medium | Moat | Phase 1: expanded question bank (110+). Phase 2: difficulty scaling (CAT). Phase 3: outcome-based weight learning from placement data. |
 
 ---
 
@@ -97,7 +106,7 @@ A California where every community health center is fully staffed with professio
 | 59 | **Salary Transparency Tool** | Medium | SEO | Interactive salary explorer by role + region + experience |
 | 60 | **Interview Prep Tool** | Medium | Engagement | Role-specific mock interview with scoring |
 | 61 | **Mobile App** | Low | Reach | PWA or native app for on-the-go job seekers |
-| 62 | **Certification Tracker** | Medium | Value | Track CHW cert, CPC, BLS etc. with expiration reminders |
+| ~~62~~ | ~~Certification Tracker~~ | ~~Medium~~ | ~~Value~~ | ✅ Shipped as Certification Catalog — see #42 above |
 | 63 | **Continuing Education Hub** | Low | Engagement | Curated CEU/CME courses for FQHC professionals |
 | 64 | **EHR Skills Assessment** | Medium | Matching | OCHIN Epic, NextGen, eCW proficiency assessment |
 | 65 | **Union Organizing Risk Map** | Low | Content | Score FQHCs on unionization likelihood |
@@ -197,4 +206,14 @@ The platform is an MVP. The content is strong. The data is unique. What's needed
 - [ ] Manager peer network / community feature
 - [ ] Export Team Readiness results as PDF
 - [ ] Onboarding playbook generator (auto-create 30/60/90 plan from assessment)
-- [ ] Feedback / bug reporter floating button with "we appreciate all feedback" messaging
+- [x] ~~Feedback / bug reporter floating button with "we appreciate all feedback" messaging~~ — Shipped!
+- [x] ~~Daily content pipeline for layoffs, jobs, blog~~ — Shipped as Claude Code slash commands!
+- [ ] Assessment results email with domain scores + Drop invitation
+- [ ] Resume completion reminder email
+- [ ] Cloudflare Email Routing for `hello@fqhctalent.com`
+- [ ] Assessment question bank expansion (50+ questions per domain)
+- [ ] Assessment A/B testing — compare question variants by predictive accuracy
+- [ ] Employer feedback loop — did the hire succeed? Feed into assessment weights
+- [ ] "Assessment Verified" badge on candidate profiles
+- [ ] Team Readiness + Individual Assessment correlation analysis
+- [ ] GA4 cross-domain tracking for healthcaretalent.org + fqhctalent.com

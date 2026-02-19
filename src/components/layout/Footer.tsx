@@ -17,6 +17,10 @@ export default function Footer() {
       { href: "/funding-impact" as const, label: t("fundingImpact") },
       { href: "/why-fqhc" as const, label: t("whyFqhc") },
       { href: "/insights" as const, label: t("insights") },
+      { href: "/career-roadmap" as const, label: t("careerRoadmap") },
+      { href: "/certifications" as const, label: t("certifications") },
+      { href: "/career-insights" as const, label: t("careerAssessment") },
+      { href: "/our-assessment" as const, label: t("ourAssessment") },
       { href: "/resources" as const, label: t("careerResources") },
     ],
     [t("forEmployers")]: [
@@ -25,6 +29,7 @@ export default function Footer() {
       { href: "/job-posting-builder" as const, label: t("jobPostingBuilder") },
       { href: "/directory" as const, label: t("fqhcDirectory") },
       { href: "/demo" as const, label: t("demo") },
+      { href: "/the-drop" as const, label: t("theDrop") },
       { href: "/for-employers" as const, label: t("whyFqhcTalent") },
     ],
     [t("company")]: [

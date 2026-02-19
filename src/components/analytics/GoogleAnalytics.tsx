@@ -18,7 +18,11 @@ export default function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}');
+          gtag('config', '${GA_MEASUREMENT_ID}', {
+            linker: {
+              domains: ['fqhctalent.com', 'www.fqhctalent.com', 'healthcaretalent.org', 'www.healthcaretalent.org']
+            }
+          });
         `}
       </Script>
     </>

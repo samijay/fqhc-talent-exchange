@@ -214,6 +214,42 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/about` },
   },
+  careerRoadmap: {
+    title: "FQHC Career Roadmap | Career Paths & Salary Progression in California",
+    description:
+      "Explore 5 career pathways in California FQHCs — from entry-level to leadership. See salary ranges by region, required certifications, and skills at every level.",
+    openGraph: {
+      title: "Career Roadmap — FQHC Talent Exchange",
+      description:
+        "5 career tracks with California salary data, certifications, and regional adjustments.",
+      url: `${SITE_URL}/career-roadmap`,
+    },
+    alternates: { canonical: `${SITE_URL}/career-roadmap` },
+  },
+  certifications: {
+    title: "FQHC Certifications | California Certification Guide for Community Health",
+    description:
+      "15 certifications for California FQHC careers — costs, duration, salary impact, and where to get them. CHW Certificate, CCM, CPC, LCSW, BLS, OCHIN Epic, and more.",
+    openGraph: {
+      title: "Certification Catalog — FQHC Talent Exchange",
+      description:
+        "California-specific certification guide for FQHC careers. Costs, salary impact, and training programs.",
+      url: `${SITE_URL}/certifications`,
+    },
+    alternates: { canonical: `${SITE_URL}/certifications` },
+  },
+  careerInsights: {
+    title: "FQHC Career Assessment | Discover Your Strengths in Community Health",
+    description:
+      "Take a free 4-minute career assessment across 5 behavioral domains. Get personalized insights, a 90-day onboarding plan, and certification recommendations for your FQHC role.",
+    openGraph: {
+      title: "Career Assessment — FQHC Talent Exchange",
+      description:
+        "Free career assessment for FQHC professionals. Get personalized insights and a 90-day plan.",
+      url: `${SITE_URL}/career-insights`,
+    },
+    alternates: { canonical: `${SITE_URL}/career-insights` },
+  },
   teamReadiness: {
     title: "Team Readiness Assessment for FQHC Managers | Leadership Tool",
     description:

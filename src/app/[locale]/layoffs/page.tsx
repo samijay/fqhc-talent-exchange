@@ -82,7 +82,6 @@ function useText() {
       ? "Seguimiento en tiempo real de reducciones de personal en FQHCs y organizaciones de salud comunitaria en California. Datos actualizados regularmente de avisos WARN Act, reportes de noticias y anuncios organizacionales."
       : "Real-time tracking of workforce reductions at FQHCs and community health organizations across California. Updated regularly from WARN Act filings, news reports, and organizational announcements.",
     lastUpdated: isEs ? "Última actualización" : "Last updated",
-    lastUpdatedDate: isEs ? "15 de febrero de 2026" : "February 15, 2026",
 
     // Stats
     workersAffected: isEs ? "Trabajadores Afectados" : "Workers Affected",
@@ -233,6 +232,19 @@ export default function LayoffsPage() {
 
   const locale = t.isEs ? "es" : "en";
 
+  // Derive "last updated" date from the most recent entry in the data
+  const lastUpdatedDateStr = useMemo(() => {
+    const dates = californiaFQHCLayoffs.map((e) => e.dateAnnounced);
+    const latest = dates.sort().reverse()[0]; // most recent ISO date
+    if (!latest) return "";
+    const d = new Date(latest + "T00:00:00");
+    return d.toLocaleDateString(t.isEs ? "es-US" : "en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  }, [t.isEs]);
+
   return (
     <div className="bg-stone-50 min-h-screen">
       {/* ─── Hero ─── */}
@@ -241,7 +253,7 @@ export default function LayoffsPage() {
           <div className="mb-4 flex items-center justify-center gap-2">
             <AlertTriangle className="size-6 text-amber-400" />
             <Badge className="border-red-400/30 bg-red-500/20 text-red-100 text-sm">
-              {t.lastUpdated}: {t.lastUpdatedDate}
+              {t.lastUpdated}: {lastUpdatedDateStr}
             </Badge>
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
@@ -497,7 +509,7 @@ function StatCard({
       className={`flex flex-col items-center rounded-xl border border-stone-200 bg-white p-4 shadow-sm ${className}`}
     >
       {icon}
-      <p className="mt-2 text-xl font-extrabold text-stone-900 sm:text-2xl">
+      <p className="mt-2 text-base font-extrabold text-stone-900 sm:text-2xl leading-tight break-words text-center">
         {value}
       </p>
       <p className="mt-0.5 text-xs text-stone-500 text-center">{label}</p>

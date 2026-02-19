@@ -38,9 +38,9 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - **Brand Pillars:** Candidate Advocacy, FQHC Expertise, Speed to Placement, Health Equity Impact
 
 ## Active Priorities (as of 2026-02-17)
-- **Just Shipped:** Homepage Redesign (layoff counter, tool cards, market intel, trending articles), Healthcare Hiring Trends blog article, Pitch Deck rebuild (16 slides with TAM/SAM/SOM)
-- **Live at:** https://www.fqhctalent.com — 39 features shipped, deployed on Vercel
-- **Next Up:** GTM outreach to FQHC HR directors, feedback button, first manual placement
+- **Just Shipped:** Daily Content Pipeline (4 slash commands: `/update-layoffs`, `/scrape-jobs`, `/draft-blog`, `/daily-update`)
+- **Live at:** https://www.fqhctalent.com — 44 features shipped, deployed on Vercel
+- **Next Up:** GTM outreach to FQHC HR directors, first manual placement
 - **GTM:** Ready for outbound. First dollar = manual placement from fast-track pipeline.
 - **See:** `ROADMAP.md` for full feature tracker, backlog, and GTM strategy
 
@@ -94,6 +94,11 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Interactive Demo Page** | Done | `src/app/[locale]/demo/page.tsx` | 9-section product walkthrough, bilingual, real market intelligence data |
 | **Manager Team Readiness Tool** | Done | `src/app/[locale]/team-readiness/`, `src/lib/manager-assessment-engine.ts` | 5-domain leadership assessment, 35 questions, 4 roles, STARS, management actions, Liberating Structures |
 | **Security Audit** | Done | All API routes, headers, deps | 14 categories passed, 0 critical vulnerabilities |
+| **Feedback Button** | Done | `src/components/layout/FeedbackButton.tsx`, `src/app/api/feedback/route.ts` | Floating widget on all pages, Supabase `feedback_submissions`, bilingual, 4 types (bug/suggestion/praise/other) |
+| **Career Roadmap** | Done | `src/app/[locale]/career-roadmap/page.tsx`, `src/lib/career-pathways.ts` | 5 career tracks, 4 levels each, CA salary P25/P50/P75, 9 regional multipliers, certifications per level, bilingual |
+| **Certification Catalog** | Done | `src/app/[locale]/certifications/page.tsx`, `src/lib/certification-data.ts` | 15 CA-specific certifications, cost/duration/salary impact, filter by role/cost/type, CA training programs |
+| **Career Insights Dashboard** | Done | `src/app/[locale]/career-insights/page.tsx` | Standalone assessment page, role selector, wraps CareerInsights + First90DaysPlan, links to roadmap/certs |
+| **Daily Content Pipeline** | Done | `.claude/commands/`, `src/lib/career-page-config.ts` | 4 slash commands: `/update-layoffs` (WARN Act XLSX), `/scrape-jobs` (FQHC career pages), `/draft-blog` (bilingual articles), `/daily-update` (orchestrator). Career page config for 15 FQHCs. |
 
 ### Data Sources (Strategic Assets)
 | File | Size | Contents |
@@ -113,6 +118,17 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | `src/lib/manager-assessment-engine.ts` | ~1,087 lines | 35 manager questions (15 universal + 20 role-specific), 4 leadership roles, STARS inference, failure factor detection |
 | `src/lib/manager-role-insights.ts` | ~430 lines | Strength/growth/next steps for 4 leadership roles (EN+ES), employer qualifications |
 | `src/lib/management-actions.ts` | ~330 lines | 15 management actions by domain, 8 Liberating Structures with step-by-step instructions |
+| `src/lib/career-pathways.ts` | ~500 lines | 5 career tracks (Community Health, Clinical Ops, BH, Revenue/Admin, Nursing), 4 levels each, CA salary ranges, 9 regional multipliers, certifications per level |
+| `src/lib/certification-data.ts` | ~700 lines | 15 CA-specific certifications with cost, duration, salary impact, issuing body, where to get in CA, bilingual |
+| `src/lib/career-page-config.ts` | ~120 lines | 15 FQHC career page configs: scrapeable status, ATS type, lastChecked date, notes. Used by `/scrape-jobs` command. |
+
+### Slash Commands (Daily Content Pipeline)
+| Command | Purpose | Data Source |
+|---------|---------|-------------|
+| `/update-layoffs` | Fetch CA WARN Act XLSX, filter healthcare, generate LayoffEntry | CA EDD WARN Report (`warn_report1.xlsx`) |
+| `/scrape-jobs` | Check 10 FQHC career pages/day, generate FQHCJobListing | FQHC `careersUrl` fields |
+| `/draft-blog` | Suggest topics from data, draft bilingual article | Codebase data + web search |
+| `/daily-update` | Orchestrator — runs all three in sequence | All of the above |
 
 ### Database (Supabase)
 - `candidate_waitlist` — candidate signups (live)
@@ -120,6 +136,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - `resume_profiles` — resume data (migration: `supabase-resume-profiles.sql` — NOT YET RUN)
 - `displaced_candidates` — fast-track displaced worker signups (migration: `supabase-displaced-candidates.sql` — NOT YET RUN)
 - `assessment_results` column — JSONB on resume_profiles (migration: `supabase-assessment-migration.sql` — NOT YET RUN)
+- `feedback_submissions` — feedback from floating widget (migration: `supabase-feedback.sql` — NOT YET RUN)
 
 ### Key Patterns
 - **Multi-step form**: `useState(step)` with conditional rendering, progress bar
@@ -129,9 +146,9 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - **Static generation**: `generateStaticParams()` for /directory/[slug]
 - **Data viz**: Tailwind CSS inline bars/cards (no charting library)
 - **Manager assessment**: Separate engine (`manager-assessment-engine.ts`) imports core types from candidate engine, has own questions/scoring/insights
+- **Daily content pipeline**: Claude Code slash commands (`.claude/commands/*.md`) for WARN Act layoffs, job scraping, blog drafting. Run `/daily-update` each morning.
 
 ### Not Yet Built (MVP Gaps)
-- Feedback / bug reporter button (floating, "we appreciate all feedback" messaging)
 - AI-powered matching algorithm
 - Employer dashboard / portal
 - Talent Drop system (batch candidate delivery)
@@ -174,6 +191,9 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | /why-fqhc | SEO page: why work at an FQHC (footer: For Job Seekers) |
 | /fast-track | Displaced worker fast-track form (footer: For Job Seekers) |
 | /funding-impact | H.R. 1 policy tracker + revenue strategies (footer: For Job Seekers) |
+| /career-roadmap | 5 career tracks with CA salary data + regional multipliers (footer: For Job Seekers) |
+| /certifications | 15 CA-specific certifications catalog (footer: For Job Seekers) |
+| /career-insights | Standalone career assessment + 90-day plan (footer: For Job Seekers) |
 
 ### Hidden Pages (no nav or footer link)
 | Route | Purpose |
@@ -181,3 +201,30 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | /pitchdeck | HTML pitch deck (16 slides, keyboard nav) |
 | /unions | Union directory + labor partnership |
 | /healthcare-timeline | US healthcare history 1798-2026 |
+
+---
+
+## Current Context
+- **Just shipped:** Assessment Philosophy page (`/our-assessment`), The Drop page + API + SQL (`/the-drop`), Email system upgrade (mission banner, resources, market snapshot in all emails)
+- **GTM status:** Ready for outbound to FQHC HR directors
+- **Data:** 177 job listings, 90 FQHCs, 13 layoff entries, 570+ live API-scrapeable jobs discovered
+- **Domains:** fqhctalent.com (primary, live on Vercel) + healthcaretalent.org (GA4 cross-domain tracking added)
+- **Layoff tracker:** "Last updated" date is now auto-derived from data (no manual update needed)
+- **Next daily update:** Tomorrow morning via `/daily-update`
+- **Manual steps needed:** Run `supabase-drop-waitlist.sql` in Supabase SQL Editor, verify Resend domain for `fqhctalent.com`
+
+## Session Log
+| Date | Summary |
+|------|---------|
+| 2026-02-18 | Ran first `/daily-update` (22 new jobs). Built Assessment Philosophy page, The Drop page + API + SQL. Upgraded email system (mission banner, resources, market snapshot). Made layoff tracker date auto-derive from data. Updated daily-update command with date checklist. |
+| 2026-02-17 | Built daily content pipeline (4 slash commands). Tested WARN Act XLSX parsing (215 healthcare entries). Career page config for 15 FQHCs. Security audit (20 attack vectors, 0 vulnerabilities). Talent Drop design (3-round exclusive matching). Legal risk analysis for CA employment agency law. |
+| 2026-02-16 | Built feedback button, career insights dashboard, career roadmap page, certification catalog (features #40-43). |
+
+## Decisions Made
+| Date | Decision | Reasoning |
+|------|----------|-----------|
+| 2026-02-18 | Workday JSON API for job scraping | Hidden POST endpoint returns structured data (title, salary, description). Works for AltaMed (217 jobs) and FHCSD (164 jobs). Lever JSON API for Asian Health Services (20 jobs). |
+| 2026-02-18 | "The Drop" as brand name (untranslated in ES) | Exclusive matching program. Keep English name for brand recognition. |
+| 2026-02-17 | Claude Code slash commands over API for daily pipeline | No API cost, human-in-the-loop review, matches existing workflow |
+| 2026-02-17 | Employer-paid model for placements | Legally simpler under CA B&P Code §9900 (employment agency law). Candidates never pay. |
+| 2026-02-17 | 3-round Talent Drop matching | Round 1: 48h exclusive. Round 2: 48h second chance. Round 3: open pool. Creates urgency without rushing. |
