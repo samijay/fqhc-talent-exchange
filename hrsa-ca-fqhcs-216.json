@@ -1,0 +1,2709 @@
+{
+  "CENTRO DE SALUD DE LA COMUNIDAD DE SAN YSIDRO, INC.": {
+    "city": "San Ysidro",
+    "county": "San Diego",
+    "sites": 51,
+    "site_cities": [
+      "Julian",
+      "San Ysidro",
+      "Chula Vista",
+      "San Diego",
+      "National City",
+      "Potrero",
+      "Vista",
+      "El Cajon",
+      "Campo",
+      "Escondido",
+      "Santee",
+      "Alpine",
+      "Pine Valley"
+    ],
+    "web": ""
+  },
+  "SAC HEALTH SYSTEM": {
+    "city": "San Bernardino",
+    "county": "Riverside",
+    "sites": 25,
+    "site_cities": [
+      "Indio",
+      "Murrieta",
+      "San Bernardino",
+      "Blythe",
+      "Barstow",
+      "Rialto"
+    ],
+    "web": ""
+  },
+  "SAN FRANCISCO COMMUNITY CLINIC CONSORTIUM": {
+    "city": "San Francisco",
+    "county": "San Francisco",
+    "sites": 44,
+    "site_cities": [
+      "San Francisco"
+    ],
+    "web": ""
+  },
+  "CLINICAS DEL CAMINO REAL, INC.": {
+    "city": "Camarillo",
+    "county": "Ventura",
+    "sites": 37,
+    "site_cities": [
+      "Oxnard",
+      "Ojai",
+      "Fillmore",
+      "Santa Paula",
+      "Ventura",
+      "Newbury Park",
+      "Moorpark",
+      "Camarillo",
+      "Simi Valley"
+    ],
+    "web": "www.clinicas.org"
+  },
+  "COMPLETE CARE COMMUNITY HEALTH CENTER, INC.": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 17,
+    "site_cities": [
+      "Los Angeles",
+      "South Gate",
+      "Monterey Park",
+      "Fresno",
+      "Downey",
+      "Visalia",
+      "Porterville",
+      "Huntington Park",
+      "Pasadena",
+      "Sherman Oaks",
+      "Culver City",
+      "Fountain Valley",
+      "Vista"
+    ],
+    "web": "Under Construction"
+  },
+  "ALAMEDA, COUNTY OF": {
+    "city": "Oakland",
+    "county": "Alameda",
+    "sites": 29,
+    "site_cities": [
+      "Hayward",
+      "Berkeley",
+      "Oakland",
+      "San Leandro",
+      "Newark",
+      "Fremont"
+    ],
+    "web": "www.tvhc.org"
+  },
+  "LOS ANGELES CHRISTIAN HEALTH CENTERS": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 11,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": ""
+  },
+  "CENTRAL CITY COMMUNITY HEALTH CENTER, INC": {
+    "city": "Monterey Park",
+    "county": "Los Angeles",
+    "sites": 30,
+    "site_cities": [
+      "Baldwin Park",
+      "El Monte",
+      "Anaheim",
+      "Upland",
+      "Indio",
+      "Los Angeles",
+      "Garden Grove",
+      "Norco",
+      "La Puente",
+      "Riverside",
+      "Stanton",
+      "Monterey Park"
+    ],
+    "web": "www.centralcityhealth.org"
+  },
+  "JWCH INSTITUTE, INC.": {
+    "city": "Commerce",
+    "county": "Los Angeles",
+    "sites": 46,
+    "site_cities": [
+      "Los Angeles",
+      "Whittier",
+      "Bell Gardens",
+      "Downey",
+      "Lynwood",
+      "Hacienda Heights",
+      "Pasadena",
+      "Lancaster",
+      "Palmdale",
+      "Norwalk",
+      "Bell",
+      "Bellflower",
+      "Commerce"
+    ],
+    "web": "http://jwchinstitute.org/"
+  },
+  "ALTAMED HEALTH SERVICES CORPORATION": {
+    "city": "Commerce",
+    "county": "Orange",
+    "sites": 138,
+    "site_cities": [
+      "Anaheim",
+      "Los Angeles",
+      "Huntington Park",
+      "West Covina",
+      "Tustin",
+      "Monrovia",
+      "Garden Grove",
+      "Orange",
+      "Santa Ana",
+      "South Gate",
+      "Norwalk",
+      "Pico Rivera",
+      "Huntington Beach",
+      "Commerce",
+      "Bellflower",
+      "El Monte",
+      "Pasadena",
+      "Vernon",
+      "South El Monte",
+      "Pomona",
+      "Lynwood",
+      "Compton",
+      "Bell Gardens",
+      "Sunland",
+      "Westminster",
+      "Paramount",
+      "Long Beach",
+      "Cypress",
+      "Inglewood",
+      "Covina",
+      "La Palma"
+    ],
+    "web": "www.altamed.org"
+  },
+  "COUNTY OF SANTA BARBARA": {
+    "city": "Santa Barbara",
+    "county": "Santa Barbara",
+    "sites": 20,
+    "site_cities": [
+      "Lompoc",
+      "Santa Barbara",
+      "Santa Maria",
+      "Carpinteria"
+    ],
+    "web": "WWW.SBCPHD.ORG"
+  },
+  "OMNI FAMILY HEALTH": {
+    "city": "Bakersfield",
+    "county": "Kern",
+    "sites": 47,
+    "site_cities": [
+      "Bakersfield",
+      "Tehachapi",
+      "Lost Hills",
+      "Wasco",
+      "Fresno",
+      "Shafter",
+      "Delano",
+      "Visalia",
+      "Reedley",
+      "Exeter",
+      "Taft",
+      "Buttonwillow",
+      "Ridgecrest",
+      "Lindsay",
+      "Hanford"
+    ],
+    "web": "www.OmniFamilyHealth.org"
+  },
+  "SANTA ROSA COMMUNITY HEALTH CENTERS": {
+    "city": "Santa Rosa",
+    "county": "Sonoma",
+    "sites": 15,
+    "site_cities": [
+      "Santa Rosa"
+    ],
+    "web": "srhealth.org"
+  },
+  "WEST COUNTY HEALTH CENTERS, INC": {
+    "city": "Guerneville",
+    "county": "Sonoma",
+    "sites": 13,
+    "site_cities": [
+      "Sebastopol",
+      "Guerneville",
+      "Occidental",
+      "Forestville"
+    ],
+    "web": ""
+  },
+  "VENICE FAMILY CLINIC": {
+    "city": "Venice",
+    "county": "Los Angeles",
+    "sites": 25,
+    "site_cities": [
+      "Los Angeles",
+      "Culver City",
+      "Inglewood",
+      "Torrance",
+      "Venice",
+      "Gardena",
+      "Hawthorne",
+      "Carson",
+      "Santa Monica",
+      "Redondo Beach"
+    ],
+    "web": ""
+  },
+  "HI-DESERT MEMORIAL HEALTH CARE DISTRICT": {
+    "city": "Yucca Valley",
+    "county": "San Bernardino",
+    "sites": 10,
+    "site_cities": [
+      "Yucca Valley",
+      "Twentynine Palms"
+    ],
+    "web": "www.mbhdistrict.org"
+  },
+  "LIVINGSTON COMMUNITY HEALTH": {
+    "city": "Livingston",
+    "county": "Stanislaus",
+    "sites": 11,
+    "site_cities": [
+      "Turlock",
+      "Merced",
+      "Hughson",
+      "Waterford",
+      "Delhi",
+      "Hilmar",
+      "Livingston",
+      "Modesto"
+    ],
+    "web": "www.visitlch.org"
+  },
+  "ST. JOHN'S COMMUNITY HEALTH": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 29,
+    "site_cities": [
+      "Lynwood",
+      "Los Angeles",
+      "San Jacinto",
+      "Compton",
+      "Indio",
+      "Paramount",
+      "San Bernardino"
+    ],
+    "web": ""
+  },
+  "NEIGHBORHOOD HEALTHCARE": {
+    "city": "Escondido",
+    "county": "San Diego",
+    "sites": 70,
+    "site_cities": [
+      "Escondido",
+      "Perris",
+      "Lakeside",
+      "Jurupa Valley",
+      "Fallbrook",
+      "Riverside",
+      "San Jacinto",
+      "Poway",
+      "Temecula",
+      "Menifee",
+      "El Cajon",
+      "Beaumont",
+      "San Marcos",
+      "Valley Center",
+      "Murrieta",
+      "Pauma Valley",
+      "Corona",
+      "Hemet"
+    ],
+    "web": "www.nhcare.org"
+  },
+  "PRECISION HEALTH CENTER": {
+    "city": "LOS ANGELES",
+    "county": "Los Angeles",
+    "sites": 3,
+    "site_cities": [
+      "Huntington Park",
+      "Los Angeles"
+    ],
+    "web": ""
+  },
+  "DAP HEALTH, INC.": {
+    "city": "Palm Springs",
+    "county": "Riverside",
+    "sites": 32,
+    "site_cities": [
+      "Hemet",
+      "Palm Springs",
+      "Cathedral City",
+      "Desert Hot Springs",
+      "Coachella",
+      "Nuevo",
+      "Indio",
+      "Palm Desert",
+      "Escondido",
+      "Thermal",
+      "San Jacinto",
+      "Anza",
+      "Borrego Springs",
+      "El Cajon"
+    ],
+    "web": "www.daphealth.org"
+  },
+  "PETALUMA HEALTH CENTER, INC.": {
+    "city": "Petaluma",
+    "county": "Sonoma",
+    "sites": 20,
+    "site_cities": [
+      "Petaluma",
+      "Point Reyes Station",
+      "Rohnert Park",
+      "Bolinas"
+    ],
+    "web": "www.phealthcenter.org"
+  },
+  "NORTHEAST COMMUNITY CLINIC": {
+    "city": "Alhambra",
+    "county": "Los Angeles",
+    "sites": 18,
+    "site_cities": [
+      "Los Angeles",
+      "Harbor City",
+      "Hawthorne",
+      "Huntington Park",
+      "Wilmington",
+      "Bell Gardens"
+    ],
+    "web": "www.necc.net"
+  },
+  "CENTRAL NEIGHBORHOOD HEALTH FOUNDATION": {
+    "city": "Los Angeles",
+    "county": "San Bernardino",
+    "sites": 18,
+    "site_cities": [
+      "Upland",
+      "San Bernardino",
+      "Norwalk",
+      "Inglewood",
+      "Los Angeles",
+      "Santa Fe Springs",
+      "Riverside",
+      "Whittier",
+      "Long Beach"
+    ],
+    "web": ""
+  },
+  "NORTH ORANGE COUNTY REGIONAL HEALTH FOUNDATION": {
+    "city": "Anaheim",
+    "county": "Orange",
+    "sites": 6,
+    "site_cities": [
+      "Anaheim"
+    ],
+    "web": ""
+  },
+  "FAMILIES TOGETHER OF ORANGE COUNTY": {
+    "city": "TUSTIN",
+    "county": "Orange",
+    "sites": 11,
+    "site_cities": [
+      "Tustin",
+      "Westminster",
+      "Fountain Valley",
+      "Anaheim"
+    ],
+    "web": ""
+  },
+  "NORTH EAST MEDICAL SERVICES": {
+    "city": "Daly City",
+    "county": "Santa Clara",
+    "sites": 36,
+    "site_cities": [
+      "San Jose",
+      "Daly City",
+      "Burlingame",
+      "San Francisco",
+      "San Mateo",
+      "South San Francisco"
+    ],
+    "web": "https://www.nemspace.org/"
+  },
+  "HEALTH AND LIFE ORGANIZATION, INC. (H.A.L.O)": {
+    "city": "SACRAMENTO",
+    "county": "Sacramento",
+    "sites": 11,
+    "site_cities": [
+      "Sacramento",
+      "Gold River"
+    ],
+    "web": "www.halocares.org"
+  },
+  "EL DORADO COUNTY COMMUNITY HEALTH CENTER": {
+    "city": "Placerville",
+    "county": "El Dorado",
+    "sites": 7,
+    "site_cities": [
+      "Cameron Park",
+      "Placerville",
+      "South Lake Tahoe"
+    ],
+    "web": "www.edcchc.org"
+  },
+  "PEACH TREE HEALTHCARE": {
+    "city": "Marysville",
+    "county": "Yuba",
+    "sites": 13,
+    "site_cities": [
+      "Marysville",
+      "Sacramento",
+      "Olivehurst",
+      "Live Oak",
+      "Chico",
+      "Yuba City"
+    ],
+    "web": ""
+  },
+  "BLESSING COMMUNITY HEALTH CENTER": {
+    "city": "SAN BERNARDINO",
+    "county": "San Bernardino",
+    "sites": 1,
+    "site_cities": [
+      "San Bernardino"
+    ],
+    "web": "https://blessingchc.com/"
+  },
+  "MISSION CITY COMMUNITY NETWORK, INC": {
+    "city": "North Hills",
+    "county": "Los Angeles",
+    "sites": 21,
+    "site_cities": [
+      "North Hills",
+      "La Puente",
+      "Monrovia",
+      "Barstow",
+      "San Fernando",
+      "Inglewood",
+      "Pomona",
+      "Panorama City",
+      "Victorville",
+      "Corona",
+      "Los Angeles",
+      "Mission Hills",
+      "Glendale",
+      "Upland"
+    ],
+    "web": ""
+  },
+  "COMMUNITY HEALTH CENTERS OF THE CENTRAL COAST INC": {
+    "city": "Nipomo",
+    "county": "Santa Barbara",
+    "sites": 39,
+    "site_cities": [
+      "Santa Maria",
+      "San Luis Obispo",
+      "Templeton",
+      "San Miguel",
+      "Atascadero",
+      "Guadalupe",
+      "New Cuyama",
+      "Nipomo",
+      "Lompoc",
+      "Paso Robles",
+      "Los Alamos",
+      "Arroyo Grande",
+      "Cambria",
+      "Oceano"
+    ],
+    "web": ""
+  },
+  "SAMUEL DIXON FAMILY HEALTH CENTER, INC.": {
+    "city": "Valencia",
+    "county": "Los Angeles",
+    "sites": 5,
+    "site_cities": [
+      "Valencia",
+      "Newhall",
+      "Castaic",
+      "Canyon Country"
+    ],
+    "web": ""
+  },
+  "LA CLINICA DE LA RAZA, INC.": {
+    "city": "Oakland",
+    "county": "Solano",
+    "sites": 48,
+    "site_cities": [
+      "Vallejo",
+      "Oakland",
+      "San Leandro",
+      "Union City",
+      "Alameda",
+      "Oakley",
+      "Pittsburg",
+      "San Lorenzo",
+      "Concord"
+    ],
+    "web": ""
+  },
+  "THE R.O.A.D.S. FOUNDATION, INC.": {
+    "city": "Compton",
+    "county": "Los Angeles",
+    "sites": 9,
+    "site_cities": [
+      "Long Beach",
+      "Gardena",
+      "Paramount",
+      "Lynwood",
+      "Compton"
+    ],
+    "web": "https://roadsfoundation.org"
+  },
+  "COMMUNITY MEDICAL WELLNESS CENTERS, USA": {
+    "city": "Long Beach",
+    "county": "Los Angeles",
+    "sites": 11,
+    "site_cities": [
+      "Long Beach",
+      "Whittier",
+      "Sylmar"
+    ],
+    "web": ""
+  },
+  "ASIAN HEALTH SERVICES": {
+    "city": "Oakland",
+    "county": "Alameda",
+    "sites": 16,
+    "site_cities": [
+      "San Leandro",
+      "Alameda",
+      "Oakland"
+    ],
+    "web": ""
+  },
+  "VALLEY HEALTH TEAM, INC.": {
+    "city": "San Joaquin",
+    "county": "Tulare",
+    "sites": 19,
+    "site_cities": [
+      "Dinuba",
+      "Tranquillity",
+      "Huron",
+      "Bishop",
+      "Firebaugh",
+      "Kingsburg",
+      "Kerman",
+      "Fresno",
+      "Clovis",
+      "San Joaquin"
+    ],
+    "web": "www.vht.org"
+  },
+  "FAMILY HEALTH CENTERS OF SAN DIEGO INC": {
+    "city": "San Diego",
+    "county": "San Diego",
+    "sites": 79,
+    "site_cities": [
+      "La Mesa",
+      "San Diego",
+      "Oceanside",
+      "El Cajon",
+      "Lemon Grove",
+      "Chula Vista",
+      "Escondido",
+      "Imperial Beach",
+      "Spring Valley",
+      "National City"
+    ],
+    "web": ""
+  },
+  "SANTA BARBARA NEIGHBORHOOD CLINICS": {
+    "city": "Santa Barbara",
+    "county": "Santa Barbara",
+    "sites": 10,
+    "site_cities": [
+      "Santa Barbara",
+      "Goleta"
+    ],
+    "web": "http://www.sbclinics.org/clinics/eastside-dental-clinic/"
+  },
+  "San Mateo County Health": {
+    "city": "San Mateo",
+    "county": "San Mateo",
+    "sites": 20,
+    "site_cities": [
+      "Redwood City",
+      "San Mateo",
+      "South San Francisco",
+      "Daly City",
+      "Half Moon Bay"
+    ],
+    "web": ""
+  },
+  "PEDIATRIC AND FAMILY MEDICAL FOUNDATION": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 18,
+    "site_cities": [
+      "Lynwood",
+      "Sherman Oaks",
+      "Los Angeles",
+      "Van Nuys",
+      "Panorama City"
+    ],
+    "web": "www.eisnerhealth.org"
+  },
+  "SANTA CRUZ COMMUNITY HEALTH CENTERS": {
+    "city": "Santa Cruz",
+    "county": "Santa Cruz",
+    "sites": 9,
+    "site_cities": [
+      "Santa Cruz",
+      "Ben Lomond"
+    ],
+    "web": ""
+  },
+  "FAMILY HEALTHCARE NETWORK": {
+    "city": "Visalia",
+    "county": "Fresno",
+    "sites": 49,
+    "site_cities": [
+      "Fresno",
+      "Kingsburg",
+      "Visalia",
+      "Porterville",
+      "Dinuba",
+      "Strathmore",
+      "Woodlake",
+      "Farmersville",
+      "Hanford",
+      "Pixley",
+      "Orosi",
+      "Ivanhoe",
+      "Three Rivers",
+      "Squaw Valley",
+      "Tulare",
+      "Terra Bella",
+      "Selma",
+      "Reedley",
+      "Exeter",
+      "Delano"
+    ],
+    "web": "www.fhcn.org"
+  },
+  "UNITED HEALTH CENTERS OF THE SAN JOAQUIN VALLEY": {
+    "city": "Fresno",
+    "county": "Fresno",
+    "sites": 56,
+    "site_cities": [
+      "Kerman",
+      "Clovis",
+      "Fresno",
+      "Parlier",
+      "Selma",
+      "Huron",
+      "Mendota",
+      "Sanger",
+      "Delano",
+      "Visalia",
+      "Dinuba",
+      "Kingsburg",
+      "Orange Cove",
+      "Corcoran",
+      "Fowler",
+      "Lemoore",
+      "Hanford",
+      "Reedley",
+      "Earlimart"
+    ],
+    "web": "www.unitedhealthcenters.org"
+  },
+  "County of Contra Costa": {
+    "city": "Martinez",
+    "county": "Contra Costa",
+    "sites": 34,
+    "site_cities": [
+      "Martinez",
+      "Pittsburg",
+      "Concord",
+      "El Cerrito",
+      "San Pablo",
+      "Richmond",
+      "Antioch",
+      "Bay Point",
+      "Brentwood"
+    ],
+    "web": "www.cchealth.org"
+  },
+  "COUNTY OF SANTA CLARA": {
+    "city": "San Jose",
+    "county": "Santa Clara",
+    "sites": 39,
+    "site_cities": [
+      "San Jose",
+      "Milpitas",
+      "Palo Alto",
+      "Sunnyvale",
+      "Mountain View",
+      "Morgan Hill",
+      "Gilroy"
+    ],
+    "web": ""
+  },
+  "OPEN DOOR COMMUNITY HEALTH CENTERS": {
+    "city": "Arcata",
+    "county": "Humboldt",
+    "sites": 27,
+    "site_cities": [
+      "Arcata",
+      "Ferndale",
+      "Eureka",
+      "Crescent City",
+      "McKinleyville",
+      "Fortuna",
+      "Willow Creek"
+    ],
+    "web": ""
+  },
+  "HARMONY HEALTH MEDICAL CLINIC AND FAMILY RESOURCE CENTER": {
+    "city": "Marysville",
+    "county": "Yuba",
+    "sites": 4,
+    "site_cities": [
+      "Marysville",
+      "Yuba City"
+    ],
+    "web": ""
+  },
+  "SONOMA VALLEY COMMUNITY HEALTH CENTER": {
+    "city": "Sonoma",
+    "county": "Sonoma",
+    "sites": 2,
+    "site_cities": [
+      "Sonoma"
+    ],
+    "web": ""
+  },
+  "REDWOODS RURAL HEALTH CENTER, INCORPORATED": {
+    "city": "Redway",
+    "county": "Humboldt",
+    "sites": 10,
+    "site_cities": [
+      "Redway",
+      "Miranda",
+      "Garberville",
+      "Fortuna"
+    ],
+    "web": "www.rrhc.org"
+  },
+  "CENTRO MEDICO COMMUNITY CLINIC, INC.": {
+    "city": "CORONA",
+    "county": "Riverside",
+    "sites": 18,
+    "site_cities": [
+      "Corona",
+      "Los Angeles",
+      "Riverside",
+      "Pomona",
+      "Inglewood",
+      "Northridge"
+    ],
+    "web": "www.centromedico.com"
+  },
+  "GOLDEN VALLEY HEALTH CENTERS": {
+    "city": "Merced",
+    "county": "Stanislaus",
+    "sites": 52,
+    "site_cities": [
+      "Modesto",
+      "Westley",
+      "Dos Palos",
+      "Merced",
+      "Turlock",
+      "Planada",
+      "Empire",
+      "Manteca",
+      "Ceres",
+      "Los Banos",
+      "Le Grand",
+      "Atwater",
+      "Patterson",
+      "Riverbank",
+      "Newman"
+    ],
+    "web": ""
+  },
+  "LONG VALLEY HEALTH CENTER": {
+    "city": "Laytonville",
+    "county": "Mendocino",
+    "sites": 2,
+    "site_cities": [
+      "Laytonville"
+    ],
+    "web": "www.longvalley.org"
+  },
+  "TIBURCIO VASQUEZ HEALTH CENTER, INCORPORATED": {
+    "city": "Hayward",
+    "county": "Alameda",
+    "sites": 21,
+    "site_cities": [
+      "Hayward",
+      "San Leandro",
+      "Union City",
+      "Fremont",
+      "Fairview",
+      "Castro Valley"
+    ],
+    "web": ""
+  },
+  "COMMUNITY MEDICAL CENTERS, INC.": {
+    "city": "Stockton",
+    "county": "San Joaquin",
+    "sites": 42,
+    "site_cities": [
+      "Stockton",
+      "Tracy",
+      "Lodi",
+      "Vacaville",
+      "Dixon",
+      "Manteca"
+    ],
+    "web": ""
+  },
+  "BENEVOLENCE INDUSTRIES INC": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 10,
+    "site_cities": [
+      "Long Beach",
+      "Los Angeles",
+      "Compton",
+      "Anaheim",
+      "Sylmar",
+      "Orange"
+    ],
+    "web": "www.bhchealth.org"
+  },
+  "COMMUNITY MEDICINE INC": {
+    "city": "PARAMOUNT",
+    "county": "Orange",
+    "sites": 4,
+    "site_cities": [
+      "Santa Ana",
+      "Paramount",
+      "Bellflower"
+    ],
+    "web": "www.communitymedicineinv.org"
+  },
+  "CHINATOWN SERVICE CENTER": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 16,
+    "site_cities": [
+      "Alhambra",
+      "Monterey Park",
+      "Los Angeles",
+      "San Gabriel",
+      "Hacienda Heights"
+    ],
+    "web": "www.cscla.org"
+  },
+  "COUNTY OF MONTEREY": {
+    "city": "Salinas",
+    "county": "Monterey",
+    "sites": 14,
+    "site_cities": [
+      "Salinas",
+      "Marina",
+      "Seaside"
+    ],
+    "web": ""
+  },
+  "COPPERTOWER FAMILY MEDICAL CENTER INC": {
+    "city": "Cloverdale",
+    "county": "Sonoma",
+    "sites": 3,
+    "site_cities": [
+      "Cloverdale"
+    ],
+    "web": "alexandervalleyhealthcare.org"
+  },
+  "GARFIELD HEALTH CENTER": {
+    "city": "MONTEREY PARK",
+    "county": "Los Angeles",
+    "sites": 11,
+    "site_cities": [
+      "Rowland Heights",
+      "Monterey Park",
+      "El Monte",
+      "Rosemead"
+    ],
+    "web": ""
+  },
+  "SERENITY CARE HEALTH GROUP": {
+    "city": "Long Beach",
+    "county": "Los Angeles",
+    "sites": 4,
+    "site_cities": [
+      "Long Beach",
+      "Los Angeles",
+      "Canoga Park"
+    ],
+    "web": "https://serenitycarehealthgroup.org/"
+  },
+  "HURTT FAMILY HEALTH CLINIC, INC.": {
+    "city": "Tustin",
+    "county": "Orange",
+    "sites": 12,
+    "site_cities": [
+      "Santa Ana",
+      "Tustin",
+      "Anaheim"
+    ],
+    "web": "www.hurttclinic.org"
+  },
+  "VISTA COMMUNITY CLINIC": {
+    "city": "Vista",
+    "county": "San Diego",
+    "sites": 23,
+    "site_cities": [
+      "Vista",
+      "Torrance",
+      "Lake Elsinore",
+      "Oceanside",
+      "La Habra",
+      "Brea",
+      "Fallbrook"
+    ],
+    "web": "www.vcc.org"
+  },
+  "TARZANA TREATMENT CENTERS, INC.": {
+    "city": "TARZANA",
+    "county": "Los Angeles",
+    "sites": 9,
+    "site_cities": [
+      "Northridge",
+      "Lancaster",
+      "Woodland Hills",
+      "Palmdale",
+      "Tarzana",
+      "Reseda",
+      "Long Beach"
+    ],
+    "web": "https://www.tarzanatc.org/location-detail/northridge/8330-reseda-boulevard/"
+  },
+  "BARTZ-ALTADONNA COMMUNITY HEALTH CENTER": {
+    "city": "Lancaster",
+    "county": "Los Angeles",
+    "sites": 9,
+    "site_cities": [
+      "Lancaster",
+      "Boron"
+    ],
+    "web": ""
+  },
+  "COMPREHENSIVE COMMUNITY HEALTH CENTERS INC": {
+    "city": "Glendale",
+    "county": "Los Angeles",
+    "sites": 10,
+    "site_cities": [
+      "Arleta",
+      "Glendale",
+      "North Hollywood",
+      "Sunland",
+      "South Gate",
+      "Los Angeles"
+    ],
+    "web": ""
+  },
+  "ALL FOR HEALTH, HEALTH FOR ALL, INC.": {
+    "city": "Glendale",
+    "county": "Los Angeles",
+    "sites": 15,
+    "site_cities": [
+      "Glendale",
+      "North Hollywood",
+      "Montrose",
+      "Laguna Niguel",
+      "Burbank",
+      "Sunland"
+    ],
+    "web": "all4health.org"
+  },
+  "LA MAESTRA FAMILY CLINIC, INC.": {
+    "city": "San Diego",
+    "county": "San Diego",
+    "sites": 31,
+    "site_cities": [
+      "San Diego",
+      "El Cajon",
+      "National City",
+      "Lemon Grove"
+    ],
+    "web": "www.lamaestra.org"
+  },
+  "KOREAN COMMUNITY SERVICES": {
+    "city": "Anaheim",
+    "county": "Orange",
+    "sites": 7,
+    "site_cities": [
+      "Buena Park",
+      "Anaheim",
+      "Irvine"
+    ],
+    "web": "www.kcsinc.org"
+  },
+  "SOUTH COUNTY COMMUNITY HEALTH CENTER, INC.": {
+    "city": "East Palo Alto",
+    "county": "San Mateo",
+    "sites": 16,
+    "site_cities": [
+      "East Palo Alto",
+      "Mountain View",
+      "Palo Alto",
+      "Sunnyvale"
+    ],
+    "web": "www.ranenswoodfhc.org"
+  },
+  "SACRAMENTO COUNTY PRIMARY": {
+    "city": "Sacramento",
+    "county": "Sacramento",
+    "sites": 35,
+    "site_cities": [
+      "Citrus Heights",
+      "Rancho Cordova",
+      "North Highlands",
+      "Galt",
+      "Sacramento",
+      "Antelope",
+      "Herald",
+      "Isleton"
+    ],
+    "web": "https://www.sanjuan.edu/SanJuan"
+  },
+  "VIA CARE COMMUNITY HEALTH CENTER": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 27,
+    "site_cities": [
+      "Los Angeles",
+      "Bellflower",
+      "Culver City",
+      "Valley Glen",
+      "Whittier",
+      "Monterey Park",
+      "South Gate"
+    ],
+    "web": ""
+  },
+  "LIFELONG MEDICAL CARE": {
+    "city": "Berkeley",
+    "county": "Alameda",
+    "sites": 42,
+    "site_cities": [
+      "Berkeley",
+      "Oakland",
+      "Hayward",
+      "San Pablo",
+      "Richmond",
+      "Rodeo",
+      "Pinole",
+      "San Leandro",
+      "Emeryville"
+    ],
+    "web": ""
+  },
+  "GREENVILLE RANCHERIA TRIBAL HEALTH PROGRAM": {
+    "city": "Greenville",
+    "county": "Tehama",
+    "sites": 4,
+    "site_cities": [
+      "Red Bluff"
+    ],
+    "web": ""
+  },
+  "GARDNER FAMILY HEALTH NETWORK, INC": {
+    "city": "San Jose",
+    "county": "Santa Clara",
+    "sites": 16,
+    "site_cities": [
+      "Alviso",
+      "San Jose",
+      "Santa Clara",
+      "Gilroy",
+      "Atherton"
+    ],
+    "web": "www.gardnerhealthservices.org"
+  },
+  "SAN BERNARDINO PUBLIC HEALTH": {
+    "city": "San Bernardino",
+    "county": "San Bernardino",
+    "sites": 7,
+    "site_cities": [
+      "Hesperia",
+      "Ontario",
+      "San Bernardino",
+      "Adelanto",
+      "Apple Valley"
+    ],
+    "web": "http://www.sbcounty.gov/pubhlth/ph_divisions/public_health_clinics/public_health_clinics_victor_valley.htm"
+  },
+  "3C COMMUNITY CLINIC": {
+    "city": "LOS ANGELES",
+    "county": "Los Angeles",
+    "sites": 2,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": "https://www.3cclinic.org/"
+  },
+  "NORTHEAST VALLEY HEALTH CORPORATION": {
+    "city": "San Fernando",
+    "county": "Los Angeles",
+    "sites": 51,
+    "site_cities": [
+      "Los Angeles",
+      "West Covina",
+      "San Fernando",
+      "Pomona",
+      "Pacoima",
+      "Palmdale",
+      "Van Nuys",
+      "Valencia",
+      "Santa Monica",
+      "Sylmar",
+      "Long Beach",
+      "Tarzana",
+      "North Hollywood",
+      "Canyon Country",
+      "Venice",
+      "Torrance",
+      "Canoga Park",
+      "Lancaster",
+      "Sun Valley",
+      "Santa Clarita"
+    ],
+    "web": ""
+  },
+  "CARES COMMUNITY HEALTH": {
+    "city": "Sacramento",
+    "county": "Sacramento",
+    "sites": 7,
+    "site_cities": [
+      "Sacramento",
+      "Carmichael"
+    ],
+    "web": ""
+  },
+  "ELICA HEALTH CTR": {
+    "city": "W Sacramento",
+    "county": "Sacramento",
+    "sites": 16,
+    "site_cities": [
+      "Sacramento",
+      "West Sacramento",
+      "North Highlands"
+    ],
+    "web": ""
+  },
+  "WELLSPACE HEALTH": {
+    "city": "Sacramento",
+    "county": "Sacramento",
+    "sites": 33,
+    "site_cities": [
+      "Citrus Heights",
+      "Rancho Cordova",
+      "Sacramento",
+      "Jackson",
+      "Roseville",
+      "North Highlands",
+      "Folsom",
+      "Galt"
+    ],
+    "web": ""
+  },
+  "SHARE OUR SELVES CORPORATION": {
+    "city": "Costa Mesa",
+    "county": "Orange",
+    "sites": 14,
+    "site_cities": [
+      "Costa Mesa",
+      "Newport Beach",
+      "Anaheim",
+      "Mission Viejo",
+      "Santa Ana"
+    ],
+    "web": "www.shareourselves.org"
+  },
+  "ALLIANCE MEDICAL CENTER, INC": {
+    "city": "Healdsburg",
+    "county": "Sonoma",
+    "sites": 8,
+    "site_cities": [
+      "Windsor",
+      "Healdsburg"
+    ],
+    "web": "www.alliancemed.org"
+  },
+  "SERVE THE PEOPLE, INC": {
+    "city": "Santa Ana",
+    "county": "Orange",
+    "sites": 12,
+    "site_cities": [
+      "Santa Ana",
+      "Orange"
+    ],
+    "web": ""
+  },
+  "CLINICA DE SALUD DEL VALLE DE SALINAS": {
+    "city": "Salinas",
+    "county": "Monterey",
+    "sites": 16,
+    "site_cities": [
+      "Castroville",
+      "Greenfield",
+      "Salinas",
+      "Seaside",
+      "Gonzales",
+      "Royal Oaks",
+      "Soledad",
+      "King City"
+    ],
+    "web": "www.csvs.org"
+  },
+  "MISSION AREA HEALTH ASSOCIATES": {
+    "city": "San Francisco",
+    "county": "San Francisco",
+    "sites": 5,
+    "site_cities": [
+      "San Francisco"
+    ],
+    "web": "www.mnhc.org"
+  },
+  "SALUD PARA LA GENTE": {
+    "city": "Watsonville",
+    "county": "Monterey",
+    "sites": 15,
+    "site_cities": [
+      "Royal Oaks",
+      "Watsonville",
+      "Freedom"
+    ],
+    "web": "www.splg.org"
+  },
+  "CLINICAS DE SALUD DEL PUEBLO, INC": {
+    "city": "El Centro",
+    "county": "Imperial",
+    "sites": 13,
+    "site_cities": [
+      "El Centro",
+      "Mecca",
+      "Coachella",
+      "Brawley",
+      "Winterhaven",
+      "Calexico",
+      "Salton City",
+      "Blythe",
+      "Hemet",
+      "Niland"
+    ],
+    "web": "www.innercare.org"
+  },
+  "HEALTH SERVICE ALLIANCE": {
+    "city": "CHINO",
+    "county": "San Bernardino",
+    "sites": 8,
+    "site_cities": [
+      "Montclair",
+      "Chino",
+      "Hesperia",
+      "Upland",
+      "Palm Desert",
+      "Claremont"
+    ],
+    "web": "www.healthservicealliance.org"
+  },
+  "NORTH COUNTY HEALTH PROJECT INCORPORATED": {
+    "city": "San Marcos",
+    "county": "San Diego",
+    "sites": 29,
+    "site_cities": [
+      "San Marcos",
+      "Ramona",
+      "Oceanside",
+      "Perris",
+      "Encinitas",
+      "Carlsbad",
+      "Vista"
+    ],
+    "web": "https://truecare.org/"
+  },
+  "THE CLINIC, INC.": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 7,
+    "site_cities": [
+      "Los Angeles",
+      "Inglewood"
+    ],
+    "web": ""
+  },
+  "BAY AREA COMMUNITY HEALTH": {
+    "city": "Fremont",
+    "county": "Alameda",
+    "sites": 38,
+    "site_cities": [
+      "Fremont",
+      "San Jose",
+      "Livermore",
+      "Gilroy",
+      "Hayward"
+    ],
+    "web": ""
+  },
+  "CLINICA SIERRA VISTA": {
+    "city": "Bakersfield",
+    "county": "Kern",
+    "sites": 38,
+    "site_cities": [
+      "Bakersfield",
+      "Fresno",
+      "Delano",
+      "Wofford Heights",
+      "Arvin",
+      "Lebec",
+      "Lamont",
+      "Mc Farland"
+    ],
+    "web": ""
+  },
+  "TRI-STATE COMMUNITY HEALTHCARE CENTER": {
+    "city": "Needles",
+    "county": "Los Angeles",
+    "sites": 20,
+    "site_cities": [
+      "Pomona",
+      "Los Angeles",
+      "Adelanto",
+      "Needles",
+      "Glendale",
+      "Hemet",
+      "San Bernardino",
+      "San Fernando"
+    ],
+    "web": ""
+  },
+  "AMH COMPREHENSIVE MEDICAL CENTERS": {
+    "city": "LOS ANGELES",
+    "county": "Los Angeles",
+    "sites": 4,
+    "site_cities": [
+      "Los Angeles",
+      "East Los Angeles",
+      "Maywood"
+    ],
+    "web": ""
+  },
+  "COUNTY OF VENTURA": {
+    "city": "Ventura",
+    "county": "Ventura",
+    "sites": 21,
+    "site_cities": [
+      "Oxnard",
+      "Ventura",
+      "Simi Valley",
+      "Fillmore",
+      "Santa Paula",
+      "Camarillo",
+      "Moorpark",
+      "Thousand Oaks"
+    ],
+    "web": ""
+  },
+  "HARBOR COMMUNITY CLINIC": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 2,
+    "site_cities": [
+      "San Pedro"
+    ],
+    "web": "www.harborchc.org"
+  },
+  "MARIN COMMUNITY CLINIC": {
+    "city": "Novato",
+    "county": "Marin",
+    "sites": 17,
+    "site_cities": [
+      "San Rafael",
+      "Larkspur",
+      "Novato",
+      "Greenbrae",
+      "Mill Valley",
+      "San Anselmo"
+    ],
+    "web": "https://www.marinclinic.org/"
+  },
+  "AAA COMPREHENSIVE HEALTHCARE INC.": {
+    "city": "North Hollywood",
+    "county": "Los Angeles",
+    "sites": 4,
+    "site_cities": [
+      "North Hollywood",
+      "Santa Ana"
+    ],
+    "web": ""
+  },
+  "CASTLE FAMILY HEALTH CENTERS, INC.": {
+    "city": "ATWATER",
+    "county": "Merced",
+    "sites": 4,
+    "site_cities": [
+      "Atwater",
+      "Winton"
+    ],
+    "web": ""
+  },
+  "LOS ANGELES FREE CLINIC., THE": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 7,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": ""
+  },
+  "CENTER FOR FAMILY HEALTH & EDUCATION INC.": {
+    "city": "Panorama City",
+    "county": "Los Angeles",
+    "sites": 16,
+    "site_cities": [
+      "Van Nuys",
+      "El Monte",
+      "Panorama City",
+      "Mission Hills",
+      "Orange Cove",
+      "Long Beach",
+      "Victorville"
+    ],
+    "web": ""
+  },
+  "SAN DIEGO AMERICAN INDIAN HEALTH CENTER": {
+    "city": "San Diego",
+    "county": "San Diego",
+    "sites": 5,
+    "site_cities": [
+      "San Diego"
+    ],
+    "web": "www.sdaihc.org"
+  },
+  "SANTO NINO HEALTH CENTER": {
+    "city": "PANORAMA CITY",
+    "county": "Los Angeles",
+    "sites": 5,
+    "site_cities": [
+      "Van Nuys",
+      "Panorama City",
+      "Burbank",
+      "Mission Hills"
+    ],
+    "web": "https://santoninohc.org/"
+  },
+  "CAMARENA HEALTH": {
+    "city": "Madera",
+    "county": "Madera",
+    "sites": 28,
+    "site_cities": [
+      "Madera",
+      "Fresno",
+      "Oakhurst",
+      "Los Banos",
+      "Mariposa",
+      "Chowchilla",
+      "Coarsegold"
+    ],
+    "web": "www.camarenahealth.org"
+  },
+  "THE ASIAN AMERICANS FOR COMMUNITY INVOLVEMENT OF SANTA CLARA COUNTY, INC.": {
+    "city": "San Jose",
+    "county": "Santa Clara",
+    "sites": 3,
+    "site_cities": [
+      "San Jose"
+    ],
+    "web": "http://aaci.org/main/programs/health/#health-center"
+  },
+  "COUNTY OF SANTA CRUZ": {
+    "city": "Santa Cruz",
+    "county": "Santa Cruz",
+    "sites": 18,
+    "site_cities": [
+      "Santa Cruz",
+      "Watsonville"
+    ],
+    "web": ""
+  },
+  "INDIAN HEALTH CENTER OF SANTA CLARA VALLEY": {
+    "city": "San Jose",
+    "county": "Santa Clara",
+    "sites": 13,
+    "site_cities": [
+      "San Jose"
+    ],
+    "web": ""
+  },
+  "COMMUNITY HEALTH SYSTEMS, INC.": {
+    "city": "Riverside",
+    "county": "San Bernardino",
+    "sites": 12,
+    "site_cities": [
+      "Bloomington",
+      "Fallbrook",
+      "Moreno Valley",
+      "Riverside"
+    ],
+    "web": "www.chsica.org"
+  },
+  "WHITE MEMORIAL COMMUNITY HEALTH CENTER, A CALIFORNIA NONPROFIT PUBLIC BENEFIT CORPORATION": {
+    "city": "LOS ANGELES",
+    "county": "Los Angeles",
+    "sites": 6,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": "https://wmchealthcenter.org/"
+  },
+  "SOUTHERN CALIFORNIA MEDICAL CENTER, INC.": {
+    "city": "Van Nuys",
+    "county": "Los Angeles",
+    "sites": 9,
+    "site_cities": [
+      "Van Nuys",
+      "Pico Rivera",
+      "El Monte",
+      "Woodland Hills",
+      "San Dimas",
+      "Long Beach"
+    ],
+    "web": "http://www.scmedcenter.org"
+  },
+  "EAST VALLEY COMMUNITY HEALTH CENTER, INC": {
+    "city": "West Covina",
+    "county": "Los Angeles",
+    "sites": 9,
+    "site_cities": [
+      "La Puente",
+      "Pomona",
+      "Covina",
+      "El Monte",
+      "West Covina"
+    ],
+    "web": ""
+  },
+  "HEALTH ACCESS FOR ALL INC.": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 9,
+    "site_cities": [
+      "Los Angeles",
+      "Huntington Park",
+      "Bell Gardens",
+      "Maywood"
+    ],
+    "web": ""
+  },
+  "OLE HEALTH": {
+    "city": "Napa",
+    "county": "Napa",
+    "sites": 25,
+    "site_cities": [
+      "Napa",
+      "West Sacramento",
+      "Saint Helena",
+      "Esparto",
+      "American Canyon",
+      "Fairfield",
+      "Woodland",
+      "Davis",
+      "Calistoga",
+      "Yolo"
+    ],
+    "web": ""
+  },
+  "SHASTA COMMUNITY HEALTH CENTER": {
+    "city": "Redding",
+    "county": "Shasta",
+    "sites": 14,
+    "site_cities": [
+      "Redding",
+      "Anderson",
+      "Shasta Lake"
+    ],
+    "web": ""
+  },
+  "ARROYO VISTA FAMILY HEALTH FOUNDATION": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 5,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": "www.arroyovista.org"
+  },
+  "SOUTH CENTRAL FAMILY HEALTH CENTER": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 15,
+    "site_cities": [
+      "Huntington Park",
+      "Los Angeles",
+      "Cudahy",
+      "Montebello"
+    ],
+    "web": "www.scfhc.org"
+  },
+  "MENDOCINO COAST CLINICS INC": {
+    "city": "Fort Bragg",
+    "county": "Mendocino",
+    "sites": 7,
+    "site_cities": [
+      "Fort Bragg"
+    ],
+    "web": "www.mendocinocoastclinics.org"
+  },
+  "SFV HEALTH CENTER, INC": {
+    "city": "Sun Valley",
+    "county": "Los Angeles",
+    "sites": 4,
+    "site_cities": [
+      "Sun Valley"
+    ],
+    "web": "http://www.elevatehealthcenter.org/"
+  },
+  "UNIVERSITY MUSLIM MEDICAL ASSOCIATION, INC": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 11,
+    "site_cities": [
+      "Huntington Park",
+      "Los Angeles",
+      "San Bernardino"
+    ],
+    "web": ""
+  },
+  "BRIGHTER BEGINNINGS": {
+    "city": "RICHMOND",
+    "county": "Alameda",
+    "sites": 5,
+    "site_cities": [
+      "Oakland",
+      "Antioch",
+      "Richmond"
+    ],
+    "web": ""
+  },
+  "RIVERSIDE, COUNTY OF": {
+    "city": "Riverside",
+    "county": "Riverside",
+    "sites": 17,
+    "site_cities": [
+      "Riverside",
+      "Indio",
+      "Hemet",
+      "Perris",
+      "Corona",
+      "Jurupa Valley",
+      "Moreno Valley",
+      "Banning",
+      "Palm Springs",
+      "Lake Elsinore"
+    ],
+    "web": "https://www.ruhealth.org/community-health-centers/locations/riverside"
+  },
+  "UNIVERSITY OF CALIFORNIA IRVINE": {
+    "city": "Irvine",
+    "county": "Orange",
+    "sites": 3,
+    "site_cities": [
+      "Santa Ana",
+      "Anaheim"
+    ],
+    "web": "http://www.ucirvinehealth.org/locations/santa-ana/family-health-center-santa-ana/"
+  },
+  "COMMUNITY HEALTH CENTERS OF AMERICA": {
+    "city": "MARIPOSA",
+    "county": "Sacramento",
+    "sites": 14,
+    "site_cities": [
+      "Fair Oaks",
+      "Gustine",
+      "Merced",
+      "Mariposa",
+      "Sacramento",
+      "Fresno",
+      "Livingston",
+      "Mc Farland",
+      "Salida",
+      "Chowchilla"
+    ],
+    "web": ""
+  },
+  "WILMINGTON COMMUNITY CLINIC": {
+    "city": "Wilmington",
+    "county": "Los Angeles",
+    "sites": 5,
+    "site_cities": [
+      "Wilmington",
+      "San Pedro"
+    ],
+    "web": ""
+  },
+  "Aria Community Health Center": {
+    "city": "Lemoore",
+    "county": "Tulare",
+    "sites": 36,
+    "site_cities": [
+      "Tulare",
+      "Porterville",
+      "Lindsay",
+      "Lemoore",
+      "Hanford",
+      "Avenal",
+      "Riverdale",
+      "Stratford",
+      "Fowler",
+      "Coalinga",
+      "Kettleman City",
+      "Dinuba"
+    ],
+    "web": "ariachc.org"
+  },
+  "EL PROYECTO DEL BARRIO, INC.": {
+    "city": "Arleta",
+    "county": "Los Angeles",
+    "sites": 8,
+    "site_cities": [
+      "Northridge",
+      "Winnetka",
+      "Pacoima",
+      "Arleta",
+      "Panorama City",
+      "Azusa",
+      "Baldwin Park"
+    ],
+    "web": ""
+  },
+  "APLA HEALTH & WELLNESS": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 14,
+    "site_cities": [
+      "Los Angeles",
+      "North Hollywood",
+      "Long Beach",
+      "West Hollywood"
+    ],
+    "web": "www.apla.org"
+  },
+  "UNIVERSAL COMMUNITY HEALTH CENTER": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 11,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": "www.uchcla.org"
+  },
+  "ASIAN AND PACIFIC ISLANDER WELLNESS CENTER, INC.": {
+    "city": "San Francisco",
+    "county": "San Francisco",
+    "sites": 5,
+    "site_cities": [
+      "San Francisco"
+    ],
+    "web": "http://apiwellness.org"
+  },
+  "BEHAVIORAL HEALTH SERVICES, INC.": {
+    "city": "Gardena",
+    "county": "Los Angeles",
+    "sites": 9,
+    "site_cities": [
+      "Gardena",
+      "Pomona",
+      "Hawthorne",
+      "Wilmington",
+      "Carson",
+      "Los Angeles",
+      "Santa Ana"
+    ],
+    "web": "bhs-inc.org"
+  },
+  "AMPLA HEALTH": {
+    "city": "Yuba City",
+    "county": "Butte",
+    "sites": 23,
+    "site_cities": [
+      "Chico",
+      "Orland",
+      "Yuba City",
+      "Gridley",
+      "Olivehurst",
+      "Hamilton City",
+      "Oroville",
+      "Marysville",
+      "Colusa",
+      "Magalia",
+      "Arbuckle",
+      "Los Molinos"
+    ],
+    "web": "www.amplahealth.org"
+  },
+  "POMONA COMMUNITY HEALTH CENTER": {
+    "city": "Pomona",
+    "county": "Los Angeles",
+    "sites": 6,
+    "site_cities": [
+      "Pomona",
+      "Ontario"
+    ],
+    "web": ""
+  },
+  "SHINGLETOWN MEDICAL CENTER": {
+    "city": "Shingletown",
+    "county": "Shasta",
+    "sites": 1,
+    "site_cities": [
+      "Shingletown"
+    ],
+    "web": "www.shingletownmedcenter.org"
+  },
+  "FRIENDS OF FAMILY HEALTH CENTER": {
+    "city": "La Habra",
+    "county": "Orange",
+    "sites": 5,
+    "site_cities": [
+      "La Habra",
+      "La Puente",
+      "Ontario",
+      "Tustin",
+      "Pico Rivera"
+    ],
+    "web": "www.fofhealthcenter.org"
+  },
+  "AXIS COMMUNITY HEALTH, INC.": {
+    "city": "Pleasanton",
+    "county": "Alameda",
+    "sites": 6,
+    "site_cities": [
+      "Pleasanton",
+      "Livermore",
+      "Dublin"
+    ],
+    "web": "http://www.axishealth.org"
+  },
+  "BEVERLYCARE": {
+    "city": "MONTEBELLO",
+    "county": "Los Angeles",
+    "sites": 7,
+    "site_cities": [
+      "Montebello"
+    ],
+    "web": "https://beverlycare.org"
+  },
+  "SAN JOAQUIN COUNTY HEALTH SERVICES EMPLOYEES GUILD": {
+    "city": "FRENCH CAMP",
+    "county": "San Joaquin",
+    "sites": 9,
+    "site_cities": [
+      "French Camp",
+      "Stockton",
+      "Manteca"
+    ],
+    "web": "sjhealth.org"
+  },
+  "THE WEST OAKLAND HEALTH COUNCIL": {
+    "city": "Oakland",
+    "county": "Alameda",
+    "sites": 6,
+    "site_cities": [
+      "Oakland",
+      "Emeryville",
+      "Berkeley"
+    ],
+    "web": "wohc@wohc.org"
+  },
+  "SOLANO COUNTY HEALTH & SOCIAL SERVICES DEPARTMENT": {
+    "city": "Fairfield",
+    "county": "Solano",
+    "sites": 8,
+    "site_cities": [
+      "Vallejo",
+      "Vacaville",
+      "Fairfield"
+    ],
+    "web": ""
+  },
+  "FAMILY HEALTH CARE CENTERS OF GREATER LOS ANGELES INC": {
+    "city": "Commerce",
+    "county": "Los Angeles",
+    "sites": 7,
+    "site_cities": [
+      "Bell Gardens",
+      "Hawaiian Gardens",
+      "Downey",
+      "Commerce"
+    ],
+    "web": "www.fhccgla.com"
+  },
+  "UNICARE COMMUNITY HEALTH CENTER, INC": {
+    "city": "Ontario",
+    "county": "San Bernardino",
+    "sites": 23,
+    "site_cities": [
+      "Ontario",
+      "Los Angeles",
+      "Hesperia",
+      "Fontana",
+      "Riverside",
+      "Apple Valley",
+      "San Bernardino",
+      "Colton",
+      "Huntington Park",
+      "Corona",
+      "Moreno Valley",
+      "Pomona",
+      "Pacoima"
+    ],
+    "web": "www.unicarechc.org"
+  },
+  "NHAN HOA COMPREHENSIVE HEALTH CARE CLINIC, INC.": {
+    "city": "Garden Grove",
+    "county": "Orange",
+    "sites": 2,
+    "site_cities": [
+      "Garden Grove"
+    ],
+    "web": ""
+  },
+  "KEDREN COMMUNITY HEALTH CENTER, INC.": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 3,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": "www.kedrenmentalhealth.com"
+  },
+  "CELEBRATING LIFE COMMUNITY HEALTH CENTER": {
+    "city": "MISSION VIEJO",
+    "county": "Orange",
+    "sites": 13,
+    "site_cities": [
+      "Costa Mesa",
+      "Santa Ana",
+      "Mission Viejo",
+      "Irvine",
+      "Lake Forest"
+    ],
+    "web": ""
+  },
+  "SAN JUDAS COMMUNITY HEALTH CENTER INC": {
+    "city": "LOS ANGELES",
+    "county": "Los Angeles",
+    "sites": 2,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": "http://sanjudaschc.org/"
+  },
+  "CLINICA MSR. OSCAR A ROMERO": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 7,
+    "site_cities": [
+      "Canoga Park",
+      "Van Nuys",
+      "Los Angeles",
+      "Montebello"
+    ],
+    "web": ""
+  },
+  "WESTSIDE FAMILY HEALTH CENTER": {
+    "city": "Culver City",
+    "county": "Los Angeles",
+    "sites": 4,
+    "site_cities": [
+      "Culver City",
+      "Los Angeles",
+      "Santa Monica"
+    ],
+    "web": "www.wfhcenter.org"
+  },
+  "MOUNTAIN VALLEYS HEALTH CENTERS": {
+    "city": "Bieber",
+    "county": "Siskiyou",
+    "sites": 12,
+    "site_cities": [
+      "Dorris",
+      "Mount Shasta",
+      "Mcarthur",
+      "Bieber",
+      "Weed",
+      "Fall River Mills",
+      "Tulelake",
+      "Burney"
+    ],
+    "web": "www.mountainvalleys.org"
+  },
+  "OPERATION SAMAHAN, INC.": {
+    "city": "Chula Vista",
+    "county": "San Diego",
+    "sites": 12,
+    "site_cities": [
+      "San Diego",
+      "Chula Vista",
+      "National City"
+    ],
+    "web": ""
+  },
+  "HILL COUNTRY COMMUNITY CLINIC": {
+    "city": "Bella Vista",
+    "county": "Shasta",
+    "sites": 7,
+    "site_cities": [
+      "Redding",
+      "Round Mountain"
+    ],
+    "web": ""
+  },
+  "SOUTHLAND INTEGRATED SERVICES INC": {
+    "city": "Garden Grove",
+    "county": "Orange",
+    "sites": 2,
+    "site_cities": [
+      "Garden Grove"
+    ],
+    "web": "www.southlandintegrated.org"
+  },
+  "BUDDHIST TZU CHI MEDICAL FOUNDATION": {
+    "city": "EL MONTE",
+    "county": "Los Angeles",
+    "sites": 7,
+    "site_cities": [
+      "South El Monte",
+      "Wilmington",
+      "Alhambra",
+      "El Monte"
+    ],
+    "web": "https://tzuchimedical.us"
+  },
+  "ST. JUDE NEIGHBORHOOD HEALTH CENTERS": {
+    "city": "Fullerton",
+    "county": "Orange",
+    "sites": 17,
+    "site_cities": [
+      "Anaheim",
+      "Orange",
+      "Fullerton",
+      "Adelanto",
+      "Apple Valley",
+      "Hesperia",
+      "Buena Park",
+      "Santa Ana"
+    ],
+    "web": ""
+  },
+  "CHILDREN'S HOSPITAL & RESEARCH CENTER AT OAKLAND": {
+    "city": "Oakland",
+    "county": "Alameda",
+    "sites": 8,
+    "site_cities": [
+      "Oakland"
+    ],
+    "web": "www.childrenshospitaloakland.org"
+  },
+  "WESTERN SIERRA MEDICAL CLINIC, INC.": {
+    "city": "Grass Valley",
+    "county": "Nevada",
+    "sites": 14,
+    "site_cities": [
+      "Grass Valley",
+      "Nevada City",
+      "Kings Beach",
+      "Auburn",
+      "Penn Valley",
+      "Oregon House",
+      "Downieville"
+    ],
+    "web": ""
+  },
+  "RITTER CENTER": {
+    "city": "San Rafael",
+    "county": "Marin",
+    "sites": 4,
+    "site_cities": [
+      "San Rafael"
+    ],
+    "web": "www.rittercenter.org"
+  },
+  "BEVERLY COMMUNITY CLINIC": {
+    "city": "LOS ANGELES",
+    "county": "Los Angeles",
+    "sites": 3,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": ""
+  },
+  "The Children's Clinic, Serving Children And Their Families": {
+    "city": "Long Beach",
+    "county": "Los Angeles",
+    "sites": 15,
+    "site_cities": [
+      "Long Beach",
+      "Bellflower"
+    ],
+    "web": "www.thechildrensclinic.org"
+  },
+  "VALLEY COMMUNITY HEALTHCARE": {
+    "city": "North Hollywood",
+    "county": "Los Angeles",
+    "sites": 3,
+    "site_cities": [
+      "Sherman Oaks",
+      "North Hills",
+      "North Hollywood"
+    ],
+    "web": ""
+  },
+  "LOS ANGELES LGBT CENTER": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 6,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": "www.lalgbtcenter.org"
+  },
+  "COUNTY OF STANISLAUS": {
+    "city": "MODESTO",
+    "county": "Stanislaus",
+    "sites": 3,
+    "site_cities": [
+      "Modesto"
+    ],
+    "web": ""
+  },
+  "HERALD CHRISTIAN HEALTH CENTER": {
+    "city": "El Monte",
+    "county": "Los Angeles",
+    "sites": 8,
+    "site_cities": [
+      "El Monte",
+      "Rosemead",
+      "San Gabriel",
+      "Los Angeles",
+      "City Of Industry",
+      "San Diego"
+    ],
+    "web": ""
+  },
+  "ST. ANTHONY MEDICAL CENTERS, A NONPROFIT CORPORATION": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 5,
+    "site_cities": [
+      "Hawthorne",
+      "Los Angeles",
+      "Compton"
+    ],
+    "web": ""
+  },
+  "Equity Health": {
+    "city": "San Francisco",
+    "county": "San Francisco",
+    "sites": 6,
+    "site_cities": [
+      "San Francisco"
+    ],
+    "web": ""
+  },
+  "KARUK TRIBE OF CALIFORNIA": {
+    "city": "Happy Camp",
+    "county": "Siskiyou",
+    "sites": 5,
+    "site_cities": [
+      "Happy Camp",
+      "Orleans",
+      "Yreka"
+    ],
+    "web": ""
+  },
+  "ALTURA CENTERS FOR HEALTH": {
+    "city": "Tulare",
+    "county": "Tulare",
+    "sites": 9,
+    "site_cities": [
+      "Tulare",
+      "Porterville"
+    ],
+    "web": "www.altura.org"
+  },
+  "TODOS PARA LA SALUD": {
+    "city": "FRESNO",
+    "county": "Los Angeles",
+    "sites": 4,
+    "site_cities": [
+      "Canoga Park",
+      "Fresno",
+      "Reseda"
+    ],
+    "web": ""
+  },
+  "INLAND BEHAVIORAL AND HEALTH SERVICES, INC.": {
+    "city": "San Bernardino",
+    "county": "Riverside",
+    "sites": 3,
+    "site_cities": [
+      "Banning",
+      "San Bernardino"
+    ],
+    "web": "www.ibhealth.org"
+  },
+  "SCHOOL HEALTH CLINICS OF SANTA CLARA COUNTY": {
+    "city": "San Jose",
+    "county": "Santa Clara",
+    "sites": 6,
+    "site_cities": [
+      "Gilroy",
+      "San Jose"
+    ],
+    "web": ""
+  },
+  "Gracelight Community Health": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 8,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": "https://gracelight.org/"
+  },
+  "MCCLOUD HEALTHCARE CLINIC, INC": {
+    "city": "Mccloud",
+    "county": "Siskiyou",
+    "sites": 4,
+    "site_cities": [
+      "Mount Shasta",
+      "Dunsmuir",
+      "Mccloud"
+    ],
+    "web": "www.shastacascadehealth.org"
+  },
+  "SAN FERNANDO COMMUNITY HOSPITAL": {
+    "city": "San Fernando",
+    "county": "Los Angeles",
+    "sites": 4,
+    "site_cities": [
+      "Mission Hills",
+      "Panorama City",
+      "San Fernando"
+    ],
+    "web": ""
+  },
+  "YEHOWA MEDICAL SERVICES": {
+    "city": "Torrance",
+    "county": "Los Angeles",
+    "sites": 10,
+    "site_cities": [
+      "South Gate",
+      "Los Angeles",
+      "Torrance",
+      "Wilmington",
+      "Santa Ana"
+    ],
+    "web": ""
+  },
+  "WINTERS HEALTHCARE FOUNDATION INC": {
+    "city": "Winters",
+    "county": "Yolo",
+    "sites": 1,
+    "site_cities": [
+      "Winters"
+    ],
+    "web": "www.wintershealth.org"
+  },
+  "SAINT YOUSTINA": {
+    "city": "SANTA ANA",
+    "county": "Orange",
+    "sites": 3,
+    "site_cities": [
+      "Santa Ana",
+      "Costa Mesa"
+    ],
+    "web": ""
+  },
+  "MENDOCINO COMMUNITY HEALTH CLINIC INC": {
+    "city": "Ukiah",
+    "county": "Mendocino",
+    "sites": 12,
+    "site_cities": [
+      "Ukiah",
+      "Willits",
+      "Lakeport"
+    ],
+    "web": "www.mchcinc.org"
+  },
+  "ALL-INCLUSIVE COMMUNITY HEALTH CENTER": {
+    "city": "Burbank",
+    "county": "Los Angeles",
+    "sites": 5,
+    "site_cities": [
+      "Northridge",
+      "Burbank",
+      "Los Angeles"
+    ],
+    "web": "www.aichc.org"
+  },
+  "WATTS HEALTHCARE CORP": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 3,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": ""
+  },
+  "PENINSULA HEALTHCARE CONNECTION, INC.": {
+    "city": "SAN JOSE",
+    "county": "Santa Clara",
+    "sites": 1,
+    "site_cities": [
+      "Palo Alto"
+    ],
+    "web": "www.peninsulahcc.org"
+  },
+  "SAN BENITO HEALTH FOUNDATION": {
+    "city": "Hollister",
+    "county": "San Benito",
+    "sites": 2,
+    "site_cities": [
+      "Hollister"
+    ],
+    "web": ""
+  },
+  "TENDER CARE COMMUNITY CLINIC INC": {
+    "city": "DOWNEY",
+    "county": "Los Angeles",
+    "sites": 1,
+    "site_cities": [
+      "Downey"
+    ],
+    "web": "n/a"
+  },
+  "NORTHEASTERN RURAL HEALTH CLINICS": {
+    "city": "Susanville",
+    "county": "Lassen",
+    "sites": 2,
+    "site_cities": [
+      "Susanville",
+      "Westwood"
+    ],
+    "web": "www.northeasternhealth.org"
+  },
+  "KWANG HE WON HEALTH CTR": {
+    "city": "LOS ANGELES",
+    "county": "Los Angeles",
+    "sites": 5,
+    "site_cities": [
+      "Huntington Park",
+      "Los Angeles",
+      "Panorama City",
+      "Bell"
+    ],
+    "web": "kwanghewon.org"
+  },
+  "KOREAN HEALTH, EDUCATION, INFORMATION AND RESEARCH CENTER": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 7,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": "www.LAKheir.org"
+  },
+  "ANPHON CORPORATION": {
+    "city": "INGLEWOOD",
+    "county": "Los Angeles",
+    "sites": 2,
+    "site_cities": [
+      "Inglewood"
+    ],
+    "web": "http://amchealthcare.org/"
+  },
+  "LAGUNA BEACH COMMUNITY CLINIC, INC": {
+    "city": "LAGUNA BEACH",
+    "county": "Orange",
+    "sites": 1,
+    "site_cities": [
+      "Laguna Beach"
+    ],
+    "web": "www.lbclinic.org"
+  },
+  "MARIN CITY HEALTH AND WELLNESS CENTER": {
+    "city": "San Rafael",
+    "county": "Marin",
+    "sites": 7,
+    "site_cities": [
+      "Sausalito",
+      "San Francisco",
+      "San Rafael"
+    ],
+    "web": "www.marincityclinic.org"
+  },
+  "DE NOVO HEALTH CARE, INC": {
+    "city": "EAST RANCHO DOMINGUEZ",
+    "county": "Los Angeles",
+    "sites": 1,
+    "site_cities": [
+      "East Rancho Dominguez"
+    ],
+    "web": "https://www.denovocare.com/"
+  },
+  "REDWOOD COAST MEDICAL SERVICES, INC.": {
+    "city": "Gualala",
+    "county": "Mendocino",
+    "sites": 5,
+    "site_cities": [
+      "Point Arena",
+      "Gualala"
+    ],
+    "web": "www.rcms-healthcare.org"
+  },
+  "American Indian Health & Services Corporation": {
+    "city": "Santa Barbara",
+    "county": "Santa Barbara",
+    "sites": 3,
+    "site_cities": [
+      "Santa Barbara",
+      "Carpinteria"
+    ],
+    "web": "aihscorp.org"
+  },
+  "IMPERIAL BEACH COMMUNITY CLINIC": {
+    "city": "San Diego",
+    "county": "San Diego",
+    "sites": 4,
+    "site_cities": [
+      "San Diego",
+      "Imperial Beach"
+    ],
+    "web": ""
+  },
+  "AGHABY COMPREHENSIVE COMMUNITY HEALTH CENTER": {
+    "city": "COMPTON",
+    "county": "Los Angeles",
+    "sites": 2,
+    "site_cities": [
+      "Walnut Park",
+      "Compton"
+    ],
+    "web": "www.acchealthcenters.org"
+  },
+  "SAN DIEGO FAMILY CARE": {
+    "city": "San Diego",
+    "county": "San Diego",
+    "sites": 8,
+    "site_cities": [
+      "San Diego"
+    ],
+    "web": ""
+  },
+  "CALI MED CORPORATION": {
+    "city": "SOUTH GATE",
+    "county": "Los Angeles",
+    "sites": 3,
+    "site_cities": [
+      "Reseda",
+      "South Gate",
+      "Rosemead"
+    ],
+    "web": ""
+  },
+  "GREATER FRESNO HEALTH ORGANIZATION, INC.": {
+    "city": "FRESNO",
+    "county": "Fresno",
+    "sites": 3,
+    "site_cities": [
+      "Fresno"
+    ],
+    "web": ""
+  },
+  "SO-CAL COMMUNITY HEALTH CENTER": {
+    "city": "ARLETA",
+    "county": "Los Angeles",
+    "sites": 2,
+    "site_cities": [
+      "North Hills",
+      "Arleta"
+    ],
+    "web": "www.socalchc.org"
+  },
+  "THE DAVIS STREET COMMUNITY CENTER INCORPORATED": {
+    "city": "San Leandro",
+    "county": "Alameda",
+    "sites": 1,
+    "site_cities": [
+      "San Leandro"
+    ],
+    "web": "http://davisstreet.org/"
+  },
+  "TL HEALTH CARE FOUNDATION": {
+    "city": "SAN GABRIEL",
+    "county": "Los Angeles",
+    "sites": 1,
+    "site_cities": [
+      "San Gabriel"
+    ],
+    "web": "http://tlhcare.org/"
+  },
+  "Livingstone Community Development Corporation": {
+    "city": "STANTON",
+    "county": "Orange",
+    "sites": 1,
+    "site_cities": [
+      "Stanton"
+    ],
+    "web": ""
+  },
+  "ANDERSON VALLEY HEALTH CENTER INC": {
+    "city": "Boonville",
+    "county": "Mendocino",
+    "sites": 1,
+    "site_cities": [
+      "Boonville"
+    ],
+    "web": "www.avhc.org"
+  },
+  "LYON-MARTIN COMMUNITY HEALTH SERVICES": {
+    "city": "SAN FRANCISCO",
+    "county": "San Francisco",
+    "sites": 1,
+    "site_cities": [
+      "San Francisco"
+    ],
+    "web": "https://lyon-martin.org/"
+  },
+  "HEALTHRIGHT 360": {
+    "city": "SAN FRANCISCO",
+    "county": "San Mateo",
+    "sites": 2,
+    "site_cities": [
+      "San Mateo",
+      "San Francisco"
+    ],
+    "web": ""
+  },
+  "TULARE, COUNTY OF": {
+    "city": "VISALIA",
+    "county": "Tulare",
+    "sites": 2,
+    "site_cities": [
+      "Visalia",
+      "Farmersville"
+    ],
+    "web": "www.tchhsa.org"
+  },
+  "CAMINO HEALTH CENTER": {
+    "city": "San Juan Capistrano",
+    "county": "Orange",
+    "sites": 4,
+    "site_cities": [
+      "Lake Forest",
+      "San Juan Capistrano",
+      "San Clemente"
+    ],
+    "web": "www.caminohealthcenter.org"
+  },
+  "THE ACHIEVABLE FOUNDATION": {
+    "city": "Culver City",
+    "county": "Los Angeles",
+    "sites": 2,
+    "site_cities": [
+      "Culver City"
+    ],
+    "web": "http://www.achievable.org"
+  },
+  "ST. VINCENT DE PAUL VILLAGE, INC.": {
+    "city": "San Diego",
+    "county": "San Diego",
+    "sites": 1,
+    "site_cities": [
+      "San Diego"
+    ],
+    "web": "https://my.neighbor.org/clinic"
+  },
+  "ACCESS COMMUNITY HEALTH CENTER": {
+    "city": "SANTA ANA",
+    "county": "Orange",
+    "sites": 3,
+    "site_cities": [
+      "Santa Ana",
+      "Laguna Hills"
+    ],
+    "web": ""
+  },
+  "ASIAN PACIFIC HEALTH CARE VENTURE, INC.": {
+    "city": "Los Angeles",
+    "county": "Los Angeles",
+    "sites": 4,
+    "site_cities": [
+      "El Monte",
+      "Los Angeles"
+    ],
+    "web": "www.aphcv.org"
+  },
+  "NOALAB CLINIC INC": {
+    "city": "NORTH HOLLYWOOD",
+    "county": "Los Angeles",
+    "sites": 1,
+    "site_cities": [
+      "North Hollywood"
+    ],
+    "web": "https://noalabhealthcare.org/"
+  },
+  "The WeCare Group": {
+    "city": "Mad River",
+    "county": "Trinity",
+    "sites": 3,
+    "site_cities": [
+      "Weaverville",
+      "Scotia",
+      "Mad River"
+    ],
+    "web": ""
+  },
+  "PRIME WELLNESS COMMUNITY HEALTH CENTER": {
+    "city": "LOS ANGELES",
+    "county": "Los Angeles",
+    "sites": 1,
+    "site_cities": [
+      "Los Angeles"
+    ],
+    "web": "https://primewellnesschc.org/"
+  },
+  "AIDS SERVICES FOUNDATION ORANGE COUNTY": {
+    "city": "IRVINE",
+    "county": "Orange",
+    "sites": 1,
+    "site_cities": [
+      "Irvine"
+    ],
+    "web": "https://www.radianthealthcenters.org"
+  }
+}

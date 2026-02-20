@@ -1,110 +1,75 @@
 # Daily Content Update
 
-Run the morning content update pipeline for FQHC Talent Exchange. This checks for new layoffs, scans FQHC career pages for jobs, and optionally drafts a blog article.
-
-**Target time: under 30 minutes total.**
+Run the morning content update pipeline. **Target time: under 15 minutes.**
 
 ---
 
-## Step 1: WARN Act Layoff Check
+## Step 1: WARN Act Check (FQHC-only)
 
-Follow the full instructions in `.claude/commands/update-layoffs.md`:
+1. Download CA EDD WARN XLSX: `curl -sL "https://edd.ca.gov/siteassets/files/jobs_and_training/warn/warn_report1.xlsx" -o /tmp/warn-report.xlsx`
+2. Parse with Python/openpyxl — headers are in row 2, data starts row 3
+3. Filter for healthcare entries (NAICS 621/622/623 or healthcare keywords in company name)
+4. **Only flag entries that are actual FQHCs** — cross-reference against our 90-FQHC directory in `california-fqhcs.ts`
+5. Skip hospitals, health plans, dental plans, medical device companies, etc.
+6. If no FQHC WARN filings found: "No new FQHC WARN filings today" and move on
+7. Also do a quick web search for "California FQHC layoffs [current month] [year]" to catch non-WARN layoff news
 
-1. Download the CA EDD WARN XLSX report
-2. Parse and filter for healthcare entries
-3. Cross-reference with existing layoff entries and the 90 FQHC directory
-4. Present any new entries for review
-
-If no new healthcare WARN filings are found, report "No new WARN filings today" and move on.
-
-**Pause for my review if new entries are found.**
-
----
-
-## Step 2: FQHC Job Scan
-
-Follow the full instructions in `.claude/commands/scrape-jobs.md`:
-
-1. Load career page config and determine today's batch (10 FQHCs)
-2. Fetch and scan each career page
-3. Generate new FQHCJobListing objects for any new postings
-4. Update career page config with lastChecked dates
-
-If no new jobs are found, report which FQHCs were checked and move on.
-
-**Pause for my review if new listings are found.**
+**Only pause for review if new FQHC entries found.**
 
 ---
 
-## Step 3: Blog Check (Optional)
+## Step 2: Job Scan (API FQHCs only)
 
-Only run this step if:
-- Today is **Monday** (weekly blog cadence), OR
-- I specifically ask for a blog article
+Run all 4 scrapeable FQHCs in parallel via Bash (no WebFetch needed):
 
-If running, follow `.claude/commands/draft-blog.md`:
-1. Analyze data for topic ideas
-2. Suggest 3 topics
-3. Draft the selected article
+```bash
+# AltaMed (Workday)
+curl -s -X POST 'https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs' \
+  -H 'Content-Type: application/json' \
+  -d '{"appliedFacets":{},"limit":20,"offset":0,"searchText":""}' | python3 -c "import sys,json; d=json.load(sys.stdin); print('AltaMed:', d.get('total'))"
 
-If not running, skip this step.
+# FHCSD (Workday)
+curl -s -X POST 'https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs' \
+  -H 'Content-Type: application/json' \
+  -d '{"appliedFacets":{},"limit":20,"offset":0,"searchText":""}' | python3 -c "import sys,json; d=json.load(sys.stdin); print('FHCSD:', d.get('total'))"
 
----
+# Asian Health Services (Lever)
+curl -s 'https://api.lever.co/v0/postings/ahschc?mode=json' | python3 -c "import sys,json; d=json.load(sys.stdin); print('AHS:', len(d))"
 
-## Step 4: Summary Report
-
-After all steps, provide a summary:
-
-```
-=== DAILY UPDATE SUMMARY ===
-
-WARN Act Check:
-- New entries: X (or "None found")
-- Organizations: [list if any]
-- Workers affected: X
-
-Job Scan:
-- FQHCs checked: X of Y
-- Reachable pages: X
-- New listings found: X
-- Next batch: [list next 10 FQHCs]
-
-Blog:
-- [Skipped — not Monday] or [Article drafted: "Title"]
-
-Files Modified:
-- [list all changed files]
-
-Next Steps:
-- Run: npm run build
-- Commit: git add . && git commit -m "Daily content update YYYY-MM-DD"
-- Deploy: git push (Vercel auto-deploys)
+# La Clinica (HRMDirect) — use WebFetch
 ```
 
+Report counts and compare to previous. Only pause if significant changes (>10 net new).
+
 ---
 
-## Step 5: Update Dates
+## Step 3: Blog (Mondays only)
 
-After all content changes are approved and applied, update the "last updated" dates across the codebase:
+Skip unless today is Monday or specifically requested.
 
-### Always update (every daily update):
-1. **`src/lib/california-fqhc-layoffs.ts`** — Update `// Last updated:` comment (line 4) to today's date
-2. **`src/lib/career-page-config.ts`** — Update `// Last updated:` comment (line 4) to today's date
-3. **`CLAUDE.md`** — Update the **Session Log** table with today's date and a 2-3 line summary of what was done
-4. **`CLAUDE.md`** — Update the **Current Context** section with current data counts (jobs, FQHCs, layoff entries, etc.)
+---
 
-### Update if data changed:
-5. **`src/lib/fqhc-job-listings.ts`** — If new jobs were added, update any `// Last updated:` comment
-6. **`src/lib/funding-impact-data.ts`** — If funding data changed, update `// Last updated:` comment
+## Step 4: Apply Changes + Summary
 
-### Automatically derived (no manual update needed):
-- **Layoff tracker page** (`/layoffs`) — The "Last updated" badge is **automatically derived** from the most recent `dateAnnounced` in the layoff data array. Adding new entries will automatically update the displayed date.
+1. Update `california-fqhc-layoffs.ts` comment date to today
+2. Update `career-page-config.ts` comment date to today
+3. Update CLAUDE.md Session Log with today's summary
+4. Run `npm run build` to verify
+5. Print summary:
+
+```
+=== DAILY UPDATE [YYYY-MM-DD] ===
+WARN: [count] new FQHC entries (or "None")
+Jobs: AltaMed [n], FHCSD [n], AHS [n], La Clinica [n] (total [n], prev [n])
+Blog: [Skipped] or [Drafted: "Title"]
+Build: [PASS/FAIL]
+```
 
 ---
 
 ## Notes
 
-- If any step fails (WARN download error, career page timeout, etc.), report the error and continue to the next step. Don't let one failure block the whole routine.
-- Always pause for review before writing to any .ts files.
-- Never remove or modify existing entries — only append new ones.
-- All new content must be bilingual (EN/ES) where applicable.
+- **Speed over completeness** — check the 4 API FQHCs only. Save WebFetch scraping for weekly deep-dives.
+- Layoff tracker page date is auto-derived from data — no manual update needed.
+- Never remove existing entries — only append.
+- If any step fails, report and continue.

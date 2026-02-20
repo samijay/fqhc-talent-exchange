@@ -205,17 +205,19 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ---
 
 ## Current Context
-- **Just shipped:** Assessment Philosophy page (`/our-assessment`), The Drop page + API + SQL (`/the-drop`), Email system upgrade (mission banner, resources, market snapshot in all emails)
+- **Just shipped:** Nav bar redesign (dropdown menus), Borrego Health + LA DPH layoff entries, streamlined daily update
 - **GTM status:** Ready for outbound to FQHC HR directors
-- **Data:** 177 job listings, 90 FQHCs, 13 layoff entries, 570+ live API-scrapeable jobs discovered
+- **Data:** 177 job listings, 90 FQHCs (216 found via HRSA — expansion pending), 15 layoff entries, 548 live API-scrapeable jobs
+- **HRSA data:** Downloaded full CA FQHC directory — 216 orgs, 2,990 sites. Saved to `hrsa-ca-fqhcs-216.json`. Expansion from 90→216 is next major data task.
 - **Domains:** fqhctalent.com (primary, live on Vercel) + healthcaretalent.org (GA4 cross-domain tracking added)
-- **Layoff tracker:** "Last updated" date is now auto-derived from data (no manual update needed)
-- **Next daily update:** Tomorrow morning via `/daily-update`
-- **Manual steps needed:** Run `supabase-drop-waitlist.sql` in Supabase SQL Editor, verify Resend domain for `fqhctalent.com`
+- **Layoff tracker:** "Last updated" date auto-derived from data. Now 15 entries tracking 2,618+ workers.
+- **Nav structure:** Reorganized with dropdown menus — "Insights" (Market Insights, Layoff Tracker, Blog) and "Tools" (Resume Builder, Career Assessment, Career Roadmap, Certifications)
+- **Manual steps needed:** Run `supabase-drop-waitlist.sql` + `supabase-feedback.sql` in Supabase SQL Editor. Set up domain email (Cloudflare Email Routing + Resend verification).
 
 ## Session Log
 | Date | Summary |
 |------|---------|
+| 2026-02-19 | Daily update #2. WARN check (0 new FQHC entries, added Borrego Health historical + LA DPH clinic closures). Job scan: AltaMed 210, FHCSD 147, AHS 22, La Clinica 169 (548 total, -22 from prev). Nav bar redesigned with dropdown menus (Insights, Tools). Downloaded HRSA data: 216 CA FQHCs found (expansion from 90 pending). Streamlined daily-update command (target 15min). |
 | 2026-02-18 | Ran first `/daily-update` (22 new jobs). Built Assessment Philosophy page, The Drop page + API + SQL. Upgraded email system (mission banner, resources, market snapshot). Made layoff tracker date auto-derive from data. Updated daily-update command with date checklist. |
 | 2026-02-17 | Built daily content pipeline (4 slash commands). Tested WARN Act XLSX parsing (215 healthcare entries). Career page config for 15 FQHCs. Security audit (20 attack vectors, 0 vulnerabilities). Talent Drop design (3-round exclusive matching). Legal risk analysis for CA employment agency law. |
 | 2026-02-16 | Built feedback button, career insights dashboard, career roadmap page, certification catalog (features #40-43). |

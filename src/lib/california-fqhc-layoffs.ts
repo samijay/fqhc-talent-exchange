@@ -1,7 +1,7 @@
 // california-fqhc-layoffs.ts
 // Tracked layoffs and workforce reductions at California FQHCs and community health organizations
 // Data sources: WARN Act filings, news reports, organizational announcements
-// Last updated: 2026-02-18
+// Last updated: 2026-02-19
 
 export interface LayoffEntry {
   id: string;
@@ -505,6 +505,70 @@ export const californiaFQHCLayoffs: LayoffEntry[] = [
     status: "announced",
     notes:
       "Affects multiple FQHC partners including Borrego Health, Desert Healthcare District clinics, and SAC Health. ~120 positions across the region.",
+  },
+
+  {
+    id: "borrego-health-2021",
+    organization: "Borrego Health (now DAP Health)",
+    slug: "borrego-health",
+    city: "Borrego Springs",
+    county: "San Diego",
+    region: "Inland Empire",
+    dateAnnounced: "2021-05-01",
+    dateEffective: "2021-07-01",
+    employeesAffected: 218,
+    employeesTotal: 1400,
+    percentOfWorkforce: 15.6,
+    rolesAffected: [
+      "Registered Nurse",
+      "Phlebotomist",
+      "Dental Staff",
+      "Management",
+      "Administrative Staff",
+    ],
+    departments: ["Clinical Services", "Dental", "Management", "Administration"],
+    reason:
+      "First round of mass layoffs amid financial crisis. FBI raid in 2021 and state/federal fraud investigations preceded the cuts. Organization served 100,000+ patients at 25+ clinics across Southern California.",
+    reasonCategory: "financial-restructuring",
+    source:
+      "https://www.beckershospitalreview.com/finance/borrego-health-to-lay-off-218-workers-in-california/",
+    sourceTitle: "Becker's Hospital Review",
+    warnActFiled: true,
+    isFQHC: true,
+    status: "completed",
+    notes:
+      "Borrego Health subsequently laid off another 113 employees in Dec 2021, outsourced billing, closed 2 clinics, and filed Chapter 11 bankruptcy in Sept 2022. Assets acquired by DAP Health. Total 331 workers affected across both rounds.",
+  },
+
+  {
+    id: "la-county-dph-clinic-closures-2026",
+    organization: "LA County Department of Public Health",
+    slug: null,
+    city: "Los Angeles",
+    county: "Los Angeles",
+    region: "Los Angeles",
+    dateAnnounced: "2026-02-13",
+    dateEffective: "2026-02-27",
+    employeesAffected: 0,
+    employeesTotal: null,
+    percentOfWorkforce: null,
+    rolesAffected: [
+      "Public Health Nurse",
+      "Clinic Staff",
+      "Administrative Staff",
+    ],
+    departments: ["STI Testing", "Vaccination", "TB Screening"],
+    reason:
+      "$50M+ cut in federal, state, and local funding. Seven clinic locations closing Feb 27, 2026: Antelope Valley (Lancaster), Center for Community Health (LA), Curtis R. Tucker (Inglewood), Hollywood Wilshire (LA), Pomona, Dr. Ruth Temple (LA), and Torrance. Six clinics remain open.",
+    reasonCategory: "federal-funding-cuts",
+    source:
+      "https://lacounty.gov/2026/02/13/public-health-ending-clinic-services-at-seven-locations-due-to-significant-funding-cuts/",
+    sourceTitle: "LA County Official Statement",
+    warnActFiled: false,
+    isFQHC: false,
+    status: "announced",
+    notes:
+      "Not an FQHC but a major safety-net provider. Closures affect vaccination, STI testing, and TB screening in communities where FQHCs will absorb displaced patients. Latino families disproportionately impacted. Glendale clinic to close in 2027.",
   },
 
   {
