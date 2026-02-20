@@ -103,8 +103,8 @@ export function employerConfirmationHtml(data: {
 
   <ol style="font-size: 16px; line-height: 1.8; color: #44403c; padding-left: 20px;">
     <li>${isEs
-      ? "Nuestro equipo revisará su solicitud dentro de <strong>48 horas</strong>"
-      : "Our team will review your request within <strong>48 hours</strong>"}</li>
+      ? "Nuestro equipo revisará su solicitud <strong>pronto</strong>"
+      : "Our team will review your request <strong>shortly</strong>"}</li>
     <li>${isEs
       ? "Programaremos una breve llamada para entender sus necesidades de contratación"
       : "We'll schedule a brief call to understand your hiring needs"}</li>
@@ -149,13 +149,13 @@ export function displacedCandidateConfirmationHtml(data: {
   </div>
 
   <h2 style="font-size: 20px; color: #1c1917;">${isEs
-    ? `¡Estás en el grupo Fast-Track, ${name}!`
-    : `You're in the Fast-Track pool, ${name}!`}</h2>
+    ? `¡Estás en el grupo prioritario, ${name}!`
+    : `You're in the priority pool, ${name}!`}</h2>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
     ${isEs
-      ? `Entendemos lo estresante que puede ser un despido. Por eso te hemos puesto en nuestra <strong style="color: #0d9488;">cola Fast-Track</strong> para emparejamiento prioritario.`
-      : `We understand how stressful a layoff can be. That's why we've put you in our <strong style="color: #0d9488;">Fast-Track queue</strong> for priority matching.`}
+      ? `Hemos recibido tu perfil y te hemos puesto en nuestra <strong style="color: #0d9488;">admisión prioritaria</strong>. Mientras tanto, aprovecha nuestras herramientas gratuitas para prepararte.`
+      : `We've received your profile and placed you in our <strong style="color: #0d9488;">priority intake</strong>. In the meantime, use our free tools to get job-ready.`}
   </p>
 
   ${missionBanner(isEs)}
@@ -166,15 +166,27 @@ export function displacedCandidateConfirmationHtml(data: {
 
   <ol style="font-size: 16px; line-height: 1.8; color: #44403c; padding-left: 20px;">
     <li>${isEs
-      ? "Un asesor de colocación revisa tu perfil <strong>dentro de 24 horas</strong>"
-      : "A placement advocate reviews your profile <strong>within 24 hours</strong>"}</li>
+      ? "Revisamos tu perfil e identificamos FQHCs que están contratando activamente"
+      : "We review your profile and identify FQHCs that are actively hiring"}</li>
     <li>${isEs
       ? "Te emparejamos con FQHCs que necesitan tus habilidades"
       : "We match you with hiring FQHCs that need your skills"}</li>
     <li>${isEs
-      ? "Recibirás tu primera presentación <strong>dentro de 48 horas</strong>"
-      : "You'll receive your first introduction <strong>within 48 hours</strong>"}</li>
+      ? "Recibirás presentaciones a FQHCs que se ajustan a tu experiencia"
+      : "You'll receive introductions to FQHCs that fit your experience"}</li>
   </ol>
+
+  <div style="background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 8px; padding: 16px; margin: 24px 0;">
+    <p style="margin: 0; font-weight: 700; color: #0f766e; font-size: 14px;">
+      🛠️ ${isEs ? "Herramientas gratis para prepararte" : "Free tools to get you ready"}
+    </p>
+    <p style="margin: 8px 0 0; font-size: 13px; color: #44403c; line-height: 1.5;">
+      ${isEs
+        ? `<a href="https://www.fqhctalent.com/es/resume-builder" style="color: #0d9488;">Creador de CV</a> · <a href="https://www.fqhctalent.com/es/career-insights" style="color: #0d9488;">Evaluación de Carrera</a> · <a href="https://www.fqhctalent.com/es/jobs" style="color: #0d9488;">Empleos</a> · <a href="https://www.fqhctalent.com/es/career-roadmap" style="color: #0d9488;">Ruta Profesional</a>`
+        : `<a href="https://www.fqhctalent.com/resume-builder" style="color: #0d9488;">Resume Builder</a> · <a href="https://www.fqhctalent.com/career-insights" style="color: #0d9488;">Career Assessment</a> · <a href="https://www.fqhctalent.com/jobs" style="color: #0d9488;">Job Listings</a> · <a href="https://www.fqhctalent.com/career-roadmap" style="color: #0d9488;">Career Roadmap</a>`
+      }
+    </p>
+  </div>
 
   <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 16px; margin: 24px 0;">
     <p style="margin: 0; font-weight: 700; color: #92400E; font-size: 14px;">

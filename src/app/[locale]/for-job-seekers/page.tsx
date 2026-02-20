@@ -321,8 +321,8 @@ export default function ForJobSeekers() {
             </p>
             <p className="text-xs sm:text-sm text-stone-600">
               {locale === "es"
-                ? "Obtén matching prioritario en 48 horas con nuestro programa Fast-Track →"
-                : "Get priority matching in 48 hours with our Fast-Track program →"}
+                ? "Herramientas gratis + admisi\u00f3n prioritaria para profesionales desplazados \u2192"
+                : "Free tools + priority intake for displaced professionals \u2192"}
             </p>
           </div>
           <ArrowRight className="size-5 shrink-0 text-stone-400 transition-transform group-hover:translate-x-1" />

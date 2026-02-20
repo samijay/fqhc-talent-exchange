@@ -182,8 +182,8 @@ export async function POST(request: Request) {
                 <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
                   <h1 style="color: #0F766E;">${isEs ? `¡Gracias, ${data.contactName}!` : `Thank you, ${data.contactName}!`}</h1>
                   <p>${isEs
-                    ? `Hemos recibido la solicitud de ${data.orgName} para The Drop. Te contactaremos dentro de 48 horas con los próximos pasos.`
-                    : `We've received ${data.orgName}'s request for The Drop. We'll be in touch within 48 hours with next steps.`
+                    ? `Hemos recibido la solicitud de ${data.orgName} para The Drop. Te contactaremos pronto con los próximos pasos.`
+                    : `We've received ${data.orgName}'s request for The Drop. We'll be in touch shortly with next steps.`
                   }</p>
                   <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 16px; margin: 20px 0;">
                     <p style="margin: 0; font-weight: bold; color: #92400E;">${isEs ? "¿Qué sigue?" : "What's next?"}</p>

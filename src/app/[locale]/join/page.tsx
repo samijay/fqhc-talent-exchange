@@ -253,8 +253,8 @@ export default function JoinPage() {
             </p>
             <p className="text-sm text-stone-600">
               {locale === "es"
-                ? "Obt\u00e9n matching prioritario en 48 horas \u2014 sin per\u00edodo de aviso necesario."
-                : "Get priority matching in 48 hours \u2014 no notice period needed."}
+                ? "Herramientas gratis + admisi\u00f3n prioritaria para profesionales desplazados."
+                : "Free tools + priority intake for displaced health professionals."}
             </p>
           </div>
           <ArrowRight className="size-5 shrink-0 text-stone-400 transition-transform group-hover:translate-x-1" />

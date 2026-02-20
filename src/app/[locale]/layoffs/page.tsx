@@ -133,8 +133,8 @@ function useText() {
     // CTA
     affectedTitle: isEs ? "¿Te Afectó un Despido?" : "Affected by a Layoff?",
     affectedSubtitle: isEs
-      ? "Nuestro programa Fast-Track conecta a trabajadores de salud comunitaria desplazados con nuevas oportunidades en FQHCs en 48 horas."
-      : "Our Fast-Track program connects displaced community health workers with new FQHC opportunities within 48 hours.",
+      ? "Herramientas gratis de carrera — CV, evaluación, ruta profesional — más admisión prioritaria para conectarte con FQHCs contratando."
+      : "Free career tools — resume builder, assessment, career roadmap — plus priority intake to connect you with hiring FQHCs.",
     fastTrackCTA: isEs
       ? "Inscribirse en Fast-Track"
       : "Enroll in Fast-Track",
@@ -705,8 +705,8 @@ function LayoffCard({
                     : "Were you affected by this layoff?"}
                 </strong>{" "}
                 {t.isEs
-                  ? "Inscríbete en nuestro programa Fast-Track para ser conectado con nuevas oportunidades en FQHCs en 48 horas."
-                  : "Enroll in our Fast-Track program to get connected with new FQHC opportunities within 48 hours."}
+                  ? "Accede a herramientas gratis de carrera y admisión prioritaria para conectarte con FQHCs contratando."
+                  : "Access free career tools and priority intake to get connected with hiring FQHCs."}
               </p>
               <Button
                 size="sm"

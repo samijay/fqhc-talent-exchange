@@ -818,7 +818,7 @@ const slides: Slide[] = [
             <div className="space-y-3">
               {[
                 { ch: "SEO Content", desc: "13 blog articles, FQHC directory, salary data — all ranking for FQHC career queries" },
-                { ch: "Displaced Worker Fast-Track", desc: "Layoff-to-hire accelerator captures workers within 48 hours of displacement. 2,300+ tracked." },
+                { ch: "Displaced Worker Pipeline", desc: "Free career tools + priority intake captures displaced workers. 2,600+ tracked across 15 layoff events." },
                 { ch: "Free Resume Builder", desc: "FQHC-optimized templates capture structured profile data + assessment scores" },
                 { ch: "Community Partners", desc: "CPCA, unions (NUHW, SEIU), workforce development boards, CHW associations" },
                 { ch: "Word of Mouth", desc: "Placed candidates refer colleagues. FQHCs recommend to displaced staff." },

@@ -134,11 +134,11 @@ export default function Home() {
     {
       icon: Zap,
       href: "/fast-track" as const,
-      title: isEs ? "Pipeline Fast-Track" : "Fast-Track Pipeline",
+      title: isEs ? "Herramientas Gratis" : "Free Career Tools",
       body: isEs
-        ? "¿Desplazado de un FQHC? Intake en 48 horas con emparejamiento prioritario."
-        : "Displaced from an FQHC? 48-hour intake with priority matching.",
-      cta: isEs ? "Aplicar Ahora" : "Apply Now",
+        ? "CV, evaluación de carrera, ruta profesional y certificaciones — todo gratis para profesionales de salud."
+        : "Resume builder, career assessment, roadmap, and certifications — all free for health professionals.",
+      cta: isEs ? "Comenzar" : "Get Started",
       color: "amber" as const,
     },
     {

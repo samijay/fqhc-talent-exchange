@@ -21,8 +21,8 @@ export default function AnnouncementBar() {
         <Zap className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "¿Despedido/a de un FQHC? Obtén prioridad en 48 horas →"
-            : "Laid off from an FQHC? Get fast-tracked in 48 hours →"}
+            ? "¿Despedido/a de un FQHC? Herramientas gratis + admisión prioritaria →"
+            : "Laid off from an FQHC? Free tools + priority intake →"}
         </span>
       </Link>
       <button

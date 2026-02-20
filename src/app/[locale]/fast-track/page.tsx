@@ -8,12 +8,13 @@ import {
   CheckCircle2,
   Loader2,
   Zap,
-  Clock,
   Shield,
   Briefcase,
   MapPin,
   ArrowRight,
   FileText,
+  Search,
+  ClipboardCheck,
 } from "lucide-react";
 import FastTrackResume from "@/components/resume-builder/FastTrackResume";
 import { Button } from "@/components/ui/button";
@@ -103,25 +104,25 @@ const NOTES_MAX = 300;
 
 const content = {
   en: {
-    heroTitle: "Were You Recently Laid Off from an FQHC?",
+    heroTitle: "Get Job-Ready for Your Next FQHC Role",
     heroSubtitle:
-      "You have experience that FQHCs across California need RIGHT NOW. We'll connect you with hiring health centers within 48 hours.",
-    badge1: "100% free",
-    badge2: "48-hour intro",
-    badge3: "Priority matching",
-    whyTitle: "Why Fast-Track?",
-    why1Title: "You're Immediately Available",
+      "Free resume builder, career assessment, and job matching — all designed for community health professionals in California.",
+    badge1: "100% free tools",
+    badge2: "Priority intake",
+    badge3: "220+ FQHCs",
+    whyTitle: "Everything You Need — Free",
+    why1Title: "Build Your Resume",
     why1Desc:
-      "No 2-week notice needed. Employers who need staff NOW want you first.",
-    why2Title: "You're Already Trained",
+      "FQHC-optimized resume builder with templates for 8+ roles. Download as PDF in minutes.",
+    why2Title: "Assess Your Strengths",
     why2Desc:
-      "Your ECM, CCM, and EHR experience transfers directly. No ramp-up period.",
-    why3Title: "We Advocate For You",
+      "5-domain career assessment with role-specific insights, salary benchmarks, and a 90-day plan.",
+    why3Title: "Find Your Next Role",
     why3Desc:
-      "A real person reviews your profile and makes direct introductions to hiring managers.",
-    formTitle: "Start Your Fast-Track Profile",
+      "Browse 177+ job listings across 220 California FQHCs. Filter by role, region, and salary.",
+    formTitle: "Join the Priority Intake",
     formSubtitle:
-      "Fill out the form below and we'll match you with FQHCs that need your skills. Takes under 3 minutes.",
+      "Tell us about your experience and we'll match you with FQHCs hiring in your area. Takes under 3 minutes.",
     sectionPersonal: "About You",
     sectionSituation: "Your Situation",
     sectionExperience: "Your FQHC Experience",
@@ -157,19 +158,19 @@ const content = {
     optional: "optional",
     submit: "Get Fast-Tracked",
     submitting: "Submitting...",
-    successTitle: "You're in the Fast-Track Pool!",
+    successTitle: "You're in the Priority Pool!",
     successName: "Welcome, {name}!",
     successDesc:
       "Your profile is in our priority queue. Here's what happens next:",
     step1Label: "Right Now",
-    step1Desc: "Your profile is in our fast-track queue for priority review.",
-    step2Label: "Within 24 Hours",
+    step1Desc: "Your profile is in our priority intake for review.",
+    step2Label: "Next Steps",
     step2Desc:
-      "A placement advocate reviews your qualifications and identifies matching FQHCs.",
-    step3Label: "Within 48 Hours",
+      "We review your qualifications and identify matching FQHCs that are actively hiring.",
+    step3Label: "Get Matched",
     step3Desc:
-      "You'll receive your first introduction to a hiring FQHC that needs your skills.",
-    whileYouWait: "While You Wait",
+      "You'll receive introductions to hiring FQHCs that need your skills.",
+    whileYouWait: "Get Started with Free Tools",
     buildResume: "Build Your Free Resume",
     browseJobs: "Browse Open Positions",
     takeAssessment: "Take Career Assessment",
@@ -187,25 +188,25 @@ const content = {
     quickResumeDesc: "Use the info you just entered to generate a professional resume in 2 minutes.",
   },
   es: {
-    heroTitle: "\u00bfFuiste despedido/a recientemente de un FQHC?",
+    heroTitle: "Prep\u00e1rate para Tu Pr\u00f3ximo Rol en un FQHC",
     heroSubtitle:
-      "Tienes experiencia que los FQHCs en California necesitan AHORA MISMO. Te conectaremos con centros de salud contratando en 48 horas.",
-    badge1: "100% gratis",
-    badge2: "Intro en 48 horas",
-    badge3: "Prioridad de matching",
-    whyTitle: "\u00bfPor qu\u00e9 Fast-Track?",
-    why1Title: "Est\u00e1s Disponible Inmediatamente",
+      "Creador de CV gratis, evaluaci\u00f3n de carrera y b\u00fasqueda de empleo — todo dise\u00f1ado para profesionales de salud comunitaria en California.",
+    badge1: "Herramientas 100% gratis",
+    badge2: "Admisi\u00f3n prioritaria",
+    badge3: "220+ FQHCs",
+    whyTitle: "Todo Lo Que Necesitas — Gratis",
+    why1Title: "Crea Tu CV",
     why1Desc:
-      "Sin periodo de aviso de 2 semanas. Los empleadores que necesitan personal AHORA te quieren primero.",
-    why2Title: "Ya Est\u00e1s Capacitado/a",
+      "Creador de CV optimizado para FQHCs con plantillas para 8+ roles. Descarga en PDF en minutos.",
+    why2Title: "Eval\u00faa Tus Fortalezas",
     why2Desc:
-      "Tu experiencia en ECM, CCM y sistemas EHR se transfiere directamente. Sin periodo de adaptaci\u00f3n.",
-    why3Title: "Abogamos Por Ti",
+      "Evaluaci\u00f3n de carrera en 5 dominios con perspectivas por rol, referencias salariales y plan de 90 d\u00edas.",
+    why3Title: "Encuentra Tu Pr\u00f3ximo Rol",
     why3Desc:
-      "Una persona real revisa tu perfil y hace presentaciones directas a gerentes de contrataci\u00f3n.",
-    formTitle: "Inicia Tu Perfil Fast-Track",
+      "Explora 177+ empleos en 220 FQHCs de California. Filtra por rol, regi\u00f3n y salario.",
+    formTitle: "\u00danete a la Admisi\u00f3n Prioritaria",
     formSubtitle:
-      "Llena el formulario y te conectaremos con FQHCs que necesitan tus habilidades. Toma menos de 3 minutos.",
+      "Cu\u00e9ntanos sobre tu experiencia y te conectaremos con FQHCs contratando en tu \u00e1rea. Toma menos de 3 minutos.",
     sectionPersonal: "Sobre Ti",
     sectionSituation: "Tu Situaci\u00f3n",
     sectionExperience: "Tu Experiencia en FQHC",
@@ -241,20 +242,20 @@ const content = {
     optional: "opcional",
     submit: "Obtener Fast-Track",
     submitting: "Enviando...",
-    successTitle: "\u00a1Est\u00e1s en el Pool Fast-Track!",
+    successTitle: "\u00a1Est\u00e1s en el Pool Prioritario!",
     successName: "\u00a1Bienvenido/a, {name}!",
     successDesc:
       "Tu perfil est\u00e1 en nuestra cola de prioridad. Esto es lo que sigue:",
     step1Label: "Ahora Mismo",
     step1Desc:
-      "Tu perfil est\u00e1 en nuestra cola fast-track para revisi\u00f3n prioritaria.",
-    step2Label: "Dentro de 24 Horas",
+      "Tu perfil est\u00e1 en nuestra admisi\u00f3n prioritaria para revisi\u00f3n.",
+    step2Label: "Pr\u00f3ximos Pasos",
     step2Desc:
-      "Un abogado de colocaci\u00f3n revisa tus calificaciones e identifica FQHCs compatibles.",
-    step3Label: "Dentro de 48 Horas",
+      "Revisamos tus calificaciones e identificamos FQHCs que est\u00e1n contratando activamente.",
+    step3Label: "Conexi\u00f3n",
     step3Desc:
-      "Recibir\u00e1s tu primera presentaci\u00f3n a un FQHC que necesita tus habilidades.",
-    whileYouWait: "Mientras Esperas",
+      "Recibir\u00e1s presentaciones a FQHCs que necesitan tus habilidades.",
+    whileYouWait: "Comienza con Herramientas Gratis",
     buildResume: "Crea Tu CV Gratis",
     browseJobs: "Explora Posiciones Abiertas",
     takeAssessment: "Toma la Evaluaci\u00f3n de Carrera",
@@ -493,17 +494,23 @@ export default function FastTrackPage() {
             <BookingCTA variant="fastTrack" />
           </div>
 
-          {/* While you wait */}
+          {/* Free tools */}
           <div className="mt-10 rounded-xl border border-teal-200 bg-teal-50 p-6">
             <h3 className="mb-4 font-bold text-stone-900">
               {t.whileYouWait}
             </h3>
-            <div className="flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href="/resume-builder"
                 className="flex items-center justify-center gap-2 rounded-lg bg-teal-700 px-5 py-3 text-sm font-semibold text-white hover:bg-teal-800 transition-colors"
               >
                 {t.buildResume} <ArrowRight className="size-4" />
+              </Link>
+              <Link
+                href="/career-insights"
+                className="flex items-center justify-center gap-2 rounded-lg border border-teal-700 px-5 py-3 text-sm font-semibold text-teal-700 hover:bg-teal-100 transition-colors"
+              >
+                {t.takeAssessment}
               </Link>
               <Link
                 href="/jobs"
@@ -561,20 +568,24 @@ export default function FastTrackPage() {
           </h2>
           <div className="grid gap-6 sm:grid-cols-3">
             {[
-              { title: t.why1Title, desc: t.why1Desc, icon: Clock },
-              { title: t.why2Title, desc: t.why2Desc, icon: Shield },
-              { title: t.why3Title, desc: t.why3Desc, icon: Briefcase },
+              { title: t.why1Title, desc: t.why1Desc, icon: FileText, href: "/resume-builder" },
+              { title: t.why2Title, desc: t.why2Desc, icon: ClipboardCheck, href: "/career-insights" },
+              { title: t.why3Title, desc: t.why3Desc, icon: Search, href: "/jobs" },
             ].map((card) => (
-              <div
+              <Link
                 key={card.title}
-                className="rounded-xl border border-stone-200 bg-white p-6 text-center shadow-sm"
+                href={card.href}
+                className="group rounded-xl border border-stone-200 bg-white p-6 text-center shadow-sm hover:border-teal-300 hover:shadow-md transition-all"
               >
-                <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-teal-100">
+                <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-teal-100 group-hover:bg-teal-200 transition-colors">
                   <card.icon className="size-6 text-teal-700" />
                 </div>
                 <h3 className="font-bold text-stone-900">{card.title}</h3>
                 <p className="mt-2 text-sm text-stone-600">{card.desc}</p>
-              </div>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-teal-700">
+                  {locale === "es" ? "Comenzar" : "Get started"} <ArrowRight className="size-3.5" />
+                </span>
+              </Link>
             ))}
           </div>
         </div>

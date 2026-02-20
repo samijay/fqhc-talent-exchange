@@ -99,8 +99,8 @@ export async function POST(request: Request) {
             from: FROM_EMAIL,
             to: email,
             subject: locale === "es"
-              ? `¡Estás en el grupo Fast-Track, ${firstName}! — FQHC Talent Exchange`
-              : `You're in the Fast-Track pool, ${firstName}! — FQHC Talent Exchange`,
+              ? `¡Estás en el grupo prioritario, ${firstName}! — FQHC Talent Exchange`
+              : `You're in the priority pool, ${firstName}! — FQHC Talent Exchange`,
             html: displacedCandidateConfirmationHtml({ firstName, locale }),
           }),
           resend.emails.send({
