@@ -1,6 +1,6 @@
 # FQHC Talent Exchange — Product Roadmap & Feature Tracker
 
-*Last updated: 2026-02-18*
+*Last updated: 2026-02-19*
 
 ---
 
@@ -60,12 +60,40 @@ A California where every community health center is fully staffed with professio
 | 42 | **Certification Catalog** | Feb 2026 | `/certifications` — 15 CA-specific certifications with cost, duration, salary impact, training programs, filterable by role/cost/type |
 | 43 | **Career Insights Dashboard** | Feb 2026 | `/career-insights` — standalone career assessment page wrapping existing CareerInsights + First90DaysPlan components, role selector, post-assessment pathway/cert links |
 | 44 | **Daily Content Pipeline** | Feb 2026 | 4 Claude Code slash commands: `/update-layoffs` (WARN Act XLSX → LayoffEntry), `/scrape-jobs` (FQHC career pages → FQHCJobListing), `/draft-blog` (bilingual article drafter), `/daily-update` (orchestrator). Career page config for 15 FQHCs. |
+| 45 | **Assessment Philosophy Page** | Feb 2026 | `/our-assessment` — domain methodology, objective hiring values, bilingual |
+| 46 | **The Drop Explainer + Waitlist** | Feb 2026 | `/the-drop` — exclusive matching explainer, candidate + employer waitlists, Supabase table |
+| 47 | **Email System Upgrade** | Feb 2026 | Mission banner, resource links, market snapshot in all emails; assessment results + Drop invitation emails |
+| 48 | **FQHC Directory Expansion** | Feb 2026 | 90 → 220 FQHCs from HRSA data. Added quality scores, violations, labor history fields to interface. |
+| 49 | **Nav Redesign** | Feb 2026 | Dropdown menus for Insights (Market Insights, Layoff Tracker, Blog) and Tools (Resume Builder, Career Assessment, Career Roadmap, Certifications). Cleaner mobile accordion. |
+| 50 | **Layoff Tracker Expansion** | Feb 2026 | Added Borrego Health (2021, 218 workers) and LA County DPH (2026, 7 clinic closures). Now 15 entries. |
 
 ---
 
 ## 🔨 In Progress (Current Sprint)
 
-*All items shipped! Next sprint: GTM outreach and first manual placement.*
+### Strategic Pivot: Repositioning Fast-Track & GTM
+
+**Problem:** The "48-hour placement guarantee" on `/fast-track` isn't realistic yet — no employer pipeline to fulfill it. Need to reposition.
+
+**New positioning — For Candidates (Displaced Workers):**
+- Lead with **free tools**: Resume Builder, Career Assessment, Career Roadmap, Certifications
+- Position as the **#1 aggregator** for FQHC jobs, insights, directory (220 FQHCs, 177+ listings)
+- Fast-track becomes a **priority intake** form, not a delivery promise
+- Message: "We help you get job-ready — assessment, resume, career plan — all free, all designed for community health"
+
+**New positioning — For FQHCs (Employers facing layoffs):**
+- Lead with **layoff support**: "Your workers deserve a soft landing"
+- **Free tier:** Offboarding toolkit — resume builder access, career assessment for affected staff, job board aggregation across 220 FQHCs
+- **Paid tier 1:** Managed offboarding — we intake your displaced workers, assess them, build their resumes, promote them to hiring FQHCs
+- **Paid tier 2:** Placement services — curated matches via The Drop, facilitated intros, follow-up
+- Message: "Turn layoffs into transitions. We help your displaced staff land at FQHCs that are hiring."
+
+**Tiered Service Model:**
+| Tier | For Candidates | For FQHCs | Price |
+|------|---------------|-----------|-------|
+| **Free** | Resume builder, assessment, career roadmap, certifications, job board, directory | List in directory, access to candidate pool | $0 |
+| **Priority** | Fast-track intake, priority matching, career coaching | Managed offboarding for displaced staff, employer branding | $500-1,500/event |
+| **Premium** | The Drop (curated matches, 48h employer response) | Talent Drop (batch of 5-10 pre-screened candidates), dedicated sourcing | $2-5K/placement or subscription |
 
 ---
 
@@ -74,24 +102,28 @@ A California where every community health center is fully staffed with professio
 | # | Feature | Priority | Value | Notes |
 |---|---------|----------|-------|-------|
 | ~~40~~ | ~~Feedback / Bug Reporter Button~~ | ~~High~~ | ~~UX/Trust~~ | ✅ Shipped — see #40 above |
-| 41 | **Talent Drop System** | High | Revenue | Batch delivery of pre-vetted candidates to employers. Core revenue model. |
+| ~~41~~ | ~~Talent Drop System~~ | ~~High~~ | ~~Revenue~~ | ✅ Shipped as The Drop — see #46 above |
 | 42 | **Employer Dashboard** | High | Revenue | Portal for FQHCs to review candidates, track pipeline, manage postings |
 | 43 | **User Authentication** | High | Foundation | Accounts for candidates + employers. Required for dashboard/drops. |
 | 44 | **Manager 90-Day Plan Generator** | Medium | B2B | Extend first-90-days.ts for 4 leadership roles with team-specific plans |
 | 45 | **Team Readiness Results to Supabase** | Medium | Data | Persist manager assessment results, enable comparisons over time |
 | 46 | **Real Job Application Flow** | Medium | UX | Apply directly instead of linking to external careers pages |
-| 47 | **Employer-Initiated Offboarding** | Medium | Unique | FQHCs notify us of upcoming layoffs → we fast-track those workers |
-| 48 | **FQHC Resilience Scorecard** | Medium | Content | Rank 90 FQHCs by funding vulnerability, program diversity, stability |
-| 49 | **Displaced Worker Matching** | Medium | Value | Auto-match laid-off workers to similar roles at hiring FQHCs |
+| 47 | **Employer-Initiated Offboarding** | High | Revenue | FQHCs notify us of upcoming layoffs → we intake, assess, and re-place workers. Core of tiered offboarding model. |
+| 48 | **FQHC Resilience Scorecard** | Medium | Content | Rank 220 FQHCs by funding vulnerability, program diversity, stability |
+| 49 | **Displaced Worker Matching** | High | Value | Auto-match laid-off workers to similar roles at hiring FQHCs. Key to offboarding tier. |
 | 50 | **Regional Labor Market Reports** | Medium | Content | Quarterly reports per CA region with salary, demand, layoff data |
 | ~~51~~ | ~~Career Roadmap Generator~~ | ~~Medium~~ | ~~Engagement~~ | ✅ Shipped — see #41 above |
 | 52 | **Email Drip Campaigns** | Medium | Engagement | Post-signup nurture sequences for candidates + employers |
 | 53 | **Distributed Rate Limiting** | Medium | Security | Migrate to @upstash/ratelimit with Redis for multi-instance Vercel |
 | 54 | **Manager-to-Candidate Matching** | Medium | Core | Assess both sides of the hire — match manager needs to candidate strengths |
-| 75 | **Assessment Philosophy Page** | High | Trust/SEO | `/our-assessment` — domain methodology, objective hiring values, bilingual |
-| 76 | **The Drop Explainer + Waitlist** | High | Revenue | `/the-drop` — exclusive matching explainer, candidate + employer waitlists |
-| 77 | **Email System Upgrade** | High | Engagement | Branded domain (`hello@fqhctalent.com`), mission/values in all emails, market snapshots, assessment results email, Drop invitation |
+| ~~75~~ | ~~Assessment Philosophy Page~~ | ~~High~~ | ~~Trust/SEO~~ | ✅ Shipped — see #45 above |
+| ~~76~~ | ~~The Drop Explainer + Waitlist~~ | ~~High~~ | ~~Revenue~~ | ✅ Shipped — see #46 above |
+| ~~77~~ | ~~Email System Upgrade~~ | ~~High~~ | ~~Engagement~~ | ✅ Shipped — see #47 above |
 | 78 | **Adaptive Assessment Engine** | Medium | Moat | Phase 1: expanded question bank (110+). Phase 2: difficulty scaling (CAT). Phase 3: outcome-based weight learning from placement data. |
+| 79 | **Fast-Track Repositioning** | High | GTM | Remove "48-hour" promise. Reposition around free tools (resume builder, assessment, insights, directory, jobs). For FQHCs: tiered offboarding services. See "Strategic Pivot" above. |
+| 80 | **Offboarding Toolkit Page** | High | Revenue | `/offboarding` — FQHC-facing page: "Turn layoffs into transitions." Free tier (self-serve tools), Managed tier (we intake workers), Premium tier (placement). |
+| 81 | **FQHC Data Enrichment** | Medium | Data | Populate quality scores, violations, labor history for 220 FQHCs from HRSA UDS, CMS, OSHA, NLRB data. |
+| 82 | **HRSA-Import FQHC Enrichment** | Medium | Data | Add missing data (patient/staff counts, programs, EHR, Glassdoor, salary ranges) to 131 HRSA-imported FQHC entries. |
 
 ---
 
@@ -131,57 +163,74 @@ A California where every community health center is fully staffed with professio
 
 ## 💰 Go-To-Market & First Dollar Strategy
 
-### The MVP Is Ready NOW
+### What You Have Today
 
-**What you have today that's monetizable:**
-1. **90 FQHC profiles** with verified data no other platform has (funding vulnerability, union status, programs, EHR systems)
-2. **156 job listings** with real salary data
-3. **Career assessment** that scores candidates on 5 behavioral domains (including transition readiness)
-4. **Resume builder** that generates FQHC-optimized resumes
-5. **Displaced worker pipeline** capturing laid-off community health workers
-6. **Layoff intelligence** tracking 2,300+ affected workers across 11 organizations
-7. **Manager Team Readiness assessment** — B2B lead gen tool for employer outreach (assess their team, then offer to help hire)
-8. **Interactive demo page** at `/demo` for sharing with prospects
+1. **220 FQHC profiles** — the most comprehensive CA directory (funding vulnerability, union status, programs, EHR, quality scores, labor history)
+2. **177+ job listings** with real salary data + 548 live API-scrapeable jobs across 4 FQHCs
+3. **Career assessment** — 5 behavioral domains, role-specific scenarios, transition readiness scoring
+4. **Resume builder** — FQHC-optimized, 8 role templates, 17 languages
+5. **Career roadmap** — 5 tracks, 4 levels, CA salary data with regional multipliers
+6. **Certification catalog** — 15 CA-specific certs with ROI data
+7. **Layoff intelligence** — 15 tracked events, 2,500+ affected workers
+8. **Market intelligence dashboard** — funding cliffs, regional snapshots, role demand, salary intel
+9. **Manager Team Readiness** — B2B lead gen tool (assess your team, then offer to help hire)
+10. **The Drop** — exclusive matching program with waitlists
+11. **Interactive demo** at `/demo` for sharing with prospects
 
-### Who Pays First?
+### Two-Track GTM
 
-**Most likely first customers: Mid-size FQHCs (200-500 staff) that are actively hiring in hard-to-fill roles.**
+#### Track A: Candidate Acquisition (Free — Volume Play)
+Position as the **#1 free career platform for community health workers**:
+- Resume builder → Career assessment → Career roadmap → Certifications → Job listings
+- **For displaced workers:** "Get job-ready in 30 minutes — free resume, free assessment, free career plan"
+- **For career changers:** "Discover your path in community health"
+- **SEO + content marketing** drives organic traffic; tools convert to waitlist signups
+- Every candidate who completes assessment + resume = qualified lead for The Drop
 
-Why:
-- Too small for recruiting firms (who focus on hospitals and large health systems)
-- Too busy to sort through Indeed/ZipRecruiter noise
-- Need candidates who already understand FQHC culture, EHR systems, and programs
-- Facing imminent funding cliffs — need to hire fast before cuts hit
+#### Track B: FQHC Revenue (Paid — Tiered Services)
 
-**Specific targets from your data:**
-- FQHCs with `fundingImpactLevel: "high"` that still have active job listings (they need to hire NOW)
-- FQHCs hiring for RN, behavioral health, dental (hardest roles to fill)
-- FQHCs in regions with recent layoffs (displaced talent pool available nearby)
+**Lead with layoffs** — FQHCs facing workforce reductions need a partner:
 
-### GTM Sequence
+| Tier | Service | Price | Trigger |
+|------|---------|-------|---------|
+| **Free** | Directory listing, access to candidate pool, self-serve insights | $0 | Any FQHC |
+| **Offboarding Lite** | We intake displaced workers, build resumes, assess skills, promote to hiring FQHCs | $500-1,500/event | FQHC announces layoffs |
+| **Offboarding Pro** | Managed transition: dedicated support, career coaching, priority matching | $2-5K/event | Larger layoffs (50+ workers) |
+| **The Drop** | Monthly batch of 5-10 pre-screened, assessed candidates for open roles | $500-1,500/mo or $200-500/intro | Actively hiring FQHCs |
+| **Placement** | Direct placement with success guarantee | 10-15% first-year salary | Hard-to-fill roles (RN, BH, dental) |
+
+**Why this works:**
+- **Layoffs create urgency** — FQHCs doing layoffs want to do right by their staff
+- **Free tools build trust** — candidates experience value before we pitch employers
+- **Data is the moat** — 220 FQHCs, quality scores, labor history, live job counts
+- **Offboarding → placement pipeline** — workers we help today become candidates we place tomorrow
+
+### GTM Sequence (Updated)
 
 | Phase | Action | Revenue Model | Timeline |
 |-------|--------|---------------|----------|
-| **1. Free Value** | You're here. Platform is live, content is strong, SEO is working. | None yet | ✅ Done |
-| **2. Outreach** | Email 10-15 HR directors at target FQHCs. Show them the insights dashboard + their FQHC profile. Offer a free "Talent Intelligence Brief" for their region. | None — relationship building | Week 1-2 |
-| **3. First Placement** | Use fast-track pipeline to match a displaced worker to a hiring FQHC. Make the intro. Close the placement. | Placement fee ($2-5K) or success fee (10-15% first year salary) | Week 3-6 |
-| **4. Talent Drop Pilot** | Offer 3 FQHCs a monthly "Talent Drop" — batch of 5-10 pre-screened, assessed candidates for their open roles. | Subscription ($500-1,500/month) or per-candidate ($200-500/intro) | Month 2-3 |
-| **5. Scale** | Formalize pricing. Build employer dashboard. Automate Talent Drops. | Recurring revenue | Month 3-6 |
+| **1. Free Value** | Platform live. 220 FQHCs, tools, content, SEO. | None — candidate acquisition | ✅ Done |
+| **2. Outreach** | Email 10-15 HR directors. Lead with layoff data + their FQHC profile. Offer free "Talent Intelligence Brief" for their region. | None — relationship building | Week 1-2 |
+| **3. Offboarding Pilot** | Partner with 1-2 FQHCs facing layoffs. Offer managed offboarding for displaced staff. | Offboarding fee ($500-1,500) | Week 2-4 |
+| **4. First Placement** | Match displaced workers to hiring FQHCs via The Drop or direct placement. | Placement fee ($2-5K) | Week 4-8 |
+| **5. Talent Drop Pilot** | Offer 3 hiring FQHCs a monthly Talent Drop. | Subscription ($500-1,500/mo) | Month 2-3 |
+| **6. Scale** | Employer dashboard, automated matching, multi-region. | Recurring revenue | Month 3-6 |
 
 ### What Blocks Revenue?
 
 | Blocker | Impact | Fix |
 |---------|--------|-----|
-| No employer dashboard | Can't show candidates to employers at scale | Build after first manual placement |
+| Fast-track promises "48 hours" | Sets unrealistic expectations | Reposition around free tools + priority intake (in progress) |
+| No employer dashboard | Can't show candidates at scale | Build after first manual placement |
 | No auth system | Can't gate premium features | Build after first revenue |
-| No Talent Drop workflow | Can't automate batch delivery | Start manual, automate later |
-| **Nothing blocks a manual placement** | You have candidates (fast-track pipeline) and you have employers (directory + waitlist) | Pick up the phone |
+| **Nothing blocks outreach** | You have data, tools, and content no competitor has | Pick up the phone |
 
-### The Honest Answer: You Can GTM Today
+### The Honest Answer
 
-The platform is an MVP. The content is strong. The data is unique. What's needed isn't more features — it's **10 outbound emails to FQHC HR directors** and **1 successful placement.**
-
-**Recommended first action:** Pick the 5 FQHCs with the most active job listings in your data. Look up their HR director on LinkedIn. Send a personalized email referencing their specific openings and offer to send them 3 pre-screened candidates for free. Close one placement. That's your first dollar.
+The platform is strong. The data is unique. The tools are real. What's needed is **10 outbound emails to FQHC HR directors** — specifically:
+1. FQHCs that just did layoffs (offer offboarding support)
+2. FQHCs that are actively hiring (offer The Drop)
+3. FQHCs in regions with both layoffs AND hiring (the arbitrage opportunity)
 
 ---
 
@@ -217,3 +266,11 @@ The platform is an MVP. The content is strong. The data is unique. What's needed
 - [ ] "Assessment Verified" badge on candidate profiles
 - [ ] Team Readiness + Individual Assessment correlation analysis
 - [ ] GA4 cross-domain tracking for healthcaretalent.org + fqhctalent.com
+- [ ] Offboarding toolkit page (`/offboarding`) — FQHC-facing landing page for tiered layoff services
+- [ ] Fast-track page rewrite — remove "48 hours", position around free tools + priority intake
+- [ ] "FQHC Layoff Response" email template for outreach to HR directors at FQHCs with layoffs
+- [ ] Offboarding case study page — after first successful offboarding, publish results
+- [ ] Displaced worker → hiring FQHC geographic matching (map visualization)
+- [ ] HRSA UDS quality data integration for 220 FQHCs (clinical quality, patient satisfaction scores)
+- [ ] NLRB complaint data integration for labor history tracking
+- [ ] OSHA violation data integration for workplace safety tracking
