@@ -36,15 +36,15 @@ interface ArticleContent {
 const enContent: ArticleContent = {
   category: "Career Resources",
   title:
-    "Laid Off from an FQHC? Here's How to Get Rehired in 48 Hours",
+    "Laid Off from an FQHC? Here's How to Fast-Track Your Job Search",
   description:
-    "Thousands of community health workers in California are being displaced by Medi-Cal funding cuts and FQHC restructuring. But many FQHCs are still hiring. Learn how the FQHC Talent Exchange Fast-Track program can connect you to your next role in 48 hours — completely free.",
-  breadcrumbTitle: "Laid Off? Get Rehired in 48 Hours",
+    "Thousands of community health workers in California are being displaced by Medi-Cal funding cuts and FQHC restructuring. But many FQHCs are still hiring. Free career tools and priority intake can help you land your next role — completely free.",
+  breadcrumbTitle: "Laid Off? Fast-Track Your Search",
   datePublished: "2026-02-15",
   dateDisplay: "February 15, 2026",
   readTime: "8 min read",
   openingParagraph:
-    "If you have recently been laid off from a Federally Qualified Health Center, you are not alone. Across California, thousands of community health workers, care coordinators, medical assistants, and case managers are being displaced as FQHCs navigate Medi-Cal funding cuts, program restructuring, and tightening budgets. It is a painful situation — but here is the paradox that most people miss: many FQHCs are simultaneously hiring. The demand for experienced community health professionals has not disappeared. It has shifted. Programs are closing in some organizations while expanding in others. If you know where to look and how to position yourself, your FQHC experience is not a liability — it is the most valuable credential you have. The FQHC Talent Exchange built the Fast-Track program specifically for this moment: to help displaced FQHC workers get connected to their next role in as little as 48 hours.",
+    "If you have recently been laid off from a Federally Qualified Health Center, you are not alone. Across California, thousands of community health workers, care coordinators, medical assistants, and case managers are being displaced as FQHCs navigate Medi-Cal funding cuts, program restructuring, and tightening budgets. It is a painful situation — but here is the paradox that most people miss: many FQHCs are simultaneously hiring. The demand for experienced community health professionals has not disappeared. It has shifted. Programs are closing in some organizations while expanding in others. If you know where to look and how to position yourself, your FQHC experience is not a liability — it is the most valuable credential you have. The FQHC Talent Exchange built free career tools and a priority intake program specifically for this moment: to help displaced FQHC workers get job-ready and connected to hiring FQHCs across California.",
   sections: [
     {
       heading: "The Reality: Why So Many FQHC Workers Are Being Displaced",
@@ -94,31 +94,31 @@ const enContent: ArticleContent = {
     },
     {
       heading:
-        "The 48-Hour Fast-Track Process",
+        "How to Get Job-Ready in 30 Minutes",
       content: [
         {
           type: "paragraph",
-          text: "The FQHC Talent Exchange Fast-Track program was designed specifically for displaced community health workers who need to move quickly. It is not a job board where you post a resume and wait. It is an active placement process with a dedicated advocate who works on your behalf to connect you with FQHCs that are hiring right now.",
+          text: "The FQHC Talent Exchange offers a complete suite of free career tools designed specifically for community health professionals, plus a priority intake program for displaced workers. Here is how to use them to get job-ready fast:",
+        },
+        {
+          type: "box",
+          text: "Step 1: Build your FQHC-optimized resume at /resume-builder. Our free resume builder has templates designed for 8+ community health roles. It highlights the exact skills, programs, and competencies that FQHC hiring managers search for — ECM, CalAIM, OCHIN Epic, bilingual skills, and more. Takes about 10 minutes.",
+        },
+        {
+          type: "box",
+          text: "Step 2: Take the free Career Assessment at /career-insights. This 15-question behavioral assessment scores you across 5 domains including Transition Readiness. You will get role-specific insights, salary benchmarks for your region, and a personalized 90-day plan for your next role.",
+        },
+        {
+          type: "box",
+          text: "Step 3: Join the Priority Intake at /fast-track. Fill out a 3-minute form with your experience, skills, and location preferences. Your profile goes into our priority queue where we match you with FQHCs that are actively hiring for your role in your region.",
+        },
+        {
+          type: "box",
+          text: "Step 4: Browse 177+ open positions at /jobs. Filter by role, region, and salary to see what is available right now across 220 California FQHCs. Plus explore career roadmaps and certifications that can increase your earning potential.",
         },
         {
           type: "paragraph",
-          text: "Here is how it works:",
-        },
-        {
-          type: "box",
-          text: "Step 1: Fill out the Fast-Track form. It takes under 3 minutes. You will share your role, your experience level, your location, your key skills (ECM, Epic, bilingual, etc.), and your availability. No account creation required. No lengthy registration process. Just the essential information we need to start working for you immediately.",
-        },
-        {
-          type: "box",
-          text: "Step 2: A placement advocate reviews your profile within 24 hours. This is not an algorithm. It is a real person who understands the FQHC landscape in California, knows which organizations are hiring, and can identify the best matches based on your experience, location, and preferences. Your advocate will reach out to confirm your details and discuss your priorities.",
-        },
-        {
-          type: "box",
-          text: "Step 3: Your first FQHC introduction within 48 hours. Your advocate connects you directly with hiring managers at FQHCs that match your profile. This is not a cold application through an ATS. It is a warm introduction from a trusted source, which means your resume gets seen by a decision-maker — not filtered out by a keyword scanner.",
-        },
-        {
-          type: "paragraph",
-          text: "The entire process is completely free for candidates. There is no paywall, no premium tier, and no hidden fees. We built Fast-Track because displaced FQHC workers should not have to wait weeks or months to find their next role when health centers need them right now.",
+          text: "Every tool is completely free for candidates. There is no paywall, no premium tier, and no hidden fees. We built these tools because displaced FQHC workers deserve real support — not another job board that ignores your specialized experience.",
         },
       ],
     },
@@ -132,11 +132,11 @@ const enContent: ArticleContent = {
         {
           type: "list",
           items: [
-            "Fill out the Fast-Track form at /fast-track. This is the single highest-impact action you can take. It puts a dedicated placement advocate in your corner who will actively work to connect you with hiring FQHCs. It takes under 3 minutes and costs nothing.",
             "Build a free FQHC-optimized resume at /resume-builder. Our resume builder is designed specifically for community health roles. It uses templates that highlight the exact skills, programs, and competencies that FQHC hiring managers search for. Do not send out a generic resume when you can send one that speaks their language.",
-            "Take the Career Insights Assessment. Integrated into the resume builder, this 12-question behavioral assessment identifies your strengths across four domains: Mission and Motivation, People and Communication, Execution and Adaptability, and Growth Mindset. Use the results to prepare for interviews and understand your competitive advantages.",
+            "Take the free Career Assessment at /career-insights. This 15-question behavioral assessment identifies your strengths across five domains including Transition Readiness. Use the results to prepare for interviews, understand your competitive advantages, and get a personalized 90-day plan for your next role.",
+            "Join the Priority Intake at /fast-track. It takes under 3 minutes. Your profile goes into our priority queue where we match you with FQHCs hiring in your area. Plus you auto-qualify for The Drop — our exclusive matching program.",
             "Update your LinkedIn profile with FQHC-specific keywords. Add terms like Enhanced Care Management, CalAIM, OCHIN Epic, Community Health Worker, care coordination, SDOH screening, and panel management. Many FQHC recruiters search LinkedIn for these exact terms, and having them in your profile increases your visibility dramatically.",
-            "Browse open positions at /jobs. Our job board features 165 active listings across California FQHCs. Filter by region, role type, and program area to see what is available in your area right now. Even if you are using Fast-Track, browsing open positions helps you understand the current market and identify organizations you are interested in.",
+            "Browse open positions at /jobs. Our job board features 177+ active listings across 220 California FQHCs. Filter by region, role type, and program area to see what is available in your area right now. Then check /career-roadmap for salary data and advancement paths.",
           ],
         },
       ],
@@ -202,20 +202,20 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Fast-Track cuts through all of that. It replaces the broken application process with a direct connection: a real person who knows the FQHC landscape, who has relationships with hiring managers across California, and who can make a warm introduction on your behalf within 48 hours. It is the tool we wish had existed when we first started hearing from displaced workers — and now it does.",
+          text: "That is why we built a complete suite of free career tools — resume builder, career assessment, career roadmap, certification catalog — plus a priority intake program that puts displaced workers at the front of the line. It replaces the broken application process with real tools and real connections: an FQHC-optimized resume that speaks hiring managers' language, an assessment that identifies your strengths, and a matching process that connects you with FQHCs hiring in your area.",
         },
         {
           type: "paragraph",
-          text: "If you are reading this article because you have been laid off, or because you know someone who has, do not wait. Fill out the Fast-Track form today. It takes under 3 minutes, it costs nothing, and it could be the fastest path to your next chapter in community health.",
+          text: "If you are reading this article because you have been laid off, or because you know someone who has, do not wait. Start with the free resume builder, take the career assessment, and join the priority intake. It takes about 30 minutes total, it costs nothing, and it could be the fastest path to your next chapter in community health.",
         },
       ],
     },
   ],
-  ctaTitle: "Get Connected to Hiring FQHCs in 48 Hours",
+  ctaTitle: "Get Job-Ready for Your Next FQHC Role",
   ctaDescription:
-    "The Fast-Track program is free, takes under 3 minutes, and puts a dedicated placement advocate in your corner. Do not wait — start your Fast-Track profile now and get your first FQHC introduction within 48 hours.",
-  ctaPrimaryButtonText: "Start Your Fast-Track Profile",
-  ctaSecondaryButtonText: "Build Your Free Resume",
+    "Free resume builder, career assessment, job listings, and priority intake — all designed for community health professionals. Get started in minutes.",
+  ctaPrimaryButtonText: "Build Your Free Resume",
+  ctaSecondaryButtonText: "Join Priority Intake",
   relatedArticles: [
     {
       href: "/blog/medi-cal-funding-cuts-community-health-workers",
@@ -235,15 +235,15 @@ const enContent: ArticleContent = {
 const esContent: ArticleContent = {
   category: "Recursos Profesionales",
   title:
-    "Te Despidieron de un FQHC? Así Puedes Ser Recontratado en 48 Horas",
+    "\u00bfDespedido/a de un FQHC? C\u00f3mo Acelerar Tu B\u00fasqueda de Empleo",
   description:
-    "Miles de trabajadores de salud comunitaria en California están siendo desplazados por recortes de fondos de Medi-Cal y reestructuración de FQHCs. Pero muchos FQHCs aún están contratando. Descubre cómo el programa Fast-Track de FQHC Talent Exchange puede conectarte con tu próximo puesto en 48 horas — completamente gratis.",
-  breadcrumbTitle: "Despedido? Recontratado en 48 Horas",
+    "Miles de trabajadores de salud comunitaria en California est\u00e1n siendo desplazados por recortes de fondos de Medi-Cal y reestructuraci\u00f3n de FQHCs. Pero muchos FQHCs a\u00fan est\u00e1n contratando. Herramientas gratis de carrera y admisi\u00f3n prioritaria pueden ayudarte a conseguir tu pr\u00f3ximo puesto.",
+  breadcrumbTitle: "\u00bfDespedido/a? Acelera Tu B\u00fasqueda",
   datePublished: "2026-02-15",
   dateDisplay: "15 de Febrero de 2026",
   readTime: "8 min",
   openingParagraph:
-    "Si te despidieron recientemente de un Centro de Salud Calificado Federalmente, no estás solo. En toda California, miles de trabajadores de salud comunitaria, coordinadores de atención, asistentes médicos y gerentes de casos están siendo desplazados mientras los FQHCs navegan recortes de fondos de Medi-Cal, reestructuración de programas y presupuestos más ajustados. Es una situación dolorosa — pero aquí está la paradoja que la mayoría de la gente no ve: muchos FQHCs están contratando simultáneamente. La demanda de profesionales experimentados en salud comunitaria no ha desaparecido. Se ha desplazado. Los programas están cerrando en algunas organizaciones mientras se expanden en otras. Si sabes dónde buscar y cómo posicionarte, tu experiencia en FQHC no es una desventaja — es la credencial más valiosa que tienes. FQHC Talent Exchange construyó el programa Fast-Track específicamente para este momento: para ayudar a los trabajadores desplazados de FQHC a conectarse con su próximo puesto en tan solo 48 horas.",
+    "Si te despidieron recientemente de un Centro de Salud Calificado Federalmente, no est\u00e1s solo. En toda California, miles de trabajadores de salud comunitaria, coordinadores de atenci\u00f3n, asistentes m\u00e9dicos y gerentes de casos est\u00e1n siendo desplazados mientras los FQHCs navegan recortes de fondos de Medi-Cal, reestructuraci\u00f3n de programas y presupuestos m\u00e1s ajustados. Es una situaci\u00f3n dolorosa \u2014 pero aqu\u00ed est\u00e1 la paradoja que la mayor\u00eda de la gente no ve: muchos FQHCs est\u00e1n contratando simult\u00e1neamente. La demanda de profesionales experimentados en salud comunitaria no ha desaparecido. Se ha desplazado. Los programas est\u00e1n cerrando en algunas organizaciones mientras se expanden en otras. Si sabes d\u00f3nde buscar y c\u00f3mo posicionarte, tu experiencia en FQHC no es una desventaja \u2014 es la credencial m\u00e1s valiosa que tienes. FQHC Talent Exchange cre\u00f3 herramientas gratis de carrera y un programa de admisi\u00f3n prioritaria espec\u00edficamente para este momento: para ayudar a los trabajadores desplazados a prepararse y conectarse con FQHCs contratando en toda California.",
   sections: [
     {
       heading: "La Realidad: Por Qué Tantos Trabajadores de FQHC Están Siendo Desplazados",
@@ -291,31 +291,31 @@ const esContent: ArticleContent = {
       ],
     },
     {
-      heading: "El Proceso Fast-Track de 48 Horas",
+      heading: "C\u00f3mo Prepararte en 30 Minutos",
       content: [
         {
           type: "paragraph",
-          text: "El programa Fast-Track de FQHC Talent Exchange fue diseñado específicamente para trabajadores de salud comunitaria desplazados que necesitan moverse rápido. No es una bolsa de trabajo donde publicas un currículum y esperas. Es un proceso activo de colocación con un defensor dedicado que trabaja en tu nombre para conectarte con FQHCs que están contratando ahora mismo.",
+          text: "FQHC Talent Exchange ofrece un conjunto completo de herramientas gratis de carrera dise\u00f1adas espec\u00edficamente para profesionales de salud comunitaria, m\u00e1s un programa de admisi\u00f3n prioritaria para trabajadores desplazados. As\u00ed es c\u00f3mo usarlas para prepararte r\u00e1pido:",
+        },
+        {
+          type: "box",
+          text: "Paso 1: Crea tu CV optimizado para FQHC en /resume-builder. Nuestro creador gratis de CV tiene plantillas dise\u00f1adas para 8+ roles de salud comunitaria. Destaca las habilidades, programas y competencias exactas que buscan los gerentes de contrataci\u00f3n \u2014 ECM, CalAIM, OCHIN Epic, habilidades biling\u00fces y m\u00e1s. Toma unos 10 minutos.",
+        },
+        {
+          type: "box",
+          text: "Paso 2: Toma la Evaluaci\u00f3n de Carrera gratis en /career-insights. Esta evaluaci\u00f3n conductual de 15 preguntas te punt\u00faa en 5 dominios incluyendo Preparaci\u00f3n para la Transici\u00f3n. Recibir\u00e1s perspectivas espec\u00edficas por rol, referencias salariales para tu regi\u00f3n y un plan personalizado de 90 d\u00edas.",
+        },
+        {
+          type: "box",
+          text: "Paso 3: \u00danete a la Admisi\u00f3n Prioritaria en /fast-track. Llena un formulario de 3 minutos con tu experiencia, habilidades y preferencias de ubicaci\u00f3n. Tu perfil entra en nuestra cola prioritaria donde te conectamos con FQHCs contratando activamente en tu \u00e1rea.",
+        },
+        {
+          type: "box",
+          text: "Paso 4: Explora 177+ posiciones abiertas en /jobs. Filtra por rol, regi\u00f3n y salario para ver lo disponible ahora en 220 FQHCs de California. Adem\u00e1s explora rutas profesionales y certificaciones que pueden aumentar tu potencial de ingreso.",
         },
         {
           type: "paragraph",
-          text: "Así es como funciona:",
-        },
-        {
-          type: "box",
-          text: "Paso 1: Llena el formulario Fast-Track. Toma menos de 3 minutos. Compartirás tu rol, tu nivel de experiencia, tu ubicación, tus habilidades clave (ECM, Epic, bilingüe, etc.) y tu disponibilidad. No se requiere crear una cuenta. Sin proceso de registro largo. Solo la información esencial que necesitamos para empezar a trabajar para ti de inmediato.",
-        },
-        {
-          type: "box",
-          text: "Paso 2: Un defensor de colocación revisa tu perfil dentro de 24 horas. Esto no es un algoritmo. Es una persona real que entiende el panorama de los FQHCs en California, sabe qué organizaciones están contratando y puede identificar las mejores coincidencias basadas en tu experiencia, ubicación y preferencias.",
-        },
-        {
-          type: "box",
-          text: "Paso 3: Tu primera introducción a un FQHC dentro de 48 horas. Tu defensor te conecta directamente con gerentes de contratación en FQHCs que coinciden con tu perfil. Esta no es una solicitud fría a través de un ATS. Es una introducción cálida de una fuente confiable, lo que significa que tu currículum es visto por un tomador de decisiones — no filtrado por un escáner de palabras clave.",
-        },
-        {
-          type: "paragraph",
-          text: "Todo el proceso es completamente gratuito para los candidatos. No hay muro de pago, no hay nivel premium y no hay tarifas ocultas. Construimos Fast-Track porque los trabajadores desplazados de FQHC no deberían tener que esperar semanas o meses para encontrar su próximo puesto cuando los centros de salud los necesitan ahora mismo.",
+          text: "Todas las herramientas son completamente gratis para candidatos. No hay muro de pago, no hay nivel premium y no hay tarifas ocultas. Construimos estas herramientas porque los trabajadores desplazados de FQHC merecen apoyo real \u2014 no otra bolsa de trabajo que ignora tu experiencia especializada.",
         },
       ],
     },
@@ -329,11 +329,11 @@ const esContent: ArticleContent = {
         {
           type: "list",
           items: [
-            "Llena el formulario Fast-Track en /fast-track. Esta es la acción de mayor impacto que puedes tomar. Pone a un defensor de colocación dedicado a tu lado que trabajará activamente para conectarte con FQHCs que están contratando. Toma menos de 3 minutos y no cuesta nada.",
-            "Crea un currículum optimizado para FQHC gratis en /resume-builder. Nuestro constructor de currículum está diseñado específicamente para roles de salud comunitaria. Usa plantillas que destacan las habilidades, programas y competencias exactas que buscan los gerentes de contratación de FQHC.",
-            "Toma la Evaluación de Perspectivas de Carrera. Integrada en el constructor de currículum, esta evaluación conductual de 12 preguntas identifica tus fortalezas en cuatro dominios: Misión y Motivación, Personas y Comunicación, Ejecución y Adaptabilidad, y Mentalidad de Crecimiento.",
-            "Actualiza tu perfil de LinkedIn con palabras clave específicas de FQHC. Agrega términos como Enhanced Care Management, CalAIM, OCHIN Epic, Community Health Worker, coordinación de atención, evaluación de SDOH y gestión de panel.",
-            "Explora posiciones abiertas en /jobs. Nuestra bolsa de trabajo presenta 165 listados activos en FQHCs de California. Filtra por región, tipo de rol y área de programa para ver qué está disponible en tu zona ahora mismo.",
+            "Crea un curr\u00edculum optimizado para FQHC gratis en /resume-builder. Nuestro constructor de curr\u00edculum est\u00e1 dise\u00f1ado espec\u00edficamente para roles de salud comunitaria. Usa plantillas que destacan las habilidades, programas y competencias exactas que buscan los gerentes de contrataci\u00f3n de FQHC.",
+            "Toma la Evaluaci\u00f3n de Carrera gratis en /career-insights. Esta evaluaci\u00f3n conductual de 15 preguntas identifica tus fortalezas en cinco dominios incluyendo Preparaci\u00f3n para la Transici\u00f3n. Usa los resultados para prepararte para entrevistas y obtener un plan personalizado de 90 d\u00edas.",
+            "\u00danete a la Admisi\u00f3n Prioritaria en /fast-track. Toma menos de 3 minutos. Tu perfil entra en nuestra cola prioritaria donde te conectamos con FQHCs contratando en tu \u00e1rea. Adem\u00e1s calificas autom\u00e1ticamente para The Drop \u2014 nuestro programa exclusivo de matching.",
+            "Actualiza tu perfil de LinkedIn con palabras clave espec\u00edficas de FQHC. Agrega t\u00e9rminos como Enhanced Care Management, CalAIM, OCHIN Epic, Community Health Worker, coordinaci\u00f3n de atenci\u00f3n, evaluaci\u00f3n de SDOH y gesti\u00f3n de panel.",
+            "Explora posiciones abiertas en /jobs. Nuestra bolsa de trabajo presenta 177+ listados activos en 220 FQHCs de California. Filtra por regi\u00f3n, tipo de rol y \u00e1rea de programa para ver qu\u00e9 est\u00e1 disponible en tu zona ahora mismo. Luego visita /career-roadmap para datos salariales y rutas de avance.",
           ],
         },
       ],
@@ -397,20 +397,20 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Fast-Track corta todo eso. Reemplaza el proceso de aplicación roto con una conexión directa: una persona real que conoce el panorama de los FQHCs, que tiene relaciones con gerentes de contratación en toda California y que puede hacer una introducción cálida en tu nombre dentro de 48 horas.",
+          text: "Por eso creamos un conjunto completo de herramientas gratis de carrera \u2014 creador de CV, evaluaci\u00f3n de carrera, ruta profesional, cat\u00e1logo de certificaciones \u2014 m\u00e1s un programa de admisi\u00f3n prioritaria que pone a los trabajadores desplazados al frente de la fila. Reemplaza el proceso de aplicaci\u00f3n roto con herramientas reales y conexiones reales.",
         },
         {
           type: "paragraph",
-          text: "Si estás leyendo este artículo porque te han despedido, o porque conoces a alguien que lo fue, no esperes. Llena el formulario Fast-Track hoy. Toma menos de 3 minutos, no cuesta nada y podría ser el camino más rápido a tu próximo capítulo en salud comunitaria.",
+          text: "Si est\u00e1s leyendo este art\u00edculo porque te han despedido, o porque conoces a alguien que lo fue, no esperes. Comienza con el creador gratis de CV, toma la evaluaci\u00f3n de carrera y \u00fanete a la admisi\u00f3n prioritaria. Toma unos 30 minutos en total, no cuesta nada y podr\u00eda ser el camino m\u00e1s r\u00e1pido a tu pr\u00f3ximo cap\u00edtulo en salud comunitaria.",
         },
       ],
     },
   ],
-  ctaTitle: "Conéctate con FQHCs que Están Contratando en 48 Horas",
+  ctaTitle: "Prep\u00e1rate para Tu Pr\u00f3ximo Rol en un FQHC",
   ctaDescription:
-    "El programa Fast-Track es gratuito, toma menos de 3 minutos y pone a un defensor de colocación dedicado a tu lado. No esperes — comienza tu perfil Fast-Track ahora y recibe tu primera introducción a un FQHC dentro de 48 horas.",
-  ctaPrimaryButtonText: "Comienza Tu Perfil Fast-Track",
-  ctaSecondaryButtonText: "Crea Tu CV Gratis",
+    "Creador de CV gratis, evaluaci\u00f3n de carrera, empleos y admisi\u00f3n prioritaria \u2014 todo dise\u00f1ado para profesionales de salud comunitaria. Comienza en minutos.",
+  ctaPrimaryButtonText: "Crea Tu CV Gratis",
+  ctaSecondaryButtonText: "\u00danete a Admisi\u00f3n Prioritaria",
   relatedArticles: [
     {
       href: "/blog/medi-cal-funding-cuts-community-health-workers",
@@ -528,13 +528,13 @@ export default function LaidOffFqhcFastTrackArticle() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="/fast-track"
+                href="/resume-builder"
                 className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
               >
                 {content.ctaPrimaryButtonText}
               </a>
               <a
-                href="/resume-builder"
+                href="/fast-track"
                 className="inline-flex items-center justify-center rounded-lg border-2 border-teal-700 px-8 py-4 text-lg font-semibold text-teal-700 hover:bg-teal-100 transition-colors"
               >
                 {content.ctaSecondaryButtonText}
