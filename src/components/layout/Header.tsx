@@ -69,6 +69,17 @@ export default function Header() {
     { href: "/jobs", label: t("jobs") },
     { href: "/directory", label: t("directory") },
     {
+      label: t("forJobSeekers"),
+      children: [
+        { href: "/resume-builder", label: t("resumeBuilder") },
+        { href: "/career-insights", label: t("careerAssessment") },
+        { href: "/career-roadmap", label: t("careerRoadmap") },
+        { href: "/certifications", label: t("certifications") },
+        { href: "/why-fqhc", label: t("whyFQHC") },
+        { href: "/fast-track", label: t("fastTrack") },
+      ],
+    },
+    {
       label: t("insights"),
       children: [
         { href: "/insights", label: t("insights") },
@@ -77,16 +88,14 @@ export default function Header() {
       ],
     },
     {
-      label: t("tools"),
+      label: t("forEmployers"),
       children: [
-        { href: "/resume-builder", label: t("resumeBuilder") },
-        { href: "/career-insights", label: t("careerAssessment") },
-        { href: "/career-roadmap", label: t("careerRoadmap") },
-        { href: "/certifications", label: t("certifications") },
+        { href: "/hire", label: t("postAJob") },
+        { href: "/team-readiness", label: t("teamReadiness") },
+        { href: "/demo", label: t("demo") },
+        { href: "/the-drop", label: t("theDrop") },
       ],
     },
-    { href: "/join", label: t("findAJob") },
-    { href: "/hire", label: t("postAJob") },
   ];
 
   function switchLocale() {
@@ -143,7 +152,7 @@ export default function Header() {
             className="border-teal-700 text-teal-700 hover:bg-teal-50 hover:text-teal-800"
             asChild
           >
-            <Link href="/resume-builder">{t("buildResume")}</Link>
+            <Link href="/join">{t("findAJob")}</Link>
           </Button>
           <Button
             className="bg-stone-800 text-white hover:bg-stone-900"
@@ -231,7 +240,7 @@ export default function Header() {
                 className="w-full border-teal-700 text-teal-700 hover:bg-teal-50 hover:text-teal-800"
                 asChild
               >
-                <Link href="/resume-builder" onClick={() => setMobileOpen(false)}>{t("buildResume")}</Link>
+                <Link href="/join" onClick={() => setMobileOpen(false)}>{t("findAJob")}</Link>
               </Button>
               <Button
                 className="w-full bg-stone-800 text-white hover:bg-stone-900"
