@@ -66,6 +66,8 @@ A California where every community health center is fully staffed with professio
 | 48 | **FQHC Directory Expansion** | Feb 2026 | 90 → 220 FQHCs from HRSA data. Added quality scores, violations, labor history fields to interface. |
 | 49 | **Nav Redesign** | Feb 2026 | Dropdown menus for Insights (Market Insights, Layoff Tracker, Blog) and Tools (Resume Builder, Career Assessment, Career Roadmap, Certifications). Cleaner mobile accordion. |
 | 50 | **Layoff Tracker Expansion** | Feb 2026 | Added Borrego Health (2021, 218 workers) and LA County DPH (2026, 7 clinic closures). Now 15 entries. |
+| 51 | **Fast-Track Repositioning** | Feb 2026 | Removed "48-hour" promise from 13 files. New hero: "Get Job-Ready". Free tools cards link to resume/assessment/jobs. Priority intake messaging. Updated emails with free tools section. |
+| 52 | **Nav Redesign v2** | Feb 2026 | "For Job Seekers" dropdown (Resume Builder, Career Assessment, Career Roadmap, Certifications, Why FQHC, Priority Intake). "For Employers" dropdown (Post a Job, Team Readiness, Demo, The Drop). CTAs: Find a Job + Hire Talent. |
 
 ---
 
@@ -120,7 +122,7 @@ A California where every community health center is fully staffed with professio
 | ~~76~~ | ~~The Drop Explainer + Waitlist~~ | ~~High~~ | ~~Revenue~~ | ✅ Shipped — see #46 above |
 | ~~77~~ | ~~Email System Upgrade~~ | ~~High~~ | ~~Engagement~~ | ✅ Shipped — see #47 above |
 | 78 | **Adaptive Assessment Engine** | Medium | Moat | Phase 1: expanded question bank (110+). Phase 2: difficulty scaling (CAT). Phase 3: outcome-based weight learning from placement data. |
-| 79 | **Fast-Track Repositioning** | High | GTM | Remove "48-hour" promise. Reposition around free tools (resume builder, assessment, insights, directory, jobs). For FQHCs: tiered offboarding services. See "Strategic Pivot" above. |
+| ~~79~~ | ~~Fast-Track Repositioning~~ | ~~High~~ | ~~GTM~~ | ✅ Shipped — see #51 above |
 | 80 | **Offboarding Toolkit Page** | High | Revenue | `/offboarding` — FQHC-facing page: "Turn layoffs into transitions." Free tier (self-serve tools), Managed tier (we intake workers), Premium tier (placement). |
 | 81 | **FQHC Data Enrichment** | Medium | Data | Populate quality scores, violations, labor history for 220 FQHCs from HRSA UDS, CMS, OSHA, NLRB data. |
 | 82 | **HRSA-Import FQHC Enrichment** | Medium | Data | Add missing data (patient/staff counts, programs, EHR, Glassdoor, salary ranges) to 131 HRSA-imported FQHC entries. |
@@ -220,7 +222,7 @@ Position as the **#1 free career platform for community health workers**:
 
 | Blocker | Impact | Fix |
 |---------|--------|-----|
-| Fast-track promises "48 hours" | Sets unrealistic expectations | Reposition around free tools + priority intake (in progress) |
+| ~~Fast-track promises "48 hours"~~ | ~~Sets unrealistic expectations~~ | ✅ Repositioned — free tools + priority intake (shipped #51) |
 | No employer dashboard | Can't show candidates at scale | Build after first manual placement |
 | No auth system | Can't gate premium features | Build after first revenue |
 | **Nothing blocks outreach** | You have data, tools, and content no competitor has | Pick up the phone |
@@ -259,7 +261,7 @@ The platform is strong. The data is unique. The tools are real. What's needed is
 - [x] ~~Daily content pipeline for layoffs, jobs, blog~~ — Shipped as Claude Code slash commands!
 - [ ] Assessment results email with domain scores + Drop invitation
 - [ ] Resume completion reminder email
-- [ ] Cloudflare Email Routing for `hello@fqhctalent.com`
+- [x] ~~Cloudflare Email Routing for `hello@fqhctalent.com`~~ — Set up and verified!
 - [ ] Assessment question bank expansion (50+ questions per domain)
 - [ ] Assessment A/B testing — compare question variants by predictive accuracy
 - [ ] Employer feedback loop — did the hire succeed? Feed into assessment weights
@@ -267,7 +269,7 @@ The platform is strong. The data is unique. The tools are real. What's needed is
 - [ ] Team Readiness + Individual Assessment correlation analysis
 - [ ] GA4 cross-domain tracking for healthcaretalent.org + fqhctalent.com
 - [ ] Offboarding toolkit page (`/offboarding`) — FQHC-facing landing page for tiered layoff services
-- [ ] Fast-track page rewrite — remove "48 hours", position around free tools + priority intake
+- [x] ~~Fast-track page rewrite — remove "48 hours", position around free tools + priority intake~~ — Shipped!
 - [ ] "FQHC Layoff Response" email template for outreach to HR directors at FQHCs with layoffs
 - [ ] Offboarding case study page — after first successful offboarding, publish results
 - [ ] Displaced worker → hiring FQHC geographic matching (map visualization)

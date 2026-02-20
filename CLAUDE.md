@@ -99,6 +99,9 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Certification Catalog** | Done | `src/app/[locale]/certifications/page.tsx`, `src/lib/certification-data.ts` | 15 CA-specific certifications, cost/duration/salary impact, filter by role/cost/type, CA training programs |
 | **Career Insights Dashboard** | Done | `src/app/[locale]/career-insights/page.tsx` | Standalone assessment page, role selector, wraps CareerInsights + First90DaysPlan, links to roadmap/certs |
 | **Daily Content Pipeline** | Done | `.claude/commands/`, `src/lib/career-page-config.ts` | 4 slash commands: `/update-layoffs` (WARN Act XLSX), `/scrape-jobs` (FQHC career pages), `/draft-blog` (bilingual articles), `/daily-update` (orchestrator). Career page config for 15 FQHCs. |
+| **FQHC Directory Expansion** | Done | `src/lib/california-fqhcs.ts` | 90 → 220 FQHCs from HRSA data. Added qualityScore, violations, laborHistory, hrsaGrantNumber, dataSource fields. |
+| **Fast-Track Repositioning** | Done | 13 files | Removed "48-hour" promise site-wide. New hero: "Get Job-Ready". Free tools cards. Priority intake messaging. Updated emails. |
+| **Nav Redesign v2** | Done | `src/components/layout/Header.tsx` | "For Job Seekers" dropdown (6 items), "For Employers" dropdown (4 items), "Insights" dropdown (3 items). CTAs: Find a Job + Hire Talent. |
 
 ### Data Sources (Strategic Assets)
 | File | Size | Contents |
@@ -171,29 +174,30 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | Neutrals | stone-* | Text, borders |
 
 ### Nav Structure
-| Label (EN) | Route | Purpose |
-|------------|-------|---------|
-| Jobs | /jobs | Browse 156 job listings |
-| Directory | /directory | 90 FQHC directory with map |
-| Insights | /insights | Market intelligence dashboard (funding cliffs, salary, demand) |
-| Layoffs | /layoffs | Layoff tracker (11 orgs, 2,300+ workers) |
-| Resume Builder | /resume-builder | Free template-based resume builder |
-| Team Readiness | /team-readiness | Manager Team Readiness Assessment (B2B tool) |
-| Find a Job | /join | Candidate waitlist signup |
-| Post a Job | /hire | Employer waitlist signup (dark theme) |
-| CTA: Build Resume | /resume-builder | Primary CTA button |
-| CTA: Hire Talent | /hire | Secondary CTA button (dark) |
+| Menu | Label (EN) | Route | Purpose |
+|------|------------|-------|---------|
+| Direct | Jobs | /jobs | Browse 177+ job listings |
+| Direct | Directory | /directory | 220 FQHC directory with map |
+| **For Job Seekers** ▾ | Resume Builder | /resume-builder | Free template-based resume builder |
+| | Career Assessment | /career-insights | 5-domain assessment + 90-day plan |
+| | Career Roadmap | /career-roadmap | 5 tracks, 4 levels, CA salary data |
+| | Certifications | /certifications | 15 CA-specific certifications |
+| | Why Work at an FQHC? | /why-fqhc | Career ladders, salary data, comparison |
+| | Priority Intake | /fast-track | Free tools + priority matching for displaced workers |
+| **Insights** ▾ | Market Insights | /insights | Funding cliffs, salary, demand dashboard |
+| | Layoff Tracker | /layoffs | 15 events, 2,618+ workers tracked |
+| | Blog | /blog | 13 articles, bilingual |
+| **For Employers** ▾ | Post a Job | /hire | Employer waitlist signup (dark theme) |
+| | Team Readiness | /team-readiness | Manager leadership assessment (B2B) |
+| | Demo | /demo | Interactive product walkthrough |
+| | The Drop | /the-drop | Exclusive matching program |
+| CTA | Find a Job | /join | Primary CTA button (outline teal) |
+| CTA | Hire Talent | /hire | Secondary CTA button (dark) |
 
 ### Footer-Only Pages (not in main nav)
 | Route | Purpose |
 |-------|---------|
-| /demo | Interactive 9-section product walkthrough (footer: For Employers) |
-| /why-fqhc | SEO page: why work at an FQHC (footer: For Job Seekers) |
-| /fast-track | Displaced worker fast-track form (footer: For Job Seekers) |
 | /funding-impact | H.R. 1 policy tracker + revenue strategies (footer: For Job Seekers) |
-| /career-roadmap | 5 career tracks with CA salary data + regional multipliers (footer: For Job Seekers) |
-| /certifications | 15 CA-specific certifications catalog (footer: For Job Seekers) |
-| /career-insights | Standalone career assessment + 90-day plan (footer: For Job Seekers) |
 
 ### Hidden Pages (no nav or footer link)
 | Route | Purpose |
@@ -205,18 +209,19 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ---
 
 ## Current Context
-- **Just shipped:** FQHC directory expansion (90 → 220), quality/violations/labor fields, ROADMAP strategic pivot
+- **Just shipped:** Fast-track repositioning (no more "48 hours"), nav redesign v2 (For Job Seekers / For Employers / Insights dropdowns), domain email verified
 - **GTM status:** Ready for outbound. New tiered model: Free tools → Offboarding services → The Drop → Placement.
 - **Data:** 177 job listings, 220 FQHCs (131 from HRSA need enrichment), 15 layoff entries, 548 live API-scrapeable jobs
-- **Strategic pivot:** Repositioning fast-track away from "48 hours" → focus on free tools (resume, assessment, insights, directory, jobs) for candidates; tiered offboarding services for FQHCs
+- **Email:** `hello@fqhctalent.com` receiving via Cloudflare Email Routing (verified). Resend domain verification pending for sending.
 - **Domains:** fqhctalent.com (primary, live on Vercel) + healthcaretalent.org (GA4 cross-domain tracking)
 - **Layoff tracker:** Auto-derived "last updated" date. 15 entries, 2,618+ workers.
-- **Nav:** Dropdown menus — "Insights" (Market Insights, Layoff Tracker, Blog) and "Tools" (Resume Builder, Career Assessment, Career Roadmap, Certifications)
-- **Manual steps needed:** Run `supabase-drop-waitlist.sql` + `supabase-feedback.sql` in Supabase SQL Editor. Set up domain email (Cloudflare Email Routing + Resend verification). Create Calendly account.
+- **Nav:** 3 dropdowns — "For Job Seekers" (6 items), "Insights" (3 items), "For Employers" (4 items). CTAs: Find a Job + Hire Talent.
+- **Manual steps needed:** Run `supabase-drop-waitlist.sql` + `supabase-feedback.sql` in Supabase SQL Editor. Resend domain verification (add DKIM records in Cloudflare DNS). Create Calendly account. Update Vercel `FROM_EMAIL` env var.
 
 ## Session Log
 | Date | Summary |
 |------|---------|
+| 2026-02-20 | Fast-track repositioning: removed "48-hour" from 13 files, new "Get Job-Ready" hero with free tools cards. Nav redesign v2: "For Job Seekers" dropdown (6 items), "For Employers" dropdown (4 items), "Insights" (3 items). Domain email `hello@fqhctalent.com` verified via Cloudflare. Updated ROADMAP (features #51-52 shipped, backlog #79 done). |
 | 2026-02-19 | Daily update #2 + major expansion. WARN check (0 new FQHC entries, added Borrego Health historical + LA DPH clinic closures). Job scan: 548 total across 4 APIs. Nav redesign (dropdowns). FQHC directory expanded 90→220 from HRSA data (added quality scores, violations, labor history fields). ROADMAP strategic pivot: repositioned fast-track away from "48-hour" promise, new tiered offboarding model for FQHCs. |
 | 2026-02-18 | Ran first `/daily-update` (22 new jobs). Built Assessment Philosophy page, The Drop page + API + SQL. Upgraded email system (mission banner, resources, market snapshot). Made layoff tracker date auto-derive from data. Updated daily-update command with date checklist. |
 | 2026-02-17 | Built daily content pipeline (4 slash commands). Tested WARN Act XLSX parsing (215 healthcare entries). Career page config for 15 FQHCs. Security audit (20 attack vectors, 0 vulnerabilities). Talent Drop design (3-round exclusive matching). Legal risk analysis for CA employment agency law. |
