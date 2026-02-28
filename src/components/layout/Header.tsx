@@ -121,6 +121,8 @@ export default function Header() {
         { href: "/strategy/guides", label: t("executiveGuides"), desc: t("executiveGuidesDesc") },
         { href: "/strategy/okrs", label: t("okrTemplates"), desc: t("okrTemplatesDesc") },
         { href: "/strategy/case-studies", label: t("caseStudies"), desc: t("caseStudiesDesc") },
+        { href: "/strategy/economics", label: t("healthcareEconomics"), desc: t("healthcareEconomicsDesc") },
+        { href: "/strategy/frameworks", label: t("executionFrameworks"), desc: t("executionFrameworksDesc") },
         { href: "/funding-impact", label: t("fundingImpact"), desc: t("fundingImpactDesc") },
       ],
     },

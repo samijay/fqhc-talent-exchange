@@ -312,6 +312,30 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/strategy/case-studies` },
   },
+  strategyEconomics: {
+    title: "Healthcare Economics for FQHCs | PPS, 340B, FMAP & Value-Based Payment Explained",
+    description:
+      "Healthcare economics explained at 3 levels — from new hire to executive. PPS reimbursement, 340B drug pricing, FMAP Medicaid financing, HCC risk adjustment, CalAIM ECM, SB 525, and more. With FQHC-specific context and primary sources.",
+    openGraph: {
+      title: "Healthcare Economics for FQHCs — FQHC Talent Exchange",
+      description:
+        "Every FQHC economic concept explained at 3 levels. Share with your team — from CHWs to the C-suite.",
+      url: `${SITE_URL}/strategy/economics`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/economics` },
+  },
+  strategyFrameworks: {
+    title: "Execution Frameworks for FQHCs | Change Management, Decision Tools & Assessments",
+    description:
+      "12 execution frameworks adapted for FQHCs — Kotter 8-Step, ADKAR, Bridges Transition, Cynefin, Eisenhower Matrix, OODA Loop, STARS, FOGLAMP, DMAIC, PDSA, Rumelt, SWOT+PESTEL. With FQHC applications and primary sources.",
+    openGraph: {
+      title: "Execution Frameworks for FQHCs — FQHC Talent Exchange",
+      description:
+        "Change management, decision-making, and operational excellence frameworks — adapted for community health centers.",
+      url: `${SITE_URL}/strategy/frameworks`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/frameworks` },
+  },
   aiTracker: {
     title: "FQHC AI Tracker | AI Adoption in Community Health Centers",
     description:

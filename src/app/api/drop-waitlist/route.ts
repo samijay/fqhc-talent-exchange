@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
 import { resend, ADMIN_EMAIL, FROM_EMAIL } from "@/lib/resend";
-import { checkRateLimit, getClientIp } from "@/lib/security";
+import { checkRateLimit, getClientIp, escapeHtml } from "@/lib/security";
 
 /* ------------------------------------------------------------------ */
 /*  Validation schemas                                                 */
@@ -121,17 +121,21 @@ export async function POST(request: Request) {
         const isEs = locale === "es";
 
         if (isCandidate) {
-          const firstName = data.firstName;
+          const safeFirst = escapeHtml(data.firstName);
+          const safeLast = escapeHtml(data.lastName);
+          const safeEmail = escapeHtml(data.email);
+          const safeRole = escapeHtml(data.rolePreference || "Not specified");
+          const safeRegion = escapeHtml(data.region || "Not specified");
           await Promise.all([
             resend.emails.send({
               from: FROM_EMAIL,
               to: data.email,
               subject: isEs
-                ? `¡Estás en la lista de The Drop, ${firstName}!`
-                : `You're on The Drop waitlist, ${firstName}!`,
+                ? `¡Estás en la lista de The Drop, ${safeFirst}!`
+                : `You're on The Drop waitlist, ${safeFirst}!`,
               html: `
                 <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-                  <h1 style="color: #0F766E;">${isEs ? `¡Hola ${firstName}!` : `Hey ${firstName}!`}</h1>
+                  <h1 style="color: #0F766E;">${isEs ? `¡Hola ${safeFirst}!` : `Hey ${safeFirst}!`}</h1>
                   <p>${isEs
                     ? "Estás en la lista de espera de The Drop — nuestro programa exclusivo de matching para profesionales de salud comunitaria pre-evaluados."
                     : "You're on the waitlist for The Drop — our exclusive matching program for pre-assessed community health professionals."
@@ -157,33 +161,39 @@ export async function POST(request: Request) {
             resend.emails.send({
               from: FROM_EMAIL,
               to: ADMIN_EMAIL,
-              subject: `New Drop Candidate: ${firstName} ${data.lastName}`,
+              subject: `New Drop Candidate: ${safeFirst} ${safeLast}`,
               html: `
                 <h2>New Drop Waitlist — Candidate</h2>
                 <ul>
-                  <li><strong>Name:</strong> ${firstName} ${data.lastName}</li>
-                  <li><strong>Email:</strong> ${data.email}</li>
-                  <li><strong>Role:</strong> ${data.rolePreference || "Not specified"}</li>
-                  <li><strong>Region:</strong> ${data.region || "Not specified"}</li>
+                  <li><strong>Name:</strong> ${safeFirst} ${safeLast}</li>
+                  <li><strong>Email:</strong> ${safeEmail}</li>
+                  <li><strong>Role:</strong> ${safeRole}</li>
+                  <li><strong>Region:</strong> ${safeRegion}</li>
                   <li><strong>Has Assessment:</strong> ${data.hasAssessment ? "Yes" : "No"}</li>
                 </ul>
               `,
             }),
           ]);
         } else {
+          const safeOrg = escapeHtml(data.orgName);
+          const safeContact = escapeHtml(data.contactName);
+          const safeEmail = escapeHtml(data.email);
+          const safeRoles = escapeHtml(data.rolesNeeded || "Not specified");
+          const safeEhr = escapeHtml(data.ehrSystem || "Not specified");
+          const safeNotes = escapeHtml(data.notes || "None");
           await Promise.all([
             resend.emails.send({
               from: FROM_EMAIL,
               to: data.email,
               subject: isEs
-                ? `Solicitud de The Drop recibida — ${data.orgName}`
-                : `The Drop request received — ${data.orgName}`,
+                ? `Solicitud de The Drop recibida — ${safeOrg}`
+                : `The Drop request received — ${safeOrg}`,
               html: `
                 <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-                  <h1 style="color: #0F766E;">${isEs ? `¡Gracias, ${data.contactName}!` : `Thank you, ${data.contactName}!`}</h1>
+                  <h1 style="color: #0F766E;">${isEs ? `¡Gracias, ${safeContact}!` : `Thank you, ${safeContact}!`}</h1>
                   <p>${isEs
-                    ? `Hemos recibido la solicitud de ${data.orgName} para The Drop. Te contactaremos pronto con los próximos pasos.`
-                    : `We've received ${data.orgName}'s request for The Drop. We'll be in touch shortly with next steps.`
+                    ? `Hemos recibido la solicitud de ${safeOrg} para The Drop. Te contactaremos pronto con los próximos pasos.`
+                    : `We've received ${safeOrg}'s request for The Drop. We'll be in touch shortly with next steps.`
                   }</p>
                   <div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 16px; margin: 20px 0;">
                     <p style="margin: 0; font-weight: bold; color: #92400E;">${isEs ? "¿Qué sigue?" : "What's next?"}</p>
@@ -200,16 +210,16 @@ export async function POST(request: Request) {
             resend.emails.send({
               from: FROM_EMAIL,
               to: ADMIN_EMAIL,
-              subject: `New Drop Employer: ${data.orgName}`,
+              subject: `New Drop Employer: ${safeOrg}`,
               html: `
                 <h2>New Drop Waitlist — Employer</h2>
                 <ul>
-                  <li><strong>Organization:</strong> ${data.orgName}</li>
-                  <li><strong>Contact:</strong> ${data.contactName}</li>
-                  <li><strong>Email:</strong> ${data.email}</li>
-                  <li><strong>Roles Needed:</strong> ${data.rolesNeeded || "Not specified"}</li>
-                  <li><strong>EHR:</strong> ${data.ehrSystem || "Not specified"}</li>
-                  <li><strong>Notes:</strong> ${data.notes || "None"}</li>
+                  <li><strong>Organization:</strong> ${safeOrg}</li>
+                  <li><strong>Contact:</strong> ${safeContact}</li>
+                  <li><strong>Email:</strong> ${safeEmail}</li>
+                  <li><strong>Roles Needed:</strong> ${safeRoles}</li>
+                  <li><strong>EHR:</strong> ${safeEhr}</li>
+                  <li><strong>Notes:</strong> ${safeNotes}</li>
                 </ul>
               `,
             }),

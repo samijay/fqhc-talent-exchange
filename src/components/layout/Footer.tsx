@@ -12,6 +12,8 @@ export default function Footer() {
       { href: "/strategy/guides" as const, label: t("executiveGuides") },
       { href: "/strategy/okrs" as const, label: t("okrTemplates") },
       { href: "/strategy/case-studies" as const, label: t("caseStudies") },
+      { href: "/strategy/economics" as const, label: t("healthcareEconomics") },
+      { href: "/strategy/frameworks" as const, label: t("executionFrameworks") },
       { href: "/funding-impact" as const, label: t("fundingImpact") },
     ],
     [t("intelligence")]: [

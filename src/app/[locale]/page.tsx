@@ -636,29 +636,47 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* ── Row 2: Execution frameworks banner ── */}
+          {/* ── Row 2: Execution frameworks + knowledge base ── */}
           <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8 mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Target className="size-5 text-amber-600" />
               <h3 className="font-bold text-stone-900">
-                {isEs ? "Marcos de Ejecución" : "Execution Frameworks"}
+                {isEs ? "Marcos de Ejecución y Base de Conocimiento" : "Execution Frameworks & Knowledge Base"}
               </h3>
             </div>
             <p className="text-sm text-stone-500 mb-6 max-w-2xl">
               {isEs
-                ? "Cada herramienta y plantilla está diseñada alrededor de marcos de gestión probados — no reinventamos la rueda."
-                : "Every tool and template is designed around proven management frameworks — we don't reinvent the wheel."}
+                ? "Marcos de gestión probados y conocimiento económico fundamental — herramientas que los ejecutivos pueden compartir con todo su equipo."
+                : "Proven management frameworks and foundational economic knowledge — tools executives can share with their entire team."}
             </p>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 {
-                  name: isEs ? "OKRs (Objetivos y Resultados)" : "OKRs (Objectives & Key Results)",
+                  name: isEs ? "Economía de Salud" : "Healthcare Economics",
                   desc: isEs
-                    ? "Intel, Google, FQHCs. Alinea departamentos hacia resultados medibles."
-                    : "Intel, Google, FQHCs. Aligns departments toward measurable outcomes.",
-                  href: "/strategy/okrs" as const,
+                    ? "PPS, 340B, FMAP, CalAIM, HCC — cada concepto explicado a 3 niveles: nuevo empleado → operacional → ejecutivo."
+                    : "PPS, 340B, FMAP, CalAIM, HCC — every concept at 3 levels: new hire → operational → executive.",
+                  href: "/strategy/economics" as const,
+                  color: "border-rose-200 bg-rose-50",
+                  textColor: "text-rose-800",
+                },
+                {
+                  name: isEs ? "12 Marcos de Ejecución" : "12 Execution Frameworks",
+                  desc: isEs
+                    ? "Kotter, ADKAR, Cynefin, DMAIC, PDSA — gestión del cambio, toma de decisiones y excelencia operacional."
+                    : "Kotter, ADKAR, Cynefin, DMAIC, PDSA — change management, decision-making, and operational excellence.",
+                  href: "/strategy/frameworks" as const,
                   color: "border-amber-200 bg-amber-50",
                   textColor: "text-amber-800",
+                },
+                {
+                  name: isEs ? "OKRs para Crisis" : "OKRs for Crisis",
+                  desc: isEs
+                    ? "12 plantillas de objetivos y resultados clave — ingresos, personal, acceso, operaciones, inter-departamental."
+                    : "12 objective & key result templates — revenue, workforce, access, ops, cross-department.",
+                  href: "/strategy/okrs" as const,
+                  color: "border-teal-200 bg-teal-50",
+                  textColor: "text-teal-800",
                 },
                 {
                   name: isEs ? "Rumelt — Buena Estrategia" : "Rumelt — Good Strategy",
@@ -666,24 +684,24 @@ export default function Home() {
                     ? "Diagnosticar → Política Guía → Acciones Coherentes. El marco detrás de nuestros estudios de caso."
                     : "Diagnose → Guiding Policy → Coherent Actions. The framework behind our case studies.",
                   href: "/strategy/guides" as const,
-                  color: "border-teal-200 bg-teal-50",
-                  textColor: "text-teal-800",
+                  color: "border-stone-200 bg-stone-50",
+                  textColor: "text-stone-800",
                 },
                 {
-                  name: isEs ? "STARS (Watkins)" : "STARS Framework (Watkins)",
+                  name: isEs ? "STARS (Watkins)" : "STARS Situational Model",
                   desc: isEs
-                    ? "Startup, Turnaround, Growth, Realignment, Sustain. Identifica tu situación antes de actuar."
+                    ? "Arranque, Reestructuración, Crecimiento, Realineación, Éxito. Identifica tu situación antes de actuar."
                     : "Startup, Turnaround, Growth, Realignment, Sustain. Identify your situation before acting.",
-                  href: "/team-readiness" as const,
+                  href: "/strategy/frameworks" as const,
                   color: "border-purple-200 bg-purple-50",
                   textColor: "text-purple-800",
                 },
                 {
-                  name: isEs ? "FOGLAMP (Primeros 90 Días)" : "FOGLAMP (First 90 Days)",
+                  name: isEs ? "Evaluación de Preparación" : "Readiness Assessments",
                   desc: isEs
-                    ? "Focus, Oversight, Goals, Leadership, Achievements, Management, Politics. Para nuevos líderes."
-                    : "Focus, Oversight, Goals, Leadership, Achievements, Management, Politics. For new leaders.",
-                  href: "/career-insights" as const,
+                    ? "Evaluación de cambio organizacional + preparación tecnológica. Evalúe antes de lanzar."
+                    : "Organizational change readiness + tech stack assessment. Evaluate before you launch.",
+                  href: "/strategy/frameworks" as const,
                   color: "border-blue-200 bg-blue-50",
                   textColor: "text-blue-800",
                 },

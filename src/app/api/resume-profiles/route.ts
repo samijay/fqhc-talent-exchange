@@ -68,35 +68,40 @@ export async function POST(request: Request) {
       originalResumeUrl, originalResumeText, assessmentResults,
     } = result.data;
 
+    // Insert-only (no upsert) — prevents overwriting another user's profile.
+    // If the email already exists, we return success silently to avoid
+    // leaking whether an email is already in the system.
     const { error } = await supabaseAdmin
       .from("resume_profiles")
-      .upsert(
-        {
-          first_name: firstName,
-          last_name: lastName,
-          email: email.toLowerCase(),
-          phone: phone || null,
-          city: city || null,
-          region: region || null,
-          role_type: roleType,
-          years_experience: yearsExperience || null,
-          objective: objective || null,
-          ehr_systems: ehrSystems,
-          programs: programs,
-          certifications: certifications,
-          languages: languages,
-          selected_bullets: selectedBullets,
-          work_history: workHistory,
-          education: education,
-          original_resume_url: originalResumeUrl || null,
-          original_resume_text: originalResumeText || null,
-          assessment_results: assessmentResults || null,
-          updated_at: new Date().toISOString(),
-        },
-        { onConflict: "email" },
-      );
+      .insert({
+        first_name: firstName,
+        last_name: lastName,
+        email: email.toLowerCase(),
+        phone: phone || null,
+        city: city || null,
+        region: region || null,
+        role_type: roleType,
+        years_experience: yearsExperience || null,
+        objective: objective || null,
+        ehr_systems: ehrSystems,
+        programs: programs,
+        certifications: certifications,
+        languages: languages,
+        selected_bullets: selectedBullets,
+        work_history: workHistory,
+        education: education,
+        original_resume_url: originalResumeUrl || null,
+        original_resume_text: originalResumeText || null,
+        assessment_results: assessmentResults || null,
+        updated_at: new Date().toISOString(),
+      });
 
     if (error) {
+      // Unique constraint violation (email already exists) — return success
+      // to avoid leaking whether an email is registered
+      if (error.code === "23505") {
+        return NextResponse.json({ message: "Profile saved!" });
+      }
       console.error("Supabase resume-profiles error:", error.code, error.message);
       return NextResponse.json(
         { error: "Something went wrong. Please try again." },
@@ -104,7 +109,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Only return success message — no database row
     return NextResponse.json({ message: "Profile saved!" });
   } catch {
     return NextResponse.json(
