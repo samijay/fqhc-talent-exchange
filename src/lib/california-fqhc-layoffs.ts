@@ -1,7 +1,7 @@
 // california-fqhc-layoffs.ts
 // Tracked layoffs and workforce reductions at California FQHCs and community health organizations
 // Data sources: WARN Act filings, news reports, organizational announcements
-// Last updated: 2026-02-19
+// Last updated: 2026-02-27
 
 export interface LayoffEntry {
   id: string;
@@ -75,7 +75,7 @@ export const californiaFQHCLayoffs: LayoffEntry[] = [
     sourceTitle: "LA Times",
     warnActFiled: false,
     isFQHC: true,
-    status: "in-progress",
+    status: "completed",
     notes:
       "St. John's operates 28 clinics serving 144,000 patients. Cuts threaten dental, behavioral health, and community outreach programs.",
   },
@@ -107,7 +107,7 @@ export const californiaFQHCLayoffs: LayoffEntry[] = [
     sourceTitle: "Mercury News",
     warnActFiled: false,
     isFQHC: true,
-    status: "in-progress",
+    status: "completed",
     notes:
       "Grant reductions affecting outreach and ECM programs specifically.",
   },
@@ -152,7 +152,7 @@ export const californiaFQHCLayoffs: LayoffEntry[] = [
     isFQHC: false,
     status: "in-progress",
     notes:
-      "AHS is the county safety-net health system. WARN Act notice filed for 296 positions effective March 7, 2026. Board approved layoffs citing H.R. 1 Medicaid restructuring.",
+      "AHS is the county safety-net health system. WARN Act notice filed for 296 positions effective March 7, 2026. Board approved layoffs citing H.R. 1 Medicaid restructuring. Public hearing held Feb 25, 2026 — 188 filled positions on final cut list (nurses, counselors, therapists). AHS projects cash runs out by August 2026 without cuts. DSH funding cuts alone = $60M/yr. Operates Highland Hospital, San Leandro Hospital, John George Psychiatric, Alameda Hospital, Fairmont Rehab.",
   },
 
   {
@@ -295,9 +295,9 @@ export const californiaFQHCLayoffs: LayoffEntry[] = [
     sourceTitle: "Chico Enterprise-Record",
     warnActFiled: true,
     isFQHC: false,
-    status: "completed",
+    status: "in-progress",
     notes:
-      "Complete closure of the only hospital in Glenn County. Nearest hospitals now 30+ miles away. Community devastated.",
+      "Complete closure of the only hospital in Glenn County. Nearest hospitals now 30+ miles away. Community devastated. Final closure date March 31, 2026.",
   },
 
   {
@@ -334,9 +334,9 @@ export const californiaFQHCLayoffs: LayoffEntry[] = [
     sourceTitle: "LA Times",
     warnActFiled: false,
     isFQHC: false,
-    status: "announced",
+    status: "in-progress",
     notes:
-      "Phased reductions expected through 2026. Disproportionately affects community health workers and care coordination staff in safety-net programs.",
+      "Phased reductions through June 2026. Disproportionately affects community health workers and care coordination staff in safety-net programs. $800M shortfall confirmed.",
   },
 
   {
@@ -566,9 +566,9 @@ export const californiaFQHCLayoffs: LayoffEntry[] = [
     sourceTitle: "LA County Official Statement",
     warnActFiled: false,
     isFQHC: false,
-    status: "announced",
+    status: "in-progress",
     notes:
-      "Not an FQHC but a major safety-net provider. Closures affect vaccination, STI testing, and TB screening in communities where FQHCs will absorb displaced patients. Latino families disproportionately impacted. Glendale clinic to close in 2027.",
+      "Not an FQHC but a major safety-net provider. Closures affect vaccination, STI testing, and TB screening in communities where FQHCs will absorb displaced patients. Latino families disproportionately impacted. Glendale clinic to close in 2027. Closures take effect Feb 27, 2026.",
   },
 
   {
@@ -634,6 +634,110 @@ export const californiaFQHCLayoffs: LayoffEntry[] = [
     status: "completed",
     notes:
       "Prospect Medical has been selling off hospitals. WARN Act filed June 20, 2025 for Orange County medical group closure.",
+  },
+
+  // ── 2025 additions (Feb 27 daily update — WARN Act cross-reference) ───
+
+  {
+    id: "indian-health-center-scv-2025",
+    organization: "Indian Health Center of Santa Clara Valley",
+    slug: "indian-health-center-of-santa-clara-valley",
+    city: "San Jose",
+    county: "Santa Clara",
+    region: "Bay Area",
+    dateAnnounced: "2025-10-01",
+    dateEffective: "2025-12-01",
+    employeesAffected: 21,
+    employeesTotal: null,
+    percentOfWorkforce: null,
+    rolesAffected: [
+      "All Staff",
+    ],
+    departments: ["All — Facility Closure"],
+    reason:
+      "Complete facility closure. WARN Act filing indicates permanent closure of the Indian Health Center, which served Native American and Alaska Native communities in Santa Clara County. The center was an FQHC providing primary care, dental, behavioral health, and traditional healing services.",
+    reasonCategory: "facility-closure",
+    source:
+      "https://edd.ca.gov/siteassets/files/jobs_and_training/warn/warn_report1.xlsx",
+    sourceTitle: "CA EDD WARN Act Report",
+    warnActFiled: true,
+    isFQHC: true,
+    status: "completed",
+    notes:
+      "Found via WARN Act XLSX cross-reference against 220-FQHC directory on 2026-02-27. WARN notice date: 2025-10-01. Closure type: permanent. 21 employees affected. This is a significant loss for Native American healthcare access in the South Bay.",
+  },
+
+  // ── 2026 additions (Feb 25 daily update) ──────────────────────────────
+
+  {
+    id: "la-care-health-plan-2026",
+    organization: "L.A. Care Health Plan",
+    slug: null,
+    city: "Los Angeles",
+    county: "Los Angeles",
+    region: "Los Angeles",
+    dateAnnounced: "2026-01-09",
+    dateEffective: "2026-03-13",
+    employeesAffected: 225,
+    employeesTotal: 7500,
+    percentOfWorkforce: 3,
+    rolesAffected: [
+      "Administrative Staff",
+      "Care Coordinator",
+      "Claims Processor",
+      "Member Services",
+      "IT Staff",
+    ],
+    departments: ["Operations", "Member Services", "IT", "Administration"],
+    reason:
+      "Federal and state Medi-Cal budget reductions led to organizational restructuring. L.A. Care is the nation's largest publicly operated health plan, serving 2.6M+ low-income LA County residents.",
+    reasonCategory: "federal-funding-cuts",
+    source:
+      "https://www.beckerspayer.com/workforce/7-payers-cutting-jobs-2026/",
+    sourceTitle: "Becker's Payer Issues",
+    warnActFiled: true,
+    isFQHC: false,
+    status: "in-progress",
+    notes:
+      "WARN Act filed Jan 9, 2026 for 225 employees (3% of workforce). L.A. Care covers 2.6M members across Medi-Cal, L.A. Care Covered, PASC-SEIU, and Cal MediConnect. Restructuring driven by Medi-Cal rate reductions and federal funding cuts. Layoffs effective by March 13, 2026. Major impact on managed care infrastructure that FQHCs depend on for referrals and payments.",
+  },
+
+  {
+    id: "santa-clara-valley-healthcare-2026",
+    organization: "Santa Clara Valley Healthcare",
+    slug: null,
+    city: "San Jose",
+    county: "Santa Clara",
+    region: "Bay Area",
+    dateAnnounced: "2026-02-11",
+    dateEffective: "2026-06-30",
+    employeesAffected: 365,
+    employeesTotal: null,
+    percentOfWorkforce: null,
+    rolesAffected: [
+      "Registered Nurse",
+      "Licensed Vocational Nurse",
+      "Medical Assistant",
+      "Care Coordinator",
+      "Administrative Staff",
+      "Social Worker",
+    ],
+    departments: [
+      "Santa Clara Valley Medical Center",
+      "County Health Services",
+      "Administration",
+    ],
+    reason:
+      "Board of Supervisors approved mid-year budget action to offset federal funding cuts. $183M in healthcare budget reductions including deletion of 365 FTE positions. County projects $470M deficit for upcoming fiscal year even after Measure A passage.",
+    reasonCategory: "federal-funding-cuts",
+    source:
+      "https://news.santaclaracounty.gov/board-supervisors-takes-mid-year-budget-action-offset-federal-funding-cuts-impacting-critical",
+    sourceTitle: "Santa Clara County News Center",
+    warnActFiled: false,
+    isFQHC: false,
+    status: "in-progress",
+    notes:
+      "Largest single county healthcare cut tracked. 365 FTE positions deleted as part of $183M budget reduction to Santa Clara Valley Healthcare. Federal funding cuts from H.R. 1 are the primary driver. County projects $470M overall deficit for next fiscal year. Impacts county safety-net system including Valley Medical Center.",
   },
 ];
 

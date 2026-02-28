@@ -75,6 +75,8 @@ export default function Header() {
         { href: "/career-insights", label: t("careerAssessment") },
         { href: "/career-roadmap", label: t("careerRoadmap") },
         { href: "/certifications", label: t("certifications") },
+        { href: "/resources", label: t("careerResources") },
+        { href: "/guides", label: t("guides") },
         { href: "/why-fqhc", label: t("whyFQHC") },
         { href: "/fast-track", label: t("fastTrack") },
       ],

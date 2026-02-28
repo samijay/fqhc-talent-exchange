@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import Link from "next/link";
+import { useState, useMemo } from "react";
 import {
   BarChart3,
   TrendingUp,
@@ -17,147 +17,152 @@ import {
   Lightbulb,
   ArrowRight,
   Globe,
-  Monitor,
-  Heart,
+  ExternalLink,
   ChevronDown,
   ChevronUp,
+  Gavel,
+  Megaphone,
+  Heart,
+  Activity,
+  Eye,
 } from "lucide-react";
-import { useState } from "react";
+import { Link } from "@/i18n/navigation";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   getMarketOverview,
   getRegionalSnapshots,
   getRoleDemand,
   getFundingCliffs,
   getSalaryIntelligence,
-  generateStrategicInsights,
-  getEHRDistribution,
-  getProgramAdoption,
   type RegionalSnapshot,
-  type RoleDemand,
+  type RoleDemand as RoleDemandType,
   type FundingCliff,
-  type SalaryIntelligence,
-  type StrategicInsight,
 } from "@/lib/market-intelligence";
+import {
+  INTEL_ITEMS,
+  INTEL_CATEGORIES,
+  IMPACT_STYLES,
+  IMPACT_BORDER,
+  IMPACT_LABELS,
+  getIntelItems,
+  getBreakingIntel,
+  getUndocumentedAccessItems,
+  getChangeManagementItems,
+  getIntelSources,
+  type IntelItem,
+  type IntelCategory,
+} from "@/lib/fqhc-news-intel";
 
 /* ------------------------------------------------------------------ */
-/*  Bilingual helper                                                   */
+/*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-function t(obj: { en: string; es: string }, locale: string): string {
-  return locale === "es" ? obj.es : obj.en;
-}
+
+const t = (obj: { en: string; es: string }, locale: string) =>
+  locale === "es" ? obj.es : obj.en;
 
 function formatSalary(amount: number): string {
-  if (amount >= 1000) {
-    return `$${Math.round(amount / 1000)}K`;
-  }
-  return `$${amount.toLocaleString()}`;
+  return amount >= 1000 ? `$${Math.round(amount / 1000)}K` : `$${amount.toLocaleString()}`;
 }
 
 function formatDate(dateStr: string, locale: string): string {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString(locale === "es" ? "es-US" : "en-US", {
+  const d = new Date(dateStr + "T00:00:00");
+  return d.toLocaleDateString(locale === "es" ? "es-US" : "en-US", {
     month: "short",
+    day: "numeric",
     year: "numeric",
   });
 }
 
+function daysUntil(dateStr: string): number {
+  const now = new Date();
+  const target = new Date(dateStr + "T00:00:00");
+  return Math.ceil((target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
+}
+
 /* ------------------------------------------------------------------ */
-/*  Compute data at module level (runs once at build time)             */
+/*  Data (computed once at build)                                      */
 /* ------------------------------------------------------------------ */
+
 const overview = getMarketOverview();
 const regionalSnapshots = getRegionalSnapshots();
 const roleDemand = getRoleDemand();
 const fundingCliffs = getFundingCliffs();
 const salaryIntel = getSalaryIntelligence();
-const strategicInsights = generateStrategicInsights();
-const ehrDistribution = getEHRDistribution();
-const programAdoption = getProgramAdoption();
+const breakingIntel = getBreakingIntel(5);
+const undocAccessItems = getUndocumentedAccessItems();
+const changeMgmtItems = getChangeManagementItems();
+const allSources = getIntelSources();
 
 /* ------------------------------------------------------------------ */
 /*  Sub-components                                                     */
 /* ------------------------------------------------------------------ */
 
-function StatCard({
-  icon: Icon,
-  label,
-  value,
-  sublabel,
-  color = "teal",
-}: {
-  icon: React.ElementType;
-  label: string;
-  value: string | number;
-  sublabel?: string;
-  color?: "teal" | "amber" | "red" | "stone";
-}) {
-  const colorMap = {
-    teal: "bg-teal-50 text-teal-700 border-teal-200",
-    amber: "bg-amber-50 text-amber-700 border-amber-200",
-    red: "bg-red-50 text-red-700 border-red-200",
-    stone: "bg-stone-50 text-stone-700 border-stone-200",
-  };
-  const iconColorMap = {
-    teal: "text-teal-600",
-    amber: "text-amber-600",
-    red: "text-red-600",
-    stone: "text-stone-600",
-  };
+function IntelCard({ item, locale }: { item: IntelItem; locale: string }) {
+  const isEs = locale === "es";
+  const catMeta = INTEL_CATEGORIES.find((c) => c.id === item.category);
 
   return (
-    <div className={`rounded-xl border p-4 ${colorMap[color]}`}>
-      <div className="flex items-center gap-2 mb-1">
-        <Icon className={`h-4 w-4 ${iconColorMap[color]}`} />
-        <span className="text-xs font-medium uppercase tracking-wide opacity-70">{label}</span>
+    <div
+      className={`rounded-lg border border-stone-200 bg-white p-4 border-l-4 ${IMPACT_BORDER[item.impactLevel]} transition-shadow hover:shadow-md`}
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-2 mb-1.5">
+            <Badge
+              variant="outline"
+              className={`text-[10px] font-semibold ${IMPACT_STYLES[item.impactLevel]}`}
+            >
+              {t(IMPACT_LABELS[item.impactLevel], locale)}
+            </Badge>
+            <span className="text-[11px] text-stone-400">
+              {formatDate(item.date, locale)}
+            </span>
+            {catMeta && (
+              <span className="text-[11px] bg-stone-100 text-stone-600 px-2 py-0.5 rounded-full">
+                {isEs ? catMeta.es : catMeta.en}
+              </span>
+            )}
+            {item.region !== "Federal" && item.region !== "California" && (
+              <span className="text-[11px] text-stone-400 flex items-center gap-0.5">
+                <MapPin className="h-3 w-3" />
+                {item.region}
+              </span>
+            )}
+          </div>
+          <h3 className="font-semibold text-stone-800 text-sm leading-snug">
+            {t(item.headline, locale)}
+          </h3>
+          <p className="mt-1.5 text-sm text-stone-600 leading-relaxed">
+            {t(item.summary, locale)}
+          </p>
+          {item.affectedOrgs && item.affectedOrgs.length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-1">
+              {item.affectedOrgs.map((org) => (
+                <span
+                  key={org}
+                  className="text-[10px] bg-red-50 text-red-700 px-1.5 py-0.5 rounded"
+                >
+                  {org}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+        <a
+          href={item.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-shrink-0 text-stone-400 hover:text-teal-600 transition-colors"
+          title={item.sourceOrg}
+        >
+          <ExternalLink className="h-4 w-4" />
+        </a>
       </div>
-      <div className="text-2xl font-bold">{value}</div>
-      {sublabel && <div className="text-xs opacity-60 mt-0.5">{sublabel}</div>}
-    </div>
-  );
-}
-
-function BarViz({
-  value,
-  max,
-  color = "teal",
-  label,
-}: {
-  value: number;
-  max: number;
-  color?: string;
-  label?: string;
-}) {
-  const pct = Math.min(Math.round((value / max) * 100), 100);
-  const colorClasses: Record<string, string> = {
-    teal: "bg-teal-600",
-    amber: "bg-amber-500",
-    red: "bg-red-500",
-    green: "bg-green-500",
-    blue: "bg-blue-500",
-  };
-  return (
-    <div className="flex items-center gap-2">
-      <div className="flex-1 h-4 rounded-full bg-stone-100 overflow-hidden">
-        <div
-          className={`h-full rounded-full ${colorClasses[color] || "bg-teal-600"} transition-all`}
-          style={{ width: `${pct}%` }}
-        />
+      <div className="mt-2 text-[11px] text-stone-400">
+        {isEs ? "Fuente" : "Source"}: {item.sourceOrg}
       </div>
-      {label && <span className="text-xs text-stone-500 w-12 text-right">{label}</span>}
     </div>
-  );
-}
-
-function HealthBadge({ signal }: { signal: "strong" | "caution" | "warning" }) {
-  const config = {
-    strong: { bg: "bg-green-100 text-green-700 border-green-200", label: "Strong" },
-    caution: { bg: "bg-amber-100 text-amber-700 border-amber-200", label: "Caution" },
-    warning: { bg: "bg-red-100 text-red-700 border-red-200", label: "Warning" },
-  };
-  return (
-    <span className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium ${config[signal].bg}`}>
-      {signal === "warning" && <AlertTriangle className="h-3 w-3" />}
-      {config[signal].label}
-    </span>
   );
 }
 
@@ -177,284 +182,332 @@ function DemandBadge({ signal }: { signal: "hot" | "steady" | "cooling" }) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Main Page Component                                                */
+/*  Main Page                                                          */
 /* ------------------------------------------------------------------ */
 
 export default function InsightsPage() {
   const locale = useLocale();
+  const isEs = locale === "es";
+
+  const [intelFilter, setIntelFilter] = useState<IntelCategory | "all">("all");
   const [expandedRegion, setExpandedRegion] = useState<string | null>(null);
   const [showAllRoles, setShowAllRoles] = useState(false);
-  const [showAllSalary, setShowAllSalary] = useState(false);
+  const [showMarketData, setShowMarketData] = useState(false);
 
   const upcomingCliffs = fundingCliffs.filter((c) => !c.isPast).slice(0, 4);
-  const displayedRoles = showAllRoles ? roleDemand : roleDemand.slice(0, 10);
-  const displayedSalary = showAllSalary
-    ? salaryIntel.filter((s) => s.listingCount > 0)
-    : salaryIntel.filter((s) => s.listingCount > 0).slice(0, 10);
+  const nextCliff = upcomingCliffs[0];
 
+  /* Filtered intel items */
+  const filteredIntel = useMemo(() => {
+    if (intelFilter === "all") return getIntelItems();
+    return getIntelItems({ category: intelFilter });
+  }, [intelFilter]);
+
+  const displayedRoles = showAllRoles ? roleDemand : roleDemand.slice(0, 8);
   const maxJobCount = Math.max(...roleDemand.map((r) => r.jobCount), 1);
-  const maxSalary = Math.max(...salaryIntel.map((s) => s.p75), 1);
 
   return (
     <main className="min-h-screen bg-stone-50">
-      {/* ── Hero ────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-4">
-            <BarChart3 className="h-5 w-5 text-amber-400" />
-            <span className="text-sm font-medium text-teal-200 uppercase tracking-wide">
-              {locale === "es" ? "Inteligencia de Mercado" : "Market Intelligence"}
+      {/* ───────────────── HERO — Executive Dashboard ───────────────── */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-900/20 via-transparent to-transparent" />
+        <div className="relative mx-auto max-w-6xl px-4 py-12 sm:py-16">
+          <div className="flex items-center gap-2 mb-3">
+            <Activity className="h-5 w-5 text-teal-400" />
+            <span className="text-sm font-medium text-teal-400 uppercase tracking-wider">
+              {isEs ? "Inteligencia Ejecutiva" : "Executive Intelligence"}
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
-            {locale === "es"
-              ? "Perspectivas del Mercado Laboral FQHC en California"
-              : "California FQHC Labor Market Insights"}
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            {isEs
+              ? "Dashboard de Inteligencia FQHC"
+              : "FQHC Intelligence Dashboard"}
           </h1>
-          <p className="text-lg text-teal-100 max-w-3xl">
-            {locale === "es"
-              ? "Análisis de datos en tiempo real de 90 centros de salud, 156 puestos de trabajo, y seguimiento de despidos — inteligencia estratégica que ningún otro sitio de empleo puede ofrecer."
-              : "Real-time data analysis from 90 health centers, 156 job listings, and layoff tracking — strategic intelligence no other job site can offer."}
+          <p className="mt-3 max-w-2xl text-lg text-stone-300">
+            {isEs
+              ? "Legislación, financiamiento, fuerza laboral, y estrategia — lo que los líderes de FQHCs en California necesitan saber hoy."
+              : "Legislation, funding, workforce, and strategy — what California FQHC leaders need to know today."}
           </p>
 
-          {/* Overview stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8">
-            <div className="rounded-lg bg-white/10 backdrop-blur-sm p-3 text-center">
-              <div className="text-2xl font-bold">{overview.totalFQHCs}</div>
-              <div className="text-xs text-teal-200">{locale === "es" ? "FQHCs" : "FQHCs Tracked"}</div>
+          {/* Stat strip */}
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className="rounded-lg bg-white/10 backdrop-blur p-3">
+              <div className="text-xs text-stone-400 uppercase tracking-wide">
+                {isEs ? "FQHCs Rastreados" : "FQHCs Tracked"}
+              </div>
+              <div className="text-2xl font-bold text-white">{overview.totalFQHCs}</div>
             </div>
-            <div className="rounded-lg bg-white/10 backdrop-blur-sm p-3 text-center">
-              <div className="text-2xl font-bold">{overview.totalJobs}</div>
-              <div className="text-xs text-teal-200">{locale === "es" ? "Trabajos Activos" : "Active Jobs"}</div>
+            <div className="rounded-lg bg-white/10 backdrop-blur p-3">
+              <div className="text-xs text-stone-400 uppercase tracking-wide">
+                {isEs ? "Empleos Activos" : "Active Jobs"}
+              </div>
+              <div className="text-2xl font-bold text-white">{overview.totalJobs}+</div>
             </div>
-            <div className="rounded-lg bg-white/10 backdrop-blur-sm p-3 text-center">
-              <div className="text-2xl font-bold">{overview.totalLayoffWorkers.toLocaleString()}</div>
-              <div className="text-xs text-teal-200">{locale === "es" ? "Trabajadores Afectados" : "Workers Displaced"}</div>
+            <div className="rounded-lg bg-white/10 backdrop-blur p-3">
+              <div className="text-xs text-red-400 uppercase tracking-wide">
+                {isEs ? "Trabajadores Desplazados" : "Workers Displaced"}
+              </div>
+              <div className="text-2xl font-bold text-red-400">
+                {overview.totalLayoffWorkers.toLocaleString()}+
+              </div>
             </div>
-            <div className="rounded-lg bg-white/10 backdrop-blur-sm p-3 text-center">
-              <div className="text-2xl font-bold">{overview.bilingualJobPercent}%</div>
-              <div className="text-xs text-teal-200">{locale === "es" ? "Requieren Bilingüe" : "Prefer Bilingual"}</div>
+            <div className="rounded-lg bg-white/10 backdrop-blur p-3">
+              <div className="text-xs text-amber-400 uppercase tracking-wide">
+                {isEs ? "Próximo Riesgo Fiscal" : "Next Funding Cliff"}
+              </div>
+              <div className="text-2xl font-bold text-amber-400">
+                {nextCliff ? `${nextCliff.daysUntil}d` : "—"}
+              </div>
+              {nextCliff && (
+                <div className="text-[10px] text-stone-400 mt-0.5 truncate">
+                  {t(nextCliff.title, locale)}
+                </div>
+              )}
             </div>
           </div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 space-y-12">
-        {/* ── Section 1: Funding Cliff Countdown ──────── */}
-        <section>
-          <div className="flex items-center gap-2 mb-6">
-            <Clock className="h-5 w-5 text-red-600" />
-            <h2 className="text-xl font-bold text-stone-900">
-              {locale === "es" ? "Cuenta Regresiva de Fondos" : "Funding Cliff Countdown"}
-            </h2>
+      <div className="mx-auto max-w-6xl px-4 py-8">
+        {/* ───────────────── BREAKING INTEL ───────────────── */}
+        <section className="mb-10">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <AlertTriangle className="h-5 w-5 text-red-600" />
+              <h2 className="text-xl font-bold text-stone-800">
+                {isEs ? "Inteligencia Crítica" : "Breaking Intelligence"}
+              </h2>
+            </div>
+            <Badge variant="outline" className="text-xs text-stone-500">
+              {INTEL_ITEMS.length} {isEs ? "elementos" : "items"}
+            </Badge>
           </div>
-          <p className="text-sm text-stone-600 mb-4 max-w-2xl">
-            {locale === "es"
-              ? "Fechas clave de políticas que impactarán el financiamiento de FQHCs y la fuerza laboral de salud comunitaria."
-              : "Key policy dates that will impact FQHC funding and the community health workforce."}
-          </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {upcomingCliffs.map((cliff) => (
-              <div
-                key={cliff.id}
-                className={`rounded-xl border-2 p-4 ${
-                  cliff.daysUntil <= 90
-                    ? "border-red-300 bg-red-50"
-                    : cliff.daysUntil <= 180
-                      ? "border-amber-300 bg-amber-50"
-                      : "border-stone-200 bg-white"
-                }`}
-              >
-                <div className="text-xs font-medium text-stone-500 mb-1">
-                  {formatDate(cliff.date, locale)}
-                </div>
-                <div
-                  className={`text-2xl font-bold mb-1 ${
-                    cliff.daysUntil <= 90 ? "text-red-700" : cliff.daysUntil <= 180 ? "text-amber-700" : "text-stone-700"
+          {/* Category filter tabs */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            <button
+              onClick={() => setIntelFilter("all")}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                intelFilter === "all"
+                  ? "bg-stone-800 text-white"
+                  : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+              }`}
+            >
+              {isEs ? "Todo" : "All"} ({INTEL_ITEMS.length})
+            </button>
+            {INTEL_CATEGORIES.map((cat) => {
+              const count = INTEL_ITEMS.filter(
+                (i) => i.category === cat.id
+              ).length;
+              if (count === 0) return null;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setIntelFilter(cat.id)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                    intelFilter === cat.id
+                      ? "bg-stone-800 text-white"
+                      : "bg-stone-100 text-stone-600 hover:bg-stone-200"
                   }`}
                 >
-                  {cliff.daysUntil > 0
-                    ? `${cliff.daysUntil} ${locale === "es" ? "días" : "days"}`
-                    : locale === "es"
-                      ? "En efecto"
-                      : "In Effect"}
-                </div>
-                <h3 className="text-sm font-semibold text-stone-800 mb-2 line-clamp-2">
-                  {t(cliff.title, locale)}
-                </h3>
-                {cliff.dollarAmount && (
-                  <div className="text-xs text-stone-500">
-                    <DollarSign className="inline h-3 w-3 mr-0.5" />
-                    {cliff.dollarAmount}
-                  </div>
-                )}
-                {cliff.peopleAffected && (
-                  <div className="text-xs text-stone-500 mt-0.5">
-                    <Users className="inline h-3 w-3 mr-0.5" />
-                    {cliff.peopleAffected}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-3 text-right">
-            <Link
-              href="/funding-impact"
-              className="text-sm text-teal-700 hover:text-teal-800 font-medium inline-flex items-center gap-1"
-            >
-              {locale === "es" ? "Ver línea de tiempo completa" : "View full policy timeline"}
-              <ArrowRight className="h-3 w-3" />
-            </Link>
-          </div>
-        </section>
-
-        {/* ── Section 2: Strategic Insights ───────────── */}
-        <section>
-          <div className="flex items-center gap-2 mb-6">
-            <Lightbulb className="h-5 w-5 text-amber-500" />
-            <h2 className="text-xl font-bold text-stone-900">
-              {locale === "es" ? "Perspectivas Estratégicas" : "Strategic Insights"}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {strategicInsights.map((insight) => {
-              const categoryConfig: Record<string, { icon: React.ElementType; color: string }> = {
-                "demand-shift": { icon: TrendingUp, color: "border-l-blue-500" },
-                "salary-trend": { icon: DollarSign, color: "border-l-green-500" },
-                "funding-risk": { icon: AlertTriangle, color: "border-l-red-500" },
-                opportunity: { icon: Lightbulb, color: "border-l-amber-500" },
-              };
-              const { icon: InsightIcon, color } = categoryConfig[insight.category] || categoryConfig.opportunity;
-
-              return (
-                <div key={insight.id} className={`rounded-xl bg-white border border-stone-200 border-l-4 ${color} p-5`}>
-                  <div className="flex items-start gap-3">
-                    <InsightIcon className="h-5 w-5 text-stone-500 mt-0.5 shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-stone-900 mb-2">
-                        {t(insight.title, locale)}
-                      </h3>
-                      <p className="text-sm text-stone-600 mb-3">
-                        {t(insight.narrative, locale)}
-                      </p>
-                      <div className="flex flex-wrap gap-1.5 mb-3">
-                        {insight.dataPoints.map((dp, i) => (
-                          <span
-                            key={i}
-                            className="inline-flex items-center rounded-full bg-stone-100 px-2 py-0.5 text-xs text-stone-600"
-                          >
-                            {dp}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="text-xs text-teal-700 font-medium bg-teal-50 rounded-lg p-2.5">
-                        💡 {t(insight.actionable, locale)}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  {isEs ? cat.es : cat.en} ({count})
+                </button>
               );
             })}
           </div>
+
+          {/* Intel feed */}
+          <div className="space-y-3">
+            {filteredIntel.map((item) => (
+              <IntelCard key={item.id} item={item} locale={locale} />
+            ))}
+          </div>
         </section>
 
-        {/* ── Section 3: Regional Market Snapshot ─────── */}
-        <section>
-          <div className="flex items-center gap-2 mb-6">
-            <MapPin className="h-5 w-5 text-teal-600" />
-            <h2 className="text-xl font-bold text-stone-900">
-              {locale === "es" ? "Panorama Regional" : "Regional Market Snapshot"}
+        {/* ───────────────── FUNDING CLIFF COUNTDOWN ───────────────── */}
+        {upcomingCliffs.length > 0 && (
+          <section className="mb-10">
+            <div className="flex items-center gap-2 mb-4">
+              <Clock className="h-5 w-5 text-amber-600" />
+              <h2 className="text-xl font-bold text-stone-800">
+                {isEs ? "Cuenta Regresiva: Riesgos Fiscales" : "Funding Cliff Countdown"}
+              </h2>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {upcomingCliffs.map((cliff) => {
+                const urgency =
+                  cliff.daysUntil < 90
+                    ? "border-red-400 bg-red-50"
+                    : cliff.daysUntil < 180
+                      ? "border-amber-400 bg-amber-50"
+                      : "border-stone-200 bg-white";
+                const countColor =
+                  cliff.daysUntil < 90
+                    ? "text-red-700"
+                    : cliff.daysUntil < 180
+                      ? "text-amber-700"
+                      : "text-stone-700";
+
+                return (
+                  <div
+                    key={cliff.id}
+                    className={`rounded-xl border p-4 ${urgency}`}
+                  >
+                    <div className={`text-3xl font-bold ${countColor}`}>
+                      {cliff.daysUntil}
+                      <span className="text-sm font-medium ml-1">
+                        {isEs ? "días" : "days"}
+                      </span>
+                    </div>
+                    <h3 className="mt-1 font-semibold text-stone-800 text-sm leading-snug">
+                      {t(cliff.title, locale)}
+                    </h3>
+                    {cliff.dollarAmount && (
+                      <div className="mt-1 text-xs text-stone-500">
+                        {cliff.dollarAmount}
+                      </div>
+                    )}
+                    {cliff.peopleAffected && (
+                      <div className="text-xs text-stone-500">
+                        {cliff.peopleAffected}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-3 text-right">
+              <Link
+                href="/funding-impact"
+                className="text-sm text-teal-700 hover:text-teal-900 font-medium inline-flex items-center gap-1"
+              >
+                {isEs ? "Ver Rastreador Completo" : "View Full Tracker"}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </section>
+        )}
+
+        {/* ───────────────── UNDOCUMENTED ACCESS WATCH ───────────────── */}
+        <section className="mb-10">
+          <div className="rounded-2xl border-2 border-teal-200 bg-gradient-to-br from-teal-50 to-white p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <Shield className="h-5 w-5 text-teal-700" />
+              <h2 className="text-xl font-bold text-teal-900">
+                {isEs
+                  ? "Vigilancia: Acceso para Indocumentados"
+                  : "Undocumented Access Watch"}
+              </h2>
+            </div>
+            <p className="text-sm text-teal-800 mb-4">
+              {isEs
+                ? "Políticas que afectan el acceso a salud para comunidades indocumentadas y estrategias para mantener las puertas abiertas."
+                : "Policies affecting healthcare access for undocumented communities and strategies to keep doors open."}
+            </p>
+            <div className="space-y-3">
+              {undocAccessItems.map((item) => (
+                <IntelCard key={item.id} item={item} locale={locale} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────────── CHANGE MANAGEMENT PLAYBOOK ───────────────── */}
+        <section className="mb-10">
+          <div className="flex items-center gap-2 mb-4">
+            <Lightbulb className="h-5 w-5 text-amber-600" />
+            <h2 className="text-xl font-bold text-stone-800">
+              {isEs ? "Manual de Estrategia" : "Change Management Playbook"}
             </h2>
           </div>
+          <p className="text-sm text-stone-500 mb-4">
+            {isEs
+              ? "Tácticas ejecutables para líderes de FQHCs navegando recortes de financiamiento, cambios de política, y presión sobre la fuerza laboral."
+              : "Actionable tactics for FQHC leaders navigating funding cuts, policy changes, and workforce pressure."}
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {changeMgmtItems.map((item) => (
+              <IntelCard key={item.id} item={item} locale={locale} />
+            ))}
+          </div>
+        </section>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* ───────────────── REGIONAL MARKET SNAPSHOT ───────────────── */}
+        <section className="mb-10">
+          <div className="flex items-center gap-2 mb-4">
+            <MapPin className="h-5 w-5 text-teal-600" />
+            <h2 className="text-xl font-bold text-stone-800">
+              {isEs ? "Panorama Regional" : "Regional Market Snapshot"}
+            </h2>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {regionalSnapshots
-              .filter((r) => r.totalJobs > 0 || r.fqhcCount > 0)
               .sort((a, b) => b.totalJobs - a.totalJobs)
               .map((region) => {
                 const isExpanded = expandedRegion === region.region;
                 return (
                   <div
                     key={region.region}
-                    className="rounded-xl bg-white border border-stone-200 overflow-hidden"
+                    className="rounded-xl border border-stone-200 bg-white shadow-sm"
                   >
                     <button
-                      onClick={() => setExpandedRegion(isExpanded ? null : region.region)}
-                      className="w-full p-4 text-left hover:bg-stone-50 transition-colors"
+                      onClick={() =>
+                        setExpandedRegion(isExpanded ? null : region.region)
+                      }
+                      className="w-full p-4 text-left"
                     >
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="font-semibold text-stone-900">{region.region}</h3>
-                        <div className="flex items-center gap-2">
-                          <HealthBadge signal={region.healthSignal} />
-                          {isExpanded ? (
-                            <ChevronUp className="h-4 w-4 text-stone-400" />
-                          ) : (
-                            <ChevronDown className="h-4 w-4 text-stone-400" />
-                          )}
-                        </div>
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-semibold text-stone-800 text-sm">
+                          {region.region}
+                        </h3>
+                        {isExpanded ? (
+                          <ChevronUp className="h-4 w-4 text-stone-400" />
+                        ) : (
+                          <ChevronDown className="h-4 w-4 text-stone-400" />
+                        )}
                       </div>
-                      <div className="grid grid-cols-3 gap-2 text-center">
-                        <div>
-                          <div className="text-lg font-bold text-teal-700">{region.fqhcCount}</div>
-                          <div className="text-[10px] text-stone-500">FQHCs</div>
-                        </div>
-                        <div>
-                          <div className="text-lg font-bold text-teal-700">{region.totalJobs}</div>
-                          <div className="text-[10px] text-stone-500">{locale === "es" ? "Trabajos" : "Jobs"}</div>
-                        </div>
-                        <div>
-                          <div className={`text-lg font-bold ${region.recentLayoffs > 100 ? "text-red-600" : "text-stone-600"}`}>
-                            {region.recentLayoffs > 0 ? region.recentLayoffs.toLocaleString() : "—"}
-                          </div>
-                          <div className="text-[10px] text-stone-500">{locale === "es" ? "Despidos" : "Layoffs"}</div>
-                        </div>
+                      <div className="mt-2 flex gap-4 text-xs">
+                        <span className="text-teal-700">
+                          <Building2 className="h-3 w-3 inline mr-0.5" />
+                          {region.fqhcCount} FQHCs
+                        </span>
+                        <span className="text-blue-700">
+                          <Briefcase className="h-3 w-3 inline mr-0.5" />
+                          {region.totalJobs} {isEs ? "empleos" : "jobs"}
+                        </span>
+                        {region.recentLayoffs > 0 && (
+                          <span className="text-red-600">
+                            <Users className="h-3 w-3 inline mr-0.5" />
+                            {region.recentLayoffs} {isEs ? "desplazados" : "displaced"}
+                          </span>
+                        )}
                       </div>
                     </button>
-
                     {isExpanded && (
-                      <div className="border-t border-stone-100 p-4 bg-stone-50 space-y-3">
-                        <div>
-                          <div className="text-xs font-medium text-stone-500 mb-1">
-                            {locale === "es" ? "Salario Promedio" : "Avg Salary Range"}
-                          </div>
-                          <div className="text-sm font-semibold text-stone-700">
-                            {formatSalary(region.avgSalaryMin)} – {formatSalary(region.avgSalaryMax)}
-                          </div>
-                        </div>
-                        <div>
-                          <div className="text-xs font-medium text-stone-500 mb-1">
-                            {locale === "es" ? "Vulnerabilidad de Fondos" : "Funding Vulnerability"}
-                          </div>
-                          <div className="flex gap-1.5">
-                            <span className="text-xs bg-red-100 text-red-700 rounded-full px-2 py-0.5">
-                              {region.highVulnerabilityCount} High
-                            </span>
-                            <span className="text-xs bg-amber-100 text-amber-700 rounded-full px-2 py-0.5">
-                              {region.moderateVulnerabilityCount} Mod
-                            </span>
-                            <span className="text-xs bg-green-100 text-green-700 rounded-full px-2 py-0.5">
-                              {region.lowVulnerabilityCount} Low
-                            </span>
-                          </div>
-                        </div>
-                        {region.topRoles.length > 0 && (
+                      <div className="px-4 pb-4 border-t border-stone-100 pt-3">
+                        <div className="text-xs text-stone-600 space-y-1">
                           <div>
-                            <div className="text-xs font-medium text-stone-500 mb-1">
-                              {locale === "es" ? "Roles Más Solicitados" : "Top Hiring Roles"}
-                            </div>
-                            <div className="space-y-1">
+                            {isEs ? "Salario promedio" : "Avg salary"}:{" "}
+                            {formatSalary(region.avgSalaryMin)}–
+                            {formatSalary(region.avgSalaryMax)}
+                          </div>
+                          <div>
+                            {isEs ? "Riesgo alto" : "High vulnerability"}:{" "}
+                            {region.highVulnerabilityCount} FQHCs
+                          </div>
+                          {region.topRoles.length > 0 && (
+                            <div className="mt-2 flex flex-wrap gap-1">
                               {region.topRoles.slice(0, 3).map((r) => (
-                                <div key={r.role} className="flex items-center justify-between text-xs">
-                                  <span className="text-stone-700">{r.role}</span>
-                                  <span className="text-stone-500">{r.count} {locale === "es" ? "puestos" : "jobs"}</span>
-                                </div>
+                                <span
+                                  key={r.role}
+                                  className="bg-teal-50 text-teal-700 px-1.5 py-0.5 rounded text-[10px]"
+                                >
+                                  {r.role}
+                                </span>
                               ))}
                             </div>
-                          </div>
-                        )}
+                          )}
+                        </div>
                       </div>
                     )}
                   </div>
@@ -463,298 +516,219 @@ export default function InsightsPage() {
           </div>
         </section>
 
-        {/* ── Section 4: Role Demand Heatmap ─────────── */}
-        <section>
-          <div className="flex items-center gap-2 mb-6">
-            <Briefcase className="h-5 w-5 text-teal-600" />
-            <h2 className="text-xl font-bold text-stone-900">
-              {locale === "es" ? "Demanda por Rol" : "Role Demand Heatmap"}
+        {/* ───────────────── ROLE DEMAND + SALARY (Collapsible) ───────────────── */}
+        <section className="mb-10">
+          <button
+            onClick={() => setShowMarketData(!showMarketData)}
+            className="flex items-center gap-2 mb-4 group"
+          >
+            <BarChart3 className="h-5 w-5 text-teal-600" />
+            <h2 className="text-xl font-bold text-stone-800">
+              {isEs ? "Datos del Mercado Laboral" : "Workforce Market Data"}
             </h2>
-          </div>
-
-          <div className="rounded-xl bg-white border border-stone-200 overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-stone-200 bg-stone-50">
-                    <th className="text-left p-3 font-medium text-stone-600">
-                      {locale === "es" ? "Rol" : "Role"}
-                    </th>
-                    <th className="text-center p-3 font-medium text-stone-600 w-20">
-                      {locale === "es" ? "Puestos" : "Jobs"}
-                    </th>
-                    <th className="text-left p-3 font-medium text-stone-600 hidden sm:table-cell w-48">
-                      {locale === "es" ? "Demanda" : "Demand"}
-                    </th>
-                    <th className="text-center p-3 font-medium text-stone-600 w-24">
-                      {locale === "es" ? "Salario Prom." : "Avg Salary"}
-                    </th>
-                    <th className="text-center p-3 font-medium text-stone-600 w-20 hidden sm:table-cell">
-                      {locale === "es" ? "Bilingüe" : "Bilingual"}
-                    </th>
-                    <th className="text-center p-3 font-medium text-stone-600 w-20">
-                      {locale === "es" ? "Señal" : "Signal"}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {displayedRoles.map((role, idx) => (
-                    <tr
-                      key={role.roleType}
-                      className={`border-b border-stone-100 ${idx % 2 === 0 ? "bg-white" : "bg-stone-50/50"}`}
-                    >
-                      <td className="p-3 font-medium text-stone-800">{role.roleType}</td>
-                      <td className="p-3 text-center font-semibold text-teal-700">{role.jobCount}</td>
-                      <td className="p-3 hidden sm:table-cell">
-                        <BarViz value={role.jobCount} max={maxJobCount} color="teal" />
-                      </td>
-                      <td className="p-3 text-center text-stone-600">
-                        {formatSalary(role.avgSalaryMin)}–{formatSalary(role.avgSalaryMax)}
-                      </td>
-                      <td className="p-3 text-center text-stone-600 hidden sm:table-cell">
-                        {role.bilingualPercent}%
-                      </td>
-                      <td className="p-3 text-center">
-                        <DemandBadge signal={role.demandSignal} />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {roleDemand.length > 10 && (
-              <div className="p-3 text-center border-t border-stone-100">
-                <button
-                  onClick={() => setShowAllRoles(!showAllRoles)}
-                  className="text-sm text-teal-700 hover:text-teal-800 font-medium inline-flex items-center gap-1"
-                >
-                  {showAllRoles
-                    ? locale === "es" ? "Mostrar menos" : "Show less"
-                    : locale === "es" ? `Mostrar todos (${roleDemand.length})` : `Show all ${roleDemand.length} roles`}
-                  {showAllRoles ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
-                </button>
-              </div>
+            {showMarketData ? (
+              <ChevronUp className="h-4 w-4 text-stone-400" />
+            ) : (
+              <ChevronDown className="h-4 w-4 text-stone-400" />
             )}
-          </div>
-        </section>
+            {!showMarketData && (
+              <span className="text-xs text-stone-400 ml-2">
+                {isEs ? "Clic para expandir" : "Click to expand"}
+              </span>
+            )}
+          </button>
 
-        {/* ── Section 5: Salary Intelligence ─────────── */}
-        <section>
-          <div className="flex items-center gap-2 mb-6">
-            <DollarSign className="h-5 w-5 text-green-600" />
-            <h2 className="text-xl font-bold text-stone-900">
-              {locale === "es" ? "Inteligencia Salarial" : "Salary Intelligence"}
-            </h2>
-          </div>
-          <p className="text-sm text-stone-600 mb-4 max-w-2xl">
-            {locale === "es"
-              ? "Benchmarks salariales (P25/P50/P75) vs. salarios reales de publicaciones activas. Las barras muestran el rango relativo."
-              : "Salary benchmarks (P25/P50/P75) vs. actual salaries from active job postings. Bars show the relative range."}
-          </p>
-
-          <div className="space-y-2">
-            {displayedSalary.map((role) => (
-              <div key={role.roleId} className="rounded-lg bg-white border border-stone-200 p-3">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                  <div className="flex-1">
-                    <span className="font-medium text-stone-800 text-sm">
-                      {locale === "es" ? role.esLabel : role.label}
-                    </span>
-                    <span className="text-xs text-stone-400 ml-2">
-                      ({role.listingCount} {locale === "es" ? "puestos" : "listings"})
-                    </span>
-                  </div>
-                  <div className="text-xs text-stone-500 sm:text-right">
-                    {locale === "es" ? "Benchmark" : "Benchmark"}: {formatSalary(role.p25)} / {formatSalary(role.p50)} / {formatSalary(role.p75)}
-                  </div>
+          {showMarketData && (
+            <div className="space-y-6">
+              {/* Role demand table */}
+              <div className="rounded-xl border border-stone-200 bg-white overflow-hidden">
+                <div className="p-4 border-b border-stone-100">
+                  <h3 className="font-semibold text-stone-800">
+                    {isEs ? "Demanda por Rol" : "Role Demand"}
+                  </h3>
                 </div>
-
-                {/* Salary range visualization */}
-                <div className="relative h-6 rounded-full bg-stone-100 overflow-hidden">
-                  {/* P25-P75 benchmark range */}
-                  <div
-                    className="absolute h-full bg-teal-200 rounded-full"
-                    style={{
-                      left: `${(role.p25 / maxSalary) * 100}%`,
-                      width: `${((role.p75 - role.p25) / maxSalary) * 100}%`,
-                    }}
-                  />
-                  {/* P50 marker */}
-                  <div
-                    className="absolute h-full w-0.5 bg-teal-600"
-                    style={{ left: `${(role.p50 / maxSalary) * 100}%` }}
-                  />
-                  {/* Actual listing range if available */}
-                  {role.actualListingAvgMin !== null && role.actualListingAvgMax !== null && (
-                    <div
-                      className="absolute h-3 top-1.5 bg-amber-500 rounded-full opacity-80"
-                      style={{
-                        left: `${(role.actualListingAvgMin / maxSalary) * 100}%`,
-                        width: `${((role.actualListingAvgMax - role.actualListingAvgMin) / maxSalary) * 100}%`,
-                      }}
-                    />
-                  )}
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-stone-100 text-xs text-stone-500 uppercase">
+                        <th className="text-left p-3">{isEs ? "Rol" : "Role"}</th>
+                        <th className="text-right p-3">{isEs ? "Empleos" : "Jobs"}</th>
+                        <th className="text-left p-3 hidden sm:table-cell">
+                          {isEs ? "Distribución" : "Distribution"}
+                        </th>
+                        <th className="text-right p-3 hidden md:table-cell">
+                          {isEs ? "Salario" : "Salary"}
+                        </th>
+                        <th className="text-center p-3">
+                          {isEs ? "Señal" : "Signal"}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {displayedRoles.map((role) => (
+                        <tr
+                          key={role.roleType}
+                          className="border-b border-stone-50 hover:bg-stone-50"
+                        >
+                          <td className="p-3 font-medium text-stone-700">
+                            {role.roleType}
+                          </td>
+                          <td className="p-3 text-right text-stone-600">
+                            {role.jobCount}
+                          </td>
+                          <td className="p-3 hidden sm:table-cell">
+                            <div className="h-3 w-24 rounded-full bg-stone-100 overflow-hidden">
+                              <div
+                                className="h-full rounded-full bg-teal-600"
+                                style={{
+                                  width: `${Math.round((role.jobCount / maxJobCount) * 100)}%`,
+                                }}
+                              />
+                            </div>
+                          </td>
+                          <td className="p-3 text-right text-stone-500 hidden md:table-cell">
+                            {formatSalary(role.avgSalaryMin)}–
+                            {formatSalary(role.avgSalaryMax)}
+                          </td>
+                          <td className="p-3 text-center">
+                            <DemandBadge signal={role.demandSignal} />
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
-
-                <div className="flex items-center justify-between mt-1">
-                  <div className="flex items-center gap-3 text-[10px] text-stone-400">
-                    <span className="inline-flex items-center gap-1">
-                      <span className="inline-block w-2.5 h-2.5 rounded-sm bg-teal-200" /> {locale === "es" ? "Benchmark" : "Benchmark"}
-                    </span>
-                    {role.actualListingAvgMin !== null && (
-                      <span className="inline-flex items-center gap-1">
-                        <span className="inline-block w-2.5 h-2.5 rounded-sm bg-amber-500" /> {locale === "es" ? "Publicaciones reales" : "Actual Listings"}
-                      </span>
-                    )}
+                {roleDemand.length > 8 && (
+                  <div className="p-3 text-center border-t border-stone-100">
+                    <button
+                      onClick={() => setShowAllRoles(!showAllRoles)}
+                      className="text-sm text-teal-700 hover:text-teal-900 font-medium"
+                    >
+                      {showAllRoles
+                        ? isEs
+                          ? "Mostrar menos"
+                          : "Show less"
+                        : isEs
+                          ? `Mostrar ${roleDemand.length} roles`
+                          : `Show all ${roleDemand.length} roles`}
+                    </button>
                   </div>
-                  {role.actualListingAvgMin !== null && role.actualListingAvgMax !== null && (
-                    <span className="text-xs text-amber-700 font-medium">
-                      {formatSalary(role.actualListingAvgMin)}–{formatSalary(role.actualListingAvgMax)}
-                    </span>
-                  )}
+                )}
+              </div>
+
+              {/* Key salary stats */}
+              <div className="rounded-xl border border-stone-200 bg-white p-4">
+                <h3 className="font-semibold text-stone-800 mb-3">
+                  {isEs ? "Resumen Salarial" : "Salary Summary"}
+                </h3>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  <div className="text-center p-3 bg-stone-50 rounded-lg">
+                    <div className="text-xs text-stone-500 uppercase">
+                      {isEs ? "Promedio general" : "Overall average"}
+                    </div>
+                    <div className="text-xl font-bold text-stone-800">
+                      {formatSalary(overview.avgSalaryAllRoles)}
+                    </div>
+                  </div>
+                  <div className="text-center p-3 bg-stone-50 rounded-lg">
+                    <div className="text-xs text-stone-500 uppercase">
+                      {isEs ? "% bilingüe requerido" : "% bilingual required"}
+                    </div>
+                    <div className="text-xl font-bold text-teal-700">
+                      {overview.bilingualJobPercent}%
+                    </div>
+                  </div>
+                  <div className="text-center p-3 bg-stone-50 rounded-lg">
+                    <div className="text-xs text-stone-500 uppercase">
+                      {isEs ? "Rol más demandado" : "Top hiring role"}
+                    </div>
+                    <div className="text-xl font-bold text-stone-800">
+                      {overview.topHiringRole}
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {salaryIntel.filter((s) => s.listingCount > 0).length > 10 && (
-            <div className="mt-3 text-center">
-              <button
-                onClick={() => setShowAllSalary(!showAllSalary)}
-                className="text-sm text-teal-700 hover:text-teal-800 font-medium inline-flex items-center gap-1"
-              >
-                {showAllSalary
-                  ? locale === "es" ? "Mostrar menos" : "Show less"
-                  : locale === "es" ? "Mostrar todos los roles" : "Show all roles"}
-                {showAllSalary ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
-              </button>
             </div>
           )}
         </section>
 
-        {/* ── Section 6: EHR & Program Adoption ──────── */}
-        <section>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* EHR Distribution */}
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Monitor className="h-5 w-5 text-teal-600" />
-                <h2 className="text-lg font-bold text-stone-900">
-                  {locale === "es" ? "Sistemas EHR" : "EHR Systems"}
-                </h2>
-              </div>
-              <div className="rounded-xl bg-white border border-stone-200 p-4 space-y-3">
-                {ehrDistribution.map((ehr) => (
-                  <div key={ehr.system}>
-                    <div className="flex items-center justify-between text-sm mb-1">
-                      <span className="font-medium text-stone-700">{ehr.system}</span>
-                      <span className="text-stone-500">
-                        {ehr.fqhcCount} FQHCs ({ehr.percentage}%)
-                      </span>
-                    </div>
-                    <BarViz
-                      value={ehr.fqhcCount}
-                      max={overview.totalFQHCs}
-                      color="teal"
-                      label={`${ehr.jobCount} jobs`}
-                    />
-                  </div>
-                ))}
-                <p className="text-xs text-stone-400 mt-2">
-                  {locale === "es"
-                    ? "Consejo: Los candidatos con experiencia en OCHIN Epic tienen la mayor demanda."
-                    : "Tip: Candidates with OCHIN Epic experience have the highest demand."}
-                </p>
-              </div>
-            </div>
-
-            {/* Program Adoption */}
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Heart className="h-5 w-5 text-teal-600" />
-                <h2 className="text-lg font-bold text-stone-900">
-                  {locale === "es" ? "Adopción de Programas" : "Program Adoption"}
-                </h2>
-              </div>
-              <div className="rounded-xl bg-white border border-stone-200 p-4 space-y-3">
-                {programAdoption.map((prog) => (
-                  <div key={prog.program}>
-                    <div className="flex items-center justify-between text-sm mb-1">
-                      <span className="font-medium text-stone-700">{prog.program}</span>
-                      <span className="text-stone-500">
-                        {prog.fqhcCount} FQHCs ({prog.percentage}%)
-                      </span>
-                    </div>
-                    <BarViz
-                      value={prog.fqhcCount}
-                      max={overview.totalFQHCs}
-                      color="amber"
-                      label={`${prog.jobCount} jobs`}
-                    />
-                  </div>
-                ))}
-                <p className="text-xs text-stone-400 mt-2">
-                  {locale === "es"
-                    ? "CalAIM ECM es el programa de más rápido crecimiento — pero su financiamiento expira en diciembre de 2026."
-                    : "CalAIM ECM is the fastest-growing program — but its funding expires December 2026."}
-                </p>
-              </div>
-            </div>
-          </div>
+        {/* ───────────────── SOURCES INDEX ───────────────── */}
+        <section className="mb-10 rounded-xl border border-stone-200 bg-stone-50 p-6">
+          <h2 className="text-lg font-bold text-stone-800 mb-3">
+            {isEs ? "Índice de Fuentes" : "Sources Index"}
+          </h2>
+          <p className="text-sm text-stone-500 mb-4">
+            {isEs
+              ? "Toda la inteligencia proviene de fuentes primarias verificables."
+              : "All intelligence is sourced from verifiable primary sources."}
+          </p>
+          <ul className="grid gap-1 sm:grid-cols-2">
+            {allSources.map((src, i) => (
+              <li key={i} className="text-sm">
+                <a
+                  href={src.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-teal-700 hover:text-teal-900 hover:underline inline-flex items-center gap-1"
+                >
+                  <ExternalLink className="h-3 w-3 flex-shrink-0" />
+                  <span className="font-medium">{src.org}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </section>
 
-        {/* ── Bottom CTAs ────────────────────────────── */}
-        <section className="rounded-2xl bg-gradient-to-br from-teal-800 to-teal-900 text-white p-8 sm:p-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-3">
-              {locale === "es"
-                ? "Usa estos datos para tu ventaja"
-                : "Use This Data to Your Advantage"}
+        {/* ───────────────── CTA ───────────────── */}
+        <section className="mb-8 text-center">
+          <div className="rounded-2xl bg-gradient-to-r from-stone-800 to-stone-900 p-8 text-white">
+            <h2 className="text-2xl font-bold">
+              {isEs
+                ? "Inteligencia que impulsa decisiones"
+                : "Intelligence that drives decisions"}
             </h2>
-            <p className="text-teal-100 mb-6">
-              {locale === "es"
-                ? "Ya sea que busques trabajo o contrates talento, estas perspectivas te dan una ventaja que nadie más tiene."
-                : "Whether you're job-seeking or hiring, these insights give you an edge no one else has."}
+            <p className="mt-2 text-stone-300 max-w-lg mx-auto">
+              {isEs
+                ? "Desde inteligencia de mercado hasta herramientas de contratación — todo lo que los líderes de FQHC necesitan."
+                : "From market intelligence to hiring tools — everything FQHC leaders need."}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                href="/resume-builder"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-6 py-3 text-sm font-semibold text-stone-900 hover:bg-amber-400 transition-colors"
-              >
-                {locale === "es" ? "Construir Mi Currículum" : "Build My Resume"}
-                <ArrowRight className="h-4 w-4" />
+            <div className="mt-5 flex flex-wrap justify-center gap-3">
+              <Link href="/hire">
+                <Button
+                  size="lg"
+                  className="bg-amber-500 text-stone-900 hover:bg-amber-400 font-semibold"
+                >
+                  {isEs ? "Contratar Talento" : "Hire Talent"}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
               </Link>
-              <Link
-                href="/jobs"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-              >
-                {locale === "es" ? "Explorar Trabajos" : "Browse Jobs"}
-                <Briefcase className="h-4 w-4" />
+              <Link href="/layoffs">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/30 text-white hover:bg-white/10 font-semibold"
+                >
+                  {isEs ? "Rastreador de Despidos" : "Layoff Tracker"}
+                </Button>
               </Link>
-              <Link
-                href="/hire"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-              >
-                {locale === "es" ? "Contratar Talento" : "Hire Talent"}
-                <Users className="h-4 w-4" />
+              <Link href="/jobs">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/30 text-white hover:bg-white/10 font-semibold"
+                >
+                  {isEs ? "Ver Empleos" : "Browse Jobs"}
+                </Button>
               </Link>
             </div>
           </div>
         </section>
 
-        {/* ── Data Source Disclaimer ──────────────────── */}
-        <div className="text-center text-xs text-stone-400 pb-4">
-          <p>
-            {locale === "es"
-              ? "Datos compilados de publicaciones públicas, archivos WARN Act, anuncios de organizaciones y registros del programa Medi-Cal. Actualizado febrero 2026."
-              : "Data compiled from public job postings, WARN Act filings, organizational announcements, and Medi-Cal program records. Updated February 2026."}
-          </p>
-          <p className="mt-1">
-            {locale === "es"
-              ? "Las perspectivas estratégicas son generadas analíticamente y no constituyen asesoramiento financiero o de empleo."
-              : "Strategic insights are analytically generated and do not constitute financial or employment advice."}
-          </p>
+        {/* Data disclaimer */}
+        <div className="text-center text-xs text-stone-400 mb-6">
+          {isEs
+            ? "Datos agregados de HRSA, BLS, CA EDD WARN Act, DHCS, y publicaciones de empleo de FQHCs. Actualizado febrero 2026."
+            : "Data aggregated from HRSA, BLS, CA EDD WARN Act, DHCS, and FQHC job postings. Updated February 2026."}
         </div>
       </div>
     </main>

@@ -83,7 +83,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "Here's the tension: while healthcare hiring is booming nationally, many FQHCs in California are simultaneously laying off workers due to Medi-Cal funding cuts and federal reductions under H.R. 1. Our layoff tracker shows 2,300+ displaced workers across 11 organizations statewide.",
+          text: "Here's the tension: while healthcare hiring is booming nationally, many FQHCs in California are simultaneously laying off workers due to Medi-Cal funding cuts and federal reductions under H.R. 1. California WARN Act filings show 2,300+ displaced healthcare workers across 11 organizations statewide.",
         },
         {
           type: "paragraph",
@@ -152,17 +152,17 @@ const enContent: ArticleContent = {
       ],
     },
     {
-      heading: "What We're Tracking",
+      heading: "Key Trends to Watch",
       content: [
         {
           type: "paragraph",
-          text: "At FQHC Talent Exchange, we monitor these hiring trends continuously using data from 90 California FQHCs, 156+ active job listings, and public BLS/HRSA reports. Here's what we're watching in Q1 2026:",
+          text: "Based on data from California FQHC job postings, public BLS/HRSA reports, and WARN Act filings, here are the key trends shaping FQHC hiring in Q1 2026:",
         },
         {
           type: "list",
           items: [
             "Monthly BLS healthcare employment figures — will the 82,000-job January surge sustain into February/March?",
-            "California FQHC layoff activity — our tracker shows 2,300+ displaced workers so far; we're monitoring for new WARN Act filings",
+            "California FQHC layoff activity — WARN Act filings show 2,300+ displaced workers so far, with new filings possible as funding cuts take effect",
             "Medi-Cal funding cliff dates — PPS rate elimination (Oct 2026), dental reimbursement cuts (Jul 2026), and CalAIM waiver renewal (Dec 2026)",
             "CHW Medi-Cal billing adoption — how many FQHCs are implementing the new CHW billing codes, and what's the impact on hiring?",
             "SB 525 healthcare minimum wage implementation — phased $25/hr minimum by 2027 for FQHCs will restructure compensation across the sector",
@@ -170,14 +170,14 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "We publish free market intelligence — including funding cliffs, salary benchmarks, regional snapshots, and role demand data — on our Insights dashboard. Check it regularly to stay ahead of these trends.",
+          text: "Staying informed on these trends can help you make better career decisions — whether you're currently employed, job searching, or considering a move into community health.",
         },
       ],
     },
   ],
   ctaTitle: "Stay Ahead of the Trends",
   ctaDescription:
-    "Use our free tools to navigate the healthcare hiring landscape: live market intelligence, 156+ FQHC job listings, bilingual resume builder, and career assessment — all designed for community health professionals.",
+    "Navigate the healthcare hiring landscape with free tools designed for community health professionals: FQHC job listings, a bilingual resume builder, career assessment, and market intelligence.",
   ctaButtonText: "Build Your Free Resume",
   relatedArticles: [
     {
@@ -249,7 +249,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "Aquí está la tensión: mientras la contratación en salud está en auge a nivel nacional, muchos FQHCs en California están simultáneamente despidiendo trabajadores debido a recortes de fondos de Medi-Cal y reducciones federales bajo H.R. 1. Nuestro rastreador de despidos muestra 2,300+ trabajadores desplazados en 11 organizaciones en todo el estado.",
+          text: "Aquí está la tensión: mientras la contratación en salud está en auge a nivel nacional, muchos FQHCs en California están simultáneamente despidiendo trabajadores debido a recortes de fondos de Medi-Cal y reducciones federales bajo H.R. 1. Los avisos WARN Act de California muestran 2,300+ trabajadores de salud desplazados en 11 organizaciones en todo el estado.",
         },
         {
           type: "paragraph",
@@ -318,17 +318,17 @@ const esContent: ArticleContent = {
       ],
     },
     {
-      heading: "Lo Que Estamos Rastreando",
+      heading: "Tendencias Clave a Observar",
       content: [
         {
           type: "paragraph",
-          text: "En FQHC Talent Exchange, monitoreamos estas tendencias continuamente usando datos de 90 FQHCs de California, 156+ listados de empleo activos, e informes públicos del BLS/HRSA. Esto es lo que estamos observando en Q1 2026:",
+          text: "Basado en datos de empleos de FQHCs en California, informes públicos del BLS/HRSA, y avisos WARN Act, estas son las tendencias clave que están formando la contratación en FQHCs en Q1 2026:",
         },
         {
           type: "list",
           items: [
             "Cifras mensuales de empleo en salud del BLS — ¿se mantendrá el auge de 82,000 empleos de enero en febrero/marzo?",
-            "Actividad de despidos en FQHCs de California — nuestro rastreador muestra 2,300+ trabajadores desplazados; monitoreamos nuevos avisos WARN Act",
+            "Actividad de despidos en FQHCs de California — los avisos WARN Act muestran 2,300+ trabajadores desplazados, con nuevos avisos posibles a medida que los recortes de fondos tomen efecto",
             "Fechas de riesgos de financiamiento de Medi-Cal — eliminación de tasas PPS (Oct 2026), recortes de reembolso dental (Jul 2026), y renovación de exención CalAIM (Dic 2026)",
             "Adopción de facturación Medi-Cal de CHW — ¿cuántos FQHCs están implementando los nuevos códigos de facturación CHW?",
             "Implementación del salario mínimo SB 525 — mínimo de $25/hr para 2027 para FQHCs reestructurará la compensación en todo el sector",
@@ -336,14 +336,14 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Publicamos inteligencia de mercado gratuita — incluyendo riesgos de financiamiento, benchmarks salariales, snapshots regionales y datos de demanda por rol — en nuestro dashboard de Insights. Revísalo regularmente para mantenerte adelante de estas tendencias.",
+          text: "Mantenerse informado/a sobre estas tendencias puede ayudarte a tomar mejores decisiones de carrera — ya sea que estés empleado/a, buscando trabajo, o considerando un cambio a salud comunitaria.",
         },
       ],
     },
   ],
   ctaTitle: "Mantente Adelante de las Tendencias",
   ctaDescription:
-    "Usa nuestras herramientas gratuitas para navegar el panorama de contratación en salud: inteligencia de mercado en vivo, 156+ empleos FQHC, constructor de CV bilingüe, y evaluación profesional — todo diseñado para profesionales de salud comunitaria.",
+    "Navega el panorama de contratación con herramientas gratuitas diseñadas para profesionales de salud comunitaria: empleos FQHC, constructor de CV bilingüe, evaluación profesional, e inteligencia de mercado.",
   ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {
@@ -428,13 +428,13 @@ export default function HealthcareHiringTrendsArticle() {
                 "Healthcare added 82,000 jobs in January 2026 — 63% of all U.S. job growth. Ambulatory care (where FQHCs operate) led with 50,300 new positions.",
                 "The FQHC Workforce Paradox: 70%+ of FQHCs face staffing shortages while California tracks 2,300+ displaced workers — the same roles are being cut at one center and hired at another.",
                 "California CHCs generate 134,000 jobs and $25.5B in economic output. CHW services are now a Medi-Cal billing benefit — a structural shift for sustainable hiring.",
-                "Action items: build your FQHC resume, highlight ECM/CalAIM experience, explore opportunities beyond your county, and track funding cliffs on our Insights dashboard.",
+                "What to do now: tailor your resume for FQHC roles, highlight ECM/CalAIM experience, consider opportunities beyond your county, and stay informed on funding changes that could affect hiring.",
               ]}
               esItems={[
                 "El sector salud añadió 82,000 empleos en enero 2026 — 63% de todo el crecimiento laboral. Atención ambulatoria (donde operan FQHCs) lideró con 50,300 nuevas posiciones.",
                 "La Paradoja FQHC: 70%+ de FQHCs enfrentan escasez de personal mientras California rastrea 2,300+ trabajadores desplazados — los mismos roles se eliminan en un centro y se contratan en otro.",
                 "Los CHCs de California generan 134,000 empleos y $25.5 mil millones. Los servicios de CHW ahora son un beneficio facturable por Medi-Cal — un cambio estructural.",
-                "Acciones: crea tu CV FQHC, destaca experiencia en ECM/CalAIM, explora oportunidades fuera de tu condado, y monitorea riesgos de financiamiento en nuestro dashboard.",
+                "Qué hacer ahora: adapta tu CV para roles FQHC, destaca experiencia en ECM/CalAIM, considera oportunidades fuera de tu condado, y mantente informado/a sobre cambios de financiamiento que podrían afectar la contratación.",
               ]}
             />
 

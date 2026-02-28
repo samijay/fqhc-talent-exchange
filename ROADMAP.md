@@ -1,6 +1,6 @@
 # FQHC Talent Exchange — Product Roadmap & Feature Tracker
 
-*Last updated: 2026-02-20*
+*Last updated: 2026-02-27*
 
 ---
 
@@ -68,6 +68,13 @@ A California where every community health center is fully staffed with professio
 | 50 | **Layoff Tracker Expansion** | Feb 2026 | Added Borrego Health (2021, 218 workers) and LA County DPH (2026, 7 clinic closures). Now 15 entries. |
 | 51 | **Fast-Track Repositioning** | Feb 2026 | Removed "48-hour" promise from 13 files. New hero: "Get Job-Ready". Free tools cards link to resume/assessment/jobs. Priority intake messaging. Updated emails with free tools section. |
 | 52 | **Nav Redesign v2** | Feb 2026 | "For Job Seekers" dropdown (Resume Builder, Career Assessment, Career Roadmap, Certifications, Why FQHC, Priority Intake). "For Employers" dropdown (Post a Job, Team Readiness, Demo, The Drop). CTAs: Find a Job + Hire Talent. |
+| 53 | **Policy & Intel Pipeline** | Feb 2026 | 3 new slash commands: `/scan-policy` (federal/state/local legislative scanner with 10+ source categories), `/intel-brief` (weekly newsletter generator with primary source links for every claim), updated `/daily-update` (added Step 3: Legislative & Policy Scan with 4 parallel searches, policy date tracker, decision rules). |
+| 54 | **Career Resources Catalog** | Feb 2026 | `/resources` — 18 real programs across 5 categories: loan repayment, free training, professional development, union education, state workforce. Primary source URLs, bilingual, cost badges, deadline alerts. |
+| 55 | **Workplace Guides** | Feb 2026 | `/guides` — 9 operational guides across 3 categories (clinical workflows, revenue/billing, programs/compliance). ECM, RN co-visits, BH integration, revenue mechanics, CalAIM, documentation, grant cycles. Primary sources from HRSA/CMS/DHCS/NACHC. |
+| 56 | **FQHC News Intelligence Feed** | Feb 2026 | `fqhc-news-intel.ts` — Curated intelligence data file with 8 categories (legislation, lobbying, patient-story, merger-acquisition, funding, workforce, undocumented-access, change-management). 20 seed items. Updated daily via `/daily-update`. Primary source URLs required. |
+| 57 | **Executive Intelligence Dashboard** | Feb 2026 | `/insights` rewritten — dark stone hero, stat strip, breaking intel feed with category filter tabs, funding cliff countdown, undocumented access watch section, change management playbook, regional market snapshot, collapsible workforce market data, sources index. |
+| 58 | **Intelligence-Led Homepage** | Feb 2026 | Homepage redesign — leads with "California's FQHC Intelligence Platform", breaking intel top 5, funding cliff countdown, two-audience split (Leaders vs Job Seekers), live market data cards, featured FQHCs, latest articles, dual CTA. |
+| 59 | **Enhanced Pipeline Commands** | Feb 2026 | Updated `/daily-update` (Step 3.5: News & Intel Scan with 5 searches, IntelItem output format), updated `/scan-policy` (Step 3.5: Extended Categories — M&A, patient stories, lobbying, undocumented access, change management; Step 5.5: IntelItem generation). |
 
 ---
 
@@ -126,6 +133,11 @@ A California where every community health center is fully staffed with professio
 | 80 | **Offboarding Toolkit Page** | High | Revenue | `/offboarding` — FQHC-facing page: "Turn layoffs into transitions." Free tier (self-serve tools), Managed tier (we intake workers), Premium tier (placement). |
 | 81 | **FQHC Data Enrichment** | Medium | Data | Populate quality scores, violations, labor history for 220 FQHCs from HRSA UDS, CMS, OSHA, NLRB data. |
 | 82 | **HRSA-Import FQHC Enrichment** | Medium | Data | Add missing data (patient/staff counts, programs, EHR, Glassdoor, salary ranges) to 131 HRSA-imported FQHC entries. |
+| 83 | **Newsletter Infrastructure** | High | Engagement | Supabase `newsletter_subscribers` table, `/api/newsletter/subscribe` + `/unsubscribe` routes, footer signup component, preference center. Two tracks: "Intel Brief" (employer) + "The Pulse" (candidate). |
+| 84 | **Newsletter Signup Page** | High | Engagement | `/newsletter` — standalone signup with audience selector (FQHC Leader / Candidate / Both), region preference, role interest. Bilingual. |
+| 85 | **Intel Brief Weekly Template** | High | Content/Revenue | Email template for weekly FQHC Intel Brief: policy analysis, workforce data, market signals, sourced with primary links. Executive-facing. |
+| 86 | **The Pulse Weekly Template** | High | Content | Email template for weekly candidate newsletter: job market summary, policy in plain language, free tool CTAs. Warm/actionable tone. |
+| 87 | **Welcome Drip Sequences** | Medium | Engagement | 5-email candidate sequence (14 days) + 4-email employer sequence (21 days). Post-signup nurture leveraging assessment, tools, market data. |
 
 ---
 
@@ -168,16 +180,19 @@ A California where every community health center is fully staffed with professio
 ### What You Have Today
 
 1. **220 FQHC profiles** — the most comprehensive CA directory (funding vulnerability, union status, programs, EHR, quality scores, labor history)
-2. **177+ job listings** with real salary data + 548 live API-scrapeable jobs across 4 FQHCs
+2. **177+ job listings** with real salary data + 588 live API-scrapeable jobs across 4 FQHCs
 3. **Career assessment** — 5 behavioral domains, role-specific scenarios, transition readiness scoring
 4. **Resume builder** — FQHC-optimized, 8 role templates, 17 languages
 5. **Career roadmap** — 5 tracks, 4 levels, CA salary data with regional multipliers
 6. **Certification catalog** — 15 CA-specific certs with ROI data
 7. **Layoff intelligence** — 15 tracked events, 2,500+ affected workers
-8. **Market intelligence dashboard** — funding cliffs, regional snapshots, role demand, salary intel
-9. **Manager Team Readiness** — B2B lead gen tool (assess your team, then offer to help hire)
+8. **Executive intelligence dashboard** — legislation, funding cliffs, workforce data, undocumented access watch, change management playbook, 20+ curated intel items
+9. **Intelligence-led homepage** — breaking intel, funding cliff countdown, two-audience split (Leaders vs Job Seekers)
+10. **Manager Team Readiness** — B2B lead gen tool (assess your team, then offer to help hire)
 10. **The Drop** — exclusive matching program with waitlists
 11. **Interactive demo** at `/demo` for sharing with prospects
+12. **Policy & intel pipeline** — 6 slash commands: `/daily-update` (WARN + jobs + policy scan), `/scan-policy` (deep legislative dive), `/intel-brief` (newsletter generator), `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
+13. **FQHC Intel Brief** — weekly executive briefing template with primary source links, cross-referenced against our proprietary data
 
 ### Two-Track GTM
 
@@ -276,3 +291,17 @@ The platform is strong. The data is unique. The tools are real. What's needed is
 - [ ] HRSA UDS quality data integration for 220 FQHCs (clinical quality, patient satisfaction scores)
 - [ ] NLRB complaint data integration for labor history tracking
 - [ ] OSHA violation data integration for workplace safety tracking
+- [x] ~~Policy & intel pipeline (3 slash commands: /scan-policy, /intel-brief, daily-update Step 3)~~ — Built!
+- [ ] Newsletter signup in footer (email input on every page, feeds Supabase table)
+- [ ] Post-assessment email capture ("Email my results + get weekly insights")
+- [ ] Post-resume download email capture ("Get career tips in your inbox")
+- [ ] Blog inline newsletter CTA (teal callout box mid-article)
+- [ ] Exit-intent on /jobs ("Get new FQHC jobs in your inbox every Wednesday")
+- [ ] Newsletter preference center page (`/newsletter/preferences`)
+- [ ] Resend audience segments (candidate, employer, displaced, drop)
+- [ ] CPCA legislative alert RSS/feed monitoring
+- [ ] DHCS All Plan Letters (APL) automated scanner for FQHC-relevant bulletins
+- [ ] County Board of Supervisors agenda scanner (Alameda, LA, San Diego, SF)
+- [ ] CMS Medicaid.gov rule monitoring for provider payment changes
+- [ ] Congressional bill tracker for CHCF reauthorization
+- [ ] "Intel Brief" as a standalone paid product ($50-100/mo for non-subscribers)

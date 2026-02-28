@@ -155,6 +155,32 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/resources` },
   },
+  insights: {
+    title:
+      "FQHC Executive Dashboard | Market Intelligence, Policy Tracking & Workforce Data",
+    description:
+      "Real-time intelligence for FQHC executives — legislation tracking, funding cliff countdowns, workforce displacement data, undocumented access policy watch, and change management strategy for California community health centers.",
+    openGraph: {
+      title: "FQHC Executive Intelligence Dashboard",
+      description:
+        "Legislation, funding, workforce, and strategy — what California FQHC leaders need to know today.",
+      url: `${SITE_URL}/insights`,
+    },
+    alternates: { canonical: `${SITE_URL}/insights` },
+  },
+  guides: {
+    title:
+      "FQHC Workplace Guides | Clinical Workflows, Billing & Revenue for Health Center Workers",
+    description:
+      "Practical how-to guides for FQHC workers — ECM workflows, RN co-visit billing, PPS revenue mechanics, CalAIM programs, and documentation standards. Primary sources from HRSA, CMS, and DHCS.",
+    openGraph: {
+      title: "Workplace Guides — FQHC Talent Exchange",
+      description:
+        "How ECM works, how billing works, and how your role drives revenue at an FQHC. Practical guides with primary sources.",
+      url: `${SITE_URL}/guides`,
+    },
+    alternates: { canonical: `${SITE_URL}/guides` },
+  },
   privacy: {
     title: "Privacy Policy | FQHC Talent Exchange",
     description:
