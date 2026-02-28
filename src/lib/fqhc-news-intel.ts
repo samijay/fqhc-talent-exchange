@@ -594,6 +594,44 @@ export const INTEL_ITEMS: IntelItem[] = [
     tags: ["undocumented", "communication", "patient-retention", "immigration"],
   },
   {
+    id: "la-county-dph-7-clinics-closing",
+    date: "2026-02-13",
+    headline: {
+      en: "LA County Public Health Closing 7 Clinics — $50M in Federal, State, and Local Cuts",
+      es: "Salud Pública del Condado de LA Cierra 7 Clínicas — $50M en Recortes Federales, Estatales y Locales",
+    },
+    summary: {
+      en: "Los Angeles County Department of Public Health announced closures of 7 clinics effective February 27, 2026, citing over $50 million in cumulative federal, state, and local funding cuts. Clinics closing include Antelope Valley, Curtis R. Tucker (Inglewood), Pomona, Hollywood Wilshire, Torrance, and two LA locations. Services affected include STI testing, vaccinations, and tuberculosis treatment. Federal funding accounts for approximately 50% of the department's budget. Patients are being redirected to remaining facilities — increased demand on nearby FQHCs is likely.",
+      es: "El Departamento de Salud Pública del Condado de Los Ángeles anunció el cierre de 7 clínicas el 27 de febrero de 2026, citando más de $50 millones en recortes acumulados. Los servicios afectados incluyen pruebas de ITS, vacunaciones y tratamiento de tuberculosis. Es probable que aumente la demanda en FQHCs cercanos.",
+    },
+    category: "funding",
+    impactLevel: "high",
+    sourceUrl: "https://www.cbsnews.com/losangeles/news/funding-cuts-los-angeles-county-public-health-closing-clinics/",
+    sourceOrg: "CBS News Los Angeles",
+    region: "Los Angeles",
+    tags: ["clinic-closures", "public-health", "la-county", "federal-cuts", "patient-redirect"],
+  },
+  {
+    id: "cchc-nevada-expansion",
+    date: "2026-02-19",
+    headline: {
+      en: "Comprehensive Community Health Centers (CCHC) Expands to Nevada — First Out-of-State FQHC Move",
+      es: "Comprehensive Community Health Centers (CCHC) Se Expande a Nevada — Primera Expansión Fuera del Estado",
+    },
+    summary: {
+      en: "CCHC, a California FQHC with 6 clinics across LA County and the San Fernando Valley, opened a new clinic in Las Vegas, Nevada — marking its first out-of-state expansion. CCHC grew from 45,000 visits in 2004 to over 177,000 in 2023. The expansion signals California FQHCs seeking growth beyond state lines as in-state financial pressures mount. Location: 1250 S. Buffalo Drive, Suite 170, Las Vegas.",
+      es: "CCHC, un FQHC de California con 6 clínicas en el Condado de LA, abrió una nueva clínica en Las Vegas, Nevada — su primera expansión fuera del estado. CCHC creció de 45,000 visitas en 2004 a más de 177,000 en 2023.",
+    },
+    category: "merger-acquisition",
+    impactLevel: "medium",
+    sourceUrl: "https://www.prnewswire.com/news-releases/comprehensive-community-health-centers-opens-new-location-in-las-vegas-nevada-302692574.html",
+    sourceOrg: "PR Newswire",
+    region: "California",
+    affectedOrgs: ["Comprehensive Community Health Centers"],
+    affectedOrgSlugs: ["comprehensive-community-health-centers"],
+    tags: ["expansion", "nevada", "out-of-state", "growth-strategy"],
+  },
+  {
     id: "strategy-copay-exemption-advantage",
     date: "2026-02-27",
     headline: {

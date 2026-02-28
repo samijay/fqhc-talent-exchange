@@ -35,40 +35,40 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     fqhcSlug: "altamed-health-services",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-02-27",
+    lastChecked: "2026-02-28",
     atsApiUrl:
       "https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs",
     notes:
-      "Largest FQHC in CA. 234 jobs found 2026-02-27 (prev 231). Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}. Job details: GET /wday/cxs/altamed/Careers{externalPath}. Salary in jobDescription HTML.",
+      "Largest FQHC in CA. 234 jobs found 2026-02-28 (prev 234, stable). Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}. Job details: GET /wday/cxs/altamed/Careers{externalPath}. Salary in jobDescription HTML.",
   },
   {
     fqhcSlug: "family-health-centers-of-san-diego",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-02-27",
+    lastChecked: "2026-02-28",
     atsApiUrl:
       "https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs",
     notes:
-      "149 jobs found 2026-02-27 (prev 155). Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
+      "149 jobs found 2026-02-28 (prev 149, stable). Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
   },
   {
     fqhcSlug: "asian-health-services",
     scrapeable: true,
     atsType: "lever",
-    lastChecked: "2026-02-27",
+    lastChecked: "2026-02-28",
     atsApiUrl: "https://api.lever.co/v0/postings/ahschc?mode=json",
     notes:
-      "22 jobs found 2026-02-27 (prev 23). Lever slug is 'ahschc'. Returns JSON array of job objects with text, categories, description, lists, hostedUrl.",
+      "22 jobs found 2026-02-28 (prev 22, stable). Lever slug is 'ahschc'. Returns JSON array of job objects with text, categories, description, lists, hostedUrl.",
   },
   {
     fqhcSlug: "la-clinica-de-la-raza",
     scrapeable: true,
     atsType: "direct",
-    lastChecked: "2026-02-27",
+    lastChecked: "2026-02-28",
     atsApiUrl:
       "http://laclinica.hrmdirect.com/employment/job-openings.php?search=true&dept=-1&city=-1&state=-1",
     notes:
-      "172 jobs found 2026-02-27 (prev 173). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
+      "172 jobs found 2026-02-28 (prev 172, stable). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
   },
 
   // ── ADP Workforce Now (JS-only, not scrapeable) ── ❌

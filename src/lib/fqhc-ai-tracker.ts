@@ -288,6 +288,100 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
   },
 
   {
+    id: "athenahealth-free-ambient-ai",
+    title: {
+      en: "athenahealth Launches Free Ambient AI Scribe for All Customers",
+      es: "athenahealth Lanza Escriba Ambiental de IA Gratuita para Todos los Clientes",
+    },
+    description: {
+      en: "athenahealth introduced athenaAmbient, a free AI scribe included in standard athenaOne software updates at no additional cost. The digital scribe listens to patient conversations and automatically drafts diagnoses, prescriptions, and clinical notes. Also launched: Sage, an AI clinical copilot that surfaces patient insights and answers chart questions. User testing began February 2026. This is significant for FQHCs — many use athenahealth as their EHR, and the zero-cost model removes the budget barrier that has prevented smaller health centers from adopting ambient AI.",
+      es: "athenahealth introdujo athenaAmbient, un escriba de IA gratuito incluido en actualizaciones estándar de athenaOne. El escriba digital escucha conversaciones con pacientes y redacta automáticamente diagnósticos, recetas y notas clínicas. Las pruebas de usuario comenzaron en febrero de 2026. Significativo para FQHCs que usan athenahealth como EHR — el costo cero elimina la barrera presupuestaria.",
+    },
+    category: "clinical-documentation",
+    vendor: "athenahealth",
+    partnership: null,
+    metrics: [
+      { label: "Cost to Customers", value: "$0 (included)" },
+      { label: "User Testing Start", value: "February 2026" },
+    ],
+    adoptionStage: "expanding",
+    sourceUrl: "https://www.digitalhealthnews.com/athenahealth-introduces-ambient-scribe-ai-copilot-for-ehr-users",
+    sourceOrg: "Digital Health News",
+    date: "2026-02-01",
+    tags: ["ambient-ai", "free", "ehr-integrated", "athenahealth", "zero-cost"],
+  },
+  {
+    id: "nextgen-ambient-assist-rural-fqhcs",
+    title: {
+      en: "NextGen Ambient Assist Eliminates 'Pajama Time' at Two Rural FQHCs",
+      es: "NextGen Ambient Assist Elimina 'Tiempo en Pijama' en Dos FQHCs Rurales",
+    },
+    description: {
+      en: "Juniper Health and White House Clinics, two rural Kentucky FQHCs, reported near-instant elimination of after-hours charting ('pajama time') after deploying NextGen Healthcare's Ambient Assist. Clinicians who previously spent 2-3 hours nightly on documentation reclaimed evenings. Patient net promoter scores hit all-time highs. The providers most struggling with documentation became the strongest AI advocates. Critically, the relief stabilized workforce retention and reduced early retirements — a key lesson for rural FQHCs facing burnout-driven turnover.",
+      es: "Juniper Health y White House Clinics, dos FQHCs rurales de Kentucky, reportaron eliminación casi instantánea de la documentación después del horario laboral tras implementar NextGen Ambient Assist. Médicos que pasaban 2-3 horas nocturnas en documentación recuperaron sus noches. Las puntuaciones NPS alcanzaron máximos históricos.",
+    },
+    category: "clinical-documentation",
+    vendor: "NextGen Healthcare",
+    partnership: null,
+    metrics: [
+      { label: "After-Hours Charting", value: "Eliminated" },
+      { label: "Patient NPS", value: "All-time high" },
+      { label: "Previous Pajama Time", value: "2-3 hrs/night" },
+    ],
+    adoptionStage: "expanding",
+    sourceUrl: "https://www.healthcareittoday.com/2026/02/10/how-nextgen-healthcares-ambient-ai-helped-two-clinics-break-the-cycle-of-pajama-time/",
+    sourceOrg: "Healthcare IT Today",
+    date: "2026-02-10",
+    tags: ["ambient-ai", "rural-fqhc", "burnout", "pajama-time", "workforce-retention"],
+  },
+  {
+    id: "neighborhood-healthcare-nabla-ai",
+    title: {
+      en: "Neighborhood Healthcare (CA FQHC) Pilots Nabla Ambient AI Across 30 Facilities",
+      es: "Neighborhood Healthcare (FQHC de CA) Pilota Nabla IA Ambiental en 30 Instalaciones",
+    },
+    description: {
+      en: "Neighborhood Healthcare, a California FQHC facilitating over 500,000 medical, dental, and behavioral health visits across 30 facilities, deployed Nabla's ambient AI scribe to reduce after-hours documentation burden. Staff embraced the tool, and patients were comfortable with the technology — only a handful expressed data privacy concerns. Clinicians address these by explaining that conversation data stays in the cloud briefly before being deleted. For an FQHC of this scale, the investment in ambient AI appears to deliver strong ROI in clinician satisfaction and retention.",
+      es: "Neighborhood Healthcare, un FQHC de California con más de 500,000 visitas en 30 instalaciones, implementó el escriba de IA ambiental de Nabla para reducir la carga de documentación. El personal adoptó la herramienta y los pacientes se mostraron cómodos con la tecnología.",
+    },
+    category: "clinical-documentation",
+    vendor: "Nabla",
+    partnership: null,
+    metrics: [
+      { label: "Annual Visits", value: "500,000+" },
+      { label: "Facilities", value: "30" },
+      { label: "Patient Comfort", value: "High acceptance" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.techtarget.com/healthtechanalytics/feature/How-an-FQHC-is-using-ambient-AI-to-reduce-clinician-burden",
+    sourceOrg: "TechTarget",
+    date: "2026-02-15",
+    tags: ["ambient-ai", "california-fqhc", "nabla", "patient-acceptance", "large-scale"],
+  },
+  {
+    id: "epic-ai-charting-launch",
+    title: {
+      en: "Epic Launches AI Charting — Potential Disruption to Ambient Scribe Market",
+      es: "Epic Lanza AI Charting — Posible Disrupción del Mercado de Escribas Ambientales",
+    },
+    description: {
+      en: "Epic Systems announced details of its AI Charting feature in February 2026, potentially disrupting the standalone ambient scribe market. Several health systems began piloting the tools. For FQHCs using OCHIN Epic or other Epic instances, this could mean ambient AI documentation becomes available directly within their existing EHR at no additional vendor cost. At ViVE 2026 (Feb 26), conference attendees noted that 'the excitement over scribes has died down' as the market matures from novelty to standard feature — signaling AI documentation is becoming table stakes for EHR vendors.",
+      es: "Epic Systems anunció detalles de su función AI Charting en febrero de 2026, potencialmente disrumpiendo el mercado de escribas ambientales independientes. Para FQHCs que usan OCHIN Epic, esto podría significar documentación de IA ambiental disponible directamente en su EHR existente. En ViVE 2026, los asistentes notaron que la IA de documentación se está convirtiendo en una función estándar.",
+    },
+    category: "clinical-documentation",
+    vendor: "Epic Systems",
+    partnership: null,
+    metrics: [
+      { label: "Market Signal", value: "AI becoming table stakes" },
+      { label: "FQHC Relevance", value: "OCHIN Epic users" },
+    ],
+    adoptionStage: "expanding",
+    sourceUrl: "https://www.statnews.com/2026/02/04/epic-ai-charting-ambient-scribe-abridge-microsoft/",
+    sourceOrg: "STAT News",
+    date: "2026-02-04",
+    tags: ["epic", "ehr-native", "market-disruption", "ochin", "vive-2026"],
+  },
+  {
     id: "rapidclaims-fqhc-rcm",
     title: {
       en: "RapidClaims: AI-Powered FQHC Revenue Cycle — 98% Clean Claim Rate",
