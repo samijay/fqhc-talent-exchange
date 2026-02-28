@@ -8,41 +8,40 @@ export default function Footer() {
   const t = useTranslations("footer");
 
   const footerLinks = {
-    [t("forJobSeekers")]: [
-      { href: "/jobs" as const, label: t("browseJobs") },
-      { href: "/resume-builder" as const, label: t("buildResume") },
-      { href: "/join" as const, label: t("joinNetwork") },
-      { href: "/fast-track" as const, label: t("fastTrack") },
-      { href: "/layoffs" as const, label: t("layoffTracker") },
+    [t("strategy")]: [
+      { href: "/strategy/guides" as const, label: t("executiveGuides") },
+      { href: "/strategy/okrs" as const, label: t("okrTemplates") },
+      { href: "/strategy/case-studies" as const, label: t("caseStudies") },
       { href: "/funding-impact" as const, label: t("fundingImpact") },
-      { href: "/why-fqhc" as const, label: t("whyFqhc") },
-      { href: "/insights" as const, label: t("insights") },
+    ],
+    [t("intelligence")]: [
+      { href: "/insights" as const, label: t("dashboard") },
+      { href: "/ai-tracker" as const, label: t("aiTracker") },
+      { href: "/layoffs" as const, label: t("layoffTracker") },
+      { href: "/blog" as const, label: t("blog") },
+    ],
+    [t("tools")]: [
+      { href: "/jobs" as const, label: t("browseJobs") },
+      { href: "/directory" as const, label: t("fqhcDirectory") },
+      { href: "/resume-builder" as const, label: t("resumeBuilder") },
+      { href: "/career-insights" as const, label: t("careerAssessment") },
       { href: "/career-roadmap" as const, label: t("careerRoadmap") },
       { href: "/certifications" as const, label: t("certifications") },
-      { href: "/career-insights" as const, label: t("careerAssessment") },
-      { href: "/our-assessment" as const, label: t("ourAssessment") },
       { href: "/resources" as const, label: t("careerResources") },
-    ],
-    [t("forEmployers")]: [
-      { href: "/hire" as const, label: t("hireTalent") },
+      { href: "/guides" as const, label: t("guides") },
       { href: "/team-readiness" as const, label: t("teamReadiness") },
-      { href: "/job-posting-builder" as const, label: t("jobPostingBuilder") },
-      { href: "/directory" as const, label: t("fqhcDirectory") },
-      { href: "/demo" as const, label: t("demo") },
-      { href: "/the-drop" as const, label: t("theDrop") },
-      { href: "/for-employers" as const, label: t("whyFqhcTalent") },
+      { href: "/fast-track" as const, label: t("fastTrack") },
     ],
     [t("company")]: [
       { href: "/about" as const, label: t("aboutUs") },
-      { href: "/blog" as const, label: t("blog") },
-      { href: "/resources" as const, label: t("careerResources") },
+      { href: "/newsletter" as const, label: t("newsletter") },
     ],
   };
 
   return (
     <footer className="border-t border-stone-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
           {/* Logo & description */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">

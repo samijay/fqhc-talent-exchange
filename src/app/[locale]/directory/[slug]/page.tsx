@@ -20,6 +20,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { californiaFQHCs, fqhcSalaryRanges, typicalFqhcBenefits } from "@/lib/california-fqhcs";
 import { fqhcJobListings } from "@/lib/fqhc-job-listings";
+import { getIntelForFQHC, IMPACT_BORDER, IMPACT_LABELS } from "@/lib/fqhc-news-intel";
+import { getCaseStudiesForFQHC } from "@/lib/fqhc-case-studies";
 
 /* ------------------------------------------------------------------ */
 /*  Static Params                                                      */
@@ -77,6 +79,8 @@ export default async function FQHCProfilePage({
 
   const t = await getTranslations("directory");
   const jobs = fqhcJobListings.filter((j) => j.fqhcSlug === slug);
+  const relatedIntel = getIntelForFQHC(slug);
+  const relatedCaseStudies = getCaseStudiesForFQHC(slug);
 
   return (
     <div className="bg-stone-50">
@@ -272,7 +276,86 @@ export default async function FQHCProfilePage({
               )}
             </div>
 
-            {/* Salary Ranges */}
+            {/* Related Intelligence */}
+            {relatedIntel.length > 0 && (
+              <div className="rounded-xl border border-stone-200 bg-white p-6">
+                <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+                  <Shield className="size-5" />
+                  {locale === "es" ? "Inteligencia Relacionada" : "Related Intelligence"}
+                </h2>
+                <div className="mt-4 space-y-3">
+                  {relatedIntel.map((item) => (
+                    <div
+                      key={item.id}
+                      className={`rounded-lg border border-stone-200 border-l-4 ${IMPACT_BORDER[item.impactLevel]} p-4`}
+                    >
+                      <div className="flex items-center gap-1.5 mb-1">
+                        <Badge variant="outline" className="text-[10px] font-semibold">
+                          {locale === "es"
+                            ? IMPACT_LABELS[item.impactLevel].es
+                            : IMPACT_LABELS[item.impactLevel].en}
+                        </Badge>
+                        <span className="text-[11px] text-stone-400">
+                          {new Date(item.date + "T00:00:00").toLocaleDateString(
+                            locale === "es" ? "es-US" : "en-US",
+                            { month: "short", day: "numeric" }
+                          )}
+                        </span>
+                      </div>
+                      <h3 className="text-sm font-semibold text-stone-800">
+                        {locale === "es" ? item.headline.es : item.headline.en}
+                      </h3>
+                      <p className="mt-1 text-xs text-stone-500 line-clamp-2">
+                        {locale === "es" ? item.summary.es : item.summary.en}
+                      </p>
+                      <a
+                        href={item.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 inline-block text-xs text-teal-700 hover:text-teal-900 hover:underline"
+                      >
+                        {item.sourceOrg} →
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Related Case Studies */}
+            {relatedCaseStudies.length > 0 && (
+              <div className="rounded-xl border border-stone-200 bg-white p-6">
+                <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+                  <Heart className="size-5" />
+                  {locale === "es" ? "Estudios de Caso" : "Case Studies"}
+                </h2>
+                <div className="mt-4 space-y-3">
+                  {relatedCaseStudies.map((cs) => (
+                    <div key={cs.id} className="rounded-lg border border-stone-200 p-4">
+                      <h3 className="text-sm font-bold text-stone-900">{cs.fqhcName}</h3>
+                      <p className="mt-1 text-xs text-stone-500 line-clamp-2">
+                        {locale === "es" ? cs.challenge.es : cs.challenge.en}
+                      </p>
+                      <div className="mt-2 flex flex-wrap gap-1.5">
+                        {cs.outcomes.slice(0, 2).map((o) => (
+                          <span key={o.metric} className="text-xs bg-green-50 text-green-800 px-2 py-0.5 rounded-full">
+                            {o.value}
+                          </span>
+                        ))}
+                      </div>
+                      <Link
+                        href="/strategy/guides"
+                        className="mt-2 inline-block text-xs font-medium text-teal-700 hover:underline"
+                      >
+                        {locale === "es" ? "Ver guía completa" : "View full guide"} →
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Salary Ranges — moved below intel/case studies */}
             <div className="rounded-xl border border-stone-200 bg-white p-6">
               <h2 className="text-lg font-bold text-stone-900">
                 {t("salaryRangesAt", { name: fqhc.name })}
@@ -382,25 +465,7 @@ export default async function FQHCProfilePage({
               </div>
             </div>
 
-            {/* Benefits */}
-            <div className="rounded-xl border border-stone-200 bg-white p-6">
-              <h3 className="font-semibold text-stone-900">
-                {t("benefitsAt", { name: fqhc.name })}
-              </h3>
-              <ul className="mt-4 space-y-2">
-                {typicalFqhcBenefits.map((benefit) => (
-                  <li
-                    key={benefit}
-                    className="flex items-start gap-2 text-sm text-stone-600"
-                  >
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-teal-600" />
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Funding Vulnerability */}
+            {/* Funding Vulnerability — moved above benefits */}
             {fqhc.coverageVulnerabilityPercent !== null && (
               <div className={`rounded-xl border p-6 ${
                 fqhc.fundingImpactLevel === "high"
@@ -466,6 +531,24 @@ export default async function FQHCProfilePage({
                 </div>
               </div>
             )}
+
+            {/* Benefits — moved below funding vulnerability */}
+            <div className="rounded-xl border border-stone-200 bg-white p-6">
+              <h3 className="font-semibold text-stone-900">
+                {t("benefitsAt", { name: fqhc.name })}
+              </h3>
+              <ul className="mt-4 space-y-2">
+                {typicalFqhcBenefits.map((benefit) => (
+                  <li
+                    key={benefit}
+                    className="flex items-start gap-2 text-sm text-stone-600"
+                  >
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-teal-600" />
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             {/* CTA: Build Resume */}
             <div className="rounded-xl border border-teal-200 bg-teal-50 p-6 text-center">

@@ -31,6 +31,7 @@ export interface IntelItem {
   sourceOrg: string;
   region: string; // "California" | "Federal" | county name
   affectedOrgs?: string[];
+  affectedOrgSlugs?: string[]; // Slugs from california-fqhcs.ts for linking to /directory/[slug]
   tags: string[];
 }
 
@@ -187,8 +188,8 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "legislation",
     impactLevel: "high",
-    sourceUrl: "https://calmatters.org/health/2026/02/california-undocumented-healthcare/",
-    sourceOrg: "CalMatters",
+    sourceUrl: "https://health-access.org/senator-durazo-and-assemblymember-arambula-introduce-medi-cal-access-restoration-act-to-reverse-enrollment-freeze-for-undocumented-californians/",
+    sourceOrg: "Health Access California",
     region: "California",
     tags: ["undocumented", "medi-cal", "enrollment-freeze", "restoration"],
   },
@@ -209,7 +210,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "undocumented-access",
     impactLevel: "critical",
-    sourceUrl: "https://calmatters.org/health/2025/01/medi-cal-undocumented-immigrants/",
+    sourceUrl: "https://calmatters.org/health/2025/05/newsom-freeze-medi-cal-undocumented-immigrants/",
     sourceOrg: "CalMatters",
     region: "California",
     tags: ["undocumented", "medi-cal", "enrollment-freeze", "revenue-impact"],
@@ -227,8 +228,8 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "undocumented-access",
     impactLevel: "critical",
-    sourceUrl: "https://www.cafp.org/advocacy/budget",
-    sourceOrg: "CA Academy of Family Physicians",
+    sourceUrl: "https://www.dhcs.ca.gov/Medi-Cal/Pages/immigration-status-categories.aspx",
+    sourceOrg: "CA DHCS",
     region: "California",
     tags: ["undocumented", "dental", "medi-cal", "revenue-impact"],
   },
@@ -263,7 +264,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "undocumented-access",
     impactLevel: "high",
-    sourceUrl: "https://www.kff.org/medicaid/issue-brief/implications-of-medicaid-provisions-in-house-budget-reconciliation-bill/",
+    sourceUrl: "https://www.kff.org/medicaid/health-provisions-in-the-2025-federal-budget-reconciliation-law/",
     sourceOrg: "KFF",
     region: "Federal",
     tags: ["copay-exemption", "competitive-advantage", "patient-retention"],
@@ -347,10 +348,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "workforce",
     impactLevel: "high",
-    sourceUrl: "https://news.santaclaracounty.gov",
+    sourceUrl: "https://news.santaclaracounty.gov/board-supervisors-takes-mid-year-budget-action-offset-federal-funding-cuts-impacting-critical",
     sourceOrg: "Santa Clara County",
     region: "Santa Clara County",
     affectedOrgs: ["Santa Clara Valley Medical Center"],
+    affectedOrgSlugs: [],
     tags: ["layoffs", "county-cuts", "budget-deficit"],
   },
   {
@@ -370,6 +372,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CA EDD WARN Act",
     region: "Los Angeles County",
     affectedOrgs: ["L.A. Care Health Plan"],
+    affectedOrgSlugs: [],
     tags: ["layoffs", "managed-care", "warn-act", "ecm-impact"],
   },
   {
@@ -389,6 +392,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Alameda Health System",
     region: "Alameda County",
     affectedOrgs: ["Alameda Health System"],
+    affectedOrgSlugs: [],
     tags: ["layoffs", "dsh-funding", "public-hearing"],
   },
   {
@@ -404,7 +408,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "lobbying",
     impactLevel: "high",
-    sourceUrl: "https://www.nachc.org/research-and-data/",
+    sourceUrl: "https://www.nachc.org/policy-advocacy/policy-priorities/health-center-workforce/",
     sourceOrg: "NACHC",
     region: "Federal",
     tags: ["workforce-shortage", "vacancy-rates", "work-requirements"],
@@ -427,6 +431,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CA EDD WARN Act",
     region: "Santa Clara County",
     affectedOrgs: ["Indian Health Center of Santa Clara Valley"],
+    affectedOrgSlugs: ["indian-health-center-of-santa-clara-valley"],
     tags: ["closure", "fqhc", "warn-act", "native-american", "tribal-health"],
   },
   {
@@ -442,7 +447,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "workforce",
     impactLevel: "high",
-    sourceUrl: "https://www.kvpr.org/health/2026-02-10/san-joaquin-valley-clinics-federal-cuts",
+    sourceUrl: "https://www.kvpr.org/health/2026-02-10/valley-hospitals-clinics-brace-for-financial-tsunami-threatening-health-care-access",
     sourceOrg: "KVPR (Valley Public Radio)",
     region: "Central Valley",
     tags: ["central-valley", "farmworkers", "medi-cal", "financial-distress"],
@@ -464,7 +469,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "merger-acquisition",
     impactLevel: "medium",
-    sourceUrl: "https://www.kaufmanhall.com/insights/research-report/2025-healthcare-ma-review",
+    sourceUrl: "https://www.kaufmanhall.com/insights/research-report/hospital-and-health-system-2025-ma-review-uncertainty-transitions-continue",
     sourceOrg: "Kaufman Hall",
     region: "Federal",
     tags: ["mergers", "financial-distress", "consolidation", "patient-volume"],
@@ -486,6 +491,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "United Health Centers",
     region: "Central Valley",
     affectedOrgs: ["United Health Centers of the San Joaquin Valley"],
+    affectedOrgSlugs: ["united-health-centers"],
     tags: ["ipa", "revenue-diversification", "managed-care", "capitation"],
   },
   {
@@ -505,6 +511,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Modern Healthcare",
     region: "Los Angeles County",
     affectedOrgs: ["Prospect Medical Holdings"],
+    affectedOrgSlugs: [],
     tags: ["private-equity", "closures", "patient-displacement"],
   },
 
@@ -542,7 +549,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "change-management",
     impactLevel: "high",
-    sourceUrl: "https://www.nachc.org/focus-areas/policy-and-advocacy/undocumented-patients/",
+    sourceUrl: "https://www.nachc.org/policy-advocacy/policy-priorities/health-center-workforce/",
     sourceOrg: "NACHC",
     region: "California",
     tags: ["undocumented", "chw", "outreach", "enrollment-freeze"],
@@ -560,7 +567,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "change-management",
     impactLevel: "high",
-    sourceUrl: "https://www.nachc.org/resource/fqhc-billing-and-finance/",
+    sourceUrl: "https://www.nachc.org/wp-content/uploads/2026/01/policy-papers_chc-workforce_jan-2026.pdf",
     sourceOrg: "NACHC",
     region: "California",
     tags: ["340b", "grants", "mco", "revenue", "co-visit"],
@@ -578,7 +585,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "change-management",
     impactLevel: "critical",
-    sourceUrl: "https://www.nachc.org/focus-areas/policy-and-advocacy/undocumented-patients/",
+    sourceUrl: "https://www.nachc.org/policy-advocacy/policy-priorities/health-center-workforce/",
     sourceOrg: "NACHC",
     region: "California",
     tags: ["undocumented", "communication", "patient-retention", "immigration"],
@@ -596,7 +603,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "change-management",
     impactLevel: "high",
-    sourceUrl: "https://www.kff.org/medicaid/issue-brief/implications-of-medicaid-provisions-in-house-budget-reconciliation-bill/",
+    sourceUrl: "https://www.kff.org/medicaid/health-provisions-in-the-2025-federal-budget-reconciliation-law/",
     sourceOrg: "KFF",
     region: "Federal",
     tags: ["copay-exemption", "patient-acquisition", "competitive-advantage"],
@@ -661,6 +668,13 @@ export function getIntelSources(): { org: string; url: string }[] {
     seen.add(i.sourceUrl);
     return true;
   }).map((i) => ({ org: i.sourceOrg, url: i.sourceUrl }));
+}
+
+/** Get intel items for a specific FQHC by directory slug */
+export function getIntelForFQHC(slug: string): IntelItem[] {
+  return [...INTEL_ITEMS]
+    .filter((i) => i.affectedOrgSlugs?.includes(slug))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 /** Get counts by category */

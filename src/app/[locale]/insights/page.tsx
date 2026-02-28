@@ -136,7 +136,7 @@ function IntelCard({ item, locale }: { item: IntelItem; locale: string }) {
           <p className="mt-1.5 text-sm text-stone-600 leading-relaxed">
             {t(item.summary, locale)}
           </p>
-          {item.affectedOrgs && item.affectedOrgs.length > 0 && (
+          {item.affectedOrgs && item.affectedOrgs.length > 0 && !item.affectedOrgSlugs?.length && (
             <div className="mt-2 flex flex-wrap gap-1">
               {item.affectedOrgs.map((org) => (
                 <span
@@ -149,18 +149,30 @@ function IntelCard({ item, locale }: { item: IntelItem; locale: string }) {
             </div>
           )}
         </div>
+      </div>
+      <div className="mt-2 flex items-center justify-between">
+        <div className="flex flex-wrap gap-1">
+          {item.affectedOrgSlugs?.map((slug, i) => {
+            const org = item.affectedOrgs?.[i];
+            return slug ? (
+              <Link
+                key={slug}
+                href={`/directory/${slug}` as "/directory"}
+                className="text-[10px] bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full hover:bg-teal-100 hover:underline transition-colors"
+              >
+                {org}
+              </Link>
+            ) : null;
+          })}
+        </div>
         <a
           href={item.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-shrink-0 text-stone-400 hover:text-teal-600 transition-colors"
-          title={item.sourceOrg}
+          className="text-xs text-teal-700 hover:text-teal-900 hover:underline transition-colors"
         >
-          <ExternalLink className="h-4 w-4" />
+          {item.sourceOrg} →
         </a>
-      </div>
-      <div className="mt-2 text-[11px] text-stone-400">
-        {isEs ? "Fuente" : "Source"}: {item.sourceOrg}
       </div>
     </div>
   );
@@ -684,40 +696,40 @@ export default function InsightsPage() {
           <div className="rounded-2xl bg-gradient-to-r from-stone-800 to-stone-900 p-8 text-white">
             <h2 className="text-2xl font-bold">
               {isEs
-                ? "Inteligencia que impulsa decisiones"
-                : "Intelligence that drives decisions"}
+                ? "De la inteligencia a la acción"
+                : "From Intelligence to Action"}
             </h2>
             <p className="mt-2 text-stone-300 max-w-lg mx-auto">
               {isEs
-                ? "Desde inteligencia de mercado hasta herramientas de contratación — todo lo que los líderes de FQHC necesitan."
-                : "From market intelligence to hiring tools — everything FQHC leaders need."}
+                ? "Guías ejecutivas, plantillas OKR, y rastreador de IA para convertir esta inteligencia en estrategia."
+                : "Executive guides, OKR templates, and AI tracker to turn this intelligence into strategy."}
             </p>
             <div className="mt-5 flex flex-wrap justify-center gap-3">
-              <Link href="/hire">
+              <Link href="/strategy/guides">
                 <Button
                   size="lg"
                   className="bg-amber-500 text-stone-900 hover:bg-amber-400 font-semibold"
                 >
-                  {isEs ? "Contratar Talento" : "Hire Talent"}
+                  {isEs ? "Guías Ejecutivas" : "Executive Guides"}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link href="/layoffs">
+              <Link href="/strategy/okrs">
                 <Button
                   size="lg"
                   variant="outline"
                   className="border-white/30 text-white hover:bg-white/10 font-semibold"
                 >
-                  {isEs ? "Rastreador de Despidos" : "Layoff Tracker"}
+                  {isEs ? "Plantillas OKR" : "OKR Templates"}
                 </Button>
               </Link>
-              <Link href="/jobs">
+              <Link href="/ai-tracker">
                 <Button
                   size="lg"
                   variant="outline"
                   className="border-white/30 text-white hover:bg-white/10 font-semibold"
                 >
-                  {isEs ? "Ver Empleos" : "Browse Jobs"}
+                  {isEs ? "Rastreador de IA" : "AI Tracker"}
                 </Button>
               </Link>
             </div>

@@ -160,9 +160,76 @@ For each significant finding, create an IntelItem entry:
 
 ---
 
+## Step 3.6: AI & Innovation Scan
+
+Run 3 web searches to track AI adoption at FQHCs for the AI Tracker (`fqhc-ai-tracker.ts`):
+
+### Search Queries (run all 3):
+
+1. **FQHC AI implementation:** `FQHC "artificial intelligence" OR "AI" implementation community health center [current month] [year]`
+2. **NACHC technology:** `NACHC technology AI EHR community health center [year]`
+3. **EHR AI documentation:** `"ambient documentation" OR "AI scribe" OR "clinical documentation" FQHC OR "community health center" [current month] [year]`
+
+### What to Capture:
+
+For each significant AI adoption finding, create an AIAdoptionItem entry:
+
+```typescript
+{
+  id: "kebab-case-id",
+  title: { en: "...", es: "..." },
+  description: { en: "...", es: "..." },
+  category: "clinical-documentation" | "revenue-cycle" | "scheduling" | "care-coordination" | "population-health" | "policy-framework",
+  vendor: "Vendor Name" | null,
+  partnership: "Partner Name" | null,
+  metrics: [{ label: "metric name", value: "metric value" }],
+  adoptionStage: "pilot" | "expanding" | "widely-adopted" | "framework",
+  sourceUrl: "https://...",
+  sourceOrg: "Source Name",
+  date: "YYYY-MM-DD",
+  tags: ["tag1", "tag2"],
+}
+```
+
+### Decision Rules:
+
+- **Add to `fqhc-ai-tracker.ts`** if: Named FQHC or FQHC vendor announces AI implementation, partnership, or results
+- **Link to existing intel items** if: AI adoption connects to a broader policy or workforce story
+- **Populate `affectedOrgSlugs`** on related IntelItems when an AI item references a specific FQHC in our directory
+- **Skip** if: Generic AI-in-healthcare news without FQHC relevance
+
+**Only pause for review if new AI adoption items found.**
+
+---
+
 ## Step 4: Blog (Mondays only)
 
 Skip unless today is Monday or specifically requested.
+
+---
+
+## Step 4.5: Link Quality Check (QC)
+
+After adding any new IntelItem entries, verify all source URLs are valid:
+
+1. For each **new** IntelItem added in this session, use `WebFetch` to verify the `sourceUrl` loads correctly
+2. If a URL returns 404, is a dead domain, or redirects to a generic page:
+   - Search for the correct URL using WebSearch
+   - Replace with a verified, working primary source URL
+   - Update `sourceOrg` if the source organization changed
+3. **Common broken URL patterns to avoid:**
+   - Don't guess URL slugs — always verify via search first
+   - NACHC restructured their site in 2025 — use `nachc.org/policy-advocacy/` or `nachc.org/topic/` paths
+   - CAFP moved to `familydocs.org` — old `cafp.org` domain is dead
+   - DHCS pages use WAF (Incapsula) — they may block WebFetch but are valid; verify via search results
+   - KFF URLs use their new format: `kff.org/medicaid/health-provisions-in-...`
+4. For existing items: spot-check 3-5 random source URLs each session to catch link rot
+5. **Quality rules:**
+   - Every sourceUrl must be a real, reachable page (not a homepage or generic section)
+   - Prefer specific article/report URLs over section landing pages
+   - Source hierarchy: govt (.gov) > policy orgs (nachc.org, kff.org) > industry pubs > news
+
+**Only pause if >3 broken links found in existing items.**
 
 ---
 
@@ -180,6 +247,7 @@ WARN: [count] new FQHC entries (or "None")
 Jobs: AltaMed [n], FHCSD [n], AHS [n], La Clinica [n] (total [n], prev [n])
 Policy: [# significant findings] — [one-line summary of each]
 Intel: [# new IntelItems added to fqhc-news-intel.ts] (total [n] items)
+Link QC: [# new links verified] / [# broken fixed] / [# spot-checked]
 Blog: [Skipped] or [Drafted: "Title"]
 Build: [PASS/FAIL]
 ```

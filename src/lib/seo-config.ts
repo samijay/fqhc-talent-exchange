@@ -276,6 +276,66 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/career-insights` },
   },
+  strategyGuides: {
+    title: "FQHC Executive Guides | Real Case Studies with Strategic Framework",
+    description:
+      "How real FQHCs are solving funding, workforce, and operational challenges — structured around Rumelt's Good Strategy framework. PureView, MCR Health, Highland Health, Sun River Health case studies with measurable outcomes.",
+    openGraph: {
+      title: "Executive Guides — FQHC Talent Exchange",
+      description:
+        "Real FQHC case studies: federal dependency reduction, revenue diversification, AI implementation, and 340B optimization.",
+      url: `${SITE_URL}/strategy/guides`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/guides` },
+  },
+  strategyOKRs: {
+    title: "FQHC OKR Templates | Crisis Change Management for Health Centers",
+    description:
+      "12 ready-to-use OKR templates for FQHC crisis change management — revenue resilience, workforce retention, patient access, operational efficiency, and cross-department alignment. Break silos, track progress, execute strategy.",
+    openGraph: {
+      title: "OKR Templates — FQHC Talent Exchange",
+      description:
+        "OKR templates for FQHC leaders facing funding cuts, workforce disruption, and operational challenges.",
+      url: `${SITE_URL}/strategy/okrs`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/okrs` },
+  },
+  strategyCaseStudies: {
+    title: "FQHC Case Studies | Real Solutions to Funding & Workforce Challenges",
+    description:
+      "How FQHCs are reducing federal dependency, diversifying revenue, implementing AI, and retaining workforce — with measurable outcomes and primary source links.",
+    openGraph: {
+      title: "Case Studies — FQHC Talent Exchange",
+      description:
+        "Real FQHC case studies with verified outcomes: revenue growth, federal dependency reduction, AI adoption.",
+      url: `${SITE_URL}/strategy/case-studies`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/case-studies` },
+  },
+  aiTracker: {
+    title: "FQHC AI Tracker | AI Adoption in Community Health Centers",
+    description:
+      "Monitor artificial intelligence adoption at FQHCs nationwide — clinical documentation, revenue cycle, scheduling, care coordination, and population health. Track vendors, partnerships, metrics, and adoption stages.",
+    openGraph: {
+      title: "AI Tracker — FQHC Talent Exchange",
+      description:
+        "Tracking AI implementation across FQHCs: ambient documentation, revenue cycle automation, scheduling, and care coordination.",
+      url: `${SITE_URL}/ai-tracker`,
+    },
+    alternates: { canonical: `${SITE_URL}/ai-tracker` },
+  },
+  newsletter: {
+    title: "FQHC Intelligence Briefings | Weekly Executive & Career Updates",
+    description:
+      "Subscribe to weekly FQHC intelligence: Intel Brief for executives (policy, funding, AI adoption) and The Pulse for job seekers (listings, salary trends, career tools). Every insight backed by primary sources.",
+    openGraph: {
+      title: "Newsletter — FQHC Talent Exchange",
+      description:
+        "Weekly FQHC intelligence briefings for executives and job seekers. Policy, funding, AI, career updates.",
+      url: `${SITE_URL}/newsletter`,
+    },
+    alternates: { canonical: `${SITE_URL}/newsletter` },
+  },
   teamReadiness: {
     title: "Team Readiness Assessment for FQHC Managers | Leadership Tool",
     description:

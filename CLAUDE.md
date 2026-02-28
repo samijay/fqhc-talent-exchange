@@ -37,11 +37,11 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - **Vision:** A California where every community health center is fully staffed with professionals who reflect the communities they serve.
 - **Brand Pillars:** Candidate Advocacy, FQHC Expertise, Speed to Placement, Health Equity Impact
 
-## Active Priorities (as of 2026-02-17)
-- **Just Shipped:** Daily Content Pipeline (4 slash commands: `/update-layoffs`, `/scrape-jobs`, `/draft-blog`, `/daily-update`)
-- **Live at:** https://www.fqhctalent.com — 44 features shipped, deployed on Vercel
+## Active Priorities (as of 2026-02-27)
+- **Just Shipped:** Strategic Operating Environment Redesign — Rumelt framework homepage, 4 new strategy pages, nav/footer restructure, AI tracker, shared IntelCard, directory profile enhancements
+- **Live at:** https://www.fqhctalent.com — 70 features shipped, deployed on Vercel
 - **Next Up:** GTM outreach to FQHC HR directors, first manual placement
-- **GTM:** Ready for outbound. First dollar = manual placement from fast-track pipeline.
+- **GTM:** Ready for outbound. Site repositioned as "California's FQHC Strategic Monitor" for executives.
 - **See:** `ROADMAP.md` for full feature tracker, backlog, and GTM strategy
 
 ## Preferences
@@ -108,6 +108,14 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **FQHC News Intelligence Feed** | Done | `src/lib/fqhc-news-intel.ts` | 20 seed items across 8 categories (legislation, lobbying, patient-story, merger-acquisition, funding, workforce, undocumented-access, change-management). 4 impact levels. Bilingual headlines/summaries. Primary source URLs. Helper functions for filtering/sorting. Updated daily via `/daily-update`. |
 | **Intelligence-Led Homepage** | Done | `src/app/[locale]/page.tsx` | Redesign from tool-led to intelligence-led. Dark hero ("California's FQHC Intelligence Platform"), breaking intel top 5, funding cliff countdown, two-audience split (Leaders vs Job Seekers), live market data cards, featured FQHCs, latest articles, dual CTA. |
 | **Enhanced Pipeline Commands** | Done | `.claude/commands/daily-update.md`, `.claude/commands/scan-policy.md` | daily-update Step 3.5: News & Intel Scan (5 searches, IntelItem output). scan-policy Step 3.5: Extended Categories (M&A, patient stories, lobbying, undocumented access). scan-policy Step 5.5: IntelItem generation format. |
+| **Strategic Operating Environment Redesign** | Done | `src/app/[locale]/page.tsx`, Header, Footer, messages | Full pivot: Rumelt framework homepage (Challenge → Response → Execution). Nav: Strategy / Intelligence / Tools / Jobs / Directory. Dark dropdown menus. No email/hire CTAs. Footer restructured (Strategy, Intelligence, Tools, Company). |
+| **Executive Guides Page** | Done | `src/app/[locale]/strategy/guides/page.tsx`, `src/lib/fqhc-case-studies.ts` | 6 real case studies (PureView, MCR Health, Highland Health, Urban Health Plan, Sun River Health, United Health Centers). Rumelt framework: Diagnose → Guiding Policy → Actions → Outcomes. Filter by category. Primary source links. |
+| **OKR Templates Page** | Done | `src/app/[locale]/strategy/okrs/page.tsx`, `src/lib/fqhc-okr-templates.ts` | 12 templates, 5 domains, 3 difficulty levels. Cross-department key results. Links to case studies. Bilingual. |
+| **Case Studies Index** | Done | `src/app/[locale]/strategy/case-studies/page.tsx` | Compact card grid with headline outcomes. Links to full guides and FQHC profiles. |
+| **AI Implementation Tracker** | Done | `src/app/[locale]/ai-tracker/page.tsx`, `src/lib/fqhc-ai-tracker.ts` | 8 items, 6 categories, 4 adoption stages. CHAI-NACHC, eClinicalWorks, Claude for Healthcare, Elation Health, RapidClaims. Filter + stats. |
+| **Shared IntelCard Component** | Done | `src/components/intel/IntelCard.tsx` | Hyperlinked source text, FQHC profile link badges via affectedOrgSlugs, expandable full/compact variants. Used on homepage + insights. |
+| **Directory Profile Enhancements** | Done | `src/app/[locale]/directory/[slug]/page.tsx` | Related Intelligence + Related Case Studies sections. Salary/benefits moved lower. Uses getIntelForFQHC() + getCaseStudiesForFQHC(). |
+| **AI Innovation Scan Pipeline** | Done | `.claude/commands/daily-update.md` | Step 3.6: 3 AI-focused searches, AIAdoptionItem output format. Tracks FQHC AI adoption, NACHC technology, EHR AI documentation. |
 
 ### Data Sources (Strategic Assets)
 | File | Size | Contents |
@@ -133,6 +141,9 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | `src/lib/career-resources.ts` | ~550 lines | 18 career resources across 5 categories: loan repayment (4), free training (5), professional dev (4), union education (2), state workforce (3). Primary source URLs, bilingual, cost tiers, deadline tracking. |
 | `src/lib/fqhc-guides.ts` | ~850 lines | 9 operational guides: ECM workflows, RN co-visits, BH integration, FQHC revenue 101, bilingual revenue impact, revenue cycle roles, CalAIM overview, documentation compliance, grant cycles & job security. Primary sources from HRSA, CMS, DHCS, NACHC. |
 | `src/lib/fqhc-news-intel.ts` | ~530 lines | 20 curated intel items across 8 categories (legislation, lobbying, patient-story, merger-acquisition, funding, workforce, undocumented-access, change-management). Types, category metadata, impact styles, helper functions. Updated daily via `/daily-update` pipeline. |
+| `src/lib/fqhc-case-studies.ts` | ~450 lines | 6 real FQHC case studies with Rumelt framework: challenge/guidingPolicy/actions/outcomes. PureView, MCR Health, Highland Health, Urban Health Plan, Sun River Health, United Health Centers. Primary source URLs. |
+| `src/lib/fqhc-ai-tracker.ts` | ~350 lines | 8 AI adoption items: CHAI-NACHC, eClinicalWorks, Claude for Healthcare, Elation Health, NACHC AI Action Guide, RCM adoption stats, ambient documentation, RapidClaims. 6 categories, 4 adoption stages. |
+| `src/lib/fqhc-okr-templates.ts` | ~400 lines | 12 OKR templates: 5 domains (revenue, workforce, patient access, ops, cross-department), 3 difficulty levels. Key results with metrics, targets, departments. Links to case studies + intel items. |
 
 ### Slash Commands (Content & Intelligence Pipeline)
 | Command | Purpose | Data Source |
@@ -190,28 +201,31 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 |------|------------|-------|---------|
 | Direct | Jobs | /jobs | Browse 177+ job listings |
 | Direct | Directory | /directory | 220 FQHC directory with map |
-| **For Job Seekers** ▾ | Resume Builder | /resume-builder | Free template-based resume builder |
+| **Strategy** ▾ | Executive Guides | /strategy/guides | 6 real case studies with Rumelt framework |
+| | OKR Templates | /strategy/okrs | 12 crisis change management templates |
+| | Case Studies | /strategy/case-studies | Compact case study index with outcomes |
+| | Funding Impact | /funding-impact | H.R. 1 policy timeline + revenue strategies |
+| **Intelligence** ▾ | Dashboard | /insights | Executive intel feed, funding cliffs, workforce data |
+| | AI Tracker | /ai-tracker | AI adoption monitoring across FQHC sector |
+| | Layoff Tracker | /layoffs | 20 events, 3,477+ workers tracked |
+| | Blog | /blog | 13 articles, bilingual |
+| **Tools** ▾ | Resume Builder | /resume-builder | Free template-based resume builder |
 | | Career Assessment | /career-insights | 5-domain assessment + 90-day plan |
 | | Career Roadmap | /career-roadmap | 5 tracks, 4 levels, CA salary data |
 | | Certifications | /certifications | 15 CA-specific certifications |
-| | Career Resources | /resources | 18 free/low-cost programs, loan repayment, training |
-| | Workplace Guides | /guides | 9 operational how-to guides for FQHC workers |
-| | Why Work at an FQHC? | /why-fqhc | Career ladders, salary data, comparison |
-| | Priority Intake | /fast-track | Free tools + priority matching for displaced workers |
-| **Insights** ▾ | Executive Dashboard | /insights | Breaking intel, funding cliffs, undocumented access watch, change management playbook, workforce data |
-| | Layoff Tracker | /layoffs | 19 events, 3,456+ workers tracked |
-| | Blog | /blog | 13 articles, bilingual |
-| **For Employers** ▾ | Post a Job | /hire | Employer waitlist signup (dark theme) |
-| | Team Readiness | /team-readiness | Manager leadership assessment (B2B) |
-| | Demo | /demo | Interactive product walkthrough |
-| | The Drop | /the-drop | Exclusive matching program |
-| CTA | Find a Job | /join | Primary CTA button (outline teal) |
-| CTA | Hire Talent | /hire | Secondary CTA button (dark) |
+| | Career Resources | /resources | 18 free/low-cost programs |
+| | Workplace Guides | /guides | 9 operational how-to guides |
+| | Team Readiness | /team-readiness | Manager leadership assessment |
+| | Priority Intake | /fast-track | Displaced worker priority matching |
+| Language | EN/ES toggle | — | Bilingual switcher |
 
-### Footer-Only Pages (not in main nav)
-| Route | Purpose |
-|-------|---------|
-| /funding-impact | H.R. 1 policy tracker + revenue strategies (footer: For Job Seekers) |
+### Footer Columns
+| Column | Links |
+|--------|-------|
+| Strategy | Executive Guides, OKR Templates, Case Studies, Funding Impact |
+| Intelligence | Dashboard, AI Tracker, Layoff Tracker, Blog |
+| Tools | Jobs, Directory, Resume Builder, Career Assessment, Career Roadmap, Certifications, Career Resources, Workplace Guides, Team Readiness, Priority Intake |
+| Company | About |
 
 ### Hidden Pages (no nav or footer link)
 | Route | Purpose |
@@ -223,11 +237,11 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ---
 
 ## Current Context
-- **Just shipped:** Executive Intelligence Dashboard (insights rewrite), intelligence-led homepage, FQHC news intel feed (20 items), enhanced pipeline commands (news scan + IntelItem output), career resources, workplace guides
+- **Just shipped:** Strategic Operating Environment Redesign — Rumelt framework homepage, 4 new strategy pages (guides, OKRs, case studies, AI tracker), nav/footer restructure, shared IntelCard, directory profile enhancements, AI scan pipeline
 - **Building next:** Newsletter infrastructure (Supabase table, signup, email templates)
-- **GTM status:** Ready for outbound. Site repositioned as "California's FQHC Intelligence Platform" — the dashboard FQHC executives keep open.
-- **Data:** 177 job listings, 220 FQHCs (131 from HRSA need enrichment), 20 layoff entries (3,477+ workers), 577 live API-scrapeable jobs, 28 intel items
-- **Pipeline:** 6 slash commands: `/daily-update`, `/scan-policy`, `/intel-brief`, `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
+- **GTM status:** Ready for outbound. Site repositioned as "California's FQHC Strategic Monitor" — executive-grade intelligence, no email CTAs.
+- **Data:** 177 job listings, 220 FQHCs (131 from HRSA need enrichment), 20 layoff entries (3,477+ workers), 577 live API-scrapeable jobs, 28 intel items, 6 case studies, 8 AI tracker items, 12 OKR templates
+- **Pipeline:** 6 slash commands: `/daily-update` (now with AI scan step), `/scan-policy`, `/intel-brief`, `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
 - **Email:** `hello@fqhctalent.com` receiving via Cloudflare Email Routing (verified). Resend domain verification pending for sending.
 - **Domains:** fqhctalent.com (primary, live on Vercel) + healthcaretalent.org (GA4 cross-domain tracking)
 - **Newsletter strategy:** Two tracks — "FQHC Intel Brief" (employer-facing executive briefing) + "The Pulse" (candidate-facing career update). Primary source links for every claim. Weekly cadence.
@@ -236,7 +250,8 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ## Session Log
 | Date | Summary |
 |------|---------|
-| 2026-02-27 | Strategic repositioning + daily update #5. Built FQHC News Intelligence Feed (`fqhc-news-intel.ts` — 28 items, 8 categories, 4 impact levels). Rewrote `/insights` as Executive Intelligence Dashboard. Redesigned homepage — intelligence-led. Updated `/daily-update` and `/scan-policy` with IntelItem output. Daily update: WARN check found Indian Health Center of Santa Clara Valley CLOSURE (21 employees, WARN filed Oct 2025) — added to layoff tracker (now 20 entries, 3,477+ workers). Job scan: AltaMed 234, FHCSD 149, AHS 22, La Clinica 172 = 577 total (prev 582, -5). Policy scan: FQHC Transparency Ballot Initiative (#25-0008), NACHC P&I Forum ($4.6B CHCF), HRSA MAHA-aligned grants, SJV clinics financial tsunami, CA Dems push to restore undocumented benefits. Intel: +8 new items (ballot initiative, CA undocumented restoration, NACHC P&I, HRSA MAHA, Indian Health Center closure, SJV tsunami, healthcare M&A 43% distress-driven, United Health Centers IPA launch). |
+| 2026-02-27 (session 2) | **Strategic Operating Environment Redesign.** Full pivot from job board to executive strategy monitor. Created 3 data files: `fqhc-case-studies.ts` (6 case studies), `fqhc-ai-tracker.ts` (8 AI items), `fqhc-okr-templates.ts` (12 OKR templates). Updated `fqhc-news-intel.ts` with `affectedOrgSlugs` + `getIntelForFQHC()`. Built shared `IntelCard.tsx` (hyperlinked sources, FQHC profile badges). Nav redesign: Strategy/Intelligence/Tools/Jobs/Directory (no email CTAs, dark dropdowns). Footer: 4 columns (Strategy, Intelligence, Tools, Company). Homepage rewrite: Rumelt framework (Challenge → Response → Execution), single-column intel feed (fixed duplicates), no email CTAs. 4 new pages: `/strategy/guides`, `/strategy/okrs`, `/strategy/case-studies`, `/ai-tracker`. Directory profiles: added Related Intel + Case Studies sections, moved salary/benefits lower. Insights: hyperlinked sources, FQHC profile links, removed Hire Talent CTA. Added SEO metadata for 4 new pages. Added Step 3.6 AI Innovation Scan to `/daily-update`. Updated ROADMAP (features #60-70). |
+| 2026-02-27 (session 1) | Strategic repositioning + daily update #5. Built FQHC News Intelligence Feed (`fqhc-news-intel.ts` — 28 items, 8 categories, 4 impact levels). Rewrote `/insights` as Executive Intelligence Dashboard. Redesigned homepage — intelligence-led. Updated `/daily-update` and `/scan-policy` with IntelItem output. Daily update: WARN check found Indian Health Center of Santa Clara Valley CLOSURE (21 employees, WARN filed Oct 2025) — added to layoff tracker (now 20 entries, 3,477+ workers). Job scan: AltaMed 234, FHCSD 149, AHS 22, La Clinica 172 = 577 total (prev 582, -5). Policy scan: FQHC Transparency Ballot Initiative (#25-0008), NACHC P&I Forum ($4.6B CHCF), HRSA MAHA-aligned grants, SJV clinics financial tsunami, CA Dems push to restore undocumented benefits. Intel: +8 new items (ballot initiative, CA undocumented restoration, NACHC P&I, HRSA MAHA, Indian Health Center closure, SJV tsunami, healthcare M&A 43% distress-driven, United Health Centers IPA launch). |
 | 2026-02-25 | Daily update #4: WARN check (0 FQHC entries, 115 healthcare total), job scan 582 total (-6). Generated first Intel Brief + The Pulse newsletter. Added 2 layoff entries (L.A. Care 225, Santa Clara 365 FTEs). Built Career Resources catalog (18 programs, 5 categories). Built Workplace Guides page: 9 operational how-to guides across 3 categories (clinical workflows, revenue/billing, programs/compliance). Covers ECM, RN co-visits, BH integration, FQHC revenue, bilingual revenue impact, revenue cycle, CalAIM, documentation, grant cycles. All with primary sources from HRSA/CMS/DHCS/NACHC. Nav now 8 items in "For Job Seekers". |
 | 2026-02-24 | Daily update #3: WARN check (0 FQHC entries), job scan 588 total (+40). Built policy & intel pipeline: `/scan-policy` (deep legislative scanner, 10+ source categories), `/intel-brief` (weekly newsletter generator with primary source links), updated `/daily-update` with policy scanning step. Designed newsletter strategy: "Intel Brief" (employer) + "The Pulse" (candidate). Key news: Alameda Health System 247 layoffs (public hearing today), CA sues over $600M federal cuts, CHCF authorization expires Dec 2026. |
 | 2026-02-20 | Fast-track repositioning: removed "48-hour" from 13 files, new "Get Job-Ready" hero with free tools cards. Nav redesign v2: "For Job Seekers" dropdown (6 items), "For Employers" dropdown (4 items), "Insights" (3 items). Domain email `hello@fqhctalent.com` verified via Cloudflare. Updated ROADMAP (features #51-52 shipped, backlog #79 done). |
@@ -248,6 +263,8 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ## Decisions Made
 | Date | Decision | Reasoning |
 |------|----------|-----------|
+| 2026-02-27 | Pivot to strategic operating environment | Job board + CTAs → executive strategy monitor. Rumelt framework homepage. No email collection. Strategy/Intelligence/Tools nav. Dark dropdowns. Homepage = Challenge → Response → Execution. Site serves FQHC executives tracking political landscape, not candidates filling forms. |
+| 2026-02-27 | OKRs for change management | OKR templates as key strategic tool for FQHCs breaking silos during crisis. 12 templates, 5 domains. Cross-department key results by design. Links to real case studies for credibility. |
 | 2026-02-24 | Intel Brief as core product | Newsletter isn't just engagement — it's an executive intelligence briefing. Primary sources for every claim. Two tracks: employer (Intel Brief) + candidate (Pulse). The daily-update pipeline feeds the newsletter content engine. |
 | 2026-02-24 | Primary sources non-negotiable | Every insight in the newsletter must link to a primary source. Source hierarchy: govt > policy orgs > industry pubs > news. This is what separates us from SEO content. |
 | 2026-02-19 | Tiered offboarding model | Free (self-serve tools) → Managed offboarding ($500-1,500) → Placement ($2-5K). Lead with layoffs for FQHC outreach. |

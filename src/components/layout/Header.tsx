@@ -1,15 +1,19 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Heart, Menu, X, Globe, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
+/* ------------------------------------------------------------------ */
+/*  Types                                                              */
+/* ------------------------------------------------------------------ */
+
 interface DropdownItem {
   href: string;
   label: string;
+  desc?: string; // Mini description under label
 }
 
 interface NavItem {
@@ -18,37 +22,70 @@ interface NavItem {
   children?: DropdownItem[];
 }
 
-function NavDropdown({ label, items, onClose }: { label: string; items: DropdownItem[]; onClose?: () => void }) {
-  const [open, setOpen] = useState(false);
+/* ------------------------------------------------------------------ */
+/*  NavDropdown — dark-themed, closes others on open                   */
+/* ------------------------------------------------------------------ */
+
+function NavDropdown({
+  label,
+  items,
+  isOpen,
+  onToggle,
+  onClose,
+}: {
+  label: string;
+  items: DropdownItem[];
+  isOpen: boolean;
+  onToggle: () => void;
+  onClose?: () => void;
+}) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        if (isOpen) onToggle();
+      }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }, [isOpen, onToggle]);
 
   return (
     <div ref={ref} className="relative">
       <button
-        onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+        onClick={onToggle}
+        className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+          isOpen
+            ? "bg-stone-900 text-white"
+            : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
+        }`}
       >
         {label}
-        <ChevronDown className={`size-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown
+          className={`size-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`}
+        />
       </button>
-      {open && (
-        <div className="absolute left-0 top-full z-50 mt-1 min-w-[200px] rounded-lg border border-stone-200 bg-white py-1.5 shadow-lg">
+      {isOpen && (
+        <div className="absolute left-0 top-full z-50 mt-1 min-w-[260px] rounded-lg border border-stone-700 bg-stone-900 py-2 shadow-xl">
           {items.map((item) => (
             <Link
               key={item.href}
               href={item.href as "/jobs"}
-              className="block px-4 py-2 text-sm text-stone-600 transition-colors hover:bg-stone-50 hover:text-stone-900"
-              onClick={() => { setOpen(false); onClose?.(); }}
+              className="block px-4 py-2.5 transition-colors hover:bg-stone-800"
+              onClick={() => {
+                onToggle();
+                onClose?.();
+              }}
             >
-              {item.label}
+              <span className="text-sm font-medium text-white">
+                {item.label}
+              </span>
+              {item.desc && (
+                <span className="block text-xs text-stone-400 mt-0.5">
+                  {item.desc}
+                </span>
+              )}
             </Link>
           ))}
         </div>
@@ -57,19 +94,47 @@ function NavDropdown({ label, items, onClose }: { label: string; items: Dropdown
   );
 }
 
+/* ------------------------------------------------------------------ */
+/*  Header                                                             */
+/* ------------------------------------------------------------------ */
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const t = useTranslations("nav");
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
 
+  const toggleDropdown = useCallback(
+    (label: string) => {
+      setOpenDropdown((prev) => (prev === label ? null : label));
+    },
+    []
+  );
+
   const navItems: NavItem[] = [
-    { href: "/jobs", label: t("jobs") },
-    { href: "/directory", label: t("directory") },
     {
-      label: t("forJobSeekers"),
+      label: t("strategy"),
+      children: [
+        { href: "/strategy/guides", label: t("executiveGuides"), desc: t("executiveGuidesDesc") },
+        { href: "/strategy/okrs", label: t("okrTemplates"), desc: t("okrTemplatesDesc") },
+        { href: "/strategy/case-studies", label: t("caseStudies"), desc: t("caseStudiesDesc") },
+        { href: "/funding-impact", label: t("fundingImpact"), desc: t("fundingImpactDesc") },
+      ],
+    },
+    {
+      label: t("intelligence"),
+      children: [
+        { href: "/insights", label: t("dashboard"), desc: t("dashboardDesc") },
+        { href: "/ai-tracker", label: t("aiTracker"), desc: t("aiTrackerDesc") },
+        { href: "/layoffs", label: t("layoffs"), desc: t("layoffsDesc") },
+        { href: "/blog", label: t("blog"), desc: t("blogDesc") },
+      ],
+    },
+    {
+      label: t("tools"),
       children: [
         { href: "/resume-builder", label: t("resumeBuilder") },
         { href: "/career-insights", label: t("careerAssessment") },
@@ -77,27 +142,12 @@ export default function Header() {
         { href: "/certifications", label: t("certifications") },
         { href: "/resources", label: t("careerResources") },
         { href: "/guides", label: t("guides") },
-        { href: "/why-fqhc", label: t("whyFQHC") },
+        { href: "/team-readiness", label: t("teamReadiness") },
         { href: "/fast-track", label: t("fastTrack") },
       ],
     },
-    {
-      label: t("insights"),
-      children: [
-        { href: "/insights", label: t("insights") },
-        { href: "/layoffs", label: t("layoffs") },
-        { href: "/blog", label: t("blog") },
-      ],
-    },
-    {
-      label: t("forEmployers"),
-      children: [
-        { href: "/hire", label: t("postAJob") },
-        { href: "/team-readiness", label: t("teamReadiness") },
-        { href: "/demo", label: t("demo") },
-        { href: "/the-drop", label: t("theDrop") },
-      ],
-    },
+    { href: "/jobs", label: t("jobs") },
+    { href: "/directory", label: t("directory") },
   ];
 
   function switchLocale() {
@@ -109,7 +159,10 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-stone-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80">
+        <Link
+          href="/"
+          className="flex items-center gap-2 transition-opacity hover:opacity-80"
+        >
           <Heart className="size-7 fill-teal-700 text-teal-700" />
           <span className="text-xl font-bold tracking-tight text-stone-900">
             FQHC <span className="text-teal-700">Talent</span>
@@ -124,6 +177,8 @@ export default function Header() {
                 key={item.label}
                 label={item.label}
                 items={item.children}
+                isOpen={openDropdown === item.label}
+                onToggle={() => toggleDropdown(item.label)}
               />
             ) : (
               <Link
@@ -137,9 +192,8 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Desktop CTA buttons + Language toggle */}
+        {/* Desktop — Language toggle only (no CTAs) */}
         <div className="hidden items-center gap-3 lg:flex">
-          {/* Language toggle */}
           <button
             onClick={switchLocale}
             className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-900"
@@ -148,20 +202,6 @@ export default function Header() {
             <Globe className="size-4" />
             {locale === "en" ? "ES" : "EN"}
           </button>
-
-          <Button
-            variant="outline"
-            className="border-teal-700 text-teal-700 hover:bg-teal-50 hover:text-teal-800"
-            asChild
-          >
-            <Link href="/join">{t("findAJob")}</Link>
-          </Button>
-          <Button
-            className="bg-stone-800 text-white hover:bg-stone-900"
-            asChild
-          >
-            <Link href="/hire">{t("hireTalent")}</Link>
-          </Button>
         </div>
 
         {/* Mobile hamburger */}
@@ -207,6 +247,11 @@ export default function Header() {
                           onClick={() => setMobileOpen(false)}
                         >
                           {child.label}
+                          {child.desc && (
+                            <span className="block text-xs text-stone-400 mt-0.5">
+                              {child.desc}
+                            </span>
+                          )}
                         </Link>
                       ))}
                     </div>
@@ -235,22 +280,6 @@ export default function Header() {
               <Globe className="size-4" />
               {t("languageToggle")}
             </button>
-
-            <div className="flex flex-col gap-2 pt-3">
-              <Button
-                variant="outline"
-                className="w-full border-teal-700 text-teal-700 hover:bg-teal-50 hover:text-teal-800"
-                asChild
-              >
-                <Link href="/join" onClick={() => setMobileOpen(false)}>{t("findAJob")}</Link>
-              </Button>
-              <Button
-                className="w-full bg-stone-800 text-white hover:bg-stone-900"
-                asChild
-              >
-                <Link href="/hire" onClick={() => setMobileOpen(false)}>{t("hireTalent")}</Link>
-              </Button>
-            </div>
           </div>
         </div>
       )}

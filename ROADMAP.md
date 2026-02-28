@@ -75,6 +75,17 @@ A California where every community health center is fully staffed with professio
 | 57 | **Executive Intelligence Dashboard** | Feb 2026 | `/insights` rewritten — dark stone hero, stat strip, breaking intel feed with category filter tabs, funding cliff countdown, undocumented access watch section, change management playbook, regional market snapshot, collapsible workforce market data, sources index. |
 | 58 | **Intelligence-Led Homepage** | Feb 2026 | Homepage redesign — leads with "California's FQHC Intelligence Platform", breaking intel top 5, funding cliff countdown, two-audience split (Leaders vs Job Seekers), live market data cards, featured FQHCs, latest articles, dual CTA. |
 | 59 | **Enhanced Pipeline Commands** | Feb 2026 | Updated `/daily-update` (Step 3.5: News & Intel Scan with 5 searches, IntelItem output format), updated `/scan-policy` (Step 3.5: Extended Categories — M&A, patient stories, lobbying, undocumented access, change management; Step 5.5: IntelItem generation). |
+| 60 | **Strategic Operating Environment Redesign** | Feb 2026 | Full pivot from job board to executive strategy monitor. Rumelt "Good Strategy" framework homepage (Challenge → Response → Execution). Nav: Strategy / Intelligence / Tools / Jobs / Directory (no email CTAs). Dark dropdown menus. Footer restructured to 4 columns. |
+| 61 | **Executive Guides Page** | Feb 2026 | `/strategy/guides` — 6 real FQHC case studies (PureView, MCR Health, Highland Health, Urban Health Plan, Sun River Health, United Health Centers) structured around Rumelt framework. Expandable cards: Diagnose → Guiding Policy → Actions → Outcomes. Primary sources. |
+| 62 | **OKR Templates Page** | Feb 2026 | `/strategy/okrs` — 12 OKR templates across 5 domains (revenue resilience, workforce retention, patient access, operational efficiency, cross-department). 3 difficulty levels. Links to related case studies. Breaks silos with cross-department key results. |
+| 63 | **Case Studies Index** | Feb 2026 | `/strategy/case-studies` — Compact card grid of FQHC case studies with headline outcomes. Links to full guides and FQHC profiles. |
+| 64 | **AI Implementation Tracker** | Feb 2026 | `/ai-tracker` — 8 AI adoption items across 6 categories (clinical documentation, revenue cycle, scheduling, care coordination, population health, policy framework). Filter by category and adoption stage. Vendor/partnership tracking. Primary sources. |
+| 65 | **Shared IntelCard Component** | Feb 2026 | `IntelCard.tsx` — Reusable intelligence card with hyperlinked source text, FQHC profile link badges via `affectedOrgSlugs`, expandable full summary, compact/full variants. Used on homepage and insights. |
+| 66 | **FQHC Case Studies Data** | Feb 2026 | `fqhc-case-studies.ts` — 6 verified case studies with Rumelt framework structure. Challenge/guidingPolicy/actions/outcomes. Linked to directory profiles and primary sources. |
+| 67 | **AI Tracker Data** | Feb 2026 | `fqhc-ai-tracker.ts` — 8 AI adoption items: CHAI-NACHC, eClinicalWorks, Claude for Healthcare, Elation Health, NACHC AI Action Guide, RCM adoption stats, ambient documentation, RapidClaims. |
+| 68 | **OKR Templates Data** | Feb 2026 | `fqhc-okr-templates.ts` — 12 templates with objectives, key results, metrics, targets, departments involved. 3 difficulty levels. Links to related case studies and intel items. |
+| 69 | **Directory Profile Enhancements** | Feb 2026 | FQHC profiles now show Related Intelligence and Related Case Studies sections. Salary/benefits moved lower. Uses `getIntelForFQHC()` and `getCaseStudiesForFQHC()`. |
+| 70 | **AI Innovation Scan Pipeline** | Feb 2026 | Added Step 3.6 to `/daily-update`: 3 AI-focused searches (FQHC AI implementation, NACHC technology, EHR AI documentation) with AIAdoptionItem output format. |
 
 ---
 
@@ -164,7 +175,7 @@ A California where every community health center is fully staffed with professio
 
 | # | Feature | Priority | Value | Notes |
 |---|---------|----------|-------|-------|
-| 67 | **Multi-State Expansion** | High | Growth | Expand beyond California (TX, NY, FL have most FQHCs) |
+| 67 | **Multi-State Expansion** | High | Growth | Phase 1: CO, IL, OR, WA, NY (states with undocumented coverage tracking + similar policy landscape). State comparison dashboard: coverage status, policy changes, FQHC impact by state. Lessons from states scaling back (MN ended, IL cutting). Phase 2: TX, FL (highest FQHC counts). |
 | 68 | **Staffing Agency Partnership** | Medium | Revenue | White-label platform for FQHC staffing agencies |
 | 69 | **Grant Writing Assistance** | Medium | Value | Help FQHCs write HRSA grants for workforce positions |
 | 70 | **Predictive Workforce Analytics** | High | Premium | Forecast hiring needs 6-12 months ahead from funding data |
@@ -189,10 +200,14 @@ A California where every community health center is fully staffed with professio
 8. **Executive intelligence dashboard** — legislation, funding cliffs, workforce data, undocumented access watch, change management playbook, 20+ curated intel items
 9. **Intelligence-led homepage** — breaking intel, funding cliff countdown, two-audience split (Leaders vs Job Seekers)
 10. **Manager Team Readiness** — B2B lead gen tool (assess your team, then offer to help hire)
-10. **The Drop** — exclusive matching program with waitlists
-11. **Interactive demo** at `/demo` for sharing with prospects
-12. **Policy & intel pipeline** — 6 slash commands: `/daily-update` (WARN + jobs + policy scan), `/scan-policy` (deep legislative dive), `/intel-brief` (newsletter generator), `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
-13. **FQHC Intel Brief** — weekly executive briefing template with primary source links, cross-referenced against our proprietary data
+11. **The Drop** — exclusive matching program with waitlists
+12. **Interactive demo** at `/demo` for sharing with prospects
+13. **Policy & intel pipeline** — 6 slash commands: `/daily-update` (WARN + jobs + policy + AI scan), `/scan-policy` (deep legislative dive), `/intel-brief` (newsletter generator), `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
+14. **FQHC Intel Brief** — weekly executive briefing template with primary source links, cross-referenced against our proprietary data
+15. **Strategic operating environment** — Rumelt-framework homepage (Challenge → Response → Execution), 4 new strategy pages (guides, OKRs, case studies, AI tracker), no email/hire CTAs
+16. **Executive Guides** — 6 real case studies with verified outcomes and primary sources, structured around Good Strategy framework
+17. **OKR Templates** — 12 ready-to-use templates for FQHC crisis change management across 5 domains
+18. **AI Tracker** — 8 AI adoption items tracked across clinical documentation, revenue cycle, scheduling, care coordination
 
 ### Two-Track GTM
 
