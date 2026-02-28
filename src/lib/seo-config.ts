@@ -291,7 +291,7 @@ export const pageMetadata = {
   strategyOKRs: {
     title: "FQHC OKR Templates | Crisis Change Management for Health Centers",
     description:
-      "12 ready-to-use OKR templates for FQHC crisis change management — revenue resilience, workforce retention, patient access, operational efficiency, and cross-department alignment. Break silos, track progress, execute strategy.",
+      "24 ready-to-use OKR templates for FQHC crisis change management — revenue resilience, workforce retention, patient access, operational efficiency, and cross-department alignment. Break silos, track progress, execute strategy.",
     openGraph: {
       title: "OKR Templates — FQHC Talent Exchange",
       description:
@@ -335,6 +335,30 @@ export const pageMetadata = {
       url: `${SITE_URL}/strategy/frameworks`,
     },
     alternates: { canonical: `${SITE_URL}/strategy/frameworks` },
+  },
+  strategyLeaders: {
+    title: "FQHC Thought Leaders & Influencers | Who to Follow in Community Health",
+    description:
+      "28 thought leaders shaping the future of FQHCs — NACHC leadership, state PCA directors, innovative CEOs, policy experts, AI pioneers, and HRSA officials. Follow these voices to stay ahead.",
+    openGraph: {
+      title: "Thought Leaders — FQHC Talent Exchange",
+      description:
+        "28 FQHC influencers across national leadership, policy, AI, workforce research, and innovative CEOs.",
+      url: `${SITE_URL}/strategy/leaders`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/leaders` },
+  },
+  strategyKnowledgeMap: {
+    title: "FQHC Strategy Knowledge Map | How Everything Connects",
+    description:
+      "See the interlinkages between FQHC case studies, economics concepts, execution frameworks, OKR templates, and thought leaders. 6 strategic themes, 4 learning paths, and 60+ connections with strategic foresight for FQHC executives.",
+    openGraph: {
+      title: "Strategy Knowledge Map — FQHC Talent Exchange",
+      description:
+        "The master knowledge graph: 6 strategic themes, guided learning paths, and 60+ connections between FQHC strategy content.",
+      url: `${SITE_URL}/strategy/knowledge-map`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/knowledge-map` },
   },
   aiTracker: {
     title: "FQHC AI Tracker | AI Adoption in Community Health Centers",

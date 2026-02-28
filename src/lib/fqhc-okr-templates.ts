@@ -5,7 +5,7 @@
 // Last updated: 2026-02-28
 
 /** Exported for display on pages — updated when new OKR templates are added */
-export const OKR_TEMPLATES_LAST_UPDATED = "2026-02-28";
+export const OKR_TEMPLATES_LAST_UPDATED = "2026-02-28"; // 24 templates
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -698,6 +698,679 @@ export const OKR_TEMPLATES: OKRTemplate[] = [
     timeframe: "quarterly",
     difficulty: "advanced",
     tags: ["silos", "cross-department", "huddles", "dashboards", "accountability"],
+  },
+
+  /* ================================================================== */
+  /*  NEW TACTICAL OKR TEMPLATES (12)                                    */
+  /*  Added 2026-02-28 — Specific, measurable, immediately usable       */
+  /* ================================================================== */
+
+  /* ── 1. 340B PHARMACY LAUNCH/OPTIMIZATION ── */
+  {
+    id: "tactical-340b-pharmacy-launch",
+    domain: "revenue-resilience",
+    objective: {
+      en: "Launch entity-owned 340B pharmacy generating $40K+/month in net savings within 6 months",
+      es: "Lanzar farmacia propia 340B generando $40K+/mes en ahorros netos en 6 meses",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Obtain Board of Pharmacy license and register 340B pharmacy with HRSA OPA",
+          es: "Obtener licencia de la Junta de Farmacia y registrar farmacia 340B con HRSA OPA",
+        },
+        metric: "Licenses and registrations",
+        target: "Complete by Month 2",
+        departmentsInvolved: ["Executive", "Legal", "Pharmacy"],
+      },
+      {
+        kr: {
+          en: "Achieve 85% 340B capture rate on eligible prescriptions (industry average is 50-60%)",
+          es: "Lograr tasa de captura 340B del 85% en recetas elegibles (promedio de la industria es 50-60%)",
+        },
+        metric: "340B capture rate",
+        target: "≥85%",
+        departmentsInvolved: ["Pharmacy", "Clinical", "IT"],
+      },
+      {
+        kr: {
+          en: "Train 100% of prescribers on 340B-eligible patient identification workflows in EHR",
+          es: "Capacitar al 100% de prescriptores en flujos de identificacion de pacientes elegibles 340B en EHR",
+        },
+        metric: "Prescribers trained",
+        target: "100%",
+        departmentsInvolved: ["Clinical", "Pharmacy", "IT", "HR/Training"],
+      },
+      {
+        kr: {
+          en: "Generate ≥$40K/month net 340B savings after pharmacy operational costs",
+          es: "Generar ≥$40K/mes en ahorros netos 340B despues de costos operativos de farmacia",
+        },
+        metric: "Monthly net 340B savings",
+        target: "≥$40K",
+        departmentsInvolved: ["Pharmacy", "Finance"],
+      },
+    ],
+    context: {
+      en: "Contract pharmacies typically keep 50-70% of 340B savings through dispensing fees. An entity-owned pharmacy captures 100% of the spread between 340B ceiling price and reimbursement. Highland Health achieved 270% revenue increase through this transition. Key compliance requirement: maintain a 340B database audit trail showing patient eligibility for every dispensed prescription.",
+      es: "Las farmacias por contrato tipicamente retienen 50-70% de ahorros 340B. Una farmacia propia captura el 100% del margen. Highland Health logro 270% de aumento de ingresos con esta transicion. Requisito clave: mantener registro de auditoria de elegibilidad de pacientes.",
+    },
+    relatedCaseStudyId: "highland-health-340b",
+    relatedIntelIds: ["strategy-revenue-diversification"],
+    timeframe: "quarterly",
+    difficulty: "advanced",
+    tags: ["340b", "pharmacy", "entity-owned", "capture-rate", "revenue"],
+  },
+
+  /* ── 2. ECM PROGRAM SCALING ── */
+  {
+    id: "tactical-ecm-scaling",
+    domain: "patient-access",
+    objective: {
+      en: "Scale Enhanced Care Management enrollment to 200+ members across 3 populations of focus by end of quarter",
+      es: "Escalar inscripcion de Gestion de Cuidado Mejorado a 200+ miembros en 3 poblaciones de enfoque para fin del trimestre",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Identify and stratify 500+ eligible patients from Medi-Cal managed care plan data by risk tier",
+          es: "Identificar y estratificar 500+ pacientes elegibles de datos de planes de salud Medi-Cal por nivel de riesgo",
+        },
+        metric: "Patients stratified",
+        target: "≥500",
+        departmentsInvolved: ["Clinical", "IT", "Care Coordination"],
+      },
+      {
+        kr: {
+          en: "Enroll 200 ECM members across high utilizers, SMI, and homeless populations of focus",
+          es: "Inscribir 200 miembros ECM en poblaciones de alta utilizacion, SMI y personas sin hogar",
+        },
+        metric: "ECM members enrolled",
+        target: "200",
+        departmentsInvolved: ["Care Coordination", "Outreach", "BH"],
+      },
+      {
+        kr: {
+          en: "Achieve ≥70% 90-day retention rate (member still engaged after 90 days of enrollment)",
+          es: "Lograr tasa de retencion de 90 dias ≥70% (miembro aun comprometido despues de 90 dias de inscripcion)",
+        },
+        metric: "90-day ECM retention rate",
+        target: "≥70%",
+        departmentsInvolved: ["Care Coordination", "Clinical", "BH"],
+      },
+      {
+        kr: {
+          en: "Bill ≥$150K in ECM PMPM revenue from managed care plans this quarter",
+          es: "Facturar ≥$150K en ingresos PMPM de ECM de planes de salud este trimestre",
+        },
+        metric: "Quarterly ECM revenue",
+        target: "≥$150K",
+        departmentsInvolved: ["Finance/Billing", "Care Coordination", "Executive"],
+      },
+    ],
+    context: {
+      en: "CalAIM Enhanced Care Management pays $300-500 PMPM for high-acuity populations. Most FQHCs are leaving money on the table by under-enrolling — the typical FQHC enrolls less than 20% of eligible patients. Key barriers: MCO data sharing delays, insufficient care coordinator staffing, and lack of systematic patient outreach. The CalAIM waiver expires December 2026, making this a time-sensitive revenue and care opportunity.",
+      es: "La Gestion de Cuidado Mejorado de CalAIM paga $300-500 PMPM para poblaciones de alta agudeza. La mayoria de los FQHCs estan dejando dinero en la mesa al sub-inscribir. La exencion CalAIM expira en diciembre 2026, haciendo esto una oportunidad urgente.",
+    },
+    relatedIntelIds: ["calaim-waiver-expiry"],
+    timeframe: "quarterly",
+    difficulty: "intermediate",
+    tags: ["ecm", "calaim", "care-coordination", "pmpm", "enrollment"],
+  },
+
+  /* ── 3. AI DOCUMENTATION IMPLEMENTATION ── */
+  {
+    id: "tactical-ai-documentation",
+    domain: "operational-efficiency",
+    objective: {
+      en: "Roll out ambient AI documentation to all providers, reducing after-hours charting to zero",
+      es: "Implementar documentacion ambiental con IA para todos los proveedores, reduciendo documentacion fuera de horario a cero",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Complete vendor evaluation and select ambient AI tool (Sunoh.ai, Nabla, DAX Copilot, or Abridge) within 30 days",
+          es: "Completar evaluacion de proveedores y seleccionar herramienta de IA ambiental dentro de 30 dias",
+        },
+        metric: "Vendor selected",
+        target: "Month 1",
+        departmentsInvolved: ["IT", "Clinical", "Executive", "Compliance"],
+      },
+      {
+        kr: {
+          en: "Reduce average note completion time from 12 minutes to ≤3 minutes per encounter across pilot cohort",
+          es: "Reducir tiempo promedio de completar notas de 12 minutos a ≤3 minutos por encuentro en cohorte piloto",
+        },
+        metric: "Note completion time",
+        target: "≤3 min/encounter",
+        departmentsInvolved: ["Clinical", "IT", "Quality"],
+      },
+      {
+        kr: {
+          en: "Achieve 95% note accuracy rate (no clinically significant errors requiring manual correction)",
+          es: "Lograr tasa de precision de notas del 95% (sin errores clinicamente significativos que requieran correccion manual)",
+        },
+        metric: "Note accuracy rate",
+        target: "≥95%",
+        departmentsInvolved: ["Clinical", "Quality", "Compliance"],
+      },
+      {
+        kr: {
+          en: "Increase provider satisfaction score from baseline to ≥4.5/5 on documentation workflow survey",
+          es: "Aumentar puntuacion de satisfaccion del proveedor desde linea base a ≥4.5/5 en encuesta de flujo de documentacion",
+        },
+        metric: "Provider satisfaction score",
+        target: "≥4.5/5.0",
+        departmentsInvolved: ["Clinical", "HR", "IT"],
+      },
+    ],
+    context: {
+      en: "Sun River Health documented 26 patients in 30 minutes using Sunoh.ai. athenahealth now offers free ambient AI to all customers. Neighborhood Healthcare is piloting Nabla. The average FQHC provider spends 2+ hours daily on after-hours documentation — this is the #1 driver of burnout and turnover. HIPAA BAA and EHR integration are the key compliance gates. Expect 3-6 week onboarding per provider cohort.",
+      es: "Sun River Health documento 26 pacientes en 30 minutos con Sunoh.ai. athenahealth ahora ofrece IA ambiental gratis. El proveedor FQHC promedio pasa 2+ horas diarias en documentacion fuera de horario — el principal impulsor de agotamiento y rotacion.",
+    },
+    relatedCaseStudyId: "sun-river-health-ai-documentation",
+    relatedIntelIds: ["ambient-documentation-trend"],
+    timeframe: "quarterly",
+    difficulty: "intermediate",
+    tags: ["ai", "ambient", "documentation", "burnout", "note-completion"],
+  },
+
+  /* ── 4. MEDI-CAL UNDOCUMENTED COVERAGE ENROLLMENT ── */
+  {
+    id: "tactical-undocumented-enrollment",
+    domain: "patient-access",
+    objective: {
+      en: "Enroll 500+ undocumented adults in full-scope Medi-Cal within 90 days through targeted outreach",
+      es: "Inscribir 500+ adultos indocumentados en Medi-Cal de alcance completo en 90 dias a traves de alcance dirigido",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Train 100% of eligibility workers and front desk staff on undocumented Medi-Cal enrollment criteria and reassurance scripts",
+          es: "Capacitar al 100% de trabajadores de elegibilidad y personal de recepcion en criterios de inscripcion y guiones de garantias",
+        },
+        metric: "Staff trained",
+        target: "100%",
+        departmentsInvolved: ["Eligibility", "Front Desk", "HR/Training"],
+      },
+      {
+        kr: {
+          en: "Conduct 10+ community enrollment events at churches, consulates, and immigrant-serving CBOs",
+          es: "Realizar 10+ eventos de inscripcion comunitaria en iglesias, consulados y organizaciones que sirven a inmigrantes",
+        },
+        metric: "Community enrollment events",
+        target: "≥10",
+        departmentsInvolved: ["Outreach", "Eligibility", "Marketing"],
+      },
+      {
+        kr: {
+          en: "Submit 500+ Medi-Cal applications for undocumented adults (ages 26-49) with ≥80% approval rate",
+          es: "Enviar 500+ solicitudes de Medi-Cal para adultos indocumentados (edades 26-49) con tasa de aprobacion ≥80%",
+        },
+        metric: "Applications submitted / approved",
+        target: "500 submitted, ≥80% approved",
+        departmentsInvolved: ["Eligibility", "Outreach"],
+      },
+      {
+        kr: {
+          en: "Convert ≥60% of newly enrolled undocumented Medi-Cal patients to established FQHC patients with a PCP assigned",
+          es: "Convertir ≥60% de pacientes recien inscritos en pacientes establecidos del FQHC con PCP asignado",
+        },
+        metric: "Conversion to established patients",
+        target: "≥60%",
+        departmentsInvolved: ["Outreach", "Clinical", "Scheduling"],
+      },
+    ],
+    context: {
+      en: "California expanded full-scope Medi-Cal to all undocumented adults effective January 2024, but enrollment has lagged projections by 40%. An estimated 700,000 undocumented Californians remain unenrolled. Fear of immigration enforcement, combined with the Medi-Cal enrollment freeze for new applicants proposed in H.R. 1, creates urgency. Each enrolled patient generates PPS encounters plus enables 340B and ECM billing. This is both a mission imperative and a revenue opportunity.",
+      es: "California expandio Medi-Cal de alcance completo a todos los adultos indocumentados desde enero 2024, pero la inscripcion esta 40% debajo de las proyecciones. Aproximadamente 700,000 californianos indocumentados permanecen sin inscripcion. El miedo a la aplicacion migratoria crea urgencia.",
+    },
+    relatedIntelIds: [
+      "medi-cal-enrollment-freeze",
+      "ca-democrats-restore-undocumented-benefits",
+      "strategy-undocumented-doors-open",
+    ],
+    timeframe: "quarterly",
+    difficulty: "intermediate",
+    tags: ["undocumented", "medi-cal", "enrollment", "outreach", "patient-volume"],
+  },
+
+  /* ── 5. TELEHEALTH EXPANSION ── */
+  {
+    id: "tactical-telehealth-expansion",
+    domain: "patient-access",
+    objective: {
+      en: "Grow telehealth to 20% of total encounters while maintaining 90%+ patient satisfaction",
+      es: "Crecer telesalud al 20% del total de encuentros manteniendo satisfaccion del paciente ≥90%",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Increase telehealth encounters from current baseline to 20% of total monthly visits",
+          es: "Aumentar encuentros de telesalud desde la linea base actual al 20% del total de visitas mensuales",
+        },
+        metric: "Telehealth % of encounters",
+        target: "20%",
+        departmentsInvolved: ["Clinical", "IT", "Scheduling"],
+      },
+      {
+        kr: {
+          en: "Equip 100% of eligible providers with telehealth-capable rooms and train on video visit workflows",
+          es: "Equipar al 100% de proveedores elegibles con salas de telesalud y capacitar en flujos de visitas por video",
+        },
+        metric: "Providers telehealth-ready",
+        target: "100%",
+        departmentsInvolved: ["IT", "Clinical", "HR/Training"],
+      },
+      {
+        kr: {
+          en: "Reduce no-show rate for telehealth appointments to ≤10% (vs. 18-25% average for in-person)",
+          es: "Reducir tasa de inasistencia para citas de telesalud a ≤10% (vs. 18-25% promedio presencial)",
+        },
+        metric: "Telehealth no-show rate",
+        target: "≤10%",
+        departmentsInvolved: ["Scheduling", "Outreach", "IT"],
+      },
+      {
+        kr: {
+          en: "Achieve ≥90% patient satisfaction score for telehealth visits via post-visit survey",
+          es: "Lograr puntuacion de satisfaccion del paciente ≥90% para visitas de telesalud via encuesta post-visita",
+        },
+        metric: "Telehealth patient satisfaction",
+        target: "≥90%",
+        departmentsInvolved: ["Clinical", "Quality", "IT"],
+      },
+    ],
+    context: {
+      en: "Post-COVID telehealth at FQHCs dropped from 40% to under 10% of encounters, but Medi-Cal permanently extended telehealth reimbursement parity through AB 32. Telehealth reduces no-shows by 40-50%, expands access for rural and transportation-challenged patients, and can be billed as PPS encounters. Key barrier: digital literacy among older and Spanish-speaking patients requires CHW-assisted onboarding.",
+      es: "La telesalud post-COVID en FQHCs cayo de 40% a menos del 10% de encuentros, pero Medi-Cal extendio permanentemente la paridad de reembolso de telesalud. La telesalud reduce inasistencias 40-50% y puede facturarse como encuentros PPS.",
+    },
+    timeframe: "quarterly",
+    difficulty: "starter",
+    tags: ["telehealth", "virtual-care", "no-show", "access", "pps"],
+  },
+
+  /* ── 6. SB 525 WAGE COMPLIANCE ── */
+  {
+    id: "tactical-sb525-compliance",
+    domain: "workforce-retention",
+    objective: {
+      en: "Achieve full SB 525 compliance ($25/hr healthcare minimum) with zero budget overrun by 2027 deadline",
+      es: "Lograr cumplimiento total de SB 525 ($25/hr minimo de salud) sin exceder presupuesto para fecha limite 2027",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Complete wage gap analysis for all positions below $25/hr — identify total annual cost impact",
+          es: "Completar analisis de brecha salarial para todos los puestos por debajo de $25/hr — identificar impacto anual total",
+        },
+        metric: "Wage gap analysis",
+        target: "Complete within 30 days",
+        departmentsInvolved: ["HR", "Finance", "Executive"],
+      },
+      {
+        kr: {
+          en: "Develop phased salary adjustment plan that achieves $25/hr for all healthcare workers by June 2027",
+          es: "Desarrollar plan de ajuste salarial por fases que logre $25/hr para todos los trabajadores de salud para junio 2027",
+        },
+        metric: "Phased plan approved",
+        target: "Board approved",
+        departmentsInvolved: ["HR", "Finance", "Executive", "Legal"],
+      },
+      {
+        kr: {
+          en: "Identify ≥$200K in offsetting revenue or savings to fund wage increases without layoffs",
+          es: "Identificar ≥$200K en ingresos compensatorios o ahorros para financiar aumentos salariales sin despidos",
+        },
+        metric: "Offsetting revenue identified",
+        target: "≥$200K",
+        departmentsInvolved: ["Finance", "Executive", "Operations"],
+      },
+      {
+        kr: {
+          en: "Address wage compression: adjust supervisor and experienced staff pay to maintain ≥15% differential above minimum",
+          es: "Abordar compresion salarial: ajustar pago de supervisores y personal experimentado para mantener diferencial ≥15% sobre el minimo",
+        },
+        metric: "Wage compression ratio",
+        target: "≥15% supervisor differential",
+        departmentsInvolved: ["HR", "Finance", "Clinical Leadership"],
+      },
+    ],
+    context: {
+      en: "SB 525 requires all California healthcare facilities to pay $25/hr minimum by 2027 for FQHCs (other facilities hit $25/hr earlier). This affects front desk staff, MAs, outreach workers, and entry-level positions. The hidden cost is wage compression — when the floor rises, experienced staff and supervisors expect proportional increases. FQHCs must plan now: the total cost is typically 2-3x the direct minimum wage increase when compression is factored in.",
+      es: "SB 525 requiere que todas las instalaciones de salud de California paguen minimo $25/hr para 2027 para FQHCs. El costo oculto es la compresion salarial — cuando el piso sube, el personal experimentado espera aumentos proporcionales. El costo total tipicamente es 2-3x el aumento directo.",
+    },
+    relatedIntelIds: ["sb-525-minimum-wage"],
+    timeframe: "annual",
+    difficulty: "intermediate",
+    tags: ["sb-525", "minimum-wage", "compliance", "wage-compression", "workforce"],
+  },
+
+  /* ── 7. GRANT DIVERSIFICATION ── */
+  {
+    id: "tactical-grant-diversification",
+    domain: "revenue-resilience",
+    objective: {
+      en: "Secure 3+ non-Section 330 grants totaling ≥$500K to reduce federal funding dependency below 35%",
+      es: "Asegurar 3+ subvenciones fuera de la Seccion 330 totalizando ≥$500K para reducir dependencia de financiamiento federal por debajo del 35%",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Submit applications to 8+ grant opportunities across state, foundation, and private sources",
+          es: "Enviar solicitudes a 8+ oportunidades de subvencion a traves de fuentes estatales, fundaciones y privadas",
+        },
+        metric: "Grant applications submitted",
+        target: "≥8",
+        departmentsInvolved: ["Grants/Development", "Finance", "Executive"],
+      },
+      {
+        kr: {
+          en: "Secure ≥3 new grants totaling ≥$500K/year (target: CHCF, Blue Shield Foundation, state workforce grants)",
+          es: "Asegurar ≥3 nuevas subvenciones totalizando ≥$500K/ano (objetivo: CHCF, Blue Shield Foundation, subvenciones estatales de fuerza laboral)",
+        },
+        metric: "New grants secured",
+        target: "≥3 grants, ≥$500K total",
+        departmentsInvolved: ["Grants/Development", "Finance", "Executive"],
+      },
+      {
+        kr: {
+          en: "Reduce Section 330 grant as percentage of total revenue from current level by ≥10 percentage points",
+          es: "Reducir subvencion Seccion 330 como porcentaje de ingresos totales desde nivel actual en ≥10 puntos porcentuales",
+        },
+        metric: "Section 330 % of revenue",
+        target: "Decrease ≥10 points",
+        departmentsInvolved: ["Finance", "Executive"],
+      },
+    ],
+    context: {
+      en: "The average FQHC derives 18% of revenue from Section 330, but many smaller FQHCs depend on 40-60%. With CHCF expiration looming (December 2026) and HRSA aligning grants to MAHA priorities, diversification is existential. California-specific opportunities: DHCS workforce development grants, CHCF innovation grants, Blue Shield of California Foundation health equity grants, and county behavioral health funding through MHSA. A dedicated grants officer ROI is typically 5-10x their salary.",
+      es: "El FQHC promedio deriva 18% de ingresos de la Seccion 330, pero muchos FQHCs pequenos dependen del 40-60%. Con la expiracion de CHCF inminente y HRSA alineando subvenciones a prioridades MAHA, la diversificacion es existencial.",
+    },
+    relatedCaseStudyId: "pureview-federal-dependency",
+    relatedIntelIds: ["hrsa-maha-alignment-fy2026", "strategy-revenue-diversification"],
+    timeframe: "annual",
+    difficulty: "intermediate",
+    tags: ["grants", "section-330", "diversification", "chcf", "foundation"],
+  },
+
+  /* ── 8. DENTAL INTEGRATION ── */
+  {
+    id: "tactical-dental-integration",
+    domain: "cross-department",
+    objective: {
+      en: "Launch integrated dental services generating 500+ encounters/month within 6 months of opening",
+      es: "Lanzar servicios dentales integrados generando 500+ encuentros/mes dentro de 6 meses de apertura",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Complete dental clinic buildout (2+ operatories) and recruit lead dentist + 2 dental hygienists",
+          es: "Completar construccion de clinica dental (2+ consultorios) y reclutar dentista principal + 2 higienistas dentales",
+        },
+        metric: "Dental operatories and staff",
+        target: "2 operatories, 3 staff hired",
+        departmentsInvolved: ["Operations", "HR", "Facilities", "Executive"],
+      },
+      {
+        kr: {
+          en: "Achieve 500+ dental encounters/month by month 6 (PPS billable per encounter)",
+          es: "Lograr 500+ encuentros dentales/mes para el mes 6 (facturable por encuentro PPS)",
+        },
+        metric: "Monthly dental encounters",
+        target: "≥500",
+        departmentsInvolved: ["Dental", "Scheduling", "Finance/Billing"],
+      },
+      {
+        kr: {
+          en: "Implement same-day dental referral workflow — medical provider can refer to dental same visit, dental seen within 2 weeks",
+          es: "Implementar flujo de referencia dental del mismo dia — proveedor medico puede referir en la misma visita, dental visto en 2 semanas",
+        },
+        metric: "Dental referral-to-visit time",
+        target: "≤14 days",
+        departmentsInvolved: ["Clinical", "Dental", "Scheduling", "IT"],
+      },
+      {
+        kr: {
+          en: "Apply for HRSA scope of service change to add dental (required for PPS dental encounters)",
+          es: "Solicitar cambio de alcance de servicio de HRSA para agregar dental (requerido para encuentros dentales PPS)",
+        },
+        metric: "HRSA scope change approved",
+        target: "Approved",
+        departmentsInvolved: ["Executive", "Grants/Development", "Legal"],
+      },
+    ],
+    context: {
+      en: "Dental is the #1 unmet healthcare need for FQHC patients — 45% of FQHCs nationally lack dental services. Each dental encounter generates a separate PPS payment ($100-200+), making dental one of the highest-margin FQHC service lines. H.R. 1 proposed eliminating dental benefits for undocumented Medi-Cal patients, but for now the benefit remains. Key requirement: HRSA Form 5A scope change must be approved before billing dental PPS encounters.",
+      es: "Dental es la necesidad de salud #1 no satisfecha para pacientes FQHC — 45% de FQHCs carecen de servicios dentales. Cada encuentro dental genera un pago PPS separado ($100-200+). Requisito clave: cambio de alcance HRSA Form 5A debe aprobarse antes de facturar.",
+    },
+    relatedIntelIds: ["dental-elimination-undocumented"],
+    timeframe: "annual",
+    difficulty: "advanced",
+    tags: ["dental", "service-line", "pps", "hrsa-scope", "integration"],
+  },
+
+  /* ── 9. BEHAVIORAL HEALTH INTEGRATION ── */
+  {
+    id: "tactical-bh-integration",
+    domain: "cross-department",
+    objective: {
+      en: "Achieve fully integrated behavioral health with same-day warm handoffs and 300+ BH encounters/month",
+      es: "Lograr salud conductual totalmente integrada con transferencias calidas del mismo dia y 300+ encuentros BH/mes",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Co-locate BH provider in ≥80% of primary care clinic sessions for immediate warm handoffs",
+          es: "Co-ubicar proveedor de BH en ≥80% de sesiones de clinica de atencion primaria para transferencias calidas inmediatas",
+        },
+        metric: "Clinic sessions with co-located BH",
+        target: "≥80%",
+        departmentsInvolved: ["BH", "Clinical", "Operations", "Scheduling"],
+      },
+      {
+        kr: {
+          en: "Screen 90% of adult primary care patients with PHQ-2 annually, with automatic referral for PHQ-9 ≥10",
+          es: "Evaluar 90% de pacientes adultos de atencion primaria con PHQ-2 anualmente, con referencia automatica para PHQ-9 ≥10",
+        },
+        metric: "PHQ-2 screening rate",
+        target: "≥90%",
+        departmentsInvolved: ["Clinical", "BH", "Quality", "IT"],
+      },
+      {
+        kr: {
+          en: "Achieve 300+ BH encounters/month (each a separate PPS billable visit when same-day with primary care)",
+          es: "Lograr 300+ encuentros BH/mes (cada uno una visita PPS facturable separada cuando es el mismo dia con atencion primaria)",
+        },
+        metric: "Monthly BH encounters",
+        target: "≥300",
+        departmentsInvolved: ["BH", "Finance/Billing", "Scheduling"],
+      },
+      {
+        kr: {
+          en: "Reduce time from PCP behavioral health referral to first BH appointment from 21 days to ≤3 days",
+          es: "Reducir tiempo desde referencia de BH del PCP a primera cita BH de 21 dias a ≤3 dias",
+        },
+        metric: "BH referral-to-visit time",
+        target: "≤3 days",
+        departmentsInvolved: ["BH", "Clinical", "Scheduling"],
+      },
+    ],
+    context: {
+      en: "Integrated behavioral health (IBH) generates the highest ROI of any FQHC service expansion: every same-day BH encounter is a separate PPS payment, depression screening is a UDS quality metric, and BH integration reduces ED utilization by 20-30%. The SAMHSA-HRSA CCBHC model is expanding — FQHCs with integrated BH are better positioned for Certified Community Behavioral Health Clinic designation, which offers prospective payment rates 2-3x higher than standard Medi-Cal BH rates.",
+      es: "La salud conductual integrada genera el ROI mas alto de cualquier expansion de servicio FQHC: cada encuentro BH del mismo dia es un pago PPS separado, la evaluacion de depresion es metrica de calidad UDS, y la integracion BH reduce utilizacion de ED 20-30%.",
+    },
+    timeframe: "quarterly",
+    difficulty: "intermediate",
+    tags: ["behavioral-health", "integration", "warm-handoff", "phq", "co-visit", "pps"],
+  },
+
+  /* ── 10. QUALITY IMPROVEMENT (UDS) ── */
+  {
+    id: "tactical-uds-quality",
+    domain: "operational-efficiency",
+    objective: {
+      en: "Improve 4 core UDS clinical quality metrics to top-quartile national performance within 12 months",
+      es: "Mejorar 4 metricas clinicas centrales UDS a desempeno del cuartil superior nacional en 12 meses",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Increase diabetes HbA1c control (≤9%) rate from current baseline to ≥75% (national top quartile)",
+          es: "Aumentar tasa de control de HbA1c de diabetes (≤9%) desde la linea base actual a ≥75% (cuartil superior nacional)",
+        },
+        metric: "HbA1c ≤9% rate",
+        target: "≥75%",
+        departmentsInvolved: ["Clinical", "Quality", "Care Coordination"],
+      },
+      {
+        kr: {
+          en: "Increase cervical cancer screening rate to ≥65% of eligible female patients (21-65)",
+          es: "Aumentar tasa de deteccion de cancer cervical a ≥65% de pacientes femeninas elegibles (21-65)",
+        },
+        metric: "Cervical cancer screening rate",
+        target: "≥65%",
+        departmentsInvolved: ["Clinical", "Quality", "Outreach"],
+      },
+      {
+        kr: {
+          en: "Achieve hypertension controlled (BP <140/90) rate of ≥68% across all hypertensive patients",
+          es: "Lograr tasa de hipertension controlada (PA <140/90) del ≥68% en todos los pacientes hipertensos",
+        },
+        metric: "Hypertension control rate",
+        target: "≥68%",
+        departmentsInvolved: ["Clinical", "Quality", "Care Coordination"],
+      },
+      {
+        kr: {
+          en: "Implement weekly UDS quality huddles with live dashboards — every clinical team reviews their panel gaps",
+          es: "Implementar reuniones semanales de calidad UDS con dashboards en vivo — cada equipo clinico revisa brechas de su panel",
+        },
+        metric: "Weekly quality huddles held",
+        target: "100% of weeks",
+        departmentsInvolved: ["Quality", "Clinical", "IT", "Executive"],
+      },
+    ],
+    context: {
+      en: "UDS quality metrics directly impact HRSA Quality Improvement Awards (QIA) — worth up to $100K/year for top performers. They also influence HRSA grant renewals (especially under MAHA-aligned priorities emphasizing outcomes over access). The 4 metrics targeted are: diabetes HbA1c control, cervical cancer screening, hypertension control, and depression screening/follow-up. Panel management and care gaps workflows in the EHR are the key lever — most FQHCs have the data but lack systematic outreach to patients overdue for screenings.",
+      es: "Las metricas de calidad UDS impactan directamente los Premios de Mejora de Calidad de HRSA — hasta $100K/ano para mejores desempenadores. Tambien influyen en renovaciones de subvenciones HRSA. Las 4 metricas objetivo son: control de HbA1c, deteccion de cancer cervical, control de hipertension, y deteccion/seguimiento de depresion.",
+    },
+    relatedIntelIds: ["hrsa-maha-alignment-fy2026"],
+    timeframe: "annual",
+    difficulty: "intermediate",
+    tags: ["uds", "quality", "hba1c", "hypertension", "screening", "qia"],
+  },
+
+  /* ── 11. REVENUE CYCLE OPTIMIZATION ── */
+  {
+    id: "tactical-revenue-cycle",
+    domain: "revenue-resilience",
+    objective: {
+      en: "Reduce claim denial rate to ≤5% and days in A/R to ≤35, recovering ≥$250K in lost revenue",
+      es: "Reducir tasa de denegacion de reclamaciones a ≤5% y dias en C/C a ≤35, recuperando ≥$250K en ingresos perdidos",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Reduce initial claim denial rate from current baseline (industry avg 10-15%) to ≤5%",
+          es: "Reducir tasa de denegacion de reclamaciones inicial desde linea base actual (promedio industria 10-15%) a ≤5%",
+        },
+        metric: "Claim denial rate",
+        target: "≤5%",
+        departmentsInvolved: ["Finance/Billing", "Clinical", "IT"],
+      },
+      {
+        kr: {
+          en: "Reduce days in accounts receivable from current baseline to ≤35 days across all payers",
+          es: "Reducir dias en cuentas por cobrar desde linea base actual a ≤35 dias en todos los pagadores",
+        },
+        metric: "Days in A/R",
+        target: "≤35 days",
+        departmentsInvolved: ["Finance/Billing"],
+      },
+      {
+        kr: {
+          en: "Implement front-end eligibility verification for 100% of patients at check-in (real-time Medi-Cal/insurance check)",
+          es: "Implementar verificacion de elegibilidad en recepcion para 100% de pacientes al registrarse (verificacion en tiempo real de Medi-Cal/seguro)",
+        },
+        metric: "Front-end eligibility verification rate",
+        target: "100%",
+        departmentsInvolved: ["Front Desk", "Finance/Billing", "IT"],
+      },
+      {
+        kr: {
+          en: "Work denied claims within 7 days of denial — achieve 60%+ overturn rate on appealed denials",
+          es: "Trabajar reclamaciones denegadas dentro de 7 dias de denegacion — lograr tasa de reversion del 60%+ en denegaciones apeladas",
+        },
+        metric: "Denial appeal turnaround / overturn rate",
+        target: "≤7 days / ≥60% overturn",
+        departmentsInvolved: ["Finance/Billing", "Clinical"],
+      },
+    ],
+    context: {
+      en: "The average FQHC loses $150K-400K annually from preventable claim denials and slow A/R. Top denial reasons at FQHCs: eligibility/registration errors (35%), missing authorizations (20%), coding errors (15%), and timely filing (10%). Front-end eligibility verification eliminates the #1 denial cause. RapidClaims and similar AI tools can pre-scrub claims before submission, catching errors that humans miss. Every 10-day reduction in A/R frees up significant working capital.",
+      es: "El FQHC promedio pierde $150K-400K anuales por denegaciones prevenibles y C/C lentas. Razones principales de denegacion: errores de elegibilidad (35%), autorizaciones faltantes (20%), errores de codificacion (15%). La verificacion de elegibilidad en recepcion elimina la causa #1.",
+    },
+    relatedIntelIds: ["strategy-revenue-diversification"],
+    timeframe: "quarterly",
+    difficulty: "starter",
+    tags: ["revenue-cycle", "denials", "ar-days", "eligibility", "claims"],
+  },
+
+  /* ── 12. COMMUNITY HEALTH WORKER PROGRAM LAUNCH ── */
+  {
+    id: "tactical-chw-program-launch",
+    domain: "workforce-retention",
+    objective: {
+      en: "Build a CHW team of 8+ workers generating ≥$30K/month in billable encounters within 6 months",
+      es: "Construir un equipo CHW de 8+ trabajadores generando ≥$30K/mes en encuentros facturables en 6 meses",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Recruit and hire 8 CHWs — prioritize bilingual candidates from the communities served",
+          es: "Reclutar y contratar 8 CHWs — priorizar candidatos bilingues de las comunidades atendidas",
+        },
+        metric: "CHWs hired",
+        target: "8",
+        departmentsInvolved: ["HR", "Outreach", "Clinical", "Executive"],
+      },
+      {
+        kr: {
+          en: "Ensure 100% of CHWs complete DHCS-approved CHW certification training (80+ hours) before billing",
+          es: "Asegurar que el 100% de los CHWs completen capacitacion de certificacion CHW aprobada por DHCS (80+ horas) antes de facturar",
+        },
+        metric: "CHWs certified",
+        target: "100%",
+        departmentsInvolved: ["HR/Training", "Outreach", "Compliance"],
+      },
+      {
+        kr: {
+          en: "Bill ≥400 CHW encounters/month using new Medi-Cal CHW billing codes (effective Jan 2026)",
+          es: "Facturar ≥400 encuentros CHW/mes usando nuevos codigos de facturacion CHW de Medi-Cal (efectivos enero 2026)",
+        },
+        metric: "Monthly CHW billed encounters",
+        target: "≥400",
+        departmentsInvolved: ["Outreach", "Finance/Billing", "Clinical"],
+      },
+      {
+        kr: {
+          en: "Assign each CHW a panel of 50-75 patients with documented outreach activities and outcomes tracking",
+          es: "Asignar a cada CHW un panel de 50-75 pacientes con actividades de alcance documentadas y seguimiento de resultados",
+        },
+        metric: "CHW panel size",
+        target: "50-75 patients per CHW",
+        departmentsInvolved: ["Clinical", "Outreach", "Care Coordination", "IT"],
+      },
+    ],
+    context: {
+      en: "California activated Medi-Cal billing codes for CHW services in January 2026 — the first time CHW encounters are directly reimbursable. This transforms CHWs from a cost center to a revenue-generating workforce. At $50-80 per encounter, a team of 8 CHWs billing 400 encounters/month generates $20K-32K/month in new revenue while expanding access to hard-to-reach populations. Key requirements: CHWs must hold DHCS-approved certification, encounters must be documented in the EHR, and a supervising provider must sign off on care plans.",
+      es: "California activo codigos de facturacion de Medi-Cal para servicios CHW en enero 2026 — la primera vez que encuentros CHW son directamente reembolsables. Esto transforma CHWs de un centro de costo a fuerza laboral generadora de ingresos. Requisitos clave: certificacion aprobada por DHCS y documentacion en EHR.",
+    },
+    relatedIntelIds: ["chw-medi-cal-billing"],
+    timeframe: "quarterly",
+    difficulty: "starter",
+    tags: ["chw", "community-health-worker", "billing-codes", "medi-cal", "workforce"],
   },
 ];
 

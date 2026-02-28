@@ -661,7 +661,7 @@ export default function Home() {
                   textColor: "text-rose-800",
                 },
                 {
-                  name: isEs ? "12 Marcos de Ejecución" : "12 Execution Frameworks",
+                  name: isEs ? "14 Marcos de Ejecución" : "14 Execution Frameworks",
                   desc: isEs
                     ? "Kotter, ADKAR, Cynefin, DMAIC, PDSA — gestión del cambio, toma de decisiones y excelencia operacional."
                     : "Kotter, ADKAR, Cynefin, DMAIC, PDSA — change management, decision-making, and operational excellence.",
@@ -672,8 +672,8 @@ export default function Home() {
                 {
                   name: isEs ? "OKRs para Crisis" : "OKRs for Crisis",
                   desc: isEs
-                    ? "12 plantillas de objetivos y resultados clave — ingresos, personal, acceso, operaciones, inter-departamental."
-                    : "12 objective & key result templates — revenue, workforce, access, ops, cross-department.",
+                    ? "24 plantillas de objetivos y resultados clave — ingresos, personal, acceso, operaciones, inter-departamental."
+                    : "24 objective & key result templates — revenue, workforce, access, ops, cross-department.",
                   href: "/strategy/okrs" as const,
                   color: "border-teal-200 bg-teal-50",
                   textColor: "text-teal-800",
@@ -688,20 +688,20 @@ export default function Home() {
                   textColor: "text-stone-800",
                 },
                 {
-                  name: isEs ? "STARS (Watkins)" : "STARS Situational Model",
+                  name: isEs ? "28 Líderes de Pensamiento" : "28 Thought Leaders",
                   desc: isEs
-                    ? "Arranque, Reestructuración, Crecimiento, Realineación, Éxito. Identifica tu situación antes de actuar."
-                    : "Startup, Turnaround, Growth, Realignment, Sustain. Identify your situation before acting.",
-                  href: "/strategy/frameworks" as const,
+                    ? "Líderes de NACHC, CEOs innovadores, expertos en política, pioneros de IA — a quién seguir y por qué."
+                    : "NACHC leaders, innovative CEOs, policy experts, AI pioneers — who to follow and why.",
+                  href: "/strategy/leaders" as const,
                   color: "border-purple-200 bg-purple-50",
                   textColor: "text-purple-800",
                 },
                 {
-                  name: isEs ? "Evaluación de Preparación" : "Readiness Assessments",
+                  name: isEs ? "Mapa de Conocimiento" : "Strategy Knowledge Map",
                   desc: isEs
-                    ? "Evaluación de cambio organizacional + preparación tecnológica. Evalúe antes de lanzar."
-                    : "Organizational change readiness + tech stack assessment. Evaluate before you launch.",
-                  href: "/strategy/frameworks" as const,
+                    ? "6 temas estratégicos, 4 rutas de aprendizaje, 60+ conexiones. Cómo todo se interconecta."
+                    : "6 strategic themes, 4 learning paths, 60+ connections. How everything interconnects.",
+                  href: "/strategy/knowledge-map" as const,
                   color: "border-blue-200 bg-blue-50",
                   textColor: "text-blue-800",
                 },

@@ -123,6 +123,8 @@ export default function Header() {
         { href: "/strategy/case-studies", label: t("caseStudies"), desc: t("caseStudiesDesc") },
         { href: "/strategy/economics", label: t("healthcareEconomics"), desc: t("healthcareEconomicsDesc") },
         { href: "/strategy/frameworks", label: t("executionFrameworks"), desc: t("executionFrameworksDesc") },
+        { href: "/strategy/leaders", label: t("thoughtLeaders"), desc: t("thoughtLeadersDesc") },
+        { href: "/strategy/knowledge-map", label: t("knowledgeMap"), desc: t("knowledgeMapDesc") },
         { href: "/funding-impact", label: t("fundingImpact"), desc: t("fundingImpactDesc") },
       ],
     },
