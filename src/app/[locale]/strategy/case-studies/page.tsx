@@ -7,13 +7,16 @@ import {
   ArrowRight,
   BarChart3,
   BookOpen,
+  Calendar,
   MapPin,
+  Signal,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   CASE_STUDIES,
   STRATEGY_CATEGORIES,
+  DIFFICULTY_META,
   type FQHCCaseStudy,
 } from "@/lib/fqhc-case-studies";
 
@@ -38,24 +41,41 @@ function CompactCard({
   isEs: boolean;
 }) {
   const catMeta = STRATEGY_CATEGORIES.find((c) => c.id === cs.strategyCategory);
+  const diffMeta = DIFFICULTY_META.find((d) => d.id === cs.difficulty);
 
   return (
     <div className="rounded-2xl border border-stone-200 bg-white p-6 transition-all hover:-translate-y-0.5 hover:shadow-md">
       <div className="flex items-start justify-between gap-3 mb-3">
         <div>
-          {catMeta && (
-            <Badge
-              variant="secondary"
-              className="bg-teal-50 text-teal-700 text-xs mb-2"
-            >
-              {isEs ? catMeta.es : catMeta.en}
-            </Badge>
-          )}
+          <div className="flex flex-wrap items-center gap-1.5 mb-2">
+            {catMeta && (
+              <Badge
+                variant="secondary"
+                className="bg-teal-50 text-teal-700 text-xs"
+              >
+                {isEs ? catMeta.es : catMeta.en}
+              </Badge>
+            )}
+            {diffMeta && (
+              <Badge
+                variant="outline"
+                className={`text-xs border ${diffMeta.color}`}
+              >
+                {isEs ? diffMeta.es : diffMeta.en}
+              </Badge>
+            )}
+          </div>
           <h3 className="text-lg font-bold text-stone-900">{cs.fqhcName}</h3>
-          <p className="text-xs text-stone-500 flex items-center gap-1 mt-0.5">
-            <MapPin className="size-3" />
-            {cs.location}
-          </p>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 mt-1">
+            <p className="text-xs text-stone-500 flex items-center gap-1">
+              <MapPin className="size-3" />
+              {cs.location}
+            </p>
+            <p className="text-xs text-stone-500 flex items-center gap-1">
+              <Calendar className="size-3" />
+              {cs.timeframe}
+            </p>
+          </div>
         </div>
       </div>
 

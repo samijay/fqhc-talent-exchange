@@ -143,19 +143,19 @@ export default function CareerAssessment({
     roleFitDesc: isEs
       ? 'Una buena opción basada en su experiencia e intereses'
       : 'A great fit based on your background and interests',
-    joinWaitlist: isEs ? 'Únase a la Lista de Espera' : 'Join the Waitlist & Get Matched',
+    joinWaitlist: isEs ? 'Guardar Perfil y Ser Emparejado' : 'Save Profile & Get Matched',
     fullName: isEs ? 'Nombre Completo *' : 'Full Name *',
     emailAddress: isEs ? 'Correo Electrónico *' : 'Email Address *',
     submitting: isEs ? 'Enviando...' : 'Submitting...',
-    joinWaitlistBtn: isEs ? 'Unirse a la Lista' : 'Join Waitlist',
+    joinWaitlistBtn: isEs ? 'Guardar Perfil' : 'Save Profile',
     waitlistDisclaimer: isEs
       ? `Usaremos su información para conectarlo con oportunidades y notificarle sobre nuevos roles en ${fqhcName}. Sus datos están seguros y nunca se comparten.`
-      : `We'll use your information to match you with opportunities and notify you of new roles at ${fqhcName}. Your data is secure and never shared.`,
+      : `We'll use your information to connect you with opportunities and notify you of new roles at ${fqhcName}. Your data is secure and never shared.`,
     // Success
-    youreOnWaitlist: isEs ? '¡Está en la lista de espera!' : "You're on the waitlist!",
+    youreOnWaitlist: isEs ? '¡Perfil guardado!' : "Profile saved!",
     successMessage: isEs
-      ? `Gracias por completar la evaluación de carrera. Lo hemos agregado a la lista de espera de ${fqhcName} y hemos vinculado su perfil con sus oportunidades. ¡Pronto tendrá noticias nuestras!`
-      : `Thanks for completing the career screener. We've added you to ${fqhcName}'s waitlist and matched your profile to their opportunities. You'll hear from us soon!`,
+      ? `Gracias por completar la evaluación de carrera. Hemos guardado su perfil y lo hemos emparejado con las oportunidades de ${fqhcName}. ¡Pronto tendrá noticias nuestras!`
+      : `Thanks for completing the career screener. We've saved your profile and matched it to ${fqhcName}'s opportunities. You'll hear from us soon!`,
     checkEmail: isEs ? 'Revise su correo electrónico para los próximos pasos.' : 'Check your email for next steps.',
     // Validation
     enterName: isEs ? 'Por favor ingrese su nombre' : 'Please enter your name',

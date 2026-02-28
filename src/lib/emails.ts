@@ -15,7 +15,7 @@ import {
 } from "@/lib/email-helpers";
 
 /* ------------------------------------------------------------------ */
-/*  Candidate Waitlist Confirmation                                    */
+/*  Candidate Confirmation                                             */
 /* ------------------------------------------------------------------ */
 
 export function candidateConfirmationHtml(data: {
@@ -37,8 +37,8 @@ export function candidateConfirmationHtml(data: {
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
     ${isEs
-      ? `¡Estás oficialmente en la lista de espera! Tu posición es <strong style="color: #0d9488;">#${data.position}</strong>.`
-      : `You're officially on the waitlist! Your position is <strong style="color: #0d9488;">#${data.position}</strong>.`}
+      ? `¡Tu perfil ha sido creado! Nos comunicaremos con oportunidades relevantes.`
+      : `Your profile has been created! We'll be in touch with relevant opportunities.`}
   </p>
 
   ${missionBanner(isEs)}
@@ -68,7 +68,7 @@ export function candidateConfirmationHtml(data: {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Employer Waitlist Confirmation                                     */
+/*  Employer Confirmation                                              */
 /* ------------------------------------------------------------------ */
 
 export function employerConfirmationHtml(data: {
@@ -149,13 +149,13 @@ export function displacedCandidateConfirmationHtml(data: {
   </div>
 
   <h2 style="font-size: 20px; color: #1c1917;">${isEs
-    ? `¡Estás en el grupo prioritario, ${name}!`
-    : `You're in the priority pool, ${name}!`}</h2>
+    ? `¡Tu perfil ha sido creado, ${name}!`
+    : `Your profile has been created, ${name}!`}</h2>
 
   <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
     ${isEs
-      ? `Hemos recibido tu perfil y te hemos puesto en nuestra <strong style="color: #0d9488;">admisión prioritaria</strong>. Mientras tanto, aprovecha nuestras herramientas gratuitas para prepararte.`
-      : `We've received your profile and placed you in our <strong style="color: #0d9488;">priority intake</strong>. In the meantime, use our free tools to get job-ready.`}
+      ? `Hemos recibido tu perfil y revisaremos tus calificaciones. Mientras tanto, aprovecha nuestras herramientas gratuitas para prepararte.`
+      : `We've received your profile and will review your qualifications. In the meantime, use our free tools to get job-ready.`}
   </p>
 
   ${missionBanner(isEs)}
@@ -236,7 +236,7 @@ export function adminCandidateNotificationHtml(data: {
 <html>
 <head><meta charset="utf-8" /></head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1c1917;">
-  <h2 style="color: #0d9488; font-size: 20px;">New Candidate Waitlist Signup (#${data.position})</h2>
+  <h2 style="color: #0d9488; font-size: 20px;">New Candidate Profile (#${data.position})</h2>
 
   <table style="width: 100%; border-collapse: collapse; font-size: 14px; border: 1px solid #e7e5e4; border-radius: 8px;">
     ${row("Name", `${data.firstName} ${data.lastName}`)}

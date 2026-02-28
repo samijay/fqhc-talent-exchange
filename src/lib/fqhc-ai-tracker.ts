@@ -2,7 +2,10 @@
 // Track AI adoption across the FQHC/CHC sector
 // Every entry has a primary source URL — no unsourced claims
 // Updated via daily-update pipeline (Step 3.6: AI & Innovation Scan)
-// Last updated: 2026-02-27
+// Last updated: 2026-02-28 (daily update #6)
+
+/** Exported for display on pages — updated by /daily-update pipeline */
+export const AI_TRACKER_LAST_UPDATED = "2026-02-28";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */

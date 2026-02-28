@@ -12,7 +12,6 @@ import {
   Loader2,
   MapPin,
   Monitor,
-  Info,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { fqhcJobListings } from "@/lib/fqhc-job-listings";
@@ -48,7 +47,7 @@ interface JobOpening {
   } | null;
 }
 
-interface SampleJob {
+interface JobListing {
   id: string;
   title: string;
   orgName: string;
@@ -63,6 +62,8 @@ interface SampleJob {
   type: string;
   languageRequired?: string | null;
   languagePreferred?: string[] | null;
+  fqhcSlug: string;
+  careersUrl?: string | null;
 }
 
 /* ------------------------------------------------------------------ */
@@ -70,8 +71,9 @@ interface SampleJob {
 /* ------------------------------------------------------------------ */
 
 const fqhcNameMap = new Map(californiaFQHCs.map((f) => [f.slug, f.name]));
+const fqhcCareersMap = new Map(californiaFQHCs.map((f) => [f.slug, f.careersUrl]));
 
-const sampleJobs: SampleJob[] = fqhcJobListings.map((job) => ({
+const jobListings: JobListing[] = fqhcJobListings.map((job) => ({
   id: job.id,
   title: job.title,
   orgName: fqhcNameMap.get(job.fqhcSlug) || "",
@@ -86,6 +88,8 @@ const sampleJobs: SampleJob[] = fqhcJobListings.map((job) => ({
   type: job.type,
   languageRequired: job.languageRequired,
   languagePreferred: job.languagePreferred,
+  fqhcSlug: job.fqhcSlug,
+  careersUrl: fqhcCareersMap.get(job.fqhcSlug) || null,
 }));
 
 /* ------------------------------------------------------------------ */
@@ -235,9 +239,9 @@ export default function JobsPage() {
     return list;
   }, [jobs, search, roleFilter]);
 
-  /* filtered sample jobs */
-  const filteredSample = useMemo(() => {
-    let list = sampleJobs;
+  /* filtered job listings */
+  const filteredListings = useMemo(() => {
+    let list = jobListings;
 
     if (roleFilter !== "All Roles") {
       list = list.filter((j) =>
@@ -292,20 +296,6 @@ export default function JobsPage() {
           </Badge>
         )}
       </section>
-
-      {/* ---------- Info Banner ---------- */}
-      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-        <div className="flex items-start gap-3 rounded-xl border border-teal-200 bg-teal-50 p-4">
-          <Info className="mt-0.5 size-5 shrink-0 text-teal-700" />
-          <p className="text-sm text-teal-900">
-            {t("infoBanner")}{" "}
-            <Link href="/join" className="font-semibold underline underline-offset-2 hover:text-teal-950">
-              {t("joinWaitlist")}
-            </Link>{" "}
-            {t("infoBannerEnd")}
-          </p>
-        </div>
-      </div>
 
       {/* ---------- Filters ---------- */}
       <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
@@ -372,7 +362,7 @@ export default function JobsPage() {
           </div>
         )}
 
-        {/* Error — still show sample jobs */}
+        {/* Error — still show aggregated jobs */}
         {error && (
           <div className="mx-auto mb-6 max-w-md rounded-lg border border-amber-200 bg-amber-50 px-6 py-4 text-center text-sm text-amber-700">
             {t("liveUnavailable")}
@@ -436,7 +426,7 @@ export default function JobsPage() {
                     className="mt-5 w-full bg-teal-700 text-white hover:bg-teal-800"
                     asChild
                   >
-                    <Link href="/join">
+                    <Link href="/resume-builder">
                       {tNav("buildResume")} <ArrowRight className="size-4" />
                     </Link>
                   </Button>
@@ -447,13 +437,13 @@ export default function JobsPage() {
         )}
 
         {/* Network jobs from FQHC data */}
-        {!loading && filteredSample.length > 0 && (
+        {!loading && filteredListings.length > 0 && (
           <>
             <p className="mb-4 text-sm font-medium text-stone-700">
-              {filtered.length > 0 ? t("moreRoles") : t("rolesInNetwork")} ({filteredSample.length})
+              {filtered.length > 0 ? t("moreRoles") : t("rolesInNetwork")} ({filteredListings.length})
             </p>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {filteredSample.slice(0, 30).map((job) => (
+              {filteredListings.slice(0, 30).map((job) => (
                 <div
                   key={job.id}
                   className="group flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
@@ -519,18 +509,24 @@ export default function JobsPage() {
                     className="mt-5 w-full bg-teal-700 text-white hover:bg-teal-800"
                     asChild
                   >
-                    <Link href="/join">
-                      {t("joinWaitlistToApply")} <ArrowRight className="size-4" />
-                    </Link>
+                    {job.careersUrl ? (
+                      <a href={job.careersUrl} target="_blank" rel="noopener noreferrer">
+                        {t("joinWaitlistToApply")} <ArrowRight className="size-4" />
+                      </a>
+                    ) : (
+                      <Link href={`/directory/${job.fqhcSlug}`}>
+                        {t("joinWaitlistToApply")} <ArrowRight className="size-4" />
+                      </Link>
+                    )}
                   </Button>
                 </div>
               ))}
             </div>
-            {filteredSample.length > 30 && (
+            {filteredListings.length > 30 && (
               <div className="mt-8 text-center">
                 <p className="text-sm text-stone-500 mb-4">
-                  {t("showingOf", { count: filteredSample.length })}{" "}
-                  <Link href="/join" className="text-teal-700 font-semibold hover:underline">
+                  {t("showingOf", { count: filteredListings.length })}{" "}
+                  <Link href="/directory" className="text-teal-700 font-semibold hover:underline">
                     {t("joinWaitlist")}
                   </Link>{" "}
                   {t("showingOfEnd")}
@@ -541,7 +537,7 @@ export default function JobsPage() {
         )}
 
         {/* Empty state — only if both are empty */}
-        {!loading && filtered.length === 0 && filteredSample.length === 0 && (
+        {!loading && filtered.length === 0 && filteredListings.length === 0 && (
           <div className="mx-auto max-w-md py-20 text-center">
             <Briefcase className="mx-auto mb-4 size-12 text-stone-300" />
             <h2 className="text-lg font-semibold text-stone-700">

@@ -42,6 +42,7 @@ import {
 import {
   INTEL_ITEMS,
   INTEL_CATEGORIES,
+  INTEL_LAST_UPDATED,
   IMPACT_STYLES,
   IMPACT_BORDER,
   IMPACT_LABELS,
@@ -240,6 +241,10 @@ export default function InsightsPage() {
               ? "Legislación, financiamiento, fuerza laboral, y estrategia — lo que los líderes de FQHCs en California necesitan saber hoy."
               : "Legislation, funding, workforce, and strategy — what California FQHC leaders need to know today."}
           </p>
+          <div className="mt-3 flex items-center gap-1.5 text-xs text-stone-400">
+            <Clock className="size-3" />
+            <span>{isEs ? "Última actualización:" : "Last updated:"} {INTEL_LAST_UPDATED}</span>
+          </div>
 
           {/* Stat strip */}
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">

@@ -236,8 +236,8 @@ export default function TheDropPage() {
         toast.error(
           t(
             {
-              en: "This email is already on the waitlist.",
-              es: "Este correo ya está en la lista de espera.",
+              en: "This email is already registered.",
+              es: "Este correo ya est\u00e1 registrado.",
             },
             locale,
           ),
@@ -262,8 +262,8 @@ export default function TheDropPage() {
       toast.success(
         t(
           {
-            en: "You're on the list! We'll be in touch soon.",
-            es: "¡Estás en la lista! Nos comunicaremos pronto.",
+            en: "You're registered! We'll be in touch soon.",
+            es: "\u00a1Est\u00e1s registrado/a! Nos comunicaremos pronto.",
           },
           locale,
         ),
@@ -308,8 +308,8 @@ export default function TheDropPage() {
         toast.error(
           t(
             {
-              en: "This email is already on the waitlist.",
-              es: "Este correo ya está en la lista de espera.",
+              en: "This email is already registered.",
+              es: "Este correo ya est\u00e1 registrado.",
             },
             locale,
           ),
@@ -334,8 +334,8 @@ export default function TheDropPage() {
       toast.success(
         t(
           {
-            en: "You're on the list! We'll reach out with your first Drop.",
-            es: "¡Estás en la lista! Te contactaremos con tu primer Drop.",
+            en: "You're registered! We'll reach out with your first Drop.",
+            es: "\u00a1Est\u00e1s registrado/a! Te contactaremos con tu primer Drop.",
           },
           locale,
         ),
@@ -1062,7 +1062,7 @@ export default function TheDropPage() {
                 }
               >
                 {t(
-                  { en: "Join Employer Waitlist", es: "Unirse a la Lista de Espera" },
+                  { en: "Request Employer Access", es: "Solicitar Acceso de Empleador" },
                   locale,
                 )}
                 <ArrowRight className="ml-2 size-4" />
@@ -1168,7 +1168,7 @@ export default function TheDropPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  Section 7: Candidate Waitlist Form                           */}
+      {/*  Section 7: Candidate Registration Form                       */}
       {/* ============================================================ */}
       <section className="bg-stone-100 px-4 py-16 sm:px-6" id="candidate-waitlist">
         <div className="mx-auto max-w-2xl">
@@ -1183,8 +1183,8 @@ export default function TheDropPage() {
             <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
               {t(
                 {
-                  en: "Join The Drop Waitlist",
-                  es: "Únete a la Lista de Espera de The Drop",
+                  en: "Get Notified When The Drop Launches",
+                  es: "Recibe Notificaci\u00f3n Cuando The Drop Se Lance",
                 },
                 locale,
               )}
@@ -1192,8 +1192,8 @@ export default function TheDropPage() {
             <p className="mt-2 text-stone-600">
               {t(
                 {
-                  en: "Sign up to be notified when The Drop launches. Early signups get priority placement.",
-                  es: "Regístrate para ser notificado cuando The Drop se lance. Los registros tempranos obtienen colocación prioritaria.",
+                  en: "Register to be notified when The Drop launches. Early profiles get first access when we launch.",
+                  es: "Reg\u00edstrate para ser notificado cuando The Drop se lance. Los perfiles tempranos obtienen primer acceso cuando lancemos.",
                 },
                 locale,
               )}
@@ -1206,8 +1206,8 @@ export default function TheDropPage() {
               <h3 className="mt-4 text-xl font-bold text-stone-900">
                 {t(
                   {
-                    en: "You're on the list!",
-                    es: "¡Estás en la lista!",
+                    en: "You're registered!",
+                    es: "\u00a1Est\u00e1s registrado/a!",
                   },
                   locale,
                 )}
@@ -1216,7 +1216,7 @@ export default function TheDropPage() {
                 {t(
                   {
                     en: "We'll notify you as soon as The Drop launches. In the meantime, take the assessment to qualify.",
-                    es: "Te notificaremos tan pronto se lance The Drop. Mientras tanto, toma la evaluación para calificar.",
+                    es: "Te notificaremos tan pronto se lance The Drop. Mientras tanto, toma la evaluaci\u00f3n para calificar.",
                   },
                   locale,
                 )}
@@ -1394,8 +1394,8 @@ export default function TheDropPage() {
                     <Heart className="size-4" />
                     {t(
                       {
-                        en: "Join Candidate Waitlist",
-                        es: "Unirse a la Lista de Candidatos",
+                        en: "Create Candidate Profile",
+                        es: "Crear Perfil de Candidato",
                       },
                       locale,
                     )}
@@ -1408,7 +1408,7 @@ export default function TheDropPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  Section 8: Employer Waitlist Form                            */}
+      {/*  Section 8: Employer Registration Form                        */}
       {/* ============================================================ */}
       <section
         className="bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 px-4 py-16 sm:px-6"
@@ -1449,8 +1449,8 @@ export default function TheDropPage() {
               <h3 className="mt-4 text-xl font-bold text-white">
                 {t(
                   {
-                    en: "You're on the list!",
-                    es: "¡Estás en la lista!",
+                    en: "You're registered!",
+                    es: "\u00a1Est\u00e1s registrado/a!",
                   },
                   locale,
                 )}
@@ -1666,8 +1666,8 @@ export default function TheDropPage() {
                     <Building2 className="size-4" />
                     {t(
                       {
-                        en: "Join Employer Waitlist",
-                        es: "Unirse a la Lista de Empleadores",
+                        en: "Request Employer Access",
+                        es: "Solicitar Acceso de Empleador",
                       },
                       locale,
                     )}

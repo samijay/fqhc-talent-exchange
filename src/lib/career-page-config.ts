@@ -1,7 +1,10 @@
 // Career page configuration for FQHC job scraping
 // Tracks which FQHC career pages are scrapeable by the /scrape-jobs command
 // Updated automatically when the command runs
-// Last updated: 2026-02-27
+// Last updated: 2026-02-28 (daily update #6)
+
+/** Exported for display on pages — updated by /daily-update and /scrape-jobs pipelines */
+export const CAREER_CONFIG_LAST_UPDATED = "2026-02-28";
 
 export interface CareerPageConfig {
   fqhcSlug: string;

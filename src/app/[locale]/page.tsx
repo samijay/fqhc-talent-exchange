@@ -1,7 +1,6 @@
 // FQHC Talent Exchange v4 — Rumelt Strategic Framework Homepage
 "use client";
 
-import { useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import {
@@ -24,10 +23,7 @@ import {
   GraduationCap,
   Map,
   Award,
-  ChevronDown,
-  ChevronUp,
   Cpu,
-  BarChart3,
   Crosshair,
   Lightbulb,
 } from "lucide-react";
@@ -39,11 +35,7 @@ import {
   getFundingCliffs,
 } from "@/lib/market-intelligence";
 import { getLayoffStats } from "@/lib/california-fqhc-layoffs";
-import {
-  getIntelItems,
-  INTEL_CATEGORIES,
-  type IntelCategory,
-} from "@/lib/fqhc-news-intel";
+import { getIntelItems } from "@/lib/fqhc-news-intel";
 import { IntelCard } from "@/components/intel/IntelCard";
 import { getCaseStudyCounts } from "@/lib/fqhc-case-studies";
 import { getAICounts } from "@/lib/fqhc-ai-tracker";
@@ -64,107 +56,10 @@ const okrCounts = getOKRCounts();
 const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
 
-/* ---------- Single-Column Intel Feed ---------- */
-function IntelFeed({ locale, isEs }: { locale: string; isEs: boolean }) {
-  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
-  const [activeCategory, setActiveCategory] = useState<IntelCategory | "all">(
-    "all"
-  );
-  const [showAll, setShowAll] = useState(false);
-
-  const toggle = (id: string) => {
-    setExpandedIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  };
-
-  // Single-column: most recent first (pure chronological)
-  const filtered = (
-    activeCategory === "all"
-      ? allIntelItems
-      : allIntelItems.filter((i) => i.category === activeCategory)
-  ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-  const INITIAL_COUNT = 8;
-  const visible = showAll ? filtered : filtered.slice(0, INITIAL_COUNT);
-
-  // Category counts
-  const catCounts: Record<string, number> = {};
-  for (const item of allIntelItems) {
-    catCounts[item.category] = (catCounts[item.category] || 0) + 1;
-  }
-
-  return (
-    <div>
-      {/* Category filter pills */}
-      <div className="flex flex-wrap gap-1.5 mb-5">
-        <button
-          onClick={() => setActiveCategory("all")}
-          className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-            activeCategory === "all"
-              ? "bg-stone-800 text-white"
-              : "bg-stone-100 text-stone-500 hover:bg-stone-200"
-          }`}
-        >
-          {isEs ? "Todo" : "All"} ({allIntelItems.length})
-        </button>
-        {INTEL_CATEGORIES.filter((c) => catCounts[c.id]).map((cat) => (
-          <button
-            key={cat.id}
-            onClick={() => setActiveCategory(cat.id)}
-            className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-              activeCategory === cat.id
-                ? "bg-stone-800 text-white"
-                : "bg-stone-100 text-stone-500 hover:bg-stone-200"
-            }`}
-          >
-            {isEs ? cat.es : cat.en} ({catCounts[cat.id]})
-          </button>
-        ))}
-      </div>
-
-      {/* Single-column feed */}
-      <div className="space-y-3">
-        {visible.map((item) => (
-          <IntelCard
-            key={item.id}
-            item={item}
-            locale={locale}
-            isEs={isEs}
-            isExpanded={expandedIds.has(item.id)}
-            onToggle={() => toggle(item.id)}
-          />
-        ))}
-      </div>
-
-      {filtered.length > INITIAL_COUNT && (
-        <div className="mt-4 text-center">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setShowAll((prev) => !prev)}
-          >
-            {showAll
-              ? isEs
-                ? "Mostrar Menos"
-                : "Show Less"
-              : isEs
-                ? `Ver las ${filtered.length} Alertas`
-                : `View All ${filtered.length} Items`}
-            {showAll ? (
-              <ChevronUp className="size-3.5 ml-1" />
-            ) : (
-              <ChevronDown className="size-3.5 ml-1" />
-            )}
-          </Button>
-        </div>
-      )}
-    </div>
-  );
-}
+/* ---------- Top breaking intel (slim — full feed lives at /insights) ---------- */
+const topIntel = allIntelItems
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  .slice(0, 3);
 
 /* ================================================================== */
 /*  Homepage                                                           */
@@ -296,16 +191,28 @@ export default function Home() {
           </p>
 
           <div className="grid gap-8 lg:grid-cols-3">
-            {/* Intel Feed (2/3 width) */}
+            {/* Top 3 breaking intel (full feed at /insights) */}
             <div className="lg:col-span-2">
-              <IntelFeed locale={locale} isEs={isEs} />
+              <div className="space-y-3">
+                {topIntel.map((item) => (
+                  <IntelCard
+                    key={item.id}
+                    item={item}
+                    locale={locale}
+                    isEs={isEs}
+                    isExpanded={false}
+                    onToggle={() => {}}
+                    compact
+                  />
+                ))}
+              </div>
 
               <div className="mt-6">
                 <Button variant="outline" asChild>
                   <Link href="/insights">
                     {isEs
-                      ? "Abrir Dashboard Completo"
-                      : "Open Full Dashboard"}{" "}
+                      ? `Ver las ${allIntelItems.length} Alertas en el Dashboard`
+                      : `View All ${allIntelItems.length} Items on Dashboard`}{" "}
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
@@ -729,8 +636,8 @@ export default function Home() {
                   {
                     icon: Lightbulb,
                     href: "/fast-track" as const,
-                    label: isEs ? "Intake Prioritario" : "Priority Intake",
-                    meta: isEs ? "Desplazados" : "Displaced",
+                    label: isEs ? "Trabajadores Desplazados" : "Displaced Workers",
+                    meta: isEs ? "Herramientas gratis" : "Free tools",
                   },
                 ].map((item) => (
                   <Link

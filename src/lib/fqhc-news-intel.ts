@@ -2,7 +2,10 @@
 // Curated intelligence feed for FQHC executives
 // Updated daily via /daily-update pipeline
 // Every item has a primary source URL — no unsourced claims
-// Last updated: 2026-02-27 (daily update #5)
+// Last updated: 2026-02-28 (daily update #6)
+
+/** Exported for display on pages — updated by /daily-update pipeline */
+export const INTEL_LAST_UPDATED = "2026-02-28";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */

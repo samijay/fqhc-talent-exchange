@@ -2,7 +2,10 @@
 // OKR templates for FQHC crisis change management
 // Designed to break down silos between departments and connect strategy to measurable outcomes
 // Each OKR links to related case studies and intel items when applicable
-// Last updated: 2026-02-27
+// Last updated: 2026-02-28
+
+/** Exported for display on pages — updated when new OKR templates are added */
+export const OKR_TEMPLATES_LAST_UPDATED = "2026-02-28";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */

@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import {
   BookOpen,
   ArrowRight,
+  Calendar,
   ChevronDown,
   ChevronUp,
   Target,
@@ -15,12 +16,15 @@ import {
   BarChart3,
   ExternalLink,
   Filter,
+  Signal,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   CASE_STUDIES,
+  CASE_STUDIES_LAST_UPDATED,
   STRATEGY_CATEGORIES,
+  DIFFICULTY_META,
   getCaseStudyCounts,
   type StrategyCategory,
   type FQHCCaseStudy,
@@ -51,6 +55,7 @@ function CaseStudyCard({
   onToggle: () => void;
 }) {
   const catMeta = STRATEGY_CATEGORIES.find((c) => c.id === cs.strategyCategory);
+  const diffMeta = DIFFICULTY_META.find((d) => d.id === cs.difficulty);
 
   return (
     <div className="rounded-2xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden">
@@ -61,16 +66,28 @@ function CaseStudyCard({
       >
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
-            <div className="flex flex-wrap items-center gap-2 mb-2">
+            <div className="flex flex-wrap items-center gap-1.5 mb-2">
               {catMeta && (
                 <Badge variant="secondary" className="bg-teal-50 text-teal-700 text-xs">
                   {isEs ? catMeta.es : catMeta.en}
                 </Badge>
               )}
+              {diffMeta && (
+                <Badge
+                  variant="outline"
+                  className={`text-xs border ${diffMeta.color}`}
+                >
+                  {isEs ? diffMeta.es : diffMeta.en}
+                </Badge>
+              )}
               <span className="text-xs text-stone-400">{cs.location}</span>
             </div>
             <h3 className="text-lg font-bold text-stone-900">{cs.fqhcName}</h3>
-            <p className="mt-1 text-sm text-stone-500 line-clamp-2">
+            <div className="flex items-center gap-1.5 mt-1 text-xs text-stone-400">
+              <Calendar className="size-3" />
+              <span>{cs.timeframe}</span>
+            </div>
+            <p className="mt-2 text-sm text-stone-500 line-clamp-2">
               {t(cs.challenge, locale)}
             </p>
           </div>
@@ -189,14 +206,27 @@ function CaseStudyCard({
                 </Link>
               )}
             </div>
-            <a
-              href={cs.primarySourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-medium text-teal-700 hover:text-teal-900 hover:underline transition-colors"
-            >
-              {cs.primarySourceOrg} →
-            </a>
+            <div className="flex items-center gap-3">
+              {cs.additionalSources.map((src) => (
+                <a
+                  key={src.url}
+                  href={src.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-stone-400 hover:text-stone-600 hover:underline transition-colors"
+                >
+                  {src.label}
+                </a>
+              ))}
+              <a
+                href={cs.primarySourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-medium text-teal-700 hover:text-teal-900 hover:underline transition-colors"
+              >
+                {cs.primarySourceOrg} →
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -255,10 +285,91 @@ export default function ExecutiveGuidesPage() {
             </span>
             <span className="text-stone-600">·</span>
             <span>
-              {Object.keys(counts).length - 1} {isEs ? "categorias" : "categories"}
+              {Object.keys(counts).length - 1} {isEs ? "categorías" : "categories"}
             </span>
             <span className="text-stone-600">·</span>
             <span>{isEs ? "Fuentes primarias verificadas" : "Verified primary sources"}</span>
+            <span className="text-stone-600">·</span>
+            <span className="flex items-center gap-1">
+              <Calendar className="size-3" />
+              {isEs ? "Actualizado:" : "Updated:"} {CASE_STUDIES_LAST_UPDATED}
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Rumelt Framework Explainer ── */}
+      <section className="border-b border-stone-200 bg-white py-10 sm:py-14">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-10">
+            <h2 className="text-xl font-bold text-stone-900 sm:text-2xl">
+              {isEs ? "El Marco Estratégico" : "The Strategic Framework"}
+            </h2>
+            <p className="mt-3 text-sm text-stone-500 leading-relaxed">
+              {isEs
+                ? "Cada estudio de caso está estructurado con el marco de Richard Rumelt de 'Buena Estrategia, Mala Estrategia' — el mismo enfoque utilizado por líderes militares, CEOs de Fortune 500, y ahora líderes de FQHCs navegando la mayor crisis de financiamiento en la historia de los centros de salud comunitarios."
+                : "Every case study is structured with Richard Rumelt's 'Good Strategy, Bad Strategy' framework — the same approach used by military leaders, Fortune 500 CEOs, and now FQHC leaders navigating the largest funding crisis in community health center history."}
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-3">
+            {/* Step 1: Diagnose */}
+            <div className="rounded-xl border border-red-200 bg-red-50/50 p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <Target className="size-5 text-red-600" />
+                <h3 className="font-bold text-red-800 text-sm uppercase tracking-wider">
+                  {isEs ? "1. Diagnosticar" : "1. Diagnose"}
+                </h3>
+              </div>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                {isEs
+                  ? "Identificar el problema real — no los síntomas. Rumelt dice que la mayoría de las 'estrategias' fracasan porque nunca diagnostican correctamente. Cada estudio de caso comienza con el diagnóstico específico."
+                  : "Identify the real problem — not the symptoms. Rumelt says most 'strategies' fail because they never diagnose correctly. Each case study starts with the specific structural diagnosis."}
+              </p>
+            </div>
+
+            {/* Step 2: Guiding Policy */}
+            <div className="rounded-xl border border-teal-200 bg-teal-50/50 p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <Lightbulb className="size-5 text-teal-600" />
+                <h3 className="font-bold text-teal-800 text-sm uppercase tracking-wider">
+                  {isEs ? "2. Política Guía" : "2. Guiding Policy"}
+                </h3>
+              </div>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                {isEs
+                  ? "El enfoque general — no una lista de deseos ni objetivos vagos. Una política guía es una decisión sobre qué hacer y qué no hacer. Canaliza la energía hacia una dirección clara."
+                  : "The overall approach — not a wish list or vague goals. A guiding policy is a decision about what to do and what not to do. It channels energy toward a clear direction."}
+              </p>
+            </div>
+
+            {/* Step 3: Coherent Actions */}
+            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <CheckCircle2 className="size-5 text-amber-600" />
+                <h3 className="font-bold text-amber-800 text-sm uppercase tracking-wider">
+                  {isEs ? "3. Acciones Coherentes" : "3. Coherent Actions"}
+                </h3>
+              </div>
+              <p className="text-sm text-stone-600 leading-relaxed">
+                {isEs
+                  ? "Pasos específicos que se refuerzan mutuamente. 'Coherentes' significa que trabajan juntos — no son iniciativas aisladas. Los resultados medidos validan el enfoque."
+                  : "Specific steps that reinforce each other. 'Coherent' means they work together — not isolated initiatives. Measured outcomes validate the approach."}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 mx-auto max-w-3xl">
+            <div className="rounded-xl bg-stone-100 border border-stone-200 p-4">
+              <p className="text-xs text-stone-500 leading-relaxed text-center">
+                <span className="font-semibold text-stone-700">
+                  {isEs ? "¿Por qué Rumelt?" : "Why Rumelt?"}
+                </span>{" "}
+                {isEs
+                  ? "Porque 'mala estrategia' no es simplemente la ausencia de buena estrategia — es una enfermedad activa. Lenguaje esponjoso, metas sin acciones, incapacidad de enfrentar el problema real. Los FQHCs no pueden permitirse mala estrategia cuando H.R. 1 amenaza $4.6B en financiamiento."
+                  : "Because 'bad strategy' isn't merely the absence of good strategy — it's an active disease. Fluffy language, goals without actions, failure to face the real problem. FQHCs can't afford bad strategy when H.R. 1 threatens $4.6B in funding."}
+              </p>
+            </div>
           </div>
         </div>
       </section>

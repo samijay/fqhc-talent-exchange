@@ -108,7 +108,7 @@ const content = {
     heroSubtitle:
       "Free resume builder, career assessment, and job matching — all designed for community health professionals in California.",
     badge1: "100% free tools",
-    badge2: "Priority intake",
+    badge2: "Free tools",
     badge3: "220+ FQHCs",
     whyTitle: "Everything You Need — Free",
     why1Title: "Build Your Resume",
@@ -120,9 +120,9 @@ const content = {
     why3Title: "Find Your Next Role",
     why3Desc:
       "Browse 177+ job listings across 220 California FQHCs. Filter by role, region, and salary.",
-    formTitle: "Join the Priority Intake",
+    formTitle: "Tell Us About Your Experience",
     formSubtitle:
-      "Tell us about your experience and we'll match you with FQHCs hiring in your area. Takes under 3 minutes.",
+      "Share your background and explore free career tools, job board, and resources for FQHC professionals. Takes under 3 minutes.",
     sectionPersonal: "About You",
     sectionSituation: "Your Situation",
     sectionExperience: "Your FQHC Experience",
@@ -156,14 +156,14 @@ const content = {
     notesPlaceholder:
       "Anything else we should know? Preferred schedule, salary needs, special skills...",
     optional: "optional",
-    submit: "Get Fast-Tracked",
+    submit: "Submit Profile",
     submitting: "Submitting...",
-    successTitle: "You're in the Priority Pool!",
+    successTitle: "Profile Submitted!",
     successName: "Welcome, {name}!",
     successDesc:
-      "Your profile is in our priority queue. Here's what happens next:",
+      "Your profile is saved. Here's what happens next:",
     step1Label: "Right Now",
-    step1Desc: "Your profile is in our priority intake for review.",
+    step1Desc: "Your profile is saved and we'll review your qualifications.",
     step2Label: "Next Steps",
     step2Desc:
       "We review your qualifications and identify matching FQHCs that are actively hiring.",
@@ -183,7 +183,7 @@ const content = {
     emailRequired: "Email is required.",
     emailInvalid: "Please enter a valid email address.",
     lookingForJob: "Not recently laid off?",
-    joinRegular: "Join our regular talent network",
+    joinRegular: "Explore our free career tools",
     quickResume: "Build Quick Resume",
     quickResumeDesc: "Use the info you just entered to generate a professional resume in 2 minutes.",
   },
@@ -192,7 +192,7 @@ const content = {
     heroSubtitle:
       "Creador de CV gratis, evaluaci\u00f3n de carrera y b\u00fasqueda de empleo — todo dise\u00f1ado para profesionales de salud comunitaria en California.",
     badge1: "Herramientas 100% gratis",
-    badge2: "Admisi\u00f3n prioritaria",
+    badge2: "Herramientas gratis",
     badge3: "220+ FQHCs",
     whyTitle: "Todo Lo Que Necesitas — Gratis",
     why1Title: "Crea Tu CV",
@@ -204,9 +204,9 @@ const content = {
     why3Title: "Encuentra Tu Pr\u00f3ximo Rol",
     why3Desc:
       "Explora 177+ empleos en 220 FQHCs de California. Filtra por rol, regi\u00f3n y salario.",
-    formTitle: "\u00danete a la Admisi\u00f3n Prioritaria",
+    formTitle: "Cu\u00e9ntanos Sobre Tu Experiencia",
     formSubtitle:
-      "Cu\u00e9ntanos sobre tu experiencia y te conectaremos con FQHCs contratando en tu \u00e1rea. Toma menos de 3 minutos.",
+      "Comparte tu experiencia y explora herramientas de carrera gratuitas, bolsa de empleo y recursos para profesionales FQHC. Toma menos de 3 minutos.",
     sectionPersonal: "Sobre Ti",
     sectionSituation: "Tu Situaci\u00f3n",
     sectionExperience: "Tu Experiencia en FQHC",
@@ -240,15 +240,15 @@ const content = {
     notesPlaceholder:
       "\u00bfAlgo m\u00e1s que debamos saber? Horario preferido, necesidades salariales, habilidades especiales...",
     optional: "opcional",
-    submit: "Obtener Fast-Track",
+    submit: "Enviar Perfil",
     submitting: "Enviando...",
-    successTitle: "\u00a1Est\u00e1s en el Pool Prioritario!",
+    successTitle: "\u00a1Perfil Enviado!",
     successName: "\u00a1Bienvenido/a, {name}!",
     successDesc:
-      "Tu perfil est\u00e1 en nuestra cola de prioridad. Esto es lo que sigue:",
+      "Tu perfil est\u00e1 guardado. Esto es lo que sigue:",
     step1Label: "Ahora Mismo",
     step1Desc:
-      "Tu perfil est\u00e1 en nuestra admisi\u00f3n prioritaria para revisi\u00f3n.",
+      "Tu perfil est\u00e1 guardado y revisaremos tus calificaciones.",
     step2Label: "Pr\u00f3ximos Pasos",
     step2Desc:
       "Revisamos tus calificaciones e identificamos FQHCs que est\u00e1n contratando activamente.",
@@ -270,7 +270,7 @@ const content = {
     emailInvalid:
       "Por favor ingresa un correo electr\u00f3nico v\u00e1lido.",
     lookingForJob: "¿No fuiste despedido/a recientemente?",
-    joinRegular: "Únete a nuestra red de talento regular",
+    joinRegular: "Explora nuestras herramientas de carrera gratuitas",
     quickResume: "Crear CV Rápido",
     quickResumeDesc: "Usa la información que acabas de ingresar para generar un CV profesional en 2 minutos.",
   },
@@ -1017,7 +1017,7 @@ export default function FastTrackPage() {
           <div className="mt-8 text-center text-sm text-stone-500">
             {t.lookingForJob}{" "}
             <Link
-              href="/join"
+              href="/jobs"
               className="font-medium text-teal-700 underline hover:text-teal-800"
             >
               {t.joinRegular} →

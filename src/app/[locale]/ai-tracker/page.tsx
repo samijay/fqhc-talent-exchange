@@ -20,6 +20,7 @@ import { Button } from "@/components/ui/button";
 import {
   AI_ADOPTION_ITEMS,
   AI_CATEGORIES,
+  AI_TRACKER_LAST_UPDATED,
   ADOPTION_STAGES,
   getAICounts,
   getAdoptionStageCounts,
@@ -247,6 +248,10 @@ export default function AITrackerPage() {
               ? "Monitoreando la adopcion de inteligencia artificial en centros de salud comunitarios a nivel nacional."
               : "Monitoring artificial intelligence adoption at community health centers nationwide."}
           </p>
+          <div className="mt-3 flex items-center gap-1.5 text-xs text-stone-400">
+            <Calendar className="size-3" />
+            <span>{isEs ? "Última actualización:" : "Last updated:"} {AI_TRACKER_LAST_UPDATED}</span>
+          </div>
 
           {/* Stats */}
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">

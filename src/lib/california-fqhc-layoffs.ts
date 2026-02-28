@@ -1,7 +1,10 @@
 // california-fqhc-layoffs.ts
 // Tracked layoffs and workforce reductions at California FQHCs and community health organizations
 // Data sources: WARN Act filings, news reports, organizational announcements
-// Last updated: 2026-02-27
+// Last updated: 2026-02-28 (daily update #6)
+
+/** Exported for display on pages — updated by /daily-update and /update-layoffs pipelines */
+export const LAYOFFS_LAST_UPDATED = "2026-02-28";
 
 export interface LayoffEntry {
   id: string;
