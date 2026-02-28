@@ -29,6 +29,8 @@ import {
   GraduationCap,
   Map,
   Award,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -40,12 +42,13 @@ import {
 } from "@/lib/market-intelligence";
 import { getLayoffStats } from "@/lib/california-fqhc-layoffs";
 import {
-  getBreakingIntel,
+  getIntelItems,
   IMPACT_STYLES,
   IMPACT_BORDER,
   IMPACT_LABELS,
   INTEL_CATEGORIES,
   type IntelItem,
+  type IntelCategory,
 } from "@/lib/fqhc-news-intel";
 
 /* ---------- Module-level data (computed once) ---------- */
@@ -55,7 +58,14 @@ const fundingCliffs = getFundingCliffs()
   .slice(0, 3);
 const hotRoles = getRoleDemand().filter((r) => r.demandSignal === "hot");
 const layoffStats = getLayoffStats();
-const breakingIntel = getBreakingIntel(5);
+const allIntelItems = getIntelItems();
+
+const IMPACT_RANK: Record<string, number> = {
+  critical: 0,
+  high: 1,
+  medium: 2,
+  low: 3,
+};
 
 /* ---------- Helpers ---------- */
 const t = (obj: { en: string; es: string }, locale: string) =>
@@ -67,6 +77,332 @@ function formatDate(dateStr: string, locale: string): string {
     month: "short",
     day: "numeric",
   });
+}
+
+/* ---------- Reusable expandable intel card ---------- */
+function IntelCard({
+  item,
+  locale,
+  isEs,
+  isExpanded,
+  onToggle,
+  compact = false,
+}: {
+  item: IntelItem;
+  locale: string;
+  isEs: boolean;
+  isExpanded: boolean;
+  onToggle: () => void;
+  compact?: boolean;
+}) {
+  const catMeta = INTEL_CATEGORIES.find((c) => c.id === item.category);
+
+  return (
+    <div
+      className={`rounded-xl border border-stone-200 bg-white border-l-4 ${IMPACT_BORDER[item.impactLevel]} transition-shadow hover:shadow-md`}
+    >
+      <button onClick={onToggle} className="w-full text-left p-4 pb-2">
+        <div className="flex items-start justify-between gap-2">
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-wrap items-center gap-1.5 mb-1">
+              <Badge
+                variant="outline"
+                className={`text-[10px] font-semibold ${IMPACT_STYLES[item.impactLevel]}`}
+              >
+                {t(IMPACT_LABELS[item.impactLevel], locale)}
+              </Badge>
+              <span className="text-[11px] text-stone-400">
+                {formatDate(item.date, locale)}
+              </span>
+              {catMeta && (
+                <span className="text-[10px] bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded-full">
+                  {isEs ? catMeta.es : catMeta.en}
+                </span>
+              )}
+            </div>
+            <h3
+              className={`font-semibold text-stone-800 leading-snug ${compact ? "text-sm" : ""}`}
+            >
+              {t(item.headline, locale)}
+            </h3>
+            {!isExpanded && (
+              <p className="mt-1 text-sm text-stone-500 leading-relaxed line-clamp-2">
+                {t(item.summary, locale)}
+              </p>
+            )}
+          </div>
+          <div className="flex-shrink-0 mt-0.5 text-stone-400">
+            {isExpanded ? (
+              <ChevronUp className="size-4" />
+            ) : (
+              <ChevronDown className="size-4" />
+            )}
+          </div>
+        </div>
+      </button>
+
+      {isExpanded && (
+        <div className="px-4 pb-4">
+          <p className="text-sm text-stone-600 leading-relaxed">
+            {t(item.summary, locale)}
+          </p>
+          {item.tags.length > 0 && (
+            <div className="mt-2.5 flex flex-wrap gap-1">
+              {item.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded bg-stone-100 px-1.5 py-0.5 text-[10px] font-medium text-stone-500"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+          {item.affectedOrgs && item.affectedOrgs.length > 0 && (
+            <div className="mt-2 text-xs text-stone-500">
+              <span className="font-medium">
+                {isEs ? "Organizaciones:" : "Affected:"}
+              </span>{" "}
+              {item.affectedOrgs.join(", ")}
+            </div>
+          )}
+          <div className="mt-3 flex items-center justify-between border-t border-stone-100 pt-2.5">
+            <div className="flex items-center gap-2 text-[11px] text-stone-400">
+              <span>{item.sourceOrg}</span>
+              <span className="text-stone-300">·</span>
+              <span>{item.region}</span>
+            </div>
+            <a
+              href={item.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs font-medium text-teal-700 hover:text-teal-900 transition-colors"
+            >
+              {isEs ? "Fuente" : "Source"} <ExternalLink className="size-3" />
+            </a>
+          </div>
+        </div>
+      )}
+
+      {!isExpanded && (
+        <div className="px-4 pb-2.5 flex items-center justify-between">
+          <span className="text-[11px] text-stone-400">{item.sourceOrg}</span>
+          <a
+            href={item.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-stone-400 hover:text-teal-600 transition-colors"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <ExternalLink className="size-3.5" />
+          </a>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ---------- Two-column Intel Feed ---------- */
+function IntelFeed({ locale, isEs }: { locale: string; isEs: boolean }) {
+  const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+  const [activeCategory, setActiveCategory] = useState<IntelCategory | "all">(
+    "all"
+  );
+  const [showAllFeed, setShowAllFeed] = useState(false);
+
+  const toggle = (id: string) => {
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  // LEFT COLUMN: Critical alerts — critical/high impact, sorted by impact then date
+  const criticalAlerts = [...allIntelItems]
+    .filter(
+      (i) => i.impactLevel === "critical" || i.impactLevel === "high"
+    )
+    .sort((a, b) => {
+      const diff = IMPACT_RANK[a.impactLevel] - IMPACT_RANK[b.impactLevel];
+      if (diff !== 0) return diff;
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+
+  // RIGHT COLUMN: News feed — all items, newest first, filterable by category
+  const feedItems = (
+    activeCategory === "all"
+      ? allIntelItems
+      : allIntelItems.filter((i) => i.category === activeCategory)
+  ).sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
+  const FEED_INITIAL = 8;
+  const visibleFeed = showAllFeed
+    ? feedItems
+    : feedItems.slice(0, FEED_INITIAL);
+
+  // Category counts
+  const catCounts: Record<string, number> = {};
+  for (const item of allIntelItems) {
+    catCounts[item.category] = (catCounts[item.category] || 0) + 1;
+  }
+
+  return (
+    <section className="bg-stone-50 py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-2">
+            <Activity className="size-5 text-teal-700" />
+            <h2 className="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
+              {isEs ? "Inteligencia FQHC" : "FQHC Intelligence"}
+            </h2>
+          </div>
+          <Link
+            href="/insights"
+            className="text-sm font-medium text-teal-700 hover:text-teal-900 inline-flex items-center gap-1"
+          >
+            {isEs ? "Dashboard Completo" : "Full Dashboard"}{" "}
+            <ArrowRight className="size-3.5" />
+          </Link>
+        </div>
+
+        {/* Two-column layout */}
+        <div className="grid gap-8 lg:grid-cols-5">
+          {/* ─── LEFT: Critical Alerts (2/5 width) ─── */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <AlertTriangle className="size-4 text-red-600" />
+              <h3 className="text-sm font-bold uppercase tracking-wider text-red-700">
+                {isEs ? "Alertas Críticas" : "Critical Alerts"}
+              </h3>
+              <Badge
+                variant="outline"
+                className="text-[10px] bg-red-50 text-red-600 border-red-200"
+              >
+                {criticalAlerts.length}
+              </Badge>
+            </div>
+
+            <div className="space-y-3">
+              {criticalAlerts.slice(0, 6).map((item) => (
+                <IntelCard
+                  key={item.id}
+                  item={item}
+                  locale={locale}
+                  isEs={isEs}
+                  isExpanded={expandedIds.has(item.id)}
+                  onToggle={() => toggle(item.id)}
+                  compact
+                />
+              ))}
+            </div>
+
+            {criticalAlerts.length > 6 && (
+              <div className="mt-3 text-center">
+                <Link
+                  href="/insights"
+                  className="text-xs font-medium text-stone-500 hover:text-teal-700 transition-colors"
+                >
+                  +{criticalAlerts.length - 6}{" "}
+                  {isEs ? "más alertas" : "more alerts"} →
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* ─── RIGHT: News Feed (3/5 width) ─── */}
+          <div className="lg:col-span-3">
+            <div className="flex items-center gap-2 mb-3">
+              <Clock className="size-4 text-stone-500" />
+              <h3 className="text-sm font-bold uppercase tracking-wider text-stone-600">
+                {isEs ? "Noticias Recientes" : "Latest News"}
+              </h3>
+            </div>
+
+            {/* Category filter pills */}
+            <div className="flex flex-wrap gap-1.5 mb-4">
+              <button
+                onClick={() => setActiveCategory("all")}
+                className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors ${
+                  activeCategory === "all"
+                    ? "bg-stone-800 text-white"
+                    : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                }`}
+              >
+                {isEs ? "Todo" : "All"} ({allIntelItems.length})
+              </button>
+              {INTEL_CATEGORIES.filter((c) => catCounts[c.id]).map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveCategory(cat.id)}
+                  className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors ${
+                    activeCategory === cat.id
+                      ? "bg-stone-800 text-white"
+                      : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                  }`}
+                >
+                  {isEs ? cat.es : cat.en} ({catCounts[cat.id]})
+                </button>
+              ))}
+            </div>
+
+            {/* Feed cards */}
+            <div className="space-y-3">
+              {visibleFeed.map((item) => (
+                <IntelCard
+                  key={item.id}
+                  item={item}
+                  locale={locale}
+                  isEs={isEs}
+                  isExpanded={expandedIds.has(item.id)}
+                  onToggle={() => toggle(item.id)}
+                />
+              ))}
+            </div>
+
+            {feedItems.length > FEED_INITIAL && (
+              <div className="mt-4 text-center">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setShowAllFeed((prev) => !prev)}
+                >
+                  {showAllFeed
+                    ? isEs
+                      ? "Mostrar Menos"
+                      : "Show Less"
+                    : isEs
+                      ? `Ver las ${feedItems.length} Noticias`
+                      : `View All ${feedItems.length} Items`}
+                  {showAllFeed ? (
+                    <ChevronUp className="size-3.5 ml-1" />
+                  ) : (
+                    <ChevronDown className="size-3.5 ml-1" />
+                  )}
+                </Button>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Dashboard CTA */}
+        <div className="mt-10 text-center">
+          <Button variant="outline" size="lg" asChild>
+            <Link href="/insights">
+              {isEs
+                ? "Abrir Dashboard Ejecutivo"
+                : "Open Executive Dashboard"}{" "}
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default function Home() {
@@ -166,89 +502,7 @@ export default function Home() {
       </section>
 
       {/* ==================== BREAKING INTELLIGENCE ==================== */}
-      <section className="bg-stone-50 py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-2">
-              <AlertTriangle className="size-5 text-red-600" />
-              <h2 className="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
-                {isEs ? "Inteligencia Crítica" : "Breaking Intelligence"}
-              </h2>
-            </div>
-            <Link
-              href="/insights"
-              className="text-sm font-medium text-teal-700 hover:text-teal-900 inline-flex items-center gap-1"
-            >
-              {isEs ? "Ver Todo" : "View All"}{" "}
-              <ArrowRight className="size-3.5" />
-            </Link>
-          </div>
-
-          <div className="grid gap-4 lg:grid-cols-2">
-            {breakingIntel.map((item) => {
-              const catMeta = INTEL_CATEGORIES.find(
-                (c) => c.id === item.category
-              );
-              return (
-                <div
-                  key={item.id}
-                  className={`rounded-xl border border-stone-200 bg-white p-5 border-l-4 ${IMPACT_BORDER[item.impactLevel]} transition-shadow hover:shadow-md`}
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex-1 min-w-0">
-                      <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                        <Badge
-                          variant="outline"
-                          className={`text-[10px] font-semibold ${IMPACT_STYLES[item.impactLevel]}`}
-                        >
-                          {t(IMPACT_LABELS[item.impactLevel], locale)}
-                        </Badge>
-                        <span className="text-[11px] text-stone-400">
-                          {formatDate(item.date, locale)}
-                        </span>
-                        {catMeta && (
-                          <span className="text-[11px] bg-stone-100 text-stone-600 px-2 py-0.5 rounded-full">
-                            {isEs ? catMeta.es : catMeta.en}
-                          </span>
-                        )}
-                      </div>
-                      <h3 className="font-semibold text-stone-800 leading-snug">
-                        {t(item.headline, locale)}
-                      </h3>
-                      <p className="mt-1.5 text-sm text-stone-500 leading-relaxed line-clamp-2">
-                        {t(item.summary, locale)}
-                      </p>
-                    </div>
-                    <a
-                      href={item.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-shrink-0 text-stone-400 hover:text-teal-600 transition-colors mt-1"
-                      title={item.sourceOrg}
-                    >
-                      <ExternalLink className="size-4" />
-                    </a>
-                  </div>
-                  <div className="mt-2 text-[11px] text-stone-400">
-                    {isEs ? "Fuente" : "Source"}: {item.sourceOrg}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="mt-6 text-center">
-            <Button variant="outline" size="lg" asChild>
-              <Link href="/insights">
-                {isEs
-                  ? "Abrir Dashboard Ejecutivo"
-                  : "Open Executive Dashboard"}{" "}
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <IntelFeed locale={locale} isEs={isEs} />
 
       {/* ==================== FUNDING CLIFF COUNTDOWN ==================== */}
       {fundingCliffs.length > 0 && (
