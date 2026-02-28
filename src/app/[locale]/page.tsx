@@ -60,13 +60,6 @@ const caseStudyCounts = getCaseStudyCounts();
 const aiCounts = getAICounts();
 const okrCounts = getOKRCounts();
 
-const IMPACT_RANK: Record<string, number> = {
-  critical: 0,
-  high: 1,
-  medium: 2,
-  low: 3,
-};
-
 /* ---------- Helpers ---------- */
 const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
@@ -88,16 +81,12 @@ function IntelFeed({ locale, isEs }: { locale: string; isEs: boolean }) {
     });
   };
 
-  // Single-column: all items sorted by impact then date
+  // Single-column: most recent first (pure chronological)
   const filtered = (
     activeCategory === "all"
       ? allIntelItems
       : allIntelItems.filter((i) => i.category === activeCategory)
-  ).sort((a, b) => {
-    const diff = IMPACT_RANK[a.impactLevel] - IMPACT_RANK[b.impactLevel];
-    if (diff !== 0) return diff;
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
+  ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   const INITIAL_COUNT = 8;
   const visible = showAll ? filtered : filtered.slice(0, INITIAL_COUNT);
