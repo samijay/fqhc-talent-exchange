@@ -142,8 +142,6 @@ export default function Header() {
         { href: "/certifications", label: t("certifications") },
         { href: "/resources", label: t("careerResources") },
         { href: "/guides", label: t("guides") },
-        { href: "/team-readiness", label: t("teamReadiness") },
-        { href: "/fast-track", label: t("fastTrack") },
       ],
     },
     { href: "/jobs", label: t("jobs") },

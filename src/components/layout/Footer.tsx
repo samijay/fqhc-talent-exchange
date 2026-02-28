@@ -29,8 +29,6 @@ export default function Footer() {
       { href: "/certifications" as const, label: t("certifications") },
       { href: "/resources" as const, label: t("careerResources") },
       { href: "/guides" as const, label: t("guides") },
-      { href: "/team-readiness" as const, label: t("teamReadiness") },
-      { href: "/fast-track" as const, label: t("fastTrack") },
     ],
     [t("company")]: [
       { href: "/about" as const, label: t("aboutUs") },

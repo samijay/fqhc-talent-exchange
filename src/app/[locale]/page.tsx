@@ -483,47 +483,111 @@ export default function Home() {
           </h2>
           <p className="text-stone-500 mb-10 max-w-3xl">
             {isEs
-              ? "Acciones coherentes: rastreador de IA, guías operativas, y herramientas de carrera para tu equipo."
-              : "Coherent actions: AI tracker, operational guides, and career tools for your team."}
+              ? "Acciones coherentes: plantillas OKR para romper silos, rastreador de IA, guías operativas, y marcos de ejecución para su equipo."
+              : "Coherent actions: OKR templates to break down silos, AI tracker, operational guides, and execution frameworks for your team."}
           </p>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {/* AI Tracker */}
+          {/* ── Row 1: Primary execution tools ── */}
+          <div className="grid gap-6 md:grid-cols-3 mb-8">
+            {/* OKR Templates — new primary card */}
             <Link
-              href="/ai-tracker"
+              href="/strategy/okrs"
               className="group rounded-2xl bg-gradient-to-br from-stone-800 to-stone-900 p-6 text-white transition-all hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="rounded-xl bg-white/10 p-3">
-                  <Cpu className="size-6 text-teal-400" />
+                  <Crosshair className="size-6 text-amber-400" />
                 </div>
                 <div>
                   <h3 className="font-bold">
-                    {isEs ? "Rastreador de IA" : "AI Tracker"}
+                    {isEs ? "Plantillas OKR" : "OKR Templates"}
                   </h3>
                   <p className="text-xs text-stone-400">
+                    {isEs
+                      ? "Gestión del cambio entre departamentos"
+                      : "Cross-department change management"}
+                  </p>
+                </div>
+              </div>
+              <p className="text-sm text-stone-300 leading-relaxed mb-3">
+                {isEs
+                  ? "Objetivos y resultados clave diseñados para romper silos durante la crisis. Cada OKR involucra múltiples departamentos — clínico, finanzas, HR, y operaciones — porque los silos son el enemigo de la ejecución."
+                  : "Objectives and key results designed to break down silos during crisis. Every OKR involves multiple departments — clinical, finance, HR, and operations — because silos are the enemy of execution."}
+              </p>
+              {/* Live OKR examples */}
+              <div className="space-y-2 mb-4">
+                <div className="rounded-lg bg-white/10 p-2.5">
+                  <p className="text-xs font-medium text-amber-300">
+                    {isEs ? "Ejemplo:" : "Example:"}
+                  </p>
+                  <p className="text-xs text-stone-300 mt-0.5 leading-relaxed">
+                    {isEs
+                      ? "Capacitar al 100% de CHWs en nuevos códigos de facturación Medi-Cal en 90 días"
+                      : "Cross-train 100% of CHWs on new Medi-Cal billing codes within 90 days"}
+                  </p>
+                  <div className="flex gap-1.5 mt-1.5">
+                    {["Clinical", "Finance", "HR"].map((d) => (
+                      <span key={d} className="text-[10px] bg-white/10 text-stone-400 px-1.5 py-0.5 rounded">
+                        {d}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 text-xs">
+                <Badge className="border-amber-400/30 bg-amber-500/20 text-amber-200">
+                  {okrCounts.total} {isEs ? "plantillas" : "templates"}
+                </Badge>
+                <Badge className="border-teal-400/30 bg-teal-500/20 text-teal-200">
+                  {Object.keys(okrCounts).length - 1}{" "}
+                  {isEs ? "dominios" : "domains"}
+                </Badge>
+              </div>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-amber-400 opacity-0 transition-opacity group-hover:opacity-100">
+                {isEs ? "Ver Plantillas" : "View Templates"}{" "}
+                <ArrowRight className="size-3.5" />
+              </span>
+            </Link>
+
+            {/* AI Tracker */}
+            <Link
+              href="/ai-tracker"
+              className="group rounded-2xl border-2 border-stone-200 bg-white p-6 transition-all hover:-translate-y-1 hover:border-teal-300 hover:shadow-lg"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="rounded-xl bg-teal-100 p-3">
+                  <Cpu className="size-6 text-teal-700" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-stone-900 group-hover:text-teal-700">
+                    {isEs ? "Rastreador de IA" : "AI Tracker"}
+                  </h3>
+                  <p className="text-xs text-stone-500">
                     {isEs
                       ? "Adopción en el sector FQHC"
                       : "FQHC sector adoption"}
                   </p>
                 </div>
               </div>
-              <p className="text-sm text-stone-300 leading-relaxed mb-4">
+              <p className="text-sm text-stone-600 leading-relaxed mb-4">
                 {isEs
-                  ? "Monitorea implementaciones de IA en FQHCs a nivel nacional: documentación clínica, ciclo de ingresos, programación."
-                  : "Monitor AI deployments at FQHCs nationwide: clinical documentation, revenue cycle, scheduling."}
+                  ? "Monitorea implementaciones de IA en FQHCs: documentación clínica ambiental, ciclo de ingresos, coordinación de atención. Incluyendo athenahealth, Epic, NextGen, y más."
+                  : "Monitor AI deployments at FQHCs: ambient clinical documentation, revenue cycle, care coordination. Including athenahealth, Epic, NextGen, and more."}
               </p>
               <div className="flex items-center gap-3 text-xs">
-                <Badge className="border-teal-400/30 bg-teal-500/20 text-teal-200">
+                <Badge variant="secondary" className="bg-teal-50 text-teal-700">
                   {aiCounts.total}{" "}
                   {isEs ? "implementaciones" : "deployments"}
                 </Badge>
-                <Badge className="border-amber-400/30 bg-amber-500/20 text-amber-200">
+                <Badge
+                  variant="secondary"
+                  className="bg-stone-100 text-stone-600"
+                >
                   {Object.keys(aiCounts).length - 1}{" "}
                   {isEs ? "categorías" : "categories"}
                 </Badge>
               </div>
-              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-400 opacity-0 transition-opacity group-hover:opacity-100">
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-700 opacity-0 transition-opacity group-hover:opacity-100">
                 {isEs ? "Explorar" : "Explore"}{" "}
                 <ArrowRight className="size-3.5" />
               </span>
@@ -570,89 +634,140 @@ export default function Home() {
                 <ArrowRight className="size-3.5" />
               </span>
             </Link>
+          </div>
 
-            {/* Jobs & Career Tools */}
-            <div className="rounded-2xl border-2 border-stone-200 bg-white p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="rounded-xl bg-amber-100 p-3">
-                  <Briefcase className="size-6 text-amber-700" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-stone-900">
-                    {isEs ? "Empleos y Herramientas" : "Jobs & Career Tools"}
-                  </h3>
-                  <p className="text-xs text-stone-500">
-                    {isEs
-                      ? "Para tu equipo y candidatos"
-                      : "For your team & candidates"}
+          {/* ── Row 2: Execution frameworks banner ── */}
+          <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8 mb-8">
+            <div className="flex items-center gap-2 mb-4">
+              <Target className="size-5 text-amber-600" />
+              <h3 className="font-bold text-stone-900">
+                {isEs ? "Marcos de Ejecución" : "Execution Frameworks"}
+              </h3>
+            </div>
+            <p className="text-sm text-stone-500 mb-6 max-w-2xl">
+              {isEs
+                ? "Cada herramienta y plantilla está diseñada alrededor de marcos de gestión probados — no reinventamos la rueda."
+                : "Every tool and template is designed around proven management frameworks — we don't reinvent the wheel."}
+            </p>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  name: isEs ? "OKRs (Objetivos y Resultados)" : "OKRs (Objectives & Key Results)",
+                  desc: isEs
+                    ? "Intel, Google, FQHCs. Alinea departamentos hacia resultados medibles."
+                    : "Intel, Google, FQHCs. Aligns departments toward measurable outcomes.",
+                  href: "/strategy/okrs" as const,
+                  color: "border-amber-200 bg-amber-50",
+                  textColor: "text-amber-800",
+                },
+                {
+                  name: isEs ? "Rumelt — Buena Estrategia" : "Rumelt — Good Strategy",
+                  desc: isEs
+                    ? "Diagnosticar → Política Guía → Acciones Coherentes. El marco detrás de nuestros estudios de caso."
+                    : "Diagnose → Guiding Policy → Coherent Actions. The framework behind our case studies.",
+                  href: "/strategy/guides" as const,
+                  color: "border-teal-200 bg-teal-50",
+                  textColor: "text-teal-800",
+                },
+                {
+                  name: isEs ? "STARS (Watkins)" : "STARS Framework (Watkins)",
+                  desc: isEs
+                    ? "Startup, Turnaround, Growth, Realignment, Sustain. Identifica tu situación antes de actuar."
+                    : "Startup, Turnaround, Growth, Realignment, Sustain. Identify your situation before acting.",
+                  href: "/team-readiness" as const,
+                  color: "border-purple-200 bg-purple-50",
+                  textColor: "text-purple-800",
+                },
+                {
+                  name: isEs ? "FOGLAMP (Primeros 90 Días)" : "FOGLAMP (First 90 Days)",
+                  desc: isEs
+                    ? "Focus, Oversight, Goals, Leadership, Achievements, Management, Politics. Para nuevos líderes."
+                    : "Focus, Oversight, Goals, Leadership, Achievements, Management, Politics. For new leaders.",
+                  href: "/career-insights" as const,
+                  color: "border-blue-200 bg-blue-50",
+                  textColor: "text-blue-800",
+                },
+              ].map((fw) => (
+                <Link
+                  key={fw.name}
+                  href={fw.href}
+                  className={`group rounded-xl border p-4 transition-all hover:-translate-y-0.5 hover:shadow-md ${fw.color}`}
+                >
+                  <h4 className={`text-sm font-bold ${fw.textColor}`}>
+                    {fw.name}
+                  </h4>
+                  <p className="text-xs text-stone-600 mt-1.5 leading-relaxed">
+                    {fw.desc}
                   </p>
-                </div>
-              </div>
+                </Link>
+              ))}
+            </div>
+          </div>
 
-              <div className="space-y-2">
-                {[
-                  {
-                    icon: Briefcase,
-                    href: "/jobs" as const,
-                    label: isEs ? "Empleos" : "Browse Jobs",
-                    meta: `${overview.totalJobs}+`,
-                  },
-                  {
-                    icon: FileText,
-                    href: "/resume-builder" as const,
-                    label: isEs ? "Constructor de CV" : "Resume Builder",
-                    meta: isEs ? "Gratis" : "Free",
-                  },
-                  {
-                    icon: Brain,
-                    href: "/career-insights" as const,
-                    label: isEs ? "Evaluación" : "Career Assessment",
-                    meta: isEs ? "5 dominios" : "5 domains",
-                  },
-                  {
-                    icon: Map,
-                    href: "/career-roadmap" as const,
-                    label: isEs ? "Ruta Profesional" : "Career Roadmap",
-                    meta: isEs ? "5 trayectorias" : "5 tracks",
-                  },
-                  {
-                    icon: Award,
-                    href: "/certifications" as const,
-                    label: isEs ? "Certificaciones" : "Certifications",
-                    meta: isEs ? "15 CA" : "15 CA certs",
-                  },
-                  {
-                    icon: BookOpen,
-                    href: "/resources" as const,
-                    label: isEs ? "Recursos" : "Career Resources",
-                    meta: isEs ? "18 programas" : "18 programs",
-                  },
-                  {
-                    icon: Shield,
-                    href: "/team-readiness" as const,
-                    label: isEs ? "Equipo" : "Team Readiness",
-                    meta: isEs ? "Liderazgo" : "Leadership",
-                  },
-                  {
-                    icon: Lightbulb,
-                    href: "/fast-track" as const,
-                    label: isEs ? "Trabajadores Desplazados" : "Displaced Workers",
-                    meta: isEs ? "Herramientas gratis" : "Free tools",
-                  },
-                ].map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="group flex items-center gap-3 rounded-lg px-3 py-2 transition-colors hover:bg-stone-50"
-                  >
-                    <item.icon className="size-4 shrink-0 text-stone-400 group-hover:text-teal-600" />
-                    <span className="text-sm font-medium text-stone-700 group-hover:text-teal-700 flex-1">
-                      {item.label}
-                    </span>
-                    <span className="text-xs text-stone-400">{item.meta}</span>
-                  </Link>
-                ))}
+          {/* ── Row 3: Career tools compact grid ── */}
+          <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Briefcase className="size-5 text-stone-600" />
+                <h3 className="font-bold text-stone-900">
+                  {isEs ? "Herramientas de Carrera" : "Career Tools"}
+                </h3>
               </div>
+              <span className="text-xs text-stone-400">
+                {isEs ? "Gratuitas para candidatos" : "Free for candidates"}
+              </span>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  icon: Briefcase,
+                  href: "/jobs" as const,
+                  label: isEs ? "Empleos" : "Browse Jobs",
+                  meta: `${overview.totalJobs}+`,
+                },
+                {
+                  icon: FileText,
+                  href: "/resume-builder" as const,
+                  label: isEs ? "Constructor de CV" : "Resume Builder",
+                  meta: isEs ? "Gratis" : "Free",
+                },
+                {
+                  icon: Brain,
+                  href: "/career-insights" as const,
+                  label: isEs ? "Evaluación" : "Career Assessment",
+                  meta: isEs ? "5 dominios" : "5 domains",
+                },
+                {
+                  icon: Map,
+                  href: "/career-roadmap" as const,
+                  label: isEs ? "Ruta Profesional" : "Career Roadmap",
+                  meta: isEs ? "5 trayectorias" : "5 tracks",
+                },
+                {
+                  icon: Award,
+                  href: "/certifications" as const,
+                  label: isEs ? "Certificaciones" : "Certifications",
+                  meta: isEs ? "15 CA" : "15 CA certs",
+                },
+                {
+                  icon: BookOpen,
+                  href: "/resources" as const,
+                  label: isEs ? "Recursos" : "Career Resources",
+                  meta: isEs ? "18 programas" : "18 programs",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="group flex items-center gap-3 rounded-lg border border-stone-100 px-4 py-3 transition-all hover:border-teal-200 hover:bg-teal-50/50"
+                >
+                  <item.icon className="size-4 shrink-0 text-stone-400 group-hover:text-teal-600" />
+                  <span className="text-sm font-medium text-stone-700 group-hover:text-teal-700 flex-1">
+                    {item.label}
+                  </span>
+                  <span className="text-xs text-stone-400">{item.meta}</span>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

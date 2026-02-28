@@ -15,14 +15,14 @@ export default function AnnouncementBar() {
   return (
     <div className="relative bg-gradient-to-r from-amber-500 to-amber-400 text-stone-900">
       <Link
-        href="/fast-track"
+        href="/insights"
         className="flex items-center justify-center gap-2 px-8 py-2 text-center text-xs font-semibold sm:text-sm"
       >
         <Zap className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "¿Despedido/a de un FQHC? Herramientas gratis + admisión prioritaria →"
-            : "Laid off from an FQHC? Free tools + priority intake →"}
+            ? "Nuevo: LA County cerrando 7 clínicas. Ver el Dashboard de Inteligencia →"
+            : "New: LA County closing 7 clinics. See Intelligence Dashboard →"}
         </span>
       </Link>
       <button
