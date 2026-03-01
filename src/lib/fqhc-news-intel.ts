@@ -23,6 +23,9 @@ export type IntelCategory =
 
 export type ImpactLevel = "critical" | "high" | "medium" | "low";
 
+/** Distinguishes deadlines/timelines from news and strategic guidance */
+export type IntelType = "news" | "deadline" | "strategy";
+
 export interface IntelItem {
   id: string;
   date: string; // ISO
@@ -30,6 +33,7 @@ export interface IntelItem {
   summary: { en: string; es: string };
   category: IntelCategory;
   impactLevel: ImpactLevel;
+  type: IntelType; // "news" = reporting/events, "deadline" = policy effective dates, "strategy" = actionable tactics
   sourceUrl: string;
   sourceOrg: string;
   region: string; // "California" | "Federal" | county name
@@ -99,6 +103,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "El 'One Big Beautiful Bill' incluye $1 billón en recortes nacionales a Medicaid en 10 años, con California proyectado a perder $30 mil millones anualmente. Requisitos de trabajo, congelamientos de inscripción y cambios en tarifas PPS amenazan directamente los modelos de financiamiento de FQHCs.",
     },
     category: "legislation",
+    type: "deadline",
     impactLevel: "critical",
     sourceUrl: "https://www.chcf.org/publication/federal-budget-medi-cal/",
     sourceOrg: "CHCF",
@@ -117,6 +122,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "El Fiscal General de California presenta demanda impugnando la recuperación federal de $600 millones en fondos de salud, argumentando que los recortes violan acuerdos de gasto federal y perjudican desproporcionadamente a proveedores de red de seguridad incluyendo FQHCs.",
     },
     category: "legislation",
+    type: "news",
     impactLevel: "critical",
     sourceUrl: "https://oag.ca.gov/news",
     sourceOrg: "CA Attorney General",
@@ -135,6 +141,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Los servicios de Promotores de Salud ahora son un beneficio facturable de Medi-Cal. Los FQHCs pueden facturar por encuentros de CHW, creando un flujo de financiamiento sostenible para puestos previamente dependientes de subvenciones.",
     },
     category: "legislation",
+    type: "deadline",
     impactLevel: "high",
     sourceUrl: "https://www.dhcs.ca.gov/services/medi-cal/Pages/Benefits-702.aspx",
     sourceOrg: "CA DHCS",
@@ -153,6 +160,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "La ley de salario mínimo de salud de California alcanza $25/hr para trabajadores de FQHC para 2027. Esto reestructura la compensación en todo el sector — elevando pisos para MAs, recepción y personal clínico de nivel inicial.",
     },
     category: "legislation",
+    type: "deadline",
     impactLevel: "high",
     sourceUrl: "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB525",
     sourceOrg: "CA Legislature",
@@ -172,6 +180,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "La iniciativa de boleta de California #25-0008 propone requerir que los FQHCs gasten al menos el 90% de los ingresos en atención directa al paciente, con informes de transparencia financiera completos. Podría remodelar fundamentalmente los presupuestos administrativos de FQHCs.",
     },
     category: "legislation",
+    type: "news",
     impactLevel: "high",
     sourceUrl: "https://oag.ca.gov/initiatives",
     sourceOrg: "CA Attorney General — Initiatives",
@@ -190,6 +199,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Legisladores demócratas de California introducen medidas para restaurar beneficios de Medi-Cal para adultos indocumentados congelados en enero 2026, citando costos de salud pública y económicos de las brechas de cobertura.",
     },
     category: "legislation",
+    type: "news",
     impactLevel: "high",
     sourceUrl: "https://health-access.org/senator-durazo-and-assemblymember-arambula-introduce-medi-cal-access-restoration-act-to-reverse-enrollment-freeze-for-undocumented-californians/",
     sourceOrg: "Health Access California",
@@ -212,6 +222,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "California detiene nueva inscripción de Medi-Cal para adultos indocumentados de 26-49 años como medida presupuestaria, ahorrando $77.9M en 2025-26 pero subiendo a $3.3 mil millones para 2028-29. Los FQHCs ahora deben atender a nuevos pacientes indocumentados en la escala de tarifa variable sin ingresos por encuentro.",
     },
     category: "undocumented-access",
+    type: "deadline",
     impactLevel: "critical",
     sourceUrl: "https://calmatters.org/health/2025/05/newsom-freeze-medi-cal-undocumented-immigrants/",
     sourceOrg: "CalMatters",
@@ -230,6 +241,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Los beneficios dentales para inscritos indocumentados de Medi-Cal serán eliminados, ahorrando $308M en 2026-27 y $336M anualmente. Los FQHCs con programas dentales perderán ingresos por encuentros dentales para estos pacientes.",
     },
     category: "undocumented-access",
+    type: "deadline",
     impactLevel: "critical",
     sourceUrl: "https://www.dhcs.ca.gov/Medi-Cal/Pages/immigration-status-categories.aspx",
     sourceOrg: "CA DHCS",
@@ -248,6 +260,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Las tarifas PPS de FQHC — promediando $200-400/visita — serán reemplazadas por tarifas más bajas del Cuadro de Tarifas de Medi-Cal para servicios a personas indocumentadas. Esto representa un recorte de ingresos del 50-70% por encuentro.",
     },
     category: "undocumented-access",
+    type: "deadline",
     impactLevel: "critical",
     sourceUrl: "https://www.dhcs.ca.gov/services/medi-cal/Pages/FQHCrates.aspx",
     sourceOrg: "CA DHCS",
@@ -266,6 +279,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Bajo H.R. 1, los estados pueden imponer copagos de hasta $35 en visitas de Medicaid — pero los FQHCs están exentos por ley. Los centros de salud deben promover activamente esta exención para atraer y retener pacientes.",
     },
     category: "undocumented-access",
+    type: "news",
     impactLevel: "high",
     sourceUrl: "https://www.kff.org/medicaid/health-provisions-in-the-2025-federal-budget-reconciliation-law/",
     sourceOrg: "KFF",
@@ -288,6 +302,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "En el Foro de Política de NACHC (Feb 9-12), los líderes celebraron el Fondo CHCF de $4.6 mil millones como el mayor aumento en una década, pero advirtieron que expira el 31 de diciembre de 2026. NACHC también publicó documentos de política sobre protección 340B, fuerza laboral, telesalud y reforma de Medicare.",
     },
     category: "lobbying",
+    type: "news",
     impactLevel: "high",
     sourceUrl: "https://www.nachc.org/conferences/policy-issues-forum/",
     sourceOrg: "NACHC",
@@ -306,6 +321,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Las subvenciones de centros de salud HRSA FY2026 se están alineando con la iniciativa 'Make America Healthy Again' (MAHA), cambiando prioridades de financiamiento hacia prevención de enfermedades crónicas, nutrición y salud mental.",
     },
     category: "lobbying",
+    type: "news",
     impactLevel: "medium",
     sourceUrl: "https://bphc.hrsa.gov/funding/funding-opportunities",
     sourceOrg: "HRSA",
@@ -324,6 +340,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "La Asociación de Atención Primaria de California (CPCA) y la Pacific Community Development Corporation (PCDC) anunciaron una asociación estratégica para expandir el acceso a la salud en comunidades desatendidas de California. La colaboración se centra en integrar financiamiento de desarrollo comunitario con infraestructura de centros de salud.",
     },
     category: "lobbying",
+    type: "news",
     impactLevel: "medium",
     sourceUrl: "https://www.cpca.org/CPCA/News/CPCA_News.aspx",
     sourceOrg: "CPCA",
@@ -346,6 +363,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "La exención CalAIM que autoriza ECM y Apoyos Comunitarios expira el 31 de diciembre de 2026. Sin renovación, se pierden aproximadamente $1.2 mil millones anuales en financiamiento de ECM/Apoyos Comunitarios — amenazando miles de puestos de coordinación de cuidado y CHW.",
     },
     category: "funding",
+    type: "deadline",
     impactLevel: "critical",
     sourceUrl: "https://www.dhcs.ca.gov/CalAIM/Pages/CalAIM.aspx",
     sourceOrg: "CA DHCS",
@@ -368,6 +386,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "El Grupo Asesor CHW/Promotor de HCAI continúa deliberaciones hasta junio de 2026, moldeando el marco de fuerza laboral CHW de California. Sin embargo, recortes del Presupuesto 2024 eliminaron la mayoría del financiamiento de HCAI para la iniciativa CHW. La guía de certificación CHW permanece pausada desde noviembre de 2023, pero los códigos de facturación Medi-Cal para CHW siguen vigentes.",
     },
     category: "workforce",
+    type: "news",
     impactLevel: "medium",
     sourceUrl: "https://hcai.ca.gov/workforce/initiatives/community-health-workers-promotores-chw-p/",
     sourceOrg: "HCAI",
@@ -386,6 +405,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "La coalición CPEHN está avanzando políticas de contratación inclusiva que fortalecerían los requisitos de representación comunitaria en FQHCs. La iniciativa se alinea con los Estándares CLAS y enfatiza la contratación desde las comunidades atendidas.",
     },
     category: "workforce",
+    type: "news",
     impactLevel: "low",
     sourceUrl: "https://cpehn.org/what-we-do/policy-priorities/",
     sourceOrg: "CPEHN",
@@ -404,6 +424,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "El condado de Santa Clara elimina 365 puestos FTE en su sistema de salud como parte de $183 millones en recortes para abordar un déficit presupuestario de $470 millones del condado.",
     },
     category: "workforce",
+    type: "news",
     impactLevel: "high",
     sourceUrl: "https://news.santaclaracounty.gov/board-supervisors-takes-mid-year-budget-action-offset-federal-funding-cuts-impacting-critical",
     sourceOrg: "Santa Clara County",
@@ -424,6 +445,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "L.A. Care Health Plan, el plan de salud público más grande del país, presenta aviso WARN Act para 225 empleados efectivo 13 de marzo de 2026. Como contratista importante de ECM para FQHCs del área de LA, estos recortes pueden afectar los ingresos por contratos de los FQHCs.",
     },
     category: "workforce",
+    type: "news",
     impactLevel: "high",
     sourceUrl: "https://edd.ca.gov/jobs_and_training/layoff_services_warn.htm",
     sourceOrg: "CA EDD WARN Act",
@@ -444,6 +466,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "La Junta de Alameda Health System finaliza la lista de despidos en 188 puestos ocupados de 296 totales. Línea de tiempo de liquidación extendida a agosto 2026.",
     },
     category: "workforce",
+    type: "news",
     impactLevel: "high",
     sourceUrl: "https://www.alamedahealthsystem.org/board-of-trustees/",
     sourceOrg: "Alameda Health System",
@@ -464,6 +487,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "El último informe de fuerza laboral de NACHC encuentra que el 55% de los centros de salud comunitarios enfrentan escasez crítica de personal. Mientras tanto, 5.6 millones de pacientes podrían perder cobertura bajo requisitos de trabajo propuestos.",
     },
     category: "lobbying",
+    type: "news",
     impactLevel: "high",
     sourceUrl: "https://www.nachc.org/policy-advocacy/policy-priorities/health-center-workforce/",
     sourceOrg: "NACHC",
@@ -483,6 +507,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Indian Health Center de Santa Clara Valley cerró permanentemente, desplazando a 21 empleados según el aviso WARN Act. El FQHC servía a comunidades nativas americanas con atención primaria, dental, salud conductual y servicios de sanación tradicional.",
     },
     category: "workforce",
+    type: "news",
     impactLevel: "high",
     sourceUrl: "https://edd.ca.gov/siteassets/files/jobs_and_training/warn/warn_report1.xlsx",
     sourceOrg: "CA EDD WARN Act",
@@ -503,6 +528,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Los centros de salud comunitarios en el Valle de San Joaquín de California advierten de un 'tsunami' financiero mientras los recortes federales de Medicaid se combinan con costos operativos crecientes. Los FQHCs de la región dependen altamente de Medi-Cal.",
     },
     category: "workforce",
+    type: "news",
     impactLevel: "high",
     sourceUrl: "https://www.kvpr.org/health/2026-02-10/valley-hospitals-clinics-brace-for-financial-tsunami-threatening-health-care-access",
     sourceOrg: "KVPR (Valley Public Radio)",
@@ -525,6 +551,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Un informe de Kaufman Hall encuentra que las dificultades financieras impulsaron el 43% de todas las transacciones de M&A en salud en 2025, un récord. Para FQHCs, esto señala presión de consolidación creciente y posibles aumentos de volumen de pacientes.",
     },
     category: "merger-acquisition",
+    type: "news",
     impactLevel: "medium",
     sourceUrl: "https://www.kaufmanhall.com/insights/research-report/hospital-and-health-system-2025-ma-review-uncertainty-transitions-continue",
     sourceOrg: "Kaufman Hall",
@@ -543,6 +570,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "United Health Centers del Valle de San Joaquín ha lanzado una IPA con fines de lucro, United Physicians Network. Esta expansión inusual de FQHC a IPA podría señalar un nuevo modelo de diversificación de ingresos para FQHCs grandes.",
     },
     category: "merger-acquisition",
+    type: "news",
     impactLevel: "medium",
     sourceUrl: "https://www.unitedhealthcenters.org/",
     sourceOrg: "United Health Centers",
@@ -563,6 +591,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Prospect Medical Holdings, respaldado por capital privado, continúa reduciendo operaciones en el condado de LA, cerrando instalaciones y vendiendo activos. Esto empuja más pacientes hacia FQHCs sin aumentos de financiamiento correspondientes.",
     },
     category: "merger-acquisition",
+    type: "news",
     impactLevel: "medium",
     sourceUrl: "https://www.modernhealthcare.com/mergers-acquisitions",
     sourceOrg: "Modern Healthcare",
@@ -587,6 +616,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Cuando las tarifas PPS bajen para servicios a pacientes indocumentados (Oct 2026), los FQHCs deben decidir: absorber la pérdida y mantener el acceso, o restringir servicios. Tácticas incluyen maximizar ahorros 340B, renegociar contratos de planes de salud, solicitar subvenciones HRSA, y asociarse con programas de cuidado indigente del condado.",
     },
     category: "change-management",
+    type: "strategy",
     impactLevel: "high",
     sourceUrl: "https://bphc.hrsa.gov/funding/funding-opportunities",
     sourceOrg: "HRSA",
@@ -605,6 +635,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Con nueva inscripción de Medi-Cal congelada para adultos indocumentados de 26-49, los FQHCs deben comunicar proactivamente que las puertas permanecen abiertas. Tácticas: desplegar CHWs bilingües, asociarse con organizaciones de inmigrantes, usar redes de promotoras, y enfatizar que los FQHCs nunca reportan estatus migratorio.",
     },
     category: "change-management",
+    type: "strategy",
     impactLevel: "high",
     sourceUrl: "https://www.nachc.org/policy-advocacy/policy-priorities/health-center-workforce/",
     sourceOrg: "NACHC",
@@ -623,6 +654,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Con ingresos PPS amenazados, los líderes de FQHC deben diversificar agresivamente. Palancas clave: maximizar ahorros 340B, apilar subvenciones, renegociar contratos MCO, facturar encuentros CHW, e implementar facturación de co-visitas sistemáticamente.",
     },
     category: "change-management",
+    type: "strategy",
     impactLevel: "high",
     sourceUrl: "https://www.nachc.org/wp-content/uploads/2026/01/policy-papers_chc-workforce_jan-2026.pdf",
     sourceOrg: "NACHC",
@@ -641,6 +673,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "El miedo a la aplicación migratoria está alejando a pacientes indocumentados de la atención médica. Tácticas críticas: señalización multilingüe, capacitación de recepción, asociaciones con organizaciones de derechos de inmigrantes, medios comunitarios, y sesiones de 'Conozca Sus Derechos' en el sitio.",
     },
     category: "change-management",
+    type: "strategy",
     impactLevel: "critical",
     sourceUrl: "https://www.nachc.org/policy-advocacy/policy-priorities/health-center-workforce/",
     sourceOrg: "NACHC",
@@ -659,6 +692,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "El Departamento de Salud Pública del Condado de Los Ángeles anunció el cierre de 7 clínicas el 27 de febrero de 2026, citando más de $50 millones en recortes acumulados. Los servicios afectados incluyen pruebas de ITS, vacunaciones y tratamiento de tuberculosis. Es probable que aumente la demanda en FQHCs cercanos.",
     },
     category: "funding",
+    type: "news",
     impactLevel: "high",
     sourceUrl: "https://www.cbsnews.com/losangeles/news/funding-cuts-los-angeles-county-public-health-closing-clinics/",
     sourceOrg: "CBS News Los Angeles",
@@ -677,6 +711,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "CCHC, un FQHC de California con 6 clínicas en el Condado de LA, inauguró su nueva clínica en Las Vegas, Nevada el 2 de marzo de 2026 — su primera expansión fuera del estado. CCHC creció de 45,000 visitas en 2004 a más de 177,000 en 2023.",
     },
     category: "merger-acquisition",
+    type: "news",
     impactLevel: "medium",
     sourceUrl: "https://www.prnewswire.com/news-releases/comprehensive-community-health-centers-opens-new-location-in-las-vegas-nevada-302692574.html",
     sourceOrg: "PR Newswire",
@@ -697,6 +732,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "H.R. 1 permite a los estados imponer copagos de $35 de Medicaid — pero los FQHCs están exentos por ley. Elementos de acción: agregar mensaje 'Sin Copago' a materiales, actualizar sitio web, informar al personal, y dirigir pacientes de hospitales que empezarán a cobrar copagos.",
     },
     category: "change-management",
+    type: "strategy",
     impactLevel: "high",
     sourceUrl: "https://www.kff.org/medicaid/health-provisions-in-the-2025-federal-budget-reconciliation-law/",
     sourceOrg: "KFF",
@@ -753,6 +789,22 @@ export function getUndocumentedAccessItems(): IntelItem[] {
 /** Get change management strategy items */
 export function getChangeManagementItems(): IntelItem[] {
   return getIntelItems({ category: "change-management" });
+}
+
+/** Get only news items (excludes deadlines and strategy) */
+export function getNewsItems(limit?: number): IntelItem[] {
+  const items = getIntelItems().filter((i) => i.type === "news");
+  return limit ? items.slice(0, limit) : items;
+}
+
+/** Get deadline/timeline items (policy effective dates) */
+export function getDeadlineItems(): IntelItem[] {
+  return getIntelItems().filter((i) => i.type === "deadline");
+}
+
+/** Get strategy/tactics items (actionable guidance) */
+export function getStrategyItems(): IntelItem[] {
+  return getIntelItems().filter((i) => i.type === "strategy");
 }
 
 /** Get all unique source URLs */

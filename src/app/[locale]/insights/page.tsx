@@ -10,21 +10,15 @@ import {
   Clock,
   MapPin,
   Users,
-  DollarSign,
   Building2,
   Briefcase,
-  Shield,
   Lightbulb,
   ArrowRight,
-  Globe,
   ExternalLink,
   ChevronDown,
   ChevronUp,
-  Gavel,
-  Megaphone,
-  Heart,
+  Calendar,
   Activity,
-  Eye,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
@@ -35,10 +29,6 @@ import {
   getRegionalSnapshots,
   getRoleDemand,
   getFundingCliffs,
-  getSalaryIntelligence,
-  type RegionalSnapshot,
-  type RoleDemand as RoleDemandType,
-  type FundingCliff,
 } from "@/lib/market-intelligence";
 import {
   INTEL_ITEMS,
@@ -47,10 +37,9 @@ import {
   IMPACT_STYLES,
   IMPACT_BORDER,
   IMPACT_LABELS,
-  getIntelItems,
-  getBreakingIntel,
-  getUndocumentedAccessItems,
-  getChangeManagementItems,
+  getNewsItems,
+  getDeadlineItems,
+  getStrategyItems,
   getIntelSources,
   type IntelItem,
   type IntelCategory,
@@ -76,31 +65,29 @@ function formatDate(dateStr: string, locale: string): string {
   });
 }
 
-function daysUntil(dateStr: string): number {
-  const now = new Date();
-  const target = new Date(dateStr + "T00:00:00");
-  return Math.ceil((target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
-}
-
 /* ------------------------------------------------------------------ */
-/*  Data (computed once at build)                                      */
+/*  Data                                                               */
 /* ------------------------------------------------------------------ */
 
 const overview = getMarketOverview();
 const regionalSnapshots = getRegionalSnapshots();
 const roleDemand = getRoleDemand();
 const fundingCliffs = getFundingCliffs();
-const salaryIntel = getSalaryIntelligence();
-const breakingIntel = getBreakingIntel(5);
-const undocAccessItems = getUndocumentedAccessItems();
-const changeMgmtItems = getChangeManagementItems();
+const allNewsItems = getNewsItems();
+const deadlineItems = getDeadlineItems();
+const strategyItems = getStrategyItems();
 const allSources = getIntelSources();
+
+/* news-only categories (exclude categories that only have deadline/strategy items) */
+const NEWS_CATEGORIES = INTEL_CATEGORIES.filter((cat) =>
+  allNewsItems.some((i) => i.category === cat.id)
+);
 
 /* ------------------------------------------------------------------ */
 /*  Sub-components                                                     */
 /* ------------------------------------------------------------------ */
 
-function IntelCard({ item, locale }: { item: IntelItem; locale: string }) {
+function IntelCard({ item, locale, compact = false }: { item: IntelItem; locale: string; compact?: boolean }) {
   const isEs = locale === "es";
   const catMeta = INTEL_CATEGORIES.find((c) => c.id === item.category);
 
@@ -132,13 +119,15 @@ function IntelCard({ item, locale }: { item: IntelItem; locale: string }) {
               </span>
             )}
           </div>
-          <h3 className="font-semibold text-stone-800 text-sm leading-snug">
+          <h3 className={`font-semibold text-stone-800 leading-snug ${compact ? "text-xs" : "text-sm"}`}>
             {t(item.headline, locale)}
           </h3>
-          <p className="mt-1.5 text-sm text-stone-600 leading-relaxed">
-            {t(item.summary, locale)}
-          </p>
-          {item.affectedOrgs && item.affectedOrgs.length > 0 && !item.affectedOrgSlugs?.length && (
+          {!compact && (
+            <p className="mt-1.5 text-sm text-stone-600 leading-relaxed">
+              {t(item.summary, locale)}
+            </p>
+          )}
+          {!compact && item.affectedOrgs && item.affectedOrgs.length > 0 && !item.affectedOrgSlugs?.length && (
             <div className="mt-2 flex flex-wrap gap-1">
               {item.affectedOrgs.map((org) => (
                 <span
@@ -211,10 +200,10 @@ export default function InsightsPage() {
   const upcomingCliffs = fundingCliffs.filter((c) => !c.isPast).slice(0, 4);
   const nextCliff = upcomingCliffs[0];
 
-  /* Filtered intel items */
-  const filteredIntel = useMemo(() => {
-    if (intelFilter === "all") return getIntelItems();
-    return getIntelItems({ category: intelFilter });
+  /* Filtered news items (excludes deadlines and strategy) */
+  const filteredNews = useMemo(() => {
+    if (intelFilter === "all") return allNewsItems;
+    return allNewsItems.filter((i) => i.category === intelFilter);
   }, [intelFilter]);
 
   const displayedRoles = showAllRoles ? roleDemand : roleDemand.slice(0, 8);
@@ -222,7 +211,7 @@ export default function InsightsPage() {
 
   return (
     <main className="min-h-screen bg-stone-50">
-      {/* ───────────────── HERO — Executive Dashboard ───────────────── */}
+      {/* ───────────────── HERO ───────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-900/20 via-transparent to-transparent" />
         <div className="relative mx-auto max-w-6xl px-4 py-12 sm:py-16">
@@ -286,172 +275,215 @@ export default function InsightsPage() {
         </div>
       </section>
 
+      {/* ───────────────── TWO-COLUMN: NEWS + SIDEBAR ───────────────── */}
       <div className="mx-auto max-w-6xl px-4 py-8">
-        {/* ───────────────── BREAKING INTEL ───────────────── */}
-        <section className="mb-10">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <AlertTriangle className="h-5 w-5 text-red-600" />
-              <h2 className="text-xl font-bold text-stone-800">
-                {isEs ? "Inteligencia Crítica" : "Breaking Intelligence"}
-              </h2>
-            </div>
-            <Badge variant="outline" className="text-xs text-stone-500">
-              {INTEL_ITEMS.length} {isEs ? "elementos" : "items"}
-            </Badge>
-          </div>
+        <div className="flex flex-col lg:flex-row gap-8">
 
-          {/* Category filter tabs */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            <button
-              onClick={() => setIntelFilter("all")}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                intelFilter === "all"
-                  ? "bg-stone-800 text-white"
-                  : "bg-stone-100 text-stone-600 hover:bg-stone-200"
-              }`}
-            >
-              {isEs ? "Todo" : "All"} ({INTEL_ITEMS.length})
-            </button>
-            {INTEL_CATEGORIES.map((cat) => {
-              const count = INTEL_ITEMS.filter(
-                (i) => i.category === cat.id
-              ).length;
-              if (count === 0) return null;
-              return (
+          {/* ── LEFT COLUMN: News Feed (2/3) ── */}
+          <div className="flex-1 min-w-0">
+            <section>
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <AlertTriangle className="h-5 w-5 text-red-600" />
+                  <h2 className="text-xl font-bold text-stone-800">
+                    {isEs ? "Noticias e Inteligencia" : "News & Intelligence"}
+                  </h2>
+                </div>
+                <Badge variant="outline" className="text-xs text-stone-500">
+                  {allNewsItems.length} {isEs ? "artículos" : "articles"}
+                </Badge>
+              </div>
+
+              {/* Category filter tabs */}
+              <div className="flex flex-wrap gap-2 mb-4">
                 <button
-                  key={cat.id}
-                  onClick={() => setIntelFilter(cat.id)}
+                  onClick={() => setIntelFilter("all")}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                    intelFilter === cat.id
+                    intelFilter === "all"
                       ? "bg-stone-800 text-white"
                       : "bg-stone-100 text-stone-600 hover:bg-stone-200"
                   }`}
                 >
-                  {isEs ? cat.es : cat.en} ({count})
+                  {isEs ? "Todo" : "All"} ({allNewsItems.length})
                 </button>
-              );
-            })}
+                {NEWS_CATEGORIES.map((cat) => {
+                  const count = allNewsItems.filter((i) => i.category === cat.id).length;
+                  if (count === 0) return null;
+                  return (
+                    <button
+                      key={cat.id}
+                      onClick={() => setIntelFilter(cat.id)}
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                        intelFilter === cat.id
+                          ? "bg-stone-800 text-white"
+                          : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                      }`}
+                    >
+                      {isEs ? cat.es : cat.en} ({count})
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* News feed */}
+              <div className="space-y-3">
+                {filteredNews.map((item) => (
+                  <IntelCard key={item.id} item={item} locale={locale} />
+                ))}
+              </div>
+            </section>
           </div>
 
-          {/* Intel feed */}
-          <div className="space-y-3">
-            {filteredIntel.map((item) => (
-              <IntelCard key={item.id} item={item} locale={locale} />
-            ))}
-          </div>
-        </section>
+          {/* ── RIGHT COLUMN: Sidebar (1/3) ── */}
+          <aside className="w-full lg:w-80 shrink-0 space-y-6">
+            {/* Policy Timeline */}
+            <div className="lg:sticky lg:top-4 space-y-6">
+              <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-5">
+                <div className="flex items-center gap-2 mb-4">
+                  <Calendar className="h-5 w-5 text-amber-600" />
+                  <h3 className="font-bold text-stone-800">
+                    {isEs ? "Cronograma de Políticas" : "Policy Timeline"}
+                  </h3>
+                </div>
 
-        {/* ───────────────── FUNDING CLIFF COUNTDOWN ───────────────── */}
-        {upcomingCliffs.length > 0 && (
-          <section className="mb-10">
-            <div className="flex items-center gap-2 mb-4">
-              <Clock className="h-5 w-5 text-amber-600" />
-              <h2 className="text-xl font-bold text-stone-800">
-                {isEs ? "Cuenta Regresiva: Riesgos Fiscales" : "Funding Cliff Countdown"}
-              </h2>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {upcomingCliffs.map((cliff) => {
-                const urgency =
-                  cliff.daysUntil < 90
-                    ? "border-red-400 bg-red-50"
-                    : cliff.daysUntil < 180
-                      ? "border-amber-400 bg-amber-50"
-                      : "border-stone-200 bg-white";
-                const countColor =
-                  cliff.daysUntil < 90
-                    ? "text-red-700"
-                    : cliff.daysUntil < 180
-                      ? "text-amber-700"
-                      : "text-stone-700";
+                {/* Upcoming cliffs */}
+                {upcomingCliffs.length > 0 && (
+                  <div className="space-y-3 mb-4">
+                    {upcomingCliffs.map((cliff) => {
+                      const urgency =
+                        cliff.daysUntil < 90
+                          ? "border-red-300 bg-red-50"
+                          : cliff.daysUntil < 180
+                            ? "border-amber-300 bg-amber-50"
+                            : "border-stone-200 bg-white";
+                      const countColor =
+                        cliff.daysUntil < 90
+                          ? "text-red-700"
+                          : cliff.daysUntil < 180
+                            ? "text-amber-700"
+                            : "text-stone-700";
 
-                return (
-                  <div
-                    key={cliff.id}
-                    className={`rounded-xl border p-4 ${urgency}`}
-                  >
-                    <div className={`text-3xl font-bold ${countColor}`}>
-                      {cliff.daysUntil}
-                      <span className="text-sm font-medium ml-1">
-                        {isEs ? "días" : "days"}
-                      </span>
-                    </div>
-                    <h3 className="mt-1 font-semibold text-stone-800 text-sm leading-snug">
-                      {t(cliff.title, locale)}
-                    </h3>
-                    {cliff.dollarAmount && (
-                      <div className="mt-1 text-xs text-stone-500">
-                        {cliff.dollarAmount}
-                      </div>
-                    )}
-                    {cliff.peopleAffected && (
-                      <div className="text-xs text-stone-500">
-                        {cliff.peopleAffected}
-                      </div>
-                    )}
+                      return (
+                        <div key={cliff.id} className={`rounded-lg border p-3 ${urgency}`}>
+                          <div className="flex items-baseline justify-between">
+                            <span className={`text-2xl font-bold ${countColor}`}>
+                              {cliff.daysUntil}
+                              <span className="text-xs font-medium ml-0.5">
+                                {isEs ? "d" : "d"}
+                              </span>
+                            </span>
+                            {cliff.dollarAmount && (
+                              <span className="text-[10px] text-stone-500">{cliff.dollarAmount}</span>
+                            )}
+                          </div>
+                          <h4 className="mt-1 font-semibold text-stone-800 text-xs leading-snug">
+                            {t(cliff.title, locale)}
+                          </h4>
+                        </div>
+                      );
+                    })}
                   </div>
-                );
-              })}
-            </div>
-            <div className="mt-3 text-right">
-              <Link
-                href="/funding-impact"
-                className="text-sm text-teal-700 hover:text-teal-900 font-medium inline-flex items-center gap-1"
-              >
-                {isEs ? "Ver Rastreador Completo" : "View Full Tracker"}
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </section>
-        )}
+                )}
 
-        {/* ───────────────── UNDOCUMENTED ACCESS WATCH ───────────────── */}
-        <section className="mb-10">
-          <div className="rounded-2xl border-2 border-teal-200 bg-gradient-to-br from-teal-50 to-white p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <Shield className="h-5 w-5 text-teal-700" />
-              <h2 className="text-xl font-bold text-teal-900">
-                {isEs
-                  ? "Vigilancia: Acceso para Indocumentados"
-                  : "Undocumented Access Watch"}
-              </h2>
-            </div>
-            <p className="text-sm text-teal-800 mb-4">
-              {isEs
-                ? "Políticas que afectan el acceso a salud para comunidades indocumentadas y estrategias para mantener las puertas abiertas."
-                : "Policies affecting healthcare access for undocumented communities and strategies to keep doors open."}
-            </p>
-            <div className="space-y-3">
-              {undocAccessItems.map((item) => (
-                <IntelCard key={item.id} item={item} locale={locale} />
-              ))}
-            </div>
-          </div>
-        </section>
+                {/* Deadline items (past/active policy dates) */}
+                <div className="space-y-2">
+                  {deadlineItems.map((item) => {
+                    const isPast = new Date(item.date + "T00:00:00") < new Date();
+                    return (
+                      <div
+                        key={item.id}
+                        className={`rounded-lg border p-3 ${
+                          isPast ? "border-stone-200 bg-white" : "border-red-200 bg-red-50/50"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2 mb-1">
+                          <Badge
+                            variant="outline"
+                            className={`text-[10px] font-semibold ${IMPACT_STYLES[item.impactLevel]}`}
+                          >
+                            {isPast
+                              ? (isEs ? "Vigente" : "Active")
+                              : (isEs ? "Próximo" : "Upcoming")}
+                          </Badge>
+                          <span className="text-[10px] text-stone-400">
+                            {formatDate(item.date, locale)}
+                          </span>
+                        </div>
+                        <h4 className="font-semibold text-stone-800 text-xs leading-snug">
+                          {t(item.headline, locale)}
+                        </h4>
+                        <a
+                          href={item.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-1 text-[10px] text-teal-700 hover:underline inline-block"
+                        >
+                          {item.sourceOrg} →
+                        </a>
+                      </div>
+                    );
+                  })}
+                </div>
 
-        {/* ───────────────── CHANGE MANAGEMENT PLAYBOOK ───────────────── */}
-        <section className="mb-10">
-          <div className="flex items-center gap-2 mb-4">
-            <Lightbulb className="h-5 w-5 text-amber-600" />
-            <h2 className="text-xl font-bold text-stone-800">
-              {isEs ? "Manual de Estrategia" : "Change Management Playbook"}
-            </h2>
-          </div>
-          <p className="text-sm text-stone-500 mb-4">
-            {isEs
-              ? "Tácticas ejecutables para líderes de FQHCs navegando recortes de financiamiento, cambios de política, y presión sobre la fuerza laboral."
-              : "Actionable tactics for FQHC leaders navigating funding cuts, policy changes, and workforce pressure."}
-          </p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {changeMgmtItems.map((item) => (
-              <IntelCard key={item.id} item={item} locale={locale} />
-            ))}
-          </div>
-        </section>
+                <Link
+                  href="/funding-impact"
+                  className="mt-4 text-sm text-teal-700 hover:text-teal-900 font-medium inline-flex items-center gap-1"
+                >
+                  {isEs ? "Rastreador Completo" : "Full Impact Tracker"}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+
+              {/* Strategic Insights */}
+              <div className="rounded-xl border border-teal-200 bg-teal-50/50 p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <Lightbulb className="h-5 w-5 text-teal-700" />
+                  <h3 className="font-bold text-stone-800">
+                    {isEs ? "Guías Estratégicas" : "Strategic Insights"}
+                  </h3>
+                </div>
+                <p className="text-xs text-stone-500 mb-3">
+                  {isEs
+                    ? "Tácticas ejecutables para líderes de FQHCs."
+                    : "Actionable tactics for FQHC leaders."}
+                </p>
+                <div className="space-y-2">
+                  {strategyItems.map((item) => (
+                    <div
+                      key={item.id}
+                      className="rounded-lg border border-stone-200 bg-white p-3"
+                    >
+                      <h4 className="font-semibold text-stone-800 text-xs leading-snug">
+                        {t(item.headline, locale)}
+                      </h4>
+                      <p className="mt-1 text-[11px] text-stone-500 leading-relaxed line-clamp-2">
+                        {t(item.summary, locale)}
+                      </p>
+                      <a
+                        href={item.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-1 text-[10px] text-teal-700 hover:underline inline-block"
+                      >
+                        {item.sourceOrg} →
+                      </a>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href="/strategy/guides"
+                  className="mt-4 text-sm text-teal-700 hover:text-teal-900 font-medium inline-flex items-center gap-1"
+                >
+                  {isEs ? "Guías Ejecutivas" : "Executive Guides"}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </aside>
+        </div>
 
         {/* ───────────────── REGIONAL MARKET SNAPSHOT ───────────────── */}
-        <section className="mb-10">
+        <section className="mt-10 mb-10">
           <div className="flex items-center gap-2 mb-4">
             <MapPin className="h-5 w-5 text-teal-600" />
             <h2 className="text-xl font-bold text-stone-800">
@@ -697,7 +729,7 @@ export default function InsightsPage() {
           </ul>
         </section>
 
-        {/* ───────────────── CTA ───────────────── */}
+        {/* ───────────────── FROM INTEL TO ACTION ───────────────── */}
         <section className="mb-8 text-center">
           <div className="rounded-2xl bg-gradient-to-r from-stone-800 to-stone-900 p-8 text-white">
             <h2 className="text-2xl font-bold">
@@ -762,8 +794,8 @@ export default function InsightsPage() {
         {/* Data disclaimer */}
         <div className="text-center text-xs text-stone-400 mb-6">
           {isEs
-            ? "Datos agregados de HRSA, BLS, CA EDD WARN Act, DHCS, y publicaciones de empleo de FQHCs. Actualizado febrero 2026."
-            : "Data aggregated from HRSA, BLS, CA EDD WARN Act, DHCS, and FQHC job postings. Updated February 2026."}
+            ? "Datos agregados de HRSA, BLS, CA EDD WARN Act, DHCS, y publicaciones de empleo de FQHCs. Actualizado marzo 2026."
+            : "Data aggregated from HRSA, BLS, CA EDD WARN Act, DHCS, and FQHC job postings. Updated March 2026."}
         </div>
       </div>
     </main>
