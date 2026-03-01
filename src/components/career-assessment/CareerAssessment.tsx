@@ -32,8 +32,6 @@ interface FormData {
   ehrSystems: string[];
   programs: string[];
   bilingual: string;
-  name?: string;
-  email?: string;
 }
 
 const ROLE_OPTIONS = [
@@ -87,11 +85,6 @@ export default function CareerAssessment({
     programs: [],
     bilingual: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [waitlistEmail, setWaitlistEmail] = useState('');
-  const [waitlistName, setWaitlistName] = useState('');
-  const [emailError, setEmailError] = useState('');
 
   // --- i18n text helpers ---
   const t = {
@@ -140,24 +133,6 @@ export default function CareerAssessment({
     roleFitDesc: isEs
       ? 'Una buena opción basada en su experiencia e intereses'
       : 'A great fit based on your background and interests',
-    joinWaitlist: isEs ? 'Guardar Perfil y Ser Emparejado' : 'Save Profile & Get Matched',
-    fullName: isEs ? 'Nombre Completo *' : 'Full Name *',
-    emailAddress: isEs ? 'Correo Electrónico *' : 'Email Address *',
-    submitting: isEs ? 'Enviando...' : 'Submitting...',
-    joinWaitlistBtn: isEs ? 'Guardar Perfil' : 'Save Profile',
-    waitlistDisclaimer: isEs
-      ? `Usaremos su información para conectarlo con oportunidades y notificarle sobre nuevos roles en ${fqhcName}. Sus datos están seguros y nunca se comparten.`
-      : `We'll use your information to connect you with opportunities and notify you of new roles at ${fqhcName}. Your data is secure and never shared.`,
-    // Success
-    youreOnWaitlist: isEs ? '¡Perfil guardado!' : "Profile saved!",
-    successMessage: isEs
-      ? `Gracias por completar la evaluación de carrera. Hemos guardado su perfil y lo hemos emparejado con las oportunidades de ${fqhcName}. ¡Pronto tendrá noticias nuestras!`
-      : `Thanks for completing the career screener. We've saved your profile and matched it to ${fqhcName}'s opportunities. You'll hear from us soon!`,
-    checkEmail: isEs ? 'Revise su correo electrónico para los próximos pasos.' : 'Check your email for next steps.',
-    // Validation
-    enterName: isEs ? 'Por favor ingrese su nombre' : 'Please enter your name',
-    enterEmail: isEs ? 'Por favor ingrese su correo electrónico' : 'Please enter your email',
-    validEmail: isEs ? 'Por favor ingrese un correo electrónico válido' : 'Please enter a valid email address',
   };
 
   const handleRoleSelect = (roleId: string) => {
@@ -266,38 +241,6 @@ export default function CareerAssessment({
         return !!formData.bilingual;
       default:
         return false;
-    }
-  };
-
-  const handleSubmitWaitlist = async (name: string, email: string) => {
-    setIsSubmitting(true);
-    try {
-      const response = await fetch('/api/candidate-waitlist', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          fqhcSlug,
-          fqhcName,
-          roleInterest: formData.roleInterest,
-          experience: formData.experience,
-          ehrSystems: formData.ehrSystems,
-          programs: formData.programs,
-          bilingual: formData.bilingual,
-          matchScore: calculateMatchScore(),
-        }),
-      });
-
-      if (response.ok) {
-        setSubmitSuccess(true);
-      }
-    } catch (error) {
-      console.error('Failed to submit waitlist:', error);
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -762,28 +705,6 @@ export default function CareerAssessment({
     );
   }
 
-  const handleWaitlistSubmit = () => {
-    setEmailError('');
-
-    if (!waitlistName.trim()) {
-      setEmailError(t.enterName);
-      return;
-    }
-
-    if (!waitlistEmail.trim()) {
-      setEmailError(t.enterEmail);
-      return;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(waitlistEmail)) {
-      setEmailError(t.validEmail);
-      return;
-    }
-
-    handleSubmitWaitlist(waitlistName, waitlistEmail);
-  };
-
   // Map CareerAssessment roleIds to salary benchmark roleIds
   const ROLE_TO_BENCHMARK: Record<string, string> = {
     chw: 'chw',
@@ -806,36 +727,6 @@ export default function CareerAssessment({
     const matchScore = calculateMatchScore();
     const suggestedRoles = getSuggestedRoles();
     const selectedSalary = getSalaryForRole(formData.roleInterest);
-
-    if (submitSuccess) {
-      return (
-        <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white p-6">
-          <div className="mx-auto max-w-4xl">
-            {/* Success Message */}
-            <div className="text-center py-16">
-              <div className="mx-auto mb-6">
-                <CheckCircle className="w-20 h-20 text-amber-500 mx-auto" />
-              </div>
-
-              <h1 className="text-4xl font-bold text-amber-900 mb-4">{t.youreOnWaitlist}</h1>
-
-              <p className="text-lg text-stone-600 max-w-2xl mx-auto mb-8">
-                {t.successMessage}
-              </p>
-
-              <p className="text-stone-500 mb-8">{t.checkEmail}</p>
-
-              <button
-                onClick={onClose}
-                className="px-8 py-3 bg-gradient-to-r from-teal-700 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200"
-              >
-                {t.close}
-              </button>
-            </div>
-          </div>
-        </div>
-      );
-    }
 
     return (
       <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white p-6">
@@ -995,57 +886,6 @@ export default function CareerAssessment({
               </div>
             );
           })()}
-
-          {/* Waitlist Form */}
-          <div className="mb-12 bg-white rounded-xl shadow-lg p-8 border-t-4 border-teal-500">
-            <h2 className="text-2xl font-semibold text-stone-900 mb-6">
-              {t.joinWaitlist}
-            </h2>
-
-            <div className="space-y-4 mb-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-stone-700 mb-2">
-                  {t.fullName}
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  value={waitlistName}
-                  onChange={(e) => setWaitlistName(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-teal-500 transition-colors"
-                  placeholder={isEs ? 'María García' : 'Jane Doe'}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-stone-700 mb-2">
-                  {t.emailAddress}
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  value={waitlistEmail}
-                  onChange={(e) => setWaitlistEmail(e.target.value)}
-                  className="w-full px-4 py-3 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-teal-500 transition-colors"
-                  placeholder={isEs ? 'maria@ejemplo.com' : 'jane@example.com'}
-                />
-              </div>
-
-              {emailError && <p className="text-red-600 text-sm font-medium">{emailError}</p>}
-            </div>
-
-            <button
-              onClick={handleWaitlistSubmit}
-              disabled={isSubmitting}
-              className="w-full px-6 py-3 bg-gradient-to-r from-teal-700 to-amber-600 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
-            >
-              {isSubmitting ? t.submitting : t.joinWaitlistBtn}
-            </button>
-
-            <p className="text-xs text-stone-500 mt-4 text-center">
-              {t.waitlistDisclaimer}
-            </p>
-          </div>
 
           {/* Navigation */}
           <div className="flex justify-between items-center">
