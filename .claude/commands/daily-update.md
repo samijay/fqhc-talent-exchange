@@ -247,16 +247,24 @@ After adding any new IntelItem entries, verify all source URLs are valid:
    - Replace with a verified, working primary source URL
    - Update `sourceOrg` if the source organization changed
 3. **Common broken URL patterns to avoid:**
-   - Don't guess URL slugs — always verify via search first
-   - NACHC restructured their site in 2025 — use `nachc.org/policy-advocacy/` or `nachc.org/topic/` paths
-   - CAFP moved to `familydocs.org` — old `cafp.org` domain is dead
-   - DHCS pages use WAF (Incapsula) — they may block WebFetch but are valid; verify via search results
+   - Don't guess URL slugs — always verify via WebFetch or WebSearch first
+   - **NEVER use generic hub pages** as sourceUrls — always find the specific article/press release
+   - Bad examples: `oag.ca.gov/news`, `oag.ca.gov/initiatives`, `nachc.org/policy-advocacy/policy-priorities/health-center-workforce/`, `modernhealthcare.com/mergers-acquisitions`, `bphc.hrsa.gov/funding/funding-opportunities`
+   - Good examples: Direct press release URL, specific article URL, PDF URL, LAO analysis URL
+   - NACHC restructured their site in 2025 — old hub URLs often don't have specific content. Use specific article/blog/resource paths
+   - CPCA site restructured — many old `/CPCA/News/` URLs return 404
+   - CHCF changed from `/publication/` to `/resource/` paths — verify before using
+   - AHS (alamedahealthsystem.org) pages disappear frequently — use news coverage (KQED, Berkeleyside) instead
+   - DHCS pages use SharePoint/JS — they may render blank to WebFetch but are valid; verify via search results
    - KFF URLs use their new format: `kff.org/medicaid/health-provisions-in-...`
-4. For existing items: spot-check 3-5 random source URLs each session to catch link rot
+   - CAFP moved to `familydocs.org` — old `cafp.org` domain is dead
+4. For existing items: spot-check 5 random source URLs each session to catch link rot
 5. **Quality rules:**
-   - Every sourceUrl must be a real, reachable page (not a homepage or generic section)
-   - Prefer specific article/report URLs over section landing pages
+   - Every sourceUrl must be a specific, reachable page — NOT a homepage or section landing page
+   - The content at the URL must actually support the claims in the headline/summary
+   - If the URL is a general page that doesn't mention the specific claim, it's a MISMATCH — find a better URL
    - Source hierarchy: govt (.gov) > policy orgs (nachc.org, kff.org) > industry pubs > news
+   - For strategy items: link to the source of the underlying facts, not generic institutional pages
 
 **Only pause if >3 broken links found in existing items.**
 
