@@ -3,6 +3,7 @@
 
 import type { MetadataRoute } from "next";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
+import { getAllRegionSlugs } from "@/lib/regional-intelligence";
 
 const SITE_URL = "https://www.fqhctalent.com";
 
@@ -215,6 +216,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    // Regional Intelligence pages (9 regions)
+    ...getAllRegionSlugs().map((slug) => ({
+      url: `${SITE_URL}/intelligence/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
     {
       url: `${SITE_URL}/unions`,
       lastModified: new Date(),

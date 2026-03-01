@@ -140,6 +140,7 @@ export default function Header() {
         { href: "/ai-tracker", label: t("aiTracker"), desc: t("aiTrackerDesc") },
         { href: "/layoffs", label: t("layoffs"), desc: t("layoffsDesc") },
         { href: "/blog", label: t("blog"), desc: t("blogDesc") },
+        { href: "/intelligence/los-angeles", label: t("regionalIntel"), desc: t("regionalIntelDesc") },
       ],
     },
     {

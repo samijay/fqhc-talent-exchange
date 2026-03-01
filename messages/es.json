@@ -62,7 +62,9 @@
     "resilience": "Tarjeta de Resiliencia",
     "resilienceDesc": "Evalúe su FQHC en 5 dimensiones",
     "compare": "Comparar FQHCs",
-    "compareDesc": "Análisis lado a lado de 2-3 FQHCs"
+    "compareDesc": "Análisis lado a lado de 2-3 FQHCs",
+    "regionalIntel": "Inteligencia Regional",
+    "regionalIntelDesc": "Paneles regionales de FQHC para las 9 regiones de CA"
   },
   "footer": {
     "description": "La bolsa de talento creada exclusivamente para Centros de Salud Comunitarios Federalmente Calificados (FQHC) y profesionales de salud comunitaria en California.",
@@ -80,6 +82,7 @@
     "aiTracker": "Rastreador de IA",
     "layoffTracker": "Rastreador de Despidos",
     "blog": "Blog",
+    "regionalIntel": "Inteligencia Regional",
     "tools": "Herramientas",
     "resumeBuilder": "Constructor de CV",
     "careerAssessment": "Evaluación Profesional",

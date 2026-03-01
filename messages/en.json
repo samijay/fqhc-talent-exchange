@@ -62,7 +62,9 @@
     "resilience": "Resilience Scorecard",
     "resilienceDesc": "Score your FQHC across 5 dimensions",
     "compare": "Compare FQHCs",
-    "compareDesc": "Side-by-side analysis of 2-3 FQHCs"
+    "compareDesc": "Side-by-side analysis of 2-3 FQHCs",
+    "regionalIntel": "Regional Intelligence",
+    "regionalIntelDesc": "Per-region FQHC dashboards for all 9 CA regions"
   },
   "footer": {
     "description": "The talent exchange built exclusively for Federally Qualified Health Centers and community health professionals in California.",
@@ -80,6 +82,7 @@
     "aiTracker": "AI Tracker",
     "layoffTracker": "Layoff Tracker",
     "blog": "Blog",
+    "regionalIntel": "Regional Intelligence",
     "tools": "Tools",
     "resumeBuilder": "Resume Builder",
     "careerAssessment": "Career Assessment",

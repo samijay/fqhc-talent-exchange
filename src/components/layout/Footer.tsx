@@ -29,6 +29,7 @@ export default function Footer() {
       { href: "/ai-tracker" as const, label: t("aiTracker") },
       { href: "/layoffs" as const, label: t("layoffTracker") },
       { href: "/blog" as const, label: t("blog") },
+      { href: "/intelligence/los-angeles" as const, label: t("regionalIntel") },
     ],
     [t("tools")]: [
       { href: "/jobs" as const, label: t("browseJobs") },
