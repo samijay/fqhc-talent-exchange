@@ -333,8 +333,8 @@ export default async function FQHCProfilePage({
                   {relatedCaseStudies.map((cs) => (
                     <div key={cs.id} className="rounded-lg border border-stone-200 p-4">
                       <h3 className="text-sm font-bold text-stone-900">{cs.fqhcName}</h3>
-                      <p className="mt-1 text-xs text-stone-500 line-clamp-2">
-                        {locale === "es" ? cs.challenge.es : cs.challenge.en}
+                      <p className="mt-1 text-xs text-stone-500">
+                        {locale === "es" ? cs.headline.es : cs.headline.en}
                       </p>
                       <div className="mt-2 flex flex-wrap gap-1.5">
                         {cs.outcomes.slice(0, 2).map((o) => (

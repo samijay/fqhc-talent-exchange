@@ -79,8 +79,8 @@ function CompactCard({
         </div>
       </div>
 
-      <p className="text-sm text-stone-600 leading-relaxed line-clamp-3 mb-4">
-        {t(cs.challenge, locale)}
+      <p className="text-sm text-stone-600 leading-relaxed mb-4">
+        {t(cs.headline, locale)}
       </p>
 
       {/* Headline outcomes */}

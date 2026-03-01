@@ -87,8 +87,8 @@ function CaseStudyCard({
               <Calendar className="size-3" />
               <span>{cs.timeframe}</span>
             </div>
-            <p className="mt-2 text-sm text-stone-500 line-clamp-2">
-              {t(cs.challenge, locale)}
+            <p className="mt-2 text-sm text-stone-500">
+              {t(cs.headline, locale)}
             </p>
           </div>
           <div className="flex-shrink-0 mt-1 text-stone-400">
