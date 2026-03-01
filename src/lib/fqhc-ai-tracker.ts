@@ -2,10 +2,10 @@
 // Track AI adoption across the FQHC/CHC sector
 // Every entry has a primary source URL — no unsourced claims
 // Updated via daily-update pipeline (Step 3.6: AI & Innovation Scan)
-// Last updated: 2026-02-28 (daily update #6)
+// Last updated: 2026-03-01 (daily update #7)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-02-28";
+export const AI_TRACKER_LAST_UPDATED = "2026-03-01";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -405,6 +405,79 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceOrg: "RapidClaims",
     date: "2026-02-01",
     tags: ["rcm", "claims", "coding", "denials", "fqhc-specific"],
+  },
+
+  {
+    id: "sun-river-health-sunoh-7k-visits",
+    title: {
+      en: "Sun River Health Deploys Sunoh.ai Across 7,000 Monthly Visits — Largest FQHC Ambient AI Rollout",
+      es: "Sun River Health Despliega Sunoh.ai en 7,000 Visitas Mensuales — Mayor Implementación de IA Ambiental en FQHC",
+    },
+    description: {
+      en: "Sun River Health, the largest FQHC on the East Coast, has scaled Sunoh.ai ambient documentation across 500+ providers handling 7,000 patient visits per month. Using eClinicalWorks as their EHR with Sunoh.ai integration, providers can complete clinical notes for 26 patients within 30 minutes. The deployment represents the largest known ambient AI implementation at a single FQHC and demonstrates that these tools can scale beyond pilot programs to enterprise-wide adoption in high-volume community health settings.",
+      es: "Sun River Health, el FQHC más grande de la Costa Este, ha escalado Sunoh.ai a 500+ proveedores manejando 7,000 visitas por mes. Los proveedores completan notas clínicas de 26 pacientes en 30 minutos. El despliegue representa la mayor implementación conocida de IA ambiental en un solo FQHC.",
+    },
+    category: "clinical-documentation",
+    vendor: "Sunoh.ai / eClinicalWorks",
+    partnership: "NACHC-eClinicalWorks",
+    metrics: [
+      { label: "Monthly Visits", value: "7,000" },
+      { label: "Active Providers", value: "500+" },
+      { label: "Notes Per Session", value: "26 patients in 30 min" },
+    ],
+    adoptionStage: "expanding",
+    sourceUrl: "https://sunoh.ai/press-releases/providers-at-sun-river-health-successfully-utilize-sunoh-ai-to-document-over-7000-visits-monthly/",
+    sourceOrg: "Sunoh.ai",
+    date: "2026-02-20",
+    tags: ["sunoh", "ambient-ai", "eclinicalworks", "large-scale", "east-coast-fqhc"],
+  },
+  {
+    id: "sacramento-native-american-hc-ai",
+    title: {
+      en: "Sacramento Native American Health Center: AI Implementation Lessons from RPM, CCM, and Predictive Analytics",
+      es: "Centro de Salud Nativo Americano de Sacramento: Lecciones de Implementación de IA en RPM, CCM y Análisis Predictivo",
+    },
+    description: {
+      en: "Sacramento Native American Health Center shared detailed lessons from implementing AI-powered Remote Patient Monitoring (RPM), Chronic Care Management (CCM), Behavioral Health Integration (BHI), and predictive analytics. Key takeaways: start with one use case and expand, ensure cultural sensitivity in AI-generated content for Native populations, integrate AI outputs directly into EHR workflows, and measure both clinical outcomes and provider satisfaction. The center serves urban Native American, Alaska Native, and surrounding communities in the Sacramento region.",
+      es: "El Centro de Salud Nativo Americano de Sacramento compartió lecciones detalladas de implementar IA para Monitoreo Remoto de Pacientes (RPM), Manejo de Enfermedades Crónicas (CCM), Integración de Salud Conductual (BHI) y análisis predictivo. Lecciones clave: comenzar con un caso de uso y expandir, asegurar sensibilidad cultural en contenido generado por IA.",
+    },
+    category: "care-coordination",
+    vendor: null,
+    partnership: null,
+    metrics: [
+      { label: "AI Use Cases", value: "RPM, CCM, BHI, Predictive" },
+      { label: "Population Served", value: "Native American / Alaska Native" },
+      { label: "Key Lesson", value: "Cultural sensitivity in AI outputs" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.snahc.org/",
+    sourceOrg: "Sacramento Native American Health Center",
+    date: "2026-02-25",
+    tags: ["rpm", "ccm", "bhi", "predictive", "native-american", "cultural-sensitivity"],
+  },
+  {
+    id: "abridge-best-in-klas-2026",
+    title: {
+      en: "Abridge Wins Best in KLAS 2026 for Ambient AI — Gold Standard for FQHC Evaluation",
+      es: "Abridge Gana Best in KLAS 2026 para IA Ambiental — Estándar de Oro para Evaluación FQHC",
+    },
+    description: {
+      en: "Abridge won the 2026 Best in KLAS award for Ambient AI, establishing itself as the top-rated ambient documentation solution based on provider satisfaction scores. Abridge reports that AI scribes are saving physicians an average of 2-3 hours per day on documentation, with physician burnout rates dropping from 51.9% to 38.8% at organizations that deploy ambient AI tools. For FQHCs evaluating ambient AI vendors, KLAS ratings provide the most reliable third-party assessment. Abridge's win signals strong provider satisfaction — a critical factor for adoption in resource-constrained FQHC environments.",
+      es: "Abridge ganó el premio Best in KLAS 2026 para IA Ambiental, estableciéndose como la solución mejor calificada. Los escribas de IA ahorran a los médicos 2-3 horas diarias, con tasas de agotamiento bajando de 51.9% a 38.8%. Para FQHCs evaluando proveedores de IA ambiental, las calificaciones KLAS proporcionan la evaluación de terceros más confiable.",
+    },
+    category: "clinical-documentation",
+    vendor: "Abridge",
+    partnership: null,
+    metrics: [
+      { label: "Award", value: "Best in KLAS 2026" },
+      { label: "Time Saved", value: "2-3 hours/day" },
+      { label: "Burnout Reduction", value: "51.9% → 38.8%" },
+    ],
+    adoptionStage: "widely-adopted",
+    sourceUrl: "https://www.abridge.com/press-release/best-in-klas-2026-press",
+    sourceOrg: "Abridge / KLAS Research",
+    date: "2026-02-15",
+    tags: ["abridge", "klas", "ambient-ai", "burnout-reduction", "best-in-class"],
   },
 ];
 

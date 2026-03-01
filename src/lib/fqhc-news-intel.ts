@@ -2,10 +2,10 @@
 // Curated intelligence feed for FQHC executives
 // Updated daily via /daily-update pipeline
 // Every item has a primary source URL — no unsourced claims
-// Last updated: 2026-02-28 (daily update #6)
+// Last updated: 2026-03-01 (daily update #7)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-02-28";
+export const INTEL_LAST_UPDATED = "2026-03-01";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -312,6 +312,24 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Federal",
     tags: ["hrsa", "grants", "maha", "chronic-disease", "nutrition"],
   },
+  {
+    id: "cpca-pcdc-partnership-2026",
+    date: "2026-02-28",
+    headline: {
+      en: "CPCA-PCDC Partnership to Expand Healthcare Access Across California",
+      es: "Asociación CPCA-PCDC para Expandir Acceso a Salud en California",
+    },
+    summary: {
+      en: "The California Primary Care Association (CPCA) and the Pacific Community Development Corporation (PCDC) announced a strategic partnership to expand healthcare access in underserved California communities. The collaboration focuses on integrating community development financing with health center infrastructure, potentially unlocking new capital for FQHC facility expansions and community-based care delivery models.",
+      es: "La Asociación de Atención Primaria de California (CPCA) y la Pacific Community Development Corporation (PCDC) anunciaron una asociación estratégica para expandir el acceso a la salud en comunidades desatendidas de California. La colaboración se centra en integrar financiamiento de desarrollo comunitario con infraestructura de centros de salud.",
+    },
+    category: "lobbying",
+    impactLevel: "medium",
+    sourceUrl: "https://www.cpca.org/CPCA/News/CPCA_News.aspx",
+    sourceOrg: "CPCA",
+    region: "California",
+    tags: ["cpca", "pcdc", "partnership", "infrastructure", "community-development"],
+  },
 
   /* ============================================================== */
   /*  FUNDING                                                        */
@@ -338,6 +356,42 @@ export const INTEL_ITEMS: IntelItem[] = [
   /* ============================================================== */
   /*  WORKFORCE                                                      */
   /* ============================================================== */
+  {
+    id: "ca-281m-chw-investment",
+    date: "2026-03-01",
+    headline: {
+      en: "CA CHW Workforce Update: HCAI Advisory Workgroup Continues Through June 2026, Certification Stalled",
+      es: "Actualización de Fuerza Laboral CHW de CA: Grupo Asesor HCAI Continúa Hasta Junio 2026, Certificación Estancada",
+    },
+    summary: {
+      en: "HCAI's CHW/Promotor/Representative Advisory Workgroup continues deliberations through June 2026, shaping California's CHW workforce framework. However, significant 2024 Budget Act cuts eliminated most HCAI funding for the CHW/P/R initiative, stalling the full accreditation/certification program. CHW certification guidance remains paused since November 2023 pending SB 803 rules — but Medi-Cal CHW billing codes (active since Jul 2022) remain in place. FQHCs can still bill for CHW encounters while the certification framework catches up.",
+      es: "El Grupo Asesor CHW/Promotor de HCAI continúa deliberaciones hasta junio de 2026, moldeando el marco de fuerza laboral CHW de California. Sin embargo, recortes del Presupuesto 2024 eliminaron la mayoría del financiamiento de HCAI para la iniciativa CHW. La guía de certificación CHW permanece pausada desde noviembre de 2023, pero los códigos de facturación Medi-Cal para CHW siguen vigentes.",
+    },
+    category: "workforce",
+    impactLevel: "medium",
+    sourceUrl: "https://hcai.ca.gov/workforce/initiatives/community-health-workers-promotores-chw-p/",
+    sourceOrg: "HCAI",
+    region: "California",
+    tags: ["chw", "promotora", "certification", "sb-803", "workforce-pipeline", "hcai"],
+  },
+  {
+    id: "cpehn-inclusionary-hiring",
+    date: "2026-02-28",
+    headline: {
+      en: "CPEHN Coalition Advances Inclusionary Hiring Policies for CA Health Centers",
+      es: "Coalición CPEHN Avanza Políticas de Contratación Inclusiva para Centros de Salud de CA",
+    },
+    summary: {
+      en: "The California Pan-Ethnic Health Network (CPEHN) coalition is advancing inclusionary hiring policies that would strengthen community representation requirements at FQHCs and other safety-net providers. The initiative aligns with CLAS Standards and emphasizes hiring from the communities served — particularly important for FQHCs where 90%+ of patients may be Latino but leadership demographics don't always match.",
+      es: "La coalición CPEHN está avanzando políticas de contratación inclusiva que fortalecerían los requisitos de representación comunitaria en FQHCs. La iniciativa se alinea con los Estándares CLAS y enfatiza la contratación desde las comunidades atendidas.",
+    },
+    category: "workforce",
+    impactLevel: "low",
+    sourceUrl: "https://cpehn.org/what-we-do/policy-priorities/",
+    sourceOrg: "CPEHN",
+    region: "California",
+    tags: ["diversity", "clas-standards", "community-representation", "hiring", "equity"],
+  },
   {
     id: "santa-clara-365-ftes",
     date: "2026-02-25",
@@ -613,14 +667,14 @@ export const INTEL_ITEMS: IntelItem[] = [
   },
   {
     id: "cchc-nevada-expansion",
-    date: "2026-02-19",
+    date: "2026-03-02",
     headline: {
       en: "Comprehensive Community Health Centers (CCHC) Expands to Nevada — First Out-of-State FQHC Move",
       es: "Comprehensive Community Health Centers (CCHC) Se Expande a Nevada — Primera Expansión Fuera del Estado",
     },
     summary: {
-      en: "CCHC, a California FQHC with 6 clinics across LA County and the San Fernando Valley, opened a new clinic in Las Vegas, Nevada — marking its first out-of-state expansion. CCHC grew from 45,000 visits in 2004 to over 177,000 in 2023. The expansion signals California FQHCs seeking growth beyond state lines as in-state financial pressures mount. Location: 1250 S. Buffalo Drive, Suite 170, Las Vegas.",
-      es: "CCHC, un FQHC de California con 6 clínicas en el Condado de LA, abrió una nueva clínica en Las Vegas, Nevada — su primera expansión fuera del estado. CCHC creció de 45,000 visitas en 2004 a más de 177,000 en 2023.",
+      en: "CCHC, a California FQHC with 6 clinics across LA County and the San Fernando Valley, grand-opened its new Las Vegas, Nevada clinic on March 2, 2026 — marking its first out-of-state expansion. CCHC grew from 45,000 visits in 2004 to over 177,000 in 2023. The expansion signals California FQHCs seeking growth beyond state lines as in-state financial pressures mount. Location: 1250 S. Buffalo Drive, Suite 170, Las Vegas.",
+      es: "CCHC, un FQHC de California con 6 clínicas en el Condado de LA, inauguró su nueva clínica en Las Vegas, Nevada el 2 de marzo de 2026 — su primera expansión fuera del estado. CCHC creció de 45,000 visitas en 2004 a más de 177,000 en 2023.",
     },
     category: "merger-acquisition",
     impactLevel: "medium",
