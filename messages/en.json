@@ -64,7 +64,9 @@
     "compare": "Compare FQHCs",
     "compareDesc": "Side-by-side analysis of 2-3 FQHCs",
     "regionalIntel": "Regional Intelligence",
-    "regionalIntelDesc": "Per-region FQHC dashboards for all 9 CA regions"
+    "regionalIntelDesc": "Per-region FQHC dashboards for all 9 CA regions",
+    "salaryData": "Salary Intelligence",
+    "salaryDataDesc": "P25/P50/P75 salary data for 30 FQHC roles"
   },
   "footer": {
     "description": "The talent exchange built exclusively for Federally Qualified Health Centers and community health professionals in California.",
@@ -83,6 +85,7 @@
     "layoffTracker": "Layoff Tracker",
     "blog": "Blog",
     "regionalIntel": "Regional Intelligence",
+    "salaryIntel": "Salary Intelligence",
     "tools": "Tools",
     "resumeBuilder": "Resume Builder",
     "careerAssessment": "Career Assessment",

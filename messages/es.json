@@ -64,7 +64,9 @@
     "compare": "Comparar FQHCs",
     "compareDesc": "Análisis lado a lado de 2-3 FQHCs",
     "regionalIntel": "Inteligencia Regional",
-    "regionalIntelDesc": "Paneles regionales de FQHC para las 9 regiones de CA"
+    "regionalIntelDesc": "Paneles regionales de FQHC para las 9 regiones de CA",
+    "salaryData": "Inteligencia Salarial",
+    "salaryDataDesc": "Datos salariales P25/P50/P75 para 30 roles FQHC"
   },
   "footer": {
     "description": "La bolsa de talento creada exclusivamente para Centros de Salud Comunitarios Federalmente Calificados (FQHC) y profesionales de salud comunitaria en California.",
@@ -83,6 +85,7 @@
     "layoffTracker": "Rastreador de Despidos",
     "blog": "Blog",
     "regionalIntel": "Inteligencia Regional",
+    "salaryIntel": "Inteligencia Salarial",
     "tools": "Herramientas",
     "resumeBuilder": "Constructor de CV",
     "careerAssessment": "Evaluación Profesional",

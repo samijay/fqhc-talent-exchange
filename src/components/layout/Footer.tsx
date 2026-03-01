@@ -30,6 +30,7 @@ export default function Footer() {
       { href: "/layoffs" as const, label: t("layoffTracker") },
       { href: "/blog" as const, label: t("blog") },
       { href: "/intelligence/los-angeles" as const, label: t("regionalIntel") },
+      { href: "/salary-data" as const, label: t("salaryIntel") },
     ],
     [t("tools")]: [
       { href: "/jobs" as const, label: t("browseJobs") },

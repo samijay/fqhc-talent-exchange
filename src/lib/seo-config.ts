@@ -444,6 +444,18 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/strategy/resilience` },
   },
+  salaryData: {
+    title: "FQHC Salary Intelligence | 30 Roles × 9 CA Regions | P25/P50/P75 Benchmarks",
+    description:
+      "California FQHC salary data: P25, P50, and P75 benchmarks for 30 community health roles across 9 regions. Regional cost adjustments, career track progressions, and key insights for workforce planning.",
+    openGraph: {
+      title: "FQHC Salary Intelligence — FQHC Talent Exchange",
+      description:
+        "Salary benchmarks for 30 FQHC roles across 9 California regions. P25/P50/P75 data with regional adjustments.",
+      url: `${SITE_URL}/salary-data`,
+    },
+    alternates: { canonical: `${SITE_URL}/salary-data` },
+  },
   compare: {
     title: "Compare FQHCs Side-by-Side | Resilience, Ratings & Programs",
     description:

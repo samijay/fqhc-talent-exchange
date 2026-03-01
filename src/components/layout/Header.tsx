@@ -141,6 +141,7 @@ export default function Header() {
         { href: "/layoffs", label: t("layoffs"), desc: t("layoffsDesc") },
         { href: "/blog", label: t("blog"), desc: t("blogDesc") },
         { href: "/intelligence/los-angeles", label: t("regionalIntel"), desc: t("regionalIntelDesc") },
+        { href: "/salary-data", label: t("salaryData"), desc: t("salaryDataDesc") },
       ],
     },
     {

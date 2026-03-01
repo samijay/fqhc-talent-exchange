@@ -216,6 +216,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${SITE_URL}/salary-data`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
     // Regional Intelligence pages (9 regions)
     ...getAllRegionSlugs().map((slug) => ({
       url: `${SITE_URL}/intelligence/${slug}`,
