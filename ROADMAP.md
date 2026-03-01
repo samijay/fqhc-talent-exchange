@@ -111,6 +111,8 @@ A California where every community health center is fully staffed with professio
 | 93 | **Nav & Documentation Updates** | Feb 2026 | Compare FQHCs added to Tools dropdown + footer. SEO metadata, sitemap, i18n (EN/ES). Updated CLAUDE.md + ROADMAP.md. |
 | 94 | **Regional Intelligence Pages** | Feb 2026 | `/intelligence/[region]` — 9 SSG region dashboards with per-region FQHC table, resilience distribution, top programs, EHR landscape, layoff impact, job count, regional intel feed. `regional-intelligence.ts` helper with county-to-region mapping and aggregation. |
 | 95 | **Regional Nav + Sitemap** | Feb 2026 | Regional Intelligence in Intelligence dropdown + footer. 9 sitemap entries. i18n keys (EN/ES). |
+| 96 | **FQHC Strategic Reports** | Feb 2026 | `/report/[slug]` — 220 per-FQHC strategic intelligence reports (SSG). 10-section executive report: summary, resilience with regional comparison, threat landscape + funding cliffs, programs, workforce intel + job listings, related intelligence, case studies, regional context, action items. GTM outreach hook. |
+| 97 | **Report Integration** | Feb 2026 | Directory profiles link to strategic reports. 220 report entries in sitemap. |
 
 ---
 

@@ -133,6 +133,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **FQHC Comparison Tool** | Done | `src/app/[locale]/compare/page.tsx` | Side-by-side comparison of 2-3 FQHCs: search-to-select, org basics, Glassdoor, programs, resilience (grade + 5 dimensions), funding, union status, certifications, data completeness. Best-value highlighting. Pure CSS bar chart. |
 | **Footer Newsletter Signup** | Done | `src/components/layout/Footer.tsx` | Inline newsletter signup embedded in footer for site-wide email capture. Uses NewsletterSignup component (inline variant). |
 | **Regional Intelligence Pages** | Done | `src/lib/regional-intelligence.ts`, `src/app/[locale]/intelligence/[region]/page.tsx` | 9 SSG region dashboards (LA, San Diego, Bay Area, Sacramento, Central Valley, Inland Empire, Central Coast, North State, North Coast). Per-region: FQHC table, resilience distribution, top programs, EHR landscape, layoff impact, job count, regional intel feed. `generateStaticParams` for 18 pages (9×2 locales). |
+| **FQHC Strategic Reports** | Done | `src/app/[locale]/report/[slug]/page.tsx` | 220 per-FQHC strategic intelligence reports (SSG). 10 sections: executive summary, resilience assessment with regional comparison, threat landscape with funding cliffs, programs & capabilities, workforce intel with job listings, related intelligence items, case studies, regional context, action items. GTM outreach hook. Directory profiles link to reports. 220 sitemap entries. |
 
 ### Data Sources (Strategic Assets)
 | File | Size | Contents |
@@ -269,7 +270,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 
 ## Current Context
 - **Just shipped:** FQHC Comparison Tool, resilience score integration (homepage, directory profiles, layoff tracker), footer newsletter, Offboarding Toolkit, Resilience Scorecard, Newsletter infrastructure
-- **Building next:** GTM outreach — site is at 95 shipped features with full newsletter system ready
+- **Building next:** GTM outreach — site is at 97 shipped features with full newsletter system ready
 - **GTM status:** Ready for outbound. Site repositioned as "California's FQHC Strategic Monitor" — executive-grade intelligence, no email CTAs.
 - **Data:** 177 job listings, 220 FQHCs (131 from HRSA need enrichment), 20 layoff entries (3,477+ workers), 577 live API-scrapeable jobs, 30 intel items, 6 case studies, 12 AI tracker items, 12 OKR templates
 - **Pipeline:** 6 slash commands: `/daily-update` (now with AI scan step), `/scan-policy`, `/intel-brief`, `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
