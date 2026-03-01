@@ -105,6 +105,10 @@ A California where every community health center is fully staffed with professio
 | 87 | **Newsletter Page** | Feb 2026 | `/newsletter` — Standalone signup with full audience selector, Intel Brief + The Pulse track descriptions, stats bar (weekly cadence, primary sources, bilingual). |
 | 88 | **Offboarding Toolkit Page** | Feb 2026 | `/strategy/offboarding` — Employer-facing workforce transition toolkit. 3-tier service model: Free (self-serve career tools), Managed Transition ($500-1,500/event), Placement Partnership ($2-5K/placement). 4-step process viz, layoff preview cards from live data, dark employer theme. GTM sales enabler for FQHC HR outreach. |
 | 89 | **Resilience Scorecard** | Feb 2026 | `fqhc-resilience.ts` + `/strategy/resilience` — 220 FQHCs scored across 5 weighted dimensions (program diversity, workforce stability, data maturity, quality indicators, financial positioning). Grades A-F, risk levels. Searchable/sortable/filterable scorecard with expandable detail cards, grade distribution viz, factor-level explanations. |
+| 90 | **Resilience Integration** | Feb 2026 | Resilience grade badges on homepage featured FQHCs with scores. Directory profile resilience cards with 5-dimension bar charts, data completeness, and link to scorecard. Employer-facing offboarding CTA cross-linked from layoff tracker. |
+| 91 | **FQHC Comparison Tool** | Feb 2026 | `/compare` — Side-by-side comparison of 2-3 FQHCs. Search-to-select, org basics, Glassdoor, programs, resilience (grade + 5 dimensions with CSS bar chart), funding vulnerability, union status, certifications, data completeness. Best-value highlighting per row. |
+| 92 | **Footer Newsletter Signup** | Feb 2026 | Inline `NewsletterSignup` component embedded in footer brand column for site-wide email capture on every page. |
+| 93 | **Nav & Documentation Updates** | Feb 2026 | Compare FQHCs added to Tools dropdown + footer. SEO metadata, sitemap, i18n (EN/ES). Updated CLAUDE.md + ROADMAP.md. |
 
 ---
 
@@ -295,7 +299,7 @@ The platform is strong. The data is unique. The tools are real. What's needed is
 - [ ] "FQHC of the Week" featured employer spotlight
 - [ ] Job alert emails (notify candidates when matching jobs post)
 - [ ] Referral bonuses for candidates who refer other candidates
-- [ ] FQHC comparison tool (side-by-side compare 2-3 FQHCs)
+- [x] FQHC comparison tool (side-by-side compare 2-3 FQHCs) — **SHIPPED #91** `/compare`
 - [ ] Credential verification integration (license lookup APIs)
 - [ ] Community forum / Slack for FQHC professionals
 - [ ] Podcast: interviews with FQHC leaders about hiring
@@ -329,7 +333,7 @@ The platform is strong. The data is unique. The tools are real. What's needed is
 - [ ] NLRB complaint data integration for labor history tracking
 - [ ] OSHA violation data integration for workplace safety tracking
 - [x] ~~Policy & intel pipeline (3 slash commands: /scan-policy, /intel-brief, daily-update Step 3)~~ — Built!
-- [ ] Newsletter signup in footer (email input on every page, feeds Supabase table)
+- [x] Newsletter signup in footer (email input on every page, feeds Supabase table) — **SHIPPED #93** inline variant in footer
 - [ ] Post-assessment email capture ("Email my results + get weekly insights")
 - [ ] Post-resume download email capture ("Get career tips in your inbox")
 - [ ] Blog inline newsletter CTA (teal callout box mid-article)

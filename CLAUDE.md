@@ -129,6 +129,9 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Newsletter Page** | Done | `src/app/[locale]/newsletter/page.tsx` | Standalone signup with audience selector, track descriptions (Intel Brief + The Pulse), stats bar, bilingual. |
 | **Offboarding Toolkit Page** | Done | `src/app/[locale]/strategy/offboarding/page.tsx` | 3-tier service model (Free/Managed/Placement), crisis stats, 4-step process, layoff preview cards, dark employer theme. GTM sales enabler. |
 | **Resilience Scorecard** | Done | `src/lib/fqhc-resilience.ts`, `src/app/[locale]/strategy/resilience/page.tsx` | 220 FQHCs scored across 5 dimensions (program diversity, workforce stability, data maturity, quality indicators, financial positioning). Searchable/sortable/filterable. Grade distribution viz. Expandable detail cards with factor breakdown. |
+| **Resilience Integration** | Done | `page.tsx` (homepage, directory profiles, layoffs) | Resilience grade badges on homepage featured FQHCs, directory profile resilience cards with 5-dimension bars, offboarding CTA cross-link on layoff tracker. |
+| **FQHC Comparison Tool** | Done | `src/app/[locale]/compare/page.tsx` | Side-by-side comparison of 2-3 FQHCs: search-to-select, org basics, Glassdoor, programs, resilience (grade + 5 dimensions), funding, union status, certifications, data completeness. Best-value highlighting. Pure CSS bar chart. |
+| **Footer Newsletter Signup** | Done | `src/components/layout/Footer.tsx` | Inline newsletter signup embedded in footer for site-wide email capture. Uses NewsletterSignup component (inline variant). |
 
 ### Data Sources (Strategic Assets)
 | File | Size | Contents |
@@ -239,6 +242,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | | Certifications | /certifications | 15 CA-specific certifications |
 | | Career Resources | /resources | 18 free/low-cost programs |
 | | Workplace Guides | /guides | 9 operational how-to guides |
+| | Compare FQHCs | /compare | Side-by-side comparison of 2-3 FQHCs |
 | | Team Readiness | /team-readiness | Manager leadership assessment |
 | | Priority Intake | /fast-track | Displaced worker priority matching |
 | Language | EN/ES toggle | — | Bilingual switcher |
@@ -248,8 +252,8 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 |--------|-------|
 | Strategy | Executive Guides, OKR Templates, Case Studies, Funding Impact, Top-of-Scope, Cultural Humility, The Movement, Transition Toolkit, Resilience Scorecard |
 | Intelligence | Dashboard, AI Tracker, Layoff Tracker, Blog |
-| Tools | Jobs, Directory, Resume Builder, Career Assessment, Career Roadmap, Certifications, Career Resources, Workplace Guides, Team Readiness, Priority Intake |
-| Company | About |
+| Tools | Jobs, Directory, Resume Builder, Career Assessment, Career Roadmap, Certifications, Career Resources, Workplace Guides, Compare FQHCs |
+| Company | About, Newsletter |
 
 ### Hidden Pages (no nav or footer link)
 | Route | Purpose |
@@ -261,8 +265,8 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ---
 
 ## Current Context
-- **Just shipped:** Offboarding Toolkit (3-tier service model, GTM sales enabler), Resilience Scorecard (220 FQHCs × 5 dimensions), Newsletter infrastructure, Scope-of-Practice + Cultural Humility + FQHC Movement pages
-- **Building next:** GTM outreach — site is at 87 shipped features with full newsletter system ready
+- **Just shipped:** FQHC Comparison Tool, resilience score integration (homepage, directory profiles, layoff tracker), footer newsletter, Offboarding Toolkit, Resilience Scorecard, Newsletter infrastructure
+- **Building next:** GTM outreach — site is at 93 shipped features with full newsletter system ready
 - **GTM status:** Ready for outbound. Site repositioned as "California's FQHC Strategic Monitor" — executive-grade intelligence, no email CTAs.
 - **Data:** 177 job listings, 220 FQHCs (131 from HRSA need enrichment), 20 layoff entries (3,477+ workers), 577 live API-scrapeable jobs, 30 intel items, 6 case studies, 12 AI tracker items, 12 OKR templates
 - **Pipeline:** 6 slash commands: `/daily-update` (now with AI scan step), `/scan-policy`, `/intel-brief`, `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
@@ -274,6 +278,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ## Session Log
 | Date | Summary |
 |------|---------|
+| 2026-02-28 (session 5) | **Platform Integration + FQHC Comparison Tool.** Integrated resilience scores across platform: directory profile cards with grade badge, 5-dimension bars, and data completeness; homepage featured FQHCs with resilience grade + score; layoff tracker employer CTA cross-linking to offboarding toolkit. Built FQHC Comparison Tool (`/compare`) — search-to-select up to 3 FQHCs for side-by-side analysis across org basics, Glassdoor, programs, resilience (grade + 5 dimensions with CSS bar chart), funding vulnerability, union status, certifications, data completeness. Best-value highlighting. Added newsletter signup (inline variant) to footer for site-wide email capture. Updated nav, footer, SEO, sitemap, i18n. Features #90-93 shipped. |
 | 2026-02-28 (session 4) | **GTM Pages: Offboarding Toolkit + Resilience Scorecard.** Built `/strategy/offboarding` — employer-facing workforce transition toolkit with 3 service tiers (Free self-serve tools, Managed Transition $500-1,500, Placement Partnership $2-5K), 4-step process visualization, layoff preview cards from live data, dark employer theme. Built `fqhc-resilience.ts` — scoring engine that evaluates all 220 FQHCs across 5 weighted dimensions (program diversity 25%, workforce stability 20%, data maturity 15%, quality indicators 20%, financial positioning 20%). Grades A-F, risk levels, factor-level explanations. Built `/strategy/resilience` — interactive scorecard with search, region filter, grade filter, sort by any dimension, expandable detail cards, grade distribution visualization, mobile-responsive. Updated nav (+2 Strategy items = 15 total), footer (+2 links), sitemap (+2 entries), SEO (+2 metadata blocks), i18n (+8 keys EN/ES). Build passes clean. Features #88-89 shipped. |
 | 2026-02-28 (session 3) | **Newsletter Infrastructure + Build Fixes.** Built complete newsletter system: `NewsletterSignup.tsx` reusable component (3 variants: inline/card/banner, audience toggle, bilingual), `newsletter-templates.ts` (full HTML email templates for Intel Brief + The Pulse with impact badges, source links, inline styles), `newsletter-send.ts` (batch send via Resend, 10/batch with 200ms pause, subscriber queries, send logging), `/api/newsletter/send` (NEWSLETTER_SECRET-protected), `/api/newsletter/preview` (renders with sample data). Added `newsletter_sends` tracking table to SQL migration. Embedded signup on blog (banner variant), insights (card, intel-brief default), strategy/guides (card, intel-brief default). Fixed cultural-humility page type mismatches — adapted CompetencyCard and ScenarioCard to match actual data file interfaces (description vs whyItMatters, simple practicalSteps, singular challenge/strategy, applicableRoles). Fixed Zod `z.record()` argument count. Fixed Resend null narrowing in async callbacks. Build passes clean. Features #84-87 shipped. |
 | 2026-02-28 (session 2) | **Security Hardening + Interactive Visualizations + Cultural & Historical Content Expansion.** Security: removed `unsafe-eval` from CSP, added UUID validation to newsletter unsubscribe, replaced silent feedback fallback with 503, improved email error logging in 3 API routes. Created 3 new data files: `scope-of-practice.ts` (1,684 lines, 10 CA roles, delegation matrix, BPC citations), `fqhc-movement-history.ts` (1,332 lines, 30 events, 5 eras, 8 cross-cultural alliances), `cultural-humility.ts` (719 lines, 6 domains, 20 competencies, 5 diversity scenarios). Built 4 interactive viz components: ThreatTimeline (horizontal funding cliffs), DelegationMatrix (role × task grid), RevenueImpactSimulator (slider-based what-if), MovementTimeline (vertical interactive history). Built 3 new strategy pages: `/strategy/scope-of-practice` (top-of-license workforce management), `/strategy/cultural-humility` (CLAS standards + multicultural workforce), `/strategy/movement` (FQHC movement history + alliances). Updated nav (+3 Strategy items = 11 total), footer (+3 links), SEO (+3 page metadata), sitemap (+3 entries), i18n (+12 keys EN/ES). Added ROADMAP Creativity Log (30+ bold ideas, 5 themes). Updated daily-update pipeline with Step 3.7 Cultural & Movement Content Scan. |
