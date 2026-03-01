@@ -223,6 +223,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
+    // FQHC Strategic Reports (220 FQHCs)
+    ...californiaFQHCs.map((fqhc) => ({
+      url: `${SITE_URL}/report/${fqhc.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
     {
       url: `${SITE_URL}/unions`,
       lastModified: new Date(),

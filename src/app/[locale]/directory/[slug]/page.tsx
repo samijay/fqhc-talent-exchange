@@ -257,12 +257,20 @@ export default async function FQHCProfilePage({
                 <span className="text-xs text-stone-400">
                   {locale === "es" ? "Completitud de datos:" : "Data completeness:"} {resilience.dataCompleteness}%
                 </span>
-                <Link
-                  href="/strategy/resilience"
-                  className="text-xs font-medium text-teal-700 hover:text-teal-900"
-                >
-                  {locale === "es" ? "Ver todas las puntuaciones" : "View all scores"} →
-                </Link>
+                <div className="flex gap-3">
+                  <Link
+                    href={`/report/${fqhc.slug}` as "/report"}
+                    className="text-xs font-medium text-amber-700 hover:text-amber-900"
+                  >
+                    {locale === "es" ? "Reporte Estratégico" : "Strategic Report"} →
+                  </Link>
+                  <Link
+                    href="/strategy/resilience"
+                    className="text-xs font-medium text-teal-700 hover:text-teal-900"
+                  >
+                    {locale === "es" ? "Todas las puntuaciones" : "All scores"} →
+                  </Link>
+                </div>
               </div>
             </div>
 
