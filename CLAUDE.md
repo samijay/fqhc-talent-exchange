@@ -132,6 +132,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Resilience Integration** | Done | `page.tsx` (homepage, directory profiles, layoffs) | Resilience grade badges on homepage featured FQHCs, directory profile resilience cards with 5-dimension bars, offboarding CTA cross-link on layoff tracker. |
 | **FQHC Comparison Tool** | Done | `src/app/[locale]/compare/page.tsx` | Side-by-side comparison of 2-3 FQHCs: search-to-select, org basics, Glassdoor, programs, resilience (grade + 5 dimensions), funding, union status, certifications, data completeness. Best-value highlighting. Pure CSS bar chart. |
 | **Footer Newsletter Signup** | Done | `src/components/layout/Footer.tsx` | Inline newsletter signup embedded in footer for site-wide email capture. Uses NewsletterSignup component (inline variant). |
+| **Regional Intelligence Pages** | Done | `src/lib/regional-intelligence.ts`, `src/app/[locale]/intelligence/[region]/page.tsx` | 9 SSG region dashboards (LA, San Diego, Bay Area, Sacramento, Central Valley, Inland Empire, Central Coast, North State, North Coast). Per-region: FQHC table, resilience distribution, top programs, EHR landscape, layoff impact, job count, regional intel feed. `generateStaticParams` for 18 pages (9×2 locales). |
 
 ### Data Sources (Strategic Assets)
 | File | Size | Contents |
@@ -166,6 +167,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | `src/lib/newsletter-templates.ts` | ~300 lines | HTML email templates for Intel Brief (7 sections) and The Pulse (5 sections). TypeScript interfaces `IntelBriefContent` and `PulseContent`. Inline styles for email client compatibility. Impact level badges, source links, unsubscribe footer. |
 | `src/lib/newsletter-send.ts` | ~215 lines | Batch email send utility via Resend. Subscriber query (active, by audience). Batch 10 with 200ms pause. Logs to `newsletter_sends` table. Preview functions for HTML without sending. |
 
+| `src/lib/regional-intelligence.ts` | ~175 lines | Regional aggregation: REGION_SLUGS mapping, stats aggregation (FQHCs, staff, patients, resilience, layoffs, jobs), county-to-region mapping, regional intel filtering. |
 | `src/lib/fqhc-resilience.ts` | ~350 lines | Resilience scoring engine: 5 dimensions (program diversity, workforce stability, data maturity, quality indicators, financial positioning). Weighted composite (25/20/15/20/20). Grade A-F, risk levels. Uses data from california-fqhcs.ts + california-fqhc-layoffs.ts. Cached bulk scoring. |
 
 ### Slash Commands (Content & Intelligence Pipeline)
@@ -236,6 +238,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | | AI Tracker | /ai-tracker | AI adoption monitoring across FQHC sector |
 | | Layoff Tracker | /layoffs | 20 events, 3,477+ workers tracked |
 | | Blog | /blog | 13 articles, bilingual |
+| | Regional Intelligence | /intelligence/[region] | 9 per-region FQHC dashboards |
 | **Tools** ▾ | Resume Builder | /resume-builder | Free template-based resume builder |
 | | Career Assessment | /career-insights | 5-domain assessment + 90-day plan |
 | | Career Roadmap | /career-roadmap | 5 tracks, 4 levels, CA salary data |
@@ -251,7 +254,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | Column | Links |
 |--------|-------|
 | Strategy | Executive Guides, OKR Templates, Case Studies, Funding Impact, Top-of-Scope, Cultural Humility, The Movement, Transition Toolkit, Resilience Scorecard |
-| Intelligence | Dashboard, AI Tracker, Layoff Tracker, Blog |
+| Intelligence | Dashboard, AI Tracker, Layoff Tracker, Blog, Regional Intelligence |
 | Tools | Jobs, Directory, Resume Builder, Career Assessment, Career Roadmap, Certifications, Career Resources, Workplace Guides, Compare FQHCs |
 | Company | About, Newsletter |
 
@@ -266,7 +269,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 
 ## Current Context
 - **Just shipped:** FQHC Comparison Tool, resilience score integration (homepage, directory profiles, layoff tracker), footer newsletter, Offboarding Toolkit, Resilience Scorecard, Newsletter infrastructure
-- **Building next:** GTM outreach — site is at 93 shipped features with full newsletter system ready
+- **Building next:** GTM outreach — site is at 95 shipped features with full newsletter system ready
 - **GTM status:** Ready for outbound. Site repositioned as "California's FQHC Strategic Monitor" — executive-grade intelligence, no email CTAs.
 - **Data:** 177 job listings, 220 FQHCs (131 from HRSA need enrichment), 20 layoff entries (3,477+ workers), 577 live API-scrapeable jobs, 30 intel items, 6 case studies, 12 AI tracker items, 12 OKR templates
 - **Pipeline:** 6 slash commands: `/daily-update` (now with AI scan step), `/scan-policy`, `/intel-brief`, `/update-layoffs`, `/scrape-jobs`, `/draft-blog`

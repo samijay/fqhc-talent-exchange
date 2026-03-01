@@ -109,6 +109,8 @@ A California where every community health center is fully staffed with professio
 | 91 | **FQHC Comparison Tool** | Feb 2026 | `/compare` — Side-by-side comparison of 2-3 FQHCs. Search-to-select, org basics, Glassdoor, programs, resilience (grade + 5 dimensions with CSS bar chart), funding vulnerability, union status, certifications, data completeness. Best-value highlighting per row. |
 | 92 | **Footer Newsletter Signup** | Feb 2026 | Inline `NewsletterSignup` component embedded in footer brand column for site-wide email capture on every page. |
 | 93 | **Nav & Documentation Updates** | Feb 2026 | Compare FQHCs added to Tools dropdown + footer. SEO metadata, sitemap, i18n (EN/ES). Updated CLAUDE.md + ROADMAP.md. |
+| 94 | **Regional Intelligence Pages** | Feb 2026 | `/intelligence/[region]` — 9 SSG region dashboards with per-region FQHC table, resilience distribution, top programs, EHR landscape, layoff impact, job count, regional intel feed. `regional-intelligence.ts` helper with county-to-region mapping and aggregation. |
+| 95 | **Regional Nav + Sitemap** | Feb 2026 | Regional Intelligence in Intelligence dropdown + footer. 9 sitemap entries. i18n keys (EN/ES). |
 
 ---
 
