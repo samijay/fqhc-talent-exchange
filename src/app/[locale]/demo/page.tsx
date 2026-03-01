@@ -25,7 +25,6 @@ import {
   Shield,
   DollarSign,
 } from "lucide-react";
-import { BookingCTA } from "@/components/booking/BookingCTA";
 import {
   getMarketOverview,
   getRoleDemand,
@@ -616,9 +615,6 @@ export default function DemoPage() {
             </Link>
           </div>
 
-          <div className="mx-auto mt-10 max-w-md">
-            <BookingCTA variant="candidate" />
-          </div>
         </div>
       </Section>
     </main>

@@ -36,7 +36,7 @@ import {
 import { getCaseStudiesForFQHC } from "@/lib/fqhc-case-studies";
 import { getRegionalStats, getRegionSlug } from "@/lib/regional-intelligence";
 import { getFundingCliffs } from "@/lib/market-intelligence";
-import { CALENDLY_URL } from "@/lib/booking-config";
+
 
 /* ------------------------------------------------------------------ */
 /*  Static Params                                                      */
@@ -891,45 +891,6 @@ export default async function FQHCReportPage({
                 </div>
               </div>
             </Link>
-          </div>
-        </section>
-
-        {/* Schedule a Briefing — Calendly CTA */}
-        <section className="rounded-xl border-2 border-teal-200 bg-gradient-to-r from-teal-50 to-white p-6 shadow-sm">
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <div className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-teal-700 text-white">
-              <FileText className="size-7" />
-            </div>
-            <div className="flex-1 text-center sm:text-left">
-              <h3 className="text-lg font-bold text-stone-900">
-                {isEs
-                  ? `Discuta Este Informe con Nuestro Equipo`
-                  : `Discuss This Report with Our Team`}
-              </h3>
-              <p className="text-sm text-stone-600 mt-1">
-                {isEs
-                  ? `Reserve una consulta gratuita de 20 minutos. Revisaremos el perfil estratégico de ${fqhc.name} y discutiremos oportunidades de fuerza laboral.`
-                  : `Book a free 20-minute consultation. We'll walk through ${fqhc.name}'s strategic profile and discuss workforce opportunities.`}
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 shrink-0">
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-teal-800 transition-colors"
-              >
-                <ExternalLink className="mr-2 size-4" />
-                {isEs ? "Reservar Consulta" : "Book a Briefing"}
-              </a>
-              <Link
-                href="/strategy/offboarding#intake"
-                className="inline-flex items-center justify-center rounded-lg border border-stone-300 px-5 py-2.5 text-sm font-medium text-stone-700 hover:bg-stone-50 transition-colors"
-              >
-                <Users className="mr-2 size-4" />
-                {isEs ? "Solicitar Transición" : "Request Transition"}
-              </Link>
-            </div>
           </div>
         </section>
 

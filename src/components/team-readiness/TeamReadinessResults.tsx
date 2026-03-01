@@ -16,7 +16,6 @@ import {
   Users,
   BookOpen,
 } from "lucide-react";
-import { BookingCTA } from "@/components/booking/BookingCTA";
 import type { DomainId } from "@/lib/career-assessment-engine";
 import type { ManagerAssessmentResults, LeadershipRoleId } from "@/lib/manager-assessment-engine";
 import { LEADERSHIP_ROLES, MANAGER_DOMAIN_DEFINITIONS } from "@/lib/manager-assessment-engine";
@@ -558,10 +557,8 @@ export function TeamReadinessResults({ results, onStartOver }: TeamReadinessResu
         )}
 
         {/* ============================================================ */}
-        {/*  BookingCTA + Start Over                                        */}
+        {/*  Start Over                                                      */}
         {/* ============================================================ */}
-        <BookingCTA variant="manager" />
-
         <div className="text-center">
           <button
             onClick={onStartOver}
