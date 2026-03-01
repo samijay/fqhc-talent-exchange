@@ -22,6 +22,7 @@ import { californiaFQHCs, fqhcSalaryRanges, typicalFqhcBenefits } from "@/lib/ca
 import { fqhcJobListings } from "@/lib/fqhc-job-listings";
 import { getIntelForFQHC, IMPACT_BORDER, IMPACT_LABELS } from "@/lib/fqhc-news-intel";
 import { getCaseStudiesForFQHC } from "@/lib/fqhc-case-studies";
+import { calculateResilienceScore, DIMENSION_META } from "@/lib/fqhc-resilience";
 
 /* ------------------------------------------------------------------ */
 /*  Static Params                                                      */
@@ -81,6 +82,7 @@ export default async function FQHCProfilePage({
   const jobs = fqhcJobListings.filter((j) => j.fqhcSlug === slug);
   const relatedIntel = getIntelForFQHC(slug);
   const relatedCaseStudies = getCaseStudiesForFQHC(slug);
+  const resilience = calculateResilienceScore(fqhc);
 
   return (
     <div className="bg-stone-50">
@@ -202,6 +204,66 @@ export default async function FQHCProfilePage({
             <div className="rounded-xl border border-stone-200 bg-white p-6">
               <h2 className="text-lg font-bold text-stone-900">{t("aboutOrg")} {fqhc.name}</h2>
               <p className="mt-3 leading-relaxed text-stone-600">{fqhc.description}</p>
+            </div>
+
+            {/* Resilience Score */}
+            <div className="rounded-xl border border-stone-200 bg-white p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+                  <Shield className="size-5" />
+                  {locale === "es" ? "Puntuación de Resiliencia" : "Resilience Score"}
+                </h2>
+                <div className="flex items-center gap-2">
+                  <span className={`text-3xl font-extrabold ${
+                    resilience.overall >= 70 ? "text-green-700" :
+                    resilience.overall >= 50 ? "text-amber-700" :
+                    "text-red-700"
+                  }`}>{resilience.overall}</span>
+                  <div className="text-right">
+                    <Badge className={`text-xs ${
+                      resilience.grade === "A" || resilience.grade === "B"
+                        ? "bg-green-100 text-green-800 border-green-200"
+                        : resilience.grade === "C"
+                          ? "bg-amber-100 text-amber-800 border-amber-200"
+                          : "bg-red-100 text-red-800 border-red-200"
+                    }`}>
+                      {locale === "es" ? "Grado" : "Grade"} {resilience.grade}
+                    </Badge>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-3">
+                {resilience.dimensions.map((dim) => {
+                  const meta = DIMENSION_META.find((m) => m.id === dim.dimension);
+                  return (
+                    <div key={dim.dimension}>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-xs font-medium text-stone-600">
+                          {locale === "es" ? dim.label.es : dim.label.en}
+                        </span>
+                        <span className="text-xs font-bold text-stone-800">{dim.score}</span>
+                      </div>
+                      <div className="h-2 rounded-full bg-stone-100 overflow-hidden">
+                        <div
+                          className={`h-full rounded-full ${meta?.color || "bg-stone-400"}`}
+                          style={{ width: `${dim.score}%` }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="mt-4 flex items-center justify-between">
+                <span className="text-xs text-stone-400">
+                  {locale === "es" ? "Completitud de datos:" : "Data completeness:"} {resilience.dataCompleteness}%
+                </span>
+                <Link
+                  href="/strategy/resilience"
+                  className="text-xs font-medium text-teal-700 hover:text-teal-900"
+                >
+                  {locale === "es" ? "Ver todas las puntuaciones" : "View all scores"} →
+                </Link>
+              </div>
             </div>
 
             {/* Programs */}

@@ -454,6 +454,32 @@ export default function LayoffsPage() {
         </div>
       </div>
 
+      {/* ─── Employer CTA ─── */}
+      <div className="mx-auto max-w-7xl px-4 pb-6 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-stone-200 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 p-8 text-center text-white sm:p-10">
+          <Building2 className="mx-auto mb-3 size-8 text-amber-400" />
+          <h2 className="text-xl font-bold sm:text-2xl">
+            {t.isEs
+              ? "¿Es Usted un Líder de FQHC Manejando Reducciones?"
+              : "Are You an FQHC Leader Managing Reductions?"}
+          </h2>
+          <p className="mx-auto mt-2 max-w-lg text-sm text-stone-300">
+            {t.isEs
+              ? "Nuestro kit de transición ayuda a sus trabajadores desplazados a encontrar nuevos roles en FQHCs — con herramientas gratuitas o transición gestionada."
+              : "Our transition toolkit helps your displaced workers land new FQHC roles — with free tools or managed transition."}
+          </p>
+          <Button
+            size="lg"
+            className="mt-4 bg-amber-500 text-stone-900 hover:bg-amber-400 font-semibold"
+            asChild
+          >
+            <Link href="/strategy/offboarding">
+              {t.isEs ? "Ver Kit de Transición" : "View Transition Toolkit"} <ArrowRight className="ml-1 size-4" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+
       {/* ─── CTA section ─── */}
       <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="rounded-2xl bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 p-8 text-center text-white sm:p-12">
