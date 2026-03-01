@@ -50,7 +50,17 @@
     "aiTracker": "Rastreador de IA",
     "aiTrackerDesc": "Adopción de IA en el sector FQHC",
     "layoffsDesc": "Eventos de desplazamiento laboral en California",
-    "blogDesc": "Análisis e información para profesionales FQHC"
+    "blogDesc": "Análisis e información para profesionales FQHC",
+    "scopeOfPractice": "Alcance de Práctica",
+    "scopeOfPracticeDesc": "Regulaciones de alcance de práctica de CA por rol",
+    "culturalHumility": "Humildad Cultural",
+    "culturalHumilityDesc": "Aprovechando fuerzas laborales multiculturales",
+    "theMovement": "El Movimiento",
+    "theMovementDesc": "De clínicas campesinas a hoy",
+    "offboarding": "Kit de Transición",
+    "offboardingDesc": "Convierta despidos en transiciones",
+    "resilience": "Tarjeta de Resiliencia",
+    "resilienceDesc": "Evalúe su FQHC en 5 dimensiones"
   },
   "footer": {
     "description": "La bolsa de talento creada exclusivamente para Centros de Salud Comunitarios Federalmente Calificados (FQHC) y profesionales de salud comunitaria en California.",
@@ -82,6 +92,11 @@
     "company": "Empresa",
     "aboutUs": "Sobre Nosotros",
     "newsletter": "Boletín",
+    "scopeOfPractice": "Alcance de Práctica",
+    "culturalHumility": "Humildad Cultural",
+    "theMovement": "El Movimiento",
+    "offboarding": "Kit de Transición",
+    "resilience": "Tarjeta de Resiliencia",
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",
     "copyright": "© {year} FQHC Talent Exchange. Todos los derechos reservados."

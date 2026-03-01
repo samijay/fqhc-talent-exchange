@@ -100,7 +100,7 @@ export async function POST(request: Request) {
           }),
         ]);
       } catch (emailErr) {
-        console.error("Email send error:", emailErr);
+        console.error("[EMPLOYER-WAITLIST] Email send failed for:", email, "org:", orgName, "Error:", emailErr);
       }
     }
 

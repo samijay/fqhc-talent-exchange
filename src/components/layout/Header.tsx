@@ -126,6 +126,11 @@ export default function Header() {
         { href: "/strategy/leaders", label: t("thoughtLeaders"), desc: t("thoughtLeadersDesc") },
         { href: "/strategy/knowledge-map", label: t("knowledgeMap"), desc: t("knowledgeMapDesc") },
         { href: "/funding-impact", label: t("fundingImpact"), desc: t("fundingImpactDesc") },
+        { href: "/strategy/scope-of-practice", label: t("scopeOfPractice"), desc: t("scopeOfPracticeDesc") },
+        { href: "/strategy/cultural-humility", label: t("culturalHumility"), desc: t("culturalHumilityDesc") },
+        { href: "/strategy/movement", label: t("theMovement"), desc: t("theMovementDesc") },
+        { href: "/strategy/offboarding", label: t("offboarding"), desc: t("offboardingDesc") },
+        { href: "/strategy/resilience", label: t("resilience"), desc: t("resilienceDesc") },
       ],
     },
     {

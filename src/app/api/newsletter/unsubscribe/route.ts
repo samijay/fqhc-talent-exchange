@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
+import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
+
+const tokenSchema = z.string().uuid("Invalid unsubscribe token format");
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const token = searchParams.get("token");
 
-  if (!token || token.length > 100) {
+  // Validate token is a proper UUID (prevents injection & enumeration)
+  const parsed = tokenSchema.safeParse(token);
+  if (!parsed.success) {
     return new NextResponse(renderHtml("Invalid unsubscribe link", false), {
       status: 400,
       headers: { "Content-Type": "text/html; charset=utf-8" },

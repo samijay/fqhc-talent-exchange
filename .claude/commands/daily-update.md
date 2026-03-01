@@ -202,6 +202,35 @@ For each significant AI adoption finding, create an AIAdoptionItem entry:
 
 ---
 
+## Step 3.7: Cultural & Movement Content Scan
+
+Run 2 web searches to track cultural competency and FQHC movement developments:
+
+### Search Queries (run both):
+
+1. **FQHC cultural competency:** `FQHC "cultural competency" OR "cultural humility" OR "CLAS standards" community health [current month] [year]`
+2. **Community health equity:** `California "community health" equity CHW promotora workforce diversity [current month] [year]`
+
+### What to Capture:
+
+- New CLAS standard updates or enforcement actions
+- Cultural humility training programs at FQHCs
+- CHW/promotora scope expansion legislation
+- Workforce diversity or language access initiatives
+- Community health worker certification updates (SB 803)
+- Anything connecting FQHC history/movement to current events
+
+### Decision Rules:
+
+- **Update `cultural-humility.ts`** if: New regulatory requirement, CLAS standard update, or significant program launch
+- **Update `fqhc-movement-history.ts`** if: Major milestone in the movement (new legislation, significant alliance, crisis event)
+- **Flag for blog** if: Compelling story about cultural humility in practice, CHW success stories, or community-centered care innovations
+- **Skip** if: Generic DEI news without FQHC relevance
+
+**Only pause for review if significant cultural competency or movement developments found.**
+
+---
+
 ## Step 4: Blog (Mondays only)
 
 Skip unless today is Monday or specifically requested.

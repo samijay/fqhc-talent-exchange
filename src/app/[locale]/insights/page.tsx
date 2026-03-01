@@ -29,6 +29,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
   getMarketOverview,
   getRegionalSnapshots,
@@ -740,6 +741,23 @@ export default function InsightsPage() {
             </div>
           </div>
         </section>
+
+        {/* Newsletter Signup */}
+        <div className="max-w-2xl mx-auto mb-10">
+          <NewsletterSignup
+            variant="card"
+            defaultAudience="intel-brief"
+            showAudienceToggle
+            heading={{
+              en: "Get This Intelligence Weekly",
+              es: "Recibe Esta Inteligencia Semanalmente",
+            }}
+            subheading={{
+              en: "The Intel Brief delivers policy, funding, and workforce updates every Tuesday.",
+              es: "El Intel Brief entrega actualizaciones de pol\u00edticas, financiamiento y fuerza laboral cada martes.",
+            }}
+          />
+        </div>
 
         {/* Data disclaimer */}
         <div className="text-center text-xs text-stone-400 mb-6">

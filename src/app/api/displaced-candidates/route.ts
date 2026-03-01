@@ -115,7 +115,7 @@ export async function POST(request: Request) {
           }),
         ]);
       } catch (emailErr) {
-        console.error("Email send error:", emailErr);
+        console.error("[DISPLACED-CANDIDATES] Email send failed for:", email, "prev employer:", previousEmployer, "Error:", emailErr);
       }
     }
 

@@ -384,6 +384,66 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/newsletter` },
   },
+  strategyScopeOfPractice: {
+    title: "FQHC Scope-of-Practice Guide | Top-of-License Workforce Management for California",
+    description:
+      "Interactive scope-of-practice matrix for California FQHCs — 10 roles, delegation rules, supervision chains, and revenue impact of working at the top of license. MD, NP, PA, RN, LVN, MA, CHW, LCSW, AMFT/ASW, RDH.",
+    openGraph: {
+      title: "Scope-of-Practice Guide — FQHC Talent Exchange",
+      description:
+        "What each FQHC role can do under California law. Interactive delegation matrix with regulatory citations.",
+      url: `${SITE_URL}/strategy/scope-of-practice`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/scope-of-practice` },
+  },
+  strategyCulturalHumility: {
+    title: "Cultural Humility for FQHCs | Leveraging Multicultural Workforces in Community Health",
+    description:
+      "Cultural humility frameworks for FQHC workforce management — CLAS standards, language access, implicit bias, health equity dashboards, and strategies for leveraging 90%+ Latino workforces as a strategic advantage.",
+    openGraph: {
+      title: "Cultural Humility — FQHC Talent Exchange",
+      description:
+        "How FQHCs can leverage multicultural workforces as a strategic advantage. CLAS standards, practical frameworks, and real examples.",
+      url: `${SITE_URL}/strategy/cultural-humility`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/cultural-humility` },
+  },
+  strategyMovement: {
+    title: "The FQHC Movement | California's Story from Farmworker Clinics to Today",
+    description:
+      "Interactive timeline of the FQHC movement in California — from Cesar Chavez's farmworker clinics to today's Medicaid crisis. 30 events, 8 cross-cultural alliances, and the stories of unexpected heroes who built the safety net.",
+    openGraph: {
+      title: "The FQHC Movement — FQHC Talent Exchange",
+      description:
+        "From farmworker clinics to today: the untold story of California's community health center movement.",
+      url: `${SITE_URL}/strategy/movement`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/movement` },
+  },
+  strategyOffboarding: {
+    title: "Workforce Transition Toolkit for FQHCs | Turn Layoffs Into Soft Landings",
+    description:
+      "Help your displaced workers land new FQHC roles. Three service tiers: free self-serve career tools, managed transition ($500–$1,500), and dedicated placement ($2,000–$5,000). California-focused.",
+    openGraph: {
+      title: "FQHC Workforce Transition Toolkit — FQHC Talent Exchange",
+      description:
+        "Turn layoffs into transitions. Free career tools + managed placement for displaced community health workers.",
+      url: `${SITE_URL}/strategy/offboarding`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/offboarding` },
+  },
+  strategyResilience: {
+    title: "FQHC Resilience Scorecard | 220 California FQHCs Scored Across 5 Dimensions",
+    description:
+      "Every California FQHC scored on program diversity, workforce stability, data maturity, quality indicators, and financial positioning. Search your organization and compare against peers.",
+    openGraph: {
+      title: "FQHC Resilience Scorecard — FQHC Talent Exchange",
+      description:
+        "See how your FQHC scores across 5 resilience dimensions. 220 California FQHCs ranked with detailed breakdowns.",
+      url: `${SITE_URL}/strategy/resilience`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/resilience` },
+  },
   teamReadiness: {
     title: "Team Readiness Assessment for FQHC Managers | Leadership Tool",
     description:

@@ -1,6 +1,6 @@
 # FQHC Talent Exchange — Product Roadmap & Feature Tracker
 
-*Last updated: 2026-02-27*
+*Last updated: 2026-02-28*
 
 ---
 
@@ -86,6 +86,25 @@ A California where every community health center is fully staffed with professio
 | 68 | **OKR Templates Data** | Feb 2026 | `fqhc-okr-templates.ts` — 12 templates with objectives, key results, metrics, targets, departments involved. 3 difficulty levels. Links to related case studies and intel items. |
 | 69 | **Directory Profile Enhancements** | Feb 2026 | FQHC profiles now show Related Intelligence and Related Case Studies sections. Salary/benefits moved lower. Uses `getIntelForFQHC()` and `getCaseStudiesForFQHC()`. |
 | 70 | **AI Innovation Scan Pipeline** | Feb 2026 | Added Step 3.6 to `/daily-update`: 3 AI-focused searches (FQHC AI implementation, NACHC technology, EHR AI documentation) with AIAdoptionItem output format. |
+| 71 | **Thought Leaders Page** | Feb 2026 | `/strategy/leaders` — 28 real FQHC thought leaders across 8 categories (NACHC, state PCA, FQHC CEO, policy, workforce, AI, HRSA, consulting). Filterable by category/topic. Expandable bios with "Why Follow" highlights, connected content badges, social links. |
+| 72 | **Strategy Knowledge Map** | Feb 2026 | `/strategy/knowledge-map` — Master knowledge graph connecting all strategic content. 60+ edges, 6 strategic themes with urgency levels, 4 learning paths. Theme cards, connection explorer, foresight panels. |
+| 73 | **Case Study Expansion** | Feb 2026 | 6 → 18 case studies in `fqhc-case-studies.ts`. Added `headline` field for card previews (distinct from challenge). New: Neighborhood Healthcare AI, Genesis Telehealth, CommuniCare Dental, Fenway LGBTQ+, Callen-Lorde, Weitzman Research, YVFWC Integrated, Zufall Multilingual, Salud CHW Pipeline, Oregon PCA QI, Whitman-Walker, Asian Health Services. |
+| 74 | **OKR Template Expansion** | Feb 2026 | 12 → 24 OKR templates. New tactical templates: 340B pharmacy, ECM scaling, AI documentation, undocumented enrollment, telehealth, SB 525, grant diversification, dental, BH integration, UDS quality, revenue cycle, CHW program. |
+| 75 | **Security Hardening v2** | Feb 2026 | Removed `unsafe-eval` from CSP, added UUID validation to newsletter unsubscribe, feedback route now returns 503 on missing table (not silent success), improved email error logging with route context. |
+| 76 | **Scope-of-Practice Data** | Feb 2026 | `scope-of-practice.ts` — 10 CA FQHC roles (MD, NP, PA, RN, LVN, MA, CHW, LCSW, AMFT/ASW, RDH) with BPC citations, delegation rules, supervision chains, top-of-license barriers, change management, revenue impact. 15 delegation tasks with role authorization matrix. |
+| 77 | **FQHC Movement History Data** | Feb 2026 | `fqhc-movement-history.ts` — 30 events across 5 eras (1960-2026), farmworker origins to modern crisis. 8 cross-cultural alliances (Chavez-Itliong, Black Panthers, Geiger-Mound Bayou, RFK-Delano, Asian mutual aid, Jewish physicians, bipartisan champions, rural conservatives). |
+| 78 | **Cultural Humility Data** | Feb 2026 | `cultural-humility.ts` — 6 domains (language access, cultural humility, community-centered, implicit bias, health equity, workforce diversity), 20 competencies with CLAS standards, 5 workforce diversity scenarios with strengths/challenges/actions. |
+| 79 | **Interactive Visualizations** | Feb 2026 | 4 new viz components: `ThreatTimeline.tsx` (horizontal funding cliff scroll), `DelegationMatrix.tsx` (interactive role × task grid), `RevenueImpactSimulator.tsx` (slider-based what-if), `MovementTimeline.tsx` (vertical era timeline with filters). Pure Tailwind + React state, zero new dependencies. |
+| 80 | **Scope-of-Practice Page** | Feb 2026 | `/strategy/scope-of-practice` — Interactive delegation matrix, 10 expandable role cards with full scope/barriers/revenue, top-of-license barriers summary, financial case for full scope. |
+| 81 | **Cultural Humility Page** | Feb 2026 | `/strategy/cultural-humility` — 6 filterable domains, 20 expandable competency cards with practical steps/metrics/barriers, 5 real-world diversity scenarios, Tervalon & Murray-García quote. |
+| 82 | **FQHC Movement Page** | Feb 2026 | `/strategy/movement` — Interactive MovementTimeline (30 events, 5 eras), 8 cross-cultural alliance cards with community chips and key figures, "We Are the Continuation" closing narrative. |
+| 83 | **Cultural & Movement Pipeline** | Feb 2026 | Added Step 3.7 to `/daily-update`: cultural competency and community health equity scans. Tracks CLAS updates, CHW scope expansion, cultural humility programs, SB 803 certification updates. |
+| 84 | **Newsletter Signup Component** | Feb 2026 | `NewsletterSignup.tsx` — Reusable component with 3 variants (inline/card/banner), audience toggle (Leaders/Job Seekers/Both), bilingual, embedded on blog, insights, and strategy/guides pages. |
+| 85 | **Newsletter Email Templates** | Feb 2026 | `newsletter-templates.ts` — Full HTML email templates for Intel Brief (7 sections: executive summary, policy, funding, workforce, AI, key dates, featured content) and The Pulse (job highlights, market trends, tool spotlight, career tips). Impact level badges, primary source links, inline styles for email clients. |
+| 86 | **Newsletter Send System** | Feb 2026 | `newsletter-send.ts` + `/api/newsletter/send` + `/api/newsletter/preview` — Batch send utility (10/batch with rate limiting), Supabase subscriber query, `newsletter_sends` tracking table, preview endpoint with sample data, protected by NEWSLETTER_SECRET. |
+| 87 | **Newsletter Page** | Feb 2026 | `/newsletter` — Standalone signup with full audience selector, Intel Brief + The Pulse track descriptions, stats bar (weekly cadence, primary sources, bilingual). |
+| 88 | **Offboarding Toolkit Page** | Feb 2026 | `/strategy/offboarding` — Employer-facing workforce transition toolkit. 3-tier service model: Free (self-serve career tools), Managed Transition ($500-1,500/event), Placement Partnership ($2-5K/placement). 4-step process viz, layoff preview cards from live data, dark employer theme. GTM sales enabler for FQHC HR outreach. |
+| 89 | **Resilience Scorecard** | Feb 2026 | `fqhc-resilience.ts` + `/strategy/resilience` — 220 FQHCs scored across 5 weighted dimensions (program diversity, workforce stability, data maturity, quality indicators, financial positioning). Grades A-F, risk levels. Searchable/sortable/filterable scorecard with expandable detail cards, grade distribution viz, factor-level explanations. |
 
 ---
 
@@ -141,14 +160,17 @@ A California where every community health center is fully staffed with professio
 | ~~77~~ | ~~Email System Upgrade~~ | ~~High~~ | ~~Engagement~~ | ✅ Shipped — see #47 above |
 | 78 | **Adaptive Assessment Engine** | Medium | Moat | Phase 1: expanded question bank (110+). Phase 2: difficulty scaling (CAT). Phase 3: outcome-based weight learning from placement data. |
 | ~~79~~ | ~~Fast-Track Repositioning~~ | ~~High~~ | ~~GTM~~ | ✅ Shipped — see #51 above |
-| 80 | **Offboarding Toolkit Page** | High | Revenue | `/offboarding` — FQHC-facing page: "Turn layoffs into transitions." Free tier (self-serve tools), Managed tier (we intake workers), Premium tier (placement). |
+| ~~80~~ | ~~Offboarding Toolkit Page~~ | ~~High~~ | ~~Revenue~~ | ✅ Shipped as `/strategy/offboarding` — see #88 above |
 | 81 | **FQHC Data Enrichment** | Medium | Data | Populate quality scores, violations, labor history for 220 FQHCs from HRSA UDS, CMS, OSHA, NLRB data. |
 | 82 | **HRSA-Import FQHC Enrichment** | Medium | Data | Add missing data (patient/staff counts, programs, EHR, Glassdoor, salary ranges) to 131 HRSA-imported FQHC entries. |
-| 83 | **Newsletter Infrastructure** | High | Engagement | Supabase `newsletter_subscribers` table, `/api/newsletter/subscribe` + `/unsubscribe` routes, footer signup component, preference center. Two tracks: "Intel Brief" (employer) + "The Pulse" (candidate). |
-| 84 | **Newsletter Signup Page** | High | Engagement | `/newsletter` — standalone signup with audience selector (FQHC Leader / Candidate / Both), region preference, role interest. Bilingual. |
-| 85 | **Intel Brief Weekly Template** | High | Content/Revenue | Email template for weekly FQHC Intel Brief: policy analysis, workforce data, market signals, sourced with primary links. Executive-facing. |
-| 86 | **The Pulse Weekly Template** | High | Content | Email template for weekly candidate newsletter: job market summary, policy in plain language, free tool CTAs. Warm/actionable tone. |
+| ~~83~~ | ~~Newsletter Infrastructure~~ | ~~High~~ | ~~Engagement~~ | ✅ Shipped — see #84-87 below |
+| ~~84~~ | ~~Newsletter Signup Page~~ | ~~High~~ | ~~Engagement~~ | ✅ Shipped — `/newsletter` page + reusable `NewsletterSignup` component with 3 variants (inline/card/banner), audience toggle, embedded on blog, insights, strategy/guides pages |
+| ~~85~~ | ~~Intel Brief Weekly Template~~ | ~~High~~ | ~~Content/Revenue~~ | ✅ Shipped — Full HTML email template in `newsletter-templates.ts`, section-based layout (executive summary, policy, funding, workforce, AI, key dates), impact badges, primary source links |
+| ~~86~~ | ~~The Pulse Weekly Template~~ | ~~High~~ | ~~Content~~ | ✅ Shipped — Full HTML email template for candidate newsletter: job highlights, market trends, tool spotlight, career tips, featured post. Bilingual. |
 | 87 | **Welcome Drip Sequences** | Medium | Engagement | 5-email candidate sequence (14 days) + 4-email employer sequence (21 days). Post-signup nurture leveraging assessment, tools, market data. |
+| 88 | **CSRF Token Middleware** | Medium | Security | Add CSRF protection to all POST routes. Consider `csrf` package or custom double-submit cookie pattern. |
+| 89 | **Supabase RLS Audit** | High | Security | Verify Row Level Security policies on all Supabase tables. Ensure admin client is only used server-side, public client can't bypass policies. |
+| 90 | **CSP Nonce Support** | Low | Security | Eliminate `unsafe-inline` from CSP by generating per-request nonces for inline scripts. Requires Next.js middleware integration. |
 
 ---
 
@@ -320,3 +342,57 @@ The platform is strong. The data is unique. The tools are real. What's needed is
 - [ ] CMS Medicaid.gov rule monitoring for provider payment changes
 - [ ] Congressional bill tracker for CHCF reauthorization
 - [ ] "Intel Brief" as a standalone paid product ($50-100/mo for non-subscribers)
+
+---
+
+## 🔥 Creativity Log — Push the Limits
+
+*Bold ideas that push beyond the obvious. Not backlog items — these are provocations to revisit. Review this section monthly and pick the one that makes you uncomfortable.*
+
+### Data Visualization & Interactivity
+- [ ] **Interactive threat dashboard** — real-time policy risk heatmap by CA region, colored by urgency
+- [ ] **FQHC financial simulator** — "What happens if federal funding drops 20%?" with sliders for revenue scenarios
+- [ ] **Strategic screening GUI** — decision tree for executives: "Should we expand 340B? Launch an IPA? Hire CHWs?"
+- [ ] **Animated funding timeline** — scroll-driven animation showing money flowing/drying up across funding sources
+- [ ] **Live FQHC comparison radar chart** — select 2-3 FQHCs, visually compare 8 dimensions (funding, quality, workforce, programs, etc.)
+- [ ] **Budget waterfall chart** — show how a single FQHC's $10M budget flows through programs, staff, overhead
+- [ ] **"What If" workforce calculator** — model: "If we move 5 MAs to top-of-scope and hire 3 CHWs, patient throughput changes by X%"
+- [ ] **Heat map of CA underserved areas** — overlay FQHC locations against HPSA/MUA designations + population density
+
+### Deep Cultural & Historical Content
+- [ ] **"Roots of the Safety Net"** — interactive CA FQHC origin story (farmworker clinics → Chicano movement → Black Panthers → present)
+- [ ] **Cultural humility training framework** — not just a page, but an actual assessment tool for FQHC teams (like Team Readiness but cultural focus)
+- [ ] **Oral history project** — record and transcribe stories from FQHC founders, long-tenured CHWs, community elders
+- [ ] **"Unexpected Allies" article series** — cross-cultural partnerships that built the safety net (Bobby Kennedy + Cesar Chavez, Jack Geiger + Mound Bayou, etc.)
+- [ ] **Spanish-first content strategy** — original Spanish content created for Spanish-speaking audiences, not translated English
+- [ ] **Multilingual capacity mapper** — visualize language coverage gaps: which languages does your patient population speak vs. which can your staff serve?
+- [ ] **"In Their Own Words"** — video/audio testimonials from patients and CHWs about what FQHCs mean to their communities
+- [ ] **Intergenerational stories** — farmworker grandmother → CHW daughter → NP granddaughter — real CA families in the movement
+
+### Technical Workforce Intelligence
+- [ ] **Scope-of-practice interactive matrix** — what each role CAN do by CA regulation, expandable to other states
+- [ ] **Delegation decision tree** — "Can my MA do this?" interactive flowchart tool
+- [ ] **Top-of-license revenue calculator** — estimate revenue impact of moving staff to full scope of practice
+- [ ] **Supervision ratio optimizer** — given your team composition, what's the optimal supervision structure?
+- [ ] **SB 525 wage impact modeler** — show real cost impact by FQHC size as minimum wage scales to $25/hr
+- [ ] **Turnover cost calculator** — "Replacing one care coordinator costs $X in recruiting, training, lost productivity"
+- [ ] **Staff scheduling optimizer** — model patient demand vs. staff availability, identify coverage gaps
+- [ ] **"The Great Unlocking"** — article series on moving entrenched teams to top-of-scope in cultures resistant to change
+
+### Strategic Intelligence (Big Bets)
+- [ ] **FQHC M&A tracker** — who's acquiring whom, financial distress signals, consolidation patterns
+- [ ] **Predictive layoff model** — leading indicators (funding cliffs + financial ratios + WARN filings → risk score)
+- [ ] **State policy comparison matrix** — CA vs CO vs IL vs OR vs WA on undocumented coverage, Medicaid expansion, FQHC funding
+- [ ] **FQHC CEO compensation tracker** — from IRS 990 data, compare exec pay across similar-sized FQHCs
+- [ ] **Board composition analyzer** — diversity, expertise gaps, term limits, community representation
+- [ ] **Payer mix analyzer** — % Medi-Cal vs Medicare vs private vs uninsured by FQHC, trend over time
+- [ ] **Quality score predictor** — which FQHCs are likely to lose accreditation or fail UDS benchmarks?
+- [ ] **"Dark data" dashboard** — surface insights from our data assets that nobody else is tracking (e.g., which FQHCs are quietly expanding vs. contracting)
+
+### Product & Business Model
+- [ ] **FQHC Intel Brief as paid product** — weekly executive intelligence briefing, $50-100/mo, 500 FQHC leaders = $300-600K ARR
+- [ ] **FQHC Board Meeting Prep Kit** — pre-built board presentations using our data: funding landscape, workforce metrics, peer benchmarks
+- [ ] **"Strategic Retreat in a Box"** — half-day strategy session materials: Rumult diagnosis, OKR worksheets, case studies, facilitation guide
+- [ ] **FQHC CFO Dashboard** — financial intelligence: payer mix trends, revenue per visit, cost per patient, 340B performance
+- [ ] **White-label data API** — let PCAs, NACHC, researchers, staffing agencies buy access to our intelligence data
+- [ ] **Workforce readiness certification** — badge system for FQHCs that demonstrate top-of-scope staffing, cultural humility, competitive compensation

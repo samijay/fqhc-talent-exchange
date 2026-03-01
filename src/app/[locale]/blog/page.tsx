@@ -2,6 +2,7 @@
 
 import { Link } from "@/i18n/navigation";
 import { useTranslations, useLocale } from "next-intl";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 
 const posts = [
   {
@@ -220,6 +221,23 @@ export default function BlogPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Newsletter Signup */}
+      <section className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
+        <NewsletterSignup
+          variant="banner"
+          defaultAudience="both"
+          showAudienceToggle
+          heading={{
+            en: "Get These Insights in Your Inbox",
+            es: "Recibe Esta Inteligencia en Tu Correo",
+          }}
+          subheading={{
+            en: "Weekly briefings on policy, funding, jobs, and AI \u2014 for FQHC leaders and job seekers.",
+            es: "Informes semanales sobre pol\u00edticas, financiamiento, empleos e IA \u2014 para l\u00edderes de FQHCs y candidatos.",
+          }}
+        />
       </section>
     </main>
   );

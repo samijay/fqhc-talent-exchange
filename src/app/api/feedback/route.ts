@@ -49,25 +49,23 @@ export async function POST(request: Request) {
       // Log the full error server-side for debugging
       console.error("Supabase feedback error:", error.code, error.message);
 
-      // If the table doesn't exist (migration not yet run) or any other
-      // Supabase error, log the feedback to stdout so it's captured in
-      // Vercel logs and still return success to the user.
-      // Error code 42P01 = "relation does not exist" in PostgreSQL.
-      console.warn(
-        "[FEEDBACK FALLBACK] Storing feedback in server logs:",
-        JSON.stringify({
-          page_url,
-          feedback_type,
-          message,
-          email: email || null,
-          timestamp: new Date().toISOString(),
-          supabase_error: error.code,
-        })
-      );
+      // If the table doesn't exist (42P01), tell the user honestly that
+      // feedback is temporarily unavailable — don't silently lose data.
+      if (error.code === "42P01") {
+        console.error(
+          "[FEEDBACK] Table 'feedback_submissions' missing — run migration. Feedback lost:",
+          JSON.stringify({ page_url, feedback_type, message, email: email || null })
+        );
+        return NextResponse.json(
+          { error: "Feedback is temporarily unavailable. Please try again later." },
+          { status: 503 }
+        );
+      }
 
-      // Return success so the user's feedback experience is not broken.
-      // The feedback is preserved in server logs until the migration is run.
-      return NextResponse.json({ message: "Thank you!" });
+      return NextResponse.json(
+        { error: "Something went wrong saving your feedback. Please try again." },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ message: "Thank you!" });

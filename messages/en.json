@@ -50,7 +50,17 @@
     "aiTracker": "AI Tracker",
     "aiTrackerDesc": "AI adoption across the FQHC sector",
     "layoffsDesc": "Workforce displacement events in California",
-    "blogDesc": "Analysis & insights for FQHC professionals"
+    "blogDesc": "Analysis & insights for FQHC professionals",
+    "scopeOfPractice": "Top-of-Scope",
+    "scopeOfPracticeDesc": "CA scope-of-practice regulations by role",
+    "culturalHumility": "Cultural Humility",
+    "culturalHumilityDesc": "Leveraging multicultural workforces",
+    "theMovement": "The Movement",
+    "theMovementDesc": "From farmworker clinics to today",
+    "offboarding": "Transition Toolkit",
+    "offboardingDesc": "Turn layoffs into soft landings",
+    "resilience": "Resilience Scorecard",
+    "resilienceDesc": "Score your FQHC across 5 dimensions"
   },
   "footer": {
     "description": "The talent exchange built exclusively for Federally Qualified Health Centers and community health professionals in California.",
@@ -82,6 +92,11 @@
     "company": "Company",
     "aboutUs": "About Us",
     "newsletter": "Newsletter",
+    "scopeOfPractice": "Top-of-Scope",
+    "culturalHumility": "Cultural Humility",
+    "theMovement": "The Movement",
+    "offboarding": "Transition Toolkit",
+    "resilience": "Resilience Scorecard",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "copyright": "© {year} FQHC Talent Exchange. All rights reserved."

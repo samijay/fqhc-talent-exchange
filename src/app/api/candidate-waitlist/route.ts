@@ -107,7 +107,7 @@ export async function POST(request: Request) {
           }),
         ]);
       } catch (emailErr) {
-        console.error("Email send error:", emailErr);
+        console.error("[CANDIDATE-WAITLIST] Email send failed for:", email, "Error:", emailErr);
       }
     }
 

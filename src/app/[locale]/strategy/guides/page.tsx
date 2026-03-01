@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
   BookOpen,
   ArrowRight,
@@ -445,6 +446,22 @@ export default function ExecutiveGuidesPage() {
             </Button>
           </div>
         </div>
+      </section>
+
+      {/* Newsletter Signup */}
+      <section className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
+        <NewsletterSignup
+          variant="card"
+          defaultAudience="intel-brief"
+          heading={{
+            en: "Weekly Executive Briefing",
+            es: "Informe Ejecutivo Semanal",
+          }}
+          subheading={{
+            en: "Policy analysis, funding alerts, and case study highlights \u2014 delivered every Tuesday.",
+            es: "An\u00e1lisis de pol\u00edticas, alertas de financiamiento y estudios de caso \u2014 cada martes.",
+          }}
+        />
       </section>
     </div>
   );

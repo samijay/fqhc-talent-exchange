@@ -39,3 +39,35 @@ CREATE INDEX idx_newsletter_subscribers_unsubscribe_token ON public.newsletter_s
 -- Grant permissions
 GRANT SELECT, INSERT, UPDATE, DELETE ON public.newsletter_subscribers TO service_role;
 GRANT INSERT ON public.newsletter_subscribers TO anon;
+
+-- ================================================================
+-- Newsletter send log — tracks every newsletter issue sent
+-- ================================================================
+
+CREATE TABLE IF NOT EXISTS public.newsletter_sends (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  track TEXT NOT NULL CHECK (track IN ('intel-brief', 'the-pulse')),
+  issue_number INTEGER NOT NULL,
+  subject TEXT NOT NULL,
+  total_recipients INTEGER NOT NULL DEFAULT 0,
+  sent_count INTEGER NOT NULL DEFAULT 0,
+  failed_count INTEGER NOT NULL DEFAULT 0,
+  sent_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+-- Enable RLS
+ALTER TABLE public.newsletter_sends ENABLE ROW LEVEL SECURITY;
+
+-- Only service_role can access send logs
+CREATE POLICY "service_role_all_access" ON public.newsletter_sends
+  FOR ALL
+  USING (auth.role() = 'service_role')
+  WITH CHECK (auth.role() = 'service_role');
+
+-- Indexes
+CREATE INDEX idx_newsletter_sends_track ON public.newsletter_sends(track);
+CREATE INDEX idx_newsletter_sends_sent_at ON public.newsletter_sends(sent_at DESC);
+
+-- Grant permissions
+GRANT SELECT, INSERT ON public.newsletter_sends TO service_role;

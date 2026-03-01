@@ -17,6 +17,11 @@ export default function Footer() {
       { href: "/strategy/leaders" as const, label: t("thoughtLeaders") },
       { href: "/strategy/knowledge-map" as const, label: t("knowledgeMap") },
       { href: "/funding-impact" as const, label: t("fundingImpact") },
+      { href: "/strategy/scope-of-practice" as const, label: t("scopeOfPractice") },
+      { href: "/strategy/cultural-humility" as const, label: t("culturalHumility") },
+      { href: "/strategy/movement" as const, label: t("theMovement") },
+      { href: "/strategy/offboarding" as const, label: t("offboarding") },
+      { href: "/strategy/resilience" as const, label: t("resilience") },
     ],
     [t("intelligence")]: [
       { href: "/insights" as const, label: t("dashboard") },
