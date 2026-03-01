@@ -151,6 +151,7 @@ export default function Header() {
         { href: "/certifications", label: t("certifications") },
         { href: "/resources", label: t("careerResources") },
         { href: "/guides", label: t("guides") },
+        { href: "/compare", label: t("compare"), desc: t("compareDesc") },
       ],
     },
     { href: "/jobs", label: t("jobs") },

@@ -3,6 +3,7 @@
 import { Heart } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -38,6 +39,7 @@ export default function Footer() {
       { href: "/certifications" as const, label: t("certifications") },
       { href: "/resources" as const, label: t("careerResources") },
       { href: "/guides" as const, label: t("guides") },
+      { href: "/compare" as const, label: t("compareFqhcs") },
     ],
     [t("company")]: [
       { href: "/about" as const, label: t("aboutUs") },
@@ -60,6 +62,13 @@ export default function Footer() {
             <p className="text-sm leading-relaxed text-stone-500">
               {t("description")}
             </p>
+            <div className="mt-4">
+              <NewsletterSignup
+                variant="inline"
+                defaultAudience="both"
+                showAudienceToggle={false}
+              />
+            </div>
           </div>
 
           {/* Link columns */}

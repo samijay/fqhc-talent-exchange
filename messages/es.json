@@ -60,7 +60,9 @@
     "offboarding": "Kit de Transición",
     "offboardingDesc": "Convierta despidos en transiciones",
     "resilience": "Tarjeta de Resiliencia",
-    "resilienceDesc": "Evalúe su FQHC en 5 dimensiones"
+    "resilienceDesc": "Evalúe su FQHC en 5 dimensiones",
+    "compare": "Comparar FQHCs",
+    "compareDesc": "Análisis lado a lado de 2-3 FQHCs"
   },
   "footer": {
     "description": "La bolsa de talento creada exclusivamente para Centros de Salud Comunitarios Federalmente Calificados (FQHC) y profesionales de salud comunitaria en California.",
@@ -97,6 +99,7 @@
     "theMovement": "El Movimiento",
     "offboarding": "Kit de Transición",
     "resilience": "Tarjeta de Resiliencia",
+    "compareFqhcs": "Comparar FQHCs",
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",
     "copyright": "© {year} FQHC Talent Exchange. Todos los derechos reservados."

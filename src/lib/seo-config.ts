@@ -444,6 +444,18 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/strategy/resilience` },
   },
+  compare: {
+    title: "Compare FQHCs Side-by-Side | Resilience, Ratings & Programs",
+    description:
+      "Compare 2-3 California FQHCs side-by-side across resilience scores, Glassdoor ratings, programs, staffing, funding vulnerability, and more. Data-driven organizational analysis.",
+    openGraph: {
+      title: "Compare FQHCs — FQHC Talent Exchange",
+      description:
+        "Side-by-side comparison of California FQHCs: resilience, ratings, programs, and workforce data.",
+      url: `${SITE_URL}/compare`,
+    },
+    alternates: { canonical: `${SITE_URL}/compare` },
+  },
   teamReadiness: {
     title: "Team Readiness Assessment for FQHC Managers | Leadership Tool",
     description:
