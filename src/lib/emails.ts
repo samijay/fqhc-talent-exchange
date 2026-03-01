@@ -361,3 +361,129 @@ export function adminEmployerNotificationHtml(data: {
 </body>
 </html>`.trim();
 }
+
+/* ------------------------------------------------------------------ */
+/*  Offboarding Intake — Employer Confirmation                         */
+/* ------------------------------------------------------------------ */
+
+export function offboardingConfirmationHtml(data: {
+  contactName: string;
+  orgName: string;
+  locale?: string;
+}) {
+  const isEs = data.locale === "es";
+  const name = escapeHtml(data.contactName);
+  const org = escapeHtml(data.orgName);
+
+  return `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" /></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1c1917;">
+  ${emailHeader()}
+
+  <h2 style="font-size: 20px; color: #1c1917;">${isEs ? `Solicitud recibida, ${name}` : `Request received, ${name}`}</h2>
+
+  <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
+    ${isEs
+      ? `Hemos recibido su solicitud de transición de fuerza laboral para <strong>${org}</strong>. Nuestro equipo revisará su envío y se comunicará dentro de <strong>1 día hábil</strong> para discutir los próximos pasos.`
+      : `We've received your workforce transition request for <strong>${org}</strong>. Our team will review your submission and reach out within <strong>1 business day</strong> to discuss next steps.`}
+  </p>
+
+  ${missionBanner(isEs)}
+
+  <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
+    ${isEs ? "Mientras tanto, estos recursos pueden ayudar:" : "In the meantime, these resources may help:"}
+  </p>
+
+  <div style="margin: 24px 0;">
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr>
+        <td style="padding: 8px 0; border-bottom: 1px solid #f5f5f4;">
+          <a href="https://www.fqhctalent.com/${isEs ? "es/" : ""}layoffs" style="color: #0d9488; font-weight: 600; text-decoration: none; font-size: 14px;">${isEs ? "Rastreador de Despidos" : "Layoff Tracker"}</a>
+          <br /><span style="color: #78716c; font-size: 12px;">${isEs ? "Datos actuales de reducción de fuerza laboral en California" : "Current California workforce reduction data"}</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; border-bottom: 1px solid #f5f5f4;">
+          <a href="https://www.fqhctalent.com/${isEs ? "es/" : ""}strategy/guides" style="color: #0d9488; font-weight: 600; text-decoration: none; font-size: 14px;">${isEs ? "Guías Ejecutivas" : "Executive Guides"}</a>
+          <br /><span style="color: #78716c; font-size: 12px;">${isEs ? "Estudios de caso de FQHCs con el marco de Rumelt" : "FQHC case studies with Rumelt framework"}</span>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 8px 0; border-bottom: 1px solid #f5f5f4;">
+          <a href="https://www.fqhctalent.com/${isEs ? "es/" : ""}directory" style="color: #0d9488; font-weight: 600; text-decoration: none; font-size: 14px;">${isEs ? "Directorio FQHC" : "FQHC Directory"}</a>
+          <br /><span style="color: #78716c; font-size: 12px;">${isEs ? "220 centros de salud comunitarios en California" : "220 community health centers across California"}</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <p style="font-size: 16px; line-height: 1.6; color: #44403c;">
+    ${isEs
+      ? `¿Preguntas? Responda a este correo o contáctenos en <a href="mailto:hello@fqhctalent.com" style="color: #0d9488;">hello@fqhctalent.com</a>.`
+      : `Questions? Reply to this email or reach us at <a href="mailto:hello@fqhctalent.com" style="color: #0d9488;">hello@fqhctalent.com</a>.`}
+  </p>
+
+  ${emailFooter(isEs)}
+</body>
+</html>`.trim();
+}
+
+/* ------------------------------------------------------------------ */
+/*  Offboarding Intake — Admin Notification (internal, English only)   */
+/* ------------------------------------------------------------------ */
+
+export function adminOffboardingNotificationHtml(data: {
+  orgName: string;
+  contactName: string;
+  contactTitle?: string;
+  email: string;
+  phone?: string;
+  employeesAffected?: string;
+  rolesAffected?: string[];
+  reductionTimeline?: string;
+  serviceTier?: string;
+  needsNda?: boolean;
+  notes?: string;
+}) {
+  const h = escapeHtml;
+  const row = (label: string, value: string | undefined | null) =>
+    value
+      ? `<tr><td style="padding: 8px 12px; font-weight: 600; color: #44403c; white-space: nowrap; vertical-align: top;">${label}</td><td style="padding: 8px 12px; color: #1c1917;">${h(value)}</td></tr>`
+      : "";
+
+  const tierLabels: Record<string, string> = {
+    "self-serve": "Self-Serve (Free)",
+    "managed": "Managed Transition ($500-$1,500)",
+    "placement": "Placement Partnership ($2K-$5K)",
+  };
+
+  return `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" /></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1c1917;">
+  <h2 style="color: #f59e0b; font-size: 20px;">&#128200; New Offboarding Intake Request</h2>
+  <p style="color: #44403c; font-size: 14px; margin-top: -8px;">Employer needs workforce transition support</p>
+
+  <table style="width: 100%; border-collapse: collapse; font-size: 14px; border: 1px solid #e7e5e4; border-radius: 8px;">
+    ${row("Organization", data.orgName)}
+    ${row("Contact", data.contactName)}
+    ${row("Title", data.contactTitle)}
+    ${row("Email", data.email)}
+    ${row("Phone", data.phone)}
+    ${row("Employees Affected", data.employeesAffected)}
+    ${row("Roles Affected", data.rolesAffected?.length ? data.rolesAffected.join(", ") : undefined)}
+    ${row("Reduction Timeline", data.reductionTimeline)}
+    ${row("Service Tier", data.serviceTier ? (tierLabels[data.serviceTier] || data.serviceTier) : undefined)}
+    ${row("NDA Required", data.needsNda ? "Yes" : undefined)}
+    ${row("Notes", data.notes)}
+  </table>
+
+  <p style="font-size: 13px; color: #a8a29e; margin-top: 24px;">
+    View all submissions in your Supabase dashboard.
+  </p>
+</body>
+</html>`.trim();
+}

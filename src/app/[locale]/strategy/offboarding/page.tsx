@@ -14,7 +14,10 @@ import {
   DollarSign,
   FileText,
   HeartHandshake,
+  Loader2,
   LifeBuoy,
+  Lock,
+  Send,
   Shield,
   Sparkles,
   TrendingDown,
@@ -22,6 +25,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { californiaFQHCLayoffs, LAYOFFS_LAST_UPDATED } from "@/lib/california-fqhc-layoffs";
 
 /* ------------------------------------------------------------------ */
@@ -183,10 +187,87 @@ const PROCESS_STEPS: ProcessStep[] = [
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
 
+const ROLE_OPTIONS = [
+  "Community Health Worker (CHW)",
+  "Medical Assistant (MA/CMA)",
+  "Licensed Vocational Nurse (LVN)",
+  "Registered Nurse (RN)",
+  "Care Coordinator",
+  "Behavioral Health Counselor",
+  "Patient Navigator",
+  "Front Desk / Patient Services",
+  "Billing / Revenue Cycle",
+  "Dental Hygienist / Assistant",
+  "Health Educator",
+  "Administrative / Operations",
+  "Management / Leadership",
+  "Other",
+];
+
+const TIMELINE_OPTIONS = [
+  { value: "immediate", en: "Immediate (already in progress)", es: "Inmediato (ya en progreso)" },
+  { value: "30-days", en: "Within 30 days", es: "Dentro de 30 días" },
+  { value: "60-days", en: "Within 60 days", es: "Dentro de 60 días" },
+  { value: "90-plus", en: "90+ days (planning ahead)", es: "90+ días (planificando)" },
+];
+
 export default function OffboardingPage() {
   const locale = useLocale();
   const isEs = locale === "es";
   const [expandedTier, setExpandedTier] = useState<string | null>("managed");
+
+  // Intake form state
+  const [formData, setFormData] = useState({
+    orgName: "",
+    contactName: "",
+    contactTitle: "",
+    email: "",
+    phone: "",
+    employeesAffected: "",
+    rolesAffected: [] as string[],
+    reductionTimeline: "",
+    serviceTier: "managed",
+    needsNda: false,
+    notes: "",
+  });
+  const [formStatus, setFormStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const toggleRole = (role: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      rolesAffected: prev.rolesAffected.includes(role)
+        ? prev.rolesAffected.filter((r) => r !== role)
+        : [...prev.rolesAffected, role],
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.orgName || !formData.contactName || !formData.email) return;
+
+    setFormStatus("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/offboarding-intake", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, locale }),
+      });
+
+      if (res.ok) {
+        setFormStatus("success");
+      } else {
+        const data = await res.json();
+        setErrorMsg(data.error || (isEs ? "Algo salió mal." : "Something went wrong."));
+        setFormStatus("error");
+      }
+    } catch {
+      setErrorMsg(isEs ? "Error de red. Intente de nuevo." : "Network error. Please try again.");
+      setFormStatus("error");
+    }
+  };
 
   return (
     <main className="min-h-screen bg-stone-50">
@@ -555,43 +636,304 @@ export default function OffboardingPage() {
             );
           })}
         </div>
+
+        <div className="text-center mt-10">
+          <Button
+            asChild
+            size="lg"
+            className="bg-teal-700 text-white hover:bg-teal-800 font-bold"
+          >
+            <a href="#intake">
+              <HeartHandshake className="mr-2 size-4" />
+              {isEs ? "Iniciar una Transición" : "Start a Transition"}
+            </a>
+          </Button>
+        </div>
       </section>
 
       {/* ============================================================ */}
-      {/*  CTA                                                         */}
+      {/*  Intake Form                                                 */}
       {/* ============================================================ */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold sm:text-3xl">
-            {isEs
-              ? "Su Personal Merece un Aterrizaje Suave"
-              : "Your Staff Deserve a Soft Landing"}
-          </h2>
-          <p className="mt-3 text-stone-300 max-w-xl mx-auto">
-            {isEs
-              ? "Ya sea que enfrente recortes inminentes o quiera estar preparado — empezamos con una conversación confidencial."
-              : "Whether you\u2019re facing imminent cuts or want to be prepared — we start with a confidential conversation."}
-          </p>
-          <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <Button asChild size="lg" className="bg-amber-500 text-stone-900 hover:bg-amber-400 font-bold">
-              <Link href="/fast-track">
-                <HeartHandshake className="mr-2 size-4" />
-                {isEs ? "Iniciar Transición" : "Start a Transition"}
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-stone-500 text-white hover:bg-stone-700"
-            >
-              <Link href="/layoffs">
-                <TrendingDown className="mr-2 size-4" />
-                {isEs ? "Ver Seguimiento de Despidos" : "View Layoff Tracker"}
-              </Link>
-            </Button>
+      <section id="intake" className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <Badge className="bg-amber-900/50 text-amber-300 border-amber-700 mb-4">
+              <Lock className="mr-1.5 size-3.5" />
+              {isEs ? "Confidencial" : "Confidential"}
+            </Badge>
+            <h2 className="text-2xl font-bold sm:text-3xl">
+              {isEs
+                ? "Inicie una Transición de Fuerza Laboral"
+                : "Start a Workforce Transition"}
+            </h2>
+            <p className="mt-3 text-stone-300 max-w-xl mx-auto">
+              {isEs
+                ? "Complete este formulario y nos pondremos en contacto dentro de 1 día hábil para discutir los próximos pasos. Toda la información es confidencial."
+                : "Fill out this form and we\u2019ll reach out within 1 business day to discuss next steps. All information is kept confidential."}
+            </p>
           </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-stone-400">
+
+          {formStatus === "success" ? (
+            <div className="rounded-2xl border border-green-700 bg-green-900/30 p-8 text-center">
+              <CheckCircle2 className="mx-auto size-12 text-green-400 mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">
+                {isEs ? "¡Solicitud Recibida!" : "Request Received!"}
+              </h3>
+              <p className="text-green-200 mb-6 max-w-md mx-auto">
+                {isEs
+                  ? "Nuestro equipo revisará su solicitud y se comunicará dentro de 1 día hábil. Revise su correo electrónico para una confirmación."
+                  : "Our team will review your request and reach out within 1 business day. Check your email for a confirmation."}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button asChild variant="outline" className="border-stone-500 text-white hover:bg-stone-700">
+                  <Link href="/layoffs">
+                    <TrendingDown className="mr-2 size-4" />
+                    {isEs ? "Ver Seguimiento de Despidos" : "View Layoff Tracker"}
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" className="border-stone-500 text-white hover:bg-stone-700">
+                  <Link href="/strategy/guides">
+                    <FileText className="mr-2 size-4" />
+                    {isEs ? "Guías Ejecutivas" : "Executive Guides"}
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Organization & Contact */}
+              <div className="rounded-xl border border-stone-700 bg-stone-800/50 p-6 space-y-4">
+                <h3 className="text-sm font-semibold text-amber-400 uppercase tracking-wider">
+                  {isEs ? "Su Organización" : "Your Organization"}
+                </h3>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="block text-sm font-medium text-stone-300 mb-1">
+                      {isEs ? "Nombre de la Organización" : "Organization Name"} *
+                    </label>
+                    <Input
+                      required
+                      maxLength={200}
+                      value={formData.orgName}
+                      onChange={(e) => setFormData({ ...formData, orgName: e.target.value })}
+                      placeholder={isEs ? "Ej: AltaMed Health Services" : "e.g. AltaMed Health Services"}
+                      className="bg-stone-900 border-stone-600 text-white placeholder:text-stone-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-stone-300 mb-1">
+                      {isEs ? "Su Nombre" : "Your Name"} *
+                    </label>
+                    <Input
+                      required
+                      maxLength={100}
+                      value={formData.contactName}
+                      onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
+                      className="bg-stone-900 border-stone-600 text-white placeholder:text-stone-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-stone-300 mb-1">
+                      {isEs ? "Correo Electrónico" : "Email"} *
+                    </label>
+                    <Input
+                      required
+                      type="email"
+                      maxLength={255}
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="bg-stone-900 border-stone-600 text-white placeholder:text-stone-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-stone-300 mb-1">
+                      {isEs ? "Título / Cargo" : "Title"}
+                    </label>
+                    <Input
+                      maxLength={100}
+                      value={formData.contactTitle}
+                      onChange={(e) => setFormData({ ...formData, contactTitle: e.target.value })}
+                      placeholder={isEs ? "Ej: Director de RH" : "e.g. HR Director"}
+                      className="bg-stone-900 border-stone-600 text-white placeholder:text-stone-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-stone-300 mb-1">
+                      {isEs ? "Teléfono" : "Phone"}
+                    </label>
+                    <Input
+                      maxLength={30}
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="bg-stone-900 border-stone-600 text-white placeholder:text-stone-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Reduction Details */}
+              <div className="rounded-xl border border-stone-700 bg-stone-800/50 p-6 space-y-4">
+                <h3 className="text-sm font-semibold text-amber-400 uppercase tracking-wider">
+                  {isEs ? "Detalles de la Reducción" : "Reduction Details"}
+                </h3>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="block text-sm font-medium text-stone-300 mb-1">
+                      {isEs ? "Empleados Afectados" : "Employees Affected"}
+                    </label>
+                    <Input
+                      maxLength={20}
+                      value={formData.employeesAffected}
+                      onChange={(e) => setFormData({ ...formData, employeesAffected: e.target.value })}
+                      placeholder={isEs ? "Ej: 25" : "e.g. 25"}
+                      className="bg-stone-900 border-stone-600 text-white placeholder:text-stone-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-stone-300 mb-1">
+                      {isEs ? "Cronograma" : "Timeline"}
+                    </label>
+                    <select
+                      value={formData.reductionTimeline}
+                      onChange={(e) => setFormData({ ...formData, reductionTimeline: e.target.value })}
+                      className="w-full rounded-md border border-stone-600 bg-stone-900 px-3 py-2 text-sm text-white"
+                    >
+                      <option value="">{isEs ? "Seleccionar..." : "Select..."}</option>
+                      {TIMELINE_OPTIONS.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                          {t(opt, locale)}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-stone-300 mb-2">
+                    {isEs ? "Roles Afectados" : "Roles Being Affected"}
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {ROLE_OPTIONS.map((role) => (
+                      <button
+                        key={role}
+                        type="button"
+                        onClick={() => toggleRole(role)}
+                        className={`rounded-full px-3 py-1 text-xs font-medium border transition-colors ${
+                          formData.rolesAffected.includes(role)
+                            ? "bg-amber-500 text-stone-900 border-amber-400"
+                            : "bg-stone-800 text-stone-300 border-stone-600 hover:border-stone-500"
+                        }`}
+                      >
+                        {role}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Service & Preferences */}
+              <div className="rounded-xl border border-stone-700 bg-stone-800/50 p-6 space-y-4">
+                <h3 className="text-sm font-semibold text-amber-400 uppercase tracking-wider">
+                  {isEs ? "Nivel de Servicio" : "Service Level"}
+                </h3>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {(["self-serve", "managed", "placement"] as const).map((tier) => {
+                    const labels = {
+                      "self-serve": { en: "Self-Serve (Free)", es: "Autoservicio (Gratis)" },
+                      managed: { en: "Managed ($500–$1.5K)", es: "Gestionado ($500–$1.5K)" },
+                      placement: { en: "Placement ($2K–$5K)", es: "Colocación ($2K–$5K)" },
+                    };
+                    return (
+                      <button
+                        key={tier}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, serviceTier: tier })}
+                        className={`rounded-lg border p-3 text-left transition-colors ${
+                          formData.serviceTier === tier
+                            ? "border-amber-400 bg-amber-500/10 ring-1 ring-amber-400"
+                            : "border-stone-600 hover:border-stone-500"
+                        }`}
+                      >
+                        <p className={`text-sm font-semibold ${formData.serviceTier === tier ? "text-amber-300" : "text-stone-300"}`}>
+                          {t(labels[tier], locale)}
+                        </p>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-stone-300 mb-1">
+                    {isEs ? "Notas Adicionales" : "Additional Notes"}
+                  </label>
+                  <textarea
+                    maxLength={2000}
+                    rows={3}
+                    value={formData.notes}
+                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                    placeholder={isEs
+                      ? "Contexto adicional, circunstancias especiales, preguntas..."
+                      : "Additional context, special circumstances, questions..."}
+                    className="w-full rounded-md border border-stone-600 bg-stone-900 px-3 py-2 text-sm text-white placeholder:text-stone-500"
+                  />
+                </div>
+
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={formData.needsNda}
+                    onChange={(e) => setFormData({ ...formData, needsNda: e.target.checked })}
+                    className="rounded border-stone-600"
+                  />
+                  <span className="text-sm text-stone-300">
+                    {isEs
+                      ? "Necesitamos un NDA antes de compartir detalles"
+                      : "We need an NDA before sharing details"}
+                  </span>
+                </label>
+              </div>
+
+              {/* Error message */}
+              {formStatus === "error" && (
+                <div className="rounded-lg border border-red-700 bg-red-900/30 p-3 text-sm text-red-300">
+                  {errorMsg}
+                </div>
+              )}
+
+              {/* Submit */}
+              <Button
+                type="submit"
+                disabled={formStatus === "loading" || !formData.orgName || !formData.contactName || !formData.email}
+                size="lg"
+                className="w-full bg-amber-500 text-stone-900 hover:bg-amber-400 font-bold disabled:opacity-50"
+              >
+                {formStatus === "loading" ? (
+                  <>
+                    <Loader2 className="mr-2 size-4 animate-spin" />
+                    {isEs ? "Enviando..." : "Submitting..."}
+                  </>
+                ) : (
+                  <>
+                    <Send className="mr-2 size-4" />
+                    {isEs ? "Enviar Solicitud de Transición" : "Submit Transition Request"}
+                  </>
+                )}
+              </Button>
+
+              <p className="text-center text-xs text-stone-500">
+                <Lock className="inline size-3 mr-1" />
+                {isEs
+                  ? "Su información es confidencial y solo se comparte con nuestro equipo."
+                  : "Your information is confidential and only shared with our team."}
+              </p>
+            </form>
+          )}
+
+          {/* Additional links */}
+          <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-stone-400">
+            <Link href="/layoffs" className="hover:text-white transition-colors">
+              {isEs ? "Seguimiento de Despidos" : "Layoff Tracker"} →
+            </Link>
             <Link href="/funding-impact" className="hover:text-white transition-colors">
               {isEs ? "Impacto de H.R. 1" : "H.R. 1 Impact"} →
             </Link>
