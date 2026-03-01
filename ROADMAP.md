@@ -113,6 +113,9 @@ A California where every community health center is fully staffed with professio
 | 95 | **Regional Nav + Sitemap** | Feb 2026 | Regional Intelligence in Intelligence dropdown + footer. 9 sitemap entries. i18n keys (EN/ES). |
 | 96 | **FQHC Strategic Reports** | Feb 2026 | `/report/[slug]` — 220 per-FQHC strategic intelligence reports (SSG). 10-section executive report: summary, resilience with regional comparison, threat landscape + funding cliffs, programs, workforce intel + job listings, related intelligence, case studies, regional context, action items. GTM outreach hook. |
 | 97 | **Report Integration** | Feb 2026 | Directory profiles link to strategic reports. 220 report entries in sitemap. |
+| 98 | **Salary Intelligence Page** | Feb 2026 | `/salary-data` — 30 roles × 9 CA regions salary benchmarks with P25/P50/P75, department filter, regional adjustment, sortable table with visual range bars, career track progression, regional comparison, key insights. |
+| 99 | **Custom 404 Page** | Feb 2026 | Branded 404 with navigation to homepage, directory, jobs, intelligence. |
+| 100 | **Salary + 404 Nav Integration** | Feb 2026 | Salary Intelligence in Intelligence dropdown + footer. SEO metadata, sitemap, i18n (EN/ES). 🎉 **100th feature shipped!** |
 
 ---
 
