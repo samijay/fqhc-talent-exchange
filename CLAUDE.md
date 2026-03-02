@@ -37,10 +37,10 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - **Vision:** A California where every community health center is fully staffed with professionals who reflect the communities they serve.
 - **Brand Pillars:** Candidate Advocacy, FQHC Expertise, Speed to Placement, Health Equity Impact
 
-## Active Priorities (as of 2026-02-27)
-- **Just Shipped:** Strategic Operating Environment Redesign — Rumelt framework homepage, 4 new strategy pages, nav/footer restructure, AI tracker, shared IntelCard, directory profile enhancements
-- **Live at:** https://www.fqhctalent.com — 89 features shipped, deployed on Vercel
-- **Next Up:** GTM outreach to FQHC HR directors, first manual placement
+## Active Priorities (as of 2026-03-01)
+- **Just Shipped:** FQHC Executive Masterclass (15 modules, 6 categories, 200+ sources), FQHC Bibliography (200+ resources), CTA archive, insights redesign, URL QC
+- **Live at:** https://www.fqhctalent.com — 105+ features shipped, deployed on Vercel
+- **Next Up:** GTM outreach to FQHC HR directors, first manual placement, enrich remaining HRSA FQHCs
 - **GTM:** Ready for outbound. Site repositioned as "California's FQHC Strategic Monitor" for executives.
 - **See:** `ROADMAP.md` for full feature tracker, backlog, and GTM strategy
 
@@ -139,6 +139,8 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Employer Offboarding Intake Form** | Done | `src/app/[locale]/strategy/offboarding/page.tsx`, `src/app/api/offboarding-intake/route.ts`, `supabase-offboarding-intake.sql` | Full intake form on offboarding page: org details, roles affected, timeline, service tier, NDA option. Supabase table with status tracking (new/contacted/in_progress/completed/archived). Confirmation + admin notification emails. Dark employer theme. |
 | **Calendly CTAs on Strategic Reports** | Done | `src/app/[locale]/report/[slug]/page.tsx` | "Book a Briefing" Calendly CTA + "Request Transition" link on all 220 FQHC strategic reports. GTM conversion mechanism. |
 | **FQHC Data Enrichment (Batch 1)** | Done | `src/lib/california-fqhcs.ts` | Enriched 4 HRSA-imported FQHCs with Glassdoor ratings, programs, mission statements, coverage vulnerability: Mission City Community Network, Northeast Community Clinic, Chinatown Service Center, Share Our Selves. |
+| **FQHC Bibliography** | Done | `resources/fqhc-bibliography.md` | 200+ curated resources across 12 sections: academic programs, top researchers, undocumented care, scale economics, financial management, governance, strategic planning, news/journalism, data dashboards, podcasts, government resources, key statistics. Compiled from 4 research agents. |
+| **FQHC Executive Masterclass** | Done | `src/lib/fqhc-masterclasses.ts`, `src/app/[locale]/strategy/masterclass/page.tsx` | 15 deep-dive strategy modules across 6 categories (Financial Survival, Revenue Recovery, Undocumented Care, Fundraising, Healthcare Economics, Leadership). Bilingual, urgency stats, learning objectives, key takeaways, source materials from 200+ bibliography resources. Category filters, expandable cards. |
 
 ### Data Sources (Strategic Assets)
 | File | Size | Contents |
@@ -175,6 +177,8 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 
 | `src/lib/regional-intelligence.ts` | ~175 lines | Regional aggregation: REGION_SLUGS mapping, stats aggregation (FQHCs, staff, patients, resilience, layoffs, jobs), county-to-region mapping, regional intel filtering. |
 | `src/lib/fqhc-resilience.ts` | ~350 lines | Resilience scoring engine: 5 dimensions (program diversity, workforce stability, data maturity, quality indicators, financial positioning). Weighted composite (25/20/15/20/20). Grade A-F, risk levels. Uses data from california-fqhcs.ts + california-fqhc-layoffs.ts. Cached bulk scoring. |
+| `src/lib/fqhc-masterclasses.ts` | ~781 lines | 15 masterclass modules across 6 categories (survival, revenue, undocumented-care, fundraising, economics, leadership). Types: MasterclassCategory, MasterclassAudience, Difficulty. Each module: bilingual title/subtitle/whyNow/objectives/takeaways, urgency stats, source materials, site links. Helper functions for filtering/counting. |
+| `resources/fqhc-bibliography.md` | ~511 lines | 200+ curated FQHC resources across 12 sections. Academic programs, researchers, undocumented care, scale economics, financial management, governance, strategic planning, journalism, dashboards, podcasts, government resources, key statistics. Primary source URLs throughout. |
 
 ### Slash Commands (Content & Intelligence Pipeline)
 | Command | Purpose | Data Source |
@@ -234,12 +238,17 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | **Strategy** ▾ | Executive Guides | /strategy/guides | 6 real case studies with Rumelt framework |
 | | OKR Templates | /strategy/okrs | 12 crisis change management templates |
 | | Case Studies | /strategy/case-studies | Compact case study index with outcomes |
+| | Healthcare Economics | /strategy/economics | PPS, 340B, FMAP & more — 3 levels |
+| | Execution Frameworks | /strategy/frameworks | Change management & decision tools |
+| | Thought Leaders | /strategy/leaders | 28 FQHC influencers & who to follow |
+| | Knowledge Map | /strategy/knowledge-map | How everything connects — strategic foresight |
 | | Funding Impact | /funding-impact | H.R. 1 policy timeline + revenue strategies |
 | | Top-of-Scope | /strategy/scope-of-practice | CA scope-of-practice by role + delegation matrix |
 | | Cultural Humility | /strategy/cultural-humility | CLAS standards, multicultural workforce strategy |
 | | The Movement | /strategy/movement | FQHC movement history + cross-cultural alliances |
 | | Transition Toolkit | /strategy/offboarding | 3-tier workforce transition service for FQHCs |
 | | Resilience Scorecard | /strategy/resilience | 220 FQHCs scored across 5 resilience dimensions |
+| | Masterclass | /strategy/masterclass | 15 deep-dive modules for the 2026 crisis |
 | **Intelligence** ▾ | Dashboard | /insights | Executive intel feed, funding cliffs, workforce data |
 | | AI Tracker | /ai-tracker | AI adoption monitoring across FQHC sector |
 | | Layoff Tracker | /layoffs | 20 events, 3,477+ workers tracked |
@@ -260,7 +269,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ### Footer Columns
 | Column | Links |
 |--------|-------|
-| Strategy | Executive Guides, OKR Templates, Case Studies, Funding Impact, Top-of-Scope, Cultural Humility, The Movement, Transition Toolkit, Resilience Scorecard |
+| Strategy | Executive Guides, OKR Templates, Case Studies, Healthcare Economics, Execution Frameworks, Thought Leaders, Knowledge Map, Funding Impact, Top-of-Scope, Cultural Humility, The Movement, Transition Toolkit, Resilience Scorecard, Masterclass |
 | Intelligence | Dashboard, AI Tracker, Layoff Tracker, Blog, Regional Intelligence, Salary Intelligence |
 | Tools | Jobs, Directory, Resume Builder, Career Assessment, Career Roadmap, Certifications, Career Resources, Workplace Guides, Compare FQHCs |
 | Company | About, Newsletter |
@@ -275,10 +284,10 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ---
 
 ## Current Context
-- **Just shipped:** Employer Offboarding Intake Form (with API + Supabase + email), Calendly CTAs on 220 strategic reports, 4 FQHC data enrichments
+- **Just shipped:** FQHC Executive Masterclass (15 modules, 6 categories), FQHC Bibliography (200+ resources), CTA archive, insights page redesign, 16-URL QC fix
 - **Building next:** Enrich remaining 127 HRSA FQHCs, first GTM outreach emails, user auth + employer dashboard
 - **GTM status:** Ready for outbound. Offboarding intake form is live — HR directors can submit transition requests. Strategic reports link to Calendly + intake form.
-- **Data:** 177 job listings, 220 FQHCs (127 from HRSA need enrichment), 20 layoff entries (3,477+ workers), 577 live API-scrapeable jobs, 33 intel items, 6 case studies, 15 AI tracker items, 12 OKR templates
+- **Data:** 177 job listings, 220 FQHCs (127 from HRSA need enrichment), 20 layoff entries (3,477+ workers), 577 live API-scrapeable jobs, 33 intel items, 6 case studies, 15 AI tracker items, 12 OKR templates, 15 masterclass modules, 200+ bibliography resources
 - **Pipeline:** 6 slash commands: `/daily-update` (now with AI scan step), `/scan-policy`, `/intel-brief`, `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
 - **Email:** `hello@fqhctalent.com` receiving via Cloudflare Email Routing (verified). Resend domain verification pending for sending.
 - **Domains:** fqhctalent.com (primary, live on Vercel) + healthcaretalent.org (GA4 cross-domain tracking)
@@ -288,6 +297,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ## Session Log
 | Date | Summary |
 |------|---------|
+| 2026-03-01 (session 3) | **FQHC Executive Masterclass + Bibliography.** Compiled 200+ resource bibliography from 4 research agents (academic programs, undocumented care, scale/operations, news/journalism) into `resources/fqhc-bibliography.md` (511 lines, 12 sections). Brainstormed 15 masterclass topics uniquely urgent for 2026 crisis convergence. Built `fqhc-masterclasses.ts` (781 lines): 15 modules across 6 categories (Financial Survival, Revenue Recovery, Undocumented Care, Fundraising, Healthcare Economics, Leadership). Each module: bilingual title/subtitle/whyNow, urgency stat, 4-5 learning objectives, 3-4 key takeaways, source materials from bibliography, internal site links. Built `/strategy/masterclass` page: dark hero, crisis convergence stats (4 cards: $4.6B, 84%, 50%, 70%), category filter pills with counts, expandable cards, cross-nav, newsletter signup. Updated Header, Footer, i18n (EN/ES), sitemap. Also in this session: archived all CTAs (commit 7e45551), redesigned insights page (commit d4a8fb0), QC-fixed 16 broken URLs (commit 9253640). Features #104-105 shipped. |
 | 2026-03-01 (session 2) | **GTM Enablers: Offboarding Intake + Calendly CTAs + Data Enrichment.** Built employer offboarding intake form on `/strategy/offboarding` — full form with org details, affected roles (14 options), timeline selector, service tier (self-serve/managed/placement), NDA checkbox, bilingual. API route with Zod validation, rate limiting, Supabase insert, confirmation + admin emails. SQL migration `supabase-offboarding-intake.sql` with status tracking. Added Calendly "Book a Briefing" CTA to all 220 FQHC strategic reports + "Request Transition" link. Enriched 4 HRSA-imported FQHCs with real data: Mission City Community Network (Glassdoor 1.6, PCMH model), Northeast Community Clinic (Glassdoor 2.5, 165K visits, 400+ staff), Chinatown Service Center (Glassdoor 2.5, multilingual, 100K visits), Share Our Selves (Glassdoor 3.5, nationally recognized, $25.7M revenue). Features #101-103 shipped. |
 | 2026-03-01 | **Daily update #7.** WARN check: 0 new FQHC filings. Jobs: AltaMed 234, FHCSD 149, AHS 22, La Clinica 172 = 577 total (stable from prev). Policy/news: CPCA-PCDC partnership for healthcare access expansion, HCAI CHW Advisory Workgroup continuing through June 2026 (but certification stalled, most HCAI funding cut in 2024 Budget Act), CPEHN inclusionary hiring policies, CCHC Nevada grand opening March 2. AI tracker: +3 items (Sun River Health Sunoh.ai 7K visits/mo with 500+ providers, Sacramento Native American HC AI lessons in RPM/CCM/BHI, Abridge Best in KLAS 2026 for Ambient AI — burnout reduction 51.9% → 38.8%). Cultural: CHW certification guidance still paused since Nov 2023, SB 803 implementation pending. Intel: +3 items (CPCA-PCDC, HCAI CHW update, CPEHN hiring). Link QC: 5 new URLs verified, 2 corrected (HCAI, Sunoh.ai), 2 existing spot-checked (KVPR SJV, CCHC PR Newswire). Now 33 intel items, 15 AI tracker items. Build passes clean. |
 | 2026-02-28 (session 5) | **🎉 100th Feature Shipped! Platform Integration, Comparison Tool, Regional Intelligence, Strategic Reports, Salary Intelligence.** Integrated resilience scores across platform: directory profile cards with grade badge, 5-dimension bars, and data completeness; homepage featured FQHCs with resilience grade + score; layoff tracker employer CTA cross-linking to offboarding toolkit. Built FQHC Comparison Tool (`/compare`) — search-to-select up to 3 FQHCs for side-by-side analysis across org basics, Glassdoor, programs, resilience (grade + 5 dimensions with CSS bar chart), funding vulnerability, union status, certifications, data completeness. Best-value highlighting. Added newsletter signup (inline variant) to footer for site-wide email capture. Updated nav, footer, SEO, sitemap, i18n. Features #90-93 shipped. |
