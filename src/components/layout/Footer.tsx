@@ -23,6 +23,7 @@ export default function Footer() {
       { href: "/strategy/movement" as const, label: t("theMovement") },
       { href: "/strategy/offboarding" as const, label: t("offboarding") },
       { href: "/strategy/resilience" as const, label: t("resilience") },
+      { href: "/strategy/masterclass" as const, label: t("masterclass") },
     ],
     [t("intelligence")]: [
       { href: "/insights" as const, label: t("dashboard") },
