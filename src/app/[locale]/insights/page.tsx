@@ -193,6 +193,9 @@ export default function InsightsPage() {
   const isEs = locale === "es";
 
   const [intelFilter, setIntelFilter] = useState<IntelCategory | "all">("all");
+  const [expandedCliff, setExpandedCliff] = useState<string | null>(null);
+  const [expandedDeadline, setExpandedDeadline] = useState<string | null>(null);
+  const [expandedStrategy, setExpandedStrategy] = useState<string | null>(null);
   const [expandedRegion, setExpandedRegion] = useState<string | null>(null);
   const [showAllRoles, setShowAllRoles] = useState(false);
   const [showMarketData, setShowMarketData] = useState(false);
@@ -335,91 +338,125 @@ export default function InsightsPage() {
           </div>
 
           {/* ── RIGHT COLUMN: Sidebar (1/3) ── */}
-          <aside className="w-full lg:w-80 shrink-0 space-y-6">
-            {/* Policy Timeline */}
-            <div className="lg:sticky lg:top-4 space-y-6">
+          <aside className="w-full lg:w-80 shrink-0">
+            <div className="lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto space-y-6 lg:pr-1">
+              {/* Policy Timeline — Condensed & Expandable */}
               <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-5">
                 <div className="flex items-center gap-2 mb-4">
                   <Calendar className="h-5 w-5 text-amber-600" />
                   <h3 className="font-bold text-stone-800">
                     {isEs ? "Cronograma de Políticas" : "Policy Timeline"}
                   </h3>
+                  <Badge variant="outline" className="text-[10px] ml-auto text-amber-700 border-amber-300">
+                    {upcomingCliffs.length + deadlineItems.length}
+                  </Badge>
                 </div>
 
-                {/* Upcoming cliffs */}
+                {/* Funding Cliffs — compact rows */}
                 {upcomingCliffs.length > 0 && (
-                  <div className="space-y-3 mb-4">
+                  <div className="space-y-1.5 mb-3">
+                    <p className="text-[10px] font-bold text-amber-700 uppercase tracking-wider mb-1">
+                      {isEs ? "Riesgos Fiscales" : "Funding Cliffs"}
+                    </p>
                     {upcomingCliffs.map((cliff) => {
-                      const urgency =
-                        cliff.daysUntil < 90
-                          ? "border-red-300 bg-red-50"
-                          : cliff.daysUntil < 180
-                            ? "border-amber-300 bg-amber-50"
-                            : "border-stone-200 bg-white";
+                      const isOpen = expandedCliff === cliff.id;
                       const countColor =
                         cliff.daysUntil < 90
                           ? "text-red-700"
                           : cliff.daysUntil < 180
                             ? "text-amber-700"
                             : "text-stone-700";
+                      const urgencyBg =
+                        cliff.daysUntil < 90
+                          ? "border-red-200 bg-red-50/50"
+                          : cliff.daysUntil < 180
+                            ? "border-amber-200 bg-amber-50/50"
+                            : "border-stone-200 bg-white";
 
                       return (
-                        <div key={cliff.id} className={`rounded-lg border p-3 ${urgency}`}>
-                          <div className="flex items-baseline justify-between">
-                            <span className={`text-2xl font-bold ${countColor}`}>
-                              {cliff.daysUntil}
-                              <span className="text-xs font-medium ml-0.5">
-                                {isEs ? "d" : "d"}
-                              </span>
+                        <div key={cliff.id} className={`rounded-lg border ${urgencyBg}`}>
+                          <button
+                            onClick={() => setExpandedCliff(isOpen ? null : cliff.id)}
+                            className="w-full flex items-center gap-2 px-3 py-2 text-left"
+                          >
+                            <span className={`text-sm font-bold tabular-nums ${countColor} w-10 shrink-0`}>
+                              {cliff.daysUntil}d
                             </span>
-                            {cliff.dollarAmount && (
-                              <span className="text-[10px] text-stone-500">{cliff.dollarAmount}</span>
-                            )}
-                          </div>
-                          <h4 className="mt-1 font-semibold text-stone-800 text-xs leading-snug">
-                            {t(cliff.title, locale)}
-                          </h4>
+                            <h4 className="font-medium text-stone-800 text-xs leading-snug flex-1 line-clamp-1">
+                              {t(cliff.title, locale)}
+                            </h4>
+                            <ChevronDown className={`h-3 w-3 text-stone-400 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                          </button>
+                          {isOpen && (
+                            <div className="px-3 pb-2.5 pt-0.5 border-t border-stone-200/50">
+                              <h4 className="font-semibold text-stone-800 text-xs leading-snug">
+                                {t(cliff.title, locale)}
+                              </h4>
+                              <div className="mt-1 flex flex-wrap gap-2 text-[10px]">
+                                {cliff.dollarAmount && (
+                                  <span className="text-stone-600">{cliff.dollarAmount}</span>
+                                )}
+                                {cliff.peopleAffected && (
+                                  <span className="text-red-600">{cliff.peopleAffected}</span>
+                                )}
+                                <span className="text-stone-400">{cliff.category}</span>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       );
                     })}
                   </div>
                 )}
 
-                {/* Deadline items (past/active policy dates) */}
-                <div className="space-y-2">
+                {/* Deadline items — compact rows */}
+                <div className="space-y-1.5">
+                  <p className="text-[10px] font-bold text-stone-500 uppercase tracking-wider mb-1">
+                    {isEs ? "Fechas de Políticas" : "Policy Dates"}
+                  </p>
                   {deadlineItems.map((item) => {
                     const isPast = new Date(item.date + "T00:00:00") < new Date();
+                    const isOpen = expandedDeadline === item.id;
                     return (
                       <div
                         key={item.id}
-                        className={`rounded-lg border p-3 ${
+                        className={`rounded-lg border ${
                           isPast ? "border-stone-200 bg-white" : "border-red-200 bg-red-50/50"
                         }`}
                       >
-                        <div className="flex items-center gap-2 mb-1">
+                        <button
+                          onClick={() => setExpandedDeadline(isOpen ? null : item.id)}
+                          className="w-full flex items-center gap-2 px-3 py-2 text-left"
+                        >
                           <Badge
                             variant="outline"
-                            className={`text-[10px] font-semibold ${IMPACT_STYLES[item.impactLevel]}`}
+                            className={`text-[9px] font-semibold shrink-0 ${IMPACT_STYLES[item.impactLevel]}`}
                           >
-                            {isPast
-                              ? (isEs ? "Vigente" : "Active")
-                              : (isEs ? "Próximo" : "Upcoming")}
+                            {isPast ? (isEs ? "Vigente" : "Active") : (isEs ? "Próximo" : "Upcoming")}
                           </Badge>
-                          <span className="text-[10px] text-stone-400">
+                          <span className="text-[10px] text-stone-400 shrink-0">
                             {formatDate(item.date, locale)}
                           </span>
-                        </div>
-                        <h4 className="font-semibold text-stone-800 text-xs leading-snug">
-                          {t(item.headline, locale)}
-                        </h4>
-                        <a
-                          href={item.sourceUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-1 text-[10px] text-teal-700 hover:underline inline-block"
-                        >
-                          {item.sourceOrg} →
-                        </a>
+                          <ChevronDown className={`h-3 w-3 text-stone-400 shrink-0 ml-auto transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                        </button>
+                        {isOpen && (
+                          <div className="px-3 pb-2.5 pt-0.5 border-t border-stone-200/50">
+                            <h4 className="font-semibold text-stone-800 text-xs leading-snug">
+                              {t(item.headline, locale)}
+                            </h4>
+                            <p className="mt-1 text-[11px] text-stone-500 leading-relaxed">
+                              {t(item.summary, locale)}
+                            </p>
+                            <a
+                              href={item.sourceUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="mt-1 text-[10px] text-teal-700 hover:underline inline-block"
+                            >
+                              {item.sourceOrg} →
+                            </a>
+                          </div>
+                        )}
                       </div>
                     );
                   })}
@@ -434,41 +471,52 @@ export default function InsightsPage() {
                 </Link>
               </div>
 
-              {/* Strategic Insights */}
+              {/* Strategic Insights — Condensed & Expandable */}
               <div className="rounded-xl border border-teal-200 bg-teal-50/50 p-5">
                 <div className="flex items-center gap-2 mb-3">
                   <Lightbulb className="h-5 w-5 text-teal-700" />
                   <h3 className="font-bold text-stone-800">
                     {isEs ? "Guías Estratégicas" : "Strategic Insights"}
                   </h3>
+                  <Badge variant="outline" className="text-[10px] ml-auto text-teal-700 border-teal-300">
+                    {strategyItems.length}
+                  </Badge>
                 </div>
-                <p className="text-xs text-stone-500 mb-3">
-                  {isEs
-                    ? "Tácticas ejecutables para líderes de FQHCs."
-                    : "Actionable tactics for FQHC leaders."}
-                </p>
-                <div className="space-y-2">
-                  {strategyItems.map((item) => (
-                    <div
-                      key={item.id}
-                      className="rounded-lg border border-stone-200 bg-white p-3"
-                    >
-                      <h4 className="font-semibold text-stone-800 text-xs leading-snug">
-                        {t(item.headline, locale)}
-                      </h4>
-                      <p className="mt-1 text-[11px] text-stone-500 leading-relaxed line-clamp-2">
-                        {t(item.summary, locale)}
-                      </p>
-                      <a
-                        href={item.sourceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-1 text-[10px] text-teal-700 hover:underline inline-block"
+                <div className="space-y-1.5">
+                  {strategyItems.map((item) => {
+                    const isOpen = expandedStrategy === item.id;
+                    return (
+                      <div
+                        key={item.id}
+                        className="rounded-lg border border-stone-200 bg-white"
                       >
-                        {item.sourceOrg} →
-                      </a>
-                    </div>
-                  ))}
+                        <button
+                          onClick={() => setExpandedStrategy(isOpen ? null : item.id)}
+                          className="w-full flex items-center gap-2 px-3 py-2 text-left"
+                        >
+                          <h4 className="font-medium text-stone-800 text-xs leading-snug flex-1 line-clamp-1">
+                            {t(item.headline, locale)}
+                          </h4>
+                          <ChevronDown className={`h-3 w-3 text-stone-400 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                        </button>
+                        {isOpen && (
+                          <div className="px-3 pb-2.5 pt-0.5 border-t border-stone-200/50">
+                            <p className="text-[11px] text-stone-500 leading-relaxed">
+                              {t(item.summary, locale)}
+                            </p>
+                            <a
+                              href={item.sourceUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="mt-1 text-[10px] text-teal-700 hover:underline inline-block"
+                            >
+                              {item.sourceOrg} →
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
                 <Link
                   href="/strategy/guides"

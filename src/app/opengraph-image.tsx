@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export const alt =
-  "FQHC Talent Exchange — Connecting community health professionals with FQHCs across California";
+  "FQHC Talent Exchange — Strategic intelligence, workforce data, and free career tools for California's community health centers";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -71,7 +71,7 @@ export default async function Image() {
             lineHeight: 1.4,
           }}
         >
-          Connecting community health professionals with FQHCs across California
+          Strategic intelligence and free career tools for 220+ California FQHCs
         </div>
 
         {/* Stats bar */}
@@ -86,16 +86,16 @@ export default async function Image() {
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <span style={{ fontSize: 32, fontWeight: 700, color: "white" }}>87</span>
-            <span style={{ fontSize: 16, color: "#99f6e4" }}>FQHCs</span>
+            <span style={{ fontSize: 32, fontWeight: 700, color: "white" }}>220+</span>
+            <span style={{ fontSize: 16, color: "#99f6e4" }}>FQHCs Tracked</span>
           </div>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <span style={{ fontSize: 32, fontWeight: 700, color: "white" }}>165+</span>
-            <span style={{ fontSize: 16, color: "#99f6e4" }}>Jobs</span>
+            <span style={{ fontSize: 32, fontWeight: 700, color: "white" }}>105+</span>
+            <span style={{ fontSize: 16, color: "#99f6e4" }}>Free Tools</span>
           </div>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <span style={{ fontSize: 32, fontWeight: 700, color: "white" }}>100%</span>
-            <span style={{ fontSize: 16, color: "#99f6e4" }}>Free</span>
+            <span style={{ fontSize: 32, fontWeight: 700, color: "white" }}>9</span>
+            <span style={{ fontSize: 16, color: "#99f6e4" }}>CA Regions</span>
           </div>
         </div>
 

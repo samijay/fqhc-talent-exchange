@@ -9,7 +9,7 @@ export function OrganizationJsonLd() {
     url: "https://www.fqhctalent.com",
     logo: "https://www.fqhctalent.com/logo.png",
     description:
-      "The only talent platform built exclusively for Federally Qualified Health Centers. Connecting mission-driven professionals with community health organizations across California.",
+      "California's FQHC strategic intelligence platform — executive dashboards, workforce data, policy tracking, free career tools, and 220+ FQHC profiles for the leaders and professionals navigating community health.",
     sameAs: [
       // Add your social profiles here
       // "https://www.linkedin.com/company/fqhc-talent-exchange",
@@ -26,12 +26,14 @@ export function OrganizationJsonLd() {
     },
     knowsAbout: [
       "Federally Qualified Health Centers",
-      "Community Health Workers",
+      "FQHC Strategic Intelligence",
+      "Community Health Workforce",
+      "Medicaid Policy Tracking",
+      "FQHC Resilience Scoring",
       "Enhanced Care Management",
-      "Chronic Care Management",
-      "Medi-Cal",
-      "FQHC Staffing",
-      "Healthcare Recruitment",
+      "CalAIM Programs",
+      "Healthcare AI Adoption",
+      "FQHC Salary Intelligence",
     ],
   };
 

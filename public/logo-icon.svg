@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f766e"/>
+      <stop offset="100%" style="stop-color:#115e59"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <!-- Heart with pulse line -->
+  <g transform="translate(256,220) scale(1)">
+    <!-- Heart shape -->
+    <path d="M0 60 C0 60, -120 -60, -120 -30 C-120 20, -70 50, 0 100 C70 50, 120 20, 120 -30 C120 -60, 0 60, 0 60Z"
+          fill="#f59e0b" opacity="0.9"/>
+    <!-- Simplified heart using Lucide-style path -->
+  </g>
+  <!-- Cleaner heart -->
+  <g transform="translate(256, 230)">
+    <path d="M0 55 C-10 45, -95 -25, -95 -45 C-95 -75, -65 -95, -35 -95 C-15 -95, 0 -80, 0 -80 C0 -80, 15 -95, 35 -95 C65 -95, 95 -75, 95 -45 C95 -25, 10 45, 0 55Z"
+          fill="#f59e0b"/>
+    <!-- EKG/Pulse line across the heart -->
+    <path d="M-70 -20 L-30 -20 L-15 -55 L0 10 L15 -40 L25 -20 L70 -20"
+          fill="none" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Text: FTE -->
+  <text x="256" y="400" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="90" font-weight="800" fill="white" letter-spacing="8">
+    <tspan>F</tspan><tspan fill="#fbbf24">T</tspan><tspan>E</tspan>
+  </text>
+</svg>

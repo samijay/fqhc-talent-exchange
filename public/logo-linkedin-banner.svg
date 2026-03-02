@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" width="1584" height="396">
+  <defs>
+    <linearGradient id="bannerbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f766e"/>
+      <stop offset="50%" style="stop-color:#115e59"/>
+      <stop offset="100%" style="stop-color:#134e4a"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1584" height="396" fill="url(#bannerbg)"/>
+
+  <!-- Heart icon -->
+  <g transform="translate(392, 108) scale(0.45)">
+    <path d="M0 55 C-10 45, -95 -25, -95 -45 C-95 -75, -65 -95, -35 -95 C-15 -95, 0 -80, 0 -80 C0 -80, 15 -95, 35 -95 C65 -95, 95 -75, 95 -45 C95 -25, 10 45, 0 55Z"
+          fill="#f59e0b"/>
+    <path d="M-70 -20 L-30 -20 L-15 -55 L0 10 L15 -40 L25 -20 L70 -20"
+          fill="none" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- FQHC Talent Exchange — centered -->
+  <text x="792" y="140" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="60" font-weight="800" fill="white" letter-spacing="-0.5">
+    <tspan>FQHC </tspan><tspan fill="#fbbf24">Talent</tspan><tspan> Exchange</tspan>
+  </text>
+
+  <!-- Tagline — centered -->
+  <text x="792" y="190" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="400" fill="#99f6e4">
+    Strategic Intelligence for California's Community Health Centers
+  </text>
+
+  <!-- Divider line — centered -->
+  <line x1="492" y1="215" x2="1092" y2="215" stroke="#5eead4" stroke-width="1" opacity="0.3"/>
+
+  <!-- Stats row — centered -->
+  <text x="792" y="260" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif">
+    <tspan font-size="20" font-weight="700" fill="white">220+ </tspan>
+    <tspan font-size="15" fill="#5eead4">FQHCs Tracked</tspan>
+    <tspan font-size="15" fill="#5eead4" dx="25">|</tspan>
+    <tspan font-size="20" font-weight="700" fill="white" dx="25">105+ </tspan>
+    <tspan font-size="15" fill="#5eead4">Free Tools</tspan>
+    <tspan font-size="15" fill="#5eead4" dx="25">|</tspan>
+    <tspan font-size="20" font-weight="700" fill="white" dx="25">9 </tspan>
+    <tspan font-size="15" fill="#5eead4">CA Regions</tspan>
+  </text>
+
+  <!-- URL — centered -->
+  <text x="792" y="310" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#5eead4" letter-spacing="0.5">
+    fqhctalent.com
+  </text>
+</svg>

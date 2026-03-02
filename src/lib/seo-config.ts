@@ -4,37 +4,37 @@
 export const SITE_URL = "https://www.fqhctalent.com";
 export const SITE_NAME = "FQHC Talent Exchange";
 export const SITE_DESCRIPTION =
-  "The only talent platform built exclusively for Federally Qualified Health Centers. Find FQHC jobs in California — community health workers, care coordinators, behavioral health specialists, and more.";
+  "California's FQHC strategic intelligence platform — executive dashboards, workforce data, policy tracking, free career tools, and 220+ FQHC profiles. Built for the leaders and professionals navigating the biggest crisis in community health history.";
 
 // Root layout metadata — merge this into your existing layout.tsx
 export const rootMetadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "FQHC Talent Exchange | FQHC Jobs & Community Health Careers",
+    default: "FQHC Talent Exchange | Strategic Intelligence for California's Community Health Centers",
     template: "%s | FQHC Talent Exchange",
   },
   description: SITE_DESCRIPTION,
   keywords: [
-    "FQHC jobs",
+    "FQHC intelligence",
+    "FQHC strategy",
+    "community health center California",
+    "FQHC workforce data",
+    "FQHC policy tracker",
+    "FQHC executive dashboard",
+    "Medicaid funding cuts FQHC",
+    "FQHC resilience scorecard",
+    "FQHC salary data",
     "FQHC jobs California",
     "community health worker jobs",
-    "FQHC staffing",
-    "community health center careers",
-    "enhanced care management jobs",
-    "care coordinator jobs",
-    "FQHC recruitment",
-    "community health worker resume",
-    "Medi-Cal jobs",
-    "safety net healthcare jobs",
-    "CHW jobs",
-    "promotora jobs",
+    "FQHC career tools",
+    "FQHC directory California",
+    "FQHC layoff tracker",
+    "H.R. 1 Medicaid FQHC",
+    "FQHC AI adoption",
+    "CalAIM FQHC",
+    "FQHC case studies",
+    "FQHC OKR templates",
     "FQHC talent",
-    "healthcare talent California",
-    "behavioral health specialist FQHC",
-    "OCHIN Epic jobs",
-    "chronic care management jobs",
-    "ECM jobs California",
-    "FQHC hiring",
   ],
   authors: [{ name: "FQHC Talent Exchange" }],
   creator: "FQHC Talent Exchange",
@@ -44,12 +44,12 @@ export const rootMetadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "FQHC Talent Exchange | Find Your Next Community Health Role",
+    title: "FQHC Talent Exchange | Strategic Intelligence & Free Career Tools for California FQHCs",
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "FQHC Talent Exchange | FQHC Jobs & Community Health Careers",
+    title: "FQHC Talent Exchange | Strategic Intelligence for California FQHCs",
     description: SITE_DESCRIPTION,
   },
   robots: {
