@@ -235,12 +235,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
-    // FQHC Strategic Reports (220 FQHCs)
+    // FQHC Strategic Reports — AltaMed boosted for high organic traffic
     ...californiaFQHCs.map((fqhc) => ({
       url: `${SITE_URL}/report/${fqhc.slug}`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
-      priority: 0.7,
+      priority: fqhc.slug === "altamed-health-services" ? 0.85 : 0.7,
     })),
     {
       url: `${SITE_URL}/unions`,
@@ -304,12 +304,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Location pages
+  // Location pages — LA boosted for high organic traffic
   const locationPages: MetadataRoute.Sitemap = locationSlugs.map((slug) => ({
     url: `${SITE_URL}/fqhc-jobs-${slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: 0.8,
+    priority: slug === "los-angeles" ? 0.9 : 0.8,
   }));
 
   // Blog pages
@@ -335,12 +335,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   //   priority: 0.7,
   // }));
 
-  // FQHC profile pages (87 organizations)
+  // FQHC profile pages — AltaMed boosted for high organic traffic
   const fqhcProfilePages: MetadataRoute.Sitemap = californiaFQHCs.map((fqhc) => ({
     url: `${SITE_URL}/directory/${fqhc.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
-    priority: 0.6,
+    priority: fqhc.slug === "altamed-health-services" ? 0.8 : 0.6,
   }));
 
   return [...staticPages, ...locationPages, ...blogPages, ...fqhcProfilePages];

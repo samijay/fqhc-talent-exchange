@@ -87,6 +87,33 @@ export default function FqhcJobsLosAngeles() {
             </p>
           </div>
 
+          {/* AltaMed Spotlight */}
+          <div className="mt-8 rounded-xl border border-teal-200 bg-teal-50 p-6">
+            <h3 className="text-xl font-bold text-stone-900 mb-2">
+              AltaMed Health Services — LA&apos;s Largest Independent FQHC
+            </h3>
+            <p className="text-stone-700 leading-relaxed">
+              AltaMed operates 50 sites across Los Angeles and Orange counties,
+              serving 300,000+ patients with 1,500+ staff. Glassdoor-rated 3.3/5
+              (391 reviews). SEIU-UHW represented. Programs include ECM, CCM,
+              PACE, and Community Supports. OCHIN Epic EHR.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link
+                href="/directory/altamed-health-services"
+                className="inline-flex items-center gap-1 rounded-lg bg-teal-700 px-4 py-2 text-sm font-medium text-white hover:bg-teal-800 transition-colors"
+              >
+                AltaMed Profile & Jobs →
+              </Link>
+              <Link
+                href="/report/altamed-health-services"
+                className="inline-flex items-center gap-1 rounded-lg border border-teal-300 px-4 py-2 text-sm font-medium text-teal-800 hover:bg-teal-100 transition-colors"
+              >
+                Strategic Intelligence Report →
+              </Link>
+            </div>
+          </div>
+
           {/* In-Demand Roles */}
           <h3 className="text-2xl font-bold text-stone-900 mt-12 mb-6">
             Most In-Demand FQHC Roles in Los Angeles

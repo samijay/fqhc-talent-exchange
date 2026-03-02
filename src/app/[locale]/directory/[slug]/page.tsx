@@ -45,9 +45,21 @@ export async function generateMetadata({
   const fqhc = californiaFQHCs.find((f) => f.slug === slug);
   if (!fqhc) return { title: "Not Found" };
 
+  const jobCount = fqhcJobListings.filter((j) => j.fqhcSlug === slug).length;
+  const ratingText = fqhc.glassdoorRating ? ` Glassdoor ${fqhc.glassdoorRating}/5.` : "";
+  const jobText = jobCount > 0 ? ` ${jobCount} open positions.` : "";
+
   return {
     title: `${fqhc.name} Jobs & Salaries | FQHC Talent Exchange`,
     description: `View open positions, salary ranges, programs, and employee ratings at ${fqhc.name} in ${fqhc.city}, California. ${fqhc.description}`,
+    openGraph: {
+      title: `${fqhc.name} — Jobs, Salaries & Reviews`,
+      description: `${fqhc.patientCount} patients, ${fqhc.siteCount} sites.${ratingText}${jobText} ${fqhc.programs.slice(0, 4).join(", ")}.`,
+      url: `https://www.fqhctalent.com/directory/${slug}`,
+    },
+    alternates: {
+      canonical: `https://www.fqhctalent.com/directory/${slug}`,
+    },
   };
 }
 
