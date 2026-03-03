@@ -2,10 +2,10 @@
 // Track AI adoption across the FQHC/CHC sector
 // Every entry has a primary source URL — no unsourced claims
 // Updated via daily-update pipeline (Step 3.6: AI & Innovation Scan)
-// Last updated: 2026-03-01 (daily update #7)
+// Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-03-01";
+export const AI_TRACKER_LAST_UPDATED = "2026-03-03";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -478,6 +478,38 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceOrg: "Abridge / KLAS Research",
     date: "2026-02-15",
     tags: ["abridge", "klas", "ambient-ai", "burnout-reduction", "best-in-class"],
+  },
+
+  {
+    id: "imperial-beach-eclinicalworks-sunoh",
+    title: {
+      en: "Imperial Beach Community Clinic (CA FQHC) Adopts eClinicalWorks + Sunoh.ai Scribe",
+      es: "Clínica Comunitaria de Imperial Beach (FQHC de CA) Adopta eClinicalWorks + Escriba Sunoh.ai",
+    },
+    description: {
+      en: "Imperial Beach Community Clinic, a 31-provider FQHC in Southern California, selected eClinicalWorks' AI-driven EHR platform alongside Sunoh.ai AI-powered medical scribe and healow patient engagement solutions. The clinic's CEO noted that introducing AI solutions will offer relief from repetitive documentation and help focus on improving the patient-provider interaction. Sunoh.ai reports saving providers up to 8-10 hours weekly on clinical documentation by converting natural conversations into structured clinical notes.",
+      es: "La Clínica Comunitaria de Imperial Beach, un FQHC de 31 proveedores en el sur de California, seleccionó la plataforma EHR con IA de eClinicalWorks junto con el escriba médico con IA Sunoh.ai y soluciones healow. El director ejecutivo señaló que las soluciones de IA ofrecerán alivio de la documentación repetitiva. Sunoh.ai reporta ahorrar 8-10 horas semanales en documentación clínica.",
+    },
+    category: "clinical-documentation",
+    vendor: "eClinicalWorks / Sunoh.ai",
+    partnership: null,
+    metrics: [
+      { label: "Providers", value: "31" },
+      { label: "Time Saved", value: "8-10 hrs/week" },
+      { label: "Tools", value: "EHR + AI Scribe + Patient Engagement" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl:
+      "https://www.eclinicalworks.com/31-provider-fqhc-to-leverage-eclinicalworks-ai-driven-ehr-and-sunoh-ai-ai-medical-scribe/",
+    sourceOrg: "eClinicalWorks",
+    date: "2024-06-26",
+    tags: [
+      "eclinicalworks",
+      "sunoh-ai",
+      "ambient-scribe",
+      "imperial-beach",
+      "southern-california",
+    ],
   },
 ];
 
