@@ -24,6 +24,7 @@ export default function Footer() {
       { href: "/strategy/offboarding" as const, label: t("offboarding") },
       { href: "/strategy/resilience" as const, label: t("resilience") },
       { href: "/strategy/masterclass" as const, label: t("masterclass") },
+      { href: "/strategy/clinic-simulator" as const, label: t("clinicSimulator") },
     ],
     [t("intelligence")]: [
       { href: "/insights" as const, label: t("dashboard") },

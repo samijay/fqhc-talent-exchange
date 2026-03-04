@@ -468,6 +468,18 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/compare` },
   },
+  clinicSimulator: {
+    title: "FQHC Clinic Operations Simulator | Staffing, Scheduling & Revenue Modeling",
+    description:
+      "Interactive clinic operations simulator for California FQHCs. Model staffing ratios, PPS rates, co-visit economics, Provider-of-the-Day breakeven, disease management programs, and economies of scale for 250-1,000 staff operations.",
+    openGraph: {
+      title: "Clinic Operations Simulator — FQHC Talent Exchange",
+      description:
+        "Model staffing, scheduling, and revenue for your California FQHC. Compare small vs. large operations with 15+ interactive levers.",
+      url: `${SITE_URL}/strategy/clinic-simulator`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/clinic-simulator` },
+  },
   teamReadiness: {
     title: "Team Readiness Assessment for FQHC Managers | Leadership Tool",
     description:

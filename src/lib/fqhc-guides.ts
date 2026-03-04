@@ -527,6 +527,42 @@ export const FQHC_GUIDES: FQHCGuide[] = [
           },
         ],
       },
+      {
+        heading: {
+          en: "Model B: RN Visit with Provider Co-Signature",
+          es: "Modelo B: Visita del RN con Co-Firma del Proveedor",
+        },
+        keyPoints: [
+          {
+            en: "In many FQHCs, an RN conducts the full patient visit — history, assessment, education, care coordination — then the physician reviews the note, adds a clinical assessment, and co-signs the encounter",
+            es: "En muchos FQHCs, un RN realiza la visita completa del paciente — historia, evaluación, educación, coordinación de cuidados — luego el médico revisa la nota, agrega una evaluación clínica y co-firma el encuentro",
+          },
+          {
+            en: "This generates ONE PPS encounter (not two), but maximizes RN throughput — the RN does the clinical work while the provider focuses on clinical oversight",
+            es: "Esto genera UN encuentro PPS (no dos), pero maximiza el rendimiento del RN — el RN realiza el trabajo clínico mientras el proveedor se enfoca en la supervisión clínica",
+          },
+          {
+            en: "Provider-of-the-Day model: 1 MD is dedicated to reviewing and co-signing encounters for 3-5 RNs, generating 40-60 billable encounters/day vs. 18 if seeing own patients",
+            es: "Modelo de Proveedor del Día: 1 MD se dedica a revisar y co-firmar encuentros para 3-5 RNs, generando 40-60 encuentros facturables/día vs. 18 si ve a sus propios pacientes",
+          },
+          {
+            en: "Breakeven is low: at $225 PPS rate and ~$1,400/day provider cost, only 6-7 co-signed encounters/day are needed to cover the provider's cost — everything beyond that is margin",
+            es: "El punto de equilibrio es bajo: a $225 tasa PPS y ~$1,400/día costo del proveedor, solo se necesitan 6-7 encuentros co-firmados/día para cubrir el costo del proveedor — todo más allá de eso es margen",
+          },
+          {
+            en: "Best for: stable chronic disease patients, experienced RNs, strong EHR templates, and clinics with high patient volume but limited provider capacity",
+            es: "Ideal para: pacientes crónicos estables, RNs experimentados, plantillas EHR sólidas y clínicas con alto volumen de pacientes pero capacidad limitada de proveedores",
+          },
+          {
+            en: "This is different from Model A (two-encounter same-day co-visits). Model A generates 2 PPS payments; Model B generates 1 PPS payment but at much higher volume per provider",
+            es: "Esto es diferente del Modelo A (co-visitas de dos encuentros el mismo día). El Modelo A genera 2 pagos PPS; el Modelo B genera 1 pago PPS pero a un volumen mucho mayor por proveedor",
+          },
+          {
+            en: "Try the Clinic Operations Simulator at /strategy/clinic-simulator to model the financial impact of both co-visit models for your FQHC",
+            es: "Prueba el Simulador de Operaciones Clínicas en /strategy/clinic-simulator para modelar el impacto financiero de ambos modelos de co-visita para tu FQHC",
+          },
+        ],
+      },
     ],
     primarySourceUrl:
       "https://www.cms.gov/medicare/payment/prospective-payment-systems/federally-qualified-health-center",
@@ -542,8 +578,8 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       },
     ],
     targetRoles: ["rn", "medical-assistant", "care-coordinator"],
-    tags: ["co-visit", "pps", "billing", "team-based-care", "revenue"],
-    lastUpdated: "2026-02-25",
+    tags: ["co-visit", "pps", "billing", "team-based-care", "revenue", "provider-of-the-day"],
+    lastUpdated: "2026-03-03",
   },
 
   {

@@ -132,6 +132,7 @@ export default function Header() {
         { href: "/strategy/offboarding", label: t("offboarding"), desc: t("offboardingDesc") },
         { href: "/strategy/resilience", label: t("resilience"), desc: t("resilienceDesc") },
         { href: "/strategy/masterclass", label: t("masterclass"), desc: t("masterclassDesc") },
+        { href: "/strategy/clinic-simulator", label: t("clinicSimulator"), desc: t("clinicSimulatorDesc") },
       ],
     },
     {

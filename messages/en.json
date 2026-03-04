@@ -68,7 +68,9 @@
     "regionalIntel": "Regional Intelligence",
     "regionalIntelDesc": "Per-region FQHC dashboards for all 9 CA regions",
     "salaryData": "Salary Intelligence",
-    "salaryDataDesc": "P25/P50/P75 salary data for 30 FQHC roles"
+    "salaryDataDesc": "P25/P50/P75 salary data for 30 FQHC roles",
+    "clinicSimulator": "Clinic Simulator",
+    "clinicSimulatorDesc": "Model staffing, scheduling & revenue for your FQHC"
   },
   "footer": {
     "description": "The talent exchange built exclusively for Federally Qualified Health Centers and community health professionals in California.",
@@ -109,6 +111,7 @@
     "resilience": "Resilience Scorecard",
     "masterclass": "Masterclass",
     "compareFqhcs": "Compare FQHCs",
+    "clinicSimulator": "Clinic Simulator",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "copyright": "© {year} FQHC Talent Exchange. All rights reserved."
