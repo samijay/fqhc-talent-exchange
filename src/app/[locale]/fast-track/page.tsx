@@ -23,7 +23,7 @@ const content = {
   en: {
     heroTitle: "Get Job-Ready for Your Next FQHC Role",
     heroSubtitle:
-      "Free resume builder, career assessment, and job matching — all designed for community health professionals in California.",
+      "Free resume builder, career assessment, and aggregated job postings — all designed for community health professionals in California.",
     badge1: "100% free tools",
     badge2: "No sign-up required",
     badge3: "220+ FQHCs",

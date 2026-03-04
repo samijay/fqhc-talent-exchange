@@ -34,8 +34,8 @@ const enContent: TermsContent = {
       heading: "2. Description of Service",
       paragraphs: [
         "FQHC Talent Exchange is a free online platform that connects community health professionals with job opportunities at Federally Qualified Health Centers (FQHCs) across California. Our services include a job listings directory, an FQHC directory, a resume builder tool, a career assessment tool, a job posting builder tool, career resources and blog content, and waitlist registration for candidates and employers.",
-        "Important: We are a job matching and career resource platform. We are not a staffing agency, employment agency, employer, recruiter, or placement service. We do not directly employ, hire, fire, manage, supervise, or place candidates at any FQHC or other organization. We do not make hiring decisions, conduct background checks, verify credentials, or guarantee employment outcomes.",
-        "All employment relationships are solely between the candidate and the hiring FQHC. We facilitate introductions but have no involvement in or control over the terms, conditions, or decisions of employment.",
+        "Important: We are a career resource and workforce intelligence platform. We are not a staffing agency, employment agency, employer, recruiter, or placement service. We do not directly employ, hire, fire, manage, supervise, or place candidates at any FQHC or other organization. We do not make hiring decisions, conduct background checks, verify credentials, or guarantee employment outcomes.",
+        "All employment relationships are solely between the candidate and the hiring FQHC. We provide free career tools, aggregated job postings, and strategic resources but have no involvement in or control over the terms, conditions, or decisions of employment.",
       ],
     },
     {
@@ -70,7 +70,7 @@ const enContent: TermsContent = {
       paragraphs: [
         "All content on FQHC Talent Exchange — including text, graphics, logos, page layouts, blog articles, career guides, resume templates, assessment questions, job posting templates, salary benchmarks, data compilations, and the overall design and structure of the site — is the property of FQHC Talent Exchange or its content contributors and is protected by applicable intellectual property laws, including copyright and trademark laws.",
         "You may not copy, reproduce, distribute, publish, display, create derivative works from, or commercially exploit our content without prior written permission. Personal, non-commercial use of the site (such as reading articles, building your own resume, or taking the career assessment) is permitted under normal use.",
-        "You retain ownership of the personal and professional information you submit to our platform (such as your resume data, work history, and profile information). By submitting this information, you grant FQHC Talent Exchange a non-exclusive, worldwide, royalty-free license to use, store, and process this information for the purposes described in our Privacy Policy — specifically, to provide our job matching and resume building services.",
+        "You retain ownership of the personal and professional information you submit to our platform (such as your resume data, work history, and profile information). By submitting this information, you grant FQHC Talent Exchange a non-exclusive, worldwide, royalty-free license to use, store, and process this information for the purposes described in our Privacy Policy — specifically, to provide our career tools and resume building services.",
         "This license does not give us the right to sell your personal information or use it for purposes unrelated to our platform services.",
       ],
     },
@@ -87,7 +87,7 @@ const enContent: TermsContent = {
       heading: "8. Resume Builder and Career Assessment Tools",
       paragraphs: [
         "Our resume builder and career assessment tools are provided as free resources to help you in your job search. These tools generate content based on templates, your inputs, and general career guidance principles.",
-        "The resume content, career recommendations, and assessment results provided by our tools are for informational and guidance purposes only. They do not constitute professional career counseling, employment advice, or a guarantee of job placement. Your use of these tools and the resulting documents is at your own discretion and risk.",
+        "The resume content, career recommendations, and assessment results provided by our tools are for informational and guidance purposes only. They do not constitute professional career counseling, employment advice, or a guarantee of employment. Your use of these tools and the resulting documents is at your own discretion and risk.",
         "You are solely responsible for reviewing, editing, and verifying the accuracy of any resume, cover letter, or job posting generated using our tools before submitting them to potential employers or publishing them. We are not responsible for errors, omissions, or misrepresentations in documents you create using our platform.",
         "Career assessment results are based on self-reported responses and provide general guidance about professional strengths and development areas. They are not clinical assessments, psychological evaluations, or certifications of any kind.",
       ],

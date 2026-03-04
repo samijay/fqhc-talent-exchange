@@ -68,7 +68,7 @@ const SERVICE_TIERS: ServiceTier[] = [
     },
     features: [
       { en: "FQHC-specific resume builder (8 role templates)", es: "Constructor de CV específico para FQHCs (8 plantillas por rol)" },
-      { en: "5-domain career assessment with role matching", es: "Evaluación de carrera de 5 dominios con coincidencia de roles" },
+      { en: "5-domain career assessment with personalized insights", es: "Evaluación de carrera de 5 dominios con perspectivas personalizadas" },
       { en: "Career roadmap with CA salary benchmarks", es: "Hoja de ruta profesional con benchmarks salariales de CA" },
       { en: "15 CA certification guides with cost & ROI data", es: "15 guías de certificación de CA con datos de costo y ROI" },
       { en: "18 free career resources (NHSC, training programs)", es: "18 recursos profesionales gratuitos (NHSC, programas de capacitación)" },
@@ -90,7 +90,7 @@ const SERVICE_TIERS: ServiceTier[] = [
       es: "Notifíquenos sobre reducciones próximas y nosotros recibimos, evaluamos y preparamos a sus trabajadores desplazados para su próximo rol — en 2 semanas.",
     },
     features: [
-      { en: "Priority intake within 48 hours of notification", es: "Recepción prioritaria dentro de 48 horas de la notificación" },
+      { en: "Career tools and resources within 48 hours of notification", es: "Herramientas y recursos profesionales dentro de 48 horas de la notificación" },
       { en: "Individual career assessment for each worker", es: "Evaluación profesional individual para cada trabajador" },
       { en: "Resume rewrite targeting FQHC hiring patterns", es: "Reescritura de CV enfocada en patrones de contratación FQHC" },
       { en: "Certification pathway guidance (CHW, CMA, etc.)", es: "Orientación de rutas de certificación (CHW, CMA, etc.)" },
@@ -104,21 +104,21 @@ const SERVICE_TIERS: ServiceTier[] = [
     highlight: true,
   },
   {
-    id: "placement",
-    name: { en: "Placement Partnership", es: "Asociación de Colocación" },
-    subtitle: { en: "Full-cycle staffing support", es: "Soporte de dotación de personal de ciclo completo" },
-    price: { en: "$2,000–$5,000 per placement", es: "$2,000–$5,000 por colocación" },
+    id: "strategic-partner",
+    name: { en: "Strategic Partnership", es: "Asociación Estratégica" },
+    subtitle: { en: "Comprehensive workforce intelligence", es: "Inteligencia de fuerza laboral integral" },
+    price: { en: "Custom", es: "Personalizado" },
     description: {
-      en: "Dedicated sourcing, vetting, and placement for your organization — whether you're reducing or rebuilding your workforce.",
-      es: "Búsqueda dedicada, verificación y colocación para su organización — ya sea que esté reduciendo o reconstruyendo su fuerza laboral.",
+      en: "Ongoing workforce intelligence, strategic insights, and transition support for your organization — whether you're reducing or rebuilding your workforce.",
+      es: "Inteligencia de fuerza laboral continua, perspectivas estratégicas y apoyo de transición para su organización — ya sea que esté reduciendo o reconstruyendo.",
     },
     features: [
-      { en: "Dedicated recruiter with FQHC expertise", es: "Reclutador dedicado con experiencia en FQHCs" },
-      { en: "Cultural fit matching using our 5-domain assessment", es: "Coincidencia de ajuste cultural usando nuestra evaluación de 5 dominios" },
-      { en: "Pre-screened candidates from our talent pool", es: "Candidatos preseleccionados de nuestra bolsa de talento" },
-      { en: "90-day replacement guarantee", es: "Garantía de reemplazo de 90 días" },
+      { en: "Dedicated FQHC workforce intelligence briefings", es: "Informes dedicados de inteligencia de fuerza laboral FQHC" },
+      { en: "Salary benchmarking across 30 roles × 9 CA regions", es: "Benchmarking salarial en 30 roles × 9 regiones de CA" },
+      { en: "Aggregated job market data from 220+ California FQHCs", es: "Datos agregados del mercado laboral de 220+ FQHCs de California" },
+      { en: "Custom resilience and workforce stability analysis", es: "Análisis personalizado de resiliencia y estabilidad laboral" },
       { en: "Quarterly workforce intelligence briefings", es: "Informes trimestrales de inteligencia de fuerza laboral" },
-      { en: "Priority access to The Drop (exclusive talent releases)", es: "Acceso prioritario a The Drop (lanzamientos exclusivos de talento)" },
+      { en: "Strategic insights on funding, policy, and workforce trends", es: "Perspectivas estratégicas sobre financiamiento, políticas y tendencias laborales" },
     ],
     icon: Sparkles,
     color: "text-purple-700",
@@ -159,10 +159,10 @@ const PROCESS_STEPS: ProcessStep[] = [
   },
   {
     step: 3,
-    title: { en: "We match & prepare", es: "Emparejamos y preparamos" },
+    title: { en: "We prepare & connect", es: "Preparamos y conectamos" },
     description: {
-      en: "Assessment results drive role matching across 220 CA FQHCs. We rewrite resumes for target positions and prep candidates.",
-      es: "Los resultados de la evaluación impulsan la coincidencia de roles en 220 FQHCs de CA. Reescribimos CVs para posiciones objetivo.",
+      en: "Assessment results guide resume rewrites and career insights. Workers explore aggregated job postings across 220 CA FQHCs with salary data and FQHC profiles.",
+      es: "Los resultados de la evaluación guían la reescritura de CVs y perspectivas profesionales. Los trabajadores exploran ofertas de empleo agregadas de 220 FQHCs de CA con datos salariales.",
     },
     timeline: { en: "Days 5–10", es: "Días 5–10" },
     icon: FileText,
@@ -314,8 +314,8 @@ export default function OffboardingPage() {
             </h2>
             <p className="mt-3 text-stone-600 max-w-2xl mx-auto">
               {isEs
-                ? "Desde herramientas gratuitas de autoservicio hasta colocación dedicada — elija el nivel que se ajuste a su situación."
-                : "From free self-serve tools to dedicated placement — choose the level that fits your situation."}
+                ? "Desde herramientas gratuitas de autoservicio hasta inteligencia estratégica — elija el nivel que se ajuste a su situación."
+                : "From free self-serve tools to strategic intelligence — choose the level that fits your situation."}
             </p>
           </div>
 
@@ -534,9 +534,9 @@ export default function OffboardingPage() {
             },
             {
               icon: Shield,
-              title: { en: "Data-Driven Matching", es: "Coincidencia Basada en Datos" },
+              title: { en: "Data-Driven Insights", es: "Perspectivas Basadas en Datos" },
               desc: {
-                en: "220 FQHCs profiled with programs, EHR systems, salary ranges, and culture data — not just job titles.",
+                en: "220 FQHCs profiled with programs, EHR systems, salary ranges, and culture data — helping workers compare opportunities.",
                 es: "220 FQHCs perfilados con programas, sistemas EHR, rangos salariales y datos culturales — no solo títulos de trabajo.",
               },
             },

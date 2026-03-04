@@ -38,13 +38,13 @@ const enContent: ArticleContent = {
   title:
     "Laid Off from an FQHC? Here's How to Fast-Track Your Job Search",
   description:
-    "Thousands of community health workers in California are being displaced by Medi-Cal funding cuts and FQHC restructuring. But many FQHCs are still hiring. Free career tools and priority intake can help you land your next role — completely free.",
+    "Thousands of community health workers in California are being displaced by Medi-Cal funding cuts and FQHC restructuring. But many FQHCs are still hiring. Free career tools and aggregated job postings can help you land your next role — completely free.",
   breadcrumbTitle: "Laid Off? Fast-Track Your Search",
   datePublished: "2026-02-15",
   dateDisplay: "February 15, 2026",
   readTime: "8 min read",
   openingParagraph:
-    "If you have recently been laid off from a Federally Qualified Health Center, you are not alone. Across California, thousands of community health workers, care coordinators, medical assistants, and case managers are being displaced as FQHCs navigate Medi-Cal funding cuts, program restructuring, and tightening budgets. It is a painful situation — but here is the paradox that most people miss: many FQHCs are simultaneously hiring. The demand for experienced community health professionals has not disappeared. It has shifted. Programs are closing in some organizations while expanding in others. If you know where to look and how to position yourself, your FQHC experience is not a liability — it is the most valuable credential you have. The FQHC Talent Exchange built free career tools and a priority intake program specifically for this moment: to help displaced FQHC workers get job-ready and connected to hiring FQHCs across California.",
+    "If you have recently been laid off from a Federally Qualified Health Center, you are not alone. Across California, thousands of community health workers, care coordinators, medical assistants, and case managers are being displaced as FQHCs navigate Medi-Cal funding cuts, program restructuring, and tightening budgets. It is a painful situation — but here is the paradox that most people miss: many FQHCs are simultaneously hiring. The demand for experienced community health professionals has not disappeared. It has shifted. Programs are closing in some organizations while expanding in others. If you know where to look and how to position yourself, your FQHC experience is not a liability — it is the most valuable credential you have. The FQHC Talent Exchange built free career tools specifically for this moment: to help displaced FQHC workers get job-ready and explore opportunities at hiring FQHCs across California.",
   sections: [
     {
       heading: "The Reality: Why So Many FQHC Workers Are Being Displaced",
@@ -98,7 +98,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The FQHC Talent Exchange offers a complete suite of free career tools designed specifically for community health professionals, plus a priority intake program for displaced workers. Here is how to use them to get job-ready fast:",
+          text: "The FQHC Talent Exchange offers a complete suite of free career tools designed specifically for community health professionals. Here is how to use them to get job-ready fast:",
         },
         {
           type: "box",
@@ -110,7 +110,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "box",
-          text: "Step 3: Join the Priority Intake at /fast-track. Fill out a 3-minute form with your experience, skills, and location preferences. Your profile goes into our priority queue where we match you with FQHCs that are actively hiring for your role in your region.",
+          text: "Step 3: Explore aggregated job postings at /jobs. Browse 177+ open positions across 220 California FQHCs. Filter by role, region, and salary to compare opportunities. Each listing links to the FQHC's career page so you can apply directly.",
         },
         {
           type: "box",
@@ -134,7 +134,7 @@ const enContent: ArticleContent = {
           items: [
             "Build a free FQHC-optimized resume at /resume-builder. Our resume builder is designed specifically for community health roles. It uses templates that highlight the exact skills, programs, and competencies that FQHC hiring managers search for. Do not send out a generic resume when you can send one that speaks their language.",
             "Take the free Career Assessment at /career-insights. This 15-question behavioral assessment identifies your strengths across five domains including Transition Readiness. Use the results to prepare for interviews, understand your competitive advantages, and get a personalized 90-day plan for your next role.",
-            "Join the Priority Intake at /fast-track. It takes under 3 minutes. Your profile goes into our priority queue where we match you with FQHCs hiring in your area. Plus you auto-qualify for The Drop — our exclusive matching program.",
+            "Explore the FQHC Directory at /directory. Browse 220+ California FQHCs with Glassdoor ratings, programs, salary ranges, and resilience scores. Compare organizations side by side at /compare to find the right fit for your skills and values.",
             "Update your LinkedIn profile with FQHC-specific keywords. Add terms like Enhanced Care Management, CalAIM, OCHIN Epic, Community Health Worker, care coordination, SDOH screening, and panel management. Many FQHC recruiters search LinkedIn for these exact terms, and having them in your profile increases your visibility dramatically.",
             "Browse open positions at /jobs. Our job board features 177+ active listings across 220 California FQHCs. Filter by region, role type, and program area to see what is available in your area right now. Then check /career-roadmap for salary data and advancement paths.",
           ],
@@ -202,20 +202,20 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "That is why we built a complete suite of free career tools — resume builder, career assessment, career roadmap, certification catalog — plus a priority intake program that puts displaced workers at the front of the line. It replaces the broken application process with real tools and real connections: an FQHC-optimized resume that speaks hiring managers' language, an assessment that identifies your strengths, and a matching process that connects you with FQHCs hiring in your area.",
+          text: "That is why we built a complete suite of free career tools — resume builder, career assessment, career roadmap, certification catalog — plus aggregated job postings from 220+ California FQHCs. It replaces the broken application process with real tools and real information: an FQHC-optimized resume that speaks hiring managers' language, an assessment that identifies your strengths, and job listings that connect you with FQHCs hiring in your area.",
         },
         {
           type: "paragraph",
-          text: "If you are reading this article because you have been laid off, or because you know someone who has, do not wait. Start with the free resume builder, take the career assessment, and join the priority intake. It takes about 30 minutes total, it costs nothing, and it could be the fastest path to your next chapter in community health.",
+          text: "If you are reading this article because you have been laid off, or because you know someone who has, do not wait. Start with the free resume builder, take the career assessment, and explore job listings. It takes about 30 minutes total, it costs nothing, and it could be the fastest path to your next chapter in community health.",
         },
       ],
     },
   ],
   ctaTitle: "Get Job-Ready for Your Next FQHC Role",
   ctaDescription:
-    "Free resume builder, career assessment, job listings, and priority intake — all designed for community health professionals. Get started in minutes.",
+    "Free resume builder, career assessment, job listings, and strategic resources — all designed for community health professionals. Get started in minutes.",
   ctaPrimaryButtonText: "Build Your Free Resume",
-  ctaSecondaryButtonText: "Join Priority Intake",
+  ctaSecondaryButtonText: "Explore Job Listings",
   relatedArticles: [
     {
       href: "/blog/medi-cal-funding-cuts-community-health-workers",
@@ -331,7 +331,7 @@ const esContent: ArticleContent = {
           items: [
             "Crea un curr\u00edculum optimizado para FQHC gratis en /resume-builder. Nuestro constructor de curr\u00edculum est\u00e1 dise\u00f1ado espec\u00edficamente para roles de salud comunitaria. Usa plantillas que destacan las habilidades, programas y competencias exactas que buscan los gerentes de contrataci\u00f3n de FQHC.",
             "Toma la Evaluaci\u00f3n de Carrera gratis en /career-insights. Esta evaluaci\u00f3n conductual de 15 preguntas identifica tus fortalezas en cinco dominios incluyendo Preparaci\u00f3n para la Transici\u00f3n. Usa los resultados para prepararte para entrevistas y obtener un plan personalizado de 90 d\u00edas.",
-            "\u00danete a la Admisi\u00f3n Prioritaria en /fast-track. Toma menos de 3 minutos. Tu perfil entra en nuestra cola prioritaria donde te conectamos con FQHCs contratando en tu \u00e1rea. Adem\u00e1s calificas autom\u00e1ticamente para The Drop \u2014 nuestro programa exclusivo de matching.",
+            "Explora el Directorio de FQHCs en /directory. Navega 220+ FQHCs de California con calificaciones de Glassdoor, programas, rangos salariales y puntuaciones de resiliencia. Compara organizaciones lado a lado en /compare para encontrar la mejor opción para tus habilidades y valores.",
             "Actualiza tu perfil de LinkedIn con palabras clave espec\u00edficas de FQHC. Agrega t\u00e9rminos como Enhanced Care Management, CalAIM, OCHIN Epic, Community Health Worker, coordinaci\u00f3n de atenci\u00f3n, evaluaci\u00f3n de SDOH y gesti\u00f3n de panel.",
             "Explora posiciones abiertas en /jobs. Nuestra bolsa de trabajo presenta 177+ listados activos en 220 FQHCs de California. Filtra por regi\u00f3n, tipo de rol y \u00e1rea de programa para ver qu\u00e9 est\u00e1 disponible en tu zona ahora mismo. Luego visita /career-roadmap para datos salariales y rutas de avance.",
           ],

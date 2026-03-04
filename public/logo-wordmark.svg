@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 80" width="720" height="80">
-  <!-- Heart icon -->
-  <g transform="translate(24, 40) scale(0.22)">
-    <path d="M0 55 C-10 45, -95 -25, -95 -45 C-95 -75, -65 -95, -35 -95 C-15 -95, 0 -80, 0 -80 C0 -80, 15 -95, 35 -95 C65 -95, 95 -75, 95 -45 C95 -25, 10 45, 0 55Z"
-          fill="#0f766e"/>
-    <path d="M-70 -20 L-30 -20 L-15 -55 L0 10 L15 -40 L25 -20 L70 -20"
-          fill="none" stroke="#f59e0b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 80" width="680" height="80">
+  <!-- Clean heart icon -->
+  <g transform="translate(24, 40) scale(0.2)">
+    <path d="M0 75 C-10 62, -110 -20, -110 -50 C-110 -85, -75 -110, -42 -110 C-18 -110, 0 -92, 0 -92 C0 -92, 18 -110, 42 -110 C75 -110, 110 -85, 110 -50 C110 -20, 10 62, 0 75Z"
+          fill="#f59e0b"/>
   </g>
-  <!-- Text as single flow so browser handles spacing -->
-  <text x="55" y="54" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="40" font-weight="800" letter-spacing="-0.5">
-    <tspan fill="#0f766e">FQHC </tspan><tspan fill="#f59e0b">Talent </tspan><tspan fill="#0f766e">Exchange</tspan>
+  <!-- Text: FQHC bold, Talent in amber italic, Exchange bold -->
+  <text x="55" y="52" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="38" letter-spacing="-0.5">
+    <tspan fill="#0f766e" font-weight="800">FQHC</tspan>
+    <tspan fill="#f59e0b" font-weight="400" font-style="italic" dx="4">Talent</tspan>
+    <tspan fill="#0f766e" font-weight="800" dx="4">Exchange</tspan>
   </text>
 </svg>

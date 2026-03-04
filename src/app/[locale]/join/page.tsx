@@ -254,7 +254,7 @@ export default function JoinPage() {
             <p className="text-sm text-stone-600">
               {locale === "es"
                 ? "Herramientas gratis + admisi\u00f3n prioritaria para profesionales desplazados."
-                : "Free tools + priority intake for displaced health professionals."}
+                : "Free career tools, job postings, and resources for displaced health professionals."}
             </p>
           </div>
           <ArrowRight className="size-5 shrink-0 text-stone-400 transition-transform group-hover:translate-x-1" />

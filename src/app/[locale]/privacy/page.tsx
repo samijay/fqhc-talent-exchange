@@ -42,7 +42,7 @@ const enContent: PolicyContent = {
       heading: "2. How We Use Your Information",
       paragraphs: [
         "We use the information we collect for these specific purposes:",
-        "Job matching and introductions: To connect candidates with relevant job opportunities at Federally Qualified Health Centers (FQHCs) in California based on skills, experience, and preferences. When a match is identified and you have opted in, we share your professional profile with the hiring FQHC.",
+        "Career tools and resources: To provide free career tools, aggregated job postings, salary intelligence, and strategic resources for community health professionals exploring opportunities at Federally Qualified Health Centers (FQHCs) in California.",
         "Resume generation: To generate a formatted resume document (PDF) based on the information you provide in our resume builder. The resume is generated locally in your browser — your resume PDF is not stored on our servers.",
         "Communications: To send you a confirmation email when you sign up, and to send relevant job opportunities, platform updates, and career resources. Every email includes an unsubscribe option.",
         "Employer notifications: To notify our team when a new employer or candidate signs up, so we can follow up and facilitate introductions.",
@@ -55,7 +55,7 @@ const enContent: PolicyContent = {
       paragraphs: [
         "We do not sell your personal information. We have never sold personal information, and we have no plans to do so.",
         "We do not share your data with advertisers, data brokers, or any third parties for marketing purposes.",
-        "We share candidate professional profiles with FQHC employers only when candidates have opted in to be considered for job opportunities. We share only the information relevant to the job match — your name, professional background, skills, and contact information. We never share more than what is needed for the introduction.",
+        "We do not share candidate profiles with employers. The information you provide through our career tools (resume builder, assessments) is used solely to generate your career documents and insights. Your data stays with you.",
         "We use the following third-party service providers to operate our platform. These providers process data on our behalf and are contractually obligated to protect it:",
         "Supabase: Database hosting and file storage (servers located in the United States). Stores your profile information and uploaded resumes.",
         "Resend: Email delivery service. Processes your email address and name to send confirmation and notification emails.",

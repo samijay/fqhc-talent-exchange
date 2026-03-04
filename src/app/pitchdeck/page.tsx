@@ -86,7 +86,7 @@ const slides: Slide[] = [
             The Talent Drop
           </h1>
           <p className="mt-2 text-lg text-stone-500">
-            AI-Powered Weekly Candidate Matching for Community Health Centers
+            Strategic Intelligence &amp; Free Career Tools for Community Health Centers
           </p>
           <p className="mt-4 text-sm font-medium text-stone-400">
             MVP Business Plan &middot; February 2026
@@ -210,7 +210,7 @@ const slides: Slide[] = [
             {
               name: "NACHC Job Board",
               icon: XCircle,
-              problem: "Passive job postings only. No matching, no assessment, no intelligence. A bulletin board, not a platform.",
+              problem: "Passive job postings only. No assessment, no intelligence, no strategy. A bulletin board, not a platform.",
               color: "text-red-500",
             },
             {
@@ -236,8 +236,8 @@ const slides: Slide[] = [
             FQHC Talent Exchange: The Only FQHC-Native Solution
           </h4>
           <p className="mt-2 text-sm leading-relaxed text-stone-700">
-            Purpose-built for community health. Every feature — from assessment to matching
-            to market intelligence — is designed exclusively for FQHCs and the mission-driven
+            Purpose-built for community health. Every feature — from career assessment to
+            workforce intelligence — is designed exclusively for FQHCs and the mission-driven
             professionals who work in them.
           </p>
         </div>
@@ -262,7 +262,7 @@ const slides: Slide[] = [
           </h3>
           <p className="mt-3 max-w-2xl text-teal-200">
             Every Wednesday at 9 AM, subscribing FQHCs receive a curated batch
-            of pre-assessed, role-matched candidates — ranked by fit score.
+            of pre-assessed candidates — with fit scores, profiles, and salary data.
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
@@ -270,8 +270,8 @@ const slides: Slide[] = [
               <Mail className="size-8 text-amber-400" />
               <h4 className="mt-3 text-lg font-bold text-white">Wednesday 9 AM</h4>
               <p className="mt-2 text-sm text-teal-200">
-                Top 10 matched candidates delivered per open role. Ranked by AI match score.
-                Full profiles, assessment results, salary expectations.
+                Top 10 pre-assessed candidates delivered per open role. Full profiles,
+                assessment results, salary expectations, and readiness scores.
               </p>
             </div>
             <div className="rounded-xl bg-white/10 p-6 backdrop-blur">
@@ -286,8 +286,8 @@ const slides: Slide[] = [
               <TrendingUp className="size-8 text-amber-400" />
               <h4 className="mt-3 text-lg font-bold text-white">Feedback Loop</h4>
               <p className="mt-2 text-sm text-teal-200">
-                Every claim, pass, and hire improves the matching algorithm.
-                More data = better matches = more employers = more candidates.
+                Every claim, pass, and hire improves our intelligence.
+                More data = better recommendations = more employers = more candidates.
               </p>
             </div>
           </div>
@@ -331,7 +331,7 @@ const slides: Slide[] = [
             {
               icon: TrendingUp,
               title: "Network Effect = Competitive Moat",
-              desc: "Every claim/pass/hire improves matching. More data = better matches = more employers = more candidates. Weekly cadence compounds the advantage.",
+              desc: "Every claim/pass/hire improves recommendations. More data = better intelligence = more employers = more candidates. Weekly cadence compounds the advantage.",
               color: "text-purple-600 bg-purple-50",
             },
             {
@@ -343,7 +343,7 @@ const slides: Slide[] = [
             {
               icon: Layers,
               title: "Tiered Access Drives Revenue",
-              desc: "Free tier: see that matches exist. Paid tier: see full profiles + scores. Premium: exclusive first-look before other FQHCs.",
+              desc: "Free tier: see candidate counts. Paid tier: see full profiles + scores. Premium: exclusive first-look before other FQHCs.",
               color: "text-amber-600 bg-amber-50",
             },
           ].map((item) => (
@@ -363,21 +363,21 @@ const slides: Slide[] = [
   },
 
   /* ================================================================ */
-  /*  Slide 6: AI Matching Engine                                      */
+  /*  Slide 6: AI Scoring Engine                                       */
   /* ================================================================ */
   {
-    id: "ai-matching",
-    title: "AI Matching",
+    id: "ai-scoring",
+    title: "AI Scoring",
     content: (
       <SlideWrapper>
         <h2 className="mb-2 text-sm font-bold uppercase tracking-widest text-teal-600">
           Technology
         </h2>
         <h3 className="text-3xl font-bold text-stone-900 sm:text-4xl">
-          AI Matching Engine
+          AI Scoring Engine
         </h3>
         <p className="mt-3 max-w-2xl text-stone-600">
-          Three-layer scoring system. Match Score: 0-100 per candidate per role.
+          Three-layer scoring system. Readiness Score: 0-100 per candidate per role.
         </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-3">
@@ -423,7 +423,7 @@ const slides: Slide[] = [
 
           <div className="rounded-xl border-2 border-amber-200 bg-amber-50/30 p-6">
             <h4 className="mb-1 text-xs font-bold uppercase tracking-wider text-amber-600">
-              Layer 3: Preference Match (0-20 pts)
+              Layer 3: Preference Alignment (0-20 pts)
             </h4>
             <div className="mt-4 space-y-2">
               {[
@@ -501,7 +501,7 @@ const slides: Slide[] = [
               phase: "Phase 3: Talent Drop",
               status: "Next",
               items: [
-                "AI matching scores every candidate-role pair",
+                "AI scores every candidate for role readiness",
                 "Weekly curated delivery to subscribing FQHCs",
                 "Claim/pass feedback improves algorithm",
                 "Network effect compounds weekly",
@@ -568,7 +568,7 @@ const slides: Slide[] = [
             <div className="mt-4 rounded-lg bg-white p-3">
               <p className="text-xs font-bold text-green-700">In Talent Drop:</p>
               <p className="mt-1 text-xs text-stone-600">
-                Full profile, scores, match explanation, salary data. Priority placement.
+                Full profile, scores, readiness analysis, salary data. Priority delivery.
               </p>
             </div>
           </div>
@@ -603,7 +603,7 @@ const slides: Slide[] = [
             <h4 className="text-lg font-bold text-stone-900">Developing</h4>
             <p className="mt-2 text-sm leading-relaxed text-stone-600">
               Career changers or entry-level. Need significant development
-              before placement. Routed to training resources.
+              before employer access. Routed to training resources.
             </p>
             <div className="mt-4 rounded-lg bg-white p-3">
               <p className="text-xs font-bold text-stone-600">Not in Talent Drop:</p>
@@ -651,9 +651,9 @@ const slides: Slide[] = [
               FQHC Talent Exchange
             </h4>
             <div className="mt-4 space-y-2 text-sm text-stone-700">
-              <p>Subscription + per-placement</p>
+              <p>Subscription + per-hire</p>
               <p>= <strong className="text-teal-700">$5,000 - $8,000</strong> per hire (all-in)</p>
-              <p className="text-xs text-stone-500">Pre-assessed. Culturally matched. FQHC-specific. 90-day retention tracked.</p>
+              <p className="text-xs text-stone-500">Pre-assessed. Culturally aligned. FQHC-specific. 90-day retention tracked.</p>
             </div>
           </div>
         </div>
@@ -664,7 +664,7 @@ const slides: Slide[] = [
               tier: "Explorer",
               price: "Free",
               period: "forever",
-              features: ["Job board access", "FQHC directory + profiles", "Market intelligence", "See Talent Drop match counts (not profiles)"],
+              features: ["Job board access", "FQHC directory + profiles", "Market intelligence", "See Talent Drop candidate counts (not profiles)"],
               color: "border-stone-300",
               badge: "bg-stone-100 text-stone-700",
             },
@@ -784,7 +784,7 @@ const slides: Slide[] = [
             <div className="mt-4 rounded-lg bg-stone-50 p-4">
               <p className="text-xs leading-relaxed text-stone-600">
                 <strong>Bottom-up:</strong> 270 CA health centers &times; avg. 15
-                placements/year &times; $2,100 avg. revenue per placement = $8.5M
+                hires/year &times; $2,100 avg. revenue per hire = $8.5M
                 addressable in California alone.
               </p>
             </div>
@@ -818,10 +818,10 @@ const slides: Slide[] = [
             <div className="space-y-3">
               {[
                 { ch: "SEO Content", desc: "13 blog articles, FQHC directory, salary data — all ranking for FQHC career queries" },
-                { ch: "Displaced Worker Pipeline", desc: "Free career tools + priority intake captures displaced workers. 2,600+ tracked across 15 layoff events." },
+                { ch: "Displaced Worker Pipeline", desc: "Free career tools, aggregated job postings, and strategic resources for displaced workers. 2,600+ tracked across 15 layoff events." },
                 { ch: "Free Resume Builder", desc: "FQHC-optimized templates capture structured profile data + assessment scores" },
                 { ch: "Community Partners", desc: "CPCA, unions (NUHW, SEIU), workforce development boards, CHW associations" },
-                { ch: "Word of Mouth", desc: "Placed candidates refer colleagues. FQHCs recommend to displaced staff." },
+                { ch: "Word of Mouth", desc: "Candidates refer colleagues. FQHCs recommend to displaced staff." },
               ].map((item) => (
                 <div key={item.ch} className="rounded-lg bg-stone-50 p-3">
                   <p className="text-sm font-semibold text-stone-900">{item.ch}</p>
@@ -839,8 +839,8 @@ const slides: Slide[] = [
             <div className="space-y-3">
               {[
                 { ch: "Free Value First", desc: "Market intelligence, job posting builder, salary benchmarks — give value before asking for money" },
-                { ch: "Manual First Placement", desc: "Identify 1 FQHC with urgent need. Match from our pipeline. Prove the model with a real hire." },
-                { ch: "Warm Outreach to 10 FQHCs", desc: "Target HR directors at high-vulnerability FQHCs with specific candidate matches ready" },
+                { ch: "Manual First Introduction", desc: "Identify 1 FQHC with urgent need. Introduce candidates from our pipeline. Prove the model with a real hire." },
+                { ch: "Warm Outreach to 10 FQHCs", desc: "Target HR directors at high-vulnerability FQHCs with strategic intelligence and candidate data" },
                 { ch: "Talent Drop Pilot", desc: "3 FQHCs get 4-week free trial. Weekly candidate drops. Convert to paid subscription." },
                 { ch: "CPCA Conference Demo", desc: "Present at CPCA Annual Conference. 200+ health center leaders in one room." },
               ].map((item) => (
@@ -880,7 +880,7 @@ const slides: Slide[] = [
                 "Ship Talent Drop MVP",
                 "10 employer outreach calls",
                 "50 candidate profiles collected",
-                "First manual match attempt",
+                "First manual introduction",
               ],
               color: "border-teal-300 bg-teal-50",
             },
@@ -888,7 +888,7 @@ const slides: Slide[] = [
               phase: "Weeks 5-8",
               title: "First Revenue",
               items: [
-                "First paid placement",
+                "First paid hire",
                 "3 employer pilot agreements",
                 "100 candidate profiles",
                 "Weekly Drop cadence begins",
@@ -1007,14 +1007,14 @@ const slides: Slide[] = [
             },
             {
               phase: "Phase 4",
-              title: "Matching & Revenue",
+              title: "Intelligence & Revenue",
               status: "building",
               items: [
-                "AI Matching Engine",
+                "AI Scoring Engine",
                 "Talent Drop (weekly delivery)",
                 "Employer Dashboard",
                 "Candidate Pipeline CRM",
-                "Placement Tracking",
+                "Hire Tracking",
               ],
             },
           ].map((phase) => (
@@ -1081,10 +1081,10 @@ const slides: Slide[] = [
           {[
             { value: "500+", label: "Candidate Profiles", desc: "With assessment data in our system by Week 16", icon: FileText, color: "text-teal-600 bg-teal-50" },
             { value: "60%", label: "Assessment Completion", desc: "Of candidates complete full behavioral assessment", icon: Brain, color: "text-purple-600 bg-purple-50" },
-            { value: "<21 days", label: "Time to Placement", desc: "From candidate intake to employer hire", icon: Clock, color: "text-amber-600 bg-amber-50" },
+            { value: "<21 days", label: "Time to Hire", desc: "From candidate intake to employer hire", icon: Clock, color: "text-amber-600 bg-amber-50" },
             { value: "10+", label: "Employer Accounts", desc: "FQHCs actively receiving weekly Talent Drops", icon: Building2, color: "text-teal-600 bg-teal-50" },
-            { value: "$10K", label: "Monthly Recurring Revenue", desc: "MRR by Week 16 — subscriptions + placement fees", icon: DollarSign, color: "text-green-600 bg-green-50" },
-            { value: "85%", label: "90-Day Retention", desc: "Placed candidates still employed after 90 days", icon: Award, color: "text-amber-600 bg-amber-50" },
+            { value: "$10K", label: "Monthly Recurring Revenue", desc: "MRR by Week 16 — subscriptions + per-hire fees", icon: DollarSign, color: "text-green-600 bg-green-50" },
+            { value: "85%", label: "90-Day Retention", desc: "Hired candidates still employed after 90 days", icon: Award, color: "text-amber-600 bg-amber-50" },
           ].map((metric) => (
             <div key={metric.label} className="rounded-xl border border-stone-200 bg-white p-6 text-center">
               <div className={`mx-auto mb-3 flex size-12 items-center justify-center rounded-full ${metric.color}`}>
@@ -1118,8 +1118,8 @@ const slides: Slide[] = [
           </h3>
 
           <h3 className="mt-6 text-2xl font-bold leading-relaxed text-amber-300 sm:text-3xl">
-            We built the only talent platform exclusively for FQHCs. Every Wednesday,
-            our AI delivers the top 10 pre-assessed, mission-aligned candidates for
+            We built the only workforce intelligence platform exclusively for FQHCs. Every Wednesday,
+            we deliver the top 10 pre-assessed, mission-aligned candidates for
             every open role — at 50-70% less than traditional recruiting.&rdquo;
           </h3>
 
@@ -1153,10 +1153,10 @@ const slides: Slide[] = [
 
         <div className="mt-10 space-y-3">
           {[
-            { time: "This Week", action: "Ship Talent Drop MVP. Begin outreach to 10 target FQHCs with specific candidate matches.", status: "active" },
-            { time: "Week 2-4", action: "Collect 50 candidate profiles. First employer pilot conversations. First manual match.", status: "upcoming" },
-            { time: "Week 4-8", action: "First paid placement. 3 FQHCs on weekly Talent Drop pilot. 100 profiles.", status: "upcoming" },
-            { time: "Week 8-12", action: "10+ employer accounts. 250 profiles. Refine AI matching with claim/pass data.", status: "upcoming" },
+            { time: "This Week", action: "Ship Talent Drop MVP. Begin outreach to 10 target FQHCs with strategic intelligence.", status: "active" },
+            { time: "Week 2-4", action: "Collect 50 candidate profiles. First employer pilot conversations. First manual introduction.", status: "upcoming" },
+            { time: "Week 4-8", action: "First paid hire. 3 FQHCs on weekly Talent Drop pilot. 100 profiles.", status: "upcoming" },
+            { time: "Week 8-12", action: "10+ employer accounts. 250 profiles. Refine AI scoring with claim/pass data.", status: "upcoming" },
             { time: "Week 13-16", action: "Hit $10K MRR or kill criteria. Scale decision point.", status: "upcoming" },
             { time: "Month 6+", action: "Expand to 2nd state. Employer dashboard. Series Seed if warranted.", status: "future" },
           ].map((step) => (

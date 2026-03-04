@@ -112,11 +112,11 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "4. Get Specialized Placement Support",
+          text: "4. Use Free Career Tools and Resources",
         },
         {
           type: "paragraph",
-          text: "This is exactly why FQHC Talent Exchange exists. We connect displaced community health workers with FQHCs that are actively hiring — for free. We understand the roles, the programs, and the EHR systems. We don't just list jobs — we advocate for candidates and make direct introductions to hiring managers. Our goal is to get you in front of the right employer within 5 days.",
+          text: "This is exactly why FQHC Talent Exchange exists. We provide free career tools, aggregated job postings from 220+ California FQHCs, salary intelligence, and strategic resources — all designed specifically for community health professionals. We understand the roles, the programs, and the EHR systems. Our resume builder, career assessment, and FQHC directory help you compare opportunities and find the right fit.",
         },
       ],
     },

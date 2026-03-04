@@ -254,8 +254,8 @@ export default function ForJobSeekers() {
                 },
                 {
                   icon: Rocket,
-                  title: "5-Day Intro Guarantee",
-                  body: "We aim to introduce you to a matching FQHC within five business days.",
+                  title: "Explore Opportunities",
+                  body: "Browse aggregated job postings from 220+ California FQHCs and compare opportunities side by side.",
                 },
               ].map((item) => (
                 <div
@@ -322,7 +322,7 @@ export default function ForJobSeekers() {
             <p className="text-xs sm:text-sm text-stone-600">
               {locale === "es"
                 ? "Herramientas gratis + admisi\u00f3n prioritaria para profesionales desplazados \u2192"
-                : "Free tools + priority intake for displaced professionals \u2192"}
+                : "Free career tools, job postings, and resources for displaced professionals →"}
             </p>
           </div>
           <ArrowRight className="size-5 shrink-0 text-stone-400 transition-transform group-hover:translate-x-1" />

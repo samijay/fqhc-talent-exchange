@@ -96,13 +96,13 @@ export const pageMetadata = {
   },
   forJobSeekers: {
     title:
-      "For Job Seekers | Free FQHC Job Placement & Career Support",
+      "For Job Seekers | Free FQHC Career Tools & Resources",
     description:
-      "Get matched with FQHC jobs across California — completely free. We advocate for community health workers, care coordinators, and clinic professionals with personalized placement support.",
+      "Explore FQHC jobs across California with free career tools — resume builder, career assessment, salary data, aggregated job postings, and strategic insights for community health professionals.",
     openGraph: {
       title: "For Job Seekers — FQHC Talent Exchange",
       description:
-        "Free job placement for community health professionals. Get your first employer introduction in 5 days.",
+        "Free career tools for community health professionals. Resume builder, salary intelligence, and 220+ FQHC profiles.",
       url: `${SITE_URL}/for-job-seekers`,
     },
     alternates: { canonical: `${SITE_URL}/for-job-seekers` },
@@ -114,7 +114,7 @@ export const pageMetadata = {
     openGraph: {
       title: "For Employers — FQHC Talent Exchange",
       description:
-        "Pre-vetted FQHC talent. Average 21-day placement. We know community health staffing.",
+        "FQHC workforce intelligence, strategic insights, and career tools. We know community health staffing.",
       url: `${SITE_URL}/for-employers`,
     },
     alternates: { canonical: `${SITE_URL}/for-employers` },
@@ -423,11 +423,11 @@ export const pageMetadata = {
   strategyOffboarding: {
     title: "Workforce Transition Toolkit for FQHCs | Turn Layoffs Into Soft Landings",
     description:
-      "Help your displaced workers land new FQHC roles. Three service tiers: free self-serve career tools, managed transition ($500–$1,500), and dedicated placement ($2,000–$5,000). California-focused.",
+      "Help your displaced workers navigate transitions. Free self-serve career tools, aggregated job postings across 220+ California FQHCs, strategic insights, and workforce intelligence.",
     openGraph: {
       title: "FQHC Workforce Transition Toolkit — FQHC Talent Exchange",
       description:
-        "Turn layoffs into transitions. Free career tools + managed placement for displaced community health workers.",
+        "Turn layoffs into transitions. Free career tools, aggregated job postings, and strategic resources for displaced community health workers.",
       url: `${SITE_URL}/strategy/offboarding`,
     },
     alternates: { canonical: `${SITE_URL}/strategy/offboarding` },

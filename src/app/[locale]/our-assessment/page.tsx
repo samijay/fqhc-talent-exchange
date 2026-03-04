@@ -694,7 +694,7 @@ export default function OurAssessmentPage() {
                   { en: "Growth-oriented feedback — no pass/fail judgments", es: "Retroalimentación orientada al crecimiento — sin juicios de aprobado/reprobado" },
                   { en: "Customized 30/60/90-day plan for your next role", es: "Plan personalizado de 30/60/90 días para tu próximo rol" },
                   { en: "Career roadmap based on your strengths", es: "Trayectoria profesional basada en tus fortalezas" },
-                  { en: "Score 60%+ and qualify for The Drop (exclusive matching)", es: "Obtén 60%+ y califica para The Drop (matching exclusivo)" },
+                  { en: "Explore 220+ FQHC profiles with salary data and job postings", es: "Explora 220+ perfiles de FQHCs con datos salariales y ofertas de empleo" },
                 ].map((item, i) => (
                   <li
                     key={i}
