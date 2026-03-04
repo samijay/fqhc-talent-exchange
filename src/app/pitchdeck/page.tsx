@@ -78,7 +78,7 @@ const slides: Slide[] = [
           <div className="mb-6 inline-flex items-center gap-3">
             <Heart className="size-12 fill-teal-700 text-teal-700" />
             <span className="text-4xl font-extrabold tracking-tight text-stone-900 sm:text-5xl">
-              FQHC <span className="text-teal-700">Talent Exchange</span>
+              FQHC <span className="text-teal-700">Talent</span>
             </span>
           </div>
 
@@ -233,7 +233,7 @@ const slides: Slide[] = [
         <div className="mt-6 rounded-xl bg-teal-50 p-5">
           <h4 className="flex items-center gap-2 text-sm font-bold text-teal-700">
             <CheckCircle2 className="size-4" />
-            FQHC Talent Exchange: The Only FQHC-Native Solution
+            FQHC Talent: The Only FQHC-Native Solution
           </h4>
           <p className="mt-2 text-sm leading-relaxed text-stone-700">
             Purpose-built for community health. Every feature — from career assessment to
@@ -648,7 +648,7 @@ const slides: Slide[] = [
           <div className="rounded-xl border-2 border-teal-300 bg-teal-50 p-6">
             <h4 className="flex items-center gap-2 text-lg font-bold text-teal-700">
               <CheckCircle2 className="size-5" />
-              FQHC Talent Exchange
+              FQHC Talent
             </h4>
             <div className="mt-4 space-y-2 text-sm text-stone-700">
               <p>Subscription + per-hire</p>
@@ -1192,7 +1192,7 @@ const slides: Slide[] = [
           <div className="mb-4 inline-flex items-center gap-3">
             <Heart className="size-8 fill-teal-700 text-teal-700" />
             <span className="text-2xl font-extrabold tracking-tight text-stone-900">
-              FQHC <span className="text-teal-700">Talent Exchange</span>
+              FQHC <span className="text-teal-700">Talent</span>
             </span>
           </div>
           <p className="mt-3 text-lg font-bold text-teal-700">fqhctalent.com</p>

@@ -25,15 +25,15 @@ const enContent: TermsContent = {
     {
       heading: "1. Acceptance of Terms",
       paragraphs: [
-        "By accessing or using FQHC Talent Exchange (fqhctalent.com), you agree to be bound by these Terms of Service (\"Terms\"). If you do not agree to these Terms, please do not use our website or services.",
-        "These Terms constitute a legally binding agreement between you and FQHC Talent Exchange. We may update these Terms from time to time. When we make material changes, we will update the \"Last updated\" date at the top of this page and, where possible, notify registered users by email. Continued use of the site after changes are posted constitutes your acceptance of the revised Terms.",
+        "By accessing or using FQHC Talent (fqhctalent.com), you agree to be bound by these Terms of Service (\"Terms\"). If you do not agree to these Terms, please do not use our website or services.",
+        "These Terms constitute a legally binding agreement between you and FQHC Talent. We may update these Terms from time to time. When we make material changes, we will update the \"Last updated\" date at the top of this page and, where possible, notify registered users by email. Continued use of the site after changes are posted constitutes your acceptance of the revised Terms.",
         "If any provision of these Terms is found to be unenforceable by a court of competent jurisdiction, the remaining provisions will continue in full force and effect.",
       ],
     },
     {
       heading: "2. Description of Service",
       paragraphs: [
-        "FQHC Talent Exchange is a free online platform that connects community health professionals with job opportunities at Federally Qualified Health Centers (FQHCs) across California. Our services include a job listings directory, an FQHC directory, a resume builder tool, a career assessment tool, a job posting builder tool, career resources and blog content, and waitlist registration for candidates and employers.",
+        "FQHC Talent is a free online platform that connects community health professionals with job opportunities at Federally Qualified Health Centers (FQHCs) across California. Our services include a job listings directory, an FQHC directory, a resume builder tool, a career assessment tool, a job posting builder tool, career resources and blog content, and waitlist registration for candidates and employers.",
         "Important: We are a career resource and workforce intelligence platform. We are not a staffing agency, employment agency, employer, recruiter, or placement service. We do not directly employ, hire, fire, manage, supervise, or place candidates at any FQHC or other organization. We do not make hiring decisions, conduct background checks, verify credentials, or guarantee employment outcomes.",
         "All employment relationships are solely between the candidate and the hiring FQHC. We provide free career tools, aggregated job postings, and strategic resources but have no involvement in or control over the terms, conditions, or decisions of employment.",
       ],
@@ -41,14 +41,14 @@ const enContent: TermsContent = {
     {
       heading: "3. User Eligibility",
       paragraphs: [
-        "FQHC Talent Exchange is intended for use by adults aged 18 and older who are seeking employment or hiring talent in the community health sector. By using our platform, you represent that you are at least 18 years of age.",
+        "FQHC Talent is intended for use by adults aged 18 and older who are seeking employment or hiring talent in the community health sector. By using our platform, you represent that you are at least 18 years of age.",
         "If you are using the platform on behalf of an organization (such as an FQHC or healthcare employer), you represent that you have the authority to bind that organization to these Terms.",
       ],
     },
     {
       heading: "4. User Accounts and Registration",
       paragraphs: [
-        "FQHC Talent Exchange currently operates with waitlist-based registration for both candidates and employers. There are no formal user accounts at this time. When you sign up for our candidate or employer waitlist, displaced worker fast-track program, or use our resume builder, you provide information voluntarily.",
+        "FQHC Talent currently operates with waitlist-based registration for both candidates and employers. There are no formal user accounts at this time. When you sign up for our candidate or employer waitlist, displaced worker fast-track program, or use our resume builder, you provide information voluntarily.",
         "You are responsible for ensuring that any information you provide — including your name, email address, professional experience, certifications, licensure status, and other details — is accurate, complete, and up to date. You agree not to register using false, misleading, or another person's information.",
         "You agree not to create multiple accounts or registrations for the purpose of circumventing platform rules, rate limits, or for any deceptive purpose.",
       ],
@@ -56,7 +56,7 @@ const enContent: TermsContent = {
     {
       heading: "5. User Responsibilities and Prohibited Conduct",
       paragraphs: [
-        "When using FQHC Talent Exchange, you agree to the following:",
+        "When using FQHC Talent, you agree to the following:",
         "You will provide accurate, truthful information about your qualifications, experience, and professional background. You will not misrepresent your credentials, certifications, licensure status, education, or work history. Misrepresentation of professional qualifications in the healthcare field can have serious consequences, and you bear sole responsibility for the accuracy of the information you provide.",
         "You will use the platform for its intended purpose: exploring career opportunities at FQHCs, building your resume, taking career assessments, creating job postings, or connecting with community health talent as an employer.",
         "You will not use the platform for any unlawful purpose, to harass, threaten, or harm others, to distribute spam, malware, or unsolicited communications, to scrape or harvest data from our platform, or to attempt to gain unauthorized access to our systems, databases, or other users' information.",
@@ -68,16 +68,16 @@ const enContent: TermsContent = {
     {
       heading: "6. Intellectual Property",
       paragraphs: [
-        "All content on FQHC Talent Exchange — including text, graphics, logos, page layouts, blog articles, career guides, resume templates, assessment questions, job posting templates, salary benchmarks, data compilations, and the overall design and structure of the site — is the property of FQHC Talent Exchange or its content contributors and is protected by applicable intellectual property laws, including copyright and trademark laws.",
+        "All content on FQHC Talent — including text, graphics, logos, page layouts, blog articles, career guides, resume templates, assessment questions, job posting templates, salary benchmarks, data compilations, and the overall design and structure of the site — is the property of FQHC Talent or its content contributors and is protected by applicable intellectual property laws, including copyright and trademark laws.",
         "You may not copy, reproduce, distribute, publish, display, create derivative works from, or commercially exploit our content without prior written permission. Personal, non-commercial use of the site (such as reading articles, building your own resume, or taking the career assessment) is permitted under normal use.",
-        "You retain ownership of the personal and professional information you submit to our platform (such as your resume data, work history, and profile information). By submitting this information, you grant FQHC Talent Exchange a non-exclusive, worldwide, royalty-free license to use, store, and process this information for the purposes described in our Privacy Policy — specifically, to provide our career tools and resume building services.",
+        "You retain ownership of the personal and professional information you submit to our platform (such as your resume data, work history, and profile information). By submitting this information, you grant FQHC Talent a non-exclusive, worldwide, royalty-free license to use, store, and process this information for the purposes described in our Privacy Policy — specifically, to provide our career tools and resume building services.",
         "This license does not give us the right to sell your personal information or use it for purposes unrelated to our platform services.",
       ],
     },
     {
       heading: "7. Job Listings, FQHC Information, and Salary Data",
       paragraphs: [
-        "FQHC Talent Exchange displays job listings, organizational information, and salary benchmarks about Federally Qualified Health Centers across California. While we make every effort to keep this information accurate and current, we do not guarantee the accuracy, completeness, timeliness, or availability of any job listing, FQHC data, salary range, or other information displayed on our platform.",
+        "FQHC Talent displays job listings, organizational information, and salary benchmarks about Federally Qualified Health Centers across California. While we make every effort to keep this information accurate and current, we do not guarantee the accuracy, completeness, timeliness, or availability of any job listing, FQHC data, salary range, or other information displayed on our platform.",
         "Job listings may reflect positions that have been filled, modified, or removed since they were last updated. Salary ranges, benefits, and other compensation details are provided as estimates based on publicly available information and general market data. They may not reflect the exact terms offered by any specific employer and should not be relied upon as the basis for employment negotiations or financial decisions.",
         "FQHC profiles, including Glassdoor ratings, program information, and organizational data, are compiled from public sources and may not reflect the most current information. We are not affiliated with or endorsed by any FQHC listed on our platform unless explicitly stated.",
         "We encourage all users to verify job details, salary information, and organizational data directly with the hiring FQHC before making career decisions based on information found on our platform.",
@@ -97,13 +97,13 @@ const enContent: TermsContent = {
       paragraphs: [
         "Our job posting builder tool is provided as a free resource to help FQHCs and healthcare employers create job postings. Salary benchmarks and compensation data included in the tool are estimates based on publicly available market data.",
         "Employers are solely responsible for ensuring that their job postings comply with all applicable federal, state, and local laws, including but not limited to equal employment opportunity laws, the California Fair Employment and Housing Act (FEHA), California pay transparency requirements (SB 1162), and the Americans with Disabilities Act (ADA).",
-        "FQHC Talent Exchange does not review, approve, or endorse any job posting created using our tool. We are not liable for the content of job postings, hiring decisions, or employment terms established by employers using our platform.",
+        "FQHC Talent does not review, approve, or endorse any job posting created using our tool. We are not liable for the content of job postings, hiring decisions, or employment terms established by employers using our platform.",
       ],
     },
     {
       heading: "10. Data Use and Privacy",
       paragraphs: [
-        "Your use of FQHC Talent Exchange is also governed by our Privacy Policy, which explains how we collect, use, share, and protect your personal information. By using our platform, you acknowledge that you have read and understood our Privacy Policy.",
+        "Your use of FQHC Talent is also governed by our Privacy Policy, which explains how we collect, use, share, and protect your personal information. By using our platform, you acknowledge that you have read and understood our Privacy Policy.",
         "By submitting your information through our platform (including waitlist signups, resume profiles, and employer registrations), you consent to our collection and use of that information as described in our Privacy Policy. This includes sharing your professional profile with FQHC employers when you have opted in to be considered for job opportunities.",
         "You may request deletion of your data at any time by contacting us at privacy@fqhctalent.com. We will process your request within 45 days as required by California law.",
       ],
@@ -133,7 +133,7 @@ const enContent: TermsContent = {
     {
       heading: "13. Indemnification",
       paragraphs: [
-        "You agree to defend, indemnify, and hold harmless the FQHC Talent Exchange Parties from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from or related to:",
+        "You agree to defend, indemnify, and hold harmless the FQHC Talent Parties from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from or related to:",
         "(a) Your use of or access to the platform; (b) Your violation of these Terms; (c) Your violation of any third-party rights, including intellectual property rights or privacy rights; (d) Any content or information you submit to the platform, including but not limited to resume data, professional claims, and employer information; (e) Any misrepresentation of your qualifications, credentials, or professional background; (f) Any employment disputes between you and an employer connected through the platform.",
         "This indemnification obligation will survive the termination of these Terms and your use of the platform.",
       ],
@@ -151,7 +151,7 @@ const enContent: TermsContent = {
     {
       heading: "15. No Employment Relationship",
       paragraphs: [
-        "Nothing in these Terms or your use of FQHC Talent Exchange creates an employment, agency, partnership, joint venture, or franchise relationship between you and FQHC Talent Exchange.",
+        "Nothing in these Terms or your use of FQHC Talent creates an employment, agency, partnership, joint venture, or franchise relationship between you and FQHC Talent.",
         "We are not a party to any employment contract between candidates and employers. We do not control or have any obligation with respect to: job offers or hiring decisions made by employers, the terms and conditions of any employment, workplace conduct or workplace safety, compensation, benefits, or employment disputes, compliance with employment laws by any employer.",
         "Candidates are solely responsible for evaluating the suitability and legitimacy of any job opportunity. Employers are solely responsible for compliance with all applicable employment laws, including but not limited to equal employment opportunity laws, wage and hour laws, immigration laws, and workplace safety regulations.",
       ],
@@ -159,7 +159,7 @@ const enContent: TermsContent = {
     {
       heading: "16. Third-Party Content and Links",
       paragraphs: [
-        "Our platform may contain links to third-party websites, including FQHC careers pages, job application portals, and external resources. These links are provided for convenience only and do not constitute an endorsement, sponsorship, or recommendation by FQHC Talent Exchange.",
+        "Our platform may contain links to third-party websites, including FQHC careers pages, job application portals, and external resources. These links are provided for convenience only and do not constitute an endorsement, sponsorship, or recommendation by FQHC Talent.",
         "We have no control over and are not responsible for the content, privacy practices, terms of service, or availability of any third-party website. Your interactions with third-party websites are governed by those sites' own terms and policies.",
         "If you encounter a link on our platform that you believe is inappropriate, broken, or potentially harmful, please report it to info@fqhctalent.com.",
       ],
@@ -167,7 +167,7 @@ const enContent: TermsContent = {
     {
       heading: "17. Termination",
       paragraphs: [
-        "We reserve the right to suspend or terminate your access to FQHC Talent Exchange at any time, with or without notice, for conduct that we determine, in our sole discretion, violates these Terms, is harmful to other users, third parties, or the platform, or is otherwise objectionable.",
+        "We reserve the right to suspend or terminate your access to FQHC Talent at any time, with or without notice, for conduct that we determine, in our sole discretion, violates these Terms, is harmful to other users, third parties, or the platform, or is otherwise objectionable.",
         "This includes, but is not limited to: providing false or misleading information, misrepresenting qualifications or credentials, engaging in abusive, harassing, or discriminatory behavior, scraping or harvesting data, distributing spam, and attempting to circumvent security measures or rate limits.",
         "Upon termination, your right to use the platform ceases immediately. Provisions of these Terms that by their nature should survive termination (including but not limited to Sections 11-14, 15, and 19) will continue in effect after termination.",
       ],
@@ -175,7 +175,7 @@ const enContent: TermsContent = {
     {
       heading: "18. Force Majeure",
       paragraphs: [
-        "FQHC Talent Exchange shall not be liable for any failure or delay in performing its obligations under these Terms due to circumstances beyond its reasonable control, including but not limited to: natural disasters, pandemics, acts of government, internet service disruptions, power outages, cyberattacks, or failures of third-party service providers.",
+        "FQHC Talent shall not be liable for any failure or delay in performing its obligations under these Terms due to circumstances beyond its reasonable control, including but not limited to: natural disasters, pandemics, acts of government, internet service disruptions, power outages, cyberattacks, or failures of third-party service providers.",
       ],
     },
     {
@@ -188,7 +188,7 @@ const enContent: TermsContent = {
     {
       heading: "20. Entire Agreement and Severability",
       paragraphs: [
-        "These Terms, together with our Privacy Policy, constitute the entire agreement between you and FQHC Talent Exchange regarding your use of the platform and supersede any prior agreements or understandings.",
+        "These Terms, together with our Privacy Policy, constitute the entire agreement between you and FQHC Talent regarding your use of the platform and supersede any prior agreements or understandings.",
         "If any provision of these Terms is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the validity, legality, and enforceability of the remaining provisions shall not be affected or impaired. The unenforceable provision will be modified to the minimum extent necessary to make it enforceable while preserving the original intent.",
         "Our failure to enforce any right or provision of these Terms shall not be considered a waiver of that right or provision.",
       ],
@@ -214,15 +214,15 @@ const esContent: TermsContent = {
     {
       heading: "1. Aceptación de los Términos",
       paragraphs: [
-        "Al acceder o utilizar FQHC Talent Exchange (fqhctalent.com), usted acepta estar sujeto a estos Términos de Servicio (\"Términos\"). Si no está de acuerdo con estos Términos, por favor no utilice nuestro sitio web ni nuestros servicios.",
-        "Estos Términos constituyen un acuerdo legalmente vinculante entre usted y FQHC Talent Exchange. Podemos actualizar estos Términos de vez en cuando. Cuando realicemos cambios importantes, actualizaremos la fecha de \"Última actualización\" en la parte superior de esta página y, cuando sea posible, notificaremos a los usuarios registrados por correo electrónico. El uso continuado del sitio después de que se publiquen cambios constituye su aceptación de los Términos revisados.",
+        "Al acceder o utilizar FQHC Talent (fqhctalent.com), usted acepta estar sujeto a estos Términos de Servicio (\"Términos\"). Si no está de acuerdo con estos Términos, por favor no utilice nuestro sitio web ni nuestros servicios.",
+        "Estos Términos constituyen un acuerdo legalmente vinculante entre usted y FQHC Talent. Podemos actualizar estos Términos de vez en cuando. Cuando realicemos cambios importantes, actualizaremos la fecha de \"Última actualización\" en la parte superior de esta página y, cuando sea posible, notificaremos a los usuarios registrados por correo electrónico. El uso continuado del sitio después de que se publiquen cambios constituye su aceptación de los Términos revisados.",
         "Si alguna disposición de estos Términos resulta inaplicable por un tribunal competente, las disposiciones restantes seguirán en pleno vigor y efecto.",
       ],
     },
     {
       heading: "2. Descripción del Servicio",
       paragraphs: [
-        "FQHC Talent Exchange es una plataforma en línea gratuita que conecta a profesionales de salud comunitaria con oportunidades de empleo en Centros de Salud Calificados Federalmente (FQHCs) en toda California. Nuestros servicios incluyen un directorio de ofertas de trabajo, un directorio de FQHCs, una herramienta para crear currículos, una herramienta de evaluación de carrera, una herramienta para crear publicaciones de empleo, recursos de carrera y contenido de blog, y registro en lista de espera para candidatos y empleadores.",
+        "FQHC Talent es una plataforma en línea gratuita que conecta a profesionales de salud comunitaria con oportunidades de empleo en Centros de Salud Calificados Federalmente (FQHCs) en toda California. Nuestros servicios incluyen un directorio de ofertas de trabajo, un directorio de FQHCs, una herramienta para crear currículos, una herramienta de evaluación de carrera, una herramienta para crear publicaciones de empleo, recursos de carrera y contenido de blog, y registro en lista de espera para candidatos y empleadores.",
         "Importante: Somos una plataforma de conexión laboral y recursos de carrera. No somos una agencia de personal, agencia de empleo, empleador, reclutador ni servicio de colocación. No empleamos, contratamos, despedimos, gestionamos, supervisamos ni colocamos directamente a candidatos en ningún FQHC u otra organización. No tomamos decisiones de contratación, realizamos verificaciones de antecedentes, verificamos credenciales ni garantizamos resultados de empleo.",
         "Todas las relaciones laborales son exclusivamente entre el candidato y el FQHC contratante. Facilitamos presentaciones pero no tenemos participación ni control sobre los términos, condiciones o decisiones de empleo.",
       ],
@@ -230,14 +230,14 @@ const esContent: TermsContent = {
     {
       heading: "3. Elegibilidad del Usuario",
       paragraphs: [
-        "FQHC Talent Exchange está destinado para uso por adultos de 18 años o más que buscan empleo o contratar talento en el sector de salud comunitaria. Al usar nuestra plataforma, usted declara que tiene al menos 18 años de edad.",
+        "FQHC Talent está destinado para uso por adultos de 18 años o más que buscan empleo o contratar talento en el sector de salud comunitaria. Al usar nuestra plataforma, usted declara que tiene al menos 18 años de edad.",
         "Si utiliza la plataforma en nombre de una organización (como un FQHC o empleador de salud), usted declara que tiene la autoridad para vincular a esa organización a estos Términos.",
       ],
     },
     {
       heading: "4. Cuentas de Usuario y Registro",
       paragraphs: [
-        "FQHC Talent Exchange actualmente opera con registro basado en lista de espera tanto para candidatos como para empleadores. No hay cuentas de usuario formales en este momento. Cuando se registra en nuestra lista de espera de candidatos o empleadores, programa de vía rápida para trabajadores desplazados, o utiliza nuestro creador de currículos, usted proporciona información voluntariamente.",
+        "FQHC Talent actualmente opera con registro basado en lista de espera tanto para candidatos como para empleadores. No hay cuentas de usuario formales en este momento. Cuando se registra en nuestra lista de espera de candidatos o empleadores, programa de vía rápida para trabajadores desplazados, o utiliza nuestro creador de currículos, usted proporciona información voluntariamente.",
         "Usted es responsable de asegurar que cualquier información que proporcione — incluyendo su nombre, dirección de correo electrónico, experiencia profesional, certificaciones, estado de licencia y otros detalles — sea precisa, completa y esté actualizada. Usted acepta no registrarse utilizando información falsa, engañosa o de otra persona.",
         "Usted acepta no crear múltiples cuentas o registros con el propósito de eludir las reglas de la plataforma, límites de velocidad o con cualquier propósito engañoso.",
       ],
@@ -245,7 +245,7 @@ const esContent: TermsContent = {
     {
       heading: "5. Responsabilidades del Usuario y Conducta Prohibida",
       paragraphs: [
-        "Al utilizar FQHC Talent Exchange, usted acepta lo siguiente:",
+        "Al utilizar FQHC Talent, usted acepta lo siguiente:",
         "Proporcionará información precisa y veraz sobre sus calificaciones, experiencia y antecedentes profesionales. No tergiversará sus credenciales, certificaciones, estado de licencia, educación ni historial laboral. La tergiversación de calificaciones profesionales en el campo de la salud puede tener consecuencias graves, y usted asume la responsabilidad exclusiva de la exactitud de la información que proporciona.",
         "Utilizará la plataforma para su propósito previsto: explorar oportunidades de carrera en FQHCs, crear su currículum, realizar evaluaciones de carrera, crear publicaciones de empleo o conectarse con talento de salud comunitaria como empleador.",
         "No utilizará la plataforma para ningún propósito ilegal, para acosar, amenazar o dañar a otros, para distribuir spam, malware o comunicaciones no solicitadas, para extraer o recopilar datos de nuestra plataforma, ni para intentar obtener acceso no autorizado a nuestros sistemas, bases de datos o información de otros usuarios.",
@@ -257,16 +257,16 @@ const esContent: TermsContent = {
     {
       heading: "6. Propiedad Intelectual",
       paragraphs: [
-        "Todo el contenido en FQHC Talent Exchange — incluyendo texto, gráficos, logotipos, diseños de página, artículos de blog, guías de carrera, plantillas de currículum, preguntas de evaluación, plantillas de publicación de empleo, datos salariales de referencia, compilaciones de datos y el diseño y estructura general del sitio — es propiedad de FQHC Talent Exchange o sus colaboradores de contenido y está protegido por las leyes de propiedad intelectual aplicables, incluyendo leyes de derechos de autor y marcas registradas.",
+        "Todo el contenido en FQHC Talent — incluyendo texto, gráficos, logotipos, diseños de página, artículos de blog, guías de carrera, plantillas de currículum, preguntas de evaluación, plantillas de publicación de empleo, datos salariales de referencia, compilaciones de datos y el diseño y estructura general del sitio — es propiedad de FQHC Talent o sus colaboradores de contenido y está protegido por las leyes de propiedad intelectual aplicables, incluyendo leyes de derechos de autor y marcas registradas.",
         "No puede copiar, reproducir, distribuir, publicar, mostrar, crear obras derivadas ni explotar comercialmente nuestro contenido sin permiso previo por escrito. El uso personal y no comercial del sitio (como leer artículos, crear su propio currículum o tomar la evaluación de carrera) está permitido bajo uso normal.",
-        "Usted conserva la propiedad de la información personal y profesional que envía a nuestra plataforma (como datos de currículum, historial laboral e información de perfil). Al enviar esta información, usted otorga a FQHC Talent Exchange una licencia no exclusiva, mundial y libre de regalías para usar, almacenar y procesar esta información para los propósitos descritos en nuestra Política de Privacidad — específicamente, para proporcionar nuestros servicios de conexión laboral y creación de currículos.",
+        "Usted conserva la propiedad de la información personal y profesional que envía a nuestra plataforma (como datos de currículum, historial laboral e información de perfil). Al enviar esta información, usted otorga a FQHC Talent una licencia no exclusiva, mundial y libre de regalías para usar, almacenar y procesar esta información para los propósitos descritos en nuestra Política de Privacidad — específicamente, para proporcionar nuestros servicios de conexión laboral y creación de currículos.",
         "Esta licencia no nos da el derecho de vender su información personal ni usarla para propósitos no relacionados con los servicios de nuestra plataforma.",
       ],
     },
     {
       heading: "7. Ofertas de Trabajo, Información de FQHCs y Datos Salariales",
       paragraphs: [
-        "FQHC Talent Exchange muestra ofertas de trabajo, información organizacional y datos salariales de referencia sobre Centros de Salud Calificados Federalmente en toda California. Aunque hacemos todo lo posible por mantener esta información precisa y actualizada, no garantizamos la exactitud, integridad, oportunidad o disponibilidad de ninguna oferta de trabajo, datos de FQHC, rango salarial u otra información mostrada en nuestra plataforma.",
+        "FQHC Talent muestra ofertas de trabajo, información organizacional y datos salariales de referencia sobre Centros de Salud Calificados Federalmente en toda California. Aunque hacemos todo lo posible por mantener esta información precisa y actualizada, no garantizamos la exactitud, integridad, oportunidad o disponibilidad de ninguna oferta de trabajo, datos de FQHC, rango salarial u otra información mostrada en nuestra plataforma.",
         "Las ofertas de trabajo pueden reflejar posiciones que se han cubierto, modificado o eliminado desde su última actualización. Los rangos salariales, beneficios y otros detalles de compensación se proporcionan como estimaciones basadas en información disponible públicamente y datos generales del mercado. Pueden no reflejar los términos exactos ofrecidos por ningún empleador específico y no deben utilizarse como base para negociaciones de empleo o decisiones financieras.",
         "Los perfiles de FQHC, incluyendo calificaciones de Glassdoor, información de programas y datos organizacionales, se compilan de fuentes públicas y pueden no reflejar la información más actual. No estamos afiliados ni respaldados por ningún FQHC listado en nuestra plataforma a menos que se indique explícitamente.",
         "Animamos a todos los usuarios a verificar los detalles del trabajo, información salarial y datos organizacionales directamente con el FQHC contratante antes de tomar decisiones de carrera basadas en información encontrada en nuestra plataforma.",
@@ -286,13 +286,13 @@ const esContent: TermsContent = {
       paragraphs: [
         "Nuestra herramienta de creación de publicaciones de empleo se proporciona como un recurso gratuito para ayudar a los FQHCs y empleadores de salud a crear publicaciones de empleo. Los datos salariales de referencia y la información de compensación incluida en la herramienta son estimaciones basadas en datos de mercado disponibles públicamente.",
         "Los empleadores son los únicos responsables de asegurar que sus publicaciones de empleo cumplan con todas las leyes federales, estatales y locales aplicables, incluyendo pero sin limitarse a las leyes de igualdad de oportunidades de empleo, la Ley de Empleo y Vivienda Justa de California (FEHA), los requisitos de transparencia salarial de California (SB 1162) y la Ley de Estadounidenses con Discapacidades (ADA).",
-        "FQHC Talent Exchange no revisa, aprueba ni respalda ninguna publicación de empleo creada utilizando nuestra herramienta. No somos responsables del contenido de las publicaciones de empleo, las decisiones de contratación ni los términos de empleo establecidos por los empleadores que utilizan nuestra plataforma.",
+        "FQHC Talent no revisa, aprueba ni respalda ninguna publicación de empleo creada utilizando nuestra herramienta. No somos responsables del contenido de las publicaciones de empleo, las decisiones de contratación ni los términos de empleo establecidos por los empleadores que utilizan nuestra plataforma.",
       ],
     },
     {
       heading: "10. Uso de Datos y Privacidad",
       paragraphs: [
-        "Su uso de FQHC Talent Exchange también se rige por nuestra Política de Privacidad, que explica cómo recopilamos, usamos, compartimos y protegemos su información personal. Al utilizar nuestra plataforma, usted reconoce que ha leído y comprendido nuestra Política de Privacidad.",
+        "Su uso de FQHC Talent también se rige por nuestra Política de Privacidad, que explica cómo recopilamos, usamos, compartimos y protegemos su información personal. Al utilizar nuestra plataforma, usted reconoce que ha leído y comprendido nuestra Política de Privacidad.",
         "Al enviar su información a través de nuestra plataforma (incluyendo registros en lista de espera, perfiles de currículum y registros de empleadores), usted consiente nuestra recopilación y uso de esa información según lo descrito en nuestra Política de Privacidad. Esto incluye compartir su perfil profesional con empleadores de FQHC cuando haya dado su consentimiento para ser considerado para oportunidades laborales.",
         "Puede solicitar la eliminación de sus datos en cualquier momento contactándonos en privacy@fqhctalent.com. Procesaremos su solicitud dentro de 45 días según lo requiere la ley de California.",
       ],
@@ -322,7 +322,7 @@ const esContent: TermsContent = {
     {
       heading: "13. Indemnización",
       paragraphs: [
-        "Usted acepta defender, indemnizar y mantener indemnes a las Partes de FQHC Talent Exchange de y contra cualquier y todas las reclamaciones, daños, pérdidas, responsabilidades, costos y gastos (incluyendo honorarios razonables de abogados) que surjan de o estén relacionados con:",
+        "Usted acepta defender, indemnizar y mantener indemnes a las Partes de FQHC Talent de y contra cualquier y todas las reclamaciones, daños, pérdidas, responsabilidades, costos y gastos (incluyendo honorarios razonables de abogados) que surjan de o estén relacionados con:",
         "(a) Su uso o acceso a la plataforma; (b) Su violación de estos Términos; (c) Su violación de cualquier derecho de terceros, incluyendo derechos de propiedad intelectual o derechos de privacidad; (d) Cualquier contenido o información que envíe a la plataforma, incluyendo pero sin limitarse a datos de currículum, afirmaciones profesionales e información de empleadores; (e) Cualquier tergiversación de sus calificaciones, credenciales o antecedentes profesionales; (f) Cualquier disputa laboral entre usted y un empleador conectado a través de la plataforma.",
         "Esta obligación de indemnización sobrevivirá a la terminación de estos Términos y su uso de la plataforma.",
       ],
@@ -340,7 +340,7 @@ const esContent: TermsContent = {
     {
       heading: "15. Sin Relación Laboral",
       paragraphs: [
-        "Nada en estos Términos ni su uso de FQHC Talent Exchange crea una relación de empleo, agencia, sociedad, empresa conjunta o franquicia entre usted y FQHC Talent Exchange.",
+        "Nada en estos Términos ni su uso de FQHC Talent crea una relación de empleo, agencia, sociedad, empresa conjunta o franquicia entre usted y FQHC Talent.",
         "No somos parte de ningún contrato de empleo entre candidatos y empleadores. No controlamos ni tenemos ninguna obligación con respecto a: ofertas de trabajo o decisiones de contratación tomadas por empleadores, los términos y condiciones de cualquier empleo, conducta en el lugar de trabajo o seguridad laboral, compensación, beneficios o disputas laborales, cumplimiento de las leyes laborales por parte de cualquier empleador.",
         "Los candidatos son los únicos responsables de evaluar la idoneidad y legitimidad de cualquier oportunidad laboral. Los empleadores son los únicos responsables del cumplimiento de todas las leyes laborales aplicables, incluyendo pero sin limitarse a las leyes de igualdad de oportunidades de empleo, leyes de salarios y horas, leyes de inmigración y regulaciones de seguridad en el lugar de trabajo.",
       ],
@@ -348,7 +348,7 @@ const esContent: TermsContent = {
     {
       heading: "16. Contenido y Enlaces de Terceros",
       paragraphs: [
-        "Nuestra plataforma puede contener enlaces a sitios web de terceros, incluyendo páginas de carreras de FQHCs, portales de solicitud de empleo y recursos externos. Estos enlaces se proporcionan solo por conveniencia y no constituyen un respaldo, patrocinio o recomendación por parte de FQHC Talent Exchange.",
+        "Nuestra plataforma puede contener enlaces a sitios web de terceros, incluyendo páginas de carreras de FQHCs, portales de solicitud de empleo y recursos externos. Estos enlaces se proporcionan solo por conveniencia y no constituyen un respaldo, patrocinio o recomendación por parte de FQHC Talent.",
         "No tenemos control y no somos responsables del contenido, prácticas de privacidad, términos de servicio o disponibilidad de ningún sitio web de terceros. Sus interacciones con sitios web de terceros se rigen por los propios términos y políticas de esos sitios.",
         "Si encuentra un enlace en nuestra plataforma que cree que es inapropiado, roto o potencialmente dañino, por favor repórtelo a info@fqhctalent.com.",
       ],
@@ -356,7 +356,7 @@ const esContent: TermsContent = {
     {
       heading: "17. Terminación",
       paragraphs: [
-        "Nos reservamos el derecho de suspender o terminar su acceso a FQHC Talent Exchange en cualquier momento, con o sin previo aviso, por conducta que determinemos, a nuestra sola discreción, que viole estos Términos, sea dañina para otros usuarios, terceros o la plataforma, o sea de otra manera objetable.",
+        "Nos reservamos el derecho de suspender o terminar su acceso a FQHC Talent en cualquier momento, con o sin previo aviso, por conducta que determinemos, a nuestra sola discreción, que viole estos Términos, sea dañina para otros usuarios, terceros o la plataforma, o sea de otra manera objetable.",
         "Esto incluye, pero no se limita a: proporcionar información falsa o engañosa, tergiversar calificaciones o credenciales, participar en comportamiento abusivo, acosador o discriminatorio, extraer o recopilar datos, distribuir spam e intentar eludir medidas de seguridad o límites de velocidad.",
         "Tras la terminación, su derecho a usar la plataforma cesa inmediatamente. Las disposiciones de estos Términos que por su naturaleza deban sobrevivir a la terminación (incluyendo pero sin limitarse a las Secciones 11-14, 15 y 19) continuarán en efecto después de la terminación.",
       ],
@@ -364,7 +364,7 @@ const esContent: TermsContent = {
     {
       heading: "18. Fuerza Mayor",
       paragraphs: [
-        "FQHC Talent Exchange no será responsable de ningún incumplimiento o retraso en el cumplimiento de sus obligaciones bajo estos Términos debido a circunstancias fuera de su control razonable, incluyendo pero sin limitarse a: desastres naturales, pandemias, actos gubernamentales, interrupciones del servicio de internet, cortes de energía, ciberataques o fallas de proveedores de servicios terceros.",
+        "FQHC Talent no será responsable de ningún incumplimiento o retraso en el cumplimiento de sus obligaciones bajo estos Términos debido a circunstancias fuera de su control razonable, incluyendo pero sin limitarse a: desastres naturales, pandemias, actos gubernamentales, interrupciones del servicio de internet, cortes de energía, ciberataques o fallas de proveedores de servicios terceros.",
       ],
     },
     {
@@ -377,7 +377,7 @@ const esContent: TermsContent = {
     {
       heading: "20. Acuerdo Completo y Divisibilidad",
       paragraphs: [
-        "Estos Términos, junto con nuestra Política de Privacidad, constituyen el acuerdo completo entre usted y FQHC Talent Exchange respecto a su uso de la plataforma y reemplazan cualquier acuerdo o entendimiento previo.",
+        "Estos Términos, junto con nuestra Política de Privacidad, constituyen el acuerdo completo entre usted y FQHC Talent respecto a su uso de la plataforma y reemplazan cualquier acuerdo o entendimiento previo.",
         "Si alguna disposición de estos Términos se considera inválida, ilegal o inaplicable por un tribunal competente, la validez, legalidad y aplicabilidad de las disposiciones restantes no se verán afectadas ni perjudicadas. La disposición inaplicable se modificará en la medida mínima necesaria para hacerla aplicable mientras se preserva la intención original.",
         "Nuestra falta de ejercicio de cualquier derecho o disposición de estos Términos no se considerará una renuncia a ese derecho o disposición.",
       ],

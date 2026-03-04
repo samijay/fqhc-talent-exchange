@@ -23,7 +23,12 @@ function LoginForm() {
   const locale = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const next = searchParams.get("next") ?? "/dashboard";
+  // Sanitize redirect path — prevent open redirect attacks
+  const rawNext = searchParams.get("next");
+  const next =
+    rawNext && rawNext.startsWith("/") && !rawNext.startsWith("//")
+      ? rawNext
+      : "/dashboard";
   const authError = searchParams.get("error");
 
   const [mode, setMode] = useState<"signin" | "signup">("signin");

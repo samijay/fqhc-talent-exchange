@@ -517,8 +517,8 @@ export default function HealthcareHiringTrendsArticle() {
               stat="70%+"
               label="of FQHCs face critical staffing shortages — yet 2,300+ CA workers displaced"
               esLabel="de FQHCs enfrentan escasez crítica — mientras 2,300+ trabajadores de CA desplazados"
-              detail="Sources: HRSA HPSA Data, FQHC Talent Exchange Layoff Tracker"
-              esDetail="Fuentes: Datos HPSA de HRSA, Rastreador de Despidos de FQHC Talent Exchange"
+              detail="Sources: HRSA HPSA Data, FQHC Talent Layoff Tracker"
+              esDetail="Fuentes: Datos HPSA de HRSA, Rastreador de Despidos de FQHC Talent"
             />
 
             {content.sections.map((section, idx) => (
@@ -590,8 +590,8 @@ export default function HealthcareHiringTrendsArticle() {
                 <li>
                   •{" "}
                   {locale === "es"
-                    ? "Rastreador de Despidos de FQHC Talent Exchange"
-                    : "FQHC Talent Exchange Layoff Tracker"}{" "}
+                    ? "Rastreador de Despidos de FQHC Talent"
+                    : "FQHC Talent Layoff Tracker"}{" "}
                   — fqhctalent.com/layoffs
                 </li>
                 <li>

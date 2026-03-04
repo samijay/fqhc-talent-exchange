@@ -106,8 +106,8 @@ export function SalaryRangeChart({
       </div>
       <p className="mt-2 text-[10px] text-stone-400">
         {t({
-          en: "Source: FQHC Talent Exchange analysis of 156+ CA FQHC job listings, 2025–2026",
-          es: "Fuente: Análisis de FQHC Talent Exchange de 156+ ofertas FQHC en CA, 2025–2026",
+          en: "Source: FQHC Talent analysis of 156+ CA FQHC job listings, 2025–2026",
+          es: "Fuente: Análisis de FQHC Talent de 156+ ofertas FQHC en CA, 2025–2026",
         }, locale)}
       </p>
     </div>

@@ -5,7 +5,7 @@ export function OrganizationJsonLd() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "FQHC Talent Exchange",
+    name: "FQHC Talent",
     url: "https://www.fqhctalent.com",
     logo: "https://www.fqhctalent.com/logo.png",
     description:
@@ -49,7 +49,7 @@ export function WebSiteJsonLd() {
   const data = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "FQHC Talent Exchange",
+    name: "FQHC Talent",
     url: "https://www.fqhctalent.com",
     potentialAction: {
       "@type": "SearchAction",
@@ -196,7 +196,7 @@ export function ArticleJsonLd({
     url: `https://www.fqhctalent.com/blog/${slug}`,
     publisher: {
       "@type": "Organization",
-      name: "FQHC Talent Exchange",
+      name: "FQHC Talent",
       url: "https://www.fqhctalent.com",
     },
     ...(imageUrl && { image: imageUrl }),

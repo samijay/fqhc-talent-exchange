@@ -1,7 +1,7 @@
 // FQHC Executive Masterclass — Mini deep-dive modules for the 2026 crisis moment
 // Sourced from 200+ resources in resources/fqhc-bibliography.md
 
-export const MASTERCLASSES_LAST_UPDATED = "2026-03-01"
+export const MASTERCLASSES_LAST_UPDATED = "2026-03-04"
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -748,6 +748,150 @@ export const MASTERCLASSES: MasterclassModule[] = [
       { label: "Cultural Humility", href: "/strategy/cultural-humility" },
     ],
     tags: ["board-governance", "section-330", "patient-majority", "strategic-planning"],
+  },
+
+  // ─── REMOTE WORK & RETENTION ─────────────────────────────────
+  {
+    id: "remote-ready-workforce",
+    title: {
+      en: "Building a Remote-Ready FQHC Workforce",
+      es: "Construyendo una Fuerza Laboral FQHC Lista para Trabajo Remoto",
+    },
+    subtitle: {
+      en: "How to design hybrid and remote models for back-office, telehealth, and administrative roles while maintaining quality and compliance",
+      es: "Cómo diseñar modelos híbridos y remotos para roles administrativos, de telesalud y back-office manteniendo calidad y cumplimiento",
+    },
+    category: "leadership",
+    audience: "ceo-coo",
+    difficulty: "intermediate",
+    urgencyStat: {
+      en: "70% of FQHCs report losing 5-25% of staff annually",
+      es: "70% de los FQHCs reportan perder 5-25% del personal anualmente",
+    },
+    whyNow: {
+      en: "The FQHC workforce crisis isn't just clinical — administrative staff turnover is the second-highest category. Meanwhile, 58% of U.S. workers can now do at least part of their job remotely. FQHCs that can't offer remote flexibility for billing, coding, case management, and referral coordination roles are losing talent to hospital systems and insurance companies that can. A Stanford/Nature study (2024) showed hybrid work reduces quit rates by 33%. The math is clear: remote-readiness is a retention strategy, not just a convenience.",
+      es: "La crisis de fuerza laboral FQHC no es solo clínica — la rotación de personal administrativo es la segunda categoría más alta. Mientras tanto, el 58% de los trabajadores de EE.UU. ahora pueden hacer al menos parte de su trabajo remotamente. Los FQHCs que no pueden ofrecer flexibilidad remota están perdiendo talento. Un estudio Stanford/Nature (2024) mostró que el trabajo híbrido reduce las renuncias un 33%.",
+    },
+    learningObjectives: [
+      { en: "Identify which FQHC roles can be fully remote, hybrid, or must remain on-site using a role classification framework", es: "Identifique qué roles FQHC pueden ser completamente remotos, híbridos o deben permanecer en sitio usando un marco de clasificación" },
+      { en: "Design HIPAA-compliant remote work policies including device management, VPN requirements, and home workspace standards", es: "Diseñe políticas de trabajo remoto conformes a HIPAA incluyendo gestión de dispositivos, requisitos de VPN y estándares de espacio de trabajo en casa" },
+      { en: "Build a telehealth operations infrastructure that supports virtual visits, remote triage, and asynchronous care", es: "Construya una infraestructura de operaciones de telesalud que soporte visitas virtuales, triaje remoto y atención asincrónica" },
+      { en: "Calculate the ROI of remote work: reduced real estate costs, expanded recruiting pool, and improved retention rates", es: "Calcule el ROI del trabajo remoto: costos de espacio reducidos, reclutamiento ampliado y mejores tasas de retención" },
+      { en: "Implement performance management for remote teams without resorting to surveillance — focus on outcomes, not hours", es: "Implemente gestión del desempeño para equipos remotos sin recurrir a vigilancia — enfoque en resultados, no en horas" },
+    ],
+    keyTakeaways: [
+      { en: "Remote-readiness is a retention strategy disguised as an operations project — FQHCs that offer flexibility retain 33% more administrative staff", es: "La preparación para trabajo remoto es una estrategia de retención disfrazada de proyecto operacional — los FQHCs que ofrecen flexibilidad retienen 33% más personal administrativo" },
+      { en: "Not every role needs to be on-site: billing, coding, case management, referral coordination, and population health analytics can all be done remotely with proper safeguards", es: "No todos los roles necesitan estar en sitio: facturación, codificación, gestión de casos y coordinación de referidos pueden hacerse remotamente con las debidas salvaguardas" },
+      { en: "Invest in cloud infrastructure before you need it — Fenway Health transitioned 70-80% of staff in 48 hours because they'd already migrated off legacy systems", es: "Invierta en infraestructura en la nube antes de necesitarla — Fenway Health transicionó 70-80% de su personal en 48 horas porque ya habían migrado de sistemas legacy" },
+      { en: "Digital equity applies to your workforce too — ensure remote workers have reliable internet, ergonomic setups, and technical support", es: "La equidad digital aplica también a su fuerza laboral — asegúrese de que los trabajadores remotos tengan internet confiable, configuraciones ergonómicas y soporte técnico" },
+    ],
+    sourceMaterials: [
+      { label: "Nature: Hybrid Work Reduces Quit Rates 33% (Stanford, 2024)", url: "https://www.nature.com/articles/s41586-024-07500-2" },
+      { label: "NACHC 2022 Workforce Survey: 70% Losing 5-25% Staff", url: "https://www.nachc.org/wp-content/uploads/2022/03/NACHC-2022-Workforce-Survey-Full-Report-1.pdf" },
+      { label: "Dialpad: Fenway Health Remote Transition Case Study", url: "https://www.dialpad.com/customers/fenway-health/" },
+      { label: "California Telehealth Resource Center", url: "https://caltrc.org/" },
+    ],
+    siteLinks: [
+      { label: "Remote Care Operations Guide", href: "/guides" },
+      { label: "Telehealth Facilitator Certificate", href: "/certifications" },
+      { label: "Fenway Health Case Study", href: "/strategy/guides" },
+    ],
+    tags: ["remote-work", "hybrid", "telehealth", "workforce-retention", "hipaa", "cloud-infrastructure"],
+  },
+  {
+    id: "retention-machine",
+    title: {
+      en: "The Retention Machine — Building an FQHC That People Don't Leave",
+      es: "La Máquina de Retención — Construyendo un FQHC Que la Gente No Abandona",
+    },
+    subtitle: {
+      en: "Evidence-based strategies for reducing FQHC turnover: career ladders, stay interviews, compensation redesign, burnout prevention, and mission reconnection",
+      es: "Estrategias basadas en evidencia para reducir la rotación en FQHCs: escaleras profesionales, entrevistas de permanencia, rediseño de compensación, prevención del agotamiento y reconexión con la misión",
+    },
+    category: "leadership",
+    audience: "hr-workforce",
+    difficulty: "intermediate",
+    urgencyStat: {
+      en: "32% average FQHC turnover — 2x the healthcare industry average",
+      es: "32% rotación promedio en FQHCs — 2x el promedio de la industria de salud",
+    },
+    whyNow: {
+      en: "FQHCs are spending $440,000+ to replace a single physician and $22,000+ to replace a Community Health Worker — in an environment where SB 525 wage increases are compressing margins and H.R. 1 threatens Medicaid funding. AltaMed proved that a dedicated retention structure (their Strategic Medical Director Unit) can take Medical Director retention from 30% to 100%, saving $1-1.5M per leader. Career ladder programs show 2.4x the odds of minimal retention difficulty. The most cost-effective dollar an FQHC can spend in 2026 is on keeping the people it already has.",
+      es: "Los FQHCs gastan $440,000+ para reemplazar un solo médico y $22,000+ para reemplazar un Promotor de Salud — en un entorno donde los aumentos salariales SB 525 comprimen márgenes y H.R. 1 amenaza los fondos de Medicaid. AltaMed demostró que una estructura de retención dedicada puede llevar la retención de Directores Médicos del 30% al 100%, ahorrando $1-1.5M por líder.",
+    },
+    learningObjectives: [
+      { en: "Calculate your center's true turnover cost by role using SHRM replacement cost multipliers (0.5x–2.0x salary)", es: "Calcule el verdadero costo de rotación de su centro por rol usando multiplicadores de costo de reemplazo SHRM (0.5x–2.0x salario)" },
+      { en: "Design role-specific career ladders that give every employee a visible next step — from CHW to Care Coordinator to Program Manager", es: "Diseñe escaleras profesionales específicas por rol que den a cada empleado un siguiente paso visible — de CHW a Coordinador de Cuidado a Gerente de Programa" },
+      { en: "Implement stay interviews: quarterly 15-minute conversations that surface retention risks before they become resignations", es: "Implemente entrevistas de permanencia: conversaciones trimestrales de 15 minutos que identifiquen riesgos de retención antes de que se conviertan en renuncias" },
+      { en: "Benchmark your total compensation (salary + benefits + mission premium) against hospitals and managed care organizations", es: "Compare su compensación total (salario + beneficios + prima de misión) contra hospitales y organizaciones de atención administrada" },
+    ],
+    keyTakeaways: [
+      { en: "Retention is cheaper than recruitment — one retained physician saves more than three new hires cost", es: "La retención es más barata que el reclutamiento — un médico retenido ahorra más que lo que cuestan tres nuevas contrataciones" },
+      { en: "Career ladders aren't just aspirational — FQHCs with structured career progression programs have 2.4x the odds of minimal retention difficulty", es: "Las escaleras profesionales no son solo aspiracionales — los FQHCs con programas estructurados tienen 2.4x las probabilidades de dificultad mínima de retención" },
+      { en: "Mission alignment is a retention tool: staff who connect their daily work to patient impact stay longer, even at lower salaries", es: "La alineación con la misión es una herramienta de retención: el personal que conecta su trabajo diario con el impacto en pacientes permanece más tiempo, incluso con salarios más bajos" },
+      { en: "Burnout prevention is not self-care workshops — it's workload management, scope clarity, and adequate staffing ratios", es: "La prevención del agotamiento no son talleres de autocuidado — es gestión de carga de trabajo, claridad de alcance y ratios de personal adecuados" },
+    ],
+    sourceMaterials: [
+      { label: "HCAI: AltaMed SMDU — 30% to 100% MD Retention", url: "https://hcai.ca.gov/wp-content/uploads/2024/12/AltaMed-Presentation-Revised.pdf" },
+      { label: "PMC: Career Ladders & 2.4x Retention Odds", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5120588/" },
+      { label: "NACHC 2022 Workforce Survey", url: "https://www.nachc.org/wp-content/uploads/2022/03/NACHC-2022-Workforce-Survey-Full-Report-1.pdf" },
+      { label: "SHRM: Turnover Cost Estimation Guide", url: "https://www.shrm.org/topics-tools/tools/toolkits/managing-employee-turnover" },
+    ],
+    siteLinks: [
+      { label: "Turnover Cost Calculator", href: "/strategy/workforce-resilience" },
+      { label: "AltaMed Retention Case Study", href: "/strategy/guides" },
+      { label: "Career Roadmap", href: "/career-roadmap" },
+    ],
+    tags: ["retention", "career-ladders", "stay-interviews", "compensation", "burnout", "turnover-cost"],
+  },
+
+  // ─── FINANCIAL RESILIENCE ────────────────────────────────────
+  {
+    id: "financial-resilience-medicaid",
+    title: {
+      en: "Financial Resilience Under Medicaid Cuts — A CFO's Survival Playbook",
+      es: "Resiliencia Financiera Bajo Recortes de Medicaid — Manual de Supervivencia del CFO",
+    },
+    subtitle: {
+      en: "How to model, prepare for, and survive major Medi-Cal reimbursement cuts while protecting patient access and workforce stability",
+      es: "Cómo modelar, prepararse y sobrevivir a recortes importantes de reembolso de Medi-Cal mientras se protege el acceso de pacientes y la estabilidad de la fuerza laboral",
+    },
+    category: "survival",
+    audience: "cfo",
+    difficulty: "advanced",
+    urgencyStat: {
+      en: "$4.6B in CHCF funding expires December 2026",
+      es: "$4.6B en financiamiento CHCF expira en diciembre de 2026",
+    },
+    whyNow: {
+      en: "The convergence of CHCF expiration ($4.6B, December 2026), H.R. 1 Medicaid cuts ($880B over 10 years), PPS elimination for undocumented patient services (October 2026), and the provider tax phase-down (2028) creates the most dangerous financial environment in FQHC history. A CPaMB case study showed how one FQHC went from 9 days cash on hand to 56 days through revenue cycle optimization alone. The CFOs who survive 2026-2028 will be the ones who've already built scenario models, diversified revenue, and optimized their revenue cycles.",
+      es: "La convergencia de la expiración del CHCF ($4.6B, diciembre 2026), recortes de Medicaid H.R. 1 ($880B en 10 años), eliminación de PPS para servicios a pacientes indocumentados (octubre 2026) y la reducción del impuesto a proveedores (2028) crea el entorno financiero más peligroso en la historia de los FQHCs.",
+    },
+    learningObjectives: [
+      { en: "Build 3 financial scenarios (optimistic, realistic, catastrophic) with specific trigger points for each", es: "Construya 3 escenarios financieros (optimista, realista, catastrófico) con puntos de activación específicos para cada uno" },
+      { en: "Calculate your center's Medicaid dependency ratio and model the impact of a 10%, 20%, and 30% reimbursement reduction", es: "Calcule el ratio de dependencia de Medicaid de su centro y modele el impacto de reducciones de reembolso del 10%, 20% y 30%" },
+      { en: "Optimize your revenue cycle to capture every dollar you're already earning — reduce days in AR below 40, achieve 95%+ clean claims rate", es: "Optimice su ciclo de ingresos para capturar cada dólar que ya está ganando — reduzca días en AR por debajo de 40, logre tasa de reclamos limpios de 95%+" },
+      { en: "Identify and activate 3-5 non-Medicaid revenue streams: 340B optimization, direct-pay services, grant diversification, employer health contracts", es: "Identifique y active 3-5 fuentes de ingresos no-Medicaid: optimización 340B, servicios de pago directo, diversificación de subvenciones, contratos de salud con empleadores" },
+      { en: "Prepare the board conversation: present financial scenarios with decision points, not just problems", es: "Prepare la conversación con la junta: presente escenarios financieros con puntos de decisión, no solo problemas" },
+    ],
+    keyTakeaways: [
+      { en: "Revenue cycle optimization is the fastest path to financial resilience — one FQHC doubled cash receipts from $10.7M to $22.5M with the same encounter volume", es: "La optimización del ciclo de ingresos es el camino más rápido a la resiliencia financiera — un FQHC duplicó recibos de $10.7M a $22.5M con el mismo volumen de encuentros" },
+      { en: "Scenario planning isn't optional in 2026 — CFOs who present only a single budget to the board are derelict in their duty", es: "La planificación de escenarios no es opcional en 2026 — los CFOs que presentan solo un presupuesto a la junta están incumpliendo su deber" },
+      { en: "The most resilient FQHCs keep federal dependency below 30% — but getting there requires a multi-year revenue diversification strategy, not quick fixes", es: "Los FQHCs más resilientes mantienen la dependencia federal por debajo del 30% — pero llegar ahí requiere una estrategia de diversificación de ingresos multianual, no soluciones rápidas" },
+    ],
+    sourceMaterials: [
+      { label: "CPaMB: FQHC Revenue Cycle Transformation (9 to 56 Days Cash)", url: "https://www.cpamedicalbilling.com/wp-content/uploads/2020/05/CPaMB-CaseStudy1.pdf" },
+      { label: "KFF: CHC Financing — Medicaid & Section 330", url: "https://www.kff.org/medicaid/community-health-center-financing-the-role-of-medicaid-and-section-330-grant-funding-explained/" },
+      { label: "Commonwealth Fund: Financial Challenges Loom for CHCs", url: "https://www.commonwealthfund.org/blog/2024/community-health-centers-are-serving-more-patients-ever-financial-challenges-loom-large" },
+      { label: "FQHC Associates: Business Model Analysis", url: "https://www.fqhc.org/blog/2026/2/4/fqhc-funding-uncertainty-isnt-the-real-problem-the-business-model-is" },
+    ],
+    siteLinks: [
+      { label: "Funding Impact Tracker", href: "/funding-impact" },
+      { label: "Resilience Scorecard", href: "/strategy/resilience" },
+      { label: "Revenue Cycle Case Study", href: "/strategy/guides" },
+      { label: "Seven Cliffs Masterclass", href: "/strategy/masterclass" },
+    ],
+    tags: ["medicaid", "medi-cal", "revenue-cycle", "scenario-planning", "financial-resilience", "340b", "chcf"],
   },
 ]
 

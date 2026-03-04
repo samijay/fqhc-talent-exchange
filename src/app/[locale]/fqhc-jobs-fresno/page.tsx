@@ -168,9 +168,9 @@ export default function FqhcJobsFresno() {
               Looking for an FQHC Role in the Central Valley?
             </h3>
             <p className="text-stone-600 mb-6 text-lg">
-              Join FQHC Talent Exchange — it's completely free for job
-              seekers. Get matched with Central Valley community health centers
-              in as little as 5 days.
+              FQHC Talent is completely free for job seekers.
+              Browse job openings at Central Valley community health centers —
+              plus free career tools and salary data.
             </p>
             <a
               href="/resume-builder"

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free FQHC Job Posting Builder | FQHC Talent Exchange",
+  title: "Free FQHC Job Posting Builder | FQHC Talent",
   description:
     "Create professional, FQHC-optimized job postings with salary benchmarks, screening questions, and bilingual (EN/ES) output. Free for all Federally Qualified Health Centers.",
   openGraph: {
-    title: "Free FQHC Job Posting Builder — FQHC Talent Exchange",
+    title: "Free FQHC Job Posting Builder — FQHC Talent",
     description:
       "Create professional, FQHC-optimized job postings with salary benchmarks and bilingual output. Attract candidates with co-visit, care management, and revenue recovery experience.",
     url: "https://www.fqhctalent.com/job-posting-builder",

@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Request Priority Access | FQHC Recruitment Solutions",
   description:
-    "Request access to FQHC Talent Exchange. We specialize in placing community health workers, care coordinators, and behavioral health specialists at FQHCs across California.",
+    "Request access to FQHC Talent. We specialize in placing community health workers, care coordinators, and behavioral health specialists at FQHCs across California.",
   openGraph: {
-    title: "Request Priority Access — FQHC Talent Exchange",
+    title: "Request Priority Access — FQHC Talent",
     description:
       "FQHC recruitment solutions for community health centers.",
     url: "https://www.fqhctalent.com/hire",

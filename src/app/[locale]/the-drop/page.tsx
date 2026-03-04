@@ -739,8 +739,8 @@ export default function TheDropPage() {
                     ),
                     desc: t(
                       {
-                        en: "Qualifying candidates get placed in curated batches ahead of general applicants.",
-                        es: "Los candidatos que califican se colocan en lotes curados antes que los solicitantes generales.",
+                        en: "Qualifying candidates get featured in curated batches ahead of general applicants.",
+                        es: "Los candidatos que califican se presentan en lotes curados antes que los solicitantes generales.",
                       },
                       locale,
                     ),
@@ -1089,8 +1089,8 @@ export default function TheDropPage() {
           <p className="mx-auto mb-10 max-w-2xl text-center text-stone-600">
             {t(
               {
-                en: "Live data from the FQHC Talent Exchange platform.",
-                es: "Datos en vivo de la plataforma FQHC Talent Exchange.",
+                en: "Live data from the FQHC Talent platform.",
+                es: "Datos en vivo de la plataforma FQHC Talent.",
               },
               locale,
             )}

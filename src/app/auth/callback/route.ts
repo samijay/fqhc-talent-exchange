@@ -14,10 +14,18 @@ import { NextResponse } from "next/server";
  * This route is outside [locale] because Supabase redirects to a fixed URL
  * (https://www.fqhctalent.com/auth/callback) — it can't include the locale prefix.
  */
+/** Sanitize redirect path — must be a relative path, not an external URL */
+function sanitizeRedirectPath(path: string | null): string {
+  if (!path) return "/dashboard";
+  // Must start with / and must NOT start with // (protocol-relative URL)
+  if (path.startsWith("/") && !path.startsWith("//")) return path;
+  return "/dashboard";
+}
+
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
-  const next = searchParams.get("next") ?? "/dashboard";
+  const next = sanitizeRedirectPath(searchParams.get("next"));
 
   if (code) {
     const cookieStore = await cookies();

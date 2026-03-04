@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------ */
 /*  Manager Team Readiness Assessment Engine                           */
-/*  Based on Watkins' First 90 Days + Talent Exchange Methodology      */
+/*  Based on Watkins' First 90 Days + FQHC Talent Methodology      */
 /*  Adapted for FQHC managers assessing their teams                    */
 /* ------------------------------------------------------------------ */
 

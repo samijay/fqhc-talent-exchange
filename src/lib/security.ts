@@ -1,5 +1,5 @@
 /**
- * Security utilities for the FQHC Talent Exchange
+ * Security utilities for the FQHC Talent
  */
 
 /**

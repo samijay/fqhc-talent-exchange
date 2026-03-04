@@ -5,7 +5,7 @@
 // Last updated: 2026-02-28 (session update)
 
 /** Exported for display on pages — updated when new case studies are added */
-export const CASE_STUDIES_LAST_UPDATED = "2026-02-28"; // 18 total case studies
+export const CASE_STUDIES_LAST_UPDATED = "2026-03-04"; // 22 total case studies
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -1687,6 +1687,389 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
     ],
     datePublished: "2025-01-01",
   },
+  // ================================================================
+  // 19. AltaMed Health Services — ECM Program Scale-Up
+  // ================================================================
+  {
+    id: "altamed-ecm-scaleup",
+    fqhcName: "AltaMed Health Services",
+    fqhcSlug: "altamed-health-services",
+    location: "Los Angeles & Orange County, CA",
+    date: "2022-01-15",
+    timeframe: "2022–2024",
+    difficulty: "advanced",
+    headline: {
+      en: "AltaMed scaled Enhanced Care Management through CHW-led outreach — enrolling 80 patients in 3 months, reducing ER visits by 30%, and cutting hospital admissions by 37%.",
+      es: "AltaMed escalo la Gestion de Cuidado Mejorado mediante promotores de salud — inscribiendo 80 pacientes en 3 meses, reduciendo visitas de emergencia un 30% y recortando admisiones hospitalarias un 37%.",
+    },
+    challenge: {
+      en: "CalAIM's Enhanced Care Management launched statewide in January 2022, but utilization remained well below expectations — only 0.6% of managed care members were receiving ECM services versus 3-5% estimated eligible. AltaMed, serving over 500,000 Medi-Cal patients across 67+ sites, needed to rapidly operationalize ECM for its highest-need members while managing an $80 million value-based care transformation.",
+      es: "La Gestion de Cuidado Mejorado de CalAIM se lanzo en enero de 2022, pero la utilizacion quedo muy por debajo de las expectativas — solo el 0.6% de miembros de atencion administrada recibian servicios ECM versus el 3-5% estimado elegible. AltaMed, sirviendo a mas de 500,000 pacientes de Medi-Cal en mas de 67 sitios, necesitaba operacionalizar rapidamente ECM para sus miembros de mayor necesidad.",
+    },
+    guidingPolicy: {
+      en: "Deploy Community Health Workers as the primary ECM engagement vehicle, leveraging AltaMed's existing CHW infrastructure and cultural competency. Rather than waiting for managed care plan referrals, build provider-initiated referral pathways. Integrate ECM within the broader value-based care model so that ECM outcomes align with financial incentives under managed care contracts.",
+      es: "Desplegar Promotores de Salud como el vehiculo principal de participacion ECM, aprovechando la infraestructura CHW existente y la competencia cultural de AltaMed. En lugar de esperar referidos de planes de atencion administrada, construir vias de referidos iniciadas por proveedores.",
+    },
+    actions: [
+      {
+        en: "Completed full ECM certification training for CHW teams by August 2022, building on AltaMed's decades-long CHW program",
+        es: "Completo la capacitacion completa de certificacion ECM para equipos CHW para agosto de 2022, basandose en el programa CHW de decadas de AltaMed",
+      },
+      {
+        en: "Launched community outreach targeting Medi-Cal members with complex chronic conditions, using culturally concordant, bilingual CHWs",
+        es: "Lanzo alcance comunitario dirigido a miembros de Medi-Cal con condiciones cronicas complejas, usando CHWs bilingues y culturalmente concordantes",
+      },
+      {
+        en: "Deployed 3,600+ in-home visits through multidisciplinary clinician teams for highest-acuity patients",
+        es: "Desplego mas de 3,600 visitas domiciliarias a traves de equipos clinicos multidisciplinarios para pacientes de mayor agudeza",
+      },
+      {
+        en: "Invested in AI-powered data integration across 13 health plan contracts to identify high-risk members and reduce redundant testing by 30%",
+        es: "Invirtio en integracion de datos impulsada por IA a traves de 13 contratos de planes de salud para identificar miembros de alto riesgo y reducir pruebas redundantes en un 30%",
+      },
+    ],
+    outcomes: [
+      {
+        metric: "ECM Enrollment",
+        value: "80 patients",
+        context: {
+          en: "Enrolled in first 3 months of CHW outreach (Q4 2022)",
+          es: "Inscritos en los primeros 3 meses de alcance CHW (Q4 2022)",
+        },
+      },
+      {
+        metric: "ER Visits",
+        value: "-30%",
+        context: {
+          en: "Decrease through clinician home visit program (2024)",
+          es: "Disminucion mediante programa de visitas domiciliarias (2024)",
+        },
+      },
+      {
+        metric: "Hospital Admissions",
+        value: "-37%",
+        context: {
+          en: "Reduction through clinician home visit program (2024)",
+          es: "Reduccion mediante programa de visitas domiciliarias (2024)",
+        },
+      },
+      {
+        metric: "Redundant Testing",
+        value: "-30%",
+        context: {
+          en: "Reduction through AI-powered claims data integration across 13 health plans",
+          es: "Reduccion mediante integracion de datos de reclamos con IA a traves de 13 planes de salud",
+        },
+      },
+    ],
+    strategyCategory: "patient-access",
+    primarySourceUrl:
+      "https://hcai.ca.gov/wp-content/uploads/2024/12/AltaMed-Presentation-Revised.pdf",
+    primarySourceOrg: "California HCAI Health Care Affordability Board",
+    additionalSources: [
+      {
+        label: "AltaMed 2022 Impact Report",
+        url: "https://altamedfoundation.org/2024/04/10/2022-impact-report-leading-through-action-for-healthier-communities/",
+      },
+      {
+        label: "CHCF: AltaMed CHW Program Evolution",
+        url: "https://www.chcf.org/wp-content/uploads/2021/05/CHWPsMediCalRsrcPkg3EvolutionCHWProgram.pdf",
+      },
+      {
+        label: "CA LAO: CalAIM ECM Implementation Update",
+        url: "https://lao.ca.gov/Publications/Report/5003",
+      },
+    ],
+    tags: ["ecm", "calAIM", "chw", "value-based-care", "home-visits", "ai"],
+    datePublished: "2024-11-20",
+  },
+
+  // ================================================================
+  // 20. Community Health Center (CPaMB Client) — Revenue Cycle Transformation
+  // ================================================================
+  {
+    id: "rcm-transformation-cpamb",
+    fqhcName: "Community Health Center (CPaMB Client)",
+    fqhcSlug: null,
+    location: "United States",
+    date: "2019-01-01",
+    timeframe: "2-year engagement",
+    difficulty: "intermediate",
+    headline: {
+      en: "A financially distressed FQHC with only 9 days cash on hand and 122-day AR transformed its revenue cycle — cutting AR to 34 days and doubling cash receipts from $10.7M to $22.5M.",
+      es: "Un FQHC en crisis financiera con solo 9 dias de efectivo y 122 dias de cuentas por cobrar transformo su ciclo de ingresos — reduciendo AR a 34 dias y duplicando recibos de $10.7M a $22.5M.",
+    },
+    challenge: {
+      en: "The FQHC was in critical financial distress. Days in accounts receivable had stretched to 122 days (industry benchmark: 35-50 days). Days cash on hand was at 9 — dangerously close to being unable to make payroll. The internal billing department was months behind on charge entry and delayed in payment and denial postings. Inefficient workflow processes, no systematic AR follow-up, unresolved credentialing issues, and broken referral processes were all compounding.",
+      es: "El FQHC estaba en crisis financiera critica. Los dias en cuentas por cobrar se habian extendido a 122 dias (referencia de la industria: 35-50 dias). Los dias de efectivo disponible estaban en 9. El departamento de facturacion interno estaba meses atrasado en la entrada de cargos y demorado en la publicacion de pagos y denegaciones.",
+    },
+    guidingPolicy: {
+      en: "Outsource the entire revenue cycle to a specialized FQHC billing partner that understands PPS reimbursement, sliding fee scale complexity, and multi-payer environments. The encounter volume was sufficient to support financial health — the problem was purely on the collections side. Full outsourcing was needed because the internal team was too far behind to catch up.",
+      es: "Externalizar todo el ciclo de ingresos a un socio de facturacion especializado en FQHCs que entienda el reembolso PPS, la complejidad de escala movil y los entornos multi-pagador. El volumen de encuentros era suficiente — el problema era puramente en el lado de cobranzas.",
+    },
+    actions: [
+      {
+        en: "Implemented 48-hour charge capture standard — 95% of all charges captured within 48 hours of encounter",
+        es: "Implemento estandar de captura de cargos de 48 horas — 95% de todos los cargos capturados dentro de 48 horas del encuentro",
+      },
+      {
+        en: "Established daily remit payment processing and denial posting, eliminating weeks-long backlog",
+        es: "Establecio procesamiento diario de pagos y publicacion de denegaciones, eliminando el atraso de semanas",
+      },
+      {
+        en: "Instituted 24-hour denial review and correction cycle — every denial reviewed and resubmitted within 1 business day",
+        es: "Instituyo ciclo de revision y correccion de denegaciones de 24 horas — cada denegacion revisada y reenviada dentro de 1 dia habil",
+      },
+      {
+        en: "Resolved credentialing issues with third-party payers and streamlined referral and prior authorization processes",
+        es: "Resolvio problemas de credencializacion con pagadores terceros y simplifico procesos de referidos y autorizacion previa",
+      },
+    ],
+    outcomes: [
+      {
+        metric: "Days in AR",
+        value: "122 → 34 days",
+        context: {
+          en: "72% improvement, well below industry benchmark",
+          es: "72% de mejora, muy por debajo del punto de referencia de la industria",
+        },
+      },
+      {
+        metric: "Cash Receipts",
+        value: "$10.7M → $22.5M",
+        context: {
+          en: "110% increase with no change in encounter volume",
+          es: "110% de aumento sin cambio en volumen de encuentros",
+        },
+      },
+      {
+        metric: "Days Cash on Hand",
+        value: "9 → 56 days",
+        context: {
+          en: "520% improvement, from near-payroll-failure to healthy reserves",
+          es: "520% de mejora, de casi no poder pagar nomina a reservas saludables",
+        },
+      },
+    ],
+    strategyCategory: "revenue-diversification",
+    primarySourceUrl:
+      "https://www.cpamedicalbilling.com/wp-content/uploads/2020/05/CPaMB-CaseStudy1.pdf",
+    primarySourceOrg: "CPa Medical Billing (GeBBS Healthcare)",
+    additionalSources: [
+      {
+        label: "CPaMB: Optimizing Revenue Cycle for FQHCs",
+        url: "https://cpamedicalbilling.com/optimizing-the-revenue-cycle-for-medical-practices-and-fqhcs/",
+      },
+      {
+        label: "GeBBS: Revenue Cycle Benchmarking for FQHCs",
+        url: "https://gebbs.com/blog/revenue-cycle-benchmarking-how-fqhcs-can-measure-and-improve-financial-performance/",
+      },
+    ],
+    tags: [
+      "revenue-cycle",
+      "billing",
+      "ar-reduction",
+      "financial-turnaround",
+      "outsourcing",
+    ],
+    datePublished: "2020-05-01",
+  },
+
+  // ================================================================
+  // 21. Fenway Health — Remote Workforce Model
+  // ================================================================
+  {
+    id: "fenway-health-remote",
+    fqhcName: "Fenway Health",
+    fqhcSlug: null,
+    location: "Boston, MA (15 locations)",
+    date: "2019-06-01",
+    timeframe: "2019–2021",
+    difficulty: "intermediate",
+    headline: {
+      en: "Fenway Health transitioned 70-80% of its 600+ workforce to remote operations in under 48 hours with zero lost productivity — eliminating need for costly Boston real estate.",
+      es: "Fenway Health transiciono el 70-80% de su fuerza laboral de 600+ empleados a operaciones remotas en menos de 48 horas sin perder productividad.",
+    },
+    challenge: {
+      en: "Fenway Health, an FQHC serving 195,000+ patients with a $131M annual budget, was running on a legacy PBX phone system that couldn't support remote work. With Boston real estate among the most expensive in the U.S., every cubicle carried premium overhead. The broader FQHC workforce crisis meant Fenway was competing for administrative talent against organizations offering remote flexibility.",
+      es: "Fenway Health, un FQHC que sirve a mas de 195,000 pacientes con un presupuesto anual de $131M, operaba con un sistema PBX obsoleto que no podia soportar trabajo remoto. Con el costo inmobiliario de Boston entre los mas altos de EE.UU., cada cubiculo tenia un costo premium.",
+    },
+    guidingPolicy: {
+      en: "Eliminate physical infrastructure dependency for all non-clinical operations by migrating to cloud-based communications before a crisis forces it. Investing in communications infrastructure isn't an IT project — it's a workforce strategy. By decoupling administrative work from physical locations, Fenway could reduce real estate costs, expand its recruiting pool, and build organizational resilience.",
+      es: "Eliminar la dependencia de infraestructura fisica para todas las operaciones no clinicas migrando a comunicaciones basadas en la nube antes de que una crisis lo obligue. Invertir en infraestructura de comunicaciones no es un proyecto de TI — es una estrategia de fuerza laboral.",
+    },
+    actions: [
+      {
+        en: "Migrated from legacy PBX to cloud-based healthcare communications platform (voice, meetings, contact center) in 2019 — before the pandemic",
+        es: "Migro de PBX legacy a plataforma de comunicaciones de salud basada en la nube en 2019 — antes de la pandemia",
+      },
+      {
+        en: "Rolled out site-by-site across 15 locations, customizing training for each clinic and department",
+        es: "Implemento sitio por sitio en 15 ubicaciones, personalizando la capacitacion para cada clinica y departamento",
+      },
+      {
+        en: "Consolidated analytics from multiple siloed applications into a single dashboard for real-time monitoring of call times, forwarding rates, and service levels",
+        es: "Consolido analiticas de multiples aplicaciones aisladas en un panel unico para monitoreo en tiempo real",
+      },
+      {
+        en: "Leveraged call shadowing and real-time coaching features to maintain quality — reducing call errors and improving efficiency",
+        es: "Aprovecho funciones de monitoreo de llamadas y coaching en tiempo real para mantener la calidad — reduciendo errores y mejorando eficiencia",
+      },
+    ],
+    outcomes: [
+      {
+        metric: "Productivity Loss",
+        value: "Zero",
+        context: {
+          en: "No lost minutes of productivity during transition to remote",
+          es: "Cero minutos perdidos de productividad durante la transicion a remoto",
+        },
+      },
+      {
+        metric: "Workforce Transitioned",
+        value: "70-80%",
+        context: {
+          en: "Of 600+ employees moved to remote work in under 48 hours",
+          es: "De 600+ empleados transicionados a trabajo remoto en menos de 48 horas",
+        },
+      },
+      {
+        metric: "Real Estate Savings",
+        value: "Significant",
+        context: {
+          en: "Eliminated need for additional Boston office space and cubicles for new hires",
+          es: "Elimino la necesidad de espacio de oficina adicional en Boston para nuevas contrataciones",
+        },
+      },
+      {
+        metric: "Service Levels",
+        value: "Unaffected",
+        context: {
+          en: "Service levels maintained throughout the entire transition",
+          es: "Niveles de servicio mantenidos durante toda la transicion",
+        },
+      },
+    ],
+    strategyCategory: "operational-efficiency",
+    primarySourceUrl: "https://www.dialpad.com/customers/fenway-health/",
+    primarySourceOrg:
+      "Dialpad (vendor case study, featuring IT Director quotes)",
+    additionalSources: [
+      {
+        label:
+          "Nature: Hybrid Work Improves Retention (2024 Stanford Study)",
+        url: "https://www.nature.com/articles/s41586-024-07500-2",
+      },
+      {
+        label: "NACHC 2022 Workforce Survey",
+        url: "https://www.nachc.org/wp-content/uploads/2022/03/NACHC-2022-Workforce-Survey-Full-Report-1.pdf",
+      },
+    ],
+    tags: [
+      "remote-work",
+      "telehealth",
+      "cloud-infrastructure",
+      "workforce-retention",
+      "operational-efficiency",
+    ],
+    datePublished: "2021-01-01",
+  },
+
+  // ================================================================
+  // 22. AltaMed Health Services — Retention Culture (SMDU)
+  // ================================================================
+  {
+    id: "altamed-retention-smdu",
+    fqhcName: "AltaMed Health Services",
+    fqhcSlug: "altamed-health-services",
+    location: "Los Angeles & Orange County, CA",
+    date: "2015-01-01",
+    timeframe: "2015–2024",
+    difficulty: "advanced",
+    headline: {
+      en: "AltaMed reversed a 70% Medical Director attrition rate to 100% retention through a Strategic Medical Director Unit, saving $1-1.5M per leader retained.",
+      es: "AltaMed revirtio una tasa de desercion de Directores Medicos del 70% a retencion del 100% mediante una Unidad Estrategica, ahorrando $1-1.5M por lider retenido.",
+    },
+    challenge: {
+      en: "AltaMed, the largest independent FQHC in the United States (67+ sites, 500K+ patients, 2.89M annual visits), was losing 70% of its Medical Director leadership. In FQHCs, Medical Directors lead clinical quality, manage provider teams, and drive value-based care metrics. Losing a provider leader costs $1-1.5M when accounting for lost visits, recruitment fees, onboarding, and lost institutional knowledge. At 70% attrition, AltaMed was essentially rebuilding its clinical leadership team every 3-4 years.",
+      es: "AltaMed, el FQHC independiente mas grande de EE.UU. (67+ sitios, 500K+ pacientes, 2.89M visitas anuales), perdia el 70% de su liderazgo de Directores Medicos. Perder un lider de proveedores cuesta $1-1.5M al considerar visitas perdidas, tarifas de reclutamiento e incorporacion. Con 70% de desercion, AltaMed reconstruia su equipo de liderazgo clinico cada 3-4 anos.",
+    },
+    guidingPolicy: {
+      en: "Create a dedicated Strategic Medical Director Unit (SMDU) that treats physician leadership development as a core organizational investment — not an HR afterthought. Retaining one leader is worth more than recruiting three replacements. Build career architecture that gives Medical Directors a visible growth path, professional development, peer support, and operational authority.",
+      es: "Crear una Unidad Estrategica de Directores Medicos (SMDU) dedicada que trate el desarrollo de liderazgo medico como una inversion organizacional central. Retener un lider vale mas que reclutar tres reemplazos. Construir arquitectura de carrera que de a los Directores Medicos un camino de crecimiento visible.",
+    },
+    actions: [
+      {
+        en: "Established the Strategic Medical Director Unit (SMDU) as a permanent organizational structure for physician leadership development",
+        es: "Establecio la Unidad Estrategica de Directores Medicos (SMDU) como una estructura organizacional permanente para el desarrollo de liderazgo medico",
+      },
+      {
+        en: "Built structured career progression paths with defined competencies, milestones, and compensation tiers tied to leadership performance",
+        es: "Construyo trayectorias estructuradas de progresion profesional con competencias definidas, hitos y niveles de compensacion vinculados al desempeno de liderazgo",
+      },
+      {
+        en: "Invested $80M over a decade in people, infrastructure, and information technology to transform the primary care and business model",
+        es: "Invirtio $80M durante una decada en personas, infraestructura y tecnologia para transformar el modelo de atencion primaria y negocio",
+      },
+      {
+        en: "Set an ambitious Vision 2030: 90th percentile on all Medi-Cal HEDIS measures, 4.5-star Medicare rating, 500K+ full-risk managed lives",
+        es: "Establecio una Vision 2030 ambiciosa: percentil 90 en todas las medidas HEDIS de Medi-Cal, calificacion Medicare 4.5 estrellas, 500K+ vidas administradas de riesgo completo",
+      },
+    ],
+    outcomes: [
+      {
+        metric: "MD Retention",
+        value: "30% → 100%",
+        context: {
+          en: "From 70% attrition to zero attrition after SMDU implementation",
+          es: "De 70% de desercion a cero desercion despues de la implementacion de SMDU",
+        },
+      },
+      {
+        metric: "Cost Savings",
+        value: "$1-1.5M per leader",
+        context: {
+          en: "Saved per retained provider leader in avoided recruitment/onboarding costs",
+          es: "Ahorrado por lider de proveedor retenido en costos evitados de reclutamiento/incorporacion",
+        },
+      },
+      {
+        metric: "Patient Outcomes",
+        value: "30% ER reduction + 37% admission reduction",
+        context: {
+          en: "Enabled by stable physician leadership driving quality improvement programs",
+          es: "Habilitado por liderazgo medico estable impulsando programas de mejora de calidad",
+        },
+      },
+    ],
+    strategyCategory: "workforce-retention",
+    primarySourceUrl:
+      "https://hcai.ca.gov/wp-content/uploads/2024/12/AltaMed-Presentation-Revised.pdf",
+    primarySourceOrg: "California HCAI Health Care Affordability Board",
+    additionalSources: [
+      {
+        label: "HCAI Cost-Reducing Strategies Page",
+        url: "https://hcai.ca.gov/affordability/ohca/cost-reducing-strategies/",
+      },
+      {
+        label: "AltaMed 2022 Impact Report",
+        url: "https://altamedfoundation.org/2024/04/10/2022-impact-report-leading-through-action-for-healthier-communities/",
+      },
+      {
+        label: "NNOHA: Recruitment & Retention Resources",
+        url: "https://www.nnoha.org/pages-1/resources---workforce---recruitment-&-retention",
+      },
+    ],
+    tags: [
+      "retention",
+      "physician-leadership",
+      "career-ladders",
+      "value-based-care",
+      "smdu",
+    ],
+    datePublished: "2024-11-20",
+  },
+
 ];
 
 /* ------------------------------------------------------------------ */

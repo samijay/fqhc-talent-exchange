@@ -83,7 +83,7 @@ function renderHtml(message: string, success: boolean): string {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>${message} — FQHC Talent Exchange</title>
+  <title>${message} — FQHC Talent</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -147,8 +147,8 @@ function renderHtml(message: string, success: boolean): string {
         ? "You will no longer receive newsletter emails from us. If this was a mistake, you can re-subscribe at any time."
         : "This unsubscribe link is invalid or has expired. If you continue to receive unwanted emails, please contact us."
     }</p>
-    <a href="https://www.fqhctalent.com">Back to FQHC Talent Exchange</a>
-    <div class="brand">FQHC Talent Exchange</div>
+    <a href="https://www.fqhctalent.com">Back to FQHC Talent</a>
+    <div class="brand">FQHC Talent</div>
   </div>
 </body>
 </html>`;

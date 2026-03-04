@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------ */
-/*  Shared email helpers for FQHC Talent Exchange                     */
+/*  Shared email helpers for FQHC Talent                     */
 /*  Reusable blocks: mission banner, market snapshot, header/footer   */
 /* ------------------------------------------------------------------ */
 
@@ -35,7 +35,7 @@ export function marketSnapshotHtml(isEs: boolean): string {
   // Static snapshot — updated when data changes
   const stats = [
     { value: "177+", label: isEs ? "Empleos FQHC" : "FQHC Jobs" },
-    { value: "90", label: isEs ? "FQHCs en California" : "FQHCs in California" },
+    { value: "220", label: isEs ? "FQHCs en California" : "FQHCs in California" },
     { value: "$55K", label: isEs ? "Salario Promedio" : "Avg Salary" },
     { value: "9", label: isEs ? "Regiones" : "Regions" },
   ];
@@ -65,7 +65,7 @@ export function marketSnapshotHtml(isEs: boolean): string {
 export function emailHeader(): string {
   return `
   <div style="text-align: center; margin-bottom: 32px;">
-    <h1 style="color: ${TEAL}; font-size: 24px; margin: 0;">FQHC Talent Exchange</h1>
+    <h1 style="color: ${TEAL}; font-size: 24px; margin: 0;">FQHC Talent</h1>
   </div>`;
 }
 
@@ -78,14 +78,14 @@ export function emailFooter(isEs: boolean): string {
   <hr style="border: none; border-top: 1px solid #e7e5e4; margin: 32px 0;" />
   <p style="font-size: 13px; color: #a8a29e; text-align: center;">
     ${isEs
-      ? "FQHC Talent Exchange — La única plataforma de talento creada exclusivamente para centros de salud comunitarios."
-      : "FQHC Talent Exchange — The only talent platform built exclusively for community health centers."}<br />
+      ? "FQHC Talent — La única plataforma de talento creada exclusivamente para centros de salud comunitarios."
+      : "FQHC Talent — The only talent platform built exclusively for community health centers."}<br />
     <a href="${SITE}" style="color: ${TEAL};">fqhctalent.com</a>
   </p>
   <p style="font-size: 11px; color: #a8a29e; text-align: center; margin-top: 16px;">
     ${isEs
       ? 'Si no deseas recibir más correos, responde con "cancelar suscripción" y te eliminaremos de nuestra lista.'
       : 'If you no longer wish to receive these emails, reply with "unsubscribe" and we will remove you from our list.'}<br />
-    FQHC Talent Exchange · California, USA
+    FQHC Talent · California, USA
   </p>`;
 }

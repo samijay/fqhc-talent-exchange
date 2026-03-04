@@ -380,7 +380,7 @@ export function getQuestionsForRole(roleId?: string): AssessmentQuestion[] {
 }
 
 /* --- Failure Factor Detection -------------------------------------- */
-/*  Based on the Talent Exchange Methodology's 4 failure factors.      */
+/*  Based on the FQHC Talent Methodology's 4 failure factors.      */
 /*  These are NOT disqualifiers — they're growth opportunities         */
 /*  surfaced as kind, encouraging coaching insights.                   */
 /* ------------------------------------------------------------------ */

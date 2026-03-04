@@ -371,8 +371,8 @@ export default function HirePage() {
           <p className="text-sm leading-relaxed text-stone-500">
             {t(
               {
-                en: "FQHC Talent Exchange is California's strategic intelligence platform for community health centers. All resources on this page are free and available without an account. Data is updated daily through our automated intelligence pipeline.",
-                es: "FQHC Talent Exchange es la plataforma de inteligencia estrategica de California para centros de salud comunitarios. Todos los recursos en esta pagina son gratuitos y estan disponibles sin cuenta. Los datos se actualizan diariamente a traves de nuestro pipeline de inteligencia automatizado.",
+                en: "FQHC Talent is California's strategic intelligence platform for community health centers. All resources on this page are free and available without an account. Data is updated daily through our automated intelligence pipeline.",
+                es: "FQHC Talent es la plataforma de inteligencia estrategica de California para centros de salud comunitarios. Todos los recursos en esta pagina son gratuitos y estan disponibles sin cuenta. Los datos se actualizan diariamente a traves de nuestro pipeline de inteligencia automatizado.",
               },
               locale,
             )}

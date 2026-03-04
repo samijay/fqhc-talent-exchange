@@ -299,8 +299,8 @@ export default function ForJobSeekers() {
           Let's Find Your Next Role
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-base text-teal-100/80 sm:text-lg">
-          Complete your profile in under 3 minutes and get matched with
-          mission-driven FQHCs.
+          Free career tools, job listings, and salary data for
+          mission-driven FQHC professionals.
         </p>
       </section>
 

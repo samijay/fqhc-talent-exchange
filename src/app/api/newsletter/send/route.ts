@@ -58,7 +58,10 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       track,
-      ...result,
+      total: result.total,
+      sent: result.sent,
+      failed: result.failed,
+      // Don't return subscriber emails in error details — PII protection
     });
   } catch (err) {
     console.error("Newsletter send error:", err);

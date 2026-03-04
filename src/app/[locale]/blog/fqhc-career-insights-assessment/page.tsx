@@ -35,13 +35,13 @@ const enContent: ArticleContent = {
   category: "Assessment Tools",
   title: "Career Insights Assessment: A Behavioral Assessment Built for Community Health",
   description:
-    "Discover the FQHC Talent Exchange Career Insights Assessment — a scenario-based behavioral evaluation across 4 domains adapted from the TPB Universal Assessment framework. Understand your strengths, growth areas, and biggest opportunity for rapid improvement in community health careers.",
+    "Discover the FQHC Talent Career Insights Assessment — a scenario-based behavioral evaluation across 4 domains adapted from the TPB Universal Assessment framework. Understand your strengths, growth areas, and biggest opportunity for rapid improvement in community health careers.",
   breadcrumbTitle: "Career Insights Assessment",
   datePublished: "2026-02-15",
   dateDisplay: "February 15, 2026",
   readTime: "9 min read",
   openingParagraph:
-    "Most hiring tools in healthcare ask the wrong questions. They check whether you have a certification, whether you have used a specific EHR, whether you have a certain number of years of experience. Those things matter — but they do not predict whether someone will thrive in the demanding, mission-driven environment of a Federally Qualified Health Center. The Career Insights Assessment, integrated directly into the FQHC Talent Exchange resume builder, takes a fundamentally different approach. Instead of checking boxes, it evaluates the behavioral traits that actually determine success in community health — your motivation, your communication instincts, your ability to adapt under pressure, and your orientation toward growth. It is a 12-question, scenario-based assessment that generates personalized insights you can use immediately, whether you are preparing for an interview, building your resume, or planning your next career move.",
+    "Most hiring tools in healthcare ask the wrong questions. They check whether you have a certification, whether you have used a specific EHR, whether you have a certain number of years of experience. Those things matter — but they do not predict whether someone will thrive in the demanding, mission-driven environment of a Federally Qualified Health Center. The Career Insights Assessment, integrated directly into the FQHC Talent resume builder, takes a fundamentally different approach. Instead of checking boxes, it evaluates the behavioral traits that actually determine success in community health — your motivation, your communication instincts, your ability to adapt under pressure, and your orientation toward growth. It is a 12-question, scenario-based assessment that generates personalized insights you can use immediately, whether you are preparing for an interview, building your resume, or planning your next career move.",
   sections: [
     {
       heading: "Why Behavioral Traits Matter More Than Checkboxes",
@@ -183,7 +183,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The Career Insights Assessment is integrated directly into the FQHC Talent Exchange resume builder. When you build your free resume on our platform, the assessment is offered as part of the process — you can complete it in under 10 minutes while you are already focused on your professional profile. Your results are saved alongside your resume, giving you a complete picture of both your qualifications and your behavioral strengths.",
+          text: "The Career Insights Assessment is integrated directly into the FQHC Talent resume builder. When you build your free resume on our platform, the assessment is offered as part of the process — you can complete it in under 10 minutes while you are already focused on your professional profile. Your results are saved alongside your resume, giving you a complete picture of both your qualifications and your behavioral strengths.",
         },
         {
           type: "paragraph",
@@ -239,13 +239,13 @@ const esContent: ArticleContent = {
   category: "Herramientas de Evaluaci\u00f3n",
   title: "Evaluaci\u00f3n de Perspectivas de Carrera: Una Evaluaci\u00f3n Conductual Dise\u00f1ada para la Salud Comunitaria",
   description:
-    "Descubre la Evaluaci\u00f3n de Perspectivas de Carrera de FQHC Talent Exchange — una evaluaci\u00f3n conductual basada en escenarios en 4 dominios adaptados del marco de Evaluaci\u00f3n Universal TPB. Comprende tus fortalezas, \u00e1reas de crecimiento y la mayor oportunidad para una mejora r\u00e1pida en carreras de salud comunitaria.",
+    "Descubre la Evaluaci\u00f3n de Perspectivas de Carrera de FQHC Talent — una evaluaci\u00f3n conductual basada en escenarios en 4 dominios adaptados del marco de Evaluaci\u00f3n Universal TPB. Comprende tus fortalezas, \u00e1reas de crecimiento y la mayor oportunidad para una mejora r\u00e1pida en carreras de salud comunitaria.",
   breadcrumbTitle: "Evaluaci\u00f3n de Perspectivas de Carrera",
   datePublished: "2026-02-15",
   dateDisplay: "15 de Febrero de 2026",
   readTime: "9 min",
   openingParagraph:
-    "La mayor\u00eda de las herramientas de contrataci\u00f3n en salud hacen las preguntas equivocadas. Verifican si tienes una certificaci\u00f3n, si has usado un EHR espec\u00edfico, si tienes cierto n\u00famero de a\u00f1os de experiencia. Esas cosas importan — pero no predicen si alguien prosperar\u00e1 en el exigente entorno impulsado por la misi\u00f3n de un Centro de Salud Calificado Federalmente. La Evaluaci\u00f3n de Perspectivas de Carrera, integrada directamente en el constructor de curr\u00edculum de FQHC Talent Exchange, adopta un enfoque fundamentalmente diferente. En lugar de marcar casillas, eval\u00faa los rasgos conductuales que realmente determinan el \u00e9xito en la salud comunitaria — tu motivaci\u00f3n, tus instintos de comunicaci\u00f3n, tu capacidad de adaptarte bajo presi\u00f3n y tu orientaci\u00f3n hacia el crecimiento. Es una evaluaci\u00f3n de 12 preguntas basada en escenarios que genera perspectivas personalizadas que puedes usar de inmediato, ya sea que te est\u00e9s preparando para una entrevista, construyendo tu curr\u00edculum o planificando tu pr\u00f3ximo movimiento profesional.",
+    "La mayor\u00eda de las herramientas de contrataci\u00f3n en salud hacen las preguntas equivocadas. Verifican si tienes una certificaci\u00f3n, si has usado un EHR espec\u00edfico, si tienes cierto n\u00famero de a\u00f1os de experiencia. Esas cosas importan — pero no predicen si alguien prosperar\u00e1 en el exigente entorno impulsado por la misi\u00f3n de un Centro de Salud Calificado Federalmente. La Evaluaci\u00f3n de Perspectivas de Carrera, integrada directamente en el constructor de curr\u00edculum de FQHC Talent, adopta un enfoque fundamentalmente diferente. En lugar de marcar casillas, eval\u00faa los rasgos conductuales que realmente determinan el \u00e9xito en la salud comunitaria — tu motivaci\u00f3n, tus instintos de comunicaci\u00f3n, tu capacidad de adaptarte bajo presi\u00f3n y tu orientaci\u00f3n hacia el crecimiento. Es una evaluaci\u00f3n de 12 preguntas basada en escenarios que genera perspectivas personalizadas que puedes usar de inmediato, ya sea que te est\u00e9s preparando para una entrevista, construyendo tu curr\u00edculum o planificando tu pr\u00f3ximo movimiento profesional.",
   sections: [
     {
       heading: "Por Qu\u00e9 los Rasgos Conductuales Importan M\u00e1s que las Casillas",
@@ -387,7 +387,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "La Evaluaci\u00f3n de Perspectivas de Carrera est\u00e1 integrada directamente en el constructor de curr\u00edculum de FQHC Talent Exchange. Cuando construyes tu curr\u00edculum gratuito en nuestra plataforma, la evaluaci\u00f3n se ofrece como parte del proceso — puedes completarla en menos de 10 minutos mientras ya est\u00e1s enfocado en tu perfil profesional. Tus resultados se guardan junto con tu curr\u00edculum, d\u00e1ndote una imagen completa tanto de tus calificaciones como de tus fortalezas conductuales.",
+          text: "La Evaluaci\u00f3n de Perspectivas de Carrera est\u00e1 integrada directamente en el constructor de curr\u00edculum de FQHC Talent. Cuando construyes tu curr\u00edculum gratuito en nuestra plataforma, la evaluaci\u00f3n se ofrece como parte del proceso — puedes completarla en menos de 10 minutos mientras ya est\u00e1s enfocado en tu perfil profesional. Tus resultados se guardan junto con tu curr\u00edculum, d\u00e1ndote una imagen completa tanto de tus calificaciones como de tus fortalezas conductuales.",
         },
         {
           type: "paragraph",

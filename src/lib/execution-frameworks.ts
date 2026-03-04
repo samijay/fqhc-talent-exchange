@@ -507,7 +507,7 @@ export const executionFrameworks: ExecutionFramework[] = [
     id: "readiness-assessment",
     name: { en: "Organizational Change Readiness Assessment", es: "Evaluación de Preparación para Cambio Organizacional" },
     category: "assessment-tools",
-    author: "FQHC Talent Exchange",
+    author: "FQHC Talent",
     icon: "ClipboardCheck",
     tagline: {
       en: "Is your organization ready for this change?",
@@ -541,7 +541,7 @@ export const executionFrameworks: ExecutionFramework[] = [
     id: "tech-stack-assessment",
     name: { en: "FQHC Technology Readiness Assessment", es: "Evaluación de Preparación Tecnológica FQHC" },
     category: "assessment-tools",
-    author: "FQHC Talent Exchange",
+    author: "FQHC Talent",
     icon: "Cpu",
     tagline: {
       en: "Evaluate your tech stack for the AI era",

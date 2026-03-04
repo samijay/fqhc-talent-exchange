@@ -497,8 +497,8 @@ export function generateStrategicInsights(): StrategicInsight[] {
         `${layoffStats.regionsAffected} regions`,
       ],
       actionable: {
-        en: "For employers: These pre-trained workers can be productive in days, not months. Contact us for fast-tracked introductions. For workers: Use our free career tools and job board to find your next role.",
-        es: "Para empleadores: Estos trabajadores pre-entrenados pueden ser productivos en días, no meses. Contáctenos para introducciones aceleradas. Para trabajadores: Usa nuestras herramientas de carrera gratuitas y bolsa de empleo para encontrar tu próximo rol.",
+        en: "For employers: These pre-trained workers can be productive in days, not months. Browse our workforce intelligence tools and salary benchmarks. For workers: Use our free career tools and job board to find your next role.",
+        es: "Para empleadores: Estos trabajadores pre-entrenados pueden ser productivos en días, no meses. Explore nuestras herramientas de inteligencia laboral y benchmarks salariales. Para trabajadores: Usa nuestras herramientas de carrera gratuitas y bolsa de empleo para encontrar tu próximo rol.",
       },
     });
   }

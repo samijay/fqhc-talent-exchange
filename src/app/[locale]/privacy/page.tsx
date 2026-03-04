@@ -23,12 +23,12 @@ const enContent: PolicyContent = {
   breadcrumbHome: "Home",
   breadcrumbPrivacy: "Privacy Policy",
   intro:
-    "FQHC Talent Exchange (\"we,\" \"us,\" or \"our\") operates the fqhctalent.com website. This Privacy Policy explains how we collect, use, share, and protect your personal information when you use our platform. We are committed to being transparent and direct about our data practices. Your trust matters to us, and we take reasonable steps to protect the information you share with us.",
+    "FQHC Talent (\"we,\" \"us,\" or \"our\") operates the fqhctalent.com website. This Privacy Policy explains how we collect, use, share, and protect your personal information when you use our platform. We are committed to being transparent and direct about our data practices. Your trust matters to us, and we take reasonable steps to protect the information you share with us.",
   sections: [
     {
       heading: "1. Information We Collect",
       paragraphs: [
-        "We collect the following categories of personal information when you use FQHC Talent Exchange:",
+        "We collect the following categories of personal information when you use FQHC Talent:",
         "Identifiers: Your name, email address, phone number, and city/region. This is collected when you sign up for our candidate waitlist, employer waitlist, displaced worker fast-track program, or early access list.",
         "Professional information: Job titles, work history, employer names, education history, skills, EHR system experience, certifications, language abilities, and professional objectives. This is collected when you use our resume builder tool.",
         "Resume files: If you upload a resume (PDF or DOCX format), we store the file and extract text from it to help pre-fill your profile. Uploaded resumes are stored securely and are not publicly accessible.",
@@ -123,14 +123,14 @@ const enContent: PolicyContent = {
     {
       heading: "9. Children's Privacy",
       paragraphs: [
-        "FQHC Talent Exchange is a professional career platform intended for adults (18 years of age and older). We do not knowingly collect personal information from children under 13 years of age as defined by the Children's Online Privacy Protection Act (COPPA), or from minors under 16 as defined by the CCPA.",
+        "FQHC Talent is a professional career platform intended for adults (18 years of age and older). We do not knowingly collect personal information from children under 13 years of age as defined by the Children's Online Privacy Protection Act (COPPA), or from minors under 16 as defined by the CCPA.",
         "If we discover that we have inadvertently collected information from a child under 13, we will promptly delete that information from our systems. If you believe that a child under 13 has provided us with personal information, please contact us at privacy@fqhctalent.com.",
       ],
     },
     {
       heading: "10. International Users",
       paragraphs: [
-        "FQHC Talent Exchange is operated in the United States and is intended for users in the United States, primarily in California. Our servers and data storage are located in the United States.",
+        "FQHC Talent is operated in the United States and is intended for users in the United States, primarily in California. Our servers and data storage are located in the United States.",
         "If you access our platform from outside the United States, please be aware that your information will be transferred to, stored, and processed in the United States. By using our platform, you consent to this transfer. The data protection laws in the United States may differ from those in your country of residence.",
       ],
     },
@@ -138,7 +138,7 @@ const enContent: PolicyContent = {
       heading: "11. Third-Party Links",
       paragraphs: [
         "Our platform may contain links to external websites, including FQHC careers pages, job application portals, and professional resources. These third-party sites have their own privacy policies, and we are not responsible for their content or data practices.",
-        "When you click a link to an external site, you are leaving FQHC Talent Exchange. We encourage you to review the privacy policy of any third-party site before providing your personal information.",
+        "When you click a link to an external site, you are leaving FQHC Talent. We encourage you to review the privacy policy of any third-party site before providing your personal information.",
       ],
     },
     {
@@ -167,12 +167,12 @@ const esContent: PolicyContent = {
   breadcrumbHome: "Inicio",
   breadcrumbPrivacy: "Política de Privacidad",
   intro:
-    "FQHC Talent Exchange (\"nosotros\" o \"nuestro\") opera el sitio web fqhctalent.com. Esta Política de Privacidad explica cómo recopilamos, usamos, compartimos y protegemos su información personal cuando utiliza nuestra plataforma. Estamos comprometidos con ser transparentes y directos sobre nuestras prácticas de datos. Su confianza es importante para nosotros, y tomamos medidas razonables para proteger la información que comparte con nosotros.",
+    "FQHC Talent (\"nosotros\" o \"nuestro\") opera el sitio web fqhctalent.com. Esta Política de Privacidad explica cómo recopilamos, usamos, compartimos y protegemos su información personal cuando utiliza nuestra plataforma. Estamos comprometidos con ser transparentes y directos sobre nuestras prácticas de datos. Su confianza es importante para nosotros, y tomamos medidas razonables para proteger la información que comparte con nosotros.",
   sections: [
     {
       heading: "1. Información que Recopilamos",
       paragraphs: [
-        "Recopilamos las siguientes categorías de información personal cuando utiliza FQHC Talent Exchange:",
+        "Recopilamos las siguientes categorías de información personal cuando utiliza FQHC Talent:",
         "Identificadores: Su nombre, dirección de correo electrónico, número de teléfono y ciudad/región. Esto se recopila cuando se registra en nuestra lista de espera de candidatos, lista de espera de empleadores, programa de vía rápida para trabajadores desplazados o lista de acceso anticipado.",
         "Información profesional: Títulos de trabajo, historial laboral, nombres de empleadores, historial educativo, habilidades, experiencia con sistemas EHR, certificaciones, habilidades lingüísticas y objetivos profesionales. Esto se recopila cuando utiliza nuestra herramienta de creación de currículum.",
         "Archivos de currículum: Si carga un currículum (formato PDF o DOCX), almacenamos el archivo y extraemos texto de él para ayudar a completar su perfil. Los currículos cargados se almacenan de forma segura y no son accesibles públicamente.",
@@ -186,7 +186,7 @@ const esContent: PolicyContent = {
       heading: "2. Cómo Usamos Su Información",
       paragraphs: [
         "Utilizamos la información que recopilamos para estos propósitos específicos:",
-        "Conexión laboral y presentaciones: Para conectar candidatos con oportunidades laborales relevantes en Centros de Salud Calificados Federalmente (FQHCs) en California basándose en habilidades, experiencia y preferencias. Cuando se identifica una coincidencia y usted ha dado su consentimiento, compartimos su perfil profesional con el FQHC contratante.",
+        "Herramientas y recursos de carrera: Para proporcionar herramientas de carrera gratuitas, ofertas de empleo agregadas, inteligencia salarial y recursos estratégicos para profesionales de salud comunitaria que exploran oportunidades en Centros de Salud Calificados Federalmente (FQHCs) en California.",
         "Generación de currículum: Para generar un documento de currículum formateado (PDF) basado en la información que proporciona en nuestro creador de currículum. El currículum se genera localmente en su navegador — su currículum PDF no se almacena en nuestros servidores.",
         "Comunicaciones: Para enviarle un correo electrónico de confirmación cuando se registra, y para enviarle oportunidades laborales relevantes, actualizaciones de la plataforma y recursos de carrera. Cada correo electrónico incluye una opción para darse de baja.",
         "Notificaciones a empleadores: Para notificar a nuestro equipo cuando un nuevo empleador o candidato se registra, para que podamos dar seguimiento y facilitar presentaciones.",
@@ -199,7 +199,7 @@ const esContent: PolicyContent = {
       paragraphs: [
         "No vendemos su información personal. Nunca hemos vendido información personal y no tenemos planes de hacerlo.",
         "No compartimos sus datos con anunciantes, intermediarios de datos ni terceros con fines de marketing.",
-        "Compartimos perfiles profesionales de candidatos con empleadores de FQHC solo cuando los candidatos han dado su consentimiento para ser considerados para oportunidades laborales. Compartimos solo la información relevante para la conexión laboral — su nombre, antecedentes profesionales, habilidades e información de contacto. Nunca compartimos más de lo necesario para la presentación.",
+        "No compartimos perfiles de candidatos con empleadores. La información que proporciona a través de nuestras herramientas de carrera (creador de currículum, evaluaciones) se utiliza únicamente para generar sus documentos de carrera e información. Sus datos se quedan con usted.",
         "Utilizamos los siguientes proveedores de servicios terceros para operar nuestra plataforma. Estos proveedores procesan datos en nuestro nombre y están obligados contractualmente a protegerlos:",
         "Supabase: Alojamiento de base de datos y almacenamiento de archivos (servidores ubicados en los Estados Unidos). Almacena su información de perfil y currículos cargados.",
         "Resend: Servicio de entrega de correo electrónico. Procesa su dirección de correo electrónico y nombre para enviar correos de confirmación y notificación.",
@@ -267,14 +267,14 @@ const esContent: PolicyContent = {
     {
       heading: "9. Privacidad de los Niños",
       paragraphs: [
-        "FQHC Talent Exchange es una plataforma profesional de carrera destinada a adultos (mayores de 18 años). No recopilamos intencionalmente información personal de niños menores de 13 años según lo define la Ley de Protección de Privacidad en Línea de los Niños (COPPA), ni de menores de 16 años según lo define la CCPA.",
+        "FQHC Talent es una plataforma profesional de carrera destinada a adultos (mayores de 18 años). No recopilamos intencionalmente información personal de niños menores de 13 años según lo define la Ley de Protección de Privacidad en Línea de los Niños (COPPA), ni de menores de 16 años según lo define la CCPA.",
         "Si descubrimos que hemos recopilado inadvertidamente información de un niño menor de 13 años, eliminaremos esa información de nuestros sistemas de inmediato. Si cree que un niño menor de 13 años nos ha proporcionado información personal, contáctenos en privacy@fqhctalent.com.",
       ],
     },
     {
       heading: "10. Usuarios Internacionales",
       paragraphs: [
-        "FQHC Talent Exchange opera en los Estados Unidos y está destinado a usuarios en los Estados Unidos, principalmente en California. Nuestros servidores y almacenamiento de datos se encuentran en los Estados Unidos.",
+        "FQHC Talent opera en los Estados Unidos y está destinado a usuarios en los Estados Unidos, principalmente en California. Nuestros servidores y almacenamiento de datos se encuentran en los Estados Unidos.",
         "Si accede a nuestra plataforma desde fuera de los Estados Unidos, tenga en cuenta que su información será transferida, almacenada y procesada en los Estados Unidos. Al usar nuestra plataforma, usted consiente esta transferencia. Las leyes de protección de datos en los Estados Unidos pueden diferir de las de su país de residencia.",
       ],
     },
@@ -282,7 +282,7 @@ const esContent: PolicyContent = {
       heading: "11. Enlaces a Terceros",
       paragraphs: [
         "Nuestra plataforma puede contener enlaces a sitios web externos, incluyendo páginas de carreras de FQHCs, portales de solicitud de empleo y recursos profesionales. Estos sitios de terceros tienen sus propias políticas de privacidad, y no somos responsables de su contenido o prácticas de datos.",
-        "Cuando hace clic en un enlace a un sitio externo, está abandonando FQHC Talent Exchange. Le recomendamos revisar la política de privacidad de cualquier sitio de terceros antes de proporcionar su información personal.",
+        "Cuando hace clic en un enlace a un sitio externo, está abandonando FQHC Talent. Le recomendamos revisar la política de privacidad de cualquier sitio de terceros antes de proporcionar su información personal.",
       ],
     },
     {

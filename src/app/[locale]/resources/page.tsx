@@ -444,8 +444,8 @@ export default function ResourcesPage() {
             </h2>
             <p className="mt-3 text-stone-600">
               {isEs
-                ? "Herramientas de carrera que ya tienes disponibles en FQHC Talent Exchange"
-                : "Career tools already available to you at FQHC Talent Exchange"}
+                ? "Herramientas de carrera que ya tienes disponibles en FQHC Talent"
+                : "Career tools already available to you at FQHC Talent"}
             </p>
           </div>
 

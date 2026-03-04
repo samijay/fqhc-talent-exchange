@@ -386,8 +386,8 @@ export default function WhyFQHCPage() {
             </div>
             <p className="mt-2 text-xs text-stone-400">
               {t({
-                en: "Source: FQHC Talent Exchange analysis of 156+ California FQHC job listings, 2025–2026.",
-                es: "Fuente: Análisis de FQHC Talent Exchange de 156+ ofertas laborales FQHC en California, 2025–2026.",
+                en: "Source: FQHC Talent analysis of 156+ California FQHC job listings, 2025–2026.",
+                es: "Fuente: Análisis de FQHC Talent de 156+ ofertas laborales FQHC en California, 2025–2026.",
               }, locale)}
             </p>
           </div>

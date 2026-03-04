@@ -62,7 +62,7 @@ export async function generateMetadata({
   const resilience = calculateResilienceScore(fqhc);
 
   return {
-    title: `${fqhc.name} — Strategic Intelligence Report | FQHC Talent Exchange`,
+    title: `${fqhc.name} — Strategic Intelligence Report | FQHC Talent`,
     description: `Strategic intelligence report for ${fqhc.name} in ${fqhc.city}, CA. Resilience grade: ${resilience.grade}. ${fqhc.siteCount} sites, ${fqhc.staffCount} staff, ${fqhc.patientCount} patients. Risk level: ${resilience.riskLevel}.`,
     alternates: {
       canonical: `https://www.fqhctalent.com/report/${slug}`,

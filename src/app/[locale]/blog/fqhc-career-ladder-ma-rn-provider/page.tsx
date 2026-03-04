@@ -513,7 +513,7 @@ export default function FqhcCareerLadderArticle() {
               Ready to Build Your FQHC Career?
             </h3>
             <p className="text-stone-600 mb-6 text-lg">
-              Join FQHC Talent Exchange to connect with community health centers that are investing in staff development and promoting from within. Find the right role to launch your FQHC career ladder.
+              Join FQHC Talent to connect with community health centers that are investing in staff development and promoting from within. Find the right role to launch your FQHC career ladder.
             </p>
             <a
               href="/resume-builder"

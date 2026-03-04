@@ -2,10 +2,10 @@
 // Curated intelligence feed for FQHC executives
 // Updated daily via /daily-update pipeline
 // Every item has a primary source URL — no unsourced claims
-// Last updated: 2026-03-01 (daily update #7)
+// Last updated: 2026-03-04 (daily update #9)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-01";
+export const INTEL_LAST_UPDATED = "2026-03-04";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -143,7 +143,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     category: "legislation",
     type: "deadline",
     impactLevel: "high",
-    sourceUrl: "https://www.dhcs.ca.gov/services/medi-cal/Pages/Benefits-702.aspx",
+    sourceUrl: "https://mcweb.apps.prd.cammis.medi-cal.ca.gov/news/31781_01",
     sourceOrg: "CA DHCS",
     region: "California",
     tags: ["chw", "billing-codes", "medi-cal", "hiring"],
@@ -262,7 +262,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     category: "undocumented-access",
     type: "deadline",
     impactLevel: "critical",
-    sourceUrl: "https://www.dhcs.ca.gov/services/medi-cal/Pages/FQHCrates.aspx",
+    sourceUrl: "https://www.dhcs.ca.gov/services/Pages/FQHC_APM.aspx",
     sourceOrg: "CA DHCS",
     region: "California",
     tags: ["undocumented", "pps", "revenue-impact", "fee-schedule"],
@@ -332,12 +332,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     id: "cpca-pcdc-partnership-2026",
     date: "2026-02-28",
     headline: {
-      en: "CPCA-PCDC Partnership to Expand Healthcare Access Across California",
-      es: "Asociación CPCA-PCDC para Expandir Acceso a Salud en California",
+      en: "CPCA-PCDC California Health Impact Fund: Low-Interest Capital for FQHCs",
+      es: "Fondo de Impacto en Salud CPCA-PCDC: Capital a Bajo Interés para FQHCs",
     },
     summary: {
-      en: "The California Primary Care Association (CPCA) and the Pacific Community Development Corporation (PCDC) announced a strategic partnership to expand healthcare access in underserved California communities. The collaboration focuses on integrating community development financing with health center infrastructure, potentially unlocking new capital for FQHC facility expansions and community-based care delivery models.",
-      es: "La Asociación de Atención Primaria de California (CPCA) y la Pacific Community Development Corporation (PCDC) anunciaron una asociación estratégica para expandir el acceso a la salud en comunidades desatendidas de California. La colaboración se centra en integrar financiamiento de desarrollo comunitario con infraestructura de centros de salud.",
+      en: "The California Primary Care Association (CPCA) and Pacific Community Development Corporation (PCDC) operate the California Health Impact Fund — a low-interest loan program providing capital for FQHC facility expansions, equipment, and community-based care infrastructure. The fund integrates community development financing with health center needs, offering an alternative to traditional lending for safety-net providers facing capital constraints.",
+      es: "La Asociación de Atención Primaria de California (CPCA) y la Pacific Community Development Corporation (PCDC) operan el Fondo de Impacto en Salud de California — un programa de préstamos a bajo interés que proporciona capital para expansiones de instalaciones de FQHCs, equipamiento e infraestructura de atención comunitaria.",
     },
     category: "lobbying",
     type: "news",
@@ -407,7 +407,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     category: "workforce",
     type: "news",
     impactLevel: "low",
-    sourceUrl: "https://cpehn.org/what-we-do/policy-priorities/",
+    sourceUrl: "https://cpehn.org/what-we-do-2/our-networks/community-health-workers-promotores/",
     sourceOrg: "CPEHN",
     region: "California",
     tags: ["diversity", "clas-standards", "community-representation", "hiring", "equity"],
@@ -738,6 +738,164 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "KFF",
     region: "Federal",
     tags: ["copay-exemption", "patient-acquisition", "competitive-advantage"],
+  },
+
+  /* ============================================================== */
+  /*  2026-03-04 — CREATIVE FINANCING & ECM/RYAN WHITE              */
+  /* ============================================================== */
+  {
+    id: "strategy-340b-rebate-model-pivot",
+    date: "2026-03-04",
+    headline: {
+      en: "Strategy: 340B Rebate Model Pilot Launched Jan 2026 — FQHCs Must Adapt Pharmacy Workflows",
+      es: "Estrategia: Programa Piloto de Reembolso 340B Lanzado en Enero 2026 — Los FQHCs Deben Adaptar Flujos de Farmacia",
+    },
+    summary: {
+      en: "HRSA's first-ever 340B rebate model pilot launched January 1, 2026 with 8 manufacturers and 10 drugs (Eliquis, Enbrel, Jardiance, Stelara). Instead of upfront discounts, FQHCs must buy at wholesale and submit rebate claims within 45 days. This changes cash-flow timing and requires two parallel workflows. Action: (1) Audit current 340B capture rates — most FQHCs capture only 20-30% of eligible prescriptions. (2) Invest in 340B software integrating with your EHR. (3) Model cash-flow scenarios for delayed rebate timing. (4) Review contract pharmacy relationships — strategic partners generate significantly more revenue.",
+      es: "El primer programa piloto de reembolso 340B de HRSA se lanzó el 1 de enero de 2026 con 8 fabricantes y 10 medicamentos. En lugar de descuentos iniciales, los FQHCs deben comprar al por mayor y presentar reclamos de reembolso en 45 días. Acción: auditar tasas de captura 340B, invertir en software 340B, modelar flujos de efectivo para reembolsos diferidos.",
+    },
+    category: "change-management",
+    type: "strategy",
+    impactLevel: "high",
+    sourceUrl: "https://www.communitylinkconsulting.com/blog/340b-rebate-model-pilot-fqhc-guide",
+    sourceOrg: "Community Link Consulting",
+    region: "Federal",
+    tags: ["340b", "pharmacy", "revenue", "creative-financing", "cash-flow"],
+  },
+  {
+    id: "strategy-dpc-hsa-fqhc-revenue",
+    date: "2026-03-04",
+    headline: {
+      en: "Strategy: HSA-Compatible DPC Opens New Revenue Channel for FQHCs Starting Jan 2026",
+      es: "Estrategia: DPC Compatible con HSA Abre Nuevo Canal de Ingresos para FQHCs Desde Enero 2026",
+    },
+    summary: {
+      en: "H.R. 1 (OBBBA) made Direct Primary Care (DPC) memberships HSA-eligible starting January 1, 2026 — up to $150/mo individual, $300/mo family. For FQHCs: this creates a subscription revenue stream from commercially insured/HSA-eligible patients alongside existing PPS. Some FQHCs already generate $300K+/year from 500 subscription members. Action: (1) Explore DPC-overlay pricing for non-Medicaid patients. (2) Partner with local employers for direct primary care contracts. (3) Model revenue impact of 200-500 DPC subscribers. (4) Ensure PPS compliance — DPC fees must not conflict with sliding fee scale or HRSA requirements.",
+      es: "H.R. 1 hizo las membresías de Atención Primaria Directa (DPC) elegibles para HSA desde enero 2026 — hasta $150/mes individual, $300/mes familiar. Para FQHCs: esto crea ingresos por suscripción de pacientes con seguro comercial/HSA junto al PPS existente. Acción: explorar precios DPC para pacientes no-Medicaid, asociarse con empleadores locales, modelar impacto de 200-500 suscriptores DPC.",
+    },
+    category: "change-management",
+    type: "strategy",
+    impactLevel: "high",
+    sourceUrl: "https://hsaforamerica.com/blog/can-i-use-hsa-for-dpc/",
+    sourceOrg: "HSA for America",
+    region: "Federal",
+    tags: ["dpc", "hsa", "subscription-revenue", "creative-financing", "employer-contracts"],
+  },
+  {
+    id: "strategy-ecm-ryan-white-integration",
+    date: "2026-03-04",
+    headline: {
+      en: "Strategy: Integrating ECM Revenue into Ryan White Programs — A Sustainability Playbook for FQHCs",
+      es: "Estrategia: Integrar Ingresos ECM en Programas Ryan White — Manual de Sostenibilidad para FQHCs",
+    },
+    summary: {
+      en: "FQHCs with Ryan White funding can layer CalAIM Enhanced Care Management (ECM) revenue on top of existing HIV/AIDS grants — but with a critical exclusion: members enrolled in the HIV/AIDS HCBS Waiver (MCWP) cannot simultaneously receive ECM. The playbook: (1) Identify Ryan White clients who are Medi-Cal eligible but NOT on the MCWP waiver — they can be referred to ECM. (2) Use ECM for HIV+ patients with complex social needs (housing instability, reentry, SUD). (3) Build CHW/care coordinator capacity funded by ECM PMPM to supplement Ryan White case management. (4) Ryan White remains payer of last resort — ECM captures Medi-Cal revenue first. Golden Valley Health Centers (Merced County) is modeling this with ECM + HIV focus.",
+      es: "FQHCs con fondos Ryan White pueden agregar ingresos de ECM de CalAIM sobre subvenciones existentes de VIH/SIDA — pero con una exclusión crítica: miembros en la Exención MCWP no pueden recibir ECM simultáneamente. Manual: identificar clientes Ryan White elegibles para Medi-Cal pero NO en la exención MCWP, usar ECM para pacientes VIH+ con necesidades sociales complejas, construir capacidad de CHW financiada por PMPM de ECM.",
+    },
+    category: "change-management",
+    type: "strategy",
+    impactLevel: "critical",
+    sourceUrl: "https://www.sandiegocounty.gov/content/dam/sdc/hhsa/programs/phs/hiv-planning-group/CalAIM%20SD%20HIV%20Planning%20Group%20(HPG)_11.12.25.pdf",
+    sourceOrg: "San Diego County HIV Planning Group",
+    region: "California",
+    affectedOrgs: ["Golden Valley Health Centers"],
+    affectedOrgSlugs: ["golden-valley-health-centers"],
+    tags: ["ecm", "ryan-white", "hiv", "calaim", "creative-financing", "revenue-layering", "grant-integration"],
+  },
+  {
+    id: "strategy-fqhc-creative-financing-playbook",
+    date: "2026-03-04",
+    headline: {
+      en: "Strategy: Creative Financing Playbook — 6 Revenue Streams Beyond Section 330 for the Next 3 Years",
+      es: "Estrategia: Manual de Financiamiento Creativo — 6 Fuentes de Ingresos Más Allá de la Sección 330 para los Próximos 3 Años",
+    },
+    summary: {
+      en: "With CHCF expiring Dec 2026 and Medicaid cuts squeezing margins, FQHCs must diversify NOW. Six proven strategies: (1) 340B optimization — most FQHCs capture only 20-30% of eligible prescriptions, representing millions in missed revenue. (2) DPC subscription overlay — $150/mo HSA-eligible (new Jan 2026). (3) ECM/Community Supports PMPM layering on top of grant-funded programs. (4) Employer direct contracts — map community employers, offer workplace health services. (5) Value-based APMs with per-member-per-month payments (PPS rules allow FQHC payment under APMs if revenue ≥ PPS equivalent). (6) Revenue cycle tightening — A/R below 45 days, denial management, annual payer contract reviews. A 3-5% improvement in collections = hundreds of thousands annually.",
+      es: "Con CHCF expirando en diciembre 2026 y recortes de Medicaid, los FQHCs deben diversificar AHORA. Seis estrategias: optimización 340B, suscripción DPC con HSA, PMPM de ECM sobre programas de subvención, contratos directos con empleadores, APMs basados en valor, y mejora del ciclo de ingresos.",
+    },
+    category: "change-management",
+    type: "strategy",
+    impactLevel: "critical",
+    sourceUrl: "https://www.chcconsultinggroup.com/2025/11/06/lost-opportunities-for-fqhc-profitability-why-every-dollar-matters-more-than-ever",
+    sourceOrg: "CHC Consulting Group",
+    region: "Federal",
+    tags: ["creative-financing", "revenue-diversification", "340b", "dpc", "ecm", "apm", "revenue-cycle", "survival-playbook"],
+  },
+  {
+    id: "ca-sues-600m-cdc-cuts",
+    date: "2026-02-11",
+    headline: {
+      en: "California Sues Trump Administration Over $600M in CDC Health Funding Cuts — Judge Blocks Action",
+      es: "California Demanda a la Administración Trump por $600M en Recortes de Fondos CDC — Juez Bloquea Acción",
+    },
+    summary: {
+      en: "AG Rob Bonta filed suit alongside Colorado, Illinois, and Minnesota after HHS notified Congress of plans to terminate CDC grants exclusively in these four Democratic-led states. At stake for California: $130M from the Public Health Infrastructure Grant alone (supporting 400+ health workforce jobs), plus HIV testing, health equity programs, and emergency preparedness funding. Federal Judge Manish Shah issued a 14-day block, finding the states would suffer 'irreparable harm.' The targeted programs include LA County's $6M health equity initiative and $1.1M HIV surveillance.",
+      es: "El fiscal general Bonta demandó junto con Colorado, Illinois y Minnesota después de que HHS notificó planes de terminar subvenciones CDC exclusivamente en estos cuatro estados. En juego para California: $130M de la Subvención de Infraestructura de Salud Pública (400+ empleos), pruebas de VIH, equidad en salud. Un juez federal bloqueó la acción por 14 días.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://oag.ca.gov/news/press-releases/attorney-general-bonta-sues-trump-administration-protect-over-600-million-health",
+    sourceOrg: "California Attorney General",
+    region: "California",
+    tags: ["cdc-cuts", "lawsuit", "federal-funding", "hiv", "health-equity", "workforce"],
+  },
+  {
+    id: "ryan-white-ending-49pct-hiv-increase",
+    date: "2025-09-15",
+    headline: {
+      en: "Johns Hopkins Model: Ending Ryan White Program Would Increase New HIV Infections 49% by 2030",
+      es: "Modelo de Johns Hopkins: Terminar el Programa Ryan White Aumentaría Nuevas Infecciones de VIH un 49% para 2030",
+    },
+    summary: {
+      en: "A Johns Hopkins computer simulation published in Annals of Internal Medicine projects that eliminating federal Ryan White HIV/AIDS Program funding would increase new HIV infections by 49% nationwide by 2030 — representing thousands of preventable infections annually. For FQHCs receiving Ryan White Part C/D funding: this threat makes ECM revenue layering and Medi-Cal billing optimization urgently important as a financial hedge. The 2026 National Ryan White Conference (Aug 4-7, Washington DC) will focus on 'Strengthening our Foundation' — FQHC leaders should attend for advocacy and sustainability planning.",
+      es: "Una simulación de Johns Hopkins proyecta que eliminar fondos federales del Programa Ryan White aumentaría nuevas infecciones de VIH un 49% para 2030. Para FQHCs con fondos Ryan White: esta amenaza hace urgente la integración de ingresos ECM y optimización de facturación Medi-Cal como cobertura financiera.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.acpjournals.org/doi/abs/10.7326/ANNALS-25-01737",
+    sourceOrg: "Annals of Internal Medicine",
+    region: "Federal",
+    tags: ["ryan-white", "hiv", "funding-threat", "ecm", "simulation-study"],
+  },
+  {
+    id: "calaim-1115-waiver-renewal-2026",
+    date: "2026-03-04",
+    headline: {
+      en: "CalAIM 1115 Waiver Expires Dec 2026 — Renewal at Risk Under Restrictive Federal Posture",
+      es: "Exención CalAIM 1115 Expira en Diciembre 2026 — Renovación en Riesgo Bajo Postura Federal Restrictiva",
+    },
+    summary: {
+      en: "California's CalAIM 1115 waiver expires December 31, 2026. Since launching in January 2022, 326,000+ members have enrolled in ECM and 368,000+ in Community Supports. DHCS released a concept paper in July 2025 and plans to submit the renewal application in 2026. But the federal administration has withdrawn guidance supporting SDOH through Medicaid and won't approve new funding for rent assistance or medically tailored meals. For FQHCs: ECM revenue (the fastest-growing revenue stream for many centers) depends on this renewal. Build ECM volume NOW while the waiver is active, and prepare contingency plans if renewal is delayed or narrowed.",
+      es: "La exención CalAIM 1115 de California expira el 31 de diciembre de 2026. Desde enero 2022: 326,000+ miembros en ECM, 368,000+ en Community Supports. La administración federal ha retirado guías de SDOH a través de Medicaid. Para FQHCs: los ingresos ECM dependen de esta renovación. Construya volumen ECM AHORA y prepare planes de contingencia.",
+    },
+    category: "legislation",
+    type: "deadline",
+    impactLevel: "critical",
+    sourceUrl: "https://www.chcs.org/resource/national-context-for-californias-renewal-of-calaim-in-2026/",
+    sourceOrg: "Center for Health Care Strategies",
+    region: "California",
+    tags: ["calaim", "ecm", "waiver-renewal", "community-supports", "sdoh", "deadline"],
+  },
+  {
+    id: "strategy-ecm-volume-urgency",
+    date: "2026-03-04",
+    headline: {
+      en: "Strategy: Build ECM Caseload Now Before Dec 2026 Waiver Expiration — Window Is Closing",
+      es: "Estrategia: Construir Carga de Casos ECM Ahora Antes de la Expiración de Exención de Diciembre 2026",
+    },
+    summary: {
+      en: "With CalAIM's 1115 waiver expiring Dec 2026 and a hostile federal environment for SDOH-focused Medicaid programs, FQHCs must maximize ECM enrollment now. Revenue strategy: (1) Screen every Medi-Cal patient for ECM eligibility (7 populations of focus including HIV+, SMI, SUD, homelessness, justice-involved). (2) Layer ECM on grant-funded programs — Ryan White clients on Medi-Cal (not MCWP waiver) can be ECM-enrolled. (3) Cross-train CHWs for both ECM care coordination and Ryan White case management. (4) Build data infrastructure showing ECM outcomes (reduced ED visits, improved engagement) to justify renewal. (5) Join CPCA and NACHC advocacy for waiver renewal with full ECM/Community Supports authority.",
+      es: "Con la exención CalAIM 1115 expirando en diciembre 2026, los FQHCs deben maximizar la inscripción ECM ahora. Estrategia: evaluar cada paciente Medi-Cal para ECM, integrar ECM con Ryan White, capacitar CHWs en ambos programas, construir datos de resultados ECM, unirse a la defensa de CPCA/NACHC para renovación.",
+    },
+    category: "change-management",
+    type: "strategy",
+    impactLevel: "critical",
+    sourceUrl: "https://www.dhcs.ca.gov/CalAIM/ECM/Documents/CalAIM-ECM-Policy-Guide.pdf",
+    sourceOrg: "DHCS CalAIM",
+    region: "California",
+    tags: ["ecm", "calaim", "ryan-white", "volume-building", "creative-financing", "chw", "waiver-renewal"],
   },
 ];
 

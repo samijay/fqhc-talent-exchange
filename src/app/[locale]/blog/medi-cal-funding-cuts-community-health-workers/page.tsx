@@ -116,7 +116,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "This is exactly why FQHC Talent Exchange exists. We provide free career tools, aggregated job postings from 220+ California FQHCs, salary intelligence, and strategic resources — all designed specifically for community health professionals. We understand the roles, the programs, and the EHR systems. Our resume builder, career assessment, and FQHC directory help you compare opportunities and find the right fit.",
+          text: "This is exactly why FQHC Talent exists. We provide free career tools, aggregated job postings from 220+ California FQHCs, salary intelligence, and strategic resources — all designed specifically for community health professionals. We understand the roles, the programs, and the EHR systems. Our resume builder, career assessment, and FQHC directory help you compare opportunities and find the right fit.",
         },
       ],
     },
@@ -136,7 +136,7 @@ const enContent: ArticleContent = {
   ],
   ctaTitle: "Were You Affected by FQHC Layoffs?",
   ctaDescription:
-    "Join FQHC Talent Exchange — completely free for job seekers. Get matched with FQHCs that are actively hiring for your exact skills.",
+    "Join FQHC Talent — completely free career tools, job listings, and salary data for community health professionals.",
   ctaButtonText: "Build Your Free Resume",
   relatedArticles: [
     {
@@ -230,11 +230,11 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "4. Obtén Apoyo de Colocación Especializado",
+          text: "4. Usa Herramientas de Carrera Gratuitas",
         },
         {
           type: "paragraph",
-          text: "Es exactamente por esto que FQHC Talent Exchange existe. Conectamos trabajadores de salud comunitaria desplazados con FQHCs que están contratando activamente — de forma gratuita. Entendemos los roles, los programas y los sistemas de EHR. No solo listamos trabajos — abogamos por candidatos y hacemos presentaciones directas a gerentes de contratación. Nuestro objetivo es ponerte frente al empleador correcto dentro de 5 días.",
+          text: "Es exactamente por esto que FQHC Talent existe. Ofrecemos herramientas de carrera gratuitas para trabajadores de salud comunitaria — incluyendo un creador de currículum específico para FQHCs, evaluaciones de carrera, hojas de ruta profesionales y datos salariales de toda California. Entendemos los roles, los programas y los sistemas de EHR. Explora nuestro directorio de más de 220 FQHCs y listados de empleo agregados para encontrar tu próxima oportunidad.",
         },
       ],
     },
@@ -243,7 +243,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "La demanda de trabajadores de salud comunitaria no se va a desaparecer. California continúa invirtiendo en CalAIM, salud de la población y modelos de atención de persona integral que dependen de fuerzas laborales basadas en la comunidad. La disrupción actual es dolorosa, pero la trayectoria a largo plazo para carreras de salud comunitaria es fuerte. El desafío en este momento es cerrar la brecha — conseguir que los trabajadores desplazados se conecten con las organizaciones que los necesitan, tan rápidamente como sea posible.",
+          text: "La demanda de trabajadores de salud comunitaria no se va a desaparecer. California continúa invirtiendo en CalAIM, salud de la población y modelos de atención de persona integral que dependen de fuerzas laborales basadas en la comunidad. La disrupción actual es dolorosa, pero la trayectoria a largo plazo para carreras de salud comunitaria es fuerte. El desafío en este momento es cerrar la brecha — ayudar a los trabajadores desplazados a encontrar las organizaciones que los necesitan, con las herramientas y datos correctos.",
         },
         {
           type: "paragraph",
@@ -254,7 +254,7 @@ const esContent: ArticleContent = {
   ],
   ctaTitle: "¿Fuiste Afectado por Despidos de FQHC?",
   ctaDescription:
-    "Únete a FQHC Talent Exchange — completamente gratuito para buscadores de trabajo. Obten coincidencias con FQHCs que están activamente contratando para tus habilidades exactas.",
+    "Únete a FQHC Talent — completamente gratuito para buscadores de trabajo. Obten coincidencias con FQHCs que están activamente contratando para tus habilidades exactas.",
   ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {

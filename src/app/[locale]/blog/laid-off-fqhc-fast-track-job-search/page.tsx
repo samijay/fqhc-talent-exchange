@@ -44,7 +44,7 @@ const enContent: ArticleContent = {
   dateDisplay: "February 15, 2026",
   readTime: "8 min read",
   openingParagraph:
-    "If you have recently been laid off from a Federally Qualified Health Center, you are not alone. Across California, thousands of community health workers, care coordinators, medical assistants, and case managers are being displaced as FQHCs navigate Medi-Cal funding cuts, program restructuring, and tightening budgets. It is a painful situation — but here is the paradox that most people miss: many FQHCs are simultaneously hiring. The demand for experienced community health professionals has not disappeared. It has shifted. Programs are closing in some organizations while expanding in others. If you know where to look and how to position yourself, your FQHC experience is not a liability — it is the most valuable credential you have. The FQHC Talent Exchange built free career tools specifically for this moment: to help displaced FQHC workers get job-ready and explore opportunities at hiring FQHCs across California.",
+    "If you have recently been laid off from a Federally Qualified Health Center, you are not alone. Across California, thousands of community health workers, care coordinators, medical assistants, and case managers are being displaced as FQHCs navigate Medi-Cal funding cuts, program restructuring, and tightening budgets. It is a painful situation — but here is the paradox that most people miss: many FQHCs are simultaneously hiring. The demand for experienced community health professionals has not disappeared. It has shifted. Programs are closing in some organizations while expanding in others. If you know where to look and how to position yourself, your FQHC experience is not a liability — it is the most valuable credential you have. The FQHC Talent built free career tools specifically for this moment: to help displaced FQHC workers get job-ready and explore opportunities at hiring FQHCs across California.",
   sections: [
     {
       heading: "The Reality: Why So Many FQHC Workers Are Being Displaced",
@@ -59,7 +59,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "This is not a market where there are no jobs. It is a market where the connections between displaced workers and open positions are broken. The FQHC Talent Exchange exists to fix that connection — and the Fast-Track program was built to fix it fast.",
+          text: "This is not a market where there are no jobs. It is a market where the connections between displaced workers and open positions are broken. The FQHC Talent exists to fix that connection — and the Fast-Track program was built to fix it fast.",
         },
       ],
     },
@@ -98,7 +98,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The FQHC Talent Exchange offers a complete suite of free career tools designed specifically for community health professionals. Here is how to use them to get job-ready fast:",
+          text: "The FQHC Talent offers a complete suite of free career tools designed specifically for community health professionals. Here is how to use them to get job-ready fast:",
         },
         {
           type: "box",
@@ -194,7 +194,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The FQHC Talent Exchange was built to connect community health professionals with the FQHCs that need them. But as we watched the wave of layoffs sweep across California in late 2025 and into 2026, we realized that our standard platform — as useful as it is — was not fast enough for workers who were suddenly without income and needed to find their next role immediately.",
+          text: "The FQHC Talent was built to connect community health professionals with the FQHCs that need them. But as we watched the wave of layoffs sweep across California in late 2025 and into 2026, we realized that our standard platform — as useful as it is — was not fast enough for workers who were suddenly without income and needed to find their next role immediately.",
         },
         {
           type: "paragraph",
@@ -243,7 +243,7 @@ const esContent: ArticleContent = {
   dateDisplay: "15 de Febrero de 2026",
   readTime: "8 min",
   openingParagraph:
-    "Si te despidieron recientemente de un Centro de Salud Calificado Federalmente, no est\u00e1s solo. En toda California, miles de trabajadores de salud comunitaria, coordinadores de atenci\u00f3n, asistentes m\u00e9dicos y gerentes de casos est\u00e1n siendo desplazados mientras los FQHCs navegan recortes de fondos de Medi-Cal, reestructuraci\u00f3n de programas y presupuestos m\u00e1s ajustados. Es una situaci\u00f3n dolorosa \u2014 pero aqu\u00ed est\u00e1 la paradoja que la mayor\u00eda de la gente no ve: muchos FQHCs est\u00e1n contratando simult\u00e1neamente. La demanda de profesionales experimentados en salud comunitaria no ha desaparecido. Se ha desplazado. Los programas est\u00e1n cerrando en algunas organizaciones mientras se expanden en otras. Si sabes d\u00f3nde buscar y c\u00f3mo posicionarte, tu experiencia en FQHC no es una desventaja \u2014 es la credencial m\u00e1s valiosa que tienes. FQHC Talent Exchange cre\u00f3 herramientas gratis de carrera y un programa de admisi\u00f3n prioritaria espec\u00edficamente para este momento: para ayudar a los trabajadores desplazados a prepararse y conectarse con FQHCs contratando en toda California.",
+    "Si te despidieron recientemente de un Centro de Salud Calificado Federalmente, no est\u00e1s solo. En toda California, miles de trabajadores de salud comunitaria, coordinadores de atenci\u00f3n, asistentes m\u00e9dicos y gerentes de casos est\u00e1n siendo desplazados mientras los FQHCs navegan recortes de fondos de Medi-Cal, reestructuraci\u00f3n de programas y presupuestos m\u00e1s ajustados. Es una situaci\u00f3n dolorosa \u2014 pero aqu\u00ed est\u00e1 la paradoja que la mayor\u00eda de la gente no ve: muchos FQHCs est\u00e1n contratando simult\u00e1neamente. La demanda de profesionales experimentados en salud comunitaria no ha desaparecido. Se ha desplazado. Los programas est\u00e1n cerrando en algunas organizaciones mientras se expanden en otras. Si sabes d\u00f3nde buscar y c\u00f3mo posicionarte, tu experiencia en FQHC no es una desventaja \u2014 es la credencial m\u00e1s valiosa que tienes. FQHC Talent cre\u00f3 herramientas gratis de carrera y un programa de admisi\u00f3n prioritaria espec\u00edficamente para este momento: para ayudar a los trabajadores desplazados a prepararse y conectarse con FQHCs contratando en toda California.",
   sections: [
     {
       heading: "La Realidad: Por Qué Tantos Trabajadores de FQHC Están Siendo Desplazados",
@@ -258,7 +258,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Este no es un mercado donde no hay trabajos. Es un mercado donde las conexiones entre los trabajadores desplazados y las posiciones abiertas están rotas. FQHC Talent Exchange existe para arreglar esa conexión — y el programa Fast-Track fue construido para arreglarla rápido.",
+          text: "Este no es un mercado donde no hay trabajos. Es un mercado donde las conexiones entre los trabajadores desplazados y las posiciones abiertas están rotas. FQHC Talent existe para arreglar esa conexión — y el programa Fast-Track fue construido para arreglarla rápido.",
         },
       ],
     },
@@ -295,7 +295,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "FQHC Talent Exchange ofrece un conjunto completo de herramientas gratis de carrera dise\u00f1adas espec\u00edficamente para profesionales de salud comunitaria, m\u00e1s un programa de admisi\u00f3n prioritaria para trabajadores desplazados. As\u00ed es c\u00f3mo usarlas para prepararte r\u00e1pido:",
+          text: "FQHC Talent ofrece un conjunto completo de herramientas gratis de carrera dise\u00f1adas espec\u00edficamente para profesionales de salud comunitaria, m\u00e1s un programa de admisi\u00f3n prioritaria para trabajadores desplazados. As\u00ed es c\u00f3mo usarlas para prepararte r\u00e1pido:",
         },
         {
           type: "box",
@@ -307,7 +307,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "box",
-          text: "Paso 3: \u00danete a la Admisi\u00f3n Prioritaria en /fast-track. Llena un formulario de 3 minutos con tu experiencia, habilidades y preferencias de ubicaci\u00f3n. Tu perfil entra en nuestra cola prioritaria donde te conectamos con FQHCs contratando activamente en tu \u00e1rea.",
+          text: "Paso 3: \u00danete a la Admisi\u00f3n Prioritaria en /fast-track. Llena un formulario de 3 minutos con tu experiencia, habilidades y preferencias de ubicaci\u00f3n. Tu perfil se prioriza y accedes a herramientas de carrera y listados de empleos en FQHCs contratando activamente en tu \u00e1rea.",
         },
         {
           type: "box",
@@ -389,7 +389,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "FQHC Talent Exchange fue construido para conectar a profesionales de salud comunitaria con los FQHCs que los necesitan. Pero al ver la ola de despidos barrer California a fines de 2025 y en 2026, nos dimos cuenta de que nuestra plataforma estándar — tan útil como es — no era lo suficientemente rápida para trabajadores que de repente estaban sin ingresos y necesitaban encontrar su próximo puesto de inmediato.",
+          text: "FQHC Talent fue construido para conectar a profesionales de salud comunitaria con los FQHCs que los necesitan. Pero al ver la ola de despidos barrer California a fines de 2025 y en 2026, nos dimos cuenta de que nuestra plataforma estándar — tan útil como es — no era lo suficientemente rápida para trabajadores que de repente estaban sin ingresos y necesitaban encontrar su próximo puesto de inmediato.",
         },
         {
           type: "paragraph",

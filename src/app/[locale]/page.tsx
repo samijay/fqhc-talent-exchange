@@ -1,4 +1,4 @@
-// FQHC Talent Exchange v4 — Rumelt Strategic Framework Homepage
+// FQHC Talent v4 — Rumelt Strategic Framework Homepage
 "use client";
 
 import { Link } from "@/i18n/navigation";

@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export const alt =
-  "FQHC Talent Exchange — Strategic intelligence, workforce data, and free career tools for California's community health centers";
+  "FQHC Talent — Strategic intelligence, workforce data, and free career tools for California's community health centers";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

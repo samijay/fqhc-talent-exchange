@@ -50,7 +50,7 @@ export async function generateMetadata({
   const jobText = jobCount > 0 ? ` ${jobCount} open positions.` : "";
 
   return {
-    title: `${fqhc.name} Jobs & Salaries | FQHC Talent Exchange`,
+    title: `${fqhc.name} Jobs & Salaries | FQHC Talent`,
     description: `View open positions, salary ranges, programs, and employee ratings at ${fqhc.name} in ${fqhc.city}, California. ${fqhc.description}`,
     openGraph: {
       title: `${fqhc.name} — Jobs, Salaries & Reviews`,

@@ -179,7 +179,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "On your resume and in your FQHC Talent Exchange profile, always list every EHR system you've used, including the specific modules you're proficient in. This is one of the first filters hiring managers apply.",
+          text: "On your resume and in your FQHC Talent profile, always list every EHR system you've used, including the specific modules you're proficient in. This is one of the first filters hiring managers apply.",
         },
       ],
     },
@@ -218,11 +218,11 @@ const enContent: ArticleContent = {
           ],
         },
         {
-          subHeading: "Build Your FQHC Talent Exchange Profile",
+          subHeading: "Build Your FQHC Talent Profile",
           content: [
             {
               type: "paragraph",
-              text: "When you create a profile on FQHC Talent Exchange, you can specify your ECM experience, EHR proficiency, language skills, and preferred regions — all the factors that FQHC hiring managers use to evaluate candidates. This lets us match you directly with ECM openings that fit your background, rather than forcing you to scroll through generic job boards.",
+              text: "On FQHC Talent, you can filter ECM job listings by region, EHR system, language requirements, and role type — all the factors that FQHC hiring managers use to evaluate candidates. This helps you find ECM openings that fit your background, rather than scrolling through generic job boards.",
             },
           ],
         },
@@ -273,7 +273,7 @@ const enContent: ArticleContent = {
   ],
   ctaTitle: "Ready to Find Your ECM Role?",
   ctaDescription:
-    "Join FQHC Talent Exchange and get matched with FQHCs that are actively hiring for Enhanced Care Management positions across California.",
+    "Browse ECM job listings at FQHCs across California — plus free career tools, salary data, and strategic intelligence.",
   ctaButtonText: "Build Your Free Resume",
   relatedArticles: [
     {
@@ -425,7 +425,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "En tu currículum y en tu perfil de FQHC Talent Exchange, siempre enumera cada sistema de EHR que hayas usado, incluyendo los módulos específicos con los que eres competente. Este es uno de los primeros filtros que aplican los gerentes de contratación.",
+          text: "En tu currículum y en tu perfil de FQHC Talent, siempre enumera cada sistema de EHR que hayas usado, incluyendo los módulos específicos con los que eres competente. Este es uno de los primeros filtros que aplican los gerentes de contratación.",
         },
       ],
     },
@@ -483,7 +483,7 @@ const esContent: ArticleContent = {
   ],
   ctaTitle: "¿Listo para Encontrar Tu Rol en ECM?",
   ctaDescription:
-    "Únete a FQHC Talent Exchange y obten coincidencias con FQHCs que están contratando activamente para posiciones de Gestión de Atención Mejorada en toda California.",
+    "Únete a FQHC Talent y obten coincidencias con FQHCs que están contratando activamente para posiciones de Gestión de Atención Mejorada en toda California.",
   ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {

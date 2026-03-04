@@ -1,7 +1,7 @@
 // fqhc-guides.ts
 // Operational how-to guides for FQHC workers
 // Every guide has primary source URLs — no unsourced claims
-// Last updated: 2026-02-25
+// Last updated: 2026-03-04
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -140,6 +140,26 @@ export const GUIDE_ROLE_OPTIONS: {
     id: "social-worker",
     en: "Social Worker",
     es: "Trabajador(a) Social",
+  },
+  {
+    id: "program-manager",
+    en: "Program Manager",
+    es: "Gerente de Programa",
+  },
+  {
+    id: "director-clinical-ops",
+    en: "Director of Clinical Ops",
+    es: "Director(a) de Operaciones Clínicas",
+  },
+  {
+    id: "compliance-officer",
+    en: "Compliance Officer",
+    es: "Oficial de Cumplimiento",
+  },
+  {
+    id: "revenue-manager",
+    en: "Revenue Manager",
+    es: "Gerente de Ingresos",
   },
 ];
 
@@ -1791,6 +1811,606 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       "career",
     ],
     lastUpdated: "2026-02-25",
+  },
+
+  /* ============================================================== */
+  /*  NEW GUIDES (2026-03-04)                                        */
+  /* ============================================================== */
+  {
+    id: "hrsa-osv-preparation",
+    title: {
+      en: "HRSA Operational Site Visit (OSV) Preparation",
+      es: "Preparación para la Visita Operacional de Sitio (OSV) de HRSA",
+    },
+    summary: {
+      en: "How FQHCs prepare for and succeed in HRSA compliance reviews. Covers the 19 program requirements, common findings, documentation preparation, and governance readiness.",
+      es: "Cómo los FQHCs se preparan y tienen éxito en las revisiones de cumplimiento de HRSA. Cubre los 19 requisitos del programa, hallazgos comunes, preparación de documentación y preparación de gobernanza.",
+    },
+    category: "programs-compliance",
+    difficulty: "advanced",
+    readTime: "18 min",
+    sections: [
+      {
+        heading: {
+          en: "Understanding the OSV Process",
+          es: "Entendiendo el Proceso de OSV",
+        },
+        keyPoints: [
+          {
+            en: "HRSA conducts Operational Site Visits every 3 years during the project period of your Section 330 grant",
+            es: "HRSA realiza Visitas Operacionales de Sitio cada 3 años durante el período de proyecto de su subvención Sección 330",
+          },
+          {
+            en: "The Site Visit Protocol (SVP) has been revised as of November 2025 — ensure you're reviewing the latest version",
+            es: "El Protocolo de Visita de Sitio fue revisado en noviembre de 2025 — asegúrese de revisar la versión más reciente",
+          },
+          {
+            en: "OSVs evaluate compliance across 19 program requirements derived from Section 330 of the PHS Act",
+            es: "Las OSV evalúan cumplimiento en 19 requisitos de programa derivados de la Sección 330 de la Ley PHS",
+          },
+          {
+            en: "Site visits include document review, staff interviews, board member interviews, and patient care area walkthroughs",
+            es: "Las visitas incluyen revisión de documentos, entrevistas al personal, entrevistas a miembros de la junta y recorridos por áreas de atención",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "The 19 Program Requirements",
+          es: "Los 19 Requisitos del Programa",
+        },
+        keyPoints: [
+          {
+            en: "Requirements fall into 6 domains: Need, Services, Management & Finance, Governance, Other Federal Requirements, and Conditions of Award",
+            es: "Los requisitos caen en 6 dominios: Necesidad, Servicios, Gestión y Finanzas, Gobernanza, Otros Requisitos Federales y Condiciones de la Subvención",
+          },
+          {
+            en: "Most common deficiencies: sliding fee discount program (Chapter 9), quality improvement/assurance (Chapter 10), and board composition (Chapter 19)",
+            es: "Deficiencias más comunes: programa de descuento de escala móvil, mejora/aseguramiento de calidad, y composición de la junta",
+          },
+          {
+            en: "Every requirement maps to specific chapters in the HRSA Compliance Manual — use it as your primary study guide",
+            es: "Cada requisito se mapea a capítulos específicos en el Manual de Cumplimiento de HRSA",
+          },
+          {
+            en: "Conditions of Award are specific to your grant — review your most recent Notice of Award for center-specific requirements",
+            es: "Las Condiciones de la Subvención son específicas de su centro — revise su Aviso de Subvención más reciente",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Documentation Preparation Checklist",
+          es: "Lista de Verificación de Preparación de Documentación",
+        },
+        keyPoints: [
+          {
+            en: "Compile board meeting minutes for the last 3 years — reviewers will check attendance, quorum, and evidence of required annual approvals",
+            es: "Compile actas de reuniones de la junta de los últimos 3 años — los revisores verificarán asistencia, quórum y evidencia de aprobaciones anuales requeridas",
+          },
+          {
+            en: "Update your sliding fee discount schedule and verify it matches actual practice at all sites",
+            es: "Actualice su programa de descuento de escala móvil y verifique que coincida con la práctica real en todos los sitios",
+          },
+          {
+            en: "Prepare your Quality Improvement/Quality Assurance plan with documented evidence of implementation and annual review",
+            es: "Prepare su plan de QI/QA con evidencia documentada de implementación y revisión anual",
+          },
+          {
+            en: "Ensure credentialing and privileging files are complete for all licensed/certified providers — this is a frequent finding",
+            es: "Asegúrese de que los archivos de credencialización y privilegios estén completos para todos los proveedores",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Governance & Board Readiness",
+          es: "Gobernanza y Preparación de la Junta",
+        },
+        keyPoints: [
+          {
+            en: "Board must be 51%+ patient members — verify current composition and have documentation ready",
+            es: "La junta debe tener 51%+ de miembros pacientes — verifique la composición actual y tenga documentación lista",
+          },
+          {
+            en: "Board must provide ongoing oversight of health center operations including annual approval of key policies",
+            es: "La junta debe proporcionar supervisión continua incluyendo aprobación anual de políticas clave",
+          },
+          {
+            en: "Prepare board members for potential interviews — they should be able to articulate the center's mission, strategic plan, and their governance role",
+            es: "Prepare a los miembros de la junta para posibles entrevistas — deben poder articular la misión, plan estratégico y su rol de gobernanza",
+          },
+          {
+            en: "Conflict of interest policies must be current and signed by all board members annually",
+            es: "Las políticas de conflicto de interés deben estar vigentes y firmadas por todos los miembros anualmente",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "After the Visit: Responding to Findings",
+          es: "Después de la Visita: Respondiendo a Hallazgos",
+        },
+        keyPoints: [
+          {
+            en: "HRSA issues findings as Conditions which require corrective action within a specified timeframe",
+            es: "HRSA emite hallazgos como Condiciones que requieren acción correctiva dentro de un plazo especificado",
+          },
+          {
+            en: "Progressive Action process begins if Conditions are not resolved — can ultimately lead to designation withdrawal",
+            es: "El proceso de Acción Progresiva comienza si las Condiciones no se resuelven — puede llevar a la retirada de la designación",
+          },
+          {
+            en: "Create a corrective action committee immediately with responsible owners, timelines, and board oversight",
+            es: "Cree un comité de acción correctiva inmediatamente con responsables, plazos y supervisión de la junta",
+          },
+          {
+            en: "Use findings as a quality improvement opportunity — many FQHCs that address findings systematically end up with stronger programs",
+            es: "Use los hallazgos como oportunidad de mejora — muchos FQHCs que abordan hallazgos sistemáticamente terminan con programas más fuertes",
+          },
+        ],
+      },
+    ],
+    primarySourceUrl: "https://bphc.hrsa.gov/compliance/compliance-manual",
+    primarySourceOrg: "HRSA Bureau of Primary Health Care",
+    additionalSources: [
+      {
+        label: "HRSA Site Visit Protocol (SVP)",
+        url: "https://bphc.hrsa.gov/compliance/site-visits/site-visit-protocol",
+      },
+      {
+        label: "HRSA Compliance Manual Chapter 19: Board Authority",
+        url: "https://bphc.hrsa.gov/compliance/compliance-manual/chapter19",
+      },
+      {
+        label: "NACHC Governance Guide for Health Center Boards",
+        url: "https://cdn.ymaws.com/www.ohiochc.org/resource/resmgr/docs/Gov_Guide_for_CHC_Boards_NAC.pdf",
+      },
+    ],
+    targetRoles: ["program-manager", "director-clinical-ops", "compliance-officer"],
+    tags: ["hrsa", "osv", "compliance", "site-visit", "governance"],
+    lastUpdated: "2026-03-04",
+  },
+  {
+    id: "ryan-white-program",
+    title: {
+      en: "Ryan White HIV/AIDS Program for FQHCs",
+      es: "Programa Ryan White VIH/SIDA para FQHCs",
+    },
+    summary: {
+      en: "How FQHCs can access and manage Ryan White funding — covering Parts A through D, ADAP coordination, service requirements, data reporting (RSR), and quality management.",
+      es: "Cómo los FQHCs pueden acceder y gestionar fondos Ryan White — cubriendo Partes A a D, coordinación ADAP, requisitos de servicio, reportes de datos (RSR) y gestión de calidad.",
+    },
+    category: "programs-compliance",
+    difficulty: "intermediate",
+    readTime: "15 min",
+    sections: [
+      {
+        heading: {
+          en: "Understanding Ryan White Parts A–D",
+          es: "Entendiendo las Partes A–D de Ryan White",
+        },
+        keyPoints: [
+          {
+            en: "Part A: Emergency relief for Eligible Metropolitan Areas (EMAs) and Transitional Grant Areas (TGAs) — formula-based and competitive grants",
+            es: "Parte A: Ayuda de emergencia para Áreas Metropolitanas Elegibles (EMAs) y Áreas de Subvenciones de Transición (TGAs) — subvenciones basadas en fórmula y competitivas",
+          },
+          {
+            en: "Part B: Grants to states/territories for core medical and support services, including the AIDS Drug Assistance Program (ADAP)",
+            es: "Parte B: Subvenciones a estados/territorios para servicios médicos esenciales y de apoyo, incluyendo el Programa de Asistencia de Medicamentos para SIDA (ADAP)",
+          },
+          {
+            en: "Part C: Early Intervention Services (EIS) grants directly to FQHCs and other providers — the most accessible part for health centers",
+            es: "Parte C: Subvenciones de Servicios de Intervención Temprana (EIS) directamente a FQHCs y otros proveedores — la parte más accesible para centros de salud",
+          },
+          {
+            en: "Part D: Women, infants, children, and youth services — family-centered care models",
+            es: "Parte D: Servicios para mujeres, infantes, niños y jóvenes — modelos de atención centrados en la familia",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "FQHC Eligibility and Service Requirements",
+          es: "Elegibilidad de FQHCs y Requisitos de Servicio",
+        },
+        keyPoints: [
+          {
+            en: "FQHCs are eligible for Part C (EIS) grants and can be Part A/B subrecipients through local planning councils",
+            es: "Los FQHCs son elegibles para subvenciones Parte C (EIS) y pueden ser subreceptores de Parte A/B a través de consejos de planificación locales",
+          },
+          {
+            en: "Ryan White is 'payer of last resort' — services must be billed to all available insurance first, including Medi-Cal and Medicare",
+            es: "Ryan White es 'pagador de último recurso' — los servicios deben facturarse primero a todos los seguros disponibles, incluyendo Medi-Cal y Medicare",
+          },
+          {
+            en: "Core medical services must constitute at least 75% of Part A/B funding; support services can be up to 25%",
+            es: "Los servicios médicos esenciales deben constituir al menos 75% de los fondos de Parte A/B; los servicios de apoyo pueden ser hasta 25%",
+          },
+          {
+            en: "Required services include outpatient care, oral health, mental health, substance use treatment, medical case management, and health insurance assistance",
+            es: "Los servicios requeridos incluyen atención ambulatoria, salud oral, salud mental, tratamiento de uso de sustancias, gestión de casos médicos y asistencia con seguro de salud",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Data Reporting: The Ryan White Services Report (RSR)",
+          es: "Reportes de Datos: El Reporte de Servicios Ryan White (RSR)",
+        },
+        keyPoints: [
+          {
+            en: "All Ryan White recipients must submit the annual RSR through HRSA's Electronic Handbooks (EHBs)",
+            es: "Todos los receptores de Ryan White deben enviar el RSR anual a través de los Manuales Electrónicos de HRSA (EHBs)",
+          },
+          {
+            en: "RSR captures client-level data including demographics, services received, clinical outcomes (viral load, CD4 count), and insurance status",
+            es: "El RSR captura datos a nivel de cliente incluyendo demografía, servicios recibidos, resultados clínicos (carga viral, conteo CD4) y estado de seguro",
+          },
+          {
+            en: "FQHCs must track Ryan White clients separately in their EHR — ensure your Epic/eClinicalWorks system can generate RSR-compatible reports",
+            es: "Los FQHCs deben rastrear clientes de Ryan White por separado en su EHR — asegúrese de que su sistema Epic/eClinicalWorks pueda generar reportes compatibles con RSR",
+          },
+          {
+            en: "Key performance measures: viral suppression rate (target: 80%+), retention in care (2+ visits in 12 months), and housing stability",
+            es: "Medidas clave de rendimiento: tasa de supresión viral (objetivo: 80%+), retención en cuidado (2+ visitas en 12 meses) y estabilidad de vivienda",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "ADAP Coordination in California",
+          es: "Coordinación de ADAP en California",
+        },
+        keyPoints: [
+          {
+            en: "California's ADAP provides medications and insurance assistance for low-income people living with HIV (income up to 500% FPL)",
+            es: "El ADAP de California proporciona medicamentos y asistencia con seguros para personas de bajos ingresos que viven con VIH (ingresos hasta 500% FPL)",
+          },
+          {
+            en: "FQHCs should help eligible patients enroll in ADAP to cover antiretroviral medications and reduce 340B drug costs",
+            es: "Los FQHCs deben ayudar a pacientes elegibles a inscribirse en ADAP para cubrir medicamentos antirretrovirales y reducir costos de medicamentos 340B",
+          },
+          {
+            en: "ADAP enrollment reduces the FQHC's uncompensated care burden — it pays for medications that would otherwise come from the 340B program margin",
+            es: "La inscripción en ADAP reduce la carga de atención no compensada del FQHC — paga por medicamentos que de otro modo vendrían del margen del programa 340B",
+          },
+          {
+            en: "Coordinate with your local Office of AIDS (OA) and county HIV planning bodies for referrals and service coordination",
+            es: "Coordine con su Oficina de SIDA local (OA) y cuerpos de planificación de VIH del condado para referencias y coordinación de servicios",
+          },
+        ],
+      },
+    ],
+    primarySourceUrl: "https://ryanwhite.hrsa.gov/about/parts-and-initiatives",
+    primarySourceOrg: "HRSA HIV/AIDS Bureau",
+    additionalSources: [
+      {
+        label: "Ryan White Legislation",
+        url: "https://ryanwhite.hrsa.gov/about/legislation",
+      },
+      {
+        label: "HRSA Ryan White Data Reports (RSR)",
+        url: "https://ryanwhite.hrsa.gov/data/reports",
+      },
+      {
+        label: "NASTAD ADAP Overview",
+        url: "https://nastad.org/adap",
+      },
+    ],
+    targetRoles: ["program-manager", "care-coordinator", "director-clinical-ops"],
+    tags: ["ryan-white", "hiv", "aids", "grants", "adap", "compliance"],
+    lastUpdated: "2026-03-04",
+  },
+  {
+    id: "grant-lifecycle-management",
+    title: {
+      en: "Grant Lifecycle Management for FQHCs",
+      es: "Gestión del Ciclo de Vida de Subvenciones para FQHCs",
+    },
+    summary: {
+      en: "End-to-end guide for managing FQHC grants — from identifying opportunities through compliance reporting. Covers HRSA Section 330, state grants, and private foundations.",
+      es: "Guía completa para gestionar subvenciones de FQHCs — desde identificar oportunidades hasta reportes de cumplimiento. Cubre HRSA Sección 330, subvenciones estatales y fundaciones privadas.",
+    },
+    category: "revenue-billing",
+    difficulty: "intermediate",
+    readTime: "14 min",
+    sections: [
+      {
+        heading: {
+          en: "HRSA Section 330 — Your Core Grant",
+          es: "HRSA Sección 330 — Su Subvención Principal",
+        },
+        keyPoints: [
+          {
+            en: "Section 330 grants are the foundational funding for all FQHCs — they define your status as a federally qualified health center",
+            es: "Las subvenciones Sección 330 son el financiamiento fundamental para todos los FQHCs — definen su estatus como centro de salud federalmente calificado",
+          },
+          {
+            en: "Grant cycles typically run 3 years with annual Budget Period Renewal (BPR) applications required each year",
+            es: "Los ciclos de subvención típicamente duran 3 años con solicitudes anuales de Renovación del Período de Presupuesto (BPR) requeridas cada año",
+          },
+          {
+            en: "Key funding streams: Health Center Program (H80), Service Area Competition (SAC), New Access Points (NAP), and Expanded Services supplements",
+            es: "Flujos clave de financiamiento: Programa de Centros de Salud (H80), Competencia de Área de Servicio (SAC), Nuevos Puntos de Acceso (NAP) y suplementos de Servicios Expandidos",
+          },
+          {
+            en: "Losing Section 330 designation means losing FQHC status, PPS reimbursement, 340B eligibility, FTCA malpractice coverage, and NHSC site eligibility",
+            es: "Perder la designación Sección 330 significa perder el estatus de FQHC, reembolso PPS, elegibilidad 340B, cobertura de mala praxis FTCA y elegibilidad de sitio NHSC",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Identifying and Pursuing Opportunities",
+          es: "Identificando y Buscando Oportunidades",
+        },
+        keyPoints: [
+          {
+            en: "Monitor Grants.gov and HRSA's funding page monthly — key deadlines include Service Area Competition (typically spring) and supplement opportunities",
+            es: "Monitoree Grants.gov y la página de financiamiento de HRSA mensualmente — fechas clave incluyen la Competencia de Área de Servicio (típicamente primavera) y oportunidades de suplementos",
+          },
+          {
+            en: "State-level grants: California offers DHCS and HCAI grants for specific programs like perinatal care, behavioral health integration, and workforce development",
+            es: "Subvenciones estatales: California ofrece subvenciones de DHCS y HCAI para programas específicos como atención perinatal, integración de salud conductual y desarrollo de fuerza laboral",
+          },
+          {
+            en: "Private foundations: Robert Wood Johnson Foundation, The California Endowment, Blue Shield of California Foundation, and local community foundations fund FQHC programs",
+            es: "Fundaciones privadas: Robert Wood Johnson Foundation, The California Endowment, Blue Shield of California Foundation y fundaciones comunitarias locales financian programas de FQHCs",
+          },
+          {
+            en: "Build a grants calendar with submission deadlines, reporting due dates, and budget period start/end dates for all active grants",
+            es: "Construya un calendario de subvenciones con fechas de envío, fechas de reportes y fechas de inicio/fin del período de presupuesto para todas las subvenciones activas",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Budget Development and Justification",
+          es: "Desarrollo y Justificación del Presupuesto",
+        },
+        keyPoints: [
+          {
+            en: "HRSA uses SF-424 forms — budget must align with scope of project and demonstrate reasonable, allocable, and allowable costs",
+            es: "HRSA usa formularios SF-424 — el presupuesto debe alinearse con el alcance del proyecto y demostrar costos razonables, asignables y permitidos",
+          },
+          {
+            en: "Direct costs: personnel (salaries + fringe), supplies, contractual, travel, equipment. Indirect costs: negotiate a rate with your cognizant agency",
+            es: "Costos directos: personal (salarios + beneficios), suministros, contractuales, viajes, equipo. Costos indirectos: negocie una tasa con su agencia cognoscente",
+          },
+          {
+            en: "Budget justification narrative is as important as the numbers — explain why each line item supports the project goals",
+            es: "La narrativa de justificación del presupuesto es tan importante como los números — explique por qué cada partida apoya los objetivos del proyecto",
+          },
+          {
+            en: "Common budget mistakes: underestimating fringe benefits, forgetting audit costs, not budgeting for EHR upgrades tied to reporting requirements",
+            es: "Errores comunes de presupuesto: subestimar beneficios complementarios, olvidar costos de auditoría, no presupuestar actualizaciones de EHR relacionadas con requisitos de reportes",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Compliance and Reporting",
+          es: "Cumplimiento y Reportes",
+        },
+        keyPoints: [
+          {
+            en: "Uniform Data System (UDS) reporting is required annually by February 15 — this is the single most important operational report for FQHCs",
+            es: "El reporte del Sistema de Datos Uniforme (UDS) se requiere anualmente antes del 15 de febrero — este es el reporte operacional más importante para los FQHCs",
+          },
+          {
+            en: "Federal Financial Report (FFR/SF-425) is due annually and must reconcile grant expenditures with your general ledger",
+            es: "El Reporte Financiero Federal (FFR/SF-425) se debe anualmente y debe reconciliar los gastos de la subvención con su libro mayor",
+          },
+          {
+            en: "Single Audit (2 CFR 200) is required when your organization spends $750,000+ in federal funds in a fiscal year",
+            es: "La Auditoría Única (2 CFR 200) se requiere cuando su organización gasta $750,000+ en fondos federales en un año fiscal",
+          },
+          {
+            en: "Maintain a compliance calendar: UDS (Feb 15), FFR (varies by grant), BPR (varies), Single Audit (within 9 months of fiscal year end)",
+            es: "Mantenga un calendario de cumplimiento: UDS (15 feb), FFR (varía por subvención), BPR (varía), Auditoría Única (dentro de 9 meses del fin del año fiscal)",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Grant Renewal and Sustainability Planning",
+          es: "Renovación de Subvenciones y Planificación de Sostenibilidad",
+        },
+        keyPoints: [
+          {
+            en: "Start BPR applications 90 days before the budget period ends — early preparation prevents rushed submissions and audit findings",
+            es: "Comience las solicitudes de BPR 90 días antes de que termine el período de presupuesto — la preparación temprana previene envíos apresurados y hallazgos de auditoría",
+          },
+          {
+            en: "Track grant-funded positions separately in your HR system — if a grant ends, you need a plan for those staff (absorption, reassignment, or reduction)",
+            es: "Rastree las posiciones financiadas por subvenciones por separado en su sistema de RH — si una subvención termina, necesita un plan para ese personal (absorción, reasignación o reducción)",
+          },
+          {
+            en: "Diversify: the most resilient FQHCs have 4-6 active grant streams beyond Section 330 so no single grant loss is existential",
+            es: "Diversifique: los FQHCs más resilientes tienen 4-6 flujos de subvenciones activos más allá de Sección 330 para que ninguna pérdida de subvención sea existencial",
+          },
+          {
+            en: "Build sustainability into every grant application — funders want to know how the program will continue after their funding ends",
+            es: "Integre sostenibilidad en cada solicitud de subvención — los financiadores quieren saber cómo continuará el programa después de que termine su financiamiento",
+          },
+        ],
+      },
+    ],
+    primarySourceUrl: "https://bphc.hrsa.gov/funding/funding-opportunities",
+    primarySourceOrg: "HRSA Bureau of Primary Health Care",
+    additionalSources: [
+      {
+        label: "Grants.gov — Federal Grant Search",
+        url: "https://www.grants.gov/",
+      },
+      {
+        label: "HRSA Budget Period Renewal Application Guide",
+        url: "https://bphc.hrsa.gov/funding/budget-period-renewal",
+      },
+      {
+        label: "NACHC Grant Support Resources",
+        url: "https://www.nachc.org/focus-areas/policy-matters/resources/",
+      },
+    ],
+    targetRoles: ["program-manager", "director-clinical-ops", "revenue-manager"],
+    tags: ["grants", "hrsa", "section-330", "budget", "compliance", "reporting"],
+    lastUpdated: "2026-03-04",
+  },
+  {
+    id: "remote-care-operations",
+    title: {
+      en: "Remote Care Operations for FQHCs",
+      es: "Operaciones de Atención Remota para FQHCs",
+    },
+    summary: {
+      en: "Setting up telehealth and remote administrative operations at an FQHC. Covers technology requirements, Medi-Cal billing codes, staffing models, HIPAA compliance, and patient engagement strategies.",
+      es: "Configurar operaciones de telesalud y administración remota en un FQHC. Cubre requisitos de tecnología, códigos de facturación Medi-Cal, modelos de personal, cumplimiento HIPAA y estrategias de participación del paciente.",
+    },
+    category: "clinical-workflows",
+    difficulty: "intermediate",
+    readTime: "16 min",
+    sections: [
+      {
+        heading: {
+          en: "Technology Requirements and Setup",
+          es: "Requisitos de Tecnología y Configuración",
+        },
+        keyPoints: [
+          {
+            en: "FQHCs need HIPAA-compliant video platforms — Doxy.me, Zoom for Healthcare, and EHR-integrated telehealth (Epic MyChart, eClinicalWorks) are common choices",
+            es: "Los FQHCs necesitan plataformas de video compatibles con HIPAA — Doxy.me, Zoom for Healthcare y telesalud integrada con EHR (Epic MyChart, eClinicalWorks) son opciones comunes",
+          },
+          {
+            en: "Audio-only visits (telephone) are reimbursable for established patients under Medi-Cal — but require documentation of why video wasn't used",
+            es: "Las visitas solo de audio (teléfono) son reembolsables para pacientes establecidos bajo Medi-Cal — pero requieren documentación de por qué no se usó video",
+          },
+          {
+            en: "Ensure patient-side technology support: lend tablets, provide WiFi hotspots for underserved patients, and train staff to troubleshoot common issues",
+            es: "Asegure soporte tecnológico del lado del paciente: preste tabletas, proporcione puntos WiFi para pacientes desatendidos y capacite al personal para resolver problemas comunes",
+          },
+          {
+            en: "Bandwidth requirements: minimum 1.5 Mbps up/down for reliable video; test all provider locations including home offices",
+            es: "Requisitos de ancho de banda: mínimo 1.5 Mbps de subida/bajada para video confiable; pruebe todas las ubicaciones de proveedores incluyendo oficinas en casa",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Medi-Cal Telehealth Billing for FQHCs",
+          es: "Facturación de Telesalud Medi-Cal para FQHCs",
+        },
+        keyPoints: [
+          {
+            en: "FQHCs are reimbursed at PPS rates for telehealth visits — the same rate as in-person encounters when properly documented",
+            es: "Los FQHCs son reembolsados a tasas PPS por visitas de telesalud — la misma tasa que encuentros en persona cuando están debidamente documentados",
+          },
+          {
+            en: "Place of Service code 02 (Telehealth) or 10 (Telehealth in Patient's Home) with modifier 95 for synchronous video visits",
+            es: "Código de Lugar de Servicio 02 (Telesalud) o 10 (Telesalud en el Hogar del Paciente) con modificador 95 para visitas de video sincrónicas",
+          },
+          {
+            en: "Informed consent must be obtained and documented before the first telehealth visit — verbal consent is acceptable",
+            es: "El consentimiento informado debe obtenerse y documentarse antes de la primera visita de telesalud — el consentimiento verbal es aceptable",
+          },
+          {
+            en: "Store-and-forward (asynchronous) telehealth: FQHCs/RHCs can uniquely establish NEW patients via store-and-forward in California — a competitive advantage over other providers",
+            es: "Telesalud de almacenar y reenviar (asincrónica): los FQHCs/RHCs pueden establecer NUEVOS pacientes únicamente vía almacenar y reenviar en California — una ventaja competitiva sobre otros proveedores",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Staffing Models for Remote Operations",
+          es: "Modelos de Personal para Operaciones Remotas",
+        },
+        keyPoints: [
+          {
+            en: "Designate telehealth facilitators — typically MAs or front desk staff who manage the virtual waiting room, troubleshoot tech, and prep patients",
+            es: "Designe facilitadores de telesalud — típicamente MAs o personal de recepción que gestionan la sala de espera virtual, resuelven problemas técnicos y preparan pacientes",
+          },
+          {
+            en: "Hybrid scheduling: allocate specific clinic days for telehealth vs. in-person to maintain provider focus and optimize room utilization",
+            es: "Programación híbrida: asigne días específicos de clínica para telesalud vs. presencial para mantener el enfoque del proveedor y optimizar la utilización de salas",
+          },
+          {
+            en: "Remote administrative staff: billing, coding, referral coordinators, and case managers can work effectively from home with proper HIPAA safeguards",
+            es: "Personal administrativo remoto: facturación, codificación, coordinadores de referencias y gerentes de casos pueden trabajar efectivamente desde casa con salvaguardas HIPAA adecuadas",
+          },
+          {
+            en: "Provider considerations: ensure CA licensure (required even for telehealth), establish clear documentation standards for virtual visits",
+            es: "Consideraciones del proveedor: asegure la licencia de CA (requerida incluso para telesalud), establezca estándares claros de documentación para visitas virtuales",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "HIPAA Compliance for Remote Work",
+          es: "Cumplimiento HIPAA para Trabajo Remoto",
+        },
+        keyPoints: [
+          {
+            en: "Remote workforce BAAs: if staff use home internet, document the HIPAA safeguards in place (VPN, encrypted devices, private workspace)",
+            es: "BAAs para fuerza laboral remota: si el personal usa internet doméstico, documente las salvaguardas HIPAA implementadas (VPN, dispositivos encriptados, espacio de trabajo privado)",
+          },
+          {
+            en: "All telehealth platforms must have a Business Associate Agreement (BAA) with your FQHC — verify before purchasing",
+            es: "Todas las plataformas de telesalud deben tener un Acuerdo de Asociado Comercial (BAA) con su FQHC — verifique antes de comprar",
+          },
+          {
+            en: "Prohibit telehealth visits from public spaces — both providers and patients should be in private, quiet environments",
+            es: "Prohíba visitas de telesalud desde espacios públicos — tanto proveedores como pacientes deben estar en ambientes privados y tranquilos",
+          },
+          {
+            en: "Device management: require encrypted laptops, remote wipe capability, and automatic screen locks for all remote devices",
+            es: "Gestión de dispositivos: requiera laptops encriptadas, capacidad de borrado remoto y bloqueos automáticos de pantalla para todos los dispositivos remotos",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Patient Engagement and Digital Equity",
+          es: "Participación del Paciente y Equidad Digital",
+        },
+        keyPoints: [
+          {
+            en: "The digital divide is real: 30%+ of FQHC patients lack reliable internet access or digital devices — plan for audio-only alternatives",
+            es: "La brecha digital es real: 30%+ de los pacientes de FQHCs carecen de acceso confiable a internet o dispositivos digitales — planifique alternativas solo de audio",
+          },
+          {
+            en: "Offer bilingual telehealth support: interpreter services must be available for virtual visits just as they are for in-person encounters",
+            es: "Ofrezca soporte de telesalud bilingüe: los servicios de interpretación deben estar disponibles para visitas virtuales tal como lo están para encuentros presenciales",
+          },
+          {
+            en: "Train patients on telehealth at in-person visits — 'teach-back' on a practice video call reduces no-shows by up to 40%",
+            es: "Capacite a los pacientes en telesalud durante visitas presenciales — 'teach-back' en una videollamada de práctica reduce inasistencias hasta en 40%",
+          },
+          {
+            en: "Track telehealth utilization by demographics: if certain patient populations aren't using telehealth, investigate barriers and adjust outreach",
+            es: "Rastree la utilización de telesalud por demografía: si ciertas poblaciones de pacientes no usan telesalud, investigue barreras y ajuste el alcance",
+          },
+        ],
+      },
+    ],
+    primarySourceUrl: "https://caltrc.org/",
+    primarySourceOrg: "California Telehealth Resource Center (CTRC)",
+    additionalSources: [
+      {
+        label: "DHCS Medi-Cal Telehealth FAQ",
+        url: "https://www.dhcs.ca.gov/provgovpart/Pages/TelehealthFAQ.aspx",
+      },
+      {
+        label: "NCTRC FQHC Telehealth Fact Sheet (Fall 2025)",
+        url: "https://telehealthresourcecenter.org/resources/fact-sheets/telehealth-policies-federally-qualified-health-centers-fqhc-fact-sheet-fall-2025/",
+      },
+      {
+        label: "CMS Telehealth Toolkit for FQHCs",
+        url: "https://www.cms.gov/files/document/telehealth-toolkit-providers.pdf",
+      },
+    ],
+    targetRoles: ["program-manager", "rn", "medical-assistant", "director-clinical-ops"],
+    tags: ["telehealth", "remote-work", "billing", "hipaa", "medi-cal", "technology"],
+    lastUpdated: "2026-03-04",
   },
 ];
 

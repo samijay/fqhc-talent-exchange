@@ -220,7 +220,7 @@ const enContent: ArticleContent = {
   ],
   ctaTitle: "Ready to Put Your FQHC Resume to Work?",
   ctaDescription:
-    "Join FQHC Talent Exchange and get matched with community health centers that are actively hiring for your exact skills and experience.",
+    "Join FQHC Talent — free career tools, salary intelligence, and job listings at community health centers actively hiring for your exact skills.",
   ctaButtonText: "Build Your Free Resume",
   relatedArticles: [
     {
@@ -423,7 +423,7 @@ const esContent: ArticleContent = {
   ],
   ctaTitle: "¿Listo para Poner Tu Currículum de FQHC a Trabajar?",
   ctaDescription:
-    "Únete a FQHC Talent Exchange y obten coincidencias con centros de salud comunitarios que están contratando activamente para tus habilidades y experiencia exactas.",
+    "Únete a FQHC Talent y obten coincidencias con centros de salud comunitarios que están contratando activamente para tus habilidades y experiencia exactas.",
   ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {

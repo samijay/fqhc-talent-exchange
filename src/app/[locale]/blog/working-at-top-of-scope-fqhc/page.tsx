@@ -292,7 +292,7 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
               Ready to Find an FQHC That Values Top-of-Scope Practice?
             </h3>
             <p className="text-stone-600 mb-6 text-lg">
-              Join FQHC Talent Exchange and connect with community health centers that are building real team-based care models and want staff who can work at the top of their scope.
+              Join FQHC Talent and connect with community health centers that are building real team-based care models and want staff who can work at the top of their scope.
             </p>
             <a
               href="/resume-builder"

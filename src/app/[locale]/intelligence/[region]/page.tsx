@@ -55,7 +55,7 @@ export async function generateMetadata({
   const stats = getRegionalStats(regionName);
 
   return {
-    title: `${regionName} FQHC Intelligence | ${stats.fqhcCount} Health Centers | FQHC Talent Exchange`,
+    title: `${regionName} FQHC Intelligence | ${stats.fqhcCount} Health Centers | FQHC Talent`,
     description: `Regional intelligence dashboard for ${regionName} California. ${stats.fqhcCount} FQHCs, ${stats.totalStaff.toLocaleString()} staff, ${stats.totalPatients.toLocaleString()} patients served. Resilience scores, layoff tracking, job openings, and EHR landscape.`,
     alternates: {
       canonical: `https://www.fqhctalent.com/intelligence/${slug}`,

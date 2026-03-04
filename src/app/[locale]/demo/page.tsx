@@ -391,12 +391,12 @@ export default function DemoPage() {
             {t({ en: "Displaced Worker Fast-Track", es: "Via Rapida para Trabajadores Desplazados" }, locale)}
           </div>
           <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
-            {t({ en: "From layoff to new role in 21 days", es: "De despido a nuevo puesto en 21 dias" }, locale)}
+            {t({ en: "Free career tools for displaced workers", es: "Herramientas de carrera gratuitas para trabajadores desplazados" }, locale)}
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-stone-600">
             {t({
-              en: `${overview.totalLayoffWorkers.toLocaleString()}+ FQHC workers have been displaced across California. We fast-track them through our pipeline — they're already trained in community health.`,
-              es: `${overview.totalLayoffWorkers.toLocaleString()}+ trabajadores de FQHCs han sido desplazados en California. Los aceleramos a traves de nuestro proceso — ya estan capacitados en salud comunitaria.`,
+              en: `${overview.totalLayoffWorkers.toLocaleString()}+ FQHC workers have been displaced across California. Our free tools help them find their next role — they're already trained in community health.`,
+              es: `${overview.totalLayoffWorkers.toLocaleString()}+ trabajadores de FQHCs han sido desplazados en California. Nuestras herramientas gratuitas les ayudan a encontrar su proximo rol — ya estan capacitados en salud comunitaria.`,
             }, locale)}
           </p>
         </div>

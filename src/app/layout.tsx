@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FQHC Talent Exchange",
+  title: "FQHC Talent",
   description: "The talent exchange built for community health",
 };
 

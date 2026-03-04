@@ -2,7 +2,7 @@
 // Central SEO configuration for all pages
 
 export const SITE_URL = "https://www.fqhctalent.com";
-export const SITE_NAME = "FQHC Talent Exchange";
+export const SITE_NAME = "FQHC Talent";
 export const SITE_DESCRIPTION =
   "California's FQHC strategic intelligence platform — executive dashboards, workforce data, policy tracking, free career tools, and 220+ FQHC profiles. Built for the leaders and professionals navigating the biggest crisis in community health history.";
 
@@ -10,8 +10,8 @@ export const SITE_DESCRIPTION =
 export const rootMetadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "FQHC Talent Exchange | Strategic Intelligence for California's Community Health Centers",
-    template: "%s | FQHC Talent Exchange",
+    default: "FQHC Talent | Strategic Intelligence for California's Community Health Centers",
+    template: "%s | FQHC Talent",
   },
   description: SITE_DESCRIPTION,
   keywords: [
@@ -36,20 +36,20 @@ export const rootMetadata = {
     "FQHC OKR templates",
     "FQHC talent",
   ],
-  authors: [{ name: "FQHC Talent Exchange" }],
-  creator: "FQHC Talent Exchange",
-  publisher: "FQHC Talent Exchange",
+  authors: [{ name: "FQHC Talent" }],
+  creator: "FQHC Talent",
+  publisher: "FQHC Talent",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "FQHC Talent Exchange | Strategic Intelligence & Free Career Tools for California FQHCs",
+    title: "FQHC Talent | Strategic Intelligence & Free Career Tools for California FQHCs",
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "FQHC Talent Exchange | Strategic Intelligence for California FQHCs",
+    title: "FQHC Talent | Strategic Intelligence for California FQHCs",
     description: SITE_DESCRIPTION,
   },
   robots: {
@@ -100,7 +100,7 @@ export const pageMetadata = {
     description:
       "Explore FQHC jobs across California with free career tools — resume builder, career assessment, salary data, aggregated job postings, and strategic insights for community health professionals.",
     openGraph: {
-      title: "For Job Seekers — FQHC Talent Exchange",
+      title: "For Job Seekers — FQHC Talent",
       description:
         "Free career tools for community health professionals. Resume builder, salary intelligence, and 220+ FQHC profiles.",
       url: `${SITE_URL}/for-job-seekers`,
@@ -112,7 +112,7 @@ export const pageMetadata = {
     description:
       "Fill critical FQHC roles faster with pre-vetted community health professionals. We specialize in ECM, CCM, Community Supports, and clinical staffing for Federally Qualified Health Centers.",
     openGraph: {
-      title: "For Employers — FQHC Talent Exchange",
+      title: "For Employers — FQHC Talent",
       description:
         "FQHC workforce intelligence, strategic insights, and career tools. We know community health staffing.",
       url: `${SITE_URL}/for-employers`,
@@ -124,7 +124,7 @@ export const pageMetadata = {
     description:
       "Expert insights on FQHC careers, Medi-Cal program updates, community health worker career guides, salary data, and hiring trends for Federally Qualified Health Centers.",
     openGraph: {
-      title: "Blog — FQHC Talent Exchange",
+      title: "Blog — FQHC Talent",
       description:
         "FQHC career resources, Medi-Cal updates, and community health insights.",
       url: `${SITE_URL}/blog`,
@@ -136,7 +136,7 @@ export const pageMetadata = {
     description:
       "Browse 50+ Federally Qualified Health Centers across California. Search by region, EHR system, and programs. Find FQHCs in Los Angeles, San Diego, Bay Area, Sacramento, and more.",
     openGraph: {
-      title: "California FQHC Directory — FQHC Talent Exchange",
+      title: "California FQHC Directory — FQHC Talent",
       description:
         "Searchable directory of 50+ FQHCs across California with programs, EHR systems, and locations.",
       url: `${SITE_URL}/directory`,
@@ -148,7 +148,7 @@ export const pageMetadata = {
     description:
       "Guides, salary data, tools, and links for community health professionals. Resume builder, FQHC directory, career assessment, and external resources for FQHC workers in California.",
     openGraph: {
-      title: "Career Resources — FQHC Talent Exchange",
+      title: "Career Resources — FQHC Talent",
       description:
         "Salary guides, career tools, and resources for FQHC professionals in California.",
       url: `${SITE_URL}/resources`,
@@ -174,7 +174,7 @@ export const pageMetadata = {
     description:
       "Practical how-to guides for FQHC workers — ECM workflows, RN co-visit billing, PPS revenue mechanics, CalAIM programs, and documentation standards. Primary sources from HRSA, CMS, and DHCS.",
     openGraph: {
-      title: "Workplace Guides — FQHC Talent Exchange",
+      title: "Workplace Guides — FQHC Talent",
       description:
         "How ECM works, how billing works, and how your role drives revenue at an FQHC. Practical guides with primary sources.",
       url: `${SITE_URL}/guides`,
@@ -182,23 +182,23 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/guides` },
   },
   privacy: {
-    title: "Privacy Policy | FQHC Talent Exchange",
+    title: "Privacy Policy | FQHC Talent",
     description:
-      "Learn how FQHC Talent Exchange collects, uses, and protects your personal information. We are committed to transparency and data privacy for all job seekers and employers.",
+      "Learn how FQHC Talent collects, uses, and protects your personal information. We are committed to transparency and data privacy for all job seekers and employers.",
     openGraph: {
-      title: "Privacy Policy — FQHC Talent Exchange",
-      description: "How we handle your data at FQHC Talent Exchange.",
+      title: "Privacy Policy — FQHC Talent",
+      description: "How we handle your data at FQHC Talent.",
       url: `${SITE_URL}/privacy`,
     },
     alternates: { canonical: `${SITE_URL}/privacy` },
   },
   terms: {
-    title: "Terms of Service | FQHC Talent Exchange",
+    title: "Terms of Service | FQHC Talent",
     description:
-      "Terms of service for using FQHC Talent Exchange, the talent platform connecting community health professionals with Federally Qualified Health Centers in California.",
+      "Terms of service for using FQHC Talent, the talent platform connecting community health professionals with Federally Qualified Health Centers in California.",
     openGraph: {
-      title: "Terms of Service — FQHC Talent Exchange",
-      description: "Terms of service for FQHC Talent Exchange.",
+      title: "Terms of Service — FQHC Talent",
+      description: "Terms of service for FQHC Talent.",
       url: `${SITE_URL}/terms`,
     },
     alternates: { canonical: `${SITE_URL}/terms` },
@@ -208,7 +208,7 @@ export const pageMetadata = {
     description:
       "Discover why mission-driven healthcare professionals choose FQHCs over hospital systems and private practice. Faster career growth, NHSC loan repayment ($50K–$75K tax-free), broader scope of practice, and meaningful impact serving California's underserved communities.",
     openGraph: {
-      title: "Why Work at an FQHC? — FQHC Talent Exchange",
+      title: "Why Work at an FQHC? — FQHC Talent",
       description:
         "Lead sooner. Impact more. Earn more than you think. See how FQHC careers compare to hospitals and private practice.",
       url: `${SITE_URL}/why-fqhc`,
@@ -216,11 +216,11 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/why-fqhc` },
   },
   demo: {
-    title: "Platform Demo | See FQHC Talent Exchange in Action",
+    title: "Platform Demo | See FQHC Talent in Action",
     description:
-      "Take a visual tour of FQHC Talent Exchange — California's only talent platform built for community health centers. See our FQHC directory, job search, resume builder, career assessment, and market intelligence tools.",
+      "Take a visual tour of FQHC Talent — California's only talent platform built for community health centers. See our FQHC directory, job search, resume builder, career assessment, and market intelligence tools.",
     openGraph: {
-      title: "Platform Demo — FQHC Talent Exchange",
+      title: "Platform Demo — FQHC Talent",
       description:
         "See how we connect community health professionals with FQHCs across California.",
       url: `${SITE_URL}/demo`,
@@ -229,11 +229,11 @@ export const pageMetadata = {
   },
   about: {
     title:
-      "About FQHC Talent Exchange | Our Mission to Strengthen Community Health",
+      "About FQHC Talent | Our Mission to Strengthen Community Health",
     description:
-      "FQHC Talent Exchange connects displaced community health workers with Federally Qualified Health Centers across California. Learn about our mission and why we built the only talent platform dedicated to community health.",
+      "FQHC Talent provides strategic workforce intelligence and free career tools for California's community health centers. Learn about our mission to strengthen the safety-net workforce.",
     openGraph: {
-      title: "About — FQHC Talent Exchange",
+      title: "About — FQHC Talent",
       description:
         "The only talent platform built exclusively for FQHCs. Learn about our mission.",
       url: `${SITE_URL}/about`,
@@ -245,7 +245,7 @@ export const pageMetadata = {
     description:
       "Explore 5 career pathways in California FQHCs — from entry-level to leadership. See salary ranges by region, required certifications, and skills at every level.",
     openGraph: {
-      title: "Career Roadmap — FQHC Talent Exchange",
+      title: "Career Roadmap — FQHC Talent",
       description:
         "5 career tracks with California salary data, certifications, and regional adjustments.",
       url: `${SITE_URL}/career-roadmap`,
@@ -257,7 +257,7 @@ export const pageMetadata = {
     description:
       "15 certifications for California FQHC careers — costs, duration, salary impact, and where to get them. CHW Certificate, CCM, CPC, LCSW, BLS, OCHIN Epic, and more.",
     openGraph: {
-      title: "Certification Catalog — FQHC Talent Exchange",
+      title: "Certification Catalog — FQHC Talent",
       description:
         "California-specific certification guide for FQHC careers. Costs, salary impact, and training programs.",
       url: `${SITE_URL}/certifications`,
@@ -269,7 +269,7 @@ export const pageMetadata = {
     description:
       "Take a free 4-minute career assessment across 5 behavioral domains. Get personalized insights, a 90-day onboarding plan, and certification recommendations for your FQHC role.",
     openGraph: {
-      title: "Career Assessment — FQHC Talent Exchange",
+      title: "Career Assessment — FQHC Talent",
       description:
         "Free career assessment for FQHC professionals. Get personalized insights and a 90-day plan.",
       url: `${SITE_URL}/career-insights`,
@@ -281,7 +281,7 @@ export const pageMetadata = {
     description:
       "How real FQHCs are solving funding, workforce, and operational challenges — structured around Rumelt's Good Strategy framework. PureView, MCR Health, Highland Health, Sun River Health case studies with measurable outcomes.",
     openGraph: {
-      title: "Executive Guides — FQHC Talent Exchange",
+      title: "Executive Guides — FQHC Talent",
       description:
         "Real FQHC case studies: federal dependency reduction, revenue diversification, AI implementation, and 340B optimization.",
       url: `${SITE_URL}/strategy/guides`,
@@ -293,7 +293,7 @@ export const pageMetadata = {
     description:
       "24 ready-to-use OKR templates for FQHC crisis change management — revenue resilience, workforce retention, patient access, operational efficiency, and cross-department alignment. Break silos, track progress, execute strategy.",
     openGraph: {
-      title: "OKR Templates — FQHC Talent Exchange",
+      title: "OKR Templates — FQHC Talent",
       description:
         "OKR templates for FQHC leaders facing funding cuts, workforce disruption, and operational challenges.",
       url: `${SITE_URL}/strategy/okrs`,
@@ -305,7 +305,7 @@ export const pageMetadata = {
     description:
       "How FQHCs are reducing federal dependency, diversifying revenue, implementing AI, and retaining workforce — with measurable outcomes and primary source links.",
     openGraph: {
-      title: "Case Studies — FQHC Talent Exchange",
+      title: "Case Studies — FQHC Talent",
       description:
         "Real FQHC case studies with verified outcomes: revenue growth, federal dependency reduction, AI adoption.",
       url: `${SITE_URL}/strategy/case-studies`,
@@ -317,7 +317,7 @@ export const pageMetadata = {
     description:
       "Healthcare economics explained at 3 levels — from new hire to executive. PPS reimbursement, 340B drug pricing, FMAP Medicaid financing, HCC risk adjustment, CalAIM ECM, SB 525, and more. With FQHC-specific context and primary sources.",
     openGraph: {
-      title: "Healthcare Economics for FQHCs — FQHC Talent Exchange",
+      title: "Healthcare Economics for FQHCs — FQHC Talent",
       description:
         "Every FQHC economic concept explained at 3 levels. Share with your team — from CHWs to the C-suite.",
       url: `${SITE_URL}/strategy/economics`,
@@ -329,7 +329,7 @@ export const pageMetadata = {
     description:
       "12 execution frameworks adapted for FQHCs — Kotter 8-Step, ADKAR, Bridges Transition, Cynefin, Eisenhower Matrix, OODA Loop, STARS, FOGLAMP, DMAIC, PDSA, Rumelt, SWOT+PESTEL. With FQHC applications and primary sources.",
     openGraph: {
-      title: "Execution Frameworks for FQHCs — FQHC Talent Exchange",
+      title: "Execution Frameworks for FQHCs — FQHC Talent",
       description:
         "Change management, decision-making, and operational excellence frameworks — adapted for community health centers.",
       url: `${SITE_URL}/strategy/frameworks`,
@@ -341,7 +341,7 @@ export const pageMetadata = {
     description:
       "28 thought leaders shaping the future of FQHCs — NACHC leadership, state PCA directors, innovative CEOs, policy experts, AI pioneers, and HRSA officials. Follow these voices to stay ahead.",
     openGraph: {
-      title: "Thought Leaders — FQHC Talent Exchange",
+      title: "Thought Leaders — FQHC Talent",
       description:
         "28 FQHC influencers across national leadership, policy, AI, workforce research, and innovative CEOs.",
       url: `${SITE_URL}/strategy/leaders`,
@@ -353,7 +353,7 @@ export const pageMetadata = {
     description:
       "See the interlinkages between FQHC case studies, economics concepts, execution frameworks, OKR templates, and thought leaders. 6 strategic themes, 4 learning paths, and 60+ connections with strategic foresight for FQHC executives.",
     openGraph: {
-      title: "Strategy Knowledge Map — FQHC Talent Exchange",
+      title: "Strategy Knowledge Map — FQHC Talent",
       description:
         "The master knowledge graph: 6 strategic themes, guided learning paths, and 60+ connections between FQHC strategy content.",
       url: `${SITE_URL}/strategy/knowledge-map`,
@@ -365,7 +365,7 @@ export const pageMetadata = {
     description:
       "Monitor artificial intelligence adoption at FQHCs nationwide — clinical documentation, revenue cycle, scheduling, care coordination, and population health. Track vendors, partnerships, metrics, and adoption stages.",
     openGraph: {
-      title: "AI Tracker — FQHC Talent Exchange",
+      title: "AI Tracker — FQHC Talent",
       description:
         "Tracking AI implementation across FQHCs: ambient documentation, revenue cycle automation, scheduling, and care coordination.",
       url: `${SITE_URL}/ai-tracker`,
@@ -377,7 +377,7 @@ export const pageMetadata = {
     description:
       "Subscribe to weekly FQHC intelligence: Intel Brief for executives (policy, funding, AI adoption) and The Pulse for job seekers (listings, salary trends, career tools). Every insight backed by primary sources.",
     openGraph: {
-      title: "Newsletter — FQHC Talent Exchange",
+      title: "Newsletter — FQHC Talent",
       description:
         "Weekly FQHC intelligence briefings for executives and job seekers. Policy, funding, AI, career updates.",
       url: `${SITE_URL}/newsletter`,
@@ -389,7 +389,7 @@ export const pageMetadata = {
     description:
       "Interactive scope-of-practice matrix for California FQHCs — 10 roles, delegation rules, supervision chains, and revenue impact of working at the top of license. MD, NP, PA, RN, LVN, MA, CHW, LCSW, AMFT/ASW, RDH.",
     openGraph: {
-      title: "Scope-of-Practice Guide — FQHC Talent Exchange",
+      title: "Scope-of-Practice Guide — FQHC Talent",
       description:
         "What each FQHC role can do under California law. Interactive delegation matrix with regulatory citations.",
       url: `${SITE_URL}/strategy/scope-of-practice`,
@@ -401,7 +401,7 @@ export const pageMetadata = {
     description:
       "Cultural humility frameworks for FQHC workforce management — CLAS standards, language access, implicit bias, health equity dashboards, and strategies for leveraging 90%+ Latino workforces as a strategic advantage.",
     openGraph: {
-      title: "Cultural Humility — FQHC Talent Exchange",
+      title: "Cultural Humility — FQHC Talent",
       description:
         "How FQHCs can leverage multicultural workforces as a strategic advantage. CLAS standards, practical frameworks, and real examples.",
       url: `${SITE_URL}/strategy/cultural-humility`,
@@ -413,7 +413,7 @@ export const pageMetadata = {
     description:
       "Interactive timeline of the FQHC movement in California — from Cesar Chavez's farmworker clinics to today's Medicaid crisis. 30 events, 8 cross-cultural alliances, and the stories of unexpected heroes who built the safety net.",
     openGraph: {
-      title: "The FQHC Movement — FQHC Talent Exchange",
+      title: "The FQHC Movement — FQHC Talent",
       description:
         "From farmworker clinics to today: the untold story of California's community health center movement.",
       url: `${SITE_URL}/strategy/movement`,
@@ -425,7 +425,7 @@ export const pageMetadata = {
     description:
       "Help your displaced workers navigate transitions. Free self-serve career tools, aggregated job postings across 220+ California FQHCs, strategic insights, and workforce intelligence.",
     openGraph: {
-      title: "FQHC Workforce Transition Toolkit — FQHC Talent Exchange",
+      title: "FQHC Workforce Transition Toolkit — FQHC Talent",
       description:
         "Turn layoffs into transitions. Free career tools, aggregated job postings, and strategic resources for displaced community health workers.",
       url: `${SITE_URL}/strategy/offboarding`,
@@ -437,7 +437,7 @@ export const pageMetadata = {
     description:
       "Every California FQHC scored on program diversity, workforce stability, data maturity, quality indicators, and financial positioning. Search your organization and compare against peers.",
     openGraph: {
-      title: "FQHC Resilience Scorecard — FQHC Talent Exchange",
+      title: "FQHC Resilience Scorecard — FQHC Talent",
       description:
         "See how your FQHC scores across 5 resilience dimensions. 220 California FQHCs ranked with detailed breakdowns.",
       url: `${SITE_URL}/strategy/resilience`,
@@ -449,7 +449,7 @@ export const pageMetadata = {
     description:
       "California FQHC salary data: P25, P50, and P75 benchmarks for 30 community health roles across 9 regions. Regional cost adjustments, career track progressions, and key insights for workforce planning.",
     openGraph: {
-      title: "FQHC Salary Intelligence — FQHC Talent Exchange",
+      title: "FQHC Salary Intelligence — FQHC Talent",
       description:
         "Salary benchmarks for 30 FQHC roles across 9 California regions. P25/P50/P75 data with regional adjustments.",
       url: `${SITE_URL}/salary-data`,
@@ -461,19 +461,31 @@ export const pageMetadata = {
     description:
       "Compare 2-3 California FQHCs side-by-side across resilience scores, Glassdoor ratings, programs, staffing, funding vulnerability, and more. Data-driven organizational analysis.",
     openGraph: {
-      title: "Compare FQHCs — FQHC Talent Exchange",
+      title: "Compare FQHCs — FQHC Talent",
       description:
         "Side-by-side comparison of California FQHCs: resilience, ratings, programs, and workforce data.",
       url: `${SITE_URL}/compare`,
     },
     alternates: { canonical: `${SITE_URL}/compare` },
   },
+  workforceResilience: {
+    title: "Workforce Resilience & Retention Hub | FQHC Talent",
+    description:
+      "22 evidence-based retention strategies for FQHCs organized into 6 pillars — career ladders, compensation, burnout prevention, culture, remote work, and training. Interactive turnover cost calculator and retention benchmarks. Sourced from NACHC, HRSA, SHRM, and BLS.",
+    openGraph: {
+      title: "Workforce Resilience & Retention Hub — FQHC Talent",
+      description:
+        "Turnover is destroying FQHC budgets. 22 strategies, a cost calculator, and benchmarks to build a retention machine.",
+      url: `${SITE_URL}/strategy/workforce-resilience`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/workforce-resilience` },
+  },
   clinicSimulator: {
     title: "FQHC Clinic Operations Simulator | Staffing, Scheduling & Revenue Modeling",
     description:
       "Interactive clinic operations simulator for California FQHCs. Model staffing ratios, PPS rates, co-visit economics, Provider-of-the-Day breakeven, disease management programs, and economies of scale for 250-1,000 staff operations.",
     openGraph: {
-      title: "Clinic Operations Simulator — FQHC Talent Exchange",
+      title: "Clinic Operations Simulator — FQHC Talent",
       description:
         "Model staffing, scheduling, and revenue for your California FQHC. Compare small vs. large operations with 15+ interactive levers.",
       url: `${SITE_URL}/strategy/clinic-simulator`,
@@ -481,11 +493,11 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/strategy/clinic-simulator` },
   },
   login: {
-    title: "Sign In | FQHC Talent Exchange",
+    title: "Sign In | FQHC Talent",
     description:
-      "Sign in to your FQHC Talent Exchange account. Save favorites, customize your intelligence feed, and track your progress through executive strategy content.",
+      "Sign in to your FQHC Talent account. Save favorites, customize your intelligence feed, and track your progress through executive strategy content.",
     openGraph: {
-      title: "Sign In — FQHC Talent Exchange",
+      title: "Sign In — FQHC Talent",
       description:
         "Sign in to personalize your FQHC intelligence feed and save your favorite strategy content.",
       url: `${SITE_URL}/login`,
@@ -493,12 +505,12 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/login` },
   },
   dashboard: {
-    title: "My Dashboard | FQHC Talent Exchange",
+    title: "My Dashboard | FQHC Talent",
     description:
       "Your personalized FQHC intelligence dashboard — curated feed, saved favorites, watchlist, and account settings.",
     robots: { index: false, follow: false },
     openGraph: {
-      title: "My Dashboard — FQHC Talent Exchange",
+      title: "My Dashboard — FQHC Talent",
       description:
         "Your personalized FQHC intelligence dashboard.",
       url: `${SITE_URL}/dashboard`,
@@ -510,7 +522,7 @@ export const pageMetadata = {
     description:
       "Assess your team's readiness across 5 behavioral domains. Built for FQHC managers, supervisors, and directors. Get personalized management actions, Liberating Structures, and team-building strategies.",
     openGraph: {
-      title: "Team Readiness Assessment — FQHC Talent Exchange",
+      title: "Team Readiness Assessment — FQHC Talent",
       description:
         "Assess your FQHC team's readiness with our 5-domain leadership assessment. Get management actions and team-building tools.",
       url: `${SITE_URL}/team-readiness`,
