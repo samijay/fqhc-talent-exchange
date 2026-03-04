@@ -13,6 +13,7 @@ import FeedbackButton from "@/components/layout/FeedbackButton";
 import { Toaster } from "@/components/ui/sonner";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { rootMetadata } from "@/lib/seo-config";
+import { AuthProvider } from "@/components/auth/AuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,15 +52,17 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
-          <OrganizationJsonLd />
-          <WebSiteJsonLd />
-          <AnnouncementBar />
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-          <CookieConsent />
-          <FeedbackButton />
-          <Toaster />
+          <AuthProvider>
+            <OrganizationJsonLd />
+            <WebSiteJsonLd />
+            <AnnouncementBar />
+            <Header />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+            <CookieConsent />
+            <FeedbackButton />
+            <Toaster />
+          </AuthProvider>
         </NextIntlClientProvider>
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />

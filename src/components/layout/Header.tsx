@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Heart, Menu, X, Globe, ChevronDown } from "lucide-react";
+import { Heart, Menu, X, Globe, ChevronDown, User, LogOut, LayoutDashboard, Bookmark } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
+import { useAuth } from "@/components/auth/AuthProvider";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -102,10 +103,29 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [avatarOpen, setAvatarOpen] = useState(false);
+  const avatarRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("nav");
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+  const { user, profile, loading, signOut } = useAuth();
+
+  // Close avatar dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (avatarRef.current && !avatarRef.current.contains(e.target as Node)) {
+        setAvatarOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Get user initials for avatar
+  const userInitial = profile?.display_name
+    ? profile.display_name.charAt(0).toUpperCase()
+    : user?.email?.charAt(0).toUpperCase() || "?";
 
   const toggleDropdown = useCallback(
     (label: string) => {
@@ -204,7 +224,7 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Desktop — Language toggle only (no CTAs) */}
+        {/* Desktop — Language toggle + Auth */}
         <div className="hidden items-center gap-3 lg:flex">
           <button
             onClick={switchLocale}
@@ -214,6 +234,65 @@ export default function Header() {
             <Globe className="size-4" />
             {locale === "en" ? "ES" : "EN"}
           </button>
+
+          {!loading && !user && (
+            <Link
+              href="/login"
+              className="rounded-md px-3 py-1.5 text-sm font-medium text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-900"
+            >
+              {t("signIn")}
+            </Link>
+          )}
+
+          {!loading && user && (
+            <div ref={avatarRef} className="relative">
+              <button
+                onClick={() => setAvatarOpen(!avatarOpen)}
+                className="flex size-8 items-center justify-center rounded-full bg-teal-700 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                title={profile?.display_name || user.email || "Account"}
+              >
+                {userInitial}
+              </button>
+              {avatarOpen && (
+                <div className="absolute right-0 top-full z-50 mt-2 min-w-[200px] rounded-lg border border-stone-700 bg-stone-900 py-2 shadow-xl">
+                  <div className="border-b border-stone-700 px-4 py-2">
+                    <p className="text-sm font-medium text-white truncate">
+                      {profile?.display_name || user.email}
+                    </p>
+                    {profile?.organization && (
+                      <p className="text-xs text-stone-400 truncate">{profile.organization}</p>
+                    )}
+                  </div>
+                  <Link
+                    href="/dashboard"
+                    className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-white transition-colors hover:bg-stone-800"
+                    onClick={() => setAvatarOpen(false)}
+                  >
+                    <LayoutDashboard className="size-4 text-stone-400" />
+                    {t("myDashboard")}
+                  </Link>
+                  <Link
+                    href="/dashboard"
+                    className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-white transition-colors hover:bg-stone-800"
+                    onClick={() => setAvatarOpen(false)}
+                  >
+                    <Bookmark className="size-4 text-stone-400" />
+                    {t("favorites")}
+                  </Link>
+                  <button
+                    onClick={() => {
+                      setAvatarOpen(false);
+                      signOut();
+                    }}
+                    className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-red-400 transition-colors hover:bg-stone-800"
+                  >
+                    <LogOut className="size-4" />
+                    {t("signOutLabel")}
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Mobile hamburger */}
@@ -292,6 +371,50 @@ export default function Header() {
               <Globe className="size-4" />
               {t("languageToggle")}
             </button>
+
+            {/* Mobile auth section */}
+            <div className="border-t border-stone-200 pt-2 mt-2">
+              {!loading && !user && (
+                <Link
+                  href="/login"
+                  className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-teal-700 transition-colors hover:bg-teal-50"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <User className="size-4" />
+                  {t("signIn")}
+                </Link>
+              )}
+              {!loading && user && (
+                <>
+                  <div className="px-3 py-2">
+                    <p className="text-sm font-medium text-stone-900 truncate">
+                      {profile?.display_name || user.email}
+                    </p>
+                    {profile?.organization && (
+                      <p className="text-xs text-stone-500 truncate">{profile.organization}</p>
+                    )}
+                  </div>
+                  <Link
+                    href="/dashboard"
+                    className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <LayoutDashboard className="size-4" />
+                    {t("myDashboard")}
+                  </Link>
+                  <button
+                    onClick={() => {
+                      setMobileOpen(false);
+                      signOut();
+                    }}
+                    className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-red-600 transition-colors hover:bg-red-50"
+                  >
+                    <LogOut className="size-4" />
+                    {t("signOutLabel")}
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}

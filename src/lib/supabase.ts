@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { createBrowserClient } from "@supabase/ssr";
 
 // ── Public client (for client-side use only — limited by RLS) ──
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
@@ -34,6 +35,19 @@ if (!supabaseServiceRoleKey && process.env.NODE_ENV === "production") {
  * This bypasses RLS and should ONLY be used in API routes (server-side).
  * Falls back to the anon client in development if the service role key is not set.
  */
+// ── Auth-aware browser client (uses @supabase/ssr for cookie-based auth) ──
+/**
+ * Creates an auth-aware Supabase client for use in "use client" components.
+ * This handles auth sessions via cookies automatically.
+ * Use this instead of the plain `supabase` export when you need auth state.
+ */
+export function createAuthClient() {
+  return createBrowserClient(
+    supabaseUrl || "",
+    supabaseAnonKey || ""
+  );
+}
+
 export const supabaseAdmin = supabaseServiceRoleKey
   ? createClient(supabaseUrl || "", supabaseServiceRoleKey, {
       auth: {

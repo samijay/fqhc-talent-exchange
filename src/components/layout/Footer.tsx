@@ -48,6 +48,7 @@ export default function Footer() {
     [t("company")]: [
       { href: "/about" as const, label: t("aboutUs") },
       { href: "/newsletter" as const, label: t("newsletter") },
+      { href: "/dashboard" as const, label: t("myDashboard") },
     ],
   };
 

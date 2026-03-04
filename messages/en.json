@@ -70,7 +70,11 @@
     "salaryData": "Salary Intelligence",
     "salaryDataDesc": "P25/P50/P75 salary data for 30 FQHC roles",
     "clinicSimulator": "Clinic Simulator",
-    "clinicSimulatorDesc": "Model staffing, scheduling & revenue for your FQHC"
+    "clinicSimulatorDesc": "Model staffing, scheduling & revenue for your FQHC",
+    "signIn": "Sign In",
+    "myDashboard": "My Dashboard",
+    "favorites": "Favorites",
+    "signOutLabel": "Sign Out"
   },
   "footer": {
     "description": "The talent exchange built exclusively for Federally Qualified Health Centers and community health professionals in California.",
@@ -104,6 +108,7 @@
     "company": "Company",
     "aboutUs": "About Us",
     "newsletter": "Newsletter",
+    "myDashboard": "My Dashboard",
     "scopeOfPractice": "Top-of-Scope",
     "culturalHumility": "Cultural Humility",
     "theMovement": "The Movement",

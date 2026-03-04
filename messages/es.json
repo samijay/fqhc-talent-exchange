@@ -70,7 +70,11 @@
     "salaryData": "Inteligencia Salarial",
     "salaryDataDesc": "Datos salariales P25/P50/P75 para 30 roles FQHC",
     "clinicSimulator": "Simulador Clínico",
-    "clinicSimulatorDesc": "Modele personal, horarios e ingresos para su FQHC"
+    "clinicSimulatorDesc": "Modele personal, horarios e ingresos para su FQHC",
+    "signIn": "Iniciar Sesión",
+    "myDashboard": "Mi Panel",
+    "favorites": "Favoritos",
+    "signOutLabel": "Cerrar Sesión"
   },
   "footer": {
     "description": "La bolsa de talento creada exclusivamente para Centros de Salud Comunitarios Federalmente Calificados (FQHC) y profesionales de salud comunitaria en California.",
@@ -104,6 +108,7 @@
     "company": "Empresa",
     "aboutUs": "Sobre Nosotros",
     "newsletter": "Boletín",
+    "myDashboard": "Mi Panel",
     "scopeOfPractice": "Alcance de Práctica",
     "culturalHumility": "Humildad Cultural",
     "theMovement": "El Movimiento",

@@ -480,6 +480,31 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/strategy/clinic-simulator` },
   },
+  login: {
+    title: "Sign In | FQHC Talent Exchange",
+    description:
+      "Sign in to your FQHC Talent Exchange account. Save favorites, customize your intelligence feed, and track your progress through executive strategy content.",
+    openGraph: {
+      title: "Sign In — FQHC Talent Exchange",
+      description:
+        "Sign in to personalize your FQHC intelligence feed and save your favorite strategy content.",
+      url: `${SITE_URL}/login`,
+    },
+    alternates: { canonical: `${SITE_URL}/login` },
+  },
+  dashboard: {
+    title: "My Dashboard | FQHC Talent Exchange",
+    description:
+      "Your personalized FQHC intelligence dashboard — curated feed, saved favorites, watchlist, and account settings.",
+    robots: { index: false, follow: false },
+    openGraph: {
+      title: "My Dashboard — FQHC Talent Exchange",
+      description:
+        "Your personalized FQHC intelligence dashboard.",
+      url: `${SITE_URL}/dashboard`,
+    },
+    alternates: { canonical: `${SITE_URL}/dashboard` },
+  },
   teamReadiness: {
     title: "Team Readiness Assessment for FQHC Managers | Leadership Tool",
     description:
