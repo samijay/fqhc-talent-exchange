@@ -2,10 +2,10 @@
 // Curated intelligence feed for FQHC executives
 // Updated daily via /daily-update pipeline
 // Every item has a primary source URL — no unsourced claims
-// Last updated: 2026-03-05 (daily update #11)
+// Last updated: 2026-03-05 (daily update #11 + LA/Central Coast regional scan)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-04";
+export const INTEL_LAST_UPDATED = "2026-03-05";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -1182,6 +1182,91 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "San Bernardino Sun",
     region: "San Bernardino County",
     tags: ["inland-empire", "va", "staffing", "loma-linda", "veterans"],
+  },
+  /* ============================================================== */
+  /*  2026-03-05: LA + Central Coast Regional Scan                  */
+  /* ============================================================== */
+  {
+    id: "la-county-1-5b-federal-cuts-hospital-closure",
+    date: "2026-03-04",
+    headline: {
+      en: "LA County Faces $1.5B in Federal Cuts — Hospital Closure Now Possible",
+      es: "Condado de LA Enfrenta $1.5B en Recortes Federales — Cierre de Hospital Ahora Posible",
+    },
+    summary: {
+      en: "LA County CEO warned of 'devastating' service reductions as $1.5B in federal cuts hit over 5 years. The Department of Health Services — 70% of its $6.5B budget from federal funds — projects a $1.85B annual deficit by 2028-29. A county public hospital closure is now 'last resort' on the table. 700K+ residents could lose Medi-Cal under new work requirements. St. John's Community Health (120K patients) faces 'closing several health centers' and 'laying off hundreds of staff.' Hiring freeze already in effect.",
+      es: "La CEO del Condado de LA advirtió de reducciones 'devastadoras' de servicios con $1.5B en recortes federales en 5 años. El DHS — 70% de su presupuesto de $6.5B de fondos federales — proyecta un déficit anual de $1.85B para 2028-29. El cierre de un hospital público del condado es ahora 'último recurso.' 700K+ residentes podrían perder Medi-Cal por nuevos requisitos de trabajo.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://laist.com/news/politics/la-county-financial-future",
+    sourceOrg: "LAist",
+    region: "Los Angeles County",
+    affectedOrgs: ["St. John's Community Health", "AltaMed Health Services", "APLA Health"],
+    affectedOrgSlugs: ["st-johns-community-health", "altamed-health-services", "apla-health"],
+    tags: ["la-county", "federal-cuts", "hospital-closure", "dhs", "medi-cal", "workforce"],
+  },
+  {
+    id: "oc-health-agency-clinic-closures",
+    date: "2026-03-04",
+    headline: {
+      en: "Orange County Health Care Agency Closing Clinics After $13M in Federal Grant Losses",
+      es: "Agencia de Salud del Condado de Orange Cierra Clínicas Tras $13M en Pérdidas de Subvenciones Federales",
+    },
+    summary: {
+      en: "The OC Health Care Agency lost 5 federal grants totaling $13M, forcing closure of the children & family planning clinic (June 30) and dental services (May 6) at its 17th Street Santa Ana location. WIC services at Santa Ana and Buena Park also reduced. Affected families transitioning to CalOptima, Kaiser, and community clinics including FQHCs. Part of statewide county health service reductions.",
+      es: "La Agencia de Salud del Condado de Orange perdió 5 subvenciones federales por $13M, forzando el cierre de la clínica infantil y de planificación familiar (30 de junio) y servicios dentales (6 de mayo) en su ubicación de 17th Street en Santa Ana. Servicios WIC en Santa Ana y Buena Park también reducidos.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://abc7.com/post/federal-funding-cuts-force-orange-county-health-care-agency-close-clinics/16162489/",
+    sourceOrg: "ABC7",
+    region: "Orange County",
+    affectedOrgs: ["Share Our Selves"],
+    affectedOrgSlugs: ["share-our-selves"],
+    tags: ["orange-county", "clinic-closures", "federal-grants", "wic", "family-planning"],
+  },
+  {
+    id: "sb-county-budget-bloodbath-17m-public-health",
+    date: "2026-03-04",
+    headline: {
+      en: "Santa Barbara County Faces 'Budget Bloodbath' — $17.4M Public Health Deficit",
+      es: "Condado de Santa Barbara Enfrenta 'Baño de Sangre Presupuestario' — $17.4M de Déficit en Salud Pública",
+    },
+    summary: {
+      en: "Santa Barbara County supervisors face a $66M deficit over 5 years with $50M+ in the next 2 years. Public Health ($25M in cuts) and Social Services ($28M) are hardest hit. County previously paused 55.2 FTE layoffs and transition of 7,000 immigrant patients following court injunction. Total Public Health deficit: $7.6M structural + $6.6M state cuts + $3.2M H.R. 1 = $17.4M. Specialty services (endocrinology, neurology, urology) may be eliminated. Furloughs, layoffs, wage freezes on the table.",
+      es: "Los supervisores del Condado de Santa Barbara enfrentan un déficit de $66M en 5 años con $50M+ en los próximos 2 años. Salud Pública ($25M en recortes) y Servicios Sociales ($28M) son los más afectados. El condado pausó 55.2 despidos FTE y la transición de 7,000 pacientes inmigrantes. Déficit total de Salud Pública: $17.4M.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.independent.com/2026/03/04/santa-barbara-county-supes-face-budget-bloodbath/",
+    sourceOrg: "Santa Barbara Independent",
+    region: "Santa Barbara County",
+    affectedOrgs: ["Clinicas del Camino Real"],
+    affectedOrgSlugs: ["clinicas-del-camino-real"],
+    tags: ["santa-barbara", "budget-deficit", "public-health", "layoffs", "immigrant-patients", "central-coast"],
+  },
+  {
+    id: "monterey-natividad-38k-medi-cal-loss",
+    date: "2026-03-01",
+    headline: {
+      en: "Monterey County: 38K to Lose Medi-Cal, Natividad Faces $14M DSH Funding Limbo",
+      es: "Condado de Monterey: 38K Perderán Medi-Cal, Natividad Enfrenta $14M de Fondos DSH en Limbo",
+    },
+    summary: {
+      en: "Approximately 38,000 Monterey County residents will lose Medi-Cal over 4 years under H.R. 1. Natividad Medical Center's $14M/year Disproportionate Share Hospital (DSH) funding is in limbo. Federal Medical Assistance Percentage drops from 90% to 50% for undocumented emergency care starting Oct 1, 2026, dramatically increasing county costs. Supervisors concerned about 'negative impact on the financial health of Natividad' — the county's safety-net hospital.",
+      es: "Aproximadamente 38,000 residentes del Condado de Monterey perderán Medi-Cal en 4 años bajo H.R. 1. Los $14M/año de fondos de Hospital de Participación Desproporcionada (DSH) de Natividad están en limbo. La tasa FMAP baja del 90% al 50% para atención de emergencia de indocumentados a partir del 1 de octubre de 2026.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.montereycountynow.com/blogs/news_blog/trumps-big-beautiful-bill-will-mean-decreased-access-to-health-care-and-increased-costs-to/article_f4c26c47-bc5f-4ded-8e19-bd18b3de3f09.html",
+    sourceOrg: "Monterey County Now",
+    region: "Monterey County",
+    tags: ["monterey", "natividad", "medi-cal", "dsh", "fmap", "undocumented", "central-coast"],
   },
 ];
 
