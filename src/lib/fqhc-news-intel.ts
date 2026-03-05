@@ -2,7 +2,7 @@
 // Curated intelligence feed for FQHC executives
 // Updated daily via /daily-update pipeline
 // Every item has a primary source URL — no unsourced claims
-// Last updated: 2026-03-04 (daily update #9)
+// Last updated: 2026-03-04 (daily update #10)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
 export const INTEL_LAST_UPDATED = "2026-03-04";
@@ -896,6 +896,168 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "DHCS CalAIM",
     region: "California",
     tags: ["ecm", "calaim", "ryan-white", "volume-building", "creative-financing", "chw", "waiver-renewal"],
+  },
+
+  /* ============================================================== */
+  /*  2026-03-04: Daily Update #10 — SF Crisis Cluster               */
+  /* ============================================================== */
+  {
+    id: "sf-lurie-40m-dph-cuts",
+    date: "2026-03-02",
+    headline: {
+      en: "SF Mayor Lurie Orders $40M in Public Health Cuts — Community Clinics Bracing",
+      es: "Alcalde de SF Lurie Ordena $40M en Recortes de Salud Pública — Clínicas Comunitarias se Preparan",
+    },
+    summary: {
+      en: "Mayor Lurie directed SF DPH to cut $40M over two years: $20M from staff reductions (up to 100 employees) and $20M from community-based organization contracts. Combined with $877M city budget deficit driven by federal healthcare cuts, this threatens the safety-net infrastructure serving 110,000+ patients across 12 SFCCC member clinics.",
+      es: "El alcalde Lurie ordenó al DPH de SF recortar $40M en dos años: $20M de reducciones de personal (hasta 100 empleados) y $20M de contratos con organizaciones comunitarias. Combinado con un déficit de $877M impulsado por recortes federales de salud, esto amenaza la infraestructura de red de seguridad que sirve a más de 110,000 pacientes en 12 clínicas del SFCCC.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://missionlocal.org/2026/03/mayor-lurie-public-health-budget-cuts/",
+    sourceOrg: "Mission Local",
+    region: "San Francisco County",
+    affectedOrgs: ["San Francisco Community Clinic Consortium"],
+    tags: ["sf-budget", "dph-cuts", "community-clinics", "safety-net"],
+  },
+  {
+    id: "sf-500-city-jobs-eliminated",
+    date: "2026-03-02",
+    headline: {
+      en: "SF Eliminates 500 City Positions — DPH Largest Agency Hit",
+      es: "SF Elimina 500 Puestos de la Ciudad — DPH la Agencia Más Afectada",
+    },
+    summary: {
+      en: "San Francisco must eliminate 500 positions ($100M in personnel savings) to address an $877M budget deficit. The Department of Public Health — the city's largest agency with 7,766 employees — faces the deepest cuts. Departments must submit plans by March 12. Last year's layoff proposal of 150 resulted in ~40 actual cuts after union negotiations.",
+      es: "San Francisco debe eliminar 500 puestos ($100M en ahorros de personal) para abordar un déficit de $877M. El Departamento de Salud Pública — la agencia más grande con 7,766 empleados — enfrenta los recortes más profundos. Los departamentos deben presentar planes antes del 12 de marzo.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://sfstandard.com/2026/03/02/san-francisco-budget-deficit-layoffs-jobs/",
+    sourceOrg: "SF Standard",
+    region: "San Francisco County",
+    tags: ["sf-budget", "layoffs", "dph", "city-workforce"],
+  },
+  {
+    id: "sf-dph-17m-cbo-cuts",
+    date: "2026-02-03",
+    headline: {
+      en: "SF Health Commission Approves $17M in Community Health Program Cuts",
+      es: "Comisión de Salud de SF Aprueba $17M en Recortes a Programas de Salud Comunitaria",
+    },
+    summary: {
+      en: "San Francisco DPH cuts $17M from community-based organizations: $6M from workforce development, $5.8M from UCSF affiliation, $3.9M in other cuts, $1.3M from mental health vocational programs. Disproportionately impacts LGBTQ+, African American, and Chinese community health services. SF AIDS Foundation loses $800K; NAMI SF programs 100% cut.",
+      es: "El DPH de SF recorta $17M de organizaciones comunitarias: $6M de desarrollo laboral, $5.8M de afiliación con UCSF, $3.9M en otros recortes, $1.3M de programas vocacionales de salud mental. Impacta desproporcionadamente servicios de salud LGBTQ+, afroamericanos y chinos. SF AIDS Foundation pierde $800K; programas de NAMI SF eliminados 100%.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.kalw.org/bay-area-news/2026-02-03/san-francisco-health-commission-discusses-cuts-to-community-based-health-programs",
+    sourceOrg: "KALW",
+    region: "San Francisco County",
+    affectedOrgs: ["San Francisco Community Health Center", "San Francisco AIDS Foundation"],
+    affectedOrgSlugs: ["san-francisco-community-health-center"],
+    tags: ["sf-budget", "cbo-cuts", "lgbtq-health", "workforce-development"],
+  },
+  {
+    id: "sfchc-transhope-funding-terminated",
+    date: "2026-02-13",
+    headline: {
+      en: "SF Community Health Center: $300K+ Federal Funding Terminated, More Expected",
+      es: "Centro de Salud Comunitario de SF: $300K+ en Fondos Federales Terminados, Se Esperan Más",
+    },
+    summary: {
+      en: "San Francisco Community Health Center (SFCHC) had over $300,000 in federal funding terminated effective February 11, 2026, with additional terminations expected. The cuts targeted TransHOPE, a program training young community leaders in peer-based education. SFCHC serves as a key safety-net provider for LGBTQ+ and people of color communities.",
+      es: "El Centro de Salud Comunitario de SF tuvo más de $300,000 en fondos federales terminados efectivos el 11 de febrero de 2026, con más terminaciones esperadas. Los recortes afectaron TransHOPE, un programa que entrena líderes comunitarios jóvenes en educación entre pares.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.sfcommunityhealth.org/announcements",
+    sourceOrg: "SF Community Health Center",
+    region: "San Francisco County",
+    affectedOrgs: ["San Francisco Community Health Center"],
+    affectedOrgSlugs: ["san-francisco-community-health-center"],
+    tags: ["federal-funding", "transhope", "lgbtq-health", "grant-termination"],
+  },
+  {
+    id: "sf-50k-medi-cal-loss",
+    date: "2025-11-25",
+    headline: {
+      en: "Up to 50,000 SF Residents Could Lose Medi-Cal — $400M Budget Hole",
+      es: "Hasta 50,000 Residentes de SF Podrían Perder Medi-Cal — Agujero de $400M",
+    },
+    summary: {
+      en: "Analysis projects 25,000-50,000 San Franciscans could be removed from Medi-Cal by end of 2027 under H.R. 1 provisions. The city faces a $400M budget hole through 2038 ($315M next year alone). SFCCC CEO Johanna Liu warned that 'service cuts at one provider affect the entire system.' Healthy San Francisco program revival under consideration.",
+      es: "El análisis proyecta que 25,000-50,000 sanfranciscanos podrían perder Medi-Cal para fines de 2027 bajo H.R. 1. La ciudad enfrenta un agujero de $400M hasta 2038 ($315M solo el próximo año). La directora de SFCCC Johanna Liu advirtió que 'los recortes en un proveedor afectan todo el sistema.'",
+    },
+    category: "undocumented-access",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://sfstandard.com/2025/11/25/san-francisco-budget-deficit-big-beautiful-bill-trump-health-care/",
+    sourceOrg: "SF Standard",
+    region: "San Francisco County",
+    affectedOrgs: ["San Francisco Community Clinic Consortium"],
+    tags: ["medi-cal", "hr1", "coverage-loss", "budget-deficit", "sfccc"],
+  },
+  {
+    id: "sf-va-157-jobs-cut",
+    date: "2026-01-15",
+    headline: {
+      en: "SF VA Medical Center Loses 157 Jobs — Only ER Social Worker Eliminated",
+      es: "Centro Médico VA de SF Pierde 157 Empleos — Único Trabajador Social de ER Eliminado",
+    },
+    summary: {
+      en: "Trump administration eliminates 157 positions at the San Francisco VA Medical Center as part of nationwide cuts of 37,000 vacant positions. The cuts include the only emergency room social worker position, raising concerns about care continuity for veterans who often rely on community health centers for follow-up care.",
+      es: "La administración Trump elimina 157 puestos en el Centro Médico VA de San Francisco como parte de recortes nacionales de 37,000 puestos vacantes. Los recortes incluyen el único puesto de trabajador social de emergencia.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://www.kqed.org/news/12069772/trump-eliminates-157-jobs-at-the-san-francisco-veterans-affairs-medical-center",
+    sourceOrg: "KQED",
+    region: "San Francisco County",
+    tags: ["va", "federal-cuts", "workforce", "veterans"],
+  },
+  {
+    id: "sf-hhs-region9-closure",
+    date: "2025-04-15",
+    headline: {
+      en: "HHS Closes SF Regional Office — 318 Staff, Medicare/Medicaid Oversight Gone",
+      es: "HHS Cierra Oficina Regional de SF — 318 Empleados, Supervisión de Medicare/Medicaid Eliminada",
+    },
+    summary: {
+      en: "The HHS Region 9 office in San Francisco's Nancy Pelosi Federal Building closed, eliminating 318 staff who managed Medicare, Medicaid, and indigenous health services for CA, AZ, HI, NV, and 6 territories. The office regularly hosted grant workshops with community health centers. Speaker Pelosi called closure 'irresponsible.' Part of RFK Jr.'s plan to cut 60,000+ HHS positions.",
+      es: "La oficina HHS Región 9 en el Edificio Federal Nancy Pelosi cerró, eliminando 318 empleados que gestionaban Medicare, Medicaid y servicios de salud indígena para CA, AZ, HI, NV y 6 territorios. La oficina regularmente organizaba talleres de subvenciones con centros de salud comunitarios.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.kqed.org/news/12033968/san-franciscos-hhs-office-close-federal-health-cuts-pelosi",
+    sourceOrg: "KQED",
+    region: "San Francisco County",
+    tags: ["hhs", "federal-cuts", "region9", "doge", "grant-workshops"],
+  },
+  {
+    id: "nejm-ai-inflection-point",
+    date: "2026-03-01",
+    headline: {
+      en: "NEJM Catalyst: AI in Healthcare Hits Inflection Point — Beyond Scribes",
+      es: "NEJM Catalyst: IA en Salud Llega a Punto de Inflexión — Más Allá de Escribas",
+    },
+    summary: {
+      en: "March 2026 NEJM Catalyst special issue on AI implementation, guest-edited by UCSF Health Chief AI Officer Sara Murray. AI is moving from R&D to real-world deployment. Beyond ambient scribes (the fastest health tech adoption in history), the issue examines care coordination, population health, and revenue cycle AI. Key insight: translating hype into ROI depends on implementation science fundamentals.",
+      es: "Edición especial de NEJM Catalyst de marzo 2026 sobre implementación de IA, editada por la Directora de IA de UCSF Health Sara Murray. La IA se mueve de I+D a implementación real. Más allá de escribas ambientales, examina IA en coordinación de cuidados, salud poblacional y ciclo de ingresos.",
+    },
+    category: "change-management",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://catalyst.nejm.org/doi/full/10.1056/CAT.26.0074",
+    sourceOrg: "NEJM Catalyst",
+    region: "Federal",
+    tags: ["ai", "implementation-science", "ambient-scribe", "ucsf"],
   },
 ];
 
