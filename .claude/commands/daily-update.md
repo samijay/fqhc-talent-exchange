@@ -231,6 +231,82 @@ Run 2 web searches to track cultural competency and FQHC movement developments:
 
 ---
 
+## Step 3.8: Regional News Scan (Rotation)
+
+Scan 2 regions per day on a 5-day rotation. LA and Bay Area get 2x/week coverage; all others 1x/week. Regional news sources are configured in `src/lib/regional-news-sources.ts`.
+
+### Today's Rotation
+
+| Day | Region A | Region B |
+|-----|----------|----------|
+| **Monday** | Los Angeles (89 FQHCs) | Sacramento (12) |
+| **Tuesday** | Bay Area (40 FQHCs) | Central Valley (16) |
+| **Wednesday** | San Diego (14) | Inland Empire (15) |
+| **Thursday** | Los Angeles | Central Coast (10) |
+| **Friday** | Bay Area | North State (12) + North Coast (11) |
+
+Check today's day of week and run searches for the corresponding regions.
+
+### Search Queries (3 per region, run all in parallel)
+
+For each region being scanned today, run these 3 searches using the region's data from `src/lib/regional-news-sources.ts`:
+
+**Query A — Local Government & Budget:**
+`"{county1}" OR "{county2}" county health department budget cuts OR layoffs OR clinic closure [current month] [year]`
+
+Use the region's top 2-3 counties (by FQHC count). For LA: "Los Angeles" OR "Orange". For Bay Area: "San Francisco" OR "Alameda" OR "Santa Clara".
+
+**Query B — FQHC/Clinic-Specific News:**
+`"{keyFQHC1}" OR "{keyFQHC2}" OR "community health center" "{region name}" layoffs OR funding OR closure [current month] [year]`
+
+Use 2-3 of the region's `keyFQHCs` from the config. Always include "community health center" as a catch-all.
+
+**Query C — Health System Disruption:**
+`"{majorSystem1}" OR "{majorSystem2}" layoffs OR cuts OR restructuring "{key city}" [current month] [year]`
+
+Use 2-3 of the region's `majorHealthSystems`. These capture hospital/system disruptions that create displaced workers who flow into FQHCs.
+
+### Regional News Sources to Prioritize
+
+Reference the `newsOutlets` array from `src/lib/regional-news-sources.ts`. Local outlets often break stories 1-2 weeks before state/national coverage.
+
+| Region | Top Local Sources |
+|--------|-------------------|
+| Los Angeles | LA Times, LAist, OC Register |
+| Bay Area | SF Chronicle, SF Standard, Mission Local, KQED, KALW, Berkeleyside |
+| San Diego | SD Union-Tribune, Voice of San Diego, KPBS |
+| Sacramento | Sacramento Bee, CapRadio |
+| Central Valley | Fresno Bee, KVPR, Bakersfield Californian |
+| Inland Empire | Press-Enterprise, San Bernardino Sun |
+| Central Coast | SB Independent, Ventura County Star, Monterey Herald |
+| North State | Redding Record Searchlight, Chico Enterprise-Record |
+| North Coast | Times-Standard, Lost Coast Outpost, Mendocino Voice |
+
+### What to Capture
+
+For each significant regional finding, create an IntelItem with:
+- **`region`**: Use county name format (e.g., "San Francisco County", "Los Angeles County") — maps correctly through `COUNTY_TO_REGION` in `regional-intelligence.ts`
+- **`affectedOrgSlugs`**: Match any named FQHCs against the 220-entry directory in `california-fqhcs.ts`
+- **`tags`**: Include the region slug (e.g., "bay-area", "los-angeles") for filtering
+- **`category`**: Most regional items will be "funding", "workforce", or "merger-acquisition"
+
+### Decision Rules for Regional News:
+
+- **Critical:** City/county budget cuts >$10M, >100 workers displaced, clinic closure affecting >5,000 patients
+- **High:** Named FQHC or DPH directly affected, county board vote on health funding, hospital system layoffs >50
+- **Medium:** Regional health coalition news, advocacy updates, workforce trends
+- **Low:** General regional health industry news without direct FQHC impact
+
+### Skip if:
+
+- Story is already captured in today's Step 3–3.7 (statewide searches may catch regional stories first)
+- Story is older than 14 days and not critical/high impact
+- Story is about a hospital/system with no connection to FQHC workforce pipeline
+
+**Only pause for review if critical regional findings discovered.**
+
+---
+
 ## Step 4: Blog (Mondays only)
 
 Skip unless today is Monday or specifically requested.
@@ -284,6 +360,7 @@ WARN: [count] new FQHC entries (or "None")
 Jobs: AltaMed [n], FHCSD [n], AHS [n], La Clinica [n] (total [n], prev [n])
 Policy: [# significant findings] — [one-line summary of each]
 Intel: [# new IntelItems added to fqhc-news-intel.ts] (total [n] items)
+Regional: [region1] + [region2] — [# findings] ([# new IntelItems])
 Link QC: [# new links verified] / [# broken fixed] / [# spot-checked]
 Blog: [Skipped] or [Drafted: "Title"]
 Build: [PASS/FAIL]

@@ -198,6 +198,14 @@ const COUNTY_TO_REGION: Record<string, string> = {
   "del norte": "North Coast",
   mendocino: "North Coast",
   lake: "North Coast",
+  // Added 2026-03-05: missing counties with FQHCs
+  orange: "Los Angeles",
+  "san benito": "Central Coast",
+  sutter: "Sacramento",
+  yuba: "North State",
+  lassen: "North State",
+  nevada: "North State",
+  trinity: "North Coast",
 };
 
 export function getRegionalIntel(region: string): IntelItem[] {
