@@ -14,17 +14,24 @@ import { useAuth } from "@/components/auth/AuthProvider";
 interface DropdownItem {
   href: string;
   label: string;
-  desc?: string; // Mini description under label
+  desc?: string;
+}
+
+interface DropdownGroup {
+  heading: string;
+  items: DropdownItem[];
 }
 
 interface NavItem {
   href?: string;
   label: string;
   children?: DropdownItem[];
+  /** Grouped children render as a multi-column mega menu */
+  groups?: DropdownGroup[];
 }
 
 /* ------------------------------------------------------------------ */
-/*  NavDropdown — dark-themed, closes others on open                   */
+/*  NavDropdown — standard (scrollable if many items)                  */
 /* ------------------------------------------------------------------ */
 
 function NavDropdown({
@@ -68,7 +75,7 @@ function NavDropdown({
         />
       </button>
       {isOpen && (
-        <div className="absolute left-0 top-full z-50 mt-1 min-w-[260px] rounded-lg border border-stone-700 bg-stone-900 py-2 shadow-xl">
+        <div className="absolute left-0 top-full z-50 mt-1 min-w-[260px] max-h-[calc(100vh-5rem)] overflow-y-auto rounded-lg border border-stone-700 bg-stone-900 py-2 shadow-xl">
           {items.map((item) => (
             <Link
               key={item.href}
@@ -89,6 +96,84 @@ function NavDropdown({
               )}
             </Link>
           ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  MegaMenu — multi-column grouped dropdown for Strategy              */
+/* ------------------------------------------------------------------ */
+
+function MegaMenu({
+  label,
+  groups,
+  isOpen,
+  onToggle,
+  onClose,
+}: {
+  label: string;
+  groups: DropdownGroup[];
+  isOpen: boolean;
+  onToggle: () => void;
+  onClose?: () => void;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        if (isOpen) onToggle();
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen, onToggle]);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={onToggle}
+        className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+          isOpen
+            ? "bg-stone-900 text-white"
+            : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
+        }`}
+      >
+        {label}
+        <ChevronDown
+          className={`size-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`}
+        />
+      </button>
+      {isOpen && (
+        <div className="absolute left-0 top-full z-50 mt-1 rounded-lg border border-stone-700 bg-stone-900 py-3 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto">
+          <div className="grid grid-cols-3 gap-0 min-w-[660px]">
+            {groups.map((group) => (
+              <div key={group.heading} className="px-3">
+                <p className="px-2 pb-2 text-[11px] font-semibold uppercase tracking-wider text-stone-500">
+                  {group.heading}
+                </p>
+                <div className="space-y-0.5">
+                  {group.items.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href as "/jobs"}
+                      className="block rounded-md px-2 py-1.5 transition-colors hover:bg-stone-800"
+                      onClick={() => {
+                        onToggle();
+                        onClose?.();
+                      }}
+                    >
+                      <span className="text-sm font-medium text-white leading-tight">
+                        {item.label}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
@@ -134,26 +219,43 @@ export default function Header() {
     []
   );
 
+  const isEs = locale === "es";
+
   const navItems: NavItem[] = [
     {
       label: t("strategy"),
-      children: [
-        { href: "/strategy/guides", label: t("executiveGuides"), desc: t("executiveGuidesDesc") },
-        { href: "/strategy/okrs", label: t("okrTemplates"), desc: t("okrTemplatesDesc") },
-        { href: "/strategy/case-studies", label: t("caseStudies"), desc: t("caseStudiesDesc") },
-        { href: "/strategy/economics", label: t("healthcareEconomics"), desc: t("healthcareEconomicsDesc") },
-        { href: "/strategy/frameworks", label: t("executionFrameworks"), desc: t("executionFrameworksDesc") },
-        { href: "/strategy/leaders", label: t("thoughtLeaders"), desc: t("thoughtLeadersDesc") },
-        { href: "/strategy/knowledge-map", label: t("knowledgeMap"), desc: t("knowledgeMapDesc") },
-        { href: "/funding-impact", label: t("fundingImpact"), desc: t("fundingImpactDesc") },
-        { href: "/strategy/scope-of-practice", label: t("scopeOfPractice"), desc: t("scopeOfPracticeDesc") },
-        { href: "/strategy/cultural-humility", label: t("culturalHumility"), desc: t("culturalHumilityDesc") },
-        { href: "/strategy/movement", label: t("theMovement"), desc: t("theMovementDesc") },
-        { href: "/strategy/offboarding", label: t("transitionResources"), desc: t("transitionResourcesDesc") },
-        { href: "/strategy/resilience", label: t("resilience"), desc: t("resilienceDesc") },
-        { href: "/strategy/masterclass", label: t("masterclass"), desc: t("masterclassDesc") },
-        { href: "/strategy/workforce-resilience", label: t("workforceResilience"), desc: t("workforceResilienceDesc") },
-        { href: "/strategy/clinic-simulator", label: t("clinicSimulator"), desc: t("clinicSimulatorDesc") },
+      groups: [
+        {
+          heading: isEs ? "Marcos y Aprendizaje" : "Frameworks & Learning",
+          items: [
+            { href: "/strategy/guides", label: t("executiveGuides") },
+            { href: "/strategy/case-studies", label: t("caseStudies") },
+            { href: "/strategy/okrs", label: t("okrTemplates") },
+            { href: "/strategy/frameworks", label: t("executionFrameworks") },
+            { href: "/strategy/masterclass", label: t("masterclass") },
+            { href: "/strategy/leaders", label: t("thoughtLeaders") },
+          ],
+        },
+        {
+          heading: isEs ? "Datos y Análisis" : "Data & Analysis",
+          items: [
+            { href: "/strategy/economics", label: t("healthcareEconomics") },
+            { href: "/funding-impact", label: t("fundingImpact") },
+            { href: "/strategy/resilience", label: t("resilience") },
+            { href: "/strategy/clinic-simulator", label: t("clinicSimulator") },
+            { href: "/strategy/knowledge-map", label: t("knowledgeMap") },
+          ],
+        },
+        {
+          heading: isEs ? "Fuerza Laboral y Cultura" : "Workforce & Culture",
+          items: [
+            { href: "/strategy/scope-of-practice", label: t("scopeOfPractice") },
+            { href: "/strategy/workforce-resilience", label: t("workforceResilience") },
+            { href: "/strategy/offboarding", label: t("transitionResources") },
+            { href: "/strategy/cultural-humility", label: t("culturalHumility") },
+            { href: "/strategy/movement", label: t("theMovement") },
+          ],
+        },
       ],
     },
     {
@@ -183,6 +285,13 @@ export default function Header() {
     { href: "/directory", label: t("directory") },
   ];
 
+  // Flatten groups into a single children list for mobile
+  const flattenNav = (item: NavItem): DropdownItem[] => {
+    if (item.children) return item.children;
+    if (item.groups) return item.groups.flatMap((g) => g.items);
+    return [];
+  };
+
   function switchLocale() {
     const newLocale = locale === "en" ? "es" : "en";
     router.replace(pathname, { locale: newLocale });
@@ -205,7 +314,15 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-0.5 lg:flex">
           {navItems.map((item) =>
-            item.children ? (
+            item.groups ? (
+              <MegaMenu
+                key={item.label}
+                label={item.label}
+                groups={item.groups}
+                isOpen={openDropdown === item.label}
+                onToggle={() => toggleDropdown(item.label)}
+              />
+            ) : item.children ? (
               <NavDropdown
                 key={item.label}
                 label={item.label}
@@ -309,10 +426,11 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-stone-200 bg-white lg:hidden">
+        <div className="border-t border-stone-200 bg-white lg:hidden max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="space-y-1 px-4 pb-4 pt-2">
-            {navItems.map((item) =>
-              item.children ? (
+            {navItems.map((item) => {
+              const flatItems = flattenNav(item);
+              return flatItems.length > 0 ? (
                 <div key={item.label}>
                   <button
                     onClick={() =>
@@ -331,21 +449,40 @@ export default function Header() {
                   </button>
                   {mobileExpanded === item.label && (
                     <div className="ml-4 space-y-1">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href as "/jobs"}
-                          className="block rounded-md px-3 py-2 text-sm text-stone-500 transition-colors hover:bg-stone-50 hover:text-stone-900"
-                          onClick={() => setMobileOpen(false)}
-                        >
-                          {child.label}
-                          {child.desc && (
-                            <span className="block text-xs text-stone-400 mt-0.5">
-                              {child.desc}
-                            </span>
-                          )}
-                        </Link>
-                      ))}
+                      {/* Show group headings on mobile for Strategy */}
+                      {item.groups
+                        ? item.groups.map((group) => (
+                            <div key={group.heading}>
+                              <p className="px-3 pt-3 pb-1 text-[11px] font-semibold uppercase tracking-wider text-stone-400">
+                                {group.heading}
+                              </p>
+                              {group.items.map((child) => (
+                                <Link
+                                  key={child.href}
+                                  href={child.href as "/jobs"}
+                                  className="block rounded-md px-3 py-2 text-sm text-stone-500 transition-colors hover:bg-stone-50 hover:text-stone-900"
+                                  onClick={() => setMobileOpen(false)}
+                                >
+                                  {child.label}
+                                </Link>
+                              ))}
+                            </div>
+                          ))
+                        : flatItems.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href as "/jobs"}
+                              className="block rounded-md px-3 py-2 text-sm text-stone-500 transition-colors hover:bg-stone-50 hover:text-stone-900"
+                              onClick={() => setMobileOpen(false)}
+                            >
+                              {child.label}
+                              {child.desc && (
+                                <span className="block text-xs text-stone-400 mt-0.5">
+                                  {child.desc}
+                                </span>
+                              )}
+                            </Link>
+                          ))}
                     </div>
                   )}
                 </div>
@@ -358,8 +495,8 @@ export default function Header() {
                 >
                   {item.label}
                 </Link>
-              )
-            )}
+              );
+            })}
 
             {/* Mobile language toggle */}
             <button
