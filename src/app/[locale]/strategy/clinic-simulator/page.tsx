@@ -61,8 +61,8 @@ export default function ClinicSimulatorPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-stone-300">
             {isEs
-              ? "Modele dotación de personal, horarios, co-visitas e ingresos para su FQHC en California. Compare modelos de personal pequeño vs. grande. Calcule el ROI del Proveedor del Día."
-              : "Model staffing, scheduling, co-visits, and revenue for your California FQHC. Compare small vs. large staffing models. Calculate Provider-of-the-Day ROI."}
+              ? "Modele dotación de personal, horarios, co-visitas e ingresos para su FQHC en California. Valores predeterminados basados en un FQHC real de California. Compare tres modelos de tamaño. Calcule el ROI del Proveedor del Día."
+              : "Model staffing, scheduling, co-visits, and revenue for your California FQHC. Default values reflect a real mid-size California FQHC. Compare three size models. Calculate Provider-of-the-Day ROI."}
           </p>
 
           {/* Stats */}

@@ -131,20 +131,20 @@ export function ClinicSimulator() {
   const isEs = locale === "es";
 
   // Size preset
-  const [sizePreset, setSizePreset] = useState<"small" | "large" | "custom">(
-    "small"
+  const [sizePreset, setSizePreset] = useState<"mid-size" | "small" | "large" | "custom">(
+    "mid-size"
   );
 
-  // Initialize from small preset
-  const smallPreset = SIZE_PRESETS[0];
-  const [staffing, setStaffing] = useState<StaffingInput>(smallPreset.staffing);
-  const [schedule, setSchedule] = useState<ScheduleInput>(smallPreset.schedule);
-  const [revenue, setRevenue] = useState<RevenueInput>(smallPreset.revenue);
-  const [disease, setDisease] = useState<DiseaseInput>(smallPreset.disease);
+  // Initialize from mid-size preset (real FQHC data)
+  const defaultPreset = SIZE_PRESETS[0];
+  const [staffing, setStaffing] = useState<StaffingInput>(defaultPreset.staffing);
+  const [schedule, setSchedule] = useState<ScheduleInput>(defaultPreset.schedule);
+  const [revenue, setRevenue] = useState<RevenueInput>(defaultPreset.revenue);
+  const [disease, setDisease] = useState<DiseaseInput>(defaultPreset.disease);
 
   // Apply preset
   const applyPreset = useCallback(
-    (size: "small" | "large") => {
+    (size: "mid-size" | "small" | "large") => {
       const preset = SIZE_PRESETS.find((p) => p.id === size) ?? SIZE_PRESETS[0];
       setStaffing(preset.staffing);
       setSchedule(preset.schedule);
@@ -187,7 +187,7 @@ export function ClinicSimulator() {
 
   // Calculate results
   const inputs: SimulatorInputs = useMemo(
-    () => ({ staffing, schedule, revenue, disease, sizePreset: sizePreset === "custom" ? "small" : sizePreset }),
+    () => ({ staffing, schedule, revenue, disease, sizePreset: sizePreset === "custom" ? "mid-size" : sizePreset }),
     [staffing, schedule, revenue, disease, sizePreset]
   );
   const results = useMemo(() => calculateSimulation(inputs), [inputs]);
@@ -220,8 +220,8 @@ export function ClinicSimulator() {
           <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-stone-500">
             {isEs ? "Tamaño del FQHC" : "FQHC Size"}
           </label>
-          <div className="flex gap-2">
-            {(["small", "large", "custom"] as const).map((size) => (
+          <div className="flex flex-wrap gap-2">
+            {(["mid-size", "small", "large", "custom"] as const).map((size) => (
               <button
                 key={size}
                 onClick={() =>
@@ -229,23 +229,27 @@ export function ClinicSimulator() {
                     ? setSizePreset("custom")
                     : applyPreset(size)
                 }
-                className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   sizePreset === size
                     ? "bg-teal-700 text-white"
                     : "bg-white text-stone-600 hover:bg-stone-100"
                 }`}
               >
-                {size === "small"
+                {size === "mid-size"
                   ? isEs
-                    ? "Pequeño (~250)"
-                    : "Small (~250)"
-                  : size === "large"
+                    ? "Mediano (~240)"
+                    : "Mid-Size (~240)"
+                  : size === "small"
                     ? isEs
-                      ? "Grande (~1,000)"
-                      : "Large (~1,000)"
-                    : isEs
-                      ? "Personalizado"
-                      : "Custom"}
+                      ? "Pequeño (~250)"
+                      : "Small (~250)"
+                    : size === "large"
+                      ? isEs
+                        ? "Grande (~1,000)"
+                        : "Large (~1,000)"
+                      : isEs
+                        ? "Personalizado"
+                        : "Custom"}
               </button>
             ))}
           </div>

@@ -44,7 +44,7 @@ export interface SimulatorInputs {
   schedule: ScheduleInput;
   revenue: RevenueInput;
   disease: DiseaseInput;
-  sizePreset: "small" | "large" | "custom";
+  sizePreset: "mid-size" | "small" | "large" | "custom";
 }
 
 export interface SimulatorOutput {
@@ -103,7 +103,7 @@ export interface POTDAnalysis {
 }
 
 export interface FQHCSizePreset {
-  id: "small" | "large";
+  id: "mid-size" | "small" | "large";
   label: { en: string; es: string };
   description: { en: string; es: string };
   staffing: StaffingInput;
@@ -216,6 +216,45 @@ export const SCHEDULE_CONSTANTS = {
 /* ------------------------------------------------------------------ */
 
 export const SIZE_PRESETS: FQHCSizePreset[] = [
+  {
+    id: "mid-size",
+    label: { en: "Mid-Size FQHC (~240 staff)", es: "FQHC Mediano (~240 empleados)" },
+    description: {
+      en: "Multi-site community health center. ~25,000 patients. Comprehensive services including dental, behavioral health, pharmacy, HIV services. Based on real California FQHC staffing data.",
+      es: "Centro de salud comunitario multisitio. ~25,000 pacientes. Servicios integrales incluyendo dental, salud conductual, farmacia, servicios VIH. Basado en datos reales de un FQHC de California.",
+    },
+    staffing: {
+      physicians: 10,
+      nps: 11,
+      pas: 0,
+      rns: 10,
+      mas: 34,
+      chws: 12,
+      bhProviders: 6,
+      dentalProviders: 5,
+    },
+    schedule: {
+      hoursPerDay: 8,
+      daysPerWeek: 5,
+      encountersPerProviderPerDay: 18,
+      noShowRate: 15,
+    },
+    revenue: {
+      ppsRate: 225,
+      coVisitRate: 12,
+      bhSameDayRate: 10,
+      ecmEnrollmentRate: 6,
+      regionalMultiplier: 1.05,
+    },
+    disease: {
+      diabeticPercent: 20,
+      htnPercent: 32,
+      depressionPercent: 16,
+      copdPercent: 9,
+    },
+    annualPatients: 25_000,
+    overheadPercent: 32,
+  },
   {
     id: "small",
     label: { en: "Small FQHC (~250 staff)", es: "FQHC Pequeño (~250 empleados)" },
@@ -731,7 +770,7 @@ function calculatePOTDAnalysis(
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-export function getPresetBySize(size: "small" | "large"): FQHCSizePreset {
+export function getPresetBySize(size: "mid-size" | "small" | "large"): FQHCSizePreset {
   return SIZE_PRESETS.find((p) => p.id === size) ?? SIZE_PRESETS[0];
 }
 
