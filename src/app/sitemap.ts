@@ -217,6 +217,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/locum-tenens`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${SITE_URL}/strategy/clinic-simulator`,
       lastModified: new Date(),
       changeFrequency: "monthly",

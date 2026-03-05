@@ -469,6 +469,18 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/strategy/workforce-resilience` },
   },
+  locumTenens: {
+    title: "FQHC-Rate Locum Tenens Provider Coverage | FQHC Talent",
+    description:
+      "Cut locum agency costs by 40-60%. Connect with mission-driven NPs, MDs, PAs, and dentists for temporary FQHC coverage at rates community health centers can afford.",
+    openGraph: {
+      title: "FQHC-Rate Provider Coverage — FQHC Talent",
+      description:
+        "Skip the agency markup. Find CA-licensed providers for vacation coverage, recruitment gaps, and extended hours at mission-driven FQHC rates.",
+      url: `${SITE_URL}/locum-tenens`,
+    },
+    alternates: { canonical: `${SITE_URL}/locum-tenens` },
+  },
   clinicSimulator: {
     title: "FQHC Clinic Operations Simulator | Staffing, Scheduling & Revenue Modeling",
     description:

@@ -25,6 +25,7 @@ export default function Footer() {
       { href: "/strategy/resilience" as const, label: t("resilience") },
       { href: "/strategy/masterclass" as const, label: t("masterclass") },
       { href: "/strategy/workforce-resilience" as const, label: t("workforceResilience") },
+      { href: "/locum-tenens" as const, label: t("locumCoverage") },
       { href: "/strategy/clinic-simulator" as const, label: t("clinicSimulator") },
     ],
     [t("intelligence")]: [

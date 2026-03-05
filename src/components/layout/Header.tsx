@@ -251,6 +251,7 @@ export default function Header() {
           items: [
             { href: "/strategy/scope-of-practice", label: t("scopeOfPractice") },
             { href: "/strategy/workforce-resilience", label: t("workforceResilience") },
+            { href: "/locum-tenens", label: t("locumCoverage") },
             { href: "/strategy/offboarding", label: t("transitionResources") },
             { href: "/strategy/cultural-humility", label: t("culturalHumility") },
             { href: "/strategy/movement", label: t("theMovement") },
