@@ -149,7 +149,7 @@ export default function Header() {
         { href: "/strategy/scope-of-practice", label: t("scopeOfPractice"), desc: t("scopeOfPracticeDesc") },
         { href: "/strategy/cultural-humility", label: t("culturalHumility"), desc: t("culturalHumilityDesc") },
         { href: "/strategy/movement", label: t("theMovement"), desc: t("theMovementDesc") },
-        { href: "/strategy/offboarding", label: t("offboarding"), desc: t("offboardingDesc") },
+        { href: "/strategy/offboarding", label: t("transitionResources"), desc: t("transitionResourcesDesc") },
         { href: "/strategy/resilience", label: t("resilience"), desc: t("resilienceDesc") },
         { href: "/strategy/masterclass", label: t("masterclass"), desc: t("masterclassDesc") },
         { href: "/strategy/workforce-resilience", label: t("workforceResilience"), desc: t("workforceResilienceDesc") },

@@ -89,6 +89,11 @@ export default function CareerInsightsPage() {
               ? "Toma una evaluación de 4 minutos en 5 dominios conductuales. Obtén ideas personalizadas, un plan de 90 días y recomendaciones de certificaciones."
               : "Take a 4-minute assessment across 5 behavioral domains. Get personalized insights, a 90-day plan, and certification recommendations."}
           </p>
+          <p className="mx-auto mt-3 max-w-xl text-xs text-teal-300/70">
+            {isEs
+              ? "Solo con fines informativos. Esta herramienta proporciona orientación general de carrera basada en sus respuestas — no constituye asesoramiento profesional certificado."
+              : "For informational purposes only. This tool provides general career guidance based on your responses — it does not constitute certified professional advice."}
+          </p>
         </div>
       </section>
 

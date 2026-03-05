@@ -1,22 +1,22 @@
-// FQHC Workforce Transition Toolkit — Turn Layoffs Into Soft Landings
+// FQHC Workforce Transition Resources — Free Tools for Displaced Workers
 "use client";
 
-import { useState } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   AlertTriangle,
   ArrowRight,
+  BookOpen,
   Briefcase,
   Building2,
   CheckCircle2,
   Clock,
-  DollarSign,
   FileText,
-  HeartHandshake,
+  GraduationCap,
   LifeBuoy,
+  Map,
+  MapPin,
   Shield,
-  Sparkles,
   TrendingDown,
   Users,
 } from "lucide-react";
@@ -42,140 +42,103 @@ const totalWorkersAffected = californiaFQHCLayoffs.reduce(
 const totalOrgs = californiaFQHCLayoffs.length;
 const fqhcLayoffs = californiaFQHCLayoffs.filter((l) => l.isFQHC);
 
-interface ServiceTier {
-  id: string;
-  name: { en: string; es: string };
-  subtitle: { en: string; es: string };
-  price: { en: string; es: string };
+interface FreeResource {
+  title: { en: string; es: string };
   description: { en: string; es: string };
-  features: { en: string; es: string }[];
+  href: string;
   icon: typeof LifeBuoy;
   color: string;
   bgColor: string;
-  borderColor: string;
-  highlight: boolean;
 }
 
-const SERVICE_TIERS: ServiceTier[] = [
+const FREE_RESOURCES: FreeResource[] = [
   {
-    id: "self-serve",
-    name: { en: "Self-Serve Tools", es: "Herramientas Autoservicio" },
-    subtitle: { en: "Free for displaced workers", es: "Gratis para trabajadores desplazados" },
-    price: { en: "Free", es: "Gratis" },
+    title: { en: "Resume Builder", es: "Constructor de Currículum" },
     description: {
-      en: "Give your displaced staff immediate access to career transition tools — at no cost to your FQHC.",
-      es: "Dé a su personal desplazado acceso inmediato a herramientas de transición profesional — sin costo para su FQHC.",
+      en: "FQHC-specific resume builder with 8 role templates. Highlight the skills, certifications, and program experience that FQHC hiring managers look for.",
+      es: "Constructor de CV específico para FQHCs con 8 plantillas por rol. Destaque las habilidades, certificaciones y experiencia que buscan los gerentes de contratación.",
     },
-    features: [
-      { en: "FQHC-specific resume builder (8 role templates)", es: "Constructor de CV específico para FQHCs (8 plantillas por rol)" },
-      { en: "5-domain career assessment with personalized insights", es: "Evaluación de carrera de 5 dominios con perspectivas personalizadas" },
-      { en: "Career roadmap with CA salary benchmarks", es: "Hoja de ruta profesional con benchmarks salariales de CA" },
-      { en: "15 CA certification guides with cost & ROI data", es: "15 guías de certificación de CA con datos de costo y ROI" },
-      { en: "18 free career resources (NHSC, training programs)", es: "18 recursos profesionales gratuitos (NHSC, programas de capacitación)" },
-      { en: "Access to 220-FQHC directory with job listings", es: "Acceso al directorio de 220 FQHCs con ofertas de empleo" },
-    ],
-    icon: LifeBuoy,
+    href: "/resume-builder",
+    icon: FileText,
     color: "text-teal-700",
     bgColor: "bg-teal-50",
-    borderColor: "border-teal-200",
-    highlight: false,
   },
   {
-    id: "managed",
-    name: { en: "Managed Transition", es: "Transición Gestionada" },
-    subtitle: { en: "We handle the process", es: "Nosotros manejamos el proceso" },
-    price: { en: "$500–$1,500 per event", es: "$500–$1,500 por evento" },
+    title: { en: "Career Assessment", es: "Evaluación de Carrera" },
     description: {
-      en: "Notify us of upcoming reductions and we intake, assess, and prepare your displaced workers for their next role — within 2 weeks.",
-      es: "Notifíquenos sobre reducciones próximas y nosotros recibimos, evaluamos y preparamos a sus trabajadores desplazados para su próximo rol — en 2 semanas.",
+      en: "5-domain behavioral assessment with personalized insights, strengths analysis, and a 90-day transition plan tailored to your role and experience.",
+      es: "Evaluación conductual de 5 dominios con perspectivas personalizadas, análisis de fortalezas y plan de transición de 90 días adaptado a su rol.",
     },
-    features: [
-      { en: "Career tools and resources within 48 hours of notification", es: "Herramientas y recursos profesionales dentro de 48 horas de la notificación" },
-      { en: "Individual career assessment for each worker", es: "Evaluación profesional individual para cada trabajador" },
-      { en: "Resume rewrite targeting FQHC hiring patterns", es: "Reescritura de CV enfocada en patrones de contratación FQHC" },
-      { en: "Certification pathway guidance (CHW, CMA, etc.)", es: "Orientación de rutas de certificación (CHW, CMA, etc.)" },
-      { en: "Warm introductions to hiring FQHCs in their region", es: "Presentaciones con FQHCs contratantes en su región" },
-      { en: "30-day progress report for your HR team", es: "Informe de progreso de 30 días para su equipo de RH" },
-    ],
-    icon: HeartHandshake,
-    color: "text-amber-700",
-    bgColor: "bg-amber-50",
-    borderColor: "border-amber-300",
-    highlight: true,
+    href: "/career-insights",
+    icon: CheckCircle2,
+    color: "text-blue-700",
+    bgColor: "bg-blue-50",
   },
   {
-    id: "strategic-partner",
-    name: { en: "Strategic Partnership", es: "Asociación Estratégica" },
-    subtitle: { en: "Comprehensive workforce intelligence", es: "Inteligencia de fuerza laboral integral" },
-    price: { en: "Custom", es: "Personalizado" },
+    title: { en: "Career Roadmap", es: "Hoja de Ruta Profesional" },
     description: {
-      en: "Ongoing workforce intelligence, strategic insights, and transition support for your organization — whether you're reducing or rebuilding your workforce.",
-      es: "Inteligencia de fuerza laboral continua, perspectivas estratégicas y apoyo de transición para su organización — ya sea que esté reduciendo o reconstruyendo.",
+      en: "5 career tracks with CA salary benchmarks (P25/P50/P75) across 9 regions. See where you are and where you can go — with the certifications to get there.",
+      es: "5 trayectorias profesionales con benchmarks salariales de CA (P25/P50/P75) en 9 regiones. Vea dónde está y a dónde puede ir.",
     },
-    features: [
-      { en: "Dedicated FQHC workforce intelligence briefings", es: "Informes dedicados de inteligencia de fuerza laboral FQHC" },
-      { en: "Salary benchmarking across 30 roles × 9 CA regions", es: "Benchmarking salarial en 30 roles × 9 regiones de CA" },
-      { en: "Aggregated job market data from 220+ California FQHCs", es: "Datos agregados del mercado laboral de 220+ FQHCs de California" },
-      { en: "Custom resilience and workforce stability analysis", es: "Análisis personalizado de resiliencia y estabilidad laboral" },
-      { en: "Quarterly workforce intelligence briefings", es: "Informes trimestrales de inteligencia de fuerza laboral" },
-      { en: "Strategic insights on funding, policy, and workforce trends", es: "Perspectivas estratégicas sobre financiamiento, políticas y tendencias laborales" },
-    ],
-    icon: Sparkles,
+    href: "/career-roadmap",
+    icon: Map,
     color: "text-purple-700",
     bgColor: "bg-purple-50",
-    borderColor: "border-purple-200",
-    highlight: false,
   },
-];
-
-interface ProcessStep {
-  step: number;
-  title: { en: string; es: string };
-  description: { en: string; es: string };
-  timeline: { en: string; es: string };
-  icon: typeof Clock;
-}
-
-const PROCESS_STEPS: ProcessStep[] = [
   {
-    step: 1,
-    title: { en: "You notify us", es: "Usted nos notifica" },
+    title: { en: "Certification Catalog", es: "Catálogo de Certificaciones" },
     description: {
-      en: "Share the scope — roles affected, timeline, and any special circumstances. We sign an NDA if needed.",
-      es: "Comparta el alcance — roles afectados, cronograma y circunstancias especiales. Firmamos un NDA si es necesario.",
+      en: "20 CA-specific certifications with cost, duration, salary impact, and where to get trained. Find the credential that opens your next door.",
+      es: "20 certificaciones específicas de CA con costo, duración, impacto salarial y dónde capacitarse. Encuentre la credencial que abre su próxima puerta.",
     },
-    timeline: { en: "Day 1", es: "Día 1" },
+    href: "/certifications",
+    icon: GraduationCap,
+    color: "text-amber-700",
+    bgColor: "bg-amber-50",
+  },
+  {
+    title: { en: "Job Listings", es: "Ofertas de Empleo" },
+    description: {
+      en: "Browse aggregated job openings from California FQHCs. Filter by role, region, department, and salary — with direct links to each FQHC's career page.",
+      es: "Explore ofertas de empleo agregadas de FQHCs de California. Filtre por rol, región, departamento y salario — con enlaces directos a cada página de carreras.",
+    },
+    href: "/jobs",
+    icon: Briefcase,
+    color: "text-green-700",
+    bgColor: "bg-green-50",
+  },
+  {
+    title: { en: "Career Resources", es: "Recursos Profesionales" },
+    description: {
+      en: "18 free and low-cost programs: NHSC loan repayment, free training, professional development, union education, and state workforce programs.",
+      es: "18 programas gratuitos y de bajo costo: reembolso de préstamos NHSC, capacitación gratuita, desarrollo profesional, educación sindical y programas estatales.",
+    },
+    href: "/resources",
+    icon: BookOpen,
+    color: "text-rose-700",
+    bgColor: "bg-rose-50",
+  },
+  {
+    title: { en: "FQHC Directory", es: "Directorio de FQHCs" },
+    description: {
+      en: "220 California FQHCs profiled with programs, EHR systems, salary ranges, Glassdoor ratings, and resilience scores. Research your next employer.",
+      es: "220 FQHCs de California con programas, sistemas EHR, rangos salariales, calificaciones Glassdoor y puntajes de resiliencia.",
+    },
+    href: "/directory",
     icon: Building2,
+    color: "text-indigo-700",
+    bgColor: "bg-indigo-50",
   },
   {
-    step: 2,
-    title: { en: "We intake your staff", es: "Recibimos a su personal" },
+    title: { en: "Salary Intelligence", es: "Inteligencia Salarial" },
     description: {
-      en: "Each displaced worker completes our career assessment and resume builder — remotely, on their schedule.",
-      es: "Cada trabajador desplazado completa nuestra evaluación profesional y constructor de CV — de forma remota, a su ritmo.",
+      en: "30 roles × 9 CA regions with P25/P50/P75 salary benchmarks. Know your market value before you negotiate.",
+      es: "30 roles × 9 regiones de CA con benchmarks salariales P25/P50/P75. Conozca su valor de mercado antes de negociar.",
     },
-    timeline: { en: "Days 2–5", es: "Días 2–5" },
-    icon: Users,
-  },
-  {
-    step: 3,
-    title: { en: "We prepare & connect", es: "Preparamos y conectamos" },
-    description: {
-      en: "Assessment results guide resume rewrites and career insights. Workers explore aggregated job postings across 220 CA FQHCs with salary data and FQHC profiles.",
-      es: "Los resultados de la evaluación guían la reescritura de CVs y perspectivas profesionales. Los trabajadores exploran ofertas de empleo agregadas de 220 FQHCs de CA con datos salariales.",
-    },
-    timeline: { en: "Days 5–10", es: "Días 5–10" },
-    icon: FileText,
-  },
-  {
-    step: 4,
-    title: { en: "Workers land new roles", es: "Trabajadores obtienen nuevos roles" },
-    description: {
-      en: "Warm introductions to hiring FQHCs. You get a progress report showing outcomes. Workers stay in the safety net.",
-      es: "Presentaciones con FQHCs contratantes. Usted recibe un informe de progreso. Los trabajadores permanecen en la red de seguridad.",
-    },
-    timeline: { en: "Days 10–30", es: "Días 10–30" },
-    icon: CheckCircle2,
+    href: "/salary-data",
+    icon: MapPin,
+    color: "text-sky-700",
+    bgColor: "bg-sky-50",
   },
 ];
 
@@ -183,36 +146,35 @@ const PROCESS_STEPS: ProcessStep[] = [
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
 
-export default function OffboardingPage() {
+export default function TransitionResourcesPage() {
   const locale = useLocale();
   const isEs = locale === "es";
-  const [expandedTier, setExpandedTier] = useState<string | null>("managed");
 
   return (
     <main className="min-h-screen bg-stone-50">
       {/* ============================================================ */}
-      {/*  Hero — Dark employer-facing theme                           */}
+      {/*  Hero                                                        */}
       {/* ============================================================ */}
       <section className="relative bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 right-20 size-72 rounded-full bg-amber-500 blur-3xl" />
-          <div className="absolute bottom-10 left-10 size-56 rounded-full bg-red-500 blur-3xl" />
+          <div className="absolute top-20 right-20 size-72 rounded-full bg-teal-500 blur-3xl" />
+          <div className="absolute bottom-10 left-10 size-56 rounded-full bg-amber-500 blur-3xl" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <Badge className="bg-amber-900/50 text-amber-300 border-amber-700 mb-4">
-            <Shield className="mr-1.5 size-3.5" />
-            {isEs ? "Para Líderes de FQHCs" : "For FQHC Leaders"}
+          <Badge className="bg-teal-900/50 text-teal-300 border-teal-700 mb-4">
+            <LifeBuoy className="mr-1.5 size-3.5" />
+            {isEs ? "Todos los Recursos Gratuitos" : "All Resources Free"}
           </Badge>
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
             {isEs
-              ? "Convierta los Despidos en Transiciones"
-              : "Turn Layoffs Into Transitions"}
+              ? "Recursos de Transición para Trabajadores de Salud"
+              : "Transition Resources for Health Workers"}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-stone-300 leading-relaxed">
             {isEs
-              ? "Cuando tenga que reducir personal, no deje a sus trabajadores solos. Nuestro kit de herramientas ayuda a los FQHCs a manejar las reducciones de fuerza laboral con dignidad — y mantener a los profesionales en la red de seguridad."
-              : "When you have to reduce staff, don\u2019t leave your workers stranded. Our toolkit helps FQHCs manage workforce reductions with dignity — and keeps professionals in the safety net."}
+              ? "Si ha sido afectado por reducciones de fuerza laboral, estas herramientas gratuitas lo ayudan a prepararse para su próximo rol en un FQHC — a su propio ritmo."
+              : "If you\u2019ve been affected by workforce reductions, these free tools help you prepare for your next FQHC role — at your own pace."}
           </p>
           <p className="mt-4 text-sm text-stone-400">
             {isEs ? "Seguimiento actualizado:" : "Tracking updated:"}{" "}
@@ -248,7 +210,7 @@ export default function OffboardingPage() {
             <div>
               <p className="text-2xl font-bold">220</p>
               <p className="text-sm text-red-200">
-                {isEs ? "FQHCs en Nuestra Red" : "FQHCs In Our Network"}
+                {isEs ? "FQHCs en Nuestro Directorio" : "FQHCs In Our Directory"}
               </p>
             </div>
           </div>
@@ -304,136 +266,52 @@ export default function OffboardingPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  Service Tiers                                               */}
+      {/*  Free Tools & Resources                                      */}
       {/* ============================================================ */}
       <section className="bg-white border-y border-stone-200">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
+            <Badge className="bg-green-100 text-green-800 border-green-300 mb-3">
+              {isEs ? "100% Gratuito" : "100% Free"}
+            </Badge>
             <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
-              {isEs ? "Tres Niveles de Apoyo" : "Three Tiers of Support"}
+              {isEs
+                ? "Herramientas de Carrera Gratuitas para Trabajadores Desplazados"
+                : "Free Career Tools for Displaced Workers"}
             </h2>
             <p className="mt-3 text-stone-600 max-w-2xl mx-auto">
               {isEs
-                ? "Desde herramientas gratuitas de autoservicio hasta inteligencia estratégica — elija el nivel que se ajuste a su situación."
-                : "From free self-serve tools to strategic intelligence — choose the level that fits your situation."}
+                ? "Todo lo que necesita para prepararse para su próximo rol en un FQHC — sin costo, sin cuenta requerida, sin ataduras."
+                : "Everything you need to prepare for your next FQHC role — no cost, no account required, no strings attached."}
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {SERVICE_TIERS.map((tier) => {
-              const Icon = tier.icon;
-              const isExpanded = expandedTier === tier.id;
-
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {FREE_RESOURCES.map((resource) => {
+              const Icon = resource.icon;
               return (
-                <div
-                  key={tier.id}
-                  className={`rounded-2xl border-2 p-6 transition-all ${
-                    tier.highlight
-                      ? "border-amber-400 ring-2 ring-amber-200 shadow-lg"
-                      : "border-stone-200 hover:border-stone-300"
-                  }`}
+                <Link
+                  key={resource.href}
+                  href={resource.href as "/resume-builder" | "/career-insights" | "/career-roadmap" | "/certifications" | "/jobs" | "/resources" | "/directory" | "/salary-data"}
+                  className="group rounded-2xl border border-stone-200 bg-white p-5 hover:border-teal-300 hover:shadow-md transition-all"
                 >
-                  {tier.highlight && (
-                    <Badge className="bg-amber-100 text-amber-800 border-amber-300 mb-3">
-                      {isEs ? "Más Popular" : "Most Popular"}
-                    </Badge>
-                  )}
-
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className={`rounded-xl p-2.5 ${tier.bgColor} ${tier.borderColor} border`}>
-                      <Icon className={`size-6 ${tier.color}`} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-stone-900">
-                        {t(tier.name, locale)}
-                      </h3>
-                      <p className="text-xs text-stone-500">
-                        {t(tier.subtitle, locale)}
-                      </p>
-                    </div>
+                  <div className={`inline-flex rounded-xl p-2.5 ${resource.bgColor} mb-3`}>
+                    <Icon className={`size-5 ${resource.color}`} />
                   </div>
-
-                  <p className="text-2xl font-extrabold text-stone-900 mb-2">
-                    {t(tier.price, locale)}
+                  <h3 className="text-base font-bold text-stone-900 mb-2 group-hover:text-teal-700 transition-colors">
+                    {t(resource.title, locale)}
+                  </h3>
+                  <p className="text-sm text-stone-600 leading-relaxed">
+                    {t(resource.description, locale)}
                   </p>
-
-                  <p className="text-sm text-stone-600 mb-4 leading-relaxed">
-                    {t(tier.description, locale)}
-                  </p>
-
-                  <button
-                    onClick={() =>
-                      setExpandedTier(isExpanded ? null : tier.id)
-                    }
-                    className="text-sm font-medium text-teal-700 hover:text-teal-900 mb-3"
-                  >
-                    {isExpanded
-                      ? isEs ? "Ocultar detalles" : "Hide details"
-                      : isEs ? "Ver todo incluido →" : "See what\u2019s included →"}
-                  </button>
-
-                  {isExpanded && (
-                    <ul className="space-y-2 border-t border-stone-100 pt-3">
-                      {tier.features.map((feature, i) => (
-                        <li key={i} className="flex gap-2 text-sm text-stone-700">
-                          <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-green-600" />
-                          {t(feature, locale)}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+                  <span className="mt-3 inline-flex items-center text-sm font-medium text-teal-700 group-hover:text-teal-900">
+                    {isEs ? "Explorar" : "Explore"}
+                    <ArrowRight className="ml-1 size-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                </Link>
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/*  How It Works                                                */}
-      {/* ============================================================ */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
-            {isEs ? "Cómo Funciona" : "How It Works"}
-          </h2>
-          <p className="mt-3 text-stone-600 max-w-xl mx-auto">
-            {isEs
-              ? "Un proceso sencillo para que su equipo de RH pueda enfocarse en lo que importa."
-              : "A straightforward process so your HR team can focus on what matters."}
-          </p>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {PROCESS_STEPS.map((step) => {
-            const Icon = step.icon;
-            return (
-              <div key={step.step} className="relative">
-                {step.step < 4 && (
-                  <div className="absolute top-8 left-full hidden lg:block w-full">
-                    <ArrowRight className="size-5 text-stone-300 mx-auto" />
-                  </div>
-                )}
-                <div className="rounded-2xl border border-stone-200 bg-white p-5 h-full">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="flex size-8 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">
-                      {step.step}
-                    </div>
-                    <Badge variant="outline" className="text-xs">
-                      {t(step.timeline, locale)}
-                    </Badge>
-                  </div>
-                  <Icon className="size-5 text-teal-600 mb-2" />
-                  <h3 className="text-base font-bold text-stone-900 mb-1">
-                    {t(step.title, locale)}
-                  </h3>
-                  <p className="text-sm text-stone-600 leading-relaxed">
-                    {t(step.description, locale)}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
         </div>
       </section>
 
@@ -503,41 +381,41 @@ export default function OffboardingPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  Why FQHCs Choose Us                                         */}
+      {/*  Why These Tools Help                                        */}
       {/* ============================================================ */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
             {isEs
-              ? "Por Qué los FQHCs Trabajan Con Nosotros"
-              : "Why FQHCs Work With Us"}
+              ? "Por Qué Estos Recursos Marcan la Diferencia"
+              : "Why These Resources Make a Difference"}
           </h2>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
-              icon: Briefcase,
-              title: { en: "FQHC-Only Focus", es: "Enfoque Exclusivo en FQHCs" },
-              desc: {
-                en: "We only work with community health centers. Every tool, template, and assessment is built for the FQHC workforce.",
-                es: "Solo trabajamos con centros de salud comunitarios. Cada herramienta y evaluación está diseñada para la fuerza laboral FQHC.",
-              },
-            },
-            {
-              icon: DollarSign,
-              title: { en: "Candidates Never Pay", es: "Los Candidatos Nunca Pagan" },
-              desc: {
-                en: "All career tools are free for workers. Employer-paid model keeps the mission aligned — no one profits from desperation.",
-                es: "Todas las herramientas son gratuitas para trabajadores. El modelo pagado por empleadores mantiene la misión alineada.",
-              },
-            },
-            {
               icon: Shield,
-              title: { en: "Data-Driven Insights", es: "Perspectivas Basadas en Datos" },
+              title: { en: "Built for FQHCs", es: "Diseñado para FQHCs" },
               desc: {
-                en: "220 FQHCs profiled with programs, EHR systems, salary ranges, and culture data — helping workers compare opportunities.",
-                es: "220 FQHCs perfilados con programas, sistemas EHR, rangos salariales y datos culturales — no solo títulos de trabajo.",
+                en: "Every tool is designed specifically for community health center professionals — covering the roles, programs, EHR systems, and certifications that matter in this sector.",
+                es: "Cada herramienta está diseñada específicamente para profesionales de centros de salud comunitarios — cubriendo los roles, programas, sistemas EHR y certificaciones del sector.",
+              },
+            },
+            {
+              icon: Briefcase,
+              title: { en: "Always Free for Workers", es: "Siempre Gratis para Trabajadores" },
+              desc: {
+                en: "No fees, no accounts, no paywalls. These tools exist to help community health professionals navigate career transitions with dignity.",
+                es: "Sin tarifas, sin cuentas, sin muros de pago. Estas herramientas existen para ayudar a los profesionales de salud comunitaria a navegar transiciones con dignidad.",
+              },
+            },
+            {
+              icon: LifeBuoy,
+              title: { en: "Data You Can Trust", es: "Datos en los que Puede Confiar" },
+              desc: {
+                en: "220 FQHCs profiled with real salary data, program details, EHR systems, and Glassdoor ratings — so you can research employers before applying.",
+                es: "220 FQHCs perfilados con datos salariales reales, detalles de programas, sistemas EHR y calificaciones Glassdoor — para investigar empleadores antes de aplicar.",
               },
             },
           ].map((item) => {
@@ -564,12 +442,12 @@ export default function OffboardingPage() {
         <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold sm:text-3xl">
-              {isEs ? "Recursos Relacionados" : "Related Resources"}
+              {isEs ? "Explore Más" : "Explore More"}
             </h2>
             <p className="mt-3 text-stone-300 max-w-xl mx-auto">
               {isEs
-                ? "Explore más inteligencia y herramientas estratégicas para líderes de FQHCs."
-                : "Explore more intelligence and strategic tools for FQHC leaders."}
+                ? "Inteligencia y herramientas estratégicas adicionales."
+                : "Additional intelligence and strategic tools."}
             </p>
           </div>
 
@@ -585,6 +463,9 @@ export default function OffboardingPage() {
             </Link>
             <Link href="/directory" className="hover:text-white transition-colors">
               {isEs ? "Directorio de FQHCs" : "FQHC Directory"} →
+            </Link>
+            <Link href="/strategy/workforce-resilience" className="hover:text-white transition-colors">
+              {isEs ? "Resiliencia de Fuerza Laboral" : "Workforce Resilience"} →
             </Link>
           </div>
         </div>

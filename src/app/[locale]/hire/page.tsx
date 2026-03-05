@@ -64,10 +64,10 @@ const STRATEGY_RESOURCES: ResourceCard[] = [
   {
     href: "/strategy/offboarding",
     icon: Shield,
-    label: { en: "Transition Toolkit", es: "Kit de Transicion" },
+    label: { en: "Free Transition Resources", es: "Recursos de Transición Gratuitos" },
     description: {
-      en: "Workforce transition tools for FQHCs navigating layoffs and restructuring.",
-      es: "Herramientas de transicion laboral para FQHCs que navegan despidos y reestructuracion.",
+      en: "Free career tools for workers affected by layoffs — resume builder, assessments, certifications, and job listings.",
+      es: "Herramientas gratuitas para trabajadores afectados por despidos — constructor de CV, evaluaciones, certificaciones y empleos.",
     },
   },
   {

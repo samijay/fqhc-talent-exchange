@@ -474,7 +474,7 @@ export default function LayoffsPage() {
             asChild
           >
             <Link href="/strategy/offboarding">
-              {t.isEs ? "Ver Kit de Transición" : "View Transition Toolkit"} <ArrowRight className="ml-1 size-4" />
+              {t.isEs ? "Ver Recursos de Transición" : "View Transition Resources"} <ArrowRight className="ml-1 size-4" />
             </Link>
           </Button>
         </div>

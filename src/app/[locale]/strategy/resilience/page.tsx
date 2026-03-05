@@ -554,7 +554,7 @@ export default function ResiliencePage() {
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-stone-400">
             <Link href="/strategy/offboarding" className="hover:text-white transition-colors">
-              {isEs ? "Kit de Transición" : "Transition Toolkit"} →
+              {isEs ? "Recursos de Transición" : "Transition Resources"} →
             </Link>
             <Link href="/funding-impact" className="hover:text-white transition-colors">
               {isEs ? "Impacto de H.R. 1" : "H.R. 1 Impact"} →

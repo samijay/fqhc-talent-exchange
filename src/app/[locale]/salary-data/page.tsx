@@ -212,6 +212,11 @@ export default function SalaryDataPage() {
               ? "Datos salariales por percentil para 30 roles en centros de salud de California, con ajustes regionales por costo de vida en 9 regiones."
               : "Percentile-based salary data for 30 community health center roles across California, with cost-of-living adjustments for 9 regions."}
           </p>
+          <p className="mt-3 text-xs text-stone-500 max-w-xl mx-auto">
+            {isEs
+              ? "Los rangos salariales son estimaciones basadas en datos públicos agregados de ofertas de empleo, encuestas salariales y fuentes gubernamentales. Los salarios reales varían según el empleador, la experiencia y la ubicación."
+              : "Salary ranges are estimates based on aggregated public data from job postings, salary surveys, and government sources. Actual compensation varies by employer, experience, and location."}
+          </p>
         </div>
       </section>
 

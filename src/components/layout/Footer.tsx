@@ -21,7 +21,7 @@ export default function Footer() {
       { href: "/strategy/scope-of-practice" as const, label: t("scopeOfPractice") },
       { href: "/strategy/cultural-humility" as const, label: t("culturalHumility") },
       { href: "/strategy/movement" as const, label: t("theMovement") },
-      { href: "/strategy/offboarding" as const, label: t("offboarding") },
+      { href: "/strategy/offboarding" as const, label: t("transitionResources") },
       { href: "/strategy/resilience" as const, label: t("resilience") },
       { href: "/strategy/masterclass" as const, label: t("masterclass") },
       { href: "/strategy/workforce-resilience" as const, label: t("workforceResilience") },
@@ -99,6 +99,9 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 border-t border-stone-200 pt-6">
+          <p className="text-xs text-stone-400 text-center mb-4">
+            {t("disclaimer")}
+          </p>
           <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
             <p className="text-sm text-stone-400">
               {t("copyright", { year: new Date().getFullYear() })}

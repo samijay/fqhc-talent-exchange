@@ -251,11 +251,21 @@ export function NewsletterSignup({
         )}
       </form>
 
-      {/* Trust line */}
+      {/* Trust line + privacy */}
       <p className={`mt-2 text-xs ${variant === "banner" ? "text-teal-200" : "text-stone-400"}`}>
         {isEs
-          ? "Fuentes primarias. Sin spam. Cancela en un clic."
-          : "Primary sources. No spam. Unsubscribe anytime."}
+          ? "Fuentes primarias. Sin spam. Cancela en un clic. "
+          : "Primary sources. No spam. Unsubscribe anytime. "}
+        <Link
+          href="/privacy"
+          className={`underline transition-colors ${
+            variant === "banner"
+              ? "text-teal-300 hover:text-white"
+              : "text-stone-500 hover:text-teal-700"
+          }`}
+        >
+          {isEs ? "Política de Privacidad" : "Privacy Policy"}
+        </Link>
       </p>
     </div>
   );

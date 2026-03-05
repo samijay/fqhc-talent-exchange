@@ -840,12 +840,12 @@ export default async function FQHCReportPage({
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-stone-800">
-                      {isEs ? "Kit de Transicion Laboral" : "Transition Toolkit"}
+                      {isEs ? "Recursos de Transición" : "Transition Resources"}
                     </p>
                     <p className="text-xs text-stone-500">
                       {isEs
-                        ? "Herramientas de transicion de fuerza laboral"
-                        : "Workforce transition tools"}
+                        ? "Herramientas gratuitas de carrera para trabajadores desplazados"
+                        : "Free career tools for displaced workers"}
                     </p>
                   </div>
                 </div>

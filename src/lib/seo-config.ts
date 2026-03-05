@@ -107,18 +107,7 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/for-job-seekers` },
   },
-  forEmployers: {
-    title: "For Employers | FQHC Staffing & Recruitment Solutions",
-    description:
-      "Fill critical FQHC roles faster with pre-vetted community health professionals. We specialize in ECM, CCM, Community Supports, and clinical staffing for Federally Qualified Health Centers.",
-    openGraph: {
-      title: "For Employers — FQHC Talent",
-      description:
-        "FQHC workforce intelligence, strategic insights, and career tools. We know community health staffing.",
-      url: `${SITE_URL}/for-employers`,
-    },
-    alternates: { canonical: `${SITE_URL}/for-employers` },
-  },
+  // forEmployers: archived — page moved to _archive/cta/pages/for-employers/
   blog: {
     title: "FQHC Career Resources & Community Health Insights",
     description:
@@ -421,13 +410,13 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/strategy/movement` },
   },
   strategyOffboarding: {
-    title: "Workforce Transition Toolkit for FQHCs | Turn Layoffs Into Soft Landings",
+    title: "Free Transition Resources for Displaced FQHC Workers | FQHC Talent",
     description:
-      "Help your displaced workers navigate transitions. Free self-serve career tools, aggregated job postings across 220+ California FQHCs, strategic insights, and workforce intelligence.",
+      "Free career tools for community health workers affected by layoffs. Resume builder, career assessment, certification guides, salary data, and aggregated job listings across 220 California FQHCs.",
     openGraph: {
-      title: "FQHC Workforce Transition Toolkit — FQHC Talent",
+      title: "Transition Resources — FQHC Talent",
       description:
-        "Turn layoffs into transitions. Free career tools, aggregated job postings, and strategic resources for displaced community health workers.",
+        "Free career tools for displaced community health workers. Resume builder, assessments, certifications, and job listings across 220 California FQHCs.",
       url: `${SITE_URL}/strategy/offboarding`,
     },
     alternates: { canonical: `${SITE_URL}/strategy/offboarding` },

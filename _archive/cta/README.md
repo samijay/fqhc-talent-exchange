@@ -33,13 +33,30 @@ All call-to-action code removed in commit 978eee2 ("Remove all CTAs — convert 
 | `sql/supabase-offboarding-intake.sql` | `offboarding_intake` |
 | `sql/supabase-drop-waitlist.sql` | `drop_waitlist` |
 
+### Pages (archived 2026-03-04)
+| File | What It Was |
+|------|-------------|
+| `pages/the-drop/page.tsx` | "The Drop" — curated candidate matching program. Active matching service with intake form, employer waitlist, behavioral assessment qualification (60%+ score). Archived because it implies active placement/matching which the platform does not perform. |
+| `pages/for-employers/page.tsx` + `layout.tsx` | Employer intake form — multi-step form collecting org info + open positions. Promised "deliver pre-vetted candidates within days." Archived because it implies active placement services. |
+| `pages/our-assessment/page.tsx` | Assessment philosophy page — referenced "The Drop" and curated matching. Archived because it describes matching services the platform doesn't offer. |
+
+### API Routes (archived 2026-03-04)
+| File | Endpoint | Purpose |
+|------|----------|---------|
+| `api/candidates-intake/route.ts` | POST `/api/candidates` | Candidate profile intake (active matching) |
+| `api/employers-intake/route.ts` | POST `/api/employers` | Employer needs intake (active placement) |
+| `api/early-access/route.ts` | POST `/api/early-access` | Early access email signup |
+
 ## Pages That Used These
 
 | Page | CTA Type | Status |
 |------|----------|--------|
+| `/the-drop` | Curated candidate matching program | **Archived (2026-03-04)** — entire page moved to `_archive/cta/pages/the-drop/` |
+| `/for-employers` | Employer intake form | **Archived (2026-03-04)** — entire page moved to `_archive/cta/pages/for-employers/` |
+| `/our-assessment` | Assessment philosophy (references The Drop) | **Archived (2026-03-04)** — entire page moved to `_archive/cta/pages/our-assessment/` |
+| `/strategy/offboarding` | 3-tier paid service model + intake form | **Rewritten (2026-03-04)** — now free-tools-only resource hub, no paid tiers, no intake form |
 | `/fast-track` | Displaced worker intake form (16 fields) | Converted to free resource landing page |
 | `/hire` | Employer waitlist form | Converted to resource directory |
-| `/strategy/offboarding` | Offboarding intake form (roles, timeline, NDA) | Form removed, info page kept |
 | `/report/[slug]` | Calendly "Book a Briefing" + offboarding link | Section removed |
 | `/career-insights` | BookingCTA (score >= 60%) | Component removed |
 | CareerAssessment (directory profiles) | BookingCTA + waitlist form in step 6 | Both removed |
