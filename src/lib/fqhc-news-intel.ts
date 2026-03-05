@@ -2,7 +2,7 @@
 // Curated intelligence feed for FQHC executives
 // Updated daily via /daily-update pipeline
 // Every item has a primary source URL — no unsourced claims
-// Last updated: 2026-03-04 (daily update #10)
+// Last updated: 2026-03-05 (daily update #11)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
 export const INTEL_LAST_UPDATED = "2026-03-04";
@@ -1058,6 +1058,130 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "NEJM Catalyst",
     region: "Federal",
     tags: ["ai", "implementation-science", "ambient-scribe", "ucsf"],
+  },
+
+  /* ============================================================== */
+  /*  2026-03-05: Daily Update #11 — San Diego + Inland Empire       */
+  /* ============================================================== */
+  {
+    id: "sd-county-safety-net-overhaul",
+    date: "2026-03-03",
+    headline: {
+      en: "SD County Supervisors Vote to Overhaul Safety Net Program — 400K at Risk",
+      es: "Supervisores del Condado de SD Votan para Reformar Programa de Red de Seguridad — 400K en Riesgo",
+    },
+    summary: {
+      en: "San Diego County Board of Supervisors voted 4-1 to reform County Medical Services, the most restrictive safety-net program among large CA counties. H.R. 1 will strip Medi-Cal from an estimated 75,000 noncitizens in SD County starting Oct 2026, putting ~400,000 San Diegans at risk of losing coverage. Subcommittee will propose reforms within 60 days including eliminating property liens and expanding virtual applications.",
+      es: "La Junta de Supervisores del Condado de San Diego votó 4-1 para reformar los Servicios Médicos del Condado, el programa de red de seguridad más restrictivo entre los grandes condados de CA. H.R. 1 eliminará Medi-Cal para ~75,000 no ciudadanos en el condado de SD a partir de octubre 2026, poniendo a ~400,000 sandieguinos en riesgo.",
+    },
+    category: "legislation",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://timesofsandiego.com/health/2026/03/03/san-diego-county-supervisors-vote-overhaul-safety-net-health-program/",
+    sourceOrg: "Times of San Diego",
+    region: "San Diego County",
+    affectedOrgs: ["Family Health Centers of San Diego", "San Ysidro Health", "Neighborhood Healthcare"],
+    affectedOrgSlugs: ["family-health-centers-of-san-diego", "san-ysidro-health", "neighborhood-healthcare"],
+    tags: ["san-diego", "safety-net", "medi-cal", "coverage-loss", "county-reform"],
+  },
+  {
+    id: "sd-county-300m-funding-loss",
+    date: "2026-01-22",
+    headline: {
+      en: "San Diego County Faces $300M Loss from Federal Healthcare & Food Cuts",
+      es: "Condado de San Diego Enfrenta Pérdida de $300M por Recortes Federales de Salud y Alimentación",
+    },
+    summary: {
+      en: "San Diego County is absorbing $300M in federal funding losses — $1.1B from Medi-Cal cuts + $300M from CalFresh cuts statewide. Board Chair Lawson-Remer warned cuts 'show up when you call 911.' County workshops scheduled to plan response as hospital reimbursements decline and emergency departments face rising uninsured patient volume.",
+      es: "El Condado de San Diego absorbe $300M en pérdidas de fondos federales — $1.1B de recortes a Medi-Cal + $300M de CalFresh a nivel estatal. La Presidenta Lawson-Remer advirtió que los recortes 'se notan cuando llamas al 911.'",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://fox5sandiego.com/news/local-news/san-diego-county/san-diego-county-funding-cuts/amp/",
+    sourceOrg: "Fox 5 San Diego",
+    region: "San Diego County",
+    tags: ["san-diego", "federal-cuts", "medi-cal", "calfresh", "budget-deficit"],
+  },
+  {
+    id: "sd-nhcare-fqhc-closure-warning",
+    date: "2025-10-20",
+    headline: {
+      en: "Neighborhood Healthcare: 'Hundreds of FQHCs Will Shut Down in a Year'",
+      es: "Neighborhood Healthcare: 'Cientos de FQHCs Cerrarán en un Año'",
+    },
+    summary: {
+      en: "Neighborhood Healthcare's Director of External Affairs warned that 'hundreds of FQHCs throughout the state will shut down in a year' due to H.R. 1 cuts. Palomar Health, Sharp HealthCare, and other SD institutions are preparing for $300M in annual lost revenue. Neighborhood Healthcare, due to its size, is not at immediate risk but warned 'hospitals in San Diego County are going to be overrun.'",
+      es: "La Directora de Asuntos Externos de Neighborhood Healthcare advirtió que 'cientos de FQHCs en todo el estado cerrarán en un año' debido a recortes de H.R. 1. Palomar Health, Sharp HealthCare y otras instituciones de SD se preparan para $300M en ingresos anuales perdidos.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.nhcare.org/local-healthcare-institutions-prepare-for-impact-of-hr1-cuts-government-shutdown/",
+    sourceOrg: "Neighborhood Healthcare",
+    region: "San Diego County",
+    affectedOrgs: ["Neighborhood Healthcare", "Palomar Health", "Sharp HealthCare"],
+    affectedOrgSlugs: ["neighborhood-healthcare"],
+    tags: ["san-diego", "fqhc-closures", "hr1", "workforce", "hospital-overload"],
+  },
+  {
+    id: "sd-san-ysidro-55m-center-opens",
+    date: "2026-01-09",
+    headline: {
+      en: "San Ysidro Health Opens $55M Center in National City — 'Doing More with Less'",
+      es: "San Ysidro Health Abre Centro de $55M en National City — 'Hacer Más con Menos'",
+    },
+    summary: {
+      en: "San Ysidro Health opened the $54.5M Macias Family Health Center in National City just as federal cuts to Medi-Cal intensify. CEO Kevin Mattson described it as 'a fraught moment' — work requirements and coverage changes will increase uninsured patients while reducing revenue. La Maestra and FHCSD also bracing for higher demand with less funding.",
+      es: "San Ysidro Health abrió el Centro de Salud Familiar Macias de $54.5M en National City justo cuando se intensifican los recortes federales a Medi-Cal. El CEO Kevin Mattson lo describió como 'un momento tenso' — los requisitos de trabajo y cambios de cobertura aumentarán pacientes sin seguro mientras reducen ingresos.",
+    },
+    category: "change-management",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://www.sandiegouniontribune.com/2026/01/09/macias-family-health-center-opens-in-national-city/",
+    sourceOrg: "San Diego Union-Tribune",
+    region: "San Diego County",
+    affectedOrgs: ["San Ysidro Health"],
+    affectedOrgSlugs: ["san-ysidro-health"],
+    tags: ["san-diego", "san-ysidro", "expansion", "national-city", "medi-cal"],
+  },
+  {
+    id: "ie-medi-cal-1-6m-at-risk",
+    date: "2026-02-18",
+    headline: {
+      en: "Inland Empire: 1.6M IEHP Members at Risk as Medi-Cal Cuts Loom",
+      es: "Inland Empire: 1.6M Miembros de IEHP en Riesgo por Recortes a Medi-Cal",
+    },
+    summary: {
+      en: "The Inland Empire Health Plan serves 1.6M members across Riverside (42% enrolled) and San Bernardino (45% enrolled) counties. Projected $10-20B annual state Medi-Cal cuts could force clinics to cut dental, vision, and podiatry services first. Centro Medico (15,000 patients, nearly all Medi-Cal) warns of months-long waits. IEHP contracts with 9,000 providers, hundreds of clinics, and every hospital in both counties.",
+      es: "El Plan de Salud de Inland Empire sirve a 1.6M miembros en los condados de Riverside (42% inscrito) y San Bernardino (45% inscrito). Los recortes proyectados de $10-20B anuales a Medi-Cal estatal podrían forzar a clínicas a eliminar servicios dentales, de visión y podiatría primero.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.chcf.org/resource/riverside-county-potential-medi-cal-cuts-distress-constituents-health-leaders/",
+    sourceOrg: "CHCF",
+    region: "Riverside County",
+    tags: ["inland-empire", "iehp", "medi-cal", "riverside", "san-bernardino", "coverage-loss"],
+  },
+  {
+    id: "ie-va-loma-linda-staffing-crisis",
+    date: "2026-01-11",
+    headline: {
+      en: "VA Loma Linda: 64K Appointments Canceled Due to Staff Shortages",
+      es: "VA Loma Linda: 64K Citas Canceladas por Falta de Personal",
+    },
+    summary: {
+      en: "A VA OIG audit found VA Loma Linda Healthcare System lacked adequate oversight at 5 Inland Empire outpatient clinics, contributing to 64,000 appointment cancellations from Oct 2021-Sep 2023. Two-thirds of cancellations were directly due to staffing shortages. Veterans displaced from VA care increasingly turn to community health centers, increasing FQHC demand.",
+      es: "Una auditoría del OIG del VA encontró que el Sistema de Salud VA Loma Linda careció de supervisión adecuada en 5 clínicas ambulatorias del IE, contribuyendo a 64,000 cancelaciones de citas de oct 2021-sep 2023. Dos tercios de las cancelaciones fueron directamente por escasez de personal.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://www.sbsun.com/2026/01/11/two-thirds-of-appointments-at-loma-linda-va-outpatient-clinics-canceled-due-to-staff-shortages-audit-findsaudit-finds-69-of-canceled-appointments-at-loma-linda-va-outpatient-clinics-due-to-staffing-s/",
+    sourceOrg: "San Bernardino Sun",
+    region: "San Bernardino County",
+    tags: ["inland-empire", "va", "staffing", "loma-linda", "veterans"],
   },
 ];
 
