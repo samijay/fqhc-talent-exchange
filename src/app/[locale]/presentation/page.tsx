@@ -1183,8 +1183,27 @@ export default function PresentationPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [goNext, goPrev]);
 
+  // Hide site chrome (header, footer, announcement bar, feedback button)
+  useEffect(() => {
+    document.body.classList.add("presentation-mode");
+    return () => document.body.classList.remove("presentation-mode");
+  }, []);
+
   return (
-    <div className="relative min-h-screen bg-stone-950 text-white select-none">
+    <>
+      <style jsx global>{`
+        body.presentation-mode > header,
+        body.presentation-mode > footer,
+        body.presentation-mode > button,
+        body.presentation-mode > section,
+        body.presentation-mode > div.relative.bg-gradient-to-r {
+          display: none !important;
+        }
+        body.presentation-mode > main {
+          min-height: auto !important;
+        }
+      `}</style>
+      <div data-presentation className="relative min-h-screen bg-stone-950 text-white select-none">
       {/* Slide Content */}
       <div className="transition-opacity duration-300">
         {slides[currentSlide].content}
@@ -1233,5 +1252,6 @@ export default function PresentationPage() {
         </button>
       </div>
     </div>
+    </>
   );
 }

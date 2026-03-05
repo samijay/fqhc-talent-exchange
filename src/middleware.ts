@@ -47,5 +47,5 @@ export const config = {
   // - /api routes (they handle auth separately)
   // - /_next (Next.js internals)
   // - Static files (images, fonts, etc.)
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|pitchdeck|presentation|.*\\..*).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|.*\\..*).*)"],
 };
