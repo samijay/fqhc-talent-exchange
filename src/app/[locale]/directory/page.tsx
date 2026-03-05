@@ -21,8 +21,6 @@ import {
   ChevronDown,
   ChevronUp,
   GraduationCap,
-  DollarSign,
-  BadgeCheck,
   Briefcase,
   Globe,
   Phone,
@@ -50,8 +48,6 @@ import {
   regions,
   allPrograms,
   allEhrSystems,
-  fqhcSalaryRanges,
-  typicalFqhcBenefits,
 } from "@/lib/california-fqhcs";
 import type { CaliforniaFQHC } from "@/lib/california-fqhcs";
 import DynamicMap from "@/components/directory/DynamicMap";
@@ -150,12 +146,6 @@ export default function DirectoryPage() {
     regions: isEs ? "Regiones" : "Regions",
     healthCenterSites: isEs ? "Sitios de Salud" : "Health Center Sites",
     ecmProviders: isEs ? "Proveedores ECM" : "ECM Providers",
-    // Salary & Benefits
-    salaryTitle: isEs ? "Rangos Salariales de FQHC (California)" : "FQHC Salary Ranges (California)",
-    salarySource: isEs
-      ? "Basado en datos de Glassdoor, Indeed y ZipRecruiter para FQHCs de California (2026)"
-      : "Based on Glassdoor, Indeed, and ZipRecruiter data for California FQHCs (2026)",
-    benefitsTitle: isEs ? "Beneficios Típicos de FQHC" : "Typical FQHC Benefits",
     // Filters
     searchPlaceholder: isEs ? "Buscar por nombre, ciudad o condado..." : "Search by name, city, or county...",
     allRegions: isEs ? "Todas las Regiones" : "All Regions",
@@ -235,11 +225,9 @@ export default function DirectoryPage() {
   const [ecmOnly, setEcmOnly] = useState(false);
   const [highImpactOnly, setHighImpactOnly] = useState(false);
   const [unionOnly, setUnionOnly] = useState(false);
-  const [view, setView] = useState<ViewMode>("cards");
+  const [view, setView] = useState<ViewMode>("table");
   const [sortKey, setSortKey] = useState<SortKey>("name");
   const [sortDir, setSortDir] = useState<SortDir>("asc");
-  const [showSalary, setShowSalary] = useState(true);
-  const [showBenefits, setShowBenefits] = useState(true);
   const [selectedFqhc, setSelectedFqhc] = useState<CaliforniaFQHC | null>(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [showAssessment, setShowAssessment] = useState(false);
@@ -357,70 +345,6 @@ export default function DirectoryPage() {
           </div>
         </div>
       </section>
-
-      {/* Salary & Benefits Quick Reference (collapsible) */}
-      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-        <div className="grid gap-4 sm:grid-cols-2">
-          {/* Salary Card */}
-          <div className="rounded-xl border border-stone-200 bg-white shadow-sm overflow-hidden">
-            <button
-              type="button"
-              onClick={() => setShowSalary(!showSalary)}
-              className="flex w-full items-center justify-between p-4 text-left bg-white hover:bg-stone-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
-            >
-              <div className="flex items-center gap-2">
-                <DollarSign className="size-5 text-teal-700" />
-                <span className="font-semibold text-stone-900">{t.salaryTitle}</span>
-              </div>
-              {showSalary ? <ChevronUp className="size-4 text-stone-400" /> : <ChevronDown className="size-4 text-stone-400" />}
-            </button>
-            {showSalary && (
-              <div className="border-t border-stone-100 bg-white p-4">
-                <div className="space-y-2">
-                  {Object.entries(fqhcSalaryRanges).map(([role, data]) => (
-                    <div key={role} className="flex items-center justify-between text-sm">
-                      <span className="text-stone-600">{role}</span>
-                      <span className="font-medium text-stone-900">
-                        ${(data.min / 1000).toFixed(0)}k – ${(data.max / 1000).toFixed(0)}k
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-3 text-xs text-stone-400">
-                  {t.salarySource}
-                </p>
-              </div>
-            )}
-          </div>
-
-          {/* Benefits Card */}
-          <div className="rounded-xl border border-stone-200 bg-white shadow-sm overflow-hidden">
-            <button
-              type="button"
-              onClick={() => setShowBenefits(!showBenefits)}
-              className="flex w-full items-center justify-between p-4 text-left bg-white hover:bg-stone-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
-            >
-              <div className="flex items-center gap-2">
-                <Heart className="size-5 text-teal-700" />
-                <span className="font-semibold text-stone-900">{t.benefitsTitle}</span>
-              </div>
-              {showBenefits ? <ChevronUp className="size-4 text-stone-400" /> : <ChevronDown className="size-4 text-stone-400" />}
-            </button>
-            {showBenefits && (
-              <div className="border-t border-stone-100 bg-white p-4">
-                <div className="space-y-1.5">
-                  {typicalFqhcBenefits.map((b) => (
-                    <div key={b} className="flex items-start gap-2 text-sm text-stone-600">
-                      <BadgeCheck className="mt-0.5 size-3.5 shrink-0 text-teal-500" />
-                      {b}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
 
       {/* Filters + View Toggle */}
       <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
@@ -1066,19 +990,6 @@ export default function DirectoryPage() {
                           </div>
                         ))
                     )}
-                  </div>
-                </div>
-
-                {/* Benefits Summary */}
-                <div className="space-y-3 border-t border-stone-100 pt-6">
-                  <h3 className="font-semibold text-stone-900">{t.benefitsTitle}</h3>
-                  <div className="space-y-2">
-                    {typicalFqhcBenefits.slice(0, 5).map((b) => (
-                      <div key={b} className="flex items-start gap-2 text-sm text-stone-600">
-                        <BadgeCheck className="mt-0.5 size-3.5 shrink-0 text-amber-500" />
-                        {b}
-                      </div>
-                    ))}
                   </div>
                 </div>
 
