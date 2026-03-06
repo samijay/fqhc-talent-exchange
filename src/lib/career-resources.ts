@@ -107,7 +107,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       es: "La solicitud 2026 cierra el 31 de marzo de 2026 a las 7:30 PM ET",
     },
     awardAmount: "Up to $80,000",
-    tags: ["rn", "behavioral-health", "medical-assistant", "social-worker"],
+    tags: ["registered_nurse", "behavioral_health", "medical_assistant", "social-worker"],
     isFeatured: true,
   },
 
@@ -131,7 +131,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       es: "Médicos, dentistas, higienistas dentales, PAs, NPs, CNMs, farmacéuticos y proveedores de salud mental/conductual trabajando en sitios HPSA de California o FQHCs.",
     },
     awardAmount: "Up to $50,000",
-    tags: ["rn", "behavioral-health", "medical-assistant"],
+    tags: ["registered_nurse", "behavioral_health", "medical_assistant"],
     isFeatured: false,
   },
 
@@ -155,7 +155,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       es: "CHWs, especialistas de apoyo entre pares, consejeros de SUD, coaches de bienestar ($120K), profesionales licenciados no prescriptores ($180K) y profesionales licenciados prescriptores ($240K) sirviendo a beneficiarios de Medi-Cal.",
     },
     awardAmount: "Up to $120,000 (CHW) / $240,000 (licensed)",
-    tags: ["chw", "behavioral-health", "care-coordinator", "social-worker"],
+    tags: ["chw", "behavioral_health", "care_coordinator", "social-worker"],
     isFeatured: true,
   },
 
@@ -208,7 +208,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       es: "Residentes de California. No se requiere experiencia previa en salud. Formato en línea a tu propio ritmo. Debe completar 2 pasantías.",
     },
     awardAmount: "Free tuition + internships",
-    tags: ["chw", "care-coordinator"],
+    tags: ["chw", "care_coordinator"],
     isFeatured: true,
   },
 
@@ -235,7 +235,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       es: "Promotores de Salud Comunitaria y navegadores de cuidado en Bay Area, LA, San Mateo/Santa Clara o California Central. Opción en línea también disponible.",
     },
     awardAmount: "Free + $2,750 incentives",
-    tags: ["chw", "care-coordinator"],
+    tags: ["chw", "care_coordinator"],
     isFeatured: false,
   },
 
@@ -288,7 +288,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       es: "Inscripción abierta a través de la Escuela de Educación Continua. Debe completar prerequisitos. El programa es de 13 meses a tiempo completo.",
     },
     awardAmount: "Free tuition (13-month program)",
-    tags: ["rn"],
+    tags: ["registered_nurse"],
     isFeatured: true,
   },
 
@@ -316,10 +316,10 @@ export const CAREER_RESOURCES: CareerResource[] = [
     },
     tags: [
       "chw",
-      "care-coordinator",
-      "behavioral-health",
-      "rn",
-      "medical-assistant",
+      "care_coordinator",
+      "behavioral_health",
+      "registered_nurse",
+      "medical_assistant",
     ],
     isFeatured: false,
   },
@@ -350,10 +350,10 @@ export const CAREER_RESOURCES: CareerResource[] = [
     },
     tags: [
       "chw",
-      "care-coordinator",
-      "rn",
-      "revenue-cycle",
-      "patient-services",
+      "care_coordinator",
+      "registered_nurse",
+      "revenue_cycle",
+      "patient_services",
     ],
     isFeatured: false,
   },
@@ -380,7 +380,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       en: "California FQHC and community health center staff and leadership. MA+ program specifically for Medical Assistants.",
       es: "Personal y liderazgo de FQHCs y centros de salud comunitarios de California. Programa MA+ específicamente para Asistentes Médicos.",
     },
-    tags: ["medical-assistant", "care-coordinator", "chw"],
+    tags: ["medical_assistant", "care_coordinator", "chw"],
     isFeatured: true,
   },
 
@@ -406,7 +406,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       en: "Public health professionals and community health workers in California. Free technical assistance available for workforce development.",
       es: "Profesionales de salud pública y promotores de salud comunitaria en California. Asistencia técnica gratuita disponible para desarrollo de fuerza laboral.",
     },
-    tags: ["chw", "care-coordinator", "rn"],
+    tags: ["chw", "care_coordinator", "registered_nurse"],
     isFeatured: false,
   },
 
@@ -432,7 +432,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       en: "Open to all healthcare workers. Particularly relevant for behavioral health staff, CHWs, care coordinators, and anyone working with SUD populations.",
       es: "Abierto a todos los trabajadores de salud. Particularmente relevante para personal de salud conductual, CHWs, coordinadores de cuidado y cualquiera que trabaje con poblaciones de SUD.",
     },
-    tags: ["behavioral-health", "chw", "care-coordinator", "social-worker"],
+    tags: ["behavioral_health", "chw", "care_coordinator", "social-worker"],
     isFeatured: false,
   },
 
@@ -463,10 +463,10 @@ export const CAREER_RESOURCES: CareerResource[] = [
     awardAmount: "$5,250 tuition + $10,000 wage replacement",
     tags: [
       "chw",
-      "care-coordinator",
-      "medical-assistant",
-      "rn",
-      "patient-services",
+      "care_coordinator",
+      "medical_assistant",
+      "registered_nurse",
+      "patient_services",
     ],
     isFeatured: true,
   },
@@ -494,7 +494,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       es: "Miembros del sindicato NUHW. $2,000 emitidos cada tres años. Los beneficios específicos pueden variar según el local y el acuerdo del empleador.",
     },
     awardAmount: "$2,000 every 3 years",
-    tags: ["behavioral-health", "rn", "care-coordinator"],
+    tags: ["behavioral_health", "registered_nurse", "care_coordinator"],
     isFeatured: false,
   },
 
@@ -522,7 +522,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       en: "Employees at eligible California employers including FQHCs, community health centers, and healthcare organizations. Your employer must apply for an ETP contract.",
       es: "Empleados en empleadores elegibles de California incluyendo FQHCs, centros de salud comunitarios y organizaciones de salud. Tu empleador debe solicitar un contrato ETP.",
     },
-    tags: ["rn", "medical-assistant", "care-coordinator", "chw"],
+    tags: ["registered_nurse", "medical_assistant", "care_coordinator", "chw"],
     isFeatured: false,
   },
 
@@ -548,7 +548,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       en: "CalWORKs recipients seeking career advancement. Must be enrolled in CalWORKs and approved for education/training by your county case worker.",
       es: "Beneficiarios de CalWORKs buscando avance profesional. Debe estar inscrito en CalWORKs y aprobado para educación/capacitación por su trabajador de caso del condado.",
     },
-    tags: ["chw", "medical-assistant", "patient-services"],
+    tags: ["chw", "medical_assistant", "patient_services"],
     isFeatured: false,
   },
 
@@ -574,7 +574,7 @@ export const CAREER_RESOURCES: CareerResource[] = [
       en: "ECM Lead Care Managers, care coordinators, and staff at FQHCs and community health centers participating in CalAIM ECM programs.",
       es: "Gerentes de Cuidado Principal de ECM, coordinadores de cuidado y personal en FQHCs y centros de salud comunitarios participando en programas ECM de CalAIM.",
     },
-    tags: ["care-coordinator", "chw", "case-manager"],
+    tags: ["care_coordinator", "chw", "case_manager"],
     isFeatured: false,
   },
 ];

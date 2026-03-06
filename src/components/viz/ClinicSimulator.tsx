@@ -1,22 +1,27 @@
 // ClinicSimulator — interactive staffing, scheduling & revenue model for CA FQHCs
+// Medi-Cal accurate: WIC §14132.100, FQHC APM, payer-aware BH billing
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
 import { useLocale } from "next-intl";
 import {
-  ChevronDown,
-  ChevronUp,
   Users,
   Clock,
   DollarSign,
   Activity,
   TrendingUp,
   Info,
-  Building2,
   Stethoscope,
+  Zap,
+  ChevronDown,
+  ChevronUp,
+  ArrowRight,
+  AlertTriangle,
+  CheckCircle2,
 } from "lucide-react";
 import {
   calculateSimulation,
+  generateOptimizations,
   SIZE_PRESETS,
   STAFF_COSTS,
   formatCurrency,
@@ -25,6 +30,7 @@ import {
   type ScheduleInput,
   type RevenueInput,
   type DiseaseInput,
+  type OptimizationPathway,
 } from "@/lib/clinic-operations-model";
 
 /* ------------------------------------------------------------------ */
@@ -35,43 +41,78 @@ const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
-/*  Slider component (reused throughout)                               */
+/*  Number input component                                             */
 /* ------------------------------------------------------------------ */
 
-function Slider({
+function NumberField({
   label,
   value,
   min,
   max,
   step,
-  display,
+  suffix,
   onChange,
-  gradient = "from-stone-200 to-teal-300",
 }: {
   label: string;
   value: number;
   min: number;
   max: number;
   step: number;
-  display: string;
+  suffix?: string;
   onChange: (v: number) => void;
-  gradient?: string;
 }) {
   return (
-    <div>
-      <div className="mb-1 flex items-center justify-between">
-        <label className="text-sm font-medium text-stone-700">{label}</label>
-        <span className="text-sm font-bold text-teal-700">{display}</span>
+    <div className="flex items-center justify-between gap-3">
+      <label className="text-sm text-stone-600 shrink-0">{label}</label>
+      <div className="flex items-center gap-1">
+        <input
+          type="number"
+          min={min}
+          max={max}
+          step={step}
+          value={value}
+          onChange={(e) => {
+            const v = Number(e.target.value);
+            if (!isNaN(v) && v >= min && v <= max) onChange(v);
+          }}
+          className="w-20 rounded-lg border border-stone-300 bg-white px-2.5 py-1.5 text-right text-sm font-bold text-stone-900 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+        />
+        {suffix && (
+          <span className="text-xs text-stone-400 w-6">{suffix}</span>
+        )}
       </div>
-      <input
-        type="range"
-        min={min}
-        max={max}
-        step={step}
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-        className={`h-2 w-full cursor-pointer appearance-none rounded-full bg-gradient-to-r ${gradient} [&::-webkit-slider-thumb]:size-5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-stone-800 [&::-webkit-slider-thumb]:shadow-md`}
-      />
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Toggle component                                                   */
+/* ------------------------------------------------------------------ */
+
+function Toggle({
+  label,
+  checked,
+  onChange,
+}: {
+  label: string;
+  checked: boolean;
+  onChange: (v: boolean) => void;
+}) {
+  return (
+    <div className="flex items-center justify-between gap-3">
+      <label className="text-sm text-stone-600">{label}</label>
+      <button
+        onClick={() => onChange(!checked)}
+        className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors ${
+          checked ? "bg-teal-600" : "bg-stone-300"
+        }`}
+      >
+        <span
+          className={`pointer-events-none inline-block size-5 rounded-full bg-white shadow transition-transform ${
+            checked ? "translate-x-5" : "translate-x-0"
+          }`}
+        />
+      </button>
     </div>
   );
 }
@@ -117,7 +158,119 @@ function Section({
           <ChevronDown className="size-4 text-stone-400" />
         )}
       </button>
-      {open && <div className="space-y-4 border-t border-stone-100 px-4 pb-4 pt-3">{children}</div>}
+      {open && <div className="space-y-3 border-t border-stone-100 px-4 pb-4 pt-3">{children}</div>}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Optimization Pathways display                                      */
+/* ------------------------------------------------------------------ */
+
+function OptimizationPanel({
+  pathways,
+  locale,
+}: {
+  pathways: OptimizationPathway[];
+  locale: string;
+}) {
+  const isEs = locale === "es";
+  const totalImpact = pathways.reduce((sum, p) => sum + p.revenueImpact, 0);
+
+  const categoryLabel = (cat: string) => {
+    if (cat === "operational")
+      return isEs ? "Expansión Operativa" : "Operational Expansion";
+    if (cat === "model-design")
+      return isEs ? "Diseño de Modelo" : "Model Design";
+    return isEs ? "Expansión de Programas" : "Program Expansion";
+  };
+
+  const categoryColor = (cat: string) => {
+    if (cat === "operational") return "bg-blue-100 text-blue-700";
+    if (cat === "model-design") return "bg-amber-100 text-amber-700";
+    return "bg-purple-100 text-purple-700";
+  };
+
+  const implLabel = (impl: string) => {
+    if (impl === "quick-win") return isEs ? "Ganancia rápida" : "Quick Win";
+    if (impl === "medium") return isEs ? "Medio plazo" : "Medium-term";
+    return isEs ? "Estratégico" : "Strategic";
+  };
+
+  const implColor = (impl: string) => {
+    if (impl === "quick-win") return "bg-green-100 text-green-700";
+    if (impl === "medium") return "bg-amber-100 text-amber-700";
+    return "bg-red-100 text-red-700";
+  };
+
+  if (pathways.length === 0) {
+    return (
+      <div className="rounded-xl border-2 border-green-200 bg-green-50 p-6 text-center">
+        <CheckCircle2 className="mx-auto size-8 text-green-600" />
+        <p className="mt-2 font-bold text-green-800">
+          {isEs
+            ? "¡Su FQHC está bien optimizado!"
+            : "Your FQHC is well optimized!"}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      {/* Total impact header */}
+      <div className="rounded-xl bg-gradient-to-r from-red-600 to-red-500 p-5 text-white">
+        <div className="flex items-center gap-2">
+          <Zap className="size-5" />
+          <h3 className="text-lg font-bold">
+            {isEs ? "Potencial de Optimización" : "Optimization Potential"}
+          </h3>
+        </div>
+        <p className="mt-1 text-3xl font-extrabold">
+          +{formatCurrency(totalImpact)}
+          <span className="text-base font-normal text-red-100">
+            /{isEs ? "año" : "year"}
+          </span>
+        </p>
+        <p className="mt-1 text-sm text-red-100">
+          {pathways.length}{" "}
+          {isEs ? "oportunidades identificadas" : "opportunities identified"}
+        </p>
+      </div>
+
+      {/* Pathway cards */}
+      {pathways.map((pathway) => (
+        <div
+          key={pathway.id}
+          className="rounded-xl border border-stone-200 bg-white p-4"
+        >
+          <div className="flex flex-wrap items-center gap-2 mb-2">
+            <span
+              className={`inline-flex rounded-full px-2.5 py-0.5 text-[10px] font-bold ${categoryColor(pathway.category)}`}
+            >
+              {categoryLabel(pathway.category)}
+            </span>
+            <span
+              className={`inline-flex rounded-full px-2.5 py-0.5 text-[10px] font-bold ${implColor(pathway.implementation)}`}
+            >
+              {implLabel(pathway.implementation)}
+            </span>
+            <span className="ml-auto text-lg font-bold text-teal-700">
+              +{formatCurrency(pathway.revenueImpact)}
+            </span>
+          </div>
+          <h4 className="text-sm font-bold text-stone-900">
+            {t(pathway.title, locale)}
+          </h4>
+          <p className="mt-1 text-xs leading-relaxed text-stone-600">
+            {t(pathway.description, locale)}
+          </p>
+          <p className="mt-2 text-[10px] text-stone-400">
+            <strong>{isEs ? "Requiere" : "Requires"}:</strong>{" "}
+            {t(pathway.requirements, locale)}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }
@@ -131,16 +284,23 @@ export function ClinicSimulator() {
   const isEs = locale === "es";
 
   // Size preset
-  const [sizePreset, setSizePreset] = useState<"mid-size" | "small" | "large" | "custom">(
-    "mid-size"
-  );
+  const [sizePreset, setSizePreset] = useState<
+    "mid-size" | "small" | "large" | "custom"
+  >("mid-size");
 
   // Initialize from mid-size preset (real FQHC data)
   const defaultPreset = SIZE_PRESETS[0];
-  const [staffing, setStaffing] = useState<StaffingInput>(defaultPreset.staffing);
-  const [schedule, setSchedule] = useState<ScheduleInput>(defaultPreset.schedule);
+  const [staffing, setStaffing] = useState<StaffingInput>(
+    defaultPreset.staffing
+  );
+  const [schedule, setSchedule] = useState<ScheduleInput>(
+    defaultPreset.schedule
+  );
   const [revenue, setRevenue] = useState<RevenueInput>(defaultPreset.revenue);
   const [disease, setDisease] = useState<DiseaseInput>(defaultPreset.disease);
+
+  // Show optimization pathways
+  const [showOptimize, setShowOptimize] = useState(false);
 
   // Apply preset
   const applyPreset = useCallback(
@@ -151,6 +311,7 @@ export function ClinicSimulator() {
       setRevenue(preset.revenue);
       setDisease(preset.disease);
       setSizePreset(size);
+      setShowOptimize(false);
     },
     []
   );
@@ -171,7 +332,7 @@ export function ClinicSimulator() {
     []
   );
   const updateRevenue = useCallback(
-    (key: keyof RevenueInput, val: number) => {
+    (key: keyof RevenueInput, val: number | boolean) => {
       setRevenue((prev) => ({ ...prev, [key]: val }));
       setSizePreset("custom");
     },
@@ -187,13 +348,23 @@ export function ClinicSimulator() {
 
   // Calculate results
   const inputs: SimulatorInputs = useMemo(
-    () => ({ staffing, schedule, revenue, disease, sizePreset: sizePreset === "custom" ? "mid-size" : sizePreset }),
+    () => ({
+      staffing,
+      schedule,
+      revenue,
+      disease,
+      sizePreset: sizePreset === "custom" ? "mid-size" : sizePreset,
+    }),
     [staffing, schedule, revenue, disease, sizePreset]
   );
   const results = useMemo(() => calculateSimulation(inputs), [inputs]);
+  const optimizations = useMemo(
+    () => generateOptimizations(inputs, results),
+    [inputs, results]
+  );
 
   // Staffing summary
-  const staffSummary = `${staffing.physicians} MD, ${staffing.nps} NP, ${staffing.pas} PA, ${staffing.rns} RN, ${staffing.mas} MA, ${staffing.bhProviders} BH`;
+  const staffSummary = `${staffing.physicians} MD, ${staffing.nps} NP, ${staffing.pas} PA, ${staffing.rns} RN, ${staffing.mas} MA, ${staffing.bhProviders} BH, ${staffing.dentalProviders} Dental`;
 
   return (
     <div className="overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
@@ -209,8 +380,8 @@ export function ClinicSimulator() {
         </div>
         <p className="text-sm text-stone-400">
           {isEs
-            ? "Modele dotación de personal, horarios e ingresos para su FQHC en California"
-            : "Model staffing, scheduling, and revenue for your California FQHC"}
+            ? "Modele dotación de personal, horarios e ingresos para su FQHC — alineado con reglas de facturación de Medi-Cal"
+            : "Model staffing, scheduling, and revenue for your California FQHC — aligned with Medi-Cal billing rules"}
         </p>
       </div>
 
@@ -221,41 +392,43 @@ export function ClinicSimulator() {
             {isEs ? "Tamaño del FQHC" : "FQHC Size"}
           </label>
           <div className="flex flex-wrap gap-2">
-            {(["mid-size", "small", "large", "custom"] as const).map((size) => (
-              <button
-                key={size}
-                onClick={() =>
-                  size === "custom"
-                    ? setSizePreset("custom")
-                    : applyPreset(size)
-                }
-                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                  sizePreset === size
-                    ? "bg-teal-700 text-white"
-                    : "bg-white text-stone-600 hover:bg-stone-100"
-                }`}
-              >
-                {size === "mid-size"
-                  ? isEs
-                    ? "Mediano (~240)"
-                    : "Mid-Size (~240)"
-                  : size === "small"
+            {(["mid-size", "small", "large", "custom"] as const).map(
+              (size) => (
+                <button
+                  key={size}
+                  onClick={() =>
+                    size === "custom"
+                      ? setSizePreset("custom")
+                      : applyPreset(size)
+                  }
+                  className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                    sizePreset === size
+                      ? "bg-teal-700 text-white"
+                      : "bg-white text-stone-600 hover:bg-stone-100"
+                  }`}
+                >
+                  {size === "mid-size"
                     ? isEs
-                      ? "Pequeño (~250)"
-                      : "Small (~250)"
-                    : size === "large"
+                      ? "Mediano (~240)"
+                      : "Mid-Size (~240)"
+                    : size === "small"
                       ? isEs
-                        ? "Grande (~1,000)"
-                        : "Large (~1,000)"
-                      : isEs
-                        ? "Personalizado"
-                        : "Custom"}
-              </button>
-            ))}
+                        ? "Pequeño (~250)"
+                        : "Small (~250)"
+                      : size === "large"
+                        ? isEs
+                          ? "Grande (~1,000)"
+                          : "Large (~1,000)"
+                        : isEs
+                          ? "Personalizado"
+                          : "Custom"}
+                </button>
+              )
+            )}
           </div>
         </div>
 
-        {/* Slider Sections */}
+        {/* Input Sections */}
         <div className="space-y-3">
           {/* Staffing */}
           <Section
@@ -266,23 +439,23 @@ export function ClinicSimulator() {
           >
             {(
               [
-                ["physicians", 0, 40, 1, `${staffing.physicians} ${isEs ? "Médicos" : "MDs"}`],
-                ["nps", 0, 30, 1, `${staffing.nps} NPs`],
-                ["pas", 0, 20, 1, `${staffing.pas} PAs`],
-                ["rns", 0, 80, 1, `${staffing.rns} RNs`],
-                ["mas", 0, 120, 5, `${staffing.mas} MAs`],
-                ["chws", 0, 50, 1, `${staffing.chws} CHWs`],
-                ["bhProviders", 0, 25, 1, `${staffing.bhProviders} ${isEs ? "Proveedores BH" : "BH Providers"}`],
-              ] as [keyof StaffingInput, number, number, number, string][]
-            ).map(([key, min, max, step, display]) => (
-              <Slider
+                ["physicians", 0, 40, 1],
+                ["nps", 0, 30, 1],
+                ["pas", 0, 20, 1],
+                ["rns", 0, 80, 1],
+                ["mas", 0, 120, 5],
+                ["chws", 0, 50, 1],
+                ["bhProviders", 0, 25, 1],
+                ["dentalProviders", 0, 20, 1],
+              ] as [keyof StaffingInput, number, number, number][]
+            ).map(([key, min, max, step]) => (
+              <NumberField
                 key={key}
                 label={t(STAFF_COSTS[key].label, locale)}
                 value={staffing[key]}
                 min={min}
                 max={max}
                 step={step}
-                display={display}
                 onChange={(v) => updateStaffing(key, v)}
               />
             ))}
@@ -292,135 +465,183 @@ export function ClinicSimulator() {
           <Section
             title={isEs ? "Horario" : "Schedule"}
             icon={Clock}
-            summary={`${schedule.hoursPerDay}h/day, ${schedule.daysPerWeek} days, ${schedule.encountersPerProviderPerDay} enc/provider, ${schedule.noShowRate}% no-show`}
+            summary={`${schedule.hoursPerDay}h/day, ${schedule.daysPerWeek} days, ${schedule.encountersPerProviderPerDay} enc/prov, ${schedule.noShowRate}% no-show`}
           >
-            <Slider
+            <NumberField
               label={isEs ? "Horas por día" : "Hours per Day"}
               value={schedule.hoursPerDay}
               min={6}
               max={14}
               step={1}
-              display={`${schedule.hoursPerDay}h`}
+              suffix="h"
               onChange={(v) => updateSchedule("hoursPerDay", v)}
             />
-            <Slider
+            <NumberField
               label={isEs ? "Días por semana" : "Days per Week"}
               value={schedule.daysPerWeek}
               min={4}
               max={7}
               step={1}
-              display={`${schedule.daysPerWeek}`}
+              suffix="d"
               onChange={(v) => updateSchedule("daysPerWeek", v)}
             />
-            <Slider
-              label={isEs ? "Encuentros por proveedor/día" : "Encounters per Provider/Day"}
+            <NumberField
+              label={
+                isEs
+                  ? "Encuentros por proveedor/día"
+                  : "Encounters per Provider/Day"
+              }
               value={schedule.encountersPerProviderPerDay}
               min={8}
               max={28}
               step={1}
-              display={`${schedule.encountersPerProviderPerDay}`}
               onChange={(v) =>
                 updateSchedule("encountersPerProviderPerDay", v)
               }
             />
-            <Slider
+            <NumberField
               label={isEs ? "Tasa de inasistencia" : "No-Show Rate"}
               value={schedule.noShowRate}
               min={0}
               max={30}
               step={1}
-              display={`${schedule.noShowRate}%`}
-              gradient="from-teal-200 to-red-200"
+              suffix="%"
               onChange={(v) => updateSchedule("noShowRate", v)}
             />
           </Section>
 
           {/* Revenue & Visit Mix */}
           <Section
-            title={isEs ? "Ingresos y Mezcla de Visitas" : "Revenue & Visit Mix"}
+            title={
+              isEs ? "Ingresos y Mezcla de Pagadores" : "Revenue & Payer Mix"
+            }
             icon={DollarSign}
-            summary={`$${revenue.ppsRate} PPS, ${revenue.coVisitRate}% co-visit, ${revenue.bhSameDayRate}% BH, ${revenue.ecmEnrollmentRate}% ECM`}
+            summary={`$${revenue.ppsRate} PPS, ${revenue.mediCalPercent}% Medi-Cal, ${revenue.dentalSameDayRate}% dental, ${revenue.bhSameDayRate}% BH`}
           >
-            <Slider
+            <NumberField
               label={isEs ? "Tarifa PPS por encuentro" : "PPS Rate per Encounter"}
               value={revenue.ppsRate}
               min={150}
               max={400}
               step={5}
-              display={`$${revenue.ppsRate}`}
+              suffix="$"
               onChange={(v) => updateRevenue("ppsRate", v)}
             />
-            <Slider
-              label={isEs ? "Tasa de co-visita RN (Modelo B)" : "RN Co-Visit Rate (Model B)"}
-              value={revenue.coVisitRate}
+            <NumberField
+              label={isEs ? "Medi-Cal como % del panel" : "Medi-Cal % of Payer Mix"}
+              value={revenue.mediCalPercent}
               min={0}
-              max={40}
-              step={1}
-              display={`${revenue.coVisitRate}%`}
-              onChange={(v) => updateRevenue("coVisitRate", v)}
+              max={100}
+              step={5}
+              suffix="%"
+              onChange={(v) => updateRevenue("mediCalPercent", v)}
             />
-            <Slider
-              label={isEs ? "Tasa de BH mismo día" : "BH Same-Day Rate"}
+            <NumberField
+              label={
+                isEs
+                  ? "Dental mismo día (% de visitas)"
+                  : "Same-Day Dental (% of visits)"
+              }
+              value={revenue.dentalSameDayRate}
+              min={0}
+              max={30}
+              step={1}
+              suffix="%"
+              onChange={(v) => updateRevenue("dentalSameDayRate", v)}
+            />
+            <NumberField
+              label={
+                isEs
+                  ? "BH mismo día (% de visitas)"
+                  : "BH Same-Day Rate (% of visits)"
+              }
               value={revenue.bhSameDayRate}
               min={0}
               max={30}
               step={1}
-              display={`${revenue.bhSameDayRate}%`}
+              suffix="%"
               onChange={(v) => updateRevenue("bhSameDayRate", v)}
             />
-            <Slider
+            <Toggle
+              label={
+                isEs
+                  ? "Inscrito en APM de FQHC (julio 2024)"
+                  : "Enrolled in FQHC APM (July 2024)"
+              }
+              checked={revenue.apmEnrolled}
+              onChange={(v) => updateRevenue("apmEnrolled", v)}
+            />
+            {!revenue.apmEnrolled && revenue.bhSameDayRate > 0 && (
+              <div className="flex items-start gap-2 rounded-lg bg-amber-50 p-2.5 text-xs text-amber-800">
+                <AlertTriangle className="mt-0.5 size-3.5 shrink-0" />
+                <span>
+                  {isEs
+                    ? `Sin APM, el ${revenue.mediCalPercent}% de sus encuentros BH mismo día (Medi-Cal) NO generan un 2° PPS. Solo el ${100 - revenue.mediCalPercent}% (Medicare) es facturable como 2° encuentro.`
+                    : `Without APM, ${revenue.mediCalPercent}% of your same-day BH encounters (Medi-Cal) do NOT generate a 2nd PPS. Only ${100 - revenue.mediCalPercent}% (Medicare) bills as a 2nd encounter.`}
+                </span>
+              </div>
+            )}
+            <NumberField
               label={isEs ? "Inscripción ECM" : "ECM Enrollment"}
               value={revenue.ecmEnrollmentRate}
               min={0}
               max={20}
               step={1}
-              display={`${revenue.ecmEnrollmentRate}%`}
+              suffix="%"
               onChange={(v) => updateRevenue("ecmEnrollmentRate", v)}
+            />
+            <NumberField
+              label={isEs ? "Multiplicador regional" : "Regional Multiplier"}
+              value={revenue.regionalMultiplier}
+              min={0.88}
+              max={1.15}
+              step={0.01}
+              onChange={(v) => updateRevenue("regionalMultiplier", v)}
             />
           </Section>
 
           {/* Disease Management */}
           <Section
-            title={
-              isEs ? "Manejo de Enfermedades" : "Disease Management"
-            }
+            title={isEs ? "Perfil de Enfermedades" : "Disease Profile"}
             icon={Activity}
-            summary={`${disease.diabeticPercent}% diabetes, ${disease.htnPercent}% HTN, ${disease.depressionPercent}% depression`}
+            summary={`${disease.diabeticPercent}% diabetes, ${disease.htnPercent}% HTN, ${disease.depressionPercent}% depression, ${disease.copdPercent}% COPD`}
           >
-            <Slider
+            <NumberField
               label={isEs ? "Panel diabético" : "Diabetic Panel"}
               value={disease.diabeticPercent}
               min={0}
               max={40}
               step={1}
-              display={`${disease.diabeticPercent}%`}
+              suffix="%"
               onChange={(v) => updateDisease("diabeticPercent", v)}
             />
-            <Slider
+            <NumberField
               label={isEs ? "Panel hipertensión" : "Hypertension Panel"}
               value={disease.htnPercent}
               min={0}
               max={50}
               step={1}
-              display={`${disease.htnPercent}%`}
+              suffix="%"
               onChange={(v) => updateDisease("htnPercent", v)}
             />
-            <Slider
-              label={isEs ? "Depresión (positivo)" : "Depression (Positive)"}
+            <NumberField
+              label={
+                isEs ? "Depresión (positivo)" : "Depression (Positive Screen)"
+              }
               value={disease.depressionPercent}
               min={0}
               max={30}
               step={1}
-              display={`${disease.depressionPercent}%`}
+              suffix="%"
               onChange={(v) => updateDisease("depressionPercent", v)}
             />
-            <Slider
+            <NumberField
               label={isEs ? "EPOC" : "COPD"}
               value={disease.copdPercent}
               min={0}
               max={15}
               step={1}
-              display={`${disease.copdPercent}%`}
+              suffix="%"
               onChange={(v) => updateDisease("copdPercent", v)}
             />
           </Section>
@@ -485,8 +706,8 @@ export function ClinicSimulator() {
                     color: "bg-teal-600",
                   },
                   {
-                    label: isEs ? "Co-Visita" : "Co-Visit",
-                    value: results.coVisitRevenue,
+                    label: isEs ? "Dental" : "Dental",
+                    value: results.dentalRevenue,
                     color: "bg-teal-400",
                   },
                   {
@@ -494,8 +715,16 @@ export function ClinicSimulator() {
                     value: results.bhRevenue,
                     color: "bg-amber-500",
                   },
-                  { label: "ECM", value: results.ecmRevenue, color: "bg-purple-500" },
-                  { label: "CCM", value: results.ccmRevenue, color: "bg-blue-500" },
+                  {
+                    label: "ECM",
+                    value: results.ecmRevenue,
+                    color: "bg-purple-500",
+                  },
+                  {
+                    label: "CCM",
+                    value: results.ccmRevenue,
+                    color: "bg-blue-500",
+                  },
                 ]
                   .filter((s) => s.value > 0)
                   .map((source) => (
@@ -511,11 +740,31 @@ export function ClinicSimulator() {
               </div>
               <div className="mt-1 flex flex-wrap gap-3 text-[10px] text-stone-500">
                 {[
-                  { label: "PPS", color: "bg-teal-600", value: results.basePPSRevenue },
-                  { label: isEs ? "Co-Visita" : "Co-Visit", color: "bg-teal-400", value: results.coVisitRevenue },
-                  { label: "BH", color: "bg-amber-500", value: results.bhRevenue },
-                  { label: "ECM", color: "bg-purple-500", value: results.ecmRevenue },
-                  { label: "CCM", color: "bg-blue-500", value: results.ccmRevenue },
+                  {
+                    label: "PPS",
+                    color: "bg-teal-600",
+                    value: results.basePPSRevenue,
+                  },
+                  {
+                    label: isEs ? "Dental" : "Dental",
+                    color: "bg-teal-400",
+                    value: results.dentalRevenue,
+                  },
+                  {
+                    label: "BH",
+                    color: "bg-amber-500",
+                    value: results.bhRevenue,
+                  },
+                  {
+                    label: "ECM",
+                    color: "bg-purple-500",
+                    value: results.ecmRevenue,
+                  },
+                  {
+                    label: "CCM",
+                    color: "bg-blue-500",
+                    value: results.ccmRevenue,
+                  },
                 ]
                   .filter((s) => s.value > 0)
                   .map((s) => (
@@ -540,7 +789,7 @@ export function ClinicSimulator() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-stone-500">
-                    {isEs ? "Proveedores facturables" : "Billable Providers"}
+                    {isEs ? "Proveedores médicos" : "Medical Providers"}
                   </span>
                   <span className="font-bold text-stone-900">
                     {results.billableProvidersCount}
@@ -556,36 +805,45 @@ export function ClinicSimulator() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-stone-500">
-                    {isEs ? "Encuentros/mes" : "Encounters/Month"}
-                  </span>
-                  <span className="font-bold text-stone-900">
-                    {Math.round(results.totalEncountersPerMonth).toLocaleString()}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-stone-500">
                     {isEs ? "Encuentros/año" : "Encounters/Year"}
                   </span>
                   <span className="font-bold text-stone-900">
-                    {Math.round(results.totalEncountersPerYear).toLocaleString()}
+                    {Math.round(
+                      results.totalEncountersPerYear
+                    ).toLocaleString()}
                   </span>
                 </div>
                 <div className="flex justify-between border-t border-stone-100 pt-2">
                   <span className="text-stone-500">
-                    {isEs ? "+ Co-Visitas/año" : "+ Co-Visits/Year"}
+                    {isEs
+                      ? "+ Dental mismo día/año"
+                      : "+ Same-Day Dental/Year"}
                   </span>
                   <span className="font-bold text-teal-700">
-                    +{Math.round(results.coVisitEncountersPerYear).toLocaleString()}
+                    +
+                    {Math.round(
+                      results.dentalEncountersPerYear
+                    ).toLocaleString()}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-stone-500">
-                    {isEs ? "+ BH mismo día/año" : "+ BH Same-Day/Year"}
+                    {isEs ? "+ BH facturables/año" : "+ BH Billable/Year"}
                   </span>
                   <span className="font-bold text-amber-600">
-                    +{Math.round(results.bhEncountersPerYear).toLocaleString()}
+                    +
+                    {Math.round(
+                      results.bhBillableEncountersPerYear
+                    ).toLocaleString()}
                   </span>
                 </div>
+                {results.bhEncountersPerYear > results.bhBillableEncountersPerYear && (
+                  <div className="text-[10px] text-amber-600">
+                    {isEs
+                      ? `⚠️ ${Math.round(results.bhEncountersPerYear - results.bhBillableEncountersPerYear).toLocaleString()} encuentros BH no facturables como 2° PPS (Medi-Cal sin APM)`
+                      : `⚠️ ${Math.round(results.bhEncountersPerYear - results.bhBillableEncountersPerYear).toLocaleString()} BH encounters not billable as 2nd PPS (Medi-Cal without APM)`}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -639,136 +897,28 @@ export function ClinicSimulator() {
             </div>
           </div>
 
-          {/* Provider-of-the-Day Analysis */}
-          <div className="rounded-xl border-2 border-amber-200 bg-amber-50/50 p-5">
-            <h4 className="mb-3 flex items-center gap-2 text-sm font-bold text-amber-800">
-              <Building2 className="size-4" />
-              {isEs
-                ? "Análisis: Proveedor del Día"
-                : "Analysis: Provider-of-the-Day Model"}
-            </h4>
+          {/* ============================================================ */}
+          {/*  OPTIMIZE BUTTON                                              */}
+          {/* ============================================================ */}
+          <button
+            onClick={() => setShowOptimize(!showOptimize)}
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-6 py-4 text-lg font-bold text-white shadow-lg transition-all hover:bg-red-700 hover:shadow-xl active:scale-[0.98]"
+          >
+            <Zap className="size-5" />
+            {showOptimize
+              ? isEs
+                ? "Ocultar Optimizaciones"
+                : "Hide Optimizations"
+              : isEs
+                ? "Optimizar — Ver Oportunidades de Ingreso"
+                : "Optimize — Show Revenue Opportunities"}
+            {!showOptimize && <ArrowRight className="size-5" />}
+          </button>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {/* Scenario A */}
-              <div className="rounded-lg bg-white p-4">
-                <p className="mb-1 text-xs font-bold text-stone-500">
-                  {isEs ? "ESCENARIO A" : "SCENARIO A"}
-                </p>
-                <p className="text-sm font-medium text-stone-700">
-                  {t(results.potd.scenarioA.label, locale)}
-                </p>
-                <div className="mt-3 space-y-1 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">
-                      {isEs ? "Encuentros/día" : "Encounters/Day"}
-                    </span>
-                    <span className="font-bold">
-                      {results.potd.scenarioA.encountersPerDay}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">
-                      {isEs ? "Ingresos/día" : "Revenue/Day"}
-                    </span>
-                    <span className="font-bold">
-                      ${results.potd.scenarioA.revenuePerDay.toLocaleString()}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">
-                      {isEs ? "Ingresos/año" : "Revenue/Year"}
-                    </span>
-                    <span className="font-bold">
-                      {formatCurrency(results.potd.scenarioA.revenuePerYear)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Scenario B */}
-              <div className="rounded-lg bg-white p-4 ring-2 ring-amber-300">
-                <p className="mb-1 text-xs font-bold text-amber-600">
-                  {isEs ? "ESCENARIO B" : "SCENARIO B"}
-                </p>
-                <p className="text-sm font-medium text-stone-700">
-                  {t(results.potd.scenarioB.label, locale)}
-                </p>
-                <div className="mt-3 space-y-1 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">
-                      {isEs ? "RNs apoyados" : "RNs Supported"}
-                    </span>
-                    <span className="font-bold">
-                      {results.potd.scenarioB.rnsSupported}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">
-                      {isEs ? "Encuentros/día" : "Encounters/Day"}
-                    </span>
-                    <span className="font-bold text-amber-700">
-                      {results.potd.scenarioB.encountersPerDay}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">
-                      {isEs ? "Ingresos/día" : "Revenue/Day"}
-                    </span>
-                    <span className="font-bold text-amber-700">
-                      ${results.potd.scenarioB.revenuePerDay.toLocaleString()}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">
-                      {isEs ? "Ingresos/año" : "Revenue/Year"}
-                    </span>
-                    <span className="font-bold text-amber-700">
-                      {formatCurrency(results.potd.scenarioB.revenuePerYear)}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* POTD Key Metrics */}
-            <div className="mt-4 grid grid-cols-3 gap-3">
-              <div className="rounded-lg bg-white p-3 text-center">
-                <p className="text-xs text-stone-500">
-                  {isEs ? "Costo/día del proveedor" : "Provider Cost/Day"}
-                </p>
-                <p className="text-lg font-bold text-stone-900">
-                  ${Math.round(results.potd.providerDailyCost).toLocaleString()}
-                </p>
-              </div>
-              <div className="rounded-lg bg-white p-3 text-center">
-                <p className="text-xs text-stone-500">
-                  {isEs ? "Punto de equilibrio" : "Breakeven"}
-                </p>
-                <p className="text-lg font-bold text-amber-700">
-                  {results.potd.breakevenEncounters}{" "}
-                  {isEs ? "enc/día" : "enc/day"}
-                </p>
-              </div>
-              <div className="rounded-lg bg-white p-3 text-center">
-                <p className="text-xs text-stone-500">
-                  {isEs ? "Diferencia neta/año" : "Net Difference/Year"}
-                </p>
-                <p
-                  className={`text-lg font-bold ${results.potd.netDifference >= 0 ? "text-teal-700" : "text-red-700"}`}
-                >
-                  {results.potd.netDifference >= 0 ? "+" : ""}
-                  {formatCurrency(results.potd.netDifference)}
-                </p>
-              </div>
-            </div>
-
-            {/* Recommendation */}
-            <div className="mt-3 rounded-lg bg-amber-100 p-3">
-              <p className="text-xs leading-relaxed text-amber-900">
-                {t(results.potd.recommendation, locale)}
-              </p>
-            </div>
-          </div>
+          {/* Optimization Pathways */}
+          {showOptimize && (
+            <OptimizationPanel pathways={optimizations} locale={locale} />
+          )}
 
           {/* Payroll Breakdown */}
           <details className="rounded-xl border border-stone-200 bg-white">
@@ -779,9 +929,15 @@ export function ClinicSimulator() {
               <table className="mt-2 w-full text-sm">
                 <thead>
                   <tr className="text-xs text-stone-500">
-                    <th className="pb-2 text-left">{isEs ? "Rol" : "Role"}</th>
-                    <th className="pb-2 text-right">{isEs ? "Cantidad" : "Count"}</th>
-                    <th className="pb-2 text-right">{isEs ? "Costo Total" : "Total Cost"}</th>
+                    <th className="pb-2 text-left">
+                      {isEs ? "Rol" : "Role"}
+                    </th>
+                    <th className="pb-2 text-right">
+                      {isEs ? "Cantidad" : "Count"}
+                    </th>
+                    <th className="pb-2 text-right">
+                      {isEs ? "Costo Total" : "Total Cost"}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -823,8 +979,8 @@ export function ClinicSimulator() {
           <Info className="mt-0.5 size-3.5 shrink-0" />
           <p>
             {isEs
-              ? "Modelo simplificado para planificación estratégica. Los resultados reales varían según mezcla de pagadores, tasas PPS específicas, contratos de atención administrada y condiciones locales. Fuentes: CMS FQHC PPS, CA DHCS, NACHC, HRSA BPHC."
-              : "Simplified model for strategic planning. Actual results vary by payer mix, site-specific PPS rates, managed care contracts, and local conditions. Sources: CMS FQHC PPS, CA DHCS, NACHC, HRSA BPHC."}
+              ? "Modelo para planificación estratégica. Facturación BH mismo día: 2 PPS bajo Medicare, 1 PPS bajo Medi-Cal (WIC §14132.100) a menos que esté inscrito en APM. Dental mismo día: 2 PPS bajo ambos pagadores. Resultados varían según mezcla de pagadores y condiciones locales."
+              : "Model for strategic planning. Same-day BH billing: 2 PPS under Medicare, 1 PPS under Medi-Cal (WIC §14132.100) unless APM enrolled. Same-day dental: 2 PPS under both payers. Results vary by payer mix and local conditions."}
           </p>
         </div>
       </div>

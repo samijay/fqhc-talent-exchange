@@ -407,6 +407,122 @@ const ROLE_PLANS: Record<string, RolePlanContent> = {
     milestone60: { text: "You're processing claims independently with 90%+ clean claim rate and systematic denial tracking", esText: "Estas procesando reclamos independientemente con tasa de reclamos limpios de 90%+ y rastreo sistematico de denegaciones" },
     milestone90: { text: "95%+ clean claim rate, denial pattern analysis complete, and revenue metrics presented to leadership", esText: "Tasa de reclamos limpios de 95%+, analisis de patron de denegaciones completo y metricas de ingresos presentadas al liderazgo" },
   },
+
+  hr_manager: {
+    roleName: "HR Manager",
+    esRoleName: "Gerente de Recursos Humanos",
+    days1to30: [
+      { text: "Review the org chart, staffing ratios, and vacancy report — identify critical open positions across all sites", esText: "Revisa el organigrama, proporciones de personal e informe de vacantes — identifica posiciones criticas abiertas en todos los sitios", domain: "execution" },
+      { text: "Read all active union contracts (SEIU, NUHW) — understand grievance procedures, step increases, and seniority rules", esText: "Lee todos los contratos sindicales activos (SEIU, NUHW) — entiende procedimientos de quejas, aumentos escalonados y reglas de antiguedad", domain: "execution" },
+      { text: "Meet department heads at each site to understand their staffing needs and retention challenges", esText: "Reune con los jefes de departamento de cada sitio para entender sus necesidades de personal y desafios de retencion", domain: "people" },
+      { text: "Audit SB 525 compliance: verify all staff meet current minimum wage tiers and document the next increase timeline", esText: "Audita el cumplimiento de SB 525: verifica que todo el personal cumpla con los niveles actuales de salario minimo y documenta el cronograma del proximo aumento", domain: "execution" },
+      { text: "Schedule your Five Conversations with the CEO/COO to align on workforce priorities and budget constraints", esText: "Programa tus Cinco Conversaciones con el CEO/COO para alinear prioridades de fuerza laboral y restricciones presupuestarias", domain: "general" },
+    ],
+    days31to60: [
+      { text: "Build a recruiting pipeline for hard-to-fill roles — partner with local colleges, CHW training programs, and community organizations", esText: "Construye un canal de reclutamiento para roles dificiles de llenar — asociate con universidades locales, programas de capacitacion de CHW y organizaciones comunitarias", domain: "execution" },
+      { text: "Conduct a compensation benchmarking analysis using FQHC salary data — identify roles at risk of attrition", esText: "Realiza un analisis comparativo de compensacion usando datos salariales de FQHC — identifica roles en riesgo de desgaste", domain: "execution" },
+      { text: "Establish regular check-ins with union stewards to build a collaborative (not adversarial) working relationship", esText: "Establece reuniones regulares con delegados sindicales para construir una relacion de trabajo colaborativa (no adversarial)", domain: "people" },
+      { text: "Review and update the employee handbook for compliance with current CA labor law and FQHC-specific policies", esText: "Revisa y actualiza el manual del empleado para cumplimiento con la ley laboral actual de CA y politicas especificas de FQHC", domain: "execution" },
+      { text: "Attend a CalAIM workforce development webinar to understand upcoming credentialing requirements", esText: "Asiste a un seminario web de desarrollo de fuerza laboral CalAIM para entender los proximos requisitos de acreditacion", domain: "growth" },
+    ],
+    days61to90: [
+      { text: "Launch a structured retention program — stay interviews, career pathway discussions, and exit interview improvements", esText: "Lanza un programa de retencion estructurado — entrevistas de permanencia, discusiones de trayectoria profesional y mejoras en entrevistas de salida", domain: "mission" },
+      { text: "Present a workforce analytics report to leadership: turnover rates, cost-per-hire, time-to-fill, and diversity metrics", esText: "Presenta un informe de analitica de fuerza laboral al liderazgo: tasas de rotacion, costo por contratacion, tiempo de llenado y metricas de diversidad", domain: "execution" },
+      { text: "Propose an NHSC loan repayment partnership or tuition assistance program to attract clinical staff", esText: "Propone una asociacion de reembolso de prestamos NHSC o programa de asistencia de matricula para atraer personal clinico", domain: "growth" },
+      { text: "Create a 6-month HR strategic plan aligned with the FQHC's operational and growth priorities", esText: "Crea un plan estrategico de RH de 6 meses alineado con las prioridades operativas y de crecimiento del FQHC", domain: "growth" },
+      { text: "Train supervisors on progressive discipline, documentation, and performance improvement plans", esText: "Capacita a los supervisores en disciplina progresiva, documentacion y planes de mejora del desempeno", domain: "people" },
+    ],
+    milestone30: { text: "You understand the org structure, union contracts, SB 525 status, and have met all department leaders", esText: "Entiendes la estructura organizacional, contratos sindicales, estado de SB 525 y has conocido a todos los lideres de departamento" },
+    milestone60: { text: "Recruiting pipeline active, compensation analysis complete, and employee handbook updated", esText: "Canal de reclutamiento activo, analisis de compensacion completo y manual del empleado actualizado" },
+    milestone90: { text: "Retention program launched, workforce analytics presented to leadership, and 6-month HR plan created", esText: "Programa de retencion lanzado, analitica de fuerza laboral presentada al liderazgo y plan de RH de 6 meses creado" },
+  },
+
+  accountant: {
+    roleName: "Accountant",
+    esRoleName: "Contador(a)",
+    days1to30: [
+      { text: "Learn the FQHC's chart of accounts, fund structure, and accounting software (QuickBooks, Sage, MIP, etc.)", esText: "Aprende el catalogo de cuentas del FQHC, estructura de fondos y software contable (QuickBooks, Sage, MIP, etc.)", domain: "execution" },
+      { text: "Review PPS cost reporting methodology — understand how visit rates, costs, and wrap payments are calculated", esText: "Revisa la metodologia de reporte de costos PPS — entiende como se calculan tarifas de visitas, costos y pagos complementarios", domain: "execution" },
+      { text: "Meet the Finance Manager, billing team, and grants manager to understand the revenue cycle end-to-end", esText: "Reune con el Gerente de Finanzas, equipo de facturacion y gerente de subvenciones para entender el ciclo de ingresos de principio a fin", domain: "people" },
+      { text: "Review all active grants (HRSA Section 330, state, private) — understand reporting deadlines and allowable costs", esText: "Revisa todas las subvenciones activas (HRSA Seccion 330, estatales, privadas) — entiende plazos de informes y costos permitidos", domain: "execution" },
+      { text: "Schedule your Five Conversations with the Finance Manager to align on priorities and month-end close expectations", esText: "Programa tus Cinco Conversaciones con el Gerente de Finanzas para alinear prioridades y expectativas de cierre de mes", domain: "general" },
+    ],
+    days31to60: [
+      { text: "Begin processing AP/AR independently — ensure proper coding to grant-funded vs. operating accounts", esText: "Comienza a procesar cuentas por pagar/cobrar independientemente — asegura la codificacion correcta entre cuentas financiadas por subvenciones vs. operativas", domain: "execution" },
+      { text: "Prepare your first grant expenditure report using the correct OMB Uniform Guidance cost allocation methods", esText: "Prepara tu primer informe de gastos de subvencion usando los metodos correctos de asignacion de costos de la Guia Uniforme OMB", domain: "execution" },
+      { text: "Learn 340B Drug Pricing Program accounting — track pharmacy purchases, rebates, and compliance requirements", esText: "Aprende la contabilidad del Programa 340B — rastrea compras de farmacia, reembolsos y requisitos de cumplimiento", domain: "growth" },
+      { text: "Collaborate with the billing team on monthly revenue reconciliation between claims data and general ledger", esText: "Colabora con el equipo de facturacion en la reconciliacion mensual de ingresos entre datos de reclamos y libro mayor", domain: "people" },
+      { text: "Document all month-end close procedures you learn — create a personal procedures manual", esText: "Documenta todos los procedimientos de cierre de mes que aprendas — crea un manual de procedimientos personal", domain: "execution" },
+    ],
+    days61to90: [
+      { text: "Handle full month-end close responsibilities with accurate, timely financial statements", esText: "Maneja las responsabilidades completas de cierre de mes con estados financieros precisos y oportunos", domain: "execution" },
+      { text: "Prepare supporting schedules for the annual financial audit — organize PPS cost report workpapers", esText: "Prepara cedulas de soporte para la auditoria financiera anual — organiza papeles de trabajo del reporte de costos PPS", domain: "execution" },
+      { text: "Identify a process improvement in the accounting workflow and present it to the Finance Manager", esText: "Identifica una mejora de proceso en el flujo de trabajo contable y presentala al Gerente de Finanzas", domain: "growth" },
+      { text: "Create a grant compliance calendar tracking all federal and state reporting deadlines", esText: "Crea un calendario de cumplimiento de subvenciones rastreando todos los plazos de informes federales y estatales", domain: "mission" },
+      { text: "Begin studying for CPA or CGFM certification to advance in FQHC finance", esText: "Comienza a estudiar para la certificacion CPA o CGFM para avanzar en finanzas de FQHC", domain: "growth" },
+    ],
+    milestone30: { text: "You understand the chart of accounts, PPS cost reporting basics, and have mapped all active grants", esText: "Entiendes el catalogo de cuentas, basicos de reporte de costos PPS y has mapeado todas las subvenciones activas" },
+    milestone60: { text: "Processing AP/AR independently, 340B accounting started, and month-end close procedures documented", esText: "Procesando cuentas por pagar/cobrar independientemente, contabilidad 340B iniciada y procedimientos de cierre de mes documentados" },
+    milestone90: { text: "Full month-end close responsibility, audit prep underway, and grant compliance calendar created", esText: "Responsabilidad completa de cierre de mes, preparacion de auditoria en curso y calendario de cumplimiento de subvenciones creado" },
+  },
+
+  payroll_specialist: {
+    roleName: "Payroll Specialist",
+    esRoleName: "Especialista en Nomina",
+    days1to30: [
+      { text: "Audit the current payroll setup: systems (ADP, Paychex, Paycom), pay schedules, and multi-site configurations", esText: "Audita la configuracion actual de nomina: sistemas (ADP, Paychex, Paycom), calendarios de pago y configuraciones multi-sitio", domain: "execution" },
+      { text: "Review all union contracts for pay scales, step increases, shift differentials, and overtime provisions", esText: "Revisa todos los contratos sindicales para escalas de pago, aumentos escalonados, diferenciales de turno y provisiones de tiempo extra", domain: "execution" },
+      { text: "Meet site managers and department heads to understand unique payroll situations (per diem staff, grant-funded positions, locum providers)", esText: "Reune con gerentes de sitio y jefes de departamento para entender situaciones unicas de nomina (personal per diem, posiciones financiadas por subvenciones, proveedores locum)", domain: "people" },
+      { text: "Verify SB 525 compliance across all sites — document current wage tiers and upcoming increase dates by FQHC classification", esText: "Verifica el cumplimiento de SB 525 en todos los sitios — documenta los niveles salariales actuales y fechas de proximo aumento por clasificacion FQHC", domain: "execution" },
+      { text: "Schedule your Five Conversations with the Finance Manager/CFO to understand payroll accuracy and compliance expectations", esText: "Programa tus Cinco Conversaciones con el Gerente de Finanzas/CFO para entender expectativas de precision y cumplimiento de nomina", domain: "general" },
+    ],
+    days31to60: [
+      { text: "Process payroll independently for at least one pay cycle across all sites — aim for 100% accuracy", esText: "Procesa nomina independientemente para al menos un ciclo de pago en todos los sitios — apunta a 100% de precision", domain: "execution" },
+      { text: "Build a payroll exceptions tracker: garnishments, tax levies, benefit deductions, and retroactive adjustments", esText: "Construye un rastreador de excepciones de nomina: embargos, gravamenes fiscales, deducciones de beneficios y ajustes retroactivos", domain: "execution" },
+      { text: "Establish a clear communication process with HR for new hires, terminations, status changes, and leave tracking", esText: "Establece un proceso de comunicacion claro con RH para nuevas contrataciones, terminaciones, cambios de estado y rastreo de permisos", domain: "people" },
+      { text: "Learn CA-specific payroll requirements: meal/rest break premiums, reporting time pay, final pay deadlines", esText: "Aprende los requisitos especificos de nomina de CA: premios de descanso/comida, pago de tiempo de reporte, plazos de pago final", domain: "growth" },
+      { text: "Cross-reference payroll tax filings and W-2 preparation procedures for multi-site compliance", esText: "Cruza las declaraciones de impuestos de nomina y procedimientos de preparacion de W-2 para cumplimiento multi-sitio", domain: "execution" },
+    ],
+    days61to90: [
+      { text: "Handle full multi-site payroll independently with consistent 100% accuracy and on-time processing", esText: "Maneja la nomina completa multi-sitio independientemente con 100% de precision consistente y procesamiento a tiempo", domain: "execution" },
+      { text: "Implement proactive SB 525 wage increase tracking — create an automated calendar for upcoming tier changes", esText: "Implementa rastreo proactivo de aumentos salariales SB 525 — crea un calendario automatizado para proximos cambios de nivel", domain: "growth" },
+      { text: "Create a payroll procedures manual documenting all multi-site processes, exceptions, and CA compliance requirements", esText: "Crea un manual de procedimientos de nomina documentando todos los procesos multi-sitio, excepciones y requisitos de cumplimiento de CA", domain: "execution" },
+      { text: "Present payroll cost analysis to leadership — labor costs by department, overtime trends, benefit utilization", esText: "Presenta analisis de costos de nomina al liderazgo — costos laborales por departamento, tendencias de tiempo extra, utilizacion de beneficios", domain: "mission" },
+      { text: "Identify one payroll process automation opportunity and propose implementation", esText: "Identifica una oportunidad de automatizacion de proceso de nomina y propone implementacion", domain: "growth" },
+    ],
+    milestone30: { text: "You understand the payroll system, union pay scales, SB 525 status, and multi-site configurations", esText: "Entiendes el sistema de nomina, escalas de pago sindicales, estado de SB 525 y configuraciones multi-sitio" },
+    milestone60: { text: "Processing payroll independently with 100% accuracy and CA compliance procedures documented", esText: "Procesando nomina independientemente con 100% de precision y procedimientos de cumplimiento de CA documentados" },
+    milestone90: { text: "Full multi-site payroll ownership, procedures manual created, and payroll cost analysis presented", esText: "Propiedad completa de nomina multi-sitio, manual de procedimientos creado y analisis de costos de nomina presentado" },
+  },
+
+  finance_manager: {
+    roleName: "Finance Manager",
+    esRoleName: "Gerente de Finanzas",
+    days1to30: [
+      { text: "Conduct a comprehensive financial assessment: cash position, AR aging, payer mix, grant pipeline, and debt obligations", esText: "Realiza una evaluacion financiera integral: posicion de caja, envejecimiento de cuentas por cobrar, mezcla de pagadores, cartera de subvenciones y obligaciones de deuda", domain: "execution" },
+      { text: "Review the current budget vs. actuals — identify variances and understand the drivers behind each", esText: "Revisa el presupuesto actual vs. reales — identifica variaciones y entiende los impulsores detras de cada una", domain: "execution" },
+      { text: "Meet the CEO, COO, Board Treasurer, and each department head to understand financial priorities and pain points", esText: "Reune con el CEO, COO, Tesorero de la Junta y cada jefe de departamento para entender prioridades financieras y puntos de dolor", domain: "people" },
+      { text: "Understand the FQHC's revenue sources: PPS rates, Medi-Cal managed care contracts, Medicare, 340B, grants, and sliding fee", esText: "Entiende las fuentes de ingresos del FQHC: tarifas PPS, contratos de atencion administrada de Medi-Cal, Medicare, 340B, subvenciones y tarifa deslizante", domain: "execution" },
+      { text: "Schedule your Five Conversations with the CEO to align on board reporting expectations and strategic financial goals", esText: "Programa tus Cinco Conversaciones con el CEO para alinear expectativas de informes a la junta y metas financieras estrategicas", domain: "general" },
+    ],
+    days31to60: [
+      { text: "Build a 12-month cash flow projection incorporating Medi-Cal reimbursement delays (60-90+ days) and grant draw schedules", esText: "Construye una proyeccion de flujo de caja de 12 meses incorporando retrasos de reembolso de Medi-Cal (60-90+ dias) y calendarios de disposicion de subvenciones", domain: "execution" },
+      { text: "Reforecast the current-year budget based on actual revenue trends and emerging risks (funding cuts, payer changes)", esText: "Reajusta el presupuesto del ano actual basado en tendencias reales de ingresos y riesgos emergentes (recortes de financiamiento, cambios de pagadores)", domain: "execution" },
+      { text: "Develop a financial dashboard for the board: key metrics, trend lines, and risk indicators in plain language", esText: "Desarrolla un tablero financiero para la junta: metricas clave, lineas de tendencia e indicadores de riesgo en lenguaje sencillo", domain: "people" },
+      { text: "Model CalAIM revenue opportunities: ECM, Community Supports, and Population Health Management incentives", esText: "Modela oportunidades de ingresos CalAIM: ECM, Apoyos Comunitarios e incentivos de Gestion de Salud Poblacional", domain: "growth" },
+      { text: "Assess HRSA Operational Site Visit financial compliance readiness — identify gaps before the next review", esText: "Evalua la preparacion de cumplimiento financiero para la Visita Operativa de Sitio HRSA — identifica brechas antes de la proxima revision", domain: "execution" },
+    ],
+    days61to90: [
+      { text: "Present your first board financial report: clear narrative, key metrics, risk assessment, and strategic recommendations", esText: "Presenta tu primer informe financiero a la junta: narrativa clara, metricas clave, evaluacion de riesgos y recomendaciones estrategicas", domain: "execution" },
+      { text: "Develop a revenue diversification strategy — reduce dependence on any single payer source below 60%", esText: "Desarrolla una estrategia de diversificacion de ingresos — reduce la dependencia de cualquier fuente de pagador unico por debajo del 60%", domain: "growth" },
+      { text: "Create a 3-year financial strategic plan aligned with the FQHC's growth objectives and capital needs", esText: "Crea un plan financiero estrategico de 3 anos alineado con los objetivos de crecimiento y necesidades de capital del FQHC", domain: "mission" },
+      { text: "Train department heads on budget management: reading reports, managing variances, and submitting forecasts", esText: "Capacita a los jefes de departamento en gestion presupuestaria: lectura de informes, gestion de variaciones y envio de pronosticos", domain: "people" },
+      { text: "Implement monthly financial close procedures with 10-day turnaround for leadership reporting", esText: "Implementa procedimientos de cierre financiero mensual con tiempo de entrega de 10 dias para informes al liderazgo", domain: "execution" },
+    ],
+    milestone30: { text: "You have a complete financial picture: cash position, payer mix, grant portfolio, and budget variance analysis", esText: "Tienes una imagen financiera completa: posicion de caja, mezcla de pagadores, cartera de subvenciones y analisis de variacion presupuestaria" },
+    milestone60: { text: "Cash flow projection built, budget reforecasted, board dashboard designed, and CalAIM revenue modeled", esText: "Proyeccion de flujo de caja construida, presupuesto reajustado, tablero de junta disenado y ingresos CalAIM modelados" },
+    milestone90: { text: "First board report delivered, revenue diversification strategy proposed, and 3-year financial plan created", esText: "Primer informe a la junta entregado, estrategia de diversificacion de ingresos propuesta y plan financiero de 3 anos creado" },
+  },
 };
 
 /* --- Domain-Weighted Priority Items -------------------------------- */

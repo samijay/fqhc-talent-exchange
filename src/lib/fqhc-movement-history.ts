@@ -15,7 +15,7 @@ import type {
 export type { MovementCategory, TimelinePerson, TimelineEvent, TimelineEra };
 
 /** Exported for display on pages — updated when new events are added */
-export const MOVEMENT_LAST_UPDATED = "2026-02-28";
+export const MOVEMENT_LAST_UPDATED = "2026-03-06";
 
 /* ------------------------------------------------------------------ */
 /*  Cross-Cultural Alliance type (not in MovementTimeline)             */
@@ -200,6 +200,11 @@ export const MOVEMENT_EVENTS: TimelineEvent[] = [
     primarySourceUrl: "https://ufw.org/research/history/ufw-history/",
     primarySourceOrg: "United Farm Workers",
     era: "farmworker-roots",
+    videoUrl: "https://www.youtube.com/embed/JBxhSrXZoJE",
+    videoTitle: {
+      en: "Delano Grape Strike — Filipino & Mexican Farmworkers",
+      es: "Huelga de Uvas de Delano — Campesinos Filipinos y Mexicanos",
+    },
   },
   {
     id: "la-clinica-planning",
@@ -258,6 +263,34 @@ export const MOVEMENT_EVENTS: TimelineEvent[] = [
     location: "Boston, MA & Mound Bayou, MS (national model for CA clinics)",
     primarySourceUrl: "https://www.rchnfoundation.org/wp-content/uploads/2016/11/George-Washington-University-The-Origins-of-Community-Health-Centers.pdf",
     primarySourceOrg: "RCHN Community Health Foundation / George Washington University",
+    era: "farmworker-roots",
+    videoUrl: "https://www.youtube.com/embed/5MBQxhqDqLI",
+    videoTitle: {
+      en: "The History of Community Health Centers — NACHC",
+      es: "La Historia de los Centros de Salud Comunitarios — NACHC",
+    },
+  },
+  {
+    id: "mnhc-founded",
+    year: 1967,
+    title: {
+      en: "Mission Neighborhood Health Center Opens in San Francisco's Mission District",
+      es: "Centro de Salud del Barrio de la Misión Abre en el Distrito Misión de San Francisco",
+    },
+    description: {
+      en: "Mission Neighborhood Health Center was established in 1967 in San Francisco's Mission District, one of the earliest neighborhood health centers in California. Born from the same War on Poverty funding that created community health centers nationwide, MNHC was rooted in the predominantly Latino immigrant community of the Mission — a neighborhood facing overcrowded housing, language barriers, and near-total exclusion from the city's hospital system. Local community organizers, many connected to the Chicano movement, insisted the clinic be governed by the community it served. MNHC became a pioneer in bilingual healthcare delivery and culturally responsive care long before these became federal requirements.",
+      es: "El Centro de Salud del Barrio de la Misión fue establecido en 1967 en el Distrito Misión de San Francisco, uno de los primeros centros de salud comunitarios en California. Nacido del mismo financiamiento de la Guerra contra la Pobreza que creó centros de salud comunitarios a nivel nacional, MNHC estaba arraigado en la comunidad predominantemente latina inmigrante de la Misión — un vecindario que enfrentaba vivienda hacinada, barreras idiomáticas y exclusión casi total del sistema hospitalario de la ciudad. Organizadores comunitarios locales, muchos conectados al movimiento chicano, insistieron en que la clínica fuera gobernada por la comunidad a la que servía. MNHC fue pionero en la prestación de atención médica bilingüe y culturalmente apropiada mucho antes de que estos se convirtieran en requisitos federales.",
+    },
+    impact: {
+      en: "MNHC now serves over 12,000 patients annually with comprehensive primary care, behavioral health, and enabling services. It remains one of the oldest continuously operating community health centers in San Francisco and a model for culturally and linguistically responsive care in urban immigrant communities.",
+      es: "MNHC ahora atiende a más de 12,000 pacientes anualmente con atención primaria integral, salud conductual y servicios habilitadores. Sigue siendo uno de los centros de salud comunitarios más antiguos en operación continua en San Francisco y un modelo para la atención culturalmente apropiada en comunidades urbanas inmigrantes.",
+    },
+    category: "founding",
+    people: [],
+    organizations: ["Mission Neighborhood Health Center", "OEO"],
+    location: "San Francisco, California",
+    primarySourceUrl: "https://www.mnhc.org/about",
+    primarySourceOrg: "Mission Neighborhood Health Center",
     era: "farmworker-roots",
   },
   {

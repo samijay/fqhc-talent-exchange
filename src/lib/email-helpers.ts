@@ -82,10 +82,20 @@ export function emailFooter(isEs: boolean): string {
       : "FQHC Talent — The only talent platform built exclusively for community health centers."}<br />
     <a href="${SITE}" style="color: ${TEAL};">fqhctalent.com</a>
   </p>
-  <p style="font-size: 11px; color: #a8a29e; text-align: center; margin-top: 16px;">
+  <p style="font-size: 11px; color: #a8a29e; text-align: center; margin-top: 8px;">
     ${isEs
-      ? 'Si no deseas recibir más correos, responde con "cancelar suscripción" y te eliminaremos de nuestra lista.'
-      : 'If you no longer wish to receive these emails, reply with "unsubscribe" and we will remove you from our list.'}<br />
-    FQHC Talent · California, USA
+      ? "El contenido de este sitio es solo para fines informativos y no constituye asesoramiento legal, financiero, médico o profesional."
+      : "Content on this site is for informational purposes only and does not constitute legal, financial, medical, or professional advice."}
+  </p>
+  <p style="font-size: 11px; color: #a8a29e; text-align: center; margin-top: 12px;">
+    FQHC Talent<br />
+    PO Box 712138<br />
+    Los Angeles, CA 90071<br />
+    United States
+  </p>
+  <p style="font-size: 11px; color: #a8a29e; text-align: center; margin-top: 8px;">
+    ${isEs
+      ? 'Este es un correo promocional de FQHC Talent. Si no deseas recibir más correos, responde con "cancelar suscripción" o haz clic en el enlace de cancelación a continuación.'
+      : 'This is a promotional email from FQHC Talent. If you no longer wish to receive these emails, reply with "unsubscribe" or click the unsubscribe link below.'}
   </p>`;
 }

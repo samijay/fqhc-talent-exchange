@@ -74,6 +74,11 @@ export const SALARY_BENCHMARKS: SalaryBenchmark[] = [
   { roleId: "revenue_cycle", label: "Revenue Cycle Specialist", esLabel: "Especialista de Ciclo de Ingresos", p25: 50000, p50: 62000, p75: 72000 },
   { roleId: "billing_specialist", label: "Billing Specialist", esLabel: "Especialista en Facturación", p25: 45000, p50: 55000, p75: 63000 },
   { roleId: "medical_coder", label: "Medical Coder", esLabel: "Codificador/a Médico/a", p25: 48000, p50: 58000, p75: 66000 },
+  // Back Office / Finance / HR
+  { roleId: "hr_manager", label: "HR Manager", esLabel: "Gerente de Recursos Humanos", p25: 65000, p50: 78000, p75: 92000 },
+  { roleId: "accountant", label: "Accountant", esLabel: "Contador/a", p25: 55000, p50: 65000, p75: 78000 },
+  { roleId: "payroll_specialist", label: "Payroll Specialist", esLabel: "Especialista en Nómina", p25: 50000, p50: 60000, p75: 72000 },
+  { roleId: "finance_manager", label: "Finance Manager", esLabel: "Gerente de Finanzas", p25: 85000, p50: 100000, p75: 120000 },
   // Leadership
   { roleId: "program_manager", label: "Program Manager", esLabel: "Gerente de Programa", p25: 65000, p50: 80000, p75: 95000 },
   { roleId: "medical_director", label: "Medical Director", esLabel: "Director/a Médico/a", p25: 250000, p50: 339000, p75: 390000 },

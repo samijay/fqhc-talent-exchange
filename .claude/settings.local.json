@@ -223,7 +223,32 @@
       "Bash(__NEW_LINE_5976f59c8a461886__ echo \"\")",
       "Bash(__NEW_LINE_5701a9b3d2ec474a__ echo \"\")",
       "WebFetch(domain:laclinica.hrmdirect.com)",
-      "Bash(git diff src/app/[locale]/layoffs/page.tsx)"
+      "Bash(git diff src/app/[locale]/layoffs/page.tsx)",
+      "Bash(dig:*)",
+      "Bash(nslookup:*)",
+      "WebFetch(domain:www.nachc.org)",
+      "WebFetch(domain:news.santaclaracounty.gov)",
+      "WebFetch(domain:www.chcf.org)",
+      "WebFetch(domain:oag.ca.gov)",
+      "WebFetch(domain:www.dhcs.ca.gov)",
+      "WebFetch(domain:leginfo.legislature.ca.gov)",
+      "WebFetch(domain:calmatters.org)",
+      "WebFetch(domain:www.cafp.org)",
+      "WebFetch(domain:www.kff.org)",
+      "WebFetch(domain:bphc.hrsa.gov)",
+      "WebFetch(domain:www.alamedahealthsystem.org)",
+      "WebFetch(domain:www.kaufmanhall.com)",
+      "WebFetch(domain:www.kvpr.org)",
+      "WebFetch(domain:www.modernhealthcare.com)",
+      "WebFetch(domain:www.unitedhealthcenters.org)",
+      "WebFetch(domain:www.fqhc.org)",
+      "WebFetch(domain:www.fiercehealthcare.com)",
+      "WebFetch(domain:www.emergingglobal.com)",
+      "WebFetch(domain:www.rapidclaims.ai)",
+      "WebFetch(domain:copehealthsolutions.com)",
+      "WebFetch(domain:www.commonwealthfund.org)",
+      "WebFetch(domain:www.beckershospitalreview.com)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }

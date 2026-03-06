@@ -1,5 +1,5 @@
 // Career pathway data for California FQHCs
-// 5 career tracks with 4 levels each, CA-specific salary ranges and certifications
+// 6 career tracks with 4 levels each, CA-specific salary ranges and certifications
 
 export interface CareerLevel {
   roleId: string;
@@ -141,7 +141,7 @@ export const CAREER_PATHWAYS: CareerPathway[] = [
         programs: ["CalAIM ECM", "Medi-Cal", "WIC"],
       },
       {
-        roleId: "care-coordinator",
+        roleId: "care_coordinator",
         title: "Care Coordinator",
         esTitle: "Coordinador(a) de Cuidado",
         salaryP25: 45000,
@@ -233,7 +233,7 @@ export const CAREER_PATHWAYS: CareerPathway[] = [
     color: "blue",
     levels: [
       {
-        roleId: "medical-assistant",
+        roleId: "medical_assistant",
         title: "Medical Assistant",
         esTitle: "Asistente Médico",
         salaryP25: 36000,
@@ -379,7 +379,7 @@ export const CAREER_PATHWAYS: CareerPathway[] = [
         programs: ["BH-ASO", "SBIRT screening"],
       },
       {
-        roleId: "behavioral-health",
+        roleId: "behavioral_health",
         title: "Behavioral Health Specialist",
         esTitle: "Especialista en Salud Conductual",
         salaryP25: 55000,
@@ -471,7 +471,7 @@ export const CAREER_PATHWAYS: CareerPathway[] = [
     color: "amber",
     levels: [
       {
-        roleId: "patient-services",
+        roleId: "patient_services",
         title: "Patient Services Representative",
         esTitle: "Representante de Servicios al Paciente",
         salaryP25: 36000,
@@ -498,7 +498,7 @@ export const CAREER_PATHWAYS: CareerPathway[] = [
         programs: ["Sliding Fee Scale", "Medi-Cal eligibility"],
       },
       {
-        roleId: "revenue-cycle",
+        roleId: "revenue_cycle",
         title: "Revenue Cycle Specialist",
         esTitle: "Especialista en Ciclo de Ingresos",
         salaryP25: 50000,
@@ -581,6 +581,125 @@ export const CAREER_PATHWAYS: CareerPathway[] = [
     ],
   },
   {
+    id: "back-office",
+    name: "Back Office & Finance",
+    esName: "Oficina Administrativa y Finanzas",
+    description: "From accounting and payroll to financial leadership — the administrative engine that keeps FQHCs running.",
+    esDescription: "De contabilidad y nómina al liderazgo financiero — el motor administrativo que mantiene funcionando a los FQHCs.",
+    icon: "Briefcase",
+    color: "indigo",
+    levels: [
+      {
+        roleId: "payroll_specialist",
+        title: "Payroll Specialist / Accounting Clerk",
+        esTitle: "Especialista en Nómina / Auxiliar Contable",
+        salaryP25: 50000,
+        salaryP50: 60000,
+        salaryP75: 72000,
+        yearsExperience: "Entry level – 1 year",
+        esYearsExperience: "Nivel de entrada – 1 año",
+        certifications: ["FPC (Fundamental Payroll Certification)", "ADP or Paychex certification"],
+        esCertifications: ["FPC (Certificación Fundamental de Nómina)", "Certificación ADP o Paychex"],
+        keySkills: [
+          "Multi-site payroll processing",
+          "California wage & hour compliance",
+          "Payroll system administration (ADP, Paychex)",
+          "Garnishment and deduction management",
+          "Tax filing and reconciliation",
+        ],
+        esKeySkills: [
+          "Procesamiento de nómina multi-sitio",
+          "Cumplimiento de salarios y horas de California",
+          "Administración de sistemas de nómina (ADP, Paychex)",
+          "Gestión de embargos y deducciones",
+          "Declaración fiscal y conciliación",
+        ],
+        programs: ["SB 525 compliance", "Union CBA wage scales"],
+      },
+      {
+        roleId: "accountant",
+        title: "Accountant / HR Manager",
+        esTitle: "Contador(a) / Gerente de RH",
+        salaryP25: 55000,
+        salaryP50: 72000,
+        salaryP75: 92000,
+        yearsExperience: "2–4 years",
+        esYearsExperience: "2–4 años",
+        certifications: ["CPA (preferred)", "PHR/SHRM-CP (for HR track)", "340B University (Apexus)"],
+        esCertifications: ["CPA (preferido)", "PHR/SHRM-CP (para trayectoria de RH)", "Universidad 340B (Apexus)"],
+        keySkills: [
+          "Grant accounting and cost allocation",
+          "Financial statement preparation",
+          "Audit preparation (HRSA, single audit)",
+          "Healthcare recruitment and retention",
+          "Union labor relations",
+        ],
+        esKeySkills: [
+          "Contabilidad de subvenciones y asignación de costos",
+          "Preparación de estados financieros",
+          "Preparación de auditorías (HRSA, auditoría única)",
+          "Reclutamiento y retención en salud",
+          "Relaciones laborales sindicales",
+        ],
+        programs: ["HRSA grant compliance", "340B accounting", "SB 525 implementation"],
+      },
+      {
+        roleId: "finance_manager",
+        title: "Finance Manager / Controller",
+        esTitle: "Gerente de Finanzas / Contralor",
+        salaryP25: 85000,
+        salaryP50: 100000,
+        salaryP75: 120000,
+        yearsExperience: "5–7 years",
+        esYearsExperience: "5–7 años",
+        certifications: ["CPA", "CHFP (Certified Healthcare Financial Professional)", "MBA/MHA (preferred)"],
+        esCertifications: ["CPA", "CHFP (Profesional Financiero de Salud Certificado)", "MBA/MHA (preferido)"],
+        keySkills: [
+          "Financial modeling and forecasting",
+          "Cash flow management and treasury",
+          "Board-level financial reporting",
+          "Payer contract analysis",
+          "Multi-source revenue management",
+        ],
+        esKeySkills: [
+          "Modelado y pronóstico financiero",
+          "Gestión de flujo de efectivo y tesorería",
+          "Informes financieros a nivel de junta",
+          "Análisis de contratos con pagadores",
+          "Gestión de ingresos de múltiples fuentes",
+        ],
+        programs: ["CalAIM financial modeling", "UDS financial reporting", "FQHC Cost Report"],
+      },
+      {
+        roleId: "director-finance",
+        title: "Director of Finance / CFO",
+        esTitle: "Director(a) de Finanzas / CFO",
+        salaryP25: 120000,
+        salaryP50: 150000,
+        salaryP75: 180000,
+        yearsExperience: "8+ years",
+        esYearsExperience: "8+ años",
+        certifications: ["CPA", "MBA or MHA", "FQHC financial leadership experience"],
+        esCertifications: ["CPA", "MBA o MHA", "Experiencia en liderazgo financiero FQHC"],
+        keySkills: [
+          "Organizational financial strategy",
+          "C-suite leadership",
+          "Grant portfolio management ($10M+)",
+          "Board governance and fiduciary oversight",
+          "Revenue diversification strategy",
+        ],
+        esKeySkills: [
+          "Estrategia financiera organizacional",
+          "Liderazgo de nivel ejecutivo",
+          "Gestión de portafolio de subvenciones ($10M+)",
+          "Gobernanza de junta y supervisión fiduciaria",
+          "Estrategia de diversificación de ingresos",
+        ],
+        programs: ["HRSA strategic planning", "340B optimization", "CalAIM Community Supports"],
+      },
+    ],
+  },
+  {
     id: "nursing",
     name: "Nursing & Clinical Leadership",
     esName: "Enfermería y Liderazgo Clínico",
@@ -590,7 +709,7 @@ export const CAREER_PATHWAYS: CareerPathway[] = [
     color: "rose",
     levels: [
       {
-        roleId: "rn",
+        roleId: "registered_nurse",
         title: "Registered Nurse (RN)",
         esTitle: "Enfermero(a) Registrado(a) (RN)",
         salaryP25: 85000,
@@ -706,10 +825,16 @@ export function getPathwayById(id: string): CareerPathway | undefined {
   return CAREER_PATHWAYS.find((p) => p.id === id);
 }
 
+// Map assessment roleIds to pathway roleIds when they share a level
+const ROLE_ALIASES: Record<string, string> = {
+  hr_manager: "accountant", // HR Manager shares Level 2 with Accountant in back-office track
+};
+
 // Helper: find which pathway contains a given roleId
 export function getPathwayForRole(roleId: string): CareerPathway | undefined {
+  const lookupId = ROLE_ALIASES[roleId] ?? roleId;
   return CAREER_PATHWAYS.find((p) =>
-    p.levels.some((l) => l.roleId === roleId)
+    p.levels.some((l) => l.roleId === lookupId)
   );
 }
 

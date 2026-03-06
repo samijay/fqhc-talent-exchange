@@ -52,6 +52,13 @@ export interface TimelineEvent {
   primarySourceUrl: string;
   primarySourceOrg: string;
   era: string;
+  // Optional media
+  imageUrl?: string;
+  imageAlt?: { en: string; es: string };
+  imageCaption?: { en: string; es: string };
+  imageCredit?: string;
+  videoUrl?: string; // YouTube embed URL (https://www.youtube.com/embed/...)
+  videoTitle?: { en: string; es: string };
 }
 
 export interface TimelineEra {
@@ -263,6 +270,52 @@ function EventCard({
                       {org}
                     </span>
                   ))}
+                </div>
+              )}
+
+              {/* Image */}
+              {event.imageUrl && (
+                <div className="rounded-lg overflow-hidden border border-stone-200">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={event.imageUrl}
+                    alt={event.imageAlt ? t(event.imageAlt, locale) : t(event.title, locale)}
+                    className="w-full h-auto max-h-64 object-cover"
+                    loading="lazy"
+                  />
+                  {(event.imageCaption || event.imageCredit) && (
+                    <div className="bg-stone-50 px-3 py-1.5 text-[10px] text-stone-500">
+                      {event.imageCaption && (
+                        <span>{t(event.imageCaption, locale)}</span>
+                      )}
+                      {event.imageCredit && (
+                        <span className="ml-1 italic">
+                          {isEs ? "Crédito" : "Credit"}: {event.imageCredit}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* YouTube Video */}
+              {event.videoUrl && (
+                <div className="rounded-lg overflow-hidden border border-stone-200">
+                  {event.videoTitle && (
+                    <p className="bg-stone-50 px-3 py-1.5 text-xs font-medium text-stone-700">
+                      🎬 {t(event.videoTitle, locale)}
+                    </p>
+                  )}
+                  <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                    <iframe
+                      src={event.videoUrl}
+                      title={event.videoTitle ? t(event.videoTitle, locale) : "Video"}
+                      className="absolute inset-0 w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
               )}
 

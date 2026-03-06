@@ -217,6 +217,10 @@ export default function CareerInsights({ onComplete, onSkip, roleId }: CareerIns
     registered_nurse: "nurse_rn",
     patient_services: "patient_services",
     revenue_cycle: "revenue_cycle",
+    hr_manager: "hr_manager",
+    accountant: "accountant",
+    payroll_specialist: "payroll_specialist",
+    finance_manager: "finance_manager",
   };
   const benchmarkRoleId = roleId ? ROLE_TO_BENCHMARK[roleId] : undefined;
   const salaryBenchmark = benchmarkRoleId

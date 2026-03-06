@@ -51,7 +51,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$3,000–$5,000/año",
     impactType: "salary_boost",
     requiredFor: ["chw"],
-    helpfulFor: ["care-coordinator"],
+    helpfulFor: ["care_coordinator"],
     description:
       "California's standardized CHW certification through CDPH-approved training programs. Validates community health competencies including health education, advocacy, and cultural mediation.",
     esDescription:
@@ -92,8 +92,8 @@ export const CERTIFICATIONS: Certification[] = [
     salaryImpact: "+$5,000–$8,000/year",
     esSalaryImpact: "+$5,000–$8,000/año",
     impactType: "salary_boost",
-    requiredFor: ["case-manager"],
-    helpfulFor: ["care-coordinator", "program-manager"],
+    requiredFor: ["case_manager"],
+    helpfulFor: ["care_coordinator", "program-manager"],
     description:
       "National certification for case managers. Demonstrates expertise in care coordination, patient assessment, and resource management.",
     esDescription:
@@ -130,8 +130,8 @@ export const CERTIFICATIONS: Certification[] = [
     salaryImpact: "+$5,000–$10,000/year",
     esSalaryImpact: "+$5,000–$10,000/año",
     impactType: "salary_boost",
-    requiredFor: ["revenue-cycle"],
-    helpfulFor: ["revenue-manager", "patient-services"],
+    requiredFor: ["revenue_cycle"],
+    helpfulFor: ["revenue-manager", "patient_services"],
     description:
       "Industry-standard certification for medical coding. Covers CPT, ICD-10-CM, and HCPCS coding systems used in FQHC billing.",
     esDescription:
@@ -170,8 +170,8 @@ export const CERTIFICATIONS: Certification[] = [
     salaryImpact: "Required — baseline credential",
     esSalaryImpact: "Requerido — credencial base",
     impactType: "required",
-    requiredFor: ["medical-assistant", "rn", "behavioral-health", "bh-technician"],
-    helpfulFor: ["chw", "care-coordinator", "case-manager"],
+    requiredFor: ["medical_assistant", "registered_nurse", "behavioral_health", "bh-technician"],
+    helpfulFor: ["chw", "care_coordinator", "case_manager"],
     description:
       "Foundational emergency response certification. Required for all clinical FQHC roles and recommended for most patient-facing positions.",
     esDescription:
@@ -210,7 +210,7 @@ export const CERTIFICATIONS: Certification[] = [
     salaryImpact: "+$2,000–$4,000/year",
     esSalaryImpact: "+$2,000–$4,000/año",
     impactType: "salary_boost",
-    requiredFor: ["medical-assistant"],
+    requiredFor: ["medical_assistant"],
     helpfulFor: ["lead-ma"],
     description:
       "National certification for medical assistants. Covers clinical procedures, administrative tasks, and general medical knowledge.",
@@ -251,7 +251,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$15,000–$25,000/año",
     impactType: "salary_boost",
     requiredFor: ["licensed-therapist"],
-    helpfulFor: ["behavioral-health", "bh-director"],
+    helpfulFor: ["behavioral_health", "bh-director"],
     description:
       "California state license for clinical social workers. Enables independent practice, clinical supervision, and the highest BH salary tier in FQHCs.",
     esDescription:
@@ -291,7 +291,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$15,000–$25,000/año",
     impactType: "salary_boost",
     requiredFor: ["licensed-therapist"],
-    helpfulFor: ["behavioral-health", "bh-director"],
+    helpfulFor: ["behavioral_health", "bh-director"],
     description:
       "California state license for marriage and family therapists. Qualifies for independent practice and clinical supervision in FQHC behavioral health programs.",
     esDescription:
@@ -332,8 +332,8 @@ export const CERTIFICATIONS: Certification[] = [
     impactType: "salary_boost",
     requiredFor: [],
     helpfulFor: [
-      "chw", "care-coordinator", "medical-assistant", "case-manager",
-      "behavioral-health", "rn", "patient-services", "revenue-cycle",
+      "chw", "care_coordinator", "medical_assistant", "case_manager",
+      "behavioral_health", "registered_nurse", "patient_services", "revenue_cycle",
     ],
     description:
       "Proficiency in the OCHIN Epic EHR system, the most common EHR platform used by California FQHCs. Highly transferable across FQHC employers.",
@@ -373,8 +373,8 @@ export const CERTIFICATIONS: Certification[] = [
     impactType: "salary_boost",
     requiredFor: [],
     helpfulFor: [
-      "chw", "care-coordinator", "medical-assistant", "case-manager",
-      "behavioral-health", "rn", "patient-services", "revenue-cycle",
+      "chw", "care_coordinator", "medical_assistant", "case_manager",
+      "behavioral_health", "registered_nurse", "patient_services", "revenue_cycle",
     ],
     description:
       "Formal verification of bilingual proficiency (usually Spanish-English). Many FQHCs offer a bilingual pay differential for certified bilingual staff.",
@@ -413,7 +413,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "Diferenciador en currículum",
     impactType: "resume_boost",
     requiredFor: [],
-    helpfulFor: ["chw", "care-coordinator", "behavioral-health", "case-manager"],
+    helpfulFor: ["chw", "care_coordinator", "behavioral_health", "case_manager"],
     description:
       "Evidence-based communication technique for behavior change. Widely used in FQHC settings for patient engagement and chronic disease management.",
     esDescription:
@@ -452,8 +452,8 @@ export const CERTIFICATIONS: Certification[] = [
     impactType: "resume_boost",
     requiredFor: [],
     helpfulFor: [
-      "chw", "care-coordinator", "behavioral-health", "case-manager",
-      "medical-assistant", "rn", "bh-technician",
+      "chw", "care_coordinator", "behavioral_health", "case_manager",
+      "medical_assistant", "registered_nurse", "bh-technician",
     ],
     description:
       "SAMHSA-based framework for understanding and responding to trauma. Critical for FQHC settings where patients often have complex trauma histories.",
@@ -491,8 +491,8 @@ export const CERTIFICATIONS: Certification[] = [
     salaryImpact: "Required for ECM roles",
     esSalaryImpact: "Requerido para roles de ECM",
     impactType: "required",
-    requiredFor: ["care-coordinator", "chw"],
-    helpfulFor: ["case-manager", "behavioral-health"],
+    requiredFor: ["care_coordinator", "chw"],
+    helpfulFor: ["case_manager", "behavioral_health"],
     description:
       "Training on California's Enhanced Care Management program under CalAIM. Covers ECM populations of focus, service requirements, and documentation.",
     esDescription:
@@ -530,7 +530,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "$50,000–$75,000 en perdón de préstamos",
     impactType: "salary_boost",
     requiredFor: [],
-    helpfulFor: ["rn", "licensed-therapist", "behavioral-health"],
+    helpfulFor: ["registered_nurse", "licensed-therapist", "behavioral_health"],
     description:
       "Federal loan repayment for healthcare providers working in HPSAs (Health Professional Shortage Areas). Most FQHCs are NHSC-approved sites.",
     esDescription:
@@ -607,7 +607,7 @@ export const CERTIFICATIONS: Certification[] = [
     salaryImpact: "Required for RN roles",
     esSalaryImpact: "Requerido para roles de RN",
     impactType: "required",
-    requiredFor: ["rn", "charge-nurse"],
+    requiredFor: ["registered_nurse", "charge-nurse"],
     helpfulFor: ["nurse-manager"],
     description:
       "Advanced emergency cardiac care certification. Required for most RN positions in FQHCs, especially those handling urgent/emergent situations.",
@@ -646,7 +646,7 @@ export const CERTIFICATIONS: Certification[] = [
     salaryImpact: "+$3,000–$8,000/year",
     esSalaryImpact: "+$3,000–$8,000/año",
     impactType: "salary_boost",
-    requiredFor: ["revenue-cycle"],
+    requiredFor: ["revenue_cycle"],
     helpfulFor: ["revenue-manager", "compliance-officer"],
     description:
       "AHIMA's gold-standard certification for medical coding. Validates expertise in ICD-10-CM, ICD-10-PCS, and CPT/HCPCS coding systems. Covers both inpatient and outpatient coding, Medicare/Medicaid compliance, and reimbursement methodology. Open-book exam with 107 questions over 4 hours.",
@@ -727,7 +727,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$5,000–$12,000/año",
     impactType: "salary_boost",
     requiredFor: [],
-    helpfulFor: ["revenue-cycle", "revenue-manager", "compliance-officer"],
+    helpfulFor: ["revenue_cycle", "revenue-manager", "compliance-officer"],
     description:
       "Advanced AAPC credential for medical record documentation review, coding accuracy validation, compliance risk assessment, and fraud/abuse identification. Unlike pure coding credentials, the CPMA tests the ability to evaluate whether coding and documentation support medical necessity and meet payer requirements.",
     esDescription:
@@ -766,8 +766,8 @@ export const CERTIFICATIONS: Certification[] = [
     salaryImpact: "+$5,000–$10,000/year",
     esSalaryImpact: "+$5,000–$10,000/año",
     impactType: "salary_boost",
-    requiredFor: ["revenue-cycle"],
-    helpfulFor: ["patient-services", "revenue-manager"],
+    requiredFor: ["revenue_cycle"],
+    helpfulFor: ["patient_services", "revenue-manager"],
     description:
       "The only credential that spans the entire patient financial journey — from registration to collections. Covers patient access, insurance verification, charge capture, billing, claims submission, denials management, payment posting, and regulatory compliance. The lowest-barrier, highest-ROI revenue cycle credential.",
     esDescription:
@@ -808,8 +808,8 @@ export const CERTIFICATIONS: Certification[] = [
     impactType: "resume_boost",
     requiredFor: [],
     helpfulFor: [
-      "medical-assistant", "patient-services", "care-coordinator",
-      "rn", "program-manager",
+      "medical_assistant", "patient_services", "care_coordinator",
+      "registered_nurse", "program-manager",
     ],
     description:
       "Training on telehealth operations for non-clinical staff. Covers the facilitator role within interprofessional teams, telehealth delivery types, troubleshooting technical issues, legal/ethical/regulatory considerations, and 'webside manner.' Designed for staff who support virtual visit operations.",

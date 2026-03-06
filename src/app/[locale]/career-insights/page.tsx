@@ -29,13 +29,17 @@ import { getCertificationsForRole } from "@/lib/certification-data";
 
 const ROLES = [
   { id: "chw", en: "Community Health Worker", es: "Promotor(a) de Salud", icon: Heart },
-  { id: "care-coordinator", en: "Care Coordinator", es: "Coordinador(a) de Cuidado", icon: Users },
-  { id: "medical-assistant", en: "Medical Assistant", es: "Asistente Médico", icon: Stethoscope },
-  { id: "case-manager", en: "Case Manager", es: "Gerente de Casos", icon: ClipboardCheck },
-  { id: "behavioral-health", en: "BH Specialist", es: "Especialista en Salud Conductual", icon: Brain },
-  { id: "rn", en: "Registered Nurse", es: "Enfermero(a) Registrado(a)", icon: Activity },
-  { id: "patient-services", en: "Patient Services", es: "Servicios al Paciente", icon: HeadphonesIcon },
-  { id: "revenue-cycle", en: "Revenue Cycle", es: "Ciclo de Ingresos", icon: DollarSign },
+  { id: "care_coordinator", en: "Care Coordinator", es: "Coordinador(a) de Cuidado", icon: Users },
+  { id: "medical_assistant", en: "Medical Assistant", es: "Asistente Médico", icon: Stethoscope },
+  { id: "case_manager", en: "Case Manager", es: "Gerente de Casos", icon: ClipboardCheck },
+  { id: "behavioral_health", en: "BH Specialist", es: "Especialista en Salud Conductual", icon: Brain },
+  { id: "registered_nurse", en: "Registered Nurse", es: "Enfermero(a) Registrado(a)", icon: Activity },
+  { id: "patient_services", en: "Patient Services", es: "Servicios al Paciente", icon: HeadphonesIcon },
+  { id: "revenue_cycle", en: "Revenue Cycle", es: "Ciclo de Ingresos", icon: DollarSign },
+  { id: "hr_manager", en: "HR Manager", es: "Gerente de Recursos Humanos", icon: Shield },
+  { id: "accountant", en: "Accountant", es: "Contador(a)", icon: FileText },
+  { id: "payroll_specialist", en: "Payroll Specialist", es: "Especialista en Nómina", icon: DollarSign },
+  { id: "finance_manager", en: "Finance Manager", es: "Gerente de Finanzas", icon: TrendingUp },
 ];
 
 export default function CareerInsightsPage() {

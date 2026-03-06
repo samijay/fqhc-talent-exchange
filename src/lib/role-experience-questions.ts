@@ -1157,6 +1157,570 @@ const REVENUE_CYCLE_QUESTIONS: RoleExperienceQuestion[] = [
 ];
 
 /* ------------------------------------------------------------------ */
+/*  HR Manager                                                          */
+/* ------------------------------------------------------------------ */
+
+const HR_MANAGER_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "hr_hris",
+    roleId: "hr_manager",
+    question: "Which HRIS / HR management systems have you used?",
+    esQuestion: "¿Qué sistemas HRIS / de gestión de RH ha utilizado?",
+    helpText: "Select all that apply to your experience.",
+    esHelpText: "Seleccione todos los que apliquen a su experiencia.",
+    answerType: "multi",
+    options: [
+      {
+        id: "hr_hris_adp",
+        text: "ADP Workforce Now / ADP TotalSource",
+        esText: "ADP Workforce Now / ADP TotalSource",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_hris_bamboo",
+        text: "BambooHR",
+        esText: "BambooHR",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_hris_paycom",
+        text: "Paycom or Paylocity",
+        esText: "Paycom o Paylocity",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_hris_workday",
+        text: "Workday or UKG",
+        esText: "Workday o UKG",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "hr_recruiting",
+    roleId: "hr_manager",
+    question: "What recruiting methods have you used to hire healthcare staff?",
+    esQuestion: "¿Qué métodos de reclutamiento ha utilizado para contratar personal de salud?",
+    answerType: "multi",
+    options: [
+      {
+        id: "hr_recruit_boards",
+        text: "Healthcare-specific job boards (Health eCareers, Indeed Healthcare)",
+        esText: "Portales de empleo específicos de salud (Health eCareers, Indeed Healthcare)",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_recruit_community",
+        text: "Community-based recruiting (college programs, CHW networks)",
+        esText: "Reclutamiento comunitario (programas universitarios, redes de CHW)",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_recruit_agency",
+        text: "Staffing agencies or locum tenens firms",
+        esText: "Agencias de personal o firmas de locum tenens",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_recruit_referral",
+        text: "Employee referral programs",
+        esText: "Programas de referencia de empleados",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "hr_union",
+    roleId: "hr_manager",
+    question: "What is your experience with union labor relations?",
+    esQuestion: "¿Cuál es su experiencia con relaciones laborales sindicales?",
+    answerType: "single",
+    options: [
+      {
+        id: "hr_union_none",
+        text: "No union experience",
+        esText: "Sin experiencia sindical",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_union_basic",
+        text: "Worked in a unionized environment but not in labor relations",
+        esText: "Trabajó en un entorno sindicalizado pero no en relaciones laborales",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_union_grievance",
+        text: "Handled grievances and contract administration",
+        esText: "Manejó quejas y administración de contratos",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_union_bargaining",
+        text: "Participated in collective bargaining negotiations",
+        esText: "Participó en negociaciones de convenios colectivos",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "hr_compliance",
+    roleId: "hr_manager",
+    question: "Which California employment law areas are you experienced with?",
+    esQuestion: "¿En qué áreas de ley laboral de California tiene experiencia?",
+    answerType: "multi",
+    options: [
+      {
+        id: "hr_comp_wage",
+        text: "Wage and hour compliance (SB 525, overtime, meal/rest breaks)",
+        esText: "Cumplimiento de salarios y horas (SB 525, horas extras, descansos)",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_comp_leave",
+        text: "Leave management (CFRA, FMLA, PDL, sick leave)",
+        esText: "Gestión de licencias (CFRA, FMLA, PDL, licencia por enfermedad)",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_comp_feha",
+        text: "Anti-discrimination and harassment (FEHA, Title VII)",
+        esText: "Anti-discriminación y acoso (FEHA, Título VII)",
+        recommendsBullets: [],
+      },
+      {
+        id: "hr_comp_credential",
+        text: "Healthcare credentialing and license verification",
+        esText: "Acreditación de salud y verificación de licencias",
+        recommendsBullets: [],
+      },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Accountant                                                          */
+/* ------------------------------------------------------------------ */
+
+const ACCOUNTANT_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "acct_software",
+    roleId: "accountant",
+    question: "Which accounting software have you used?",
+    esQuestion: "¿Qué software contable ha utilizado?",
+    helpText: "Select all that apply to your experience.",
+    esHelpText: "Seleccione todos los que apliquen a su experiencia.",
+    answerType: "multi",
+    options: [
+      {
+        id: "acct_sw_qb",
+        text: "QuickBooks (Desktop or Online)",
+        esText: "QuickBooks (Escritorio o En Línea)",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_sw_sage",
+        text: "Sage Intacct or Sage 300",
+        esText: "Sage Intacct o Sage 300",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_sw_mip",
+        text: "MIP Fund Accounting (Abila)",
+        esText: "MIP Fund Accounting (Abila)",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_sw_netsuite",
+        text: "Oracle NetSuite or Microsoft Dynamics",
+        esText: "Oracle NetSuite o Microsoft Dynamics",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "acct_grants",
+    roleId: "accountant",
+    question: "What is your experience with grant accounting?",
+    esQuestion: "¿Cuál es su experiencia con contabilidad de subvenciones?",
+    answerType: "single",
+    options: [
+      {
+        id: "acct_grants_none",
+        text: "No grant accounting experience",
+        esText: "Sin experiencia en contabilidad de subvenciones",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_grants_basic",
+        text: "Basic grant expense tracking and reporting",
+        esText: "Seguimiento básico de gastos de subvenciones e informes",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_grants_alloc",
+        text: "Cost allocation across multiple federal and state grants",
+        esText: "Asignación de costos entre múltiples subvenciones federales y estatales",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_grants_audit",
+        text: "Single audit preparation and HRSA grant compliance",
+        esText: "Preparación de auditoría única y cumplimiento de subvenciones HRSA",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "acct_audit",
+    roleId: "accountant",
+    question: "What audit experience do you have?",
+    esQuestion: "¿Qué experiencia en auditorías tiene?",
+    answerType: "multi",
+    options: [
+      {
+        id: "acct_audit_internal",
+        text: "Internal controls and procedures documentation",
+        esText: "Documentación de controles y procedimientos internos",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_audit_external",
+        text: "External financial audit coordination",
+        esText: "Coordinación de auditoría financiera externa",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_audit_single",
+        text: "Federal single audit (Uniform Guidance / 2 CFR 200)",
+        esText: "Auditoría única federal (Guía Uniforme / 2 CFR 200)",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_audit_hrsa",
+        text: "HRSA site visit financial review",
+        esText: "Revisión financiera de visita de HRSA",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "acct_fqhc",
+    roleId: "accountant",
+    question: "Which FQHC-specific financial areas are you familiar with?",
+    esQuestion: "¿Con qué áreas financieras específicas de FQHC está familiarizado?",
+    answerType: "multi",
+    options: [
+      {
+        id: "acct_fqhc_pps",
+        text: "PPS (Prospective Payment System) reconciliation",
+        esText: "Conciliación del PPS (Sistema de Pago Prospectivo)",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_fqhc_340b",
+        text: "340B Drug Pricing Program accounting",
+        esText: "Contabilidad del Programa de Precios de Medicamentos 340B",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_fqhc_sfs",
+        text: "Sliding fee scale administration and reporting",
+        esText: "Administración e informes de escala de tarifas deslizantes",
+        recommendsBullets: [],
+      },
+      {
+        id: "acct_fqhc_uds",
+        text: "UDS financial reporting",
+        esText: "Informes financieros UDS",
+        recommendsBullets: [],
+      },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Payroll Specialist                                                  */
+/* ------------------------------------------------------------------ */
+
+const PAYROLL_SPECIALIST_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "pay_systems",
+    roleId: "payroll_specialist",
+    question: "Which payroll systems have you used?",
+    esQuestion: "¿Qué sistemas de nómina ha utilizado?",
+    helpText: "Select all that apply to your experience.",
+    esHelpText: "Seleccione todos los que apliquen a su experiencia.",
+    answerType: "multi",
+    options: [
+      {
+        id: "pay_sys_adp",
+        text: "ADP Workforce Now / ADP Run",
+        esText: "ADP Workforce Now / ADP Run",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_sys_paychex",
+        text: "Paychex Flex",
+        esText: "Paychex Flex",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_sys_paycom",
+        text: "Paycom or Paylocity",
+        esText: "Paycom o Paylocity",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_sys_ukg",
+        text: "UKG / Kronos or Workday",
+        esText: "UKG / Kronos o Workday",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "pay_scope",
+    roleId: "payroll_specialist",
+    question: "What is the largest payroll you've managed?",
+    esQuestion: "¿Cuál es la nómina más grande que ha gestionado?",
+    answerType: "single",
+    options: [
+      {
+        id: "pay_scope_small",
+        text: "Under 50 employees",
+        esText: "Menos de 50 empleados",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_scope_medium",
+        text: "50–200 employees",
+        esText: "50–200 empleados",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_scope_large",
+        text: "200–500 employees (multi-site)",
+        esText: "200–500 empleados (multi-sitio)",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_scope_xlarge",
+        text: "500+ employees",
+        esText: "500+ empleados",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "pay_ca_compliance",
+    roleId: "payroll_specialist",
+    question: "Which California payroll compliance areas have you handled?",
+    esQuestion: "¿Qué áreas de cumplimiento de nómina de California ha manejado?",
+    answerType: "multi",
+    options: [
+      {
+        id: "pay_ca_ot",
+        text: "California overtime (daily and weekly calculations)",
+        esText: "Horas extras de California (cálculos diarios y semanales)",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_ca_meal",
+        text: "Meal and rest break premium pay tracking",
+        esText: "Seguimiento de pago premium por descansos de comida y descanso",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_ca_sb525",
+        text: "SB 525 healthcare minimum wage implementation",
+        esText: "Implementación de salario mínimo de salud SB 525",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_ca_union",
+        text: "Union CBA wage scales and shift differentials",
+        esText: "Escalas salariales de convenios colectivos y diferenciales de turno",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "pay_special",
+    roleId: "payroll_specialist",
+    question: "What specialized payroll tasks have you performed?",
+    esQuestion: "¿Qué tareas especializadas de nómina ha realizado?",
+    answerType: "multi",
+    options: [
+      {
+        id: "pay_spec_garnish",
+        text: "Garnishment processing and child support orders",
+        esText: "Procesamiento de embargos y órdenes de manutención",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_spec_retro",
+        text: "Retroactive pay calculations and corrections",
+        esText: "Cálculos retroactivos de pago y correcciones",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_spec_migration",
+        text: "Payroll system migration or implementation",
+        esText: "Migración o implementación de sistema de nómina",
+        recommendsBullets: [],
+      },
+      {
+        id: "pay_spec_tax",
+        text: "Multi-jurisdiction tax filing and reconciliation",
+        esText: "Declaración fiscal y conciliación multi-jurisdicción",
+        recommendsBullets: [],
+      },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Finance Manager                                                     */
+/* ------------------------------------------------------------------ */
+
+const FINANCE_MANAGER_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "fm_budget",
+    roleId: "finance_manager",
+    question: "What is the largest budget you've managed?",
+    esQuestion: "¿Cuál es el presupuesto más grande que ha gestionado?",
+    answerType: "single",
+    options: [
+      {
+        id: "fm_budget_small",
+        text: "Under $2M",
+        esText: "Menos de $2M",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_budget_medium",
+        text: "$2M–$10M",
+        esText: "$2M–$10M",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_budget_large",
+        text: "$10M–$50M",
+        esText: "$10M–$50M",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_budget_xlarge",
+        text: "$50M+",
+        esText: "$50M+",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "fm_revenue",
+    roleId: "finance_manager",
+    question: "Which FQHC revenue sources have you managed?",
+    esQuestion: "¿Qué fuentes de ingresos de FQHC ha gestionado?",
+    helpText: "Select all that apply to your experience.",
+    esHelpText: "Seleccione todos los que apliquen a su experiencia.",
+    answerType: "multi",
+    options: [
+      {
+        id: "fm_rev_medicaid",
+        text: "Medi-Cal / Medicaid reimbursement (PPS)",
+        esText: "Reembolso de Medi-Cal / Medicaid (PPS)",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_rev_340b",
+        text: "340B Drug Pricing Program revenue",
+        esText: "Ingresos del Programa de Precios de Medicamentos 340B",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_rev_grants",
+        text: "HRSA grants and federal funding",
+        esText: "Subvenciones HRSA y financiamiento federal",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_rev_vbc",
+        text: "Value-based care contracts or CalAIM Community Supports",
+        esText: "Contratos de atención basada en valor o Apoyos Comunitarios CalAIM",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "fm_board",
+    roleId: "finance_manager",
+    question: "What board-level financial reporting have you done?",
+    esQuestion: "¿Qué informes financieros a nivel de junta ha realizado?",
+    answerType: "multi",
+    options: [
+      {
+        id: "fm_board_monthly",
+        text: "Monthly financial statements and dashboards",
+        esText: "Estados financieros mensuales y tableros",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_board_annual",
+        text: "Annual budget presentation and approval",
+        esText: "Presentación y aprobación del presupuesto anual",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_board_audit",
+        text: "Audit results presentation to board/finance committee",
+        esText: "Presentación de resultados de auditoría a junta/comité de finanzas",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_board_strategic",
+        text: "Strategic financial planning and scenario modeling",
+        esText: "Planificación financiera estratégica y modelado de escenarios",
+        recommendsBullets: [],
+      },
+    ],
+  },
+  {
+    id: "fm_cashflow",
+    roleId: "finance_manager",
+    question: "What cash flow management experience do you have?",
+    esQuestion: "¿Qué experiencia en gestión de flujo de efectivo tiene?",
+    answerType: "multi",
+    options: [
+      {
+        id: "fm_cf_forecast",
+        text: "Cash flow forecasting (weekly or monthly)",
+        esText: "Pronóstico de flujo de efectivo (semanal o mensual)",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_cf_loc",
+        text: "Line of credit management and banking relationships",
+        esText: "Gestión de línea de crédito y relaciones bancarias",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_cf_vendor",
+        text: "Vendor payment prioritization during cash constraints",
+        esText: "Priorización de pagos a proveedores durante restricciones de efectivo",
+        recommendsBullets: [],
+      },
+      {
+        id: "fm_cf_payer",
+        text: "Payer contract negotiation for better payment terms",
+        esText: "Negociación de contratos con pagadores por mejores términos de pago",
+        recommendsBullets: [],
+      },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
 /*  All Questions Combined + Helpers                                    */
 /* ------------------------------------------------------------------ */
 
@@ -1169,6 +1733,10 @@ export const ROLE_EXPERIENCE_QUESTIONS: RoleExperienceQuestion[] = [
   ...REGISTERED_NURSE_QUESTIONS,
   ...PATIENT_SERVICES_QUESTIONS,
   ...REVENUE_CYCLE_QUESTIONS,
+  ...HR_MANAGER_QUESTIONS,
+  ...ACCOUNTANT_QUESTIONS,
+  ...PAYROLL_SPECIALIST_QUESTIONS,
+  ...FINANCE_MANAGER_QUESTIONS,
 ];
 
 /** Get experience questions for a specific role */

@@ -1,6 +1,7 @@
 // Clinic Operations Model — financial simulation engine for CA FQHC staffing & revenue
 // Sources: CMS FQHC PPS rules, CA DHCS PPS rates, NACHC billing guides, HRSA BPHC
-// Last updated: 2026-03-03
+// Medi-Cal billing rules: WIC §14132.100, DHCS FQHC APM Guide, Noridian MAC
+// Last updated: 2026-03-06
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -26,9 +27,11 @@ export interface ScheduleInput {
 
 export interface RevenueInput {
   ppsRate: number; // $150-$400
-  coVisitRate: number; // 0-40 (percent of visits that generate co-visit)
-  bhSameDayRate: number; // 0-30 (percent of visits with BH warm handoff)
+  dentalSameDayRate: number; // 0-30 (percent of visits with same-day dental — 2 PPS under both Medicare & Medi-Cal)
+  bhSameDayRate: number; // 0-30 (percent of visits with BH warm handoff — 2 PPS under Medicare ONLY, 1 PPS under Medi-Cal)
   ecmEnrollmentRate: number; // 0-20 (percent of panel in ECM)
+  apmEnrolled: boolean; // FQHC Alternative Payment Model (unlocks same-day BH billing under Medi-Cal)
+  mediCalPercent: number; // 0-100 (percent of payer mix that is Medi-Cal vs Medicare)
   regionalMultiplier: number; // 0.88-1.15
 }
 
@@ -53,13 +56,14 @@ export interface SimulatorOutput {
   totalEncountersPerDay: number;
   totalEncountersPerMonth: number;
   totalEncountersPerYear: number;
-  coVisitEncountersPerYear: number;
+  dentalEncountersPerYear: number;
   bhEncountersPerYear: number;
+  bhBillableEncountersPerYear: number; // Adjusted for payer mix (Medicare = 2 PPS, Medi-Cal = 1 PPS unless APM)
   ecmEncountersPerYear: number;
 
   // Revenue
   basePPSRevenue: number;
-  coVisitRevenue: number;
+  dentalRevenue: number;
   bhRevenue: number;
   ecmRevenue: number;
   ccmRevenue: number;
@@ -241,9 +245,11 @@ export const SIZE_PRESETS: FQHCSizePreset[] = [
     },
     revenue: {
       ppsRate: 225,
-      coVisitRate: 12,
+      dentalSameDayRate: 12,
       bhSameDayRate: 10,
       ecmEnrollmentRate: 6,
+      apmEnrolled: false,
+      mediCalPercent: 70,
       regionalMultiplier: 1.05,
     },
     disease: {
@@ -280,9 +286,11 @@ export const SIZE_PRESETS: FQHCSizePreset[] = [
     },
     revenue: {
       ppsRate: 225,
-      coVisitRate: 10,
+      dentalSameDayRate: 8,
       bhSameDayRate: 8,
       ecmEnrollmentRate: 5,
+      apmEnrolled: false,
+      mediCalPercent: 75,
       regionalMultiplier: 1.0,
     },
     disease: {
@@ -319,9 +327,11 @@ export const SIZE_PRESETS: FQHCSizePreset[] = [
     },
     revenue: {
       ppsRate: 240,
-      coVisitRate: 15,
+      dentalSameDayRate: 15,
       bhSameDayRate: 12,
       ecmEnrollmentRate: 8,
+      apmEnrolled: false,
+      mediCalPercent: 65,
       regionalMultiplier: 1.08,
     },
     disease: {
@@ -358,8 +368,8 @@ export const DISEASE_PROTOCOLS: DiseaseProtocol[] = [
       { role: "MD/NP", responsibility: { en: "Complex insulin management, complication assessment, referrals (ophthalmology, podiatry)", es: "Manejo complejo de insulina, evaluación de complicaciones, referencias" } },
     ],
     coVisitOpportunity: {
-      en: "RN diabetes education visit + MD co-sign = 1 billable PPS encounter. RN conducts 30-min visit covering HbA1c results, medication adherence, self-management goals. MD reviews note, adds assessment, co-signs.",
-      es: "Visita de educación diabética por RN + co-firma MD = 1 encuentro PPS facturable. RN realiza visita de 30 min cubriendo resultados HbA1c, adherencia a medicamentos, metas de autogestión.",
+      en: "⚠️ RN visits are NOT independently billable under FQHC PPS. The revenue opportunity is team-based care: RN manages the visit under standing orders, freeing MD/NP to see more patients. CCM billing (99490) for monthly care coordination is the direct revenue pathway for chronic disease management.",
+      es: "⚠️ Las visitas de RN NO son facturables independientemente bajo PPS de FQHC. La oportunidad es atención basada en equipo: RN maneja la visita bajo órdenes permanentes, liberando al MD/NP para ver más pacientes. La facturación CCM (99490) es la vía directa de ingresos.",
     },
     ccmEligible: true,
     metrics: [
@@ -388,8 +398,8 @@ export const DISEASE_PROTOCOLS: DiseaseProtocol[] = [
       { role: "MD/NP", responsibility: { en: "Complex multi-drug management, secondary hypertension workup, end-organ damage assessment", es: "Manejo complejo multi-medicamento, evaluación de hipertensión secundaria" } },
     ],
     coVisitOpportunity: {
-      en: "RN BP management visit + MD co-sign. High-volume opportunity: most FQHC patients with HTN can be managed by RN with standing orders. MD reviews weekly batch of RN BP encounters.",
-      es: "Visita de manejo de PA por RN + co-firma MD. Oportunidad de alto volumen: la mayoría de pacientes con HTN pueden ser manejados por RN con órdenes permanentes.",
+      en: "⚠️ RN visits are NOT independently billable under FQHC PPS. Revenue strategy: RN manages stable HTN patients via standing orders, freeing MD/NP capacity. CCM billing (99490, $62/mo) for monthly care coordination. BHI add-on codes (G0568-G0570) if behavioral health comorbidity.",
+      es: "⚠️ Las visitas de RN NO son facturables independientemente bajo PPS de FQHC. Estrategia: RN maneja pacientes HTN estables bajo órdenes permanentes, liberando capacidad MD/NP. Facturación CCM (99490, $62/mes) para coordinación mensual.",
     },
     ccmEligible: true,
     metrics: [
@@ -417,8 +427,8 @@ export const DISEASE_PROTOCOLS: DiseaseProtocol[] = [
       { role: "MD/NP", responsibility: { en: "SSRI/SNRI prescribing, complex psychiatric evaluation, medication management, suicide risk assessment", es: "Prescripción SSRI/SNRI, evaluación psiquiátrica compleja, manejo de medicamentos" } },
     ],
     coVisitOpportunity: {
-      en: "BH same-day warm handoff = separate PPS encounter. This is Model A co-visit: primary care encounter + BH encounter on same day. Two separate notes, two PPS payments. Highest-value co-visit opportunity.",
-      es: "Referencia inmediata BH el mismo día = encuentro PPS separado. Modelo A de co-visita: encuentro de atención primaria + encuentro BH el mismo día. Dos notas separadas, dos pagos PPS.",
+      en: "⚠️ PAYER-SPECIFIC: Under Medicare, same-day Medical + BH = 2 PPS encounters. Under Medi-Cal, same-day Medical + BH = only 1 PPS (WIC §14132.100). FQHCs enrolled in the APM (July 2024) bypass this restriction via PMPM capitation. Without APM, schedule BH on a separate day for 2 billable encounters.",
+      es: "⚠️ POR PAGADOR: Bajo Medicare, Médico + BH mismo día = 2 PPS. Bajo Medi-Cal, Médico + BH mismo día = solo 1 PPS (WIC §14132.100). FQHCs en el APM (julio 2024) evitan esta restricción. Sin APM, programe BH en día separado para 2 encuentros facturables.",
     },
     ccmEligible: true,
     metrics: [
@@ -446,8 +456,8 @@ export const DISEASE_PROTOCOLS: DiseaseProtocol[] = [
       { role: "MD/NP", responsibility: { en: "GOLD staging, pharmacotherapy adjustment, pulmonary rehab referral, comorbidity management", es: "Estadificación GOLD, ajuste de farmacoterapia, referencia a rehabilitación pulmonar" } },
     ],
     coVisitOpportunity: {
-      en: "RN pulmonary education visit + MD co-sign. Spirometry, inhaler retraining, and action plan review are ideal RN-led encounters with MD co-signature for billing.",
-      es: "Visita educación pulmonar por RN + co-firma MD. Espirometría, reentrenamiento de inhalador y revisión de plan de acción son encuentros ideales liderados por RN.",
+      en: "⚠️ RN visits are NOT independently billable under FQHC PPS. Revenue strategy: RN manages stable COPD patients (spirometry, inhaler technique, action plans) under standing orders, freeing MD/NP. CCM billing (99490/99487) for complex patients. RPM codes (99457) if remote monitoring implemented.",
+      es: "⚠️ Las visitas de RN NO son facturables bajo PPS de FQHC. Estrategia: RN maneja pacientes EPOC estables (espirometría, inhaladores, planes de acción) bajo órdenes permanentes. Facturación CCM (99490/99487) para pacientes complejos. RPM (99457) si se implementa monitoreo remoto.",
     },
     ccmEligible: true,
     metrics: [
@@ -497,8 +507,8 @@ export const PATIENT_TIERS: PatientTier[] = [
     },
     percentOfPanel: { en: "15-25% of panel", es: "15-25% del panel" },
     primaryRole: "RN (with MD co-sign)",
-    visitFrequency: { en: "Monthly to quarterly; co-visit opportunities", es: "Mensual a trimestral; oportunidades de co-visita" },
-    revenueModel: { en: "PPS encounters (RN co-visit model) + CCM 99490 ($62/month)", es: "Encuentros PPS (modelo co-visita RN) + CCM 99490 ($62/mes)" },
+    visitFrequency: { en: "Monthly to quarterly; team-based care", es: "Mensual a trimestral; atención basada en equipo" },
+    revenueModel: { en: "PPS encounters (MD/NP sees patient) + CCM 99490 ($62/month) + same-day dental if applicable", es: "Encuentros PPS (MD/NP ve paciente) + CCM 99490 ($62/mes) + dental mismo día si aplica" },
     examples: { en: "Controlled diabetic (HbA1c 7-9%); hypertension on 2 medications; depression on SSRI", es: "Diabético controlado (HbA1c 7-9%); hipertensión con 2 medicamentos; depresión con SSRI" },
   },
   {
@@ -582,28 +592,38 @@ export function calculateSimulation(inputs: SimulatorInputs): SimulatorOutput {
   const overheadPercent = preset?.overheadPercent ?? 32;
   const annualPatients = preset?.annualPatients ?? 30_000;
 
-  // Count billable providers (MD, NP, PA can bill independently under PPS)
-  const billableProviders = staffing.physicians + staffing.nps + staffing.pas;
+  // Count billable providers (MD, NP, PA, LCSW, Dentists can bill independently under PPS)
+  const medicalProviders = staffing.physicians + staffing.nps + staffing.pas;
+  const billableProviders = medicalProviders + staffing.bhProviders + staffing.dentalProviders;
 
   // Working days per year
   const workingDaysPerYear =
     schedule.daysPerWeek * SCHEDULE_CONSTANTS.workingWeeksPerYear;
 
-  // Encounter volume
+  // Encounter volume (medical providers only for base encounters)
   const encountersPerDayGross =
-    billableProviders * schedule.encountersPerProviderPerDay;
+    medicalProviders * schedule.encountersPerProviderPerDay;
   const encountersPerDayNet =
     encountersPerDayGross * (1 - schedule.noShowRate / 100);
   const encountersPerMonth = encountersPerDayNet * (workingDaysPerYear / 12);
   const encountersPerYear = encountersPerDayNet * workingDaysPerYear;
 
-  // Co-visit encounters (RN visits made billable via MD co-sign)
-  const coVisitEncountersPerYear =
-    encountersPerYear * (revenue.coVisitRate / 100);
+  // Same-day dental encounters (2 PPS under BOTH Medicare & Medi-Cal)
+  const dentalEncountersPerYear =
+    encountersPerYear * (revenue.dentalSameDayRate / 100);
 
-  // BH same-day encounters (separate PPS encounter per visit)
+  // BH same-day encounters — payer-aware calculation
+  // Medicare: same-day Medical + BH = 2 PPS encounters
+  // Medi-Cal: same-day Medical + BH = 1 PPS only (WIC §14132.100)
+  // FQHC APM: bypasses Medi-Cal restriction via PMPM capitation
   const bhEncountersPerYear =
     encountersPerYear * (revenue.bhSameDayRate / 100);
+  const mediCalShare = revenue.mediCalPercent / 100;
+  const medicareShare = 1 - mediCalShare;
+  // Under Medi-Cal without APM, same-day BH doesn't generate a SECOND PPS
+  const bhBillableAsSecondPPS = revenue.apmEnrolled
+    ? bhEncountersPerYear // APM: all BH encounters generate additional value
+    : bhEncountersPerYear * medicareShare; // Only Medicare portion generates 2nd PPS
 
   // ECM encounters (monthly face-to-face for enrolled patients)
   const ecmPatients = annualPatients * (revenue.ecmEnrollmentRate / 100);
@@ -612,8 +632,8 @@ export function calculateSimulation(inputs: SimulatorInputs): SimulatorOutput {
   // Revenue calculations
   const adjustedPPS = revenue.ppsRate * revenue.regionalMultiplier;
   const basePPSRevenue = encountersPerYear * adjustedPPS;
-  const coVisitRevenue = coVisitEncountersPerYear * adjustedPPS;
-  const bhRevenue = bhEncountersPerYear * adjustedPPS;
+  const dentalRevenue = dentalEncountersPerYear * adjustedPPS;
+  const bhRevenue = bhBillableAsSecondPPS * adjustedPPS;
   const ecmRevenue = ecmPatients * ECM_PMPM.default * 12;
 
   // CCM revenue (chronic care management billing for eligible patients)
@@ -623,7 +643,7 @@ export function calculateSimulation(inputs: SimulatorInputs): SimulatorOutput {
   const ccmRevenue = ccmEligiblePatients * CCM_RATES.ccm99490 * 12;
 
   const totalAnnualRevenue =
-    basePPSRevenue + coVisitRevenue + bhRevenue + ecmRevenue + ccmRevenue;
+    basePPSRevenue + dentalRevenue + bhRevenue + ecmRevenue + ccmRevenue;
 
   // Cost calculations
   const payrollBreakdown = (
@@ -644,14 +664,14 @@ export function calculateSimulation(inputs: SimulatorInputs): SimulatorOutput {
 
   // Efficiency metrics
   const totalEncountersAll =
-    encountersPerYear + coVisitEncountersPerYear + bhEncountersPerYear;
+    encountersPerYear + dentalEncountersPerYear + bhBillableAsSecondPPS;
   const netMargin = totalAnnualRevenue - totalAnnualCost;
   const netMarginPercent =
     totalAnnualRevenue > 0 ? (netMargin / totalAnnualRevenue) * 100 : 0;
   const costPerEncounter =
     totalEncountersAll > 0 ? totalAnnualCost / totalEncountersAll : 0;
   const revenuePerProvider =
-    billableProviders > 0 ? totalAnnualRevenue / billableProviders : 0;
+    medicalProviders > 0 ? totalAnnualRevenue / medicalProviders : 0;
 
   // Provider-of-the-Day analysis
   const potd = calculatePOTDAnalysis(
@@ -662,16 +682,17 @@ export function calculateSimulation(inputs: SimulatorInputs): SimulatorOutput {
   );
 
   return {
-    billableProvidersCount: billableProviders,
+    billableProvidersCount: medicalProviders,
     totalEncountersPerDay: encountersPerDayNet,
     totalEncountersPerMonth: encountersPerMonth,
     totalEncountersPerYear: encountersPerYear,
-    coVisitEncountersPerYear,
+    dentalEncountersPerYear,
     bhEncountersPerYear,
+    bhBillableEncountersPerYear: bhBillableAsSecondPPS,
     ecmEncountersPerYear,
 
     basePPSRevenue,
-    coVisitRevenue,
+    dentalRevenue,
     bhRevenue,
     ecmRevenue,
     ccmRevenue,
@@ -788,4 +809,272 @@ export function formatPercent(value: number): string {
   return `${value.toFixed(1)}%`;
 }
 
-export const CLINIC_MODEL_LAST_UPDATED = "2026-03-03";
+/* ------------------------------------------------------------------ */
+/*  Optimization Engine — revenue pathway recommendations              */
+/* ------------------------------------------------------------------ */
+
+export interface OptimizationPathway {
+  id: string;
+  category: "operational" | "model-design" | "program-expansion";
+  title: { en: string; es: string };
+  description: { en: string; es: string };
+  revenueImpact: number; // Annual $ impact
+  implementation: "quick-win" | "medium" | "strategic";
+  requirements: { en: string; es: string };
+}
+
+export function generateOptimizations(
+  inputs: SimulatorInputs,
+  results: SimulatorOutput
+): OptimizationPathway[] {
+  const { staffing, schedule, revenue } = inputs;
+  const preset = SIZE_PRESETS.find((p) => p.id === inputs.sizePreset);
+  const annualPatients = preset?.annualPatients ?? 30_000;
+  const adjustedPPS = revenue.ppsRate * revenue.regionalMultiplier;
+  const pathways: OptimizationPathway[] = [];
+
+  // 1. OPERATIONAL: Reduce no-show rate
+  if (schedule.noShowRate > 10) {
+    const currentEncounters = results.totalEncountersPerYear;
+    const improvedRate = Math.max(schedule.noShowRate - 5, 8);
+    const medProviders = staffing.physicians + staffing.nps + staffing.pas;
+    const improvedEncounters =
+      medProviders *
+      schedule.encountersPerProviderPerDay *
+      (1 - improvedRate / 100) *
+      schedule.daysPerWeek *
+      SCHEDULE_CONSTANTS.workingWeeksPerYear;
+    const gain = (improvedEncounters - currentEncounters) * adjustedPPS;
+    pathways.push({
+      id: "reduce-no-shows",
+      category: "operational",
+      title: {
+        en: `Reduce No-Show Rate: ${schedule.noShowRate}% → ${improvedRate}%`,
+        es: `Reducir Inasistencia: ${schedule.noShowRate}% → ${improvedRate}%`,
+      },
+      description: {
+        en: "Implement automated appointment reminders (SMS + voice), same-day open access scheduling, and transportation assistance. Each 1% reduction = more billable encounters.",
+        es: "Implementar recordatorios automáticos (SMS + voz), acceso abierto el mismo día y asistencia de transporte.",
+      },
+      revenueImpact: Math.round(gain),
+      implementation: "quick-win",
+      requirements: {
+        en: "EHR-integrated reminder system, patient engagement coordinator",
+        es: "Sistema de recordatorios integrado al EHR, coordinador de participación del paciente",
+      },
+    });
+  }
+
+  // 2. OPERATIONAL: Increase encounters per provider
+  if (schedule.encountersPerProviderPerDay < 22) {
+    const increase = Math.min(schedule.encountersPerProviderPerDay + 2, 24);
+    const medProviders = staffing.physicians + staffing.nps + staffing.pas;
+    const additionalPerDay =
+      (increase - schedule.encountersPerProviderPerDay) *
+      medProviders *
+      (1 - schedule.noShowRate / 100);
+    const workDays =
+      schedule.daysPerWeek * SCHEDULE_CONSTANTS.workingWeeksPerYear;
+    const gain = additionalPerDay * workDays * adjustedPPS;
+    pathways.push({
+      id: "increase-encounters",
+      category: "operational",
+      title: {
+        en: `Increase Encounters/Provider: ${schedule.encountersPerProviderPerDay} → ${increase}/day`,
+        es: `Aumentar Encuentros/Proveedor: ${schedule.encountersPerProviderPerDay} → ${increase}/día`,
+      },
+      description: {
+        en: "Optimize MA workflow (rooming, pre-visit planning, care gap closure). Use team-based care so RNs handle chronic disease management, MAs do intake and documentation prep.",
+        es: "Optimizar flujo MA (preparación pre-visita, cierre de brechas de atención). Usar atención basada en equipo donde RNs manejan enfermedades crónicas.",
+      },
+      revenueImpact: Math.round(gain),
+      implementation: "medium",
+      requirements: {
+        en: "MA training, EHR template optimization, standing orders for RNs",
+        es: "Capacitación MA, optimización de plantillas EHR, órdenes permanentes para RNs",
+      },
+    });
+  }
+
+  // 3. OPERATIONAL: Extended hours
+  if (schedule.hoursPerDay < 10) {
+    const extraHours = 2;
+    const extraEncountersPerProvider = Math.round(
+      (schedule.encountersPerProviderPerDay / schedule.hoursPerDay) * extraHours
+    );
+    const medProviders = staffing.physicians + staffing.nps + staffing.pas;
+    const workDays =
+      schedule.daysPerWeek * SCHEDULE_CONSTANTS.workingWeeksPerYear;
+    const gain =
+      extraEncountersPerProvider *
+      medProviders *
+      (1 - schedule.noShowRate / 100) *
+      workDays *
+      adjustedPPS;
+    pathways.push({
+      id: "extended-hours",
+      category: "operational",
+      title: {
+        en: `Extended Hours: ${schedule.hoursPerDay}h → ${schedule.hoursPerDay + extraHours}h/day`,
+        es: `Horario Extendido: ${schedule.hoursPerDay}h → ${schedule.hoursPerDay + extraHours}h/día`,
+      },
+      description: {
+        en: "Add evening or early morning hours. Stagger provider schedules. Captures working patients who can't come during standard hours. Reduces ED utilization.",
+        es: "Agregar horario vespertino o matutino temprano. Escalonar horarios de proveedores. Captura pacientes que trabajan durante horario estándar.",
+      },
+      revenueImpact: Math.round(gain),
+      implementation: "medium",
+      requirements: {
+        en: "Staff willing to work extended hours (differential pay), sufficient patient demand",
+        es: "Personal dispuesto a horario extendido (pago diferencial), suficiente demanda de pacientes",
+      },
+    });
+  }
+
+  // 4. MODEL DESIGN: Same-day dental
+  if (revenue.dentalSameDayRate < 15 && staffing.dentalProviders > 0) {
+    const currentDental = results.dentalEncountersPerYear;
+    const targetRate = Math.min(revenue.dentalSameDayRate + 8, 20);
+    const newDental =
+      results.totalEncountersPerYear * (targetRate / 100);
+    const gain = (newDental - currentDental) * adjustedPPS;
+    pathways.push({
+      id: "dental-same-day",
+      category: "model-design",
+      title: {
+        en: `Same-Day Dental: ${revenue.dentalSameDayRate}% → ${targetRate}% of visits`,
+        es: `Dental Mismo Día: ${revenue.dentalSameDayRate}% → ${targetRate}% de visitas`,
+      },
+      description: {
+        en: "Same-day Medical + Dental = 2 PPS encounters under BOTH Medicare AND Medi-Cal. This is the highest-value same-day billing opportunity. Screen all medical patients for dental needs.",
+        es: "Médico + Dental mismo día = 2 encuentros PPS bajo Medicare Y Medi-Cal. Esta es la oportunidad de mayor valor. Evalúe necesidades dentales en todos los pacientes médicos.",
+      },
+      revenueImpact: Math.round(gain),
+      implementation: "medium",
+      requirements: {
+        en: "Dental operatory co-located with medical, scheduling integration, dental screening protocol at medical visits",
+        es: "Consultorio dental co-ubicado con médico, integración de programación, protocolo de evaluación dental",
+      },
+    });
+  }
+
+  // 5. MODEL DESIGN: FQHC APM enrollment
+  if (!revenue.apmEnrolled && revenue.mediCalPercent > 50 && revenue.bhSameDayRate > 0) {
+    const mediCalBH =
+      results.bhEncountersPerYear * (revenue.mediCalPercent / 100);
+    const gain = mediCalBH * adjustedPPS; // These become billable
+    pathways.push({
+      id: "apm-enrollment",
+      category: "model-design",
+      title: {
+        en: "Enroll in FQHC Alternative Payment Model (APM)",
+        es: "Inscribirse en Modelo de Pago Alternativo (APM)",
+      },
+      description: {
+        en: "The FQHC APM (launched July 2024) uses PMPM capitation that bypasses the Medi-Cal same-day BH billing restriction. Your Medi-Cal BH encounters are currently lost revenue. APM unlocks them.",
+        es: "El APM de FQHC (lanzado julio 2024) usa capitación PMPM que evita la restricción de facturación BH mismo día de Medi-Cal. Sus encuentros BH de Medi-Cal son ingresos perdidos actualmente.",
+      },
+      revenueImpact: Math.round(gain),
+      implementation: "strategic",
+      requirements: {
+        en: "DHCS APM application, data infrastructure for PMPM reporting, BH capacity for same-day warm handoffs",
+        es: "Solicitud APM de DHCS, infraestructura de datos para reportes PMPM, capacidad BH para referencias mismo día",
+      },
+    });
+  }
+
+  // 6. MODEL DESIGN: BH integration
+  if (revenue.bhSameDayRate < 15 && staffing.bhProviders > 0) {
+    const targetRate = Math.min(revenue.bhSameDayRate + 8, 20);
+    const additionalBH =
+      results.totalEncountersPerYear * ((targetRate - revenue.bhSameDayRate) / 100);
+    // Revenue depends on APM status and payer mix
+    const billablePortion = revenue.apmEnrolled
+      ? additionalBH
+      : additionalBH * (1 - revenue.mediCalPercent / 100);
+    const gain = billablePortion * adjustedPPS;
+    pathways.push({
+      id: "bh-integration",
+      category: "model-design",
+      title: {
+        en: `BH Warm Handoff: ${revenue.bhSameDayRate}% → ${targetRate}% of visits`,
+        es: `Referencia BH Inmediata: ${revenue.bhSameDayRate}% → ${targetRate}% de visitas`,
+      },
+      description: {
+        en: revenue.apmEnrolled
+          ? "With APM enrolled, every same-day BH warm handoff generates revenue. Universal PHQ-9 screening + embedded BH in primary care workflow."
+          : "⚠️ Without APM, only Medicare BH encounters generate a 2nd PPS. Still clinically valuable for Medi-Cal patients. Consider APM enrollment to unlock full revenue.",
+        es: revenue.apmEnrolled
+          ? "Con APM, cada referencia BH inmediata genera ingresos. Cribado PHQ-9 universal + BH integrado en flujo de atención primaria."
+          : "⚠️ Sin APM, solo encuentros BH de Medicare generan 2° PPS. Aún valioso clínicamente para Medi-Cal. Considere APM para desbloquear ingresos completos.",
+      },
+      revenueImpact: Math.round(gain),
+      implementation: "medium",
+      requirements: {
+        en: "BH providers co-located, universal screening protocol, warm handoff workflow in EHR",
+        es: "Proveedores BH co-ubicados, protocolo de cribado universal, flujo de referencia inmediata en EHR",
+      },
+    });
+  }
+
+  // 7. PROGRAM EXPANSION: ECM enrollment
+  if (revenue.ecmEnrollmentRate < 10) {
+    const targetRate = Math.min(revenue.ecmEnrollmentRate + 4, 12);
+    const additionalPatients =
+      annualPatients * ((targetRate - revenue.ecmEnrollmentRate) / 100);
+    const gain = additionalPatients * ECM_PMPM.default * 12;
+    pathways.push({
+      id: "ecm-expansion",
+      category: "program-expansion",
+      title: {
+        en: `ECM Enrollment: ${revenue.ecmEnrollmentRate}% → ${targetRate}% of panel`,
+        es: `Inscripción ECM: ${revenue.ecmEnrollmentRate}% → ${targetRate}% del panel`,
+      },
+      description: {
+        en: "Enhanced Care Management PMPM ($275/mo average) is pure revenue above PPS encounters. Identify high-utilizer patients, housing-insecure, SUD, SMI. CHWs + Care Coordinators drive enrollment.",
+        es: "ECM PMPM ($275/mes promedio) es ingreso puro adicional a encuentros PPS. Identificar pacientes de alto uso, inestabilidad de vivienda, TUS, TMG.",
+      },
+      revenueImpact: Math.round(gain),
+      implementation: "medium",
+      requirements: {
+        en: "CalAIM ECM contract with managed care plan, CHW/Care Coordinator staff, care management platform",
+        es: "Contrato ECM CalAIM con plan de atención administrada, personal CHW/Coordinador, plataforma de manejo de atención",
+      },
+    });
+  }
+
+  // 8. PROGRAM EXPANSION: CCM capture rate
+  const chronicPercent =
+    (inputs.disease.diabeticPercent + inputs.disease.htnPercent + inputs.disease.copdPercent) / 100;
+  const currentCCMPatients = annualPatients * chronicPercent * 0.3;
+  const targetCCMCapture = 0.5; // 50% capture rate
+  const targetCCMPatients = annualPatients * chronicPercent * targetCCMCapture;
+  if (targetCCMPatients > currentCCMPatients) {
+    const gain =
+      (targetCCMPatients - currentCCMPatients) * CCM_RATES.ccm99490 * 12;
+    pathways.push({
+      id: "ccm-capture",
+      category: "program-expansion",
+      title: {
+        en: "CCM Capture Rate: 30% → 50% of chronic patients",
+        es: "Tasa de Captura CCM: 30% → 50% de pacientes crónicos",
+      },
+      description: {
+        en: "Chronic Care Management (99490, $62/mo per patient) for 20+ min/month of non-face-to-face care coordination. RNs and CHWs document phone calls, med reconciliation, care transitions.",
+        es: "Manejo de Atención Crónica (99490, $62/mes por paciente) por 20+ min/mes de coordinación no presencial. RNs y CHWs documentan llamadas, reconciliación de medicamentos.",
+      },
+      revenueImpact: Math.round(gain),
+      implementation: "quick-win",
+      requirements: {
+        en: "CCM tracking in EHR, staff training on documentation requirements, consent workflow",
+        es: "Seguimiento CCM en EHR, capacitación en requisitos de documentación, flujo de consentimiento",
+      },
+    });
+  }
+
+  // Sort by revenue impact (highest first)
+  pathways.sort((a, b) => b.revenueImpact - a.revenueImpact);
+  return pathways;
+}
+
+export const CLINIC_MODEL_LAST_UPDATED = "2026-03-06";

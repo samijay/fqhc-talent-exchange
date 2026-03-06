@@ -29,13 +29,17 @@ import {
 const ROLE_OPTIONS = [
   { id: "all", en: "All Roles", es: "Todos los roles" },
   { id: "chw", en: "Community Health Worker", es: "Promotor(a) de Salud" },
-  { id: "care-coordinator", en: "Care Coordinator", es: "Coordinador(a) de Cuidado" },
-  { id: "medical-assistant", en: "Medical Assistant", es: "Asistente Médico" },
-  { id: "case-manager", en: "Case Manager", es: "Gerente de Casos" },
-  { id: "behavioral-health", en: "BH Specialist", es: "Especialista en Salud Conductual" },
-  { id: "rn", en: "Registered Nurse", es: "Enfermero(a) Registrado(a)" },
-  { id: "patient-services", en: "Patient Services", es: "Servicios al Paciente" },
-  { id: "revenue-cycle", en: "Revenue Cycle", es: "Ciclo de Ingresos" },
+  { id: "care_coordinator", en: "Care Coordinator", es: "Coordinador(a) de Cuidado" },
+  { id: "medical_assistant", en: "Medical Assistant", es: "Asistente Médico" },
+  { id: "case_manager", en: "Case Manager", es: "Gerente de Casos" },
+  { id: "behavioral_health", en: "BH Specialist", es: "Especialista en Salud Conductual" },
+  { id: "registered_nurse", en: "Registered Nurse", es: "Enfermero(a) Registrado(a)" },
+  { id: "patient_services", en: "Patient Services", es: "Servicios al Paciente" },
+  { id: "revenue_cycle", en: "Revenue Cycle", es: "Ciclo de Ingresos" },
+  { id: "hr_manager", en: "HR Manager", es: "Gerente de Recursos Humanos" },
+  { id: "accountant", en: "Accountant", es: "Contador(a)" },
+  { id: "payroll_specialist", en: "Payroll Specialist", es: "Especialista en Nómina" },
+  { id: "finance_manager", en: "Finance Manager", es: "Gerente de Finanzas" },
 ];
 
 const COST_OPTIONS: { id: CostTier | "all"; en: string; es: string }[] = [

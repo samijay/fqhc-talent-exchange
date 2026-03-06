@@ -1,4 +1,5 @@
 // FQHC Clinic Operations Simulator — staffing, scheduling & revenue modeling
+// Medi-Cal aligned: WIC §14132.100, FQHC APM, payer-aware billing
 "use client";
 
 import { useLocale } from "next-intl";
@@ -7,18 +8,15 @@ import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { ClinicSimulator } from "@/components/viz/ClinicSimulator";
 import {
   Stethoscope,
-  ArrowRight,
-  CheckCircle2,
   Users,
   DollarSign,
   Activity,
-  Building2,
   BookOpen,
-  ExternalLink,
   AlertTriangle,
+  CheckCircle2,
+  Building2,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   DISEASE_PROTOCOLS,
   PATIENT_TIERS,
@@ -61,8 +59,8 @@ export default function ClinicSimulatorPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-stone-300">
             {isEs
-              ? "Modele dotación de personal, horarios, co-visitas e ingresos para su FQHC en California. Valores predeterminados basados en un FQHC real de California. Compare tres modelos de tamaño. Calcule el ROI del Proveedor del Día."
-              : "Model staffing, scheduling, co-visits, and revenue for your California FQHC. Default values reflect a real mid-size California FQHC. Compare three size models. Calculate Provider-of-the-Day ROI."}
+              ? "Modele dotación de personal, horarios e ingresos para su FQHC. Alineado con reglas de facturación de Medi-Cal. Encuentre oportunidades de optimización con un clic."
+              : "Model staffing, scheduling, and revenue for your California FQHC. Aligned with Medi-Cal billing rules. Find optimization opportunities with one click."}
           </p>
 
           {/* Stats */}
@@ -79,13 +77,17 @@ export default function ClinicSimulatorPage() {
                 icon: Users,
               },
               {
-                value: "15+",
-                label: isEs ? "Palancas de ingresos" : "Revenue Levers",
+                value: "8+",
+                label: isEs
+                  ? "Vías de optimización"
+                  : "Optimization Pathways",
                 icon: Activity,
               },
               {
-                value: "POTD",
-                label: isEs ? "Calculadora incluida" : "Calculator Included",
+                value: "APM",
+                label: isEs
+                  ? "Simulación de pagadores"
+                  : "Payer-Aware Billing",
                 icon: Building2,
               },
             ].map((stat) => (
@@ -103,98 +105,74 @@ export default function ClinicSimulatorPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  CO-VISIT BILLING MODELS                                      */}
+      {/*  MEDI-CAL BILLING RULES QUICK REFERENCE                      */}
       {/* ============================================================ */}
-      <section className="bg-white px-4 py-12">
+      <section className="bg-white px-4 py-10">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
+          <h2 className="text-xl font-bold text-stone-900 sm:text-2xl">
             {isEs
-              ? "Dos Modelos de Co-Visita en FQHC"
-              : "Two FQHC Co-Visit Billing Models"}
+              ? "⚠️ Reglas de Facturación: Lo Que Realmente es Facturable"
+              : "⚠️ Billing Rules: What's Actually Billable"}
           </h2>
-          <p className="mt-2 max-w-3xl text-stone-600">
+          <p className="mt-2 max-w-3xl text-sm text-stone-600">
             {isEs
-              ? "Los FQHCs usan dos modelos distintos para maximizar ingresos con enfermeras. Ambos son legítimos bajo CMS, pero tienen implicaciones operativas diferentes."
-              : "FQHCs use two distinct models to maximize revenue with nursing staff. Both are legitimate under CMS, but have different operational implications."}
+              ? "La diferencia entre Medi-Cal y Medicare en facturación el mismo día es crítica. Muchos FQHCs pierden ingresos por no entender estas reglas."
+              : "The difference between Medi-Cal and Medicare same-day billing is critical. Many FQHCs leave revenue on the table by misunderstanding these rules."}
           </p>
 
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            {/* Model A */}
-            <div className="rounded-xl border-2 border-teal-200 bg-teal-50/30 p-6">
-              <Badge className="mb-3 bg-teal-100 text-teal-700">
-                {isEs ? "MODELO A" : "MODEL A"}
-              </Badge>
-              <h3 className="text-lg font-bold text-stone-900">
-                {isEs
-                  ? "Dos Encuentros el Mismo Día"
-                  : "Two-Encounter Same-Day"}
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {/* Same-day Dental */}
+            <div className="rounded-xl border-2 border-green-200 bg-green-50/30 p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <CheckCircle2 className="size-5 text-green-600" />
+                <Badge className="bg-green-100 text-green-700 text-[10px]">
+                  {isEs ? "2 PPS AMBOS PAGADORES" : "2 PPS BOTH PAYERS"}
+                </Badge>
+              </div>
+              <h3 className="text-sm font-bold text-stone-900">
+                {isEs ? "Médico + Dental Mismo Día" : "Medical + Dental Same-Day"}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-stone-600">
+              <p className="mt-2 text-xs leading-relaxed text-stone-600">
                 {isEs
-                  ? "Dos proveedores facturables ven al mismo paciente el mismo día. Cada uno documenta un servicio médicamente necesario y distinto. Resultado: 2 pagos PPS separados."
-                  : "Two billable providers see the same patient on the same day. Each documents a separate, medically necessary service. Result: 2 separate PPS payments."}
+                  ? "Paciente ve al médico Y al dentista el mismo día → 2 encuentros PPS separados bajo Medicare Y Medi-Cal. Máxima oportunidad de ingresos."
+                  : "Patient sees medical provider AND dentist on the same day → 2 separate PPS encounters under Medicare AND Medi-Cal. Highest-value same-day opportunity."}
               </p>
-              <div className="mt-4 space-y-2">
-                {[
-                  isEs ? "MD/NP ve al paciente para visita primaria" : "MD/NP sees patient for primary care visit",
-                  isEs ? "LCSW/Psicólogo ve al paciente para salud conductual" : "LCSW/Psychologist sees patient for behavioral health",
-                  isEs ? "Dos notas separadas, dos reclamos, dos pagos PPS" : "Two separate notes, two claims, two PPS payments",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2 text-sm text-stone-700">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-teal-600" />
-                    {item}
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 rounded-lg bg-teal-100 p-3">
-                <p className="text-sm font-bold text-teal-800">
-                  {isEs ? "Ejemplo de Ingresos" : "Revenue Example"}
-                </p>
-                <p className="mt-1 text-xs text-teal-700">
-                  {isEs
-                    ? "1 visita → 2 encuentros PPS × $225 = $450 de ingresos"
-                    : "1 visit → 2 PPS encounters × $225 = $450 revenue"}
-                </p>
-              </div>
             </div>
 
-            {/* Model B */}
-            <div className="rounded-xl border-2 border-amber-200 bg-amber-50/30 p-6">
-              <Badge className="mb-3 bg-amber-100 text-amber-700">
-                {isEs ? "MODELO B" : "MODEL B"}
-              </Badge>
-              <h3 className="text-lg font-bold text-stone-900">
-                {isEs
-                  ? "Visita RN con Co-Firma del Proveedor"
-                  : "RN Visit with Provider Co-Signature"}
+            {/* Same-day BH — Medicare */}
+            <div className="rounded-xl border-2 border-amber-200 bg-amber-50/30 p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertTriangle className="size-5 text-amber-600" />
+                <Badge className="bg-amber-100 text-amber-700 text-[10px]">
+                  {isEs ? "DEPENDE DEL PAGADOR" : "PAYER-DEPENDENT"}
+                </Badge>
+              </div>
+              <h3 className="text-sm font-bold text-stone-900">
+                {isEs ? "Médico + BH Mismo Día" : "Medical + BH Same-Day"}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-stone-600">
+              <p className="mt-2 text-xs leading-relaxed text-stone-600">
                 {isEs
-                  ? "RN realiza la visita completa del paciente (evaluación, educación, plan de atención). MD/NP revisa la nota, agrega evaluación clínica y co-firma, convirtiendo el encuentro en facturable."
-                  : "RN conducts the full patient visit (assessment, education, care planning). MD/NP reviews the note, adds clinical assessment, and co-signs — making the encounter billable."}
+                  ? "Medicare: 2 PPS ✓ — Medi-Cal: solo 1 PPS (WIC §14132.100) a menos que esté inscrito en el APM de FQHC (julio 2024). Sin APM, el 70%+ de su mezcla de pagadores NO genera un 2° PPS."
+                  : "Medicare: 2 PPS ✓ — Medi-Cal: only 1 PPS (WIC §14132.100) unless enrolled in the FQHC APM (July 2024). Without APM, 70%+ of your payer mix does NOT generate a 2nd PPS."}
               </p>
-              <div className="mt-4 space-y-2">
-                {[
-                  isEs ? "RN realiza visita de 30 min (manejo de enfermedades crónicas, educación)" : "RN conducts 30-min visit (chronic disease mgmt, education)",
-                  isEs ? "MD/NP revisa nota, agrega evaluación clínica (~5 min)" : "MD/NP reviews note, adds clinical assessment (~5 min)",
-                  isEs ? "Un encuentro PPS facturable — RN hace el trabajo, MD lo hace facturable" : "One billable PPS encounter — RN does the work, MD makes it billable",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2 text-sm text-stone-700">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-amber-600" />
-                    {item}
-                  </div>
-                ))}
+            </div>
+
+            {/* RN visits */}
+            <div className="rounded-xl border-2 border-red-200 bg-red-50/30 p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertTriangle className="size-5 text-red-600" />
+                <Badge className="bg-red-100 text-red-700 text-[10px]">
+                  {isEs ? "NO FACTURABLE" : "NOT BILLABLE"}
+                </Badge>
               </div>
-              <div className="mt-4 rounded-lg bg-amber-100 p-3">
-                <p className="text-sm font-bold text-amber-800">
-                  {isEs ? "Modelo Proveedor del Día" : "Provider-of-the-Day Model"}
-                </p>
-                <p className="mt-1 text-xs text-amber-700">
-                  {isEs
-                    ? "1 MD co-firma para 4 RNs × 12 pacientes = 48 encuentros/día × $225 = $10,800/día"
-                    : "1 MD co-signs for 4 RNs × 12 patients = 48 encounters/day × $225 = $10,800/day"}
-                </p>
-              </div>
+              <h3 className="text-sm font-bold text-stone-900">
+                {isEs ? "Visitas de RN" : "RN Visits"}
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-stone-600">
+                {isEs
+                  ? "Las visitas de RN NO son facturables independientemente bajo PPS de FQHC (ni Medicare ni Medi-Cal). La co-firma de MD no las convierte en facturables. RNs generan valor como atención basada en equipo, liberando proveedores."
+                  : "RN visits are NOT independently billable under FQHC PPS (neither Medicare nor Medi-Cal). MD co-signature alone does NOT make them billable. RNs generate value through team-based care, freeing up providers."}
+              </p>
             </div>
           </div>
         </div>
@@ -210,143 +188,9 @@ export default function ClinicSimulatorPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  PROVIDER-OF-THE-DAY DEEP DIVE                               */}
-      {/* ============================================================ */}
-      <section className="bg-white px-4 py-12">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
-            {isEs
-              ? "Proveedor del Día: Análisis Profundo"
-              : "Provider-of-the-Day: Deep Dive"}
-          </h2>
-          <p className="mt-2 max-w-3xl text-stone-600">
-            {isEs
-              ? "¿Puede dedicar un MD/NP exclusivamente a co-firmar visitas de RN en lugar de ver sus propios pacientes?"
-              : "Can you dedicate one MD/NP exclusively to co-signing RN visits instead of seeing their own patients?"}
-          </p>
-
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            {/* When it works */}
-            <div className="rounded-xl border border-teal-200 bg-teal-50/30 p-6">
-              <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-teal-700">
-                <CheckCircle2 className="size-5" />
-                {isEs ? "Cuándo Funciona" : "When It Works"}
-              </h3>
-              <div className="space-y-3">
-                {[
-                  {
-                    en: "Stable chronic disease patients (diabetes, HTN, COPD) — predictable, protocol-driven visits ideal for RN-led care",
-                    es: "Pacientes crónicos estables (diabetes, HTN, EPOC) — visitas predecibles e ideales para atención dirigida por RN",
-                  },
-                  {
-                    en: "Experienced RNs with strong clinical judgment — can manage standing orders independently, know when to escalate",
-                    es: "RNs experimentadas con buen juicio clínico — pueden manejar órdenes permanentes, saben cuándo escalar",
-                  },
-                  {
-                    en: "Good EHR templates — standardized documentation reduces co-sign review time to 3-5 minutes per chart",
-                    es: "Buenas plantillas EHR — documentación estandarizada reduce tiempo de revisión a 3-5 minutos por nota",
-                  },
-                  {
-                    en: "Sufficient RN staffing — need 3-4+ RNs per POTD provider to generate enough volume",
-                    es: "Suficiente dotación de RN — necesita 3-4+ RNs por proveedor POTD para generar suficiente volumen",
-                  },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2 text-sm text-stone-700">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-teal-600" />
-                    {t(item, locale)}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* When it fails */}
-            <div className="rounded-xl border border-red-200 bg-red-50/30 p-6">
-              <h3 className="mb-4 flex items-center gap-2 text-lg font-bold text-red-700">
-                <AlertTriangle className="size-5" />
-                {isEs ? "Cuándo Falla" : "When It Fails"}
-              </h3>
-              <div className="space-y-3">
-                {[
-                  {
-                    en: "High-acuity patient population — complex cases need direct provider evaluation, not just co-signature",
-                    es: "Población de alta agudeza — casos complejos necesitan evaluación directa del proveedor, no solo co-firma",
-                  },
-                  {
-                    en: "Poor documentation quality — if RN notes lack clinical detail, co-sign provider spends 15+ min per chart reviewing",
-                    es: "Baja calidad de documentación — si las notas RN carecen de detalle, proveedor pasa 15+ min revisando cada nota",
-                  },
-                  {
-                    en: "Small FQHC with few providers — dedicating 1 of 8 providers (12.5% capacity) is a bigger sacrifice than 1 of 30 (3.3%)",
-                    es: "FQHC pequeño con pocos proveedores — dedicar 1 de 8 (12.5% capacidad) es mayor sacrificio que 1 de 30 (3.3%)",
-                  },
-                  {
-                    en: "Regulatory uncertainty — some payers may audit co-signed encounters more aggressively; documentation must be bulletproof",
-                    es: "Incertidumbre regulatoria — algunos pagadores pueden auditar encuentros co-firmados más agresivamente",
-                  },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2 text-sm text-stone-700">
-                    <AlertTriangle className="mt-0.5 size-4 shrink-0 text-red-500" />
-                    {t(item, locale)}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Implementation Steps */}
-          <div className="mt-8">
-            <h3 className="mb-4 text-lg font-bold text-stone-900">
-              {isEs
-                ? "4 Pasos para Implementar"
-                : "4 Steps to Implement"}
-            </h3>
-            <div className="grid gap-4 sm:grid-cols-4">
-              {[
-                {
-                  step: "1",
-                  title: { en: "Audit RN Readiness", es: "Auditar Preparación RN" },
-                  desc: { en: "Identify RNs with chronic disease management experience. Verify standing order competency. Train on documentation templates.", es: "Identificar RNs con experiencia en manejo de enfermedades crónicas. Verificar competencia en órdenes permanentes." },
-                },
-                {
-                  step: "2",
-                  title: { en: "Build EHR Templates", es: "Crear Plantillas EHR" },
-                  desc: { en: "Create standardized visit templates for each disease protocol. Include all required documentation elements for billing compliance.", es: "Crear plantillas estandarizadas para cada protocolo. Incluir todos los elementos de documentación requeridos." },
-                },
-                {
-                  step: "3",
-                  title: { en: "Pilot with 1 Provider", es: "Piloto con 1 Proveedor" },
-                  desc: { en: "Start with 1 POTD provider and 2-3 RNs. Track encounters, review time, revenue, and quality metrics for 4 weeks.", es: "Comenzar con 1 proveedor POTD y 2-3 RNs. Rastrear encuentros, tiempo de revisión, ingresos y calidad por 4 semanas." },
-                },
-                {
-                  step: "4",
-                  title: { en: "Scale & Rotate", es: "Escalar y Rotar" },
-                  desc: { en: "If metrics support it, scale to 4 RNs per POTD. Rotate POTD duty weekly to prevent burnout and maintain clinical skills.", es: "Si las métricas lo respaldan, escalar a 4 RNs por POTD. Rotar turno POTD semanalmente para evitar burnout." },
-                },
-              ].map((item) => (
-                <div
-                  key={item.step}
-                  className="rounded-xl border border-stone-200 bg-stone-50 p-4"
-                >
-                  <span className="flex size-8 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">
-                    {item.step}
-                  </span>
-                  <h4 className="mt-3 text-sm font-bold text-stone-900">
-                    {t(item.title, locale)}
-                  </h4>
-                  <p className="mt-1 text-xs leading-relaxed text-stone-600">
-                    {t(item.desc, locale)}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
       {/*  DISEASE MANAGEMENT PROTOCOLS                                 */}
       {/* ============================================================ */}
-      <section className="px-4 py-12">
+      <section className="bg-white px-4 py-12">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
             {isEs
@@ -355,19 +199,29 @@ export default function ClinicSimulatorPage() {
           </h2>
           <p className="mt-2 max-w-3xl text-stone-600">
             {isEs
-              ? "Diseño intencional de manejo de atención: quién ve a quién, con qué frecuencia, y cómo genera ingresos."
-              : "Intentional care management design: who sees whom, how often, and how it generates revenue."}
+              ? "Diseño intencional de atención basada en equipo: quién ve a quién, con qué frecuencia y cuáles son las vías de ingresos reales."
+              : "Intentional team-based care design: who sees whom, how often, and what the actual revenue pathways are."}
           </p>
 
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {DISEASE_PROTOCOLS.map((protocol) => (
               <div
                 key={protocol.id}
-                className="rounded-xl border border-stone-200 bg-white p-6"
+                className="rounded-xl border border-stone-200 bg-stone-50 p-6"
               >
-                <h3 className="text-lg font-bold text-stone-900">
-                  {t(protocol.name, locale)}
-                </h3>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-bold text-stone-900">
+                    {t(protocol.name, locale)}
+                  </h3>
+                  {protocol.ccmEligible && (
+                    <Badge
+                      variant="secondary"
+                      className="bg-blue-100 text-blue-700 text-[10px]"
+                    >
+                      CCM {isEs ? "elegible" : "eligible"}
+                    </Badge>
+                  )}
+                </div>
                 <p className="mt-1 text-xs text-stone-500">
                   {t(protocol.prevalence, locale)}
                 </p>
@@ -407,12 +261,12 @@ export default function ClinicSimulatorPage() {
                   </div>
                 </div>
 
-                {/* Co-Visit Opportunity */}
-                <div className="mt-4 rounded-lg bg-teal-50 p-3">
-                  <p className="text-xs font-bold text-teal-700">
-                    {isEs ? "Oportunidad de Co-Visita" : "Co-Visit Opportunity"}
+                {/* Revenue Pathway (replaces old "Co-Visit Opportunity") */}
+                <div className="mt-4 rounded-lg bg-amber-50 p-3">
+                  <p className="text-xs font-bold text-amber-700">
+                    {isEs ? "Vía de Ingresos" : "Revenue Pathway"}
                   </p>
-                  <p className="mt-1 text-xs leading-relaxed text-teal-600">
+                  <p className="mt-1 text-xs leading-relaxed text-amber-600">
                     {t(protocol.coVisitOpportunity, locale)}
                   </p>
                 </div>
@@ -443,7 +297,7 @@ export default function ClinicSimulatorPage() {
       {/* ============================================================ */}
       {/*  PATIENT TIERING                                              */}
       {/* ============================================================ */}
-      <section className="bg-white px-4 py-12">
+      <section className="px-4 py-12">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
             {isEs
@@ -471,10 +325,7 @@ export default function ClinicSimulatorPage() {
                 <h3 className="text-lg font-bold text-stone-900">
                   {t(tier.name, locale)}
                 </h3>
-                <Badge
-                  variant="outline"
-                  className="mt-1 text-[10px]"
-                >
+                <Badge variant="outline" className="mt-1 text-[10px]">
                   {t(tier.percentOfPanel, locale)}
                 </Badge>
                 <p className="mt-3 text-sm leading-relaxed text-stone-600">
@@ -519,7 +370,7 @@ export default function ClinicSimulatorPage() {
       {/* ============================================================ */}
       {/*  ECONOMIES OF SCALE                                           */}
       {/* ============================================================ */}
-      <section className="px-4 py-12">
+      <section className="bg-white px-4 py-12">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
             {isEs
@@ -549,10 +400,7 @@ export default function ClinicSimulatorPage() {
               </thead>
               <tbody>
                 {SCALE_FACTORS.map((factor, i) => (
-                  <tr
-                    key={i}
-                    className="border-b border-stone-100"
-                  >
+                  <tr key={i} className="border-b border-stone-100">
                     <td className="py-3 font-medium text-stone-700">
                       {t(factor.category, locale)}
                     </td>
@@ -579,7 +427,7 @@ export default function ClinicSimulatorPage() {
       {/* ============================================================ */}
       {/*  CROSS-NAV + CTA                                              */}
       {/* ============================================================ */}
-      <section className="bg-white px-4 py-12">
+      <section className="px-4 py-12">
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-6 text-2xl font-bold text-stone-900">
             {isEs ? "Recursos Relacionados" : "Related Resources"}
@@ -588,29 +436,47 @@ export default function ClinicSimulatorPage() {
             {[
               {
                 href: "/strategy/economics",
-                title: { en: "Healthcare Economics", es: "Economía de la Salud" },
-                desc: { en: "PPS, 340B, FMAP & more — 3 levels", es: "PPS, 340B, FMAP y más — 3 niveles" },
+                title: {
+                  en: "Healthcare Economics",
+                  es: "Economía de la Salud",
+                },
+                desc: {
+                  en: "PPS, 340B, FMAP & more — 3 levels",
+                  es: "PPS, 340B, FMAP y más — 3 niveles",
+                },
               },
               {
                 href: "/strategy/scope-of-practice",
                 title: { en: "Top-of-Scope", es: "Alcance Máximo" },
-                desc: { en: "CA scope-of-practice by role", es: "Alcance de práctica por rol en CA" },
+                desc: {
+                  en: "CA scope-of-practice by role",
+                  es: "Alcance de práctica por rol en CA",
+                },
               },
               {
                 href: "/guides",
                 title: { en: "Workplace Guides", es: "Guías de Trabajo" },
-                desc: { en: "RN co-visits, ECM, BH integration", es: "Co-visitas RN, ECM, integración BH" },
+                desc: {
+                  en: "Same-day billing, ECM, BH integration",
+                  es: "Facturación mismo día, ECM, integración BH",
+                },
               },
               {
                 href: "/salary-data",
-                title: { en: "Salary Intelligence", es: "Inteligencia Salarial" },
-                desc: { en: "30 roles × 9 regions", es: "30 roles × 9 regiones" },
+                title: {
+                  en: "Salary Intelligence",
+                  es: "Inteligencia Salarial",
+                },
+                desc: {
+                  en: "30 roles × 9 regions",
+                  es: "30 roles × 9 regiones",
+                },
               },
             ].map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="group flex items-start gap-3 rounded-xl border border-stone-200 p-4 transition-colors hover:border-teal-300 hover:bg-teal-50"
+                className="group flex items-start gap-3 rounded-xl border border-stone-200 bg-white p-4 transition-colors hover:border-teal-300 hover:bg-teal-50"
               >
                 <BookOpen className="mt-0.5 size-5 shrink-0 text-teal-600" />
                 <div>
@@ -633,8 +499,8 @@ export default function ClinicSimulatorPage() {
           {/* Source + Last Updated */}
           <div className="mt-6 flex items-center justify-between text-xs text-stone-400">
             <p>
-              {isEs ? "Fuentes" : "Sources"}: CMS FQHC PPS · CA DHCS · NACHC ·
-              HRSA BPHC
+              {isEs ? "Fuentes" : "Sources"}: CMS FQHC PPS · CA DHCS WIC
+              §14132.100 · NACHC · HRSA BPHC · DHCS FQHC APM Guide
             </p>
             <p>
               {isEs ? "Última actualización" : "Last updated"}:{" "}

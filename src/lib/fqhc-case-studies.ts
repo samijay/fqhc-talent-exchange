@@ -5,7 +5,7 @@
 // Last updated: 2026-02-28 (session update)
 
 /** Exported for display on pages — updated when new case studies are added */
-export const CASE_STUDIES_LAST_UPDATED = "2026-03-04"; // 22 total case studies
+export const CASE_STUDIES_LAST_UPDATED = "2026-03-06"; // 26 total case studies
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -2068,6 +2068,399 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
       "smdu",
     ],
     datePublished: "2024-11-20",
+  },
+
+  // ================================================================
+  // 23. La Clinica de la Raza — Community-Anchored Growth Model
+  // ================================================================
+  {
+    id: "la-clinica-community-anchored-growth",
+    fqhcName: "La Clinica de la Raza",
+    fqhcSlug: "la-clinica-de-la-raza",
+    location: "Oakland, California",
+    date: "2000-01-01",
+    timeframe: "2000 – 2025",
+    difficulty: "advanced",
+    headline: {
+      en: "A Chicano Movement-rooted FQHC grew from a single storefront to 35 sites serving 86,000+ patients by anchoring expansion in the communities it serves — including a nationally recognized transit village development.",
+      es: "Un FQHC con raíces en el Movimiento Chicano creció de un solo local a 35 sitios sirviendo a más de 86,000 pacientes, anclando su expansión en las comunidades que sirve — incluyendo un desarrollo de villa de tránsito reconocido nacionalmente.",
+    },
+    challenge: {
+      en: "By the late 1990s, La Clinica de la Raza faced a paradox common to mission-driven FQHCs: the communities it served in Oakland's Fruitvale District were being displaced by rising costs and disinvestment, while demand for culturally competent bilingual healthcare was surging. Simply opening more clinic sites wouldn't solve the underlying problem — the neighborhoods themselves were destabilizing. La Clinica needed a growth strategy that strengthened the community infrastructure, not just the clinical one. With 86,844 patients generating 360,570 visits annually across the East Bay and Contra Costa County, the organization also needed to maintain quality and cultural responsiveness at scale — something that had defeated many FQHCs during rapid expansion.",
+      es: "A finales de los años 1990, La Clinica de la Raza enfrentaba una paradoja común en los FQHCs orientados a la misión: las comunidades que servía en el Distrito Fruitvale de Oakland estaban siendo desplazadas por costos crecientes y desinversión, mientras la demanda de atención médica culturalmente competente y bilingüe aumentaba. Simplemente abrir más sitios clínicos no resolvería el problema subyacente — los vecindarios mismos se estaban desestabilizando. La Clinica necesitaba una estrategia de crecimiento que fortaleciera la infraestructura comunitaria, no solo la clínica. Con 86,844 pacientes generando 360,570 visitas anualmente en el East Bay y el Condado de Contra Costa, la organización también necesitaba mantener la calidad y la sensibilidad cultural a escala.",
+    },
+    guidingPolicy: {
+      en: "Anchor clinical growth within community development — don't just open clinics, build the neighborhoods they serve. La Clinica's guiding principle: healthcare access is inseparable from community stability. This meant pursuing place-based strategies (transit village development, school-based health centers) that make the clinic a permanent anchor institution rather than a tenant vulnerable to displacement. Simultaneously, expand geographic reach through school-based health centers that embed services where families already are, reducing access barriers.",
+      es: "Anclar el crecimiento clínico dentro del desarrollo comunitario — no solo abrir clínicas, construir los vecindarios que sirven. El principio rector de La Clinica: el acceso a la salud es inseparable de la estabilidad comunitaria. Esto significó perseguir estrategias basadas en el lugar (desarrollo de villa de tránsito, centros de salud en escuelas) que hacen de la clínica una institución ancla permanente en lugar de un inquilino vulnerable al desplazamiento.",
+    },
+    actions: [
+      {
+        en: "Led the Fruitvale Transit Village development — a $100M+ mixed-use project around the Fruitvale BART station that co-located La Clinica's 40,000 sq ft flagship clinic with affordable housing, retail, and community services, creating a permanent anchor in the neighborhood",
+        es: "Lideró el desarrollo de la Villa de Tránsito de Fruitvale — un proyecto de uso mixto de $100M+ alrededor de la estación BART de Fruitvale que ubicó la clínica insignia de 40,000 pies cuadrados de La Clinica junto con vivienda asequible, comercio y servicios comunitarios",
+      },
+      {
+        en: "Established school-based health centers across East Bay school districts, embedding primary care, behavioral health, and dental services directly in schools serving predominantly Latino immigrant communities — eliminating transportation and scheduling barriers for families",
+        es: "Estableció centros de salud en escuelas en distritos escolares del East Bay, integrando atención primaria, salud conductual y servicios dentales directamente en escuelas que sirven a comunidades predominantemente inmigrantes latinas — eliminando barreras de transporte y horario",
+      },
+      {
+        en: "Expanded from Alameda County into Contra Costa County and Solano County, growing to 35 sites while maintaining the community health worker and promotora model that preserves cultural competency at every site",
+        es: "Se expandió del Condado de Alameda al Condado de Contra Costa y Solano, creciendo a 35 sitios mientras mantenía el modelo de trabajadores de salud comunitaria y promotoras que preserva la competencia cultural en cada sitio",
+      },
+      {
+        en: "Built bilingual (Spanish-English) service delivery as a core operational requirement — not a supplemental service — across all 35 sites, with additional language capacity for indigenous languages and Portuguese",
+        es: "Construyó la prestación de servicios bilingüe (español-inglés) como un requisito operativo fundamental — no un servicio suplementario — en los 35 sitios, con capacidad adicional para lenguas indígenas y portugués",
+      },
+    ],
+    outcomes: [
+      {
+        metric: "Patient Volume",
+        value: "86,844 patients / 360,570 visits",
+        context: {
+          en: "Grew from a single Fruitvale storefront to serving 86,844 patients through 360,570 visits annually — one of the largest FQHCs in the Bay Area",
+          es: "Creció de un solo local en Fruitvale a servir 86,844 pacientes a través de 360,570 visitas anualmente — uno de los FQHCs más grandes del Área de la Bahía",
+        },
+      },
+      {
+        metric: "Site Expansion",
+        value: "1 → 35 sites",
+        context: {
+          en: "Expanded from one site to 35 across three counties while maintaining community-anchored model and cultural competency",
+          es: "Se expandió de un sitio a 35 en tres condados mientras mantenía el modelo anclado en la comunidad y la competencia cultural",
+        },
+      },
+      {
+        metric: "Community Anchor",
+        value: "Fruitvale Transit Village",
+        context: {
+          en: "Led a nationally recognized $100M+ transit-oriented development that permanently anchored the clinic in the community — now studied as a model for FQHC-led community development",
+          es: "Lideró un desarrollo orientado al tránsito reconocido nacionalmente de $100M+ que ancló permanentemente la clínica en la comunidad — ahora estudiado como modelo de desarrollo comunitario liderado por FQHCs",
+        },
+      },
+    ],
+    strategyCategory: "patient-access",
+    primarySourceUrl: "https://www.laclinica.org/about-us",
+    primarySourceOrg: "La Clinica de la Raza",
+    additionalSources: [
+      {
+        label: "HRSA Health Center Data — La Clinica de la Raza",
+        url: "https://data.hrsa.gov/tools/data-reporting/program-data/national/table?tableName=Full&year=2023",
+      },
+      {
+        label: "Fruitvale Transit Village — Federal Transit Administration",
+        url: "https://www.transit.dot.gov/research-innovation/fruitvale-transit-village-project",
+      },
+      {
+        label: "NACHC: School-Based Health Centers",
+        url: "https://www.nachc.org/focus-areas/clinical-affairs/school-based-health-centers/",
+      },
+    ],
+    tags: [
+      "community-development",
+      "school-based",
+      "cultural-competency",
+      "transit-village",
+      "bilingual",
+      "california",
+    ],
+    datePublished: "2025-01-15",
+  },
+
+  // ================================================================
+  // 24. Clinica Sierra Vista — Merger Rescue & Quality Excellence
+  // ================================================================
+  {
+    id: "clinica-sierra-vista-merger-quality",
+    fqhcName: "Clinica Sierra Vista",
+    fqhcSlug: "clinica-sierra-vista",
+    location: "Bakersfield, California",
+    date: "2018-01-01",
+    timeframe: "2018 – 2025",
+    difficulty: "advanced",
+    headline: {
+      en: "Central Valley's largest FQHC rescued a failing health center network through strategic merger, then achieved HRSA Quality Leader recognition while operating a teaching health center residency — proving that scale and quality can coexist.",
+      es: "El FQHC más grande del Valle Central rescató una red de centros de salud en quiebra mediante fusión estratégica, luego logró el reconocimiento de Líder de Calidad de HRSA mientras operaba una residencia de centro de salud docente — demostrando que escala y calidad pueden coexistir.",
+    },
+    challenge: {
+      en: "In 2018, the San Joaquin Valley faced a healthcare access crisis: Sequoia Community Health Centers, serving some of the most medically underserved communities in Fresno and Tulare Counties, was in financial distress and at risk of closure. If Sequoia closed, tens of thousands of predominantly Latino farmworker families would lose their primary care provider in a region already designated as a Health Professional Shortage Area. Meanwhile, Clinica Sierra Vista — already the largest FQHC in the Central Valley at $223M in revenue — needed to decide whether taking on a distressed organization would dilute its hard-won quality metrics or strengthen its regional position. The risk was real: failed FQHC mergers had damaged acquirers elsewhere in the country.",
+      es: "En 2018, el Valle de San Joaquín enfrentaba una crisis de acceso a la salud: Sequoia Community Health Centers, que servía a algunas de las comunidades más desatendidas médicamente en los Condados de Fresno y Tulare, estaba en dificultades financieras y en riesgo de cierre. Si Sequoia cerraba, decenas de miles de familias de trabajadores agrícolas predominantemente latinos perderían su proveedor de atención primaria en una región ya designada como Área de Escasez de Profesionales de Salud. Mientras tanto, Clinica Sierra Vista — ya el FQHC más grande del Valle Central con $223M en ingresos — necesitaba decidir si asumir una organización en dificultades diluiría sus métricas de calidad o fortalecería su posición regional.",
+    },
+    guidingPolicy: {
+      en: "Treat distressed mergers as mission-driven growth opportunities — but only if the acquirer has the operational infrastructure to absorb and transform the acquired sites. Clinica Sierra Vista's approach: acquire Sequoia's sites and patients, immediately deploy standardized clinical protocols and quality measurement systems, and use the teaching health center residency pipeline to staff the acquired sites with mission-aligned providers. The theory: scale provides the infrastructure resilience to absorb distressed assets that smaller FQHCs cannot.",
+      es: "Tratar las fusiones en dificultades como oportunidades de crecimiento orientadas a la misión — pero solo si el adquirente tiene la infraestructura operativa para absorber y transformar los sitios adquiridos. El enfoque de Clinica Sierra Vista: adquirir los sitios y pacientes de Sequoia, implementar inmediatamente protocolos clínicos estandarizados y sistemas de medición de calidad, y usar la residencia del centro de salud docente para dotar de personal a los sitios adquiridos con proveedores alineados con la misión.",
+    },
+    actions: [
+      {
+        en: "Completed strategic merger with Sequoia Community Health Centers, absorbing their sites in Fresno and Tulare Counties while retaining existing staff and maintaining continuity of care for patients during the transition",
+        es: "Completó la fusión estratégica con Sequoia Community Health Centers, absorbiendo sus sitios en los Condados de Fresno y Tulare mientras retenía al personal existente y mantenía la continuidad de atención para los pacientes durante la transición",
+      },
+      {
+        en: "Deployed standardized clinical quality protocols across all acquired sites within 12 months — aligning documentation, UDS reporting, and clinical workflows to Clinica Sierra Vista's existing quality framework that had earned HRSA Community Health Quality Recognition (CHQR) badges",
+        es: "Implementó protocolos estandarizados de calidad clínica en todos los sitios adquiridos dentro de 12 meses — alineando documentación, reportes UDS y flujos clínicos al marco de calidad existente de Clinica Sierra Vista que había ganado insignias CHQR de HRSA",
+      },
+      {
+        en: "Operated a Teaching Health Center (THC) Graduate Medical Education residency program, training new family medicine physicians directly in FQHC settings — creating a pipeline of providers who understand safety-net care from day one of residency",
+        es: "Operó un programa de residencia de Educación Médica para Graduados de Centro de Salud Docente (THC), entrenando nuevos médicos de medicina familiar directamente en entornos FQHC — creando una pipeline de proveedores que entienden la atención de red de seguridad desde el primer día de residencia",
+      },
+      {
+        en: "Achieved 100% compliance across all HRSA operational site visit (OSV) requirements — demonstrating that rapid growth through merger can coexist with rigorous federal compliance when the acquirer has strong governance infrastructure",
+        es: "Logró 100% de cumplimiento en todos los requisitos de visita operativa de sitio (OSV) de HRSA — demostrando que el crecimiento rápido mediante fusión puede coexistir con cumplimiento federal riguroso cuando el adquirente tiene fuerte infraestructura de gobernanza",
+      },
+    ],
+    outcomes: [
+      {
+        metric: "Revenue Scale",
+        value: "$223M annual revenue",
+        context: {
+          en: "Grew to $223M in annual revenue, making Clinica Sierra Vista one of the largest FQHCs in California and the dominant provider in the San Joaquin Valley",
+          es: "Creció a $223M en ingresos anuales, haciendo de Clinica Sierra Vista uno de los FQHCs más grandes de California y el proveedor dominante en el Valle de San Joaquín",
+        },
+      },
+      {
+        metric: "HRSA Quality Recognition",
+        value: "CHQR Quality Badges",
+        context: {
+          en: "Earned multiple HRSA Community Health Quality Recognition (CHQR) badges for clinical performance — including recognition for clinical quality measures, access, and EHR meaningful use",
+          es: "Ganó múltiples insignias de Reconocimiento de Calidad de Salud Comunitaria (CHQR) de HRSA por desempeño clínico — incluyendo reconocimiento por medidas de calidad clínica, acceso y uso significativo de EHR",
+        },
+      },
+      {
+        metric: "HRSA Compliance",
+        value: "100% OSV compliance",
+        context: {
+          en: "Achieved 100% compliance on HRSA Operational Site Visit requirements — proving that scale does not have to compromise federal compliance",
+          es: "Logró 100% de cumplimiento en los requisitos de Visita Operativa de Sitio de HRSA — demostrando que la escala no tiene que comprometer el cumplimiento federal",
+        },
+      },
+    ],
+    strategyCategory: "operational-efficiency",
+    primarySourceUrl: "https://www.clinicasierravista.org/about",
+    primarySourceOrg: "Clinica Sierra Vista",
+    additionalSources: [
+      {
+        label: "HRSA CHQR Badge Awardees (PDF)",
+        url: "https://bphc.hrsa.gov/sites/default/files/bphc/initiatives/fy25-chqr-h80-awardees.pdf",
+      },
+      {
+        label: "HRSA Teaching Health Center GME Program",
+        url: "https://bhw.hrsa.gov/funding/apply-grant/teaching-health-center-graduate-medical-education",
+      },
+      {
+        label: "NACHC: Mergers & Acquisitions in Health Centers",
+        url: "https://www.nachc.org/resource/health-center-mergers-and-acquisitions/",
+      },
+    ],
+    tags: [
+      "merger",
+      "quality-improvement",
+      "teaching-health-center",
+      "central-valley",
+      "scale",
+      "compliance",
+      "california",
+    ],
+    datePublished: "2025-02-01",
+  },
+
+  // ================================================================
+  // 25. Family Health Centers of San Diego — National Quality Leader at Scale
+  // ================================================================
+  {
+    id: "fhcsd-quality-at-scale",
+    fqhcName: "Family Health Centers of San Diego",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    location: "San Diego, California",
+    date: "2015-01-01",
+    timeframe: "2015 – 2025",
+    difficulty: "advanced",
+    headline: {
+      en: "The nation's largest server of uninsured patients grew to $436M in revenue and 210,000+ patients while earning HRSA National Quality Leader recognition — proving that serving the hardest-to-reach populations can coexist with clinical excellence.",
+      es: "El mayor servidor de pacientes sin seguro del país creció a $436M en ingresos y 210,000+ pacientes mientras ganaba el reconocimiento de Líder Nacional de Calidad de HRSA — demostrando que servir a las poblaciones más difíciles de alcanzar puede coexistir con la excelencia clínica.",
+    },
+    challenge: {
+      en: "Family Health Centers of San Diego serves more uninsured patients than any community health center in the nation — over 210,000 unique patients annually through 935,000+ encounters. The challenge wasn't just scale; it was maintaining world-class clinical quality while serving the most complex patient populations: recently arrived immigrants, refugees, homeless individuals, and patients with severe behavioral health needs. Most healthcare organizations that grow to FHCSD's scale (one-third of San Diego County's low-income patients) see quality metrics decline as volume overwhelms clinical systems. FHCSD needed to prove that FQHC-level mission and quality could operate at near-hospital-system scale.",
+      es: "Family Health Centers of San Diego sirve a más pacientes sin seguro que cualquier centro de salud comunitario en la nación — más de 210,000 pacientes únicos anualmente a través de 935,000+ encuentros. El desafío no era solo la escala; era mantener calidad clínica de clase mundial mientras servía a las poblaciones de pacientes más complejas: inmigrantes recién llegados, refugiados, personas sin hogar y pacientes con necesidades severas de salud conductual. La mayoría de las organizaciones de salud que crecen a la escala de FHCSD ven declinar las métricas de calidad a medida que el volumen abruma los sistemas clínicos.",
+    },
+    guidingPolicy: {
+      en: "Invest in clinical quality infrastructure as aggressively as growth infrastructure. FHCSD's philosophy: quality is not a constraint on growth — it is the engine of sustainable growth. Every new site, service line, and patient population gets the same quality measurement, EHR documentation standards, and clinical protocol rigor as existing operations. Use HRSA quality recognition as a strategic discipline: compete for National Quality Leader status every year, not as a trophy but as an operational forcing function that keeps clinical standards high across 50+ sites.",
+      es: "Invertir en infraestructura de calidad clínica tan agresivamente como en infraestructura de crecimiento. La filosofía de FHCSD: la calidad no es una restricción al crecimiento — es el motor del crecimiento sostenible. Cada nuevo sitio, línea de servicio y población de pacientes recibe los mismos estándares de medición de calidad, documentación EHR y rigor de protocolo clínico que las operaciones existentes.",
+    },
+    actions: [
+      {
+        en: "Built dedicated quality improvement teams at the organizational level — not just at individual clinic sites — creating centralized quality reporting, peer benchmarking, and continuous improvement cycles across all locations",
+        es: "Construyó equipos dedicados de mejora de calidad a nivel organizacional — no solo en sitios clínicos individuales — creando reportes de calidad centralizados, benchmarking entre pares y ciclos de mejora continua en todas las ubicaciones",
+      },
+      {
+        en: "Expanded virtual care delivery through a $2M HHS award for telehealth infrastructure, enabling patient access for complex populations (homeless, rural, behavioral health) who cannot reliably attend in-person appointments",
+        es: "Expandió la prestación de atención virtual a través de una subvención de $2M del HHS para infraestructura de telesalud, permitiendo acceso a pacientes de poblaciones complejas (sin hogar, rurales, salud conductual) que no pueden asistir confiablemente a citas presenciales",
+      },
+      {
+        en: "Achieved and maintained HRSA National Quality Leader recognition by scoring in the top tier nationally across six HRSA quality domains: clinical quality of care, access, cost efficiency, health disparities reduction, health IT advancement, and PCMH recognition",
+        es: "Logró y mantuvo el reconocimiento de Líder Nacional de Calidad de HRSA al obtener puntuaciones en el nivel más alto nacionalmente en seis dominios de calidad de HRSA: calidad clínica de atención, acceso, eficiencia de costos, reducción de disparidades de salud, avance de TI de salud y reconocimiento PCMH",
+      },
+      {
+        en: "Scaled revenue from approximately $200M to $436M over a decade through service line diversification (behavioral health, dental, pharmacy, specialty care) while maintaining the core mission of serving all patients regardless of ability to pay",
+        es: "Escaló ingresos de aproximadamente $200M a $436M en una década a través de la diversificación de líneas de servicio (salud conductual, dental, farmacia, atención especializada) mientras mantenía la misión central de servir a todos los pacientes sin importar capacidad de pago",
+      },
+    ],
+    outcomes: [
+      {
+        metric: "Revenue",
+        value: "$436M annual",
+        context: {
+          en: "Grew to $436M in annual revenue — one of the top 10 largest FQHCs in the nation, operating at near-hospital-system scale",
+          es: "Creció a $436M en ingresos anuales — uno de los 10 FQHCs más grandes de la nación, operando a escala cercana a un sistema hospitalario",
+        },
+      },
+      {
+        metric: "Patient Volume",
+        value: "210,000+ patients",
+        context: {
+          en: "Serves over 210,000 unique patients annually — a third of San Diego County's low-income population — through 935,000+ encounters",
+          es: "Sirve a más de 210,000 pacientes únicos anualmente — un tercio de la población de bajos ingresos del Condado de San Diego — a través de 935,000+ encuentros",
+        },
+      },
+      {
+        metric: "Quality Recognition",
+        value: "HRSA National Quality Leader",
+        context: {
+          en: "Earned HRSA National Quality Leader status — recognized among the top-performing community health centers in the country across all six HRSA quality domains simultaneously",
+          es: "Ganó el estatus de Líder Nacional de Calidad de HRSA — reconocido entre los centros de salud comunitarios de mayor rendimiento en el país en los seis dominios de calidad de HRSA simultáneamente",
+        },
+      },
+    ],
+    strategyCategory: "operational-efficiency",
+    primarySourceUrl: "https://www.fhcsd.org/fhcsd-recognized-for-overall-clinical-performance-by-hhs/",
+    primarySourceOrg: "Family Health Centers of San Diego",
+    additionalSources: [
+      {
+        label: "FHCSD: HHS Awards $2M for Virtual Healthcare",
+        url: "https://www.fhcsd.org/hhs-awards-family-health-centers-of-san-diego-2-million-to-increase-virtual-health-care-access-and-quality/",
+      },
+      {
+        label: "FHCSD 990 Financial Data — ProPublica Nonprofit Explorer",
+        url: "https://projects.propublica.org/nonprofits/organizations/952833205",
+      },
+      {
+        label: "HRSA CHQR Badge Awardees",
+        url: "https://bphc.hrsa.gov/initiatives/advancing-health-center-excellence/community-health-quality-recognition-chqr-overview",
+      },
+    ],
+    tags: [
+      "quality-leader",
+      "scale",
+      "telehealth",
+      "uninsured",
+      "san-diego",
+      "revenue-diversification",
+      "california",
+    ],
+    datePublished: "2025-01-20",
+  },
+
+  // ================================================================
+  // 26. Northeast Valley Health Corp — Data-Driven Chronic Disease Management
+  // ================================================================
+  {
+    id: "nevhc-lanes-data-integration",
+    fqhcName: "Northeast Valley Health Corporation",
+    fqhcSlug: "northeast-valley-health-corporation",
+    location: "San Fernando, California",
+    date: "2024-07-01",
+    timeframe: "July – December 2024",
+    difficulty: "intermediate",
+    headline: {
+      en: "An LA-area FQHC partnered with a regional health information exchange to embed real-time hospitalization data into clinical workflows — cutting diabetic ED visits by 85% and hospitalizations by 68% in six months, winning a national innovation award.",
+      es: "Un FQHC del área de LA se asoció con un intercambio regional de información de salud para integrar datos de hospitalización en tiempo real en flujos clínicos — reduciendo visitas de emergencia diabéticas en 85% y hospitalizaciones en 68% en seis meses, ganando un premio nacional de innovación.",
+    },
+    challenge: {
+      en: "Northeast Valley Health Corporation serves 83,537 patients across 18 locations in LA County's San Fernando and Santa Clarita Valleys ($170M annual revenue, 1,198 staff). Their chronic disease patients — 8,000+ diabetics and 2,000+ adult asthmatics — were cycling through expensive emergency department visits and hospitalizations because care teams had no real-time visibility into what happened to patients outside the clinic walls. A patient could visit an ED on Monday and their primary care team wouldn't know until the next scheduled appointment weeks later. This 'blind spot' meant missed opportunities for follow-up, medication adjustments, and care coordination — the exact interventions that prevent costly escalations. The information existed in hospital systems, but it wasn't flowing back to the FQHC teams who could act on it.",
+      es: "Northeast Valley Health Corporation sirve a 83,537 pacientes en 18 ubicaciones en los Valles de San Fernando y Santa Clarita del Condado de LA ($170M en ingresos anuales, 1,198 empleados). Sus pacientes con enfermedades crónicas — más de 8,000 diabéticos y 2,000+ asmáticos adultos — circulaban por visitas costosas a departamentos de emergencia y hospitalizaciones porque los equipos de atención no tenían visibilidad en tiempo real de lo que sucedía con los pacientes fuera de las paredes de la clínica. Un paciente podía visitar una sala de emergencias el lunes y su equipo de atención primaria no lo sabría hasta la próxima cita programada semanas después.",
+    },
+    guidingPolicy: {
+      en: "Partner with LANES (Los Angeles Network for Enhanced Services) — a regional health information exchange — to embed real-time hospitalization and ED visit data directly into clinical workflows at all locations. The principle: if care teams can see what happens to patients between visits, they can intervene before conditions escalate. Focus on the two highest-impact chronic conditions first (diabetes and asthma) rather than trying to address all patients at once. Use targeted alerts and collaborative triage to enable rapid post-discharge follow-up.",
+      es: "Asociarse con LANES (Red de Los Ángeles para Servicios Mejorados) — un intercambio regional de información de salud — para integrar datos de hospitalización y visitas de emergencia en tiempo real directamente en los flujos clínicos de todas las ubicaciones. El principio: si los equipos de atención pueden ver lo que sucede con los pacientes entre visitas, pueden intervenir antes de que las condiciones escalen. Enfocarse en las dos condiciones crónicas de mayor impacto primero (diabetes y asma).",
+    },
+    actions: [
+      {
+        en: "Entered a 6-month strategic collaboration with LANES (July–December 2024) to process patient rosters of 8,000+ diabetes patients and 2,000+ adult asthma patients through the regional health information exchange platform",
+        es: "Inició una colaboración estratégica de 6 meses con LANES (julio–diciembre 2024) para procesar listas de 8,000+ pacientes diabéticos y 2,000+ pacientes asmáticos adultos a través de la plataforma regional de intercambio de información de salud",
+      },
+      {
+        en: "Embedded real-time ED visit and hospitalization alerts into clinical workflows at all 18 NEVHC locations — care teams received same-day notifications when their patients appeared in hospital data, enabling rapid post-discharge follow-up",
+        es: "Integró alertas en tiempo real de visitas a emergencias y hospitalizaciones en los flujos clínicos de las 18 ubicaciones de NEVHC — los equipos de atención recibían notificaciones el mismo día cuando sus pacientes aparecían en datos hospitalarios",
+      },
+      {
+        en: "Deployed targeted alerts and collaborative triage systems that prioritized follow-up based on clinical acuity — not just chronological order — ensuring the highest-risk patients received outreach within 24-48 hours of ED discharge",
+        es: "Implementó alertas dirigidas y sistemas de triaje colaborativo que priorizaban el seguimiento basado en agudeza clínica — no solo orden cronológico — asegurando que los pacientes de mayor riesgo recibieran contacto dentro de 24-48 horas del alta de emergencias",
+      },
+      {
+        en: "Enabled proactive care coordination by matching ED visit data to existing care plans — allowing care coordinators to adjust medications, schedule follow-up visits, and connect patients with community resources before conditions escalated to readmission",
+        es: "Habilitó coordinación de cuidado proactiva al emparejar datos de visitas a emergencias con planes de atención existentes — permitiendo a los coordinadores ajustar medicamentos, programar visitas de seguimiento y conectar pacientes con recursos comunitarios",
+      },
+    ],
+    outcomes: [
+      {
+        metric: "Diabetic ED Visits",
+        value: "85% reduction",
+        context: {
+          en: "Emergency department visits among 8,000+ diabetic patients decreased by 85% — transforming reactive crisis care into proactive chronic disease management through real-time data visibility",
+          es: "Las visitas a emergencias entre más de 8,000 pacientes diabéticos se redujeron en 85% — transformando la atención reactiva de crisis en gestión proactiva de enfermedades crónicas mediante visibilidad de datos en tiempo real",
+        },
+      },
+      {
+        metric: "Diabetic Hospitalizations",
+        value: "68% reduction",
+        context: {
+          en: "Hospitalizations among diabetic patients decreased by 68% in six months — a dramatic reduction in the most costly and disruptive outcome for both patients and the health system",
+          es: "Las hospitalizaciones entre pacientes diabéticos se redujeron en 68% en seis meses — una reducción dramática en el resultado más costoso y disruptivo tanto para pacientes como para el sistema de salud",
+        },
+      },
+      {
+        metric: "Asthma ED Visits",
+        value: "82% reduction",
+        context: {
+          en: "Emergency department visits among 2,000+ adult asthma patients decreased by 82%, with hospitalization rates remaining stable — showing the data integration prevented escalations without simply shifting care to inpatient settings",
+          es: "Las visitas a emergencias entre más de 2,000 pacientes asmáticos adultos se redujeron en 82%, con tasas de hospitalización manteniéndose estables",
+        },
+      },
+      {
+        metric: "National Recognition",
+        value: "2025 Healthcare Innovation Innovator Award",
+        context: {
+          en: "Won the 2025 Healthcare Innovation Innovator Award for demonstrating measurable outcomes through health information exchange integration — a model now being studied by other FQHCs nationally",
+          es: "Ganó el Premio Innovador de Innovación en Salud 2025 por demostrar resultados medibles a través de la integración de intercambio de información de salud",
+        },
+      },
+    ],
+    strategyCategory: "operational-efficiency",
+    primarySourceUrl: "https://lanesla.org/healthcare-innovation-innovator-awards-winning-team-northeast-valley-health-center-nevhc/",
+    primarySourceOrg: "LANES (Los Angeles Network for Enhanced Services)",
+    additionalSources: [
+      {
+        label: "LANES Clinical Disease Management Case Study",
+        url: "https://lanesla.org/lanes-clinical-disease-management-support-services-use-case-study/",
+      },
+      {
+        label: "Healthcare Innovation Group: NEVHC Innovator Award",
+        url: "https://www.hcinnovationgroup.com/population-health-management/news/55285622/innovator-awards-winning-team-northeast-valley-health-center-nevhc",
+      },
+      {
+        label: "NEVHC 2024 Impact Report",
+        url: "https://issuu.com/nevhc/docs/nevhc_2024_impact_report",
+      },
+    ],
+    tags: [
+      "data-integration",
+      "chronic-disease",
+      "ed-diversion",
+      "health-information-exchange",
+      "diabetes",
+      "asthma",
+      "innovation-award",
+      "california",
+      "los-angeles",
+    ],
+    datePublished: "2025-02-15",
   },
 
 ];

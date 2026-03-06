@@ -335,18 +335,22 @@ import { ROLE_SPECIFIC_QUESTIONS as _ROLE_SPECIFIC_QUESTIONS_DATA } from "./role
 
 /**
  * Role-specific behavioral scenario questions.
- * 4 per role (one per domain) × 8 roles = 32 questions.
- * These are mixed with universal questions to create a tailored assessment.
+ * 15 per role (3 per domain × 5 domains) × 12 roles = 180 questions.
+ * Each role has a fully custom assessment — no universal questions mixed in.
  */
 export const ROLE_SPECIFIC_QUESTIONS: (AssessmentQuestion & { roleId: string })[] = _ROLE_SPECIFIC_QUESTIONS_DATA;
 
 /**
- * Returns 12 assessment questions tailored for the given role:
- *   8 universal (first 2 per domain from ASSESSMENT_QUESTIONS)
- * + 4 role-specific (1 per domain from ROLE_SPECIFIC_QUESTIONS)
+ * Returns 15 assessment questions fully tailored for the given role.
  *
- * Falls back to the original 12 universal questions if the role has no
- * role-specific questions defined yet.
+ * Each role has its own 15-question set (3 per domain × 5 domains)
+ * with scenarios specific to that role's daily work at a CA FQHC.
+ * No universal/generic questions are mixed in.
+ *
+ * Falls back to universal questions only if:
+ *   - No roleId is provided
+ *   - The role doesn't have any questions yet
+ *   - The role has partial coverage (fills gaps with universal)
  */
 export function getQuestionsForRole(roleId?: string): AssessmentQuestion[] {
   if (!roleId) return ASSESSMENT_QUESTIONS;
@@ -355,28 +359,28 @@ export function getQuestionsForRole(roleId?: string): AssessmentQuestion[] {
     (q) => q.roleId === roleId,
   );
 
-  // If we don't have role-specific questions for this role, use all universal
+  // Full custom set: use ONLY role-specific questions (no universal filler)
+  if (roleQuestions.length >= 15) return roleQuestions;
+
+  // No role-specific questions at all: fall back to universal
   if (roleQuestions.length === 0) return ASSESSMENT_QUESTIONS;
 
-  // Take first 2 universal questions per domain (5 domains)
+  // Partial coverage: fill gaps with universal questions per domain
+  // (safety net during migration — should not happen after all roles are complete)
   const domainIds: DomainId[] = ["mission", "people", "execution", "growth", "transition"];
-  const universalPicks: AssessmentQuestion[] = [];
+  const result: AssessmentQuestion[] = [];
 
   for (const domain of domainIds) {
-    const domainQuestions = ASSESSMENT_QUESTIONS.filter(
-      (q) => q.domain === domain,
-    );
-    universalPicks.push(...domainQuestions.slice(0, 2));
+    const rq = roleQuestions.filter((q) => q.domain === domain);
+    result.push(...rq);
+    const needed = 3 - rq.length;
+    if (needed > 0) {
+      const universal = ASSESSMENT_QUESTIONS.filter((q) => q.domain === domain);
+      result.push(...universal.slice(0, needed));
+    }
   }
 
-  // Add 1 role-specific question per domain (if available)
-  const roleSpecificPicks: AssessmentQuestion[] = [];
-  for (const domain of domainIds) {
-    const rq = roleQuestions.find((q) => q.domain === domain);
-    if (rq) roleSpecificPicks.push(rq);
-  }
-
-  return [...universalPicks, ...roleSpecificPicks];
+  return result;
 }
 
 /* --- Failure Factor Detection -------------------------------------- */
@@ -487,9 +491,10 @@ export function detectFailureFactors(
 
 /* --- Scoring Functions --------------------------------------------- */
 
-function getLevel(score: number): DomainScore["level"] {
-  if (score >= 10) return "strength";
-  if (score >= 7) return "developing";
+function getLevel(score: number, max: number): DomainScore["level"] {
+  const pct = max > 0 ? score / max : 0;
+  if (pct >= 0.83) return "strength";    // ~83% (was 10/12)
+  if (pct >= 0.58) return "developing";  // ~58% (was 7/12)
   return "growth_area";
 }
 
@@ -525,8 +530,7 @@ export function calculateAssessmentResults(
     }
   }
 
-  // Build domain scores (3 questions per domain × 4 max = 12)
-  const MAX_PER_DOMAIN = 12;
+  // Build domain scores — dynamic based on actual question count per domain
   const domainScores: Record<DomainId, DomainScore> = {} as Record<
     DomainId,
     DomainScore
@@ -535,19 +539,24 @@ export function calculateAssessmentResults(
   const domainIds: DomainId[] = ["mission", "people", "execution", "growth", "transition"];
 
   for (const domain of domainIds) {
+    const questionsInDomain = questions.filter((q) => q.domain === domain).length;
+    const maxForDomain = questionsInDomain * 4; // 4 is max score per question
     const score = domainTotals[domain];
     domainScores[domain] = {
       score,
-      max: MAX_PER_DOMAIN,
-      percentage: Math.round((score / MAX_PER_DOMAIN) * 100),
-      level: getLevel(score),
+      max: maxForDomain,
+      percentage: maxForDomain > 0 ? Math.round((score / maxForDomain) * 100) : 0,
+      level: getLevel(score, maxForDomain),
     };
   }
 
-  // Overall score (0-100)
+  // Overall score (0-100) — dynamic based on actual question count
   const totalScore = domainIds.reduce((sum, d) => sum + domainTotals[d], 0);
-  const totalMax = MAX_PER_DOMAIN * 5; // 60 (5 domains × 12 max per domain)
-  const overallScore = Math.round((totalScore / totalMax) * 100);
+  const totalMax = domainIds.reduce((sum, d) => {
+    const count = questions.filter((q) => q.domain === d).length;
+    return sum + count * 4;
+  }, 0);
+  const overallScore = totalMax > 0 ? Math.round((totalScore / totalMax) * 100) : 0;
 
   // Find top strength and top growth area
   let topStrength: DomainId = "mission";

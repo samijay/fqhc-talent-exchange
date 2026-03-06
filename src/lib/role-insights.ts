@@ -715,4 +715,356 @@ export const ROLE_INSIGHTS: Record<string, {
       ],
     },
   },
+
+  /* ================================================================ */
+  /*  HR Manager — Human Resources Manager / HR Generalist             */
+  /* ================================================================ */
+  hr_manager: {
+    strengthMessages: {
+      mission: "Your understanding that every hire shapes patient outcomes sets you apart from HR professionals who see recruitment as purely transactional. FQHCs with mission-driven HR leaders build teams that stay — and staff retention directly translates to better patient continuity and health outcomes.",
+      people: "Your ability to navigate the complex dynamics between management, union representatives, and frontline staff is exactly what FQHCs need during this era of workforce disruption. HR managers who can build trust across all levels are the ones who prevent costly grievances and keep clinics running smoothly.",
+      execution: "Your systematic approach to compliance — from SB 525 wage implementation to HRSA workforce reporting — demonstrates the operational rigor that FQHCs desperately need. Organizations with strong HR execution see 25% fewer compliance findings during site visits.",
+      growth: "Your willingness to learn new workforce programs like CalAIM ECM staffing requirements and CHW certification pathways positions you as a strategic HR partner, not just a transactional one. FQHCs are increasingly looking for HR leaders who understand program-driven hiring.",
+      transition: "Your ability to quickly assess an FQHC's workforce culture, understand union dynamics, and map key internal relationships shows exceptional readiness for new environments. HR managers who invest in organizational diagnosis before implementing changes earn trust faster and drive better outcomes.",
+    },
+    esStrengthMessages: {
+      mission: "Tu comprensión de que cada contratación impacta los resultados de los pacientes te distingue de los profesionales de Recursos Humanos que ven el reclutamiento como puramente transaccional. Los FQHCs con líderes de RH motivados por la misión construyen equipos que permanecen — y la retención de personal se traduce directamente en mejor continuidad del paciente y mejores resultados de salud.",
+      people: "Tu capacidad para navegar las dinámicas complejas entre la gerencia, representantes sindicales y personal de primera línea es exactamente lo que los FQHCs necesitan durante esta era de disrupción laboral. Los gerentes de RH que pueden generar confianza en todos los niveles son los que previenen quejas costosas y mantienen las clínicas funcionando sin problemas.",
+      execution: "Tu enfoque sistemático del cumplimiento — desde la implementación de salarios SB 525 hasta los informes de fuerza laboral de HRSA — demuestra el rigor operativo que los FQHCs necesitan desesperadamente. Las organizaciones con ejecución fuerte de RH ven 25% menos hallazgos de cumplimiento durante visitas de inspección.",
+      growth: "Tu disposición para aprender nuevos programas de fuerza laboral como los requisitos de personal ECM de CalAIM y las vías de certificación CHW te posiciona como un socio estratégico de RH, no solo transaccional. Los FQHCs buscan cada vez más líderes de RH que entiendan la contratación impulsada por programas.",
+      transition: "Tu capacidad para evaluar rápidamente la cultura laboral de un FQHC, entender las dinámicas sindicales, y mapear relaciones internas clave muestra una preparación excepcional para nuevos entornos. Los gerentes de RH que invierten en diagnóstico organizacional antes de implementar cambios ganan confianza más rápido y generan mejores resultados.",
+    },
+    growthMessages: {
+      mission: "Deepening your understanding of how each FQHC role impacts patient outcomes will make your hiring decisions more strategic. Shadow a Care Coordinator or CHW for a day — seeing how frontline staff serve patients helps you write better job postings and screen for the right qualities.",
+      people: "Investing in formal labor relations training will pay dividends at any unionized FQHC. Consider the Cornell ILR Healthcare Labor Management certificate — it teaches collaborative bargaining approaches that are specifically designed for healthcare settings where strikes would harm patients.",
+      execution: "Building automated compliance tracking systems for wage regulations, credentialing deadlines, and HRSA reporting will free up time you currently spend on manual monitoring. Many CA FQHCs use BambooHR or ADP with compliance modules — getting certified on these platforms makes you more valuable.",
+      growth: "Staying current on CalAIM workforce requirements and CA labor law changes (like SB 525 implementation phases) positions you as an indispensable resource. Subscribe to CPCA's workforce updates and attend NACHC's annual HR Forum.",
+      transition: "When joining a new FQHC, spend your first two weeks doing a 'listening tour' — meet every department head, every union steward, and visit every site. Ask about their biggest people challenges before proposing any HR changes. This builds trust and gives you the context to make smart decisions.",
+    },
+    esGrowthMessages: {
+      mission: "Profundizar tu comprensión de cómo cada rol en un FQHC impacta los resultados de los pacientes hará tus decisiones de contratación más estratégicas. Acompaña a un Coordinador de Cuidado o CHW por un día — ver cómo el personal de primera línea sirve a los pacientes te ayuda a escribir mejores publicaciones de trabajo y seleccionar las cualidades correctas.",
+      people: "Invertir en capacitación formal en relaciones laborales dará dividendos en cualquier FQHC sindicalizado. Considera el certificado de Gestión Laboral en Salud de Cornell ILR — enseña enfoques de negociación colaborativa diseñados específicamente para entornos de salud donde las huelgas perjudicarían a los pacientes.",
+      execution: "Construir sistemas automatizados de seguimiento de cumplimiento para regulaciones salariales, fechas límite de credenciales, e informes de HRSA liberará tiempo que actualmente gastas en monitoreo manual. Muchos FQHCs de CA usan BambooHR o ADP con módulos de cumplimiento — obtener certificaciones en estas plataformas te hace más valioso.",
+      growth: "Mantenerte actualizado en requisitos de fuerza laboral CalAIM y cambios de ley laboral de CA (como las fases de implementación de SB 525) te posiciona como un recurso indispensable. Suscríbete a las actualizaciones de fuerza laboral de CPCA y asiste al Foro Anual de RH de NACHC.",
+      transition: "Cuando te unas a un nuevo FQHC, pasa tus primeras dos semanas haciendo un 'tour de escucha' — reúnete con cada jefe de departamento, cada delegado sindical, y visita cada sitio. Pregunta sobre sus mayores desafíos de personal antes de proponer cualquier cambio de RH. Esto construye confianza y te da el contexto para tomar decisiones inteligentes.",
+    },
+    nextSteps: {
+      mission: "Connect with NACHC's workforce development resources to understand the national landscape of FQHC hiring challenges — this context will help you advocate for mission-aligned hiring practices at your organization",
+      people: "If your FQHC is unionized, build a regular check-in cadence with union stewards — monthly informal meetings prevent small issues from becoming formal grievances and build the trust that makes contract negotiations smoother",
+      execution: "Audit your FQHC's compliance with SB 525 minimum wage requirements now — map every employee's current wage against the tier schedule and identify compression risks before they become retention problems",
+      growth: "Learn the CalAIM ECM and Community Supports workforce requirements — FQHCs expanding these programs need HR leaders who can build hiring pipelines for CHWs, Care Coordinators, and housing navigators",
+      transition: "Before your first day at a new FQHC, research its HRSA grant scope, any recent OSHA or CMS findings, union status, and Glassdoor reviews. Arrive with a clear picture of the workforce landscape you're walking into",
+    },
+    esNextSteps: {
+      mission: "Conéctate con los recursos de desarrollo de fuerza laboral de NACHC para entender el panorama nacional de desafíos de contratación en FQHCs — este contexto te ayudará a abogar por prácticas de contratación alineadas con la misión en tu organización",
+      people: "Si tu FQHC está sindicalizado, establece una cadencia regular de reuniones con delegados sindicales — reuniones informales mensuales previenen que problemas pequeños se conviertan en quejas formales y construyen la confianza que hace las negociaciones de contrato más fluidas",
+      execution: "Audita el cumplimiento de tu FQHC con los requisitos de salario mínimo SB 525 ahora — mapea el salario actual de cada empleado contra el cronograma de niveles e identifica riesgos de compresión antes de que se conviertan en problemas de retención",
+      growth: "Aprende los requisitos de fuerza laboral de ECM y Apoyos Comunitarios de CalAIM — los FQHCs que expanden estos programas necesitan líderes de RH que puedan construir pipelines de contratación para CHWs, Coordinadores de Cuidado, y navegadores de vivienda",
+      transition: "Antes de tu primer día en un nuevo FQHC, investiga el alcance de su subvención HRSA, cualquier hallazgo reciente de OSHA o CMS, estado sindical, y reseñas de Glassdoor. Llega con una imagen clara del panorama laboral al que estás entrando",
+    },
+    employerWants: {
+      topQualifications: [
+        "3+ years HR experience in healthcare or community health settings",
+        "Experience with union labor relations (SEIU, NUHW, or similar)",
+        "Knowledge of California employment law (SB 525, CFRA, FEHA)",
+        "Experience managing multi-site HR operations",
+        "Familiarity with HRSA workforce reporting requirements",
+      ],
+      esTopQualifications: [
+        "3+ años de experiencia en RH en entornos de salud o salud comunitaria",
+        "Experiencia con relaciones laborales sindicales (SEIU, NUHW, o similar)",
+        "Conocimiento de la ley laboral de California (SB 525, CFRA, FEHA)",
+        "Experiencia gestionando operaciones de RH multi-sitio",
+        "Familiaridad con requisitos de informes de fuerza laboral de HRSA",
+      ],
+      topSkills: [
+        "Healthcare recruitment and retention strategies",
+        "Union contract negotiation and grievance resolution",
+        "HRIS administration (BambooHR, ADP, or Paycom)",
+        "California labor law compliance",
+        "Workforce planning and compensation analysis",
+      ],
+      esTopSkills: [
+        "Estrategias de reclutamiento y retención en salud",
+        "Negociación de contratos sindicales y resolución de quejas",
+        "Administración de HRIS (BambooHR, ADP, o Paycom)",
+        "Cumplimiento de ley laboral de California",
+        "Planificación de fuerza laboral y análisis de compensación",
+      ],
+      certifications: [
+        "PHR or SPHR (HRCI)",
+        "SHRM-CP or SHRM-SCP",
+        "Healthcare HR certification (CHHR)",
+      ],
+      esCertifications: [
+        "PHR o SPHR (HRCI)",
+        "SHRM-CP o SHRM-SCP",
+        "Certificación de RH en Salud (CHHR)",
+      ],
+    },
+  },
+
+  /* ================================================================ */
+  /*  Accountant — FQHC Accountant / Finance Analyst                   */
+  /* ================================================================ */
+  accountant: {
+    strengthMessages: {
+      mission: "Your ability to connect every financial transaction to patient impact is what separates an FQHC accountant from a generic one. When you understand that accurate billing protects the sliding fee scale that lets uninsured patients access care, your work becomes more than numbers — it becomes mission-critical infrastructure.",
+      people: "Your skill at translating complex FQHC financial concepts — PPS rates, 340B savings, grant cost allocations — into language that non-finance staff can understand makes you an invaluable bridge between departments. Program directors who understand their budget constraints make better decisions, and that's a direct result of your communication.",
+      execution: "Your methodical approach to grant accounting, audit preparation, and financial compliance is exactly what FQHCs need when HRSA site visits can determine millions in future funding. Accountants who maintain audit-ready books year-round save their organizations from last-minute scrambles that lead to findings.",
+      growth: "Your drive to learn FQHC-specific financial programs — 340B accounting, PPS rate optimization, CalAIM reimbursement structures — transforms you from a general accountant into a community health finance specialist. This specialized expertise commands a significant salary premium in the FQHC market.",
+      transition: "Your ability to quickly audit a new organization's financial systems, identify gaps, and prioritize improvements shows strong diagnostic skills. Accountants who approach new FQHC roles with a systematic assessment mindset contribute faster than those who just wait for assignments.",
+    },
+    esStrengthMessages: {
+      mission: "Tu capacidad para conectar cada transacción financiera con el impacto en los pacientes es lo que separa a un contador de FQHC de uno genérico. Cuando entiendes que la facturación precisa protege la escala de tarifas deslizantes que permite a pacientes sin seguro acceder a la atención, tu trabajo se convierte en más que números — se convierte en infraestructura crítica para la misión.",
+      people: "Tu habilidad para traducir conceptos financieros complejos de FQHC — tarifas PPS, ahorros 340B, asignaciones de costos de subvenciones — a un lenguaje que el personal no financiero pueda entender te convierte en un puente invaluable entre departamentos. Los directores de programa que entienden sus restricciones presupuestarias toman mejores decisiones, y eso es resultado directo de tu comunicación.",
+      execution: "Tu enfoque metódico de la contabilidad de subvenciones, preparación de auditorías, y cumplimiento financiero es exactamente lo que los FQHCs necesitan cuando las visitas de HRSA pueden determinar millones en financiamiento futuro. Los contadores que mantienen libros listos para auditoría durante todo el año ahorran a sus organizaciones los apuros de último momento que llevan a hallazgos.",
+      growth: "Tu impulso por aprender programas financieros específicos de FQHC — contabilidad 340B, optimización de tarifas PPS, estructuras de reembolso CalAIM — te transforma de un contador general en un especialista en finanzas de salud comunitaria. Esta experiencia especializada tiene una prima salarial significativa en el mercado de FQHC.",
+      transition: "Tu capacidad para auditar rápidamente los sistemas financieros de una nueva organización, identificar brechas y priorizar mejoras muestra fuertes habilidades de diagnóstico. Los contadores que abordan nuevos roles en FQHC con una mentalidad de evaluación sistemática contribuyen más rápido que los que solo esperan asignaciones.",
+    },
+    growthMessages: {
+      mission: "Spend time understanding how your FQHC's financial health directly affects patient access. When you can articulate that recovering $50K in denied claims means 200 more patient visits, your work takes on new meaning — and your advocacy for accurate billing becomes a mission argument, not just an accounting one.",
+      people: "Schedule quarterly 'financial literacy' sessions with program directors. A 30-minute walkthrough of their department budget and how grant cost allocations work prevents the misunderstandings that cause late reporting and audit findings.",
+      execution: "Build a rolling audit-readiness checklist that you update monthly — time-and-effort certifications, grant expenditure reconciliations, bank reconciliations, and accounts receivable aging. Being audit-ready year-round reduces the stress and the risk of findings.",
+      growth: "Take the Apexus 340B University courses (free) and join NACHC's financial management learning community. Understanding 340B program accounting is one of the highest-value specializations for FQHC accountants.",
+      transition: "When starting at a new FQHC, audit the chart of accounts and grant cost allocation methodology in your first two weeks. These two things tell you more about an organization's financial health than any briefing.",
+    },
+    esGrowthMessages: {
+      mission: "Dedica tiempo a entender cómo la salud financiera de tu FQHC afecta directamente el acceso de los pacientes. Cuando puedes articular que recuperar $50K en reclamos denegados significa 200 visitas más de pacientes, tu trabajo toma un nuevo significado — y tu defensa de la facturación precisa se convierte en un argumento de misión, no solo contable.",
+      people: "Programa sesiones trimestrales de 'alfabetización financiera' con los directores de programa. Un recorrido de 30 minutos de su presupuesto departamental y cómo funcionan las asignaciones de costos de subvenciones previene los malentendidos que causan reportes tardíos y hallazgos de auditoría.",
+      execution: "Construye una lista de verificación de preparación para auditorías que actualices mensualmente — certificaciones de tiempo y esfuerzo, conciliaciones de gastos de subvenciones, conciliaciones bancarias, y antigüedad de cuentas por cobrar. Estar listo para auditoría todo el año reduce el estrés y el riesgo de hallazgos.",
+      growth: "Toma los cursos de la Universidad 340B de Apexus (gratuitos) y únete a la comunidad de aprendizaje de gestión financiera de NACHC. Entender la contabilidad del programa 340B es una de las especializaciones de mayor valor para contadores de FQHC.",
+      transition: "Cuando empieces en un nuevo FQHC, audita el catálogo de cuentas y la metodología de asignación de costos de subvenciones en tus primeras dos semanas. Estas dos cosas te dicen más sobre la salud financiera de una organización que cualquier briefing.",
+    },
+    nextSteps: {
+      mission: "Visit your FQHC's clinic sites and observe patient intake — understanding the sliding fee scale enrollment process firsthand helps you see the financial workflow from the patient's perspective",
+      people: "Build a one-page 'FQHC Finance 101' document for non-finance staff that explains PPS, 340B, and grant cost allocations in plain language — this becomes your most-used communication tool",
+      execution: "If your FQHC uses OCHIN Epic, get trained on the financial reporting modules — accountants who can pull their own data from the EHR are dramatically more efficient than those who depend on IT for reports",
+      growth: "Pursue CPA licensure if you don't have it yet — combined with FQHC experience, a CPA commands $15-20K more in salary and positions you for Finance Manager or Controller roles",
+      transition: "Before your first day, review your new FQHC's most recent UDS report and HRSA grant application — these public documents tell you the organization's financial story and priorities",
+    },
+    esNextSteps: {
+      mission: "Visita las clínicas de tu FQHC y observa el ingreso de pacientes — entender el proceso de inscripción en la escala de tarifas deslizantes de primera mano te ayuda a ver el flujo financiero desde la perspectiva del paciente",
+      people: "Construye un documento de una página 'Finanzas FQHC 101' para personal no financiero que explique PPS, 340B, y asignaciones de costos de subvenciones en lenguaje simple — esto se convierte en tu herramienta de comunicación más utilizada",
+      execution: "Si tu FQHC usa OCHIN Epic, obtén capacitación en los módulos de reportes financieros — los contadores que pueden obtener sus propios datos del EHR son dramáticamente más eficientes que los que dependen de TI para reportes",
+      growth: "Obtén la licencia CPA si aún no la tienes — combinada con experiencia en FQHC, un CPA tiene $15-20K más en salario y te posiciona para roles de Gerente de Finanzas o Contralor",
+      transition: "Antes de tu primer día, revisa el reporte UDS más reciente de tu nuevo FQHC y la solicitud de subvención HRSA — estos documentos públicos te cuentan la historia financiera y las prioridades de la organización",
+    },
+    employerWants: {
+      topQualifications: [
+        "2+ years accounting experience (healthcare or nonprofit preferred)",
+        "Experience with grant accounting and cost allocation (HRSA, state grants)",
+        "Knowledge of FQHC financial structures (PPS, 340B, sliding fee scale)",
+        "Experience with financial audit preparation and response",
+        "Familiarity with Medi-Cal and Medicare billing reconciliation",
+      ],
+      esTopQualifications: [
+        "2+ años de experiencia contable (salud o sin fines de lucro preferido)",
+        "Experiencia con contabilidad de subvenciones y asignación de costos (HRSA, subvenciones estatales)",
+        "Conocimiento de estructuras financieras de FQHC (PPS, 340B, escala de tarifas deslizantes)",
+        "Experiencia con preparación y respuesta de auditorías financieras",
+        "Familiaridad con conciliación de facturación Medi-Cal y Medicare",
+      ],
+      topSkills: [
+        "Grant cost allocation and reporting",
+        "Accounts payable and receivable management",
+        "Financial statement preparation",
+        "Audit preparation and documentation",
+        "Accounting software (QuickBooks, Sage, MIP Fund Accounting)",
+      ],
+      esTopSkills: [
+        "Asignación de costos de subvenciones e informes",
+        "Gestión de cuentas por pagar y cobrar",
+        "Preparación de estados financieros",
+        "Preparación y documentación de auditorías",
+        "Software contable (QuickBooks, Sage, MIP Fund Accounting)",
+      ],
+      certifications: [
+        "CPA (Certified Public Accountant) — preferred",
+        "CMA (Certified Management Accountant)",
+        "CGFM (Certified Government Financial Manager)",
+      ],
+      esCertifications: [
+        "CPA (Contador Público Certificado) — preferido",
+        "CMA (Contador de Gestión Certificado)",
+        "CGFM (Gerente Financiero Gubernamental Certificado)",
+      ],
+    },
+  },
+
+  /* ================================================================ */
+  /*  Payroll Specialist — FQHC Payroll Specialist                     */
+  /* ================================================================ */
+  payroll_specialist: {
+    strengthMessages: {
+      mission: "Your understanding that accurate, timely payroll is fundamental to the safety-net mission sets you apart. When frontline healthcare workers — many of them hourly, many living paycheck to paycheck — can count on being paid correctly and on time, they can focus entirely on patient care. Your precision protects the mission.",
+      people: "Your ability to work effectively with union representatives, site timekeepers, and employees across multiple locations shows the relational skills that multi-site FQHC payroll demands. Payroll specialists who handle pay discrepancies with empathy and accountability build organizational trust.",
+      execution: "Your systematic approach to processing payroll across multiple sites with different pay rules, shift differentials, and union requirements demonstrates the precision that FQHCs need. Organizations with reliable payroll execution see measurably higher employee satisfaction and lower turnover.",
+      growth: "Your willingness to master new payroll challenges — system migrations, regulatory changes, multi-site integration — shows the adaptability that growing FQHCs need. Payroll specialists who can lead system implementations are highly valued and earn significantly more.",
+      transition: "Your ability to quickly learn new payroll systems, understand site-specific pay rules, and build relationships with timekeepers across locations shows strong onboarding skills. Payroll specialists who can run a clean first payroll at a new FQHC earn immediate credibility.",
+    },
+    esStrengthMessages: {
+      mission: "Tu comprensión de que la nómina precisa y oportuna es fundamental para la misión de red de seguridad te distingue. Cuando los trabajadores de salud de primera línea — muchos de ellos por hora, muchos viviendo de cheque en cheque — pueden contar con que se les pague correctamente y a tiempo, pueden enfocarse completamente en la atención al paciente. Tu precisión protege la misión.",
+      people: "Tu capacidad para trabajar efectivamente con representantes sindicales, encargados de registro de tiempo de los sitios, y empleados en múltiples ubicaciones muestra las habilidades relacionales que demanda la nómina de FQHC multi-sitio. Los especialistas en nómina que manejan discrepancias salariales con empatía y responsabilidad construyen confianza organizacional.",
+      execution: "Tu enfoque sistemático para procesar nómina en múltiples sitios con diferentes reglas de pago, diferenciales de turno, y requisitos sindicales demuestra la precisión que los FQHCs necesitan. Las organizaciones con ejecución confiable de nómina ven satisfacción del empleado mediblemente más alta y menor rotación.",
+      growth: "Tu disposición para dominar nuevos desafíos de nómina — migraciones de sistema, cambios regulatorios, integración multi-sitio — muestra la adaptabilidad que los FQHCs en crecimiento necesitan. Los especialistas en nómina que pueden liderar implementaciones de sistemas son altamente valorados y ganan significativamente más.",
+      transition: "Tu capacidad para aprender rápidamente nuevos sistemas de nómina, entender reglas de pago específicas del sitio, y construir relaciones con los encargados de registro de tiempo en todas las ubicaciones muestra fuertes habilidades de incorporación. Los especialistas en nómina que pueden ejecutar una primera nómina limpia en un nuevo FQHC ganan credibilidad inmediata.",
+    },
+    growthMessages: {
+      mission: "Understanding the broader mission impact of your work can transform how you approach payroll challenges. Visit a clinic site and meet the MAs, CHWs, and nurses whose paychecks you process — when payroll becomes personal, your attention to detail increases naturally.",
+      people: "Developing proactive communication with site timekeepers will prevent the errors that cause employee complaints. Consider scheduling monthly 5-minute check-ins with each site's timekeeper to catch common mistakes before they hit payroll.",
+      execution: "Automating repetitive payroll tasks — like shift differential calculations and overtime verification — will reduce errors and free up time for the complex work that requires your judgment. Most ADP and Paychex platforms have automation features that payroll specialists underutilize.",
+      growth: "Getting certified in your payroll system (ADP Workforce Now certification, Paychex Flex certification) and in CPP (Certified Payroll Professional) will position you for Senior Payroll or Payroll Manager roles at larger FQHCs.",
+      transition: "When starting payroll at a new FQHC, audit the last 3 months of payroll registers for errors, reconcile all tax deposits, and verify every employee's pay rate against their offer letter or CBA scale. This baseline audit catches inherited problems before they become your problems.",
+    },
+    esGrowthMessages: {
+      mission: "Entender el impacto más amplio de tu trabajo en la misión puede transformar cómo abordas los desafíos de nómina. Visita un sitio clínico y conoce a los MAs, CHWs, y enfermeros cuyos cheques procesas — cuando la nómina se vuelve personal, tu atención al detalle aumenta naturalmente.",
+      people: "Desarrollar comunicación proactiva con los encargados de registro de tiempo de los sitios prevendrá los errores que causan quejas de empleados. Considera programar reuniones mensuales de 5 minutos con cada encargado de sitio para detectar errores comunes antes de que lleguen a la nómina.",
+      execution: "Automatizar tareas repetitivas de nómina — como cálculos de diferencial de turno y verificación de horas extras — reducirá errores y liberará tiempo para el trabajo complejo que requiere tu juicio. La mayoría de las plataformas ADP y Paychex tienen funciones de automatización que los especialistas en nómina subutilizan.",
+      growth: "Certificarte en tu sistema de nómina (certificación ADP Workforce Now, certificación Paychex Flex) y en CPP (Profesional de Nómina Certificado) te posicionará para roles de Nómina Senior o Gerente de Nómina en FQHCs más grandes.",
+      transition: "Cuando empieces nómina en un nuevo FQHC, audita los registros de nómina de los últimos 3 meses buscando errores, concilia todos los depósitos fiscales, y verifica la tarifa de pago de cada empleado contra su carta oferta o escala del convenio colectivo. Esta auditoría de referencia detecta problemas heredados antes de que se conviertan en tus problemas.",
+    },
+    nextSteps: {
+      mission: "Learn the basics of FQHC funding — PPS, 340B, HRSA grants — so you understand why accurate labor cost reporting matters for the organization's financial survival",
+      people: "If your FQHC is unionized, read the CBA's compensation section thoroughly — understanding wage scales, step increases, shift differentials, and premium pay rules prevents grievances and builds trust with union representatives",
+      execution: "Build a payroll processing checklist with verification steps for each site — consistent processes across all locations reduce errors and make payroll auditable",
+      growth: "Pursue the CPP (Certified Payroll Professional) certification from the APA — it's the gold standard for payroll professionals and opens doors to management roles with $10-15K salary increases",
+      transition: "Before your first payroll run at a new FQHC, get a complete employee roster with pay rates, tax withholdings, benefit deductions, garnishments, and PTO balances. Verify every data point against source documents — inherited data errors are the #1 source of payroll problems",
+    },
+    esNextSteps: {
+      mission: "Aprende los fundamentos del financiamiento de FQHC — PPS, 340B, subvenciones HRSA — para que entiendas por qué los informes precisos de costos laborales importan para la supervivencia financiera de la organización",
+      people: "Si tu FQHC está sindicalizado, lee la sección de compensación del convenio colectivo a fondo — entender las escalas salariales, aumentos por paso, diferenciales de turno, y reglas de pago premium previene quejas y construye confianza con representantes sindicales",
+      execution: "Construye una lista de verificación de procesamiento de nómina con pasos de verificación para cada sitio — procesos consistentes en todas las ubicaciones reducen errores y hacen la nómina auditable",
+      growth: "Obtén la certificación CPP (Profesional de Nómina Certificado) de la APA — es el estándar de oro para profesionales de nómina y abre puertas a roles de gestión con aumentos salariales de $10-15K",
+      transition: "Antes de tu primera corrida de nómina en un nuevo FQHC, obtén una lista completa de empleados con tarifas de pago, retenciones fiscales, deducciones de beneficios, embargos, y saldos de PTO. Verifica cada dato contra documentos fuente — los errores de datos heredados son la fuente #1 de problemas de nómina",
+    },
+    employerWants: {
+      topQualifications: [
+        "2+ years payroll processing experience (multi-site preferred)",
+        "Experience with ADP Workforce Now, Paychex, or similar payroll systems",
+        "Knowledge of California labor law (overtime, meal/rest breaks, SB 525)",
+        "Experience with unionized payroll (shift differentials, CBA wage scales)",
+        "Familiarity with payroll tax compliance (federal, state, local)",
+      ],
+      esTopQualifications: [
+        "2+ años de experiencia procesando nómina (multi-sitio preferido)",
+        "Experiencia con ADP Workforce Now, Paychex, o sistemas de nómina similares",
+        "Conocimiento de ley laboral de California (horas extras, descansos de comida/descanso, SB 525)",
+        "Experiencia con nómina sindicalizada (diferenciales de turno, escalas salariales de convenio)",
+        "Familiaridad con cumplimiento fiscal de nómina (federal, estatal, local)",
+      ],
+      topSkills: [
+        "Multi-site payroll processing",
+        "Payroll system administration (ADP, Paychex)",
+        "California wage and hour compliance",
+        "Garnishment and benefit deduction management",
+        "Payroll reporting and reconciliation",
+      ],
+      esTopSkills: [
+        "Procesamiento de nómina multi-sitio",
+        "Administración de sistemas de nómina (ADP, Paychex)",
+        "Cumplimiento de salarios y horas de California",
+        "Gestión de embargos y deducciones de beneficios",
+        "Informes y conciliación de nómina",
+      ],
+      certifications: [
+        "CPP (Certified Payroll Professional)",
+        "FPC (Fundamental Payroll Certification)",
+        "ADP Workforce Now Certification",
+      ],
+      esCertifications: [
+        "CPP (Profesional de Nómina Certificado)",
+        "FPC (Certificación Fundamental de Nómina)",
+        "Certificación ADP Workforce Now",
+      ],
+    },
+  },
+
+  /* ================================================================ */
+  /*  Finance Manager — FQHC Finance Manager / Controller              */
+  /* ================================================================ */
+  finance_manager: {
+    strengthMessages: {
+      mission: "Your ability to make financial decisions through the lens of patient impact — not just P&L optimization — is exactly what FQHC leadership needs. Finance managers who can articulate why a financially challenging program protects community access are the ones who earn board trust and shape organizational strategy.",
+      people: "Your skill at translating complex financial data into clear, actionable narratives for non-financial audiences — board members, program directors, community stakeholders — makes you an indispensable leadership partner. The best FQHC finance managers are as much communicators as they are analysts.",
+      execution: "Your command of FQHC financial operations — cash flow management, payer contract optimization, grant compliance, and multi-source revenue management — demonstrates the operational sophistication that complex healthcare organizations require. FQHCs with strong financial execution have 35% more operating days in reserve.",
+      growth: "Your drive to master new revenue models — CalAIM Community Supports, value-based care contracts, creative financing strategies — positions your FQHC to capture emerging revenue streams that competitors will miss. Finance managers who can model new programs are the ones who get promoted to CFO.",
+      transition: "Your ability to quickly diagnose an FQHC's financial position — cash runway, revenue concentration risk, grant compliance status, payer mix health — shows the strategic assessment skills that CFOs look for. Finance managers who deliver a clear financial picture within 30 days earn immediate executive trust.",
+    },
+    esStrengthMessages: {
+      mission: "Tu capacidad para tomar decisiones financieras a través del lente de impacto en pacientes — no solo optimización de pérdidas y ganancias — es exactamente lo que el liderazgo de FQHC necesita. Los gerentes de finanzas que pueden articular por qué un programa financieramente desafiante protege el acceso comunitario son los que ganan la confianza de la junta y dan forma a la estrategia organizacional.",
+      people: "Tu habilidad para traducir datos financieros complejos en narrativas claras y accionables para audiencias no financieras — miembros de la junta, directores de programa, partes interesadas de la comunidad — te convierte en un socio de liderazgo indispensable. Los mejores gerentes de finanzas de FQHC son tanto comunicadores como analistas.",
+      execution: "Tu dominio de las operaciones financieras de FQHC — gestión de flujo de efectivo, optimización de contratos con pagadores, cumplimiento de subvenciones, y gestión de ingresos de múltiples fuentes — demuestra la sofisticación operativa que las organizaciones de salud complejas requieren. Los FQHCs con ejecución financiera fuerte tienen 35% más días operativos en reserva.",
+      growth: "Tu impulso por dominar nuevos modelos de ingresos — Apoyos Comunitarios CalAIM, contratos de atención basada en valor, estrategias creativas de financiamiento — posiciona a tu FQHC para capturar flujos de ingresos emergentes que los competidores perderán. Los gerentes de finanzas que pueden modelar nuevos programas son los que ascienden a CFO.",
+      transition: "Tu capacidad para diagnosticar rápidamente la posición financiera de un FQHC — margen de efectivo, riesgo de concentración de ingresos, estado de cumplimiento de subvenciones, salud de la mezcla de pagadores — muestra las habilidades de evaluación estratégica que los CFOs buscan. Los gerentes de finanzas que entregan un panorama financiero claro dentro de 30 días ganan confianza ejecutiva inmediata.",
+    },
+    growthMessages: {
+      mission: "Spend time in the clinics. When you can connect a revenue decision to a patient outcome you've personally witnessed, your budget presentations to the board become exponentially more powerful. The most effective FQHC finance leaders are those who never lose sight of what the numbers represent.",
+      people: "Practice presenting financial results without jargon. The board members, community leaders, and program directors who need your financial guidance often don't share your vocabulary. Developing a 'financial translator' skill is the single highest-impact leadership capability for FQHC finance managers.",
+      execution: "Build rolling 13-week cash flow forecasts that you update weekly. In an era of Medi-Cal payment delays and federal funding uncertainty, cash visibility isn't optional — it's survival. FQHCs with weekly cash forecasting navigate crises 60% more effectively.",
+      growth: "Attend NACHC's Financial Management Conference and join the NACHC Finance Officers Network. Connecting with CFOs at other CA FQHCs gives you access to financial models, payer negotiation strategies, and CalAIM revenue data that you can't get anywhere else.",
+      transition: "When joining a new FQHC, request access to the last 3 years of audited financials, the current budget, bank statements, and the HRSA grant application. Build a financial diagnostic dashboard in your first 30 days that shows revenue trends, expense ratios, cash runway, and payer mix concentration.",
+    },
+    esGrowthMessages: {
+      mission: "Pasa tiempo en las clínicas. Cuando puedes conectar una decisión de ingresos con un resultado de paciente que has presenciado personalmente, tus presentaciones de presupuesto a la junta se vuelven exponencialmente más poderosas. Los líderes financieros de FQHC más efectivos son aquellos que nunca pierden de vista lo que representan los números.",
+      people: "Practica presentar resultados financieros sin jerga. Los miembros de la junta, líderes comunitarios, y directores de programa que necesitan tu guía financiera a menudo no comparten tu vocabulario. Desarrollar la habilidad de 'traductor financiero' es la capacidad de liderazgo de mayor impacto para gerentes de finanzas de FQHC.",
+      execution: "Construye pronósticos de flujo de efectivo continuos de 13 semanas que actualices semanalmente. En una era de retrasos en pagos de Medi-Cal e incertidumbre de financiamiento federal, la visibilidad de efectivo no es opcional — es supervivencia. Los FQHCs con pronóstico semanal de efectivo navegan crisis 60% más efectivamente.",
+      growth: "Asiste a la Conferencia de Gestión Financiera de NACHC y únete a la Red de Oficiales de Finanzas de NACHC. Conectarte con CFOs de otros FQHCs de CA te da acceso a modelos financieros, estrategias de negociación con pagadores, y datos de ingresos CalAIM que no puedes obtener en ningún otro lugar.",
+      transition: "Cuando te unas a un nuevo FQHC, solicita acceso a los últimos 3 años de estados financieros auditados, el presupuesto actual, estados de cuenta bancarios, y la solicitud de subvención HRSA. Construye un tablero de diagnóstico financiero en tus primeros 30 días que muestre tendencias de ingresos, ratios de gastos, margen de efectivo, y concentración de mezcla de pagadores.",
+    },
+    nextSteps: {
+      mission: "Read your FQHC's HRSA grant scope of project and community needs assessment — understanding the communities you serve financially makes your budget recommendations more mission-aligned",
+      people: "Develop a quarterly 'financial health scorecard' for the board that uses traffic-light indicators (green/yellow/red) instead of spreadsheets — this single tool will transform your board communication",
+      execution: "Negotiate with your top 3 Medi-Cal managed care plans for faster payment terms or interim payments — many plans will agree to 30-day terms if you demonstrate consistent clean claims submission",
+      growth: "Build financial models for at least one CalAIM Community Supports program — even if your FQHC isn't launching one yet, having the model ready positions you as the strategic finance leader when the CEO is ready to expand",
+      transition: "Before your first day at a new FQHC, review its most recent audit report (single audit if they receive >$750K in federal funds), 990 tax return, and HRSA grant award notice. These documents reveal the financial DNA of the organization",
+    },
+    esNextSteps: {
+      mission: "Lee el alcance del proyecto de la subvención HRSA de tu FQHC y la evaluación de necesidades de la comunidad — entender las comunidades que sirves financieramente hace tus recomendaciones de presupuesto más alineadas con la misión",
+      people: "Desarrolla un 'tablero de salud financiera' trimestral para la junta que use indicadores de semáforo (verde/amarillo/rojo) en lugar de hojas de cálculo — esta única herramienta transformará tu comunicación con la junta",
+      execution: "Negocia con tus 3 principales planes de atención administrada de Medi-Cal términos de pago más rápidos o pagos intermedios — muchos planes aceptarán términos de 30 días si demuestras envío consistente de reclamos limpios",
+      growth: "Construye modelos financieros para al menos un programa de Apoyos Comunitarios CalAIM — incluso si tu FQHC no está lanzando uno todavía, tener el modelo listo te posiciona como el líder financiero estratégico cuando el CEO esté listo para expandir",
+      transition: "Antes de tu primer día en un nuevo FQHC, revisa su reporte de auditoría más reciente (auditoría única si reciben >$750K en fondos federales), declaración de impuestos 990, y aviso de adjudicación de subvención HRSA. Estos documentos revelan el ADN financiero de la organización",
+    },
+    employerWants: {
+      topQualifications: [
+        "5+ years financial management experience (healthcare or nonprofit required)",
+        "Experience with FQHC financial operations (PPS, 340B, HRSA grants)",
+        "Track record of managing budgets >$5M with multiple revenue sources",
+        "Experience with board-level financial reporting and presentations",
+        "Knowledge of Medi-Cal and Medicare reimbursement structures",
+      ],
+      esTopQualifications: [
+        "5+ años de experiencia en gestión financiera (salud o sin fines de lucro requerido)",
+        "Experiencia con operaciones financieras de FQHC (PPS, 340B, subvenciones HRSA)",
+        "Historial de gestión de presupuestos >$5M con múltiples fuentes de ingresos",
+        "Experiencia con informes y presentaciones financieras a nivel de junta",
+        "Conocimiento de estructuras de reembolso Medi-Cal y Medicare",
+      ],
+      topSkills: [
+        "Financial modeling and forecasting",
+        "Cash flow management and treasury",
+        "Grant financial compliance (HRSA, state)",
+        "Board financial reporting and governance",
+        "Payer contract analysis and negotiation",
+      ],
+      esTopSkills: [
+        "Modelado y pronóstico financiero",
+        "Gestión de flujo de efectivo y tesorería",
+        "Cumplimiento financiero de subvenciones (HRSA, estatal)",
+        "Informes financieros y gobernanza de la junta",
+        "Análisis y negociación de contratos con pagadores",
+      ],
+      certifications: [
+        "CPA (Certified Public Accountant)",
+        "CHFP (Certified Healthcare Financial Professional)",
+        "MBA or MHA (preferred)",
+      ],
+      esCertifications: [
+        "CPA (Contador Público Certificado)",
+        "CHFP (Profesional Financiero de Salud Certificado)",
+        "MBA o MHA (preferido)",
+      ],
+    },
+  },
 };
