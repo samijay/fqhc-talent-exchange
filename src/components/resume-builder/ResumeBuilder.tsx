@@ -720,6 +720,11 @@ export default function ResumeBuilder() {
                         ? "Soporta archivos PDF, DOCX y TXT (máx. 5MB)"
                         : "Supports PDF, DOCX, and TXT files (max 5MB)"}
                     </p>
+                    <p className="mt-2 text-[11px] text-stone-400 leading-relaxed max-w-sm">
+                      {locale === "es"
+                        ? "Al subir tu archivo, aceptas que su contenido será procesado para extraer texto y pre-llenar el formulario. Los archivos se almacenan de forma segura con URLs firmadas de acceso limitado. No compartimos tu archivo con terceros."
+                        : "By uploading, you agree that your file will be processed to extract text and pre-fill the form. Files are stored securely with time-limited signed URLs. We do not share your file with third parties."}
+                    </p>
                   </div>
                 </div>
               )}

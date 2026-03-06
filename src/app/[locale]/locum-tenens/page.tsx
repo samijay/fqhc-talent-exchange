@@ -678,10 +678,15 @@ export default function LocumTenensPage() {
                   </select>
                 </div>
               </div>
+              <p className="mt-4 text-[11px] text-stone-400 leading-relaxed">
+                {isEs
+                  ? "Al enviar este formulario, aceptas que tu información de contacto y experiencia profesional será almacenada para conectarte con oportunidades de locum tenens. No compartimos tus datos con terceros sin tu consentimiento."
+                  : "By submitting, you agree that your contact information and professional experience will be stored to connect you with locum tenens opportunities. We do not share your data with third parties without your consent."}
+              </p>
               <button
                 type="submit"
                 disabled={providerSubmitting}
-                className="mt-4 w-full rounded-lg bg-teal-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-800 disabled:opacity-50 sm:w-auto"
+                className="mt-3 w-full rounded-lg bg-teal-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-800 disabled:opacity-50 sm:w-auto"
               >
                 {providerSubmitting
                   ? isEs
@@ -896,10 +901,15 @@ export default function LocumTenensPage() {
                   }
                 />
               </div>
+              <p className="mt-4 text-[11px] text-stone-300/70 leading-relaxed">
+                {isEs
+                  ? "Al enviar esta solicitud, aceptas que tu información organizacional será almacenada para conectarte con proveedores de cobertura. No compartimos tus datos con terceros sin tu consentimiento."
+                  : "By submitting, you agree that your organization information will be stored to connect you with coverage providers. We do not share your data with third parties without your consent."}
+              </p>
               <button
                 type="submit"
                 disabled={fqhcSubmitting}
-                className="mt-4 w-full rounded-lg bg-amber-500 px-6 py-3 text-sm font-semibold text-stone-900 transition-colors hover:bg-amber-400 disabled:opacity-50 sm:w-auto"
+                className="mt-3 w-full rounded-lg bg-amber-500 px-6 py-3 text-sm font-semibold text-stone-900 transition-colors hover:bg-amber-400 disabled:opacity-50 sm:w-auto"
               >
                 {fqhcSubmitting
                   ? isEs

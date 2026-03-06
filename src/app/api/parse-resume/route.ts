@@ -74,6 +74,15 @@ export async function POST(request: Request) {
     // Upload to Supabase Storage (private bucket — use signed URLs)
     const timestamp = Date.now();
     const safeFileName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+
+    // Path traversal protection: reject filenames with directory separators or parent refs
+    if (safeFileName.includes("..") || safeFileName.includes("/") || safeFileName.includes("\\")) {
+      return NextResponse.json(
+        { error: "Invalid filename." },
+        { status: 400 },
+      );
+    }
+
     const storagePath = `uploads/${timestamp}_${safeFileName}`;
 
     const { error: uploadError } = await supabaseAdmin.storage

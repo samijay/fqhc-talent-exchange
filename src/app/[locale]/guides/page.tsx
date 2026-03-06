@@ -293,6 +293,18 @@ export default function GuidesPage() {
         </div>
       </section>
 
+      {/* ── Legal Disclaimer ── */}
+      <div className="bg-amber-50 border-b border-amber-200">
+        <div className="mx-auto max-w-6xl px-4 py-3">
+          <p className="text-xs text-amber-800 text-center leading-relaxed">
+            ⚠️{" "}
+            {isEs
+              ? "Solo con fines informativos. Estas guias son resumenes generados por IA de fuentes publicas y no constituyen asesoramiento medico, legal, financiero o profesional. Verifique siempre la informacion con fuentes primarias y profesionales calificados antes de actuar."
+              : "For informational purposes only. These guides are AI-generated summaries of public sources and do not constitute medical, legal, financial, or professional advice. Always verify information with primary sources and qualified professionals before acting."}
+          </p>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-6xl px-4 py-10">
         {/* ───────────────── Filter Bar ───────────────── */}
         <div className="mb-8 rounded-xl border border-stone-200 bg-white p-4 shadow-sm">

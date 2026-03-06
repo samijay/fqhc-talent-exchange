@@ -321,6 +321,18 @@ export default function ScopeOfPracticePage() {
         </div>
       </section>
 
+      {/* ---- Legal Disclaimer ---- */}
+      <div className="bg-amber-50 border-b border-amber-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
+          <p className="text-xs text-amber-800 text-center leading-relaxed">
+            <AlertTriangle className="inline size-3 mr-1 -mt-0.5" />
+            {isEs
+              ? "Solo con fines educativos. Las regulaciones, citas del Codigo de Negocios y Profesiones, y las reglas de delegacion presentadas aqui son resumenes generados por IA — no constituyen asesoramiento legal. Consulte siempre con un abogado de salud o la junta reguladora correspondiente antes de tomar decisiones de personal."
+              : "For educational purposes only. The regulations, Business & Professions Code citations, and delegation rules presented here are AI-generated summaries — they do not constitute legal advice. Always consult a healthcare attorney or relevant licensing board before making staffing decisions."}
+          </p>
+        </div>
+      </div>
+
       {/* ---- 2. Stats Bar ---- */}
       <section className="bg-teal-700 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">

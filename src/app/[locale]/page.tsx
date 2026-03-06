@@ -87,37 +87,24 @@ function formatSalary(amount: number): string {
     : `$${amount.toLocaleString()}`;
 }
 
-/* ---------- Unified feed item types ---------- */
-type FeedItemType = "intel" | "blog";
+/* ---------- Separate feeds: Intelligence + News ---------- */
 
-interface FeedItem {
-  type: FeedItemType;
-  date: string; // ISO date for sorting
-  intel?: IntelItem;
-  blog?: BlogPost;
-}
+/* Intelligence feed: just intel items, sorted newest first */
+const intelFeed = [...allIntelItems].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+);
 
-/* Build unified feed: merge intel items + blog posts, sorted newest first */
-const unifiedFeed: FeedItem[] = [
-  ...allIntelItems.map((item) => ({
-    type: "intel" as const,
-    date: item.date,
-    intel: item,
-  })),
-  ...BLOG_POSTS.map((post) => ({
-    type: "blog" as const,
-    date: post.isoDate,
-    blog: post,
-  })),
-].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+/* News feed: blog articles, sorted newest first */
+const newsFeed = [...BLOG_POSTS].sort(
+  (a, b) => new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime(),
+);
 
-/* Filter categories: intel categories + "blog" */
-const FEED_CATEGORIES = [
+/* Filter categories: intel categories only (no "blog") */
+const INTEL_FILTER_CATEGORIES = [
   { id: "all" as const, en: "All", es: "Todo" },
   ...INTEL_CATEGORIES.filter((cat) =>
     allIntelItems.some((i) => i.category === cat.id),
   ),
-  { id: "blog" as const, en: "Articles", es: "Artículos" },
 ];
 
 const maxJobCount = Math.max(...roleDemand.map((r) => r.jobCount), 1);
@@ -228,16 +215,12 @@ export default function Home() {
   const [showAllRoles, setShowAllRoles] = useState(false);
   const [showMarketData, setShowMarketData] = useState(false);
 
-  const filteredFeed = useMemo(() => {
-    if (activeFilter === "all") return unifiedFeed;
-    if (activeFilter === "blog")
-      return unifiedFeed.filter((item) => item.type === "blog");
-    return unifiedFeed.filter(
-      (item) => item.type === "intel" && item.intel?.category === activeFilter,
-    );
+  const filteredIntel = useMemo(() => {
+    if (activeFilter === "all") return intelFeed;
+    return intelFeed.filter((item) => item.category === activeFilter);
   }, [activeFilter]);
 
-  const displayedFeed = showAll ? filteredFeed : filteredFeed.slice(0, 15);
+  const displayedIntel = showAll ? filteredIntel : filteredIntel.slice(0, 12);
   const displayedRoles = showAllRoles ? roleDemand : roleDemand.slice(0, 8);
 
   return (
@@ -320,15 +303,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==================== MAIN FEED + SIDEBAR ==================== */}
+      {/* ==================== INTELLIGENCE FEED + SIDEBAR ==================== */}
       <section className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Last updated */}
+          {/* Section header */}
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-bold text-stone-900 sm:text-xl">
+            <h2 className="text-lg font-bold text-stone-900 sm:text-xl flex items-center gap-2">
+              <Activity className="size-5 text-teal-700" />
               {isEs
-                ? "Últimas Noticias e Inteligencia"
-                : "Latest News & Intelligence"}
+                ? "Inteligencia Estratégica"
+                : "Strategic Intelligence"}
             </h2>
             <span className="text-xs text-stone-400">
               {isEs ? "Actualizado" : "Updated"}: {INTEL_LAST_UPDATED}
@@ -337,15 +321,12 @@ export default function Home() {
 
           {/* Category filter tabs */}
           <div className="mb-6 flex flex-wrap gap-2">
-            {FEED_CATEGORIES.map((cat) => {
+            {INTEL_FILTER_CATEGORIES.map((cat) => {
               const isActive = activeFilter === cat.id;
               const count =
                 cat.id === "all"
-                  ? unifiedFeed.length
-                  : cat.id === "blog"
-                    ? BLOG_POSTS.length
-                    : allIntelItems.filter((i) => i.category === cat.id)
-                        .length;
+                  ? intelFeed.length
+                  : allIntelItems.filter((i) => i.category === cat.id).length;
 
               return (
                 <button
@@ -372,48 +353,31 @@ export default function Home() {
           </div>
 
           <div className="grid gap-8 lg:grid-cols-3">
-            {/* Feed column (2/3) */}
+            {/* Intelligence feed column (2/3) */}
             <div className="lg:col-span-2">
               <div className="space-y-3">
-                {displayedFeed.map((item) => {
-                  if (item.type === "blog" && item.blog) {
-                    return (
-                      <BlogArticleCard
-                        key={`blog-${item.blog.slug}`}
-                        post={item.blog}
-                        locale={locale}
-                        isEs={isEs}
-                      />
-                    );
-                  }
-                  if (item.type === "intel" && item.intel) {
-                    return (
-                      <IntelCard
-                        key={item.intel.id}
-                        item={item.intel}
-                        locale={locale}
-                        isEs={isEs}
-                        isExpanded={expandedId === item.intel.id}
-                        onToggle={() =>
-                          setExpandedId(
-                            expandedId === item.intel!.id
-                              ? null
-                              : item.intel!.id,
-                          )
-                        }
-                      />
-                    );
-                  }
-                  return null;
-                })}
+                {displayedIntel.map((item) => (
+                  <IntelCard
+                    key={item.id}
+                    item={item}
+                    locale={locale}
+                    isEs={isEs}
+                    isExpanded={expandedId === item.id}
+                    onToggle={() =>
+                      setExpandedId(
+                        expandedId === item.id ? null : item.id,
+                      )
+                    }
+                  />
+                ))}
               </div>
 
-              {!showAll && filteredFeed.length > 15 && (
+              {!showAll && filteredIntel.length > 12 && (
                 <div className="mt-6 text-center">
                   <Button variant="outline" onClick={() => setShowAll(true)}>
                     {isEs
-                      ? `Ver las ${filteredFeed.length} Publicaciones`
-                      : `View All ${filteredFeed.length} Items`}{" "}
+                      ? `Ver los ${filteredIntel.length} Análisis`
+                      : `View All ${filteredIntel.length} Items`}{" "}
                     <ArrowRight className="size-4" />
                   </Button>
                 </div>
@@ -695,6 +659,37 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ==================== NEWS & ARTICLES ==================== */}
+      {newsFeed.length > 0 && (
+        <section className="py-8 sm:py-12 border-t border-stone-200">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-6 flex items-center justify-between">
+              <h2 className="text-lg font-bold text-stone-900 sm:text-xl flex items-center gap-2">
+                <Newspaper className="size-5 text-indigo-600" />
+                {isEs ? "Noticias y Artículos" : "News & Articles"}
+              </h2>
+              <Link
+                href="/blog"
+                className="text-sm font-medium text-teal-700 hover:text-teal-800 flex items-center gap-1"
+              >
+                {isEs ? "Ver Todos" : "View All"}
+                <ArrowRight className="size-3" />
+              </Link>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {newsFeed.slice(0, 6).map((post) => (
+                <BlogArticleCard
+                  key={post.slug}
+                  post={post}
+                  locale={locale}
+                  isEs={isEs}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ==================== REGIONAL MARKET SNAPSHOT ==================== */}
       <section className="py-8 sm:py-12 border-t border-stone-200">
