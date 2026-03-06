@@ -391,7 +391,7 @@ export default function AITrackerPage() {
               </Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link href="/insights">
+              <Link href="/">
                 {isEs ? "Dashboard de Inteligencia" : "Intelligence Dashboard"}{" "}
                 <ArrowRight className="size-4" />
               </Link>

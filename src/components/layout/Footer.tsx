@@ -12,7 +12,6 @@ export default function Footer() {
     [t("strategy")]: [
       { href: "/strategy/guides" as const, label: t("executiveGuides") },
       { href: "/strategy/okrs" as const, label: t("okrTemplates") },
-      { href: "/strategy/case-studies" as const, label: t("caseStudies") },
       { href: "/strategy/economics" as const, label: t("healthcareEconomics") },
       { href: "/strategy/frameworks" as const, label: t("executionFrameworks") },
       { href: "/strategy/leaders" as const, label: t("thoughtLeaders") },
@@ -29,7 +28,7 @@ export default function Footer() {
       { href: "/strategy/clinic-simulator" as const, label: t("clinicSimulator") },
     ],
     [t("intelligence")]: [
-      { href: "/insights" as const, label: t("dashboard") },
+      { href: "/" as const, label: t("dashboard") },
       { href: "/ai-tracker" as const, label: t("aiTracker") },
       { href: "/layoffs" as const, label: t("layoffTracker") },
       { href: "/blog" as const, label: t("blog") },
@@ -45,6 +44,7 @@ export default function Footer() {
       { href: "/certifications" as const, label: t("certifications") },
       { href: "/resources" as const, label: t("careerResources") },
       { href: "/guides" as const, label: t("guides") },
+      { href: "/pathway" as const, label: t("learningPathway") },
       { href: "/compare" as const, label: t("compareFqhcs") },
     ],
     [t("company")]: [

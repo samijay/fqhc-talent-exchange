@@ -615,7 +615,7 @@ export default function HealthcareHiringTrendsArticle() {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
-                href="/insights"
+                href="/"
                 className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-teal-700 to-teal-600 px-8 py-4 text-lg font-semibold text-white transition-all hover:shadow-lg"
               >
                 {locale === "es"

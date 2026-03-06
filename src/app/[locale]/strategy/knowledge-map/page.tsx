@@ -84,7 +84,7 @@ const contentTypeRoute: Record<ContentType, string> = {
   framework: "/strategy/frameworks",
   okr: "/strategy/okrs",
   leader: "/strategy/leaders",
-  intel: "/insights",
+  intel: "/",
 };
 
 const urgencyMeta: Record<string, { en: string; es: string; color: string }> = {

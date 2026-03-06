@@ -2,10 +2,10 @@
 // Curated intelligence feed for FQHC executives
 // Updated daily via /daily-update pipeline
 // Every item has a primary source URL — no unsourced claims
-// Last updated: 2026-03-05 (daily update #11 + LA/Central Coast regional scan)
+// Last updated: 2026-03-06 (daily update #12 — Thursday LA + Central Coast)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-05";
+export const INTEL_LAST_UPDATED = "2026-03-06";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -1267,6 +1267,68 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Monterey County Now",
     region: "Monterey County",
     tags: ["monterey", "natividad", "medi-cal", "dsh", "fmap", "undocumented", "central-coast"],
+  },
+  // --- Added 2026-03-06 (daily update #12) ---
+  {
+    id: "ahs-layoffs-deferred-march-2026",
+    date: "2026-03-04",
+    headline: {
+      en: "Alameda Health System Layoffs Deferred: Board Creates Working Group for $91.7M Deficit",
+      es: "Despidos de Alameda Health System Diferidos: Junta Crea Grupo de Trabajo para Déficit de $91.7M",
+    },
+    summary: {
+      en: "Alameda County Board of Supervisors unanimously voted March 4 to defer 183 layoffs and halt closure of mental health units at Highland and Fairmont hospitals — originally set for March 9. A working group including Supervisors Miley and Fortunato Bas, AHS administration, and healthcare union reps will work to reduce the $91.7M deficit before July 1. CEO James Jackson warned H.R. 1 represents 'the largest roll-back of federal health care spending in history.' With 60% of AHS patients on Medicaid, the system faces $100M/year in losses by 2030.",
+      es: "La Junta de Supervisores del Condado de Alameda votó unánimemente el 4 de marzo para diferir 183 despidos y detener el cierre de unidades de salud mental en los hospitales Highland y Fairmont — originalmente programados para el 9 de marzo. Un grupo de trabajo buscará reducir el déficit de $91.7M antes del 1 de julio. El CEO Jackson advirtió que H.R. 1 representa 'la mayor reducción de gasto federal en salud de la historia.'",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.eastbaytimes.com/2026/03/04/alameda-health-system-dodges-layoffs-for-now-amid-cuts-to-medicaid/",
+    sourceOrg: "East Bay Times",
+    region: "Alameda County",
+    affectedOrgs: ["Alameda Health System"],
+    affectedOrgSlugs: [],
+    tags: ["layoffs-deferred", "working-group", "mental-health", "medicaid", "bay-area"],
+  },
+  {
+    id: "la-county-healthcare-sales-tax-coalition",
+    date: "2026-01-28",
+    headline: {
+      en: "LA County Healthcare Coalition Proposes Half-Cent Sales Tax to Replace Federal Cuts",
+      es: "Coalición de Salud del Condado de LA Propone Impuesto de Medio Centavo para Reemplazar Recortes Federales",
+    },
+    summary: {
+      en: "A coalition led by St. John's Community Health CEO Jim Mangia, SEIU locals 721 and 2015, Community Clinic Association of LA County, and Planned Parenthood is pushing for a half-cent sales tax to offset Medi-Cal cuts affecting 3.3M county residents. Proposed allocation: 47% free/reduced-cost care for uninsured, 22% DHS, 10% DPH. Coalition requesting Board of Supervisors place measure on June ballot or will pursue November initiative through petition.",
+      es: "Una coalición liderada por el CEO de St. John's Community Health Jim Mangia, SEIU 721 y 2015, y la Asociación de Clínicas Comunitarias del Condado de LA impulsa un impuesto de medio centavo para compensar recortes de Medi-Cal que afectan a 3.3M residentes del condado. 47% para atención gratuita/reducida para no asegurados, 22% DHS, 10% DPH.",
+    },
+    category: "lobbying",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://mynewsla.com/business/2026/01/28/community-health-coalition-proposes-half-cent-la-county-tax-for-healthcare/",
+    sourceOrg: "MyNewsLA",
+    region: "Los Angeles County",
+    affectedOrgs: ["St. John's Community Health", "Community Clinic Association of LA County"],
+    affectedOrgSlugs: ["st-johns-community-health"],
+    tags: ["sales-tax", "coalition", "seiu", "ballot-measure", "medi-cal", "los-angeles"],
+  },
+  {
+    id: "c3-aco-expands-california-fqhcs",
+    date: "2026-02-03",
+    headline: {
+      en: "C3 ACO Expands to California: FQHC-Governed Value-Based Care Network Adds 10 Health Centers",
+      es: "C3 ACO Se Expande a California: Red de Atención Basada en Valor Gobernada por FQHCs Agrega 10 Centros",
+    },
+    summary: {
+      en: "Community Care Cooperative (C3), the largest non-profit FQHC-governed ACO in the country, expanded to California with the addition of 10 FQHCs across multiple states effective January 1, 2026. C3 is accountable for 240,000+ Medicaid and Medicare beneficiaries in value-based arrangements and has earned $152M+ in shared savings since 2018. The expansion signals growing FQHC interest in ACO participation as a revenue diversification strategy amid Medicaid cuts.",
+      es: "Community Care Cooperative (C3), el ACO sin fines de lucro gobernado por FQHCs más grande del país, se expandió a California con 10 FQHCs nuevos en múltiples estados desde el 1 de enero de 2026. C3 es responsable de más de 240,000 beneficiarios de Medicaid y Medicare y ha generado $152M+ en ahorros compartidos desde 2018.",
+    },
+    category: "merger-acquisition",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://www.businesswire.com/news/home/20260203635260/en/Community-Care-Cooperative-C3-Strengthens-ACO-Network-with-10-New-FQHCs-to-Improve-Outcomes-and-Reduce-Costs",
+    sourceOrg: "Business Wire",
+    region: "California",
+    tags: ["aco", "value-based-care", "shared-savings", "revenue-diversification"],
   },
 ];
 

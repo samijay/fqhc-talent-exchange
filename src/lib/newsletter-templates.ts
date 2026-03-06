@@ -262,7 +262,7 @@ export function intelBriefHtml(
 
   <!-- CTA -->
   <div style="text-align: center; margin: 32px 0;">
-    <a href="${SITE}/insights" style="display: inline-block; background: ${TEAL}; color: white; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">
+    <a href="${SITE}" style="display: inline-block; background: ${TEAL}; color: white; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">
       View Full Dashboard →
     </a>
   </div>

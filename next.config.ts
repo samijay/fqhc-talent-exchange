@@ -79,6 +79,17 @@ const nextConfig: NextConfig = {
         destination: "https://www.fqhctalent.com/:path*",
         permanent: true,
       },
+      // Redirect /insights → / (intelligence dashboard is now the homepage)
+      {
+        source: "/insights",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/:locale/insights",
+        destination: "/:locale",
+        permanent: true,
+      },
     ];
   },
 };

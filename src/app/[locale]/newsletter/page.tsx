@@ -383,7 +383,7 @@ export default function NewsletterPage() {
               </p>
               <div className="mt-6 flex items-center justify-center gap-4">
                 <Button variant="outline" asChild>
-                  <Link href="/insights">
+                  <Link href="/">
                     {isEs ? "Ver Dashboard" : "View Dashboard"}{" "}
                     <ArrowRight className="size-4" />
                   </Link>
@@ -606,7 +606,7 @@ export default function NewsletterPage() {
           {/* Related links */}
           <div className="mt-10 flex items-center justify-center gap-4">
             <Button variant="outline" asChild>
-              <Link href="/insights">
+              <Link href="/">
                 {isEs ? "Dashboard de Inteligencia" : "Intelligence Dashboard"}{" "}
                 <ArrowRight className="size-4" />
               </Link>

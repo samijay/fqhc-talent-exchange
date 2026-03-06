@@ -153,9 +153,9 @@ export const pageMetadata = {
       title: "FQHC Executive Intelligence Dashboard",
       description:
         "Legislation, funding, workforce, and strategy — what California FQHC leaders need to know today.",
-      url: `${SITE_URL}/insights`,
+      url: SITE_URL,
     },
-    alternates: { canonical: `${SITE_URL}/insights` },
+    alternates: { canonical: SITE_URL },
   },
   guides: {
     title:
@@ -456,6 +456,18 @@ export const pageMetadata = {
       url: `${SITE_URL}/compare`,
     },
     alternates: { canonical: `${SITE_URL}/compare` },
+  },
+  pathway: {
+    title: "Learning Pathway — Personalized FQHC Career Journey | FQHC Talent",
+    description:
+      "Select your role and experience level to get a curated learning pathway through guides, assessments, certifications, case studies, and strategic tools for California FQHC professionals.",
+    openGraph: {
+      title: "Learning Pathway — FQHC Talent",
+      description:
+        "Personalized learning journey for FQHC professionals. 12 roles × 4 experience levels → curated content pathway.",
+      url: `${SITE_URL}/pathway`,
+    },
+    alternates: { canonical: `${SITE_URL}/pathway` },
   },
   workforceResilience: {
     title: "Workforce Resilience & Retention Hub | FQHC Talent",

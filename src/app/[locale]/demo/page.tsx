@@ -500,7 +500,7 @@ export default function DemoPage() {
               }, locale)}
             </p>
             <Link
-              href="/insights"
+              href="/"
               className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-teal-700 hover:text-teal-800"
             >
               {t({ en: "Explore Market Intelligence", es: "Explorar Inteligencia de Mercado" }, locale)}

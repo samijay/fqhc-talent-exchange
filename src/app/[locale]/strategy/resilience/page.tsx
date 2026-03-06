@@ -559,7 +559,7 @@ export default function ResiliencePage() {
             <Link href="/funding-impact" className="hover:text-white transition-colors">
               {isEs ? "Impacto de H.R. 1" : "H.R. 1 Impact"} →
             </Link>
-            <Link href="/insights" className="hover:text-white transition-colors">
+            <Link href="/" className="hover:text-white transition-colors">
               {isEs ? "Panel de Inteligencia" : "Intelligence Dashboard"} →
             </Link>
           </div>

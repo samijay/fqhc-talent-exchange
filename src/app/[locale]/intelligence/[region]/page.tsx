@@ -136,7 +136,7 @@ export default async function RegionalIntelligencePage({
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mb-2 flex items-center gap-2 text-stone-400">
-            <Link href="/insights" className="hover:text-white transition-colors text-sm">
+            <Link href="/" className="hover:text-white transition-colors text-sm">
               {t({ en: "Intelligence", es: "Inteligencia" })}
             </Link>
             <ChevronRight className="size-3" />
@@ -568,7 +568,7 @@ export default async function RegionalIntelligencePage({
 
             {intel.length > 8 && (
               <div className="mt-4 text-center">
-                <Link href="/insights">
+                <Link href="/">
                   <Button variant="outline" className="text-teal-700 border-teal-300 hover:bg-teal-50">
                     {t({
                       en: `View all ${intel.length} items`,

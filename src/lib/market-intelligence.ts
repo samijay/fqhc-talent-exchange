@@ -1,6 +1,6 @@
 // market-intelligence.ts
 // Aggregation functions that compute unique insights from existing data files
-// Used by the /insights dashboard page
+// Used by the homepage intelligence dashboard
 
 import { californiaFQHCs, fqhcSalaryRanges, type CaliforniaFQHC } from "./california-fqhcs";
 import { fqhcJobListings, type FQHCJobListing } from "./fqhc-job-listings";

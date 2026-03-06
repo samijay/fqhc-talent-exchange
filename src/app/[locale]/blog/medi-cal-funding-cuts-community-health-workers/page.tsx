@@ -369,8 +369,8 @@ export default function MediCalFundingCutsArticle() {
               stat="90+"
               label="California FQHCs tracked in our directory"
               esLabel="FQHCs de California rastreados en nuestro directorio"
-              detail="See which FQHCs have high, moderate, or low funding vulnerability at fqhctalent.com/insights"
-              esDetail="Ve qué FQHCs tienen vulnerabilidad de financiamiento alta, moderada o baja en fqhctalent.com/insights"
+              detail="See which FQHCs have high, moderate, or low funding vulnerability at fqhctalent.com"
+              esDetail="Ve qué FQHCs tienen vulnerabilidad de financiamiento alta, moderada o baja en fqhctalent.com"
             />
 
             {content.sections.map((section, idx) => (

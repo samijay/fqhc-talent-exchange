@@ -70,7 +70,7 @@ export default function NotFound() {
               </div>
             </Link>
             <Link
-              href="/insights"
+              href="/"
               className="group flex items-center gap-3 rounded-xl border border-stone-200 bg-white px-4 py-3 transition-all hover:border-teal-200 hover:shadow-md"
             >
               <FileText className="size-5 shrink-0 text-teal-600" />

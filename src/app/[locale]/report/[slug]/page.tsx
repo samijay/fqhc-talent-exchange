@@ -680,7 +680,7 @@ export default async function FQHCReportPage({
                   ? "No hay elementos de inteligencia recientes para esta organizacion."
                   : "No recent intelligence items for this organization."}
               </p>
-              <Link href="/insights" className="mt-2 inline-block text-sm text-teal-700 hover:underline">
+              <Link href="/" className="mt-2 inline-block text-sm text-teal-700 hover:underline">
                 {isEs ? "Ver Tablero de Inteligencia" : "View Intelligence Dashboard"} →
               </Link>
             </div>

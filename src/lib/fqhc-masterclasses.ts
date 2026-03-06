@@ -169,7 +169,7 @@ export const MASTERCLASSES: MasterclassModule[] = [
     siteLinks: [
       { label: "Funding Impact Tracker", href: "/funding-impact" },
       { label: "Resilience Scorecard", href: "/strategy/resilience" },
-      { label: "Policy Timeline", href: "/insights" },
+      { label: "Policy Timeline", href: "/" },
     ],
     tags: ["scenario-planning", "funding-cliffs", "strategic-planning", "board-governance"],
   },
@@ -392,7 +392,7 @@ export const MASTERCLASSES: MasterclassModule[] = [
       { label: "NILC: Know Your Rights", url: "https://www.nilc.org/resources/healthcare-provider-and-patients-rights-imm-enf/" },
     ],
     siteLinks: [
-      { label: "Intelligence Dashboard", href: "/insights" },
+      { label: "Intelligence Dashboard", href: "/" },
       { label: "Cultural Humility", href: "/strategy/cultural-humility" },
     ],
     tags: ["immigration", "ice", "patient-trust", "hipaa", "sb-81", "know-your-rights"],

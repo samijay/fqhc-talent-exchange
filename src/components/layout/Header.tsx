@@ -229,7 +229,6 @@ export default function Header() {
           heading: isEs ? "Marcos y Aprendizaje" : "Frameworks & Learning",
           items: [
             { href: "/strategy/guides", label: t("executiveGuides") },
-            { href: "/strategy/case-studies", label: t("caseStudies") },
             { href: "/strategy/okrs", label: t("okrTemplates") },
             { href: "/strategy/frameworks", label: t("executionFrameworks") },
             { href: "/strategy/masterclass", label: t("masterclass") },
@@ -262,7 +261,7 @@ export default function Header() {
     {
       label: t("intelligence"),
       children: [
-        { href: "/insights", label: t("dashboard"), desc: t("dashboardDesc") },
+        { href: "/", label: t("dashboard"), desc: t("dashboardDesc") },
         { href: "/ai-tracker", label: t("aiTracker"), desc: t("aiTrackerDesc") },
         { href: "/layoffs", label: t("layoffs"), desc: t("layoffsDesc") },
         { href: "/blog", label: t("blog"), desc: t("blogDesc") },
@@ -279,6 +278,7 @@ export default function Header() {
         { href: "/certifications", label: t("certifications") },
         { href: "/resources", label: t("careerResources") },
         { href: "/guides", label: t("guides") },
+        { href: "/pathway", label: t("learningPathway") },
         { href: "/compare", label: t("compare"), desc: t("compareDesc") },
       ],
     },

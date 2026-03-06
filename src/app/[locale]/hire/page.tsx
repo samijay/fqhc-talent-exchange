@@ -84,7 +84,7 @@ const STRATEGY_RESOURCES: ResourceCard[] = [
 
 const INTELLIGENCE_RESOURCES: ResourceCard[] = [
   {
-    href: "/insights",
+    href: "/",
     icon: LayoutDashboard,
     label: { en: "Intelligence Dashboard", es: "Panel de Inteligencia" },
     description: {
