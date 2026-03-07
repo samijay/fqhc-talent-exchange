@@ -89,28 +89,26 @@ function formatSalary(amount: number): string {
 
 /* ---------- Three-way split: Breaking News / Strategic Intelligence / Articles ---------- */
 
-/* News categories = external events (things that happened) */
-const NEWS_CATEGORIES = new Set([
-  "legislation",
-  "lobbying",
-  "patient-story",
-  "merger-acquisition",
-  "funding",
-  "workforce",
-  "undocumented-access",
-]);
+/*
+ * NEWS = type:"news" items only (actual events with real publish dates).
+ * Deadline items (type:"deadline") have implementation/effective dates — they
+ * belong in the Policy Timeline sidebar, NOT the news feed.
+ * Strategy items (type:"strategy") go to the Strategic Intelligence section.
+ */
 
-/* Intelligence categories = strategic analysis & recommendations */
-const INTEL_STRATEGY_CATEGORIES = new Set(["change-management"]);
-
-/* Breaking News feed: external events, sorted newest first */
+/* Breaking News feed: actual news events only, excluding change-management
+   (which always goes to Strategic Intelligence) and deadline items (Policy Timeline) */
 const newsFeed = [
-  ...allIntelItems.filter((i) => NEWS_CATEGORIES.has(i.category)),
+  ...allIntelItems.filter(
+    (i) => i.type === "news" && i.category !== "change-management",
+  ),
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-/* Strategic Intelligence feed: analysis & strategy items */
+/* Strategic Intelligence feed: all change-management items + strategy type items */
 const intelFeed = [
-  ...allIntelItems.filter((i) => INTEL_STRATEGY_CATEGORIES.has(i.category)),
+  ...allIntelItems.filter(
+    (i) => i.category === "change-management" || i.type === "strategy",
+  ),
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 /* Articles feed: blog posts */
@@ -118,23 +116,22 @@ const articlesFeed = [...BLOG_POSTS].sort(
   (a, b) => new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime(),
 );
 
-/* News filter categories */
+/* Derive the latest actual news date for the "Updated" label */
+const latestNewsDate = newsFeed.length > 0 ? newsFeed[0].date : INTEL_LAST_UPDATED;
+
+/* News filter categories — only categories that have type:"news" items */
 const NEWS_FILTER_CATEGORIES = [
   { id: "all" as const, en: "All", es: "Todo" },
-  ...INTEL_CATEGORIES.filter(
-    (cat) =>
-      NEWS_CATEGORIES.has(cat.id) &&
-      allIntelItems.some((i) => i.category === cat.id),
+  ...INTEL_CATEGORIES.filter((cat) =>
+    newsFeed.some((i) => i.category === cat.id),
   ),
 ];
 
-/* Intel filter categories */
+/* Intel filter categories — only categories that have type:"strategy" items */
 const INTEL_FILTER_CATEGORIES = [
   { id: "all" as const, en: "All", es: "Todo" },
-  ...INTEL_CATEGORIES.filter(
-    (cat) =>
-      INTEL_STRATEGY_CATEGORIES.has(cat.id) &&
-      allIntelItems.some((i) => i.category === cat.id),
+  ...INTEL_CATEGORIES.filter((cat) =>
+    intelFeed.some((i) => i.category === cat.id),
   ),
 ];
 
@@ -366,7 +363,7 @@ export default function Home() {
               {isEs ? "Noticias de Última Hora" : "Breaking News"}
             </h2>
             <span className="text-xs text-stone-400">
-              {isEs ? "Actualizado" : "Updated"}: {INTEL_LAST_UPDATED}
+              {isEs ? "Actualizado" : "Updated"}: {latestNewsDate}
             </span>
           </div>
 
