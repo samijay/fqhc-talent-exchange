@@ -138,10 +138,20 @@ function sectionHeader(title: string, emoji: string): string {
 
 function unsubscribeLink(token: string): string {
   return `
-  <p style="font-size: 11px; color: #a8a29e; text-align: center; margin-top: 16px;">
-    <a href="${SITE}/api/newsletter/unsubscribe?token=${token}" style="color: #a8a29e; text-decoration: underline;">Unsubscribe</a>
-    · <a href="${SITE}/newsletter" style="color: #a8a29e; text-decoration: underline;">Manage preferences</a>
-  </p>`;
+  <table style="width: 100%; border-top: 1px solid #292524; margin-top: 24px; padding-top: 16px;">
+    <tr>
+      <td style="text-align: center; padding: 8px;">
+        <p style="font-size: 13px; color: #78716c; margin: 0 0 6px 0;">
+          Found this useful? <a href="https://www.fqhctalent.com/newsletter" style="color: #0d9488; text-decoration: underline; font-weight: 600;">Forward to a colleague →</a>
+        </p>
+        <p style="font-size: 11px; color: #a8a29e; margin: 0;">
+          <a href="${SITE}/api/newsletter/unsubscribe?token=${token}" style="color: #a8a29e; text-decoration: underline;">Unsubscribe</a>
+          · <a href="${SITE}/newsletter" style="color: #a8a29e; text-decoration: underline;">Manage preferences</a>
+          · <a href="${SITE}" style="color: #a8a29e; text-decoration: underline;">fqhctalent.com</a>
+        </p>
+      </td>
+    </tr>
+  </table>`;
 }
 
 /* ------------------------------------------------------------------ */

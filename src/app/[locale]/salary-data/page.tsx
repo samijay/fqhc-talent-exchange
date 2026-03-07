@@ -19,6 +19,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
   Select,
   SelectContent,
@@ -711,6 +712,14 @@ export default function SalaryDataPage() {
               </Button>
             </Link>
           </div>
+        </section>
+
+        {/* Newsletter CTA */}
+        <section className="mt-12 mb-8">
+          <NewsletterSignup
+            variant="banner"
+            defaultAudience="the-pulse"
+          />
         </section>
       </div>
     </div>
