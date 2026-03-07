@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useLocale } from "next-intl";
 import {
   Target,
@@ -15,6 +16,8 @@ import {
   Clock,
   Users,
   BookOpen,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import type { DomainId } from "@/lib/career-assessment-engine";
 import type { ManagerAssessmentResults, LeadershipRoleId } from "@/lib/manager-assessment-engine";
@@ -22,6 +25,8 @@ import { LEADERSHIP_ROLES, MANAGER_DOMAIN_DEFINITIONS } from "@/lib/manager-asse
 import { MANAGER_ROLE_INSIGHTS } from "@/lib/manager-role-insights";
 import { getPrioritizedActions, getMatchedStructures } from "@/lib/management-actions";
 import { MANAGER_FIVE_CONVERSATIONS, TEAM_FOGLAMP, STARS_LABELS } from "@/lib/first-90-days";
+import { generateManager90DaysPlan } from "@/lib/manager-90-days";
+import { Manager90DaysPlanComponent } from "./Manager90DaysPlan";
 
 /* ------------------------------------------------------------------ */
 /*  i18n                                                                */
@@ -152,10 +157,15 @@ export function TeamReadinessResults({ results, onStartOver }: TeamReadinessResu
   const isEs = locale === "es";
   const t = UI[isEs ? "es" : "en"];
 
+  const [show90DayPlan, setShow90DayPlan] = useState(false);
+
   const domainIds: DomainId[] = ["mission", "people", "execution", "growth", "transition"];
   const roleInfo = LEADERSHIP_ROLES.find((r) => r.id === results.roleId);
   const roleInsight = MANAGER_ROLE_INSIGHTS[results.roleId];
   const starsInfo = STARS_LABELS[results.starsType];
+
+  // Generate the 90-day plan from assessment results
+  const plan = generateManager90DaysPlan(results.roleId, results);
 
   // Get prioritized actions and structures
   const actions = getPrioritizedActions(results.domainScores, 6);
@@ -457,6 +467,44 @@ export function TeamReadinessResults({ results, onStartOver }: TeamReadinessResu
             ))}
           </div>
         </div>
+
+        {/* ============================================================ */}
+        {/*  90-Day Leadership Plan CTA                                    */}
+        {/* ============================================================ */}
+        <div className="rounded-2xl border border-teal-200 bg-gradient-to-br from-teal-50 to-teal-100 p-6 text-center shadow sm:p-8">
+          <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-xl bg-teal-700">
+            <BookOpen className="size-6 text-white" />
+          </div>
+          <h3 className="text-base font-bold text-teal-900">
+            {isEs ? "Genera tu Plan de Liderazgo de 90 Días" : "Generate Your 90-Day Leadership Plan"}
+          </h3>
+          <p className="mt-1.5 text-sm text-teal-700">
+            {isEs
+              ? "Un plan de accion personalizado para tu rol y situacion de equipo — con fases claras, hitos y recursos para lideres de FQHC"
+              : "A personalized action plan for your role and team situation — with clear phases, milestones, and resources for FQHC leaders"}
+          </p>
+          <button
+            onClick={() => setShow90DayPlan(!show90DayPlan)}
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow transition hover:bg-teal-800 active:scale-95"
+          >
+            {show90DayPlan ? (
+              <>
+                <ChevronUp className="size-4" />
+                {isEs ? "Ocultar Plan de 90 Días" : "Hide 90-Day Plan"}
+              </>
+            ) : (
+              <>
+                <ChevronDown className="size-4" />
+                {isEs ? "Ver Mi Plan de 90 Días" : "Generate My 90-Day Leadership Plan"}
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* 90-Day Plan (conditionally shown) */}
+        {show90DayPlan && (
+          <Manager90DaysPlanComponent plan={plan} locale={locale} />
+        )}
 
         {/* ============================================================ */}
         {/*  Liberating Structures                                         */}
