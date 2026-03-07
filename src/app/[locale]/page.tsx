@@ -87,23 +87,54 @@ function formatSalary(amount: number): string {
     : `$${amount.toLocaleString()}`;
 }
 
-/* ---------- Separate feeds: Intelligence + News ---------- */
+/* ---------- Three-way split: Breaking News / Strategic Intelligence / Articles ---------- */
 
-/* Intelligence feed: just intel items, sorted newest first */
-const intelFeed = [...allIntelItems].sort(
-  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-);
+/* News categories = external events (things that happened) */
+const NEWS_CATEGORIES = new Set([
+  "legislation",
+  "lobbying",
+  "patient-story",
+  "merger-acquisition",
+  "funding",
+  "workforce",
+  "undocumented-access",
+]);
 
-/* News feed: blog articles, sorted newest first */
-const newsFeed = [...BLOG_POSTS].sort(
+/* Intelligence categories = strategic analysis & recommendations */
+const INTEL_STRATEGY_CATEGORIES = new Set(["change-management"]);
+
+/* Breaking News feed: external events, sorted newest first */
+const newsFeed = [
+  ...allIntelItems.filter((i) => NEWS_CATEGORIES.has(i.category)),
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+/* Strategic Intelligence feed: analysis & strategy items */
+const intelFeed = [
+  ...allIntelItems.filter((i) => INTEL_STRATEGY_CATEGORIES.has(i.category)),
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+/* Articles feed: blog posts */
+const articlesFeed = [...BLOG_POSTS].sort(
   (a, b) => new Date(b.isoDate).getTime() - new Date(a.isoDate).getTime(),
 );
 
-/* Filter categories: intel categories only (no "blog") */
+/* News filter categories */
+const NEWS_FILTER_CATEGORIES = [
+  { id: "all" as const, en: "All", es: "Todo" },
+  ...INTEL_CATEGORIES.filter(
+    (cat) =>
+      NEWS_CATEGORIES.has(cat.id) &&
+      allIntelItems.some((i) => i.category === cat.id),
+  ),
+];
+
+/* Intel filter categories */
 const INTEL_FILTER_CATEGORIES = [
   { id: "all" as const, en: "All", es: "Todo" },
-  ...INTEL_CATEGORIES.filter((cat) =>
-    allIntelItems.some((i) => i.category === cat.id),
+  ...INTEL_CATEGORIES.filter(
+    (cat) =>
+      INTEL_STRATEGY_CATEGORIES.has(cat.id) &&
+      allIntelItems.some((i) => i.category === cat.id),
   ),
 ];
 
@@ -201,9 +232,12 @@ export default function Home() {
   const locale = useLocale();
   const isEs = locale === "es";
 
-  const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [newsFilter, setNewsFilter] = useState<string>("all");
+  const [newsRegion, setNewsRegion] = useState<string>("all");
+  const [intelFilter, setIntelFilter] = useState<string>("all");
   const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [showAll, setShowAll] = useState(false);
+  const [showAllNews, setShowAllNews] = useState(false);
+  const [showAllIntel, setShowAllIntel] = useState(false);
 
   /* Sidebar state */
   const [expandedCliff, setExpandedCliff] = useState<string | null>(null);
@@ -215,12 +249,31 @@ export default function Home() {
   const [showAllRoles, setShowAllRoles] = useState(false);
   const [showMarketData, setShowMarketData] = useState(false);
 
-  const filteredIntel = useMemo(() => {
-    if (activeFilter === "all") return intelFeed;
-    return intelFeed.filter((item) => item.category === activeFilter);
-  }, [activeFilter]);
+  /* Unique regions from news items for the regional filter */
+  const newsRegions = useMemo(() => {
+    const regions = new Set(newsFeed.map((item) => item.region));
+    return Array.from(regions).sort();
+  }, []);
 
-  const displayedIntel = showAll ? filteredIntel : filteredIntel.slice(0, 12);
+  /* Filtered news (external events) — by category + region */
+  const filteredNews = useMemo(() => {
+    let items = newsFeed;
+    if (newsFilter !== "all") {
+      items = items.filter((item) => item.category === newsFilter);
+    }
+    if (newsRegion !== "all") {
+      items = items.filter((item) => item.region === newsRegion);
+    }
+    return items;
+  }, [newsFilter, newsRegion]);
+  const displayedNews = showAllNews ? filteredNews : filteredNews.slice(0, 8);
+
+  /* Filtered intel (strategic analysis) */
+  const filteredIntel = useMemo(() => {
+    if (intelFilter === "all") return intelFeed;
+    return intelFeed.filter((item) => item.category === intelFilter);
+  }, [intelFilter]);
+  const displayedIntel = showAllIntel ? filteredIntel : filteredIntel.slice(0, 6);
   const displayedRoles = showAllRoles ? roleDemand : roleDemand.slice(0, 8);
 
   return (
@@ -303,60 +356,80 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==================== INTELLIGENCE FEED + SIDEBAR ==================== */}
+      {/* ==================== BREAKING NEWS + SIDEBAR ==================== */}
       <section className="py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Section header */}
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-bold text-stone-900 sm:text-xl flex items-center gap-2">
-              <Activity className="size-5 text-teal-700" />
-              {isEs
-                ? "Inteligencia Estratégica"
-                : "Strategic Intelligence"}
+              <AlertTriangle className="size-5 text-red-600" />
+              {isEs ? "Noticias de Última Hora" : "Breaking News"}
             </h2>
             <span className="text-xs text-stone-400">
               {isEs ? "Actualizado" : "Updated"}: {INTEL_LAST_UPDATED}
             </span>
           </div>
 
-          {/* Category filter tabs */}
-          <div className="mb-6 flex flex-wrap gap-2">
-            {INTEL_FILTER_CATEGORIES.map((cat) => {
-              const isActive = activeFilter === cat.id;
+          {/* Category filter pills + Regional dropdown */}
+          <div className="mb-6 flex flex-wrap items-center gap-2">
+            {NEWS_FILTER_CATEGORIES.map((cat) => {
+              const isActive = newsFilter === cat.id;
               const count =
                 cat.id === "all"
-                  ? intelFeed.length
-                  : allIntelItems.filter((i) => i.category === cat.id).length;
+                  ? newsFeed.length
+                  : newsFeed.filter((i) => i.category === cat.id).length;
 
               return (
                 <button
                   key={cat.id}
                   onClick={() => {
-                    setActiveFilter(cat.id);
-                    setShowAll(false);
+                    setNewsFilter(cat.id);
+                    setShowAllNews(false);
                   }}
                   className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
                     isActive
-                      ? "bg-teal-700 text-white"
-                      : "bg-white border border-stone-200 text-stone-600 hover:border-teal-300 hover:text-teal-700"
+                      ? "bg-red-700 text-white"
+                      : "bg-white border border-stone-200 text-stone-600 hover:border-red-300 hover:text-red-700"
                   }`}
                 >
                   {isEs ? cat.es : cat.en}
                   <span
-                    className={`ml-1.5 ${isActive ? "text-teal-200" : "text-stone-400"}`}
+                    className={`ml-1.5 ${isActive ? "text-red-200" : "text-stone-400"}`}
                   >
                     {count}
                   </span>
                 </button>
               );
             })}
+
+            {/* Regional filter dropdown */}
+            <div className="ml-auto flex items-center gap-1.5">
+              <MapPin className="size-3.5 text-stone-400" />
+              <select
+                value={newsRegion}
+                onChange={(e) => {
+                  setNewsRegion(e.target.value);
+                  setShowAllNews(false);
+                }}
+                className="rounded-lg border border-stone-200 bg-white px-2.5 py-1.5 text-xs text-stone-700 focus:border-teal-500 focus:outline-none"
+              >
+                <option value="all">
+                  {isEs ? "Todas las Regiones" : "All Regions"}
+                </option>
+                {newsRegions.map((region) => (
+                  <option key={region} value={region}>
+                    {region}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-3">
-            {/* Intelligence feed column (2/3) */}
+            {/* News feed column (2/3) */}
             <div className="lg:col-span-2">
               <div className="space-y-3">
-                {displayedIntel.map((item) => (
+                {displayedNews.map((item) => (
                   <IntelCard
                     key={item.id}
                     item={item}
@@ -372,12 +445,12 @@ export default function Home() {
                 ))}
               </div>
 
-              {!showAll && filteredIntel.length > 12 && (
+              {!showAllNews && filteredNews.length > 8 && (
                 <div className="mt-6 text-center">
-                  <Button variant="outline" onClick={() => setShowAll(true)}>
+                  <Button variant="outline" onClick={() => setShowAllNews(true)}>
                     {isEs
-                      ? `Ver los ${filteredIntel.length} Análisis`
-                      : `View All ${filteredIntel.length} Items`}{" "}
+                      ? `Ver las ${filteredNews.length} Noticias`
+                      : `View All ${filteredNews.length} News`}{" "}
                     <ArrowRight className="size-4" />
                   </Button>
                 </div>
@@ -660,14 +733,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ==================== NEWS & ARTICLES ==================== */}
-      {newsFeed.length > 0 && (
+      {/* ==================== STRATEGIC INTELLIGENCE ==================== */}
+      {intelFeed.length > 0 && (
+        <section className="py-8 sm:py-12 border-t border-stone-200">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-4 flex items-center justify-between">
+              <h2 className="text-lg font-bold text-stone-900 sm:text-xl flex items-center gap-2">
+                <Lightbulb className="size-5 text-teal-700" />
+                {isEs ? "Inteligencia Estratégica" : "Strategic Intelligence"}
+              </h2>
+              <Badge variant="outline" className="text-xs text-teal-700 border-teal-300">
+                {intelFeed.length} {isEs ? "análisis" : "analyses"}
+              </Badge>
+            </div>
+            <p className="text-sm text-stone-500 mb-6">
+              {isEs
+                ? "Tácticas, playbooks y recomendaciones estratégicas para líderes de FQHC."
+                : "Tactics, playbooks, and strategic recommendations for FQHC leaders."}
+            </p>
+            <div className="space-y-3">
+              {displayedIntel.map((item) => (
+                <IntelCard
+                  key={item.id}
+                  item={item}
+                  locale={locale}
+                  isEs={isEs}
+                  isExpanded={expandedId === item.id}
+                  onToggle={() =>
+                    setExpandedId(
+                      expandedId === item.id ? null : item.id,
+                    )
+                  }
+                />
+              ))}
+            </div>
+            {!showAllIntel && filteredIntel.length > 6 && (
+              <div className="mt-6 text-center">
+                <Button variant="outline" onClick={() => setShowAllIntel(true)}>
+                  {isEs
+                    ? `Ver los ${filteredIntel.length} Análisis`
+                    : `View All ${filteredIntel.length} Analyses`}{" "}
+                  <ArrowRight className="size-4" />
+                </Button>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* ==================== ARTICLES ==================== */}
+      {articlesFeed.length > 0 && (
         <section className="py-8 sm:py-12 border-t border-stone-200">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-6 flex items-center justify-between">
               <h2 className="text-lg font-bold text-stone-900 sm:text-xl flex items-center gap-2">
                 <Newspaper className="size-5 text-indigo-600" />
-                {isEs ? "Noticias y Artículos" : "News & Articles"}
+                {isEs ? "Artículos" : "Articles"}
               </h2>
               <Link
                 href="/blog"
@@ -678,7 +799,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {newsFeed.slice(0, 6).map((post) => (
+              {articlesFeed.slice(0, 6).map((post) => (
                 <BlogArticleCard
                   key={post.slug}
                   post={post}
