@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useMemo, useCallback, type ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import {
@@ -68,7 +68,8 @@ interface JobOpening {
 }
 
 type ViewMode = "list" | "grid";
-type SortField = "relevance" | "salary-desc" | "salary-asc" | "posted" | "org";
+type SortField = "relevance" | "salary" | "market" | "posted" | "org" | "title" | "type";
+type SortDir = "asc" | "desc";
 
 /* ------------------------------------------------------------------ */
 /*  Static data maps                                                   */
@@ -402,6 +403,47 @@ function ComparePanel({
 }
 
 /* ------------------------------------------------------------------ */
+/*  SortColHeader — clickable column header with direction indicator   */
+/* ------------------------------------------------------------------ */
+
+function SortColHeader({
+  field,
+  activeField,
+  dir,
+  onClick,
+  children,
+  className,
+}: {
+  field: SortField;
+  activeField: SortField;
+  dir: SortDir;
+  onClick: (f: SortField) => void;
+  children: ReactNode;
+  className?: string;
+}) {
+  const isActive = field === activeField;
+  return (
+    <button
+      onClick={() => onClick(field)}
+      className={`flex items-center gap-0.5 hover:text-teal-700 transition-colors ${
+        isActive ? "text-teal-700" : ""
+      } ${className ?? ""}`}
+    >
+      {children}
+      {isActive ? (
+        dir === "asc" ? (
+          <ChevronUp className="size-3 shrink-0" />
+        ) : (
+          <ChevronDown className="size-3 shrink-0" />
+        )
+      ) : (
+        <ArrowUpDown className="size-3 shrink-0 opacity-30" />
+      )}
+    </button>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  Main Component                                                     */
 /* ------------------------------------------------------------------ */
 
@@ -429,6 +471,16 @@ export default function JobsPage() {
   const [orgFilter, setOrgFilter] = useState("all");
   const [languageFilter, setLanguageFilter] = useState("all");
   const [sortField, setSortField] = useState<SortField>("relevance");
+  const [sortDir, setSortDir] = useState<SortDir>("desc");
+
+  const handleColumnSort = useCallback((field: SortField) => {
+    if (sortField === field) {
+      setSortDir((prev) => (prev === "asc" ? "desc" : "asc"));
+    } else {
+      setSortField(field);
+      setSortDir(field === "salary" || field === "market" ? "desc" : "asc");
+    }
+  }, [sortField]);
 
   // Fetch live jobs
   useEffect(() => {
@@ -510,23 +562,38 @@ export default function JobsPage() {
 
     // Sort
     const sorted = [...list];
+    const dir = sortDir === "asc" ? 1 : -1;
     switch (sortField) {
-      case "salary-desc":
-        sorted.sort((a, b) => b.salaryMax - a.salaryMax);
+      case "title":
+        sorted.sort((a, b) => a.title.localeCompare(b.title) * dir);
         break;
-      case "salary-asc":
-        sorted.sort((a, b) => a.salaryMin - b.salaryMin);
+      case "salary": {
+        const mid = (j: EnrichedJob) => (j.salaryMin + j.salaryMax) / 2;
+        sorted.sort((a, b) => (mid(a) - mid(b)) * dir);
+        break;
+      }
+      case "market": {
+        const mOrder: Record<string, number> = { "far-above": 3, "above": 2, "at": 1, "below": 0 };
+        sorted.sort((a, b) => {
+          const aPos = mOrder[a.negotiation.benchmarkPosition] ?? 1;
+          const bPos = mOrder[b.negotiation.benchmarkPosition] ?? 1;
+          return (aPos - bPos) * dir;
+        });
+        break;
+      }
+      case "org":
+        sorted.sort((a, b) => a.orgName.localeCompare(b.orgName) * dir);
+        break;
+      case "type":
+        sorted.sort((a, b) => a.type.localeCompare(b.type) * dir);
         break;
       case "posted":
-        sorted.sort((a, b) => b.postedDate.localeCompare(a.postedDate));
-        break;
-      case "org":
-        sorted.sort((a, b) => a.orgName.localeCompare(b.orgName));
+        sorted.sort((a, b) => b.postedDate.localeCompare(a.postedDate) * dir);
         break;
     }
 
     return sorted;
-  }, [search, roleFilter, regionFilter, salaryFilter, unionFilter, orgFilter, languageFilter, sortField]);
+  }, [search, roleFilter, regionFilter, salaryFilter, unionFilter, orgFilter, languageFilter, sortField, sortDir]);
 
   // Active filter count
   const activeFilterCount = [
@@ -606,17 +673,26 @@ export default function JobsPage() {
             </div>
 
             {/* Sort */}
-            <Select value={sortField} onValueChange={(v) => setSortField(v as SortField)}>
-              <SelectTrigger className="h-10 w-40 text-xs hidden sm:flex">
+            <Select
+              value={sortField}
+              onValueChange={(v) => {
+                const f = v as SortField;
+                setSortField(f);
+                setSortDir(f === "salary" || f === "market" ? "desc" : "asc");
+              }}
+            >
+              <SelectTrigger className="h-10 w-44 text-xs hidden sm:flex">
                 <ArrowUpDown className="size-3.5 mr-1 text-stone-400" />
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="relevance">{isEs ? "Relevancia" : "Relevance"}</SelectItem>
-                <SelectItem value="salary-desc">{isEs ? "Salario ↓" : "Salary ↓"}</SelectItem>
-                <SelectItem value="salary-asc">{isEs ? "Salario ↑" : "Salary ↑"}</SelectItem>
-                <SelectItem value="posted">{isEs ? "Recientes" : "Most Recent"}</SelectItem>
-                <SelectItem value="org">{isEs ? "Organización" : "Organization"}</SelectItem>
+                <SelectItem value="salary">{isEs ? "Salario" : "Salary"}</SelectItem>
+                <SelectItem value="market">{isEs ? "vs Mercado" : "vs Market"}</SelectItem>
+                <SelectItem value="org">{isEs ? "Organización" : "Organization A–Z"}</SelectItem>
+                <SelectItem value="title">{isEs ? "Título" : "Job Title A–Z"}</SelectItem>
+                <SelectItem value="type">{isEs ? "Tipo" : "Job Type"}</SelectItem>
+                <SelectItem value="posted">{isEs ? "Más recientes" : "Most Recent"}</SelectItem>
               </SelectContent>
             </Select>
 
@@ -834,11 +910,19 @@ export default function JobsPage() {
           <div className="rounded-xl border border-stone-200 bg-white overflow-hidden">
             {/* Table header */}
             <div className="hidden sm:grid grid-cols-[1fr_180px_130px_100px_80px_90px] gap-2 border-b border-stone-200 bg-stone-50 px-4 py-2.5 text-xs font-semibold text-stone-500 uppercase tracking-wider">
-              <span>{isEs ? "Posición" : "Position"}</span>
-              <span>{isEs ? "Salario" : "Salary Range"}</span>
-              <span>{isEs ? "vs Mercado" : "vs Market"}</span>
+              <SortColHeader field="title" activeField={sortField} dir={sortDir} onClick={handleColumnSort}>
+                {isEs ? "Posición" : "Position"}
+              </SortColHeader>
+              <SortColHeader field="salary" activeField={sortField} dir={sortDir} onClick={handleColumnSort}>
+                {isEs ? "Salario" : "Salary Range"}
+              </SortColHeader>
+              <SortColHeader field="market" activeField={sortField} dir={sortDir} onClick={handleColumnSort}>
+                {isEs ? "vs Mercado" : "vs Market"}
+              </SortColHeader>
               <span>Union</span>
-              <span>{isEs ? "Tipo" : "Type"}</span>
+              <SortColHeader field="type" activeField={sortField} dir={sortDir} onClick={handleColumnSort}>
+                {isEs ? "Tipo" : "Type"}
+              </SortColHeader>
               <span></span>
             </div>
 
