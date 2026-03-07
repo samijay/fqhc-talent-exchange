@@ -15,14 +15,12 @@ import {
   TrendingUp,
   Cpu,
   BookOpen,
-  Loader2,
   AlertCircle,
-  MapPin,
   Sparkles,
-  XCircle,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { NewsletterQuestionnaireForm } from "@/components/newsletter/NewsletterQuestionnaireForm";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -32,18 +30,6 @@ const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
 
 type AudienceChoice = "intel-brief" | "the-pulse" | "both";
-
-const REGIONS = [
-  { value: "los-angeles", en: "Los Angeles", es: "Los Angeles" },
-  { value: "san-diego", en: "San Diego", es: "San Diego" },
-  { value: "bay-area", en: "Bay Area", es: "Area de la Bahia" },
-  { value: "sacramento", en: "Sacramento", es: "Sacramento" },
-  { value: "central-valley", en: "Central Valley", es: "Valle Central" },
-  { value: "inland-empire", en: "Inland Empire", es: "Inland Empire" },
-  { value: "central-coast", en: "Central Coast", es: "Costa Central" },
-  { value: "north-state", en: "North State", es: "Norte del Estado" },
-  { value: "north-coast", en: "North Coast", es: "Costa Norte" },
-];
 
 /* ------------------------------------------------------------------ */
 /*  Track Card                                                         */
@@ -151,52 +137,8 @@ export default function NewsletterPage() {
   const locale = useLocale();
   const isEs = locale === "es";
 
-  const [email, setEmail] = useState("");
+  // Which tracks are selected for TrackCard display (informational only — questionnaire handles actual subscribe)
   const [audience, setAudience] = useState<AudienceChoice>("both");
-  const [region, setRegion] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
-
-    setStatus("loading");
-    setErrorMessage("");
-
-    try {
-      const res = await fetch("/api/newsletter/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, audience, region: region || null }),
-      });
-
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(
-          data.error ||
-            (isEs
-              ? "No se pudo completar la suscripcion."
-              : "Could not complete subscription.")
-        );
-      }
-
-      setStatus("success");
-    } catch (err) {
-      setStatus("error");
-      setErrorMessage(
-        err instanceof Error
-          ? err.message
-          : isEs
-            ? "Algo salio mal. Intenta de nuevo."
-            : "Something went wrong. Please try again."
-      );
-    }
-  };
-
-  // Which tracks are selected based on audience choice
   const intelSelected = audience === "intel-brief" || audience === "both";
   const pulseSelected = audience === "the-pulse" || audience === "both";
 
@@ -367,184 +309,20 @@ export default function NewsletterPage() {
             />
           </div>
 
-          {/* Signup Form */}
-          {status === "success" ? (
-            <div className="rounded-2xl border border-green-200 bg-green-50 p-8 text-center">
-              <div className="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-green-100">
-                <CheckCircle2 className="size-7 text-green-700" />
-              </div>
-              <h3 className="text-xl font-bold text-green-900">
-                {isEs ? "Ya estas dentro!" : "You're in!"}
+          {/* Personalized Signup Questionnaire */}
+          <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8">
+            <div className="mb-5">
+              <h3 className="text-lg font-bold text-stone-900">
+                {isEs ? "Personaliza tu informe" : "Personalize your briefing"}
               </h3>
-              <p className="mt-2 text-sm text-green-700">
+              <p className="text-sm text-stone-500 mt-1">
                 {isEs
-                  ? "Revisa tu correo para confirmar tu suscripcion. Tu primer informe llegara pronto."
-                  : "Check your email to confirm your subscription. Your first briefing is on its way."}
+                  ? "4 preguntas rápidas para curar el contenido que más importa para ti."
+                  : "4 quick questions so we curate exactly what matters to you."}
               </p>
-              <div className="mt-6 flex items-center justify-center gap-4">
-                <Button variant="outline" asChild>
-                  <Link href="/">
-                    {isEs ? "Ver Dashboard" : "View Dashboard"}{" "}
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </Button>
-                <Button variant="outline" asChild>
-                  <Link href="/blog">
-                    {isEs ? "Leer Blog" : "Read Blog"}{" "}
-                    <ArrowRight className="size-4" />
-                  </Link>
-                </Button>
-              </div>
             </div>
-          ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8"
-            >
-              <h3 className="text-lg font-bold text-stone-900 mb-1">
-                {isEs ? "Suscribete" : "Subscribe"}
-              </h3>
-              <p className="text-sm text-stone-500 mb-6">
-                {isEs
-                  ? "Ingresa tu correo y selecciona tu region (opcional)."
-                  : "Enter your email and select your region (optional)."}
-              </p>
-
-              {/* Email */}
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-stone-700 mb-1.5"
-                >
-                  {isEs ? "Correo electronico" : "Email address"} *
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={
-                    isEs ? "tu@correo.com" : "you@example.com"
-                  }
-                  className="w-full rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 placeholder:text-stone-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/20 transition-colors"
-                />
-              </div>
-
-              {/* Audience selector */}
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-stone-700 mb-2">
-                  {isEs ? "Informe" : "Briefing"}
-                </label>
-                <div className="flex flex-wrap gap-2">
-                  {(
-                    [
-                      {
-                        value: "intel-brief" as AudienceChoice,
-                        en: "Intel Brief (Executive)",
-                        es: "Intel Brief (Ejecutivo)",
-                      },
-                      {
-                        value: "the-pulse" as AudienceChoice,
-                        en: "The Pulse (Career)",
-                        es: "The Pulse (Carrera)",
-                      },
-                      {
-                        value: "both" as AudienceChoice,
-                        en: "Both",
-                        es: "Ambos",
-                      },
-                    ] as const
-                  ).map((option) => (
-                    <label
-                      key={option.value}
-                      className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-sm cursor-pointer transition-colors ${
-                        audience === option.value
-                          ? "border-teal-600 bg-teal-50 text-teal-800"
-                          : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="audience"
-                        value={option.value}
-                        checked={audience === option.value}
-                        onChange={() => setAudience(option.value)}
-                        className="sr-only"
-                      />
-                      <div
-                        className={`size-4 rounded-full border-2 flex items-center justify-center ${
-                          audience === option.value
-                            ? "border-teal-600"
-                            : "border-stone-300"
-                        }`}
-                      >
-                        {audience === option.value && (
-                          <div className="size-2 rounded-full bg-teal-600" />
-                        )}
-                      </div>
-                      {t(option, locale)}
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Region dropdown */}
-              <div className="mb-6">
-                <label
-                  htmlFor="region"
-                  className="block text-sm font-medium text-stone-700 mb-1.5"
-                >
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="size-3.5" />
-                    {isEs ? "Region (opcional)" : "Region (optional)"}
-                  </span>
-                </label>
-                <select
-                  id="region"
-                  value={region}
-                  onChange={(e) => setRegion(e.target.value)}
-                  className="w-full rounded-lg border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500/20 transition-colors"
-                >
-                  <option value="">
-                    {isEs ? "Todas las regiones" : "All regions"}
-                  </option>
-                  {REGIONS.map((r) => (
-                    <option key={r.value} value={r.value}>
-                      {isEs ? r.es : r.en}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Error message */}
-              {status === "error" && (
-                <div className="mb-4 flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3">
-                  <XCircle className="size-4 text-red-600 shrink-0 mt-0.5" />
-                  <p className="text-sm text-red-700">{errorMessage}</p>
-                </div>
-              )}
-
-              {/* Submit */}
-              <Button
-                type="submit"
-                disabled={status === "loading" || !email}
-                className="w-full bg-teal-700 hover:bg-teal-800 text-white py-2.5"
-              >
-                {status === "loading" ? (
-                  <>
-                    <Loader2 className="size-4 animate-spin mr-2" />
-                    {isEs ? "Suscribiendo..." : "Subscribing..."}
-                  </>
-                ) : (
-                  <>
-                    <Mail className="size-4 mr-2" />
-                    {isEs ? "Suscribirse" : "Subscribe"}
-                  </>
-                )}
-              </Button>
-            </form>
-          )}
+            <NewsletterQuestionnaireForm />
+          </div>
 
           {/* Trust section */}
           <div className="mt-8 grid gap-4 sm:grid-cols-3">

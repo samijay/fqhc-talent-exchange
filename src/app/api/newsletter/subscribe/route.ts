@@ -8,6 +8,14 @@ const subscribeSchema = z.object({
   audience: z.enum(["intel-brief", "the-pulse", "both"]),
   region: z.string().max(100).optional(),
   roleInterest: z.string().max(200).optional(),
+  preferences: z
+    .object({
+      role: z.string().max(100).optional(),
+      primaryChallenge: z.string().max(100).optional(),
+      topics: z.array(z.string().max(50)).max(10).optional(),
+      orgSize: z.string().max(50).optional(),
+    })
+    .optional(),
 });
 
 export async function POST(request: Request) {
@@ -35,7 +43,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { email, audience, region, roleInterest } = result.data;
+    const { email, audience, region, roleInterest, preferences } = result.data;
 
     // Generate a unique unsubscribe token
     const unsubscribeToken = crypto.randomUUID();
@@ -49,6 +57,11 @@ export async function POST(request: Request) {
           audience,
           region: region || null,
           role_interest: roleInterest || null,
+          // Questionnaire preferences (may be partial if user skipped steps)
+          preferences: preferences ?? {},
+          role_type: preferences?.role ?? null,
+          primary_challenge: preferences?.primaryChallenge ?? null,
+          org_size: preferences?.orgSize ?? null,
           status: "active",
           unsubscribe_token: unsubscribeToken,
           unsubscribed_at: null,

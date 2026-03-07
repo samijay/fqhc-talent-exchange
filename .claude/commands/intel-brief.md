@@ -25,6 +25,50 @@ When multiple sources confirm the same fact, list the most authoritative (govern
 
 ---
 
+## Step 0: Subscriber Intelligence (NEW — informs curation priority)
+
+Before writing, query Supabase to understand WHO is reading this week. This shapes section order and emphasis.
+
+**Run this SQL in Supabase SQL Editor (or use the `newsletter_segments` view):**
+
+```sql
+-- Topic interest breakdown
+SELECT topic, interested_count
+FROM newsletter_topic_interests
+ORDER BY interested_count DESC;
+
+-- Challenge distribution (active Intel Brief subscribers)
+SELECT primary_challenge, COUNT(*) as n
+FROM newsletter_subscribers
+WHERE status = 'active' AND audience IN ('intel-brief', 'both')
+AND primary_challenge IS NOT NULL
+GROUP BY primary_challenge ORDER BY n DESC;
+
+-- Role distribution
+SELECT role_type, COUNT(*) as n
+FROM newsletter_subscribers
+WHERE status = 'active' AND audience IN ('intel-brief', 'both')
+GROUP BY role_type ORDER BY n DESC;
+
+-- Region distribution
+SELECT region, COUNT(*) as n
+FROM newsletter_subscribers
+WHERE status = 'active' AND region IS NOT NULL
+GROUP BY region ORDER BY n DESC;
+```
+
+**Use results to:**
+- **Weight section order**: If 40%+ care about AI → AI section goes above workforce
+- **Lead with regional stories**: If majority are LA-area → LA County closure is top story
+- **Personalize RED FLAGS**: Use top challenge to frame urgency language
+- **Subject line**: Mention top challenge + most common role in subject line
+
+Example subject lines:
+- "FQHC Intel Brief: LA County closure risk + AI coding arms race [Week of Mar 11]"
+- "HR Directors: Workforce retention guide + 3 new funding deadlines"
+
+---
+
 ## Step 1: Gather Raw Intelligence
 
 Run `/scan-policy` first (or use findings from today's `/daily-update` Step 3) to collect the raw intelligence. If `/scan-policy` hasn't been run recently, run these 6 searches in parallel:
