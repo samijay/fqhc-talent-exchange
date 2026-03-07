@@ -26,6 +26,10 @@ import {
   Phone,
   DollarSign,
   Star,
+  GraduationCap,
+  UserCog,
+  ClipboardList,
+  Smile,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -98,12 +102,18 @@ const PROGRAMS = [
 ] as const;
 
 const ROLE_OPTIONS = [
+  // ── Provider Roles ──
+  { id: "physician", label: "Physician (MD/DO)", esLabel: "Médico/a (MD/DO)", icon: GraduationCap },
+  { id: "nurse_practitioner", label: "Nurse Practitioner (NP/FNP)", esLabel: "Enfermero/a Practicante (NP)", icon: UserCog },
+  { id: "physician_assistant", label: "Physician Assistant (PA-C)", esLabel: "Asistente del Médico (PA-C)", icon: ClipboardList },
+  { id: "dentist", label: "Dentist (DMD/DDS)", esLabel: "Dentista (DMD/DDS)", icon: Smile },
+  // ── Clinical & Support Roles ──
+  { id: "registered_nurse", label: "Registered Nurse (RN)", esLabel: "Enfermera/o Registrada/o (RN)", icon: Activity },
   { id: "chw", label: "Community Health Worker", esLabel: "Promotor/a de Salud", icon: Heart },
   { id: "care_coordinator", label: "Care Coordinator", esLabel: "Coordinador/a de Atención", icon: Users },
   { id: "medical_assistant", label: "Medical Assistant", esLabel: "Asistente Médico/a", icon: Stethoscope },
   { id: "case_manager", label: "Case Manager", esLabel: "Administrador/a de Casos", icon: Briefcase },
   { id: "behavioral_health", label: "Behavioral Health Specialist", esLabel: "Especialista en Salud Conductual", icon: Brain },
-  { id: "registered_nurse", label: "Registered Nurse (RN)", esLabel: "Enfermera/o Registrada/o (RN)", icon: Activity },
   { id: "patient_services", label: "Patient Services Representative", esLabel: "Representante de Servicios al Paciente", icon: Phone },
   { id: "revenue_cycle", label: "Revenue Cycle / Billing", esLabel: "Ciclo de Ingresos / Facturación", icon: DollarSign },
 ] as const;

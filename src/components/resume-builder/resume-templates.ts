@@ -421,6 +421,197 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
       },
     ],
   },
+
+  /* ─── PROVIDER ROLE TEMPLATES ────────────────────────────────── */
+
+  {
+    roleId: "physician",
+    roleLabel: "Physician (MD/DO) — Primary Care",
+    esRoleLabel: "Médico (MD/DO) — Atención Primaria",
+    objectiveTemplate:
+      "Board-certified primary care physician with experience in FQHC and safety-net medicine. Skilled in panel management, chronic disease care for Medi-Cal populations, FQHC PPS billing, and team-based care including NP/PA supervision. Committed to health equity and culturally responsive medicine for underserved communities.",
+    esObjectiveTemplate:
+      "Médico de atención primaria certificado por el consejo con experiencia en FQHC y medicina de red de seguridad. Habilidades en gestión de panel, atención de enfermedades crónicas para poblaciones Medi-Cal, facturación PPS de FQHC y atención basada en equipo incluyendo supervisión de NP/PA.",
+    bullets: [
+      {
+        id: "md-1",
+        text: "Managed panel of 1,400+ patients with high Medi-Cal burden, achieving 72% diabetes controlled rate (HbA1c <8) and 89% hypertension control, exceeding UDS benchmarks",
+        esText: "Gestionó panel de más de 1,400 pacientes con alta carga Medi-Cal, logrando tasa de diabetes controlada del 72% (HbA1c <8) y control de hipertensión del 89%, superando los puntos de referencia UDS",
+        keywords: ["panel management", "Medi-Cal", "HEDIS", "UDS", "diabetes", "hypertension"],
+      },
+      {
+        id: "md-2",
+        text: "Supervised 2 Nurse Practitioners and delegated preventive protocols to 4 Medical Assistants, enabling 3,800 additional patient encounters annually through team-based care model",
+        esText: "Supervisó 2 Enfermeras Practicantes y delegó protocolos preventivos a 4 Asistentes Médicos, habilitando 3,800 encuentros adicionales de pacientes anuales a través del modelo de atención basado en equipo",
+        keywords: ["NP supervision", "team-based care", "delegation", "standing orders"],
+      },
+      {
+        id: "md-3",
+        text: "Delivered same-day access for 85% of urgent care requests through open-access scheduling model, reducing ED utilization by 18% for attributed Medi-Cal members",
+        esText: "Brindó acceso el mismo día para el 85% de las solicitudes de atención urgente a través del modelo de programación de acceso abierto, reduciendo la utilización de urgencias en un 18%",
+        keywords: ["same-day access", "open access scheduling", "ED diversion", "Medi-Cal"],
+      },
+      {
+        id: "md-4",
+        text: "Documented clinical encounters in OCHIN Epic with full FQHC PPS compliance; achieved zero audit findings across 3-year HRSA Operational Site Visit review period",
+        esText: "Documentó encuentros clínicos en OCHIN Epic con pleno cumplimiento PPS de FQHC; logró cero hallazgos de auditoría durante el período de revisión de 3 años de la Visita al Sitio Operacional de HRSA",
+        keywords: ["OCHIN Epic", "PPS billing", "HRSA", "documentation compliance", "EHR"],
+      },
+      {
+        id: "md-5",
+        text: "Integrated CalAIM ECM referrals into primary care workflow, identifying and enrolling 120+ high-utilizer Medi-Cal patients into Enhanced Care Management, reducing hospital readmissions by 24%",
+        esText: "Integró referencias ECM de CalAIM en el flujo de trabajo de atención primaria, identificando e inscribiendo más de 120 pacientes Medi-Cal de alta utilización en la Gestión de Atención Mejorada",
+        keywords: ["CalAIM", "ECM", "Enhanced Care Management", "hospital readmissions", "Medi-Cal"],
+      },
+      {
+        id: "md-6",
+        text: "Led quality improvement initiative closing 1,200 HEDIS measure gaps through pre-visit planning, standing order protocols, and MA-administered preventive care bundle",
+        esText: "Lideró iniciativa de mejora de calidad cerrando 1,200 brechas de medidas HEDIS a través de planificación previsita, protocolos de órdenes permanentes y paquete de atención preventiva administrado por MA",
+        keywords: ["HEDIS", "quality improvement", "pre-visit planning", "preventive care", "standing orders"],
+      },
+    ],
+  },
+  {
+    roleId: "nurse_practitioner",
+    roleLabel: "Nurse Practitioner (NP / FNP / PMHNP)",
+    esRoleLabel: "Enfermero(a) Practicante (NP / FNP / PMHNP)",
+    objectiveTemplate:
+      "Family Nurse Practitioner with experience in FQHC primary care, panel management, and chronic disease management for underserved Medi-Cal populations. Skilled in full-scope NP practice under California law, collaborative practice, FQHC PPS billing, and team-based care. NHSC loan repayment eligible.",
+    esObjectiveTemplate:
+      "Enfermera Practicante de Familia con experiencia en atención primaria de FQHC, gestión de panel y manejo de enfermedades crónicas para poblaciones Medi-Cal desatendidas. Habilidades en práctica NP de alcance completo bajo la ley de California, práctica colaborativa y facturación PPS de FQHC.",
+    bullets: [
+      {
+        id: "np-1",
+        text: "Managed independent panel of 950 patients (65% Medi-Cal) achieving 68% HbA1c controlled rate and closing 840 HEDIS gaps annually through proactive outreach and pre-visit planning",
+        esText: "Gestionó panel independiente de 950 pacientes (65% Medi-Cal) logrando tasa de HbA1c controlada del 68% y cerrando 840 brechas HEDIS anuales a través de alcance proactivo y planificación previsita",
+        keywords: ["panel management", "Medi-Cal", "HEDIS", "HbA1c", "pre-visit planning"],
+      },
+      {
+        id: "np-2",
+        text: "Conducted RN co-visits for preventive care, delegating AWV screenings, immunizations, and point-of-care testing to MA team under standing orders, increasing preventive completion rate by 31%",
+        esText: "Realizó co-visitas de enfermería para atención preventiva, delegando exámenes AWV, inmunizaciones y pruebas en el punto de atención al equipo de MA bajo órdenes permanentes, aumentando la tasa de completación preventiva en un 31%",
+        keywords: ["RN co-visit", "preventive care", "standing orders", "immunizations", "AWV"],
+      },
+      {
+        id: "np-3",
+        text: "Collaborated with supervising physician team under California collaborative practice agreement, maintaining zero scope violations and 100% timely chart co-signature compliance",
+        esText: "Colaboró con el equipo médico supervisor bajo el acuerdo de práctica colaborativa de California, manteniendo cero violaciones de alcance y cumplimiento del 100% en la co-firma oportuna de gráficos",
+        keywords: ["collaborative practice", "California NP scope", "chart co-signature", "compliance"],
+      },
+      {
+        id: "np-4",
+        text: "Delivered full-spectrum primary care including acute visits, chronic disease management, women's health, and pediatric well-child visits in OCHIN Epic EHR with FQHC PPS documentation standards",
+        esText: "Brindó atención primaria de espectro completo incluyendo visitas agudas, manejo de enfermedades crónicas, salud de la mujer y visitas de niño sano pediátricas en OCHIN Epic EHR",
+        keywords: ["OCHIN Epic", "primary care", "PPS documentation", "women's health", "pediatrics"],
+      },
+      {
+        id: "np-5",
+        text: "Identified and referred 85 high-utilizer patients to CalAIM ECM services, coordinating with care team on housing instability, food insecurity, and behavioral health needs",
+        esText: "Identificó y derivó 85 pacientes de alta utilización a servicios ECM de CalAIM, coordinando con el equipo de atención sobre inestabilidad de vivienda, inseguridad alimentaria y necesidades de salud conductual",
+        keywords: ["CalAIM", "ECM", "social determinants", "care coordination", "high utilizers"],
+      },
+      {
+        id: "np-6",
+        text: "Achieved top-quartile patient satisfaction scores (4.7/5.0 Press Ganey) through trauma-informed care approach, extended visit times for complex patients, and bilingual care delivery",
+        esText: "Logró puntuaciones de satisfacción del paciente en el cuartil superior (4.7/5.0 Press Ganey) a través del enfoque de atención informada en trauma, tiempos de visita extendidos para pacientes complejos y atención bilingüe",
+        keywords: ["patient satisfaction", "trauma-informed care", "bilingual", "Press Ganey"],
+      },
+    ],
+  },
+  {
+    roleId: "physician_assistant",
+    roleLabel: "Physician Assistant (PA-C)",
+    esRoleLabel: "Asistente del Médico (PA-C)",
+    objectiveTemplate:
+      "Certified Physician Assistant with FQHC and safety-net medicine experience. Skilled in chronic disease management, same-day access care, Medi-Cal population health, and collaborative practice with supervising physician teams. California PA license, DEA registration, and NHSC loan repayment eligible.",
+    esObjectiveTemplate:
+      "Asistente del Médico Certificado con experiencia en FQHC y medicina de red de seguridad. Habilidades en manejo de enfermedades crónicas, atención de acceso el mismo día, salud de la población Medi-Cal y práctica colaborativa con equipos médicos supervisores.",
+    bullets: [
+      {
+        id: "pa-1",
+        text: "Managed panel of 1,100 patients in FQHC primary care setting, meeting or exceeding HEDIS targets for diabetes (HbA1c control 70%), hypertension (88%), and cancer screening completion (cervical 92%, colorectal 78%)",
+        esText: "Gestionó panel de 1,100 pacientes en entorno de atención primaria de FQHC, cumpliendo o superando los objetivos HEDIS para diabetes (control HbA1c 70%), hipertensión (88%) y completación de detección de cáncer",
+        keywords: ["panel management", "HEDIS", "diabetes", "hypertension", "cancer screening"],
+      },
+      {
+        id: "pa-2",
+        text: "Maintained formal Supervision Agreement with collaborating physician; participated in weekly chart review and monthly case conferences, with zero scope violations across 3-year tenure",
+        esText: "Mantuvo Acuerdo de Supervisión formal con médico colaborador; participó en revisión semanal de gráficos y conferencias de casos mensuales, con cero violaciones de alcance durante 3 años",
+        keywords: ["supervision agreement", "chart review", "scope of practice", "collaborative practice"],
+      },
+      {
+        id: "pa-3",
+        text: "Served as same-day access provider handling 8-12 acute and urgent care visits daily, reducing ED referrals by 22% for attributed Medi-Cal patients through triage-to-treatment same day model",
+        esText: "Sirvió como proveedor de acceso el mismo día manejando 8-12 visitas agudas y de atención urgente diariamente, reduciendo las derivaciones a urgencias en un 22% para los pacientes Medi-Cal atribuidos",
+        keywords: ["same-day access", "urgent care", "ED referral reduction", "Medi-Cal", "triage"],
+      },
+      {
+        id: "pa-4",
+        text: "Documented all encounters in eClinicalWorks EHR per FQHC PPS standards; achieved 98.5% claim acceptance rate through accurate E&M coding and encounter completeness",
+        esText: "Documentó todos los encuentros en EHR de eClinicalWorks según los estándares PPS de FQHC; logró tasa de aceptación de reclamos del 98.5% a través de codificación E&M precisa y completitud del encuentro",
+        keywords: ["eClinicalWorks", "PPS billing", "E&M coding", "documentation", "claim acceptance"],
+      },
+      {
+        id: "pa-5",
+        text: "Collaborated with integrated behavioral health team to co-manage 180+ patients with co-occurring depression/anxiety and chronic disease, improving medication adherence rates by 28%",
+        esText: "Colaboró con el equipo integrado de salud conductual para co-gestionar más de 180 pacientes con depresión/ansiedad concurrente y enfermedad crónica, mejorando las tasas de adherencia a la medicación en un 28%",
+        keywords: ["behavioral health integration", "co-management", "medication adherence", "depression", "chronic disease"],
+      },
+      {
+        id: "pa-6",
+        text: "Enrolled in NHSC Loan Repayment Program at qualifying FQHC site; fulfilled 2-year service obligation while maintaining >90% patient satisfaction and top-decile productivity metrics",
+        esText: "Se inscribió en el Programa de Pago de Préstamos NHSC en sitio de FQHC calificado; cumplió la obligación de servicio de 2 años mientras mantenía >90% de satisfacción del paciente y métricas de productividad en el decil superior",
+        keywords: ["NHSC loan repayment", "FQHC site", "patient satisfaction", "productivity"],
+      },
+    ],
+  },
+  {
+    roleId: "dentist",
+    roleLabel: "Dentist (DMD/DDS) — FQHC / Safety-Net",
+    esRoleLabel: "Dentista (DMD/DDS) — FQHC / Red de Seguridad",
+    objectiveTemplate:
+      "FQHC dentist with experience in safety-net oral health care for underserved populations. Skilled in Denti-Cal (Medi-Cal dental) billing, full-scope restorative and preventive dentistry, oral-systemic integration with primary care teams, and trauma-informed care for patients with dental avoidance. California dental license, DEA registration, NHSC eligible.",
+    esObjectiveTemplate:
+      "Dentista de FQHC con experiencia en atención de salud oral de red de seguridad para poblaciones desatendidas. Habilidades en facturación Denti-Cal (dental Medi-Cal), odontología restaurativa y preventiva de alcance completo, integración oral-sistémica con equipos de atención primaria y atención informada en trauma.",
+    bullets: [
+      {
+        id: "dds-1",
+        text: "Provided full-scope restorative and preventive dental care to 18–22 patients daily (85% Denti-Cal) including extractions, composite restorations, RPD/complete dentures, and pediatric dentistry",
+        esText: "Brindó atención dental restaurativa y preventiva de alcance completo a 18–22 pacientes diarios (85% Denti-Cal) incluyendo extracciones, restauraciones compuestas, dentaduras parciales/completas y odontología pediátrica",
+        keywords: ["Denti-Cal", "restorative", "preventive", "extractions", "pediatric dentistry", "dentures"],
+      },
+      {
+        id: "dds-2",
+        text: "Reduced Denti-Cal prior authorization denial rate from 21% to 7% by standardizing documentation for prosthetics, extractions, and oral surgery referrals; recovered $180K in previously denied claims",
+        esText: "Redujo la tasa de denegación de autorización previa de Denti-Cal del 21% al 7% estandarizando la documentación para prótesis, extracciones y derivaciones de cirugía oral; recuperó $180K en reclamos previamente denegados",
+        keywords: ["Denti-Cal", "prior authorization", "denial reduction", "documentation", "revenue recovery"],
+      },
+      {
+        id: "dds-3",
+        text: "Supervised 3 Dental Assistants including 2 EDDA-certified DAs, enabling expanded duties (impressions, temp restorations, sealants) that increased clinic throughput by 35% without additional chair time",
+        esText: "Supervisó 3 Asistentes Dentales incluyendo 2 DAs certificados EDDA, habilitando deberes expandidos (impresiones, restauraciones temporales, selladores) que aumentaron el rendimiento de la clínica en un 35%",
+        keywords: ["EDDA", "dental assistant supervision", "expanded duties", "throughput", "sealants"],
+      },
+      {
+        id: "dds-4",
+        text: "Integrated oral health screening into medical workflow — administered blood pressure checks at dental chair, flagged uncontrolled DM patients for same-day medical consult, and co-managed 45 periodontal/diabetic patients with primary care team",
+        esText: "Integró el cribado de salud oral en el flujo de trabajo médico — administró controles de presión arterial en el sillón dental, identificó pacientes con DM no controlada para consulta médica el mismo día y co-gestionó 45 pacientes con periodontitis/diabetes con el equipo de atención primaria",
+        keywords: ["oral-systemic integration", "diabetes", "periodontal", "blood pressure", "co-management"],
+      },
+      {
+        id: "dds-5",
+        text: "Applied trauma-informed care and motivational interviewing techniques for patients with dental avoidance; reduced no-show rate by 19% and increased treatment plan acceptance among 5+ year dental care avoiders",
+        esText: "Aplicó técnicas de atención informada en trauma y entrevistas motivacionales para pacientes con evasión dental; redujo la tasa de inasistencia en un 19% y aumentó la aceptación del plan de tratamiento entre los que evitaron la atención dental por más de 5 años",
+        keywords: ["trauma-informed care", "motivational interviewing", "dental avoidance", "no-show reduction", "treatment acceptance"],
+      },
+      {
+        id: "dds-6",
+        text: "Enrolled in NHSC Loan Repayment Program at qualifying FQHC site; maintained California dental license in good standing with 0 disciplinary actions and top-quartile patient satisfaction throughout service commitment",
+        esText: "Se inscribió en el Programa de Pago de Préstamos NHSC en sitio de FQHC calificado; mantuvo la licencia dental de California en buen estado con 0 acciones disciplinarias y satisfacción del paciente en el cuartil superior durante el compromiso de servicio",
+        keywords: ["NHSC loan repayment", "California dental license", "patient satisfaction", "FQHC site"],
+      },
+    ],
+  },
 ];
 
 export const COMMON_CERTIFICATIONS = [

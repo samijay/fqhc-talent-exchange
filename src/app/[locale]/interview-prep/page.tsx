@@ -35,8 +35,14 @@ import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 
 const ROLES = [
   { id: "all", en: "All Roles", es: "Todos los Roles" },
-  { id: "chw", en: "CHW / Promotor(a)", es: "CHW / Promotor(a)" },
+  // ── Provider Roles ──
+  { id: "physician", en: "Physician (MD/DO)", es: "Médico (MD/DO)" },
+  { id: "nurse_practitioner", en: "Nurse Practitioner (NP/FNP)", es: "Enfermero(a) Practicante (NP)" },
+  { id: "physician_assistant", en: "Physician Assistant (PA-C)", es: "Asistente del Médico (PA-C)" },
+  { id: "dentist", en: "Dentist (DMD/DDS)", es: "Dentista (DMD/DDS)" },
+  // ── Clinical & Support Roles ──
   { id: "registered_nurse", en: "Registered Nurse (RN)", es: "Enfermero(a) RN" },
+  { id: "chw", en: "CHW / Promotor(a)", es: "CHW / Promotor(a)" },
   { id: "care_coordinator", en: "Care Coordinator", es: "Coordinador(a) de Atención" },
 ];
 
