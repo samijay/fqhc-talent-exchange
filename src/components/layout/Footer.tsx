@@ -30,6 +30,7 @@ export default function Footer() {
     [t("intelligence")]: [
       { href: "/" as const, label: t("dashboard") },
       { href: "/ai-tracker" as const, label: t("aiTracker") },
+      { href: "/intelligence/legislation" as const, label: t("legislativeTracker") },
       { href: "/layoffs" as const, label: t("layoffTracker") },
       { href: "/blog" as const, label: t("blog") },
       { href: "/intelligence/los-angeles" as const, label: t("regionalIntel") },
