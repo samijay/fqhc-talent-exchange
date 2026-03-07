@@ -234,6 +234,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON public.newsletter_subscribers TO service
 GRANT INSERT ON public.newsletter_subscribers TO anon;
 
 -- Segment breakdown view — used by /intel-brief command
+-- SECURITY: revoke public access; only service_role (admin API) can query these views
 CREATE OR REPLACE VIEW newsletter_segments AS
 SELECT
   audience,
@@ -257,6 +258,13 @@ FROM newsletter_subscribers,
 WHERE status = 'active'
 GROUP BY topic
 ORDER BY interested_count DESC;
+
+-- Restrict views to service_role only (fixes Supabase "unrestricted" security warnings)
+-- PostgreSQL grants SELECT on views to PUBLIC by default — override that here
+REVOKE SELECT ON public.newsletter_segments FROM PUBLIC;
+REVOKE SELECT ON public.newsletter_topic_interests FROM PUBLIC;
+GRANT SELECT ON public.newsletter_segments TO service_role;
+GRANT SELECT ON public.newsletter_topic_interests TO service_role;
 
 
 -- ============================================================
