@@ -1,7 +1,8 @@
-// FQHC Workforce Transition Resources — Free Tools for Displaced Workers
+// FQHC Workforce Transition Resources — Free Tools for Displaced Workers + Employer Intake
 "use client";
 
 import { useLocale } from "next-intl";
+import { useState } from "react";
 import { Link } from "@/i18n/navigation";
 import {
   AlertTriangle,
@@ -14,6 +15,7 @@ import {
   FileText,
   GraduationCap,
   LifeBuoy,
+  Loader2,
   Map,
   MapPin,
   Shield,
@@ -146,9 +148,84 @@ const FREE_RESOURCES: FreeResource[] = [
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
 
+const ROLES_AFFECTED = [
+  "CHW / Community Health Worker",
+  "Medical Assistant",
+  "Registered Nurse (RN)",
+  "Licensed Vocational Nurse (LVN)",
+  "Nurse Practitioner (NP)",
+  "Physician Assistant (PA)",
+  "Physician (MD/DO)",
+  "Dentist / Dental Hygienist",
+  "Behavioral Health Counselor (LCSW/MFT)",
+  "Care Coordinator / Case Manager",
+  "ECM Lead / Complex Care Manager",
+  "Front Office / Billing / Coding",
+  "Health IT / EHR Specialist",
+  "Leadership / Executive",
+];
+
+const CA_REGIONS = [
+  "Los Angeles",
+  "San Diego",
+  "SF Bay Area",
+  "Sacramento",
+  "Central Valley",
+  "Inland Empire",
+  "Central Coast",
+  "North State",
+  "North Coast",
+];
+
 export default function TransitionResourcesPage() {
   const locale = useLocale();
   const isEs = locale === "es";
+
+  // Employer intake form state
+  const [form, setForm] = useState({
+    orgName: "", contactName: "", contactEmail: "", contactPhone: "",
+    orgSize: "", region: "", rolesAffected: [] as string[],
+    workersCount: "", effectiveDate: "", serviceTier: "self-serve",
+    ndaRequested: false, notes: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [formError, setFormError] = useState("");
+
+  const toggleRole = (role: string) => {
+    setForm((f) => ({
+      ...f,
+      rolesAffected: f.rolesAffected.includes(role)
+        ? f.rolesAffected.filter((r) => r !== role)
+        : [...f.rolesAffected, role],
+    }));
+  };
+
+  const handleIntakeSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setFormError("");
+    try {
+      const res = await fetch("/api/offboarding-intake", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          workersCount: form.workersCount ? parseInt(form.workersCount) : undefined,
+        }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await res.json();
+        setFormError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setFormError("Network error. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-stone-50">
@@ -468,6 +545,296 @@ export default function TransitionResourcesPage() {
               {isEs ? "Resiliencia de Fuerza Laboral" : "Workforce Resilience"} →
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/*  Employer Intake Form                                        */}
+      {/* ============================================================ */}
+      <section id="employer-intake" className="bg-stone-900 py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-4 py-1.5 mb-4">
+              <Building2 className="w-4 h-4 text-amber-400" />
+              <span className="text-amber-400 text-sm font-medium">
+                {isEs ? "Para Empleadores FQHC" : "For FQHC Employers"}
+              </span>
+            </div>
+            <h2 className="text-3xl font-bold text-white mb-3">
+              {isEs ? "Solicitar Servicios de Transición" : "Request Transition Services"}
+            </h2>
+            <p className="text-stone-400 text-lg max-w-xl mx-auto">
+              {isEs
+                ? "Cuéntenos sobre su situación. Lo contactaremos dentro de 24 horas con un plan de acción."
+                : "Tell us about your situation. We'll contact you within 24 hours with an action plan."}
+            </p>
+          </div>
+
+          {submitted ? (
+            <div className="bg-teal-900/40 border border-teal-500/40 rounded-2xl p-10 text-center">
+              <CheckCircle2 className="w-14 h-14 text-teal-400 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-white mb-2">
+                {isEs ? "¡Solicitud Recibida!" : "Request Received!"}
+              </h3>
+              <p className="text-stone-300 mb-6">
+                {isEs
+                  ? "Le contactaremos dentro de 24 horas. Revise su correo para confirmación."
+                  : "We'll be in touch within 24 hours. Check your email for confirmation."}
+              </p>
+              <div className="flex flex-wrap justify-center gap-3 text-sm">
+                <Link href="/strategy/okrs" className="text-teal-400 hover:text-teal-300 underline">
+                  {isEs ? "Ver Plantillas OKR →" : "View OKR Templates →"}
+                </Link>
+                <Link href="/strategy/resilience" className="text-teal-400 hover:text-teal-300 underline">
+                  {isEs ? "Evaluación de Resiliencia →" : "Resilience Scorecard →"}
+                </Link>
+              </div>
+            </div>
+          ) : (
+            <form onSubmit={handleIntakeSubmit} className="space-y-6">
+              {/* Org + Contact */}
+              <div className="bg-stone-800/60 border border-stone-700 rounded-2xl p-6 space-y-4">
+                <h3 className="text-white font-semibold text-sm uppercase tracking-wide">
+                  {isEs ? "Información de la Organización" : "Organization Info"}
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-stone-300 text-sm mb-1">
+                      {isEs ? "Nombre de la Organización *" : "Organization Name *"}
+                    </label>
+                    <input
+                      required
+                      value={form.orgName}
+                      onChange={(e) => setForm((f) => ({ ...f, orgName: e.target.value }))}
+                      placeholder={isEs ? "ej. AltaMed Health Services" : "e.g. AltaMed Health Services"}
+                      className="w-full bg-stone-700 border border-stone-600 rounded-lg px-3 py-2 text-white text-sm placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-stone-300 text-sm mb-1">
+                      {isEs ? "Región de CA" : "CA Region"}
+                    </label>
+                    <select
+                      value={form.region}
+                      onChange={(e) => setForm((f) => ({ ...f, region: e.target.value }))}
+                      className="w-full bg-stone-700 border border-stone-600 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    >
+                      <option value="">{isEs ? "Seleccionar región" : "Select region"}</option>
+                      {CA_REGIONS.map((r) => <option key={r} value={r}>{r}</option>)}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-stone-300 text-sm mb-1">
+                      {isEs ? "Nombre del Contacto *" : "Contact Name *"}
+                    </label>
+                    <input
+                      required
+                      value={form.contactName}
+                      onChange={(e) => setForm((f) => ({ ...f, contactName: e.target.value }))}
+                      placeholder={isEs ? "Su nombre" : "Your name"}
+                      className="w-full bg-stone-700 border border-stone-600 rounded-lg px-3 py-2 text-white text-sm placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-stone-300 text-sm mb-1">
+                      {isEs ? "Correo Electrónico *" : "Email Address *"}
+                    </label>
+                    <input
+                      required
+                      type="email"
+                      value={form.contactEmail}
+                      onChange={(e) => setForm((f) => ({ ...f, contactEmail: e.target.value }))}
+                      placeholder="hr@yourfqhc.org"
+                      className="w-full bg-stone-700 border border-stone-600 rounded-lg px-3 py-2 text-white text-sm placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-stone-300 text-sm mb-1">
+                      {isEs ? "Teléfono" : "Phone (optional)"}
+                    </label>
+                    <input
+                      value={form.contactPhone}
+                      onChange={(e) => setForm((f) => ({ ...f, contactPhone: e.target.value }))}
+                      placeholder="(555) 000-0000"
+                      className="w-full bg-stone-700 border border-stone-600 rounded-lg px-3 py-2 text-white text-sm placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-stone-300 text-sm mb-1">
+                      {isEs ? "Tamaño de la Org" : "Org Size"}
+                    </label>
+                    <select
+                      value={form.orgSize}
+                      onChange={(e) => setForm((f) => ({ ...f, orgSize: e.target.value }))}
+                      className="w-full bg-stone-700 border border-stone-600 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    >
+                      <option value="">{isEs ? "Seleccionar" : "Select"}</option>
+                      <option value="1-50">1–50 staff</option>
+                      <option value="51-200">51–200 staff</option>
+                      <option value="201-500">201–500 staff</option>
+                      <option value="500+">500+ staff</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              {/* Layoff details */}
+              <div className="bg-stone-800/60 border border-stone-700 rounded-2xl p-6 space-y-4">
+                <h3 className="text-white font-semibold text-sm uppercase tracking-wide">
+                  {isEs ? "Detalles de la Reducción" : "Reduction Details"}
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-stone-300 text-sm mb-1">
+                      {isEs ? "Trabajadores Afectados" : "Workers Affected"}
+                    </label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={form.workersCount}
+                      onChange={(e) => setForm((f) => ({ ...f, workersCount: e.target.value }))}
+                      placeholder="e.g. 45"
+                      className="w-full bg-stone-700 border border-stone-600 rounded-lg px-3 py-2 text-white text-sm placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-stone-300 text-sm mb-1">
+                      {isEs ? "Fecha Efectiva" : "Effective Date"}
+                    </label>
+                    <input
+                      type="date"
+                      value={form.effectiveDate}
+                      onChange={(e) => setForm((f) => ({ ...f, effectiveDate: e.target.value }))}
+                      className="w-full bg-stone-700 border border-stone-600 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-stone-300 text-sm mb-2">
+                    {isEs ? "Roles Afectados (seleccionar todos los que apliquen)" : "Roles Affected (select all that apply)"}
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {ROLES_AFFECTED.map((role) => (
+                      <button
+                        key={role}
+                        type="button"
+                        onClick={() => toggleRole(role)}
+                        className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
+                          form.rolesAffected.includes(role)
+                            ? "bg-teal-600 border-teal-500 text-white"
+                            : "bg-stone-700 border-stone-600 text-stone-300 hover:border-teal-600"
+                        }`}
+                      >
+                        {role}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Service tier */}
+              <div className="bg-stone-800/60 border border-stone-700 rounded-2xl p-6 space-y-4">
+                <h3 className="text-white font-semibold text-sm uppercase tracking-wide">
+                  {isEs ? "Nivel de Servicio" : "Service Level"}
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    {
+                      value: "self-serve",
+                      label: isEs ? "Autoservicio" : "Self-Serve",
+                      sub: isEs ? "Herramientas gratuitas" : "Free tools",
+                      price: isEs ? "Gratis" : "Free",
+                    },
+                    {
+                      value: "managed",
+                      label: isEs ? "Gestionado" : "Managed",
+                      sub: isEs ? "Apoyo en la transición" : "Guided transition support",
+                      price: "$500–$1,500",
+                    },
+                    {
+                      value: "placement",
+                      label: isEs ? "Colocación" : "Placement",
+                      sub: isEs ? "Recolocación completa" : "Full candidate placement",
+                      price: "$2,000–$5,000",
+                    },
+                  ].map((tier) => (
+                    <button
+                      key={tier.value}
+                      type="button"
+                      onClick={() => setForm((f) => ({ ...f, serviceTier: tier.value }))}
+                      className={`p-4 rounded-xl border text-left transition-all ${
+                        form.serviceTier === tier.value
+                          ? "bg-teal-900/40 border-teal-500 ring-1 ring-teal-500"
+                          : "bg-stone-700/40 border-stone-600 hover:border-stone-500"
+                      }`}
+                    >
+                      <div className="text-white font-semibold text-sm">{tier.label}</div>
+                      <div className="text-stone-400 text-xs mt-0.5">{tier.sub}</div>
+                      <div className="text-amber-400 text-xs font-medium mt-2">{tier.price}</div>
+                    </button>
+                  ))}
+                </div>
+
+                <div>
+                  <label className="block text-stone-300 text-sm mb-1">
+                    {isEs ? "Notas Adicionales" : "Additional Notes"}
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={form.notes}
+                    onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))}
+                    placeholder={isEs
+                      ? "Cualquier contexto adicional sobre la situación..."
+                      : "Any additional context about the situation, timing, or specific needs..."}
+                    className="w-full bg-stone-700 border border-stone-600 rounded-lg px-3 py-2 text-white text-sm placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"
+                  />
+                </div>
+
+                <label className="flex items-center gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={form.ndaRequested}
+                    onChange={(e) => setForm((f) => ({ ...f, ndaRequested: e.target.checked }))}
+                    className="w-4 h-4 rounded border-stone-600 bg-stone-700 text-teal-500 focus:ring-teal-500"
+                  />
+                  <span className="text-stone-300 text-sm">
+                    {isEs
+                      ? "Solicitar NDA antes de la primera llamada"
+                      : "Request NDA before our first call"}
+                  </span>
+                </label>
+              </div>
+
+              {formError && (
+                <p className="text-red-400 text-sm text-center">{formError}</p>
+              )}
+
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full bg-amber-500 hover:bg-amber-600 disabled:opacity-50 text-stone-900 font-bold py-4 px-6 rounded-xl text-base transition-colors flex items-center justify-center gap-2"
+              >
+                {submitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    {isEs ? "Enviando..." : "Submitting..."}
+                  </>
+                ) : (
+                  <>
+                    {isEs ? "Enviar Solicitud de Transición" : "Submit Transition Request"}
+                    <ArrowRight className="w-5 h-5" />
+                  </>
+                )}
+              </button>
+
+              <p className="text-stone-500 text-xs text-center">
+                {isEs
+                  ? "Su información es confidencial. Le contactaremos dentro de 24 horas hábiles."
+                  : "Your information is confidential. We respond within 24 business hours."}
+              </p>
+            </form>
+          )}
         </div>
       </section>
     </main>

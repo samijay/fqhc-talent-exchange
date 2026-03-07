@@ -175,6 +175,23 @@ export function TeamReadinessAssessment() {
       setResults(assessmentResults);
       trackManagerAssessmentComplete(selectedRole, assessmentResults.overallScore);
       setScreen("results");
+
+      // Background save — fire and forget, never blocks the UI
+      fetch("/api/team-readiness", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          roleId:       selectedRole,
+          overallScore: assessmentResults.overallScore,
+          domainScores: Object.fromEntries(
+            Object.entries(assessmentResults.domainScores).map(([k, v]) => [k, v.percentage])
+          ),
+          strengths:   assessmentResults.insights?.strengths ?? [],
+          growthAreas: assessmentResults.insights?.growthAreas ?? [],
+          starsType:   assessmentResults.starsType ?? undefined,
+          locale,
+        }),
+      }).catch(() => { /* silent — saving results is non-critical */ });
     }
   }
 
