@@ -19,6 +19,8 @@ const locationSlugs = [
 
 // Blog post slugs — add new posts here as you publish them
 const blogSlugs = [
+  "february-2026-jobs-report-healthcare-crisis",
+  "healthcare-hiring-trends-2026",
   "fqhc-salary-negotiation-guide",
   "fqhc-benefits-guide-community-health",
   "laid-off-fqhc-fast-track-job-search",

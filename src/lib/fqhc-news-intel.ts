@@ -2,7 +2,7 @@
 // Curated intelligence feed for FQHC executives
 // Updated daily via /daily-update pipeline
 // Every item has a primary source URL — no unsourced claims
-// Last updated: 2026-03-06 (daily update #12 — Thursday LA + Central Coast)
+// Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
 export const INTEL_LAST_UPDATED = "2026-03-06";
@@ -1329,6 +1329,86 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Business Wire",
     region: "California",
     tags: ["aco", "value-based-care", "shared-savings", "revenue-diversification"],
+  },
+
+  /* ============================================================== */
+  /*  MARCH 6, 2026 — BLS FEBRUARY JOBS REPORT                      */
+  /* ============================================================== */
+  {
+    id: "feb-2026-jobs-report-negative",
+    date: "2026-03-06",
+    headline: {
+      en: "U.S. Economy Lost 92,000 Jobs in February — Third Negative Month in Five",
+      es: "La Economía de EE.UU. Perdió 92,000 Empleos en Febrero — Tercer Mes Negativo en Cinco",
+    },
+    summary: {
+      en: "The BLS Employment Situation report for February 2026 shows the U.S. economy lost 92,000 jobs (consensus expected +59,000). Unemployment rose to 4.4%. Labor force participation fell to 62.0%, lowest since December 2021. December was revised from +48,000 to -17,000 — a 65,000-job swing. The economy has averaged essentially zero net job creation over the past six months. Federal government employment is down 330,000 since October 2024.",
+      es: "El informe de Situación del Empleo del BLS para febrero 2026 muestra que la economía de EE.UU. perdió 92,000 empleos (el consenso esperaba +59,000). El desempleo subió a 4.4%. La participación laboral cayó a 62.0%, la más baja desde diciembre 2021. Diciembre fue revisado de +48,000 a -17,000. La economía ha promediado esencialmente cero creación neta de empleo en los últimos seis meses.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://www.bls.gov/news.release/empsit.nr0.htm",
+    sourceOrg: "BLS",
+    region: "Federal",
+    tags: ["jobs-report", "unemployment", "recession-risk", "labor-market"],
+  },
+  {
+    id: "healthcare-jobs-negative-feb-2026",
+    date: "2026-03-06",
+    headline: {
+      en: "Healthcare Lost 28,000 Jobs in February — First Negative Month in Years, Driven by Kaiser Strike",
+      es: "El Sector Salud Perdió 28,000 Empleos en Febrero — Primer Mes Negativo en Años, Impulsado por Huelga de Kaiser",
+    },
+    summary: {
+      en: "Healthcare employment fell by 28,000 in February after adding 77,000 in January. The decline was driven by 31,000 Kaiser Permanente nurses striking in California and Hawaii — the largest open-ended nurses strike in U.S. history (Jan 26 - Feb 24). Physicians' offices lost 37,400 jobs; hospitals added 11,600. Healthcare had been carrying the entire labor market — creating 436,000 jobs in 12 months (121% of all U.S. job growth). Glassdoor's Daniel Zhao noted healthcare added 693,000 jobs in 2025 while all other industries combined lost 500,000+.",
+      es: "El empleo en salud cayó 28,000 en febrero después de agregar 77,000 en enero. La caída fue impulsada por 31,000 enfermeras de Kaiser Permanente en huelga en California y Hawái — la huelga abierta de enfermeras más grande en la historia de EE.UU. (26 ene - 24 feb). El sector salud había creado 436,000 empleos en 12 meses (121% de todo el crecimiento laboral de EE.UU.).",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://www.bls.gov/news.release/empsit.nr0.htm",
+    sourceOrg: "BLS",
+    region: "Federal",
+    tags: ["healthcare-jobs", "kaiser-strike", "nursing", "labor-market-fragility"],
+  },
+  {
+    id: "kaiser-strike-ends-21pct-raise",
+    date: "2026-02-24",
+    headline: {
+      en: "Kaiser Permanente Strike Ends: 31,000 Workers Win 21.5% Raise After Largest Nurses Strike in History",
+      es: "Huelga de Kaiser Permanente Termina: 31,000 Trabajadores Ganan 21.5% de Aumento Tras la Mayor Huelga de Enfermeras de la Historia",
+    },
+    summary: {
+      en: "The 30-day Kaiser Permanente strike — the largest open-ended nurses strike in U.S. history — ended February 24 with a tentative agreement including 21.5% wage increases over 4 years. The 31,000 UNAC/UHCP nurses and healthcare professionals in California and Hawaii struck over staffing ratios, wage parity, and patient safety. The strike directly suppressed the February BLS jobs report, contributing to a -28,000 healthcare employment decline. The settlement sets a new compensation benchmark for California healthcare workers.",
+      es: "La huelga de 30 días de Kaiser Permanente — la mayor huelga abierta de enfermeras en la historia de EE.UU. — terminó el 24 de febrero con un acuerdo tentativo que incluye aumentos salariales de 21.5% en 4 años. Los 31,000 enfermeros y profesionales de UNAC/UHCP en California y Hawái hicieron huelga por ratios de personal, paridad salarial y seguridad del paciente.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://nurse.org/news/kaiser-strike-california-hawaii/",
+    sourceOrg: "Nurse.Org",
+    region: "California",
+    tags: ["kaiser", "strike", "nursing", "wage-increase", "unac-uhcp", "staffing-ratios"],
+  },
+  {
+    id: "healthcare-carrying-labor-market",
+    date: "2026-03-06",
+    headline: {
+      en: "Healthcare Has Been the Last Pillar Holding Up the U.S. Labor Market — And It Just Cracked",
+      es: "El Sector Salud Ha Sido el Último Pilar Sosteniendo el Mercado Laboral de EE.UU. — Y Acaba de Fracturarse",
+    },
+    summary: {
+      en: "Analysis from the San Francisco Fed, Glassdoor, and CEPR reveals healthcare created virtually all sustained U.S. job growth in 2025-2026. In January 2026, healthcare was 63% of all jobs added. Over 12 months, healthcare created 121% of net employment gains while every other major sector was flat or negative. Inflation Insights' Omair Sharif warned: 'This is about a labor market so soft that it cannot withstand a strike of 31K healthcare workers, because no one else is hiring.' With H.R. 1 Medicaid cuts threatening healthcare funding, this structural dependence is a national economic vulnerability.",
+      es: "Análisis del Fed de San Francisco, Glassdoor y CEPR revela que el sector salud creó virtualmente todo el crecimiento laboral sostenido de EE.UU. en 2025-2026. En enero 2026, fue el 63% de todos los empleos agregados. En 12 meses, creó 121% de las ganancias netas de empleo. Con los recortes de Medicaid de H.R. 1 amenazando el financiamiento de salud, esta dependencia estructural es una vulnerabilidad económica nacional.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://www.marketplace.org/story/2026/03/05/health-care-jobs-are-growing-can-it-last",
+    sourceOrg: "Marketplace / APM",
+    region: "Federal",
+    tags: ["labor-market", "structural-risk", "medicaid-cuts", "economic-vulnerability"],
   },
 ];
 

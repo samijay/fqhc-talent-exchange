@@ -18,6 +18,24 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "february-2026-jobs-report-healthcare-crisis",
+    title:
+      "The February 2026 Jobs Report: Healthcare Was Holding Up the Economy. Now It's Cracking.",
+    esTitle:
+      "El Informe de Empleos de Febrero 2026: El Sector Salud Sostenía la Economía. Ahora Se Está Fracturando.",
+    description:
+      "The U.S. lost 92,000 jobs in February 2026. Healthcare — which had been creating 121% of all job growth — went negative for the first time in years. What the BLS data, the Kaiser strike, and looming Medicaid cuts mean for FQHCs.",
+    esDescription:
+      "EE.UU. perdió 92,000 empleos en febrero 2026. El sector salud — que había creado el 121% de todo el crecimiento laboral — se volvió negativo por primera vez en años. Lo que significan los datos del BLS, la huelga de Kaiser y los recortes de Medicaid para los FQHCs.",
+    date: "March 6, 2026",
+    esDate: "6 de marzo de 2026",
+    isoDate: "2026-03-06",
+    category: "Data Report",
+    esCategory: "Informe de Datos",
+    readTime: "12 min read",
+    esReadTime: "12 min de lectura",
+  },
+  {
     slug: "healthcare-hiring-trends-2026",
     title: "Healthcare Hiring Trends 2026: What the Jobs Data Tells Us About FQHC Careers",
     esTitle:
