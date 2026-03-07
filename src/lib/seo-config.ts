@@ -543,6 +543,78 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/team-readiness` },
   },
+  fastTrack: {
+    title: "Priority Intake for Displaced FQHC Workers | Free Career Tools",
+    description:
+      "Free career support for community health workers facing layoffs. Resume builder, career assessment, salary benchmarks, and aggregated FQHC job listings across California. Priority matching for displaced workers.",
+    openGraph: {
+      title: "Priority Intake — FQHC Talent",
+      description:
+        "Free tools for displaced healthcare workers. Resume builder, career assessment, and FQHC job listings across California.",
+      url: `${SITE_URL}/fast-track`,
+    },
+    alternates: { canonical: `${SITE_URL}/fast-track` },
+  },
+  layoffs: {
+    title: "FQHC Layoff Tracker | California Community Health Center Job Cuts 2025-2026",
+    description:
+      "Track workforce reductions at California FQHCs — WARN Act filings, layoff counts, affected roles, and severance details. 3,477+ workers affected across 20+ organizations. Updated from CA EDD WARN reports.",
+    openGraph: {
+      title: "FQHC Layoff Tracker — FQHC Talent",
+      description:
+        "Live tracker: 3,477+ community health workers affected by layoffs across California FQHCs. WARN Act filings, roles, and timelines.",
+      url: `${SITE_URL}/layoffs`,
+    },
+    alternates: { canonical: `${SITE_URL}/layoffs` },
+  },
+  healthcareTimeline: {
+    title: "US Healthcare History Timeline 1798–2026 | Policy & Legislation Milestones",
+    description:
+      "Interactive timeline of US healthcare history — from the Marine Hospital Service (1798) to H.R. 1 Medicaid cuts (2026). Key legislation, policy milestones, and their impact on community health centers.",
+    openGraph: {
+      title: "US Healthcare History Timeline — FQHC Talent",
+      description:
+        "228 years of US healthcare history in one interactive timeline. From Marine Hospitals to Medicare to the FQHC crisis of 2026.",
+      url: `${SITE_URL}/healthcare-timeline`,
+    },
+    alternates: { canonical: `${SITE_URL}/healthcare-timeline` },
+  },
+  unions: {
+    title: "FQHC Union Directory | Labor Partnerships & Worker Rights in Community Health",
+    description:
+      "Directory of unions representing FQHC workers in California — NUHW, SEIU locals, AFSCME, and more. Union contracts, labor timelines, worker rights resources, and partnership frameworks for FQHC leaders.",
+    openGraph: {
+      title: "FQHC Union Directory — FQHC Talent",
+      description:
+        "Unions at California FQHCs: who represents workers, contract data, and labor partnership resources for community health centers.",
+      url: `${SITE_URL}/unions`,
+    },
+    alternates: { canonical: `${SITE_URL}/unions` },
+  },
+  strategyMasterclass: {
+    title: "FQHC Executive Masterclass | 15 Deep-Dive Modules for the 2026 Crisis",
+    description:
+      "15 strategy masterclass modules for FQHC executives — financial survival, revenue recovery, undocumented care access, fundraising, healthcare economics, and crisis leadership. Primary sources from HRSA, NACHC, KFF, and academic research.",
+    openGraph: {
+      title: "FQHC Executive Masterclass — FQHC Talent",
+      description:
+        "The 2026 crisis demands new strategy. 15 deep-dive modules on financial survival, revenue recovery, AI, and leadership for FQHC executives.",
+      url: `${SITE_URL}/strategy/masterclass`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/masterclass` },
+  },
+  resumeBuilder: {
+    title: "Free FQHC Resume Builder | Community Health Resume Templates",
+    description:
+      "Build a community health resume in minutes. 8 role-specific templates for CHWs, care coordinators, nurses, behavioral health specialists, and more. Tailored for California FQHC hiring managers. Free, no account needed.",
+    openGraph: {
+      title: "Free Resume Builder — FQHC Talent",
+      description:
+        "Free community health resume builder. 8 FQHC-specific templates, bilingual support, and one-click PDF download.",
+      url: `${SITE_URL}/resume-builder`,
+    },
+    alternates: { canonical: `${SITE_URL}/resume-builder` },
+  },
 };
 
 // California metro areas for location pages

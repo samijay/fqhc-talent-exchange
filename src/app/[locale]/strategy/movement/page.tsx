@@ -391,8 +391,8 @@ export default function MovementPage() {
 
           <p className="mt-4 max-w-3xl text-lg text-stone-300 leading-relaxed sm:text-xl">
             {isEs
-              ? "Desde las clinicas campesinas hasta hoy -- la historia de los centros de salud comunitarios de California. Sesenta anos de lucha, alianzas inesperadas y la promesa de que la salud es un derecho, no un privilegio."
-              : "From farmworker clinics to today -- the story of California's community health centers. Sixty years of struggle, unexpected alliances, and the promise that healthcare is a right, not a privilege."}
+              ? "Desde las clinicas campesinas hasta hoy -- la historia de los centros de salud comunitarios de California. Sesenta anos de lucha, poderosas coaliciones y la promesa de que la salud es un derecho, no un privilegio."
+              : "From farmworker clinics to today -- the story of California's community health centers. Sixty years of struggle, powerful coalitions, and the promise that healthcare is a right, not a privilege."}
           </p>
 
           <p className="mt-6 text-sm text-teal-400 font-medium italic">
@@ -655,12 +655,12 @@ export default function MovementPage() {
               </span>
             </div>
             <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl">
-              {isEs ? "Aliados Inesperados" : "Unexpected Allies"}
+              {isEs ? "Poderosas Coaliciones" : "Powerful Coalitions"}
             </h2>
             <p className="mt-3 text-stone-500 max-w-2xl mx-auto leading-relaxed">
               {isEs
-                ? "El movimiento FQHC no fue construido por una sola comunidad. Fue forjado por alianzas improbables: campesinos filipinos y mexicanos, medicos judios y comunidades afroamericanas, conservadores rurales y activistas urbanos. Estas alianzas son la razon por la que los FQHCs existen hoy."
-                : "The FQHC movement was not built by a single community. It was forged by improbable alliances: Filipino and Mexican farmworkers, Jewish physicians and African American communities, rural conservatives and urban activists. These alliances are the reason FQHCs exist today."}
+                ? "El movimiento FQHC no fue construido por una sola comunidad. Fue forjado por poderosas coaliciones: campesinos filipinos y mexicanos, medicos judios y comunidades afroamericanas, conservadores rurales y activistas urbanos. Estas coaliciones son la razon por la que los FQHCs existen hoy."
+                : "The FQHC movement was not built by a single community. It was forged by powerful coalitions: Filipino and Mexican farmworkers, Jewish physicians and African American communities, rural conservatives and urban activists. These coalitions are the reason FQHCs exist today."}
             </p>
           </div>
 

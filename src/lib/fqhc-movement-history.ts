@@ -627,8 +627,8 @@ export const MOVEMENT_EVENTS: TimelineEvent[] = [
     year: 2001,
     endYear: 2008,
     title: {
-      en: "President Bush Doubles FQHC Funding — The Unexpected Conservative Champion",
-      es: "El Presidente Bush Duplica el Financiamiento de FQHC — El Campeon Conservador Inesperado",
+      en: "President Bush Doubles FQHC Funding — Building a Bipartisan Coalition for Community Health",
+      es: "El Presidente Bush Duplica el Financiamiento de FQHC — Construyendo una Coalicion Bipartidista para la Salud Comunitaria",
     },
     description: {
       en: "President George W. Bush, a Republican, launched the Health Center Growth Initiative in 2002, pledging to open or expand 1,200 health center sites and double the number of patients served. By 2008, federal FQHC funding had more than doubled — from $1.2 billion to over $2 billion annually. Bush said: 'Health care ought to be affordable, available and accessible for all our citizens.' His support was driven partly by FQHCs' presence in rural, conservative districts where they were often the only healthcare provider. The irony was stark: a president who opposed universal healthcare became the biggest champion of the safety net that provided it.",
@@ -1134,8 +1134,8 @@ export const CROSS_CULTURAL_ALLIANCES: CrossCulturalAlliance[] = [
   {
     id: "bush-fqhc",
     title: {
-      en: "George W. Bush: The Unexpected Conservative FQHC Champion",
-      es: "George W. Bush: El Campeon Conservador Inesperado de los FQHCs",
+      en: "George W. Bush: A Conservative Voice in a Bipartisan Coalition for Community Health",
+      es: "George W. Bush: Una Voz Conservadora en una Coalicion Bipartidista para la Salud Comunitaria",
     },
     description: {
       en: "In 2002, President George W. Bush — a conservative Republican who opposed universal healthcare — launched the most ambitious expansion of community health centers since their creation. His Health Center Growth Initiative pledged 1,200 new or expanded sites and served 6.1 million new patients. By the end of his presidency, FQHC funding had more than doubled. Bush's motivation was partly pragmatic: FQHCs operate in rural districts that vote Republican, where they're often the only healthcare option. But he also genuinely argued that 'healthcare should be affordable, available, and accessible to all.' The irony is powerful: the president most associated with conservative healthcare policy became the biggest champion of the safety net.",

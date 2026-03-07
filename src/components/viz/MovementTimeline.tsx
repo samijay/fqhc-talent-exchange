@@ -155,6 +155,7 @@ function EventCard({
   const isEs = locale === "es";
   const meta = CATEGORY_META[event.category];
   const Icon = meta.icon;
+  const [thumbError, setThumbError] = useState(false);
 
   return (
     <div className="relative flex gap-4">
@@ -215,7 +216,7 @@ function EventCard({
               </p>
 
               {/* YouTube thumbnail — click expands the card */}
-              {event.videoUrl && (() => {
+              {event.videoUrl && !thumbError && (() => {
                 const thumb = getYouTubeThumbnail(event.videoUrl!);
                 return thumb ? (
                   <div className="mt-2 relative rounded-lg overflow-hidden border border-stone-200 group/thumb">
@@ -223,8 +224,9 @@ function EventCard({
                     <img
                       src={thumb}
                       alt={event.videoTitle ? t(event.videoTitle, locale) : t(event.title, locale)}
-                      className="w-full h-28 object-cover"
+                      className="w-full aspect-video object-cover"
                       loading="lazy"
+                      onError={() => setThumbError(true)}
                     />
                     {/* Play button overlay */}
                     <div className="absolute inset-0 bg-black/40 group-hover/thumb:bg-black/30 transition-colors flex items-center justify-center">
