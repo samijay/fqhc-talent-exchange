@@ -34,9 +34,9 @@ interface ArticleContent {
 const enContent: ArticleContent = {
   category: "Data Report",
   title:
-    "The February 2026 Jobs Report: Healthcare Was Holding Up the Economy. Now It's Cracking.",
+    "The February 2026 Jobs Report: Healthcare Is Carrying the Entire Economy. Congress Just Cut Its Funding.",
   description:
-    "The U.S. lost 92,000 jobs in February 2026. Healthcare — which had been creating 121% of all job growth — went negative for the first time in years. What the BLS data, the Kaiser strike, and looming Medicaid cuts mean for FQHCs.",
+    "Healthcare created 121% of all U.S. job growth over 12 months — every other sector was flat or negative. Then Congress passed $911B in Medicaid cuts targeting safety-net providers. The February BLS data, the Kaiser strike, and what it all means for FQHCs.",
   breadcrumbTitle: "February 2026 Jobs Report",
   datePublished: "2026-03-06",
   dateDisplay: "March 6, 2026",
@@ -58,7 +58,7 @@ const enContent: ArticleContent = {
       ],
     },
     {
-      heading: "Healthcare: The One Pillar That Was Holding Up the Economy",
+      heading: "Healthcare Is the Only Sector Creating Jobs at Scale",
       content: [
         {
           type: "paragraph",
@@ -191,7 +191,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "Healthcare has been the last pillar holding up the U.S. labor market. In February, it cracked — temporarily, because of a strike, but the crack revealed the fragility underneath. The economy is so dependent on healthcare job creation that a single labor action involving 31,000 workers produced a national payroll decline of 92,000. With Medicaid cuts now law, CHCF expiring in December, and California's safety net under unprecedented stress, the question is no longer whether healthcare can keep carrying the economy. It's what happens when it can't.",
+          text: "Healthcare is the only sector creating jobs at scale in the United States. It created 121% of net job growth over the past year while every other major sector was flat or negative. The February dip was temporary — driven by the Kaiser strike — and will almost certainly rebound in March. But the structural picture is what should concern FQHC leaders: the economy is so dependent on healthcare job creation that a single labor action involving 31,000 workers produced a national payroll decline of 92,000. And Congress just enacted the largest Medicaid cuts in history targeting the very sector keeping the economy afloat. With CHCF expiring in December and California's safety net under unprecedented stress, healthcare workers are more essential than ever — and their funding has never been more at risk.",
         },
       ],
     },
@@ -220,9 +220,9 @@ const enContent: ArticleContent = {
 const esContent: ArticleContent = {
   category: "Informe de Datos",
   title:
-    "El Informe de Empleos de Febrero 2026: El Sector Salud Sostenía la Economía. Ahora Se Está Fracturando.",
+    "El Informe de Empleos de Febrero 2026: El Sector Salud Carga Toda la Economía. El Congreso Acaba de Recortar Su Financiamiento.",
   description:
-    "EE.UU. perdió 92,000 empleos en febrero 2026. El sector salud — que había creado el 121% de todo el crecimiento laboral — se volvió negativo por primera vez en años. Lo que significan los datos del BLS, la huelga de Kaiser y los recortes de Medicaid para los FQHCs.",
+    "El sector salud creó el 121% de todo el crecimiento laboral de EE.UU. en 12 meses — todos los demás sectores fueron planos o negativos. Luego el Congreso aprobó $911B en recortes de Medicaid dirigidos a proveedores de red de seguridad. Los datos del BLS de febrero, la huelga de Kaiser y lo que significa para los FQHCs.",
   breadcrumbTitle: "Informe de Empleos Febrero 2026",
   datePublished: "2026-03-06",
   dateDisplay: "6 de marzo de 2026",
@@ -245,7 +245,7 @@ const esContent: ArticleContent = {
     },
     {
       heading:
-        "Sector Salud: El Único Pilar Que Sostenía la Economía",
+        "Sector Salud: El Único Sector Que Crea Empleos a Escala",
       content: [
         {
           type: "paragraph",
@@ -381,7 +381,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "El sector salud ha sido el último pilar sosteniendo el mercado laboral de EE.UU. En febrero, se fracturó — temporalmente, por una huelga, pero la fractura reveló la fragilidad debajo. La economía es tan dependiente de la creación de empleo en salud que una sola acción laboral de 31,000 trabajadores produjo una caída nacional de 92,000. Con los recortes de Medicaid ahora ley, CHCF expirando en diciembre y la red de seguridad de California bajo estrés sin precedentes, la pregunta ya no es si el sector salud puede seguir cargando la economía. Es qué pasa cuando no pueda.",
+          text: "El sector salud es el único sector creando empleos a escala en Estados Unidos. Creó el 121% del crecimiento neto de empleo en el último año mientras todos los demás sectores fueron planos o negativos. La caída de febrero fue temporal — impulsada por la huelga de Kaiser — y casi seguramente se recuperará en marzo. Pero el panorama estructural es lo que debe preocupar a los líderes de FQHC: la economía es tan dependiente de la creación de empleo en salud que una sola acción laboral de 31,000 trabajadores produjo una caída nacional de 92,000. Y el Congreso acaba de promulgar los mayores recortes de Medicaid de la historia dirigidos al mismo sector que mantiene la economía a flote. Con CHCF expirando en diciembre y la red de seguridad de California bajo estrés sin precedentes, los trabajadores de salud son más esenciales que nunca — y su financiamiento nunca ha estado más en riesgo.",
         },
       ],
     },
@@ -415,8 +415,8 @@ export default function FebruaryJobsReportArticle() {
   return (
     <main className="min-h-screen">
       <ArticleJsonLd
-        title="The February 2026 Jobs Report: Healthcare Was Holding Up the Economy. Now It's Cracking."
-        description="The U.S. lost 92,000 jobs in February 2026. Healthcare went negative for the first time in years. What the BLS data, Kaiser strike, and Medicaid cuts mean for FQHCs."
+        title="The February 2026 Jobs Report: Healthcare Is Carrying the Entire Economy. Congress Just Cut Its Funding."
+        description="Healthcare created 121% of all U.S. job growth over 12 months. Then Congress passed $911B in Medicaid cuts targeting safety-net providers. The February BLS data, Kaiser strike, and what it means for FQHCs."
         datePublished="2026-03-06"
         slug="february-2026-jobs-report-healthcare-crisis"
       />

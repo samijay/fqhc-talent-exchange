@@ -1395,8 +1395,8 @@ export const INTEL_ITEMS: IntelItem[] = [
     id: "healthcare-carrying-labor-market",
     date: "2026-03-06",
     headline: {
-      en: "Healthcare Has Been the Last Pillar Holding Up the U.S. Labor Market — And It Just Cracked",
-      es: "El Sector Salud Ha Sido el Último Pilar Sosteniendo el Mercado Laboral de EE.UU. — Y Acaba de Fracturarse",
+      en: "Healthcare Is Carrying the Entire U.S. Labor Market — 121% of Net Job Growth. Congress Just Cut Its Funding.",
+      es: "El Sector Salud Carga Todo el Mercado Laboral de EE.UU. — 121% del Crecimiento Neto. El Congreso Acaba de Recortar Su Financiamiento.",
     },
     summary: {
       en: "Analysis from the San Francisco Fed, Glassdoor, and CEPR reveals healthcare created virtually all sustained U.S. job growth in 2025-2026. In January 2026, healthcare was 63% of all jobs added. Over 12 months, healthcare created 121% of net employment gains while every other major sector was flat or negative. Inflation Insights' Omair Sharif warned: 'This is about a labor market so soft that it cannot withstand a strike of 31K healthcare workers, because no one else is hiring.' With H.R. 1 Medicaid cuts threatening healthcare funding, this structural dependence is a national economic vulnerability.",
