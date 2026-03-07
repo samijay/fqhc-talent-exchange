@@ -15,14 +15,14 @@ export default function AnnouncementBar() {
   return (
     <div className="relative bg-gradient-to-r from-amber-500 to-amber-400 text-stone-900">
       <Link
-        href="/"
+        href="/blog/february-2026-jobs-report-healthcare-crisis"
         className="flex items-center justify-center gap-2 px-8 py-2 text-center text-xs font-semibold sm:text-sm"
       >
         <Zap className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "Nuevo: LA County cerrando 7 clínicas. Ver el Dashboard de Inteligencia →"
-            : "New: LA County closing 7 clinics. See Intelligence Dashboard →"}
+            ? "EE.UU. perdió 92K empleos. El sector salud carga toda la economía — leer análisis →"
+            : "U.S. lost 92K jobs. Healthcare is carrying the entire economy — read analysis →"}
         </span>
       </Link>
       <button

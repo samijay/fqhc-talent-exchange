@@ -511,6 +511,31 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
       "southern-california",
     ],
   },
+
+  {
+    id: "ai-scribe-coding-arms-race",
+    title: {
+      en: "Policy Brief: Ambient AI Scribes and the Coding Arms Race — Revenue vs. Burden Reduction",
+      es: "Informe de Política: Escribas de IA Ambiental y la Carrera Armamentista de Codificación — Ingresos vs. Reducción de Carga",
+    },
+    description: {
+      en: "A policy brief in npj Digital Medicine (Dec 2025) warns that ambient AI scribes are increasingly used for revenue capture, not just burden reduction — risking a 'coding arms race' between providers and payers. JAMA Network Open study (Jan 2026) found AI scribes increase physician RVUs by 1.81/week ($3,044/year per physician). Riverside Health saw 11% wRVU increase and 14% more HCC diagnoses with Abridge. For FQHCs on PPS: direct wRVU impact is limited since PPS is per-visit, but more complete documentation improves quality scores, risk adjustment for managed care contracts, and UDS reporting. FQHCs should focus on documentation completeness for quality metrics rather than coding intensity.",
+      es: "Un informe en npj Digital Medicine (dic 2025) advierte que los escribas de IA ambiental se usan cada vez más para captura de ingresos, no solo reducción de carga — arriesgando una 'carrera armamentista de codificación'. Estudio de JAMA (ene 2026): los escribas de IA aumentan RVUs en 1.81/semana ($3,044/año por médico). Para FQHCs en PPS: el impacto directo de wRVU es limitado, pero la documentación más completa mejora métricas de calidad y ajuste de riesgo.",
+    },
+    category: "policy-framework",
+    vendor: null,
+    partnership: "AMA Digital Medicine Payment Advisory Group",
+    metrics: [
+      { label: "RVU Increase", value: "+1.81/week per physician" },
+      { label: "Annual Revenue", value: "+$3,044/physician" },
+      { label: "HCC Capture", value: "+14% (Riverside Health)" },
+    ],
+    adoptionStage: "framework",
+    sourceUrl: "https://www.nature.com/articles/s41746-025-02272-z",
+    sourceOrg: "npj Digital Medicine / Nature",
+    date: "2025-12-24",
+    tags: ["upcoding", "coding-arms-race", "revenue-impact", "policy-brief", "pps-implications", "quality-metrics"],
+  },
 ];
 
 /* ------------------------------------------------------------------ */

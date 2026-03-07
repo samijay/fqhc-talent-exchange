@@ -373,7 +373,7 @@ export default function Home() {
               <Clock className="size-3" />
               <span>
                 {isEs ? "Última actualización:" : "Last updated:"}{" "}
-                {INTEL_LAST_UPDATED}
+                {latestNewsDate}
               </span>
             </div>
           </div>
@@ -420,6 +420,33 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ==================== TRENDING TICKER ==================== */}
+      <div className="border-b border-stone-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center gap-3 py-2.5">
+          <span className="flex-shrink-0 inline-flex items-center gap-1 rounded bg-red-100 text-red-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+            <TrendingUp className="size-3" />
+            {isEs ? "Tendencia" : "Trending"}
+          </span>
+          <Link
+            href="/blog/february-2026-jobs-report-healthcare-crisis"
+            className="text-sm font-medium text-stone-700 hover:text-teal-700 transition-colors truncate"
+          >
+            {isEs
+              ? "EE.UU. perdió 92K empleos. El sector salud carga toda la economía →"
+              : "U.S. lost 92K jobs. Healthcare is carrying the entire economy →"}
+          </Link>
+          <span className="hidden sm:inline-block flex-shrink-0 text-[10px] text-stone-400">
+            {isEs ? "Simulador:" : "Simulator:"}
+          </span>
+          <Link
+            href="/strategy/clinic-simulator"
+            className="hidden sm:inline-block flex-shrink-0 text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors"
+          >
+            {isEs ? "Simulador de Clínica →" : "Clinic Simulator →"}
+          </Link>
+        </div>
+      </div>
 
       {/* ==================== BREAKING NEWS + SIDEBAR ==================== */}
       <section className="py-8 sm:py-12">
@@ -574,7 +601,6 @@ export default function Home() {
                         {isEs ? "Riesgos Fiscales" : "Funding Cliffs"}
                       </p>
                       {upcomingCliffs.map((cliff) => {
-                        const isOpen = expandedCliff === cliff.id;
                         const countColor =
                           cliff.daysUntil < 90
                             ? "text-red-700"
@@ -591,48 +617,37 @@ export default function Home() {
                         return (
                           <div
                             key={cliff.id}
-                            className={`rounded-lg border ${urgencyBg}`}
+                            className={`rounded-lg border ${urgencyBg} px-3 py-2.5`}
                           >
-                            <button
-                              onClick={() =>
-                                setExpandedCliff(isOpen ? null : cliff.id)
-                              }
-                              className="w-full flex items-center gap-2 px-3 py-2 text-left"
-                            >
+                            <div className="flex items-start gap-2">
                               <span
-                                className={`text-sm font-bold tabular-nums ${countColor} w-10 shrink-0`}
+                                className={`text-sm font-bold tabular-nums ${countColor} w-10 shrink-0 mt-0.5`}
                               >
                                 {cliff.daysUntil}d
                               </span>
-                              <h4 className="font-medium text-stone-800 text-xs leading-snug flex-1 line-clamp-1">
-                                {t(cliff.title, locale)}
-                              </h4>
-                              <ChevronDown
-                                className={`h-3 w-3 text-stone-400 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`}
-                              />
-                            </button>
-                            {isOpen && (
-                              <div className="px-3 pb-2.5 pt-0.5 border-t border-stone-200/50">
+                              <div className="flex-1 min-w-0">
                                 <h4 className="font-semibold text-stone-800 text-xs leading-snug">
                                   {t(cliff.title, locale)}
                                 </h4>
-                                <div className="mt-1 flex flex-wrap gap-2 text-[10px]">
-                                  {cliff.dollarAmount && (
-                                    <span className="text-stone-600">
-                                      {cliff.dollarAmount}
+                                {(cliff.dollarAmount || cliff.peopleAffected) && (
+                                  <div className="mt-1 flex flex-wrap gap-2 text-[10px]">
+                                    {cliff.dollarAmount && (
+                                      <span className="text-stone-600">
+                                        {cliff.dollarAmount}
+                                      </span>
+                                    )}
+                                    {cliff.peopleAffected && (
+                                      <span className="text-red-600">
+                                        {cliff.peopleAffected}
+                                      </span>
+                                    )}
+                                    <span className="text-stone-400">
+                                      {cliff.category}
                                     </span>
-                                  )}
-                                  {cliff.peopleAffected && (
-                                    <span className="text-red-600">
-                                      {cliff.peopleAffected}
-                                    </span>
-                                  )}
-                                  <span className="text-stone-400">
-                                    {cliff.category}
-                                  </span>
-                                </div>
+                                  </div>
+                                )}
                               </div>
-                            )}
+                            </div>
                           </div>
                         );
                       })}
@@ -661,32 +676,34 @@ export default function Home() {
                             onClick={() =>
                               setExpandedDeadline(isOpen ? null : item.id)
                             }
-                            className="w-full flex items-center gap-2 px-3 py-2 text-left"
+                            className="w-full px-3 py-2.5 text-left"
                           >
-                            <Badge
-                              variant="outline"
-                              className={`text-[9px] font-semibold shrink-0 ${IMPACT_STYLES[item.impactLevel]}`}
-                            >
-                              {isPast
-                                ? isEs
-                                  ? "Vigente"
-                                  : "Active"
-                                : isEs
-                                  ? "Próximo"
-                                  : "Upcoming"}
-                            </Badge>
-                            <span className="text-[10px] text-stone-400 shrink-0">
-                              {formatDate(item.date, locale)}
-                            </span>
-                            <ChevronDown
-                              className={`h-3 w-3 text-stone-400 shrink-0 ml-auto transition-transform ${isOpen ? "rotate-180" : ""}`}
-                            />
+                            <div className="flex items-center gap-2 mb-1">
+                              <Badge
+                                variant="outline"
+                                className={`text-[9px] font-semibold shrink-0 ${IMPACT_STYLES[item.impactLevel]}`}
+                              >
+                                {isPast
+                                  ? isEs
+                                    ? "Vigente"
+                                    : "Active"
+                                  : isEs
+                                    ? "Próximo"
+                                    : "Upcoming"}
+                              </Badge>
+                              <span className="text-[10px] text-stone-400 shrink-0">
+                                {formatDate(item.date, locale)}
+                              </span>
+                              <ChevronDown
+                                className={`h-3 w-3 text-stone-400 shrink-0 ml-auto transition-transform ${isOpen ? "rotate-180" : ""}`}
+                              />
+                            </div>
+                            <h4 className="font-semibold text-stone-800 text-xs leading-snug">
+                              {t(item.headline, locale)}
+                            </h4>
                           </button>
                           {isOpen && (
                             <div className="px-3 pb-2.5 pt-0.5 border-t border-stone-200/50">
-                              <h4 className="font-semibold text-stone-800 text-xs leading-snug">
-                                {t(item.headline, locale)}
-                              </h4>
                               <p className="mt-1 text-[11px] text-stone-500 leading-relaxed">
                                 {t(item.summary, locale)}
                               </p>

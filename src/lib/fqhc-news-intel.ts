@@ -1410,6 +1410,50 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Federal",
     tags: ["labor-market", "structural-risk", "medicaid-cuts", "economic-vulnerability"],
   },
+
+  /* ============================================================== */
+  /*  MARCH 6, 2026 — DAILY UPDATE: REGIONAL + POLICY SCAN          */
+  /* ============================================================== */
+  {
+    id: "santa-clara-measure-a-healthcare-tax",
+    date: "2026-03-06",
+    headline: {
+      en: "Santa Clara County Voters Pass Measure A — First CA County to Tax Its Way Out of Federal Medicaid Cuts",
+      es: "Votantes del Condado de Santa Clara Aprueban Medida A — Primer Condado de CA en Compensar Recortes Federales con Impuestos",
+    },
+    summary: {
+      en: "Santa Clara County became the first in California to pass a sales tax to offset federal Medicaid cuts. Measure A (0.625% sales tax, 57% approval) generates $330M/year for healthcare, effective April 1, 2026. Covers ~⅓ of the county's estimated $1B+ annual revenue loss from H.R. 1. One in four county families rely on Medi-Cal. Santa Clara Valley Healthcare operates 4 hospitals and 15 health centers. LA County is now pursuing a similar half-cent sales tax measure — a model that could spread statewide.",
+      es: "El condado de Santa Clara fue el primero en California en aprobar un impuesto de ventas para compensar los recortes federales a Medicaid. La Medida A (0.625% impuesto de ventas, 57% aprobación) genera $330M/año para salud, vigente desde el 1 de abril de 2026. Cubre ~⅓ de la pérdida estimada de $1B+ anual del condado por H.R. 1. Una de cada cuatro familias depende de Medi-Cal. El condado de LA busca una medida similar.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.naco.org/news/california-county-sales-tax-measure-backfills-federal-healthcare-cuts",
+    sourceOrg: "National Association of Counties",
+    region: "Santa Clara County",
+    affectedOrgs: ["Santa Clara Valley Healthcare"],
+    affectedOrgSlugs: ["santa-clara-valley-health"],
+    tags: ["sales-tax", "ballot-measure", "medicaid-offset", "measure-a", "bay-area", "revenue-model"],
+  },
+  {
+    id: "chc-2pct-financial-loss-2025",
+    date: "2026-03-06",
+    headline: {
+      en: "Community Health Centers Posted 2% Program-Wide Financial Loss in 2025 — Structural Strain Before H.R. 1 Cuts",
+      es: "Centros de Salud Comunitarios Registraron Pérdida Financiera del 2% en 2025 — Tensión Estructural Antes de Recortes H.R. 1",
+    },
+    summary: {
+      en: "The community health center program posted a 2% program-wide financial loss for 2025 — signaling structural strain even before H.R. 1 Medicaid cuts take full effect. With $4.6B in CHCF funding only authorized through December 2026, and Medicaid accounting for 43% of health center revenue nationally, even modest shifts in productivity, payer mix, or workforce costs can destabilize organizations. The negative margin came despite the largest CHCF funding increase in a decade, underscoring that grant funding alone cannot offset structural revenue erosion.",
+      es: "El programa de centros de salud comunitarios registró una pérdida financiera del 2% en 2025 — señal de tensión estructural incluso antes de que los recortes de Medicaid por H.R. 1 surtan efecto completo. Con $4.6B en financiamiento CHCF autorizado solo hasta diciembre 2026, y Medicaid representando el 43% de los ingresos de centros de salud a nivel nacional, incluso cambios modestos en productividad o mezcla de pagadores pueden desestabilizar organizaciones.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.fqhc.org/blog/2026/2-18/straight-from-the-hill-what-pi-really-means-for-your-health-center",
+    sourceOrg: "FQHC Associates",
+    region: "Federal",
+    tags: ["financial-loss", "structural-strain", "chcf", "revenue-erosion", "program-wide"],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
