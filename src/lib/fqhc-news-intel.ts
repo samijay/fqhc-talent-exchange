@@ -1459,6 +1459,45 @@ export const INTEL_ITEMS: IntelItem[] = [
     tags: ["sales-tax", "ballot-measure", "medicaid-offset", "measure-a", "bay-area", "revenue-model"],
   },
   {
+    id: "sacramento-county-26m-hhs-funding-cut",
+    date: "2026-03-07",
+    headline: {
+      en: "Sacramento County Faces $26M Health Funding Cut as HHS Restructuring Hits Safety Net",
+      es: "Sacramento County Enfrenta Recorte de $26M en Salud por Reestructuración del HHS",
+    },
+    summary: {
+      en: "Sacramento County is at risk of losing $26 million in federal health and human services funding as the Trump administration's HHS restructuring and DOGE-aligned cuts rescind COVID-era public health grants. California and 22 other states have filed suit to block the cuts. A separate $233,000 HHS grant termination has already stalled a community health leadership program in South Sacramento's Lawrence Park neighborhood before it launched. Sacramento County Health Center is an FQHC serving the county's lowest-income residents.",
+      es: "Sacramento County enfrenta la pérdida de $26 millones en financiamiento federal de salud mientras la reestructuración del HHS revoca subvenciones de salud pública de la era COVID. California y 22 estados han demandado para bloquear los recortes. Una terminación separada de $233K ya detuvo un programa comunitario en el vecindario Lawrence Park del sur de Sacramento.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.abc10.com/article/news/local/sacramento-county-health-funding-cut-rfk-california-doge/103-b1e53d57-777f-462c-becd-67bfebb4c89e",
+    sourceOrg: "ABC10 Sacramento",
+    region: "Sacramento County",
+    affectedOrgSlugs: ["sacramento-county-health-center"],
+    tags: ["sacramento", "hhs-restructuring", "federal-cuts", "doge", "public-health", "grant-termination"],
+  },
+  {
+    id: "medi-cal-30-premium-undocumented-2027",
+    date: "2026-03-07",
+    headline: {
+      en: "California to Charge Undocumented Medi-Cal Members $30/Month Starting July 2027",
+      es: "California Cobrará $30/Mes a Miembros de Medi-Cal Indocumentados a Partir de Julio 2027",
+    },
+    summary: {
+      en: "Beginning July 1, 2027, Medi-Cal members ages 19–59 who are undocumented or have unsatisfactory immigration status (UIS) and remain in full-coverage Medi-Cal will be required to pay a $30 monthly premium to maintain coverage. Dental benefits for UIS members were already eliminated effective July 1, 2026. Combined with the January 2026 enrollment freeze and eliminated FQHC PPS reimbursement for UIS services, this represents a compounding disinvestment in California's 1.6 million undocumented Medi-Cal enrollees — raising coverage loss and FQHC revenue risk.",
+      es: "A partir del 1 de julio de 2027, los miembros de Medi-Cal de 19 a 59 años indocumentados o con estado migratorio insatisfactorio (UIS) que permanezcan en cobertura completa deberán pagar una prima mensual de $30. Los beneficios dentales para miembros UIS ya fueron eliminados el 1 de julio de 2026.",
+    },
+    category: "undocumented-access",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.dhcs.ca.gov/Medi-Cal/Pages/immigration-status-categories.aspx",
+    sourceOrg: "CA Department of Health Care Services",
+    region: "California",
+    tags: ["undocumented", "medi-cal-premium", "coverage-loss", "uis", "july-2027", "enrollment"],
+  },
+  {
     id: "chc-2pct-financial-loss-2025",
     date: "2026-03-06",
     headline: {

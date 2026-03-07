@@ -1,10 +1,10 @@
 // Career page configuration for FQHC job scraping
 // Tracks which FQHC career pages are scrapeable by the /scrape-jobs command
 // Updated automatically when the command runs
-// Last updated: 2026-03-06 (daily update #12)
+// Last updated: 2026-03-07 (daily update #14)
 
 /** Exported for display on pages — updated by /daily-update and /scrape-jobs pipelines */
-export const CAREER_CONFIG_LAST_UPDATED = "2026-03-06";
+export const CAREER_CONFIG_LAST_UPDATED = "2026-03-07";
 
 export interface CareerPageConfig {
   fqhcSlug: string;
@@ -39,7 +39,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs",
     notes:
-      "Largest FQHC in CA. 252 jobs found 2026-03-06 (prev 237, +15). Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}. Job details: GET /wday/cxs/altamed/Careers{externalPath}. Salary in jobDescription HTML.",
+      "Largest FQHC in CA. 258 jobs found 2026-03-07 (prev 252, +6). Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}. Job details: GET /wday/cxs/altamed/Careers{externalPath}. Salary in jobDescription HTML.",
   },
   {
     fqhcSlug: "family-health-centers-of-san-diego",
@@ -49,7 +49,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs",
     notes:
-      "153 jobs found 2026-03-06 (prev 154, -1). Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
+      "153 jobs found 2026-03-07 (prev 153, unchanged). Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
   },
   {
     fqhcSlug: "asian-health-services",
@@ -58,7 +58,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     lastChecked: "2026-03-06",
     atsApiUrl: "https://api.lever.co/v0/postings/ahschc?mode=json",
     notes:
-      "20 jobs found 2026-03-06 (prev 20, unchanged). Lever slug is 'ahschc'. Returns JSON array of job objects with text, categories, description, lists, hostedUrl.",
+      "20 jobs found 2026-03-07 (prev 20, unchanged). Lever slug is 'ahschc'. Returns JSON array of job objects with text, categories, description, lists, hostedUrl.",
   },
   {
     fqhcSlug: "la-clinica-de-la-raza",
@@ -68,7 +68,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "http://laclinica.hrmdirect.com/employment/job-openings.php?search=true&dept=-1&city=-1&state=-1",
     notes:
-      "186 jobs found 2026-03-06 (prev 186, unchanged). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
+      "186 jobs found 2026-03-07 (prev 186, unchanged). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
   },
 
   // ── ADP Workforce Now (JS-only, not scrapeable) ── ❌
