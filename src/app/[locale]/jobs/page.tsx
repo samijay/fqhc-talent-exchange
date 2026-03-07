@@ -784,8 +784,27 @@ export default function JobsPage() {
         </div>
       )}
 
+      {/* ---------- Assessment CTA Banner ---------- */}
+      <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
+        <div className="flex items-center gap-3 rounded-lg border border-teal-200 bg-teal-50 px-4 py-2.5 text-sm text-teal-800">
+          <Lightbulb className="size-4 shrink-0 text-teal-600" />
+          <span>
+            {isEs
+              ? "¿No sabes qué rol te queda mejor?"
+              : "Not sure which role fits you best?"}
+          </span>
+          <Link
+            href="/career-insights"
+            className="ml-auto flex items-center gap-1 font-semibold text-teal-700 hover:text-teal-900 whitespace-nowrap"
+          >
+            {isEs ? "Toma nuestra evaluación profesional (gratis)" : "Take our 5-domain Career Assessment (free)"}
+            <ArrowRight className="size-3.5" />
+          </Link>
+        </div>
+      </div>
+
       {/* ---------- Results ---------- */}
-      <div className="mx-auto max-w-7xl px-4 pb-20 pt-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pb-20 pt-3 sm:px-6 lg:px-8">
         {loading && (
           <div className="flex items-center justify-center py-20">
             <Loader2 className="size-8 animate-spin text-teal-700" />

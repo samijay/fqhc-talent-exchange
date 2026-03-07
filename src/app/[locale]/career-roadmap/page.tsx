@@ -211,29 +211,34 @@ export default function CareerRoadmapPage() {
           </div>
         </div>
 
-        {/* CTAs */}
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
-          <Link
-            href="/career-insights"
-            className="flex items-center justify-center gap-2 rounded-xl border border-teal-200 bg-teal-50 px-6 py-4 text-sm font-semibold text-teal-700 transition-colors hover:bg-teal-100"
-          >
-            <ClipboardCheck className="size-4" />
-            {isEs ? "Tomar evaluación profesional" : "Take Career Assessment"}
-          </Link>
-          <Link
-            href="/resume-builder"
-            className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-6 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
-          >
-            <FileText className="size-4" />
-            {isEs ? "Crear currículum" : "Build Resume"}
-          </Link>
-          <Link
-            href="/jobs"
-            className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-6 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
-          >
-            <Briefcase className="size-4" />
-            {isEs ? "Ver empleos" : "Browse Jobs"}
-          </Link>
+        {/* Take the next step */}
+        <div className="mt-10">
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-stone-500">
+            {isEs ? "Toma el siguiente paso" : "Take the next step"}
+          </h3>
+          <div className="grid gap-4 sm:grid-cols-3">
+            <Link
+              href="/resume-builder"
+              className="flex items-center justify-center gap-2 rounded-xl border border-teal-200 bg-teal-50 px-6 py-4 text-sm font-semibold text-teal-700 transition-colors hover:bg-teal-100"
+            >
+              <FileText className="size-4" />
+              {isEs ? "Crear currículum para este nivel" : "Build your resume for this level"}
+            </Link>
+            <Link
+              href="/career-insights"
+              className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-6 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
+            >
+              <ClipboardCheck className="size-4" />
+              {isEs ? "Tomar evaluación profesional" : "Take the career assessment"}
+            </Link>
+            <Link
+              href="/jobs"
+              className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-6 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
+            >
+              <Briefcase className="size-4" />
+              {isEs ? "Ver empleos en tu rol" : "Browse jobs in your role"}
+            </Link>
+          </div>
         </div>
       </div>
     </div>

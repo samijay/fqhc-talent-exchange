@@ -893,6 +893,104 @@ export const MASTERCLASSES: MasterclassModule[] = [
     ],
     tags: ["medicaid", "medi-cal", "revenue-cycle", "scenario-planning", "financial-resilience", "340b", "chcf"],
   },
+
+  // ─── SALARY NEGOTIATION (DUAL PERSPECTIVE) ───────────────────
+  {
+    id: "salary-negotiation-dual-perspective",
+    title: {
+      en: "Salary Negotiation in FQHCs — The Guide Both Sides Need",
+      es: "Negociación Salarial en FQHCs — La Guía que Ambos Lados Necesitan",
+    },
+    subtitle: {
+      en: "HR directors and candidates share the same constraints — PPS caps, SB 525 compliance, grant-funded ceilings — but each side has more leverage than they realize",
+      es: "Los directores de RR.HH. y los candidatos comparten las mismas limitaciones — topes PPS, cumplimiento de SB 525, límites financiados por subvenciones — pero cada lado tiene más apalancamiento del que cree",
+    },
+    category: "leadership",
+    audience: "hr-workforce",
+    difficulty: "intermediate",
+    urgencyStat: {
+      en: "SB 525 requires $25/hr minimum for FQHC healthcare workers by Jan 2027 — most FQHCs are not on track",
+      es: "SB 525 exige $25/hr de salario mínimo para trabajadores de salud de FQHCs antes de enero 2027 — la mayoría de los FQHCs no están en camino",
+    },
+    whyNow: {
+      en: "Three forces are colliding in 2026: SB 525 is pushing California FQHC minimum wages to $25/hr by January 2027, Medicaid cuts are compressing every FQHC budget, and a workforce shortage means qualified candidates — especially bilingual CHWs, ECM care managers, and RNs — now have real leverage. The FQHCs that will retain staff through the crisis are the ones that stop treating compensation as a budget line item and start treating it as a retention strategy. Meanwhile, candidates who understand PPS reimbursement, grant-funded role constraints, and NHSC loan repayment can negotiate $15,000–$40,000 in total compensation above what HR initially offers — without asking for a dollar more in base salary.",
+      es: "Tres fuerzas chocan en 2026: SB 525 está empujando los salarios mínimos de FQHCs en California a $25/hr para enero 2027, los recortes de Medicaid comprimen cada presupuesto FQHC, y la escasez de fuerza laboral significa que los candidatos calificados ahora tienen apalancamiento real. Los FQHCs que retendrán personal a través de la crisis son los que dejan de tratar la compensación como una partida presupuestaria y empiezan a tratarla como una estrategia de retención.",
+    },
+    learningObjectives: [
+      {
+        en: "Understand the real FQHC compensation constraints: PPS reimbursement rates, SB 525 compliance timelines, grant-funded salary caps, and union contract floors",
+        es: "Comprender las restricciones reales de compensación FQHC: tasas de reembolso PPS, plazos de cumplimiento de SB 525, topes salariales financiados por subvenciones y pisos de contratos sindicales",
+      },
+      {
+        en: "For HR/leaders: build a total compensation strategy that competes with hospital systems without matching their base salaries — loan repayment, bilingual premiums, hybrid schedules, ECM program revenue sharing",
+        es: "Para RR.HH./líderes: construir una estrategia de compensación total que compita con los sistemas hospitalarios sin igualar sus salarios base — reembolso de préstamos, primas bilingües, horarios híbridos, participación en ingresos de programas ECM",
+      },
+      {
+        en: "For candidates: identify the 6 FQHC-specific negotiation levers beyond base salary — NHSC/NURSE Corps loan repayment ($25K–$50K), bilingual premiums ($1–3/hr), CME budgets ($1,500–$3,000), CalAIM bonus potential, signing bonuses, and CEU/licensure support",
+        es: "Para candidatos: identificar los 6 palancas de negociación específicas de FQHC más allá del salario base — reembolso de préstamos NHSC/NURSE Corps ($25K–$50K), primas bilingües ($1–3/hr), presupuestos CME ($1,500–$3,000), potencial de bonos CalAIM, bonos de firma y apoyo de CEU/licencias",
+      },
+      {
+        en: "Navigate union vs. non-union dynamics: what's negotiable when SEIU/NUHW contracts define wages, and how to negotiate step increases, differentials, and non-wage benefits",
+        es: "Navegar la dinámica sindical vs. no sindical: qué es negociable cuando los contratos SEIU/NUHW definen los salarios, y cómo negociar aumentos escalonados, diferenciales y beneficios no salariales",
+      },
+      {
+        en: "Apply the FQHC Retention ROI formula: calculate the full cost of turnover for each role (1.5–2× annual salary) and use it to justify higher compensation to reluctant boards",
+        es: "Aplicar la fórmula de ROI de retención FQHC: calcular el costo total de rotación para cada puesto (1.5–2× salario anual) y usarlo para justificar una compensación más alta ante juntas renuentes",
+      },
+    ],
+    keyTakeaways: [
+      {
+        en: "The most powerful negotiation lever for FQHC candidates isn't salary — it's NHSC loan repayment. A CHW with $40K in student loans who joins an NHSC-approved site gets that debt erased in 2 years. That's $20K/year in value that never appears on the offer letter.",
+        es: "El palanca de negociación más poderosa para los candidatos de FQHC no es el salario — es el reembolso de préstamos NHSC. Un CHW con $40K en préstamos estudiantiles que se une a un sitio aprobado por NHSC obtiene esa deuda eliminada en 2 años. Eso es un valor de $20K/año que nunca aparece en la carta de oferta.",
+      },
+      {
+        en: "HR directors: stop quoting base salary first. Lead with total compensation — PTO, NHSC eligibility, CalPERS/403(b) match, bilingual premium, tuition reimbursement. A $62K base at an NHSC-approved FQHC with loan repayment and CalPERS beats a $72K hospital offer for any candidate with student debt.",
+        es: "Directores de RR.HH.: dejen de cotizar el salario base primero. Lideren con compensación total — PTO, elegibilidad NHSC, aportación CalPERS/403(b), prima bilingüe, reembolso de matrícula. Un salario base de $62K en un FQHC aprobado por NHSC con reembolso de préstamos y CalPERS supera una oferta hospitalaria de $72K para cualquier candidato con deuda estudiantil.",
+      },
+      {
+        en: "SB 525 isn't just a compliance burden — it's a forcing function to restructure your compensation bands correctly. FQHCs that get ahead of it now will recruit better; those that scramble in 2026 will lose their best staff during the compliance transition.",
+        es: "SB 525 no es solo una carga de cumplimiento — es una función forzosa para reestructurar correctamente sus bandas salariales. Los FQHCs que se adelanten ahora reclutarán mejor; los que se apresuren en 2026 perderán a su mejor personal durante la transición de cumplimiento.",
+      },
+      {
+        en: "Where the real tension lives: grant-funded roles (CHW, care coordinator, outreach worker) have salary caps tied to the grant budget. HR can't simply 'go up' — but can often reclassify the role, shift funding sources, or add a non-grant-funded stipend for specific skills (bilingual, specialty training).",
+        es: "Donde vive la tensión real: los roles financiados por subvenciones (CHW, coordinador de atención, trabajador de divulgación) tienen topes salariales vinculados al presupuesto de la subvención. RR.HH. no puede simplemente 'subir' — pero a menudo puede reclasificar el puesto, cambiar fuentes de financiamiento o agregar un estipendio no financiado por subvenciones para habilidades específicas (bilingüe, capacitación especializada).",
+      },
+    ],
+    sourceMaterials: [
+      {
+        label: "NHSC Loan Repayment Program — HRSA (2025 Award Amounts)",
+        url: "https://nhsc.hrsa.gov/loan-repayment/nhsc-loan-repayment-program",
+      },
+      {
+        label: "California SB 525 Healthcare Minimum Wage — HCAI Implementation",
+        url: "https://hcai.ca.gov/workforce/sb-525/",
+      },
+      {
+        label: "NACHC: CHC Workforce Compensation Survey",
+        url: "https://www.nachc.org/research-and-data/research/workforce-data/",
+      },
+      {
+        label: "HRSA: Nurse Corps Loan Repayment Program",
+        url: "https://bhw.hrsa.gov/funding/apply-scholarship-loan-repayment/nurse-corps",
+      },
+      {
+        label: "CalHR: CalPERS Retirement Benefit Calculator",
+        url: "https://www.calpers.ca.gov/page/members/retirement/retirement-estimate-calculator",
+      },
+      {
+        label: "SEIU 2026 Contract Tracker — Healthcare Workers",
+        url: "https://www.seiu-uhw.org/",
+      },
+    ],
+    siteLinks: [
+      { label: "Salary Intelligence", href: "/salary-data" },
+      { label: "Career Roadmap", href: "/career-roadmap" },
+      { label: "Certifications Catalog", href: "/certifications" },
+      { label: "Career Resources (Loan Repayment)", href: "/resources" },
+      { label: "Scope of Practice Guide", href: "/strategy/scope-of-practice" },
+    ],
+    tags: ["salary", "compensation", "negotiation", "sb-525", "nhsc", "loan-repayment", "bilingual-premium", "union", "retention", "hr"],
+  },
 ]
 
 // ── Helper Functions ───────────────────────────────────────────

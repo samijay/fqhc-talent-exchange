@@ -102,6 +102,32 @@ export default function CareerInsightsPage() {
       </section>
 
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+        {/* Also available row */}
+        <div className="mb-8 flex flex-wrap items-center gap-2 text-sm text-stone-500">
+          <span className="font-medium">{isEs ? "También disponible:" : "Also available:"}</span>
+          <Link
+            href="/jobs"
+            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700 hover:bg-teal-100"
+          >
+            <Briefcase className="size-3" />
+            {isEs ? "Empleos FQHC" : "Browse FQHC Jobs"}
+          </Link>
+          <Link
+            href="/resume-builder"
+            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700 hover:bg-teal-100"
+          >
+            <FileText className="size-3" />
+            {isEs ? "Crear currículum" : "Build Your Resume"}
+          </Link>
+          <Link
+            href="/career-roadmap"
+            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700 hover:bg-teal-100"
+          >
+            <TrendingUp className="size-3" />
+            {isEs ? "Trayectoria profesional" : "Career Roadmap"}
+          </Link>
+        </div>
+
         {/* Step 1: Role selection */}
         {!selectedRole && (
           <div>

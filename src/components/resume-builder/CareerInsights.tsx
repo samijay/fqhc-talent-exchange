@@ -22,6 +22,7 @@ import {
   Calendar,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import {
   DOMAIN_DEFINITIONS,
   calculateAssessmentResults,
@@ -437,6 +438,26 @@ export default function CareerInsights({ onComplete, onSkip, roleId }: CareerIns
               );
             })}
           </div>
+
+          {/* Resume CTA — highlight top strengths */}
+          {results.topStrength && (
+            <div className="mt-4 rounded-lg border border-teal-200 bg-teal-50 px-4 py-3">
+              <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-teal-700">
+                {isEs ? "Tu currículum debe destacar:" : "Your resume should highlight:"}
+              </p>
+              <p className="text-sm text-teal-900">
+                {getDomainName(results.topStrength, locale)}
+                {results.insights.strengths[0] ? ` — ${results.insights.strengths[0]}` : ""}
+              </p>
+              <Link
+                href="/resume-builder"
+                className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-teal-700 hover:text-teal-900"
+              >
+                {isEs ? "Crear tu currículum FQHC (gratis)" : "Build Your FQHC Resume (free)"}
+                <ArrowRight className="size-3.5" />
+              </Link>
+            </div>
+          )}
 
           {/* Strengths */}
           <div className="mt-8">
