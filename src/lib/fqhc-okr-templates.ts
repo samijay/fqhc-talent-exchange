@@ -5,7 +5,7 @@
 // Last updated: 2026-02-28
 
 /** Exported for display on pages — updated when new OKR templates are added */
-export const OKR_TEMPLATES_LAST_UPDATED = "2026-02-28"; // 24 templates
+export const OKR_TEMPLATES_LAST_UPDATED = "2026-03-07"; // 25 templates (+ company-wide)
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -36,6 +36,7 @@ export interface OKRTemplate {
   timeframe: "quarterly" | "annual";
   difficulty: "starter" | "intermediate" | "advanced";
   tags: string[];
+  featured?: boolean; // Pinned to top — used for company-wide / signature templates
 }
 
 /* ------------------------------------------------------------------ */
@@ -121,6 +122,105 @@ export const DIFFICULTY_LABELS: Record<
 /* ------------------------------------------------------------------ */
 
 export const OKR_TEMPLATES: OKRTemplate[] = [
+  /* ── COMPANY-WIDE FLAGSHIP TEMPLATE ── */
+  /* Covers all 8 clinical roles + admin, designed for board-level OKRs  */
+  {
+    id: "company-wide-2026-plan",
+    domain: "cross-department",
+    featured: true,
+    objective: {
+      en: "Mobilize every team — MD to MA to CHW — to achieve financial sustainability and serve every patient through the 2026 crisis",
+      es: "Movilizar cada equipo — de MD a MA a CHW — para lograr sostenibilidad financiera y atender a cada paciente durante la crisis del 2026",
+    },
+    keyResults: [
+      {
+        kr: {
+          en: "Providers (MD/DO, NP, PA): maintain ≥18 billable encounters/provider/day with zero provider vacancies lasting >60 days — the revenue floor that funds everything else",
+          es: "Proveedores (MD/DO, NP, PA): mantener ≥18 encuentros facturables/proveedor/día con cero vacantes >60 días — el piso de ingresos que financia todo lo demás",
+        },
+        metric: "Encounters/provider/day + vacancy duration",
+        target: "≥18 enc/day; 0 vacancies >60 days",
+        departmentsInvolved: ["Executive", "HR", "Clinical Leadership", "Providers (MD/NP/PA)"],
+      },
+      {
+        kr: {
+          en: "RNs lead team-based chronic disease protocols (standing orders for diabetes, HTN, COPD) — freeing ≥400 additional MD/NP appointment slots per month for complex/new patients",
+          es: "Enfermeras RN lideran protocolos de enfermedades crónicas (órdenes permanentes para diabetes, HTN, EPOC) — liberando ≥400 espacios adicionales de MD/NP por mes",
+        },
+        metric: "Additional provider slots freed by RN-led protocols",
+        target: "≥400 slots/month",
+        departmentsInvolved: ["Registered Nurses (RN)", "Clinical Leadership", "Quality", "IT"],
+      },
+      {
+        kr: {
+          en: "MAs complete full rooming protocol (point-of-care HbA1c, BP, medication reconciliation, care gap check) before provider enters — cutting average visit cycle time to ≤25 minutes",
+          es: "MAs completan protocolo de preparación completo (HbA1c en punto de atención, PA, reconciliación de medicamentos, verificación de brechas) antes que el proveedor entre — reduciendo ciclo de visita a ≤25 minutos",
+        },
+        metric: "Average visit cycle time (check-in to close)",
+        target: "≤25 minutes",
+        departmentsInvolved: ["Medical Assistants (MA)", "Clinical", "Quality"],
+      },
+      {
+        kr: {
+          en: "CHWs enroll 150+ high-acuity patients in ECM ($275 PMPM avg) and bill ≥$450K in annual ECM revenue — 100% of CHWs hold current DHCS certification before billing",
+          es: "CHWs inscriben 150+ pacientes de alta agudeza en ECM ($275 PMPM prom.) y facturan ≥$450K en ingresos ECM anuales — 100% de CHWs con certificación DHCS vigente antes de facturar",
+        },
+        metric: "ECM enrolled patients / annual ECM revenue / CHW cert rate",
+        target: "≥150 patients; ≥$450K/yr; 100% certified",
+        departmentsInvolved: ["Community Health Workers (CHW)", "Care Coordination", "Finance/Billing", "HR"],
+      },
+      {
+        kr: {
+          en: "BH providers complete 250+ same-day warm handoff encounters/month (each a separate PPS under Medicare; APM-eligible under Medi-Cal) — PHQ-2 universal screening rate ≥90% of adult primary care patients",
+          es: "Proveedores de BH completan 250+ encuentros de transferencia cálida por mes (PPS separado bajo Medicare; elegible APM bajo Medi-Cal) — tasa de cribado PHQ-2 ≥90% de pacientes adultos de atención primaria",
+        },
+        metric: "Monthly BH warm handoff encounters / PHQ-2 screening rate",
+        target: "≥250 encounters/month; ≥90% screened",
+        departmentsInvolved: ["BH Providers (LCSW)", "Clinical", "Quality", "Finance/Billing"],
+      },
+      {
+        kr: {
+          en: "Dental team reaches 400+ PPS-billable encounters/month — HRSA Form 5A scope-of-service change approved for dental by Q2 (if not yet on scope) — same-day dental referrals seen within 14 days",
+          es: "Equipo dental alcanza 400+ encuentros PPS facturables/mes — cambio de alcance de servicio HRSA Formulario 5A aprobado para dental en Q2 — referencias dentales del mismo día atendidas en 14 días",
+        },
+        metric: "Monthly dental PPS encounters / HRSA scope status / Referral wait time",
+        target: "≥400/month; Scope approved; ≤14 days",
+        departmentsInvolved: ["Dental Providers", "Operations", "Executive", "Finance/Billing"],
+      },
+      {
+        kr: {
+          en: "Finance & Front Desk: insurance eligibility verified for 100% of patients at check-in, claim denial rate ≤5%, days in A/R ≤35 — denied claims worked within 7 days with ≥60% overturn rate",
+          es: "Finanzas y Recepción: elegibilidad verificada para 100% de pacientes al registrarse, tasa de denegación ≤5%, días en C/C ≤35 — reclamaciones denegadas trabajadas en 7 días con tasa de reversión ≥60%",
+        },
+        metric: "Eligibility verification rate / Denial rate / A/R days / Overturn rate",
+        target: "100% verified; ≤5% denials; ≤35 A/R days; ≥60% overturn",
+        departmentsInvolved: ["Finance/Billing", "Front Desk", "IT"],
+      },
+      {
+        kr: {
+          en: "HR & Executive: org-wide voluntary turnover ≤22% + staff satisfaction ≥80% on annual survey — SB 525 wage compliance plan (phased to $25/hr by 2027) approved by board by Q2 with ≥$200K offset revenue identified",
+          es: "RH y Ejecutivo: rotación voluntaria org-amplia ≤22% + satisfacción del personal ≥80% en encuesta anual — plan de cumplimiento salarial SB 525 (en fases a $25/hr para 2027) aprobado por la junta en Q2 con ≥$200K en ingresos compensatorios identificados",
+        },
+        metric: "Voluntary turnover rate / Staff satisfaction / SB 525 plan status",
+        target: "≤22% turnover; ≥80% satisfaction; Plan board-approved Q2",
+        departmentsInvolved: ["HR", "Executive", "All Departments"],
+      },
+    ],
+    context: {
+      en: "No single department can solve the 2026 crisis alone. H.R. 1 threatens up to 60% of Section 330 funding for California FQHCs, SB 525 adds mandatory wage costs across every role, and the CalAIM waiver expires December 2026. This template cascades accountability to all 8 clinical role groups — physicians, NPs/PAs, RNs, MAs, CHWs, BH providers, dentists — plus finance, HR, and operations. Each KR requires cross-functional coordination: no one department can achieve it without the others. Use this at the board/executive director level and create department sub-OKRs beneath each KR. The Excel download includes a full tracking template with Owner, Current Value, and Status columns for each KR.",
+      es: "Ningún departamento por sí solo puede resolver la crisis del 2026. H.R. 1 amenaza hasta el 60% del financiamiento de la Sección 330 para FQHCs de California, SB 525 agrega costos salariales obligatorios en cada rol, y la exención CalAIM vence en diciembre 2026. Esta plantilla distribuye responsabilidad a los 8 grupos de roles clínicos — médicos, NP/PA, enfermeras, MA, CHW, proveedores de BH, dentistas — más finanzas, RH y operaciones.",
+    },
+    relatedIntelIds: [
+      "hr1-medicaid-cuts",
+      "sb-525-minimum-wage",
+      "calaim-waiver-expiry",
+      "hrsa-maha-alignment-fy2026",
+    ],
+    timeframe: "annual",
+    difficulty: "advanced",
+    tags: ["company-wide", "cross-functional", "all-roles", "survival-plan", "2026", "sb-525", "ecm", "pps"],
+  },
+
   /* ── STARTER ── */
   {
     id: "starter-chw-billing",

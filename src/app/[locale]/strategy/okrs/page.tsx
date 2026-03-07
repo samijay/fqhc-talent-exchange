@@ -13,6 +13,9 @@ import {
   Users,
   Clock,
   Target,
+  Download,
+  Star,
+  FileSpreadsheet,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -24,6 +27,10 @@ import {
   type OKRDomain,
   type OKRTemplate,
 } from "@/lib/fqhc-okr-templates";
+import {
+  downloadOKRsAsExcel,
+  downloadSingleOKRAsExcel,
+} from "@/lib/okr-excel-export";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -51,13 +58,36 @@ function OKRCard({
 }) {
   const domainMeta = OKR_DOMAINS.find((d) => d.id === okr.domain);
   const diffMeta = DIFFICULTY_LABELS[okr.difficulty];
+  const [downloading, setDownloading] = useState(false);
+
+  const handleDownload = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setDownloading(true);
+    try {
+      await downloadSingleOKRAsExcel(okr, locale);
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden">
+    <div
+      className={`rounded-2xl border bg-white transition-shadow hover:shadow-md overflow-hidden ${
+        okr.featured
+          ? "border-teal-300 ring-2 ring-teal-100"
+          : "border-stone-200"
+      }`}
+    >
       <button onClick={onToggle} className="w-full text-left p-6 pb-4">
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2 mb-2">
+              {okr.featured && (
+                <span className="flex items-center gap-1 text-xs font-semibold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full">
+                  <Star className="size-3 fill-teal-600" />
+                  {isEs ? "Plantilla Insignia" : "Flagship Template"}
+                </span>
+              )}
               {domainMeta && (
                 <Badge
                   variant="secondary"
@@ -170,8 +200,8 @@ function OKRCard({
             ))}
           </div>
 
-          {/* Related links */}
-          <div className="flex items-center gap-3 border-t border-stone-100 pt-3">
+          {/* Footer: links + individual download */}
+          <div className="flex flex-wrap items-center gap-3 border-t border-stone-100 pt-3">
             {okr.relatedCaseStudyId && (
               <Link
                 href="/strategy/guides"
@@ -180,8 +210,25 @@ function OKRCard({
                 {isEs ? "Ver Caso Relacionado" : "Related Case Study"} →
               </Link>
             )}
+
+            {/* Per-card Excel download */}
+            <button
+              onClick={handleDownload}
+              disabled={downloading}
+              className="flex items-center gap-1.5 text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full hover:bg-emerald-100 transition-colors disabled:opacity-50"
+            >
+              <FileSpreadsheet className="size-3" />
+              {downloading
+                ? isEs
+                  ? "Descargando…"
+                  : "Downloading…"
+                : isEs
+                  ? "Descargar Excel"
+                  : "Download Excel"}
+            </button>
+
             {okr.tags.length > 0 && (
-              <div className="flex flex-wrap gap-1">
+              <div className="flex flex-wrap gap-1 ml-auto">
                 {okr.tags.map((tag) => (
                   <span
                     key={tag}
@@ -211,6 +258,7 @@ export default function OKRTemplatesPage() {
   const [activeDifficulty, setActiveDifficulty] = useState<
     "all" | "starter" | "intermediate" | "advanced"
   >("all");
+  const [downloading, setDownloading] = useState(false);
 
   const toggle = (id: string) => {
     setExpandedIds((prev) => {
@@ -228,6 +276,15 @@ export default function OKRTemplatesPage() {
   );
 
   const counts = getOKRCounts();
+
+  const handleDownloadAll = async () => {
+    setDownloading(true);
+    try {
+      await downloadOKRsAsExcel(filtered, locale);
+    } finally {
+      setDownloading(false);
+    }
+  };
 
   return (
     <div className="bg-stone-50">
@@ -248,7 +305,7 @@ export default function OKRTemplatesPage() {
               ? "Objetivos y Resultados Clave disenados para romper silos entre departamentos y conectar estrategia con resultados medibles."
               : "Objectives & Key Results designed to break down silos between departments and connect strategy to measurable outcomes."}
           </p>
-          <div className="mt-6 flex items-center gap-4 text-sm text-stone-400">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-stone-400">
             <span>
               {counts.total} {isEs ? "plantillas" : "templates"}
             </span>
@@ -260,6 +317,21 @@ export default function OKRTemplatesPage() {
             <span>
               3 {isEs ? "niveles de dificultad" : "difficulty levels"}
             </span>
+            <span className="text-stone-600">·</span>
+            <button
+              onClick={handleDownloadAll}
+              disabled={downloading}
+              className="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 text-white text-xs font-semibold px-3 py-1.5 rounded-full transition-colors"
+            >
+              <Download className="size-3.5" />
+              {downloading
+                ? isEs
+                  ? "Generando…"
+                  : "Generating…"
+                : isEs
+                  ? "Descargar todo (Excel)"
+                  : "Download All (Excel)"}
+            </button>
           </div>
         </div>
       </section>
@@ -267,6 +339,33 @@ export default function OKRTemplatesPage() {
       {/* Filters + OKRs */}
       <section className="py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          {/* Company-wide callout */}
+          <div className="mb-6 rounded-xl border border-teal-200 bg-teal-50 px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
+            <Star className="size-5 text-teal-600 shrink-0" />
+            <p className="text-sm text-teal-800 flex-1">
+              <span className="font-semibold">
+                {isEs
+                  ? "¿Nuevo en OKRs? Empieza con la Plantilla Insignia de Toda la Empresa."
+                  : "New to OKRs? Start with the Company-Wide Flagship Template."}
+              </span>{" "}
+              {isEs
+                ? "Cubre los 8 roles clínicos (MD, NP, PA, RN, MA, CHW, BH, Dental) + Finanzas y RH — diseñado para el nivel de junta directiva."
+                : "Covers all 8 clinical roles (MD, NP, PA, RN, MA, CHW, BH, Dental) + Finance & HR — designed for board-level planning."}
+            </p>
+            <button
+              onClick={() => {
+                toggle("company-wide-2026-plan");
+                document
+                  .getElementById("okr-company-wide")
+                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              className="shrink-0 text-xs font-semibold text-teal-700 bg-white border border-teal-300 px-3 py-1.5 rounded-full hover:bg-teal-100 transition-colors"
+            >
+              {isEs ? "Ver plantilla ↓" : "View template ↓"}
+            </button>
+          </div>
+
           {/* Domain filter */}
           <div className="flex items-center gap-2 mb-4">
             <Filter className="size-4 text-stone-400" />
@@ -301,7 +400,7 @@ export default function OKRTemplatesPage() {
           </div>
 
           {/* Difficulty filter */}
-          <div className="flex items-center gap-2 mb-6">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
             <Target className="size-4 text-stone-400" />
             <span className="text-xs font-medium text-stone-500 uppercase">
               {isEs ? "Dificultad" : "Difficulty"}:
@@ -329,19 +428,37 @@ export default function OKRTemplatesPage() {
                 </button>
               ))}
             </div>
+
+            {/* Download filtered button */}
+            {filtered.length < OKR_TEMPLATES.length && (
+              <button
+                onClick={handleDownloadAll}
+                disabled={downloading}
+                className="ml-auto flex items-center gap-1.5 text-xs text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-full transition-colors disabled:opacity-50"
+              >
+                <FileSpreadsheet className="size-3.5" />
+                {isEs
+                  ? `Descargar filtrados (${filtered.length})`
+                  : `Download filtered (${filtered.length})`}
+              </button>
+            )}
           </div>
 
           {/* OKR cards */}
           <div className="space-y-4">
             {filtered.map((okr) => (
-              <OKRCard
+              <div
                 key={okr.id}
-                okr={okr}
-                locale={locale}
-                isEs={isEs}
-                isExpanded={expandedIds.has(okr.id)}
-                onToggle={() => toggle(okr.id)}
-              />
+                id={okr.id === "company-wide-2026-plan" ? "okr-company-wide" : undefined}
+              >
+                <OKRCard
+                  okr={okr}
+                  locale={locale}
+                  isEs={isEs}
+                  isExpanded={expandedIds.has(okr.id)}
+                  onToggle={() => toggle(okr.id)}
+                />
+              </div>
             ))}
           </div>
 
@@ -353,8 +470,8 @@ export default function OKRTemplatesPage() {
             </div>
           )}
 
-          {/* Related links */}
-          <div className="mt-10 flex items-center gap-4">
+          {/* Related links + download CTA */}
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <Button variant="outline" asChild>
               <Link href="/strategy/guides">
                 {isEs ? "Guias Ejecutivas" : "Executive Guides"}{" "}
@@ -367,6 +484,20 @@ export default function OKRTemplatesPage() {
                 <ArrowRight className="size-4" />
               </Link>
             </Button>
+            <button
+              onClick={handleDownloadAll}
+              disabled={downloading}
+              className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+            >
+              <FileSpreadsheet className="size-4" />
+              {downloading
+                ? isEs
+                  ? "Generando Excel…"
+                  : "Generating Excel…"
+                : isEs
+                  ? "Descargar todas como Excel"
+                  : "Download All as Excel Tracker"}
+            </button>
           </div>
         </div>
       </section>
