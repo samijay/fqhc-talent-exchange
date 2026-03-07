@@ -162,7 +162,7 @@ function EventCard({
       </div>
 
       {/* Content */}
-      <div className="flex-1 pb-8">
+      <div className="flex-1 pb-3">
         <button
           onClick={onToggle}
           className={`w-full text-left rounded-xl border p-4 transition-all ${
@@ -200,11 +200,30 @@ function EventCard({
             />
           </div>
 
-          {/* Preview */}
+          {/* Preview (collapsed) */}
           {!isExpanded && (
-            <p className="mt-2 text-sm text-stone-500 line-clamp-2">
-              {t(event.description, locale)}
-            </p>
+            <div className="mt-2">
+              <p className="text-sm text-stone-600 line-clamp-3">
+                {t(event.description, locale)}
+              </p>
+              {/* Media + source indicators */}
+              <div className="flex flex-wrap items-center gap-2 mt-2">
+                {event.videoUrl && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-stone-100 border border-stone-200 px-2 py-0.5 text-[10px] font-medium text-stone-600">
+                    ▶ {isEs ? "Video" : "Video"}
+                  </span>
+                )}
+                {event.imageUrl && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-stone-100 border border-stone-200 px-2 py-0.5 text-[10px] font-medium text-stone-600">
+                    🖼 {isEs ? "Foto" : "Photo"}
+                  </span>
+                )}
+                <span className="inline-flex items-center gap-1 text-[10px] text-stone-400">
+                  <ExternalLink className="size-2.5" />
+                  {event.primarySourceOrg}
+                </span>
+              </div>
+            </div>
           )}
 
           {/* Expanded content */}
@@ -355,7 +374,6 @@ export function MovementTimeline({
     new Set(eras.slice(0, 2).map((e) => e.id)) // First 2 eras open by default
   );
   const [expandedEvents, setExpandedEvents] = useState<Set<string>>(new Set());
-  const [categoryFilter, setCategoryFilter] = useState<string>("all");
 
   const toggleEra = (eraId: string) => {
     setExpandedEras((prev) => {
@@ -375,54 +393,17 @@ export function MovementTimeline({
     });
   };
 
-  // Get unique categories from events
-  const categories = Array.from(new Set(events.map((e) => e.category)));
-
   return (
     <div>
-      {/* Category filter */}
-      <div className="flex flex-wrap items-center gap-2 mb-6">
-        <span className="text-xs font-medium text-stone-500 uppercase tracking-wider">
-          {isEs ? "Filtrar" : "Filter"}:
-        </span>
-        <button
-          onClick={() => setCategoryFilter("all")}
-          className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-            categoryFilter === "all"
-              ? "bg-stone-900 text-white"
-              : "bg-white text-stone-600 border border-stone-200 hover:bg-stone-100"
-          }`}
-        >
-          {isEs ? "Todo" : "All"}
-        </button>
-        {categories.map((cat) => {
-          const meta = CATEGORY_META[cat];
-          return (
-            <button
-              key={cat}
-              onClick={() => setCategoryFilter(cat)}
-              className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
-                categoryFilter === cat
-                  ? "bg-stone-900 text-white"
-                  : `bg-white ${meta.color} border border-stone-200 hover:bg-stone-100`
-              }`}
-            >
-              {t(meta.label, locale)}
-            </button>
-          );
-        })}
-      </div>
-
       {/* Eras */}
-      <div className="space-y-6">
+      <div className="space-y-4">
         {eras.map((era) => {
           const isOpen = expandedEras.has(era.id);
           const eraEvents = events
             .filter((e) => e.era === era.id)
-            .filter((e) => categoryFilter === "all" || e.category === categoryFilter)
             .sort((a, b) => a.year - b.year);
 
-          if (categoryFilter !== "all" && eraEvents.length === 0) return null;
+          if (eraEvents.length === 0) return null;
 
           return (
             <div key={era.id}>
@@ -468,9 +449,7 @@ export function MovementTimeline({
                   ))}
                   {eraEvents.length === 0 && (
                     <p className="text-sm text-stone-400 italic pl-16 py-4">
-                      {isEs
-                        ? "No hay eventos en esta era para el filtro seleccionado."
-                        : "No events in this era for the selected filter."}
+                      {isEs ? "No hay eventos en esta era." : "No events in this era."}
                     </p>
                   )}
                 </div>

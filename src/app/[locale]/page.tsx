@@ -424,18 +424,18 @@ export default function Home() {
       {/* ==================== TRENDING TICKER ==================== */}
       <div className="border-b border-stone-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center gap-3 py-2.5">
-          <span className="flex-shrink-0 inline-flex items-center gap-1 rounded bg-red-100 text-red-700 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+          <span className="flex-shrink-0 inline-flex items-center gap-1 rounded bg-red-600 text-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
             <TrendingUp className="size-3" />
-            {isEs ? "Tendencia" : "Trending"}
+            {isEs ? "Crítico" : "Critical"}
           </span>
           <Link
-            href="/ai-tracker"
+            href="/funding-impact"
             className="text-sm font-medium text-stone-700 hover:text-teal-700 transition-colors truncate"
           >
-            <span className="hidden sm:inline">📺 </span>
+            <span className="hidden sm:inline">🚨 </span>
             {isEs
-              ? "KTVU: IA expande atención para personas sin hogar en el Área de la Bahía — 92% precisión, financiado por CalAIM →"
-              : "KTVU: AI Expanding Care for the Unhoused — 92% diagnostic accuracy, funded by CalAIM →"}
+              ? "Condado de LA enfrenta $1.5B en recortes federales — cierre de hospital posible →"
+              : "LA County faces $1.5B in federal cuts — hospital closure now possible →"}
           </Link>
           <span className="hidden sm:inline-block flex-shrink-0 text-[10px] text-stone-400">
             {isEs ? "Simulador:" : "Simulator:"}
