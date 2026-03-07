@@ -119,6 +119,78 @@ const articlesFeed = [...BLOG_POSTS].sort(
 /* Derive the latest actual news date for the "Updated" label */
 const latestNewsDate = newsFeed.length > 0 ? newsFeed[0].date : INTEL_LAST_UPDATED;
 
+/* Map raw region strings (county names, city names) to our 9 standard regions */
+const REGION_MAP: Record<string, string> = {
+  "Los Angeles": "LA",
+  "Los Angeles County": "LA",
+  "San Diego County": "SD",
+  "San Francisco County": "Bay Area",
+  "Alameda County": "Bay Area",
+  "Contra Costa County": "Bay Area",
+  "Santa Clara County": "Bay Area",
+  "San Mateo County": "Bay Area",
+  "Marin County": "Bay Area",
+  "Solano County": "Bay Area",
+  "Napa County": "Bay Area",
+  "Sonoma County": "Bay Area",
+  "Sacramento County": "Sacramento",
+  "Yolo County": "Sacramento",
+  "Placer County": "Sacramento",
+  "El Dorado County": "Sacramento",
+  "Fresno County": "Central Valley",
+  "Kern County": "Central Valley",
+  "Tulare County": "Central Valley",
+  "San Joaquin County": "Central Valley",
+  "Stanislaus County": "Central Valley",
+  "Merced County": "Central Valley",
+  "Central Valley": "Central Valley",
+  "Riverside County": "Inland Empire",
+  "San Bernardino County": "Inland Empire",
+  "Santa Barbara County": "Central Coast",
+  "San Luis Obispo County": "Central Coast",
+  "Ventura County": "Central Coast",
+  "Monterey County": "Central Coast",
+  "Orange County": "LA", // OC is close enough to LA for filtering
+  Federal: "Federal",
+  California: "Statewide",
+};
+
+/** Get simplified region name for an intel item */
+function getSimplifiedRegion(rawRegion: string): string {
+  return REGION_MAP[rawRegion] ?? rawRegion;
+}
+
+/** Display labels for simplified regions */
+const REGION_LABELS: Record<string, { en: string; es: string }> = {
+  all: { en: "All", es: "Todo" },
+  Federal: { en: "Federal", es: "Federal" },
+  Statewide: { en: "CA Statewide", es: "CA Estatal" },
+  LA: { en: "LA", es: "LA" },
+  "Bay Area": { en: "Bay Area", es: "Bay Area" },
+  SD: { en: "San Diego", es: "San Diego" },
+  "Central Valley": { en: "Central Valley", es: "Valle Central" },
+  Sacramento: { en: "Sacramento", es: "Sacramento" },
+  "Inland Empire": { en: "Inland Empire", es: "Inland Empire" },
+  "Central Coast": { en: "Central Coast", es: "Costa Central" },
+  "North State": { en: "North State", es: "Norte del Estado" },
+  "North Coast": { en: "North Coast", es: "Costa Norte" },
+};
+
+/* Simplified regions present in the news feed */
+const NEWS_REGIONS_ORDERED = [
+  "Federal",
+  "Statewide",
+  "LA",
+  "Bay Area",
+  "SD",
+  "Central Valley",
+  "Sacramento",
+  "Inland Empire",
+  "Central Coast",
+  "North State",
+  "North Coast",
+].filter((r) => newsFeed.some((item) => getSimplifiedRegion(item.region) === r));
+
 /* News filter categories — only categories that have type:"news" items */
 const NEWS_FILTER_CATEGORIES = [
   { id: "all" as const, en: "All", es: "Todo" },
@@ -246,20 +318,16 @@ export default function Home() {
   const [showAllRoles, setShowAllRoles] = useState(false);
   const [showMarketData, setShowMarketData] = useState(false);
 
-  /* Unique regions from news items for the regional filter */
-  const newsRegions = useMemo(() => {
-    const regions = new Set(newsFeed.map((item) => item.region));
-    return Array.from(regions).sort();
-  }, []);
-
-  /* Filtered news (external events) — by category + region */
+  /* Filtered news (external events) — by category + simplified region */
   const filteredNews = useMemo(() => {
     let items = newsFeed;
     if (newsFilter !== "all") {
       items = items.filter((item) => item.category === newsFilter);
     }
     if (newsRegion !== "all") {
-      items = items.filter((item) => item.region === newsRegion);
+      items = items.filter(
+        (item) => getSimplifiedRegion(item.region) === newsRegion,
+      );
     }
     return items;
   }, [newsFilter, newsRegion]);
@@ -399,27 +467,54 @@ export default function Home() {
               );
             })}
 
-            {/* Regional filter dropdown */}
-            <div className="ml-auto flex items-center gap-1.5">
-              <MapPin className="size-3.5 text-stone-400" />
-              <select
-                value={newsRegion}
-                onChange={(e) => {
-                  setNewsRegion(e.target.value);
-                  setShowAllNews(false);
-                }}
-                className="rounded-lg border border-stone-200 bg-white px-2.5 py-1.5 text-xs text-stone-700 focus:border-teal-500 focus:outline-none"
-              >
-                <option value="all">
-                  {isEs ? "Todas las Regiones" : "All Regions"}
-                </option>
-                {newsRegions.map((region) => (
-                  <option key={region} value={region}>
-                    {region}
-                  </option>
-                ))}
-              </select>
-            </div>
+          </div>
+
+          {/* Regional filter — prominent pill row */}
+          <div className="mb-6 flex flex-wrap items-center gap-1.5">
+            <MapPin className="size-4 text-stone-400 mr-1" />
+            <button
+              onClick={() => {
+                setNewsRegion("all");
+                setShowAllNews(false);
+              }}
+              className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                newsRegion === "all"
+                  ? "bg-teal-700 text-white"
+                  : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+              }`}
+            >
+              {isEs ? "Todo" : "All"}
+            </button>
+            {NEWS_REGIONS_ORDERED.map((region) => {
+              const isActive = newsRegion === region;
+              const label = REGION_LABELS[region]
+                ? t(REGION_LABELS[region], locale)
+                : region;
+              const count = newsFeed.filter(
+                (i) => getSimplifiedRegion(i.region) === region,
+              ).length;
+              return (
+                <button
+                  key={region}
+                  onClick={() => {
+                    setNewsRegion(region);
+                    setShowAllNews(false);
+                  }}
+                  className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                    isActive
+                      ? "bg-teal-700 text-white"
+                      : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                  }`}
+                >
+                  {label}
+                  <span
+                    className={`ml-1 text-[10px] ${isActive ? "text-teal-200" : "text-stone-400"}`}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
           <div className="grid gap-8 lg:grid-cols-3">
