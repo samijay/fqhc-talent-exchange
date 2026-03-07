@@ -276,6 +276,7 @@ export default function Header() {
       children: [
         { href: "/resume-builder", label: t("resumeBuilder") },
         { href: "/career-insights", label: t("careerAssessment") },
+        { href: "/interview-prep", label: t("interviewPrep") },
         { href: "/career-roadmap", label: t("careerRoadmap") },
         { href: "/certifications", label: t("certifications") },
         { href: "/resources", label: t("careerResources") },

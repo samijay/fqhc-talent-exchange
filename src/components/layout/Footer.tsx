@@ -41,6 +41,7 @@ export default function Footer() {
       { href: "/directory" as const, label: t("fqhcDirectory") },
       { href: "/resume-builder" as const, label: t("resumeBuilder") },
       { href: "/career-insights" as const, label: t("careerAssessment") },
+      { href: "/interview-prep" as const, label: t("interviewPrep") },
       { href: "/career-roadmap" as const, label: t("careerRoadmap") },
       { href: "/certifications" as const, label: t("certifications") },
       { href: "/resources" as const, label: t("careerResources") },
