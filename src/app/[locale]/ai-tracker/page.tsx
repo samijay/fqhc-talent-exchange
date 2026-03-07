@@ -391,40 +391,50 @@ export default function AITrackerPage() {
       <section className="bg-gradient-to-r from-teal-900 to-stone-900 py-8 sm:py-10 border-b border-stone-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-5 items-center">
-            {/* News story card (KTVU — not on YouTube, links to source) */}
+            {/* News story card — real KTVU thumbnail, links to video */}
             <a
               href="https://www.ktvu.com/video/fmc-s5kjj7k3h2w09riy"
               target="_blank"
               rel="noopener noreferrer"
-              className="lg:col-span-3 block aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-gradient-to-br from-stone-800 to-stone-900 hover:from-stone-700 hover:to-stone-800 transition-colors group relative"
+              className="lg:col-span-3 block aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10 group relative"
+              style={{
+                backgroundImage: "url('https://static-media.fox.com/fmcv3/prod/fts/of8kiyfzo588oguh/i0r47c2txwrqtwst.jpg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
+              {/* Dark overlay — lightens on hover to show thumbnail better */}
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/35 transition-colors" />
+
               {/* KTVU branding bar */}
-              <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-3 bg-black/60">
+              <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-3 bg-gradient-to-b from-black/70 to-transparent">
                 <span className="text-xs font-bold tracking-widest text-white uppercase">KTVU Fox 2</span>
                 <span className="rounded bg-red-600 px-2 py-0.5 text-[10px] font-bold text-white uppercase">
                   {isEs ? "Noticias" : "News Segment"}
                 </span>
               </div>
-              {/* Center play area */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 text-center">
-                <div className="flex size-16 items-center justify-center rounded-full bg-white/10 border-2 border-white/30 group-hover:bg-white/20 transition-colors">
-                  <svg viewBox="0 0 24 24" className="size-8 fill-white ml-1" aria-hidden>
+
+              {/* Play button — centered */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="flex size-16 items-center justify-center rounded-full bg-white/20 border-2 border-white/60 group-hover:bg-white/35 group-hover:scale-110 transition-all duration-200 shadow-xl">
+                  <svg viewBox="0 0 24 24" className="size-8 fill-white ml-1 drop-shadow" aria-hidden>
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-                <p className="text-sm font-semibold text-white leading-snug max-w-xs">
-                  {isEs
-                    ? "IA Expande Atención para Personas Sin Hogar — Área de la Bahía"
-                    : "AI Expanding Care for the Unhoused in the Bay Area"}
-                </p>
-                <span className="text-xs text-stone-400 group-hover:text-teal-400 transition-colors">
-                  {isEs ? "Ver en KTVU.com →" : "Watch on KTVU.com →"}
-                </span>
               </div>
-              {/* Bottom source bar */}
-              <div className="absolute bottom-0 left-0 right-0 flex items-center gap-2 px-4 py-2 bg-black/60">
-                <Cpu className="size-3 text-teal-400" />
-                <span className="text-[10px] text-stone-400">Akido Labs · ScopeAI · CalAIM ECM · Jan 2026</span>
+
+              {/* Bottom caption bar — title + Emma Mayerson credit */}
+              <div className="absolute bottom-0 left-0 right-0 px-4 py-3 bg-gradient-to-t from-black/80 to-transparent">
+                <p className="text-sm font-semibold text-white leading-snug">
+                  {isEs
+                    ? "IA Expande Atención para Personas Sin Hogar"
+                    : "AI Expanding Care for the Unhoused"}
+                </p>
+                <p className="mt-0.5 text-[11px] text-stone-300">
+                  {isEs
+                    ? "Con Emma Mayerson (Future Communities Institute) · KTVU Fox 2 · Ene 2026"
+                    : "Feat. Emma Mayerson (Future Communities Institute) · KTVU Fox 2 · Jan 2026"}
+                </p>
               </div>
             </a>
             {/* Description */}
@@ -437,23 +447,42 @@ export default function AITrackerPage() {
                   ? "IA Expande Atención para Personas Sin Hogar en el Área de la Bahía"
                   : "AI Expanding Care for the Unhoused in the Bay Area"}
               </h3>
-              <p className="mt-2 text-sm text-stone-300 leading-relaxed">
+              {/* Emma Mayerson credit */}
+              <div className="mt-2 flex items-center gap-2">
+                <span className="flex size-7 items-center justify-center rounded-full bg-teal-700 text-[10px] font-bold text-white shrink-0">EM</span>
+                <span className="text-xs text-teal-300">
+                  {isEs
+                    ? "Emma Mayerson · Co-Fundadora, Future Communities Institute"
+                    : "Emma Mayerson · Co-Founder, Future Communities Institute"}
+                </span>
+              </div>
+              <p className="mt-2.5 text-sm text-stone-300 leading-relaxed">
                 {isEs
-                  ? "ScopeAI de Akido Labs guía a trabajadores comunitarios de salud en visitas integrales — 92% precisión diagnóstica, tratamiento MAT en 4 horas, 40% reducción de visitas a urgencias. Financiado por CalAIM ECM de Medi-Cal."
-                  : "Akido Labs' ScopeAI guides community health workers through comprehensive visits — 92% diagnostic accuracy, MAT within 4 hours, 40% ED reduction. Funded entirely by Medi-Cal CalAIM ECM."}
+                  ? "ScopeAI de Akido Labs guía a trabajadores comunitarios de salud en visitas integrales — 92% precisión diagnóstica, tratamiento MAT en 4 horas, 40% reducción de visitas a urgencias. Financiado completamente por CalAIM ECM."
+                  : "Akido Labs' ScopeAI guides CHWs through comprehensive street medicine visits — 92% diagnostic accuracy, MAT within 4 hours, 40% ED reduction. Funded entirely by Medi-Cal CalAIM ECM."}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
-                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-[10px] text-teal-300">KTVU</span>
-                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-[10px] text-teal-300">CalAIM</span>
+                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-[10px] text-teal-300">KTVU Fox 2</span>
+                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-[10px] text-teal-300">CalAIM ECM</span>
                 <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-[10px] text-teal-300">Street Medicine</span>
                 <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-[10px] text-teal-300">Jan 2026</span>
               </div>
-              <a
-                href="#akido-labs-scopeai-bay-area-street-medicine"
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-teal-400 hover:text-teal-300 transition-colors"
-              >
-                {isEs ? "Ver análisis completo" : "Read full analysis"} <ArrowRight className="size-3.5" />
-              </a>
+              <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+                <a
+                  href="https://www.ktvu.com/video/fmc-s5kjj7k3h2w09riy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-red-600 hover:bg-red-500 px-3 py-1.5 text-xs font-semibold text-white transition-colors"
+                >
+                  ▶ {isEs ? "Ver video en KTVU" : "Watch on KTVU"}
+                </a>
+                <a
+                  href="#akido-labs-scopeai-bay-area-street-medicine"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-teal-400 hover:text-teal-300 transition-colors"
+                >
+                  {isEs ? "Ver análisis completo" : "Read full analysis"} <ArrowRight className="size-3.5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
