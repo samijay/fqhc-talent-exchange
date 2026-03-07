@@ -429,12 +429,13 @@ export default function Home() {
             {isEs ? "Tendencia" : "Trending"}
           </span>
           <Link
-            href="/blog/february-2026-jobs-report-healthcare-crisis"
+            href="/ai-tracker"
             className="text-sm font-medium text-stone-700 hover:text-teal-700 transition-colors truncate"
           >
+            <span className="hidden sm:inline">📺 </span>
             {isEs
-              ? "EE.UU. perdió 92K empleos. El sector salud carga toda la economía →"
-              : "U.S. lost 92K jobs. Healthcare is carrying the entire economy →"}
+              ? "KTVU: IA expande atención para personas sin hogar en el Área de la Bahía — 92% precisión, financiado por CalAIM →"
+              : "KTVU: AI Expanding Care for the Unhoused — 92% diagnostic accuracy, funded by CalAIM →"}
           </Link>
           <span className="hidden sm:inline-block flex-shrink-0 text-[10px] text-stone-400">
             {isEs ? "Simulador:" : "Simulator:"}

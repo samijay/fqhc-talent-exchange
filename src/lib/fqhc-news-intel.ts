@@ -89,6 +89,29 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 
 export const INTEL_ITEMS: IntelItem[] = [
   /* ============================================================== */
+  /*  CHANGE-MANAGEMENT / AI & INNOVATION                            */
+  /* ============================================================== */
+  {
+    id: "akido-labs-bay-area-ai-street-medicine",
+    date: "2026-01-28",
+    headline: {
+      en: "Bay Area Launches First AI-Powered Safety Net for Unhoused Patients — Funded by CalAIM",
+      es: "El Área de la Bahía Lanza la Primera Red de Seguridad con IA para Pacientes Sin Hogar — Financiada por CalAIM",
+    },
+    summary: {
+      en: "Future Communities Institute, Akido Labs, Five Keys, and ReImagine Freedom launch an AI-powered street medicine program using ScopeAI — tablet-guided visits by CHWs with 92% diagnostic accuracy, remote physician review, and MAT within 4 hours. In LA/Kern, the model serves 6,000 unhoused patients with 70% retention and 40% ED reduction. Entirely funded by Medi-Cal CalAIM ECM — no grants. Raises questions about AI experimentation on vulnerable populations and CHW scope expansion via technology.",
+      es: "Future Communities Institute, Akido Labs, Five Keys y ReImagine Freedom lanzan un programa de medicina callejera con IA usando ScopeAI — visitas guiadas por tableta con 92% precisión diagnóstica, revisión médica remota y MAT en 4 horas. En LA/Kern, el modelo atiende a 6,000 pacientes sin hogar con 70% retención y 40% reducción de urgencias. Financiado por CalAIM ECM de Medi-Cal — sin subvenciones.",
+    },
+    category: "change-management",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.ktvu.com/video/fmc-s5kjj7k3h2w09riy",
+    sourceOrg: "KTVU",
+    region: "Bay Area",
+    tags: ["ai", "street-medicine", "unhoused", "calAIM", "ecm", "scope-expansion", "chw"],
+  },
+
+  /* ============================================================== */
   /*  LEGISLATION                                                    */
   /* ============================================================== */
   {

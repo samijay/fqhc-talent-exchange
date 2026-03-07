@@ -1,31 +1,40 @@
 // FQHC Movement: California's Story — History, cross-cultural alliances, emotional narrative
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   ArrowRight,
+  ArrowUpDown,
   BookOpen,
   Calendar,
   ChevronDown,
   Clock,
   ExternalLink,
+  Film,
+  Filter,
   Handshake,
   Heart,
+  Linkedin,
   LinkIcon,
+  Play,
   Sparkles,
   Users,
+  Video,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   MOVEMENT_EVENTS,
   MOVEMENT_ERAS,
+  MOVEMENT_CATEGORIES,
   CROSS_CULTURAL_ALLIANCES,
   MOVEMENT_LAST_UPDATED,
 } from "@/lib/fqhc-movement-history";
+import { THOUGHT_LEADERS } from "@/lib/fqhc-thought-leaders";
 import { MovementTimeline } from "@/components/viz/MovementTimeline";
+import type { MovementCategory } from "@/components/viz/MovementTimeline";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -66,6 +75,144 @@ function communityChip(community: string) {
     </span>
   );
 }
+
+/* ------------------------------------------------------------------ */
+/*  Category filter pill colors                                        */
+/* ------------------------------------------------------------------ */
+
+const CATEGORY_PILL_COLORS: Record<string, { active: string; inactive: string }> = {
+  farmworker: { active: "bg-emerald-600 text-white", inactive: "bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100" },
+  "civil-rights": { active: "bg-purple-600 text-white", inactive: "bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100" },
+  legislation: { active: "bg-blue-600 text-white", inactive: "bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100" },
+  founding: { active: "bg-teal-600 text-white", inactive: "bg-teal-50 text-teal-700 border-teal-200 hover:bg-teal-100" },
+  expansion: { active: "bg-amber-600 text-white", inactive: "bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100" },
+  alliance: { active: "bg-rose-600 text-white", inactive: "bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100" },
+  crisis: { active: "bg-red-600 text-white", inactive: "bg-red-50 text-red-700 border-red-200 hover:bg-red-100" },
+  undocumented: { active: "bg-indigo-600 text-white", inactive: "bg-indigo-50 text-indigo-700 border-indigo-200 hover:bg-indigo-100" },
+};
+
+/* ------------------------------------------------------------------ */
+/*  Documentary / Video Resources data                                 */
+/* ------------------------------------------------------------------ */
+
+interface VideoResource {
+  id: string;
+  title: { en: string; es: string };
+  description: { en: string; es: string };
+  youtubeId?: string;
+  externalUrl?: string;
+  source: string;
+  year?: string;
+  relevance: string;
+}
+
+const VIDEO_RESOURCES: VideoResource[] = [
+  {
+    id: "black-power-mixtape",
+    title: {
+      en: "The Black Power Mixtape 1967-1975",
+      es: "The Black Power Mixtape 1967-1975",
+    },
+    description: {
+      en: "Swedish journalists documented the Black Power movement, including the Black Panthers' free health clinics that became the template for community-controlled healthcare. Essential viewing for understanding the radical origins of community health.",
+      es: "Periodistas suecos documentaron el movimiento Black Power, incluyendo las clinicas de salud gratuitas de los Panteras Negras que se convirtieron en el modelo para la atencion medica controlada por la comunidad. Esencial para entender los origenes radicales de la salud comunitaria.",
+    },
+    youtubeId: "e0bWTh74m6c",
+    source: "Sundance Film Festival",
+    year: "2011",
+    relevance: "Black Panthers free clinics",
+  },
+  {
+    id: "viva-la-causa",
+    title: {
+      en: "Viva La Causa",
+      es: "Viva La Causa",
+    },
+    description: {
+      en: "PBS documentary on Cesar Chavez and the farmworker movement that gave birth to the first community health clinics in California's Central Valley. The fight for dignity in the fields became the fight for healthcare access.",
+      es: "Documental de PBS sobre Cesar Chavez y el movimiento campesino que dio origen a las primeras clinicas de salud comunitaria en el Valle Central de California. La lucha por la dignidad en los campos se convirtio en la lucha por el acceso a la atencion medica.",
+    },
+    externalUrl: "https://www.pbs.org/itvs/fightfields/",
+    source: "PBS",
+    year: "2008",
+    relevance: "Farmworker movement origins",
+  },
+  {
+    id: "nachc-history",
+    title: {
+      en: "NACHC: The Story of Community Health Centers",
+      es: "NACHC: La Historia de los Centros de Salud Comunitarios",
+    },
+    description: {
+      en: "The National Association of Community Health Centers tells the story of the movement from its roots in the War on Poverty through today. How a handful of neighborhood clinics became a network serving 30 million Americans.",
+      es: "La Asociacion Nacional de Centros de Salud Comunitarios cuenta la historia del movimiento desde sus raices en la Guerra contra la Pobreza hasta hoy. Como un punado de clinicas vecinales se convirtio en una red que atiende a 30 millones de estadounidenses.",
+    },
+    youtubeId: "MufWXVFrumQ",
+    source: "NACHC",
+    year: "2020",
+    relevance: "National movement history",
+  },
+  {
+    id: "mnhc-50th",
+    title: {
+      en: "MNHC 50th Anniversary: Half a Century of Community Health",
+      es: "MNHC 50 Aniversario: Medio Siglo de Salud Comunitaria",
+    },
+    description: {
+      en: "Marin Community Clinics (now MNHC) celebrates 50 years of service. Born from the farmworker movement and counterculture health activism of the 1960s, MNHC's story mirrors the evolution of the entire FQHC sector.",
+      es: "Marin Community Clinics (ahora MNHC) celebra 50 anos de servicio. Nacido del movimiento campesino y el activismo de salud contracultural de los anos 1960, la historia de MNHC refleja la evolucion de todo el sector FQHC.",
+    },
+    youtubeId: "1a5y963TjNU",
+    source: "MNHC",
+    year: "2022",
+    relevance: "FQHC evolution & community roots",
+  },
+  {
+    id: "delano-grape-strike",
+    title: {
+      en: "The Delano Grape Strike: When Filipinos and Mexicans United",
+      es: "La Huelga de la Uva de Delano: Cuando Filipinos y Mexicanos se Unieron",
+    },
+    description: {
+      en: "The 1965 Delano grape strike started when Filipino farmworkers walked out — and Cesar Chavez's Mexican workers joined them. This cross-cultural solidarity created the UFW and, eventually, the farmworker health clinics that became California's first FQHCs.",
+      es: "La huelga de la uva de Delano de 1965 comenzo cuando los campesinos filipinos se fueron — y los trabajadores mexicanos de Cesar Chavez se unieron a ellos. Esta solidaridad intercultural creo la UFW y, eventualmente, las clinicas de salud para campesinos que se convirtieron en los primeros FQHCs de California.",
+    },
+    youtubeId: "JBxhSrXZoJE",
+    source: "United Farm Workers",
+    year: "2015",
+    relevance: "Cross-cultural origins of FQHC movement",
+  },
+  {
+    id: "fight-in-fields",
+    title: {
+      en: "The Fight in the Fields: Cesar Chavez and the Farmworkers' Struggle",
+      es: "La Lucha en los Campos: Cesar Chavez y la Lucha de los Campesinos",
+    },
+    description: {
+      en: "Comprehensive documentary on the farmworker movement that traces the line from labor organizing to healthcare access. Features the creation of farmworker service centers that included health clinics — the precursors to today's FQHCs.",
+      es: "Documental completo sobre el movimiento campesino que traza la linea desde la organizacion laboral hasta el acceso a la atencion medica. Presenta la creacion de centros de servicio para campesinos que incluian clinicas de salud — los precursores de los FQHCs de hoy.",
+    },
+    externalUrl: "https://www.pbs.org/itvs/fightfields/",
+    source: "PBS / Paradigm Productions",
+    year: "1997",
+    relevance: "Farmworker clinics to FQHCs",
+  },
+  {
+    id: "salinas-project",
+    title: {
+      en: "The Salinas Project: Farmworker Health in the Salad Bowl of the World",
+      es: "El Proyecto Salinas: Salud de los Campesinos en la Ensaladera del Mundo",
+    },
+    description: {
+      en: "Documents the health conditions of farmworkers in Salinas Valley — pesticide exposure, housing conditions, and the clinics that rose to serve them. Salinas remains one of the most important FQHC regions in California.",
+      es: "Documenta las condiciones de salud de los campesinos en el Valle de Salinas — exposicion a pesticidas, condiciones de vivienda y las clinicas que surgieron para atenderlos. Salinas sigue siendo una de las regiones de FQHCs mas importantes de California.",
+    },
+    externalUrl: "https://library.ucsc.edu/reg-hist/farmworker-health",
+    source: "UC Santa Cruz Library",
+    year: "2010",
+    relevance: "Farmworker health conditions & clinic origins",
+  },
+];
 
 /* ------------------------------------------------------------------ */
 /*  Alliance Card                                                      */
@@ -201,10 +348,30 @@ export default function MovementPage() {
 
   const [expandedAlliance, setExpandedAlliance] = useState<string | null>(null);
 
-  // Transform data for the timeline component
-  // Events and eras from data file are already the correct types
-  const timelineEvents = MOVEMENT_EVENTS;
+  // Timeline filter state
+  const [selectedCategory, setSelectedCategory] = useState<MovementCategory | "all">("all");
+  const [reverseChronology, setReverseChronology] = useState(false);
+
+  // Filter and sort timeline events
+  const filteredEvents = useMemo(() => {
+    let events = selectedCategory === "all"
+      ? [...MOVEMENT_EVENTS]
+      : MOVEMENT_EVENTS.filter((e) => e.category === selectedCategory);
+
+    if (reverseChronology) {
+      events = events.slice().reverse();
+    }
+
+    return events;
+  }, [selectedCategory, reverseChronology]);
+
   const timelineEras = MOVEMENT_ERAS;
+
+  // Filter thought leaders for movement-relevant categories
+  const movementLeaders = useMemo(() => {
+    const relevantCategories = new Set(["fqhc-ceo", "nachc-leadership", "state-pca"]);
+    return THOUGHT_LEADERS.filter((leader) => relevantCategories.has(leader.category));
+  }, []);
 
   return (
     <div className="bg-stone-50">
@@ -280,7 +447,7 @@ export default function MovementPage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  Interactive Timeline                                         */}
+      {/*  Interactive Timeline (with category filter + reverse toggle) */}
       {/* ============================================================ */}
       <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -295,7 +462,183 @@ export default function MovementPage() {
             </p>
           </div>
 
-          <MovementTimeline events={timelineEvents} eras={timelineEras} />
+          {/* Category filter pills */}
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-3">
+              <Filter className="size-4 text-stone-500" />
+              <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">
+                {isEs ? "Filtrar por tema" : "Filter by theme"}
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {/* "All" pill */}
+              <button
+                onClick={() => setSelectedCategory("all")}
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+                  selectedCategory === "all"
+                    ? "bg-stone-800 text-white border-stone-800"
+                    : "bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100"
+                }`}
+              >
+                {isEs ? "Todos" : "All"}
+                <span className="text-[10px] opacity-70">({MOVEMENT_EVENTS.length})</span>
+              </button>
+
+              {/* Category pills */}
+              {MOVEMENT_CATEGORIES.map((cat) => {
+                const count = MOVEMENT_EVENTS.filter((e) => e.category === cat.id).length;
+                const colors = CATEGORY_PILL_COLORS[cat.id] || { active: "bg-stone-800 text-white", inactive: "bg-stone-50 text-stone-700 border-stone-200" };
+                const isActive = selectedCategory === cat.id;
+
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setSelectedCategory(cat.id)}
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+                      isActive ? `${colors.active} border-transparent` : colors.inactive
+                    }`}
+                  >
+                    {t({ en: cat.en, es: cat.es }, locale)}
+                    <span className="text-[10px] opacity-70">({count})</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Reverse chronology toggle */}
+            <div className="mt-3 flex items-center gap-2">
+              <button
+                onClick={() => setReverseChronology(!reverseChronology)}
+                className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors ${
+                  reverseChronology
+                    ? "bg-teal-50 text-teal-700 border-teal-200"
+                    : "bg-white text-stone-500 border-stone-200 hover:bg-stone-50"
+                }`}
+              >
+                <ArrowUpDown className="size-3" />
+                {isEs
+                  ? reverseChronology ? "Mas recientes primero" : "Mas antiguos primero"
+                  : reverseChronology ? "Newest first" : "Oldest first"}
+              </button>
+              {selectedCategory !== "all" && (
+                <span className="text-xs text-stone-400">
+                  {isEs
+                    ? `${filteredEvents.length} evento${filteredEvents.length !== 1 ? "s" : ""}`
+                    : `${filteredEvents.length} event${filteredEvents.length !== 1 ? "s" : ""}`}
+                </span>
+              )}
+            </div>
+          </div>
+
+          <MovementTimeline events={filteredEvents} eras={timelineEras} />
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/*  Multimedia & Documentary Resources                           */}
+      {/* ============================================================ */}
+      <section className="py-12 sm:py-16 bg-stone-900">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Film className="size-5 text-teal-400" />
+              <span className="text-sm font-medium uppercase tracking-wider text-teal-400">
+                {isEs ? "Recursos Multimedia" : "Multimedia Resources"}
+              </span>
+            </div>
+            <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
+              {isEs
+                ? "Documentales y Videos Esenciales"
+                : "Essential Documentaries & Videos"}
+            </h2>
+            <p className="mt-3 text-stone-400 max-w-2xl mx-auto leading-relaxed">
+              {isEs
+                ? "Peliculas, documentales y videos que capturan la historia del movimiento FQHC. Desde las huelgas de Delano hasta las clinicas de los Panteras Negras -- estas son las historias que definen nuestro trabajo."
+                : "Films, documentaries, and videos that capture the story of the FQHC movement. From the Delano grape strikes to the Black Panther clinics -- these are the stories that define our work."}
+            </p>
+          </div>
+
+          {/* Video grid — 2 columns on desktop */}
+          <div className="grid gap-6 sm:grid-cols-2">
+            {VIDEO_RESOURCES.map((video) => (
+              <div
+                key={video.id}
+                className="rounded-2xl border border-stone-700 bg-stone-800 overflow-hidden transition-all hover:border-stone-600"
+              >
+                {/* Video embed or placeholder */}
+                {video.youtubeId ? (
+                  <div className="relative aspect-video bg-stone-950">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                      title={t(video.title, locale)}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                ) : (
+                  <a
+                    href={video.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative aspect-video bg-gradient-to-br from-stone-800 to-stone-950 flex items-center justify-center group"
+                  >
+                    <div className="text-center">
+                      <div className="flex items-center justify-center w-14 h-14 rounded-full bg-teal-600/20 border border-teal-500/30 mb-3 mx-auto group-hover:bg-teal-600/30 transition-colors">
+                        <Play className="size-6 text-teal-400" />
+                      </div>
+                      <p className="text-xs text-stone-400 group-hover:text-teal-400 transition-colors">
+                        {isEs ? "Ver en" : "Watch on"} {video.source}
+                        <ExternalLink className="inline size-3 ml-1" />
+                      </p>
+                    </div>
+                  </a>
+                )}
+
+                {/* Card body */}
+                <div className="p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-base font-bold text-white leading-snug">
+                      {t(video.title, locale)}
+                    </h3>
+                  </div>
+
+                  <div className="flex items-center gap-3 mt-2">
+                    <span className="inline-flex items-center gap-1 text-xs text-stone-500">
+                      <Video className="size-3" />
+                      {video.source}
+                    </span>
+                    {video.year && (
+                      <span className="text-xs text-stone-500">{video.year}</span>
+                    )}
+                  </div>
+
+                  <p className="mt-3 text-sm text-stone-400 leading-relaxed">
+                    {t(video.description, locale)}
+                  </p>
+
+                  <div className="mt-3">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-teal-900/40 border border-teal-700/30 px-2.5 py-0.5 text-[11px] font-medium text-teal-400">
+                      {video.relevance}
+                    </span>
+                  </div>
+
+                  {/* External link for non-embedded videos */}
+                  {video.externalUrl && !video.youtubeId && (
+                    <a
+                      href={video.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 mt-3 text-xs text-teal-400 hover:text-teal-300 hover:underline transition-colors"
+                    >
+                      <ExternalLink className="size-3" />
+                      {isEs ? "Ver documental" : "Watch documentary"}
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -335,6 +678,104 @@ export default function MovementPage() {
                 }
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/*  Leaders to Watch                                             */}
+      {/* ============================================================ */}
+      <section className="py-12 sm:py-16 bg-teal-50">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Users className="size-5 text-teal-700" />
+              <span className="text-sm font-medium uppercase tracking-wider text-teal-700">
+                {isEs ? "Lideres del Movimiento" : "Movement Leaders"}
+              </span>
+            </div>
+            <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl">
+              {isEs
+                ? "Lideres que Estan Dando Forma al Futuro"
+                : "Leaders Shaping the Future"}
+            </h2>
+            <p className="mt-3 text-stone-500 max-w-2xl mx-auto leading-relaxed">
+              {isEs
+                ? "Los ejecutivos, lideres de politica y directores de FQHC que estan llevando el movimiento hacia adelante. Conecta con ellos para mantenerte al dia con el futuro de la salud comunitaria."
+                : "The executives, policy leaders, and FQHC directors carrying the movement forward. Connect with them to stay current on the future of community health."}
+            </p>
+          </div>
+
+          {/* Leader cards grid */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {movementLeaders.map((leader) => (
+              <div
+                key={leader.id}
+                className="rounded-xl border border-teal-100 bg-white p-4 transition-all hover:shadow-sm hover:border-teal-200"
+              >
+                <div className="flex items-start gap-3">
+                  {/* Avatar initial */}
+                  <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-teal-100 text-sm font-bold text-teal-700">
+                    {leader.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .slice(0, 2)
+                      .join("")}
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-bold text-stone-900 truncate">
+                      {leader.name}
+                    </h3>
+                    <p className="text-xs text-stone-500 line-clamp-1">
+                      {t(leader.title, locale)}
+                    </p>
+                    <p className="text-xs text-teal-700 font-medium truncate">
+                      {leader.organization}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="flex items-center gap-2 mt-3">
+                  {leader.linkedinUrl && (
+                    <a
+                      href={leader.linkedinUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-2.5 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors"
+                    >
+                      <Linkedin className="size-3" />
+                      LinkedIn
+                    </a>
+                  )}
+                  <Link
+                    href="/strategy/leaders"
+                    className="inline-flex items-center gap-1 text-xs text-teal-700 hover:text-teal-900 hover:underline transition-colors"
+                  >
+                    {isEs ? "Ver perfil completo" : "View full profile"}
+                    <ArrowRight className="size-3" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Link to full leaders page */}
+          <div className="text-center mt-8">
+            <Button
+              variant="outline"
+              className="border-teal-200 text-teal-700 hover:bg-teal-100"
+              asChild
+            >
+              <Link href="/strategy/leaders">
+                <Users className="size-4 mr-1.5" />
+                {isEs
+                  ? `Ver los ${THOUGHT_LEADERS.length} lideres`
+                  : `View all ${THOUGHT_LEADERS.length} leaders`}
+                <ArrowRight className="size-4 ml-1" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

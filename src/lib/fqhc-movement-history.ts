@@ -156,6 +156,11 @@ export const MOVEMENT_EVENTS: TimelineEvent[] = [
     primarySourceUrl: "https://www.nps.gov/cech/learn/historyculture/the-beginning.htm",
     primarySourceOrg: "National Park Service — Cesar E. Chavez National Monument",
     era: "farmworker-roots",
+    videoUrl: "https://www.youtube.com/embed/Vb93EX94q1w",
+    videoTitle: {
+      en: "Cesar Chavez — The Fight for Farmworker Rights",
+      es: "Cesar Chavez — La Lucha por los Derechos de los Campesinos",
+    },
   },
   {
     id: "delano-grape-strike",
@@ -292,6 +297,11 @@ export const MOVEMENT_EVENTS: TimelineEvent[] = [
     primarySourceUrl: "https://www.mnhc.org/about",
     primarySourceOrg: "Mission Neighborhood Health Center",
     era: "farmworker-roots",
+    videoUrl: "https://www.youtube.com/embed/1a5y963TjNU",
+    videoTitle: {
+      en: "Celebrating 50 Years at Mission Neighborhood Health Center",
+      es: "Celebrando 50 Años en el Centro de Salud del Barrio de la Misión",
+    },
   },
   {
     id: "clinica-del-pueblo-founded",
@@ -365,6 +375,11 @@ export const MOVEMENT_EVENTS: TimelineEvent[] = [
     primarySourceUrl: "https://www.asianhealthservices.org/who-we-are",
     primarySourceOrg: "Asian Health Services",
     era: "community-health",
+    videoUrl: "https://www.youtube.com/embed/MufWXVFrumQ",
+    videoTitle: {
+      en: "The History of Community Health Centers — NACHC",
+      es: "La Historia de los Centros de Salud Comunitarios — NACHC",
+    },
   },
   {
     id: "la-clinica-opens",

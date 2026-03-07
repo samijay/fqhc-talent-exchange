@@ -5,7 +5,7 @@
 // Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-03-03";
+export const AI_TRACKER_LAST_UPDATED = "2026-03-06";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -39,6 +39,7 @@ export interface AIAdoptionItem {
   sourceOrg: string;
   date: string; // ISO
   tags: string[];
+  featured?: boolean; // curated items for sidebar highlight
 }
 
 /* ------------------------------------------------------------------ */
@@ -178,6 +179,7 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceOrg: "Anthropic",
     date: "2026-01-12",
     tags: ["anthropic", "claude", "hipaa", "cms", "icd-10", "elation", "prior-auth"],
+    featured: true,
   },
 
   {
@@ -357,6 +359,7 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceOrg: "TechTarget",
     date: "2026-02-15",
     tags: ["ambient-ai", "california-fqhc", "nabla", "patient-acceptance", "large-scale"],
+    featured: true,
   },
   {
     id: "epic-ai-charting-launch",
@@ -430,6 +433,7 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceOrg: "Sunoh.ai",
     date: "2026-02-20",
     tags: ["sunoh", "ambient-ai", "eclinicalworks", "large-scale", "east-coast-fqhc"],
+    featured: true,
   },
   {
     id: "sacramento-native-american-hc-ai",
@@ -478,6 +482,7 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceOrg: "Abridge / KLAS Research",
     date: "2026-02-15",
     tags: ["abridge", "klas", "ambient-ai", "burnout-reduction", "best-in-class"],
+    featured: true,
   },
 
   {
@@ -535,6 +540,34 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceOrg: "npj Digital Medicine / Nature",
     date: "2025-12-24",
     tags: ["upcoding", "coding-arms-race", "revenue-impact", "policy-brief", "pps-implications", "quality-metrics"],
+    featured: true,
+  },
+
+  {
+    id: "akido-labs-scopeai-bay-area-street-medicine",
+    title: {
+      en: "Akido Labs ScopeAI: Bay Area's First AI-Powered Safety Net Program for Unhoused Patients",
+      es: "Akido Labs ScopeAI: Primer Programa de Red de Seguridad con IA del Área de la Bahía para Pacientes Sin Hogar",
+    },
+    description: {
+      en: "Future Communities Institute, Akido Labs, Five Keys, and ReImagine Freedom launched the Bay Area's first AI-powered street medicine program in January 2026. ScopeAI guides community health workers through comprehensive patient visits on tablets — listening to encounters, suggesting follow-up questions, generating preliminary diagnoses (92% accurate in top 3), and producing clinical reports for remote physician review. In LA/Kern counties, the model already serves 6,000 unhoused patients with 70% six-month retention and 40% ED visit reduction. Funded entirely through Medi-Cal's CalAIM Enhanced Care Management — no grants. Providers see ~350 patients per physician (vs. 200 previously). Patients needing MAT receive treatment within 4 hours. Critics raise concerns about experimenting on vulnerable populations and algorithmic bias.",
+      es: "Future Communities Institute, Akido Labs, Five Keys y ReImagine Freedom lanzaron el primer programa de medicina callejera con IA del Área de la Bahía en enero 2026. ScopeAI guía a trabajadores comunitarios de salud a través de visitas integrales en tabletas — escuchando encuentros, sugiriendo preguntas de seguimiento, generando diagnósticos preliminares (92% precisión) y produciendo informes clínicos para revisión médica remota. En LA/Kern ya sirve a 6,000 pacientes sin hogar con 70% retención a 6 meses y 40% reducción de visitas a urgencias. Financiado por CalAIM ECM de Medi-Cal — sin subvenciones.",
+    },
+    category: "care-coordination",
+    vendor: "Akido Labs (ScopeAI)",
+    partnership: "FCI + Five Keys + ReImagine Freedom",
+    metrics: [
+      { label: "Diagnostic Accuracy", value: "92% (top 3)" },
+      { label: "ED Reduction", value: "40% (LA pilot)" },
+      { label: "Patients Served", value: "6,000+ (LA/Kern)" },
+      { label: "Retention (6mo)", value: "70%" },
+    ],
+    adoptionStage: "expanding",
+    sourceUrl: "https://www.ktvu.com/video/fmc-s5kjj7k3h2w09riy",
+    sourceOrg: "KTVU / CalMatters",
+    date: "2026-01-28",
+    tags: ["street-medicine", "unhoused", "calAIM", "ecm", "bay-area", "chw-scope-expansion", "medi-cal"],
+    featured: true,
   },
 ];
 
@@ -573,6 +606,13 @@ export function getAICounts(): Record<AICategory, number> & { total: number } {
     ).length;
   }
   return counts;
+}
+
+/** Get featured/curated items sorted by date desc */
+export function getFeaturedAIItems(): AIAdoptionItem[] {
+  return [...AI_ADOPTION_ITEMS]
+    .filter((i) => i.featured)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 /** Get counts by adoption stage */

@@ -376,3 +376,4 @@ Build: [PASS/FAIL]
 - If any step fails, report and continue.
 - The legislative scan is the most judgment-heavy step. When in doubt, capture the finding and flag it for review rather than making code changes.
 - Policy findings that aren't immediately actionable still have value — they become newsletter content, blog topics, or context for outreach emails.
+- **Analytics**: Run `/feedback-session` weekly (or when new GA4 CSV exports are dropped in `.feedback/reports/`) to analyze traffic, search queries, feature usage, and generate optimization strategies.

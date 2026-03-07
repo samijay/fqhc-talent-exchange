@@ -5,7 +5,7 @@
 // Last updated: 2026-02-28
 
 /** Exported for display on pages — updated when new leaders are added */
-export const LEADERS_LAST_UPDATED = "2026-02-28";
+export const LEADERS_LAST_UPDATED = "2026-03-06";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -295,7 +295,7 @@ export const THOUGHT_LEADERS: ThoughtLeader[] = [
   },
 
   // ──────────────────────────────────────────────────────────────────
-  // Innovative FQHC CEOs (5)
+  // Innovative FQHC CEOs (6)
   // ──────────────────────────────────────────────────────────────────
   {
     id: "brenda-battle",
@@ -404,6 +404,27 @@ export const THOUGHT_LEADERS: ThoughtLeader[] = [
     orgUrl: "https://www.yvfwc.org",
     photoPlaceholder: "DV",
     relevantTopics: ["workforce", "integration", "rural-health"],
+  },
+  {
+    id: "anna-robert",
+    name: "Anna Robert, RN, MSN, DrPH",
+    title: {
+      en: "Executive Director & CEO, Mission Neighborhood Health Center",
+      es: "Directora Ejecutiva y CEO, Centro de Salud del Barrio de la Misión",
+    },
+    organization: "Mission Neighborhood Health Center",
+    category: "fqhc-ceo",
+    bio: {
+      en: "Dr. Anna Robert leads Mission Neighborhood Health Center, one of the oldest continuously operating community health centers in San Francisco, founded in 1967 during the War on Poverty. A registered nurse with a Doctor of Public Health degree, Robert brings a rare combination of clinical frontline experience and public health systems thinking to FQHC leadership. Before joining MNHC in July 2023, she served as Director of Primary Care for the San Francisco Health Network, overseeing primary care delivery across the city's public health system. She serves on the San Francisco Community Clinic Consortium (SFCCC) board, working to strengthen the network of safety-net clinics in a city facing unprecedented budget cuts and clinic closures.",
+      es: "La Dra. Anna Robert lidera el Centro de Salud del Barrio de la Misión, uno de los centros de salud comunitarios más antiguos en operación continua en San Francisco, fundado en 1967 durante la Guerra contra la Pobreza. Enfermera registrada con doctorado en Salud Pública, Robert aporta una rara combinación de experiencia clínica de primera línea y pensamiento sistémico de salud pública al liderazgo de FQHCs. Antes de unirse a MNHC en julio de 2023, se desempeñó como Directora de Atención Primaria de la Red de Salud de San Francisco, supervisando la prestación de atención primaria en todo el sistema de salud pública de la ciudad. Es miembro de la junta del Consorcio de Clínicas Comunitarias de San Francisco (SFCCC).",
+    },
+    whyFollow: {
+      en: "Robert represents the next generation of FQHC leadership: clinician-turned-executive who understands both bedside care and system-level strategy. Leading MNHC through the 2026 crisis convergence — San Francisco's $877M budget deficit, $17M in CBO cuts, Mayor Lurie's $40M DPH order — she is navigating the exact financial and political pressures that define this era. Her perspective from both inside the public health system (SF Health Network) and the community clinic world (MNHC) gives her unique insight into how safety-net providers can survive when both city and federal funding are under threat simultaneously.",
+      es: "Robert representa la próxima generación de liderazgo en FQHCs: clínica convertida en ejecutiva que entiende tanto la atención al paciente como la estrategia a nivel de sistema. Liderando MNHC a través de la convergencia de crisis de 2026 — el déficit presupuestario de $877M de San Francisco, $17M en recortes a CBOs, la orden de $40M del Alcalde Lurie al DPH — está navegando las presiones financieras y políticas exactas que definen esta era.",
+    },
+    orgUrl: "https://www.mnhc.org",
+    photoPlaceholder: "AR",
+    relevantTopics: ["san-francisco", "safety-net", "public-health", "workforce"],
   },
 
   // ──────────────────────────────────────────────────────────────────
@@ -564,7 +585,7 @@ export const THOUGHT_LEADERS: ThoughtLeader[] = [
   },
 
   // ──────────────────────────────────────────────────────────────────
-  // AI in Health (4)
+  // AI in Health (5)
   // ──────────────────────────────────────────────────────────────────
   {
     id: "dario-amodei",
@@ -650,6 +671,28 @@ export const THOUGHT_LEADERS: ThoughtLeader[] = [
     orgUrl: "https://www.zushealth.com",
     photoPlaceholder: "JB",
     relevantTopics: ["interoperability", "AI", "data-infrastructure"],
+  },
+  {
+    id: "emma-mayerson",
+    name: "Emma Mayerson",
+    title: {
+      en: "Co-Founder & Executive Director, Future Communities Institute",
+      es: "Cofundadora y Directora Ejecutiva, Future Communities Institute",
+    },
+    organization: "Future Communities Institute (FCI)",
+    category: "ai-health",
+    linkedinUrl: "https://www.linkedin.com/in/emma-mayerson-6883b223/",
+    bio: {
+      en: "Emma Mayerson co-founded Future Communities Institute to bridge the gap between AI technology and safety-net healthcare delivery for vulnerable populations. FCI convened the Bay Area's first AI-powered safety net program — partnering Akido Labs (ScopeAI), Five Keys, and ReImagine Freedom to deliver AI-guided street medicine to unhoused patients, funded entirely by Medi-Cal CalAIM ECM reimbursement. Previously, Mayerson co-founded and served as Executive Director of Alliance for Girls, the nation's largest alliance of girls' organizations. Her background in coalition building, community organizing, and systems change informs FCI's approach to designing healthcare interventions with unhoused and formerly incarcerated populations. FCI also co-developed the $10.7M Haley Housing project in Bakersfield — a subsidized housing development with on-site AI-powered healthcare.",
+      es: "Emma Mayerson cofundó Future Communities Institute para cerrar la brecha entre la tecnología de IA y la prestación de salud de red de seguridad para poblaciones vulnerables. FCI convocó el primer programa de red de seguridad con IA del Área de la Bahía — asociando Akido Labs (ScopeAI), Five Keys y ReImagine Freedom para entregar medicina callejera guiada por IA a pacientes sin hogar, financiada por CalAIM ECM de Medi-Cal. Anteriormente, Mayerson cofundó y dirigió Alliance for Girls, la alianza más grande de organizaciones de mujeres jóvenes del país.",
+    },
+    whyFollow: {
+      en: "Mayerson is proving that AI-powered healthcare delivery can be funded sustainably through CalAIM — not grants — while serving the most vulnerable populations. Her FCI model of convening technology partners, community organizations, and healthcare providers is a replicable template for FQHCs looking to expand street medicine or ECM programs. The Akido partnership's 40% ED reduction and 70% patient retention metrics are among the strongest outcomes in safety-net AI implementation. Watch her for early signals on how CalAIM reimbursement models will evolve to support technology-enabled community health.",
+      es: "Mayerson está demostrando que la atención médica con IA puede financiarse de manera sostenible a través de CalAIM. Su modelo FCI de convocar socios tecnológicos, organizaciones comunitarias y proveedores de salud es una plantilla replicable para FQHCs que buscan expandir medicina callejera o programas ECM.",
+    },
+    orgUrl: "https://www.futurecommunitiesinstitute.org",
+    photoPlaceholder: "EM",
+    relevantTopics: ["AI", "street-medicine", "calAIM", "unhoused", "coalition-building"],
   },
 
   // ──────────────────────────────────────────────────────────────────
