@@ -27,6 +27,7 @@ import {
   type ManagerAssessmentResults,
 } from "@/lib/manager-assessment-engine";
 import { TeamReadinessResults } from "./TeamReadinessResults";
+import { trackManagerAssessmentStart, trackManagerAssessmentComplete } from "@/lib/analytics";
 
 /* ------------------------------------------------------------------ */
 /*  i18n                                                                */
@@ -172,6 +173,7 @@ export function TeamReadinessAssessment() {
         locale,
       );
       setResults(assessmentResults);
+      trackManagerAssessmentComplete(selectedRole, assessmentResults.overallScore);
       setScreen("results");
     }
   }
@@ -302,7 +304,7 @@ export function TeamReadinessAssessment() {
 
           <div className="mt-8 flex justify-center">
             <Button
-              onClick={() => setScreen("questions")}
+              onClick={() => { setScreen("questions"); if (selectedRole) trackManagerAssessmentStart(selectedRole); }}
               disabled={!selectedRole}
               className="flex items-center gap-2 bg-gradient-to-r from-indigo-700 to-purple-600 px-8 py-3 font-semibold text-white hover:shadow-lg disabled:opacity-50"
             >

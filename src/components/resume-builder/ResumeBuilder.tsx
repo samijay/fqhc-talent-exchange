@@ -55,6 +55,7 @@ import {
   getExperienceQuestionsForRole,
   getRecommendedBullets,
 } from "@/lib/role-experience-questions";
+import { trackResumeStart, trackResumeDownload } from "@/lib/analytics";
 
 /* ------------------------------------------------------------------ */
 /*  Constants                                                          */
@@ -328,6 +329,7 @@ export default function ResumeBuilder() {
         })
         .from(element)
         .save();
+      trackResumeDownload("pdf");
     } catch (err) {
       console.error("PDF generation error:", err);
     } finally {
@@ -363,6 +365,7 @@ export default function ResumeBuilder() {
         education: formData.education,
         isEs,
       });
+      trackResumeDownload("docx");
     } catch (err) {
       console.error("DOCX generation error:", err);
     } finally {
@@ -626,6 +629,7 @@ export default function ResumeBuilder() {
                 onClick={() => {
                   setMode("build");
                   setStep(1);
+                  trackResumeStart();
                 }}
                 className="group rounded-xl border-2 border-stone-200 p-6 text-left transition-all duration-200 hover:border-amber-500 hover:shadow-lg"
               >

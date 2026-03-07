@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { trackLocumProviderSignup, trackLocumFQHCRequest } from "@/lib/analytics";
 import {
   Heart,
   Calendar,
@@ -130,7 +131,10 @@ export default function LocumTenensPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(providerForm),
       });
-      if (res.ok) setProviderSubmitted(true);
+      if (res.ok) {
+        setProviderSubmitted(true);
+        trackLocumProviderSignup();
+      }
     } catch {
       // silent
     } finally {
@@ -147,7 +151,10 @@ export default function LocumTenensPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(fqhcForm),
       });
-      if (res.ok) setFqhcSubmitted(true);
+      if (res.ok) {
+        setFqhcSubmitted(true);
+        trackLocumFQHCRequest();
+      }
     } catch {
       // silent
     } finally {

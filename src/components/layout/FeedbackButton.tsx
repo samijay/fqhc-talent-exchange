@@ -4,6 +4,7 @@ import { useState } from "react";
 import { MessageSquare, X, Send, Loader2 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { toast } from "sonner";
+import { trackFeedbackSubmit } from "@/lib/analytics";
 
 const copy = {
   en: {
@@ -77,6 +78,7 @@ export default function FeedbackButton() {
       }
 
       toast.success(t.successTitle, { description: t.successMessage });
+      trackFeedbackSubmit(feedbackType);
       setIsOpen(false);
       setFeedbackType("");
       setMessage("");

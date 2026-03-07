@@ -32,6 +32,7 @@ import {
   type DiseaseInput,
   type OptimizationPathway,
 } from "@/lib/clinic-operations-model";
+import { trackSimulatorUse } from "@/lib/analytics";
 
 /* ------------------------------------------------------------------ */
 /*  Bilingual helper                                                   */
@@ -901,7 +902,7 @@ export function ClinicSimulator() {
           {/*  OPTIMIZE BUTTON                                              */}
           {/* ============================================================ */}
           <button
-            onClick={() => setShowOptimize(!showOptimize)}
+            onClick={() => { if (!showOptimize) trackSimulatorUse("optimize_clicked"); setShowOptimize(!showOptimize); }}
             className="flex w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-6 py-4 text-lg font-bold text-white shadow-lg transition-all hover:bg-red-700 hover:shadow-xl active:scale-[0.98]"
           >
             <Zap className="size-5" />

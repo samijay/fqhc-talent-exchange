@@ -36,6 +36,7 @@ import {
 } from "@/lib/career-assessment-engine";
 import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 import { FIVE_CONVERSATIONS, FOGLAMP } from "@/lib/first-90-days";
+import { trackAssessmentStart, trackAssessmentComplete } from "@/lib/analytics";
 
 /* ------------------------------------------------------------------ */
 /*  i18n — EN / ES UI strings                                         */
@@ -252,6 +253,7 @@ export default function CareerInsights({ onComplete, onSkip, roleId }: CareerIns
       // Calculate results (role-aware)
       const assessmentResults = calculateAssessmentResults(updatedAnswers, locale, roleId);
       setResults(assessmentResults);
+      trackAssessmentComplete(roleId || "general", assessmentResults.overallScore);
       onComplete(assessmentResults);
     }
   }
@@ -320,7 +322,7 @@ export default function CareerInsights({ onComplete, onSkip, roleId }: CareerIns
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Button
-              onClick={() => setStarted(true)}
+              onClick={() => { setStarted(true); trackAssessmentStart(roleId || "general"); }}
               className="flex items-center gap-2 bg-gradient-to-r from-teal-700 to-amber-600 px-8 py-3 font-semibold text-white hover:shadow-lg"
             >
               {t.startAssessment} <ArrowRight className="size-4" />

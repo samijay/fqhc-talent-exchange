@@ -29,6 +29,7 @@ import {
   DIMENSION_META,
   type ResilienceScore,
 } from "@/lib/fqhc-resilience";
+import { trackCompareUse } from "@/lib/analytics";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -368,7 +369,9 @@ export default function ComparePage() {
 
   const handleAdd = (slug: string) => {
     if (selected.length >= MAX_COMPARE) return;
-    setSelected((prev) => [...prev, slug]);
+    const newSelected = [...selected, slug];
+    setSelected(newSelected);
+    trackCompareUse(newSelected.length);
   };
 
   const handleRemove = (slug: string) => {

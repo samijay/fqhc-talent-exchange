@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { trackLanguageToggle } from "@/lib/analytics";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -295,6 +296,7 @@ export default function Header() {
 
   function switchLocale() {
     const newLocale = locale === "en" ? "es" : "en";
+    trackLanguageToggle(newLocale);
     router.replace(pathname, { locale: newLocale });
   }
 

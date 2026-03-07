@@ -14,6 +14,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackNewsletterSignup } from "@/lib/analytics";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -89,6 +90,7 @@ export function NewsletterSignup({
       }
 
       setStatus("success");
+      trackNewsletterSignup(audience);
     } catch (err) {
       setStatus("error");
       setErrorMessage(
