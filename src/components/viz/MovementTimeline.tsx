@@ -130,6 +130,13 @@ const CATEGORY_META: Record<
 const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
 
+/** Extract YouTube video ID from embed URL → return hqdefault thumbnail URL */
+function getYouTubeThumbnail(embedUrl: string): string | null {
+  const match = embedUrl.match(/youtube(?:-nocookie)?\.com\/embed\/([a-zA-Z0-9_-]{11})/);
+  if (!match) return null;
+  return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
+}
+
 /* ------------------------------------------------------------------ */
 /*  Event Card                                                         */
 /* ------------------------------------------------------------------ */
@@ -203,25 +210,58 @@ function EventCard({
           {/* Preview (collapsed) */}
           {!isExpanded && (
             <div className="mt-2">
-              <p className="text-sm text-stone-600 line-clamp-3">
+              <p className="text-sm text-stone-600 line-clamp-2">
                 {t(event.description, locale)}
               </p>
-              {/* Media + source indicators */}
-              <div className="flex flex-wrap items-center gap-2 mt-2">
-                {event.videoUrl && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-stone-100 border border-stone-200 px-2 py-0.5 text-[10px] font-medium text-stone-600">
-                    ▶ {isEs ? "Video" : "Video"}
-                  </span>
-                )}
-                {event.imageUrl && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-stone-100 border border-stone-200 px-2 py-0.5 text-[10px] font-medium text-stone-600">
-                    🖼 {isEs ? "Foto" : "Photo"}
-                  </span>
-                )}
-                <span className="inline-flex items-center gap-1 text-[10px] text-stone-400">
-                  <ExternalLink className="size-2.5" />
-                  {event.primarySourceOrg}
-                </span>
+
+              {/* YouTube thumbnail — click expands the card */}
+              {event.videoUrl && (() => {
+                const thumb = getYouTubeThumbnail(event.videoUrl!);
+                return thumb ? (
+                  <div className="mt-2 relative rounded-lg overflow-hidden border border-stone-200 group/thumb">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={thumb}
+                      alt={event.videoTitle ? t(event.videoTitle, locale) : t(event.title, locale)}
+                      className="w-full h-28 object-cover"
+                      loading="lazy"
+                    />
+                    {/* Play button overlay */}
+                    <div className="absolute inset-0 bg-black/40 group-hover/thumb:bg-black/30 transition-colors flex items-center justify-center">
+                      <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow-md">
+                        {/* Triangle play icon */}
+                        <div className="w-0 h-0 border-t-[6px] border-b-[6px] border-l-[10px] border-t-transparent border-b-transparent border-l-stone-800 ml-0.5" />
+                      </div>
+                    </div>
+                    {/* Video title strip */}
+                    {event.videoTitle && (
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-2 py-1.5">
+                        <p className="text-[10px] text-white font-medium line-clamp-1">
+                          {t(event.videoTitle, locale)}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ) : null;
+              })()}
+
+              {/* Static image preview (no video) */}
+              {!event.videoUrl && event.imageUrl && (
+                <div className="mt-2 rounded-lg overflow-hidden border border-stone-200">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={event.imageUrl}
+                    alt={event.imageAlt ? t(event.imageAlt, locale) : t(event.title, locale)}
+                    className="w-full h-28 object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+
+              {/* Source indicator */}
+              <div className="flex items-center gap-1 mt-1.5">
+                <ExternalLink className="size-2.5 text-stone-400" />
+                <span className="text-[10px] text-stone-400">{event.primarySourceOrg}</span>
               </div>
             </div>
           )}
