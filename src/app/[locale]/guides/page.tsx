@@ -228,6 +228,15 @@ const CROSS_LINKS = [
 /*  Main Page                                                          */
 /* ------------------------------------------------------------------ */
 
+/* ------------------------------------------------------------------ */
+/*  FAQ schema data (static, English-only for search engines)         */
+/* ------------------------------------------------------------------ */
+
+const FAQ_SCHEMA_ITEMS = FQHC_GUIDES.slice(0, 8).map((guide) => ({
+  question: `What is the "${guide.title.en}" guide?`,
+  answer: guide.summary.en,
+}));
+
 export default function GuidesPage() {
   const locale = useLocale();
   const isEs = locale === "es";
@@ -520,6 +529,25 @@ export default function GuidesPage() {
           </div>
         </section>
       </div>
+
+      {/* FAQ structured data for search engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQ_SCHEMA_ITEMS.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.answer,
+              },
+            })),
+          }),
+        }}
+      />
     </main>
   );
 }

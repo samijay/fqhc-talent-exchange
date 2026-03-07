@@ -66,8 +66,9 @@ export const rootMetadata = {
   alternates: {
     canonical: SITE_URL,
     languages: {
-      "en-US": SITE_URL,
-      // "es-US": `${SITE_URL}/es`, // Uncomment when Spanish version is ready
+      "x-default": SITE_URL,
+      "en": SITE_URL,
+      "es": `${SITE_URL}/es`,
     },
   },
   verification: {

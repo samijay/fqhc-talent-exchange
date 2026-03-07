@@ -194,6 +194,11 @@ export function ArticleJsonLd({
     datePublished,
     dateModified: dateModified || datePublished,
     url: `https://www.fqhctalent.com/blog/${slug}`,
+    author: {
+      "@type": "Organization",
+      name: "FQHC Talent",
+      url: "https://www.fqhctalent.com",
+    },
     publisher: {
       "@type": "Organization",
       name: "FQHC Talent",
