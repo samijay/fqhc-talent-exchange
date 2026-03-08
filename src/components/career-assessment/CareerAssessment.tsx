@@ -15,6 +15,12 @@ import {
   ChevronLeft,
   CheckCircle,
   DollarSign,
+  Smile,
+  Pill,
+  FileText,
+  ClipboardList,
+  BarChart2,
+  Syringe,
 } from 'lucide-react';
 import { SALARY_BENCHMARKS, type SalaryBenchmark } from '@/lib/job-posting-templates';
 import { ROLE_INSIGHTS } from '@/lib/role-insights';
@@ -35,14 +41,29 @@ interface FormData {
 }
 
 const ROLE_OPTIONS = [
+  // ── Community & Care ──
   { id: 'chw', label: 'Community Health Worker', esLabel: 'Promotor/a de Salud', icon: Heart },
   { id: 'care_coordinator', label: 'Care Coordinator', esLabel: 'Coordinador/a de Atención', icon: Users },
-  { id: 'medical_assistant', label: 'Medical Assistant', esLabel: 'Asistente Médico/a', icon: Stethoscope },
   { id: 'case_manager', label: 'Case Manager', esLabel: 'Gestor/a de Casos', icon: Briefcase },
-  { id: 'behavioral_health', label: 'Behavioral Health', esLabel: 'Salud Conductual', icon: Brain },
+  { id: 'health_enrollment_navigator', label: 'Health Enrollment Navigator', esLabel: 'Navegador/a de Inscripción', icon: FileText },
+  // ── Clinical ──
   { id: 'registered_nurse', label: 'Registered Nurse (RN)', esLabel: 'Enfermera/o Registrada/o (RN)', icon: Activity },
+  { id: 'lvn', label: 'Licensed Vocational Nurse (LVN)', esLabel: 'Enfermero/a Vocacional (LVN)', icon: Syringe },
+  { id: 'medical_assistant', label: 'Medical Assistant', esLabel: 'Asistente Médico/a', icon: Stethoscope },
+  // ── Behavioral Health ──
+  { id: 'behavioral_health', label: 'Behavioral Health', esLabel: 'Salud Conductual', icon: Brain },
+  { id: 'psychiatric_np', label: 'Psychiatric NP (PMHNP)', esLabel: 'NP Psiquiátrico/a (PMHNP)', icon: Brain },
+  // ── Dental ──
+  { id: 'dental_assistant', label: 'Dental Assistant', esLabel: 'Asistente Dental', icon: Smile },
+  { id: 'dental_hygienist', label: 'Dental Hygienist', esLabel: 'Higienista Dental', icon: Smile },
+  // ── Pharmacy ──
+  { id: 'pharmacist', label: 'Pharmacist (PharmD)', esLabel: 'Farmacéutico/a (PharmD)', icon: Pill },
+  { id: 'pharmacy_technician', label: 'Pharmacy Technician', esLabel: 'Técnico/a de Farmacia', icon: Pill },
+  // ── Admin & Operations ──
   { id: 'patient_services', label: 'Patient Services', esLabel: 'Servicios al Paciente', icon: User },
   { id: 'revenue_cycle', label: 'Revenue Cycle / Billing', esLabel: 'Ciclo de Ingresos / Facturación', icon: Zap },
+  { id: 'program_manager', label: 'Program Manager', esLabel: 'Gerente de Programa', icon: BarChart2 },
+  { id: 'hr_manager', label: 'HR Manager', esLabel: 'Gerente de RRHH', icon: ClipboardList },
 ];
 
 const EHR_OPTIONS = [

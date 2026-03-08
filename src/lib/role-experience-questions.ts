@@ -1721,6 +1721,318 @@ const FINANCE_MANAGER_QUESTIONS: RoleExperienceQuestion[] = [
 ];
 
 /* ------------------------------------------------------------------ */
+/*  DENTAL ASSISTANT                                                    */
+/* ------------------------------------------------------------------ */
+
+const DENTAL_ASSISTANT_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "da_duties",
+    roleId: "dental_assistant",
+    question: "What dental assisting duties have you performed?",
+    esQuestion: "¿Qué funciones de asistencia dental ha realizado?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "da_duties_chairside", text: "Chair-side assisting and instrument passing", esText: "Asistencia chairside y pase de instrumentos", recommendsBullets: ["da-1"] },
+      { id: "da_duties_xray", text: "Dental radiographs (x-rays)", esText: "Radiografías dentales", recommendsBullets: ["da-2"] },
+      { id: "da_duties_sterilization", text: "Instrument sterilization and infection control", esText: "Esterilización de instrumentos y control de infecciones", recommendsBullets: ["da-3"] },
+      { id: "da_duties_impression", text: "Impressions, models, and patient prep", esText: "Impresiones, modelos y preparación del paciente", recommendsBullets: ["da-4"] },
+    ],
+  },
+  {
+    id: "da_credentials",
+    roleId: "dental_assistant",
+    question: "Which credentials do you hold?",
+    esQuestion: "¿Qué credenciales posee?",
+    answerType: "multi",
+    options: [
+      { id: "da_cred_rda", text: "California RDA (Registered Dental Assistant)", esText: "RDA de California (Asistente Dental Registrado)", recommendsBullets: ["da-5"] },
+      { id: "da_cred_rad", text: "California Radiation Safety Certificate", esText: "Certificado de Seguridad de Radiación de California", recommendsBullets: ["da-2"] },
+      { id: "da_cred_cda", text: "DANB CDA (Certified Dental Assistant)", esText: "DANB CDA (Asistente Dental Certificado)", recommendsBullets: ["da-5"] },
+    ],
+  },
+  {
+    id: "da_setting",
+    roleId: "dental_assistant",
+    question: "What dental settings have you worked in?",
+    esQuestion: "¿En qué entornos dentales ha trabajado?",
+    answerType: "single",
+    options: [
+      { id: "da_set_fqhc", text: "FQHC or community health center dental clinic", esText: "Clínica dental de FQHC o centro de salud comunitario", recommendsBullets: ["da-6"] },
+      { id: "da_set_private", text: "Private dental practice", esText: "Consulta dental privada", recommendsBullets: ["da-1"] },
+      { id: "da_set_specialty", text: "Specialty dental (oral surgery, ortho, pediatric)", esText: "Dental de especialidad (cirugía oral, ortodoncia, pediátrica)", recommendsBullets: ["da-7"] },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  DENTAL HYGIENIST                                                    */
+/* ------------------------------------------------------------------ */
+
+const DENTAL_HYGIENIST_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "dh_clinical",
+    roleId: "dental_hygienist",
+    question: "Which clinical hygiene services have you provided?",
+    esQuestion: "¿Qué servicios clínicos de higiene ha proporcionado?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "dh_clin_scaling", text: "Full-mouth scaling and root planing (SRP)", esText: "Escalonamiento y alisado radicular de boca completa (SRP)", recommendsBullets: ["dh-1"] },
+      { id: "dh_clin_perio", text: "Periodontal assessment and charting", esText: "Evaluación periodontal y registro", recommendsBullets: ["dh-2"] },
+      { id: "dh_clin_sealants", text: "Sealant placement", esText: "Colocación de selladores", recommendsBullets: ["dh-4"] },
+      { id: "dh_clin_la", text: "Local anesthesia administration", esText: "Administración de anestesia local", recommendsBullets: ["dh-1"] },
+      { id: "dh_clin_tobacco", text: "Tobacco cessation counseling", esText: "Consejería para dejar de fumar", recommendsBullets: ["dh-5"] },
+    ],
+  },
+  {
+    id: "dh_population",
+    roleId: "dental_hygienist",
+    question: "Which patient populations have you primarily served?",
+    esQuestion: "¿A qué poblaciones de pacientes ha servido principalmente?",
+    answerType: "multi",
+    options: [
+      { id: "dh_pop_medi_cal", text: "Medi-Cal / Denti-Cal patients", esText: "Pacientes de Medi-Cal / Denti-Cal", recommendsBullets: ["dh-3"] },
+      { id: "dh_pop_peds", text: "Pediatric patients", esText: "Pacientes pediátricos", recommendsBullets: ["dh-4"] },
+      { id: "dh_pop_prenatal", text: "Prenatal / expectant mothers", esText: "Pacientes prenatales / madres embarazadas", recommendsBullets: ["dh-5"] },
+      { id: "dh_pop_uninsured", text: "Uninsured / underinsured", esText: "Sin seguro / con seguro insuficiente", recommendsBullets: ["dh-3"] },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  PHARMACIST                                                          */
+/* ------------------------------------------------------------------ */
+
+const PHARMACIST_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "pharm_duties",
+    roleId: "pharmacist",
+    question: "What pharmacy services have you provided?",
+    esQuestion: "¿Qué servicios de farmacia ha proporcionado?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "pharm_duty_340b", text: "340B program dispensing and compliance", esText: "Dispensación y cumplimiento del programa 340B", recommendsBullets: ["ph-1"] },
+      { id: "pharm_duty_mtm", text: "Medication Therapy Management (MTM)", esText: "Gestión de Terapia Medicamentosa (MTM)", recommendsBullets: ["ph-2"] },
+      { id: "pharm_duty_cdtm", text: "Collaborative drug therapy management (CDTM)", esText: "Manejo colaborativo de terapia farmacológica (CDTM)", recommendsBullets: ["ph-3"] },
+      { id: "pharm_duty_imm", text: "Immunization administration", esText: "Administración de inmunizaciones", recommendsBullets: ["ph-4"] },
+    ],
+  },
+  {
+    id: "pharm_setting",
+    roleId: "pharmacist",
+    question: "What type of pharmacy setting have you worked in?",
+    esQuestion: "¿En qué tipo de entorno de farmacia ha trabajado?",
+    answerType: "single",
+    options: [
+      { id: "pharm_set_fqhc", text: "FQHC or community health center pharmacy", esText: "Farmacia de FQHC o centro de salud comunitario", recommendsBullets: ["ph-1", "ph-5"] },
+      { id: "pharm_set_hospital", text: "Hospital or health system pharmacy", esText: "Farmacia de hospital o sistema de salud", recommendsBullets: ["ph-3"] },
+      { id: "pharm_set_retail", text: "Retail or chain pharmacy", esText: "Farmacia minorista o de cadena", recommendsBullets: ["ph-4"] },
+      { id: "pharm_set_ambulatory", text: "Ambulatory care clinic pharmacy", esText: "Farmacia de clínica de atención ambulatoria", recommendsBullets: ["ph-2"] },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  PHARMACY TECHNICIAN                                                 */
+/* ------------------------------------------------------------------ */
+
+const PHARMACY_TECH_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "pt_duties",
+    roleId: "pharmacy_technician",
+    question: "What pharmacy technician duties have you performed?",
+    esQuestion: "¿Qué funciones de técnico de farmacia ha realizado?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "pt_duty_dispense", text: "Prescription processing and dispensing", esText: "Procesamiento y dispensación de recetas", recommendsBullets: ["pt-1"] },
+      { id: "pt_duty_340b", text: "340B inventory tracking and split billing", esText: "Seguimiento de inventario 340B y facturación dividida", recommendsBullets: ["pt-2"] },
+      { id: "pt_duty_insurance", text: "Insurance verification and prior authorization", esText: "Verificación de seguros y autorización previa", recommendsBullets: ["pt-3"] },
+      { id: "pt_duty_inventory", text: "Drug inventory management and ordering", esText: "Gestión de inventario de medicamentos y pedidos", recommendsBullets: ["pt-4"] },
+    ],
+  },
+  {
+    id: "pt_credentials",
+    roleId: "pharmacy_technician",
+    question: "What credentials do you hold?",
+    esQuestion: "¿Qué credenciales posee?",
+    answerType: "multi",
+    options: [
+      { id: "pt_cred_ca_reg", text: "California Pharmacy Technician registration", esText: "Registro de Técnico de Farmacia de California", recommendsBullets: ["pt-1"] },
+      { id: "pt_cred_ptcb", text: "PTCB CPhT certification", esText: "Certificación PTCB CPhT", recommendsBullets: ["pt-5"] },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  HEALTH ENROLLMENT NAVIGATOR                                         */
+/* ------------------------------------------------------------------ */
+
+const ENROLLMENT_NAVIGATOR_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "en_programs",
+    roleId: "health_enrollment_navigator",
+    question: "Which enrollment programs have you worked with?",
+    esQuestion: "¿Con qué programas de inscripción ha trabajado?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "en_prog_medi_cal", text: "Medi-Cal eligibility and enrollment", esText: "Elegibilidad e inscripción en Medi-Cal", recommendsBullets: ["en-1"] },
+      { id: "en_prog_covered_ca", text: "Covered California enrollment", esText: "Inscripción en Covered California", recommendsBullets: ["en-2"] },
+      { id: "en_prog_undoc", text: "Programs for undocumented patients (ILOS, PACE, Medi-Cal for All)", esText: "Programas para pacientes indocumentados (ILOS, PACE, Medi-Cal para Todos)", recommendsBullets: ["en-3"] },
+      { id: "en_prog_calaim", text: "CalAIM Community Supports enrollment", esText: "Inscripción en CalAIM Community Supports", recommendsBullets: ["en-4"] },
+      { id: "en_prog_sfp", text: "Sliding fee scale / FQHC discount program", esText: "Escala de tarifas deslizantes / programa de descuento FQHC", recommendsBullets: ["en-5"] },
+    ],
+  },
+  {
+    id: "en_caseload",
+    roleId: "health_enrollment_navigator",
+    question: "How many enrollment cases did you handle monthly?",
+    esQuestion: "¿Cuántos casos de inscripción manejó mensualmente?",
+    answerType: "single",
+    options: [
+      { id: "en_cl_low", text: "Under 25 cases/month", esText: "Menos de 25 casos/mes", recommendsBullets: [] },
+      { id: "en_cl_med", text: "25–75 cases/month", esText: "25–75 casos/mes", recommendsBullets: ["en-1"] },
+      { id: "en_cl_high", text: "75+ cases/month", esText: "75+ casos/mes", recommendsBullets: ["en-1", "en-6"] },
+    ],
+  },
+  {
+    id: "en_credentials",
+    roleId: "health_enrollment_navigator",
+    question: "Which enrollment certifications do you hold?",
+    esQuestion: "¿Qué certificaciones de inscripción posee?",
+    answerType: "multi",
+    options: [
+      { id: "en_cred_cac", text: "CMS Certified Application Counselor (CAC)", esText: "Consejero de Solicitud Certificado (CAC) de CMS", recommendsBullets: ["en-2"] },
+      { id: "en_cred_cec", text: "Covered California Certified Enrollment Counselor (CEC)", esText: "Consejero de Inscripción Certificado (CEC) de Covered California", recommendsBullets: ["en-2"] },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  LVN — Licensed Vocational Nurse                                     */
+/* ------------------------------------------------------------------ */
+
+const LVN_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "lvn_duties",
+    roleId: "lvn",
+    question: "What nursing duties have you regularly performed?",
+    esQuestion: "¿Qué funciones de enfermería ha realizado regularmente?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "lvn_duty_rooming", text: "Patient rooming, vital signs, and clinical intake", esText: "Ingreso de pacientes, signos vitales e ingesta clínica", recommendsBullets: ["lvn-1"] },
+      { id: "lvn_duty_meds", text: "Medication administration and injections", esText: "Administración de medicamentos e inyecciones", recommendsBullets: ["lvn-2"] },
+      { id: "lvn_duty_phlebotomy", text: "Phlebotomy and specimen collection", esText: "Flebotomía y recolección de muestras", recommendsBullets: ["lvn-3"] },
+      { id: "lvn_duty_iv", text: "IV therapy and infusion", esText: "Terapia IV e infusión", recommendsBullets: ["lvn-4"] },
+      { id: "lvn_duty_education", text: "Patient education and chronic disease support", esText: "Educación del paciente y soporte de enfermedades crónicas", recommendsBullets: ["lvn-5"] },
+    ],
+  },
+  {
+    id: "lvn_setting",
+    roleId: "lvn",
+    question: "What clinical settings have you worked in?",
+    esQuestion: "¿En qué entornos clínicos ha trabajado?",
+    answerType: "single",
+    options: [
+      { id: "lvn_set_fqhc", text: "FQHC or community health center", esText: "FQHC o centro de salud comunitario", recommendsBullets: ["lvn-6"] },
+      { id: "lvn_set_clinic", text: "Outpatient clinic or medical office", esText: "Clínica ambulatoria u oficina médica", recommendsBullets: ["lvn-1"] },
+      { id: "lvn_set_hospital", text: "Hospital or skilled nursing facility", esText: "Hospital o instalación de enfermería especializada", recommendsBullets: ["lvn-4"] },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  PSYCHIATRIC NP / PMHNP                                             */
+/* ------------------------------------------------------------------ */
+
+const PSYCHIATRIC_NP_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "pnp_services",
+    roleId: "psychiatric_np",
+    question: "What psychiatric services have you provided?",
+    esQuestion: "¿Qué servicios psiquiátricos ha proporcionado?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "pnp_svc_medmgmt", text: "Psychiatric medication management", esText: "Manejo de medicamentos psiquiátricos", recommendsBullets: ["pnp-1"] },
+      { id: "pnp_svc_crisis", text: "Crisis assessment and safety planning", esText: "Evaluación de crisis y planificación de seguridad", recommendsBullets: ["pnp-2"] },
+      { id: "pnp_svc_cocm", text: "Collaborative Care Model (CoCM) consultation", esText: "Consulta del Modelo de Atención Colaborativa (CoCM)", recommendsBullets: ["pnp-3"] },
+      { id: "pnp_svc_tele", text: "Tele-psychiatry", esText: "Tele-psiquiatría", recommendsBullets: ["pnp-4"] },
+    ],
+  },
+  {
+    id: "pnp_population",
+    roleId: "psychiatric_np",
+    question: "Which populations have you primarily served?",
+    esQuestion: "¿A qué poblaciones ha servido principalmente?",
+    answerType: "multi",
+    options: [
+      { id: "pnp_pop_smi", text: "Serious mental illness (schizophrenia, bipolar, MDD)", esText: "Enfermedad mental grave (esquizofrenia, trastorno bipolar, TDM)", recommendsBullets: ["pnp-1"] },
+      { id: "pnp_pop_trauma", text: "Trauma / PTSD / complex trauma", esText: "Trauma / TEPT / trauma complejo", recommendsBullets: ["pnp-5"] },
+      { id: "pnp_pop_sud", text: "Co-occurring SUD (MAT, MOUD)", esText: "TUS co-ocurrente (MAT, MOUD)", recommendsBullets: ["pnp-2"] },
+      { id: "pnp_pop_medi_cal", text: "Medi-Cal / safety-net population", esText: "Medi-Cal / población de red de seguridad", recommendsBullets: ["pnp-3"] },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  PROGRAM MANAGER                                                     */
+/* ------------------------------------------------------------------ */
+
+const PROGRAM_MANAGER_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "pm_programs",
+    roleId: "program_manager",
+    question: "Which programs have you managed?",
+    esQuestion: "¿Qué programas ha gestionado?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "pm_prog_ecm", text: "CalAIM ECM or Community Supports", esText: "CalAIM ECM o Community Supports", recommendsBullets: ["pgm-1"] },
+      { id: "pm_prog_hrsa", text: "HRSA grant-funded health center program", esText: "Programa de centro de salud financiado por subvención HRSA", recommendsBullets: ["pgm-2"] },
+      { id: "pm_prog_bh", text: "Behavioral health integration program", esText: "Programa de integración de salud conductual", recommendsBullets: ["pgm-3"] },
+      { id: "pm_prog_qi", text: "Quality improvement or data program", esText: "Programa de mejora de calidad o datos", recommendsBullets: ["pgm-4"] },
+    ],
+  },
+  {
+    id: "pm_scope",
+    roleId: "program_manager",
+    question: "What was the scale of programs you managed?",
+    esQuestion: "¿Cuál fue la escala de los programas que gestionó?",
+    answerType: "single",
+    options: [
+      { id: "pm_scope_small", text: "Single-site or small team (under 5 staff)", esText: "Un solo sitio o equipo pequeño (menos de 5 empleados)", recommendsBullets: ["pgm-4"] },
+      { id: "pm_scope_mid", text: "Multi-site program (5–15 staff)", esText: "Programa de múltiples sitios (5–15 empleados)", recommendsBullets: ["pgm-1", "pgm-5"] },
+      { id: "pm_scope_large", text: "Large program or division (15+ staff or $1M+ budget)", esText: "Programa o división grande (15+ empleados o presupuesto de $1M+)", recommendsBullets: ["pgm-2", "pgm-5"] },
+    ],
+  },
+  {
+    id: "pm_reporting",
+    roleId: "program_manager",
+    question: "What reporting/compliance work have you done?",
+    esQuestion: "¿Qué trabajo de informes/cumplimiento ha realizado?",
+    answerType: "multi",
+    options: [
+      { id: "pm_rep_uds", text: "HRSA Uniform Data System (UDS) reporting", esText: "Informes del Sistema de Datos Uniformes (UDS) de HRSA", recommendsBullets: ["pgm-2"] },
+      { id: "pm_rep_funder", text: "Funder / grant progress reporting", esText: "Informes de progreso de financiadores / subvenciones", recommendsBullets: ["pgm-6"] },
+      { id: "pm_rep_qi", text: "Quality measure tracking (HEDIS, UDS)", esText: "Seguimiento de medidas de calidad (HEDIS, UDS)", recommendsBullets: ["pgm-4"] },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
 /*  All Questions Combined + Helpers                                    */
 /* ------------------------------------------------------------------ */
 
@@ -1737,6 +2049,14 @@ export const ROLE_EXPERIENCE_QUESTIONS: RoleExperienceQuestion[] = [
   ...ACCOUNTANT_QUESTIONS,
   ...PAYROLL_SPECIALIST_QUESTIONS,
   ...FINANCE_MANAGER_QUESTIONS,
+  ...DENTAL_ASSISTANT_QUESTIONS,
+  ...DENTAL_HYGIENIST_QUESTIONS,
+  ...PHARMACIST_QUESTIONS,
+  ...PHARMACY_TECH_QUESTIONS,
+  ...ENROLLMENT_NAVIGATOR_QUESTIONS,
+  ...LVN_QUESTIONS,
+  ...PSYCHIATRIC_NP_QUESTIONS,
+  ...PROGRAM_MANAGER_QUESTIONS,
 ];
 
 /** Get experience questions for a specific role */

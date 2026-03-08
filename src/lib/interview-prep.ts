@@ -703,6 +703,288 @@ export const INTERVIEW_QUESTIONS: InterviewQuestion[] = [
       "¿Cómo manejas a los pacientes que no han tenido atención dental en 5+ años?",
     ],
   },
+
+  /* ─── DENTAL ASSISTANT ─────────────────────────────────────────── */
+  {
+    id: "clinical-da-four-handed",
+    question: "Walk me through your role during a high-volume FQHC dental session — what does an efficient day look like for you as a dental assistant?",
+    esQuestion: "Descríbeme tu papel durante una sesión dental de alto volumen en un FQHC — ¿cómo es un día eficiente para ti como asistente dental?",
+    category: "clinical",
+    difficulty: "mid",
+    roles: ["dental_assistant"],
+    whyAsked: "FQHC dental clinics run on volume — the DA is the throughput engine. Interviewers want to see if you can manage setup, turnover, and chairside simultaneously.",
+    esWhyAsked: "Las clínicas dentales de FQHC funcionan con volumen — el asistente dental es el motor de rendimiento.",
+    starTip: {
+      situation: "Describe the type of clinic — how many ops, how many providers, what patient population",
+      esSituation: "Describe el tipo de clínica — cuántas operatorias, cuántos proveedores, qué población de pacientes",
+      task: "What was your role in keeping the schedule moving?",
+      esTask: "¿Cuál fue tu papel para mantener el horario en movimiento?",
+      action: "Detail your setup/breakdown routine, supply management, patient intake steps",
+      esAction: "Detalla tu rutina de preparación/desmontaje, manejo de suministros, pasos de recepción de pacientes",
+      result: "How many patients per provider per day? Any efficiency wins you achieved?",
+      esResult: "¿Cuántos pacientes por proveedor por día? ¿Algún logro de eficiencia que hayas alcanzado?",
+    },
+    strongAnswerExample: "At my last FQHC dental clinic we ran 3 dentists across 6 operatories. My job was to keep all 6 turning — I'd prep the next patient in Op 3 while the dentist was finishing in Op 1. I memorized each dentist's setup preferences (Dr. Ramos likes a specific composite kit laid out by shade, Dr. Chen wants radiographs pre-loaded). We went from 14 to 18 patients per provider per day in six months just by tightening the turnover to 8 minutes.",
+    esStrongAnswerExample: "En mi última clínica dental de FQHC teníamos 3 dentistas en 6 operatorias. Mi trabajo era mantener las 6 rotando — preparaba al siguiente paciente en la Op 3 mientras el dentista terminaba en la Op 1.",
+    redFlags: [
+      "No clear understanding of four-handed dentistry principles",
+      "Has never worked with Denti-Cal patients or doesn't understand insurance workflows",
+      "Can't describe a specific throughput strategy",
+    ],
+    esRedFlags: [
+      "No tiene clara comprensión de los principios de odontología a cuatro manos",
+      "Nunca ha trabajado con pacientes de Denti-Cal",
+    ],
+    followUpQuestions: [
+      "Are you EDDA-certified (Expanded Duties Dental Assistant) in California?",
+      "How do you handle a patient who is extremely fearful or had a prior traumatic dental experience?",
+    ],
+    esFollowUpQuestions: [
+      "¿Tienes certificación EDDA (Asistente Dental con Deberes Expandidos) en California?",
+    ],
+  },
+
+  /* ─── DENTAL HYGIENIST ─────────────────────────────────────────── */
+  {
+    id: "clinical-dh-perio",
+    question: "Many FQHC patients have significant periodontal disease and years of deferred care. How do you approach a patient who needs extensive treatment and has never seen a dentist regularly?",
+    esQuestion: "Muchos pacientes de FQHC tienen enfermedad periodontal significativa y años de atención diferida. ¿Cómo abordas a un paciente que necesita tratamiento extenso y nunca ha visitado al dentista regularmente?",
+    category: "clinical",
+    difficulty: "mid",
+    roles: ["dental_hygienist"],
+    whyAsked: "FQHC hygienists work with high-acuity, trauma-aware patients. Interviewers want to see your patient education approach, trauma-informed care skills, and prioritization strategy.",
+    esWhyAsked: "Los higienistas de FQHC trabajan con pacientes de alta agudeza. Los entrevistadores quieren ver tu enfoque de educación del paciente y habilidades de atención informada en trauma.",
+    starTip: {
+      situation: "Describe the patient demographics at your clinic and how deferred care shows up clinically",
+      esSituation: "Describe la demografía de pacientes en tu clínica y cómo se manifiesta clínicamente la atención diferida",
+      task: "What was your goal for a first-time or lapsed patient visit?",
+      esTask: "¿Cuál era tu objetivo para una visita de paciente nuevo o con lapso de atención?",
+      action: "Walk through your approach — assessment, education, SRP scheduling, referrals",
+      esAction: "Describe tu enfoque — evaluación, educación, programación de SRP, referencias",
+      result: "What outcomes have you seen with patients who follow through on treatment plans?",
+      esResult: "¿Qué resultados has visto con pacientes que siguen los planes de tratamiento?",
+    },
+    strongAnswerExample: "Most of my patients haven't had a cleaning in 5+ years. I don't lead with the clinical picture — I lead with 'What's been getting in the way of dental care for you?' because cost and fear are the biggest barriers. Once I understand their situation, I prioritize: what's urgent, what can wait. I'll do an emergency SRP on the worst quadrant, get them scheduled for the rest, and coach home care they can actually do — not just 'floss more.' For diabetic patients I explain the A1C-periodontal connection because that motivates follow-through.",
+    esStrongAnswerExample: "La mayoría de mis pacientes no han tenido una limpieza en 5+ años. No comienzo con el cuadro clínico — comienzo con '¿Qué ha impedido la atención dental para usted?' porque el costo y el miedo son las mayores barreras.",
+    redFlags: [
+      "Leads with judgment about patient's dental hygiene without exploring barriers",
+      "No experience with SRP or scaling beyond routine cleanings",
+      "Doesn't understand oral-systemic connections relevant to FQHC populations",
+    ],
+    esRedFlags: [
+      "Lidera con juicio sobre la higiene dental del paciente sin explorar barreras",
+      "No tiene experiencia con SRP más allá de limpiezas de rutina",
+    ],
+    followUpQuestions: [
+      "Do you have experience with direct access dental hygiene or Alternative Practice settings?",
+      "How do you coordinate with the dentist when you identify a patient needing urgent restorative care?",
+    ],
+    esFollowUpQuestions: [
+      "¿Tienes experiencia con higiene dental de acceso directo o entornos de práctica alternativa?",
+    ],
+  },
+
+  /* ─── PHARMACIST ───────────────────────────────────────────────── */
+  {
+    id: "clinical-pharmacist-340b",
+    question: "FQHCs rely heavily on 340B drug pricing to reduce medication costs for patients. What is your understanding of the 340B program and how have you worked within it?",
+    esQuestion: "Los FQHCs dependen en gran medida del precio de medicamentos 340B para reducir los costos de medicamentos para los pacientes. ¿Cuál es tu comprensión del programa 340B y cómo has trabajado dentro de él?",
+    category: "clinical",
+    difficulty: "mid",
+    roles: ["pharmacist", "pharmacy_technician"],
+    whyAsked: "340B is central to FQHC pharmacy economics. Pharmacists who understand split billing, contract pharmacy relationships, and audit compliance add direct financial value.",
+    esWhyAsked: "340B es central para la economía de farmacia de FQHC. Los farmacéuticos que entienden la facturación dividida agregan valor financiero directo.",
+    starTip: {
+      situation: "Have you worked at a 340B-covered entity or contract pharmacy?",
+      esSituation: "¿Has trabajado en una entidad cubierta por 340B o farmacia contratada?",
+      task: "What was your role in 340B compliance or program management?",
+      esTask: "¿Cuál fue tu papel en el cumplimiento o gestión del programa 340B?",
+      action: "Describe the processes — eligibility verification, duplicate discount prevention, audit preparation",
+      esAction: "Describe los procesos — verificación de elegibilidad, prevención de descuentos duplicados, preparación de auditorías",
+      result: "Any cost savings demonstrated or audit outcomes?",
+      esResult: "¿Algún ahorro de costos demostrado o resultados de auditoría?",
+    },
+    strongAnswerExample: "At HealthRight 360 I worked with our 340B TPA (we used Sentry) to manage contract pharmacy relationships. My role included reviewing the eligibility file monthly to ensure only Medi-Cal and uninsured patients received 340B pricing, running duplicate discount reports quarterly, and preparing for the HRSA audit documentation. We passed our audit with zero findings. The 340B savings funded our PAP program that covered insulin for 200+ patients monthly.",
+    esStrongAnswerExample: "En HealthRight 360 trabajé con nuestro TPA 340B para gestionar las relaciones de farmacia contratada. Mi función incluía revisar el archivo de elegibilidad mensualmente y preparar la documentación de auditoría HRSA.",
+    redFlags: [
+      "No knowledge of 340B basics — covered entity vs contract pharmacy distinction",
+      "Unaware of duplicate discount prohibition",
+      "Never worked with low-income or uninsured patient medication programs",
+    ],
+    esRedFlags: [
+      "Sin conocimiento de los conceptos básicos de 340B",
+      "Desconoce la prohibición de descuentos duplicados",
+    ],
+    followUpQuestions: [
+      "What medication therapy management (MTM) experience do you have, especially for chronic disease management?",
+      "How do you counsel patients on medication adherence when cost is a barrier?",
+    ],
+    esFollowUpQuestions: [
+      "¿Qué experiencia tienes en gestión de terapia de medicamentos (MTM) para manejo de enfermedades crónicas?",
+    ],
+  },
+
+  /* ─── HEALTH ENROLLMENT NAVIGATOR ─────────────────────────────── */
+  {
+    id: "clinical-navigator-calAIM",
+    question: "A patient presents uninsured, speaks limited English, and has a complex chronic condition. Walk me through how you would enroll them in coverage and connect them to FQHC services.",
+    esQuestion: "Un paciente llega sin seguro, habla inglés limitado y tiene una condición crónica compleja. Descríbeme cómo lo inscribirías en cobertura y lo conectarías con los servicios del FQHC.",
+    category: "situational",
+    difficulty: "mid",
+    roles: ["health_enrollment_navigator"],
+    whyAsked: "This is the core competency test for enrollment navigators. FQHCs serve complex, multilingual, uninsured populations — and enrollment directly drives PPS revenue.",
+    esWhyAsked: "Esta es la prueba de competencia básica para los navegadores de inscripción. Los FQHCs atienden poblaciones complejas, multilingües y sin seguro — y la inscripción impulsa directamente los ingresos PPS.",
+    starTip: {
+      situation: "What was the patient's language, documentation status, and health needs?",
+      esSituation: "¿Cuál era el idioma, estado de documentación y necesidades de salud del paciente?",
+      task: "What coverage options were available to this patient?",
+      esTask: "¿Qué opciones de cobertura estaban disponibles para este paciente?",
+      action: "Describe the enrollment steps — Covered CA, full-scope Medi-Cal, restricted Medi-Cal, PCIP, county indigent programs",
+      esAction: "Describe los pasos de inscripción — Covered CA, Medi-Cal completo, Medi-Cal restringido, PCIP, programas indigentes del condado",
+      result: "What coverage did you secure? How did it change the patient's care access?",
+      esResult: "¿Qué cobertura aseguraste? ¿Cómo cambió el acceso a la atención del paciente?",
+    },
+    strongAnswerExample: "First I assess documentation status — because for undocumented patients over 26, restricted-scope Medi-Cal covers emergency and pregnancy only; for under-26, full-scope is available since January 2024. Then income: under 138% FPL is Medi-Cal, above is Covered California. If no documentation and over 26, I look at county options — LA has the My Health LA program for the uninsured. For language, I use our bilingual staff or CLAS-compliant telephone interpretation. Once enrolled, I warm-hand them to care coordination for ECM screening if they meet criteria — complex chronic condition, high ED utilization.",
+    esStrongAnswerExample: "Primero evalúo el estado de documentación — porque para pacientes indocumentados mayores de 26 años, el Medi-Cal de alcance restringido solo cubre emergencias y embarazo; para menores de 26, el alcance completo está disponible desde enero de 2024.",
+    redFlags: [
+      "Doesn't know the difference between full-scope and restricted Medi-Cal",
+      "Unfamiliar with Covered California income thresholds",
+      "Has never worked with interpretation services or LEP patients",
+    ],
+    esRedFlags: [
+      "No conoce la diferencia entre Medi-Cal de alcance completo y restringido",
+      "No está familiarizado con los umbrales de ingresos de Covered California",
+    ],
+    followUpQuestions: [
+      "What experience do you have with CalFresh, CalWORKs, or other public benefit programs that FQHCs help patients navigate?",
+      "How do you handle a patient who is afraid to apply for coverage due to immigration concerns?",
+    ],
+    esFollowUpQuestions: [
+      "¿Qué experiencia tienes con CalFresh, CalWORKs u otros programas de beneficios públicos?",
+      "¿Cómo manejas a un paciente que teme solicitar cobertura por preocupaciones de inmigración?",
+    ],
+  },
+
+  /* ─── LVN ─────────────────────────────────────────────────────── */
+  {
+    id: "clinical-lvn-scope",
+    question: "LVN scope of practice in California is specific — what can you do independently, and what requires RN or provider supervision at an FQHC?",
+    esQuestion: "El alcance de práctica de LVN en California es específico — ¿qué puedes hacer de forma independiente y qué requiere supervisión de RN o proveedor en un FQHC?",
+    category: "clinical",
+    difficulty: "entry",
+    roles: ["lvn"],
+    whyAsked: "LVN scope confusion creates liability. Interviewers need to confirm you understand your boundaries — IV therapy, medication administration, assessment vs. evaluation distinctions.",
+    esWhyAsked: "La confusión sobre el alcance de LVN crea responsabilidad. Los entrevistadores necesitan confirmar que entiendes tus límites.",
+    starTip: {
+      situation: "What type of clinic have you worked in — primary care, specialty, BH, FQHC?",
+      esSituation: "¿En qué tipo de clínica has trabajado — atención primaria, especialidad, BH, FQHC?",
+      task: "Give an example where knowing your scope prevented an error or escalation",
+      esTask: "Da un ejemplo donde conocer tu alcance previno un error o escalación",
+      action: "Describe what you did, who you notified, and why",
+      esAction: "Describe lo que hiciste, a quién notificaste y por qué",
+      result: "What was the outcome and what did it reinforce for you about scope?",
+      esResult: "¿Cuál fue el resultado y qué te reforzó sobre el alcance?",
+    },
+    strongAnswerExample: "In California, LVNs can administer medications, perform IV therapy with the IV Certification, take vitals, collect specimens, do wound care, and implement the nursing care plan. What we cannot do is the initial nursing assessment — that belongs to the RN — and we cannot independently adjust a care plan without RN/provider direction. At my last clinic I caught a medication order that seemed outside the normal parameters. I flagged it immediately to the RN supervisor rather than administering it, the order was corrected, and the MD thanked me. That's the job — know what you know, know who to call when you don't.",
+    esStrongAnswerExample: "En California, los LVN pueden administrar medicamentos, realizar terapia IV con la certificación de IV, tomar signos vitales, recolectar muestras, realizar cuidado de heridas e implementar el plan de cuidado de enfermería. Lo que no podemos hacer es la evaluación inicial de enfermería — eso le corresponde al RN.",
+    redFlags: [
+      "Unclear on LVN vs. RN scope distinctions in California",
+      "Has never worked in primary care — FQHC LVN work is different from acute care",
+      "Can't give an example of appropriate escalation to supervising RN or provider",
+    ],
+    esRedFlags: [
+      "No tiene claras las distinciones de alcance de LVN vs. RN en California",
+      "Nunca ha trabajado en atención primaria",
+    ],
+    followUpQuestions: [
+      "Do you have your IV Therapy certification? If not, is that something you're working toward?",
+      "Describe your experience with chronic disease management in a primary care setting — diabetes, hypertension, asthma protocols.",
+    ],
+    esFollowUpQuestions: [
+      "¿Tienes tu certificación de terapia IV? Si no, ¿es algo hacia lo que estás trabajando?",
+    ],
+  },
+
+  /* ─── PSYCHIATRIC NP ────────────────────────────────────────────── */
+  {
+    id: "clinical-pnp-collaborative-care",
+    question: "Describe your experience with integrated behavioral health or Collaborative Care Model (CoCM) in a primary care setting. How do you work alongside PCPs?",
+    esQuestion: "Describe tu experiencia con salud conductual integrada o el Modelo de Atención Colaborativa (CoCM) en un entorno de atención primaria. ¿Cómo trabajas junto a los PCPs?",
+    category: "clinical",
+    difficulty: "senior",
+    roles: ["psychiatric_np"],
+    whyAsked: "FQHCs increasingly integrate behavioral health into primary care. PMHNPs who can function in a CoCM model — brief consults, caseload panel, population health — are highest value.",
+    esWhyAsked: "Los FQHCs integran cada vez más la salud conductual en la atención primaria. Los PMHNPs que pueden funcionar en un modelo CoCM son de mayor valor.",
+    starTip: {
+      situation: "What was the BH integration model at your last clinical site?",
+      esSituation: "¿Cuál era el modelo de integración de BH en tu último sitio clínico?",
+      task: "How did you collaborate with PCPs on shared patients?",
+      esTask: "¿Cómo colaboraste con los PCPs en pacientes compartidos?",
+      action: "Describe warm handoffs, caseload reviews, co-prescribing coordination",
+      esAction: "Describe las transferencias directas, revisiones de lista de casos, coordinación de co-prescripción",
+      result: "What outcomes did the integrated model produce vs. traditional siloed BH?",
+      esResult: "¿Qué resultados produjo el modelo integrado vs. la BH siloada tradicional?",
+    },
+    strongAnswerExample: "I've worked in two FQHCs with different integration levels. At the first, it was co-location only — we were in the same building but referred separately. At the second, we ran a true CoCM: I had a panel of 80 patients in the registry, the PCP could warm-hand a PHQ-9 ≥10 patient to my door same day, we had weekly case reviews with the care manager, and I adjusted psychotropics collaboratively with the PCP rather than in a separate psychiatry appointment. The second model got patients to symptom improvement 40% faster. For FQHC work specifically, I also prescribe buprenorphine for OUD — that's a core competency the sector needs.",
+    esStrongAnswerExample: "He trabajado en dos FQHCs con diferentes niveles de integración. En el primero, era solo co-ubicación. En el segundo, ejecutamos un verdadero CoCM: tenía un panel de 80 pacientes en el registro, el PCP podía transferir directamente a un paciente con PHQ-9 ≥10 el mismo día.",
+    redFlags: [
+      "Has only worked in traditional outpatient psychiatry — no primary care integration experience",
+      "Cannot prescribe buprenorphine (X-waiver or DATA 2000) — significant gap for FQHC",
+      "No experience with trauma-informed care or complex social needs populations",
+    ],
+    esRedFlags: [
+      "Solo ha trabajado en psiquiatría ambulatoria tradicional — sin experiencia en integración de atención primaria",
+      "No puede prescribir buprenorfina — brecha significativa para FQHC",
+    ],
+    followUpQuestions: [
+      "Do you have your DEA X-waiver (buprenorphine prescribing) for OUD treatment?",
+      "How do you handle a patient who needs a level of care you cannot provide at the FQHC — inpatient psychiatric hold?",
+    ],
+    esFollowUpQuestions: [
+      "¿Tienes tu exención DEA X (prescripción de buprenorfina) para el tratamiento de OUD?",
+    ],
+  },
+
+  /* ─── PROGRAM MANAGER ─────────────────────────────────────────── */
+  {
+    id: "clinical-pgm-grant-compliance",
+    question: "Walk me through a grant-funded program you've managed from implementation through HRSA reporting. What metrics did you track and how did you ensure compliance?",
+    esQuestion: "Descríbeme un programa financiado con subvenciones que hayas gestionado desde la implementación hasta los informes de HRSA. ¿Qué métricas rastreaste y cómo aseguraste el cumplimiento?",
+    category: "clinical",
+    difficulty: "senior",
+    roles: ["program_manager"],
+    whyAsked: "Program managers at FQHCs are directly responsible for grant compliance and UDS reporting. This question tests whether you understand the full lifecycle of a federal program.",
+    esWhyAsked: "Los gerentes de programa en FQHCs son directamente responsables del cumplimiento de subvenciones e informes UDS. Esta pregunta evalúa si entiendes el ciclo de vida completo de un programa federal.",
+    starTip: {
+      situation: "What program? HRSA section 330? CalAIM ECM? Title X? Ryan White?",
+      esSituation: "¿Qué programa? ¿Sección HRSA 330? ¿CalAIM ECM? ¿Título X? ¿Ryan White?",
+      task: "What were the reporting requirements and compliance obligations?",
+      esTask: "¿Cuáles eran los requisitos de informes y las obligaciones de cumplimiento?",
+      action: "Describe your tracking systems, team management, and QI processes",
+      esAction: "Describe tus sistemas de seguimiento, gestión del equipo y procesos de mejora de calidad",
+      result: "UDS outcomes, audit results, program renewal, patient impact numbers",
+      esResult: "Resultados UDS, resultados de auditoría, renovación del programa, números de impacto en pacientes",
+    },
+    strongAnswerExample: "I managed a Ryan White Part C program serving 340 HIV+ patients. I built our UDS data collection workflow in our EHR (eClinicalWorks) to auto-populate the core clinical measures — viral suppression rate, CD4 testing, TB screening. We tracked toward 90% viral suppression using a monthly dashboard I presented to leadership. When we had a reporting discrepancy in our HAB data, I caught it in our pre-submission review, corrected it with documentation, and submitted on time. We got a clean site visit and renewed at the same funding level. The key was making compliance a team habit, not an annual scramble.",
+    esStrongAnswerExample: "Gestioné un programa Ryan White Parte C que atendía a 340 pacientes con VIH+. Construí nuestro flujo de trabajo de recopilación de datos UDS en nuestro EHR para poblar automáticamente las medidas clínicas básicas — tasa de supresión viral, pruebas de CD4, detección de TB.",
+    redFlags: [
+      "No experience with federal grant reporting (UDS, HAB, Title X, HRSA Section 330)",
+      "Cannot describe a program dashboard or QI process",
+      "Has not managed direct reports or cross-department teams",
+    ],
+    esRedFlags: [
+      "Sin experiencia con informes de subvenciones federales (UDS, HAB, Título X)",
+      "No puede describir un panel de programa o proceso de mejora de calidad",
+    ],
+    followUpQuestions: [
+      "How do you handle a situation where program data shows you're not hitting targets mid-year?",
+      "Describe your experience with the HRSA Operational Site Visit (OSV) or similar federal compliance review.",
+    ],
+    esFollowUpQuestions: [
+      "¿Cómo manejas una situación en la que los datos del programa muestran que no estás alcanzando los objetivos a mitad de año?",
+      "Describe tu experiencia con la Visita al Sitio Operativo (OSV) de HRSA o revisión similar de cumplimiento federal.",
+    ],
+  },
 ];
 
 /* --- Role Guides --------------------------------------------------- */
@@ -907,6 +1189,270 @@ export const ROLE_INTERVIEW_GUIDES: RoleInterviewGuide[] = [
     interviewFormat: {
       en: "2–3 rounds: HR screen → Dental Director or Chief Dental Officer interview → case scenario discussion and/or clinical skills review. Credentialing file review begins at offer (DEA, California dental license, NPI, malpractice history). Some FQHCs require a half-day working interview.",
       es: "2–3 rondas: revisión de RRHH → entrevista con Director Dental → discusión de escenario de caso y/o revisión de habilidades clínicas. La revisión del expediente de credenciales comienza en la oferta (DEA, licencia dental de California, NPI).",
+    },
+  },
+
+  /* ─── DENTAL ASSISTANT ─────────────────────────────────────────── */
+  {
+    roleId: "dental_assistant",
+    roleName: "Dental Assistant (RDA/EDDA) — FQHC",
+    esRoleName: "Asistente Dental (RDA/EDDA) — FQHC",
+    topQuestions: [
+      "mission-why-fqhc",
+      "clinical-da-four-handed",
+      "behavioral-difficult-patient",
+      "mission-health-equity",
+      "team-multilingual",
+    ],
+    keyThemes: [
+      { en: "Four-handed dentistry and operatory turnover efficiency", es: "Odontología a cuatro manos y eficiencia en la rotación de operatorias" },
+      { en: "Denti-Cal patient workflows and prior authorization support", es: "Flujos de trabajo con pacientes Denti-Cal y apoyo en autorizaciones previas" },
+      { en: "EDDA scope — expanded duties and what requires dentist supervision", es: "Alcance EDDA — deberes expandidos y qué requiere supervisión del dentista" },
+      { en: "Infection control (OSHA, CDPH, CDCPH dental sterilization protocols)", es: "Control de infecciones (OSHA, protocolos de esterilización dental)" },
+      { en: "Trauma-informed care for anxious or first-time dental patients", es: "Atención informada en trauma para pacientes ansiosos o de primera visita dental" },
+    ],
+    salaryNegotiationTip: {
+      en: "FQHC dental assistants in CA earn $22–32/hr. EDDA-certified DAs earn $26–35/hr — the expanded duties certification is worth $3–5/hr more. Ask about Denti-Cal billing training, EDDA sponsorship, and whether the clinic offers dental benefits for your own family.",
+      es: "Los asistentes dentales de FQHC en CA ganan $22–32/hr. Los DA con certificación EDDA ganan $26–35/hr — la certificación de deberes expandidos vale $3–5/hr más.",
+    },
+    fqhcSpecificTip: {
+      en: "FQHC dental is full-scope — extractions, pediatric, dentures, special needs, and increasingly oral surgery. Know how to assist for all procedure types, not just restorations. Most FQHC dental interviews include a practical or skills walk-through. Be ready to describe your sterilization protocol step by step — infection control is always tested.",
+      es: "La odontología de FQHC es de alcance completo — extracciones, pediátrico, dentaduras, necesidades especiales. Conoce cómo asistir en todos los tipos de procedimientos, no solo restauraciones. La mayoría de las entrevistas dentales de FQHC incluyen una evaluación práctica.",
+    },
+    interviewFormat: {
+      en: "1–2 rounds: HR screen + working interview in clinic. You may be asked to set up a tray for a specific procedure, demonstrate sterilization protocol, or assist during an actual patient appointment (with patient consent). EDDA certification is strongly preferred — bring documentation.",
+      es: "1–2 rondas: revisión de RRHH + entrevista de trabajo en clínica. Es posible que te pidan configurar una bandeja para un procedimiento específico, demostrar el protocolo de esterilización o asistir durante una cita real de paciente.",
+    },
+  },
+
+  /* ─── DENTAL HYGIENIST ─────────────────────────────────────────── */
+  {
+    roleId: "dental_hygienist",
+    roleName: "Dental Hygienist (RDH) — FQHC",
+    esRoleName: "Higienista Dental (RDH) — FQHC",
+    topQuestions: [
+      "mission-why-fqhc",
+      "clinical-dh-perio",
+      "mission-health-equity",
+      "behavioral-difficult-patient",
+      "team-multilingual",
+    ],
+    keyThemes: [
+      { en: "Periodontal disease management in underserved, high-acuity populations", es: "Manejo de la enfermedad periodontal en poblaciones desatendidas de alta agudeza" },
+      { en: "Oral-systemic integration — diabetes, pregnancy, cardiovascular, BH", es: "Integración oral-sistémica — diabetes, embarazo, cardiovascular, salud conductual" },
+      { en: "Trauma-informed patient education and barrier exploration", es: "Educación del paciente informada en trauma y exploración de barreras" },
+      { en: "Alternative Practice Dental Hygienist (APDH) scope in California", es: "Alcance del Higienista Dental de Práctica Alternativa (APDH) en California" },
+      { en: "Fluoride varnish, sealants, and preventive care in school-based or mobile programs", es: "Barniz de flúor, selladores y atención preventiva en programas escolares o móviles" },
+    ],
+    salaryNegotiationTip: {
+      en: "FQHC RDHs in CA earn $42–62/hr. RDHs with APDH certification can work with greater autonomy and are worth more — ask about alternative practice opportunities (school-based, mobile, community events). FQHCs often offer student loan assistance programs that effectively raise total comp.",
+      es: "Los RDH de FQHC en CA ganan $42–62/hr. Los RDH con certificación APDH pueden trabajar con mayor autonomía y valen más — pregunta sobre oportunidades de práctica alternativa.",
+    },
+    fqhcSpecificTip: {
+      en: "FQHC hygiene interviews will probe your trauma-informed approach more than your clinical skills. Your ability to meet patients where they are — whether they haven't seen a dentist in 10 years or have severe dental anxiety — is the differentiator. Know Denti-Cal covered hygiene services (SRP, limited and periodic exams, x-rays) and prior auth requirements. If you speak Spanish, lead with it.",
+      es: "Las entrevistas de higiene de FQHC explorarán tu enfoque informado en trauma más que tus habilidades clínicas. Tu capacidad para encontrar a los pacientes donde están — ya sea que no hayan visto a un dentista en 10 años o tengan ansiedad dental severa — es el diferenciador.",
+    },
+    interviewFormat: {
+      en: "1–2 rounds: HR screen + clinical interview with Dental Director or Lead RDH. Be prepared to discuss patient case scenarios (complex perio, medically compromised patients). Some FQHCs conduct working interviews. Bring your California RDH license and any additional certifications (local anesthesia, nitrous oxide, APDH).",
+      es: "1–2 rondas: revisión de RRHH + entrevista clínica con el Director Dental o RDH Principal. Prepárate para discutir escenarios de casos de pacientes. Algunos FQHCs realizan entrevistas de trabajo. Trae tu licencia de RDH de California.",
+    },
+  },
+
+  /* ─── PHARMACIST ───────────────────────────────────────────────── */
+  {
+    roleId: "pharmacist",
+    roleName: "Pharmacist (PharmD) — FQHC",
+    esRoleName: "Farmacéutico(a) (PharmD) — FQHC",
+    topQuestions: [
+      "mission-why-fqhc",
+      "clinical-pharmacist-340b",
+      "mission-health-equity",
+      "behavioral-difficult-patient",
+      "behavioral-high-volume",
+    ],
+    keyThemes: [
+      { en: "340B drug pricing program — covered entity compliance, split billing, audit readiness", es: "Programa de precio de medicamentos 340B — cumplimiento de entidad cubierta, facturación dividida, preparación para auditorías" },
+      { en: "Medication therapy management (MTM) for complex chronic disease patients", es: "Gestión de terapia de medicamentos (MTM) para pacientes con enfermedades crónicas complejas" },
+      { en: "Medi-Cal formulary and prior authorization workflows", es: "Formulario Medi-Cal y flujos de trabajo de autorización previa" },
+      { en: "Adherence counseling for LEP patients with cost and literacy barriers", es: "Consejería de adherencia para pacientes LEP con barreras de costo y alfabetización" },
+      { en: "Collaborative practice agreements with FQHC providers (pharmacist-managed clinics)", es: "Acuerdos de práctica colaborativa con proveedores de FQHC (clínicas gestionadas por farmacéuticos)" },
+    ],
+    salaryNegotiationTip: {
+      en: "FQHC pharmacists in CA earn $130–165K. Many FQHCs have collaborative practice agreements that allow pharmacist-managed hypertension, diabetes, and anticoagulation clinics — which significantly expand your scope and career growth. Ask specifically about 340B program savings and whether the pharmacy has a TPA relationship (Sentry, Macro Helix, etc.).",
+      es: "Los farmacéuticos de FQHC en CA ganan $130–165K. Muchos FQHCs tienen acuerdos de práctica colaborativa que permiten clínicas gestionadas por farmacéuticos para hipertensión, diabetes y anticoagulación.",
+    },
+    fqhcSpecificTip: {
+      en: "340B compliance is the highest-leverage skill you bring. If you've managed a 340B program — eligibility files, duplicate discount prevention, contract pharmacy relationships — lead with it. FQHCs depend on 340B savings to fund PAPs (patient assistance programs) for insulin, biologics, and HIV medications. Your knowledge of 340B directly affects patient access to medications.",
+      es: "El cumplimiento 340B es la habilidad de mayor apalancamiento que traes. Si has gestionado un programa 340B — archivos de elegibilidad, prevención de descuentos duplicados, relaciones de farmacia contratada — lidera con eso.",
+    },
+    interviewFormat: {
+      en: "2 rounds: HR screen → Pharmacy Director or CMO interview. Expect detailed questions on 340B, Medi-Cal formulary navigation, and your approach to patient counseling for complex regimens. A case scenario involving a Medi-Cal patient with multiple chronic conditions and medication access barriers is common.",
+      es: "2 rondas: revisión de RRHH → entrevista con el Director de Farmacia o CMO. Espera preguntas detalladas sobre 340B, navegación del formulario Medi-Cal y tu enfoque para la consejería de pacientes.",
+    },
+  },
+
+  /* ─── PHARMACY TECHNICIAN ──────────────────────────────────────── */
+  {
+    roleId: "pharmacy_technician",
+    roleName: "Pharmacy Technician (CPhT) — FQHC",
+    esRoleName: "Técnico de Farmacia (CPhT) — FQHC",
+    topQuestions: [
+      "mission-why-fqhc",
+      "clinical-pharmacist-340b",
+      "behavioral-difficult-patient",
+      "team-multilingual",
+      "behavioral-high-volume",
+    ],
+    keyThemes: [
+      { en: "340B dispensing workflows and patient eligibility verification at point of sale", es: "Flujos de trabajo de dispensación 340B y verificación de elegibilidad del paciente en el punto de venta" },
+      { en: "Medi-Cal claim submission, rejection resolution, and PA support", es: "Presentación de reclamaciones Medi-Cal, resolución de rechazos y soporte de PA" },
+      { en: "High-volume dispensing accuracy and prescription verification processes", es: "Precisión de dispensación de alto volumen y procesos de verificación de recetas" },
+      { en: "Patient assistance program (PAP) enrollment and medication access navigation", es: "Inscripción en programas de asistencia al paciente (PAP) y navegación de acceso a medicamentos" },
+      { en: "Bilingual pharmacy counseling support for LEP patients", es: "Soporte de consejería farmacéutica bilingüe para pacientes LEP" },
+    ],
+    salaryNegotiationTip: {
+      en: "FQHC pharmacy techs in CA earn $20–30/hr. CPhT certification adds $2–4/hr. Immunization administration certification is increasingly required and adds value. Ask about advancement pathways — some FQHCs support techs pursuing PharmD programs.",
+      es: "Los técnicos de farmacia de FQHC en CA ganan $20–30/hr. La certificación CPhT agrega $2–4/hr. La certificación de administración de inmunizaciones es cada vez más requerida y agrega valor.",
+    },
+    fqhcSpecificTip: {
+      en: "FQHC pharmacy techs handle Medi-Cal rejections daily — 'NDC not covered,' 'quantity limit exceeded,' 'prior authorization required.' Know the basic rejection codes and the process for escalating to pharmacist or initiating a PA request. If you're bilingual, highlight it — patient-facing pharmacy work in FQHCs is often the first touchpoint for LEP patients navigating their prescriptions.",
+      es: "Los técnicos de farmacia de FQHC manejan rechazos de Medi-Cal diariamente — 'NDC no cubierto,' 'límite de cantidad excedido,' 'autorización previa requerida.' Conoce los códigos de rechazo básicos y el proceso para escalar al farmacéutico.",
+    },
+    interviewFormat: {
+      en: "1–2 rounds: HR screen + working interview in pharmacy. Expect to demonstrate dispensing workflow knowledge, Medi-Cal billing basics, and 340B eligibility checking. California requires CPhT registration with the Board of Pharmacy — bring documentation.",
+      es: "1–2 rondas: revisión de RRHH + entrevista de trabajo en farmacia. Espera demostrar conocimiento del flujo de trabajo de dispensación, conceptos básicos de facturación Medi-Cal y verificación de elegibilidad 340B.",
+    },
+  },
+
+  /* ─── HEALTH ENROLLMENT NAVIGATOR ─────────────────────────────── */
+  {
+    roleId: "health_enrollment_navigator",
+    roleName: "Health Enrollment Navigator — FQHC",
+    esRoleName: "Navegador(a) de Inscripción en Salud — FQHC",
+    topQuestions: [
+      "mission-why-fqhc",
+      "clinical-navigator-calAIM",
+      "mission-health-equity",
+      "team-multilingual",
+      "behavioral-difficult-patient",
+    ],
+    keyThemes: [
+      { en: "Full-scope vs. restricted Medi-Cal — income, documentation status, age thresholds", es: "Medi-Cal de alcance completo vs. restringido — ingresos, estado de documentación, umbrales de edad" },
+      { en: "Covered California income eligibility and special enrollment periods", es: "Elegibilidad de ingresos de Covered California y períodos de inscripción especial" },
+      { en: "CalAIM Community Supports and ECM enrollment trigger criteria", es: "Apoyos Comunitarios CalAIM y criterios desencadenantes de inscripción en ECM" },
+      { en: "Undocumented patient navigation — PCIP, county indigent programs, RW, restricted Medi-Cal", es: "Navegación para pacientes indocumentados — PCIP, programas indigentes del condado, Ryan White, Medi-Cal restringido" },
+      { en: "Bilingual enrollment counseling and interpretation for LEP patients", es: "Consejería de inscripción bilingüe e interpretación para pacientes LEP" },
+    ],
+    salaryNegotiationTip: {
+      en: "FQHC enrollment navigators in CA earn $22–34/hr. Certified Application Assistants (CAA) for Covered California earn at the top of the range. If you're bilingual and can assist Spanish-speaking patients end-to-end without an interpreter, that's worth $2–4/hr more. Ask about advancement to care coordination or ECM roles — enrollment is often the entry point to a case management career ladder.",
+      es: "Los navegadores de inscripción de FQHC en CA ganan $22–34/hr. Los Asistentes de Solicitud Certificados (CAA) para Covered California ganan en la parte superior del rango.",
+    },
+    fqhcSpecificTip: {
+      en: "Know the immigration/documentation eligibility matrix cold: under 26 full-scope Medi-Cal (since Jan 2024), over 26 = restricted-scope only for undocumented, over 65 = full-scope Medi-Cal regardless of status (since May 2023). County programs vary — in LA, My Health LA; in SF, Healthy SF. If you don't know the matrix, you'll leave patients uninsured who could have coverage. This question will be on every FQHC enrollment navigator interview.",
+      es: "Conoce la matriz de elegibilidad de inmigración/documentación: menores de 26 años Medi-Cal de alcance completo (desde enero 2024), mayores de 26 = solo alcance restringido para indocumentados, mayores de 65 = Medi-Cal de alcance completo independientemente del estatus (desde mayo 2023).",
+    },
+    interviewFormat: {
+      en: "1–2 rounds: HR screen + panel interview with care coordination or patient services team. Expect a patient scenario where you walk through enrollment for a complex case (undocumented, limited English, chronic condition). Covered California CAA certification is often required or preferred — bring proof if you have it.",
+      es: "1–2 rondas: revisión de RRHH + entrevista en panel con el equipo de coordinación de atención o servicios al paciente. Espera un escenario de paciente donde recorras la inscripción para un caso complejo.",
+    },
+  },
+
+  /* ─── LVN ─────────────────────────────────────────────────────── */
+  {
+    roleId: "lvn",
+    roleName: "Licensed Vocational Nurse (LVN) — FQHC",
+    esRoleName: "Enfermero(a) Vocacional Licenciado(a) (LVN) — FQHC",
+    topQuestions: [
+      "mission-why-fqhc",
+      "clinical-lvn-scope",
+      "clinical-ehr",
+      "behavioral-high-volume",
+      "team-multilingual",
+    ],
+    keyThemes: [
+      { en: "LVN scope of practice in California — assessments, medications, IV therapy, wound care", es: "Alcance de práctica de LVN en California — evaluaciones, medicamentos, terapia IV, cuidado de heridas" },
+      { en: "Working under RN/provider supervision in a primary care FQHC team model", es: "Trabajar bajo supervisión de RN/proveedor en un modelo de equipo de atención primaria FQHC" },
+      { en: "Chronic disease management protocols — DM, HTN, asthma standing orders", es: "Protocolos de gestión de enfermedades crónicas — DM, HTN, asma órdenes permanentes" },
+      { en: "High-volume rooming, vital signs, and patient intake workflow efficiency", es: "Habilitación de habitaciones de alto volumen, signos vitales y eficiencia del flujo de trabajo de admisión de pacientes" },
+      { en: "EHR documentation — OCHIN Epic or eClinicalWorks charting", es: "Documentación EHR — registro en OCHIN Epic o eClinicalWorks" },
+    ],
+    salaryNegotiationTip: {
+      en: "FQHC LVNs in CA earn $26–40/hr. IV Therapy certified LVNs earn more. With SB 525, FQHC LVN wages must reach $25/hr minimum by 2027 — most are already there. Ask about LVN-to-RN bridge program tuition support — many FQHCs sponsor staff through RN programs, which dramatically increases your long-term earning potential.",
+      es: "Los LVN de FQHC en CA ganan $26–40/hr. Los LVN con certificación de terapia IV ganan más. Con SB 525, los salarios de LVN de FQHC deben alcanzar un mínimo de $25/hr para 2027.",
+    },
+    fqhcSpecificTip: {
+      en: "FQHC LVN interviews will test your understanding of when to escalate to an RN vs. when you can proceed independently. The critical distinction in California: LVNs conduct 'data collection' — they can take history and record symptoms. RNs conduct the 'nursing assessment' — analysis and clinical judgment. Know this distinction precisely. Also know that in FQHC team care models, LVNs often have deeper patient relationships than any other clinician — you're the face of continuity.",
+      es: "Las entrevistas de LVN de FQHC evaluarán tu comprensión de cuándo escalar a un RN vs. cuándo puedes proceder de forma independiente. La distinción crítica en California: los LVN realizan 'recopilación de datos' — pueden tomar historial y registrar síntomas. Los RN realizan la 'evaluación de enfermería'.",
+    },
+    interviewFormat: {
+      en: "1–2 rounds: HR screen + clinical supervisor interview. Expect questions on scope of practice, specific clinical scenarios (vital sign abnormality, patient in distress, medication question), and EHR experience. Some FQHCs conduct a brief skills check (blood pressure, documentation). Bring your California LVN license.",
+      es: "1–2 rondas: revisión de RRHH + entrevista con supervisor clínico. Espera preguntas sobre el alcance de práctica, escenarios clínicos específicos y experiencia en EHR. Algunos FQHCs realizan una breve verificación de habilidades.",
+    },
+  },
+
+  /* ─── PSYCHIATRIC NP ────────────────────────────────────────────── */
+  {
+    roleId: "psychiatric_np",
+    roleName: "Psychiatric Mental Health NP (PMHNP) — FQHC",
+    esRoleName: "NP de Salud Mental Psiquiátrica (PMHNP) — FQHC",
+    topQuestions: [
+      "mission-why-fqhc",
+      "clinical-pnp-collaborative-care",
+      "mission-health-equity",
+      "behavioral-difficult-patient",
+      "clinical-np-pa-scope",
+    ],
+    keyThemes: [
+      { en: "Collaborative Care Model (CoCM) integration with primary care team", es: "Integración del Modelo de Atención Colaborativa (CoCM) con el equipo de atención primaria" },
+      { en: "OUD treatment — buprenorphine prescribing (DEA X-waiver / DATA 2000)", es: "Tratamiento de OUD — prescripción de buprenorfina (exención DEA X / DATA 2000)" },
+      { en: "Trauma-informed care for complex trauma, ACEs, and co-occurring disorders", es: "Atención informada en trauma para trauma complejo, ACEs y trastornos concurrentes" },
+      { en: "Brief psychiatric assessment in integrated primary care — 20-30 min visits", es: "Evaluación psiquiátrica breve en atención primaria integrada — visitas de 20-30 min" },
+      { en: "Involuntary psychiatric holds (5150) — recognition, initiation, and documentation", es: "Retenciones psiquiátricas involuntarias (5150) — reconocimiento, iniciación y documentación" },
+    ],
+    salaryNegotiationTip: {
+      en: "FQHC PMHNPs in CA earn $130–175K. Buprenorphine prescribing authority (X-waiver) adds value — mention it upfront. NHSC loan repayment applies (PMHNPs qualify as mental health providers). Some FQHCs offer productivity bonuses tied to visit volume and PHQ-9/GAD-7 outcome improvement rates.",
+      es: "Los PMHNP de FQHC en CA ganan $130–175K. La autoridad de prescripción de buprenorfina (exención X) agrega valor — menciónala desde el principio. El pago de préstamos NHSC aplica.",
+    },
+    fqhcSpecificTip: {
+      en: "The highest-value PMHNP for an FQHC is one who can operate in an integrated primary care model — brief consultations, warm handoffs from PCPs, same-day crisis response — not one who only does traditional 50-minute psychiatry appointments. Demonstrate your comfort with the CoCM model and brief intervention. If you don't have X-waiver for buprenorphine, get it before your interviews — the FQHC sector desperately needs it.",
+      es: "El PMHNP de mayor valor para un FQHC es el que puede operar en un modelo de atención primaria integrada — consultas breves, transferencias directas de PCPs, respuesta a crisis el mismo día — no el que solo hace citas de psiquiatría tradicionales de 50 minutos.",
+    },
+    interviewFormat: {
+      en: "2–3 rounds: HR screen → CMO or Medical Director interview → panel with BH team. Expect clinical vignettes (agitated patient in waiting room, patient with psychosis and no housing, OUD patient requesting buprenorphine). California NP practice requires a standardized procedure or practice agreement — ask about the FQHC's structure. Bring DEA certificate, NP license, APRN certifications.",
+      es: "2–3 rondas: revisión de RRHH → entrevista con CMO o Director Médico → panel con el equipo de BH. Espera viñetas clínicas (paciente agitado en sala de espera, paciente con psicosis sin vivienda, paciente con OUD solicitando buprenorfina).",
+    },
+  },
+
+  /* ─── PROGRAM MANAGER ─────────────────────────────────────────── */
+  {
+    roleId: "program_manager",
+    roleName: "Program Manager — FQHC",
+    esRoleName: "Gerente de Programa — FQHC",
+    topQuestions: [
+      "mission-why-fqhc",
+      "clinical-pgm-grant-compliance",
+      "behavioral-high-volume",
+      "behavioral-difficult-patient",
+      "mission-health-equity",
+    ],
+    keyThemes: [
+      { en: "Federal grant compliance — UDS reporting, HRSA OSV preparation, HAB, Title X, Ryan White", es: "Cumplimiento de subvenciones federales — informes UDS, preparación para OSV de HRSA, HAB, Título X, Ryan White" },
+      { en: "Program implementation and multi-disciplinary team management", es: "Implementación de programas y gestión de equipos multidisciplinarios" },
+      { en: "Data collection and dashboard design for quality improvement", es: "Recopilación de datos y diseño de paneles para mejora de calidad" },
+      { en: "Community health needs assessments (CHNA) and program design", es: "Evaluaciones de necesidades de salud comunitaria (CHNA) y diseño de programas" },
+      { en: "Budget management for grant-funded programs — spending pace, restrictions, modification requests", es: "Gestión presupuestaria para programas financiados con subvenciones — ritmo de gasto, restricciones, solicitudes de modificación" },
+    ],
+    salaryNegotiationTip: {
+      en: "FQHC program managers in CA earn $65–90K. Those managing large federal grants ($1M+) or multiple programs earn $80–100K+. Highlight the total dollar value of grants you've managed — this is how they evaluate scope. MPH, MPA, or MHA significantly strengthens your candidacy and justifies higher compensation.",
+      es: "Los gerentes de programa de FQHC en CA ganan $65–90K. Los que gestionan subvenciones federales grandes ($1M+) o múltiples programas ganan $80–100K+.",
+    },
+    fqhcSpecificTip: {
+      en: "FQHCs live and die by federal compliance. The HRSA Operational Site Visit (OSV) is the most consequential event for FQHC operations — a 'deficiency' can trigger corrective action or funding reduction. If you've been through an OSV — or better yet, led the preparation — say so prominently. Also know UDS reporting: it's not just a compliance exercise, it's how the sector demonstrates its value to Congress and HRSA to justify the next appropriation.",
+      es: "Los FQHCs viven y mueren por el cumplimiento federal. La Visita al Sitio Operativo (OSV) de HRSA es el evento más importante para las operaciones de FQHC. Si has pasado por una OSV — o mejor aún, liderado la preparación — menciónalo prominentemente.",
+    },
+    interviewFormat: {
+      en: "2–3 rounds: HR screen → Director of Programs or COO interview → panel with clinical and administrative leadership. Expect questions on grant management experience, data tools (Excel, REDCap, EHR reporting), and a scenario where a program is underperforming mid-year. Be ready to present a program you've managed — scope, budget, key results, lessons learned.",
+      es: "2–3 rondas: revisión de RRHH → entrevista con el Director de Programas o COO → panel con liderazgo clínico y administrativo. Espera preguntas sobre experiencia en gestión de subvenciones, herramientas de datos y un escenario donde un programa está por debajo del rendimiento.",
     },
   },
 ];

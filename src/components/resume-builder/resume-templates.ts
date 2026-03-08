@@ -612,6 +612,364 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
       },
     ],
   },
+  {
+    roleId: "dental_assistant",
+    roleLabel: "Dental Assistant",
+    esRoleLabel: "Asistente Dental",
+    objectiveTemplate:
+      "Skilled Dental Assistant with experience supporting high-volume dental care at Federally Qualified Health Centers. Proficient in chair-side assisting, dental radiography, infection control, and supporting Denti-Cal patient populations.",
+    esObjectiveTemplate:
+      "Asistente Dental habilidoso/a con experiencia apoyando la atención dental de alto volumen en Centros de Salud Comunitarios Federalmente Calificados. Competente en asistencia chairside, radiografía dental, control de infecciones y apoyo a poblaciones de pacientes Denti-Cal.",
+    bullets: [
+      {
+        id: "da-1",
+        text: "Provided chair-side dental assistance for high-volume FQHC dental clinic, supporting 15–20 patient appointments daily including restorations, extractions, and preventive care",
+        esText: "Proporcionó asistencia dental chairside para clínica dental de FQHC de alto volumen, apoyando 15–20 citas de pacientes diariamente incluyendo restauraciones, extracciones y atención preventiva",
+        keywords: ["chair-side assisting", "FQHC dental", "high-volume", "restorations", "extractions"],
+      },
+      {
+        id: "da-2",
+        text: "Performed dental radiography (periapical, bitewing, panoramic) using California Radiation Safety Certificate; maintained zero exposure incidents through strict ALARA protocol adherence",
+        esText: "Realizó radiografía dental (periapical, aleta de mordida, panorámica) usando Certificado de Seguridad de Radiación de California; mantuvo cero incidentes de exposición mediante adherencia estricta al protocolo ALARA",
+        keywords: ["dental radiography", "radiation safety", "ALARA", "periapical", "bitewing", "panoramic"],
+      },
+      {
+        id: "da-3",
+        text: "Maintained strict infection control protocols including instrument sterilization, barrier techniques, and OSHA-compliant operatory disinfection procedures for CDC-standard dental infection control",
+        esText: "Mantuvo estrictos protocolos de control de infecciones incluyendo esterilización de instrumentos, técnicas de barrera y procedimientos de desinfección de operatorio conformes con OSHA",
+        keywords: ["infection control", "sterilization", "OSHA", "barrier techniques", "CDC dental guidelines"],
+      },
+      {
+        id: "da-4",
+        text: "Assisted with impressions, temporary restorations, and patient preparation; performed coronal polishing and sealant placement under California RDA expanded duty authorization",
+        esText: "Asistió con impresiones, restauraciones temporales y preparación del paciente; realizó pulido coronal y colocación de selladores bajo autorización de deberes expandidos RDA de California",
+        keywords: ["RDA expanded duties", "impressions", "sealants", "coronal polishing", "temporary restorations"],
+      },
+      {
+        id: "da-5",
+        text: "Maintained California RDA license in good standing; completed required continuing education in infection control, radiation safety, and expanded duty protocols",
+        esText: "Mantuvo la licencia RDA de California en buen estado; completó educación continua requerida en control de infecciones, seguridad de radiación y protocolos de deberes expandidos",
+        keywords: ["California RDA", "continuing education", "license maintenance"],
+      },
+      {
+        id: "da-6",
+        text: "Supported FQHC dental patient communication for Denti-Cal patients, providing trauma-informed and culturally responsive care for patients with dental anxiety and history of dental avoidance",
+        esText: "Apoyó la comunicación con pacientes dentales de FQHC para pacientes de Denti-Cal, brindando atención informada por trauma y culturalmente receptiva para pacientes con ansiedad dental",
+        keywords: ["Denti-Cal", "trauma-informed care", "dental anxiety", "patient communication", "FQHC"],
+      },
+      {
+        id: "da-7",
+        text: "Assisted with specialty dental procedures including oral surgery, pediatric dentistry, and orthodontic procedures; demonstrated clinical versatility across multiple dental disciplines",
+        esText: "Asistió con procedimientos dentales de especialidad incluyendo cirugía oral, odontología pediátrica y procedimientos ortodónticos; demostró versatilidad clínica en múltiples disciplinas dentales",
+        keywords: ["oral surgery", "pediatric dentistry", "orthodontics", "specialty dental"],
+      },
+    ],
+  },
+  {
+    roleId: "dental_hygienist",
+    roleLabel: "Dental Hygienist",
+    esRoleLabel: "Higienista Dental",
+    objectiveTemplate:
+      "Registered Dental Hygienist with FQHC and community health center experience delivering preventive oral health care to Denti-Cal patients. Skilled in periodontal assessment, scaling and root planing, and oral health education for underserved California communities.",
+    esObjectiveTemplate:
+      "Higienista Dental Registrado/a con experiencia en FQHC y centros de salud comunitarios brindando atención preventiva de salud oral a pacientes de Denti-Cal. Habilidoso/a en evaluación periodontal, escalonamiento y alisado radicular, y educación en salud oral para comunidades desatendidas de California.",
+    bullets: [
+      {
+        id: "dh-1",
+        text: "Performed comprehensive periodontal assessments and scaling/root planing (SRP) for high-volume FQHC dental clinic serving 12–16 patients daily; maintained 98% Denti-Cal documentation accuracy",
+        esText: "Realizó evaluaciones periodontales completas y escalonamiento/alisado radicular (SRP) para clínica dental FQHC de alto volumen atendiendo 12–16 pacientes diariamente; mantuvo 98% de precisión en documentación Denti-Cal",
+        keywords: ["scaling root planing", "periodontal assessment", "FQHC dental", "Denti-Cal documentation"],
+      },
+      {
+        id: "dh-2",
+        text: "Conducted full-mouth periodontal charting including pocket depth, furcation involvement, and mobility assessment; flagged at-risk patients for periodontal specialist referral and chronic disease co-management",
+        esText: "Realizó registro periodontal completo incluyendo profundidad de bolsa, involucración de furcación y evaluación de movilidad; identificó pacientes en riesgo para derivación a especialista periodontal",
+        keywords: ["periodontal charting", "pocket depth", "furcation", "specialist referral", "chronic disease"],
+      },
+      {
+        id: "dh-3",
+        text: "Provided oral health education and hygiene instruction for predominantly Medi-Cal/Denti-Cal patients with limited dental literacy; adapted teaching to patient language, literacy level, and cultural context",
+        esText: "Proporcionó educación en salud oral e instrucción de higiene para pacientes principalmente de Medi-Cal/Denti-Cal con conocimientos dentales limitados; adaptó la enseñanza al idioma, nivel de alfabetización y contexto cultural del paciente",
+        keywords: ["oral health education", "Denti-Cal", "health literacy", "cultural competency", "hygiene instruction"],
+      },
+      {
+        id: "dh-4",
+        text: "Performed sealant placement and pediatric dental hygiene services; screened children for early childhood caries, fluoride varnish application, and CHDP documentation",
+        esText: "Realizó colocación de selladores y servicios de higiene dental pediátrica; examinó niños en busca de caries de la primera infancia, aplicación de barniz de flúor y documentación CHDP",
+        keywords: ["sealants", "pediatric hygiene", "fluoride varnish", "CHDP", "early childhood caries"],
+      },
+      {
+        id: "dh-5",
+        text: "Provided prenatal oral health counseling and tobacco cessation services; linked expectant mothers with periodontal disease to medical team for gestational diabetes and preterm birth risk management",
+        esText: "Proporcionó consejería de salud oral prenatal y servicios de cesación del tabaco; vinculó a madres embarazadas con enfermedad periodontal con el equipo médico para el manejo del riesgo de diabetes gestacional y parto prematuro",
+        keywords: ["prenatal oral health", "tobacco cessation", "periodontal disease", "gestational diabetes", "preterm birth"],
+      },
+    ],
+  },
+  {
+    roleId: "pharmacist",
+    roleLabel: "Pharmacist (PharmD)",
+    esRoleLabel: "Farmacéutico/a (PharmD)",
+    objectiveTemplate:
+      "Licensed PharmD with experience in FQHC and safety-net pharmacy practice, including 340B program administration and Medi-Cal patient counseling. Committed to medication access equity and evidence-based pharmaceutical care for underserved California communities.",
+    esObjectiveTemplate:
+      "PharmD con licencia con experiencia en práctica farmacéutica de FQHC y red de seguridad, incluyendo administración del programa 340B y asesoramiento a pacientes de Medi-Cal. Comprometido/a con la equidad de acceso a medicamentos y la atención farmacéutica basada en evidencia.",
+    bullets: [
+      {
+        id: "ph-1",
+        text: "Managed 340B program dispensing and compliance for FQHC pharmacy, ensuring accurate split billing, contract pharmacy documentation, and annual audit preparation; maintained zero 340B compliance findings",
+        esText: "Gestionó la dispensación y el cumplimiento del programa 340B para la farmacia FQHC, asegurando facturación dividida precisa, documentación de farmacia contratista y preparación de auditoría anual; mantuvo cero hallazgos de cumplimiento 340B",
+        keywords: ["340B program", "split billing", "contract pharmacy", "compliance", "FQHC pharmacy"],
+      },
+      {
+        id: "ph-2",
+        text: "Delivered Medication Therapy Management (MTM) services for complex Medi-Cal patients; conducted comprehensive medication reviews for polymedicated patients with DM, HTN, CHF, and co-occurring mental health conditions",
+        esText: "Brindó servicios de Gestión de Terapia Medicamentosa (MTM) para pacientes complejos de Medi-Cal; realizó revisiones integrales de medicamentos para pacientes polimedicados con DM, HTN, ICC y condiciones de salud mental co-ocurrentes",
+        keywords: ["Medication Therapy Management", "MTM", "Medi-Cal", "diabetes", "hypertension", "polypharmacy"],
+      },
+      {
+        id: "ph-3",
+        text: "Operated under Collaborative Drug Therapy Management (CDTM) agreement with FQHC medical director; independently adjusted medications for anticoagulation, diabetes management, and hypertension in panel of 120+ patients",
+        esText: "Operó bajo acuerdo de Manejo Colaborativo de Terapia Farmacológica (CDTM) con el director médico del FQHC; ajustó independientemente medicamentos para anticoagulación, manejo de diabetes e hipertensión en un panel de 120+ pacientes",
+        keywords: ["CDTM", "collaborative practice", "anticoagulation", "diabetes management", "hypertension"],
+      },
+      {
+        id: "ph-4",
+        text: "Administered immunizations including influenza, COVID-19, Tdap, hepatitis B, and pneumococcal vaccines; counseled patients on immunization schedules and documented in CAIR2 registry",
+        esText: "Administró inmunizaciones incluyendo influenza, COVID-19, Tdap, hepatitis B y vacunas neumocócicas; asesoró a pacientes sobre calendarios de vacunación y documentó en el registro CAIR2",
+        keywords: ["immunizations", "vaccines", "CAIR2", "influenza", "COVID-19", "hepatitis B"],
+      },
+      {
+        id: "ph-5",
+        text: "Provided bilingual medication counseling in Spanish and English for Medi-Cal patients with limited health literacy; improved medication adherence by 23% for chronic disease patients through structured counseling protocols",
+        esText: "Proporcionó asesoramiento de medicamentos bilingüe en español e inglés para pacientes de Medi-Cal con alfabetización en salud limitada; mejoró la adherencia a la medicación en un 23% para pacientes con enfermedades crónicas",
+        keywords: ["bilingual counseling", "medication adherence", "health literacy", "Medi-Cal", "chronic disease"],
+      },
+    ],
+  },
+  {
+    roleId: "pharmacy_technician",
+    roleLabel: "Pharmacy Technician",
+    esRoleLabel: "Técnico/a de Farmacia",
+    objectiveTemplate:
+      "Certified Pharmacy Technician (CPhT) with experience in high-volume FQHC pharmacy dispensing and 340B program administration. Detail-oriented professional committed to medication accuracy and access for Medi-Cal and underserved patient populations.",
+    esObjectiveTemplate:
+      "Técnico/a de Farmacia Certificado/a (CPhT) con experiencia en dispensación de farmacia FQHC de alto volumen y administración del programa 340B. Profesional orientado/a al detalle comprometido/a con la precisión de medicamentos y el acceso para pacientes de Medi-Cal y desatendidos.",
+    bullets: [
+      {
+        id: "pt-1",
+        text: "Processed 150+ prescriptions daily at FQHC pharmacy with 99.9% dispensing accuracy; maintained California Pharmacy Technician registration in good standing throughout employment",
+        esText: "Procesó 150+ recetas diarias en farmacia FQHC con 99.9% de precisión en dispensación; mantuvo el registro de Técnico de Farmacia de California en buen estado durante todo el empleo",
+        keywords: ["prescription processing", "dispensing accuracy", "California Pharmacy Technician", "FQHC pharmacy"],
+      },
+      {
+        id: "pt-2",
+        text: "Maintained 340B program compliance through accurate inventory tracking, split billing documentation, and contract pharmacy reporting; supported zero-deficiency 340B audit outcome",
+        esText: "Mantuvo el cumplimiento del programa 340B mediante seguimiento preciso del inventario, documentación de facturación dividida e informes de farmacias contratistas; apoyó el resultado de auditoría 340B sin deficiencias",
+        keywords: ["340B compliance", "inventory tracking", "split billing", "contract pharmacy", "audit"],
+      },
+      {
+        id: "pt-3",
+        text: "Managed insurance verification and prior authorization processing for Medi-Cal and commercial plans; reduced prior auth processing time by 30% through standardized workflow and proactive follow-up",
+        esText: "Gestionó la verificación de seguros y el procesamiento de autorización previa para Medi-Cal y planes comerciales; redujo el tiempo de procesamiento de autorización previa en un 30% mediante flujo de trabajo estandarizado",
+        keywords: ["insurance verification", "prior authorization", "Medi-Cal", "workflow standardization"],
+      },
+      {
+        id: "pt-4",
+        text: "Managed pharmacy drug inventory including ordering, receiving, rotating stock, and controlled substance tracking; maintained optimal par levels to prevent stockouts for high-use Medi-Cal formulary medications",
+        esText: "Gestionó el inventario de medicamentos de la farmacia incluyendo pedidos, recepción, rotación de existencias y seguimiento de sustancias controladas; mantuvo niveles óptimos para prevenir desabastecimientos",
+        keywords: ["drug inventory", "ordering", "controlled substances", "par levels", "Medi-Cal formulary"],
+      },
+      {
+        id: "pt-5",
+        text: "Maintained PTCB CPhT certification through ongoing continuing education; completed NACHC 340B training and remained current on Medi-Cal pharmacy benefit updates and formulary changes",
+        esText: "Mantuvo la certificación PTCB CPhT mediante educación continua permanente; completó la capacitación 340B de NACHC y se mantuvo al día en las actualizaciones de beneficios de farmacia de Medi-Cal y cambios en el formulario",
+        keywords: ["PTCB CPhT", "continuing education", "NACHC 340B training", "Medi-Cal pharmacy"],
+      },
+    ],
+  },
+  {
+    roleId: "health_enrollment_navigator",
+    roleLabel: "Health Enrollment Navigator",
+    esRoleLabel: "Navegador/a de Inscripción de Salud",
+    objectiveTemplate:
+      "Certified Health Enrollment Navigator with expertise in Medi-Cal and Covered California eligibility determination for safety-net patient populations. Committed to health access equity through accurate enrollment, renewal support, and navigation of complex coverage programs including programs for undocumented patients.",
+    esObjectiveTemplate:
+      "Navegador/a de Inscripción de Salud Certificado/a con experiencia en determinación de elegibilidad de Medi-Cal y Covered California para poblaciones de pacientes de red de seguridad. Comprometido/a con la equidad de acceso a la salud a través de inscripción precisa, soporte de renovación y navegación de programas de cobertura complejos.",
+    bullets: [
+      {
+        id: "en-1",
+        text: "Completed Medi-Cal eligibility determinations and enrollment applications for 75+ patients monthly; maintained 97% first-time approval rate through accurate income documentation and eligibility verification",
+        esText: "Completó determinaciones de elegibilidad de Medi-Cal y solicitudes de inscripción para 75+ pacientes mensualmente; mantuvo una tasa de aprobación de primera vez del 97% mediante documentación precisa de ingresos y verificación de elegibilidad",
+        keywords: ["Medi-Cal enrollment", "eligibility determination", "income documentation", "approval rate"],
+      },
+      {
+        id: "en-2",
+        text: "Enrolled patients in Covered California Qualified Health Plans during Open Enrollment and Special Enrollment Periods; assisted patients with plan comparison, premium tax credit calculation, and APTC application",
+        esText: "Inscribió pacientes en Planes de Salud Calificados de Covered California durante los Períodos de Inscripción Abierta y Especial; asistió a los pacientes con la comparación de planes, el cálculo del crédito fiscal de prima y la solicitud de APTC",
+        keywords: ["Covered California", "Special Enrollment Period", "premium tax credit", "APTC", "QHP enrollment"],
+      },
+      {
+        id: "en-3",
+        text: "Navigated complex coverage programs for undocumented patients including ILOS (Immigrants Limited Outpatient Services), PACE (Primary Access for Care and Education), and Medi-Cal for All (AB 4) enrollment",
+        esText: "Navegó programas de cobertura complejos para pacientes indocumentados incluyendo ILOS (Servicios Ambulatorios Limitados para Inmigrantes), PACE y la inscripción en Medi-Cal para Todos (AB 4)",
+        keywords: ["undocumented patients", "ILOS", "PACE", "Medi-Cal for All", "AB 4", "immigrant health access"],
+      },
+      {
+        id: "en-4",
+        text: "Enrolled high-need Medi-Cal members in CalAIM Community Supports programs including housing navigation, medically tailored meals, and sobering centers; coordinated with care team to identify ECM-eligible patients",
+        esText: "Inscribió miembros de Medi-Cal de alta necesidad en programas de CalAIM Community Supports incluyendo navegación de vivienda, comidas médicamente adaptadas y centros de sobriedad; coordinó con el equipo de atención para identificar pacientes elegibles para ECM",
+        keywords: ["CalAIM Community Supports", "housing navigation", "ECM eligibility", "medically tailored meals"],
+      },
+      {
+        id: "en-5",
+        text: "Administered FQHC sliding fee scale program — screened patient income, determined discount tier, obtained required certifications, and updated records per HRSA sliding fee requirements",
+        esText: "Administró el programa de escala de tarifas deslizantes de FQHC — examinó los ingresos de los pacientes, determinó el nivel de descuento, obtuvo las certificaciones requeridas y actualizó los registros según los requisitos de HRSA",
+        keywords: ["sliding fee scale", "FQHC discount", "HRSA requirements", "income screening", "discount tier"],
+      },
+      {
+        id: "en-6",
+        text: "Managed Medi-Cal annual renewal caseload of 200+ patients; implemented proactive outreach system that reduced coverage gaps from lapses by 34% during the post-PHE unwinding period",
+        esText: "Gestionó la carga de casos de renovación anual de Medi-Cal de 200+ pacientes; implementó un sistema de alcance proactivo que redujo las brechas de cobertura por vencimientos en un 34% durante el período de desenrollamiento post-PHE",
+        keywords: ["Medi-Cal renewal", "PHE unwinding", "coverage gaps", "proactive outreach", "caseload management"],
+      },
+    ],
+  },
+  {
+    roleId: "lvn",
+    roleLabel: "Licensed Vocational Nurse (LVN)",
+    esRoleLabel: "Enfermero/a Vocacional Licenciado/a (LVN)",
+    objectiveTemplate:
+      "Licensed Vocational Nurse with experience in high-volume FQHC clinical settings, delivering efficient nursing care to Medi-Cal and underserved populations. Skilled in patient rooming, medication administration, and chronic disease support under RN and physician supervision.",
+    esObjectiveTemplate:
+      "Enfermero/a Vocacional Licenciado/a con experiencia en entornos clínicos FQHC de alto volumen, brindando atención de enfermería eficiente a poblaciones de Medi-Cal y desatendidas. Habilidoso/a en ingreso de pacientes, administración de medicamentos y soporte de enfermedades crónicas bajo supervisión de RN y médico.",
+    bullets: [
+      {
+        id: "lvn-1",
+        text: "Roomed 20–25 patients daily in high-volume FQHC primary care clinic; obtained vital signs, chief complaint, medication reconciliation, and allergy review per clinical protocol; maintained <5 minute rooming time average",
+        esText: "Ingresó 20–25 pacientes diariamente en clínica de atención primaria FQHC de alto volumen; obtuvo signos vitales, queja principal, reconciliación de medicamentos y revisión de alergias por protocolo clínico; mantuvo un tiempo promedio de ingreso de <5 minutos",
+        keywords: ["patient rooming", "vital signs", "medication reconciliation", "FQHC primary care", "high-volume"],
+      },
+      {
+        id: "lvn-2",
+        text: "Administered medications including injections (IM, SubQ, intradermal), vaccines, and TB skin tests; managed and documented controlled substance administration per DEA and California Board of Pharmacy requirements",
+        esText: "Administró medicamentos incluyendo inyecciones (IM, SubQ, intradérmicas), vacunas y pruebas cutáneas de TB; gestionó y documentó la administración de sustancias controladas según los requisitos de DEA y la Junta de Farmacia de California",
+        keywords: ["medication administration", "injections", "vaccines", "TB testing", "controlled substances"],
+      },
+      {
+        id: "lvn-3",
+        text: "Performed phlebotomy and specimen collection including blood draws, throat cultures, and rapid diagnostic testing (influenza, strep, COVID-19, pregnancy); processed specimens per clinic protocol",
+        esText: "Realizó flebotomía y recolección de muestras incluyendo extracciones de sangre, cultivos de garganta y pruebas diagnósticas rápidas (influenza, estreptococo, COVID-19, embarazo); procesó muestras por protocolo de la clínica",
+        keywords: ["phlebotomy", "specimen collection", "rapid testing", "blood draws", "diagnostic testing"],
+      },
+      {
+        id: "lvn-4",
+        text: "Administered IV therapy and infusions under RN and physician supervision; maintained IV access, monitored infusion rates, and documented patient response per standing orders",
+        esText: "Administró terapia IV e infusiones bajo supervisión de RN y médico; mantuvo acceso IV, monitoreó las tasas de infusión y documentó la respuesta del paciente por órdenes permanentes",
+        keywords: ["IV therapy", "infusion", "IV access", "standing orders", "RN supervision"],
+      },
+      {
+        id: "lvn-5",
+        text: "Provided chronic disease patient education for DM, HTN, asthma, and COPD; delivered culturally appropriate, teach-back-validated instruction in English and Spanish; tracked education completion in EHR",
+        esText: "Proporcionó educación al paciente sobre enfermedades crónicas para DM, HTN, asma y EPOC; brindó instrucción culturalmente apropiada validada con técnica de repetición en inglés y español; rastreó la finalización de la educación en el EHR",
+        keywords: ["patient education", "diabetes", "hypertension", "teach-back", "chronic disease management"],
+      },
+      {
+        id: "lvn-6",
+        text: "Supported care coordination at FQHC by completing HEDIS care gap outreach, scheduling follow-up appointments, and coordinating specialist referrals for complex Medi-Cal patients",
+        esText: "Apoyó la coordinación de atención en el FQHC completando el alcance de brechas de atención HEDIS, programando citas de seguimiento y coordinando referencias a especialistas para pacientes complejos de Medi-Cal",
+        keywords: ["care coordination", "HEDIS", "care gaps", "specialist referrals", "Medi-Cal", "FQHC"],
+      },
+    ],
+  },
+  {
+    roleId: "psychiatric_np",
+    roleLabel: "Psychiatric NP (PMHNP)",
+    esRoleLabel: "NP Psiquiátrico/a (PMHNP)",
+    objectiveTemplate:
+      "Psychiatric-Mental Health Nurse Practitioner (PMHNP) with experience providing psychiatric medication management and integrated behavioral health services at Federally Qualified Health Centers. Committed to evidence-based psychiatric care for Medi-Cal populations including serious mental illness, co-occurring SUD, and trauma-impacted communities.",
+    esObjectiveTemplate:
+      "Enfermero/a Practicante de Salud Mental Psiquiátrica (PMHNP) con experiencia brindando manejo de medicamentos psiquiátricos y servicios integrados de salud conductual en Centros de Salud Comunitarios Federalmente Calificados. Comprometido/a con la atención psiquiátrica basada en evidencia para poblaciones de Medi-Cal.",
+    bullets: [
+      {
+        id: "pnp-1",
+        text: "Managed psychiatric medication caseload of 120+ Medi-Cal patients with serious mental illness (schizophrenia, bipolar disorder, treatment-resistant MDD); provided medication management visits aligned with FQHC PPS billing requirements",
+        esText: "Gestionó la carga de casos de medicación psiquiátrica de 120+ pacientes de Medi-Cal con enfermedad mental grave (esquizofrenia, trastorno bipolar, TDM resistente al tratamiento); proporcionó visitas de manejo de medicamentos alineadas con los requisitos de facturación PPS de FQHC",
+        keywords: ["psychiatric medication management", "serious mental illness", "Medi-Cal", "FQHC PPS billing", "schizophrenia", "bipolar"],
+      },
+      {
+        id: "pnp-2",
+        text: "Conducted psychiatric crisis assessments and safety planning for FQHC patients with acute suicidality, psychosis, and co-occurring SUD; coordinated warm handoffs to crisis stabilization units and MAT programs",
+        esText: "Realizó evaluaciones de crisis psiquiátricas y planificación de seguridad para pacientes de FQHC con suicidalidad aguda, psicosis y TUS co-ocurrente; coordinó transferencias cálidas a unidades de estabilización de crisis y programas MAT",
+        keywords: ["crisis assessment", "safety planning", "suicidality", "psychosis", "SUD", "MAT", "warm handoff"],
+      },
+      {
+        id: "pnp-3",
+        text: "Provided psychiatric consultation in Collaborative Care Model (CoCM) for FQHC primary care caseload of 250+ patients; conducted weekly registry reviews, responded to caseload-level alerts, and delivered recommendations to BH care managers",
+        esText: "Proporcionó consulta psiquiátrica en el Modelo de Atención Colaborativa (CoCM) para la carga de casos de atención primaria de FQHC de 250+ pacientes; realizó revisiones de registro semanales, respondió a alertas a nivel de carga de casos y brindó recomendaciones a los gerentes de atención de BH",
+        keywords: ["Collaborative Care Model", "CoCM", "psychiatric consultation", "registry review", "population-based psychiatry"],
+      },
+      {
+        id: "pnp-4",
+        text: "Delivered tele-psychiatry services to rural and underserved FQHC satellite sites, extending psychiatric access to patients 60+ miles from nearest in-person psychiatric provider; conducted 20+ tele-psych visits weekly",
+        esText: "Brindó servicios de tele-psiquiatría a sitios satelitales rurales y desatendidos de FQHC, extendiendo el acceso psiquiátrico a pacientes a 60+ millas del proveedor psiquiátrico presencial más cercano; realizó 20+ visitas de tele-psiquiatría semanalmente",
+        keywords: ["tele-psychiatry", "rural mental health", "FQHC satellite", "psychiatric access", "telehealth"],
+      },
+      {
+        id: "pnp-5",
+        text: "Applied trauma-informed psychiatric practice for FQHC patients with complex trauma histories including adverse childhood experiences, immigration trauma, and sexual violence; integrated cultural formulation into diagnosis and treatment planning",
+        esText: "Aplicó práctica psiquiátrica informada por trauma para pacientes de FQHC con historias de trauma complejo incluyendo experiencias adversas en la infancia, trauma de inmigración y violencia sexual; integró la formulación cultural en el diagnóstico y la planificación del tratamiento",
+        keywords: ["trauma-informed psychiatry", "ACEs", "immigration trauma", "cultural formulation", "complex trauma"],
+      },
+    ],
+  },
+  {
+    roleId: "program_manager",
+    roleLabel: "Program Manager",
+    esRoleLabel: "Gerente de Programa",
+    objectiveTemplate:
+      "Healthcare Program Manager with experience leading CalAIM, HRSA, and community health programs at Federally Qualified Health Centers. Results-driven professional skilled in cross-functional team leadership, grant compliance, and data-driven program optimization for safety-net populations.",
+    esObjectiveTemplate:
+      "Gerente de Programa de Salud con experiencia liderando programas CalAIM, HRSA y de salud comunitaria en Centros de Salud Comunitarios Federalmente Calificados. Profesional orientado/a a resultados con habilidades en liderazgo de equipos interfuncionales, cumplimiento de subvenciones y optimización de programas basada en datos.",
+    bullets: [
+      {
+        id: "pgm-1",
+        text: "Managed CalAIM ECM program for FQHC, scaling from 0 to 350 enrolled members in 18 months; supervised team of 8 care managers and CHWs, achieving 87% care plan completion rate and exceeding DHCS performance benchmarks",
+        esText: "Gestionó el programa CalAIM ECM para FQHC, escalando de 0 a 350 miembros inscritos en 18 meses; supervisó un equipo de 8 gerentes de atención y CHWs, logrando una tasa de finalización de planes de atención del 87% y superando los puntos de referencia de desempeño de DHCS",
+        keywords: ["CalAIM ECM", "program scaling", "care managers", "DHCS benchmarks", "performance management"],
+      },
+      {
+        id: "pgm-2",
+        text: "Managed HRSA Section 330 grant compliance for 5-site FQHC including scope of project amendments, annual UDS reporting, and HRSA site visit preparation; maintained zero compliance findings across 3 consecutive HRSA operational site visits",
+        esText: "Gestionó el cumplimiento de la subvención HRSA Sección 330 para FQHC de 5 sitios incluyendo enmiendas al alcance del proyecto, informes UDS anuales y preparación para visitas del sitio de HRSA; mantuvo cero hallazgos de cumplimiento en 3 visitas operativas consecutivas de HRSA",
+        keywords: ["HRSA Section 330", "grant compliance", "UDS reporting", "scope of project", "site visit preparation"],
+      },
+      {
+        id: "pgm-3",
+        text: "Led behavioral health integration program expansion — recruited and onboarded 4 LCSW/LMFT staff, implemented Collaborative Care Model registry, and increased same-day BH access from 12% to 68% of primary care visits",
+        esText: "Lideró la expansión del programa de integración de salud conductual — reclutó e incorporó 4 empleados LCSW/LMFT, implementó el registro del Modelo de Atención Colaborativa y aumentó el acceso BH el mismo día del 12% al 68% de las visitas de atención primaria",
+        keywords: ["behavioral health integration", "Collaborative Care Model", "LCSW recruitment", "same-day BH access"],
+      },
+      {
+        id: "pgm-4",
+        text: "Implemented quality improvement initiatives targeting HEDIS measures including DM care (HbA1c testing, eye referrals), depression screening (PHQ-9), and childhood immunizations; improved composite quality score from 62nd to 84th percentile in 2 years",
+        esText: "Implementó iniciativas de mejora de calidad dirigidas a medidas HEDIS incluyendo atención DM (prueba HbA1c, referencias de ojos), detección de depresión (PHQ-9) e inmunizaciones infantiles; mejoró la puntuación de calidad compuesta del percentil 62 al 84 en 2 años",
+        keywords: ["quality improvement", "HEDIS", "HbA1c", "depression screening", "childhood immunizations", "PHQ-9"],
+      },
+      {
+        id: "pgm-5",
+        text: "Led multi-site program team of 18 staff across 3 FQHC locations; implemented weekly team huddles, monthly performance dashboard reviews, and quarterly training programs that reduced staff turnover from 42% to 18% annually",
+        esText: "Lideró un equipo de programa de múltiples sitios de 18 empleados en 3 ubicaciones de FQHC; implementó reuniones de equipo semanales, revisiones mensuales del panel de desempeño y programas de capacitación trimestrales que redujeron la rotación de personal del 42% al 18% anualmente",
+        keywords: ["multi-site program", "team leadership", "performance dashboard", "staff retention", "turnover reduction"],
+      },
+      {
+        id: "pgm-6",
+        text: "Managed $2.4M program budget and funder reporting for 3 concurrent grants (HRSA, county health, foundation); delivered all progress reports on time with zero audit findings and maintained 98% allowable expenditure rate",
+        esText: "Gestionó el presupuesto del programa de $2.4M e informes a financiadores para 3 subvenciones concurrentes (HRSA, salud del condado, fundación); entregó todos los informes de progreso a tiempo con cero hallazgos de auditoría y mantuvo una tasa de gasto permitido del 98%",
+        keywords: ["program budget", "grant management", "funder reporting", "HRSA grant", "audit compliance"],
+      },
+    ],
+  },
 ];
 
 export const COMMON_CERTIFICATIONS = [

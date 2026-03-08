@@ -1067,4 +1067,726 @@ export const ROLE_INSIGHTS: Record<string, {
       ],
     },
   },
+
+  /* ================================================================ */
+  /*  DENTAL ASSISTANT                                                  */
+  /* ================================================================ */
+  dental_assistant: {
+    strengthMessages: {
+      mission: "Your drive to bring quality dental care to underserved communities puts you at the heart of FQHC oral health equity work. FQHCs that integrate dental into primary care see better chronic disease outcomes — and dental assistants who share that mission are essential to making it work.",
+      people: "Your ability to ease patient anxiety and build rapport transforms the dental experience for patients who have never had regular dental care. FQHC patients often have high dental fear — your warmth and communication skills are as valuable as any clinical technique.",
+      execution: "Your efficiency in chair-side assistance, infection control, and supply management directly determines how many patients a FQHC dental team can serve in a day. High-volume FQHC dental clinics run on this kind of operational excellence.",
+      growth: "Your interest in expanding skills — whether radiology, expanded duties, or dental coding — positions you for lead DA roles and higher pay at multi-site FQHCs that reward versatility.",
+      transition: "Your ability to quickly learn a new dental team's protocols, EHR workflow, and patient population needs shows real clinical adaptability — a top priority for FQHCs that are scaling their dental programs.",
+    },
+    esStrengthMessages: {
+      mission: "Tu impulso por brindar atención dental de calidad a comunidades desatendidas te coloca en el corazón del trabajo de equidad en salud oral de los FQHCs. Los FQHCs que integran odontología en atención primaria ven mejores resultados en enfermedades crónicas — y los asistentes dentales que comparten esa misión son esenciales.",
+      people: "Tu capacidad para calmar la ansiedad del paciente y construir rapport transforma la experiencia dental para pacientes que nunca han tenido atención dental regular. Los pacientes de FQHC a menudo tienen alto miedo dental — tu calidez y habilidades de comunicación son tan valiosas como cualquier técnica clínica.",
+      execution: "Tu eficiencia en asistencia chairside, control de infecciones y gestión de suministros determina directamente cuántos pacientes puede atender un equipo dental de FQHC en un día.",
+      growth: "Tu interés en expandir habilidades — radiología, deberes ampliados o codificación dental — te posiciona para roles de DA líder y mayor salario.",
+      transition: "Tu capacidad para aprender rápidamente los protocolos, flujo de trabajo EHR y necesidades de la población de pacientes de un nuevo equipo dental demuestra verdadera adaptabilidad clínica.",
+    },
+    growthMessages: {
+      mission: "Connect your daily chairside work to the bigger picture — FQHC dental programs prevent ER visits, catch early signs of diabetes and hypertension, and reduce pain that keeps patients from working. Share that impact story in your next interview.",
+      people: "Practice trauma-informed dental care approaches — many FQHC patients have avoided dental care for years due to cost, fear, or immigration status. Learning specific anxiety-reduction techniques will make you indispensable.",
+      execution: "Pursue your California Radiation Safety Certificate if you haven't — it unlocks radiograph duties that dramatically expand your scope and earn $3-5K more annually at most California FQHCs.",
+      growth: "California RDA (Registered Dental Assistant) licensure is the key credential upgrade — it enables expanded duties including coronal polishing, sealant placement, and more. Many FQHCs help cover the exam costs.",
+      transition: "When starting at a new FQHC dental clinic, spend your first week learning their infection control protocols, dental software workflows, and how they handle interpreter needs for non-English-speaking patients.",
+    },
+    esGrowthMessages: {
+      mission: "Conecta tu trabajo diario chairside con la imagen más grande — los programas dentales de FQHC previenen visitas a urgencias, detectan señales tempranas de diabetes e hipertensión, y reducen el dolor que impide que los pacientes trabajen.",
+      people: "Practica enfoques de atención dental informados por trauma — muchos pacientes de FQHC han evitado la atención dental durante años debido al costo, el miedo o el estatus migratorio.",
+      execution: "Obtén tu Certificado de Seguridad de Radiación de California si aún no lo tienes — desbloquea las obligaciones de radiografía que amplían dramáticamente tu alcance y ganan $3-5K más anualmente.",
+      growth: "La licencia RDA (Asistente Dental Registrado) de California es la mejora de credenciales clave — habilita deberes ampliados incluyendo pulido coronal, colocación de selladores y más.",
+      transition: "Al comenzar en una nueva clínica dental de FQHC, pasa tu primera semana aprendiendo sus protocolos de control de infecciones, flujos de trabajo de software dental y cómo manejan las necesidades de intérpretes.",
+    },
+    nextSteps: {
+      mission: "Highlight dental integration in your resume objective — mention how dental care connects to chronic disease management (diabetes A1C, hypertension) to show FQHC hiring managers you understand the whole-health mission",
+      people: "Pursue a trauma-informed dental care training — the DHCS offers free modules and it's increasingly listed in FQHC dental job postings as a preferred qualification",
+      execution: "Get your California Radiation Safety Certificate — it's a 4-hour online course through DANB and immediately adds radiograph duties and $2-4K in annual pay at most FQHCs",
+      growth: "Study for the California RDA exam — check if your current employer offers study stipends; most multi-site FQHCs do. RDA status unlocks coronal polishing, sealants, and significantly higher compensation",
+      transition: "Research the dental EHR used at your target FQHC before applying — Dentrix, Eaglesoft, and Curve Dental are most common. If you haven't used their system, note in your cover letter that you learn dental software quickly",
+    },
+    esNextSteps: {
+      mission: "Destaca la integración dental en el objetivo de tu currículum — menciona cómo la atención dental se conecta con el manejo de enfermedades crónicas para mostrar a los gerentes de contratación de FQHC que comprendes la misión de salud integral",
+      people: "Obtén una capacitación en atención dental informada por trauma — el DHCS ofrece módulos gratuitos y se enumera cada vez más en las publicaciones de trabajos dentales de FQHC",
+      execution: "Obtén tu Certificado de Seguridad de Radiación de California — es un curso en línea de 4 horas a través de DANB y agrega inmediatamente obligaciones de radiografía y $2-4K en pago anual",
+      growth: "Estudia para el examen RDA de California — verifica si tu empleador actual ofrece estipendios de estudio; la mayoría de los FQHCs de múltiples sitios lo hacen",
+      transition: "Investiga el EHR dental utilizado en tu FQHC objetivo antes de aplicar — Dentrix, Eaglesoft y Curve Dental son los más comunes",
+    },
+    employerWants: {
+      topQualifications: [
+        "California Dental Assistant certificate or RDA license",
+        "California Radiation Safety Certificate (required at most FQHCs)",
+        "1+ years chair-side assisting in a high-volume dental setting",
+        "Experience with dental EHR (Dentrix, Eaglesoft, or Curve Dental)",
+        "Bilingual Spanish/English (strongly preferred at most CA FQHCs)",
+      ],
+      esTopQualifications: [
+        "Certificado de Asistente Dental de California o licencia RDA",
+        "Certificado de Seguridad de Radiación de California (requerido en la mayoría de FQHCs)",
+        "1+ años de asistencia chairside en entorno dental de alto volumen",
+        "Experiencia con EHR dental (Dentrix, Eaglesoft o Curve Dental)",
+        "Bilingüe español/inglés (fuertemente preferido en la mayoría de FQHCs de CA)",
+      ],
+      topSkills: [
+        "Chair-side dental assistance and instrument passing",
+        "Infection control and sterilization protocols",
+        "Dental radiograph exposure and processing",
+        "Dental supply management and instrument inventory",
+        "Patient communication and anxiety management",
+      ],
+      esTopSkills: [
+        "Asistencia dental chairside y pase de instrumentos",
+        "Protocolos de control de infecciones y esterilización",
+        "Exposición y procesamiento de radiografías dentales",
+        "Gestión de suministros dentales e inventario de instrumentos",
+        "Comunicación con pacientes y manejo de ansiedad",
+      ],
+      certifications: [
+        "California RDA (Registered Dental Assistant) license",
+        "California Radiation Safety Certificate (required)",
+        "CPR/BLS certification",
+        "DANB Certified Dental Assistant (CDA) — preferred",
+      ],
+      esCertifications: [
+        "Licencia RDA (Asistente Dental Registrado) de California",
+        "Certificado de Seguridad de Radiación de California (requerido)",
+        "Certificación CPR/BLS",
+        "DANB Asistente Dental Certificado (CDA) — preferido",
+      ],
+    },
+  },
+
+  /* ================================================================ */
+  /*  DENTAL HYGIENIST                                                  */
+  /* ================================================================ */
+  dental_hygienist: {
+    strengthMessages: {
+      mission: "Dental hygienists at FQHCs are often the first healthcare professional to spot signs of uncontrolled diabetes, hypertension, and oral cancer in patients who have no other regular health contact. Your prevention focus saves lives.",
+      people: "Your ability to build long-term trust with patients who return for recall appointments makes you a key part of the FQHC health home model. Patients who trust their hygienist are far more likely to follow through on referrals and preventive care.",
+      execution: "Your proficiency in full-mouth periodontal assessment, scaling, and patient education — delivered at high volume with documentation in a dental EHR — is exactly the operational backbone that FQHC dental programs depend on.",
+      growth: "Your drive to expand into special populations — pediatric sealants, prenatal oral health, tobacco cessation counseling — positions you for lead hygienist and program coordination roles at multi-site FQHCs.",
+      transition: "Your ability to adapt your clinical protocols to a new patient population — many of whom have never had regular dental care — demonstrates the flexibility FQHC dental programs need as they scale.",
+    },
+    esStrengthMessages: {
+      mission: "Los higienistas dentales en FQHCs a menudo son el primer profesional de salud en detectar signos de diabetes no controlada, hipertensión y cáncer oral en pacientes que no tienen otro contacto de salud regular.",
+      people: "Tu capacidad para construir confianza a largo plazo con pacientes que regresan para citas de seguimiento te convierte en una parte clave del modelo de hogar de salud de FQHC.",
+      execution: "Tu competencia en evaluación periodontal de boca completa, escalonamiento y educación del paciente — entregada en alto volumen con documentación en un EHR dental — es exactamente la columna vertebral operativa de la que dependen los programas dentales de FQHC.",
+      growth: "Tu impulso para expandirse hacia poblaciones especiales — selladores pediátricos, salud oral prenatal, consejería para dejar de fumar — te posiciona para roles de higienista principal y coordinación de programas.",
+      transition: "Tu capacidad para adaptar tus protocolos clínicos a una nueva población de pacientes — muchos de los cuales nunca han tenido atención dental regular — demuestra la flexibilidad que los programas dentales de FQHC necesitan.",
+    },
+    growthMessages: {
+      mission: "Pursue training in oral health integration — the connection between periodontal disease and diabetes, heart disease, and preterm birth is the scientific foundation for FQHC dental programs. Being able to articulate this in your interviews will set you apart.",
+      people: "Develop your motivational interviewing skills for oral hygiene counseling — research shows MI-based hygiene instruction drives significantly better patient behavior change than traditional instruction models.",
+      execution: "Get trained in FQHC dental billing — particularly Denti-Cal procedure codes and documentation requirements. Hygienists who understand billing help their clinics maximize reimbursement and are highly valued.",
+      growth: "Pursue tobacco cessation counseling certification — it's reimbursable under Denti-Cal and is a high-impact preventive service that sets FQHC hygienists apart from private practice peers.",
+      transition: "Before starting at a new FQHC, review their Denti-Cal provider manual and understand which hygiene services they bill — frequency limitations, prior authorization requirements, and patient eligibility checks vary significantly.",
+    },
+    esGrowthMessages: {
+      mission: "Busca capacitación en integración de salud oral — la conexión entre la enfermedad periodontal y la diabetes, enfermedades cardíacas y parto prematuro es el fundamento científico para los programas dentales de FQHC.",
+      people: "Desarrolla tus habilidades de entrevista motivacional para la consejería de higiene oral — la investigación muestra que la instrucción de higiene basada en IM impulsa un cambio de comportamiento del paciente significativamente mejor.",
+      execution: "Capacítate en facturación dental de FQHC — particularmente códigos de procedimiento Denti-Cal y requisitos de documentación.",
+      growth: "Obtén la certificación de consejería para dejar de fumar — es reembolsable bajo Denti-Cal y es un servicio preventivo de alto impacto.",
+      transition: "Antes de comenzar en un nuevo FQHC, revisa su manual de proveedor Denti-Cal y comprende qué servicios de higiene facturan.",
+    },
+    nextSteps: {
+      mission: "Add oral health integration language to your resume objective — specifically mention the connection between periodontal disease and systemic conditions like diabetes and cardiovascular disease to align with FQHC whole-health goals",
+      people: "Complete a free online motivational interviewing for oral health training — CDT and several dental hygiene associations offer them. It's increasingly listed in FQHC hygienist job postings",
+      execution: "Get familiar with Denti-Cal procedure codes for hygiene services (D1110, D1120, D4341, D4342) — understanding reimbursement helps you document more accurately and is valued in FQHC interviews",
+      growth: "Pursue tobacco cessation counselor certification through the California Dental Association — it's a weekend course and adds a billable service and $3-5K in value to your role",
+      transition: "In interviews, ask specifically about the hygiene recall program, new patient flow, and what percentage of patients are Denti-Cal — it shows clinical business awareness that FQHC dental directors value",
+    },
+    esNextSteps: {
+      mission: "Agrega lenguaje de integración de salud oral al objetivo de tu currículum — menciona específicamente la conexión entre la enfermedad periodontal y condiciones sistémicas como diabetes y enfermedades cardiovasculares",
+      people: "Completa una capacitación gratuita en línea de entrevista motivacional para salud oral — CDT y varias asociaciones de higiene dental las ofrecen",
+      execution: "Familiarízate con los códigos de procedimiento Denti-Cal para servicios de higiene (D1110, D1120, D4341, D4342) — entender el reembolso te ayuda a documentar con mayor precisión",
+      growth: "Obtén la certificación de consejero de cesación tabáquica a través de la Asociación Dental de California — es un curso de fin de semana que agrega un servicio facturable",
+      transition: "En las entrevistas, pregunta específicamente sobre el programa de seguimiento de higiene, flujo de nuevos pacientes y qué porcentaje de pacientes son Denti-Cal",
+    },
+    employerWants: {
+      topQualifications: [
+        "Active California Registered Dental Hygienist (RDH) license",
+        "Local anesthesia permit (required at most FQHCs)",
+        "2+ years clinical hygiene experience in a high-volume setting",
+        "Denti-Cal billing and documentation experience",
+        "Bilingual Spanish/English (strongly preferred at CA FQHCs)",
+      ],
+      esTopQualifications: [
+        "Licencia activa de Higienista Dental Registrado (RDH) de California",
+        "Permiso de anestesia local (requerido en la mayoría de FQHCs)",
+        "2+ años de experiencia clínica en higiene en un entorno de alto volumen",
+        "Experiencia en facturación y documentación Denti-Cal",
+        "Bilingüe español/inglés (fuertemente preferido en FQHCs de CA)",
+      ],
+      topSkills: [
+        "Full-mouth periodontal assessment and scaling/root planing",
+        "Denti-Cal documentation and procedure coding",
+        "Patient oral hygiene education and behavior change counseling",
+        "Pediatric hygiene and sealant placement",
+        "Prenatal oral health counseling",
+      ],
+      esTopSkills: [
+        "Evaluación periodontal de boca completa y escalonamiento/alisado radicular",
+        "Documentación Denti-Cal y codificación de procedimientos",
+        "Educación de higiene oral del paciente y consejería de cambio de comportamiento",
+        "Higiene pediátrica y colocación de selladores",
+        "Consejería de salud oral prenatal",
+      ],
+      certifications: [
+        "California RDH license (required)",
+        "Local Anesthesia permit (required)",
+        "Nitrous Oxide permit (strongly preferred)",
+        "CPR/BLS certification",
+        "Tobacco Cessation Counselor (preferred)",
+      ],
+      esCertifications: [
+        "Licencia RDH de California (requerida)",
+        "Permiso de Anestesia Local (requerido)",
+        "Permiso de Óxido Nitroso (fuertemente preferido)",
+        "Certificación CPR/BLS",
+        "Consejero de Cesación Tabáquica (preferido)",
+      ],
+    },
+  },
+
+  /* ================================================================ */
+  /*  PHARMACIST                                                        */
+  /* ================================================================ */
+  pharmacist: {
+    strengthMessages: {
+      mission: "FQHC pharmacists are essential to medication access equity — dispensing to patients who would otherwise go without. Your commitment to this mission means patients with diabetes, hypertension, and HIV get their medications filled consistently, which is the difference between controlled and uncontrolled disease.",
+      people: "Your ability to counsel patients on complex regimens in plain language — especially in their preferred language — drives medication adherence in populations with low health literacy. FQHCs specifically value pharmacists who can teach, not just dispense.",
+      execution: "Your precision in dispensing, DUR (Drug Utilization Review), and clinical verification keeps FQHC patients safe and the 340B program running efficiently — two things that directly affect the clinic's financial sustainability.",
+      growth: "Your interest in clinical pharmacy services — MTM, collaborative drug therapy management, anticoagulation — positions you for pharmacist-in-charge and clinical pharmacy director roles at growing FQHC networks.",
+      transition: "Your ability to quickly learn a new FQHC's formulary, 340B contract pharmacy relationships, and EHR-integrated prescription workflow shows the operational adaptability that FQHC pharmacy directors prize.",
+    },
+    esStrengthMessages: {
+      mission: "Los farmacéuticos de FQHC son esenciales para la equidad de acceso a medicamentos — dispensando a pacientes que de otro modo se quedarían sin ellos.",
+      people: "Tu capacidad para asesorar a los pacientes sobre regímenes complejos en lenguaje sencillo — especialmente en su idioma preferido — impulsa la adherencia a la medicación en poblaciones con baja alfabetización en salud.",
+      execution: "Tu precisión en dispensación, DUR y verificación clínica mantiene seguros a los pacientes de FQHC y el programa 340B funcionando eficientemente.",
+      growth: "Tu interés en los servicios de farmacia clínica — MTM, manejo colaborativo de terapia farmacológica, anticoagulación — te posiciona para roles de farmacéutico a cargo y director de farmacia clínica.",
+      transition: "Tu capacidad para aprender rápidamente el formulario de un nuevo FQHC, las relaciones con farmacias contratistas 340B y el flujo de trabajo de recetas integrado con EHR.",
+    },
+    growthMessages: {
+      mission: "Study the 340B drug pricing program deeply — it's the financial engine that allows FQHCs to dispense affordably. Understanding 340B policy, contract pharmacy relationships, and audit compliance makes you invaluable in pharmacy leadership discussions.",
+      people: "Invest in health literacy communication training — the AHRQ's 'Health Literacy Universal Precautions Toolkit' is free and directly applicable to FQHC patient counseling. Pharmacists who can communicate effectively across literacy levels are rare and valued.",
+      execution: "Master your FQHC's EHR-pharmacy integration — whether eClinicalWorks, OCHIN Epic, or NextGen. Clinical pharmacy recommendations that flow directly into provider notes create real care coordination value.",
+      growth: "Pursue Board Certification in a clinical specialty (BCACP for ambulatory care, BCPS for pharmacotherapy) — it qualifies you for collaborative practice agreements that expand your clinical role and reimbursement potential.",
+      transition: "When joining a new FQHC pharmacy, map out the 340B program structure in your first week — contract pharmacies, child site designations, and split billing rules. Errors here create significant compliance risk.",
+    },
+    esGrowthMessages: {
+      mission: "Estudia el programa de precios de medicamentos 340B en profundidad — es el motor financiero que permite a los FQHCs dispensar de manera asequible.",
+      people: "Invierte en capacitación de comunicación de alfabetización en salud — el 'Kit de herramientas de precauciones universales de alfabetización en salud' de AHRQ es gratuito y directamente aplicable al asesoramiento de pacientes de FQHC.",
+      execution: "Domina la integración EHR-farmacia de tu FQHC — ya sea eClinicalWorks, OCHIN Epic o NextGen.",
+      growth: "Obtén la Certificación de Junta en una especialidad clínica (BCACP para atención ambulatoria, BCPS para farmacoterapia).",
+      transition: "Al unirte a una nueva farmacia de FQHC, mapea la estructura del programa 340B en tu primera semana.",
+    },
+    nextSteps: {
+      mission: "In your resume objective, mention 340B program experience and medication access equity — these are the two phrases that immediately signal FQHC pharmacy fluency to hiring managers",
+      people: "Complete a Medication Therapy Management (MTM) training — it's reimbursable under Part D and increasingly offered by FQHC pharmacies. It positions you as a clinical pharmacist, not just a dispensing pharmacist",
+      execution: "Get trained in your target FQHC's EHR — many FQHC pharmacies use eClinicalWorks or OCHIN Epic with integrated e-prescribing. Demonstrating EHR proficiency in interviews gives you an immediate advantage",
+      growth: "Apply for BCACP (Board Certified Ambulatory Care Pharmacist) — it's the credential that opens doors to collaborative drug therapy agreements with FQHC physicians and significantly expands your clinical scope",
+      transition: "Research the 340B program status of your target FQHC before your interview — their HRSA grant number, child site count, and contract pharmacy relationships. Asking informed 340B questions signals seriousness",
+    },
+    esNextSteps: {
+      mission: "En el objetivo de tu currículum, menciona la experiencia en el programa 340B y la equidad de acceso a medicamentos — estas son las dos frases que señalan inmediatamente la fluidez en farmacia de FQHC",
+      people: "Completa una capacitación en Gestión de Terapia Medicamentosa (MTM) — es reembolsable bajo la Parte D y se ofrece cada vez más por las farmacias de FQHC",
+      execution: "Capacítate en el EHR de tu FQHC objetivo — muchas farmacias de FQHC usan eClinicalWorks u OCHIN Epic con prescripción electrónica integrada",
+      growth: "Solicita el BCACP (Farmacéutico Certificado de Atención Ambulatoria) — es la credencial que abre puertas a acuerdos colaborativos de terapia farmacológica",
+      transition: "Investiga el estado del programa 340B de tu FQHC objetivo antes de tu entrevista — número de subvención HRSA, conteo de sitios secundarios y relaciones con farmacias contratistas",
+    },
+    employerWants: {
+      topQualifications: [
+        "Active California Pharmacist (PharmD) license — no restrictions",
+        "340B program experience or knowledge",
+        "High-volume dispensing and clinical verification experience",
+        "EHR-integrated pharmacy experience (eClinicalWorks, OCHIN Epic, NextGen)",
+        "Bilingual Spanish/English (strongly preferred at CA FQHCs)",
+      ],
+      esTopQualifications: [
+        "Licencia activa de Farmacéutico (PharmD) de California — sin restricciones",
+        "Experiencia o conocimiento del programa 340B",
+        "Experiencia en dispensación de alto volumen y verificación clínica",
+        "Experiencia en farmacia integrada con EHR (eClinicalWorks, OCHIN Epic, NextGen)",
+        "Bilingüe español/inglés (fuertemente preferido en FQHCs de CA)",
+      ],
+      topSkills: [
+        "340B drug pricing program administration",
+        "Medication Therapy Management (MTM) counseling",
+        "Drug Utilization Review (DUR) and safety screening",
+        "FQHC patient counseling across language and literacy levels",
+        "Collaborative drug therapy management agreements",
+      ],
+      esTopSkills: [
+        "Administración del programa de precios de medicamentos 340B",
+        "Consejería de Gestión de Terapia Medicamentosa (MTM)",
+        "Revisión de Utilización de Medicamentos (DUR) y detección de seguridad",
+        "Consejería de pacientes de FQHC en diferentes niveles de idioma y alfabetización",
+        "Acuerdos de manejo colaborativo de terapia farmacológica",
+      ],
+      certifications: [
+        "California PharmD license (required)",
+        "BCACP — Board Certified Ambulatory Care Pharmacist (preferred)",
+        "Immunization certification",
+        "340B University or NACHC 340B training (preferred)",
+      ],
+      esCertifications: [
+        "Licencia PharmD de California (requerida)",
+        "BCACP — Farmacéutico Certificado de Atención Ambulatoria (preferido)",
+        "Certificación de inmunización",
+        "340B University o capacitación NACHC 340B (preferido)",
+      ],
+    },
+  },
+
+  /* ================================================================ */
+  /*  PHARMACY TECHNICIAN                                               */
+  /* ================================================================ */
+  pharmacy_technician: {
+    strengthMessages: {
+      mission: "At FQHCs, pharmacy technicians are the front line of medication access — filling prescriptions for patients who have nowhere else to turn. Your commitment to accurate, fast dispensing keeps vulnerable patients on their medications.",
+      people: "Your ability to communicate clearly with patients picking up medications — explaining copays, prior auth delays, and generic alternatives in plain language — builds trust and reduces the frustration patients feel when navigating complex pharmacy processes.",
+      execution: "Your speed and accuracy in prescription processing, insurance verification, and inventory management under high-volume FQHC conditions is the operational core of the pharmacy. Technicians who can handle the volume without errors are always in demand.",
+      growth: "Your interest in expanding beyond basic dispensing — into 340B inventory tracking, specialty medication support, or lead technician responsibilities — positions you for supervisor roles and higher pay at multi-site FQHCs.",
+      transition: "Your ability to quickly learn a new pharmacy's software, formulary, and workflow systems shows the operational adaptability FQHC pharmacy managers prize when scaling their programs.",
+    },
+    esStrengthMessages: {
+      mission: "En los FQHCs, los técnicos de farmacia son la primera línea de acceso a medicamentos — surtiendo recetas para pacientes que no tienen otro lugar a donde ir.",
+      people: "Tu capacidad para comunicarte claramente con los pacientes que recogen medicamentos — explicando copagos, demoras de autorización previa y alternativas genéricas en lenguaje sencillo — genera confianza.",
+      execution: "Tu velocidad y precisión en el procesamiento de recetas, verificación de seguros y gestión de inventario bajo las condiciones de alto volumen de FQHC es el núcleo operativo de la farmacia.",
+      growth: "Tu interés en expandirte más allá de la dispensación básica — en el seguimiento de inventario 340B, soporte de medicamentos especiales o responsabilidades de técnico líder — te posiciona para roles de supervisor.",
+      transition: "Tu capacidad para aprender rápidamente el software, formulario y sistemas de flujo de trabajo de una nueva farmacia.",
+    },
+    growthMessages: {
+      mission: "Learn about the 340B drug pricing program and how it enables your FQHC pharmacy to provide discounted medications — understanding the mission behind the discount pricing gives you context for why accuracy in 340B dispensing tracking matters so much.",
+      people: "Practice clear communication for common patient frustrations — prior auth denials, formulary changes, copay assistance programs. Having prepared, empathetic responses for these situations makes you a patient advocate, not just a dispensing tech.",
+      execution: "Pursue your California Pharmacy Technician registration and work toward your PTCB Certified Pharmacy Technician (CPhT) — it's the gold standard credential and earns $3-5K more at most CA FQHCs.",
+      growth: "Learn 340B inventory management — split billing, contract pharmacy tracking, and audit trail documentation. This is specialized knowledge that commands premium pay and moves you toward lead technician and compliance roles.",
+      transition: "When starting at a new FQHC pharmacy, spend your first week mastering the pharmacy software (QS/1, PioneerRx, or the EHR-integrated system) and the 340B dispensing workflow before anything else.",
+    },
+    esGrowthMessages: {
+      mission: "Aprende sobre el programa de precios de medicamentos 340B y cómo permite a tu farmacia FQHC proporcionar medicamentos con descuento.",
+      people: "Practica la comunicación clara para las frustraciones comunes de los pacientes — negaciones de autorización previa, cambios en el formulario, programas de asistencia con copago.",
+      execution: "Obtén tu registro de Técnico de Farmacia de California y trabaja hacia tu Técnico de Farmacia Certificado PTCB (CPhT) — es la credencial estándar de oro.",
+      growth: "Aprende la gestión de inventario 340B — facturación dividida, seguimiento de farmacias contratistas y documentación de rastro de auditoría.",
+      transition: "Al comenzar en una nueva farmacia de FQHC, pasa tu primera semana dominando el software de farmacia y el flujo de trabajo de dispensación 340B.",
+    },
+    nextSteps: {
+      mission: "Highlight 340B dispensing experience prominently in your resume — it's the single most FQHC-specific pharmacy skill and immediately signals that you understand the safety-net pharmacy context",
+      people: "Complete customer service training specific to pharmacy settings — the NACDS Foundation offers free resources. FQHC patients often have complex needs and limited English; demonstrating patient communication skills in your interview matters",
+      execution: "Get your PTCB CPhT certification if you haven't — it's now required or strongly preferred at most California FQHC pharmacies and commands a significant pay premium",
+      growth: "Pursue training in specialty medication programs — HIV/AIDS medication management, hepatitis C treatment support — which are common at FQHC pharmacies and command premium pay",
+      transition: "Before applying to a specific FQHC pharmacy, find out what software system they use — QS/1, PioneerRx, eClinicalWorks pharmacy module. Mention familiarity with that specific system in your cover letter",
+    },
+    esNextSteps: {
+      mission: "Destaca la experiencia en dispensación 340B de manera prominente en tu currículum — es la habilidad de farmacia más específica de FQHC y señala inmediatamente que comprendes el contexto de farmacia de red de seguridad",
+      people: "Completa capacitación en servicio al cliente específica para entornos de farmacia — la Fundación NACDS ofrece recursos gratuitos",
+      execution: "Obtén tu certificación PTCB CPhT si aún no la tienes — ahora es requerida o fuertemente preferida en la mayoría de las farmacias de FQHC de California",
+      growth: "Busca capacitación en programas de medicamentos especiales — manejo de medicamentos para VIH/SIDA, soporte de tratamiento de hepatitis C",
+      transition: "Antes de aplicar a una farmacia de FQHC específica, averigua qué sistema de software usan — QS/1, PioneerRx, módulo de farmacia eClinicalWorks",
+    },
+    employerWants: {
+      topQualifications: [
+        "Current California Pharmacy Technician registration",
+        "PTCB CPhT certification (required or strongly preferred)",
+        "340B dispensing program experience",
+        "High-volume pharmacy experience",
+        "Bilingual Spanish/English (strongly preferred at CA FQHCs)",
+      ],
+      esTopQualifications: [
+        "Registro actual de Técnico de Farmacia de California",
+        "Certificación PTCB CPhT (requerida o fuertemente preferida)",
+        "Experiencia en el programa de dispensación 340B",
+        "Experiencia en farmacia de alto volumen",
+        "Bilingüe español/inglés (fuertemente preferido en FQHCs de CA)",
+      ],
+      topSkills: [
+        "Prescription processing and accuracy verification",
+        "340B inventory tracking and split billing",
+        "Insurance verification and prior authorization processing",
+        "Pharmacy software proficiency (QS/1, PioneerRx)",
+        "Patient communication for medication pickup and refills",
+      ],
+      esTopSkills: [
+        "Procesamiento de recetas y verificación de precisión",
+        "Seguimiento de inventario 340B y facturación dividida",
+        "Verificación de seguros y procesamiento de autorización previa",
+        "Competencia en software de farmacia (QS/1, PioneerRx)",
+        "Comunicación con pacientes para recogida de medicamentos y recargas",
+      ],
+      certifications: [
+        "California Pharmacy Technician registration (required)",
+        "PTCB CPhT (required at most FQHCs)",
+        "340B training (NACHC or 340B Health preferred)",
+        "CPR/BLS certification",
+      ],
+      esCertifications: [
+        "Registro de Técnico de Farmacia de California (requerido)",
+        "PTCB CPhT (requerido en la mayoría de FQHCs)",
+        "Capacitación 340B (NACHC o 340B Health preferido)",
+        "Certificación CPR/BLS",
+      ],
+    },
+  },
+
+  /* ================================================================ */
+  /*  HEALTH ENROLLMENT NAVIGATOR                                       */
+  /* ================================================================ */
+  health_enrollment_navigator: {
+    strengthMessages: {
+      mission: "Health enrollment navigators at FQHCs do some of the most direct health equity work in the healthcare system — getting uninsured patients enrolled in Medi-Cal, Covered California, or FQHC sliding scale programs so they can access care at all. Your work directly determines whether vulnerable patients get treatment.",
+      people: "Your ability to build trust with patients who are fearful, undocumented, or deeply skeptical of government programs is the most critical skill in this role. The patients who need enrollment help most are often the hardest to engage — and your rapport-building approach defines your impact.",
+      execution: "Your efficiency in eligibility screening, application completion, and follow-up tracking — across multiple coverage programs simultaneously — is the operational engine of FQHC enrollment programs. Navigators who close cases quickly and accurately drive real access outcomes.",
+      growth: "Your interest in CalAIM Community Supports, ILOS, and complex eligibility scenarios positions you for senior navigator and enrollment program coordinator roles — where you design the systems, not just work them.",
+      transition: "Your ability to quickly learn a new FQHC's specific coverage mix, sliding fee scale, and enrollment software shows exactly the operational adaptability that enrollment program managers need when expanding.",
+    },
+    esStrengthMessages: {
+      mission: "Los navegadores de inscripción de salud en los FQHCs hacen algunos de los trabajos más directos de equidad en salud en el sistema de salud — logrando que los pacientes sin seguro se inscriban en Medi-Cal, Covered California o programas de escala móvil de FQHC.",
+      people: "Tu capacidad para generar confianza con pacientes que tienen miedo, son indocumentados o son profundamente escépticos de los programas gubernamentales es la habilidad más crítica en este rol.",
+      execution: "Tu eficiencia en la detección de elegibilidad, completación de solicitudes y seguimiento — a través de múltiples programas de cobertura simultáneamente — es el motor operativo de los programas de inscripción de FQHC.",
+      growth: "Tu interés en CalAIM Community Supports, ILOS y escenarios de elegibilidad complejos te posiciona para roles de navegador senior y coordinador de programa de inscripción.",
+      transition: "Tu capacidad para aprender rápidamente la mezcla de cobertura específica, escala de tarifas deslizantes y software de inscripción de un nuevo FQHC.",
+    },
+    growthMessages: {
+      mission: "Deepen your knowledge of undocumented patient access programs — Medi-Cal for All (AB 4), PACE/ILOS, ARPA income disregards, and county-funded programs. Navigators who can confidently help undocumented patients access coverage are rare and highly valued at California FQHCs.",
+      people: "Practice motivational interviewing for enrollment — many patients resist enrollment due to immigration fear, past negative experiences, or distrust. Learning to address these barriers compassionately and knowledgeably is the highest-leverage skill upgrade for this role.",
+      execution: "Master Covered California's Special Enrollment Period triggers and Medi-Cal's income verification requirements — these are where navigator errors most commonly occur and where mastery most impresses supervisors.",
+      growth: "Learn CalAIM Community Supports eligibility determination — specifically housing navigation, medically tailored meals, and sobering centers. These are new FQHC enrollment territories where navigators with this expertise are urgently needed.",
+      transition: "Before your first day at a new FQHC, learn their Medi-Cal managed care plan landscape — which MCOs are contracted, what their enrollment tools are, and how they handle presumptive eligibility. Arrive with this knowledge and you'll stand out immediately.",
+    },
+    esGrowthMessages: {
+      mission: "Profundiza tu conocimiento de los programas de acceso para pacientes indocumentados — Medi-Cal para Todos (AB 4), PACE/ILOS, exenciones de ingresos ARPA y programas financiados por el condado.",
+      people: "Practica la entrevista motivacional para la inscripción — muchos pacientes resisten la inscripción debido al miedo a la inmigración, experiencias negativas pasadas o desconfianza.",
+      execution: "Domina los disparadores del Período de Inscripción Especial de Covered California y los requisitos de verificación de ingresos de Medi-Cal.",
+      growth: "Aprende la determinación de elegibilidad de CalAIM Community Supports — específicamente navegación de vivienda, comidas médicamente adaptadas y centros de sobriedad.",
+      transition: "Antes de tu primer día en un nuevo FQHC, aprende el panorama de planes de atención administrada de Medi-Cal — qué MCOs están contratados, cuáles son sus herramientas de inscripción y cómo manejan la elegibilidad presuntiva.",
+    },
+    nextSteps: {
+      mission: "Get Certified Application Counselor (CAC) or Certified Enrollment Counselor (CEC) certification through Covered California — it's often required for FQHC enrollment navigator roles and is free to obtain through CPCA or county-sponsored trainings",
+      people: "Complete DHCS Medi-Cal eligibility training through your county or a CPCA webinar — navigators who know Medi-Cal rules deeply (MAGI vs. non-MAGI, Medi-Cal for All, presumptive eligibility) earn more and advance faster",
+      execution: "Learn the Medi-Cal renewal process inside out — since the end of continuous enrollment in 2023, renewals and re-enrollments are the highest-volume task for FQHC navigators and the place where most errors and coverage gaps occur",
+      growth: "Pursue the National Navigator Certification through Enroll America or a state-sponsored program — it demonstrates professional-level enrollment expertise and is highly valued by FQHC enrollment program directors",
+      transition: "When applying to an FQHC, research their patient population's coverage mix — percentage Medi-Cal, uninsured, and undocumented. Tailoring your cover letter to their specific enrollment challenges shows strategic understanding",
+    },
+    esNextSteps: {
+      mission: "Obtén la certificación de Consejero de Solicitud Certificado (CAC) o Consejero de Inscripción Certificado (CEC) a través de Covered California — a menudo es requerida para roles de navegador de inscripción de FQHC",
+      people: "Completa la capacitación de elegibilidad de Medi-Cal del DHCS a través de tu condado o un seminario web de CPCA",
+      execution: "Aprende el proceso de renovación de Medi-Cal de adentro hacia afuera — desde el fin de la inscripción continua en 2023, las renovaciones son la tarea de mayor volumen para los navegadores de FQHC",
+      growth: "Obtén la Certificación Nacional de Navegador a través de Enroll America o un programa patrocinado por el estado",
+      transition: "Al solicitar a un FQHC, investiga la mezcla de cobertura de su población de pacientes — porcentaje de Medi-Cal, sin seguro e indocumentados",
+    },
+    employerWants: {
+      topQualifications: [
+        "Certified Application Counselor (CAC) or Covered California Certified Enrollment Counselor (CEC)",
+        "Medi-Cal eligibility determination and renewal experience",
+        "Knowledge of undocumented patient coverage options (ILOS, PACE, Medi-Cal for All)",
+        "CalAIM Community Supports eligibility experience (preferred)",
+        "Bilingual Spanish/English (required at most CA FQHCs)",
+      ],
+      esTopQualifications: [
+        "Consejero de Solicitud Certificado (CAC) o Consejero de Inscripción Certificado de Covered California (CEC)",
+        "Experiencia en determinación de elegibilidad de Medi-Cal y renovación",
+        "Conocimiento de las opciones de cobertura para pacientes indocumentados (ILOS, PACE, Medi-Cal para Todos)",
+        "Experiencia en elegibilidad de CalAIM Community Supports (preferido)",
+        "Bilingüe español/inglés (requerido en la mayoría de FQHCs de CA)",
+      ],
+      topSkills: [
+        "Medi-Cal and Covered California eligibility screening",
+        "Application completion and submission (BenefitsCal, SAWS)",
+        "Presumptive eligibility determination",
+        "Patient follow-up and enrollment case tracking",
+        "CalAIM Community Supports and ILOS enrollment",
+      ],
+      esTopSkills: [
+        "Detección de elegibilidad de Medi-Cal y Covered California",
+        "Completación y envío de solicitudes (BenefitsCal, SAWS)",
+        "Determinación de elegibilidad presuntiva",
+        "Seguimiento de pacientes y rastreo de casos de inscripción",
+        "Inscripción en CalAIM Community Supports e ILOS",
+      ],
+      certifications: [
+        "Covered California Certified Enrollment Counselor (CEC) — required",
+        "Certified Application Counselor (CAC) through CMS — required",
+        "Medi-Cal Eligibility Worker certification (preferred)",
+        "CPCA Navigator Training completion",
+      ],
+      esCertifications: [
+        "Consejero de Inscripción Certificado de Covered California (CEC) — requerido",
+        "Consejero de Solicitud Certificado (CAC) a través de CMS — requerido",
+        "Certificación de Trabajador de Elegibilidad de Medi-Cal (preferido)",
+        "Finalización de Capacitación de Navegador CPCA",
+      ],
+    },
+  },
+
+  /* ================================================================ */
+  /*  LVN — Licensed Vocational Nurse                                   */
+  /* ================================================================ */
+  lvn: {
+    strengthMessages: {
+      mission: "LVNs at FQHCs are essential to the daily care of thousands of Medi-Cal patients who have no other primary care option. Your willingness to work in this mission-driven environment — often with more complex patients and fewer resources than private practice — reflects exactly the values FQHCs look for.",
+      people: "Your ability to provide compassionate, efficient nursing care while building real relationships with patients across multiple visits is the human core of the FQHC model. Patients who feel seen and cared for by their nursing team are more compliant, more engaged, and more likely to stay connected to care.",
+      execution: "Your efficiency in rooming, vitals, injections, EHR documentation, and care coordination under the fast-paced workflow of a high-volume FQHC is what keeps the clinic running. LVNs who can handle volume without sacrificing quality are always in demand.",
+      growth: "Your drive to expand your LVN scope — IV certification, phlebotomy, care coordination, chronic disease support — positions you for senior LVN and LVN team lead roles, and puts you on the path to RN bridge programs.",
+      transition: "Your ability to quickly orient to a new FQHC's clinical workflows, documentation requirements, and team-based care model shows the adaptability that clinic managers prize during onboarding.",
+    },
+    esStrengthMessages: {
+      mission: "Las LVN en los FQHCs son esenciales para la atención diaria de miles de pacientes de Medi-Cal que no tienen otra opción de atención primaria.",
+      people: "Tu capacidad para proporcionar atención de enfermería compasiva y eficiente mientras construyes relaciones reales con los pacientes es el núcleo humano del modelo FQHC.",
+      execution: "Tu eficiencia en el ingreso de pacientes, signos vitales, inyecciones, documentación EHR y coordinación de atención bajo el flujo de trabajo de alto volumen de un FQHC es lo que mantiene funcionando la clínica.",
+      growth: "Tu impulso para expandir tu alcance de LVN — certificación IV, flebotomía, coordinación de atención, soporte de enfermedades crónicas — te posiciona para roles senior.",
+      transition: "Tu capacidad para orientarte rápidamente a los flujos de trabajo clínicos, requisitos de documentación y modelo de atención basado en equipo de un nuevo FQHC.",
+    },
+    growthMessages: {
+      mission: "Connect your daily clinical work to the FQHC mission by understanding the population health context — your patients' chronic disease rates, the social factors affecting their health, and how your nursing interventions contribute to HEDIS and UDS quality measures.",
+      people: "Develop trauma-informed care skills — a significant portion of FQHC patients have experienced adverse childhood events, housing instability, or immigration trauma. LVNs who can provide care with that awareness build much stronger patient relationships.",
+      execution: "Master your FQHC's EHR (eClinicalWorks, OCHIN Epic, NextGen) for clinical documentation, care gap identification, and standing order management. LVNs with strong EHR skills can work more independently and are promoted faster.",
+      growth: "Pursue IV therapy certification if you don't have it — it expands your scope significantly and earns $2-4K more annually at most California FQHCs. Also consider an LVN-to-RN bridge program — many FQHCs offer tuition assistance.",
+      transition: "When starting at a new FQHC, spend the first two weeks learning every standing order in their clinical protocols — these are the backbone of nursing autonomy in a high-volume FQHC and mastering them makes you valuable quickly.",
+    },
+    esGrowthMessages: {
+      mission: "Conecta tu trabajo clínico diario con la misión de FQHC comprendiendo el contexto de salud poblacional — las tasas de enfermedades crónicas de tus pacientes, los factores sociales que afectan su salud y cómo tus intervenciones de enfermería contribuyen a las medidas de calidad HEDIS y UDS.",
+      people: "Desarrolla habilidades de atención informada por trauma — una parte significativa de los pacientes de FQHC han experimentado eventos adversos en la infancia, inestabilidad habitacional o trauma relacionado con la inmigración.",
+      execution: "Domina el EHR de tu FQHC (eClinicalWorks, OCHIN Epic, NextGen) para documentación clínica, identificación de brechas de atención y gestión de órdenes permanentes.",
+      growth: "Obtén la certificación de terapia IV si no la tienes — amplía significativamente tu alcance y gana $2-4K más anualmente en la mayoría de los FQHCs de California.",
+      transition: "Al comenzar en un nuevo FQHC, pasa las primeras dos semanas aprendiendo cada orden permanente en sus protocolos clínicos.",
+    },
+    nextSteps: {
+      mission: "In your resume, highlight experience with Medi-Cal populations and FQHC or safety-net settings — even if it was a clinic, county health, or urgent care in an underserved area, emphasize the population you served",
+      people: "Complete a trauma-informed care training — the UCSF Trauma-Informed Primary Care Institute offers free online modules that are directly applicable to FQHC nursing and increasingly cited in FQHC job postings",
+      execution: "Get proficient in one of the major FQHC EHR systems — eClinicalWorks and OCHIN Epic are the most common. If you don't have experience, many community colleges offer basic EHR courses",
+      growth: "Enroll in an LVN-to-RN bridge program at a CA community college — many FQHCs offer tuition reimbursement for bridge programs and will prioritize promoting RN-eligible LVNs into senior nursing roles",
+      transition: "When interviewing at a FQHC, ask about orientation length and preceptorship — high-quality FQHCs provide structured 4-6 week LVN orientations. How they answer tells you a lot about how they invest in nursing staff",
+    },
+    esNextSteps: {
+      mission: "En tu currículum, destaca la experiencia con poblaciones de Medi-Cal y entornos de FQHC o red de seguridad",
+      people: "Completa una capacitación de atención informada por trauma — el Instituto de Atención Primaria Informada por Trauma de UCSF ofrece módulos en línea gratuitos",
+      execution: "Obtén competencia en uno de los principales sistemas EHR de FQHC — eClinicalWorks y OCHIN Epic son los más comunes",
+      growth: "Inscríbete en un programa puente de LVN a RN en un colegio comunitario de CA — muchos FQHCs ofrecen reembolso de matrícula para programas puente",
+      transition: "Al entrevistar en un FQHC, pregunta sobre la duración de la orientación y la tutoría — los FQHCs de alta calidad proporcionan orientaciones estructuradas de LVN de 4 a 6 semanas",
+    },
+    employerWants: {
+      topQualifications: [
+        "Active California LVN license — no restrictions",
+        "1+ years LVN experience in a clinic or community health setting",
+        "High-volume rooming, vitals, and clinical support experience",
+        "FQHC EHR proficiency (eClinicalWorks, NextGen, or OCHIN Epic)",
+        "Bilingual Spanish/English (strongly preferred at CA FQHCs)",
+      ],
+      esTopQualifications: [
+        "Licencia LVN activa de California — sin restricciones",
+        "1+ años de experiencia de LVN en un entorno de clínica o salud comunitaria",
+        "Experiencia en ingreso de alto volumen, signos vitales y soporte clínico",
+        "Competencia en EHR de FQHC (eClinicalWorks, NextGen o OCHIN Epic)",
+        "Bilingüe español/inglés (fuertemente preferido en FQHCs de CA)",
+      ],
+      topSkills: [
+        "Patient rooming, vital signs, and clinical intake",
+        "Medication administration and injection techniques",
+        "Standing order management and clinical protocol adherence",
+        "EHR documentation and care gap management",
+        "Phlebotomy and specimen collection",
+      ],
+      esTopSkills: [
+        "Ingreso de pacientes, signos vitales e ingesta clínica",
+        "Administración de medicamentos y técnicas de inyección",
+        "Gestión de órdenes permanentes y adherencia al protocolo clínico",
+        "Documentación EHR y gestión de brechas de atención",
+        "Flebotomía y recolección de muestras",
+      ],
+      certifications: [
+        "California LVN license (required)",
+        "IV therapy certification (strongly preferred)",
+        "CPR/BLS certification (required)",
+        "Phlebotomy certification (preferred)",
+      ],
+      esCertifications: [
+        "Licencia LVN de California (requerida)",
+        "Certificación de terapia IV (fuertemente preferida)",
+        "Certificación CPR/BLS (requerida)",
+        "Certificación de flebotomía (preferida)",
+      ],
+    },
+  },
+
+  /* ================================================================ */
+  /*  PSYCHIATRIC NP / PMHNP                                            */
+  /* ================================================================ */
+  psychiatric_np: {
+    strengthMessages: {
+      mission: "Psychiatric NPs at FQHCs fill one of California's most critical workforce gaps — delivering psychiatric medication management to Medi-Cal patients who would wait months for an appointment anywhere else. Your presence means patients with serious mental illness get stabilized and stay connected to care.",
+      people: "Your ability to build therapeutic alliance with patients experiencing psychosis, severe depression, or trauma-related disorders — in a brief, high-volume FQHC setting — is a clinical skill that takes years to develop and is in enormous demand.",
+      execution: "Your capacity to manage a high-volume psychiatric caseload with medication management, crisis assessment, and collaborative documentation — working within FQHC PPS billing structure — is exactly the specialized execution that integrated BH programs depend on.",
+      growth: "Your interest in collaborative care models, tele-psychiatry, and FQHC-based psychiatric program development puts you on track for psychiatric medical director and BH program leadership roles.",
+      transition: "Your ability to quickly assess a new FQHC's BH program maturity, collaborative care structure, and psychiatric caseload complexity shows the clinical leadership perspective that FQHC BH directors look for when hiring PMHNPs.",
+    },
+    esStrengthMessages: {
+      mission: "Los NPs psiquiátricos en los FQHCs llenan una de las brechas de fuerza laboral más críticas de California — brindando manejo de medicamentos psiquiátricos a pacientes de Medi-Cal que esperarían meses por una cita en cualquier otro lugar.",
+      people: "Tu capacidad para construir alianza terapéutica con pacientes que experimentan psicosis, depresión severa o trastornos relacionados con el trauma — en un entorno de FQHC de alto volumen y breve — es una habilidad clínica que toma años desarrollar.",
+      execution: "Tu capacidad para manejar una carga de casos psiquiátricos de alto volumen con manejo de medicamentos, evaluación de crisis y documentación colaborativa — trabajando dentro de la estructura de facturación PPS de FQHC.",
+      growth: "Tu interés en modelos de atención colaborativa, tele-psiquiatría y desarrollo de programas psiquiátricos basados en FQHC te pone en camino hacia roles de director médico psiquiátrico.",
+      transition: "Tu capacidad para evaluar rápidamente la madurez del programa de BH, la estructura de atención colaborativa y la complejidad de la carga de casos psiquiátricos de un nuevo FQHC.",
+    },
+    growthMessages: {
+      mission: "Familiarize yourself with the Collaborative Care Model (CoCM) — the evidence-based integrated BH model increasingly used at California FQHCs. PMHNPs who understand CoCM's stepped-care approach, caseload consultation structure, and registry-based tracking can lead program development, not just practice within it.",
+      people: "Develop cultural formulation skills for the specific immigrant, refugee, and minority communities your FQHC serves. Psychiatric presentations differ significantly by culture — and PMHNPs who can integrate cultural context into diagnosis and treatment planning deliver measurably better outcomes.",
+      execution: "Master FQHC PPS billing for psychiatric services — specifically the distinction between same-day billing for BH and primary care visits, E/M coding for medication management, and the APM alternative payment model. This knowledge maximizes your revenue impact.",
+      growth: "Pursue tele-psychiatry experience if you don't have it — FQHC psychiatric caseloads increasingly include hub-and-spoke tele-psych models spanning rural sites. PMHNPs comfortable with tele-psych delivery can serve 3-5x the geographic footprint.",
+      transition: "Before starting at a new FQHC, review their behavioral health program structure — specifically whether they use collaborative care, co-located BH, or integrated BH — and understand how the PMHNP role fits within each model. Ask in your interview.",
+    },
+    esGrowthMessages: {
+      mission: "Familiarízate con el Modelo de Atención Colaborativa (CoCM) — el modelo de BH integrado basado en evidencia utilizado cada vez más en los FQHCs de California.",
+      people: "Desarrolla habilidades de formulación cultural para las comunidades específicas de inmigrantes, refugiados y minorías que sirve tu FQHC.",
+      execution: "Domina la facturación PPS de FQHC para servicios psiquiátricos — específicamente la distinción entre la facturación del mismo día para visitas de BH y atención primaria.",
+      growth: "Obtén experiencia en tele-psiquiatría si no la tienes — las cargas de casos psiquiátricos de FQHC incluyen cada vez más modelos de tele-psiquiatría de hub y spoke.",
+      transition: "Antes de comenzar en un nuevo FQHC, revisa su estructura de programa de salud conductual — específicamente si usan atención colaborativa, BH co-ubicado o BH integrado.",
+    },
+    nextSteps: {
+      mission: "Highlight FQHC-specific psychiatric experience in your resume — specifically PPS billing, collaborative care consultation, and population-based psychiatric management. These three phrases signal FQHC psychiatric fluency to hiring directors",
+      people: "Complete cultural psychiatry training through UCSF or Stanford's psychiatry department — both offer CME courses on culturally formulated psychiatric assessment for immigrant and minority populations, which is directly applicable to FQHC practice",
+      execution: "Get familiar with FQHC same-day billing rules for BH — the DHCS FQHC APM Program Guide and Noridian FQHC billing guide are the primary references. Understanding this prevents billing errors and shows financial literacy in leadership interviews",
+      growth: "Explore tele-psychiatry platforms used in FQHC settings — Teladoc Health, Array Behavioral Care, and Iris Telehealth partner with many California FQHCs. Tele-psych experience significantly expands your employment options and geographic reach",
+      transition: "In your FQHC interview, ask about caseload size, warm handoff protocols, and whether they use a Collaborative Care Model registry. How they answer tells you about program maturity and your likely scope of practice",
+    },
+    esNextSteps: {
+      mission: "Destaca la experiencia psiquiátrica específica de FQHC en tu currículum — específicamente facturación PPS, consulta de atención colaborativa y gestión psiquiátrica basada en población",
+      people: "Completa capacitación en psiquiatría cultural a través de UCSF o el departamento de psiquiatría de Stanford",
+      execution: "Familiarízate con las reglas de facturación del mismo día de FQHC para BH — la Guía del Programa APM FQHC de DHCS y la guía de facturación de FQHC de Noridian son las referencias principales",
+      growth: "Explora plataformas de tele-psiquiatría utilizadas en entornos de FQHC — Teladoc Health, Array Behavioral Care e Iris Telehealth se asocian con muchos FQHCs de California",
+      transition: "En tu entrevista de FQHC, pregunta sobre el tamaño de la carga de casos, protocolos de transferencia cálida y si usan un registro de Modelo de Atención Colaborativa",
+    },
+    employerWants: {
+      topQualifications: [
+        "Active California NP license with Psychiatric-Mental Health specialty (PMHNP)",
+        "DEA registration and California Furnishing Number",
+        "FQHC, community mental health, or integrated BH experience",
+        "Collaborative Care Model (CoCM) experience (preferred)",
+        "Tele-psychiatry experience (increasingly required at multi-site FQHCs)",
+      ],
+      esTopQualifications: [
+        "Licencia activa de NP de California con especialidad en Salud Mental Psiquiátrica (PMHNP)",
+        "Registro DEA y Número de Suministro de California",
+        "Experiencia en FQHC, salud mental comunitaria o BH integrada",
+        "Experiencia en Modelo de Atención Colaborativa (CoCM) (preferido)",
+        "Experiencia en tele-psiquiatría (cada vez más requerida en FQHCs de múltiples sitios)",
+      ],
+      topSkills: [
+        "Psychiatric medication management (adult and adolescent populations)",
+        "Crisis assessment and safety planning",
+        "Collaborative Care Model (CoCM) consultation",
+        "FQHC PPS billing for behavioral health encounters",
+        "Trauma-informed psychiatric practice",
+      ],
+      esTopSkills: [
+        "Manejo de medicamentos psiquiátricos (poblaciones adultas y adolescentes)",
+        "Evaluación de crisis y planificación de seguridad",
+        "Consulta del Modelo de Atención Colaborativa (CoCM)",
+        "Facturación PPS de FQHC para encuentros de salud conductual",
+        "Práctica psiquiátrica informada por trauma",
+      ],
+      certifications: [
+        "California NP license — PMHNP specialty (required)",
+        "DEA registration (required)",
+        "PMHNP Board Certification (required)",
+        "FQHC/community mental health prescribing experience",
+      ],
+      esCertifications: [
+        "Licencia NP de California — especialidad PMHNP (requerida)",
+        "Registro DEA (requerido)",
+        "Certificación de Junta PMHNP (requerida)",
+        "Experiencia en prescripción en FQHC/salud mental comunitaria",
+      ],
+    },
+  },
+
+  /* ================================================================ */
+  /*  PROGRAM MANAGER                                                   */
+  /* ================================================================ */
+  program_manager: {
+    strengthMessages: {
+      mission: "FQHC program managers are the operational architects of community health — designing, implementing, and sustaining the programs that deliver care to California's most vulnerable populations. Your ability to connect program strategy to health equity outcomes is what separates effective FQHC leaders from administrators.",
+      people: "Your ability to build and sustain cross-functional teams — aligning clinical staff, community health workers, billing, and data teams around shared program goals — is the leadership competency that most directly determines whether FQHC programs succeed or stagnate.",
+      execution: "Your capacity to manage program budgets, deliverables, reporting timelines, and funder relationships simultaneously — often for multiple programs at once — is exactly the operational discipline that FQHC program directors depend on.",
+      growth: "Your drive to expand from program execution into program design and systems-level thinking positions you for director of programs and VP of clinical operations roles in larger FQHC networks.",
+      transition: "Your ability to quickly assess a new program's maturity, identify gaps in staffing or systems, and build a credible first-90-day plan shows the Rumelt-style 'diagnosis first' approach that FQHC executives hire for.",
+    },
+    esStrengthMessages: {
+      mission: "Los gerentes de programa de FQHC son los arquitectos operativos de la salud comunitaria — diseñando, implementando y sosteniendo los programas que brindan atención a las poblaciones más vulnerables de California.",
+      people: "Tu capacidad para construir y sostener equipos interfuncionales — alineando personal clínico, trabajadores de salud comunitaria, facturación y equipos de datos en torno a objetivos de programa compartidos.",
+      execution: "Tu capacidad para gestionar presupuestos de programa, entregables, plazos de informes y relaciones con financiadores simultáneamente — a menudo para múltiples programas a la vez.",
+      growth: "Tu impulso para expandirte desde la ejecución del programa hacia el diseño del programa y el pensamiento a nivel de sistemas te posiciona para roles de director de programas.",
+      transition: "Tu capacidad para evaluar rápidamente la madurez de un nuevo programa, identificar brechas en dotación de personal o sistemas y construir un plan creíble para los primeros 90 días.",
+    },
+    growthMessages: {
+      mission: "Develop your CalAIM program fluency — ECM, Community Supports, and ILOS are the fastest-growing FQHC program areas, and program managers who can operate within CalAIM infrastructure are in urgent demand across California.",
+      people: "Learn Liberating Structures facilitation — techniques like 1-2-4-All, TRIZ, and Wise Crowds help program managers build genuine team intelligence and distributed problem-solving. FQHC programs that rely only on top-down management struggle to innovate.",
+      execution: "Build your HRSA compliance knowledge — specifically the Health Center Program requirements (Section 330, Uniform Data System), scope of project amendments, and HRSA site visit preparation. Program managers who understand HRSA compliance protect the whole organization.",
+      growth: "Pursue a healthcare management certification — ACHE Fellow (FACHE), Certified Medical Manager (CMM), or a graduate certificate in health administration. These credentials signal career seriousness and open doors to director-level interviews.",
+      transition: "When taking over a new FQHC program, spend your first 30 days in 'listening mode' — conduct 1:1s with every team member, map the existing workflow before changing it, and build a written diagnosis before proposing solutions.",
+    },
+    esGrowthMessages: {
+      mission: "Desarrolla tu fluidez en el programa CalAIM — ECM, Community Supports e ILOS son las áreas de programa de FQHC de más rápido crecimiento.",
+      people: "Aprende la facilitación de Liberating Structures — técnicas como 1-2-4-All, TRIZ y Wise Crowds ayudan a los gerentes de programa a construir inteligencia genuina de equipo.",
+      execution: "Desarrolla tu conocimiento de cumplimiento de HRSA — específicamente los requisitos del Programa de Centros de Salud (Sección 330, Sistema de Datos Uniformes), enmiendas al alcance del proyecto y preparación para visitas del sitio de HRSA.",
+      growth: "Obtén una certificación de gestión de salud — ACHE Fellow (FACHE), Gerente Médico Certificado (CMM) o un certificado de posgrado en administración de salud.",
+      transition: "Al tomar el control de un nuevo programa de FQHC, pasa tus primeros 30 días en 'modo de escucha' — realiza entrevistas individuales con cada miembro del equipo, mapea el flujo de trabajo existente antes de cambiarlo.",
+    },
+    nextSteps: {
+      mission: "In your resume, quantify program impact — patients served, cost per outcome, quality measure improvement percentages. FQHC program managers who can show data-backed results get hired faster and command higher salaries",
+      people: "Complete a change management certification — PROSCI ADKAR or Kotter's 8-Step Process. FQHC programs constantly face regulatory change, and program managers with formal change management skills are increasingly prioritized in hiring",
+      execution: "Get trained in HRSA's Uniform Data System (UDS) reporting — it's the primary accountability tool for all FQHC programs and understanding it signals to hiring managers that you can operate within federal grant compliance structures",
+      growth: "Pursue ACHE membership and the FACHE exam path — it's the most recognized credential in healthcare management and signals executive-track seriousness. Many CA FQHCs offer ACHE membership reimbursement as a benefit",
+      transition: "Before interviewing for a program manager role at a specific FQHC, review their most recent HRSA UDS data (publicly available at data.hrsa.gov) — understanding their patient volume, quality measures, and program profile shows strategic preparation",
+    },
+    esNextSteps: {
+      mission: "En tu currículum, cuantifica el impacto del programa — pacientes atendidos, costo por resultado, porcentajes de mejora en medidas de calidad",
+      people: "Completa una certificación de gestión del cambio — PROSCI ADKAR o el Proceso de 8 Pasos de Kotter",
+      execution: "Capacítate en los informes del Sistema de Datos Uniformes (UDS) de HRSA — es la herramienta de responsabilidad principal para todos los programas de FQHC",
+      growth: "Obtén la membresía de ACHE y el camino hacia el examen FACHE — es la credencial más reconocida en gestión de atención médica",
+      transition: "Antes de entrevistar para un rol de gerente de programa en un FQHC específico, revisa sus datos UDS de HRSA más recientes (disponibles públicamente en data.hrsa.gov)",
+    },
+    employerWants: {
+      topQualifications: [
+        "3+ years program management in a healthcare or community health setting",
+        "CalAIM program experience (ECM, Community Supports, ILOS) — preferred",
+        "HRSA grant compliance and UDS reporting experience (preferred)",
+        "Budget management and funder reporting experience",
+        "Bilingual Spanish/English (preferred at most CA FQHCs)",
+      ],
+      esTopQualifications: [
+        "3+ años de gestión de programas en un entorno de atención médica o salud comunitaria",
+        "Experiencia en programa CalAIM (ECM, Community Supports, ILOS) — preferido",
+        "Experiencia en cumplimiento de subvenciones HRSA e informes UDS (preferido)",
+        "Experiencia en gestión de presupuesto e informes a financiadores",
+        "Bilingüe español/inglés (preferido en la mayoría de FQHCs de CA)",
+      ],
+      topSkills: [
+        "CalAIM program design and operations (ECM, Community Supports)",
+        "HRSA compliance and Uniform Data System (UDS) reporting",
+        "Cross-functional team leadership and performance management",
+        "Program budget development and funder reporting",
+        "Quality improvement and data-driven program optimization",
+      ],
+      esTopSkills: [
+        "Diseño y operaciones del programa CalAIM (ECM, Community Supports)",
+        "Cumplimiento HRSA e informes del Sistema de Datos Uniformes (UDS)",
+        "Liderazgo de equipo interfuncional y gestión del desempeño",
+        "Desarrollo del presupuesto del programa e informes a financiadores",
+        "Mejora de calidad y optimización del programa basada en datos",
+      ],
+      certifications: [
+        "PMP (Project Management Professional) — preferred",
+        "ACHE Member or FACHE — preferred",
+        "Change management certification (PROSCI/ADKAR) — preferred",
+        "CalAIM program-specific training (DHCS, CPCA)",
+      ],
+      esCertifications: [
+        "PMP (Profesional en Gestión de Proyectos) — preferido",
+        "Miembro de ACHE o FACHE — preferido",
+        "Certificación de gestión del cambio (PROSCI/ADKAR) — preferido",
+        "Capacitación específica del programa CalAIM (DHCS, CPCA)",
+      ],
+    },
+  },
 };

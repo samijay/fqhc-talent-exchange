@@ -38,12 +38,24 @@ const ROLES = [
   // ── Provider Roles ──
   { id: "physician", en: "Physician (MD/DO)", es: "Médico (MD/DO)" },
   { id: "nurse_practitioner", en: "Nurse Practitioner (NP/FNP)", es: "Enfermero(a) Practicante (NP)" },
+  { id: "psychiatric_np", en: "Psychiatric NP (PMHNP)", es: "NP Psiquiátrico (PMHNP)" },
   { id: "physician_assistant", en: "Physician Assistant (PA-C)", es: "Asistente del Médico (PA-C)" },
   { id: "dentist", en: "Dentist (DMD/DDS)", es: "Dentista (DMD/DDS)" },
-  // ── Clinical & Support Roles ──
+  // ── Dental ──
+  { id: "dental_hygienist", en: "Dental Hygienist (RDH)", es: "Higienista Dental (RDH)" },
+  { id: "dental_assistant", en: "Dental Assistant (RDA/EDDA)", es: "Asistente Dental (RDA/EDDA)" },
+  // ── Pharmacy ──
+  { id: "pharmacist", en: "Pharmacist (PharmD)", es: "Farmacéutico(a) (PharmD)" },
+  { id: "pharmacy_technician", en: "Pharmacy Technician (CPhT)", es: "Técnico de Farmacia (CPhT)" },
+  // ── Clinical & Nursing ──
   { id: "registered_nurse", en: "Registered Nurse (RN)", es: "Enfermero(a) RN" },
+  { id: "lvn", en: "Licensed Vocational Nurse (LVN)", es: "Enfermero(a) Vocacional (LVN)" },
+  // ── Community & Care ──
   { id: "chw", en: "CHW / Promotor(a)", es: "CHW / Promotor(a)" },
   { id: "care_coordinator", en: "Care Coordinator", es: "Coordinador(a) de Atención" },
+  { id: "health_enrollment_navigator", en: "Health Enrollment Navigator", es: "Navegador(a) de Inscripción" },
+  // ── Admin & Operations ──
+  { id: "program_manager", en: "Program Manager", es: "Gerente de Programa" },
 ];
 
 const CATEGORIES: { id: InterviewCategory | "all"; en: string; es: string }[] = [

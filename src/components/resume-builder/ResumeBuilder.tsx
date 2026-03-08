@@ -30,6 +30,9 @@ import {
   UserCog,
   ClipboardList,
   Smile,
+  Pill,
+  Syringe,
+  BarChart2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -105,15 +108,27 @@ const ROLE_OPTIONS = [
   // ── Provider Roles ──
   { id: "physician", label: "Physician (MD/DO)", esLabel: "Médico/a (MD/DO)", icon: GraduationCap },
   { id: "nurse_practitioner", label: "Nurse Practitioner (NP/FNP)", esLabel: "Enfermero/a Practicante (NP)", icon: UserCog },
+  { id: "psychiatric_np", label: "Psychiatric NP (PMHNP)", esLabel: "NP Psiquiátrico/a (PMHNP)", icon: Brain },
   { id: "physician_assistant", label: "Physician Assistant (PA-C)", esLabel: "Asistente del Médico (PA-C)", icon: ClipboardList },
   { id: "dentist", label: "Dentist (DMD/DDS)", esLabel: "Dentista (DMD/DDS)", icon: Smile },
-  // ── Clinical & Support Roles ──
+  // ── Dental ──
+  { id: "dental_hygienist", label: "Dental Hygienist (RDH)", esLabel: "Higienista Dental (RDH)", icon: Smile },
+  { id: "dental_assistant", label: "Dental Assistant (DA/RDA)", esLabel: "Asistente Dental (DA/RDA)", icon: Smile },
+  // ── Pharmacy ──
+  { id: "pharmacist", label: "Pharmacist (PharmD)", esLabel: "Farmacéutico/a (PharmD)", icon: Pill },
+  { id: "pharmacy_technician", label: "Pharmacy Technician (CPhT)", esLabel: "Técnico/a de Farmacia (CPhT)", icon: Pill },
+  // ── Clinical & Nursing ──
   { id: "registered_nurse", label: "Registered Nurse (RN)", esLabel: "Enfermera/o Registrada/o (RN)", icon: Activity },
+  { id: "lvn", label: "Licensed Vocational Nurse (LVN)", esLabel: "Enfermero/a Vocacional (LVN)", icon: Syringe },
+  { id: "medical_assistant", label: "Medical Assistant", esLabel: "Asistente Médico/a", icon: Stethoscope },
+  // ── Community & Care ──
   { id: "chw", label: "Community Health Worker", esLabel: "Promotor/a de Salud", icon: Heart },
   { id: "care_coordinator", label: "Care Coordinator", esLabel: "Coordinador/a de Atención", icon: Users },
-  { id: "medical_assistant", label: "Medical Assistant", esLabel: "Asistente Médico/a", icon: Stethoscope },
   { id: "case_manager", label: "Case Manager", esLabel: "Administrador/a de Casos", icon: Briefcase },
+  { id: "health_enrollment_navigator", label: "Health Enrollment Navigator", esLabel: "Navegador/a de Inscripción", icon: FileText },
   { id: "behavioral_health", label: "Behavioral Health Specialist", esLabel: "Especialista en Salud Conductual", icon: Brain },
+  // ── Admin & Operations ──
+  { id: "program_manager", label: "Program Manager", esLabel: "Gerente de Programa", icon: BarChart2 },
   { id: "patient_services", label: "Patient Services Representative", esLabel: "Representante de Servicios al Paciente", icon: Phone },
   { id: "revenue_cycle", label: "Revenue Cycle / Billing", esLabel: "Ciclo de Ingresos / Facturación", icon: DollarSign },
 ] as const;
