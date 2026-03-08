@@ -16,6 +16,7 @@ import {
   Download,
   Star,
   FileSpreadsheet,
+  FileText,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -31,6 +32,10 @@ import {
   downloadOKRsAsExcel,
   downloadSingleOKRAsExcel,
 } from "@/lib/okr-excel-export";
+import {
+  downloadOKRsAsDocx,
+  downloadSingleOKRAsDocx,
+} from "@/lib/okr-docx-export";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -60,6 +65,8 @@ function OKRCard({
   const diffMeta = DIFFICULTY_LABELS[okr.difficulty];
   const [downloading, setDownloading] = useState(false);
 
+  const [downloadingDocx, setDownloadingDocx] = useState(false);
+
   const handleDownload = async (e: React.MouseEvent) => {
     e.stopPropagation();
     setDownloading(true);
@@ -67,6 +74,16 @@ function OKRCard({
       await downloadSingleOKRAsExcel(okr, locale);
     } finally {
       setDownloading(false);
+    }
+  };
+
+  const handleDownloadDocx = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setDownloadingDocx(true);
+    try {
+      await downloadSingleOKRAsDocx(okr, locale);
+    } finally {
+      setDownloadingDocx(false);
     }
   };
 
@@ -211,20 +228,22 @@ function OKRCard({
               </Link>
             )}
 
-            {/* Per-card Excel download */}
+            {/* Per-card downloads */}
             <button
               onClick={handleDownload}
               disabled={downloading}
               className="flex items-center gap-1.5 text-xs bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full hover:bg-emerald-100 transition-colors disabled:opacity-50"
             >
               <FileSpreadsheet className="size-3" />
-              {downloading
-                ? isEs
-                  ? "Descargando…"
-                  : "Downloading…"
-                : isEs
-                  ? "Descargar Excel"
-                  : "Download Excel"}
+              {downloading ? "…" : "Excel"}
+            </button>
+            <button
+              onClick={handleDownloadDocx}
+              disabled={downloadingDocx}
+              className="flex items-center gap-1.5 text-xs bg-blue-50 text-blue-700 px-2.5 py-1 rounded-full hover:bg-blue-100 transition-colors disabled:opacity-50"
+            >
+              <FileText className="size-3" />
+              {downloadingDocx ? "…" : "Word"}
             </button>
 
             {okr.tags.length > 0 && (
@@ -277,12 +296,23 @@ export default function OKRTemplatesPage() {
 
   const counts = getOKRCounts();
 
+  const [downloadingDocx, setDownloadingDocx] = useState(false);
+
   const handleDownloadAll = async () => {
     setDownloading(true);
     try {
       await downloadOKRsAsExcel(filtered, locale);
     } finally {
       setDownloading(false);
+    }
+  };
+
+  const handleDownloadAllDocx = async () => {
+    setDownloadingDocx(true);
+    try {
+      await downloadOKRsAsDocx(filtered, locale);
+    } finally {
+      setDownloadingDocx(false);
     }
   };
 
@@ -323,14 +353,20 @@ export default function OKRTemplatesPage() {
               disabled={downloading}
               className="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 text-white text-xs font-semibold px-3 py-1.5 rounded-full transition-colors"
             >
-              <Download className="size-3.5" />
+              <FileSpreadsheet className="size-3.5" />
               {downloading
-                ? isEs
-                  ? "Generando…"
-                  : "Generating…"
-                : isEs
-                  ? "Descargar todo (Excel)"
-                  : "Download All (Excel)"}
+                ? isEs ? "Generando…" : "Generating…"
+                : isEs ? "Descargar todo (Excel)" : "Download All (Excel)"}
+            </button>
+            <button
+              onClick={handleDownloadAllDocx}
+              disabled={downloadingDocx}
+              className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 disabled:opacity-60 text-white text-xs font-semibold px-3 py-1.5 rounded-full transition-colors"
+            >
+              <FileText className="size-3.5" />
+              {downloadingDocx
+                ? isEs ? "Generando…" : "Generating…"
+                : isEs ? "Descargar todo (Word)" : "Download All (Word)"}
             </button>
           </div>
         </div>
@@ -491,12 +527,18 @@ export default function OKRTemplatesPage() {
             >
               <FileSpreadsheet className="size-4" />
               {downloading
-                ? isEs
-                  ? "Generando Excel…"
-                  : "Generating Excel…"
-                : isEs
-                  ? "Descargar todas como Excel"
-                  : "Download All as Excel Tracker"}
+                ? isEs ? "Generando…" : "Generating…"
+                : isEs ? "Excel" : "Excel Tracker"}
+            </button>
+            <button
+              onClick={handleDownloadAllDocx}
+              disabled={downloadingDocx}
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 disabled:opacity-60 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors"
+            >
+              <FileText className="size-4" />
+              {downloadingDocx
+                ? isEs ? "Generando…" : "Generating…"
+                : isEs ? "Word" : "Word Document"}
             </button>
           </div>
         </div>

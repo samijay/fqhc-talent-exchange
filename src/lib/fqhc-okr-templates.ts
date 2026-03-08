@@ -198,17 +198,53 @@ export const OKR_TEMPLATES: OKRTemplate[] = [
       },
       {
         kr: {
-          en: "HR & Executive: org-wide voluntary turnover ≤22% + staff satisfaction ≥80% on annual survey — SB 525 wage compliance plan (phased to $25/hr by 2027) approved by board by Q2 with ≥$200K offset revenue identified",
-          es: "RH y Ejecutivo: rotación voluntaria org-amplia ≤22% + satisfacción del personal ≥80% en encuesta anual — plan de cumplimiento salarial SB 525 (en fases a $25/hr para 2027) aprobado por la junta en Q2 con ≥$200K en ingresos compensatorios identificados",
+          en: "HR & Workforce: org-wide voluntary turnover ≤22% + staff satisfaction ≥80% on annual survey — SB 525 wage compliance plan (phased to $25/hr by 2027) approved by board by Q2 with ≥$200K offset revenue identified",
+          es: "RH y Personal: rotación voluntaria org-amplia ≤22% + satisfacción del personal ≥80% en encuesta anual — plan de cumplimiento salarial SB 525 (en fases a $25/hr para 2027) aprobado por la junta en Q2 con ≥$200K en ingresos compensatorios identificados",
         },
         metric: "Voluntary turnover rate / Staff satisfaction / SB 525 plan status",
         target: "≤22% turnover; ≥80% satisfaction; Plan board-approved Q2",
         departmentsInvolved: ["HR", "Executive", "All Departments"],
       },
+      {
+        kr: {
+          en: "EHR Optimization: standardize 100% of visit note templates by role (MD/NP/PA/RN/BH/Dental) to capture all billable elements — deploy population health dashboard showing real-time panel gaps (HbA1c overdue, mammogram overdue, immunizations) — achieve ≥95% note completion within 48 hours — pilot ambient AI documentation for ≥5 providers with pre/post time-to-close comparison",
+          es: "Optimización EHR: estandarizar 100% de plantillas de notas de visita por rol (MD/NP/PA/RN/BH/Dental) para capturar todos los elementos facturables — implementar tablero de salud poblacional en tiempo real (HbA1c vencido, mamografía vencida, vacunas) — lograr ≥95% de notas completadas dentro de 48 horas — piloto de documentación IA ambiental para ≥5 proveedores con comparación de tiempo pre/post",
+        },
+        metric: "Templates standardized / Dashboard live / Note completion rate / AI pilot providers",
+        target: "100% templates; Dashboard live Q1; ≥95% in 48hr; ≥5 AI pilot",
+        departmentsInvolved: ["IT/EHR", "Clinical Leadership", "Quality", "Providers (MD/NP/PA)", "BH Providers (LCSW)", "Dental Providers"],
+      },
+      {
+        kr: {
+          en: "Schedule Design: implement template-based provider scheduling (60% established/25% new patient/15% procedure slots) with ≥85% template adherence — third-next-available appointment ≤5 business days — no-show rate reduced to ≤10% via 2-touch reminder system (text + call) — evening/Saturday clinic hours generating ≥80 additional visits/week",
+          es: "Diseño de Horarios: implementar programación basada en plantillas (60% establecidos/25% nuevos pacientes/15% procedimientos) con ≥85% adherencia — tercera cita disponible ≤5 días hábiles — tasa de inasistencia reducida a ≤10% con sistema de 2 recordatorios — horarios nocturnos/sábados generando ≥80 visitas adicionales/semana",
+        },
+        metric: "Template adherence / Third-next-available / No-show rate / Extended hours visits",
+        target: "≥85% adherence; ≤5 days TNA; ≤10% no-show; ≥80 visits/week",
+        departmentsInvolved: ["Operations", "Clinical Leadership", "Front Desk", "IT/EHR", "Providers (MD/NP/PA)"],
+      },
+      {
+        kr: {
+          en: "Top-of-Scope Utilization: MAs independently perform immunizations, point-of-care labs, and medication reconciliation (≥90% of rooming tasks completed before provider enters) — RNs bill chronic care management (CCM, 99490) for ≥100 eligible patients/month — LVNs manage refill protocols under RN supervision — dental hygienists perform all authorized preventive services per BPC §1907-1910 without dentist present — all scope expansions documented with updated job descriptions and competency sign-offs by Q2",
+          es: "Utilización al Máximo del Alcance: MAs realizan vacunas, laboratorios en punto de atención y reconciliación de medicamentos independientemente (≥90% de tareas completadas antes del proveedor) — RNs facturan manejo de cuidado crónico (CCM, 99490) para ≥100 pacientes/mes — LVNs manejan protocolos de recetas bajo supervisión RN — higienistas dentales realizan todos los servicios preventivos autorizados por BPC §1907-1910 — expansiones documentadas con descripciones actualizadas y firmas de competencia en Q2",
+        },
+        metric: "MA task completion / RN CCM patients billed / LVN refill protocol / Dental hygienist scope / Updated JDs",
+        target: "≥90% MA rooming; ≥100 CCM patients/mo; LVN refills active; DH full scope; 100% JDs updated Q2",
+        departmentsInvolved: ["Clinical Leadership", "Medical Assistants (MA)", "Registered Nurses (RN)", "Dental Providers", "HR", "Compliance"],
+      },
+      {
+        kr: {
+          en: "Executive & Board Governance: board-approved 3-year strategic plan with 3 funding scenario models (baseline/moderate cut/severe cut) by Q1 — reduce Medicaid revenue dependency from current % to ≤70% via 340B optimization ($150K+ captured), grant diversification (≥2 new non-HRSA grants submitted), and commercial payer contracting — establish community advisory board with ≥8 members reflecting patient demographics — CEO monthly all-staff briefing on financial position and strategic progress with ≥75% attendance",
+          es: "Gobernanza Ejecutiva y Junta: plan estratégico a 3 años aprobado por la junta con 3 modelos de escenarios de financiamiento en Q1 — reducir dependencia de ingresos Medicaid del % actual a ≤70% vía optimización 340B ($150K+), diversificación de subvenciones (≥2 nuevas solicitudes no-HRSA), y contratación con pagadores comerciales — establecer consejo consultivo comunitario con ≥8 miembros — reunión mensual CEO con todo el personal sobre posición financiera con ≥75% asistencia",
+        },
+        metric: "Strategic plan status / Medicaid revenue % / 340B capture / New grants / Advisory board / All-staff attendance",
+        target: "Plan approved Q1; ≤70% Medicaid; $150K+ 340B; ≥2 grants; ≥8 advisors; ≥75% attendance",
+        departmentsInvolved: ["Executive", "Board of Directors", "Finance/Billing", "Grants/Development", "Community Engagement", "340B Pharmacy"],
+      },
     ],
     context: {
-      en: "No single department can solve the 2026 crisis alone. H.R. 1 threatens up to 60% of Section 330 funding for California FQHCs, SB 525 adds mandatory wage costs across every role, and the CalAIM waiver expires December 2026. This template cascades accountability to all 8 clinical role groups — physicians, NPs/PAs, RNs, MAs, CHWs, BH providers, dentists — plus finance, HR, and operations. Each KR requires cross-functional coordination: no one department can achieve it without the others. Use this at the board/executive director level and create department sub-OKRs beneath each KR. The Excel download includes a full tracking template with Owner, Current Value, and Status columns for each KR.",
-      es: "Ningún departamento por sí solo puede resolver la crisis del 2026. H.R. 1 amenaza hasta el 60% del financiamiento de la Sección 330 para FQHCs de California, SB 525 agrega costos salariales obligatorios en cada rol, y la exención CalAIM vence en diciembre 2026. Esta plantilla distribuye responsabilidad a los 8 grupos de roles clínicos — médicos, NP/PA, enfermeras, MA, CHW, proveedores de BH, dentistas — más finanzas, RH y operaciones.",
+      en: "No single department can solve the 2026 crisis alone. H.R. 1 threatens up to 60% of Section 330 funding for California FQHCs, SB 525 adds mandatory wage costs across every role, and the CalAIM waiver expires December 2026. This company-wide OKR cascades accountability across 12 key result areas: providers, RNs, MAs, CHWs, BH, dental, finance, HR, EHR, schedule design, top-of-scope utilization, and executive governance. Each KR requires cross-functional coordination. Use this at the board/executive director level and create department sub-OKRs beneath each KR. The Excel and Word downloads include a full tracking template with Owner, Current Value, and Status columns for each KR. Based on a mid-size California FQHC (240 staff, 210 FTE, ~$24M annual revenue) from the clinic simulator model.",
+      es: "Ningún departamento por sí solo puede resolver la crisis del 2026. H.R. 1 amenaza hasta el 60% del financiamiento de la Sección 330 para FQHCs de California, SB 525 agrega costos salariales obligatorios en cada rol, y la exención CalAIM vence en diciembre 2026. Este OKR distribuye responsabilidad en 12 áreas de resultados clave: proveedores, enfermeras, MAs, CHWs, BH, dental, finanzas, RH, EHR, diseño de horarios, utilización al máximo del alcance, y gobernanza ejecutiva. Basado en un FQHC mediano de California (240 empleados, 210 FTE, ~$24M ingresos anuales).",
     },
     relatedIntelIds: [
       "hr1-medicaid-cuts",
@@ -218,7 +254,7 @@ export const OKR_TEMPLATES: OKRTemplate[] = [
     ],
     timeframe: "annual",
     difficulty: "advanced",
-    tags: ["company-wide", "cross-functional", "all-roles", "survival-plan", "2026", "sb-525", "ecm", "pps"],
+    tags: ["company-wide", "cross-functional", "all-roles", "survival-plan", "2026", "sb-525", "ecm", "pps", "ehr", "schedule-design", "top-of-scope", "executive", "340b", "ambient-ai"],
   },
 
   /* ── STARTER ── */
