@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-06";
+export const INTEL_LAST_UPDATED = "2026-03-08";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -166,7 +166,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     category: "legislation",
     type: "deadline",
     impactLevel: "high",
-    sourceUrl: "https://mcweb.apps.prd.cammis.medi-cal.ca.gov/news/31781_01",
+    sourceUrl: "https://www.dhcs.ca.gov/provgovpart/Pages/Community-Health-Workers.aspx",
     sourceOrg: "CA DHCS",
     region: "California",
     tags: ["chw", "billing-codes", "medi-cal", "hiring"],
@@ -285,7 +285,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     category: "undocumented-access",
     type: "deadline",
     impactLevel: "critical",
-    sourceUrl: "https://www.dhcs.ca.gov/services/Pages/FQHC_APM.aspx",
+    sourceUrl: "https://www.dhcs.ca.gov/Budget/Documents/DHCS-TBL-Policy-Changes-to-Individuals-with-UIS-Fact-Sheet.pdf",
     sourceOrg: "CA DHCS",
     region: "California",
     tags: ["undocumented", "pps", "revenue-impact", "fee-schedule"],
@@ -1496,6 +1496,84 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CA Department of Health Care Services",
     region: "California",
     tags: ["undocumented", "medi-cal-premium", "coverage-loss", "uis", "july-2027", "enrollment"],
+  },
+  {
+    id: "ca-pps-elimination-uis-july-2026",
+    date: "2026-03-08",
+    headline: {
+      en: "CA Eliminates FQHC PPS Rates for Undocumented Patients July 2026 — $1B Annual Revenue Impact",
+      es: "CA Elimina Tasas PPS de FQHC para Pacientes Indocumentados en Julio 2026 — Impacto de $1B Anual en Ingresos",
+    },
+    summary: {
+      en: "Starting July 1, 2026, California's budget eliminates use of the Prospective Payment System for FQHC services to state-only-funded individuals with unsatisfactory immigration status (UIS). FQHCs will instead be paid at the regular Medi-Cal fee-for-service rate or negotiated managed care plan rates — roughly 50–70% less per encounter than the PPS rate ($200–400/visit). The CA LAO scores this as $1 billion in annual General Fund savings, meaning $1 billion in annual FQHC revenue loss beginning 2026–27. FQHCs with large undocumented patient panels — concentrated in LA, San Diego, and Central Valley — face the most severe financial exposure. Dental benefits for undocumented Medi-Cal enrollees also eliminated: $308M savings in 2026–27.",
+      es: "A partir del 1 de julio de 2026, el presupuesto de California elimina el uso del Sistema de Pago Prospectivo (PPS) para servicios de FQHC a personas con estatus migratorio insatisfactorio financiadas solo por el estado (UIS). Los FQHCs recibirán en cambio la tasa regular de Medi-Cal o tarifas de planes de atención administrada — aproximadamente 50–70% menos por encuentro. El LAO de CA califica esto como $1 mil millones en ahorros anuales del Fondo General = $1 mil millones en pérdida de ingresos para FQHCs.",
+    },
+    category: "legislation",
+    type: "deadline",
+    impactLevel: "critical",
+    sourceUrl: "https://www.chcf.org/resource/how-massive-federal-cuts-will-create-unprecedented-challenges-medi-cal-patients-providers/",
+    sourceOrg: "California Health Care Foundation",
+    region: "California",
+    tags: ["pps", "undocumented-patients", "uis", "revenue-cut", "july-2026", "los-angeles", "san-diego", "central-valley", "dental"],
+  },
+  {
+    id: "hrsa-maha-grant-competition-fy2026",
+    date: "2026-03-08",
+    headline: {
+      en: "HRSA FY2026 Health Center Grants Now MAHA-Aligned — $403M in Awards, Chronic Disease Focus",
+      es: "Subvenciones HRSA FY2026 para Centros de Salud Ahora Alineadas con MAHA — $403M en Premios, Enfoque en Enfermedades Crónicas",
+    },
+    summary: {
+      en: "HRSA's FY2026 Health Center Program Service Area Competition explicitly requires alignment with 'Make American Healthy Again' (MAHA) priorities — shifting focus from health disparities/social determinants to chronic disease prevention, nutrition, reducing medication overreliance, and environmental health. Two award tranches: up to 93 awards totaling ~$232M for March 2026 start dates, and up to 51 awards totaling ~$171M for May 2026 start dates ($403M total). HRSA also announced: MAHA Elevate program (~$100M for preventive lifestyle interventions) and RCORP-Impact for rural SUD treatment (80 awards at up to $750K/year). Warning: FQHCs serving undocumented populations or emphasizing language access/social needs may score lower under MAHA-aligned criteria.",
+      es: "La Competencia del Programa de Centros de Salud del HRSA para FY2026 requiere explícitamente alineación con las prioridades 'Make American Healthy Again' (MAHA) — cambiando el enfoque de las disparidades de salud hacia la prevención de enfermedades crónicas, nutrición y reducción de medicamentos. Dos tramos de premios: 93 premios (~$232M) para marzo 2026 y 51 premios (~$171M) para mayo 2026 ($403M total).",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.communitylinkconsulting.com/blog/fqhc-2026-federal-grant-updates",
+    sourceOrg: "Community Link Consulting",
+    region: "Federal",
+    tags: ["hrsa", "maha", "grants", "fy2026", "chronic-disease", "health-disparities", "service-area-competition"],
+  },
+  {
+    id: "united-health-centers-40th-clinic-west-fresno",
+    date: "2026-01-23",
+    headline: {
+      en: "United Health Centers Opens 40th Clinic in West Fresno 'Health Care Desert' Despite Federal Funding Pressure",
+      es: "United Health Centers Abre su Clínica 40 en el 'Desierto de Atención Médica' del Oeste de Fresno a Pesar de la Presión Federal",
+    },
+    summary: {
+      en: "United Health Centers of the San Joaquin Valley opened its 40th location on January 23, 2026, in West Fresno — an area described as a 'health care desert.' UHC serves over 100,000 patients with 450,000 annual appointments across Fresno, Kings, and Tulare counties. The expansion comes despite looming federal Medicaid funding pressures that threaten 77% of net patient revenue at San Joaquin Valley FQHCs (per CHCF's 2025 regional report). UHC was recognized as a HRSA Top 10% Health Center Quality Leader in 2025. The organization also launched United Physicians Network, a for-profit IPA, as a revenue diversification strategy.",
+      es: "United Health Centers del Valle de San Joaquín abrió su ubicación 40 el 23 de enero de 2026 en el Oeste de Fresno — un área descrita como un 'desierto de atención médica.' UHC atiende a más de 100,000 pacientes con 450,000 citas anuales en los condados de Fresno, Kings y Tulare.",
+    },
+    category: "patient-story",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://thebusinessjournal.com/97261-2/",
+    sourceOrg: "The Business Journal",
+    region: "Fresno County",
+    affectedOrgSlugs: ["united-health-centers"],
+    tags: ["central-valley", "fresno", "expansion", "health-care-desert", "quality-leader", "ipa"],
+  },
+  {
+    id: "chcf-sjv-regional-report-2025",
+    date: "2026-02-02",
+    headline: {
+      en: "CHCF: San Joaquin Valley FQHCs Serve 3.2M Visits/Year — But 77% Revenue Dependent on Medi-Cal",
+      es: "CHCF: FQHCs del Valle de San Joaquín Brindan 3.2M Visitas/Año — Pero el 77% de Ingresos Depende de Medi-Cal",
+    },
+    summary: {
+      en: "CHCF's San Joaquin Valley Regional Market Report 2025 (released Feb 2, 2026) shows CA's most FQHC-dependent region: community health centers provide 3.2 million visits/year in the SJV, with 77% of net patient revenue from Medi-Cal — significantly higher than statewide average. Half of all CHC visits in the region occur at just two organizations: Family HealthCare Network and United Health Centers. As federal Medicaid cuts loom and the PPS rate elimination for undocumented patients takes effect July 2026, the SJV's FQHC ecosystem is structurally the most vulnerable in California.",
+      es: "El Informe de Mercado Regional del Valle de San Joaquín de CHCF 2025 muestra la región más dependiente de FQHC en CA: los centros de salud comunitarios brindan 3.2 millones de visitas/año en el SJV, con el 77% de los ingresos netos de pacientes provenientes de Medi-Cal. La mitad de las visitas se concentran en solo dos organizaciones: Family HealthCare Network y United Health Centers.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.chcf.org/resource/san-joaquin-valley-regional-market-report-2025/",
+    sourceOrg: "California Health Care Foundation",
+    region: "Fresno County",
+    affectedOrgSlugs: ["united-health-centers", "family-healthcare-network"],
+    tags: ["central-valley", "san-joaquin", "medi-cal-dependency", "revenue-exposure", "regional-analysis"],
   },
   {
     id: "chc-2pct-financial-loss-2025",

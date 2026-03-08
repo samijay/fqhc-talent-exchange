@@ -5,7 +5,7 @@
 // Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-03-07";
+export const AI_TRACKER_LAST_UPDATED = "2026-03-08";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -570,28 +570,29 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     featured: true,
   },
   {
-    id: "altamed-ai-scribe-deployed",
+    id: "altamed-abridge-ai-partnership",
     title: {
-      en: "AltaMed Deploys AI Scribe After Structured Pilot — Largest CA FQHC Goes Live",
-      es: "AltaMed Despliega Dictado IA Tras Piloto Estructurado — El FQHC Más Grande de CA en Producción",
+      en: "AltaMed + Abridge: Nation's Largest FQHC Deploys AI Documentation in 28 Languages",
+      es: "AltaMed + Abridge: El FQHC Más Grande del País Despliega Documentación IA en 28 Idiomas",
     },
     description: {
-      en: "AltaMed Health Services — California's largest FQHC with 3,500+ staff and 250,000+ patients — has deployed an AI scribe system following a structured evaluation process led by its medical director of clinical informatics, Dr. Eric Lee. The implementation included researching vendors, running comparative pilots, creating a responsible use policy agreement, and a phased launch. Providers report meaningful time savings on documentation. AltaMed's adoption signals that AI scribes are moving from early adopter FQHCs to large-scale safety-net operations. Vendor not publicly named.",
-      es: "AltaMed Health Services — el FQHC más grande de California con más de 3,500 empleados — ha desplegado un sistema de dictado IA tras un proceso de evaluación estructurado liderado por su director médico de informática clínica. La implementación incluyó investigación de proveedores, pilotos comparativos, una política de uso responsable y un lanzamiento escalonado.",
+      en: "AltaMed Health Services — the nation's largest FQHC with 3,500+ staff, 250,000+ patients across 60+ sites — selected Abridge as its AI documentation platform after a structured pilot led by Dr. Eric Lee (Medical Director of Clinical Informatics). Abridge supports 28 languages including all 16 most-spoken in the U.S. AltaMed established an interdisciplinary AI governance committee, required providers to sign a responsible use agreement, and conducted phased rollout. Dr. Lee's first Abridge patient was Mandarin-speaking: 'Abridge was able to encapsulate that conversation into a perfect hospital summary.' AltaMed is also exploring AI for prior authorization denial letters — noting the risk of 'payer AI versus provider AI.' AltaMed's adoption signals ambient AI scribes are moving from early adopter FQHCs to enterprise-scale safety-net operations.",
+      es: "AltaMed Health Services — el FQHC más grande del país con más de 3,500 empleados — seleccionó Abridge como su plataforma de documentación IA tras un piloto estructurado liderado por el Dr. Eric Lee. Abridge soporta 28 idiomas incluyendo los 16 más hablados en EE.UU. AltaMed estableció un comité de gobernanza de IA y requirió acuerdos de uso responsable antes del lanzamiento.",
     },
     category: "clinical-documentation",
-    vendor: "Undisclosed",
+    vendor: "Abridge",
     partnership: null,
     metrics: [
-      { label: "Organization Size", value: "3,500+ staff, 250K+ patients" },
-      { label: "Implementation Approach", value: "Vendor pilot → responsible use policy → launch" },
+      { label: "Languages Supported", value: "28 (all 16 most-spoken in US)" },
+      { label: "Organization Size", value: "3,500+ staff, 250K+ patients, 60+ sites" },
+      { label: "Announced", value: "April 2025 (BusinessWire)" },
     ],
     adoptionStage: "expanding",
-    sourceUrl: "https://www.healthcareitnews.com/projects/how-health-its-leading-innovators-are-using-ai-now-and-where-they-see-it-going",
-    sourceOrg: "Healthcare IT News",
-    date: "2026-03-07",
-    tags: ["ai-scribe", "ambient-documentation", "altamed", "los-angeles", "large-fqhc", "clinical-informatics"],
-    featured: false,
+    sourceUrl: "https://www.businesswire.com/news/home/20250429541473/en/AltaMed-Health-Services-Corporation-Partners-with-Abridge-to-Bring-Leading-AI-Technology-to-Multilingual-Communities",
+    sourceOrg: "BusinessWire",
+    date: "2025-04-29",
+    tags: ["ai-scribe", "ambient-documentation", "altamed", "abridge", "los-angeles", "large-fqhc", "multilingual", "clinical-informatics"],
+    featured: true,
   },
 ];
 
@@ -706,7 +707,7 @@ export const FQHC_AI_VENDORS: AIVendor[] = [
       { ehr: "eClinicalWorks", level: "none" },
       { ehr: "athenahealth", level: "partial" },
     ],
-    fqhcCustomers: ["UCSF Health", "Kaiser Permanente"],
+    fqhcCustomers: ["AltaMed Health Services", "UCSF Health", "Kaiser Permanente"],
     nachcEndorsed: false,
     chaiCertified: false,
     nhscSiteEligible: false,
@@ -724,10 +725,10 @@ export const FQHC_AI_VENDORS: AIVendor[] = [
     sourceUrl: "https://www.klas.com/reports/ambient-clinical-voice-2026-best-in-klas",
     sourceOrg: "KLAS Research",
     lastVerified: "2026-03-06",
-    fqhcFit: "moderate",
+    fqhcFit: "high",
     fqhcFitReason: {
-      en: "Excellent for OCHIN Epic FQHCs — the gold standard ambient AI. Cost is the barrier; safety-net pricing available but requires direct negotiation.",
-      es: "Excelente para FQHCs con OCHIN Epic — el estándar de oro para IA ambiental. El costo es la barrera; los precios para red de seguridad están disponibles pero requieren negociación directa.",
+      en: "Now validated by AltaMed — the nation's largest FQHC (250K+ patients) — with 28-language support proving essential for multilingual safety-net populations. Best in KLAS 2026. Cost barrier remains for smaller FQHCs; safety-net pricing available.",
+      es: "Ahora validado por AltaMed — el FQHC más grande del país — con soporte en 28 idiomas esencial para poblaciones de red de seguridad multilingüe. Best in KLAS 2026. El costo sigue siendo una barrera para FQHCs más pequeños.",
     },
   },
   {

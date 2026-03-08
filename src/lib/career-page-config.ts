@@ -41,30 +41,30 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     fqhcSlug: "altamed-health-services",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-03-07",
+    lastChecked: "2026-03-08",
     atsApiUrl:
       "https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs",
     notes:
-      "Largest FQHC in CA. 258 jobs found 2026-03-07 (unchanged). Added 4 new listings (altamed-017 to 020): Senior Clinic Director, Clinic Director, Site Medical Director Geriatric Care, Staff Physician Family Practice. Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
+      "Largest FQHC in CA. 258 jobs found 2026-03-08 (unchanged from 2026-03-07). Abridge AI scribe deployment confirmed (BusinessWire Apr 2025 + Healthcare IT News Dr. Eric Lee). Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
   },
   {
     fqhcSlug: "family-health-centers-of-san-diego",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-03-07",
+    lastChecked: "2026-03-08",
     atsApiUrl:
       "https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs",
     notes:
-      "153 jobs found 2026-03-07 (unchanged). Added 4 new listings (fhcsd-013 to 016): Associate Clinic Director, Nutritionist Health Educator, Project Coordinator Grants, LVN Clinical. Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
+      "153 jobs found 2026-03-08 (unchanged). Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
   },
   {
     fqhcSlug: "asian-health-services",
     scrapeable: true,
     atsType: "lever",
-    lastChecked: "2026-03-07",
+    lastChecked: "2026-03-08",
     atsApiUrl: "https://api.lever.co/v0/postings/ahschc?mode=json",
     notes:
-      "20 jobs found 2026-03-07 (unchanged). Added 5 new listings (ahs-009 to 013): Geriatrician, Internal Medicine Physician, Specialty Mental Health Psychiatrist, Bilingual Medical Assistant, Associate Chief Dental Director. Lever slug is 'ahschc'.",
+      "20 jobs found 2026-03-08 (unchanged). Lever slug is 'ahschc'.",
   },
   {
     fqhcSlug: "la-clinica-de-la-raza",
