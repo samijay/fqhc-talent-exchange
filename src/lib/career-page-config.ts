@@ -225,6 +225,17 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
       "SmartRecruiters API tested — returns totalFound: 0. Company may not have public postings listed or company ID is incorrect. Try 'DavisStreetCommunityCenter' (without 'Inc') or check if postings require auth. Manual review at careers.smartrecruiters.com/DavisStreetCommunityCenterInc.",
   },
 
+  // ── JazzHR (WebFetch-scrapeable, JS-rendered for API) ── ✅
+  {
+    fqhcSlug: "mission-neighborhood-health-center",
+    scrapeable: true,
+    atsType: "unknown",
+    lastChecked: "2026-03-07",
+    atsApiUrl: "https://missionareahealthassociates.applytojob.com/apply",
+    notes:
+      "JazzHR (applytojob.com). JS-rendered SPA — no direct JSON API accessible. WebFetch can read the rendered job list. 8 jobs found 2026-03-07. Added mnhc-004 to mnhc-012 (Controller, Accounting Manager, BH Clinician x2, Dental Mgr, Patient Navigator HIV, Pharmacy Tech, Security Guard, Optometry Tech). Use WebFetch on atsApiUrl.",
+  },
+
   // ── Paylocity (not directly API-accessible) ── ❌
   {
     fqhcSlug: "salud-para-la-gente",

@@ -2695,6 +2695,216 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
 
   // ─────────────────────────────────────────────
+  // MISSION NEIGHBORHOOD HEALTH CENTER — new listings from JazzHR (2026-03-07)
+  // SF Mission District FQHC serving Latino/immigrant community
+  // ─────────────────────────────────────────────
+  {
+    id: "mnhc-004",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Controller",
+    roleType: "Administrative",
+    department: "Finance",
+    salaryMin: 125000,
+    salaryMax: 160000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["340B", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Lead MNHC's financial operations as Controller, overseeing accounting, financial reporting, audit, grants management, and FQHC cost reporting for this $30M+ Mission District health center.",
+    requirements: [
+      "CPA or equivalent; bachelor's degree in accounting/finance required; 5+ years in senior accounting role",
+      "Nonprofit or healthcare accounting experience required; FQHC cost report (CMS-222) experience preferred",
+      "Proficiency with accounting software (QuickBooks or comparable); grants management experience",
+      "Knowledge of federal grant compliance (Uniform Guidance) and HRSA financial reporting"
+    ]
+  },
+  {
+    id: "mnhc-005",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Accounting Manager",
+    roleType: "Administrative",
+    department: "Finance",
+    salaryMin: 85000,
+    salaryMax: 112000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["340B", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Manage MNHC's day-to-day accounting operations including accounts payable, accounts receivable, payroll coordination, month-end close, and financial statement preparation.",
+    requirements: [
+      "Bachelor's degree in accounting required; CPA or CPA-eligible preferred",
+      "3+ years of accounting experience; nonprofit or healthcare preferred",
+      "Experience with month-end close process and general ledger management",
+      "QuickBooks or comparable ERP experience; grant fund accounting a plus"
+    ]
+  },
+  {
+    id: "mnhc-006",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Behavioral Health Clinician – Resource Center (Bilingual)",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 75000,
+    salaryMax: 98000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: true,
+    languageRequired: "Spanish",
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration", "CalAIM", "ECM"],
+    postedDate: "2026-03-07",
+    description: "Provide integrated behavioral health services at MNHC's Resource Center, offering brief therapy, crisis intervention, and CalAIM community supports for Mission District's Latino and immigrant residents.",
+    requirements: [
+      "Master's degree in social work, psychology, or counseling; LCSW, LMFT, or LPCC required (associate licensure considered)",
+      "Bilingual Spanish/English required — all direct patient services delivered in Spanish",
+      "Experience with integrated BH in primary care or community health settings",
+      "Trauma-informed care training; experience with immigrant and undocumented populations preferred"
+    ]
+  },
+  {
+    id: "mnhc-007",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Behavioral Health Clinician – Youth Focused (Bilingual)",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 75000,
+    salaryMax: 98000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: true,
+    languageRequired: "Spanish",
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Deliver youth-focused behavioral health care at MNHC, providing therapy and case management for Mission District children, adolescents, and young adults — many of whom are unaccompanied minors or from mixed-status families.",
+    requirements: [
+      "Master's degree in social work, psychology, or counseling; LCSW, LMFT, or LPCC required",
+      "Bilingual Spanish/English required; experience with youth and adolescent mental health",
+      "Trauma-informed care and ACEs screening expertise; school-based or pediatric experience preferred",
+      "Knowledge of SF DPH mental health services and Medi-Cal managed care for youth"
+    ]
+  },
+  {
+    id: "mnhc-008",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Dental Office Clinic Manager (Bilingual)",
+    roleType: "Administrative",
+    department: "Dental",
+    salaryMin: 72000,
+    salaryMax: 92000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: true,
+    languageRequired: "Spanish",
+    ehrSystem: "OCHIN Epic",
+    programs: ["340B", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Manage MNHC's dental clinic operations including staff scheduling, patient flow, Denti-Cal billing oversight, supply management, and regulatory compliance for the Mission District dental program.",
+    requirements: [
+      "3+ years of dental office management experience; FQHC or safety-net dental preferred",
+      "Bilingual Spanish/English required for this predominantly Spanish-speaking patient community",
+      "Experience with Denti-Cal billing and prior authorization processes",
+      "Knowledge of OSHA, HIPAA, and California dental regulatory requirements"
+    ]
+  },
+  {
+    id: "mnhc-009",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Patient Navigator – HIV Services (Bilingual)",
+    roleType: "Care Coordinator",
+    department: "HIV Services",
+    salaryMin: 55000,
+    salaryMax: 70000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: true,
+    languageRequired: "Spanish",
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Navigate MNHC's HIV-positive patients through care coordination, medication adherence support, Ryan White Part A services, and social determinants screenings in the heart of SF's Mission District.",
+    requirements: [
+      "High school diploma or equivalent; some college or health certification preferred",
+      "Bilingual Spanish/English required; experience working with HIV+ populations or LGBTQ+ communities",
+      "Knowledge of Ryan White Part A services, ADAP, and SF DPH HIV resources",
+      "Experience with Medi-Cal, SSI/SSDI benefit navigation, and housing resources preferred"
+    ]
+  },
+  {
+    id: "mnhc-010",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Pharmacy Technician (Bilingual)",
+    roleType: "Pharmacist",
+    department: "Pharmacy",
+    salaryMin: 52000,
+    salaryMax: 65000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: true,
+    languageRequired: "Spanish",
+    ehrSystem: "OCHIN Epic",
+    programs: ["340B"],
+    postedDate: "2026-03-07",
+    description: "Support MNHC's 340B in-house pharmacy by processing prescriptions, managing medication inventory, coordinating patient assistance programs, and serving bilingual Spanish/English patients in the Mission.",
+    requirements: [
+      "California Pharmacy Technician license (CPhT) required; 1+ years of pharmacy tech experience",
+      "Bilingual Spanish/English required for patient-facing pharmacy services",
+      "340B program experience or willingness to train; FQHC or retail pharmacy background",
+      "Excellent attention to detail; familiarity with Medi-Cal managed care formularies"
+    ]
+  },
+  {
+    id: "mnhc-011",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Security Guard – On-Call (Bilingual)",
+    roleType: "Administrative",
+    department: "Facilities / Security",
+    salaryMin: 45000,
+    salaryMax: 58000,
+    type: "Per Diem",
+    location: "San Francisco",
+    bilingual: true,
+    languagePreferred: ["Spanish"],
+    ehrSystem: "OCHIN Epic",
+    programs: [],
+    postedDate: "2026-03-07",
+    description: "Provide on-call security services at MNHC's Mission District health center, ensuring a safe environment for patients, staff, and visitors while maintaining a trauma-informed, community-centered approach.",
+    requirements: [
+      "California Guard Card (BSIS license) required; valid driver's license",
+      "Bilingual Spanish/English preferred for Mission District patient community",
+      "De-escalation skills and trauma-informed approach to safety in healthcare settings",
+      "Previous healthcare or social service security experience a plus"
+    ]
+  },
+  {
+    id: "mnhc-012",
+    fqhcSlug: "mission-neighborhood-health-center",
+    title: "Optometry Technician",
+    roleType: "Medical Assistant",
+    department: "Optometry",
+    salaryMin: 48000,
+    salaryMax: 62000,
+    type: "Full-time",
+    location: "San Francisco",
+    bilingual: true,
+    languagePreferred: ["Spanish"],
+    ehrSystem: "OCHIN Epic",
+    programs: ["CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Support MNHC's optometry program by performing pre-exam testing, visual acuity screening, tonometry, and patient intake for the Mission District community's eye care needs.",
+    requirements: [
+      "COA or CPOT certification preferred; optometry assistant or technician experience required",
+      "Bilingual Spanish/English strongly preferred for MNHC's predominantly Latino patient population",
+      "Experience with visual field testing, fundus photography, and slit lamp setup preferred",
+      "OCHIN Epic experience a plus; training provided for MNHC's clinical workflows"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
   // NORTH EAST MEDICAL SERVICES (2 listings)
   // ─────────────────────────────────────────────
   {
