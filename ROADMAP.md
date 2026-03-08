@@ -1,6 +1,6 @@
 # FQHC Talent Exchange — Product Roadmap & Feature Tracker
 
-*Last updated: 2026-02-28*
+*Last updated: 2026-03-08*
 
 ---
 
@@ -116,34 +116,101 @@ A California where every community health center is fully staffed with professio
 | 98 | **Salary Intelligence Page** | Feb 2026 | `/salary-data` — 30 roles × 9 CA regions salary benchmarks with P25/P50/P75, department filter, regional adjustment, sortable table with visual range bars, career track progression, regional comparison, key insights. |
 | 99 | **Custom 404 Page** | Feb 2026 | Branded 404 with navigation to homepage, directory, jobs, intelligence. |
 | 100 | **Salary + 404 Nav Integration** | Feb 2026 | Salary Intelligence in Intelligence dropdown + footer. SEO metadata, sitemap, i18n (EN/ES). 🎉 **100th feature shipped!** |
+| 101 | **SEO Metadata Layout Files** | Mar 2026 | 50 server-component `layout.tsx` files across all pages + blog articles (Next.js server components export `metadata` alongside "use client" pages). Fixed CTR leakage on top-ranked pages with no title tags. 3 high-priority pages: how-to-write-fqhc-resume (pos. 3.0), fqhc-benefits-guide (pos. 5.8, 65 impressions), funding-impact (pos. 4.9). Added 6 missing seo-config entries. |
+| 102 | **AI Tracker Redesign** | Mar 2026 | Full redesign of `/ai-tracker` with 2/3+1/3 grid layout (main feed + sticky sidebar), trending ticker with anchor links, featured KTVU video banner (Akido ScopeAI), category + stage filter pills, featured items sidebar (teal), policy deadlines sidebar (amber), latest intel sidebar (blue), related resources section (masterclass card + 2 guide cards), newsletter CTA. |
+| 103 | **Newsletter Questionnaire Form** | Mar 2026 | `NewsletterQuestionnaireForm.tsx` — 5-step inline personalization flow on `/newsletter` page. Progress dots. Step 1: Email + audience. Step 2: Role (7 leader or 7 seeker options). Step 3: Primary challenge. Step 4: Topics multi-select (up to 4). Step 5: Org size (leaders) or skip to confirmation (seekers). Step 6: Personalized confirmation with role + challenge + topics displayed. API: email captured at step 1, preferences saved at final step. Skip allowed at steps 2–5. |
+| 104 | **Newsletter Questionnaire Page** | Mar 2026 | Standalone `/newsletter/questionnaire` page + layout. POST endpoint at `/api/newsletter/questionnaire` with Zod validation, Supabase upsert (email, audience, roleType, primaryChallenge, region, orgSize, preferences JSONB). Rate limited (3/min/IP). Robots noindex. |
+| 105 | **Welcome Drip Sequences** | Mar 2026 | `drip-templates.ts` (8 email templates), `/api/newsletter/drip` GET endpoint (Bearer {NEWSLETTER_SECRET}), `vercel.json` cron (17:00 UTC daily). Candidate track: Day 3/7/10/14 (ECM tips, salary data, interview prep, 90-day guide). Employer track: Day 3/7/14/21 (platform tour, resilience, case studies, offboarding CTA). `supabase-newsletter-drip.sql` adds drip_step column. |
+| 106 | **Interview Prep Tool — Provider Roles** | Mar 2026 | 6 new FQHC provider questions (panel management, NP/PA scope, PPS billing, Denti-Cal, dental integration, MD/NP supervision) with full STAR tips + red flags + follow-ups. 4 role guides: Physician ($185-260K), NP ($120-175K), PA-C ($115-148K), Dentist ($130-195K) with NHSC loan repayment info. |
+| 107 | **Resume Builder — Provider Templates** | Mar 2026 | 4 new provider resume templates (physician, nurse_practitioner, physician_assistant, dentist) with 6 FQHC-specific bullets each covering panel management, PPS, HEDIS, CalAIM, NHSC, supervision requirements, Denti-Cal. Provider roles listed first in selector. GraduationCap/UserCog/ClipboardList/Smile icons. |
+| 108 | **Career Assessment — 90-Day Plan Separation** | Mar 2026 | Assessment flow now ends with results only. 90-day plan is opt-in via STARS type selector (5 options: startup/turnaround/accelerated/realignment/sustaining) shown after results. "Change scenario" button regenerates plan with different STARS type. Plan generated on demand, not automatically. |
+| 109 | **Jobs Table Column Sorting** | Mar 2026 | `SortColHeader` component with active indicator (teal + directional arrow), `SortDir` state, `handleColumnSort()` toggles direction on repeat click. Position/Salary/Market/Type columns clickable. Dropdown syncs. Salary/market default desc, others default asc. |
+| 110 | **Career Page Config Expansion** | Mar 2026 | 20 new FQHCs added to `career-page-config.ts`. 6 confirmed scrapeable: Open Door Community Health Centers (Workday wd503), Valley Health Team (Workday wd5), Marin Community Clinics (iCIMS), United Health Centers (iCIMS), Petaluma Health Center (JobVite), Davis Street Community Center (SmartRecruiters). Added ATS types: jobvite, smartrecruiters, neogov, paylocity, atsondemand, governmentjobs. |
+| 111 | **FQHC Data Enrichment — Full Completion** | Mar 2026 | All 87 remaining `hrsa-import` entries enriched to `hrsa-enriched` via 6 parallel research agents (Batches A–F). Each entry now has description, programs[], EHR system, Glassdoor rating + review count, careers URL, patient/staff counts, mission statement, funding impact level. **Result: 0 hrsa-import remaining, 125 hrsa-enriched + 90 curated = 215 total FQHCs.** |
+| 112 | **AI Vendor Comparison** | Mar 2026 | `FQHC_AI_VENDORS` array (8 vendors) in `fqhc-ai-tracker.ts`: Sunoh.ai, Abridge, Nabla, RapidClaims, Akido ScopeAI, healow AI, Elation Health AI, CHAI-NACHC Framework. New types: `AIVendor`, `VendorCategory`, `EHRIntegration`. Helper functions: `getVendorsByEHR()`, `getVendorsByCategory()`, `getHighFitVendors()`. UI: Vendor Comparison section on `/ai-tracker` with category filter pills, 4-col card grid, EHR compatibility dots (native/api/none), key features, FQHC customers, pricing, NACHC/CHAI badges. |
+| 113 | **Flywheel Strategy Document** | Mar 2026 | `.feedback/strategy/flywheel-strategy.md` — 4-stage content flywheel (DISCOVER → SUBSCRIBE → ENGAGE → CONVERT). Content calendar rhythm (Mon: daily-update, Tue: intel-brief, Wed-Fri: LinkedIn, Fri: weekly-roundup). KPI ladder: pageviews → signups → tool completions → Calendly bookings. `intel-brief.md` updated with Step 0: Subscriber Intelligence (query Supabase segment breakdown before drafting). |
 
 ---
 
-## 🔨 In Progress (Current Sprint)
+## 🔨 Current Priorities (as of 2026-03-09)
 
-### Strategic Pivot: Repositioning Fast-Track & GTM
+### Priority 1: Critical Security Fixes
 
-**Problem:** The "48-hour placement guarantee" on `/fast-track` isn't realistic yet — no employer pipeline to fulfill it. Need to reposition.
+These must be done BEFORE GTM outreach — any FQHC security review would flag them:
 
-**New positioning — For Candidates (Displaced Workers):**
-- Lead with **free tools**: Resume Builder, Career Assessment, Career Roadmap, Certifications
-- Position as the **#1 aggregator** for FQHC jobs, insights, directory (220 FQHCs, 177+ listings)
-- Fast-track becomes a **priority intake** form, not a delivery promise
-- Message: "We help you get job-ready — assessment, resume, career plan — all free, all designed for community health"
+| # | Issue | Severity | Fix |
+|---|-------|----------|-----|
+| S1 | **RLS policies expose PII** — `resume_profiles`, `candidate_waitlist`, `employer_waitlist` tables have `FOR SELECT TO anon USING (true)` = anyone can read all PII | CRITICAL | Restrict SELECT to `service_role` only in Supabase SQL |
+| S2 | **Supabase project ID hardcoded** in admin email HTML (offboarding-intake route.ts line 172) | CRITICAL | Remove direct dashboard URL, use env var or generic text |
+| S3 | **GA4 loads before cookie consent** — layout.tsx imports `@next/third-parties/google` which fires before CookieConsent banner | HIGH | Replace with custom `GoogleAnalytics.tsx` component that respects consent |
+| S4 | **Newsletter drip endpoint returns email addresses** in error response body (PII exposure) | HIGH | Return error counts only, log emails server-side |
+| S5 | **`xlsx` (SheetJS) has known vulnerabilities** — prototype pollution, ReDoS, no fix available | HIGH | Migrate to `exceljs` or accept risk (write-only use) |
+| S6 | **In-memory rate limiting ineffective on Vercel** — serverless containers don't share state | HIGH | Migrate to `@upstash/ratelimit` with Redis |
+| S7 | **CSP `frame-src 'none'` conflicts** with YouTube domains listed after it | MEDIUM | Remove `'none'`, keep only YouTube domains |
+| S8 | **No Content-Type validation** on any API route (13 POST routes) | MEDIUM | Add `Content-Type: application/json` check |
+| S9 | **`/api/team-readiness` missing rate limiting** | MEDIUM | Add `checkRateLimit()` consistent with other routes |
+| S10 | **`supabaseAdmin` in same file as public client** (`supabase.ts`) | MEDIUM | Split into `supabase-admin.ts` with `import "server-only"` |
 
-**New positioning — For FQHCs (Employers facing layoffs):**
-- Lead with **layoff support**: "Your workers deserve a soft landing"
-- **Free tier:** Offboarding toolkit — resume builder access, career assessment for affected staff, job board aggregation across 220 FQHCs
-- **Paid tier 1:** Managed offboarding — we intake your displaced workers, assess them, build their resumes, promote them to hiring FQHCs
-- **Paid tier 2:** Placement services — curated matches via The Drop, facilitated intros, follow-up
-- Message: "Turn layoffs into transitions. We help your displaced staff land at FQHCs that are hiring."
+### Priority 2: Performance — Stop Shipping 2MB of Data to Every Browser
 
-**Tiered Service Model:**
-| Tier | For Candidates | For FQHCs | Price |
-|------|---------------|-----------|-------|
-| **Free** | Resume builder, assessment, career roadmap, certifications, job board, directory | List in directory, access to candidate pool | $0 |
-| **Priority** | Fast-track intake, priority matching, career coaching | Managed offboarding for displaced staff, employer branding | $500-1,500/event |
-| **Premium** | The Drop (curated matches, 48h employer response) | Talent Drop (batch of 5-10 pre-screened candidates), dedicated sourcing | $2-5K/placement or subscription |
+The single highest-impact fix for user experience. Currently, "use client" pages import massive data files:
+
+| Issue | Impact | Fix |
+|-------|--------|-----|
+| **Homepage loads ~1.5MB** of raw TypeScript data (fqhcJobListings 1MB + californiaFQHCs 304KB + news intel 119KB) | First-load performance destroyed on mobile | Convert homepage to server component, pre-compute minimal data |
+| **22 pages marked "use client" with zero interactivity** — they only use `useLocale()` from next-intl | Extra JS shipped for nothing | Convert to server components using `getLocale()` from `next-intl/server` |
+| **`docx` library (920KB) statically imported** in resume builder | Download button loads 920KB before user even clicks | Dynamic `import()` like existing `xlsx` and `html2pdf.js` pattern |
+| **`IntelCard.tsx` imports entire 304KB FQHC data** just to look up slug-to-name for badges | Every page with IntelCard loads 304KB | Pass pre-computed slug-to-name map as prop |
+| **Zero `loading.tsx` files** in entire app | No loading feedback during navigation | Add at least root + jobs + directory loading states |
+| **Only 2 `<Suspense>` boundaries** in 98 client pages | No progressive rendering | Wrap heavy components in Suspense with skeleton fallbacks |
+
+### Priority 3: Data Integrity Fixes
+
+| Issue | Severity | Fix |
+|-------|----------|-----|
+| **5 orphan FQHC slugs in job listings** — 15 jobs link to nonexistent profiles (`sac-health-system`, `central-coast-community-health`, `clinica-de-salud-del-valle`, `community-health-center-network`, `sacramento-covered`) | HIGH | Add missing directory entries or fix slug references |
+| **2 orphan slugs in intel items** — `santa-clara-valley-health` and `sacramento-county-health-center` in `affectedOrgSlugs` don't match directory | MEDIUM | Fix to `county-of-santa-clara` and `sacramento-county-primary` |
+| **Funding impact timeline has 2 passed deadlines** without status updates (Jan 1 2026 events still "frozen"/"at-risk") | HIGH | Update statuses in `funding-impact-data.ts` |
+| **Header comment in california-fqhcs.ts is wrong** — says "220 orgs (90 curated + 131 HRSA-imported)" but actual is 214 (89 curated + 125 hrsa-enriched) | MEDIUM | Fix comment |
+| **`qualityScore` and `violations` fields are entirely empty** across all 214 FQHCs | LOW | Either populate from HRSA UDS/CMS data or remove from interface |
+| **15 job listings from January 2026** are 54+ days old | LOW | Review and update or remove stale listings |
+
+### Priority 4: SEO & Architecture
+
+| Issue | Severity | Fix |
+|-------|----------|-----|
+| **4 pages missing from sitemap** — `/career-insights`, `/career-roadmap`, `/certifications`, `/guides` (all in nav) | HIGH | Add to `sitemap.ts` staticPages array |
+| **JSON-LD BreadcrumbList uses `"ListItemElement"`** instead of `"ListItem"` (Google will reject) | MEDIUM | Fix in `JsonLd.tsx` |
+| **13 metadataBase build warnings** — several layouts define metadata without `metadataBase` | MEDIUM | Add `metadataBase` to root layout or inline metadata |
+| **Directory description says "50+ FQHCs"** — actual count is 214 | LOW | Update in `seo-config.ts` |
+| **Middleware deprecation** — Next.js 16 deprecated `middleware` in favor of `proxy` | MEDIUM | Plan migration when next-intl supports proxy convention |
+| **ESLint: 466 errors** from `.vercel/output/` not being ignored + `_audit*.ts` root files | MEDIUM | Update `.eslintignore`, delete audit files |
+
+### Priority 5: Code Quality
+
+| Issue | Impact | Fix |
+|-------|--------|-----|
+| **Inline `t()` helper duplicated 39 times** | Maintenance burden | Extract to `src/lib/i18n-helpers.ts` |
+| **`formatDate()` duplicated 9 times** | Inconsistency risk | Extract to `src/lib/format-helpers.ts` |
+| **`formatSalary()` duplicated 7 times** | Inconsistency risk | Consolidate to one export |
+| **`movement-founders.ts` (33KB) never imported** | Dead weight | Delete or build founders page |
+| **Large monolithic pages** (homepage 1,408 lines, jobs 1,375, directory 1,197) | Readability, code-splitting | Break into sub-components |
+| **Single `error.tsx` for entire app** | Poor error UX | Add per-route-group error boundaries |
+| **Navigation dropdowns lack ARIA attributes** | Accessibility | Add `aria-expanded`, `aria-haspopup`, keyboard support |
+
+### Priority 6: GTM Outreach + Job Expansion
+
+**Manual Steps (blocking):**
+1. Run `supabase-newsletter-drip.sql` in Supabase SQL Editor (adds drip_step column)
+2. Set `CRON_SECRET = NEWSLETTER_SECRET` in Vercel project settings to activate daily drip cron
+3. Run `supabase-master-setup.sql` in Supabase (all 11 tables — BUT fix RLS policies first per S1!)
+
+**Outreach (this week):**
+- Run `/scrape-jobs` for 6 new scrapeable FQHCs (Open Door, Valley Health Team, Marin Community, Petaluma Health, Davis Street, United Health Centers)
+- Run `/intel-brief` to generate first newsletter with subscriber intelligence step
+- Initial email to FQHC HR directors: position as the FQHC Strategic Monitor
+- Lead with: AI vendor comparison, resilience scorecard, strategic reports
+- CTA: "Book a Briefing" (Calendly) + offboarding intake form for FQHCs with layoffs
 
 ---
 
@@ -172,13 +239,13 @@ A California where every community health center is fully staffed with professio
 | 78 | **Adaptive Assessment Engine** | Medium | Moat | Phase 1: expanded question bank (110+). Phase 2: difficulty scaling (CAT). Phase 3: outcome-based weight learning from placement data. |
 | ~~79~~ | ~~Fast-Track Repositioning~~ | ~~High~~ | ~~GTM~~ | ✅ Shipped — see #51 above |
 | ~~80~~ | ~~Offboarding Toolkit Page~~ | ~~High~~ | ~~Revenue~~ | ✅ Shipped as `/strategy/offboarding` — see #88 above |
-| 81 | **FQHC Data Enrichment** | Medium | Data | Populate quality scores, violations, labor history for 220 FQHCs from HRSA UDS, CMS, OSHA, NLRB data. |
-| 82 | **HRSA-Import FQHC Enrichment** | Medium | Data | Add missing data (patient/staff counts, programs, EHR, Glassdoor, salary ranges) to 131 HRSA-imported FQHC entries. |
+| ~~81~~ | ~~FQHC Data Enrichment~~ | ~~Medium~~ | ~~Data~~ | ✅ Shipped — all 87 hrsa-import entries enriched to hrsa-enriched. 215 total FQHCs (90 curated + 125 hrsa-enriched), 0 stubs remaining. See #111 above. |
+| ~~82~~ | ~~HRSA-Import FQHC Enrichment~~ | ~~Medium~~ | ~~Data~~ | ✅ Shipped — see #111 above. All HRSA-imported entries now have real data from web research agents. |
 | ~~83~~ | ~~Newsletter Infrastructure~~ | ~~High~~ | ~~Engagement~~ | ✅ Shipped — see #84-87 below |
 | ~~84~~ | ~~Newsletter Signup Page~~ | ~~High~~ | ~~Engagement~~ | ✅ Shipped — `/newsletter` page + reusable `NewsletterSignup` component with 3 variants (inline/card/banner), audience toggle, embedded on blog, insights, strategy/guides pages |
 | ~~85~~ | ~~Intel Brief Weekly Template~~ | ~~High~~ | ~~Content/Revenue~~ | ✅ Shipped — Full HTML email template in `newsletter-templates.ts`, section-based layout (executive summary, policy, funding, workforce, AI, key dates), impact badges, primary source links |
 | ~~86~~ | ~~The Pulse Weekly Template~~ | ~~High~~ | ~~Content~~ | ✅ Shipped — Full HTML email template for candidate newsletter: job highlights, market trends, tool spotlight, career tips, featured post. Bilingual. |
-| 87 | **Welcome Drip Sequences** | Medium | Engagement | 5-email candidate sequence (14 days) + 4-email employer sequence (21 days). Post-signup nurture leveraging assessment, tools, market data. |
+| ~~87~~ | ~~Welcome Drip Sequences~~ | ~~Medium~~ | ~~Engagement~~ | ✅ Shipped — `drip-templates.ts` (8 email templates), `/api/newsletter/drip` GET endpoint, `vercel.json` cron (17:00 UTC daily). Candidate: Day 3/7/10/14. Employer: Day 3/7/14/21. See #105 above. Requires running `supabase-newsletter-drip.sql` and setting CRON_SECRET = NEWSLETTER_SECRET in Vercel. |
 | 88 | **CSRF Token Middleware** | Medium | Security | Add CSRF protection to all POST routes. Consider `csrf` package or custom double-submit cookie pattern. |
 | 89 | **Supabase RLS Audit** | High | Security | Verify Row Level Security policies on all Supabase tables. Ensure admin client is only used server-side, public client can't bypass policies. |
 | 90 | **CSP Nonce Support** | Low | Security | Eliminate `unsafe-inline` from CSP by generating per-request nonces for inline scripts. Requires Next.js middleware integration. |
@@ -236,26 +303,28 @@ A California where every community health center is fully staffed with professio
 
 ## 💰 Go-To-Market & First Dollar Strategy
 
-### What You Have Today
+### What You Have Today (as of 2026-03-08)
 
-1. **220 FQHC profiles** — the most comprehensive CA directory (funding vulnerability, union status, programs, EHR, quality scores, labor history)
-2. **177+ job listings** with real salary data + 588 live API-scrapeable jobs across 4 FQHCs
-3. **Career assessment** — 5 behavioral domains, role-specific scenarios, transition readiness scoring
-4. **Resume builder** — FQHC-optimized, 8 role templates, 17 languages
-5. **Career roadmap** — 5 tracks, 4 levels, CA salary data with regional multipliers
-6. **Certification catalog** — 15 CA-specific certs with ROI data
-7. **Layoff intelligence** — 15 tracked events, 2,500+ affected workers
-8. **Executive intelligence dashboard** — legislation, funding cliffs, workforce data, undocumented access watch, change management playbook, 20+ curated intel items
-9. **Intelligence-led homepage** — breaking intel, funding cliff countdown, two-audience split (Leaders vs Job Seekers)
-10. **Manager Team Readiness** — B2B lead gen tool (assess your team, then offer to help hire)
-11. **The Drop** — exclusive matching program with waitlists
-12. **Interactive demo** at `/demo` for sharing with prospects
-13. **Policy & intel pipeline** — 6 slash commands: `/daily-update` (WARN + jobs + policy + AI scan), `/scan-policy` (deep legislative dive), `/intel-brief` (newsletter generator), `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
-14. **FQHC Intel Brief** — weekly executive briefing template with primary source links, cross-referenced against our proprietary data
-15. **Strategic operating environment** — Rumelt-framework homepage (Challenge → Response → Execution), 4 new strategy pages (guides, OKRs, case studies, AI tracker), no email/hire CTAs
-16. **Executive Guides** — 6 real case studies with verified outcomes and primary sources, structured around Good Strategy framework
-17. **OKR Templates** — 12 ready-to-use templates for FQHC crisis change management across 5 domains
-18. **AI Tracker** — 8 AI adoption items tracked across clinical documentation, revenue cycle, scheduling, care coordination
+1. **214 FQHC profiles** — 89 curated + 125 hrsa-enriched (0 stubs remaining). Core fields 100% complete (EHR, programs, patient/staff counts). Glassdoor coverage: 27% (57/214). Coverage vulnerability: 47%. Union info: 10%.
+2. **1,046 job listings** with real salary data + 617 live API-scrapeable jobs across 4 FQHCs (AltaMed 258, FHCSD 153, AHS 20, La Clinica 186) + 6 new scrapeable FQHCs pending next /scrape-jobs run
+3. **Career assessment** — 5 behavioral domains, role-specific scenarios, transition readiness scoring, opt-in STARS 90-day plan, provider roles included
+4. **Resume builder** — FQHC-optimized, 12 role templates (incl. 4 provider: MD, NP, PA, Dentist), 17 languages
+5. **Interview prep tool** — 6 FQHC roles + 4 provider roles, STAR tips, red flags, follow-ups, salary data, NHSC info
+6. **Career roadmap** — 5 tracks, 4 levels, CA salary data with regional multipliers
+7. **Certification catalog** — 20 CA-specific certs with ROI data
+8. **Layoff intelligence** — 20 tracked events, 3,477+ affected workers
+9. **Executive intelligence dashboard** — homepage with breaking intel, funding cliffs, workforce data, 74 curated intel items
+10. **AI Implementation Tracker** — 19 adoption items tracked + **8 vendors compared** (EHR matrix, fit ratings, pricing, FQHC customers)
+11. **Manager Team Readiness** — B2B lead gen tool with 35 questions, 4 leadership roles, STARS diagnosis, Liberating Structures
+12. **Policy & intel pipeline** — 6 slash commands with subscriber intelligence step: `/daily-update` (WARN + jobs + policy + AI + regional + cultural scans), `/scan-policy`, `/intel-brief` (Step 0: subscriber segmentation), `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
+13. **Newsletter system** — Intel Brief + The Pulse tracks, 5-step questionnaire capturing role/challenge/topics, welcome drip (8 emails, 2 tracks), Supabase subscriber table with JSONB preferences, batch send via Resend
+14. **Resilience Scorecard** — all 215 FQHCs scored across 5 dimensions (program diversity, workforce stability, data maturity, quality indicators, financial positioning)
+15. **FQHC Comparison Tool** — side-by-side comparison of 2-3 FQHCs with resilience dimensions, programs, Glassdoor, funding, union, best-value highlighting
+16. **9 Regional Intelligence dashboards** — per-region FQHC tables, resilience distribution, EHR landscape, layoff impact, job count, regional intel feed
+17. **220 per-FQHC Strategic Reports** (SSG) — 10-section reports with Calendly CTA + intake form link
+18. **25 OKR Templates** — 5 domains, 3 difficulty levels, company-wide flagship template covering all 8 clinical roles
+19. **15 Masterclass modules** — deep-dive strategy for the 2026 crisis (financial survival, revenue recovery, undocumented care, fundraising, economics, leadership)
+20. **Flywheel content strategy** — 4-stage flywheel (DISCOVER → SUBSCRIBE → ENGAGE → CONVERT), documented in `.feedback/strategy/flywheel-strategy.md`
 
 ### Two-Track GTM
 
@@ -340,6 +409,8 @@ The platform is strong. The data is unique. The tools are real. What's needed is
 - [ ] Assessment results email with domain scores + Drop invitation
 - [ ] Resume completion reminder email
 - [x] ~~Cloudflare Email Routing for `hello@fqhctalent.com`~~ — Set up and verified!
+- [ ] **OKR DOCX download** — add Word format alongside existing Excel download for each OKR template (user requested)
+- [ ] **Company-wide turnaround OKR** — enhanced flagship OKR focused on operational expansion + top-of-scope schedule redesign based on clinic simulator headcount (user requested)
 - [ ] Assessment question bank expansion (50+ questions per domain)
 - [ ] Assessment A/B testing — compare question variants by predictive accuracy
 - [ ] Employer feedback loop — did the hire succeed? Feed into assessment weights
