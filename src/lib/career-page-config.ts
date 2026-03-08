@@ -41,30 +41,30 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     fqhcSlug: "altamed-health-services",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-03-06",
+    lastChecked: "2026-03-07",
     atsApiUrl:
       "https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs",
     notes:
-      "Largest FQHC in CA. 258 jobs found 2026-03-07 (prev 252, +6). Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}. Job details: GET /wday/cxs/altamed/Careers{externalPath}. Salary in jobDescription HTML.",
+      "Largest FQHC in CA. 258 jobs found 2026-03-07 (unchanged). Added 4 new listings (altamed-017 to 020): Senior Clinic Director, Clinic Director, Site Medical Director Geriatric Care, Staff Physician Family Practice. Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
   },
   {
     fqhcSlug: "family-health-centers-of-san-diego",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-03-06",
+    lastChecked: "2026-03-07",
     atsApiUrl:
       "https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs",
     notes:
-      "153 jobs found 2026-03-07 (prev 153, unchanged). Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
+      "153 jobs found 2026-03-07 (unchanged). Added 4 new listings (fhcsd-013 to 016): Associate Clinic Director, Nutritionist Health Educator, Project Coordinator Grants, LVN Clinical. Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
   },
   {
     fqhcSlug: "asian-health-services",
     scrapeable: true,
     atsType: "lever",
-    lastChecked: "2026-03-06",
+    lastChecked: "2026-03-07",
     atsApiUrl: "https://api.lever.co/v0/postings/ahschc?mode=json",
     notes:
-      "20 jobs found 2026-03-07 (prev 20, unchanged). Lever slug is 'ahschc'. Returns JSON array of job objects with text, categories, description, lists, hostedUrl.",
+      "20 jobs found 2026-03-07 (unchanged). Added 5 new listings (ahs-009 to 013): Geriatrician, Internal Medicine Physician, Specialty Mental Health Psychiatrist, Bilingual Medical Assistant, Associate Chief Dental Director. Lever slug is 'ahschc'.",
   },
   {
     fqhcSlug: "la-clinica-de-la-raza",
@@ -162,12 +162,12 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
   },
   {
     fqhcSlug: "united-health-centers",
-    scrapeable: true,
+    scrapeable: false,
     atsType: "icims",
     lastChecked: "2026-03-07",
     atsApiUrl: "https://nonprovider-unitedhealthcenters.icims.com/jobs/search",
     notes:
-      "iCIMS portal confirmed. Non-provider portal: nonprovider-unitedhealthcenters.icims.com. Also has provider portal. Major Central Valley FQHC (Fresno/Tulare/Kings/Madera counties).",
+      "iCIMS portal confirmed but JS-rendered only — curl returns HTML page, no JSON API. Cannot scrape programmatically. Two portals: nonprovider and provider. Manual review required. Major Central Valley FQHC (Fresno/Tulare/Kings/Madera counties).",
   },
 
   // ── Additional Workday (JSON API available) ── ✅
@@ -179,51 +179,50 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "https://opendoorhealth.wd503.myworkdayjobs.com/wday/cxs/opendoorhealth/ODCHC/jobs",
     notes:
-      "Workday confirmed. POST endpoint: wday/cxs/opendoorhealth/ODCHC/jobs with {appliedFacets:{},limit:20,offset:0,searchText:''}. Rural North Coast FQHC (Humboldt, Del Norte, Trinity counties). ~350 staff.",
+      "41 jobs found 2026-03-07. Added 12 new listings (open-door-002 to 013): RN OB, Medical Assistant, LVN, Social Work Case Manager, BH Clinician Pediatrics, Family Physician/APC, CNM, General Dentist, Mobile Dentist, EHR Site Specialist, Coding Manager, Biller I. Workday wd503 tenant confirmed. Rural North Coast FQHC (Humboldt, Del Norte, Trinity counties).",
   },
   {
     fqhcSlug: "valley-health-team",
-    scrapeable: true,
+    scrapeable: false,
     atsType: "workday",
     lastChecked: "2026-03-07",
-    atsApiUrl:
-      "https://valleyhealthlink.wd5.myworkdayjobs.com/wday/cxs/valleyhealthlink/valleyhealthcareers/jobs",
+    atsApiUrl: null,
     notes:
-      "Workday confirmed (wd5 tenant). POST endpoint pattern: wday/cxs/valleyhealthlink/valleyhealthcareers/jobs. Central Valley FQHC (Fresno area). Teaching Health Center.",
+      "Workday endpoint valleyhealthlink.wd5 returns Valley Health System (Winchester, VA) — completely different organization. Wrong tenant. Valley Health Team (CA) actual ATS unknown. Needs manual investigation via valleyhealthteam.org/careers.",
   },
 
   // ── iCIMS (API available) ── ✅
   {
     fqhcSlug: "marin-community-clinics",
-    scrapeable: true,
+    scrapeable: false,
     atsType: "icims",
     lastChecked: "2026-03-07",
     atsApiUrl: "https://careers-marinclinic.icims.com/jobs/search",
     notes:
-      "iCIMS confirmed. API: careers-marinclinic.icims.com. Marin County FQHC; Bay Area / North Coast. ~200 staff.",
+      "iCIMS portal confirmed but JS-rendered only — returns HTML page, no JSON API. Cannot scrape programmatically. Manual review required at careers-marinclinic.icims.com.",
   },
 
   // ── JobVite (API available) ── ✅
   {
     fqhcSlug: "petaluma-health-center",
-    scrapeable: true,
+    scrapeable: false,
     atsType: "jobvite",
     lastChecked: "2026-03-07",
     atsApiUrl: "https://jobs.jobvite.com/phc/",
     notes:
-      "JobVite confirmed at jobs.jobvite.com/phc/. JobVite has public REST API (careers.jobvite.com/phc/jobs.json). Petaluma/Sonoma County FQHC. 3.9★ Glassdoor.",
+      "JobVite portal confirmed at jobs.jobvite.com/phc/ but JS-rendered (AngularJS SPA). No public JSON endpoint at jobs.json — returns JS application shell. Cannot scrape programmatically. Petaluma/Sonoma County FQHC. 3.9★ Glassdoor.",
   },
 
   // ── SmartRecruiters (API available) ── ✅
   {
     fqhcSlug: "the-davis-street-community-center",
-    scrapeable: true,
+    scrapeable: false,
     atsType: "smartrecruiters",
     lastChecked: "2026-03-07",
     atsApiUrl:
       "https://careers.smartrecruiters.com/DavisStreetCommunityCenterInc",
     notes:
-      "SmartRecruiters confirmed. API: api.smartrecruiters.com/v1/companies/DavisStreetCommunityCenterInc/postings. Oakland/East Bay FQHC. SmartRecruiters public API returns JSON job list.",
+      "SmartRecruiters API tested — returns totalFound: 0. Company may not have public postings listed or company ID is incorrect. Try 'DavisStreetCommunityCenter' (without 'Inc') or check if postings require auth. Manual review at careers.smartrecruiters.com/DavisStreetCommunityCenterInc.",
   },
 
   // ── Paylocity (not directly API-accessible) ── ❌

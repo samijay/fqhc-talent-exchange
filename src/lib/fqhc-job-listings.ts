@@ -4108,6 +4108,580 @@ export const fqhcJobListings: FQHCJobListing[] = [
       "Experience with Medi-Cal managed care authorization processes",
       "Strong organizational skills and attention to follow-through"
     ]
+  },
+
+  // ─────────────────────────────────────────────
+  // ALTAMED HEALTH SERVICES — new listings from Workday (2026-03-07)
+  // ─────────────────────────────────────────────
+  {
+    id: "altamed-017",
+    fqhcSlug: "altamed-health-services",
+    title: "Senior Clinic Director",
+    roleType: "Administrative",
+    department: "Clinic Operations",
+    salaryMin: 115000,
+    salaryMax: 150000,
+    type: "Full-time",
+    location: "Huntington Beach",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Lead clinic operations for AltaMed's Huntington Beach site, overseeing clinical staff, quality metrics, and FQHC compliance as part of one of California's largest FQHC networks.",
+    requirements: [
+      "Bachelor's degree in healthcare administration or related field; Master's preferred",
+      "5+ years of clinic management experience in an FQHC or community health setting",
+      "Proven track record with HEDIS/UDS quality improvement initiatives",
+      "Experience with OCHIN Epic and FQHC billing/compliance"
+    ]
+  },
+  {
+    id: "altamed-018",
+    fqhcSlug: "altamed-health-services",
+    title: "Clinic Director",
+    roleType: "Administrative",
+    department: "Clinic Operations",
+    salaryMin: 95000,
+    salaryMax: 125000,
+    type: "Full-time",
+    location: "Pico Rivera",
+    bilingual: true,
+    languagePreferred: ["Spanish"],
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CalAIM", "340B"],
+    postedDate: "2026-03-07",
+    description: "Manage day-to-day operations of AltaMed's Pico Rivera clinic, ensuring high-quality patient care, staff performance, and compliance with HRSA and Medi-Cal requirements.",
+    requirements: [
+      "Bachelor's degree in healthcare management or clinical field required",
+      "3+ years of supervisory experience in a community health or FQHC setting",
+      "Knowledge of FQHC PPS reimbursement, 340B program, and UDS reporting",
+      "Bilingual Spanish/English strongly preferred for this predominantly Latino-serving site"
+    ]
+  },
+  {
+    id: "altamed-019",
+    fqhcSlug: "altamed-health-services",
+    title: "Site Medical Director, Geriatric Care",
+    roleType: "Physician",
+    department: "Senior Health / PACE",
+    salaryMin: 225000,
+    salaryMax: 290000,
+    type: "Full-time",
+    location: "Los Angeles",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["PACE", "CCM", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Provide clinical leadership for AltaMed's geriatric care program serving LA County's aging PACE and senior health populations, supervising a multidisciplinary care team and driving quality outcomes.",
+    requirements: [
+      "MD or DO with California medical license; board certification in Internal Medicine, Family Medicine, or Geriatrics",
+      "Geriatrics fellowship or significant geriatric care experience preferred",
+      "PACE or home-based primary care experience a plus",
+      "NHSC loan repayment eligible site — up to $50K/year tax-free"
+    ]
+  },
+  {
+    id: "altamed-020",
+    fqhcSlug: "altamed-health-services",
+    title: "Staff Physician, Family Practice",
+    roleType: "Physician",
+    department: "Primary Care",
+    salaryMin: 195000,
+    salaryMax: 255000,
+    type: "Full-time",
+    location: "Paramount",
+    bilingual: true,
+    languagePreferred: ["Spanish"],
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CalAIM", "CCM"],
+    postedDate: "2026-03-07",
+    description: "Deliver comprehensive primary care at AltaMed's Paramount clinic, managing a panel of 1,400+ patients with a focus on chronic disease management, preventive care, and HEDIS performance.",
+    requirements: [
+      "MD or DO with current California license; Family Medicine or Internal Medicine board certification",
+      "FQHC experience and familiarity with PPS encounter-based billing",
+      "Spanish language skills preferred for patient population",
+      "NHSC loan repayment eligible — AltaMed qualifies as HPSA designated site"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // FAMILY HEALTH CENTERS OF SAN DIEGO — new listings from Workday (2026-03-07)
+  // ─────────────────────────────────────────────
+  {
+    id: "fhcsd-013",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Associate Clinic Director",
+    roleType: "Administrative",
+    department: "Clinic Operations",
+    salaryMin: 98000,
+    salaryMax: 128000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Support the Clinic Director at FHCSD's Grossmont Spring Valley site, managing clinical staff scheduling, quality improvement initiatives, and FQHC operational compliance.",
+    requirements: [
+      "Bachelor's degree in healthcare administration, nursing, or related field required",
+      "3+ years supervisory experience in a community health or FQHC environment",
+      "Familiarity with HEDIS, UDS reporting, and HRSA compliance requirements",
+      "Experience with OCHIN Epic or comparable EHR strongly preferred"
+    ]
+  },
+  {
+    id: "fhcsd-014",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Nutritionist Health Educator",
+    roleType: "Health Educator",
+    department: "Patient Care Support Services",
+    salaryMin: 58000,
+    salaryMax: 74000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    languagePreferred: ["Spanish"],
+    ehrSystem: "OCHIN Epic",
+    programs: ["CalAIM", "CCM"],
+    postedDate: "2026-03-07",
+    description: "Provide medical nutrition therapy and health education to FHCSD patients managing diabetes, hypertension, and obesity, integrating evidence-based dietary guidance with CalAIM social needs screenings.",
+    requirements: [
+      "Registered Dietitian (RD) or RDN credential required; certified health education specialist (CHES) a plus",
+      "Experience in community health or FQHC population including Medi-Cal patients",
+      "Bilingual Spanish/English strongly preferred",
+      "Familiarity with OCHIN Epic nutrition documentation preferred"
+    ]
+  },
+  {
+    id: "fhcsd-015",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Project Coordinator, Grants",
+    roleType: "Program Manager",
+    department: "Administration",
+    salaryMin: 65000,
+    salaryMax: 82000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["CalAIM", "340B"],
+    postedDate: "2026-03-07",
+    description: "Coordinate FHCSD's grant portfolio including HRSA Section 330, state HCAI, and CalViva managed care grants — tracking deliverables, preparing reports, and liaising with program staff and funders.",
+    requirements: [
+      "Bachelor's degree required; public health, public administration, or healthcare field preferred",
+      "2+ years of grant coordination or program management experience",
+      "Strong writing skills for reports and grant applications",
+      "Experience with federal grants management (HRSA, HHS) preferred"
+    ]
+  },
+  {
+    id: "fhcsd-016",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "LVN, Clinical",
+    roleType: "Licensed Vocational Nurse",
+    department: "Primary Care",
+    salaryMin: 62000,
+    salaryMax: 76000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    languagePreferred: ["Spanish"],
+    ehrSystem: "OCHIN Epic",
+    programs: ["CCM", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Provide clinical support in FHCSD's primary care clinics, performing rooming, vital signs, injections, lab draws, and patient education as part of a high-functioning primary care team.",
+    requirements: [
+      "Current California LVN license required",
+      "1+ years of clinical experience in ambulatory/primary care setting preferred",
+      "Bilingual Spanish/English strongly preferred given FHCSD's patient population",
+      "OCHIN Epic proficiency preferred; training provided"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // ASIAN HEALTH SERVICES — new listings from Lever (2026-03-07)
+  // ─────────────────────────────────────────────
+  {
+    id: "ahs-009",
+    fqhcSlug: "asian-health-services",
+    title: "Geriatrician",
+    roleType: "Physician",
+    department: "Primary Care",
+    salaryMin: 225000,
+    salaryMax: 285000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["CCM", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Provide comprehensive geriatric care to AHS's aging Asian-American patient population, integrating culturally responsive care for patients speaking Cantonese, Mandarin, and Vietnamese.",
+    requirements: [
+      "MD or DO with California medical license; Geriatrics board certification or fellowship",
+      "Cross-cultural geriatric care experience; Asian-language skills a strong plus",
+      "Familiarity with FQHC PPS billing and NHSC loan repayment programs",
+      "Commitment to health equity in underserved communities"
+    ]
+  },
+  {
+    id: "ahs-010",
+    fqhcSlug: "asian-health-services",
+    title: "Internal Medicine Physician",
+    roleType: "Physician",
+    department: "Primary Care",
+    salaryMin: 200000,
+    salaryMax: 262000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CCM", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Join AHS's physician team providing Internal Medicine primary care to Oakland's diverse API community, with panels reflecting high rates of diabetes, hypertension, and Hepatitis B.",
+    requirements: [
+      "MD or DO with current California license; Internal Medicine board certification",
+      "Primary care or FQHC experience preferred; multilingual skills valued",
+      "NHSC loan repayment eligible — AHS is a HPSA-designated FQHC in Alameda County",
+      "Experience with panel management and HEDIS performance metrics"
+    ]
+  },
+  {
+    id: "ahs-011",
+    fqhcSlug: "asian-health-services",
+    title: "Specialty Mental Health Psychiatrist",
+    roleType: "Physician",
+    department: "Behavioral Health",
+    salaryMin: 225000,
+    salaryMax: 290000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Provide psychiatric consultation and direct patient care through AHS's integrated behavioral health program, serving high-acuity patients from diverse Asian-American backgrounds with cultural humility.",
+    requirements: [
+      "MD or DO with California license; Psychiatry board certification required",
+      "Community mental health or FQHC experience preferred; cross-cultural psychiatry skills valued",
+      "Comfort with collaborative care models and BH integration in primary care settings",
+      "Cantonese, Mandarin, Vietnamese, or other Asian-language skills a significant plus"
+    ]
+  },
+  {
+    id: "ahs-012",
+    fqhcSlug: "asian-health-services",
+    title: "Bilingual Medical Assistant",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 46000,
+    salaryMax: 58000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: true,
+    languageRequired: null,
+    languagePreferred: ["Cantonese", "Mandarin", "Vietnamese"],
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-03-07",
+    description: "Support AHS's clinical teams by rooming patients, taking vital signs, assisting with procedures, and communicating with patients in their preferred Asian language — a key part of AHS's culturally responsive care model.",
+    requirements: [
+      "MA certification (CMA or RMA) preferred; relevant clinical experience considered",
+      "Bilingual proficiency in Cantonese, Mandarin, Vietnamese, or another Asian language required",
+      "Phlebotomy experience preferred",
+      "OCHIN Epic experience a plus; training provided"
+    ]
+  },
+  {
+    id: "ahs-013",
+    fqhcSlug: "asian-health-services",
+    title: "Associate Chief Dental Director",
+    roleType: "Administrative",
+    department: "Dental",
+    salaryMin: 175000,
+    salaryMax: 235000,
+    type: "Full-time",
+    location: "Oakland",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["340B", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Provide dental leadership and direct patient care as Associate Chief Dental Director at AHS, overseeing quality, training, and clinical protocols for a multi-site Bay Area dental program serving 30,000+ patients annually.",
+    requirements: [
+      "DDS or DMD with California dental license; 5+ years clinical experience",
+      "Dental leadership or supervisory experience in an FQHC or community health setting",
+      "Experience with Denti-Cal billing, prior authorization, and FQHC dental PPS",
+      "Cross-cultural care experience with Asian-American and other underserved communities"
+    ]
+  },
+
+  // ─────────────────────────────────────────────
+  // OPEN DOOR COMMUNITY HEALTH CENTERS — new listings from Workday (2026-03-07)
+  // Rural North Coast FQHC (Humboldt, Del Norte, Trinity counties)
+  // ─────────────────────────────────────────────
+  {
+    id: "open-door-002",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "Registered Nurse – OB",
+    roleType: "Registered Nurse",
+    department: "Obstetrics / Women's Health",
+    salaryMin: 90000,
+    salaryMax: 118000,
+    type: "Full-time",
+    location: "Eureka",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["CalAIM", "CCM"],
+    postedDate: "2026-03-07",
+    description: "Provide obstetric nursing care in Open Door's Eureka clinic, supporting prenatal and postpartum patients across Humboldt County's rural North Coast communities.",
+    requirements: [
+      "Current California RN license; OB/Labor & Delivery experience required",
+      "BSN preferred; AWHONN certification a plus",
+      "Comfortable with high-risk pregnancy populations and telehealth integration",
+      "Valid driver's license; rural North Coast travel may be required"
+    ]
+  },
+  {
+    id: "open-door-003",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "Medical Assistant",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 42000,
+    salaryMax: 55000,
+    type: "Full-time",
+    location: "Crescent City",
+    bilingual: true,
+    languagePreferred: ["Spanish"],
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM"],
+    postedDate: "2026-03-07",
+    description: "Support Open Door's primary care team in Del Norte County, performing rooming, vitals, injections, lab draws, and patient education in an underserved rural coastal community.",
+    requirements: [
+      "MA certification preferred; relevant clinical experience in lieu of certification considered",
+      "Spanish language skills strongly preferred for Del Norte County patient population",
+      "Willingness to work in a rural community health setting",
+      "OCHIN Epic experience preferred; training provided"
+    ]
+  },
+  {
+    id: "open-door-004",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "Licensed Vocational Nurse",
+    roleType: "Licensed Vocational Nurse",
+    department: "Primary Care",
+    salaryMin: 60000,
+    salaryMax: 76000,
+    type: "Full-time",
+    location: "Eureka",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["CCM", "ECM"],
+    postedDate: "2026-03-07",
+    description: "Provide clinical nursing support in Open Door's Eureka primary care clinics, assisting physicians and NPs with patient care in one of Northern California's most underserved rural health regions.",
+    requirements: [
+      "Current California LVN license required",
+      "1+ years ambulatory or primary care clinical experience preferred",
+      "Experience with OCHIN Epic preferred; training provided",
+      "Comfortable working in a high-volume rural FQHC environment"
+    ]
+  },
+  {
+    id: "open-door-005",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "Social Work Case Manager",
+    roleType: "Case Manager",
+    department: "Behavioral Health",
+    salaryMin: 68000,
+    salaryMax: 90000,
+    type: "Full-time",
+    location: "Crescent City",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["ECM", "CalAIM", "BH Integration"],
+    postedDate: "2026-03-07",
+    description: "Provide social work case management and care coordination to complex patients at Open Door's Del Norte County site, connecting clients to housing, mental health, substance use, and social services under CalAIM.",
+    requirements: [
+      "MSW or BSW required; LCSW, ACSW, or ASW licensure preferred",
+      "Case management experience in community health, social services, or behavioral health",
+      "Knowledge of CalAIM Enhanced Care Management and community supports",
+      "Valid California driver's license; willingness to work in rural Del Norte County"
+    ]
+  },
+  {
+    id: "open-door-006",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "Behavioral Health Clinician – Pediatrics",
+    roleType: "Behavioral Health Specialist",
+    department: "Behavioral Health",
+    salaryMin: 72000,
+    salaryMax: 96000,
+    type: "Full-time",
+    location: "Arcata",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["BH Integration", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Provide integrated behavioral health services to pediatric patients at Open Door's Arcata clinic, embedding in the primary care team to deliver brief interventions, screenings, and warm hand-offs for children and adolescents.",
+    requirements: [
+      "Master's degree in social work, psychology, or counseling required; LCSW, LMFT, or LPCC preferred",
+      "Pediatric behavioral health experience; trauma-informed care training strongly preferred",
+      "Experience with integrated primary care / co-located BH model",
+      "Familiarity with ACEs screenings, PHQ-A, and CSBI tools"
+    ]
+  },
+  {
+    id: "open-door-007",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "Family Physician / Advanced Practice Clinician",
+    roleType: "Physician",
+    department: "Primary Care",
+    salaryMin: 185000,
+    salaryMax: 250000,
+    type: "Full-time",
+    location: "Ferndale",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["CCM", "CalAIM", "ECM"],
+    postedDate: "2026-03-07",
+    description: "Deliver comprehensive family medicine primary care in Open Door's Ferndale rural site, serving Humboldt County's agricultural and tribal communities in one of California's most underserved Health Professional Shortage Areas.",
+    requirements: [
+      "MD, DO, NP (FNP), or PA-C with current California license; Family Medicine preferred",
+      "FQHC or rural health experience valued; new graduates considered with strong community health commitment",
+      "NHSC Scholarship or Loan Repayment eligible — HPSA Score 17 (maximum federal priority)",
+      "Comfortable with full-scope family medicine including OB if MD/DO"
+    ]
+  },
+  {
+    id: "open-door-008",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "Certified Nurse Midwife",
+    roleType: "Nurse Practitioner",
+    department: "Obstetrics / Women's Health",
+    salaryMin: 115000,
+    salaryMax: 148000,
+    type: "Full-time",
+    location: "Eureka",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["CalAIM", "CCM"],
+    postedDate: "2026-03-07",
+    description: "Provide midwifery and women's health primary care services at Open Door's Eureka site, managing prenatal, labor, postpartum, and gynecological care for Humboldt County's rural underserved population.",
+    requirements: [
+      "CNM credential and current California NP license required",
+      "Hospital credentialing or clinical relationship with St. Joseph Hospital Eureka preferred",
+      "NHSC loan repayment eligible — CNMs qualify at HPSA-designated Open Door sites",
+      "Rural or FQHC CNM experience strongly preferred"
+    ]
+  },
+  {
+    id: "open-door-009",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "General Dentist",
+    roleType: "Dentist",
+    department: "Dental",
+    salaryMin: 155000,
+    salaryMax: 200000,
+    type: "Full-time",
+    location: "Crescent City",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["340B", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Provide comprehensive dental care at Open Door's Del Norte County dental clinic, serving a rural underserved population with high need for restorative, preventive, and emergency dental services.",
+    requirements: [
+      "DDS or DMD with current California dental license",
+      "Denti-Cal provider enrollment and prior authorization experience preferred",
+      "NHSC loan repayment eligible — dental HPSAs qualify at Del Norte County sites",
+      "Experience with rural or safety-net dental programs strongly valued"
+    ]
+  },
+  {
+    id: "open-door-010",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "Mobile General Dentist – Outreach Van",
+    roleType: "Dentist",
+    department: "Dental",
+    salaryMin: 160000,
+    salaryMax: 210000,
+    type: "Full-time",
+    location: "Eureka",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["340B", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Deliver dental care aboard Open Door's mobile outreach van serving remote tribal, agricultural, and homeless populations across Humboldt and Trinity counties — a unique mission-driven rural mobile dentistry role.",
+    requirements: [
+      "DDS or DMD with current California dental license",
+      "Comfort working in non-traditional settings including mobile unit and temporary facilities",
+      "Denti-Cal and tribal health experience preferred; cultural humility required",
+      "Valid California driver's license; CDL a plus for van operation"
+    ]
+  },
+  {
+    id: "open-door-011",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "EHR Site Specialist",
+    roleType: "Administrative",
+    department: "Health Informatics",
+    salaryMin: 58000,
+    salaryMax: 78000,
+    type: "Full-time",
+    location: "Eureka",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Serve as the on-site OCHIN Epic expert for Open Door's North Coast clinics, providing end-user training, workflow optimization, and first-line EHR troubleshooting across 10+ rural sites.",
+    requirements: [
+      "2+ years of Epic EHR experience required; OCHIN Epic preferred",
+      "Epic certification (any module) preferred; OCHIN certification a strong plus",
+      "Strong communication skills for training clinical and administrative staff",
+      "Ability to travel between Open Door's Humboldt, Del Norte, and Trinity County sites"
+    ]
+  },
+  {
+    id: "open-door-012",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "Coding Manager",
+    roleType: "Revenue Cycle Specialist",
+    department: "Revenue Cycle",
+    salaryMin: 80000,
+    salaryMax: 105000,
+    type: "Full-time",
+    location: "Arcata",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["340B", "CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Lead Open Door's medical coding team, ensuring accurate ICD-10/CPT coding across primary care, dental, and behavioral health encounters to maximize PPS reimbursement and minimize audit risk.",
+    requirements: [
+      "CPC, CCS, or RHIA credential required",
+      "3+ years of medical coding management in FQHC, hospital, or large clinic setting",
+      "Deep knowledge of FQHC PPS coding requirements (qualifying visits, sliding-fee, bundled services)",
+      "Experience with OCHIN Epic coding workflows strongly preferred"
+    ]
+  },
+  {
+    id: "open-door-013",
+    fqhcSlug: "open-door-community-health-centers",
+    title: "Biller I",
+    roleType: "Revenue Cycle Specialist",
+    department: "Revenue Cycle",
+    salaryMin: 46000,
+    salaryMax: 58000,
+    type: "Full-time",
+    location: "Arcata",
+    bilingual: false,
+    ehrSystem: "OCHIN Epic",
+    programs: ["CalAIM"],
+    postedDate: "2026-03-07",
+    description: "Process Medi-Cal, Medicare, and commercial insurance claims for Open Door's primary care, dental, and behavioral health encounters, ensuring accurate FQHC PPS billing and timely claims submission.",
+    requirements: [
+      "High school diploma or equivalent; billing or medical office certificate preferred",
+      "1+ years of medical billing experience; Medi-Cal billing preferred",
+      "Familiarity with FQHC PPS billing rules or willingness to learn",
+      "OCHIN Epic billing module experience a plus; training provided"
+    ]
   }
 ];
 
