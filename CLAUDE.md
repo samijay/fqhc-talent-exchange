@@ -148,7 +148,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 | File | Size | Contents |
 |------|------|----------|
 | `src/lib/california-fqhcs.ts` | ~230KB | 220 FQHCs (90 curated + 131 HRSA-imported): slug, stats, programs, EHR, Glassdoor, salary ranges, funding vulnerability, union info, quality scores, violations, labor history |
-| `src/lib/fqhc-job-listings.ts` | 125KB | 156 job listings: salary, role, region, department, EHR, programs, language requirements |
+| `src/lib/fqhc-job-listings.ts` | ~600KB | 601 job listings across 30+ FQHCs: salary, role, region, department, EHR, programs, language requirements, NHSC eligibility |
 | `src/lib/funding-impact-data.ts` | 123KB | Policy timeline, impact stats, program impacts, revenue model, legislation sources, revenue strategies, enrollment strategies, implementation milestones |
 | `src/lib/california-fqhc-layoffs.ts` | 19KB | 11 layoff entries with WARN Act data, 2,300+ workers affected |
 | `src/lib/job-posting-templates.ts` | 38KB | 30 salary benchmarks (p25/p50/p75), posting templates, screening questions |
@@ -237,7 +237,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 ### Nav Structure
 | Menu | Label (EN) | Route | Purpose |
 |------|------------|-------|---------|
-| Direct | Jobs | /jobs | Browse 177+ job listings |
+| Direct | Jobs | /jobs | Browse 600+ job listings |
 | Direct | Directory | /directory | 220 FQHC directory with map |
 | **Strategy** ▾ | Executive Guides | /strategy/guides | 6 real case studies with Rumelt framework |
 | | OKR Templates | /strategy/okrs | 12 crisis change management templates |
@@ -291,7 +291,7 @@ Founder of FQHC Talent Exchange — a job marketplace connecting community healt
 - **Just shipped:** FQHC data enrichment sprint (30+ FQHCs enriched with Glassdoor, programs, EHR, missions, patient/staff counts), regional news scanning system, SF crisis intel, locum tenens page, clinic simulator, mega menu
 - **Building next:** Enrich remaining ~95 HRSA FQHCs, first GTM outreach emails, user auth + employer dashboard
 - **GTM status:** Ready for outbound. Offboarding intake form is live — HR directors can submit transition requests. Strategic reports link to Calendly + intake form. Locum coverage page live for provider/FQHC signups.
-- **Data:** 177 job listings, 219 FQHCs (90 curated + 34 hrsa-enriched + ~95 hrsa-import remaining), 20 layoff entries (3,477+ workers), 611 live API-scrapeable jobs, 67 intel items, 22 case studies, 17 AI tracker items, 12 OKR templates, 18 masterclass modules, 20 certifications, 13 guides, 200+ bibliography resources, 15 blog posts
+- **Data:** 601 job listings (30+ FQHCs, 6 batches added 2026-03-07), 219 FQHCs (90 curated + 34 hrsa-enriched + ~95 hrsa-import remaining), 20 layoff entries (3,477+ workers), 611 live API-scrapeable jobs, 67 intel items, 22 case studies, 17 AI tracker items, 12 OKR templates, 18 masterclass modules, 20 certifications, 13 guides, 200+ bibliography resources, 15 blog posts
 - **Pipeline:** 6 slash commands: `/daily-update` (now with regional scan step 3.8), `/scan-policy`, `/intel-brief`, `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
 - **Email:** `hello@fqhctalent.com` receiving via Cloudflare Email Routing (verified). Resend domain verification pending for sending.
 - **Domains:** fqhctalent.com (primary, live on Vercel) + healthcaretalent.org (GA4 cross-domain tracking)
