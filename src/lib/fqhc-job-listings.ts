@@ -20,6 +20,8 @@ export interface FQHCJobListing {
   requirements: string[]; // 3-4 bullet points
   languageRequired?: string | null;   // e.g., "Spanish" — language required for the role
   languagePreferred?: string[] | null; // e.g., ["Spanish", "Vietnamese"] — preferred languages
+  featured?: boolean;                  // show "Hot Job" banner — editorial highlight
+  featuredNote?: string;               // optional short note for the hot job banner
 }
 
 export const fqhcJobListings: FQHCJobListing[] = [
@@ -2809,7 +2811,9 @@ export const fqhcJobListings: FQHCJobListing[] = [
       "Bilingual Spanish/English required for this predominantly Spanish-speaking patient community",
       "Experience with Denti-Cal billing and prior authorization processes",
       "Knowledge of OSHA, HIPAA, and California dental regulatory requirements"
-    ]
+    ],
+    featured: true,
+    featuredNote: "Hot Job · Mission Neighborhood Health Center · San Francisco's Mission District",
   },
   {
     id: "mnhc-009",

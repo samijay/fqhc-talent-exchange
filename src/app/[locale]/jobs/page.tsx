@@ -25,6 +25,7 @@ import {
   Lightbulb,
   Users,
   Globe,
+  Heart,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { fqhcJobListings, type FQHCJobListing } from "@/lib/fqhc-job-listings";
@@ -472,6 +473,8 @@ export default function JobsPage() {
   const [languageFilter, setLanguageFilter] = useState("all");
   const [sortField, setSortField] = useState<SortField>("relevance");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
+  const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
 
   const handleColumnSort = useCallback((field: SortField) => {
     if (sortField === field) {
@@ -499,6 +502,27 @@ export default function JobsPage() {
       setLoading(false);
     }
     fetchJobs();
+  }, []);
+
+  // Load/persist favorites from localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("fqhc-job-favorites");
+      if (saved) setFavorites(new Set(JSON.parse(saved)));
+    } catch {}
+  }, []);
+
+  const toggleFavorite = useCallback((id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setFavorites((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      try {
+        localStorage.setItem("fqhc-job-favorites", JSON.stringify([...next]));
+      } catch {}
+      return next;
+    });
   }, []);
 
   // Filter + sort
@@ -560,6 +584,11 @@ export default function JobsPage() {
       }
     }
 
+    // Saved / Favorites
+    if (showFavoritesOnly) {
+      list = list.filter((j) => favorites.has(j.id));
+    }
+
     // Sort
     const sorted = [...list];
     const dir = sortDir === "asc" ? 1 : -1;
@@ -593,7 +622,7 @@ export default function JobsPage() {
     }
 
     return sorted;
-  }, [search, roleFilter, regionFilter, salaryFilter, unionFilter, orgFilter, languageFilter, sortField, sortDir]);
+  }, [search, roleFilter, regionFilter, salaryFilter, unionFilter, orgFilter, languageFilter, sortField, sortDir, showFavoritesOnly, favorites]);
 
   // Active filter count
   const activeFilterCount = [
@@ -603,6 +632,7 @@ export default function JobsPage() {
     unionFilter !== "all",
     orgFilter !== "all",
     languageFilter !== "all",
+    showFavoritesOnly,
   ].filter(Boolean).length;
 
   const clearFilters = useCallback(() => {
@@ -613,6 +643,7 @@ export default function JobsPage() {
     setUnionFilter("all");
     setOrgFilter("all");
     setLanguageFilter("all");
+    setShowFavoritesOnly(false);
   }, []);
 
   const toggleCompare = useCallback((id: string) => {
@@ -681,8 +712,8 @@ export default function JobsPage() {
                 setSortDir(f === "salary" || f === "market" ? "desc" : "asc");
               }}
             >
-              <SelectTrigger className="h-10 w-44 text-xs hidden sm:flex">
-                <ArrowUpDown className="size-3.5 mr-1 text-stone-400" />
+              <SelectTrigger className="h-10 w-32 sm:w-44 text-xs flex">
+                <ArrowUpDown className="size-3.5 mr-1 text-stone-400 shrink-0" />
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -811,6 +842,24 @@ export default function JobsPage() {
               </SelectContent>
             </Select>
 
+            {/* Saved Jobs toggle */}
+            <button
+              onClick={() => setShowFavoritesOnly((v) => !v)}
+              className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition-colors ${
+                showFavoritesOnly
+                  ? "border-amber-400 bg-amber-50 text-amber-700"
+                  : "border-stone-200 bg-white text-stone-500 hover:bg-stone-50"
+              }`}
+            >
+              <Heart className={`size-3 ${showFavoritesOnly ? "fill-amber-500 text-amber-500" : ""}`} />
+              {isEs ? "Guardados" : "Saved"}
+              {favorites.size > 0 && (
+                <span className={`rounded-full px-1 text-[10px] font-semibold ${showFavoritesOnly ? "bg-amber-200 text-amber-800" : "bg-stone-200 text-stone-600"}`}>
+                  {favorites.size}
+                </span>
+              )}
+            </button>
+
             {/* Clear filters */}
             {activeFilterCount > 0 && (
               <button
@@ -862,18 +911,20 @@ export default function JobsPage() {
 
       {/* ---------- Assessment CTA Banner ---------- */}
       <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-3 rounded-lg border border-teal-200 bg-teal-50 px-4 py-2.5 text-sm text-teal-800">
-          <Lightbulb className="size-4 shrink-0 text-teal-600" />
-          <span>
-            {isEs
-              ? "¿No sabes qué rol te queda mejor?"
-              : "Not sure which role fits you best?"}
-          </span>
+        <div className="flex flex-col gap-2 rounded-lg border border-teal-200 bg-teal-50 px-4 py-3 text-sm text-teal-800 sm:flex-row sm:items-center sm:py-2.5">
+          <div className="flex items-center gap-2">
+            <Lightbulb className="size-4 shrink-0 text-teal-600" />
+            <span>
+              {isEs
+                ? "¿No sabes qué rol te queda mejor?"
+                : "Not sure which role fits you best?"}
+            </span>
+          </div>
           <Link
             href="/career-insights"
-            className="ml-auto flex items-center gap-1 font-semibold text-teal-700 hover:text-teal-900 whitespace-nowrap"
+            className="flex items-center gap-1 font-semibold text-teal-700 hover:text-teal-900 sm:ml-auto"
           >
-            {isEs ? "Toma nuestra evaluación profesional (gratis)" : "Take our 5-domain Career Assessment (free)"}
+            {isEs ? "Evaluación profesional gratuita" : "Free Career Assessment"}
             <ArrowRight className="size-3.5" />
           </Link>
         </div>
@@ -930,17 +981,29 @@ export default function JobsPage() {
             {filteredJobs.map((job) => {
               const isExpanded = expandedId === job.id;
               const isSelected = compareIds.has(job.id);
+              const isFavorited = favorites.has(job.id);
               const bl = getBenchmarkLabel(job.negotiation.benchmarkPosition, locale);
 
               return (
                 <div key={job.id} className={`border-b border-stone-100 last:border-b-0 ${isSelected ? "bg-teal-50/50" : ""}`}>
+                  {/* Hot Job banner */}
+                  {job.featured && (
+                    <div className="flex items-center gap-2 border-b border-amber-100 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-1.5">
+                      <span className="text-sm">🔥</span>
+                      <span className="text-[11px] font-semibold text-amber-800">Hot Job</span>
+                      <span className="text-[11px] text-amber-700">·</span>
+                      <span className="text-[11px] text-amber-700">
+                        {job.featuredNote ?? "Great employer — don't miss this one"}
+                      </span>
+                    </div>
+                  )}
                   {/* Main row */}
                   <div
                     className="grid grid-cols-1 sm:grid-cols-[1fr_180px_130px_100px_80px_90px] gap-2 px-4 py-3 items-center cursor-pointer hover:bg-stone-50 transition-colors"
                     onClick={() => setExpandedId(isExpanded ? null : job.id)}
                   >
                     {/* Position */}
-                    <div className="flex items-start gap-3">
+                    <div className="flex items-start gap-2">
                       <input
                         type="checkbox"
                         checked={isSelected}
@@ -951,9 +1014,27 @@ export default function JobsPage() {
                         onClick={(e) => e.stopPropagation()}
                         className="mt-1 shrink-0 accent-teal-700"
                       />
-                      <div className="min-w-0">
-                        <p className="text-sm font-semibold text-stone-900 truncate">{job.title}</p>
-                        <div className="flex items-center gap-2 text-xs text-stone-500">
+                      {/* Favorite button */}
+                      <button
+                        onClick={(e) => toggleFavorite(job.id, e)}
+                        className="mt-0.5 shrink-0"
+                        title={isFavorited ? (isEs ? "Eliminar de guardados" : "Remove from saved") : (isEs ? "Guardar" : "Save job")}
+                      >
+                        <Heart className={`size-4 transition-colors ${isFavorited ? "fill-amber-500 text-amber-500" : "text-stone-300 hover:text-amber-400"}`} />
+                      </button>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5">
+                          <p className="text-sm font-semibold text-stone-900 truncate flex-1">{job.title}</p>
+                          {/* Mobile-only expand indicator */}
+                          <div className="sm:hidden shrink-0">
+                            {isExpanded ? (
+                              <ChevronUp className="size-4 text-stone-400" />
+                            ) : (
+                              <ChevronDown className="size-4 text-stone-400" />
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-stone-500 flex-wrap">
                           <span className="flex items-center gap-1">
                             <Building2 className="size-3" />
                             {job.orgName}
@@ -963,11 +1044,12 @@ export default function JobsPage() {
                             {job.location}
                           </span>
                         </div>
-                        {/* Mobile-only salary */}
-                        <div className="sm:hidden mt-1 flex flex-wrap gap-1.5">
+                        {/* Mobile-only salary + type + union */}
+                        <div className="sm:hidden mt-1 flex flex-wrap gap-1.5 items-center">
                           <span className="text-xs font-medium text-teal-800">
                             {formatSalary(job.salaryMin, job.salaryMax)}
                           </span>
+                          <Badge className="bg-stone-100 text-stone-500 text-[10px]">{job.type}</Badge>
                           {job.negotiation.isUnion && (
                             <Badge className="bg-purple-100 text-purple-700 text-[10px]">
                               {job.negotiation.unionName || "Union"}
@@ -1015,7 +1097,7 @@ export default function JobsPage() {
                       <span className="text-xs text-stone-600">{job.type}</span>
                     </div>
 
-                    {/* Expand arrow */}
+                    {/* Expand arrow (desktop) */}
                     <div className="hidden sm:flex justify-end">
                       {isExpanded ? (
                         <ChevronUp className="size-4 text-stone-400" />
@@ -1123,6 +1205,7 @@ export default function JobsPage() {
             {filteredJobs.map((job) => {
               const bl = getBenchmarkLabel(job.negotiation.benchmarkPosition, locale);
               const isSelected = compareIds.has(job.id);
+              const isFavorited = favorites.has(job.id);
 
               return (
                 <div
@@ -1131,8 +1214,16 @@ export default function JobsPage() {
                     isSelected ? "border-teal-400 ring-1 ring-teal-200" : "border-stone-200"
                   }`}
                 >
+                  {/* Hot Job banner for grid cards */}
+                  {job.featured && (
+                    <div className="-mx-5 -mt-5 mb-4 flex items-center gap-1.5 rounded-t-2xl border-b border-amber-100 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-2">
+                      <span className="text-xs">🔥</span>
+                      <span className="text-[11px] font-semibold text-amber-800">Hot Job</span>
+                      <span className="text-[11px] text-amber-600">· Great SF Employer</span>
+                    </div>
+                  )}
                   <div>
-                    {/* Top row: compare checkbox + badges */}
+                    {/* Top row: badges + favorite + compare */}
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex gap-1.5 flex-wrap">
                         {job.negotiation.isUnion && (
@@ -1142,12 +1233,23 @@ export default function JobsPage() {
                         )}
                         <Badge className={`text-[10px] ${bl.color}`}>{bl.label}</Badge>
                       </div>
-                      <input
-                        type="checkbox"
-                        checked={isSelected}
-                        onChange={() => toggleCompare(job.id)}
-                        className="shrink-0 accent-teal-700"
-                      />
+                      <div className="flex items-center gap-2">
+                        {/* Favorite */}
+                        <button
+                          onClick={(e) => toggleFavorite(job.id, e)}
+                          title={isFavorited ? (isEs ? "Eliminar de guardados" : "Remove from saved") : (isEs ? "Guardar" : "Save job")}
+                        >
+                          <Heart className={`size-4 transition-colors ${isFavorited ? "fill-amber-500 text-amber-500" : "text-stone-300 hover:text-amber-400"}`} />
+                        </button>
+                        {/* Compare */}
+                        <input
+                          type="checkbox"
+                          checked={isSelected}
+                          onChange={() => toggleCompare(job.id)}
+                          className="shrink-0 accent-teal-700"
+                          title={isEs ? "Comparar" : "Compare"}
+                        />
+                      </div>
                     </div>
 
                     <h3 className="text-sm font-semibold text-stone-900">{job.title}</h3>
