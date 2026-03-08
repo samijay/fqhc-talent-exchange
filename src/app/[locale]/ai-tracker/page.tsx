@@ -29,6 +29,8 @@ import {
   AI_CATEGORIES,
   AI_TRACKER_LAST_UPDATED,
   ADOPTION_STAGES,
+  FQHC_AI_VENDORS,
+  VENDOR_CATEGORY_LABELS,
   getAIItems,
   getAICounts,
   getAdoptionStageCounts,
@@ -36,6 +38,8 @@ import {
   type AICategory,
   type AdoptionStage,
   type AIAdoptionItem,
+  type AIVendor,
+  type VendorCategory,
 } from "@/lib/fqhc-ai-tracker";
 import {
   getIntelItems,
@@ -90,6 +94,196 @@ function monthLabel(key: string, locale: string): string {
     month: "long",
     year: "numeric",
   });
+}
+
+/* ------------------------------------------------------------------ */
+/*  Vendor Comparison Components                                        */
+/* ------------------------------------------------------------------ */
+
+function EHRDot({ level }: { level: "native" | "api" | "partial" | "none" }) {
+  if (level === "native")
+    return (
+      <span
+        className="inline-block size-2.5 rounded-full bg-teal-500 shrink-0"
+        title="Native integration"
+      />
+    );
+  if (level === "api")
+    return (
+      <span
+        className="inline-block size-2.5 rounded-full bg-amber-400 shrink-0"
+        title="API integration"
+      />
+    );
+  if (level === "partial")
+    return (
+      <span
+        className="inline-block size-2.5 rounded-full bg-stone-300 shrink-0"
+        title="Partial integration"
+      />
+    );
+  return (
+    <span
+      className="inline-block size-2.5 rounded-full border border-stone-300 bg-white shrink-0"
+      title="No integration"
+    />
+  );
+}
+
+function VendorCard({
+  vendor,
+  locale,
+  isEs,
+}: {
+  vendor: AIVendor;
+  locale: string;
+  isEs: boolean;
+}) {
+  const fitColors = {
+    high: "bg-teal-100 text-teal-800",
+    moderate: "bg-amber-100 text-amber-800",
+    low: "bg-red-100 text-red-800",
+  };
+  const fitLabels = {
+    high: { en: "High Fit", es: "Alta" },
+    moderate: { en: "Mod. Fit", es: "Moderada" },
+    low: { en: "Low Fit", es: "Baja" },
+  };
+  const pricingLabels: Record<string, { en: string; es: string }> = {
+    subscription: { en: "Subscription", es: "Suscripción" },
+    "per-encounter": { en: "Per Encounter", es: "Por Encuentro" },
+    bundled: { en: "Bundled", es: "Incluido" },
+    "grant-funded": { en: "Grant Funded", es: "Subvención" },
+    unknown: { en: "Varies", es: "Variable" },
+  };
+
+  const majorEHRs = ["eClinicalWorks", "OCHIN Epic", "athenahealth", "NextGen"];
+  const ehrMap = Object.fromEntries(
+    vendor.ehrIntegrations.map((e) => [e.ehr, e.level])
+  );
+  const ehrShort: Record<string, string> = {
+    eClinicalWorks: "eCW",
+    "OCHIN Epic": "OCHIN Epic",
+    athenahealth: "Athena",
+    NextGen: "NextGen",
+  };
+
+  return (
+    <div className="rounded-xl border border-stone-200 bg-white p-4 flex flex-col gap-3 hover:shadow-sm transition-shadow">
+      {/* Header */}
+      <div>
+        <div className="flex items-start justify-between gap-2 mb-1">
+          <h3 className="text-sm font-bold text-stone-900 leading-snug">
+            {vendor.name}
+          </h3>
+          <span
+            className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${fitColors[vendor.fqhcFit]}`}
+          >
+            {isEs ? fitLabels[vendor.fqhcFit].es : fitLabels[vendor.fqhcFit].en}
+          </span>
+        </div>
+        <p className="text-[11px] text-stone-500 leading-snug">
+          {isEs ? vendor.tagline.es : vendor.tagline.en}
+        </p>
+      </div>
+
+      {/* EHR compatibility */}
+      <div>
+        <p className="text-[10px] font-semibold text-stone-400 uppercase mb-1.5">
+          {isEs ? "Compatibilidad EHR" : "EHR Compatibility"}
+        </p>
+        <div className="grid grid-cols-2 gap-y-1 gap-x-2">
+          {majorEHRs.map((ehr) => {
+            const level = (ehrMap[ehr] as "native" | "api" | "partial" | "none") ?? "none";
+            return (
+              <div key={ehr} className="flex items-center gap-1.5">
+                <EHRDot level={level} />
+                <span className="text-[10px] text-stone-600">{ehrShort[ehr]}</span>
+              </div>
+            );
+          })}
+        </div>
+        <div className="mt-1.5 flex items-center gap-3">
+          <div className="flex items-center gap-1">
+            <span className="inline-block size-2 rounded-full bg-teal-500" />
+            <span className="text-[9px] text-stone-400">{isEs ? "Nativo" : "Native"}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <span className="inline-block size-2 rounded-full bg-amber-400" />
+            <span className="text-[9px] text-stone-400">API</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <span className="inline-block size-2 rounded-full border border-stone-300 bg-white" />
+            <span className="text-[9px] text-stone-400">{isEs ? "Ninguno" : "None"}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Key features */}
+      <div>
+        <p className="text-[10px] font-semibold text-stone-400 uppercase mb-1">
+          {isEs ? "Características Clave" : "Key Features"}
+        </p>
+        <ul className="space-y-0.5">
+          {vendor.keyFeatures.slice(0, 2).map((f, i) => (
+            <li
+              key={i}
+              className="text-[11px] text-stone-600 leading-snug flex gap-1"
+            >
+              <span className="text-teal-500 shrink-0">•</span>
+              <span>{isEs ? f.es : f.en}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* FQHC customers (if any) */}
+      {vendor.fqhcCustomers.length > 0 && (
+        <div>
+          <p className="text-[10px] font-semibold text-stone-400 uppercase mb-1">
+            {isEs ? "Clientes FQHC" : "FQHC Customers"}
+          </p>
+          <p className="text-[10px] text-stone-600 leading-snug">
+            {vendor.fqhcCustomers.slice(0, 2).join(" · ")}
+            {vendor.fqhcCustomers.length > 2 && (
+              <span className="text-stone-400">
+                {" "}+{vendor.fqhcCustomers.length - 2} {isEs ? "más" : "more"}
+              </span>
+            )}
+          </p>
+        </div>
+      )}
+
+      {/* Footer: pricing + badges */}
+      <div className="mt-auto pt-2 border-t border-stone-100 flex items-center justify-between gap-2 flex-wrap">
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="text-[10px] px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 font-medium">
+            {isEs
+              ? pricingLabels[vendor.pricingModel]?.es
+              : pricingLabels[vendor.pricingModel]?.en}
+          </span>
+          {vendor.nachcEndorsed && (
+            <span className="text-[10px] px-1.5 py-0.5 rounded bg-teal-50 text-teal-700 font-medium border border-teal-200">
+              NACHC ✓
+            </span>
+          )}
+          {vendor.chaiCertified && (
+            <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium border border-blue-200">
+              CHAI ✓
+            </span>
+          )}
+        </div>
+        <a
+          href={vendor.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[10px] text-teal-600 hover:text-teal-800 hover:underline transition-colors"
+        >
+          {isEs ? "Fuente →" : "Source →"}
+        </a>
+      </div>
+    </div>
+  );
 }
 
 /* ------------------------------------------------------------------ */
@@ -258,6 +452,7 @@ export default function AITrackerPage() {
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
   const [activeCategory, setActiveCategory] = useState<AICategory | "all">("all");
   const [activeStage, setActiveStage] = useState<AdoptionStage | "all">("all");
+  const [vendorCategory, setVendorCategory] = useState<VendorCategory | "all">("all");
 
   const toggle = (id: string) => {
     setExpandedIds((prev) => {
@@ -292,6 +487,12 @@ export default function AITrackerPage() {
 
   // Top 3 most recent items for trending ticker
   const trendingItems = getAIItems().slice(0, 3);
+
+  // Vendor comparison data
+  const filteredVendors =
+    vendorCategory === "all"
+      ? FQHC_AI_VENDORS
+      : FQHC_AI_VENDORS.filter((v) => v.category === vendorCategory);
 
   // Related resources
   const aiMasterclass = MASTERCLASSES.find(
@@ -721,6 +922,98 @@ export default function AITrackerPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ============ Vendor Comparison Section ============ */}
+      <section className="border-t border-stone-200 bg-stone-50 py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <Cpu className="size-5 text-teal-600" />
+                <h2 className="text-xl font-bold text-stone-900">
+                  {isEs ? "Comparación de Proveedores de IA" : "AI Vendor Comparison"}
+                </h2>
+              </div>
+              <p className="text-sm text-stone-500">
+                {isEs
+                  ? "8 herramientas evaluadas para idoneidad con FQHCs — compatibilidad de EHR, precios y resultados documentados."
+                  : "8 tools evaluated for FQHC fit — EHR compatibility, pricing, and documented community health results."}
+              </p>
+            </div>
+            <div className="shrink-0 text-right">
+              <div className="flex items-center gap-3 text-[11px] text-stone-500">
+                <div className="flex items-center gap-1">
+                  <span className="inline-block size-2.5 rounded-full bg-teal-500" />
+                  <span>{isEs ? "Nativo" : "Native"}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span className="inline-block size-2.5 rounded-full bg-amber-400" />
+                  <span>API</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span className="inline-block size-2.5 rounded-full border border-stone-300 bg-white" />
+                  <span>{isEs ? "Ninguno" : "None"}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Category filter pills */}
+          <div className="flex flex-wrap gap-1.5 mb-8 mt-4">
+            <button
+              onClick={() => setVendorCategory("all")}
+              className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                vendorCategory === "all"
+                  ? "bg-stone-800 text-white"
+                  : "bg-white text-stone-500 hover:bg-stone-100 border border-stone-200"
+              }`}
+            >
+              {isEs ? "Todos" : "All"} ({FQHC_AI_VENDORS.length})
+            </button>
+            {(Object.entries(VENDOR_CATEGORY_LABELS) as [VendorCategory, typeof VENDOR_CATEGORY_LABELS[VendorCategory]][]).map(
+              ([key, label]) => {
+                const count = FQHC_AI_VENDORS.filter(
+                  (v) => v.category === key
+                ).length;
+                return (
+                  <button
+                    key={key}
+                    onClick={() => setVendorCategory(key)}
+                    className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                      vendorCategory === key
+                        ? "bg-stone-800 text-white"
+                        : "bg-white text-stone-500 hover:bg-stone-100 border border-stone-200"
+                    }`}
+                  >
+                    {label.icon} {isEs ? label.es : label.en} ({count})
+                  </button>
+                );
+              }
+            )}
+          </div>
+
+          {/* Vendor grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {filteredVendors.map((vendor) => (
+              <VendorCard
+                key={vendor.id}
+                vendor={vendor}
+                locale={locale}
+                isEs={isEs}
+              />
+            ))}
+          </div>
+
+          {filteredVendors.length === 0 && (
+            <div className="text-center py-12 text-stone-500 text-sm">
+              {isEs
+                ? "No hay proveedores que coincidan con este filtro."
+                : "No vendors match this filter."}
+            </div>
+          )}
         </div>
       </section>
 

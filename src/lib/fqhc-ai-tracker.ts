@@ -598,6 +598,427 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
 /* ------------------------------------------------------------------ */
 /*  Helper functions                                                    */
 /* ------------------------------------------------------------------ */
+/*  AI Vendor Comparison                                               */
+/* ------------------------------------------------------------------ */
+
+export type VendorCategory =
+  | "ambient-documentation"
+  | "revenue-cycle"
+  | "care-coordination"
+  | "population-health"
+  | "patient-engagement"
+  | "ehr-native";
+
+export interface EHRIntegration {
+  ehr: string;
+  level: "native" | "api" | "partial" | "none";
+}
+
+export interface AIVendor {
+  id: string;
+  name: string;
+  tagline: { en: string; es: string };
+  category: VendorCategory;
+  description: { en: string; es: string };
+  pricingModel: "subscription" | "per-encounter" | "bundled" | "grant-funded" | "unknown";
+  pricingNote: { en: string; es: string } | null;
+  ehrIntegrations: EHRIntegration[];
+  fqhcCustomers: string[];  // named FQHC customers (public)
+  nachcEndorsed: boolean;
+  chaiCertified: boolean;
+  nhscSiteEligible: boolean;  // whether NHSC loan repayment sites can use it
+  keyFeatures: { en: string; es: string }[];
+  knownLimitations: { en: string; es: string }[];
+  sourceUrl: string;
+  sourceOrg: string;
+  lastVerified: string;  // ISO date
+  fqhcFit: "high" | "moderate" | "low";  // our editorial assessment
+  fqhcFitReason: { en: string; es: string };
+}
+
+export const FQHC_AI_VENDORS: AIVendor[] = [
+  {
+    id: "sunoh-eclinicalworks",
+    name: "Sunoh.ai (eClinicalWorks)",
+    tagline: {
+      en: "Ambient AI documentation integrated with eClinicalWorks EHR",
+      es: "Documentación ambiental de IA integrada con EHR eClinicalWorks",
+    },
+    category: "ambient-documentation",
+    description: {
+      en: "Sunoh.ai is eClinicalWorks' embedded ambient AI scribe. It listens to patient-provider conversations and auto-generates SOAP notes directly in the eCW EHR. Named FQHC results: Sun River Health providers completed notes on 26 patients within 30 minutes. AltaMed deployed across 600+ providers. Sacramento Native American Health Center achieved 43% reduction in after-hours charting.",
+      es: "Sunoh.ai es el escriba ambiental de IA integrado de eClinicalWorks. Escucha conversaciones entre paciente y proveedor y genera automáticamente notas SOAP directamente en el EHR de eCW.",
+    },
+    pricingModel: "bundled",
+    pricingNote: {
+      en: "Included in NACHC Select (discounted eClinicalWorks bundle for NACHC member CHCs). Pricing varies by site count.",
+      es: "Incluido en NACHC Select (paquete de eClinicalWorks con descuento para CHCs miembros de NACHC).",
+    },
+    ehrIntegrations: [
+      { ehr: "eClinicalWorks", level: "native" },
+      { ehr: "OCHIN Epic", level: "none" },
+      { ehr: "athenahealth", level: "none" },
+      { ehr: "NextGen", level: "none" },
+    ],
+    fqhcCustomers: ["Sun River Health", "AltaMed", "Sacramento Native American Health Center"],
+    nachcEndorsed: true,
+    chaiCertified: false,
+    nhscSiteEligible: false,
+    keyFeatures: [
+      { en: "Native eCW integration — no copy-paste workflow", es: "Integración nativa con eCW — sin flujo de copiar y pegar" },
+      { en: "SOAP note auto-generation from ambient conversation", es: "Generación automática de notas SOAP desde conversación ambiental" },
+      { en: "Multi-language support (Spanish available)", es: "Soporte multilingüe (español disponible)" },
+      { en: "Bundled in NACHC Select for cost access", es: "Incluido en NACHC Select para acceso a costos" },
+    ],
+    knownLimitations: [
+      { en: "eClinicalWorks-only — no value for Epic/OCHIN shops", es: "Solo eClinicalWorks — sin valor para sitios con Epic/OCHIN" },
+      { en: "Documentation quality varies by provider speaking style", es: "La calidad de la documentación varía según el estilo de habla del proveedor" },
+    ],
+    sourceUrl: "https://www.nachc.org/nachc-and-eclinicalworks-partner-to-advance-health-it-and-ai-innovations-at-community-health-centers/",
+    sourceOrg: "NACHC",
+    lastVerified: "2026-03-07",
+    fqhcFit: "high",
+    fqhcFitReason: {
+      en: "Best fit for the ~40% of FQHCs using eClinicalWorks. NACHC endorsement + NACHC Select bundled pricing makes it the most accessible ambient AI for safety-net sites.",
+      es: "La mejor opción para el ~40% de los FQHCs que usan eClinicalWorks. El respaldo de NACHC + precios en paquete de NACHC Select lo convierte en el AI ambiental más accesible para sitios de red de seguridad.",
+    },
+  },
+  {
+    id: "abridge",
+    name: "Abridge",
+    tagline: {
+      en: "Best in KLAS 2026 ambient AI scribe — works with Epic and OCHIN",
+      es: "Mejor en KLAS 2026 para escriba ambiental de IA — funciona con Epic y OCHIN",
+    },
+    category: "ambient-documentation",
+    description: {
+      en: "Abridge is an enterprise ambient AI documentation platform that earned Best in KLAS 2026 for Ambient Clinical Voice. Published results: burnout reduction from 51.9% to 38.8% at UCSF, after-hours charting cut by 26%. Integrated with Epic (native) and expanding to OCHIN. Academic medical center and FQHC adoption accelerating in 2025-2026.",
+      es: "Abridge es una plataforma de documentación de IA ambiental empresarial que ganó Best in KLAS 2026 para Voz Clínica Ambiental. Resultados publicados: reducción del agotamiento del 51.9% al 38.8% en UCSF.",
+    },
+    pricingModel: "subscription",
+    pricingNote: {
+      en: "Per-provider subscription. Enterprise pricing — typically $3,000–6,000/provider/year. Safety-net discounts available; contact Abridge directly.",
+      es: "Suscripción por proveedor. Precios empresariales — típicamente $3,000–6,000/proveedor/año. Descuentos para red de seguridad disponibles.",
+    },
+    ehrIntegrations: [
+      { ehr: "OCHIN Epic", level: "native" },
+      { ehr: "Epic", level: "native" },
+      { ehr: "eClinicalWorks", level: "none" },
+      { ehr: "athenahealth", level: "partial" },
+    ],
+    fqhcCustomers: ["UCSF Health", "Kaiser Permanente"],
+    nachcEndorsed: false,
+    chaiCertified: false,
+    nhscSiteEligible: false,
+    keyFeatures: [
+      { en: "Best in KLAS 2026 — highest-rated ambient AI in healthcare", es: "Best in KLAS 2026 — IA ambiental mejor calificada en salud" },
+      { en: "Native Epic integration including OCHIN builds", es: "Integración nativa con Epic incluyendo configuraciones de OCHIN" },
+      { en: "Published burnout reduction data (51.9% → 38.8%)", es: "Datos publicados de reducción del agotamiento (51.9% → 38.8%)" },
+      { en: "AI-generated draft notes — provider edits and approves", es: "Notas borrador generadas por IA — el proveedor edita y aprueba" },
+    ],
+    knownLimitations: [
+      { en: "Premium pricing — challenging for budget-constrained FQHCs", es: "Precios premium — desafiante para FQHCs con presupuesto limitado" },
+      { en: "No eClinicalWorks integration (40% of FQHCs)", es: "Sin integración con eClinicalWorks (40% de los FQHCs)" },
+      { en: "Concern about AI-driven upcoding in RVU-based systems (npj Digital Medicine 2026)", es: "Preocupación sobre codificación al alza impulsada por IA en sistemas basados en RVU" },
+    ],
+    sourceUrl: "https://www.klas.com/reports/ambient-clinical-voice-2026-best-in-klas",
+    sourceOrg: "KLAS Research",
+    lastVerified: "2026-03-06",
+    fqhcFit: "moderate",
+    fqhcFitReason: {
+      en: "Excellent for OCHIN Epic FQHCs — the gold standard ambient AI. Cost is the barrier; safety-net pricing available but requires direct negotiation.",
+      es: "Excelente para FQHCs con OCHIN Epic — el estándar de oro para IA ambiental. El costo es la barrera; los precios para red de seguridad están disponibles pero requieren negociación directa.",
+    },
+  },
+  {
+    id: "nabla",
+    name: "Nabla",
+    tagline: {
+      en: "Ambient AI for independent and community health — works across multiple EHRs",
+      es: "IA ambiental para salud independiente y comunitaria — funciona en múltiples EHR",
+    },
+    category: "ambient-documentation",
+    description: {
+      en: "Nabla is a physician-designed ambient AI documentation platform with EHR-agnostic deployment. Proven in FQHCs: Neighborhood Healthcare (San Diego) piloted Nabla with a 4.4/5 provider satisfaction score. Works via web app or mobile — no deep EHR integration required, making it accessible for FQHCs with smaller IT infrastructure.",
+      es: "Nabla es una plataforma de documentación de IA ambiental diseñada por médicos con implementación agnóstica de EHR. Probada en FQHCs: Neighborhood Healthcare (San Diego) pilotó Nabla con una puntuación de satisfacción de proveedores de 4.4/5.",
+    },
+    pricingModel: "subscription",
+    pricingNote: {
+      en: "Per-provider or site-based subscription. More affordable than Abridge; community health pricing available. Starts ~$99/provider/month.",
+      es: "Suscripción por proveedor o sitio. Más asequible que Abridge; precios para salud comunitaria disponibles.",
+    },
+    ehrIntegrations: [
+      { ehr: "OCHIN Epic", level: "api" },
+      { ehr: "eClinicalWorks", level: "api" },
+      { ehr: "athenahealth", level: "api" },
+      { ehr: "NextGen", level: "api" },
+    ],
+    fqhcCustomers: ["Neighborhood Healthcare (San Diego)"],
+    nachcEndorsed: false,
+    chaiCertified: false,
+    nhscSiteEligible: false,
+    keyFeatures: [
+      { en: "EHR-agnostic — works with any EHR including older systems", es: "Agnóstico de EHR — funciona con cualquier EHR incluyendo sistemas más antiguos" },
+      { en: "No complex IT integration required — web/mobile app", es: "No requiere integración de IT compleja — aplicación web/móvil" },
+      { en: "Proven in FQHC setting (Neighborhood Healthcare pilot)", es: "Probado en entorno de FQHC (piloto de Neighborhood Healthcare)" },
+      { en: "Physician-designed workflow", es: "Flujo de trabajo diseñado por médicos" },
+    ],
+    knownLimitations: [
+      { en: "API-based (not native) EHR integration — extra steps to push notes", es: "Integración de EHR basada en API (no nativa) — pasos adicionales para enviar notas" },
+      { en: "Less brand recognition than Abridge or Nuance/DAX", es: "Menos reconocimiento de marca que Abridge o Nuance/DAX" },
+    ],
+    sourceUrl: "https://www.healthcareitnews.com/news/neighborhood-healthcare-pilots-nabla-ambient-ai-4-5-satisfaction-score",
+    sourceOrg: "Healthcare IT News",
+    lastVerified: "2026-03-04",
+    fqhcFit: "high",
+    fqhcFitReason: {
+      en: "Ideal for FQHCs without deep IT resources — EHR-agnostic deployment, FQHC-validated, and affordable relative to enterprise alternatives.",
+      es: "Ideal para FQHCs sin recursos de IT profundos — implementación agnóstica de EHR, validado en FQHC y asequible en relación a alternativas empresariales.",
+    },
+  },
+  {
+    id: "rapidclaims",
+    name: "RapidClaims",
+    tagline: {
+      en: "AI-powered revenue cycle and medical coding for FQHCs",
+      es: "Ciclo de ingresos e codificación médica impulsados por IA para FQHCs",
+    },
+    category: "revenue-cycle",
+    description: {
+      en: "RapidClaims uses AI to automate medical coding and revenue cycle management — particularly relevant for FQHCs whose PPS billing model creates unique coding complexity. Can integrate with major FQHC EHRs. Reduces coder FTE requirements and improves first-pass claim approval rates. Tracked as a high-interest tool in the FQHC sector by NACHC.",
+      es: "RapidClaims usa IA para automatizar la codificación médica y la gestión del ciclo de ingresos — particularmente relevante para FQHCs cuyo modelo de facturación PPS crea una complejidad de codificación única.",
+    },
+    pricingModel: "per-encounter",
+    pricingNote: {
+      en: "Per-encounter pricing — variable cost scales with patient volume. No upfront license fee.",
+      es: "Precios por encuentro — el costo variable escala con el volumen de pacientes. Sin tarifa de licencia inicial.",
+    },
+    ehrIntegrations: [
+      { ehr: "OCHIN Epic", level: "api" },
+      { ehr: "eClinicalWorks", level: "api" },
+      { ehr: "athenahealth", level: "api" },
+      { ehr: "NextGen", level: "api" },
+    ],
+    fqhcCustomers: [],
+    nachcEndorsed: false,
+    chaiCertified: false,
+    nhscSiteEligible: false,
+    keyFeatures: [
+      { en: "Automates ICD-10 and CPT coding from clinical documentation", es: "Automatiza la codificación ICD-10 y CPT desde la documentación clínica" },
+      { en: "PPS encounter coding expertise for FQHC-specific billing", es: "Experiencia en codificación de encuentros PPS para facturación específica de FQHC" },
+      { en: "Reduces coder FTE burden — especially useful during staff cuts", es: "Reduce la carga de FTE de codificadores — especialmente útil durante recortes de personal" },
+      { en: "First-pass claim rate improvement", es: "Mejora de la tasa de aprobación de reclamaciones en primer intento" },
+    ],
+    knownLimitations: [
+      { en: "AI coding carries compliance risk — requires human review process", es: "La codificación de IA conlleva riesgo de cumplimiento — requiere proceso de revisión humana" },
+      { en: "Limited FQHC customer references available publicly", es: "Referencias de clientes de FQHC limitadas disponibles públicamente" },
+    ],
+    sourceUrl: "https://www.nachc.org/resources/ai-tools-for-community-health-centers/",
+    sourceOrg: "NACHC",
+    lastVerified: "2026-03-01",
+    fqhcFit: "moderate",
+    fqhcFitReason: {
+      en: "High-value for FQHCs facing revenue pressure from funding cuts — automating coding during workforce reductions is a direct savings mechanism. Due diligence on compliance process required.",
+      es: "Alto valor para FQHCs que enfrentan presión de ingresos por recortes de financiamiento — automatizar la codificación durante reducciones de personal es un mecanismo de ahorro directo.",
+    },
+  },
+  {
+    id: "akido-scopeai",
+    name: "Akido Labs ScopeAI",
+    tagline: {
+      en: "AI for CHW-led street medicine — CalAIM ECM integrated",
+      es: "IA para medicina callejera liderada por CHW — integrado con CalAIM ECM",
+    },
+    category: "care-coordination",
+    description: {
+      en: "ScopeAI by Akido Labs guides Community Health Workers through comprehensive street medicine visits using AI decision support. Featured on KTVU Fox 2 (Jan 2026). Key results: 92% diagnostic accuracy for CHW-conducted assessments, MAT (medication-assisted treatment for OUD) prescribed within 4 hours of first contact, 40% reduction in ED utilization among enrolled patients. Fully funded by Medi-Cal CalAIM Enhanced Care Management in deployment.",
+      es: "ScopeAI de Akido Labs guía a los Trabajadores de Salud Comunitaria a través de visitas de medicina callejera integrales usando soporte de decisión de IA. Resultados clave: 92% de precisión diagnóstica, MAT prescrito en 4 horas, reducción del 40% en utilización de urgencias.",
+    },
+    pricingModel: "grant-funded",
+    pricingNote: {
+      en: "Funded through CalAIM Enhanced Care Management (ECM) billing — no additional cost to FQHC if CalAIM ECM-certified. Contact Akido Labs for non-ECM pricing.",
+      es: "Financiado a través de la facturación de Gestión de Atención Mejorada (ECM) de CalAIM — sin costo adicional para el FQHC si está certificado como ECM de CalAIM.",
+    },
+    ehrIntegrations: [
+      { ehr: "eClinicalWorks", level: "api" },
+      { ehr: "OCHIN Epic", level: "partial" },
+    ],
+    fqhcCustomers: ["HealthRight 360", "Bay Area community health partners"],
+    nachcEndorsed: false,
+    chaiCertified: false,
+    nhscSiteEligible: false,
+    keyFeatures: [
+      { en: "CHW-facing AI — not provider-facing (unique differentiator)", es: "IA orientada al CHW — no al proveedor (diferenciador único)" },
+      { en: "CalAIM ECM billable — effectively grant-funded for CA FQHCs", es: "Facturable como ECM de CalAIM — efectivamente financiado por subvenciones para FQHCs de CA" },
+      { en: "Street medicine and unsheltered population expertise", es: "Especialización en medicina callejera y población sin hogar" },
+      { en: "92% diagnostic accuracy validated in real-world CHW deployment", es: "92% de precisión diagnóstica validada en implementación real de CHW" },
+    ],
+    knownLimitations: [
+      { en: "California-specific CalAIM funding model — may not apply outside CA", es: "Modelo de financiamiento CalAIM específico de California — puede no aplicar fuera de CA" },
+      { en: "Best suited for FQHCs with active ECM/homeless outreach programs", es: "Más adecuado para FQHCs con programas activos de ECM/extensión a personas sin hogar" },
+    ],
+    sourceUrl: "https://www.ktvu.com/video/fmc-s5kjj7k3h2w09riy",
+    sourceOrg: "KTVU Fox 2",
+    lastVerified: "2026-01-15",
+    fqhcFit: "high",
+    fqhcFitReason: {
+      en: "Uniquely valuable for CA FQHCs with CalAIM ECM programs — effectively free via ECM billing, with proven outcomes for the highest-acuity population.",
+      es: "Únicamente valioso para FQHCs de CA con programas CalAIM ECM — efectivamente gratuito a través de la facturación ECM, con resultados comprobados para la población de mayor agudeza.",
+    },
+  },
+  {
+    id: "healow-ai",
+    name: "healow AI (eClinicalWorks)",
+    tagline: {
+      en: "AI-powered no-show prediction and appointment optimization for eCW sites",
+      es: "Predicción de inasistencia y optimización de citas impulsadas por IA para sitios de eCW",
+    },
+    category: "patient-engagement",
+    description: {
+      en: "healow AI is eClinicalWorks' patient engagement and scheduling intelligence platform. Its no-show prediction algorithm helps FQHC schedulers proactively fill canceled slots, reducing the revenue impact of missed appointments — a critical issue for FQHCs where no-show rates can reach 20-30%. Part of NACHC Select bundle.",
+      es: "healow AI es la plataforma de participación de pacientes e inteligencia de programación de eClinicalWorks. Su algoritmo de predicción de inasistencia ayuda a los programadores de FQHC a llenar proactivamente los espacios cancelados.",
+    },
+    pricingModel: "bundled",
+    pricingNote: {
+      en: "Included in NACHC Select (eClinicalWorks bundle for NACHC member CHCs).",
+      es: "Incluido en NACHC Select (paquete de eClinicalWorks para CHCs miembros de NACHC).",
+    },
+    ehrIntegrations: [
+      { ehr: "eClinicalWorks", level: "native" },
+    ],
+    fqhcCustomers: ["Urban Health Plan (NYC)"],
+    nachcEndorsed: true,
+    chaiCertified: false,
+    nhscSiteEligible: false,
+    keyFeatures: [
+      { en: "No-show prediction — fills slots before they're lost", es: "Predicción de inasistencia — llena espacios antes de que se pierdan" },
+      { en: "Automated patient reminders and confirmations", es: "Recordatorios y confirmaciones automáticas de pacientes" },
+      { en: "Bundled with Sunoh.ai in NACHC Select — single vendor relationship", es: "Incluido con Sunoh.ai en NACHC Select — relación con proveedor único" },
+      { en: "Access optimization reporting for leadership dashboards", es: "Informes de optimización de acceso para paneles de liderazgo" },
+    ],
+    knownLimitations: [
+      { en: "eClinicalWorks-only", es: "Solo eClinicalWorks" },
+      { en: "No-show prediction accuracy varies by population and data history", es: "La precisión de predicción de inasistencia varía según la población y el historial de datos" },
+    ],
+    sourceUrl: "https://www.nachc.org/nachc-and-eclinicalworks-partner-to-advance-health-it-and-ai-innovations-at-community-health-centers/",
+    sourceOrg: "NACHC",
+    lastVerified: "2026-03-07",
+    fqhcFit: "moderate",
+    fqhcFitReason: {
+      en: "High-value for eCW FQHCs — no-show management directly impacts revenue. Access via NACHC Select is cost-efficient. Epic/other EHR sites should look at native scheduling analytics.",
+      es: "Alto valor para FQHCs con eCW — la gestión de inasistencias impacta directamente los ingresos. El acceso a través de NACHC Select es rentable.",
+    },
+  },
+  {
+    id: "elation-ai",
+    name: "Elation Health AI",
+    tagline: {
+      en: "AI-powered clinical intelligence for independent and community primary care",
+      es: "Inteligencia clínica impulsada por IA para atención primaria independiente y comunitaria",
+    },
+    category: "ehr-native",
+    description: {
+      en: "Elation Health is an EHR designed for independent primary care with native AI features including chart summarization, gap-in-care detection, and clinical decision support. Growing adoption among smaller FQHCs (1-5 sites) that find Epic/eCW too complex. Particularly popular in rural and frontier FQHC settings.",
+      es: "Elation Health es un EHR diseñado para atención primaria independiente con funciones de IA nativas que incluyen resumen de historial, detección de brechas en la atención y soporte de decisión clínica.",
+    },
+    pricingModel: "subscription",
+    pricingNote: {
+      en: "Per-provider subscription. More affordable than Epic or eCW for small sites. Contact for FQHC-specific pricing.",
+      es: "Suscripción por proveedor. Más asequible que Epic o eCW para sitios pequeños.",
+    },
+    ehrIntegrations: [
+      { ehr: "Elation Health (native)", level: "native" },
+    ],
+    fqhcCustomers: ["Multiple small/rural FQHCs (not publicly named)"],
+    nachcEndorsed: false,
+    chaiCertified: false,
+    nhscSiteEligible: false,
+    keyFeatures: [
+      { en: "Built-in AI chart summarization — no add-on required", es: "Resumen de historial con IA integrado — no requiere complemento" },
+      { en: "Care gap detection for HEDIS/UDS quality measures", es: "Detección de brechas de atención para medidas de calidad HEDIS/UDS" },
+      { en: "Simpler implementation than Epic or eCW — ideal for small FQHCs", es: "Implementación más sencilla que Epic o eCW — ideal para FQHCs pequeños" },
+      { en: "Regulatory compliance tools built in (HIPAA, PCMH)", es: "Herramientas de cumplimiento regulatorio integradas (HIPAA, PCMH)" },
+    ],
+    knownLimitations: [
+      { en: "Not widely used by large FQHCs — limited peer benchmarking", es: "No ampliamente utilizado por grandes FQHCs — benchmarking de pares limitado" },
+      { en: "Less FQHC-specific content than OCHIN Epic or eCW", es: "Menos contenido específico de FQHC que OCHIN Epic o eCW" },
+    ],
+    sourceUrl: "https://www.elationhealth.com",
+    sourceOrg: "Elation Health",
+    lastVerified: "2026-02-15",
+    fqhcFit: "moderate",
+    fqhcFitReason: {
+      en: "Best fit for small (1-5 site) FQHCs looking for a simpler EHR with built-in AI. Not the right choice for sites that need ECM billing complexity or are Epic/eCW shops.",
+      es: "Mejor opción para FQHCs pequeños (1-5 sitios) que buscan un EHR más sencillo con IA integrada.",
+    },
+  },
+  {
+    id: "chai-nachc-framework",
+    name: "CHAI-NACHC AI Evaluation Framework",
+    tagline: {
+      en: "Free AI governance and vendor evaluation framework built for community health centers",
+      es: "Marco gratuito de gobernanza de IA y evaluación de proveedores construido para centros de salud comunitarios",
+    },
+    category: "population-health",
+    description: {
+      en: "The Coalition for Health AI (CHAI) and NACHC partnered to create a vendor-neutral AI evaluation and governance framework specifically for community health centers. Includes an 'AI in Healthcare for the Safety Net' curriculum, a CHC-specific vendor assessment checklist, and a soon-to-come vendor certification program. Free for NACHC member organizations.",
+      es: "La Coalición para IA en Salud (CHAI) y NACHC se asociaron para crear un marco de evaluación y gobernanza de IA neutral para proveedores, específicamente para centros de salud comunitarios.",
+    },
+    pricingModel: "grant-funded",
+    pricingNote: {
+      en: "Free for NACHC member CHCs. Non-members can access framework guidance through CHAI's public resources.",
+      es: "Gratuito para CHCs miembros de NACHC. Los no miembros pueden acceder a la guía del marco a través de los recursos públicos de CHAI.",
+    },
+    ehrIntegrations: [],
+    fqhcCustomers: ["All 1,400+ NACHC member CHCs (access)"],
+    nachcEndorsed: true,
+    chaiCertified: true,
+    nhscSiteEligible: false,
+    keyFeatures: [
+      { en: "Vendor assessment checklist tailored for safety-net organizations", es: "Lista de verificación de evaluación de proveedores adaptada para organizaciones de red de seguridad" },
+      { en: "AI curriculum: 'AI in Healthcare for the Safety Net'", es: "Currículo de IA: 'IA en Salud para la Red de Seguridad'" },
+      { en: "Vendor certification program (in development as of 2025)", es: "Programa de certificación de proveedores (en desarrollo a partir de 2025)" },
+      { en: "Free, open-source governance tools", es: "Herramientas de gobernanza gratuitas y de código abierto" },
+    ],
+    knownLimitations: [
+      { en: "Framework only — not a product. Must still select and implement a vendor.", es: "Solo marco — no es un producto. Aún debe seleccionar e implementar un proveedor." },
+      { en: "Vendor certification not yet launched as of March 2026", es: "Certificación de proveedores aún no lanzada a partir de marzo de 2026" },
+    ],
+    sourceUrl: "https://www.nachc.org/chai-and-nachc-join-forces-to-prioritize-community-health-centers-in-ai-adoption/",
+    sourceOrg: "NACHC / CHAI",
+    lastVerified: "2026-03-07",
+    fqhcFit: "high",
+    fqhcFitReason: {
+      en: "Use this BEFORE selecting any AI vendor. The CHAI-NACHC framework helps FQHCs ask the right questions, evaluate equity implications, and avoid costly vendor lock-in.",
+      es: "Úsalo ANTES de seleccionar cualquier proveedor de IA. El marco CHAI-NACHC ayuda a los FQHCs a hacer las preguntas correctas, evaluar las implicaciones de equidad y evitar el bloqueo costoso de proveedores.",
+    },
+  },
+];
+
+export const VENDOR_CATEGORY_LABELS: Record<VendorCategory, { en: string; es: string; icon: string }> = {
+  "ambient-documentation": { en: "Ambient Documentation", es: "Documentación Ambiental", icon: "🎙️" },
+  "revenue-cycle": { en: "Revenue Cycle", es: "Ciclo de Ingresos", icon: "💰" },
+  "care-coordination": { en: "Care Coordination", es: "Coordinación de Atención", icon: "🤝" },
+  "population-health": { en: "Population Health / Framework", es: "Salud Poblacional / Marco", icon: "📊" },
+  "patient-engagement": { en: "Patient Engagement", es: "Participación del Paciente", icon: "📱" },
+  "ehr-native": { en: "EHR-Native AI", es: "IA Nativa del EHR", icon: "🏥" },
+};
+
+export function getVendorsByEHR(ehr: string): AIVendor[] {
+  return FQHC_AI_VENDORS.filter((v) =>
+    v.ehrIntegrations.some((e) => e.ehr.toLowerCase().includes(ehr.toLowerCase()) && e.level !== "none")
+  );
+}
+
+export function getVendorsByCategory(category: VendorCategory): AIVendor[] {
+  return FQHC_AI_VENDORS.filter((v) => v.category === category);
+}
+
+export function getHighFitVendors(): AIVendor[] {
+  return FQHC_AI_VENDORS.filter((v) => v.fqhcFit === "high");
+}
+
+/* ------------------------------------------------------------------ */
 
 /** Get all items, optionally filtered */
 export function getAIItems(opts?: {
