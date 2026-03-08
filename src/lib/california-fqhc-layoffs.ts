@@ -4,7 +4,8 @@
 // Last updated: 2026-02-28 (daily update #6)
 
 /** Exported for display on pages — updated by /daily-update and /update-layoffs pipelines */
-export const LAYOFFS_LAST_UPDATED = "2026-02-28";
+/** This is the SCAN date (when WARN Act was last checked), NOT the most recent announcement date */
+export const LAYOFFS_LAST_UPDATED = "2026-03-07";
 
 export interface LayoffEntry {
   id: string;

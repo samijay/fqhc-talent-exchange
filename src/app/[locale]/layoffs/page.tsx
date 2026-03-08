@@ -34,6 +34,7 @@ import {
   getLayoffStats,
   reasonCategoryLabels,
   statusLabels,
+  LAYOFFS_LAST_UPDATED,
   type LayoffEntry,
 } from "@/lib/california-fqhc-layoffs";
 
@@ -232,12 +233,9 @@ export default function LayoffsPage() {
 
   const locale = t.isEs ? "es" : "en";
 
-  // Derive "last updated" date from the most recent entry in the data
+  // Use the WARN Act scan date (not the most recent announcement date)
   const lastUpdatedDateStr = useMemo(() => {
-    const dates = californiaFQHCLayoffs.map((e) => e.dateAnnounced);
-    const latest = dates.sort().reverse()[0]; // most recent ISO date
-    if (!latest) return "";
-    const d = new Date(latest + "T00:00:00");
+    const d = new Date(LAYOFFS_LAST_UPDATED + "T00:00:00");
     return d.toLocaleDateString(t.isEs ? "es-US" : "en-US", {
       year: "numeric",
       month: "long",

@@ -54,9 +54,19 @@ import {
 } from "@/lib/fqhc-news-intel";
 import { calculateResilienceScore } from "@/lib/fqhc-resilience";
 import { BLOG_POSTS, type BlogPost } from "@/lib/blog-posts";
+import { fqhcJobListings } from "@/lib/fqhc-job-listings";
 
 /* ---------- Module-level data (computed once) ---------- */
 const overview = getMarketOverview();
+
+/* Job listing stats */
+const SEVEN_DAYS_AGO = new Date();
+SEVEN_DAYS_AGO.setDate(SEVEN_DAYS_AGO.getDate() - 7);
+const jobStats = {
+  total: fqhcJobListings.length,
+  recent: fqhcJobListings.filter((j) => new Date(j.postedDate) >= SEVEN_DAYS_AGO).length,
+  orgs: new Set(fqhcJobListings.map((j) => j.fqhcSlug)).size,
+};
 const fundingCliffs = getFundingCliffs();
 const upcomingCliffs = fundingCliffs.filter((c) => !c.isPast).slice(0, 4);
 const nextCliff = upcomingCliffs[0];
@@ -378,33 +388,33 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Stat strip */}
+          {/* Stat strip — all tiles are clickable */}
           <div className="mt-8 mx-auto max-w-3xl grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <div className="rounded-lg bg-white/10 backdrop-blur p-3 text-center">
+            <Link href="/directory" className="rounded-lg bg-white/10 backdrop-blur p-3 text-center hover:bg-white/20 transition-colors cursor-pointer">
               <div className="text-xs text-stone-400 uppercase tracking-wide">
                 {isEs ? "FQHCs Rastreados" : "FQHCs Tracked"}
               </div>
               <div className="text-2xl font-bold text-white">
                 {overview.totalFQHCs}
               </div>
-            </div>
-            <div className="rounded-lg bg-white/10 backdrop-blur p-3 text-center">
+            </Link>
+            <Link href="/jobs" className="rounded-lg bg-white/10 backdrop-blur p-3 text-center hover:bg-white/20 transition-colors cursor-pointer">
               <div className="text-xs text-stone-400 uppercase tracking-wide">
                 {isEs ? "Empleos Activos" : "Active Jobs"}
               </div>
               <div className="text-2xl font-bold text-white">
                 {overview.totalJobs}+
               </div>
-            </div>
-            <div className="rounded-lg bg-white/10 backdrop-blur p-3 text-center">
+            </Link>
+            <Link href="/layoffs" className="rounded-lg bg-white/10 backdrop-blur p-3 text-center hover:bg-white/20 transition-colors cursor-pointer">
               <div className="text-xs text-red-400 uppercase tracking-wide">
                 {isEs ? "Trabajadores Desplazados" : "Workers Displaced"}
               </div>
               <div className="text-2xl font-bold text-red-400">
                 {overview.totalLayoffWorkers.toLocaleString()}+
               </div>
-            </div>
-            <div className="rounded-lg bg-white/10 backdrop-blur p-3 text-center">
+            </Link>
+            <Link href="/funding-impact" className="rounded-lg bg-white/10 backdrop-blur p-3 text-center hover:bg-white/20 transition-colors cursor-pointer">
               <div className="text-xs text-amber-400 uppercase tracking-wide">
                 {isEs ? "Próximo Riesgo Fiscal" : "Next Funding Cliff"}
               </div>
@@ -416,7 +426,7 @@ export default function Home() {
                   {t(nextCliff.title, locale)}
                 </div>
               )}
-            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -795,8 +805,11 @@ export default function Home() {
                   </Link>
                 </div>
 
-                {/* Layoff Snapshot */}
-                <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
+                {/* Layoff Snapshot — entire card is a link */}
+                <Link
+                  href="/layoffs"
+                  className="block rounded-2xl border border-red-200 bg-red-50 p-5 hover:bg-red-100/60 transition-colors"
+                >
                   <div className="flex items-center gap-2 mb-2">
                     <AlertTriangle className="size-4 text-red-600" />
                     <h3 className="text-sm font-bold uppercase tracking-wider text-red-700">
@@ -815,14 +828,43 @@ export default function Home() {
                     {layoffStats.regionsAffected}{" "}
                     {isEs ? "regiones" : "regions"}
                   </div>
-                  <Link
-                    href="/layoffs"
-                    className="mt-2 text-xs font-medium text-red-700 hover:text-red-900 inline-flex items-center gap-1"
-                  >
+                  <div className="mt-2 text-xs font-medium text-red-700 inline-flex items-center gap-1">
                     {isEs ? "Rastreador de Despidos" : "Layoff Tracker"}{" "}
                     <ArrowRight className="size-3" />
-                  </Link>
-                </div>
+                  </div>
+                </Link>
+
+                {/* Jobs Activity — entire card is a link */}
+                <Link
+                  href="/jobs"
+                  className="block rounded-2xl border border-green-200 bg-green-50 p-5 hover:bg-green-100/60 transition-colors"
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <Briefcase className="size-4 text-green-700" />
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-green-700">
+                      {isEs ? "Empleos" : "Jobs"}
+                    </h3>
+                  </div>
+                  <div className="text-2xl font-bold text-green-700">
+                    {jobStats.total}
+                  </div>
+                  <div className="text-sm font-medium text-stone-700 mt-0.5">
+                    {isEs ? "Posiciones Rastreadas" : "Positions Tracked"}
+                  </div>
+                  <div className="text-xs text-stone-500 mt-1">
+                    {jobStats.orgs}{" "}
+                    {isEs ? "organizaciones contratando" : "orgs hiring"}
+                    {jobStats.recent > 0 && (
+                      <span className="ml-1.5 text-green-700 font-medium">
+                        · +{jobStats.recent} {isEs ? "esta semana" : "this week"}
+                      </span>
+                    )}
+                  </div>
+                  <div className="mt-2 text-xs font-medium text-green-700 inline-flex items-center gap-1">
+                    {isEs ? "Ver Empleos" : "Browse Jobs"}{" "}
+                    <ArrowRight className="size-3" />
+                  </div>
+                </Link>
 
                 {/* Newsletter Signup */}
                 <NewsletterSignup
