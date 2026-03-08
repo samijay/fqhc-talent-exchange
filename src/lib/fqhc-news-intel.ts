@@ -245,12 +245,12 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "California detiene nueva inscripción de Medi-Cal para adultos indocumentados de 26-49 años como medida presupuestaria, ahorrando $77.9M en 2025-26 pero subiendo a $3.3 mil millones para 2028-29. Los FQHCs ahora deben atender a nuevos pacientes indocumentados en la escala de tarifa variable sin ingresos por encuentro.",
     },
     category: "undocumented-access",
-    type: "deadline",
+    type: "news",
     impactLevel: "critical",
     sourceUrl: "https://calmatters.org/health/2025/05/newsom-freeze-medi-cal-undocumented-immigrants/",
     sourceOrg: "CalMatters",
     region: "California",
-    tags: ["undocumented", "medi-cal", "enrollment-freeze", "revenue-impact"],
+    tags: ["undocumented", "medi-cal", "enrollment-freeze", "revenue-impact", "in-effect"],
   },
   {
     id: "dental-elimination-undocumented",
@@ -1455,7 +1455,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "National Association of Counties",
     region: "Santa Clara County",
     affectedOrgs: ["Santa Clara Valley Healthcare"],
-    affectedOrgSlugs: ["santa-clara-valley-health"],
+    affectedOrgSlugs: ["county-of-santa-clara"],
     tags: ["sales-tax", "ballot-measure", "medicaid-offset", "measure-a", "bay-area", "revenue-model"],
   },
   {
@@ -1475,7 +1475,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.abc10.com/article/news/local/sacramento-county-health-funding-cut-rfk-california-doge/103-b1e53d57-777f-462c-becd-67bfebb4c89e",
     sourceOrg: "ABC10 Sacramento",
     region: "Sacramento County",
-    affectedOrgSlugs: ["sacramento-county-health-center"],
+    affectedOrgSlugs: ["sacramento-county-primary"],
     tags: ["sacramento", "hhs-restructuring", "federal-cuts", "doge", "public-health", "grant-termination"],
   },
   {

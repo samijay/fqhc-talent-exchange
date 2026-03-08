@@ -3661,7 +3661,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
   {
     id: "fqhc-170",
-    fqhcSlug: "sacramento-covered",
+    fqhcSlug: "sacramento-county-primary",
     title: "Call Center Specialist - Patient Scheduling",
     roleType: "Call Center Specialist",
     department: "Patient Services",
@@ -3707,7 +3707,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
   {
     id: "fqhc-172",
-    fqhcSlug: "clinica-de-salud-del-valle",
+    fqhcSlug: "clinicas-de-salud-del-pueblo",
     title: "Health Enrollment Navigator",
     roleType: "Health Enrollment Navigator",
     department: "Community Supports",
@@ -3753,7 +3753,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   // --- Revenue Cycle Specialist (2 listings) ---
   {
     id: "fqhc-174",
-    fqhcSlug: "community-health-center-network",
+    fqhcSlug: "tri-city-health-center",
     title: "Revenue Cycle Specialist",
     roleType: "Revenue Cycle Specialist",
     department: "Revenue Cycle",
@@ -4027,7 +4027,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
   {
     id: "fqhc-186",
-    fqhcSlug: "clinica-de-salud-del-valle",
+    fqhcSlug: "clinicas-de-salud-del-pueblo",
     title: "Physician Assistant - Family Medicine",
     roleType: "Physician Assistant",
     department: "Primary Care",
@@ -4051,7 +4051,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   // --- Dental Hygienist (2 listings) ---
   {
     id: "fqhc-187",
-    fqhcSlug: "community-health-center-network",
+    fqhcSlug: "tri-city-health-center",
     title: "Registered Dental Hygienist",
     roleType: "Dental Hygienist",
     department: "Dental",
@@ -4165,7 +4165,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
   {
     id: "fqhc-192",
-    fqhcSlug: "sacramento-covered",
+    fqhcSlug: "sacramento-county-primary",
     title: "Pharmacist - 340B Program",
     roleType: "Pharmacist",
     department: "Pharmacy",
@@ -4281,7 +4281,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   // --- Referral Coordinator (2 listings) ---
   {
     id: "fqhc-197",
-    fqhcSlug: "community-health-center-network",
+    fqhcSlug: "tri-city-health-center",
     title: "Referral Coordinator",
     roleType: "Referral Coordinator",
     department: "Patient Services",
@@ -4303,7 +4303,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
   {
     id: "fqhc-198",
-    fqhcSlug: "clinica-de-salud-del-valle",
+    fqhcSlug: "clinicas-de-salud-del-pueblo",
     title: "Referral Coordinator - Bilingual",
     roleType: "Referral Coordinator",
     department: "Administration",
@@ -12900,7 +12900,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   // ── Sac Health System / SacHealth (San Bernardino) ──
   {
     id: "sac-health-002",
-    fqhcSlug: "sac-health-system",
+    fqhcSlug: "sac-health",
     title: "Family Physician",
     roleType: "Physician",
     department: "Primary Care",
@@ -12923,7 +12923,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
   {
     id: "sac-health-003",
-    fqhcSlug: "sac-health-system",
+    fqhcSlug: "sac-health",
     title: "Nurse Practitioner – Primary Care",
     roleType: "Nurse Practitioner",
     department: "Primary Care",
@@ -12946,7 +12946,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
   {
     id: "sac-health-004",
-    fqhcSlug: "sac-health-system",
+    fqhcSlug: "sac-health",
     title: "Behavioral Health Clinician",
     roleType: "Behavioral Health Clinician",
     department: "Behavioral Health",
@@ -12969,7 +12969,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
   {
     id: "sac-health-005",
-    fqhcSlug: "sac-health-system",
+    fqhcSlug: "sac-health",
     title: "Medical Assistant",
     roleType: "Medical Assistant",
     department: "Primary Care",
@@ -12992,7 +12992,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
   {
     id: "sac-health-006",
-    fqhcSlug: "sac-health-system",
+    fqhcSlug: "sac-health",
     title: "Community Health Worker",
     roleType: "Community Health Worker",
     department: "Community Health",
@@ -13015,7 +13015,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
   {
     id: "sac-health-007",
-    fqhcSlug: "sac-health-system",
+    fqhcSlug: "sac-health",
     title: "Dentist",
     roleType: "Dentist",
     department: "Dental",

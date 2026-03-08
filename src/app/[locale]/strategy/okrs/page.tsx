@@ -386,8 +386,8 @@ export default function OKRTemplatesPage() {
                   : "New to OKRs? Start with the Company-Wide Flagship Template."}
               </span>{" "}
               {isEs
-                ? "Cubre los 8 roles clínicos (MD, NP, PA, RN, MA, CHW, BH, Dental) + Finanzas y RH — diseñado para el nivel de junta directiva."
-                : "Covers all 8 clinical roles (MD, NP, PA, RN, MA, CHW, BH, Dental) + Finance & HR — designed for board-level planning."}
+                ? "12 resultados clave: roles clínicos, EHR, diseño de horarios, optimización de alcance profesional, y gobernanza ejecutiva — diseñado para planificación a nivel de junta directiva."
+                : "12 key results spanning clinical roles, EHR optimization, schedule design, top-of-scope utilization, and executive governance — designed for board-level planning."}
             </p>
             <button
               onClick={() => {
