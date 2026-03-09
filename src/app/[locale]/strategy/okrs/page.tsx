@@ -543,6 +543,55 @@ export default function OKRTemplatesPage() {
           </div>
         </div>
       </section>
+
+      {/* ==================== COURSE & SPRINT CTA ==================== */}
+      <section className="py-8 border-t border-stone-200">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-bold text-stone-900 text-center mb-6">
+            {isEs
+              ? "Lleva tus OKRs al siguiente nivel"
+              : "Take your OKRs to the next level"}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Link href="/strategy/okr-course">
+              <div className="rounded-2xl border border-teal-200 bg-teal-50/50 p-6 hover:shadow-md transition-shadow cursor-pointer h-full">
+                <div className="flex items-center gap-2 mb-2">
+                  <Target className="size-5 text-teal-600" />
+                  <Badge className="bg-teal-100 text-teal-800 text-xs">
+                    {isEs ? "Gratis • 45 min" : "Free • 45 min"}
+                  </Badge>
+                </div>
+                <h3 className="font-bold text-stone-800 mb-1">
+                  {isEs ? "Curso Individual de OKR" : "Individual OKR Course"}
+                </h3>
+                <p className="text-sm text-stone-500">
+                  {isEs
+                    ? "Aprende la metodología OKR con ejercicios interactivos y un capstone con retroalimentación de IA."
+                    : "Learn OKR methodology through interactive exercises and an AI-powered capstone."}
+                </p>
+              </div>
+            </Link>
+            <Link href="/strategy/okr-team-sprint">
+              <div className="rounded-2xl border border-blue-200 bg-blue-50/50 p-6 hover:shadow-md transition-shadow cursor-pointer h-full">
+                <div className="flex items-center gap-2 mb-2">
+                  <Users className="size-5 text-blue-600" />
+                  <Badge className="bg-blue-100 text-blue-800 text-xs">
+                    {isEs ? "Gratis • Equipos" : "Free • Teams"}
+                  </Badge>
+                </div>
+                <h3 className="font-bold text-stone-800 mb-1">
+                  {isEs ? "Sprint de OKR en Equipo" : "Team OKR Sprint"}
+                </h3>
+                <p className="text-sm text-stone-500">
+                  {isEs
+                    ? "Tu equipo ejecutivo construye sus OKRs reales juntos en 4 sesiones guiadas con evaluación de IA."
+                    : "Your executive team builds their real OKRs together in 4 guided sessions with AI assessment."}
+                </p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -434,28 +434,33 @@ export default function Home() {
       {/* ==================== TRENDING TICKER ==================== */}
       <div className="border-b border-stone-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center gap-3 py-2.5">
-          <span className="flex-shrink-0 inline-flex items-center gap-1 rounded bg-red-600 text-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+          <span className="flex-shrink-0 inline-flex items-center gap-1 rounded bg-teal-700 text-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider animate-pulse">
             <TrendingUp className="size-3" />
-            {isEs ? "Crítico" : "Critical"}
+            {isEs ? "Tendencia" : "Trending"}
           </span>
           <Link
-            href="/funding-impact"
+            href="/strategy/okr-course"
             className="text-sm font-medium text-stone-700 hover:text-teal-700 transition-colors truncate"
           >
-            <span className="hidden sm:inline">🚨 </span>
+            <span className="hidden sm:inline">🎯 </span>
             {isEs
-              ? "Condado de LA enfrenta $1.5B en recortes federales — cierre de hospital posible →"
-              : "LA County faces $1.5B in federal cuts — hospital closure now possible →"}
+              ? "NUEVO: Curso OKR Interactivo — aprende, practica, y construye tus OKRs con retroalimentación de IA →"
+              : "NEW: Interactive OKR Course — learn, practice, and build your OKRs with AI feedback →"}
           </Link>
-          <span className="hidden sm:inline-block flex-shrink-0 text-[10px] text-stone-400">
-            {isEs ? "Simulador:" : "Simulator:"}
+          <span className="hidden lg:inline-block h-4 w-px bg-stone-300 flex-shrink-0" />
+          <span className="hidden lg:inline-flex items-center gap-1 flex-shrink-0">
+            <span className="flex-shrink-0 inline-flex items-center gap-1 rounded bg-red-600 text-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+              {isEs ? "Crítico" : "Critical"}
+            </span>
+            <Link
+              href="/funding-impact"
+              className="text-sm font-medium text-stone-700 hover:text-teal-700 transition-colors truncate"
+            >
+              {isEs
+                ? "LA: $1.5B en recortes →"
+                : "LA: $1.5B federal cuts →"}
+            </Link>
           </span>
-          <Link
-            href="/strategy/clinic-simulator"
-            className="hidden sm:inline-block flex-shrink-0 text-sm font-medium text-teal-700 hover:text-teal-900 transition-colors"
-          >
-            {isEs ? "Simulador de Clínica →" : "Clinic Simulator →"}
-          </Link>
         </div>
       </div>
 
