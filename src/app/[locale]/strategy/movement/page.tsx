@@ -110,16 +110,16 @@ const VIDEO_RESOURCES: VideoResource[] = [
   {
     id: "black-power-mixtape",
     title: {
-      en: "The Black Power Mixtape 1967-1975",
-      es: "The Black Power Mixtape 1967-1975",
+      en: "The Black Panthers — A Quick History",
+      es: "Los Panteras Negras — Una Historia Breve",
     },
     description: {
-      en: "Swedish journalists documented the Black Power movement, including the Black Panthers' free health clinics that became the template for community-controlled healthcare. Essential viewing for understanding the radical origins of community health.",
-      es: "Periodistas suecos documentaron el movimiento Black Power, incluyendo las clinicas de salud gratuitas de los Panteras Negras que se convirtieron en el modelo para la atencion medica controlada por la comunidad. Esencial para entender los origenes radicales de la salud comunitaria.",
+      en: "Overview of the Black Panther Party's founding and their 'survival programs' — including free medical clinics, sickle cell testing, and the free breakfast program that fed 20,000 children across 19 cities. These community health programs became the template for community-controlled healthcare.",
+      es: "Resumen de la fundacion del Partido de los Panteras Negras y sus 'programas de supervivencia' — incluyendo clinicas medicas gratuitas, pruebas de anemia falciforme y el programa de desayuno gratuito que alimento a 20,000 ninos en 19 ciudades. Estos programas de salud comunitaria se convirtieron en el modelo para la atencion medica controlada por la comunidad.",
     },
-    youtubeId: "e0bWTh74m6c",
-    source: "Sundance Film Festival",
-    year: "2011",
+    youtubeId: "9Yw9k7__Vqw",
+    source: "Revolution and Ideology",
+    year: "2020",
     relevance: "Black Panthers free clinics",
   },
   {
@@ -140,16 +140,16 @@ const VIDEO_RESOURCES: VideoResource[] = [
   {
     id: "nachc-history",
     title: {
-      en: "NACHC: The Story of Community Health Centers",
-      es: "NACHC: La Historia de los Centros de Salud Comunitarios",
+      en: "Civil Rights History Project: H. Jack Geiger — Library of Congress",
+      es: "Proyecto de Historia de Derechos Civiles: H. Jack Geiger — Biblioteca del Congreso",
     },
     description: {
-      en: "The National Association of Community Health Centers tells the story of the movement from its roots in the War on Poverty through today. How a handful of neighborhood clinics became a network serving 30 million Americans.",
-      es: "La Asociacion Nacional de Centros de Salud Comunitarios cuenta la historia del movimiento desde sus raices en la Guerra contra la Pobreza hasta hoy. Como un punado de clinicas vecinales se convirtio en una red que atiende a 30 millones de estadounidenses.",
+      en: "Library of Congress oral history with Dr. H. Jack Geiger, co-founder of the first two community health centers. Covers his journey from South Africa to founding Columbia Point (Boston) and Mound Bayou (Mississippi), the intersection of civil rights and healthcare, and prescribing food for malnourished patients.",
+      es: "Historia oral de la Biblioteca del Congreso con el Dr. H. Jack Geiger, cofundador de los primeros dos centros de salud comunitarios. Cubre su viaje desde Sudafrica hasta la fundacion de Columbia Point (Boston) y Mound Bayou (Mississippi), la interseccion de derechos civiles y atencion medica, y la prescripcion de alimentos para pacientes desnutridos.",
     },
-    youtubeId: "MufWXVFrumQ",
-    source: "NACHC",
-    year: "2020",
+    youtubeId: "bIOgDqWEGHc",
+    source: "Library of Congress",
+    year: "2015",
     relevance: "National movement history",
   },
   {
@@ -170,16 +170,16 @@ const VIDEO_RESOURCES: VideoResource[] = [
   {
     id: "delano-grape-strike",
     title: {
-      en: "The Delano Grape Strike: When Filipinos and Mexicans United",
-      es: "La Huelga de la Uva de Delano: Cuando Filipinos y Mexicanos se Unieron",
+      en: "The Delano Manongs — Forgotten Heroes of the UFW",
+      es: "Los Manongs de Delano — Heroes Olvidados de la UFW",
     },
     description: {
-      en: "The 1965 Delano grape strike started when Filipino farmworkers walked out — and Cesar Chavez's Mexican workers joined them. This cross-cultural solidarity created the UFW and, eventually, the farmworker health clinics that became California's first FQHCs.",
-      es: "La huelga de la uva de Delano de 1965 comenzo cuando los campesinos filipinos se fueron — y los trabajadores mexicanos de Cesar Chavez se unieron a ellos. Esta solidaridad intercultural creo la UFW y, eventualmente, las clinicas de salud para campesinos que se convirtieron en los primeros FQHCs de California.",
+      en: "Trailer for the Emmy-nominated documentary about Larry Itliong, Philip Vera Cruz, and the Filipino farmworkers who started the 1965 Delano grape strike. Their cross-cultural solidarity with Cesar Chavez's Mexican workers created the UFW and, eventually, the farmworker health clinics that became California's first FQHCs.",
+      es: "Trailer del documental nominado al Emmy sobre Larry Itliong, Philip Vera Cruz y los campesinos filipinos que iniciaron la huelga de la uva de Delano en 1965. Su solidaridad intercultural con los trabajadores mexicanos de Cesar Chavez creo la UFW y, eventualmente, las clinicas de salud para campesinos que se convirtieron en los primeros FQHCs de California.",
     },
-    youtubeId: "JBxhSrXZoJE",
-    source: "United Farm Workers",
-    year: "2015",
+    youtubeId: "Rx175JNdflI",
+    source: "The Media Factory",
+    year: "2014",
     relevance: "Cross-cultural origins of FQHC movement",
   },
   {

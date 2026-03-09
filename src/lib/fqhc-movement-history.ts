@@ -205,10 +205,10 @@ export const MOVEMENT_EVENTS: TimelineEvent[] = [
     primarySourceUrl: "https://ufw.org/research/history/ufw-history/",
     primarySourceOrg: "United Farm Workers",
     era: "farmworker-roots",
-    videoUrl: "https://www.youtube.com/embed/JBxhSrXZoJE",
+    videoUrl: "https://www.youtube.com/embed/Rx175JNdflI",
     videoTitle: {
-      en: "Delano Grape Strike — Filipino & Mexican Farmworkers",
-      es: "Huelga de Uvas de Delano — Campesinos Filipinos y Mexicanos",
+      en: "The Delano Manongs — Forgotten Heroes of the UFW",
+      es: "Los Manongs de Delano — Héroes Olvidados de la UFW",
     },
   },
   {
@@ -269,10 +269,10 @@ export const MOVEMENT_EVENTS: TimelineEvent[] = [
     primarySourceUrl: "https://www.rchnfoundation.org/wp-content/uploads/2016/11/George-Washington-University-The-Origins-of-Community-Health-Centers.pdf",
     primarySourceOrg: "RCHN Community Health Foundation / George Washington University",
     era: "farmworker-roots",
-    videoUrl: "https://www.youtube.com/embed/5MBQxhqDqLI",
+    videoUrl: "https://www.youtube.com/embed/EvdqLud9498",
     videoTitle: {
-      en: "The History of Community Health Centers — NACHC",
-      es: "La Historia de los Centros de Salud Comunitarios — NACHC",
+      en: "Dr. Jack Geiger: History of Community Health Centers",
+      es: "Dr. Jack Geiger: Historia de los Centros de Salud Comunitarios",
     },
   },
   {
@@ -375,10 +375,10 @@ export const MOVEMENT_EVENTS: TimelineEvent[] = [
     primarySourceUrl: "https://www.asianhealthservices.org/who-we-are",
     primarySourceOrg: "Asian Health Services",
     era: "community-health",
-    videoUrl: "https://www.youtube.com/embed/MufWXVFrumQ",
+    videoUrl: "https://www.youtube.com/embed/bIOgDqWEGHc",
     videoTitle: {
-      en: "The History of Community Health Centers — NACHC",
-      es: "La Historia de los Centros de Salud Comunitarios — NACHC",
+      en: "Civil Rights History Project: H. Jack Geiger — Library of Congress",
+      es: "Proyecto de Historia de Derechos Civiles: H. Jack Geiger — Biblioteca del Congreso",
     },
   },
   {
