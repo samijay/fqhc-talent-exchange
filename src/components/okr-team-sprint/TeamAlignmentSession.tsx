@@ -11,10 +11,7 @@ import {
   Target,
   ArrowRight,
 } from "lucide-react";
-import {
-  FQHC_STRATEGIC_PRIORITIES,
-  type StrategicPriority,
-} from "@/lib/okr-team-sprint-engine";
+import { FQHC_STRATEGIC_PRIORITIES } from "@/lib/okr-team-sprint-engine";
 import { OKR_DOMAINS } from "@/lib/fqhc-okr-templates";
 import { useSprintContext } from "./SprintProvider";
 

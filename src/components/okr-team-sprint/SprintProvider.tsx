@@ -105,7 +105,7 @@ export function SprintProvider({
   const storageKey = `okr-team-sprint-${sprintId}`;
 
   // Initialize state from localStorage
-  const [sprint, setSprint] = useState<TeamSprint | null>(() => {
+  const [sprint] = useState<TeamSprint | null>(() => {
     if (typeof window === "undefined") return null;
     try {
       const saved = localStorage.getItem(`${storageKey}-sprint`);

@@ -12,7 +12,6 @@ import {
   CheckCircle2,
   AlertTriangle,
   XCircle,
-  Download,
   Target,
   Users,
 } from "lucide-react";
@@ -35,8 +34,6 @@ interface ReadinessReviewProps {
 export function ReadinessReview({ onComplete }: ReadinessReviewProps) {
   const locale = useLocale();
   const isEs = locale === "es";
-  const t = (obj: { en: string; es: string }) =>
-    locale === "es" ? obj.es : obj.en;
 
   const { objectives, completeSession } = useSprintContext();
   const [assessment, setAssessment] =

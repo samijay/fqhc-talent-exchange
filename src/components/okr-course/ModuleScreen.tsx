@@ -37,7 +37,6 @@ type ScreenPhase = "intro" | "concept" | "exercise" | "complete";
 
 export function ModuleScreen({
   module,
-  progress,
   onExerciseComplete,
   onModuleComplete,
   onBack,

@@ -5,7 +5,6 @@ import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Capstone } from "@/components/okr-course/Capstone";
 import { useAuth } from "@/components/auth/AuthProvider";
 import {

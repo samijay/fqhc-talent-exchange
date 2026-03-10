@@ -10,7 +10,6 @@ import {
   BookOpen,
   Zap,
   CheckCircle2,
-  ArrowLeft,
 } from "lucide-react";
 import { ModuleScreen } from "./ModuleScreen";
 import type { OkrCourseModule } from "@/lib/okr-course-modules";

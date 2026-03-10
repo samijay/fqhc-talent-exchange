@@ -29,7 +29,7 @@ interface CapstoneProps {
   onComplete?: (domain: OKRDomain, objective: string, keyResults: string[]) => void;
 }
 
-export function Capstone({ userId, onComplete }: CapstoneProps) {
+export function Capstone({ onComplete }: CapstoneProps) {
   const locale = useLocale();
   const t = (obj: { en: string; es: string }) =>
     locale === "es" ? obj.es : obj.en;

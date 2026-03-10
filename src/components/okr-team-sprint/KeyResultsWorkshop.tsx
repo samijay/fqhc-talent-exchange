@@ -12,11 +12,9 @@ import {
   ArrowRight,
   Trash2,
   Target,
-  CheckCircle2,
   AlertCircle,
 } from "lucide-react";
 import { OKR_DOMAINS } from "@/lib/fqhc-okr-templates";
-import { scoreMeasurability } from "@/lib/okr-team-sprint-engine";
 import { useSprintContext } from "./SprintProvider";
 
 interface KeyResultsWorkshopProps {
@@ -28,14 +26,11 @@ export function KeyResultsWorkshop({
 }: KeyResultsWorkshopProps) {
   const locale = useLocale();
   const isEs = locale === "es";
-  const t = (obj: { en: string; es: string }) =>
-    locale === "es" ? obj.es : obj.en;
 
   const {
     objectives,
     currentUserId,
     addKeyResult,
-    updateKeyResult,
     deleteKeyResult,
     completeSession,
   } = useSprintContext();

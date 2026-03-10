@@ -13,7 +13,6 @@ import {
   MessageSquare,
   Trash2,
   Target,
-  CheckCircle2,
 } from "lucide-react";
 import { OKR_DOMAINS, type OKRDomain } from "@/lib/fqhc-okr-templates";
 import { useSprintContext } from "./SprintProvider";
@@ -27,14 +26,11 @@ export function ObjectiveDraftingSession({
 }: ObjectiveDraftingSessionProps) {
   const locale = useLocale();
   const isEs = locale === "es";
-  const t = (obj: { en: string; es: string }) =>
-    locale === "es" ? obj.es : obj.en;
 
   const {
     objectives,
     currentUserId,
     addObjective,
-    updateObjective,
     deleteObjective,
     addFeedback,
     completeSession,

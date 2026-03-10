@@ -10,11 +10,25 @@ import {
   type OKRCritiqueResponse,
 } from "@/lib/okr-ai-critique";
 
+// Input size limits to prevent abuse
+const MAX_OBJECTIVE_LENGTH = 500;
+const MAX_KR_LENGTH = 300;
+const MAX_KEY_RESULTS = 5;
+
 export async function POST(request: NextRequest) {
   try {
+    // Guard against oversized payloads
+    const contentLength = request.headers.get("content-length");
+    if (contentLength && parseInt(contentLength) > 10_000) {
+      return NextResponse.json(
+        { error: "Request payload too large" },
+        { status: 413 }
+      );
+    }
+
     const body: OKRCritiqueRequest = await request.json();
 
-    // Validate input
+    // Validate required fields
     if (!body.objective || !body.keyResults || !body.domain) {
       return NextResponse.json(
         { error: "Missing required fields: objective, keyResults, domain" },
@@ -22,16 +36,33 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (body.objective.trim().length < 10) {
+    // Validate and sanitize input lengths
+    if (typeof body.objective !== "string" || body.objective.trim().length < 10) {
       return NextResponse.json(
         { error: "Objective must be at least 10 characters" },
         { status: 400 }
       );
     }
 
-    const validKRs = body.keyResults.filter(
-      (kr) => kr.trim().length > 0
-    );
+    if (body.objective.length > MAX_OBJECTIVE_LENGTH) {
+      return NextResponse.json(
+        { error: `Objective must be under ${MAX_OBJECTIVE_LENGTH} characters` },
+        { status: 400 }
+      );
+    }
+
+    if (!Array.isArray(body.keyResults)) {
+      return NextResponse.json(
+        { error: "keyResults must be an array" },
+        { status: 400 }
+      );
+    }
+
+    const validKRs = body.keyResults
+      .filter((kr) => typeof kr === "string" && kr.trim().length > 0)
+      .slice(0, MAX_KEY_RESULTS)
+      .map((kr) => kr.slice(0, MAX_KR_LENGTH));
+
     if (validKRs.length < 1) {
       return NextResponse.json(
         { error: "At least 1 Key Result is required" },
@@ -48,10 +79,10 @@ export async function POST(request: NextRequest) {
 Domain: ${body.domain}
 Role: ${body.role || "FQHC leader"}
 
-Objective: ${body.objective}
+Objective: ${body.objective.trim()}
 
 Key Results:
-${validKRs.map((kr, i) => `${i + 1}. ${kr}`).join("\n")}
+${validKRs.map((kr, i) => `${i + 1}. ${kr.trim()}`).join("\n")}
 
 Respond with a JSON object matching this exact structure:
 {
@@ -90,18 +121,19 @@ Only respond with the JSON object, nothing else.`;
           const data = await response.json();
           const textContent = data.content?.[0]?.text;
           if (textContent) {
-            // Parse the JSON from Claude's response
             const jsonMatch = textContent.match(/\{[\s\S]*\}/);
             if (jsonMatch) {
-              const critique: OKRCritiqueResponse = JSON.parse(
-                jsonMatch[0]
-              );
-              return NextResponse.json(critique);
+              try {
+                const critique: OKRCritiqueResponse = JSON.parse(jsonMatch[0]);
+                return NextResponse.json(critique);
+              } catch {
+                // Invalid JSON from AI — fall through to rule-based
+              }
             }
           }
         }
       } catch {
-        // Fall through to fallback
+        // API error — fall through to fallback
       }
     }
 

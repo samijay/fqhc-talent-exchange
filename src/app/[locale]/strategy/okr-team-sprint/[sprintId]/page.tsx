@@ -7,7 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { SprintProvider } from "@/components/okr-team-sprint/SprintProvider";
 import { TeamWorkspace } from "@/components/okr-team-sprint/TeamWorkspace";
-import { ArrowLeft, Users, LogIn } from "lucide-react";
+import { Users, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 

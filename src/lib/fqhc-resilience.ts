@@ -418,7 +418,7 @@ function riskFromScore(score: number): "low" | "moderate" | "high" | "critical" 
 
 function calculateDataCompleteness(fqhc: CaliforniaFQHC): number {
   let fields = 0;
-  let total = 10;
+  const total = 10;
 
   if (fqhc.patientCount && fqhc.patientCount !== "Unknown") fields++;
   if (fqhc.staffCount && fqhc.staffCount !== "Unknown") fields++;

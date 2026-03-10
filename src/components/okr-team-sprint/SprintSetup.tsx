@@ -4,13 +4,10 @@ import { useState, useCallback } from "react";
 import { useLocale } from "next-intl";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Users,
-  ArrowRight,
   Copy,
   CheckCircle2,
-  Calendar,
   Zap,
 } from "lucide-react";
 import { generateInviteCode } from "@/lib/okr-team-sprint-engine";

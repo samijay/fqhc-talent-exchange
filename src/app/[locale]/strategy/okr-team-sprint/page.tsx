@@ -10,7 +10,6 @@ import {
   Target,
   Clock,
   Zap,
-  CheckCircle2,
   Sparkles,
   BookOpen,
   Play,
@@ -20,9 +19,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { SprintSetup, InviteCodeDisplay } from "@/components/okr-team-sprint/SprintSetup";
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 interface SavedSprint {
   id: string;

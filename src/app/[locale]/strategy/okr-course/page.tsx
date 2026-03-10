@@ -9,7 +9,6 @@ import {
   Zap,
   Clock,
   ArrowRight,
-  CheckCircle2,
   Users,
   Sparkles,
   Award,
