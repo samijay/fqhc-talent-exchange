@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 interface ArticleContent {
   category: string;
@@ -471,7 +472,8 @@ const esContent: ArticleContent = {
 
 export default function TopFqhcInterviewQuestionsArticle() {
   const locale = useLocale();
-  const content = locale === "es" ? esContent : enContent;
+  const isEs = locale === "es";
+  const content = isEs ? esContent : enContent;
 
   return (
     <main className="min-h-screen">
@@ -556,46 +558,63 @@ export default function TopFqhcInterviewQuestionsArticle() {
                   }
                   return null;
                 })}
+
+                {/* Inline tool callouts at natural break points */}
+                {idx === 3 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Toma la <Link href="/career-insights" className="text-teal-700 font-medium underline">Evaluaci\u00f3n de Carrera</Link> para identificar tus fortalezas y \u00e1reas de crecimiento antes de tu pr\u00f3xima entrevista en un FQHC.</>
+                      ) : (
+                        <>Take the <Link href="/career-insights" className="text-teal-700 font-medium underline">Career Assessment</Link> to identify your strengths and growth areas before your next FQHC interview.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {idx === 6 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa el <Link href="/resume-builder" className="text-teal-700 font-medium underline">Constructor de Curr\u00edculum</Link> para crear un CV que impresione a los gerentes de contrataci\u00f3n de FQHCs antes de la entrevista.</>
+                      ) : (
+                        <>Use the <Link href="/resume-builder" className="text-teal-700 font-medium underline">Resume Builder</Link> to create a resume that impresses FQHC hiring managers before the interview.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {idx === 10 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Explora la <Link href="/pathway" className="text-teal-700 font-medium underline">Ruta de Aprendizaje</Link> para encontrar certificaciones y cursos que demuestren tu compromiso con el crecimiento profesional en salud comunitaria.</>
+                      ) : (
+                        <>Explore the <Link href="/pathway" className="text-teal-700 font-medium underline">Learning Pathway</Link> to find certifications and courses that demonstrate your commitment to professional growth in community health.</>
+                      )}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-stone-900 mb-4">
-              {content.ctaTitle}
-            </h3>
-            <p className="text-stone-600 mb-6 text-lg">
-              {content.ctaDescription}
-            </p>
-            <a
-              href="/resume-builder"
-              className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
-            >
-              {content.ctaButtonText}
-            </a>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="text-xl font-bold text-stone-900 mb-6">
-              {locale === "es" ? "Artículos Relacionados" : "Related Articles"}
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {content.relatedArticles.map((article, idx) => (
-                <a
-                  key={idx}
-                  href={article.href}
-                  className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-                >
-                  <p className="text-sm text-teal-700 mb-2">{content.category}</p>
-                  <h4 className="font-semibold text-stone-900">
-                    {article.title}
-                  </h4>
-                </a>
-              ))}
-            </div>
-          </div>
+          <ArticleCTA
+            audience="the-pulse"
+            relatedArticles={[
+              { slug: "how-to-write-fqhc-resume", title: "How to Write an FQHC Resume That Gets Noticed", esTitle: "C\u00f3mo Escribir un Curr\u00edculum de FQHC que Destaque", category: "Career Resources", esCategory: "Recursos de Carrera" },
+              { slug: "fqhc-salary-negotiation-guide", title: "How to Negotiate Your FQHC Salary", esTitle: "C\u00f3mo Negociar Tu Salario en un FQHC", category: "Career Resources", esCategory: "Recursos de Carrera" },
+              { slug: "fqhc-career-ladder-ma-rn-provider", title: "The FQHC Career Ladder: MA, RN & Provider", esTitle: "La Escalera Profesional FQHC: MA, RN y Proveedor", category: "Career Growth", esCategory: "Crecimiento Profesional" },
+            ]}
+          />
         </div>
       </article>
     </main>

@@ -90,6 +90,28 @@ const nextConfig: NextConfig = {
         destination: "/:locale",
         permanent: true,
       },
+      // Redirect /demo → / (demo page consolidated into homepage)
+      {
+        source: "/demo",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/:locale/demo",
+        destination: "/:locale",
+        permanent: true,
+      },
+      // Redirect /strategy/knowledge-map → /pathway (Learning Pathway is the successor)
+      {
+        source: "/strategy/knowledge-map",
+        destination: "/pathway",
+        permanent: true,
+      },
+      {
+        source: "/:locale/strategy/knowledge-map",
+        destination: "/:locale/pathway",
+        permanent: true,
+      },
     ];
   },
 };

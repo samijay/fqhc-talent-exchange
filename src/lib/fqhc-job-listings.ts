@@ -24712,6 +24712,158 @@ export const fqhcJobListings: FQHCJobListing[] = [
       "Motivational interviewing and trauma-informed care"
     ],
   },
+  // ─────────────────────────────────────────────
+  // SOUTH CENTRAL FAMILY HEALTH CENTER (Huntington Park expansion - 2026)
+  // ─────────────────────────────────────────────
+  {
+    id: "south-central-002",
+    fqhcSlug: "south-central-family-health-center",
+    title: "Registered Nurse - Huntington Park (New Site)",
+    roleType: "Registered Nurse",
+    department: "Primary Care",
+    salaryMin: 80000,
+    salaryMax: 105000,
+    type: "Full-time",
+    location: "Huntington Park",
+    bilingual: true,
+    languageRequired: "Spanish",
+    ehrSystem: "NextGen",
+    programs: ["Primary Care"],
+    postedDate: "2026-03-09",
+    description: "Join SCFHC's new Huntington Park clinic opening in 2026. Provide primary care nursing services to the underserved Southeast LA community. Ground-floor opportunity to help build a new clinical team.",
+    requirements: [
+      "Active California RN license",
+      "2+ years primary care or community health experience",
+      "Bilingual Spanish/English required",
+      "BLS certification required"
+    ],
+    featured: true,
+    featuredNote: "New clinic opening — ground floor opportunity",
+  },
+  {
+    id: "south-central-003",
+    fqhcSlug: "south-central-family-health-center",
+    title: "Medical Assistant - Huntington Park (New Site)",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 42000,
+    salaryMax: 52000,
+    type: "Full-time",
+    location: "Huntington Park",
+    bilingual: true,
+    languageRequired: "Spanish",
+    ehrSystem: "NextGen",
+    programs: ["Primary Care"],
+    postedDate: "2026-03-09",
+    description: "Be part of the team at SCFHC's newest clinic in Huntington Park. Support primary care providers with clinical and administrative duties in a mission-driven community health setting.",
+    requirements: [
+      "Medical Assistant certification or diploma",
+      "Bilingual Spanish/English required",
+      "Basic EHR proficiency (NextGen preferred)",
+      "Phlebotomy certification preferred"
+    ],
+  },
+  // ─────────────────────────────────────────────
+  // COMPREHENSIVE COMMUNITY HEALTH CENTERS (CCHC - Nevada expansion + growth)
+  // ─────────────────────────────────────────────
+  {
+    id: "cchc-004",
+    fqhcSlug: "comprehensive-community-health-centers",
+    title: "Care Coordinator - CalAIM ECM Program",
+    roleType: "Care Coordinator",
+    department: "ECM Program",
+    salaryMin: 48000,
+    salaryMax: 62000,
+    type: "Full-time",
+    location: "Glendale",
+    bilingual: true,
+    languageRequired: "Spanish",
+    ehrSystem: "eClinicalWorks",
+    programs: ["ECM", "CalAIM"],
+    postedDate: "2026-03-09",
+    description: "CCHC is growing rapidly — now expanding to Las Vegas while strengthening LA County operations. Join the CalAIM ECM team to coordinate whole-person care for high-acuity Medi-Cal patients across CCHC's multi-site network.",
+    requirements: [
+      "Bachelor's degree in social work, public health, or related field",
+      "Experience with Medi-Cal managed care and CalAIM programs",
+      "Bilingual Spanish/English strongly preferred",
+      "Knowledge of SDOH screening tools and community resources"
+    ],
+    featured: true,
+    featuredNote: "Growing FQHC — expanding to Nevada",
+  },
+  {
+    id: "cchc-005",
+    fqhcSlug: "comprehensive-community-health-centers",
+    title: "Family Nurse Practitioner",
+    roleType: "Nurse Practitioner",
+    department: "Primary Care",
+    salaryMin: 115000,
+    salaryMax: 145000,
+    type: "Full-time",
+    location: "Glendale",
+    bilingual: false,
+    ehrSystem: "eClinicalWorks",
+    programs: ["Primary Care"],
+    postedDate: "2026-03-09",
+    description: "Provide full-scope primary care at CCHC's growing network of community health centers in the LA/Glendale area. NHSC loan repayment eligible site with competitive compensation and benefits.",
+    requirements: [
+      "Active California FNP license and DEA registration",
+      "2+ years primary care experience (FQHC preferred)",
+      "Comfortable with eClinicalWorks EHR",
+      "NHSC scholars encouraged to apply"
+    ],
+  },
+  // ─────────────────────────────────────────────
+  // FAMILY HEALTH CENTERS OF SAN DIEGO (new listings from active hiring)
+  // ─────────────────────────────────────────────
+  {
+    id: "fhcsd-050",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Medical Assistant Training Graduate (LRMAI Program)",
+    roleType: "Medical Assistant",
+    department: "Primary Care",
+    salaryMin: 40000,
+    salaryMax: 48000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    languagePreferred: ["Spanish"],
+    ehrSystem: "Epic",
+    programs: ["Primary Care"],
+    postedDate: "2026-03-09",
+    description: "Opportunity for graduates of the Laura Rodriguez Medical Assistant Institute (LRMAI) — sponsored by Blue Shield of California. Start your FQHC career with built-in mentorship and a clear path to advancement.",
+    requirements: [
+      "Completion of LRMAI or equivalent MA training program",
+      "MA certification (or in process)",
+      "Bilingual Spanish/English preferred",
+      "Commitment to community health"
+    ],
+    featured: true,
+    featuredNote: "Blue Shield–sponsored MA pipeline program",
+  },
+  {
+    id: "fhcsd-051",
+    fqhcSlug: "family-health-centers-of-san-diego",
+    title: "Housing Navigator - CalAIM Community Supports",
+    roleType: "Housing Navigator",
+    department: "Community Supports",
+    salaryMin: 46000,
+    salaryMax: 58000,
+    type: "Full-time",
+    location: "San Diego",
+    bilingual: true,
+    languageRequired: "Spanish",
+    ehrSystem: "Epic",
+    programs: ["CalAIM", "Community Supports"],
+    postedDate: "2026-03-09",
+    description: "Help patients experiencing homelessness navigate housing resources under CalAIM Community Supports. Work alongside ECM care coordinators to connect patients to transitional rent, housing vouchers, and permanent supportive housing in San Diego County.",
+    requirements: [
+      "Experience with HUD/CoC systems, HMIS, or housing navigation",
+      "Knowledge of CalAIM Community Supports and transitional rent",
+      "Bilingual Spanish/English required",
+      "Trauma-informed care and motivational interviewing skills"
+    ],
+  },
 ];
 
 export function getJobsForFqhc(slug: string): FQHCJobListing[] {

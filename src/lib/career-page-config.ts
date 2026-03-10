@@ -4,7 +4,7 @@
 // Last updated: 2026-03-07 (daily update #14, expanded with 20+ FQHCs)
 
 /** Exported for display on pages — updated by /daily-update and /scrape-jobs pipelines */
-export const CAREER_CONFIG_LAST_UPDATED = "2026-03-07";
+export const CAREER_CONFIG_LAST_UPDATED = "2026-03-09";
 
 export interface CareerPageConfig {
   fqhcSlug: string;
@@ -41,40 +41,40 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     fqhcSlug: "altamed-health-services",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-03-08",
+    lastChecked: "2026-03-09",
     atsApiUrl:
       "https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs",
     notes:
-      "Largest FQHC in CA. 258 jobs found 2026-03-08 (unchanged from 2026-03-07). Abridge AI scribe deployment confirmed (BusinessWire Apr 2025 + Healthcare IT News Dr. Eric Lee). Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
+      "Largest FQHC in CA. 259 jobs found 2026-03-09 (stable). AltaMed generated $15.1B economic impact (2019-2024), supports 12,000 jobs, serves 465,000 Medi-Cal patients. Abridge AI scribe deployment confirmed. Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
   },
   {
     fqhcSlug: "family-health-centers-of-san-diego",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-03-08",
+    lastChecked: "2026-03-09",
     atsApiUrl:
       "https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs",
     notes:
-      "153 jobs found 2026-03-08 (unchanged). Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
+      "153 jobs found 2026-03-09 (MAIN site). DOC (physician) portal currently shows 0 jobs. Blue Shield invested $80K in MA training scholarships at FHCSD Laura Rodriguez MA Institute. Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
   },
   {
     fqhcSlug: "asian-health-services",
     scrapeable: true,
     atsType: "lever",
-    lastChecked: "2026-03-08",
+    lastChecked: "2026-03-09",
     atsApiUrl: "https://api.lever.co/v0/postings/ahschc?mode=json",
     notes:
-      "20 jobs found 2026-03-08 (unchanged). Lever slug is 'ahschc'.",
+      "20 jobs found 2026-03-09 (unchanged). Lever slug is 'ahschc'.",
   },
   {
     fqhcSlug: "la-clinica-de-la-raza",
     scrapeable: true,
     atsType: "direct",
-    lastChecked: "2026-03-06",
+    lastChecked: "2026-03-09",
     atsApiUrl:
       "http://laclinica.hrmdirect.com/employment/job-openings.php?search=true&dept=-1&city=-1&state=-1",
     notes:
-      "186 jobs found 2026-03-07 (prev 186, unchanged). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
+      "187 jobs found 2026-03-09 (prev 186, +1). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
   },
 
   // ── ADP Workforce Now (JS-only, not scrapeable) ── ❌
@@ -179,7 +179,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "https://opendoorhealth.wd503.myworkdayjobs.com/wday/cxs/opendoorhealth/ODCHC/jobs",
     notes:
-      "41 jobs found 2026-03-07. Added 12 new listings (open-door-002 to 013): RN OB, Medical Assistant, LVN, Social Work Case Manager, BH Clinician Pediatrics, Family Physician/APC, CNM, General Dentist, Mobile Dentist, EHR Site Specialist, Coding Manager, Biller I. Workday wd503 tenant confirmed. Rural North Coast FQHC (Humboldt, Del Norte, Trinity counties).",
+      "42 jobs found 2026-03-09 (prev 41, +1). Workday wd503 tenant confirmed. Rural North Coast FQHC (Humboldt, Del Norte, Trinity counties).",
   },
   {
     fqhcSlug: "valley-health-team",
@@ -230,7 +230,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     fqhcSlug: "mission-neighborhood-health-center",
     scrapeable: true,
     atsType: "unknown",
-    lastChecked: "2026-03-07",
+    lastChecked: "2026-03-09",
     atsApiUrl: "https://missionareahealthassociates.applytojob.com/apply",
     notes:
       "JazzHR (applytojob.com). JS-rendered SPA — no direct JSON API accessible. WebFetch can read the rendered job list. 8 jobs found 2026-03-07. Added mnhc-004 to mnhc-012 (Controller, Accounting Manager, BH Clinician x2, Dental Mgr, Patient Navigator HIV, Pharmacy Tech, Security Guard, Optometry Tech). Use WebFetch on atsApiUrl.",
@@ -311,37 +311,37 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     fqhcSlug: "truecare",
     scrapeable: false,
     atsType: "unknown",
-    lastChecked: "2026-03-07",
+    lastChecked: "2026-03-09",
     atsApiUrl: "https://truecare.org/careers",
     notes:
-      "Custom portal or embedded JS widget. Recruiting email: Recruiting.Mailbox@truecare.org. San Diego County FQHC. 3.1★ Glassdoor, 956 staff, 27 sites.",
+      "HTTP 403 on WebFetch. Not on Lever or public Workday tenant. Recruiting email: Recruiting.Mailbox@truecare.org. San Diego County FQHC. 3.1★ Glassdoor, 956 staff, 27 sites.",
   },
   {
     fqhcSlug: "ole-health",
     scrapeable: false,
     atsType: "unknown",
-    lastChecked: "2026-03-07",
-    atsApiUrl: "https://olehealth.org/careers",
+    lastChecked: "2026-03-09",
+    atsApiUrl: "https://communicareole.org/careers",
     notes:
-      "Custom career portal. ATS not identified. Napa Valley FQHC (~70K+ patients). Merged with CommuniCare Health Centers.",
+      "Redirects olehealth.org → communicareole.org (merged with CommuniCare). Career page is JS-rendered, no ATS detected. Not on Lever (slug 'communicareole' returns 404). Napa Valley FQHC (~70K+ patients).",
   },
   {
     fqhcSlug: "elica-health-centers",
     scrapeable: false,
     atsType: "unknown",
-    lastChecked: "2026-03-07",
+    lastChecked: "2026-03-09",
     atsApiUrl: "https://elicahealth.org/careers",
     notes:
-      "Custom or embedded widget. ATS not identified. Sacramento area FQHC. 2.9★ Glassdoor, 600+ staff, 63K patients.",
+      "SSL certificate expired as of 2026-03-09. Site unreachable. Not on Lever. Sacramento area FQHC. 2.9★ Glassdoor, 600+ staff, 63K patients.",
   },
   {
     fqhcSlug: "dap-health",
     scrapeable: false,
     atsType: "unknown",
-    lastChecked: "2026-03-07",
+    lastChecked: "2026-03-09",
     atsApiUrl: "https://daphealth.org/careers",
     notes:
-      "ATS not identified (was Borrego Health). Desert/Palm Springs area FQHC. 3.3★ Glassdoor. Posts to Indeed, Glassdoor, LinkedIn.",
+      "HTTP 403 on WebFetch. Not on Lever. ATS not identified (was Borrego Health). Desert/Palm Springs area FQHC. 3.3★ Glassdoor. Posts to Indeed, Glassdoor, LinkedIn.",
   },
   {
     fqhcSlug: "west-county-health-centers",

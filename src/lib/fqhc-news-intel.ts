@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-08";
+export const INTEL_LAST_UPDATED = "2026-03-09";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -91,6 +91,64 @@ export const INTEL_ITEMS: IntelItem[] = [
   /* ============================================================== */
   /*  CHANGE-MANAGEMENT / AI & INNOVATION                            */
   /* ============================================================== */
+  {
+    id: "ambient-ai-coding-arms-race",
+    date: "2026-03-01",
+    headline: {
+      en: "Policy Brief: Ambient AI Scribes and the Coding Arms Race",
+      es: "Informe de Política: Escribas de IA Ambiental y la Carrera Armamentista de Codificación",
+    },
+    summary: {
+      en: "A PMC policy brief warns that ambient AI scribes are increasingly being deployed not just to reduce burnout, but to capture more revenue through more intensive coding. Riverside Health saw 11% rise in physician wRVUs and 14% increase in HCC diagnoses per encounter. For FQHCs under PPS, the coding intensity impact is different — but FQHCs in value-based contracts should monitor whether AI-generated notes are inflating risk scores.",
+      es: "Un informe de política de PMC advierte que los escribas de IA ambiental se están desplegando no solo para reducir el agotamiento, sino para capturar más ingresos a través de codificación más intensiva. Los FQHCs en contratos basados en valor deben monitorear si las notas generadas por IA están inflando puntajes de riesgo.",
+    },
+    category: "change-management",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12738533/",
+    sourceOrg: "PMC / NIH",
+    region: "Federal",
+    tags: ["ai", "ambient-scribe", "coding", "revenue-integrity", "wRVUs", "policy"],
+  },
+  {
+    id: "sacramento-26m-hhs-funding-cut",
+    date: "2026-03-05",
+    headline: {
+      en: "Sacramento County Faces $26M Funding Cut from HHS Restructuring",
+      es: "Condado de Sacramento Enfrenta Recorte de $26M por Reestructuración del HHS",
+    },
+    summary: {
+      en: "Sacramento County risks losing $26 million in federal health funding after HHS rescinds COVID-era CDC grants as part of agency restructuring. California and 22 other states have filed suit challenging the cuts. Sacramento's FQHCs — which grew from 10 to 29 facilities in 8 years — may face patient volume surges as county services contract.",
+      es: "El Condado de Sacramento arriesga perder $26 millones en fondos federales de salud después de que HHS rescinda subvenciones CDC de la era COVID. Los FQHCs de Sacramento — que crecieron de 10 a 29 instalaciones en 8 años — podrían enfrentar aumentos de volumen de pacientes.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.abc10.com/article/news/local/sacramento-county-health-funding-cut-rfk-california-doge/103-b1e53d57-777f-462c-becd-67bfebb4c89e",
+    sourceOrg: "ABC10 Sacramento",
+    region: "Sacramento County",
+    tags: ["sacramento", "federal-cuts", "hhs", "cdc-grants", "patient-volume"],
+  },
+  {
+    id: "cchc-nevada-expansion",
+    date: "2026-03-02",
+    headline: {
+      en: "Comprehensive Community Health Centers (LA FQHC) Expands to Nevada",
+      es: "Comprehensive Community Health Centers (FQHC de LA) Se Expande a Nevada",
+    },
+    summary: {
+      en: "CCHC, an LA County FQHC serving the San Fernando Valley, opened its first out-of-state location in Las Vegas on March 2. The expansion signals the growing sophistication of larger FQHC networks — CCHC grew from 45,000 visits in 2004 to 177,000+ by 2023. The model offers transparent pricing ($125 new patient visits) and walk-in access, which could inform California FQHC expansion strategies.",
+      es: "CCHC, un FQHC del Condado de LA que sirve al Valle de San Fernando, abrió su primera ubicación fuera del estado en Las Vegas el 2 de marzo. La expansión señala la creciente sofisticación de las redes FQHC más grandes.",
+    },
+    category: "merger-acquisition",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://www.prnewswire.com/news-releases/comprehensive-community-health-centers-opens-new-location-in-las-vegas-nevada-302692574.html",
+    sourceOrg: "PR Newswire",
+    region: "California",
+    affectedOrgs: ["Comprehensive Community Health Centers"],
+    tags: ["expansion", "nevada", "fqhc-growth", "los-angeles", "transparent-pricing"],
+  },
   {
     id: "akido-labs-bay-area-ai-street-medicine",
     date: "2026-01-28",
@@ -478,25 +536,25 @@ export const INTEL_ITEMS: IntelItem[] = [
     tags: ["layoffs", "managed-care", "warn-act", "ecm-impact"],
   },
   {
-    id: "ahs-188-positions",
-    date: "2026-02-25",
+    id: "ahs-layoffs-deferred",
+    date: "2026-03-04",
     headline: {
-      en: "Alameda Health System: 188 Filled Positions on Final Layoff List",
-      es: "Alameda Health System: 188 Puestos Ocupados en Lista Final de Despidos",
+      en: "Alameda Health System Layoffs Deferred — County Board Creates Working Group",
+      es: "Despidos de Alameda Health System Aplazados — Junta del Condado Crea Grupo de Trabajo",
     },
     summary: {
-      en: "Alameda Health System's Board finalizes layoff list at 188 filled positions out of 296 total. Cash-out timeline extended to August 2026. The system receives $60M/year in DSH funding now at risk from federal Medicaid cuts. Public hearing drew community opposition.",
-      es: "La Junta de Alameda Health System finaliza la lista de despidos en 188 puestos ocupados de 296 totales. Línea de tiempo de liquidación extendida a agosto 2026.",
+      en: "Alameda County Board of Supervisors voted to defer 187 planned layoffs (211 positions) at Alameda Health System that were set for March 9. The Board created a working group to explore alternatives to cuts that would have closed mental health programs at Highland and Fairmont Hospitals, the ambulatory plastic surgery program, and Highland's Complex Care Program serving homeless patients. AHS projects losing $100M+ annually from federal Medicaid cuts under H.R. 1.",
+      es: "La Junta de Supervisores del Condado de Alameda votó aplazar 187 despidos planificados (211 puestos) en Alameda Health System previstos para el 9 de marzo. La Junta creó un grupo de trabajo para explorar alternativas a recortes que habrían cerrado programas de salud mental en los hospitales Highland y Fairmont. AHS proyecta perder más de $100M anuales por recortes federales de Medicaid.",
     },
     category: "workforce",
     type: "news",
     impactLevel: "high",
-    sourceUrl: "https://www.kqed.org/news/12074462/alameda-county-officials-look-to-stave-off-mass-hospital-layoffs-as-medicaid-cuts-loom",
-    sourceOrg: "KQED",
+    sourceUrl: "https://oaklandside.org/2026/03/04/alameda-health-system-layoffs-deferred-county-supervisors/",
+    sourceOrg: "The Oaklandside",
     region: "Alameda County",
     affectedOrgs: ["Alameda Health System"],
     affectedOrgSlugs: [],
-    tags: ["layoffs", "dsh-funding", "public-hearing"],
+    tags: ["layoffs", "deferred", "dsh-funding", "mental-health", "working-group"],
   },
   {
     id: "nachc-workforce-crisis",
@@ -1593,6 +1651,166 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "FQHC Associates",
     region: "Federal",
     tags: ["financial-loss", "structural-strain", "chcf", "revenue-erosion", "program-wide"],
+  },
+
+  /* ============================================================== */
+  /*  SUPPLEMENTAL INTEL — March 9, 2026                            */
+  /* ============================================================== */
+  {
+    id: "calaim-waiver-expiration-dec-2026",
+    date: "2026-03-09",
+    headline: {
+      en: "CalAIM Waiver Expires December 31, 2026 — $1.2B in ECM/Community Supports at Risk",
+      es: "Exoneración CalAIM Expira el 31 de Diciembre de 2026 — $1.2B en ECM/Apoyos Comunitarios en Riesgo",
+    },
+    summary: {
+      en: "California's CalAIM 1115 and 1915(b) waivers expire December 31, 2026. DHCS has indicated it will seek renewal, but no formal application has been submitted. If not renewed, $1.2 billion annually in ECM and Community Supports funding disappears — threatening thousands of care coordination, CHW, and housing navigator positions at FQHCs statewide. Combined with the CHCF authorization cliff (also December 2026), this creates a double uncertainty event for the safety net.",
+      es: "Las exoneraciones CalAIM 1115 y 1915(b) de California expiran el 31 de diciembre de 2026. Si no se renuevan, $1.2B anuales en financiamiento de ECM y Apoyos Comunitarios desaparecen — amenazando miles de posiciones de coordinación de cuidado, CHWs y navegadores de vivienda en FQHCs en todo el estado.",
+    },
+    category: "legislation",
+    type: "deadline",
+    impactLevel: "critical",
+    sourceUrl: "https://www.chcs.org/resource/national-context-for-californias-renewal-of-calaim-in-2026/",
+    sourceOrg: "Center for Health Care Strategies / DHCS",
+    region: "California",
+    tags: ["calaim", "waiver", "ecm", "community-supports", "expiration", "workforce-risk"],
+  },
+  {
+    id: "chcf-authorization-cliff-dec-2026",
+    date: "2026-03-09",
+    headline: {
+      en: "CHCF $4.6B Authorization Expires December 2026 — No Multi-Year Reauthorization",
+      es: "Autorización CHCF de $4.6B Expira en Diciembre 2026 — Sin Reautorización Plurianual",
+    },
+    summary: {
+      en: "The Consolidated Appropriations Act 2026 set the Community Health Center Fund at $4.6B for FY2026, but authorization extends only through December 2026 — breaking from the historical 5-year reauthorization pattern. This creates hiring hesitancy, slows capital investment, and narrows strategic planning windows for all FQHCs nationwide.",
+      es: "La Ley de Asignaciones Consolidadas 2026 fijó el Fondo de Centros de Salud Comunitarios en $4.6B para el año fiscal 2026, pero la autorización solo se extiende hasta diciembre 2026 — rompiendo el patrón histórico de reautorización de 5 años.",
+    },
+    category: "funding",
+    type: "deadline",
+    impactLevel: "critical",
+    sourceUrl: "https://synergybilling.com/news/insights/the-funding-landscape-for-community-health-centers-in-2026",
+    sourceOrg: "Synergy Billing / Congress",
+    region: "Federal",
+    tags: ["chcf", "authorization", "funding-cliff", "reauthorization", "federal"],
+  },
+  {
+    id: "nachc-workforce-39pct-shortage-2038",
+    date: "2026-01-30",
+    headline: {
+      en: "NACHC: Nonmetro Areas Face 39% PCP Shortage by 2038 — CHC Workforce Now 326,000+",
+      es: "NACHC: Áreas No Metropolitanas Enfrentan 39% de Escasez de Médicos para 2038 — Fuerza Laboral CHC Ahora 326,000+",
+    },
+    summary: {
+      en: "NACHC's January 2026 workforce policy paper reveals the CHC workforce now stands at 326,000+ individuals across 17,000 locations serving 52 million people. By 2038, nonmetro areas face a projected 39% shortage of primary care physicians and 46% for dentists. NACHC requests $2.1 billion for five years and authorization of $950 million/year. This is the definitive 2026 policy document on community health center workforce needs.",
+      es: "El documento de política de fuerza laboral de NACHC de enero 2026 revela que la fuerza laboral de CHC ahora es de 326,000+ individuos en 17,000 ubicaciones sirviendo a 52 millones de personas. Para 2038, áreas no metropolitanas enfrentan una escasez proyectada del 39% de médicos de atención primaria.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.nachc.org/wp-content/uploads/2026/01/policy-papers_chc-workforce_jan-2026.pdf",
+    sourceOrg: "National Association of Community Health Centers",
+    region: "Federal",
+    tags: ["nachc", "workforce", "shortage", "primary-care", "dentist", "pipeline"],
+  },
+  {
+    id: "altamed-15b-economic-impact",
+    date: "2025-12-08",
+    headline: {
+      en: "AltaMed Generated $15.1 Billion in Economic Impact (2019-2024) — Nation's Largest FQHC",
+      es: "AltaMed Generó $15.1 Mil Millones en Impacto Económico (2019-2024) — FQHC Más Grande del País",
+    },
+    summary: {
+      en: "AltaMed Health Services — the nation's largest FQHC — released a study showing $15.1B in total economic impact from 2019-2024. Impact grew from $1.08B (2019) to $4.24B (projected 2025). The organization supports 12,000 jobs, serves 465,000 Medi-Cal patients, and operates 60+ health centers. Every $1 spent generates $1.50 in economic activity. Powerful advocacy data point for the entire FQHC sector.",
+      es: "AltaMed Health Services — el FQHC más grande del país — publicó un estudio que muestra $15.1B en impacto económico total de 2019-2024. La organización apoya 12,000 empleos, sirve a 465,000 pacientes de Medi-Cal y opera más de 60 centros de salud.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.prnewswire.com/news-releases/study-reveals-altamed-health-services-generated-15-1-billion-in-economic-impact-while-caring-for-hundreds-of-thousands-of-southern-california-patients-demonstrating-how-healthy-communities-strengthen-local-economies-302635447.html",
+    sourceOrg: "AltaMed Health Services",
+    region: "Los Angeles County",
+    affectedOrgs: ["AltaMed Health Services"],
+    affectedOrgSlugs: ["altamed-health-services"],
+    tags: ["altamed", "economic-impact", "advocacy", "largest-fqhc", "positive"],
+  },
+  {
+    id: "ab-1460-340b-contract-pharmacy-2026",
+    date: "2026-03-09",
+    headline: {
+      en: "AB 1460: California's 340B Contract Pharmacy Protection Bill Expected to Return in 2026",
+      es: "AB 1460: Proyecto de Ley de Protección de Farmacias Contratadas 340B Regresaría en 2026",
+    },
+    summary: {
+      en: "AB 1460 (Assemblymember Chris Rogers, D-Santa Rosa) would prohibit pharmaceutical manufacturers from restricting 340B contract pharmacy arrangements. The bill passed the Assembly in 2025 but stalled in the Senate. It's expected to return in 2026. Eight states have enacted similar laws; 23 have pending bills. For rural FQHCs, passage would expand access to 340B pharmacy discounts. However, the IRA is simultaneously creating structural pressure: 340B hit $81B in 2024 (+23% YoY), and Medicare Part D/B manufacturer rebate exemptions begin impacting 340B margins in 2026.",
+      es: "AB 1460 prohibiría a los fabricantes farmacéuticos restringir los acuerdos de farmacias contratadas 340B. El proyecto pasó la Asamblea en 2025 pero se detuvo en el Senado. Se espera que regrese en 2026.",
+    },
+    category: "legislation",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.mwe.com/insights/california-introduces-bill-to-protect-340b-contract-pharmacy-arrangements/",
+    sourceOrg: "McDermott Will & Emery / California Legislature",
+    region: "California",
+    tags: ["340b", "contract-pharmacy", "ab-1460", "legislation", "rural"],
+  },
+  {
+    id: "healthcare-hiring-momentum-icims-2026",
+    date: "2026-03-05",
+    headline: {
+      en: "Healthcare Hiring Shows Early 2026 Momentum: Clinical Apps +10%, Openings +20% MoM",
+      es: "Contratación en Salud Muestra Impulso a Inicio de 2026: Solicitudes Clínicas +10%, Vacantes +20% MoM",
+    },
+    summary: {
+      en: "iCIMS workforce data for January 2026 shows strong healthcare hiring momentum: clinical healthcare saw applications (+10%), openings (+20%), and hires (+5%) all up month-over-month. Nonclinical talent also showed positive momentum with applications (+17%), openings (+15%), and hires (+6%). This national data signals a strong demand cycle for healthcare talent despite funding uncertainty.",
+      es: "Datos de fuerza laboral de iCIMS para enero 2026 muestran fuerte impulso en contratación de salud: el sector clínico vio solicitudes (+10%), vacantes (+20%) y contrataciones (+5%) todas al alza mes a mes.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://www.prnewswire.com/news-releases/healthcare-hiring-shows-early-2026-momentum-amid-growing-candidate-interest-according-to-icims-data-302684645.html",
+    sourceOrg: "iCIMS",
+    region: "Federal",
+    tags: ["hiring", "momentum", "icims", "positive", "workforce-data"],
+  },
+  {
+    id: "health-net-31m-housing-investment",
+    date: "2026-03-03",
+    headline: {
+      en: "Health Net Invests $31.25M in California Housing — 900+ Families to Find Stability",
+      es: "Health Net Invierte $31.25M en Vivienda en California — Más de 900 Familias Encontrarán Estabilidad",
+    },
+    summary: {
+      en: "Health Net (Centene) announced $31.25M in grants to develop 10 housing projects in LA, Sacramento, San Joaquin, and Stanislaus counties, providing 900+ affordable housing units. Since 2020, Health Net has dedicated $93M to housing/homelessness initiatives. This investment intersects directly with CalAIM Community Supports — FQHCs delivering housing navigation and transitional rent services in these counties could benefit from increased housing stock for ECM patients.",
+      es: "Health Net (Centene) anunció $31.25M en subvenciones para desarrollar 10 proyectos de vivienda en los condados de LA, Sacramento, San Joaquín y Stanislaus, proporcionando más de 900 unidades de vivienda asequible.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://www.prnewswire.com/news-releases/more-than-900-california-families-to-find-housing-stability-in-2026-thanks-to-31-25-million-investment-by-health-net-302701671.html",
+    sourceOrg: "Health Net / Centene",
+    region: "California",
+    tags: ["housing", "calaim", "community-supports", "health-net", "positive"],
+  },
+  {
+    id: "blue-shield-ma-training-scholarships-fhcsd",
+    date: "2026-01-15",
+    headline: {
+      en: "Blue Shield Sponsors $80K in MA Training Scholarships at Family Health Centers of San Diego",
+      es: "Blue Shield Patrocina $80K en Becas de Formación de Asistentes Médicos en Family Health Centers de San Diego",
+    },
+    summary: {
+      en: "Blue Shield of California Promise Health Plan invested $80,000 in the Laura Rodriguez Medical Assistant Institute (LRMAI) at Family Health Centers of San Diego — one of California's largest FQHCs. The program supports full-time and part-time MA training tracks totaling 710 hours. This represents a direct FQHC workforce pipeline investment by a managed care plan, a model that could be replicated by other MCPs statewide.",
+      es: "Blue Shield of California Promise Health Plan invirtió $80,000 en el Instituto de Asistentes Médicos Laura Rodríguez (LRMAI) en Family Health Centers de San Diego. El programa apoya formación de MA de tiempo completo y parcial totalizando 710 horas.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://www.prnewswire.com/news-releases/blue-shield-of-california-promise-health-plan-sponsors-80-000-in-medical-assistant-training-scholarships-in-san-diego-county-302643004.html",
+    sourceOrg: "Blue Shield of California / FHCSD",
+    region: "San Diego County",
+    affectedOrgs: ["Family Health Centers of San Diego"],
+    affectedOrgSlugs: ["family-health-centers-of-san-diego"],
+    tags: ["workforce-pipeline", "ma-training", "blue-shield", "scholarship", "positive"],
   },
 ];
 

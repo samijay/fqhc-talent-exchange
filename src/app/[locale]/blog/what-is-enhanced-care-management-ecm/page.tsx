@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 interface RoleCard {
   title: string;
@@ -499,7 +500,8 @@ const esContent: ArticleContent = {
 
 export default function WhatIsECMArticle() {
   const locale = useLocale();
-  const content = locale === "es" ? esContent : enContent;
+  const isEs = locale === "es";
+  const content = isEs ? esContent : enContent;
 
   return (
     <main className="min-h-screen">
@@ -605,46 +607,67 @@ export default function WhatIsECMArticle() {
                     {section.subHeading}
                   </h3>
                 )}
+
+                {/* Inline tool callout after "Why ECM Matters for FQHC Careers" */}
+                {idx === 1 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Explora el <Link href="/" className="text-teal-700 font-medium underline">Panel de Inteligencia</Link> para ver datos en vivo sobre expansi&oacute;n de ECM, tendencias de contrataci&oacute;n y actualizaciones de pol&iacute;ticas de CalAIM en los 220 FQHCs de California.</>
+                      ) : (
+                        <>Explore the <Link href="/" className="text-teal-700 font-medium underline">Intelligence Dashboard</Link> for live data on ECM expansion, hiring trends, and CalAIM policy updates across 220 California FQHCs.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+
+                {/* Inline tool callout after "Skills and Qualifications" */}
+                {idx === 3 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Explora la <Link href="/pathway" className="text-teal-700 font-medium underline">Ruta de Aprendizaje</Link> para encontrar cursos de certificaci&oacute;n CHW, entrevista motivacional y otros entrenamientos que fortalecen tu candidatura para roles de ECM.</>
+                      ) : (
+                        <>Explore the <Link href="/pathway" className="text-teal-700 font-medium underline">Learning Pathway</Link> to find CHW certification courses, motivational interviewing training, and other credentials that strengthen your ECM candidacy.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+
+                {/* Inline tool callout after "How to Position Yourself" */}
+                {idx === 5 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Toma la <Link href="/career-insights" className="text-teal-700 font-medium underline">Evaluaci&oacute;n de Carrera</Link> para identificar tus fortalezas conductuales en salud comunitaria y obtener un plan de 90 d&iacute;as personalizado para roles de ECM.</>
+                      ) : (
+                        <>Take the <Link href="/career-insights" className="text-teal-700 font-medium underline">Career Assessment</Link> to identify your community health behavioral strengths and get a personalized 90-day plan for ECM roles.</>
+                      )}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-stone-900 mb-4">
-              {content.ctaTitle}
-            </h3>
-            <p className="text-stone-600 mb-6 text-lg">
-              {content.ctaDescription}
-            </p>
-            <a
-              href="/resume-builder"
-              className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
-            >
-              {content.ctaButtonText}
-            </a>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="text-xl font-bold text-stone-900 mb-6">
-              {locale === "es" ? "Artículos Relacionados" : "Related Articles"}
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {content.relatedArticles.map((article, idx) => (
-                <a
-                  key={idx}
-                  href={article.href}
-                  className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-                >
-                  <p className="text-sm text-teal-700 mb-2">{content.category}</p>
-                  <h4 className="font-semibold text-stone-900">
-                    {article.title}
-                  </h4>
-                </a>
-              ))}
-            </div>
-          </div>
+          <ArticleCTA
+            audience="both"
+            relatedArticles={[
+              { slug: "medi-cal-funding-cuts-community-health-workers", title: "Medi-Cal Funding Cuts: What Community Health Workers Need to Know", esTitle: "Recortes de Fondos de Medi-Cal: Lo Que los Trabajadores de Salud Comunitaria Necesitan Saber", category: "Career Resources", esCategory: "Recursos Profesionales" },
+              { slug: "fqhc-career-ladder-ma-rn-provider", title: "The FQHC Career Ladder: How to Advance in Community Health", esTitle: "La Escalera Profesional en FQHC: C\u00f3mo Avanzar en Salud Comunitaria", category: "Career Resources", esCategory: "Recursos Profesionales" },
+              { slug: "working-at-top-of-scope-fqhc", title: "Working at Top of Scope in an FQHC", esTitle: "Trabajando al M\u00e1ximo de Tu Alcance en un FQHC", category: "Career Resources", esCategory: "Recursos Profesionales" },
+            ]}
+          />
         </div>
       </article>
     </main>

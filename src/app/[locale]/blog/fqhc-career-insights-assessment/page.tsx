@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 interface ArticleContent {
   category: string;
@@ -41,7 +42,7 @@ const enContent: ArticleContent = {
   dateDisplay: "February 15, 2026",
   readTime: "9 min read",
   openingParagraph:
-    "Most hiring tools in healthcare ask the wrong questions. They check whether you have a certification, whether you have used a specific EHR, whether you have a certain number of years of experience. Those things matter — but they do not predict whether someone will thrive in the demanding, mission-driven environment of a Federally Qualified Health Center. The Career Insights Assessment, integrated directly into the FQHC Talent resume builder, takes a fundamentally different approach. Instead of checking boxes, it evaluates the behavioral traits that actually determine success in community health — your motivation, your communication instincts, your ability to adapt under pressure, and your orientation toward growth. It is a 12-question, scenario-based assessment that generates personalized insights you can use immediately, whether you are preparing for an interview, building your resume, or planning your next career move.",
+    "Most hiring tools in healthcare ask the wrong questions. They check whether you have a certification, whether you have used a specific EHR, whether you have a certain number of years of experience. Those things matter — but they do not predict whether someone will thrive in the demanding, mission-driven environment of a Federally Qualified Health Center. The Career Insights Assessment, integrated directly into the FQHC Talent resume builder, takes a fundamentally different approach. Instead of checking boxes, it evaluates the behavioral traits that actually determine success in community health — your motivation, your communication instincts, your ability to adapt under pressure, and your orientation toward growth. It is a 15-question, scenario-based assessment that generates personalized insights you can use immediately, whether you are preparing for an interview, building your resume, or planning your next career move.",
   sections: [
     {
       heading: "Why Behavioral Traits Matter More Than Checkboxes",
@@ -119,7 +120,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "After completing the 12 questions, you receive a personalized Career Insights Report with four components:",
+          text: "After completing the 15 questions, you receive a personalized Career Insights Report with four components:",
         },
         {
           type: "list",
@@ -245,7 +246,7 @@ const esContent: ArticleContent = {
   dateDisplay: "15 de Febrero de 2026",
   readTime: "9 min",
   openingParagraph:
-    "La mayor\u00eda de las herramientas de contrataci\u00f3n en salud hacen las preguntas equivocadas. Verifican si tienes una certificaci\u00f3n, si has usado un EHR espec\u00edfico, si tienes cierto n\u00famero de a\u00f1os de experiencia. Esas cosas importan — pero no predicen si alguien prosperar\u00e1 en el exigente entorno impulsado por la misi\u00f3n de un Centro de Salud Calificado Federalmente. La Evaluaci\u00f3n de Perspectivas de Carrera, integrada directamente en el constructor de curr\u00edculum de FQHC Talent, adopta un enfoque fundamentalmente diferente. En lugar de marcar casillas, eval\u00faa los rasgos conductuales que realmente determinan el \u00e9xito en la salud comunitaria — tu motivaci\u00f3n, tus instintos de comunicaci\u00f3n, tu capacidad de adaptarte bajo presi\u00f3n y tu orientaci\u00f3n hacia el crecimiento. Es una evaluaci\u00f3n de 12 preguntas basada en escenarios que genera perspectivas personalizadas que puedes usar de inmediato, ya sea que te est\u00e9s preparando para una entrevista, construyendo tu curr\u00edculum o planificando tu pr\u00f3ximo movimiento profesional.",
+    "La mayor\u00eda de las herramientas de contrataci\u00f3n en salud hacen las preguntas equivocadas. Verifican si tienes una certificaci\u00f3n, si has usado un EHR espec\u00edfico, si tienes cierto n\u00famero de a\u00f1os de experiencia. Esas cosas importan — pero no predicen si alguien prosperar\u00e1 en el exigente entorno impulsado por la misi\u00f3n de un Centro de Salud Calificado Federalmente. La Evaluaci\u00f3n de Perspectivas de Carrera, integrada directamente en el constructor de curr\u00edculum de FQHC Talent, adopta un enfoque fundamentalmente diferente. En lugar de marcar casillas, eval\u00faa los rasgos conductuales que realmente determinan el \u00e9xito en la salud comunitaria — tu motivaci\u00f3n, tus instintos de comunicaci\u00f3n, tu capacidad de adaptarte bajo presi\u00f3n y tu orientaci\u00f3n hacia el crecimiento. Es una evaluaci\u00f3n de 15 preguntas basada en escenarios que genera perspectivas personalizadas que puedes usar de inmediato, ya sea que te est\u00e9s preparando para una entrevista, construyendo tu curr\u00edculum o planificando tu pr\u00f3ximo movimiento profesional.",
   sections: [
     {
       heading: "Por Qu\u00e9 los Rasgos Conductuales Importan M\u00e1s que las Casillas",
@@ -294,7 +295,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "La Evaluaci\u00f3n de Perspectivas de Carrera utiliza 12 preguntas basadas en escenarios — tres por dominio. A diferencia de los cuestionarios tradicionales de autoevaluaci\u00f3n que te piden calificar afirmaciones como “Soy un buen comunicador” en una escala, las preguntas basadas en escenarios te presentan situaciones realistas y te piden elegir la respuesta que mejor refleje c\u00f3mo te comportar\u00edas realmente. Este formato reduce la tendencia a dar respuestas socialmente deseables y en su lugar revela tus instintos conductuales aut\u00e9nticos.",
+          text: "La Evaluaci\u00f3n de Perspectivas de Carrera utiliza 15 preguntas basadas en escenarios — tres por dominio. A diferencia de los cuestionarios tradicionales de autoevaluaci\u00f3n que te piden calificar afirmaciones como “Soy un buen comunicador” en una escala, las preguntas basadas en escenarios te presentan situaciones realistas y te piden elegir la respuesta que mejor refleje c\u00f3mo te comportar\u00edas realmente. Este formato reduce la tendencia a dar respuestas socialmente deseables y en su lugar revela tus instintos conductuales aut\u00e9nticos.",
         },
         {
           type: "paragraph",
@@ -323,7 +324,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "Despu\u00e9s de completar las 12 preguntas, recibes un Informe Personalizado de Perspectivas de Carrera con cuatro componentes:",
+          text: "Despu\u00e9s de completar las 15 preguntas, recibes un Informe Personalizado de Perspectivas de Carrera con cuatro componentes:",
         },
         {
           type: "list",
@@ -441,7 +442,8 @@ const esContent: ArticleContent = {
 
 export default function FqhcCareerInsightsAssessmentArticle() {
   const locale = useLocale();
-  const content = locale === "es" ? esContent : enContent;
+  const isEs = locale === "es";
+  const content = isEs ? esContent : enContent;
 
   return (
     <main className="min-h-screen">
@@ -526,46 +528,67 @@ export default function FqhcCareerInsightsAssessmentArticle() {
                   }
                   return null;
                 })}
+
+                {/* Inline tool callout after "The 4 Domains" section */}
+                {idx === 1 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Toma la <Link href="/career-insights" className="text-teal-700 font-medium underline">Evaluaci&oacute;n de Carrera</Link> para medir tus fortalezas conductuales en estos dominios y obtener tu reporte personalizado ahora.</>
+                      ) : (
+                        <>Take the <Link href="/career-insights" className="text-teal-700 font-medium underline">Career Assessment</Link> to measure your behavioral strengths across these domains and get your personalized report now.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+
+                {/* Inline tool callout after "The Biggest Opportunity" section */}
+                {idx === 4 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Explora la <Link href="/pathway" className="text-teal-700 font-medium underline">Ruta de Aprendizaje</Link> para encontrar cursos y certificaciones que aborden tus &aacute;reas de crecimiento con contenido curado para tu nivel de experiencia.</>
+                      ) : (
+                        <>Explore the <Link href="/pathway" className="text-teal-700 font-medium underline">Learning Pathway</Link> to find courses and certifications that address your growth areas with content curated for your experience level.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+
+                {/* Inline tool callout after "Built Into the Resume Builder" section */}
+                {idx === 6 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa el <Link href="/resume-builder" className="text-teal-700 font-medium underline">Constructor de Curr&iacute;culum</Link> para crear un CV optimizado para FQHC y tomar la evaluaci&oacute;n integrada &mdash; todo completamente gratis.</>
+                      ) : (
+                        <>Use the <Link href="/resume-builder" className="text-teal-700 font-medium underline">Resume Builder</Link> to create an FQHC-optimized resume and take the integrated assessment &mdash; all completely free.</>
+                      )}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-stone-900 mb-4">
-              {content.ctaTitle}
-            </h3>
-            <p className="text-stone-600 mb-6 text-lg">
-              {content.ctaDescription}
-            </p>
-            <a
-              href="/resume-builder"
-              className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
-            >
-              {content.ctaButtonText}
-            </a>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="text-xl font-bold text-stone-900 mb-6">
-              {locale === "es" ? "Art\u00edculos Relacionados" : "Related Articles"}
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {content.relatedArticles.map((article, idx) => (
-                <a
-                  key={idx}
-                  href={article.href}
-                  className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-                >
-                  <p className="text-sm text-teal-700 mb-2">{content.category}</p>
-                  <h4 className="font-semibold text-stone-900">
-                    {article.title}
-                  </h4>
-                </a>
-              ))}
-            </div>
-          </div>
+          <ArticleCTA
+            audience="the-pulse"
+            relatedArticles={[
+              { slug: "fqhc-career-ladder-ma-rn-provider", title: "The FQHC Career Ladder: How to Advance in Community Health", esTitle: "La Escalera Profesional en FQHC: C\u00f3mo Avanzar en Salud Comunitaria", category: "Career Resources", esCategory: "Recursos Profesionales" },
+              { slug: "top-10-fqhc-interview-questions", title: "Top 10 FQHC Interview Questions and How to Answer Them", esTitle: "Las 10 Preguntas M\u00e1s Comunes en Entrevistas de FQHC y C\u00f3mo Responderlas", category: "Interview Prep", esCategory: "Preparaci\u00f3n para Entrevistas" },
+              { slug: "how-to-write-fqhc-resume", title: "How to Write an FQHC Resume That Gets Noticed", esTitle: "C\u00f3mo Escribir un Curr\u00edculum de FQHC que Destaque", category: "Career Resources", esCategory: "Recursos Profesionales" },
+            ]}
+          />
         </div>
       </article>
     </main>

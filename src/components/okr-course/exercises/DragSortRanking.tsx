@@ -168,24 +168,24 @@ export function DragSortRanking({
                   {t(item.text)}
                 </p>
 
-                {/* Move buttons */}
+                {/* Move buttons — touch-friendly sizing for mobile */}
                 {!submitted && (
-                  <div className="flex flex-col gap-0.5 shrink-0">
+                  <div className="flex flex-col gap-1 shrink-0">
                     <button
                       onClick={() => moveUp(position)}
                       disabled={position === 0}
-                      className="p-1 rounded hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 transition-colors"
+                      className="p-2 sm:p-1 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 transition-colors active:bg-stone-200 dark:active:bg-stone-700"
                       aria-label="Move up"
                     >
-                      <ArrowUp className="h-4 w-4 text-stone-500" />
+                      <ArrowUp className="h-5 w-5 sm:h-4 sm:w-4 text-stone-500" />
                     </button>
                     <button
                       onClick={() => moveDown(position)}
                       disabled={position === order.length - 1}
-                      className="p-1 rounded hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 transition-colors"
+                      className="p-2 sm:p-1 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 transition-colors active:bg-stone-200 dark:active:bg-stone-700"
                       aria-label="Move down"
                     >
-                      <ArrowDown className="h-4 w-4 text-stone-500" />
+                      <ArrowDown className="h-5 w-5 sm:h-4 sm:w-4 text-stone-500" />
                     </button>
                   </div>
                 )}

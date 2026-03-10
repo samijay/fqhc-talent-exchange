@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, TotalCompVisual } from "@/components/blog/BlogDataViz";
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 interface ArticleContent {
   category: string;
@@ -543,7 +544,7 @@ const esContent: ArticleContent = {
         {
           type: "list",
           items: [
-            "Explora nuestro Directorio de FQHCs para conocer los 87 FQHCs de California, incluyendo sus ubicaciones, programas y ofertas de trabajo actuales. Usalo para identificar organizaciones en tu region y aprender sobre su tamano, servicios y sistemas EHR.",
+            "Explora nuestro Directorio de FQHCs para conocer los 220 FQHCs de California, incluyendo sus ubicaciones, programas y ofertas de trabajo actuales. Usalo para identificar organizaciones en tu region y aprender sobre su tamano, servicios y sistemas EHR.",
             "Construye tu curriculum vitae gratis usando nuestro Constructor de CV, que esta optimizado para los gerentes de contratacion de FQHCs. Nuestras plantillas destacan los programas, certificaciones y competencias que los centros de salud comunitarios priorizan.",
             "Lee nuestra Guia de Pago de Prestamos del NHSC para una inmersion profunda en los requisitos de elegibilidad, cronogramas de solicitud y estrategias para maximizar tu beneficio de pago de prestamos.",
             "Cuando compares ofertas, siempre calcula la compensacion total — no solo el salario base. Usa el marco de este articulo para estimar el valor en dolares del seguro de salud, contribuciones de jubilacion, PTO y otros beneficios.",
@@ -558,7 +559,7 @@ const esContent: ArticleContent = {
   ],
   ctaTitle: "Listo para Explorar Carreras en FQHCs de California?",
   ctaDescription:
-    "Construye tu curriculum vitae de salud comunitaria gratis y explora 87 FQHCs de California — con informacion de beneficios, ofertas de trabajo y datos salariales.",
+    "Construye tu curriculum vitae de salud comunitaria gratis y explora 220 FQHCs de California — con informacion de beneficios, ofertas de trabajo y datos salariales.",
   ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {
@@ -576,7 +577,8 @@ const esContent: ArticleContent = {
 
 export default function FqhcBenefitsGuideArticle() {
   const locale = useLocale();
-  const content = locale === "es" ? esContent : enContent;
+  const isEs = locale === "es";
+  const content = isEs ? esContent : enContent;
 
   return (
     <main className="min-h-screen">
@@ -690,46 +692,63 @@ export default function FqhcBenefitsGuideArticle() {
                   }
                   return null;
                 })}
+
+                {/* Inline tool callouts at natural break points */}
+                {idx === 2 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa la herramienta <Link href="/compare" className="text-teal-700 font-medium underline">Comparar FQHCs</Link> para ver beneficios, pr\u00e9stamos NHSC y jubilaci\u00f3n lado a lado en 220 FQHCs de California.</>
+                      ) : (
+                        <>Use the <Link href="/compare" className="text-teal-700 font-medium underline">Compare FQHCs</Link> tool to compare benefits, NHSC eligibility, and retirement plans side-by-side across 220 California FQHCs.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {idx === 5 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Explora la <Link href="/pathway" className="text-teal-700 font-medium underline">Ruta de Aprendizaje</Link> para encontrar certificaciones y cursos gratuitos que maximicen tu crecimiento profesional en FQHC.</>
+                      ) : (
+                        <>Explore the <Link href="/pathway" className="text-teal-700 font-medium underline">Learning Pathway</Link> to find free certifications and courses that maximize your professional growth at an FQHC.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {idx === 8 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa el <Link href="/resume-builder" className="text-teal-700 font-medium underline">Constructor de Curr\u00edculum</Link> para crear un CV que destaque tu experiencia FQHC y atraiga ofertas con paquetes de beneficios completos.</>
+                      ) : (
+                        <>Use the <Link href="/resume-builder" className="text-teal-700 font-medium underline">Resume Builder</Link> to create a resume that showcases your FQHC experience and attracts offers with comprehensive benefits packages.</>
+                      )}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-stone-900 mb-4">
-              {content.ctaTitle}
-            </h3>
-            <p className="text-stone-600 mb-6 text-lg">
-              {content.ctaDescription}
-            </p>
-            <a
-              href="/resume-builder"
-              className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
-            >
-              {content.ctaButtonText}
-            </a>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="text-xl font-bold text-stone-900 mb-6">
-              {locale === "es" ? "Articulos Relacionados" : "Related Articles"}
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {content.relatedArticles.map((article, idx) => (
-                <a
-                  key={idx}
-                  href={article.href}
-                  className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-                >
-                  <p className="text-sm text-teal-700 mb-2">{content.category}</p>
-                  <h4 className="font-semibold text-stone-900">
-                    {article.title}
-                  </h4>
-                </a>
-              ))}
-            </div>
-          </div>
+          <ArticleCTA
+            audience="the-pulse"
+            relatedArticles={[
+              { slug: "fqhc-salary-negotiation-guide", title: "How to Negotiate Your FQHC Salary", esTitle: "C\u00f3mo Negociar Tu Salario en un FQHC", category: "Career Resources", esCategory: "Recursos de Carrera" },
+              { slug: "nhsc-loan-repayment-guide", title: "NHSC Loan Repayment Guide for FQHC Workers", esTitle: "Gu\u00eda de Pago de Pr\u00e9stamos NHSC para Trabajadores de FQHC", category: "Benefits", esCategory: "Beneficios" },
+              { slug: "fqhc-vs-private-practice", title: "FQHC vs Private Practice: Which Is Better?", esTitle: "FQHC vs Pr\u00e1ctica Privada: \u00bfCu\u00e1l es Mejor?", category: "Career Guidance", esCategory: "Orientaci\u00f3n Profesional" },
+            ]}
+          />
         </div>
       </article>
     </main>

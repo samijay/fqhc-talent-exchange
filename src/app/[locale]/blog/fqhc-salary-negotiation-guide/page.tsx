@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, SalaryRangeChart, TotalCompVisual } from "@/components/blog/BlogDataViz";
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 interface ArticleContent {
   category: string;
@@ -285,7 +286,7 @@ const enContent: ArticleContent = {
   ],
   ctaTitle: "Research FQHC Salaries and Start Your Job Search",
   ctaDescription:
-    "Browse our directory of 87 California FQHCs and 165+ job listings. Build a free community health resume that highlights the skills FQHCs value most — and negotiate with confidence.",
+    "Browse our directory of 220 California FQHCs and 620+ job listings. Build a free community health resume that highlights the skills FQHCs value most — and negotiate with confidence.",
   ctaButtonText: "Build Your Free Resume",
   relatedArticles: [
     {
@@ -552,7 +553,7 @@ const esContent: ArticleContent = {
   ],
   ctaTitle: "Investiga Salarios de FQHC y Comienza Tu Busqueda de Empleo",
   ctaDescription:
-    "Explora nuestro directorio de 87 FQHCs de California y mas de 165 ofertas de trabajo. Crea un curriculum gratuito de salud comunitaria que destaque las habilidades que los FQHCs mas valoran — y negocia con confianza.",
+    "Explora nuestro directorio de 220 FQHCs de California y mas de 620 ofertas de trabajo. Crea un curriculum gratuito de salud comunitaria que destaque las habilidades que los FQHCs mas valoran — y negocia con confianza.",
   ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {
@@ -568,7 +569,8 @@ const esContent: ArticleContent = {
 
 export default function FqhcSalaryNegotiationGuideArticle() {
   const locale = useLocale();
-  const content = locale === "es" ? esContent : enContent;
+  const isEs = locale === "es";
+  const content = isEs ? esContent : enContent;
 
   return (
     <main className="min-h-screen">
@@ -678,6 +680,50 @@ export default function FqhcSalaryNegotiationGuideArticle() {
                   }
                   return null;
                 })}
+
+                {/* Inline tool callouts at natural break points */}
+                {idx === 1 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa la herramienta <Link href="/compare" className="text-teal-700 font-medium underline">Comparar FQHCs</Link> para ver salarios, beneficios y calificaciones lado a lado en 220 FQHCs de California.</>
+                      ) : (
+                        <>Use the <Link href="/compare" className="text-teal-700 font-medium underline">Compare FQHCs</Link> tool to see salaries, benefits, and ratings side-by-side across 220 California FQHCs.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {idx === 2 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa el <Link href="/resume-builder" className="text-teal-700 font-medium underline">Constructor de Curr\u00edculum</Link> para crear un CV que destaque tus habilidades biling\u00fces, experiencia en ECM y dominio de EHR.</>
+                      ) : (
+                        <>Use the <Link href="/resume-builder" className="text-teal-700 font-medium underline">Resume Builder</Link> to create a resume that highlights your bilingual skills, ECM experience, and EHR proficiency.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {idx === 5 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Toma la <Link href="/career-insights" className="text-teal-700 font-medium underline">Evaluaci\u00f3n de Carrera</Link> para descubrir tu valor en el mercado de FQHCs y obtener un plan de 90 d\u00edas personalizado.</>
+                      ) : (
+                        <>Take the <Link href="/career-insights" className="text-teal-700 font-medium underline">Career Assessment</Link> to discover your market value in the FQHC sector and get a personalized 90-day plan.</>
+                      )}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -695,41 +741,14 @@ export default function FqhcSalaryNegotiationGuideArticle() {
           />
 
           {/* CTA */}
-          <div className="mt-16 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-stone-900 mb-4">
-              {content.ctaTitle}
-            </h3>
-            <p className="text-stone-600 mb-6 text-lg">
-              {content.ctaDescription}
-            </p>
-            <a
-              href="/resume-builder"
-              className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
-            >
-              {content.ctaButtonText}
-            </a>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="text-xl font-bold text-stone-900 mb-6">
-              {locale === "es" ? "Articulos Relacionados" : "Related Articles"}
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {content.relatedArticles.map((article, idx) => (
-                <a
-                  key={idx}
-                  href={article.href}
-                  className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-                >
-                  <p className="text-sm text-teal-700 mb-2">{content.category}</p>
-                  <h4 className="font-semibold text-stone-900">
-                    {article.title}
-                  </h4>
-                </a>
-              ))}
-            </div>
-          </div>
+          <ArticleCTA
+            audience="the-pulse"
+            relatedArticles={[
+              { slug: "fqhc-benefits-guide-community-health", title: "The Complete Guide to FQHC Benefits", esTitle: "Gu\u00eda Completa de Beneficios de FQHC", category: "Benefits", esCategory: "Beneficios" },
+              { slug: "fqhc-career-ladder-ma-rn-provider", title: "The FQHC Career Ladder: MA, RN & Provider", esTitle: "La Escalera Profesional FQHC: MA, RN y Proveedor", category: "Career Growth", esCategory: "Crecimiento Profesional" },
+              { slug: "fqhc-vs-private-practice", title: "FQHC vs Private Practice: Which Is Better?", esTitle: "FQHC vs Pr\u00e1ctica Privada: \u00bfCu\u00e1l es Mejor?", category: "Career Guidance", esCategory: "Orientaci\u00f3n Profesional" },
+            ]}
+          />
         </div>
       </article>
     </main>

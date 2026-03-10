@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, StatCallout } from "@/components/blog/BlogDataViz";
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 interface ArticleContent {
   category: string;
@@ -83,7 +84,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "Here's the tension: while healthcare hiring is booming nationally, many FQHCs in California are simultaneously laying off workers due to Medi-Cal funding cuts and federal reductions under H.R. 1. California WARN Act filings show 2,300+ displaced healthcare workers across 11 organizations statewide.",
+          text: "Here's the tension: while healthcare hiring is booming nationally, many FQHCs in California are simultaneously laying off workers due to Medi-Cal funding cuts and federal reductions under H.R. 1. California WARN Act filings show 3,477+ displaced healthcare workers across 11 organizations statewide.",
         },
         {
           type: "paragraph",
@@ -91,7 +92,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "The national data supports this: HRSA reports that over 70% of FQHCs face critical shortages in physicians, nurses, and mental health providers, with vacancy rates exceeding 20% in many core roles. Meanwhile, NACHC data shows health centers now serve over 32.5 million patients — the highest in the program's 60-year history — with over 310,000 staff across 16,000+ sites nationally.",
+          text: "The national data supports this: HRSA reports that over 70% of FQHCs face critical shortages in physicians, nurses, and mental health providers, with vacancy rates exceeding 20% in many core roles. Meanwhile, NACHC data shows health centers now serve over 32.5 million patients — the highest in the program's 60-year history — with over 326,000 staff across 16,000+ sites nationally.",
         },
       ],
     },
@@ -108,7 +109,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "California has approximately 270+ community health centers (including FQHCs, FQHC look-alikes, and free clinics) serving millions of residents. Our directory tracks 90 of the largest FQHCs in the state with detailed workforce and funding data.",
+          text: "California has approximately 270+ community health centers (including FQHCs, FQHC look-alikes, and free clinics) serving millions of residents. Our directory tracks 220 FQHCs across the state with detailed workforce and funding data.",
         },
       ],
     },
@@ -123,7 +124,7 @@ const enContent: ArticleContent = {
           type: "list",
           items: [
             "Community Health Workers (SOC 21-1094): BLS projects 14% growth over 10 years — nearly triple the average for all occupations. California has the highest concentration of CHW positions in the country.",
-            "Medical Assistants: Consistently one of the most-posted roles at FQHCs, with 156+ active listings in our database. High turnover (32%+) drives constant hiring demand.",
+            "Medical Assistants: Consistently one of the most-posted roles at FQHCs, with 620+ active listings in our database. High turnover (32%+) drives constant hiring demand.",
             "Care Coordinators / Case Managers: Fueled by ECM, CCM, and CalAIM programs. These roles are revenue-generating for FQHCs and increasingly protected from budget cuts.",
             "Nurse Practitioners & Physician Assistants: FQHCs are aggressively hiring mid-level providers to expand access. NHSC loan repayment makes these roles especially attractive.",
             "Behavioral Health Specialists (LCSWs, LMFTs, Psychologists): HRSA projects a shortage of 136,350 psychologists nationally by 2038. Over 122 million Americans live in a Mental Health HPSA.",
@@ -162,7 +163,7 @@ const enContent: ArticleContent = {
           type: "list",
           items: [
             "Monthly BLS healthcare employment figures — will the 82,000-job January surge sustain into February/March?",
-            "California FQHC layoff activity — WARN Act filings show 2,300+ displaced workers so far, with new filings possible as funding cuts take effect",
+            "California FQHC layoff activity — WARN Act filings show 3,477+ displaced workers so far, with new filings possible as funding cuts take effect",
             "Medi-Cal funding cliff dates — PPS rate elimination (Oct 2026), dental reimbursement cuts (Jul 2026), and CalAIM waiver renewal (Dec 2026)",
             "CHW Medi-Cal billing adoption — how many FQHCs are implementing the new CHW billing codes, and what's the impact on hiring?",
             "SB 525 healthcare minimum wage implementation — phased $25/hr minimum by 2027 for FQHCs will restructure compensation across the sector",
@@ -249,7 +250,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "Aquí está la tensión: mientras la contratación en salud está en auge a nivel nacional, muchos FQHCs en California están simultáneamente despidiendo trabajadores debido a recortes de fondos de Medi-Cal y reducciones federales bajo H.R. 1. Los avisos WARN Act de California muestran 2,300+ trabajadores de salud desplazados en 11 organizaciones en todo el estado.",
+          text: "Aquí está la tensión: mientras la contratación en salud está en auge a nivel nacional, muchos FQHCs en California están simultáneamente despidiendo trabajadores debido a recortes de fondos de Medi-Cal y reducciones federales bajo H.R. 1. Los avisos WARN Act de California muestran 3,477+ trabajadores de salud desplazados en 11 organizaciones en todo el estado.",
         },
         {
           type: "paragraph",
@@ -257,7 +258,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Los datos nacionales respaldan esto: HRSA reporta que más del 70% de los FQHCs enfrentan escasez crítica de médicos, enfermeras y proveedores de salud mental, con tasas de vacantes superiores al 20% en muchos roles clave. Mientras tanto, datos de NACHC muestran que los centros de salud ahora atienden a más de 32.5 millones de pacientes — el número más alto en los 60 años del programa — con más de 310,000 empleados en más de 16,000 sitios a nivel nacional.",
+          text: "Los datos nacionales respaldan esto: HRSA reporta que más del 70% de los FQHCs enfrentan escasez crítica de médicos, enfermeras y proveedores de salud mental, con tasas de vacantes superiores al 20% en muchos roles clave. Mientras tanto, datos de NACHC muestran que los centros de salud ahora atienden a más de 32.5 millones de pacientes — el número más alto en los 60 años del programa — con más de 326,000 empleados en más de 16,000 sitios a nivel nacional.",
         },
       ],
     },
@@ -274,7 +275,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "California tiene aproximadamente 270+ centros de salud comunitarios (incluyendo FQHCs, FQHC look-alikes y clínicas gratuitas). Nuestro directorio rastrea 90 de los FQHCs más grandes del estado con datos detallados de fuerza laboral y financiamiento.",
+          text: "California tiene aproximadamente 270+ centros de salud comunitarios (incluyendo FQHCs, FQHC look-alikes y clínicas gratuitas). Nuestro directorio rastrea 220 FQHCs en todo el estado con datos detallados de fuerza laboral y financiamiento.",
         },
       ],
     },
@@ -289,7 +290,7 @@ const esContent: ArticleContent = {
           type: "list",
           items: [
             "Trabajadores de Salud Comunitaria (SOC 21-1094): El BLS proyecta un crecimiento del 14% en 10 años — casi el triple del promedio para todas las ocupaciones. California tiene la mayor concentración de posiciones CHW en el país.",
-            "Asistentes Médicos: Consistentemente uno de los roles más publicados en FQHCs, con 156+ listados activos en nuestra base de datos. Alta rotación (32%+) impulsa la demanda constante.",
+            "Asistentes Médicos: Consistentemente uno de los roles más publicados en FQHCs, con 620+ listados activos en nuestra base de datos. Alta rotación (32%+) impulsa la demanda constante.",
             "Coordinadores de Atención / Gestores de Casos: Impulsados por programas ECM, CCM y CalAIM. Estos roles generan ingresos para FQHCs y están cada vez más protegidos de recortes.",
             "Enfermeras Practicantes y Asistentes Médicos (NP/PA): Los FQHCs están contratando agresivamente proveedores de nivel medio. El programa NHSC de pago de préstamos hace estos roles especialmente atractivos.",
             "Especialistas en Salud Conductual (LCSWs, LMFTs, Psicólogos): HRSA proyecta una escasez de 136,350 psicólogos a nivel nacional para 2038. Más de 122 millones de estadounidenses viven en un HPSA de Salud Mental.",
@@ -328,7 +329,7 @@ const esContent: ArticleContent = {
           type: "list",
           items: [
             "Cifras mensuales de empleo en salud del BLS — ¿se mantendrá el auge de 82,000 empleos de enero en febrero/marzo?",
-            "Actividad de despidos en FQHCs de California — los avisos WARN Act muestran 2,300+ trabajadores desplazados, con nuevos avisos posibles a medida que los recortes de fondos tomen efecto",
+            "Actividad de despidos en FQHCs de California — los avisos WARN Act muestran 3,477+ trabajadores desplazados, con nuevos avisos posibles a medida que los recortes de fondos tomen efecto",
             "Fechas de riesgos de financiamiento de Medi-Cal — eliminación de tasas PPS (Oct 2026), recortes de reembolso dental (Jul 2026), y renovación de exención CalAIM (Dic 2026)",
             "Adopción de facturación Medi-Cal de CHW — ¿cuántos FQHCs están implementando los nuevos códigos de facturación CHW?",
             "Implementación del salario mínimo SB 525 — mínimo de $25/hr para 2027 para FQHCs reestructurará la compensación en todo el sector",
@@ -364,7 +365,8 @@ const esContent: ArticleContent = {
 
 export default function HealthcareHiringTrendsArticle() {
   const locale = useLocale();
-  const content = locale === "es" ? esContent : enContent;
+  const isEs = locale === "es";
+  const content = isEs ? esContent : enContent;
 
   return (
     <main className="min-h-screen">
@@ -426,13 +428,13 @@ export default function HealthcareHiringTrendsArticle() {
             <TLDRCard
               items={[
                 "Healthcare added 82,000 jobs in January 2026 — 63% of all U.S. job growth. Ambulatory care (where FQHCs operate) led with 50,300 new positions.",
-                "The FQHC Workforce Paradox: 70%+ of FQHCs face staffing shortages while California tracks 2,300+ displaced workers — the same roles are being cut at one center and hired at another.",
+                "The FQHC Workforce Paradox: 70%+ of FQHCs face staffing shortages while California tracks 3,477+ displaced workers — the same roles are being cut at one center and hired at another.",
                 "California CHCs generate 134,000 jobs and $25.5B in economic output. CHW services are now a Medi-Cal billing benefit — a structural shift for sustainable hiring.",
                 "What to do now: tailor your resume for FQHC roles, highlight ECM/CalAIM experience, consider opportunities beyond your county, and stay informed on funding changes that could affect hiring.",
               ]}
               esItems={[
                 "El sector salud añadió 82,000 empleos en enero 2026 — 63% de todo el crecimiento laboral. Atención ambulatoria (donde operan FQHCs) lideró con 50,300 nuevas posiciones.",
-                "La Paradoja FQHC: 70%+ de FQHCs enfrentan escasez de personal mientras California rastrea 2,300+ trabajadores desplazados — los mismos roles se eliminan en un centro y se contratan en otro.",
+                "La Paradoja FQHC: 70%+ de FQHCs enfrentan escasez de personal mientras California rastrea 3,477+ trabajadores desplazados — los mismos roles se eliminan en un centro y se contratan en otro.",
                 "Los CHCs de California generan 134,000 empleos y $25.5 mil millones. Los servicios de CHW ahora son un beneficio facturable por Medi-Cal — un cambio estructural.",
                 "Qué hacer ahora: adapta tu CV para roles FQHC, destaca experiencia en ECM/CalAIM, considera oportunidades fuera de tu condado, y mantente informado/a sobre cambios de financiamiento que podrían afectar la contratación.",
               ]}
@@ -515,8 +517,8 @@ export default function HealthcareHiringTrendsArticle() {
             {/* Paradox Stat */}
             <StatCallout
               stat="70%+"
-              label="of FQHCs face critical staffing shortages — yet 2,300+ CA workers displaced"
-              esLabel="de FQHCs enfrentan escasez crítica — mientras 2,300+ trabajadores de CA desplazados"
+              label="of FQHCs face critical staffing shortages — yet 3,477+ CA workers displaced"
+              esLabel="de FQHCs enfrentan escasez crítica — mientras 3,477+ trabajadores de CA desplazados"
               detail="Sources: HRSA HPSA Data, FQHC Talent Layoff Tracker"
               esDetail="Fuentes: Datos HPSA de HRSA, Rastreador de Despidos de FQHC Talent"
             />
@@ -550,6 +552,51 @@ export default function HealthcareHiringTrendsArticle() {
                   }
                   return null;
                 })}
+                {/* Inline tool callout after "Where the Jobs Are" section */}
+                {idx === 1 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa el <Link href="/" className="text-teal-700 font-medium underline">Panel de Inteligencia</Link> para rastrear datos de empleo en salud, precipicios de financiamiento y tendencias de la fuerza laboral en tiempo real.</>
+                      ) : (
+                        <>Use the <Link href="/" className="text-teal-700 font-medium underline">Intelligence Dashboard</Link> to track healthcare employment data, funding cliffs, and workforce trends in real time.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {/* Inline tool callout after "California" section */}
+                {idx === 3 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa la <Link href="/career-insights" className="text-teal-700 font-medium underline">Evaluación de Carrera</Link> para descubrir qué roles FQHC se alinean con tus habilidades y experiencia.</>
+                      ) : (
+                        <>Use the <Link href="/career-insights" className="text-teal-700 font-medium underline">Career Assessment</Link> to discover which FQHC roles align with your skills and experience.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {/* Inline tool callout after "What This Means for Your Career" section */}
+                {idx === 5 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa <Link href="/compare" className="text-teal-700 font-medium underline">Comparar FQHCs</Link> para evaluar programas, resiliencia y datos salariales de diferentes centros de salud.</>
+                      ) : (
+                        <>Use <Link href="/compare" className="text-teal-700 font-medium underline">Compare FQHCs</Link> to evaluate programs, resilience, and salary data across different health centers.</>
+                      )}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
 
@@ -606,53 +653,14 @@ export default function HealthcareHiringTrendsArticle() {
           </div>
 
           {/* CTA */}
-          <div className="mt-16 rounded-xl border border-teal-200 bg-teal-50 p-8 text-center">
-            <h3 className="mb-4 text-2xl font-bold text-stone-900">
-              {content.ctaTitle}
-            </h3>
-            <p className="mb-6 text-lg text-stone-600">
-              {content.ctaDescription}
-            </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="/"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-teal-700 to-teal-600 px-8 py-4 text-lg font-semibold text-white transition-all hover:shadow-lg"
-              >
-                {locale === "es"
-                  ? "Ver Dashboard de Insights"
-                  : "View Insights Dashboard"}
-              </a>
-              <a
-                href="/resume-builder"
-                className="inline-flex items-center justify-center rounded-lg border-2 border-teal-700 px-8 py-4 text-lg font-semibold text-teal-700 transition-colors hover:bg-teal-100"
-              >
-                {content.ctaButtonText}
-              </a>
-            </div>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="mb-6 text-xl font-bold text-stone-900">
-              {locale === "es" ? "Artículos Relacionados" : "Related Articles"}
-            </h3>
-            <div className="grid gap-4 md:grid-cols-3">
-              {content.relatedArticles.map((article, idx) => (
-                <a
-                  key={idx}
-                  href={article.href}
-                  className="rounded-lg bg-stone-50 p-6 transition-all hover:shadow-md"
-                >
-                  <p className="mb-2 text-sm text-teal-700">
-                    {content.category}
-                  </p>
-                  <h4 className="font-semibold text-stone-900">
-                    {article.title}
-                  </h4>
-                </a>
-              ))}
-            </div>
-          </div>
+          <ArticleCTA
+            audience="intel-brief"
+            relatedArticles={[
+              { slug: "february-2026-jobs-report-healthcare-crisis", title: "The February 2026 Jobs Report: Healthcare Is Carrying the Entire Economy", esTitle: "El Informe de Empleos de Febrero 2026: El Sector Salud Carga Toda la Economía", category: "Data Report", esCategory: "Informe de Datos" },
+              { slug: "fqhc-career-ladder-ma-rn-provider", title: "The FQHC MA, RN & Provider Career Ladder", esTitle: "La Escalera Profesional de MA, RN y Proveedores en FQHC", category: "Career Growth", esCategory: "Crecimiento Profesional" },
+              { slug: "laid-off-fqhc-fast-track-job-search", title: "Laid Off from an FQHC? How to Fast-Track Your Job Search", esTitle: "¿Despedido de un FQHC? Cómo Acelerar Tu Búsqueda de Empleo", category: "Career Resources", esCategory: "Recursos de Carrera" },
+            ]}
+          />
         </div>
       </article>
     </main>

@@ -18,6 +18,42 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "fqhc-ai-scribes-what-workers-need-to-know",
+    title:
+      "AI Scribes at FQHCs: What Community Health Workers Need to Know in 2026",
+    esTitle:
+      "Escribas de IA en los FQHCs: Lo Que los Trabajadores de Salud Comunitaria Necesitan Saber en 2026",
+    description:
+      "66% of physicians now use AI scribes. Learn how ambient AI documentation is changing FQHC workflows, reducing burnout, and what it means for your role.",
+    esDescription:
+      "El 66% de los médicos ya usan escribas de IA. Conoce cómo la documentación ambiental con IA está cambiando los flujos de trabajo en FQHCs y qué significa para tu rol.",
+    date: "March 9, 2026",
+    esDate: "9 de marzo de 2026",
+    isoDate: "2026-03-09",
+    category: "Technology & AI",
+    esCategory: "Tecnología e IA",
+    readTime: "9 min read",
+    esReadTime: "9 min de lectura",
+  },
+  {
+    slug: "fqhc-copay-advantage-patient-surge",
+    title:
+      "The FQHC Copay Advantage: Why Community Health Centers May See a Patient Surge",
+    esTitle:
+      "La Ventaja de Copago de los FQHCs: Por Que los Centros de Salud Comunitarios Podrian Ver un Aumento de Pacientes",
+    description:
+      "H.R. 1 lets states charge Medicaid copays up to $35 — but FQHCs are exempt. Learn how this copay advantage could drive a patient surge to community health centers.",
+    esDescription:
+      "H.R. 1 permite copagos de Medicaid de hasta $35 — pero los FQHCs estan exentos. Descubre como esta ventaja podria generar un aumento de pacientes.",
+    date: "March 9, 2026",
+    esDate: "9 de marzo de 2026",
+    isoDate: "2026-03-09",
+    category: "Policy & Strategy",
+    esCategory: "Politica y Estrategia",
+    readTime: "8 min read",
+    esReadTime: "8 min de lectura",
+  },
+  {
     slug: "february-2026-jobs-report-healthcare-crisis",
     title:
       "The February 2026 Jobs Report: Healthcare Is Carrying the Entire Economy. Congress Just Cut Its Funding.",

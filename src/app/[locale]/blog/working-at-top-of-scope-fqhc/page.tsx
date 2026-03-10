@@ -1,26 +1,13 @@
-// app/blog/working-at-top-of-scope-fqhc/page.tsx
+"use client";
 
-import type { Metadata } from "next";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
-
-export const metadata: Metadata = {
-  title: "Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access",
-  description:
-    "Learn how FQHCs use team-based care to maximize provider scope of practice. Discover how RNs, MAs, and providers work together to increase patient access and reduce burnout while maintaining quality care.",
-  openGraph: {
-    title: "Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access",
-    description:
-      "Understand the top of scope strategy that FQHCs use to see more patients, improve access, and reduce provider burnout through team-based care models.",
-    url: "https://www.fqhctalent.com/blog/working-at-top-of-scope-fqhc",
-    type: "article",
-  },
-  alternates: {
-    canonical: "https://www.fqhctalent.com/blog/working-at-top-of-scope-fqhc",
-  },
-};
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 export default function WorkingAtTopOfScopeFqhcArticle() {
+  const locale = useLocale();
+  const isEs = locale === "es";
   return (
     <main className="min-h-screen">
       <ArticleJsonLd
@@ -130,6 +117,20 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
               Importantly, this isn't asking MAs to practice medicine. It's asking them to use their clinical judgment within their scope to prepare the encounter, catch details, and set the provider up for success. Top-tier FQHCs are paying MAs accordingly and investing in training to support this expanded role.
             </p>
 
+            {/* Inline tool callout */}
+            <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+              <p className="text-sm font-semibold text-teal-800">
+                {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+              </p>
+              <p className="text-sm text-stone-600">
+                {isEs ? (
+                  <>Usa las <Link href="/strategy/okrs" className="text-teal-700 font-medium underline">Plantillas OKR</Link> para establecer objetivos de alcance para cada rol clínico y medir el impacto en el acceso de pacientes.</>
+                ) : (
+                  <>Use the <Link href="/strategy/okrs" className="text-teal-700 font-medium underline">OKR Templates</Link> to set scope-of-practice goals for each clinical role and measure the impact on patient access.</>
+                )}
+              </p>
+            </div>
+
             <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
               Physicians and Nurse Practitioners: Focus on Complexity
             </h2>
@@ -182,6 +183,20 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
                 <strong>You reduce burnout.</strong> FQHCs are trying to retain good staff. If you work at the top of your scope and aren't burdened with task creep or being asked to do work beneath your level, you're more likely to stay. Retention is a major FQHC priority.
               </li>
             </ul>
+
+            {/* Inline tool callout */}
+            <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+              <p className="text-sm font-semibold text-teal-800">
+                {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+              </p>
+              <p className="text-sm text-stone-600">
+                {isEs ? (
+                  <>Usa la <Link href="/pathway" className="text-teal-700 font-medium underline">Ruta de Aprendizaje</Link> para encontrar cursos y certificaciones que te ayuden a trabajar al máximo de tu alcance profesional.</>
+                ) : (
+                  <>Use the <Link href="/pathway" className="text-teal-700 font-medium underline">Learning Pathway</Link> to find courses and certifications that help you work at the top of your scope.</>
+                )}
+              </p>
+            </div>
 
             <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
               How to Highlight Top-of-Scope Experience on Your Resume
@@ -255,6 +270,20 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
               And perhaps most importantly, understanding top-of-scope practice helps you build a more satisfying career. You're doing work that genuinely matters. You're contributing to a team's efficiency and patient access. You're not being asked to practice beyond your scope or to do tasks that don't use your training. And you're working in an environment that recognizes and values what you bring to the team.
             </p>
 
+            {/* Inline tool callout */}
+            <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+              <p className="text-sm font-semibold text-teal-800">
+                {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+              </p>
+              <p className="text-sm text-stone-600">
+                {isEs ? (
+                  <>Usa <Link href="/compare" className="text-teal-700 font-medium underline">Comparar FQHCs</Link> para evaluar qué centros de salud practican atención en equipo y ofrecen oportunidades de crecimiento profesional.</>
+                ) : (
+                  <>Use <Link href="/compare" className="text-teal-700 font-medium underline">Compare FQHCs</Link> to evaluate which health centers practice team-based care and offer career growth opportunities.</>
+                )}
+              </p>
+            </div>
+
             <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
               Questions to Ask in Your FQHC Interview
             </h2>
@@ -287,47 +316,14 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-amber-50 border border-amber-200 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-stone-900 mb-4">
-              Ready to Find an FQHC That Values Top-of-Scope Practice?
-            </h3>
-            <p className="text-stone-600 mb-6 text-lg">
-              Join FQHC Talent and connect with community health centers that are building real team-based care models and want staff who can work at the top of their scope.
-            </p>
-            <a
-              href="/resume-builder"
-              className="inline-flex items-center justify-center rounded-lg bg-amber-600 px-8 py-4 text-lg font-semibold text-white hover:bg-amber-700 transition-colors"
-            >
-              Build Your Free Resume
-            </a>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="text-xl font-bold text-stone-900 mb-6">
-              Related Articles
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <a
-                href="/blog/fqhc-career-ladder-ma-rn-provider"
-                className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-              >
-                <p className="text-sm text-amber-600 mb-2">Career Growth</p>
-                <h4 className="font-semibold text-stone-900">
-                  The FQHC MA, RN & Provider Career Ladder: How to Advance in Community Health
-                </h4>
-              </a>
-              <a
-                href="/blog/how-to-write-fqhc-resume"
-                className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-              >
-                <p className="text-sm text-amber-600 mb-2">Career Resources</p>
-                <h4 className="font-semibold text-stone-900">
-                  How to Write an FQHC Resume That Gets Noticed
-                </h4>
-              </a>
-            </div>
-          </div>
+          <ArticleCTA
+            audience="intel-brief"
+            relatedArticles={[
+              { slug: "fqhc-career-ladder-ma-rn-provider", title: "The FQHC MA, RN & Provider Career Ladder", esTitle: "La Escalera Profesional de MA, RN y Proveedores en FQHC", category: "Career Growth", esCategory: "Crecimiento Profesional" },
+              { slug: "fqhc-ai-scribes-what-workers-need-to-know", title: "AI Scribes at FQHCs: What Community Health Workers Need to Know", esTitle: "Escribas de IA en los FQHCs: Lo Que los Trabajadores de Salud Comunitaria Necesitan Saber", category: "Technology & AI", esCategory: "Tecnología e IA" },
+              { slug: "healthcare-hiring-trends-2026", title: "Healthcare Hiring Trends 2026: What the Jobs Data Tells Us About FQHC Careers", esTitle: "Tendencias de Contratación en Salud 2026: Lo Que los Datos Revelan Sobre Carreras en FQHCs", category: "Data Report", esCategory: "Informe de Datos" },
+            ]}
+          />
         </div>
       </article>
     </main>

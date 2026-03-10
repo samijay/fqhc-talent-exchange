@@ -615,6 +615,90 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/resume-builder` },
   },
+  academy: {
+    title: "FQHC Academy | Free Interactive Training for Community Health",
+    description:
+      "Free interactive courses for FQHC leaders and staff. OKRs, clinic operations, compliance, scheduling, and more — with simulations, quizzes, and XP tracking.",
+    openGraph: {
+      title: "FQHC Academy — Free Interactive Training",
+      description:
+        "Master community health operations with free interactive courses. OKRs, clinic management, compliance, and career tools.",
+      url: `${SITE_URL}/academy`,
+    },
+    alternates: { canonical: `${SITE_URL}/academy` },
+  },
+  academyClinicManager: {
+    title: "Clinic Manager Master Class | Free FQHC Operations Training",
+    description:
+      "8-module master class for FQHC clinic managers. PPS billing, team design, scheduling, BH integration, CalAIM, workforce retention, and financial modeling with live simulator exercises.",
+    openGraph: {
+      title: "Clinic Manager Master Class — FQHC Academy",
+      description:
+        "Free 8-module course covering PPS revenue, team-based care, scheduling, and financial modeling for FQHC clinic managers.",
+      url: `${SITE_URL}/academy/clinic-manager`,
+    },
+    alternates: { canonical: `${SITE_URL}/academy/clinic-manager` },
+  },
+  hipaaEssentials: {
+    title: "HIPAA Essentials for FQHC Staff | Free Compliance Training",
+    description:
+      "Free 30-minute HIPAA training for FQHC employees. Covers Privacy Rule, Security Rule, breach response, and daily habits with real community health scenarios and interactive exercises.",
+    openGraph: {
+      title: "HIPAA Essentials — FQHC Academy",
+      description:
+        "Free HIPAA compliance training built for FQHCs. 4 modules with interactive quizzes, real scenarios, and XP tracking.",
+      url: `${SITE_URL}/academy/hipaa-essentials`,
+    },
+    alternates: { canonical: `${SITE_URL}/academy/hipaa-essentials` },
+  },
+  osvPrep: {
+    title: "HRSA Operational Site Visit Prep | Free OSV Training for FQHCs",
+    description:
+      "Prepare for your HRSA Operational Site Visit with this free 37-minute course. Covers all 19 program requirements, top deficiencies (SFDP, credentialing, governance), and a 90-day preparation playbook.",
+    openGraph: {
+      title: "HRSA OSV Prep — FQHC Academy",
+      description:
+        "Free HRSA OSV preparation course for FQHC leaders. 19 program requirements, common deficiencies, and a proven 90-day prep timeline.",
+      url: `${SITE_URL}/academy/osv-prep`,
+    },
+    alternates: { canonical: `${SITE_URL}/academy/osv-prep` },
+  },
+  billingCompliance: {
+    title: "Billing Compliance 101 | Free PPS Billing Training for FQHCs",
+    description:
+      "Free 30-minute FQHC billing compliance course. Master PPS rates, same-day billing rules, documentation requirements, the False Claims Act, and audit readiness with interactive exercises.",
+    openGraph: {
+      title: "Billing Compliance 101 — FQHC Academy",
+      description:
+        "Free billing compliance training for FQHCs. PPS rules, same-day billing, documentation, False Claims Act, and audit prep.",
+      url: `${SITE_URL}/academy/billing-compliance`,
+    },
+    alternates: { canonical: `${SITE_URL}/academy/billing-compliance` },
+  },
+  strategyCompliance: {
+    title: "FQHC Compliance Hub | HIPAA, HRSA, OSHA Checklists & Tools",
+    description:
+      "Interactive compliance checklists, policy templates, and regulatory calendar for FQHCs. Track HIPAA, HRSA, OSHA, billing, and workforce compliance with scoring and progress tracking.",
+    openGraph: {
+      title: "FQHC Compliance Hub — FQHC Talent",
+      description:
+        "Free compliance tools for FQHCs. Interactive checklists across 7 domains, policy templates, and regulatory deadline tracking.",
+      url: `${SITE_URL}/strategy/compliance`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/compliance` },
+  },
+  strategySchedulePlanner: {
+    title: "FQHC Schedule Planner | Staff Scheduling with MA Ratio Optimization",
+    description:
+      "Visual weekly staff scheduling tool for FQHCs. Optimize MA:provider ratios, compare shift patterns (4×10 vs 5×8), track coverage gaps, model revenue impact, and export to Excel.",
+    openGraph: {
+      title: "FQHC Schedule Planner — FQHC Talent",
+      description:
+        "Free Tetris-style schedule planner for FQHCs. Optimize MA ratios, model revenue, compare schedules, and export to Excel.",
+      url: `${SITE_URL}/strategy/schedule-planner`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/schedule-planner` },
+  },
 };
 
 // California metro areas for location pages

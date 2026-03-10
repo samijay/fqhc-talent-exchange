@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 interface ArticleContent {
   category: string;
@@ -167,7 +168,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The good news for California community health workers: the vast majority of the 87 FQHCs in our directory qualify as NHSC-approved sites. FQHCs are, by definition, located in or serving medically underserved areas and populations, which aligns directly with the NHSC's mission of placing providers where they're needed most.",
+          text: "The good news for California community health workers: the vast majority of the 220 FQHCs in our directory qualify as NHSC-approved sites. FQHCs are, by definition, located in or serving medically underserved areas and populations, which aligns directly with the NHSC's mission of placing providers where they're needed most.",
         },
         {
           type: "paragraph",
@@ -377,7 +378,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "La buena noticia para los trabajadores de salud comunitaria de California: la gran mayoría de los 87 FQHCs en nuestro directorio califican como sitios aprobados por el NHSC. Los FQHCs están, por definición, ubicados en o sirviendo a áreas y poblaciones médicamente desatendidas, lo que se alinea directamente con la misión del NHSC de colocar proveedores donde más se necesitan.",
+          text: "La buena noticia para los trabajadores de salud comunitaria de California: la gran mayoría de los 220 FQHCs en nuestro directorio califican como sitios aprobados por el NHSC. Los FQHCs están, por definición, ubicados en o sirviendo a áreas y poblaciones médicamente desatendidas, lo que se alinea directamente con la misión del NHSC de colocar proveedores donde más se necesitan.",
         },
         {
           type: "paragraph",
@@ -389,7 +390,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Nuestro directorio en fqhctalent.com/directory lista los 87 FQHCs de California, incluyendo información sobre sus ubicaciones, programas y ofertas de trabajo. Úsalo como punto de partida para identificar FQHCs en regiones donde las puntuaciones HPSA probablemente sean altas — particularmente en el Valle Central, el Inland Empire y el norte rural de California.",
+          text: "Nuestro directorio en fqhctalent.com/directory lista los 220 FQHCs de California, incluyendo información sobre sus ubicaciones, programas y ofertas de trabajo. Úsalo como punto de partida para identificar FQHCs en regiones donde las puntuaciones HPSA probablemente sean altas — particularmente en el Valle Central, el Inland Empire y el norte rural de California.",
         },
       ],
     },
@@ -453,7 +454,8 @@ const esContent: ArticleContent = {
 
 export default function NhscLoanRepaymentGuideArticle() {
   const locale = useLocale();
-  const content = locale === "es" ? esContent : enContent;
+  const isEs = locale === "es";
+  const content = isEs ? esContent : enContent;
 
   return (
     <main className="min-h-screen">
@@ -542,46 +544,67 @@ export default function NhscLoanRepaymentGuideArticle() {
                   }
                   return null;
                 })}
+
+                {/* Inline tool callout after "Which California FQHCs Qualify?" section */}
+                {idx === 4 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa la herramienta <Link href="/compare" className="text-teal-700 font-medium underline">Comparar FQHCs</Link> para comparar sitios aprobados por el NHSC lado a lado &mdash; incluyendo programas, puntuaciones de resiliencia y calificaciones de Glassdoor en 220 FQHCs de California.</>
+                      ) : (
+                        <>Use the <Link href="/compare" className="text-teal-700 font-medium underline">Compare FQHCs</Link> tool to compare NHSC-approved sites side by side &mdash; including programs, resilience scores, and Glassdoor ratings across 220 California FQHCs.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+
+                {/* Inline tool callout after "Tips for Maximizing" section */}
+                {idx === 5 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa el <Link href="/resume-builder" className="text-teal-700 font-medium underline">Constructor de Curr&iacute;culum</Link> para crear un CV optimizado para FQHC que destaque tu elegibilidad para el NHSC y experiencia en salud comunitaria.</>
+                      ) : (
+                        <>Use the <Link href="/resume-builder" className="text-teal-700 font-medium underline">Resume Builder</Link> to create an FQHC-optimized resume that highlights your NHSC eligibility and community health experience.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+
+                {/* Inline tool callout after "Common Questions" section */}
+                {idx === 6 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Toma la <Link href="/career-insights" className="text-teal-700 font-medium underline">Evaluaci&oacute;n de Carrera</Link> para descubrir tus fortalezas en salud comunitaria y obtener un plan personalizado de 90 d&iacute;as para tu pr&oacute;ximo puesto en un FQHC.</>
+                      ) : (
+                        <>Take the <Link href="/career-insights" className="text-teal-700 font-medium underline">Career Assessment</Link> to discover your community health strengths and get a personalized 90-day plan for your next FQHC role.</>
+                      )}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-stone-900 mb-4">
-              {content.ctaTitle}
-            </h3>
-            <p className="text-stone-600 mb-6 text-lg">
-              {content.ctaDescription}
-            </p>
-            <a
-              href="/resume-builder"
-              className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
-            >
-              {content.ctaButtonText}
-            </a>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="text-xl font-bold text-stone-900 mb-6">
-              {locale === "es" ? "Artículos Relacionados" : "Related Articles"}
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {content.relatedArticles.map((article, idx) => (
-                <a
-                  key={idx}
-                  href={article.href}
-                  className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-                >
-                  <p className="text-sm text-teal-700 mb-2">{content.category}</p>
-                  <h4 className="font-semibold text-stone-900">
-                    {article.title}
-                  </h4>
-                </a>
-              ))}
-            </div>
-          </div>
+          <ArticleCTA
+            audience="the-pulse"
+            relatedArticles={[
+              { slug: "fqhc-benefits-guide-community-health", title: "FQHC Benefits Guide for Community Health Workers", esTitle: "Gu\u00eda de Beneficios de FQHC para Trabajadores de Salud Comunitaria", category: "Benefits & Compensation", esCategory: "Beneficios y Compensaci\u00f3n" },
+              { slug: "fqhc-salary-negotiation-guide", title: "FQHC Salary Negotiation Guide", esTitle: "Gu\u00eda de Negociaci\u00f3n Salarial en FQHC", category: "Benefits & Compensation", esCategory: "Beneficios y Compensaci\u00f3n" },
+              { slug: "fqhc-vs-private-practice", title: "FQHC vs Private Practice: Which Is Right for You?", esTitle: "FQHC vs Pr\u00e1ctica Privada: \u00bfCu\u00e1l Es Mejor para Ti?", category: "Career Guidance", esCategory: "Gu\u00eda Profesional" },
+            ]}
+          />
         </div>
       </article>
     </main>

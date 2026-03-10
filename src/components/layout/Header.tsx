@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Heart, Menu, X, Globe, ChevronDown, User, LogOut, LayoutDashboard, Bookmark } from "lucide-react";
+import { Heart, Menu, X, Globe, ChevronDown, User, LogOut, LayoutDashboard, Bookmark, Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
@@ -224,6 +224,18 @@ export default function Header() {
 
   const navItems: NavItem[] = [
     {
+      label: isEs ? "Academia" : "Academy",
+      children: [
+        { href: "/academy", label: isEs ? "Centro de Aprendizaje" : "Learning Hub", desc: isEs ? "Todos los cursos y herramientas" : "All courses & tools" },
+        { href: "/career", label: isEs ? "Centro de Carrera" : "Career Hub", desc: isEs ? "6 herramientas de carrera" : "6 career tools in one place" },
+        { href: "/strategy/okr-course", label: isEs ? "Curso de OKRs" : "OKR Course", desc: isEs ? "45 min interactivo con IA" : "45-min interactive with AI feedback" },
+        { href: "/strategy/clinic-simulator", label: t("clinicSimulator"), desc: isEs ? "Modele personal y ingresos" : "Model staffing & revenue" },
+        { href: "/interview-prep", label: t("interviewPrep"), desc: isEs ? "Preguntas con marco STAR" : "Practice with STAR framework" },
+        { href: "/resume-builder", label: t("resumeBuilder"), desc: isEs ? "Optimizado para FQHCs" : "Optimized for FQHC roles" },
+        { href: "/pathway", label: t("learningPathway"), desc: isEs ? "Ruta personalizada" : "Your personalized path" },
+      ],
+    },
+    {
       label: t("strategy"),
       groups: [
         {
@@ -243,13 +255,12 @@ export default function Header() {
             { href: "/funding-impact", label: t("fundingImpact") },
             { href: "/strategy/resilience", label: t("resilience") },
             { href: "/strategy/clinic-simulator", label: t("clinicSimulator") },
-            { href: "/strategy/knowledge-map", label: t("knowledgeMap") },
+            { href: "/strategy/scope-of-practice", label: t("scopeOfPractice") },
           ],
         },
         {
           heading: isEs ? "Fuerza Laboral y Cultura" : "Workforce & Culture",
           items: [
-            { href: "/strategy/scope-of-practice", label: t("scopeOfPractice") },
             { href: "/strategy/workforce-resilience", label: t("workforceResilience") },
             { href: "/locum-tenens", label: t("locumCoverage") },
             { href: "/strategy/offboarding", label: t("transitionResources") },
@@ -266,23 +277,9 @@ export default function Header() {
         { href: "/ai-tracker", label: t("aiTracker"), desc: t("aiTrackerDesc") },
         { href: "/intelligence/legislation", label: t("legislativeTracker"), desc: t("legislativeTrackerDesc") },
         { href: "/layoffs", label: t("layoffs"), desc: t("layoffsDesc") },
-        { href: "/blog", label: t("blog"), desc: t("blogDesc") },
-        { href: "/intelligence/los-angeles", label: t("regionalIntel"), desc: t("regionalIntelDesc") },
         { href: "/salary-data", label: t("salaryData"), desc: t("salaryDataDesc") },
-      ],
-    },
-    {
-      label: t("tools"),
-      children: [
-        { href: "/resume-builder", label: t("resumeBuilder") },
-        { href: "/career-insights", label: t("careerAssessment") },
-        { href: "/interview-prep", label: t("interviewPrep") },
-        { href: "/career-roadmap", label: t("careerRoadmap") },
-        { href: "/certifications", label: t("certifications") },
-        { href: "/resources", label: t("careerResources") },
-        { href: "/guides", label: t("guides") },
-        { href: "/pathway", label: t("learningPathway") },
-        { href: "/compare", label: t("compare"), desc: t("compareDesc") },
+        { href: "/intelligence/los-angeles", label: t("regionalIntel"), desc: t("regionalIntelDesc") },
+        { href: "/blog", label: t("blog"), desc: t("blogDesc") },
       ],
     },
     { href: "/jobs", label: t("jobs") },
@@ -347,8 +344,16 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Desktop — Language toggle + Auth */}
-        <div className="hidden items-center gap-3 lg:flex">
+        {/* Desktop — Newsletter CTA + Language toggle + Auth */}
+        <div className="hidden items-center gap-2 lg:flex">
+          <Link
+            href="/newsletter"
+            className="flex items-center gap-1.5 rounded-md bg-teal-700 px-3 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-teal-800"
+          >
+            <Mail className="size-3.5" />
+            {isEs ? "Boletín" : "Newsletter"}
+          </Link>
+
           <button
             onClick={switchLocale}
             className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-900"
@@ -502,6 +507,16 @@ export default function Header() {
                 </Link>
               );
             })}
+
+            {/* Mobile newsletter CTA */}
+            <Link
+              href="/newsletter"
+              className="flex w-full items-center gap-2 rounded-md bg-teal-50 px-3 py-2.5 text-base font-semibold text-teal-700 transition-colors hover:bg-teal-100"
+              onClick={() => setMobileOpen(false)}
+            >
+              <Mail className="size-4" />
+              {isEs ? "Suscríbete al Boletín" : "Subscribe to Newsletter"}
+            </Link>
 
             {/* Mobile language toggle */}
             <button

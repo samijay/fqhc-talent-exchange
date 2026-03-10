@@ -19,6 +19,8 @@ const locationSlugs = [
 
 // Blog post slugs — add new posts here as you publish them
 const blogSlugs = [
+  "fqhc-ai-scribes-what-workers-need-to-know",
+  "fqhc-copay-advantage-patient-surge",
   "february-2026-jobs-report-healthcare-crisis",
   "healthcare-hiring-trends-2026",
   "fqhc-salary-negotiation-guide",
@@ -165,12 +167,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    {
-      url: `${SITE_URL}/strategy/knowledge-map`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
+    // /strategy/knowledge-map removed — redirects to /pathway
     {
       url: `${SITE_URL}/ai-tracker`,
       lastModified: new Date(),
@@ -206,6 +203,54 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/career`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/academy`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/academy/clinic-manager`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/strategy/schedule-planner`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/strategy/compliance`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${SITE_URL}/academy/hipaa-essentials`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/academy/osv-prep`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/academy/billing-compliance`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${SITE_URL}/strategy/masterclass`,
@@ -281,12 +326,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    {
-      url: `${SITE_URL}/demo`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
+    // /demo removed — redirects to homepage
     {
       url: `${SITE_URL}/team-readiness`,
       lastModified: new Date(),

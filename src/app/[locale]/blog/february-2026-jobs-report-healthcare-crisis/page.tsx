@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, StatCallout } from "@/components/blog/BlogDataViz";
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 interface ArticleContent {
   category: string;
@@ -410,7 +411,8 @@ const esContent: ArticleContent = {
 
 export default function FebruaryJobsReportArticle() {
   const locale = useLocale();
-  const content = locale === "es" ? esContent : enContent;
+  const isEs = locale === "es";
+  const content = isEs ? esContent : enContent;
 
   return (
     <main className="min-h-screen">
@@ -577,6 +579,51 @@ export default function FebruaryJobsReportArticle() {
                   }
                   return null;
                 })}
+                {/* Inline tool callout after "Healthcare Is the Only Sector" section */}
+                {idx === 1 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa el <Link href="/" className="text-teal-700 font-medium underline">Panel de Inteligencia</Link> para rastrear datos laborales de salud, precipicios de financiamiento y tendencias de la fuerza laboral actualizados diariamente.</>
+                      ) : (
+                        <>Use the <Link href="/" className="text-teal-700 font-medium underline">Intelligence Dashboard</Link> to track healthcare employment data, funding cliffs, and workforce trends updated daily.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {/* Inline tool callout after "Why This Matters for FQHCs" section */}
+                {idx === 4 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa las <Link href="/strategy/okrs" className="text-teal-700 font-medium underline">Plantillas OKR</Link> para alinear la planificación de tu fuerza laboral con los precipicios de financiamiento y los objetivos de HRSA.</>
+                      ) : (
+                        <>Use the <Link href="/strategy/okrs" className="text-teal-700 font-medium underline">OKR Templates</Link> to align your workforce planning with funding cliffs and HRSA goals.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {/* Inline tool callout after "What This Means for Community Health Workers" section */}
+                {idx === 7 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa <Link href="/compare" className="text-teal-700 font-medium underline">Comparar FQHCs</Link> para evaluar estabilidad financiera, programas y resiliencia de distintos centros de salud lado a lado.</>
+                      ) : (
+                        <>Use <Link href="/compare" className="text-teal-700 font-medium underline">Compare FQHCs</Link> to evaluate financial stability, programs, and resilience across health centers side by side.</>
+                      )}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
 
@@ -762,53 +809,14 @@ export default function FebruaryJobsReportArticle() {
           </div>
 
           {/* CTA */}
-          <div className="mt-16 rounded-xl border border-teal-200 bg-teal-50 p-8 text-center">
-            <h3 className="mb-4 text-2xl font-bold text-stone-900">
-              {content.ctaTitle}
-            </h3>
-            <p className="mb-6 text-lg text-stone-600">
-              {content.ctaDescription}
-            </p>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="/"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-teal-700 to-teal-600 px-8 py-4 text-lg font-semibold text-white transition-all hover:shadow-lg"
-              >
-                {locale === "es"
-                  ? "Ver Dashboard"
-                  : "View Intelligence Dashboard"}
-              </a>
-              <a
-                href="/resume-builder"
-                className="inline-flex items-center justify-center rounded-lg border-2 border-teal-700 px-8 py-4 text-lg font-semibold text-teal-700 transition-colors hover:bg-teal-100"
-              >
-                {content.ctaButtonText}
-              </a>
-            </div>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="mb-6 text-xl font-bold text-stone-900">
-              {locale === "es" ? "Artículos Relacionados" : "Related Articles"}
-            </h3>
-            <div className="grid gap-4 md:grid-cols-3">
-              {content.relatedArticles.map((article, idx) => (
-                <a
-                  key={idx}
-                  href={article.href}
-                  className="rounded-lg bg-stone-50 p-6 transition-all hover:shadow-md"
-                >
-                  <p className="mb-2 text-sm text-teal-700">
-                    {content.category}
-                  </p>
-                  <h4 className="font-semibold text-stone-900">
-                    {article.title}
-                  </h4>
-                </a>
-              ))}
-            </div>
-          </div>
+          <ArticleCTA
+            audience="intel-brief"
+            relatedArticles={[
+              { slug: "healthcare-hiring-trends-2026", title: "Healthcare Hiring Trends 2026: What the Jobs Data Tells Us About FQHC Careers", esTitle: "Tendencias de Contratación en Salud 2026: Lo Que los Datos Revelan Sobre Carreras en FQHCs", category: "Data Report", esCategory: "Informe de Datos" },
+              { slug: "medi-cal-funding-cuts-community-health-workers", title: "Medi-Cal Funding Cuts: What Community Health Workers Need to Know", esTitle: "Recortes de Medi-Cal: Lo Que los Trabajadores de Salud Comunitaria Necesitan Saber", category: "Career Resources", esCategory: "Recursos de Carrera" },
+              { slug: "fqhc-copay-advantage-patient-surge", title: "The FQHC Copay Advantage: Why Community Health Centers May See a Patient Surge", esTitle: "La Ventaja de Copago de los FQHCs: Por Qué los Centros de Salud Podrían Ver un Aumento de Pacientes", category: "Policy & Strategy", esCategory: "Política y Estrategia" },
+            ]}
+          />
         </div>
       </article>
     </main>

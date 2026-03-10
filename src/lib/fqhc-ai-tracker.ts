@@ -5,7 +5,7 @@
 // Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-03-08";
+export const AI_TRACKER_LAST_UPDATED = "2026-03-09";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -102,6 +102,54 @@ export const ADOPTION_STAGES: {
 /* ------------------------------------------------------------------ */
 
 export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
+  {
+    id: "imperial-beach-eclinicalworks-sunoh",
+    title: {
+      en: "Imperial Beach Community Clinic Selects eClinicalWorks AI Suite + Sunoh.ai",
+      es: "Imperial Beach Community Clinic Selecciona Suite IA de eClinicalWorks + Sunoh.ai",
+    },
+    description: {
+      en: "Imperial Beach Community Clinic, a California FQHC, selected eClinicalWorks AI-driven EHR, healow patient engagement solutions, and AI-powered medical scribe Sunoh.ai. This is notable as another California FQHC joining the NACHC-eClinicalWorks ecosystem, which offers bundled pricing through NACHC Select. The clinic joins Sun River Health (NY) and Suncoast CHC (FL) as FQHCs reporting productivity gains from the AI scribe platform.",
+      es: "Imperial Beach Community Clinic, un FQHC de California, seleccionó el EHR impulsado por IA de eClinicalWorks, soluciones healow y el escriba médico Sunoh.ai. Otro FQHC de California que se une al ecosistema NACHC-eClinicalWorks con precios agrupados a través de NACHC Select.",
+    },
+    category: "clinical-documentation",
+    vendor: "eClinicalWorks / Sunoh.ai",
+    partnership: "NACHC-eClinicalWorks",
+    metrics: [
+      { label: "Platform", value: "eClinicalWorks + Sunoh.ai" },
+      { label: "Pricing", value: "NACHC Select bundled" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl:
+      "https://www.eclinicalworks.com/31-provider-fqhc-to-leverage-eclinicalworks-ai-driven-ehr-and-sunoh-ai-ai-medical-scribe/",
+    sourceOrg: "eClinicalWorks",
+    date: "2026-02-15",
+    tags: ["eclinicalworks", "sunoh", "california-fqhc", "nachc-select", "san-diego"],
+  },
+  {
+    id: "ambient-ai-coding-policy-brief",
+    title: {
+      en: "Policy Brief: AI Scribes Drive Revenue Through Coding Intensity — Ethics Concerns",
+      es: "Informe de Política: Escribas de IA Impulsan Ingresos a Través de Intensidad de Codificación",
+    },
+    description: {
+      en: "A March 2026 PMC policy brief documents growing concerns that ambient AI scribes are being deployed not just for burnout relief but as revenue capture tools. Data from Riverside Health shows 11% rise in wRVUs and 14% increase in HCC diagnoses per encounter after AI scribe deployment. For FQHCs under PPS, coding intensity has limited revenue impact, but FQHCs in value-based contracts or Medicare Advantage capitation should monitor whether AI-generated notes are inflating risk scores inappropriately.",
+      es: "Un informe de política de PMC documenta preocupaciones crecientes de que los escribas de IA ambiental se están desplegando no solo para aliviar el agotamiento sino como herramientas de captura de ingresos. Los FQHCs en contratos basados en valor deben monitorear si las notas generadas por IA están inflando puntajes de riesgo.",
+    },
+    category: "policy-framework",
+    vendor: null,
+    partnership: null,
+    metrics: [
+      { label: "wRVU Increase", value: "11% (Riverside Health)" },
+      { label: "HCC Dx Increase", value: "14% per encounter" },
+      { label: "Burnout Reduction", value: "51.9% → 38.8%" },
+    ],
+    adoptionStage: "framework",
+    sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12738533/",
+    sourceOrg: "PMC / NIH",
+    date: "2026-03-01",
+    tags: ["policy", "coding-intensity", "revenue-capture", "ethics", "wrvus", "hcc"],
+  },
   {
     id: "chai-nachc-partnership",
     title: {

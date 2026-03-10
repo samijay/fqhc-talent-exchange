@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, FundingCliffCard, StatCallout } from "@/components/blog/BlogDataViz";
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 interface ArticleContent {
   category: string;
@@ -270,7 +271,8 @@ const esContent: ArticleContent = {
 
 export default function MediCalFundingCutsArticle() {
   const locale = useLocale();
-  const content = locale === "es" ? esContent : enContent;
+  const isEs = locale === "es";
+  const content = isEs ? esContent : enContent;
 
   return (
     <main className="min-h-screen">
@@ -366,7 +368,7 @@ export default function MediCalFundingCutsArticle() {
 
             {/* Stat callout */}
             <StatCallout
-              stat="90+"
+              stat="220"
               label="California FQHCs tracked in our directory"
               esLabel="FQHCs de California rastreados en nuestro directorio"
               detail="See which FQHCs have high, moderate, or low funding vulnerability at fqhctalent.com"
@@ -396,54 +398,64 @@ export default function MediCalFundingCutsArticle() {
                   }
                   return null;
                 })}
+                {/* Inline tool callout after "Who Is Being Affected" section */}
+                {idx === 1 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa el <Link href="/" className="text-teal-700 font-medium underline">Panel de Inteligencia</Link> para rastrear despidos, precipicios de financiamiento y cambios de políticas que afectan a los trabajadores de salud comunitaria.</>
+                      ) : (
+                        <>Use the <Link href="/" className="text-teal-700 font-medium underline">Intelligence Dashboard</Link> to track layoffs, funding cliffs, and policy changes affecting community health workers.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {/* Inline tool callout after "The Disconnect" section */}
+                {idx === 2 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa las <Link href="/strategy/okrs" className="text-teal-700 font-medium underline">Plantillas OKR</Link> para planificar la retención de la fuerza laboral y navegar los precipicios de financiamiento de Medi-Cal.</>
+                      ) : (
+                        <>Use the <Link href="/strategy/okrs" className="text-teal-700 font-medium underline">OKR Templates</Link> to plan workforce retention and navigate Medi-Cal funding cliffs.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+                {/* Inline tool callout after "What You Can Do Right Now" section */}
+                {idx === 3 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa el <Link href="/strategy/clinic-simulator" className="text-teal-700 font-medium underline">Simulador de Clínica</Link> para modelar el impacto de los recortes de financiamiento en el personal y los ingresos de tu FQHC.</>
+                      ) : (
+                        <>Use the <Link href="/strategy/clinic-simulator" className="text-teal-700 font-medium underline">Clinic Simulator</Link> to model how funding cuts impact your FQHC&apos;s staffing and revenue.</>
+                      )}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-stone-900 mb-4">
-              {content.ctaTitle}
-            </h3>
-            <p className="text-stone-600 mb-6 text-lg">
-              {content.ctaDescription}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/fast-track"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-teal-700 to-amber-600 px-8 py-4 text-lg font-semibold text-white hover:shadow-lg transition-all"
-              >
-                {locale === "es" ? "Fast-Track Mi B\u00fasqueda" : "Fast-Track My Job Search"}
-              </a>
-              <a
-                href="/resume-builder"
-                className="inline-flex items-center justify-center rounded-lg border-2 border-teal-700 px-8 py-4 text-lg font-semibold text-teal-700 hover:bg-teal-100 transition-colors"
-              >
-                {content.ctaButtonText}
-              </a>
-            </div>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="text-xl font-bold text-stone-900 mb-6">
-              {locale === "es" ? "Artículos Relacionados" : "Related Articles"}
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {content.relatedArticles.map((article, idx) => (
-                <a
-                  key={idx}
-                  href={article.href}
-                  className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-                >
-                  <p className="text-sm text-teal-700 mb-2">{content.category}</p>
-                  <h4 className="font-semibold text-stone-900">
-                    {article.title}
-                  </h4>
-                </a>
-              ))}
-            </div>
-          </div>
+          <ArticleCTA
+            audience="both"
+            relatedArticles={[
+              { slug: "february-2026-jobs-report-healthcare-crisis", title: "The February 2026 Jobs Report: Healthcare Is Carrying the Entire Economy", esTitle: "El Informe de Empleos de Febrero 2026: El Sector Salud Carga Toda la Economía", category: "Data Report", esCategory: "Informe de Datos" },
+              { slug: "laid-off-fqhc-fast-track-job-search", title: "Laid Off from an FQHC? How to Fast-Track Your Job Search", esTitle: "¿Despedido de un FQHC? Cómo Acelerar Tu Búsqueda de Empleo", category: "Career Resources", esCategory: "Recursos de Carrera" },
+              { slug: "fqhc-copay-advantage-patient-surge", title: "The FQHC Copay Advantage: Why Community Health Centers May See a Patient Surge", esTitle: "La Ventaja de Copago de los FQHCs: Por Qué los Centros de Salud Podrían Ver un Aumento de Pacientes", category: "Policy & Strategy", esCategory: "Política y Estrategia" },
+            ]}
+          />
         </div>
       </article>
     </main>

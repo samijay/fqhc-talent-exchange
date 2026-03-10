@@ -14,6 +14,7 @@ import {
   Lightbulb,
   User,
   CheckCircle,
+  Play,
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -28,6 +29,7 @@ import {
   type RoleInterviewGuide,
 } from "@/lib/interview-prep";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { PracticeMode } from "@/components/interview-prep/PracticeMode";
 
 /* ------------------------------------------------------------------ */
 /*  Role and Category Configs                                          */
@@ -324,6 +326,7 @@ export default function InterviewPrepPage() {
   const locale = useLocale();
   const isEs = locale === "es";
 
+  const [mode, setMode] = useState<"reference" | "practice">("reference");
   const [selectedRole, setSelectedRole] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<
     InterviewCategory | "all"
@@ -378,7 +381,7 @@ export default function InterviewPrepPage() {
                 ? "10 preguntas reales con la estructura STAR, ejemplos de respuestas fuertes y banderas rojas — diseñado específicamente para roles de FQHCs en California."
                 : "10 real questions with STAR framework, strong answer examples, and red flags — built specifically for California FQHC roles."}
             </p>
-            <div className="flex flex-wrap gap-4 text-sm text-teal-300">
+            <div className="flex flex-wrap gap-4 text-sm text-teal-300 mb-6">
               <span className="flex items-center gap-1.5">
                 <span className="size-1.5 rounded-full bg-teal-400" />
                 {isEs ? "10 preguntas FQHC" : "10 FQHC-specific questions"}
@@ -394,11 +397,44 @@ export default function InterviewPrepPage() {
                 {isEs ? "Tips de negociación salarial" : "Salary negotiation tips"}
               </span>
             </div>
+
+            {/* Mode Toggle */}
+            <div className="inline-flex rounded-lg bg-teal-800/50 p-1">
+              <button
+                onClick={() => setMode("reference")}
+                className={`flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all ${
+                  mode === "reference"
+                    ? "bg-white text-teal-800 shadow-sm"
+                    : "text-teal-200 hover:text-white"
+                }`}
+              >
+                <BookOpen className="size-4" />
+                {isEs ? "Guía de Referencia" : "Reference Guide"}
+              </button>
+              <button
+                onClick={() => setMode("practice")}
+                className={`flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all ${
+                  mode === "practice"
+                    ? "bg-white text-teal-800 shadow-sm"
+                    : "text-teal-200 hover:text-white"
+                }`}
+              >
+                <Play className="size-4" />
+                {isEs ? "Modo Práctica" : "Practice Mode"}
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+        {/* Practice Mode */}
+        {mode === "practice" && (
+          <PracticeMode onExit={() => setMode("reference")} />
+        )}
+
+        {/* Reference Mode */}
+        {mode === "reference" && <>
         {/* Step 1: Role Selector */}
         <div className="mb-8">
           <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-stone-500">
@@ -562,6 +598,7 @@ export default function InterviewPrepPage() {
 
         {/* Newsletter CTA */}
         <NewsletterSignup variant="banner" defaultAudience="the-pulse" />
+        </>}
       </div>
     </main>
   );

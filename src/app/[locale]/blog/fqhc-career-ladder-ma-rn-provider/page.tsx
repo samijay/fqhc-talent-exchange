@@ -2,10 +2,15 @@
 "use client";
 
 import Link from "next/link";
+import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, CareerLadderViz, SalaryRangeChart } from "@/components/blog/BlogDataViz";
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 export default function FqhcCareerLadderArticle() {
+  const locale = useLocale();
+  const isEs = locale === "es";
+
   return (
     <main className="min-h-screen">
       <ArticleJsonLd
@@ -367,6 +372,20 @@ export default function FqhcCareerLadderArticle() {
               </li>
             </ul>
 
+            {/* Inline tool callout: Learning Pathway */}
+            <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+              <p className="text-sm font-semibold text-teal-800">
+                {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+              </p>
+              <p className="text-sm text-stone-600">
+                {isEs ? (
+                  <>Explora la <Link href="/pathway" className="text-teal-700 font-medium underline">Ruta de Aprendizaje</Link> para encontrar certificaciones y cursos que aceleren tu avance en la escalera profesional FQHC.</>
+                ) : (
+                  <>Explore the <Link href="/pathway" className="text-teal-700 font-medium underline">Learning Pathway</Link> to find certifications and courses that accelerate your climb up the FQHC career ladder.</>
+                )}
+              </p>
+            </div>
+
             <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
               The Bilingual Advantage: How Language Skills Accelerate Advancement
             </h2>
@@ -390,6 +409,20 @@ export default function FqhcCareerLadderArticle() {
             <p className="text-stone-700 leading-relaxed">
               If you're not yet bilingual but speak English fluently and are interested in FQHC careers, consider learning Spanish or another language commonly spoken in your region. Many FQHCs offer language classes to staff.
             </p>
+
+            {/* Inline tool callout: Career Assessment */}
+            <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+              <p className="text-sm font-semibold text-teal-800">
+                {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+              </p>
+              <p className="text-sm text-stone-600">
+                {isEs ? (
+                  <>Toma la <Link href="/career-insights" className="text-teal-700 font-medium underline">Evaluaci\u00f3n de Carrera</Link> para descubrir cu\u00e1l es tu pr\u00f3ximo paso ideal en la escalera profesional FQHC y obtener un plan personalizado de 90 d\u00edas.</>
+                ) : (
+                  <>Take the <Link href="/career-insights" className="text-teal-700 font-medium underline">Career Assessment</Link> to discover your ideal next step on the FQHC career ladder and get a personalized 90-day plan.</>
+                )}
+              </p>
+            </div>
 
             <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
               NP/PA Independent Practice at FQHCs
@@ -453,6 +486,20 @@ export default function FqhcCareerLadderArticle() {
               </li>
             </ol>
 
+            {/* Inline tool callout: Resume Builder */}
+            <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+              <p className="text-sm font-semibold text-teal-800">
+                {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+              </p>
+              <p className="text-sm text-stone-600">
+                {isEs ? (
+                  <>Usa el <Link href="/resume-builder" className="text-teal-700 font-medium underline">Constructor de Curr\u00edculum</Link> para crear un CV que muestre tus certificaciones, experiencia en programas y preparaci\u00f3n para el siguiente nivel.</>
+                ) : (
+                  <>Use the <Link href="/resume-builder" className="text-teal-700 font-medium underline">Resume Builder</Link> to create a resume that showcases your certifications, program experience, and readiness for the next level.</>
+                )}
+              </p>
+            </div>
+
             <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
               Timeline Expectations
             </h2>
@@ -508,47 +555,14 @@ export default function FqhcCareerLadderArticle() {
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-stone-900 mb-4">
-              Ready to Build Your FQHC Career?
-            </h3>
-            <p className="text-stone-600 mb-6 text-lg">
-              Join FQHC Talent to connect with community health centers that are investing in staff development and promoting from within. Find the right role to launch your FQHC career ladder.
-            </p>
-            <a
-              href="/resume-builder"
-              className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
-            >
-              Build Your Free Resume
-            </a>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="text-xl font-bold text-stone-900 mb-6">
-              Related Articles
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              <a
-                href="/blog/working-at-top-of-scope-fqhc"
-                className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-              >
-                <p className="text-sm text-teal-700 mb-2">Clinical Operations</p>
-                <h4 className="font-semibold text-stone-900">
-                  Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access
-                </h4>
-              </a>
-              <a
-                href="/blog/what-is-enhanced-care-management-ecm"
-                className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-              >
-                <p className="text-sm text-teal-700 mb-2">Career Resources</p>
-                <h4 className="font-semibold text-stone-900">
-                  What Is Enhanced Care Management (ECM)? A Career Guide
-                </h4>
-              </a>
-            </div>
-          </div>
+          <ArticleCTA
+            audience="the-pulse"
+            relatedArticles={[
+              { slug: "fqhc-salary-negotiation-guide", title: "How to Negotiate Your FQHC Salary", esTitle: "C\u00f3mo Negociar Tu Salario en un FQHC", category: "Career Resources", esCategory: "Recursos de Carrera" },
+              { slug: "working-at-top-of-scope-fqhc", title: "Working at Top of Scope at FQHCs", esTitle: "Trabajar al M\u00e1ximo del Alcance en FQHCs", category: "Clinical Operations", esCategory: "Operaciones Cl\u00ednicas" },
+              { slug: "fqhc-benefits-guide-community-health", title: "The Complete Guide to FQHC Benefits", esTitle: "Gu\u00eda Completa de Beneficios de FQHC", category: "Benefits", esCategory: "Beneficios" },
+            ]}
+          />
         </div>
       </article>
     </main>

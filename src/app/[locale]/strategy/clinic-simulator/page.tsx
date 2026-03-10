@@ -432,8 +432,19 @@ export default function ClinicSimulatorPage() {
           <h2 className="mb-6 text-2xl font-bold text-stone-900">
             {isEs ? "Recursos Relacionados" : "Related Resources"}
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {[
+              {
+                href: "/strategy/schedule-planner",
+                title: {
+                  en: "Schedule Planner",
+                  es: "Planificador de Horarios",
+                },
+                desc: {
+                  en: "Build weekly schedules with MA ratios & revenue",
+                  es: "Crea horarios semanales con ratios MA e ingresos",
+                },
+              },
               {
                 href: "/strategy/economics",
                 title: {

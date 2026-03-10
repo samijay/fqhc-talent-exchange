@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "next-intl";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
 interface ArticleContent {
   category: string;
@@ -110,11 +111,11 @@ const enContent: ArticleContent = {
         },
         {
           type: "box",
-          text: "Step 3: Explore aggregated job postings at /jobs. Browse 177+ open positions across 220 California FQHCs. Filter by role, region, and salary to compare opportunities. Each listing links to the FQHC's career page so you can apply directly.",
+          text: "Step 3: Explore aggregated job postings at /jobs. Browse 620+ open positions across 220 California FQHCs. Filter by role, region, and salary to compare opportunities. Each listing links to the FQHC's career page so you can apply directly.",
         },
         {
           type: "box",
-          text: "Step 4: Browse 177+ open positions at /jobs. Filter by role, region, and salary to see what is available right now across 220 California FQHCs. Plus explore career roadmaps and certifications that can increase your earning potential.",
+          text: "Step 4: Browse 620+ open positions at /jobs. Filter by role, region, and salary to see what is available right now across 220 California FQHCs. Plus explore career roadmaps and certifications that can increase your earning potential.",
         },
         {
           type: "paragraph",
@@ -136,7 +137,7 @@ const enContent: ArticleContent = {
             "Take the free Career Assessment at /career-insights. This 15-question behavioral assessment identifies your strengths across five domains including Transition Readiness. Use the results to prepare for interviews, understand your competitive advantages, and get a personalized 90-day plan for your next role.",
             "Explore the FQHC Directory at /directory. Browse 220+ California FQHCs with Glassdoor ratings, programs, salary ranges, and resilience scores. Compare organizations side by side at /compare to find the right fit for your skills and values.",
             "Update your LinkedIn profile with FQHC-specific keywords. Add terms like Enhanced Care Management, CalAIM, OCHIN Epic, Community Health Worker, care coordination, SDOH screening, and panel management. Many FQHC recruiters search LinkedIn for these exact terms, and having them in your profile increases your visibility dramatically.",
-            "Browse open positions at /jobs. Our job board features 177+ active listings across 220 California FQHCs. Filter by region, role type, and program area to see what is available in your area right now. Then check /career-roadmap for salary data and advancement paths.",
+            "Browse open positions at /jobs. Our job board features 620+ active listings across 220 California FQHCs. Filter by region, role type, and program area to see what is available in your area right now. Then check /career-roadmap for salary data and advancement paths.",
           ],
         },
       ],
@@ -311,7 +312,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "box",
-          text: "Paso 4: Explora 177+ posiciones abiertas en /jobs. Filtra por rol, regi\u00f3n y salario para ver lo disponible ahora en 220 FQHCs de California. Adem\u00e1s explora rutas profesionales y certificaciones que pueden aumentar tu potencial de ingreso.",
+          text: "Paso 4: Explora 620+ posiciones abiertas en /jobs. Filtra por rol, regi\u00f3n y salario para ver lo disponible ahora en 220 FQHCs de California. Adem\u00e1s explora rutas profesionales y certificaciones que pueden aumentar tu potencial de ingreso.",
         },
         {
           type: "paragraph",
@@ -333,7 +334,7 @@ const esContent: ArticleContent = {
             "Toma la Evaluaci\u00f3n de Carrera gratis en /career-insights. Esta evaluaci\u00f3n conductual de 15 preguntas identifica tus fortalezas en cinco dominios incluyendo Preparaci\u00f3n para la Transici\u00f3n. Usa los resultados para prepararte para entrevistas y obtener un plan personalizado de 90 d\u00edas.",
             "Explora el Directorio de FQHCs en /directory. Navega 220+ FQHCs de California con calificaciones de Glassdoor, programas, rangos salariales y puntuaciones de resiliencia. Compara organizaciones lado a lado en /compare para encontrar la mejor opción para tus habilidades y valores.",
             "Actualiza tu perfil de LinkedIn con palabras clave espec\u00edficas de FQHC. Agrega t\u00e9rminos como Enhanced Care Management, CalAIM, OCHIN Epic, Community Health Worker, coordinaci\u00f3n de atenci\u00f3n, evaluaci\u00f3n de SDOH y gesti\u00f3n de panel.",
-            "Explora posiciones abiertas en /jobs. Nuestra bolsa de trabajo presenta 177+ listados activos en 220 FQHCs de California. Filtra por regi\u00f3n, tipo de rol y \u00e1rea de programa para ver qu\u00e9 est\u00e1 disponible en tu zona ahora mismo. Luego visita /career-roadmap para datos salariales y rutas de avance.",
+            "Explora posiciones abiertas en /jobs. Nuestra bolsa de trabajo presenta 620+ listados activos en 220 FQHCs de California. Filtra por regi\u00f3n, tipo de rol y \u00e1rea de programa para ver qu\u00e9 est\u00e1 disponible en tu zona ahora mismo. Luego visita /career-roadmap para datos salariales y rutas de avance.",
           ],
         },
       ],
@@ -429,7 +430,8 @@ const esContent: ArticleContent = {
 
 export default function LaidOffFqhcFastTrackArticle() {
   const locale = useLocale();
-  const content = locale === "es" ? esContent : enContent;
+  const isEs = locale === "es";
+  const content = isEs ? esContent : enContent;
 
   return (
     <main className="min-h-screen">
@@ -514,54 +516,67 @@ export default function LaidOffFqhcFastTrackArticle() {
                   }
                   return null;
                 })}
+
+                {/* Inline tool callout after "Why Your FQHC Experience Is Gold" */}
+                {idx === 1 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Usa el <Link href="/resume-builder" className="text-teal-700 font-medium underline">Constructor de Curr&iacute;culum</Link> para crear un CV que destaque tu experiencia especializada en FQHC &mdash; ECM, CalAIM, OCHIN Epic y habilidades biling&uuml;es.</>
+                      ) : (
+                        <>Use the <Link href="/resume-builder" className="text-teal-700 font-medium underline">Resume Builder</Link> to create a resume that highlights your specialized FQHC experience &mdash; ECM, CalAIM, OCHIN Epic, and bilingual skills.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+
+                {/* Inline tool callout after "How to Get Job-Ready in 30 Minutes" */}
+                {idx === 2 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Toma la <Link href="/career-insights" className="text-teal-700 font-medium underline">Evaluaci&oacute;n de Carrera</Link> para identificar tus fortalezas conductuales y obtener un plan personalizado de 90 d&iacute;as para tu transici&oacute;n.</>
+                      ) : (
+                        <>Take the <Link href="/career-insights" className="text-teal-700 font-medium underline">Career Assessment</Link> to identify your behavioral strengths and get a personalized 90-day plan for your transition.</>
+                      )}
+                    </p>
+                  </div>
+                )}
+
+                {/* Inline tool callout after "Programs That Are Still Hiring" */}
+                {idx === 4 && (
+                  <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
+                    <p className="text-sm font-semibold text-teal-800">
+                      {isEs ? "Prueba nuestra herramienta gratuita" : "Try our free tool"}
+                    </p>
+                    <p className="text-sm text-stone-600">
+                      {isEs ? (
+                        <>Explora el <Link href="/" className="text-teal-700 font-medium underline">Panel de Inteligencia</Link> para ver datos en vivo sobre pol&iacute;ticas, financiamiento y tendencias de la fuerza laboral que afectan a los FQHCs de California.</>
+                      ) : (
+                        <>Explore the <Link href="/" className="text-teal-700 font-medium underline">Intelligence Dashboard</Link> for live data on policy, funding, and workforce trends affecting California FQHCs.</>
+                      )}
+                    </p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-teal-50 border border-teal-200 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-stone-900 mb-4">
-              {content.ctaTitle}
-            </h3>
-            <p className="text-stone-600 mb-6 text-lg">
-              {content.ctaDescription}
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/resume-builder"
-                className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
-              >
-                {content.ctaPrimaryButtonText}
-              </a>
-              <a
-                href="/fast-track"
-                className="inline-flex items-center justify-center rounded-lg border-2 border-teal-700 px-8 py-4 text-lg font-semibold text-teal-700 hover:bg-teal-100 transition-colors"
-              >
-                {content.ctaSecondaryButtonText}
-              </a>
-            </div>
-          </div>
-
-          {/* Related Articles */}
-          <div className="mt-16">
-            <h3 className="text-xl font-bold text-stone-900 mb-6">
-              {locale === "es" ? "Artículos Relacionados" : "Related Articles"}
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {content.relatedArticles.map((article, idx) => (
-                <a
-                  key={idx}
-                  href={article.href}
-                  className="bg-stone-50 rounded-lg p-6 hover:shadow-md transition-all"
-                >
-                  <p className="text-sm text-teal-700 mb-2">{article.category}</p>
-                  <h4 className="font-semibold text-stone-900">
-                    {article.title}
-                  </h4>
-                </a>
-              ))}
-            </div>
-          </div>
+          <ArticleCTA
+            audience="the-pulse"
+            relatedArticles={[
+              { slug: "medi-cal-funding-cuts-community-health-workers", title: "Medi-Cal Funding Cuts: What Community Health Workers Need to Know", esTitle: "Recortes de Fondos de Medi-Cal: Lo Que los Trabajadores de Salud Comunitaria Necesitan Saber", category: "Career Resources", esCategory: "Recursos Profesionales" },
+              { slug: "how-to-write-fqhc-resume", title: "How to Write an FQHC Resume That Gets Noticed", esTitle: "C\u00f3mo Escribir un Curr\u00edculum de FQHC que Destaque", category: "Career Resources", esCategory: "Recursos Profesionales" },
+              { slug: "fqhc-salary-negotiation-guide", title: "FQHC Salary Negotiation Guide", esTitle: "Gu\u00eda de Negociaci\u00f3n Salarial en FQHC", category: "Benefits & Compensation", esCategory: "Beneficios y Compensaci\u00f3n" },
+            ]}
+          />
         </div>
       </article>
     </main>
