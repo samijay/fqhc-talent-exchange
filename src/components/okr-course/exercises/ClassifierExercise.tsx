@@ -88,8 +88,8 @@ export function ClassifierExercise({
       </p>
 
       {/* Progress */}
-      <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400">
-        <span>
+      <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400" role="status" aria-live="polite">
+        <span aria-label={locale === "es" ? `Elemento ${currentIndex + 1} de ${totalItems}` : `Item ${currentIndex + 1} of ${totalItems}`}>
           {currentIndex + 1} / {totalItems}
         </span>
         <div className="flex-1 h-2 bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden">
@@ -113,13 +113,14 @@ export function ClassifierExercise({
 
       {/* Judgment Buttons */}
       {selectedAnswer === null ? (
-        <div className="flex gap-3">
+        <div className="flex gap-3" role="group" aria-label={locale === "es" ? "Juzgar este OKR" : "Judge this OKR"}>
           <Button
             variant="outline"
             className="flex-1 h-12 border-green-300 hover:bg-green-50 hover:border-green-400 dark:border-green-800 dark:hover:bg-green-950"
             onClick={() => handleJudge(true)}
+            aria-label={locale === "es" ? "Marcar como buen OKR" : "Mark as good OKR"}
           >
-            <ThumbsUp className="h-5 w-5 mr-2 text-green-600" />
+            <ThumbsUp className="h-5 w-5 mr-2 text-green-600" aria-hidden="true" />
             <span className="text-green-700 dark:text-green-400 font-medium">
               {locale === "es" ? "Buen OKR" : "Good OKR"}
             </span>
@@ -128,8 +129,9 @@ export function ClassifierExercise({
             variant="outline"
             className="flex-1 h-12 border-red-300 hover:bg-red-50 hover:border-red-400 dark:border-red-800 dark:hover:bg-red-950"
             onClick={() => handleJudge(false)}
+            aria-label={locale === "es" ? "Marcar como necesita trabajo" : "Mark as needs work"}
           >
-            <ThumbsDown className="h-5 w-5 mr-2 text-red-600" />
+            <ThumbsDown className="h-5 w-5 mr-2 text-red-600" aria-hidden="true" />
             <span className="text-red-700 dark:text-red-400 font-medium">
               {locale === "es" ? "Necesita Trabajo" : "Needs Work"}
             </span>
@@ -139,6 +141,8 @@ export function ClassifierExercise({
         <>
           {/* Feedback */}
           <Card
+            role="alert"
+            aria-live="assertive"
             className={`border-2 ${
               isCorrect
                 ? "border-green-300 bg-green-50 dark:border-green-800 dark:bg-green-950"

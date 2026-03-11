@@ -163,13 +163,14 @@ export function ScoringSimulator({
       {/* Score input */}
       {!submitted ? (
         <div className="space-y-3">
-          <label className="text-sm font-medium text-stone-700 dark:text-stone-300">
+          <label htmlFor="okr-score-input" className="text-sm font-medium text-stone-700 dark:text-stone-300">
             {locale === "es"
               ? "Tu puntaje OKR (0.0 - 1.0):"
               : "Your OKR score (0.0 - 1.0):"}
           </label>
           <div className="flex gap-2">
             <input
+              id="okr-score-input"
               type="number"
               min="0"
               max="1"
@@ -181,6 +182,7 @@ export function ScoringSimulator({
               }}
               className="flex-1 h-12 px-4 text-lg font-mono rounded-lg border border-stone-300 dark:border-stone-600 bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 outline-none"
               placeholder="0.00"
+              aria-describedby="score-range-hint"
             />
             <Button
               onClick={handleSubmit}
@@ -197,18 +199,18 @@ export function ScoringSimulator({
           </div>
 
           {/* Quick reference */}
-          <div className="flex gap-2 text-xs text-stone-400 dark:text-stone-500">
+          <div id="score-range-hint" className="flex gap-2 text-xs text-stone-400 dark:text-stone-500">
             <span className="text-green-600">0.7-1.0 Green</span>
-            <span>•</span>
+            <span aria-hidden="true">•</span>
             <span className="text-amber-600">0.4-0.6 Amber</span>
-            <span>•</span>
+            <span aria-hidden="true">•</span>
             <span className="text-red-600">0.0-0.3 Red</span>
           </div>
         </div>
       ) : (
         <>
           {/* Result comparison */}
-          <Card className="border-2 border-teal-200 bg-teal-50/50 dark:border-teal-800 dark:bg-teal-950/50">
+          <Card role="alert" aria-live="polite" className="border-2 border-teal-200 bg-teal-50/50 dark:border-teal-800 dark:bg-teal-950/50">
             <CardContent className="p-4 space-y-3">
               <div className="flex items-center justify-between">
                 <div>

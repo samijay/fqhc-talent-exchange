@@ -130,8 +130,11 @@ export function TeamAlignmentSession({
                       : "border-stone-200 dark:border-stone-700 hover:border-teal-300 dark:hover:border-teal-700"
                   }`}
                   onClick={() => togglePriority(priority.id)}
-                  role="button"
-                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); togglePriority(priority.id); } }}
+                  role="checkbox"
+                  aria-checked={isSelected}
+                  aria-label={t(priority.title)}
+                  tabIndex={submitted ? -1 : 0}
                 >
                   <CardContent className="p-3 flex items-start gap-3">
                     <div

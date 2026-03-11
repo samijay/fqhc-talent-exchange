@@ -137,8 +137,9 @@ export function ObjectiveDraftingSession({
                     size="sm"
                     onClick={() => deleteObjective(obj.id)}
                     className="text-stone-400 hover:text-red-500"
+                    aria-label={isEs ? "Eliminar objetivo" : "Delete objective"}
                   >
-                    <Trash2 className="h-4 w-4" />
+                    <Trash2 className="h-4 w-4" aria-hidden="true" />
                   </Button>
                 </div>
               </CardContent>
@@ -151,10 +152,11 @@ export function ObjectiveDraftingSession({
           <Card className="border-teal-200 dark:border-teal-700">
             <CardContent className="p-4 space-y-3">
               <div>
-                <label className="text-xs font-medium text-stone-600 dark:text-stone-400 mb-1 block">
+                <label htmlFor="new-objective-domain" className="text-xs font-medium text-stone-600 dark:text-stone-400 mb-1 block">
                   {isEs ? "Dominio" : "Domain"}
                 </label>
                 <select
+                  id="new-objective-domain"
                   value={newDomain}
                   onChange={(e) =>
                     setNewDomain(e.target.value as OKRDomain)
@@ -172,10 +174,11 @@ export function ObjectiveDraftingSession({
                 </select>
               </div>
               <div>
-                <label className="text-xs font-medium text-stone-600 dark:text-stone-400 mb-1 block">
+                <label htmlFor="new-objective-text" className="text-xs font-medium text-stone-600 dark:text-stone-400 mb-1 block">
                   {isEs ? "Objetivo" : "Objective"}
                 </label>
                 <Textarea
+                  id="new-objective-text"
                   value={newText}
                   onChange={(e) => setNewText(e.target.value)}
                   placeholder={
@@ -288,6 +291,7 @@ export function ObjectiveDraftingSession({
                           placeholder={
                             isEs ? "Agregar comentario..." : "Add comment..."
                           }
+                          aria-label={isEs ? `Comentario para objetivo de ${obj.ownerName}` : `Comment on ${obj.ownerName}'s objective`}
                           className="flex-1 h-8 px-3 text-xs rounded-md border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300"
                           onKeyDown={(e) => {
                             if (e.key === "Enter")
@@ -300,8 +304,9 @@ export function ObjectiveDraftingSession({
                           onClick={() => handleFeedback(obj.id)}
                           disabled={!feedbackText[obj.id]?.trim()}
                           className="h-8 px-2"
+                          aria-label={isEs ? "Enviar comentario" : "Submit comment"}
                         >
-                          <MessageSquare className="h-3.5 w-3.5" />
+                          <MessageSquare className="h-3.5 w-3.5" aria-hidden="true" />
                         </Button>
                       </div>
                     </div>

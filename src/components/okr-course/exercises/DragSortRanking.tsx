@@ -133,7 +133,7 @@ export function DragSortRanking({
       </p>
 
       {/* Sortable list */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2" role="list" aria-label={locale === "es" ? "Elementos para ordenar" : "Items to rank"}>
         {order.map((itemIndex, position) => {
           const item = exercise.items[itemIndex];
           const status = getPositionStatus(position);
@@ -141,6 +141,8 @@ export function DragSortRanking({
           return (
             <Card
               key={itemIndex}
+              role="listitem"
+              aria-label={`${locale === "es" ? "Posición" : "Position"} ${position + 1}: ${locale === "es" ? item.text.es : item.text.en}${status ? ` — ${status === "correct" ? (locale === "es" ? "Correcto" : "Correct") : (locale === "es" ? "Incorrecto" : "Incorrect")}` : ""}`}
               className={`transition-all ${
                 status === "correct"
                   ? "border-green-300 bg-green-50 dark:border-green-800 dark:bg-green-950"
@@ -175,17 +177,17 @@ export function DragSortRanking({
                       onClick={() => moveUp(position)}
                       disabled={position === 0}
                       className="p-2 sm:p-1 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 transition-colors active:bg-stone-200 dark:active:bg-stone-700"
-                      aria-label="Move up"
+                      aria-label={locale === "es" ? `Mover arriba: ${item.text.es}` : `Move up: ${item.text.en}`}
                     >
-                      <ArrowUp className="h-5 w-5 sm:h-4 sm:w-4 text-stone-500" />
+                      <ArrowUp className="h-5 w-5 sm:h-4 sm:w-4 text-stone-500" aria-hidden="true" />
                     </button>
                     <button
                       onClick={() => moveDown(position)}
                       disabled={position === order.length - 1}
                       className="p-2 sm:p-1 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 disabled:opacity-30 transition-colors active:bg-stone-200 dark:active:bg-stone-700"
-                      aria-label="Move down"
+                      aria-label={locale === "es" ? `Mover abajo: ${item.text.es}` : `Move down: ${item.text.en}`}
                     >
-                      <ArrowDown className="h-5 w-5 sm:h-4 sm:w-4 text-stone-500" />
+                      <ArrowDown className="h-5 w-5 sm:h-4 sm:w-4 text-stone-500" aria-hidden="true" />
                     </button>
                   </div>
                 )}

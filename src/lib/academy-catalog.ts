@@ -289,6 +289,18 @@ export const ACADEMY_COURSES: AcademyCourse[] = [
 
 export const LEARNING_TOOLS: LearningTool[] = [
   {
+    id: "okr-team-sprint",
+    title: { en: "Team OKR Sprint", es: "Sprint de OKRs en Equipo" },
+    description: {
+      en: "4-session async sprint where your executive team builds real OKRs together with AI readiness assessment",
+      es: "Sprint asíncrono de 4 sesiones donde tu equipo ejecutivo crea OKRs reales juntos con evaluación de preparación IA",
+    },
+    href: "/strategy/okr-team-sprint",
+    icon: "Target",
+    color: "teal",
+    audience: "leaders",
+  },
+  {
     id: "career-assessment",
     title: { en: "Career Assessment", es: "Evaluación de Carrera" },
     description: {
