@@ -4,7 +4,7 @@
 export const SITE_URL = "https://www.fqhctalent.com";
 export const SITE_NAME = "FQHC Talent";
 export const SITE_DESCRIPTION =
-  "California's FQHC strategic intelligence platform — executive dashboards, workforce data, policy tracking, free career tools, and 220+ FQHC profiles. Built for the leaders and professionals navigating the biggest crisis in community health history.";
+  "California's FQHC strategic intelligence platform — executive dashboards, workforce data, policy tracking, free career tools, and 214+ FQHC profiles. Built for the leaders and professionals navigating the biggest crisis in community health history.";
 
 // Root layout metadata — merge this into your existing layout.tsx
 export const rootMetadata = {
@@ -103,20 +103,20 @@ export const pageMetadata = {
     openGraph: {
       title: "For Job Seekers — FQHC Talent",
       description:
-        "Free career tools for community health professionals. Resume builder, salary intelligence, and 220+ FQHC profiles.",
+        "Free career tools for community health professionals. Resume builder, salary intelligence, and 214+ FQHC profiles.",
       url: `${SITE_URL}/for-job-seekers`,
     },
     alternates: { canonical: `${SITE_URL}/for-job-seekers` },
   },
   // forEmployers: archived — page moved to _archive/cta/pages/for-employers/
   blog: {
-    title: "FQHC Career Resources & Community Health Insights",
+    title: "FQHC Strategic Intelligence Blog | Revenue, Compliance & Workforce Data for California",
     description:
-      "Expert insights on FQHC careers, Medi-Cal program updates, community health worker career guides, salary data, and hiring trends for Federally Qualified Health Centers.",
+      "Data-driven articles for FQHC leaders and professionals: revenue optimization, BLS hiring data, Medi-Cal policy analysis, salary benchmarks, and career guides. Updated weekly with primary source citations.",
     openGraph: {
-      title: "Blog — FQHC Talent",
+      title: "FQHC Intelligence Blog — FQHC Talent",
       description:
-        "FQHC career resources, Medi-Cal updates, and community health insights.",
+        "Revenue strategies, hiring data, Medi-Cal policy analysis, and career guides for California FQHCs.",
       url: `${SITE_URL}/blog`,
     },
     alternates: { canonical: `${SITE_URL}/blog` },
@@ -124,11 +124,11 @@ export const pageMetadata = {
   directory: {
     title: "California FQHC Directory | Find Community Health Centers",
     description:
-      "Browse 220+ Federally Qualified Health Centers across California. Search by region, EHR system, programs, and resilience scores. Find FQHCs in Los Angeles, San Diego, Bay Area, Sacramento, Central Valley, and more.",
+      "Browse 214+ Federally Qualified Health Centers across California. Search by region, EHR system, programs, and resilience scores. Find FQHCs in Los Angeles, San Diego, Bay Area, Sacramento, Central Valley, and more.",
     openGraph: {
       title: "California FQHC Directory — FQHC Talent",
       description:
-        "Searchable directory of 220+ FQHCs across California with resilience scores, programs, EHR systems, and strategic reports.",
+        "Searchable directory of 214+ FQHCs across California with resilience scores, programs, EHR systems, and strategic reports.",
       url: `${SITE_URL}/directory`,
     },
     alternates: { canonical: `${SITE_URL}/directory` },
@@ -351,13 +351,13 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/strategy/knowledge-map` },
   },
   aiTracker: {
-    title: "FQHC AI Tracker | AI Adoption in Community Health Centers",
+    title: "FQHC AI Tracker 2026: 22 Adoption Events, 8 Vendors & EHR Compatibility Matrix",
     description:
-      "Monitor artificial intelligence adoption at FQHCs nationwide — clinical documentation, revenue cycle, scheduling, care coordination, and population health. Track vendors, partnerships, metrics, and adoption stages.",
+      "Live tracker: 22 AI adoption events across FQHCs — ambient scribes, RCM automation, scheduling AI. Compare 8 vendors by EHR compatibility (Epic, NextGen, eClinicalWorks). CHAI-NACHC governance framework. Updated weekly.",
     openGraph: {
-      title: "AI Tracker — FQHC Talent",
+      title: "FQHC AI Tracker 2026 — FQHC Talent",
       description:
-        "Tracking AI implementation across FQHCs: ambient documentation, revenue cycle automation, scheduling, and care coordination.",
+        "22 AI adoption events, 8 vendor comparisons, EHR compatibility matrix. Live tracking of AI implementation across community health centers.",
       url: `${SITE_URL}/ai-tracker`,
     },
     alternates: { canonical: `${SITE_URL}/ai-tracker` },
@@ -413,23 +413,23 @@ export const pageMetadata = {
   strategyOffboarding: {
     title: "Free Transition Resources for Displaced FQHC Workers | FQHC Talent",
     description:
-      "Free career tools for community health workers affected by layoffs. Resume builder, career assessment, certification guides, salary data, and aggregated job listings across 220 California FQHCs.",
+      "Free career tools for community health workers affected by layoffs. Resume builder, career assessment, certification guides, salary data, and aggregated job listings across 214 California FQHCs.",
     openGraph: {
       title: "Transition Resources — FQHC Talent",
       description:
-        "Free career tools for displaced community health workers. Resume builder, assessments, certifications, and job listings across 220 California FQHCs.",
+        "Free career tools for displaced community health workers. Resume builder, assessments, certifications, and job listings across 214 California FQHCs.",
       url: `${SITE_URL}/strategy/offboarding`,
     },
     alternates: { canonical: `${SITE_URL}/strategy/offboarding` },
   },
   strategyResilience: {
-    title: "FQHC Resilience Scorecard | 220 California FQHCs Scored Across 5 Dimensions",
+    title: "FQHC Resilience Scorecard | 214 California FQHCs Scored Across 5 Dimensions",
     description:
       "Every California FQHC scored on program diversity, workforce stability, data maturity, quality indicators, and financial positioning. Search your organization and compare against peers.",
     openGraph: {
       title: "FQHC Resilience Scorecard — FQHC Talent",
       description:
-        "See how your FQHC scores across 5 resilience dimensions. 220 California FQHCs ranked with detailed breakdowns.",
+        "See how your FQHC scores across 5 resilience dimensions. 214 California FQHCs ranked with detailed breakdowns.",
       url: `${SITE_URL}/strategy/resilience`,
     },
     alternates: { canonical: `${SITE_URL}/strategy/resilience` },

@@ -77,13 +77,13 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "february-2026-jobs-report-healthcare-crisis",
     title:
-      "The February 2026 Jobs Report: Healthcare Is Carrying the Entire Economy. Congress Just Cut Its Funding.",
+      "February 2026 Healthcare Jobs Report: BLS Data Shows 121% of U.S. Job Growth — Then $911B in Cuts",
     esTitle:
-      "El Informe de Empleos de Febrero 2026: El Sector Salud Carga Toda la Economía. El Congreso Acaba de Recortar Su Financiamiento.",
+      "Informe de Empleos de Salud Febrero 2026: Datos del BLS Muestran 121% del Crecimiento Laboral — Luego $911B en Recortes",
     description:
-      "Healthcare created 121% of all U.S. job growth over 12 months — every other sector was flat or negative. Then Congress passed $911B in Medicaid cuts targeting safety-net providers. The February BLS data, the Kaiser strike, and what it all means for FQHCs.",
+      "February 2026 BLS data analysis: healthcare created 121% of all U.S. job growth while every other sector was flat. Then Congress passed $911B in Medicaid cuts. Economic indicators, Kaiser strike impact, and what it means for FQHCs.",
     esDescription:
-      "El sector salud creó el 121% de todo el crecimiento laboral de EE.UU. en 12 meses — todos los demás sectores fueron planos o negativos. Luego el Congreso aprobó $911B en recortes de Medicaid. Los datos del BLS de febrero, la huelga de Kaiser y lo que significa para los FQHCs.",
+      "Análisis de datos BLS febrero 2026: salud creó 121% del crecimiento laboral de EE.UU. mientras otros sectores estaban planos. Luego el Congreso aprobó $911B en recortes de Medicaid. Indicadores económicos, impacto de huelga Kaiser y lo que significa para FQHCs.",
     date: "March 6, 2026",
     esDate: "6 de marzo de 2026",
     isoDate: "2026-03-06",
@@ -94,13 +94,13 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "healthcare-hiring-trends-2026",
-    title: "Healthcare Hiring Trends 2026: What the Jobs Data Tells Us About FQHC Careers",
+    title: "Healthcare Hiring Trends 2026: 82,000 Jobs Added in January — BLS Data & FQHC Growth Analysis",
     esTitle:
-      "Tendencias de Contratación en Salud 2026: Lo Que los Datos Revelan Sobre Carreras en FQHCs",
+      "Tendencias de Contratación en Salud 2026: 82,000 Empleos en Enero — Datos BLS y Análisis de Crecimiento FQHC",
     description:
-      "Healthcare added 82,000 jobs in January 2026 — 63% of all U.S. job growth. We break down the BLS data, HRSA workforce projections, and what it means for community health center careers in California.",
+      "Healthcare added 82,000 jobs in January 2026 — 63% of all U.S. job growth. BLS data breakdown, HRSA workforce projections, California FQHC hiring surge data, and which community health roles are growing fastest.",
     esDescription:
-      "El sector de salud añadió 82,000 empleos en enero 2026 — el 63% de todo el crecimiento laboral en EE.UU. Analizamos los datos del BLS, proyecciones de HRSA, y qué significa para carreras en centros de salud comunitarios en California.",
+      "Salud añadió 82,000 empleos en enero 2026 — 63% del crecimiento laboral de EE.UU. Desglose de datos BLS, proyecciones HRSA, datos de contratación en FQHCs de California y qué roles de salud comunitaria crecen más rápido.",
     date: "February 16, 2026",
     esDate: "16 de febrero de 2026",
     isoDate: "2026-02-16",
@@ -128,13 +128,13 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "fqhc-benefits-guide-community-health",
-    title: "The Complete Guide to FQHC Benefits: What Community Health Workers Actually Get",
+    title: "FQHC Benefits Guide 2026: How a $65K Salary Equals $85K+ in Total Compensation",
     esTitle:
-      "Guía Completa de Beneficios en FQHC: Lo Que Realmente Reciben los Trabajadores de Salud Comunitaria",
+      "Guía de Beneficios FQHC 2026: Cómo un Salario de $65K Equivale a $85K+ en Compensación Total",
     description:
-      "Discover the full value of FQHC benefits packages — from health insurance and NHSC loan repayment to retirement plans, generous PTO, and professional development. Learn how a $65k FQHC salary can equal $85k+ in total compensation.",
+      "FQHC benefits breakdown: NHSC loan repayment ($50-75K), health insurance, retirement plans, 4-6 weeks PTO, and professional development. See why a $65K FQHC salary equals $85K+ in total comp vs. private practice.",
     esDescription:
-      "Descubre el valor completo de los paquetes de beneficios de FQHC — desde seguro médico y reembolso de préstamos NHSC hasta planes de jubilación, PTO generoso y desarrollo profesional. Aprende cómo un salario de $65k en FQHC puede equivaler a $85k+ en compensación total.",
+      "Desglose de beneficios FQHC: reembolso NHSC ($50-75K), seguro médico, jubilación, 4-6 semanas PTO y desarrollo profesional. Por qué un salario FQHC de $65K equivale a $85K+ en compensación total vs. práctica privada.",
     date: "February 15, 2026",
     esDate: "15 de febrero de 2026",
     isoDate: "2026-02-15",
@@ -145,12 +145,12 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "laid-off-fqhc-fast-track-job-search",
-    title: "Laid Off from an FQHC? Here\u2019s How to Fast-Track Your Job Search",
-    esTitle: "\u00bfDespedido/a de un FQHC? C\u00f3mo Acelerar Tu B\u00fasqueda de Empleo",
+    title: "Laid Off from an FQHC? 1,000+ Open Positions & Free Career Tools (2026)",
+    esTitle: "\u00bfDespedido/a de un FQHC? 1,000+ Posiciones Abiertas y Herramientas Gratis (2026)",
     description:
-      "Thousands of community health workers in California are being displaced by Medi-Cal funding cuts and FQHC restructuring. But many FQHCs are still hiring. Free career tools and aggregated job postings can help you land your next role.",
+      "3,477 California community health workers displaced by Medi-Cal cuts — but 1,000+ FQHC positions are open right now. Free resume builder, career assessment, and job listings across 214 FQHCs. Get job-ready today.",
     esDescription:
-      "Miles de trabajadores de salud comunitaria en California están siendo desplazados por recortes de fondos de Medi-Cal y reestructuración de FQHCs. Pero muchos FQHCs siguen contratando. Herramientas gratis y ofertas de empleo agregadas pueden ayudarte.",
+      "3,477 trabajadores de salud comunitaria desplazados por recortes de Medi-Cal — pero 1,000+ posiciones FQHC están abiertas ahora. Constructor de currículum gratis, evaluación de carrera y empleos en 214 FQHCs.",
     date: "February 15, 2026",
     esDate: "15 de febrero de 2026",
     isoDate: "2026-02-15",
@@ -195,13 +195,13 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "top-10-fqhc-interview-questions",
-    title: "Top 10 FQHC Interview Questions and How to Answer Them",
+    title: "Top 10 FQHC Interview Questions 2026: STAR Answers & What Hiring Managers Look For",
     esTitle:
-      "Las 10 Principales Preguntas de Entrevista en FQHC y Cómo Responderlas",
+      "Las 10 Principales Preguntas de Entrevista FQHC 2026: Respuestas STAR y Lo Que Buscan",
     description:
-      "Prepare for your FQHC job interview with these common questions and expert answers. From ECM program knowledge to cultural competency, learn exactly what community health centers are looking for.",
+      "FQHC interview prep with STAR-format answers. Covers ECM program knowledge, cultural competency, EHR experience, and team-based care questions. Real hiring manager insights for California community health center jobs.",
     esDescription:
-      "Prepárate para tu entrevista de trabajo en FQHC con estas preguntas comunes y respuestas de expertos. Desde conocimiento de programas ECM hasta competencia cultural, aprende exactamente qué buscan los centros de salud comunitarios.",
+      "Preparación de entrevista FQHC con respuestas formato STAR. Cubre ECM, competencia cultural, experiencia EHR y preguntas de atención en equipo. Perspectivas reales de gerentes de contratación en centros de salud comunitarios.",
     date: "February 14, 2026",
     esDate: "14 de febrero de 2026",
     isoDate: "2026-02-14",
@@ -263,13 +263,13 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "how-to-write-fqhc-resume",
-    title: "How to Write an FQHC Resume That Gets Noticed",
+    title: "How to Write an FQHC Resume in 2026: Free Templates & Community Health Tips",
     esTitle:
-      "Cómo Escribir un Currículum para FQHC Que Llame la Atención",
+      "Cómo Escribir un Currículum para FQHC en 2026: Plantillas Gratis y Consejos",
     description:
-      "Your FQHC experience is valuable — but only if hiring managers can see it. Learn how to write a community health resume that highlights the programs, EHR systems, and competencies that FQHCs are looking for.",
+      "Free FQHC resume templates for 8 roles. Highlight ECM, EHR systems, and bilingual skills that California community health centers are hiring for right now. Includes downloadable templates.",
     esDescription:
-      "Tu experiencia en FQHC es valiosa — pero solo si los gerentes de contratación pueden verla. Aprende a escribir un currículum de salud comunitaria que destaque los programas, sistemas EHR y competencias que buscan los FQHCs.",
+      "Plantillas gratis de currículum para FQHC en 8 roles. Destaca habilidades de ECM, sistemas EHR y bilingüismo que los centros de salud comunitarios de California buscan ahora mismo.",
     date: "February 7, 2026",
     esDate: "7 de febrero de 2026",
     isoDate: "2026-02-07",
