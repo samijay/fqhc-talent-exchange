@@ -294,6 +294,40 @@ export function CourseJsonLd({
   );
 }
 
+// HowTo structured data for compliance checklists and step-by-step guides
+export function HowToJsonLd({
+  name,
+  description,
+  totalTime,
+  steps,
+}: {
+  name: string;
+  description: string;
+  totalTime?: string; // ISO 8601 duration e.g. "PT2H"
+  steps: { name: string; text: string }[];
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    ...(totalTime && { totalTime }),
+    step: steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
 // Breadcrumb structured data
 export function BreadcrumbJsonLd({
   items,

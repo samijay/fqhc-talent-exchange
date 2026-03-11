@@ -1,38 +1,59 @@
 # FQHC Talent
 
-> California's FQHC Strategic Intelligence Platform — executive dashboards, workforce data, policy tracking, free career tools, and 220+ FQHC profiles for leaders and professionals navigating the 2026 community health crisis.
+> California's FQHC Strategic Intelligence Platform — executive dashboards, workforce data, policy tracking, compliance tools, OKR training, free career tools, and 220+ FQHC profiles for leaders and professionals navigating the 2026 community health crisis.
 
 FQHC Talent (https://www.fqhctalent.com) is a strategic intelligence platform for Federally Qualified Health Centers (FQHCs) in California. It serves two audiences: (1) FQHC executives and HR directors tracking the political, financial, and workforce landscape; and (2) community health professionals seeking career tools, salary data, and job listings.
 
-The site covers: H.R. 1 Medicaid cuts, CalAIM programs (ECM, Community Supports), FQHC funding policy, the California workforce crisis, AI adoption in community health, and salary benchmarks across 9 CA regions. All insights cite primary sources (government, NACHC, CPCA, CHCF, KFF).
+The site covers: H.R. 1 Medicaid cuts, CalAIM programs (ECM, Community Supports), FQHC funding policy, the California workforce crisis, AI adoption in community health, FQHC compliance (HRSA, HIPAA, billing), and salary benchmarks across 9 CA regions. All insights cite primary sources (government, NACHC, CPCA, CHCF, KFF).
 
-Key data assets: 220 California FQHCs, 67+ intelligence items, 18 masterclass modules, 20 certifications, 9 regional dashboards, 30 salary benchmarks, 156+ job listings, 20+ layoff events tracking 3,477+ displaced workers.
+Key data assets: 220 California FQHCs, 67+ intelligence items, 18 masterclass modules, 20 certifications, 9 regional dashboards, 30 salary benchmarks, 156+ job listings, 20+ layoff events tracking 3,477+ displaced workers, 19 OSV program requirements, 12 OKR templates.
 
 ## Intelligence & Monitoring
 
 - [Intelligence Dashboard](https://www.fqhctalent.com/) — Breaking intel feed, funding cliff countdowns, workforce displacement data, and undocumented access policy watch
 - [AI Tracker](https://www.fqhctalent.com/ai-tracker) — Monitoring AI adoption across the FQHC sector (ambient documentation, RCM automation, clinical decision support)
 - [Layoff Tracker](https://www.fqhctalent.com/layoffs) — 20 layoff events, 3,477+ displaced workers, WARN Act data for California FQHCs
-- [Blog](https://www.fqhctalent.com/blog) — 15 bilingual articles on FQHC careers, Medi-Cal policy, salary data, and ECM programs
+- [Blog](https://www.fqhctalent.com/blog) — 15+ bilingual articles on FQHC careers, Medi-Cal policy, salary data, and ECM programs
 - [Regional Intelligence](https://www.fqhctalent.com/intelligence/los-angeles) — 9 per-region dashboards: LA, San Diego, Bay Area, Sacramento, Central Valley, Inland Empire, Central Coast, North State, North Coast
 - [Salary Intelligence](https://www.fqhctalent.com/salary-data) — P25/P50/P75 benchmarks for 30 FQHC roles across 9 California regions
 
+## Compliance Hub
+
+- [Compliance Overview](https://www.fqhctalent.com/compliance) — FQHC regulatory compliance dashboard with downloadable tools (OSV checklist, compliance calendar, risk matrix)
+- [HRSA Audits & OSV](https://www.fqhctalent.com/compliance/hrsa-audits) — 19 Operational Site Visit program requirements with CFR citations, preparation checklists, and estimated hours per requirement
+- [HIPAA & Privacy](https://www.fqhctalent.com/compliance/hipaa) — Business Associate Agreements, breach notification protocol, annual security risk assessment, workforce training requirements
+- [Billing & Fraud Prevention](https://www.fqhctalent.com/compliance/billing) — PPS same-day billing rules, documentation standards, coding accuracy (ICD-10/CPT), False Claims Act, 340B compliance, managed care contracts
+- [Compliance Calendar](https://www.fqhctalent.com/compliance/calendar) — Month-by-month regulatory deadlines for HRSA, HIPAA, and billing with preparation timelines
+- [Regulatory Knowledge Base](https://www.fqhctalent.com/compliance/knowledge-base) — Searchable database of FQHC regulations with CFR citations, practical implications, and primary source links
+
+## OKR Learning & Strategy
+
+- [OKR Individual Course](https://www.fqhctalent.com/strategy/okr-course) — Free 6-module interactive OKR course (45 min) with exercises, scoring simulators, and AI-powered capstone critique. Bilingual (EN/ES).
+  - Module 1: What Are OKRs? — Origin, structure, OKR vs KPI
+  - Module 2: Anatomy of Great OKRs — Patterns, anti-patterns, real examples
+  - Module 3: Writing Objectives — Ambitious, qualitative, time-bound
+  - Module 4: Crafting Key Results — Measurable, specific, 0.7 target
+  - Module 5: Scoring & Grading — Traffic light system, mid-cycle reviews
+  - Module 6: Capstone — Write real OKRs for your FQHC, AI critique
+- [Team OKR Sprint](https://www.fqhctalent.com/strategy/okr-team-sprint) — Free 4-session async sprint (2 hrs total) for executive teams to build real OKRs together with priority alignment, collaborative drafting, peer workshop, and AI readiness assessment
+- [OKR Templates](https://www.fqhctalent.com/strategy/okrs) — 12 crisis change management OKR templates across 5 domains (revenue resilience, workforce retention, patient access, operational efficiency, cross-department)
+
 ## Strategy Resources
 
-- [Executive Guides](https://www.fqhctalent.com/strategy/guides) — 6 real FQHC case studies using Rumelt's Good Strategy framework (PureView, MCR Health, Highland Health, Urban Health Plan, Sun River Health, United Health Centers)
-- [OKR Templates](https://www.fqhctalent.com/strategy/okrs) — 12 crisis change management templates across 5 domains (revenue, workforce, patient access, operations, cross-department)
+- [Executive Guides](https://www.fqhctalent.com/strategy/guides) — 6 real FQHC case studies using Rumelt's Good Strategy framework
 - [Case Studies Index](https://www.fqhctalent.com/strategy/case-studies) — Outcomes-focused index linking to full strategic analysis
 - [Masterclass](https://www.fqhctalent.com/strategy/masterclass) — 18 deep-dive modules for the 2026 crisis: financial survival, revenue recovery, undocumented care, fundraising, healthcare economics, leadership
 - [Healthcare Economics](https://www.fqhctalent.com/strategy/economics) — PPS, 340B, FMAP, HCC risk adjustment, CalAIM ECM, SB 525 explained at 3 levels
 - [Execution Frameworks](https://www.fqhctalent.com/strategy/frameworks) — 12 change management and decision frameworks adapted for FQHCs
 - [Thought Leaders](https://www.fqhctalent.com/strategy/leaders) — 28 FQHC influencers: NACHC leadership, state PCA directors, innovative CEOs, policy experts, AI pioneers
-- [Knowledge Map](https://www.fqhctalent.com/strategy/knowledge-map) — 6 strategic themes, 60+ connections, guided learning paths
 - [Funding Impact](https://www.fqhctalent.com/funding-impact) — H.R. 1 policy timeline, revenue strategies, enrollment strategies
 - [Scope-of-Practice](https://www.fqhctalent.com/strategy/scope-of-practice) — 10 CA FQHC roles, delegation matrix, BPC citations, supervision chains
 - [Cultural Humility](https://www.fqhctalent.com/strategy/cultural-humility) — CLAS Standards, Tervalon & Murray-García framework, multicultural workforce strategies
-- [The Movement](https://www.fqhctalent.com/strategy/movement) — FQHC movement history 1960–2026: Cesar Chavez, Black Panthers, Dr. Geiger, 30 events, 8 cross-cultural alliances
+- [The Movement](https://www.fqhctalent.com/strategy/movement) — FQHC movement history 1960–2026: Cesar Chavez, Black Panthers, Dr. Geiger, 30 events
 - [Transition Toolkit](https://www.fqhctalent.com/strategy/offboarding) — 3-tier workforce transition service for FQHCs facing layoffs
 - [Resilience Scorecard](https://www.fqhctalent.com/strategy/resilience) — 220 FQHCs scored across 5 dimensions (program diversity, workforce stability, data maturity, quality indicators, financial positioning)
+- [Clinic Simulator](https://www.fqhctalent.com/strategy/clinic-simulator) — Model staffing, scheduling, and revenue scenarios for your FQHC
+- [Schedule Planner](https://www.fqhctalent.com/strategy/schedule-planner) — Provider scheduling optimization tool
 
 ## FQHC Directory & Profiles
 
@@ -47,8 +68,9 @@ Key data assets: 220 California FQHCs, 67+ intelligence items, 18 masterclass mo
 - [Career Assessment](https://www.fqhctalent.com/career-insights) — 5-domain behavioral assessment with personalized 90-day onboarding plan
 - [Career Roadmap](https://www.fqhctalent.com/career-roadmap) — 5 career tracks, 4 levels each, CA salary data, 9 regional multipliers
 - [Certifications](https://www.fqhctalent.com/certifications) — 20 CA-specific certifications: CHW Certificate, CCM, CPC, LCSW, BLS, OCHIN Epic, and more
-- [Career Resources](https://www.fqhctalent.com/resources) — 18 free/low-cost programs: loan repayment (NHSC), free training, professional development, union education, state workforce
-- [Workplace Guides](https://www.fqhctalent.com/guides) — 13 operational how-to guides: ECM workflows, RN co-visits, BH integration, FQHC revenue, CalAIM, documentation compliance
+- [Career Resources](https://www.fqhctalent.com/resources) — 18 free/low-cost programs: loan repayment (NHSC), free training, professional development
+- [Academy](https://www.fqhctalent.com/academy) — Free learning tools: HIPAA Essentials, OSV Prep, Billing Compliance, Clinic Manager course
+- [Interview Prep](https://www.fqhctalent.com/interview-prep) — Role-specific interview questions and preparation guide
 - [Team Readiness](https://www.fqhctalent.com/team-readiness) — 5-domain leadership assessment for FQHC managers and directors
 - [Priority Intake](https://www.fqhctalent.com/fast-track) — Displaced worker priority matching and free career tools
 
@@ -60,19 +82,47 @@ Key data assets: 220 California FQHCs, 67+ intelligence items, 18 masterclass mo
 - Workforce crisis — layoffs, burnout, CHW certification (SB 803), SB 525 ($25/hr minimum wage)
 - AI adoption — ambient documentation, revenue cycle automation, clinical decision support at FQHCs
 - Salary benchmarks — P25/P50/P75 for CHWs, care coordinators, nurses, behavioral health, dental, pharmacy, admin
+- FQHC compliance — HRSA Operational Site Visit (OSV), HIPAA privacy/security, PPS billing rules, 340B, False Claims Act
 - California regions — LA, San Diego, SF Bay Area, Sacramento, Central Valley, Inland Empire, Central Coast, North State, North Coast
+
+## Frequently Asked Questions
+
+Q: What is an FQHC?
+A: A Federally Qualified Health Center (FQHC) is a community-based healthcare provider that receives federal funding under Section 330 of the Public Health Service Act. FQHCs provide primary care to underserved populations regardless of ability to pay. California has 220+ FQHCs serving millions of patients.
+
+Q: What is PPS (Prospective Payment System) for FQHCs?
+A: PPS is the Medicare and Medicaid reimbursement methodology for FQHCs. Instead of fee-for-service, FQHCs receive a fixed per-visit payment that covers all services rendered during an encounter. California FQHC PPS rates average $200-$400 per visit depending on payer and services.
+
+Q: What is an OSV (Operational Site Visit)?
+A: An Operational Site Visit is HRSA's compliance review of FQHCs covering 19 program requirements across governance, administration, clinical operations, and financial management. FQHCs receive OSVs every 3 years. Noncompliance can result in conditions of award or loss of federal funding.
+
+Q: What are OKRs and why do FQHCs need them?
+A: OKRs (Objectives and Key Results) are a goal-setting framework that connects ambitious qualitative objectives to measurable key results. FQHCs need OKRs to navigate the 2026 crisis — Medicaid cuts, workforce shortages, and policy changes — by aligning executive teams around measurable outcomes rather than activity metrics.
+
+Q: What is CalAIM ECM?
+A: Enhanced Care Management (ECM) is California's statewide benefit under CalAIM (California Advancing and Innovating Medi-Cal) that provides intensive care coordination for high-need Medi-Cal members. FQHCs are key ECM providers, managing complex patients across housing, behavioral health, and medical needs.
 
 ## Audiences
 
 - FQHC executives (CEOs, CMOs, COOs) tracking the strategic landscape
 - FQHC HR directors and workforce managers
+- FQHC compliance officers and quality managers
 - Community health workers (CHWs), care coordinators, case managers
 - Clinical staff (MDs, NPs, PAs, RNs, LCSWs, dentists)
 - Behavioral health specialists, revenue cycle staff, program managers
 - Policy researchers and health equity advocates
 
+## Technical Details
+
+- Platform: Next.js 16, React 19, TypeScript, Tailwind CSS, Supabase
+- Hosting: Vercel (edge-optimized)
+- Languages: English and Spanish (bilingual throughout)
+- Data sources: HRSA, CMS, NACHC, CPCA, CHCF, KFF, BLS, California OSHPD
+- Structured data: schema.org (Organization, WebSite, Course, FAQPage, JobPosting, Article, BreadcrumbList)
+- Content license: Original analysis and tools; regulatory citations reference public federal/state sources
+
 ## About
 
-FQHC Talent is founded to strengthen California's safety-net workforce by connecting mission-driven health professionals with Federally Qualified Health Centers — faster, smarter, and with the cultural fit that matters. The platform is live at https://www.fqhctalent.com and is deployed on Vercel. Content is bilingual (English/Spanish).
+FQHC Talent is founded to strengthen California's safety-net workforce by connecting mission-driven health professionals with Federally Qualified Health Centers — faster, smarter, and with the cultural fit that matters. The platform is live at https://www.fqhctalent.com and is deployed on Vercel.
 
 Contact: hello@fqhctalent.com
