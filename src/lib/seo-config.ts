@@ -723,6 +723,114 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/strategy/schedule-planner` },
   },
+  compliance: {
+    title: "FQHC Risk & Compliance Management | HRSA, HIPAA, Billing",
+    description:
+      "19 HRSA program requirements, HIPAA data protection, billing compliance. Downloadable checklists, calendars, and risk matrices for California FQHCs.",
+    openGraph: {
+      title: "Risk & Compliance — FQHC Talent",
+      description:
+        "FQHC compliance hub: 19 HRSA requirements, HIPAA data protection, billing rules, and annual regulatory calendar.",
+      url: `${SITE_URL}/compliance`,
+    },
+    alternates: { canonical: `${SITE_URL}/compliance` },
+  },
+  complianceHrsaAudits: {
+    title: "HRSA Audit Preparation & OSV Compliance | FQHC Talent",
+    description:
+      "Prepare for HRSA Operational Site Visits with this comprehensive guide. 19 program requirements, top deficiencies, and a 90-day preparation playbook.",
+    openGraph: {
+      title: "HRSA Audit Prep — FQHC Talent",
+      description:
+        "19 HRSA program requirements, common deficiencies, and a proven 90-day OSV preparation timeline.",
+      url: `${SITE_URL}/compliance/hrsa-audits`,
+    },
+    alternates: { canonical: `${SITE_URL}/compliance/hrsa-audits` },
+  },
+  complianceHipaa: {
+    title: "HIPAA Compliance for FQHCs | Privacy Rule, Security Rule & Breach Response",
+    description:
+      "Complete HIPAA compliance framework for FQHCs. Privacy Rule, Security Rule, breach response procedures, and daily protection habits with FQHC-specific scenarios.",
+    openGraph: {
+      title: "HIPAA Compliance — FQHC Talent",
+      description:
+        "HIPAA Privacy Rule, Security Rule, breach response, and risk assessment framework built for FQHCs.",
+      url: `${SITE_URL}/compliance/hipaa`,
+    },
+    alternates: { canonical: `${SITE_URL}/compliance/hipaa` },
+  },
+  complianceBilling: {
+    title: "FQHC Billing Compliance | PPS Rules, Coding & False Claims Act",
+    description:
+      "Master FQHC billing compliance: PPS billing rules, same-day same-provider billing, documentation standards, False Claims Act, audit readiness, and anti-fraud protections.",
+    openGraph: {
+      title: "Billing Compliance — FQHC Talent",
+      description:
+        "PPS billing rules, same-day billing, documentation, False Claims Act, fraud prevention, and audit preparation for FQHCs.",
+      url: `${SITE_URL}/compliance/billing`,
+    },
+    alternates: { canonical: `${SITE_URL}/compliance/billing` },
+  },
+  complianceCalendar: {
+    title: "FQHC Annual Compliance Calendar | Regulatory Deadlines by Month",
+    description:
+      "Track annual FQHC compliance deadlines month-by-month. HRSA, HIPAA, OSHA, billing, payroll, and workforce compliance dates with action checklists.",
+    openGraph: {
+      title: "Compliance Calendar — FQHC Talent",
+      description:
+        "FQHC compliance calendar: HRSA, HIPAA, OSHA, and billing deadlines by month with action checklists.",
+      url: `${SITE_URL}/compliance/calendar`,
+    },
+    alternates: { canonical: `${SITE_URL}/compliance/calendar` },
+  },
+  complianceKnowledgeBase: {
+    title: "FQHC Compliance Knowledge Base | Searchable Regulations & Guidance",
+    description:
+      "Searchable, indexed knowledge base of FQHC compliance regulations, guidance, and policy documents from HRSA, CMS, DHCS, and HHS.",
+    openGraph: {
+      title: "Knowledge Base — FQHC Talent",
+      description:
+        "Searchable compliance knowledge base: HRSA, HIPAA, OSHA, billing, and workforce regulations for FQHCs.",
+      url: `${SITE_URL}/compliance/knowledge-base`,
+    },
+    alternates: { canonical: `${SITE_URL}/compliance/knowledge-base` },
+  },
+  okrCourse: {
+    title: "Master OKRs for Your FQHC | Free Interactive Course with AI Critique",
+    description:
+      "Free 6-module OKR course designed for FQHC executives. Interactive exercises, scoring simulators, and an AI-powered capstone where you write real OKRs for your health center. Bilingual (English/Spanish). ~45 minutes.",
+    openGraph: {
+      title: "Master OKRs for Your FQHC — FQHC Academy",
+      description:
+        "Free interactive OKR training for community health center leaders. 6 modules, hands-on exercises, and AI-powered capstone critique.",
+      url: `${SITE_URL}/strategy/okr-course`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/okr-course` },
+  },
+  okrCourseCapstone: {
+    title: "OKR Capstone Project | Write Real OKRs with AI Feedback",
+    description:
+      "Put your OKR knowledge to the test. Write a real objective and key results for your FQHC and get instant AI-powered critique on measurability, ambition, FQHC relevance, and clarity.",
+    openGraph: {
+      title: "OKR Capstone Project — FQHC Academy",
+      description:
+        "Write real OKRs for your FQHC and get AI-powered feedback on measurability, ambition, and strategic alignment.",
+      url: `${SITE_URL}/strategy/okr-course/capstone`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/okr-course/capstone` },
+  },
+  okrTeamSprint: {
+    title: "Team OKR Sprint | Build OKRs Together with Your Executive Team",
+    description:
+      "Free 4-session async sprint where FQHC executive teams build real OKRs together. Strategic alignment voting, objective drafting, key results workshop, and AI readiness assessment. Bilingual (English/Spanish).",
+    openGraph: {
+      title: "Team OKR Sprint — FQHC Talent",
+      description:
+        "Free team OKR sprint for FQHC executives. 4 async sessions: alignment, drafting, key results, and AI readiness review.",
+      url: `${SITE_URL}/strategy/okr-team-sprint`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/okr-team-sprint` },
+  },
 };
 
 // California metro areas for location pages

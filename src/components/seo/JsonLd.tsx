@@ -246,6 +246,54 @@ export function FAQPageJsonLd({
   );
 }
 
+// Course structured data for Google rich results
+export function CourseJsonLd({
+  name,
+  description,
+  url,
+  provider,
+  duration,
+  isAccessibleForFree = true,
+  inLanguage = ["en", "es"],
+}: {
+  name: string;
+  description: string;
+  url: string;
+  provider?: string;
+  duration?: string;
+  isAccessibleForFree?: boolean;
+  inLanguage?: string[];
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name,
+    description,
+    url,
+    isAccessibleForFree,
+    inLanguage,
+    ...(duration && { timeRequired: duration }),
+    provider: {
+      "@type": "Organization",
+      name: provider || "FQHC Talent",
+      url: "https://www.fqhctalent.com",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      category: "Free",
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
 // Breadcrumb structured data
 export function BreadcrumbJsonLd({
   items,
