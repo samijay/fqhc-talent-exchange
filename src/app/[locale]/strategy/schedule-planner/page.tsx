@@ -28,7 +28,13 @@ import {
   Edit3,
   Check,
   X,
+  Sparkles,
 } from "lucide-react";
+import {
+  SimulatorWizard,
+  type WizardConfig,
+} from "@/components/simulator/SimulatorWizard";
+import { ModeToggle, type SimMode } from "@/components/simulator/ModeToggle";
 import { ScheduleGrid } from "@/components/schedule-planner/ScheduleGrid";
 import { ScheduleMetricsPanel } from "@/components/schedule-planner/ScheduleMetricsPanel";
 import { ScheduleCompare } from "@/components/schedule-planner/ScheduleCompare";
@@ -86,6 +92,9 @@ export default function SchedulePlannerPage() {
   const [compareScheduleId, setCompareScheduleId] = useState<string | null>(null);
   const [showCompareSelect, setShowCompareSelect] = useState(false);
 
+  // Wizard vs preset setup mode
+  const [setupMode, setSetupMode] = useState<"wizard" | "presets">("wizard");
+
   // Load saved schedules on mount
   useEffect(() => {
     const saved = loadSavedSchedules();
@@ -121,6 +130,55 @@ export default function SchedulePlannerPage() {
   );
 
   // ---- Handlers ----
+  const handleWizardComplete = useCallback((config: WizardConfig) => {
+    // Map wizard size to schedule preset
+    const sizeKey =
+      config.size === "small" ? "small" : config.size === "large" ? "large" : "mid-size";
+    const preset = SIZE_PRESETS.find((p) => p.id === sizeKey);
+    if (!preset) return;
+    const newSchedule = createScheduleFromPreset(preset);
+    // Rename with org name if provided
+    if (config.orgName) {
+      newSchedule.name = config.orgName;
+    }
+    // Add BH staff if BH selected
+    if (config.services.behavioralHealth) {
+      const bhConfig = ROLE_CONFIG["bh"];
+      const existing = newSchedule.staff.filter((s) => s.role === "bh");
+      if (existing.length === 0) {
+        const newMember = {
+          id: generateId(),
+          name: isEs ? "BH Proveedor" : "BH Provider",
+          role: "bh" as const,
+          fte: 1.0,
+          hourlyRate: bhConfig.hourlyRate,
+        };
+        newSchedule.staff.push(newMember);
+      }
+    }
+    // Extend hours for "maximize-revenue" priority
+    if (config.priority === "maximize-revenue") {
+      const days: DayOfWeek[] = ["mon", "tue", "wed", "thu", "fri"];
+      for (const day of days) {
+        newSchedule.operatingHours[day] = {
+          ...newSchedule.operatingHours[day],
+          close: 18,
+        };
+      }
+      // Activate Saturday
+      newSchedule.operatingHours.sat = {
+        ...newSchedule.operatingHours.sat,
+        active: true,
+      };
+    }
+    setSchedule(newSchedule);
+    setShowSetup(false);
+  }, [isEs]);
+
+  const handleWizardSkip = useCallback(() => {
+    setSetupMode("presets");
+  }, []);
+
   const handleStartFromPreset = useCallback((presetId: string) => {
     const preset = SIZE_PRESETS.find((p) => p.id === presetId);
     if (!preset) return;
@@ -293,6 +351,17 @@ export default function SchedulePlannerPage() {
             </div>
           </div>
 
+          {/* Wizard Setup */}
+          {setupMode === "wizard" && savedSchedules.length === 0 && (
+            <div className="mb-12">
+              <SimulatorWizard
+                onComplete={handleWizardComplete}
+                onSkip={handleWizardSkip}
+                locale={locale}
+              />
+            </div>
+          )}
+
           {/* Saved Schedules (if any) */}
           {savedSchedules.length > 0 && (
             <div className="mb-12">
@@ -350,7 +419,8 @@ export default function SchedulePlannerPage() {
             </div>
           )}
 
-          {/* Quick Start Presets */}
+          {/* Quick Start Presets — show when wizard is skipped or there are saved schedules */}
+          {(setupMode === "presets" || savedSchedules.length > 0) && (
           <div className="mb-12">
             <h2 className="text-xl font-bold text-stone-800 dark:text-stone-100 text-center mb-6">
               {isEs ? "Inicio Rápido — Elige un Tamaño" : "Quick Start — Choose a Size"}
@@ -395,6 +465,7 @@ export default function SchedulePlannerPage() {
               })}
             </div>
           </div>
+          )}
 
           {/* Or start empty */}
           <div className="text-center">

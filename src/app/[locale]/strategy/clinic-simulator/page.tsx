@@ -105,14 +105,23 @@ export default function ClinicSimulatorPage() {
       </section>
 
       {/* ============================================================ */}
+      {/*  THE SIMULATOR (wizard-first for new visitors)                 */}
+      {/* ============================================================ */}
+      <section className="px-4 py-12">
+        <div className="mx-auto max-w-6xl">
+          <ClinicSimulator />
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/*  MEDI-CAL BILLING RULES QUICK REFERENCE                      */}
       {/* ============================================================ */}
       <section className="bg-white px-4 py-10">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-xl font-bold text-stone-900 sm:text-2xl">
             {isEs
-              ? "⚠️ Reglas de Facturación: Lo Que Realmente es Facturable"
-              : "⚠️ Billing Rules: What's Actually Billable"}
+              ? "Reglas de Facturación: Lo Que Realmente es Facturable"
+              : "Billing Rules: What's Actually Billable"}
           </h2>
           <p className="mt-2 max-w-3xl text-sm text-stone-600">
             {isEs
@@ -175,15 +184,6 @@ export default function ClinicSimulatorPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ============================================================ */}
-      {/*  THE SIMULATOR                                                */}
-      {/* ============================================================ */}
-      <section className="px-4 py-12">
-        <div className="mx-auto max-w-6xl">
-          <ClinicSimulator />
         </div>
       </section>
 

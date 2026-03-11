@@ -22,6 +22,7 @@ export interface FQHCJobListing {
   languagePreferred?: string[] | null; // e.g., ["Spanish", "Vietnamese"] — preferred languages
   featured?: boolean;                  // show "Hot Job" banner — editorial highlight
   featuredNote?: string;               // optional short note for the hot job banner
+  complianceRelevance?: ("hrsa-audits" | "hipaa-privacy" | "billing-fraud")[]; // compliance domains this role touches
 }
 
 export const fqhcJobListings: FQHCJobListing[] = [
@@ -24868,4 +24869,52 @@ export const fqhcJobListings: FQHCJobListing[] = [
 
 export function getJobsForFqhc(slug: string): FQHCJobListing[] {
   return fqhcJobListings.filter(j => j.fqhcSlug === slug);
+}
+
+/** Infer compliance relevance for a job based on title, department, roleType, and description */
+export type ComplianceDomainTag = "hrsa-audits" | "hipaa-privacy" | "billing-fraud";
+
+export function getComplianceRelevance(job: FQHCJobListing): ComplianceDomainTag[] {
+  if (job.complianceRelevance) return job.complianceRelevance;
+
+  const domains: Set<ComplianceDomainTag> = new Set();
+  const text = `${job.title} ${job.roleType} ${job.department} ${job.description}`.toLowerCase();
+
+  // Billing / Revenue Cycle → billing-fraud
+  if (
+    job.department === "Revenue Cycle" ||
+    /billing|coder|coding|revenue cycle|claims|pps|340b|reimbursement/i.test(text)
+  ) {
+    domains.add("billing-fraud");
+  }
+
+  // Quality / Compliance → hrsa-audits
+  if (
+    job.department === "Quality" ||
+    job.department === "Compliance" ||
+    /quality|compliance|audit|risk manager|credentialing|accreditation|osv|hrsa/i.test(text)
+  ) {
+    domains.add("hrsa-audits");
+  }
+
+  // Privacy / HIPAA → hipaa-privacy
+  if (
+    /hipaa|privacy|security officer|health information|phi|breach|confidential/i.test(text)
+  ) {
+    domains.add("hipaa-privacy");
+  }
+
+  // Compliance-titled roles get all 3
+  if (/compliance officer|compliance director|chief compliance/i.test(text)) {
+    domains.add("hrsa-audits");
+    domains.add("hipaa-privacy");
+    domains.add("billing-fraud");
+  }
+
+  return Array.from(domains);
+}
+
+/** Get jobs with compliance relevance (explicit or inferred) */
+export function getComplianceJobs(): FQHCJobListing[] {
+  return fqhcJobListings.filter((j) => getComplianceRelevance(j).length > 0);
 }

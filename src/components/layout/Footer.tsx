@@ -12,6 +12,7 @@ export default function Footer() {
     Academy: [
       { href: "/strategy/okr-course" as const, label: "OKR Course" },
       { href: "/strategy/clinic-simulator" as const, label: t("clinicSimulator") },
+      { href: "/strategy/revenue-simulator" as const, label: "Revenue Simulator" },
       { href: "/career-insights" as const, label: t("careerAssessment") },
       { href: "/interview-prep" as const, label: t("interviewPrep") },
       { href: "/resume-builder" as const, label: t("resumeBuilder") },

@@ -255,6 +255,7 @@ export default function Header() {
             { href: "/funding-impact", label: t("fundingImpact") },
             { href: "/strategy/resilience", label: t("resilience") },
             { href: "/strategy/clinic-simulator", label: t("clinicSimulator") },
+            { href: "/strategy/revenue-simulator", label: isEs ? "Simulador de Ingresos" : "Revenue Simulator" },
             { href: "/strategy/scope-of-practice", label: t("scopeOfPractice") },
           ],
         },

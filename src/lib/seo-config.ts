@@ -506,6 +506,18 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/strategy/clinic-simulator` },
   },
+  revenueSimulator: {
+    title: "Revenue Impact Simulator | Model FQHC Revenue Scenarios",
+    description:
+      "Interactive revenue impact simulator for California FQHCs. Model the impact of federal funding changes, 340B pharmacy optimization, top-of-scope staffing, and turnover reduction — with real data and instant results.",
+    openGraph: {
+      title: "Revenue Impact Simulator — FQHC Talent",
+      description:
+        "What if federal funding drops 20%? What if you optimize 340B? Explore revenue scenarios for your California FQHC.",
+      url: `${SITE_URL}/strategy/revenue-simulator`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/revenue-simulator` },
+  },
   login: {
     title: "Sign In | FQHC Talent",
     description:
