@@ -86,11 +86,11 @@ export const pageMetadata = {
   jobs: {
     title: "FQHC Jobs in California | Community Health Center Careers",
     description:
-      "Browse open positions at Federally Qualified Health Centers across California. Community health workers, care coordinators, behavioral health specialists, nurses, and more. 100% free for job seekers.",
+      "Browse 600+ open positions at Federally Qualified Health Centers across California. Community health workers, care coordinators, behavioral health specialists, nurses, and more. Updated weekly. 100% free for job seekers.",
     openGraph: {
-      title: "FQHC Jobs in California",
+      title: "FQHC Jobs in California — 600+ Open Positions",
       description:
-        "Find community health center jobs across California. Free for candidates.",
+        "600+ community health center jobs across California. Updated weekly. Free for candidates.",
       url: `${SITE_URL}/jobs`,
     },
     alternates: { canonical: `${SITE_URL}/jobs` },
@@ -124,11 +124,11 @@ export const pageMetadata = {
   directory: {
     title: "California FQHC Directory | Find Community Health Centers",
     description:
-      "Browse 50+ Federally Qualified Health Centers across California. Search by region, EHR system, and programs. Find FQHCs in Los Angeles, San Diego, Bay Area, Sacramento, and more.",
+      "Browse 220+ Federally Qualified Health Centers across California. Search by region, EHR system, programs, and resilience scores. Find FQHCs in Los Angeles, San Diego, Bay Area, Sacramento, Central Valley, and more.",
     openGraph: {
       title: "California FQHC Directory — FQHC Talent",
       description:
-        "Searchable directory of 50+ FQHCs across California with programs, EHR systems, and locations.",
+        "Searchable directory of 220+ FQHCs across California with resilience scores, programs, EHR systems, and strategic reports.",
       url: `${SITE_URL}/directory`,
     },
     alternates: { canonical: `${SITE_URL}/directory` },
@@ -686,6 +686,30 @@ export const pageMetadata = {
       url: `${SITE_URL}/strategy/compliance`,
     },
     alternates: { canonical: `${SITE_URL}/strategy/compliance` },
+  },
+  bibliography: {
+    title: "FQHC Bibliography | 200+ Curated Resources for Community Health Leaders",
+    description:
+      "Comprehensive bibliography of FQHC resources — academic programs, thought leaders, research, government data, podcasts, and policy briefs. Curated for executives, managers, and researchers in community health.",
+    openGraph: {
+      title: "FQHC Bibliography — FQHC Talent",
+      description:
+        "200+ curated resources for FQHC leaders. Academic programs, thought leaders, research, government data, and podcasts.",
+      url: `${SITE_URL}/bibliography`,
+    },
+    alternates: { canonical: `${SITE_URL}/bibliography` },
+  },
+  downloads: {
+    title: "Free FQHC Downloads | Templates, Reports & Tools",
+    description:
+      "Download free FQHC tools — OKR templates (Excel), compliance checklists (PDF), policy templates (DOCX), schedule exports, resume PDFs, and clinic simulation reports. All generated from our interactive tools.",
+    openGraph: {
+      title: "Free Downloads — FQHC Talent",
+      description:
+        "Free downloadable FQHC tools: Excel templates, PDF checklists, DOCX policies, and clinic simulation reports.",
+      url: `${SITE_URL}/downloads`,
+    },
+    alternates: { canonical: `${SITE_URL}/downloads` },
   },
   strategySchedulePlanner: {
     title: "FQHC Schedule Planner | Staff Scheduling with MA Ratio Optimization",

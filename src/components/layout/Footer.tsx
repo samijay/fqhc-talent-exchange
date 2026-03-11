@@ -45,6 +45,8 @@ export default function Footer() {
       { href: "/compare" as const, label: t("compareFqhcs") },
       { href: "/resources" as const, label: t("careerResources") },
       { href: "/guides" as const, label: t("guides") },
+      { href: "/bibliography" as const, label: t("bibliography") },
+      { href: "/downloads" as const, label: t("downloads") },
     ],
   };
 

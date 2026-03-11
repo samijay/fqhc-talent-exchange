@@ -16,6 +16,27 @@ export interface BlogPost {
   esReadTime: string;
 }
 
+// Helper to generate Next.js Metadata for a blog post by slug
+// Used by individual blog article layout.tsx files
+export function generateBlogMetadata(slug: string) {
+  const post = BLOG_POSTS.find((p) => p.slug === slug);
+  if (!post) return {};
+  return {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: "article" as const,
+      publishedTime: post.isoDate,
+      url: `https://www.fqhctalent.com/blog/${post.slug}`,
+    },
+    alternates: {
+      canonical: `https://www.fqhctalent.com/blog/${post.slug}`,
+    },
+  };
+}
+
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "fqhc-ai-scribes-what-workers-need-to-know",

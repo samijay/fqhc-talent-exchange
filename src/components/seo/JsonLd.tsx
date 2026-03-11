@@ -219,6 +219,33 @@ export function ArticleJsonLd({
   );
 }
 
+// FAQ structured data for rich results
+export function FAQPageJsonLd({
+  faqs,
+}: {
+  faqs: { question: string; answer: string }[];
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
 // Breadcrumb structured data
 export function BreadcrumbJsonLd({
   items,
@@ -229,7 +256,7 @@ export function BreadcrumbJsonLd({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: items.map((item, index) => ({
-      "@type": "ListItemElement",
+      "@type": "ListItem",
       position: index + 1,
       name: item.name,
       item: item.url,

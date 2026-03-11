@@ -53,6 +53,7 @@ import type { CaliforniaFQHC } from "@/lib/california-fqhcs";
 import DynamicMap from "@/components/directory/DynamicMap";
 import CareerAssessment from "@/components/career-assessment/CareerAssessment";
 import { getJobsForFqhc } from "@/lib/fqhc-job-listings";
+import { FAQPageJsonLd } from "@/components/seo/JsonLd";
 
 type SortKey = "name" | "patientCount" | "siteCount" | "glassdoorRating" | "staffCount";
 type SortDir = "asc" | "desc";
@@ -309,6 +310,30 @@ export default function DirectoryPage() {
 
   return (
     <div className="bg-stone-50 min-h-screen">
+      <FAQPageJsonLd
+        faqs={[
+          {
+            question: "What is a Federally Qualified Health Center (FQHC)?",
+            answer:
+              "An FQHC is a community-based healthcare provider that receives federal funding under the Health Center Program to provide primary care services in underserved areas. They serve all patients regardless of ability to pay and offer sliding fee scales based on income.",
+          },
+          {
+            question: "How many FQHCs are in California?",
+            answer:
+              "California has over 220 Federally Qualified Health Centers serving millions of patients across the state. They employ tens of thousands of workers in roles ranging from medical assistants to physicians.",
+          },
+          {
+            question: "Do FQHCs offer loan repayment programs?",
+            answer:
+              "Yes, many FQHC employees qualify for the National Health Service Corps (NHSC) Loan Repayment Program, which offers up to $50,000 in tax-free student loan repayment for a 2-year service commitment at an approved FQHC site.",
+          },
+          {
+            question: "What EHR systems do California FQHCs use?",
+            answer:
+              "The most common EHR systems at California FQHCs include OCHIN Epic, NextGen, eClinicalWorks, athenahealth, and Greenway Health. You can search our directory by EHR system to find FQHCs using your preferred platform.",
+          },
+        ]}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">

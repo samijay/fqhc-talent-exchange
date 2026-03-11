@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { generateBlogMetadata } from "@/lib/blog-posts";
+import { pageMetadata } from "@/lib/seo-config";
 
-export const metadata: Metadata = generateBlogMetadata("fqhc-salary-negotiation-guide");
+export const metadata: Metadata = pageMetadata.downloads;
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

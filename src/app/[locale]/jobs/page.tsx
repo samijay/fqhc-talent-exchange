@@ -38,7 +38,7 @@ import {
   getBenchmarkLabel,
   type NegotiationContext,
 } from "@/lib/job-negotiation";
-import { JobPostingJsonLd } from "@/components/seo/JsonLd";
+import { JobPostingJsonLd, FAQPageJsonLd } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -665,6 +665,30 @@ export default function JobsPage() {
   /* ================================================================ */
   return (
     <div className="bg-stone-50 min-h-screen">
+      <FAQPageJsonLd
+        faqs={[
+          {
+            question: "How do I apply for FQHC jobs?",
+            answer:
+              "Browse our aggregated job listings from 220+ California FQHCs. Each listing links directly to the hiring organization's careers page where you can submit your application. All listings are 100% free for job seekers.",
+          },
+          {
+            question: "What salary can I expect at an FQHC?",
+            answer:
+              "FQHC salaries vary by role and region. For example, Community Health Workers earn $44K-$60K, Care Coordinators $46K-$66K, and Nurse Practitioners $110K-$160K in California. Use our Salary Intelligence tool for detailed regional benchmarks.",
+          },
+          {
+            question: "Do FQHCs offer benefits beyond salary?",
+            answer:
+              "Yes. Most FQHCs offer comprehensive benefits including health insurance, retirement plans, generous PTO, and professional development. Many qualify for NHSC loan repayment ($50K-$75K tax-free). Total compensation often exceeds hospital equivalents.",
+          },
+          {
+            question: "What qualifications do I need for FQHC jobs?",
+            answer:
+              "Requirements vary by role. Entry-level positions like Community Health Worker may require a high school diploma and bilingual skills. Clinical roles require appropriate licensing. Bilingual (English/Spanish) candidates are highly valued across all positions.",
+          },
+        ]}
+      />
       {/* ---------- Hero ---------- */}
       <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-12 text-center text-white sm:py-16">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
