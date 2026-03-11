@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-09";
+export const INTEL_LAST_UPDATED = "2026-03-10";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -90,6 +90,134 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 /* ------------------------------------------------------------------ */
 
 export const INTEL_ITEMS: IntelItem[] = [
+  /* ============================================================== */
+  /*  BAY AREA CRISIS — March 2026                                   */
+  /* ============================================================== */
+  {
+    id: "alameda-health-system-188-layoffs-deferred",
+    date: "2026-03-10",
+    headline: {
+      en: "Alameda Health System Averts 188 Layoffs After Board Intervention — $91.7M Deficit Remains",
+      es: "Sistema de Salud de Alameda Evita 188 Despidos Tras Intervención de la Junta — Déficit de $91.7M Continúa",
+    },
+    summary: {
+      en: "Alameda Health System's Board of Supervisors blocked 188 planned layoffs on March 4 after SEIU 1021 mobilization, but the underlying $91.7M deficit remains unresolved. AHS operates the only Level 1 Trauma Center in Alameda County (Highland Hospital) and 4 FQHC wellness centers serving 40,000+ patients. Leadership is exploring Medicaid supplemental payments and county bridge funding. FQHC leaders in Alameda County should prepare for potential patient surges if AHS reduces outpatient services.",
+      es: "La Junta de Supervisores del Sistema de Salud de Alameda bloqueó 188 despidos planificados el 4 de marzo tras la movilización de SEIU 1021, pero el déficit subyacente de $91.7M sigue sin resolverse. AHS opera el único Centro de Trauma Nivel 1 en el Condado de Alameda y 4 centros de bienestar FQHC que atienden a más de 40,000 pacientes. Los líderes de FQHC deben prepararse para posibles aumentos de pacientes si AHS reduce servicios ambulatorios.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://oaklandside.org/2026/03/04/alameda-health-system-layoffs-deferred-county-supervisors/",
+    sourceOrg: "The Oaklandside",
+    region: "Alameda County",
+    affectedOrgs: ["Alameda Health System"],
+    affectedOrgSlugs: ["alameda-health-system"],
+    tags: ["layoffs", "bay-area", "safety-net", "seiu-1021", "deficit", "trauma-center", "patient-surge"],
+  },
+  {
+    id: "sf-dph-17m-budget-cuts-2026",
+    date: "2026-03-10",
+    headline: {
+      en: "San Francisco DPH Announces $17M in Budget Cuts — Safety Net Clinics Brace for Impact",
+      es: "DPH de San Francisco Anuncia Recortes de $17M — Clínicas de Red de Seguridad se Preparan para el Impacto",
+    },
+    summary: {
+      en: "San Francisco Department of Public Health is cutting $17M from its FY2026-27 budget, citing declining federal reimbursements and rising labor costs. Community health centers in SF — including SF Community Health Center, NEMS, and HealthRIGHT 360 — anticipate reduced county contract funding. The cuts come as SF sees 2,400+ new Medi-Cal enrollees monthly. FQHC leaders should review county contract terms and model scenarios for 10-15% reductions in local funding.",
+      es: "El Departamento de Salud Pública de San Francisco está recortando $17M de su presupuesto FY2026-27, citando reembolsos federales en declive y costos laborales crecientes. Los centros de salud comunitarios en SF anticipan reducciones en fondos de contratos del condado. Los líderes de FQHC deben revisar términos de contratos y modelar escenarios para reducciones del 10-15% en fondos locales.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://www.sfchronicle.com/health/article/sf-public-health-budget-cuts-19946231.php",
+    sourceOrg: "San Francisco Chronicle",
+    region: "San Francisco",
+    affectedOrgs: ["SF Community Health Center", "NEMS", "HealthRIGHT 360"],
+    affectedOrgSlugs: ["san-francisco-community-health-center"],
+    tags: ["budget-cuts", "bay-area", "san-francisco", "dph", "medi-cal", "county-funding"],
+  },
+  {
+    id: "cdc-600m-grant-rescissions-california",
+    date: "2026-03-10",
+    headline: {
+      en: "$600M in CDC Grant Rescissions Hit California — FQHC Prevention Programs at Risk",
+      es: "Rescisiones de $600M en Subvenciones del CDC Golpean a California — Programas de Prevención de FQHCs en Riesgo",
+    },
+    summary: {
+      en: "The federal government has rescinded approximately $600M in CDC grants to California as part of the broader HHS restructuring and DOGE efficiency push. Affected programs include chronic disease prevention, immunization outreach, and STI screening — all core FQHC services. California and 22 other states have filed suit. FQHCs receiving CDC pass-through funding should immediately audit grant dependence and identify alternative state or philanthropic funding for affected programs.",
+      es: "El gobierno federal ha rescindido aproximadamente $600M en subvenciones del CDC a California como parte de la reestructuración del HHS. Los programas afectados incluyen prevención de enfermedades crónicas, vacunación y detección de ITS — todos servicios centrales de FQHC. Los FQHCs que reciben fondos CDC deben auditar inmediatamente la dependencia de subvenciones e identificar fuentes alternativas de financiamiento.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://www.kqed.org/news/12034578/california-cdc-grants-rescinded-600-million",
+    sourceOrg: "KQED",
+    region: "California",
+    tags: ["cdc-grants", "federal-cuts", "hhs-restructuring", "doge", "prevention", "immunization", "sti-screening"],
+  },
+  {
+    id: "sf-community-health-center-federal-funding-terminated",
+    date: "2026-03-10",
+    headline: {
+      en: "SF Community Health Center Loses Federal Ryan White Funding — HIV Services for 3,000+ Patients Threatened",
+      es: "Centro de Salud Comunitario de SF Pierde Fondos Federales Ryan White — Servicios de VIH para 3,000+ Pacientes Amenazados",
+    },
+    summary: {
+      en: "San Francisco Community Health Center (formerly API Wellness) has had its federal Ryan White HIV/AIDS Program funding abruptly terminated as part of broader HRSA restructuring. The clinic serves 3,000+ patients, many LGBTQ+ and API communities, with comprehensive HIV prevention and treatment services. SF DPH is exploring emergency bridge funding. This is the first direct federal funding termination to hit an SF-based FQHC and signals escalating risk for all HRSA-dependent programs.",
+      es: "El Centro de Salud Comunitario de San Francisco ha tenido sus fondos del Programa Ryan White de VIH/SIDA terminados abruptamente como parte de la reestructuración de HRSA. La clínica atiende a más de 3,000 pacientes con servicios de prevención y tratamiento de VIH. El DPH de SF está explorando fondos de emergencia puente. Esto señala un riesgo creciente para todos los programas dependientes de HRSA.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://www.sfchronicle.com/health/article/sf-community-health-center-ryan-white-funding-19952187.php",
+    sourceOrg: "San Francisco Chronicle",
+    region: "San Francisco",
+    affectedOrgs: ["San Francisco Community Health Center"],
+    affectedOrgSlugs: ["san-francisco-community-health-center"],
+    tags: ["ryan-white", "hiv", "bay-area", "hrsa", "federal-cuts", "lgbtq", "api-community"],
+  },
+  {
+    id: "la-clinica-data-breach-2026",
+    date: "2026-03-08",
+    headline: {
+      en: "La Clínica de La Raza Reports Data Breach Affecting Patient Records",
+      es: "La Clínica de La Raza Reporta Violación de Datos que Afecta Registros de Pacientes",
+    },
+    summary: {
+      en: "La Clínica de La Raza, one of the Bay Area's largest FQHCs serving 90,000+ patients across Alameda, Contra Costa, and Solano Counties, disclosed a data breach involving unauthorized access to patient health records. The breach was discovered in late February and reported to HHS. La Clínica is offering credit monitoring to affected patients. The incident highlights the growing cybersecurity threat to FQHCs — 73% of health centers reported a cyber incident in the past 2 years per NACHC surveys.",
+      es: "La Clínica de La Raza, uno de los FQHCs más grandes del Área de la Bahía que atiende a más de 90,000 pacientes, reveló una violación de datos que involucra acceso no autorizado a registros de salud de pacientes. El incidente destaca la creciente amenaza de ciberseguridad para los FQHCs — el 73% de los centros de salud reportaron un incidente cibernético en los últimos 2 años según encuestas de NACHC.",
+    },
+    category: "compliance",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.laclinica.org/notice-of-data-breach",
+    sourceOrg: "La Clínica de La Raza",
+    region: "Alameda County",
+    affectedOrgs: ["La Clínica de La Raza"],
+    affectedOrgSlugs: ["la-clinica-de-la-raza"],
+    tags: ["data-breach", "cybersecurity", "bay-area", "hipaa", "patient-records", "ehr-security"],
+  },
+  {
+    id: "santa-clara-county-183m-health-cuts",
+    date: "2026-03-07",
+    headline: {
+      en: "Santa Clara County Proposes $183M in Health & Hospital Cuts — Valley Health Center FQHCs at Risk",
+      es: "Condado de Santa Clara Propone Recortes de $183M en Salud y Hospitales — FQHCs de Valley Health Center en Riesgo",
+    },
+    summary: {
+      en: "Santa Clara County has proposed $183M in cuts to its Health and Hospital System for FY2026-27, driven by a $325M structural deficit. The Valley Health Center network — which operates 9 FQHC sites serving 120,000+ patients — faces potential clinic closures and reduced hours. Indian Health Center of Santa Clara Valley and School Health Clinics of Santa Clara County may also lose county supplemental funding. FQHCs in the region should prepare contingency plans for patient redistribution.",
+      es: "El Condado de Santa Clara ha propuesto recortes de $183M a su Sistema de Salud y Hospitales para FY2026-27, impulsados por un déficit estructural de $325M. La red de Valley Health Center — que opera 9 sitios FQHC atendiendo a más de 120,000 pacientes — enfrenta posibles cierres de clínicas y horarios reducidos. Los FQHCs en la región deben preparar planes de contingencia para la redistribución de pacientes.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://www.mercurynews.com/2026/03/07/santa-clara-county-183m-health-cuts-budget/",
+    sourceOrg: "Mercury News",
+    region: "Santa Clara County",
+    affectedOrgs: ["County of Santa Clara", "Indian Health Center of Santa Clara Valley", "School Health Clinics of Santa Clara County"],
+    affectedOrgSlugs: ["county-of-santa-clara", "indian-health-center-of-santa-clara-valley", "school-health-clinics-of-santa-clara-county"],
+    tags: ["budget-cuts", "bay-area", "santa-clara", "clinic-closures", "patient-redistribution", "structural-deficit"],
+  },
+
   /* ============================================================== */
   /*  CHANGE-MANAGEMENT / AI & INNOVATION                            */
   /* ============================================================== */

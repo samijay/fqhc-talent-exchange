@@ -6,6 +6,7 @@
 
 import type { OKRTemplate } from "./fqhc-okr-templates";
 import { OKR_DOMAINS, DIFFICULTY_LABELS } from "./fqhc-okr-templates";
+import { trackEvent } from "./track";
 
 const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
@@ -449,6 +450,15 @@ export async function downloadOKRsAsExcel(
 
   const name = filename ?? (isEs ? "fqhc-okr-toolkit-completo.xlsx" : "fqhc-okr-toolkit.xlsx");
   saveAs(blob, name);
+
+  // Track the download
+  trackEvent({
+    event_type: "okr_download_all",
+    tool_name: "okr-templates",
+    item_id: `${sorted.length}-templates`,
+    metadata: { templateCount: sorted.length, domains: [...new Set(sorted.map(t => t.domain))] },
+    locale: locale as "en" | "es",
+  });
 }
 
 /**
@@ -481,4 +491,13 @@ export async function downloadSingleOKRAsExcel(
 
   const safeName = okr.id.replace(/[^a-z0-9-]/gi, "-");
   saveAs(blob, `okr-${safeName}.xlsx`);
+
+  // Track single template download
+  trackEvent({
+    event_type: "okr_download",
+    tool_name: "okr-templates",
+    item_id: okr.id,
+    metadata: { domain: okr.domain, difficulty: okr.difficulty },
+    locale: locale as "en" | "es",
+  });
 }

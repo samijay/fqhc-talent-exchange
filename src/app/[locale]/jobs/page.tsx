@@ -26,6 +26,11 @@ import {
   Users,
   Globe,
   Heart,
+  FileText,
+  GraduationCap,
+  BarChart3,
+  Sparkles,
+  MessageSquare,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { fqhcJobListings, type FQHCJobListing } from "@/lib/fqhc-job-listings";
@@ -102,6 +107,40 @@ type EnrichedJob = (typeof enrichedListings)[number];
 const orgsWithJobs = [
   ...new Set(enrichedListings.map((j) => j.orgName).filter(Boolean)),
 ].sort();
+
+// Trending roles — top 10 most-posted role types with counts
+const trendingRoles = (() => {
+  const counts = new Map<string, number>();
+  for (const j of enrichedListings) {
+    counts.set(j.roleType, (counts.get(j.roleType) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([role, count]) => ({ role, count }));
+})();
+
+// Get similar jobs for a given job (same role type or same FQHC, excluding itself)
+function getSimilarJobs(job: EnrichedJob, limit = 5): EnrichedJob[] {
+  const sameRole = enrichedListings.filter(
+    (j) => j.id !== job.id && j.roleType === job.roleType
+  );
+  const sameFqhc = enrichedListings.filter(
+    (j) => j.id !== job.id && j.fqhcSlug === job.fqhcSlug && j.roleType !== job.roleType
+  );
+  // Prioritize same role, then same org
+  const combined = [...sameRole, ...sameFqhc];
+  const seen = new Set<string>();
+  const unique: EnrichedJob[] = [];
+  for (const j of combined) {
+    if (!seen.has(j.id)) {
+      seen.add(j.id);
+      unique.push(j);
+      if (unique.length >= limit) break;
+    }
+  }
+  return unique;
+}
 
 /* ------------------------------------------------------------------ */
 /*  Constants                                                          */
@@ -954,6 +993,77 @@ export default function JobsPage() {
         </div>
       </div>
 
+      {/* ---------- Career Tools & Resources ---------- */}
+      <div className="mx-auto max-w-7xl px-4 pt-3 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          <Link
+            href="/resume-builder"
+            className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2.5 text-xs text-stone-700 hover:border-teal-300 hover:bg-teal-50 transition-colors"
+          >
+            <FileText className="size-4 text-teal-600 shrink-0" />
+            <span className="font-medium">{isEs ? "Crear Currículum" : "Build Resume"}</span>
+          </Link>
+          <Link
+            href="/salary-data"
+            className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2.5 text-xs text-stone-700 hover:border-teal-300 hover:bg-teal-50 transition-colors"
+          >
+            <BarChart3 className="size-4 text-teal-600 shrink-0" />
+            <span className="font-medium">{isEs ? "Datos Salariales" : "Salary Data"}</span>
+          </Link>
+          <Link
+            href="/interview-prep"
+            className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2.5 text-xs text-stone-700 hover:border-teal-300 hover:bg-teal-50 transition-colors"
+          >
+            <MessageSquare className="size-4 text-teal-600 shrink-0" />
+            <span className="font-medium">{isEs ? "Prep Entrevista" : "Interview Prep"}</span>
+          </Link>
+          <Link
+            href="/pathway"
+            className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2.5 text-xs text-stone-700 hover:border-teal-300 hover:bg-teal-50 transition-colors"
+          >
+            <GraduationCap className="size-4 text-teal-600 shrink-0" />
+            <span className="font-medium">{isEs ? "Ruta de Carrera" : "Career Pathway"}</span>
+          </Link>
+        </div>
+      </div>
+
+      {/* ---------- Trending Roles ---------- */}
+      <div className="mx-auto max-w-7xl px-4 pt-3 sm:px-6 lg:px-8">
+        <div className="rounded-xl border border-stone-200 bg-white p-4">
+          <div className="flex items-center gap-2 mb-3">
+            <Sparkles className="size-4 text-teal-600" />
+            <h2 className="text-sm font-semibold text-stone-900">
+              {isEs ? "Roles en Tendencia" : "Trending Roles"}
+            </h2>
+            <span className="text-xs text-stone-400">
+              {isEs ? "— click para filtrar" : "— click to filter"}
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {trendingRoles.map(({ role, count }) => (
+              <button
+                key={role}
+                onClick={() => setRoleFilter(roleFilter === role ? "all" : role)}
+                className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition-colors ${
+                  roleFilter === role
+                    ? "border-teal-500 bg-teal-50 text-teal-800 font-medium"
+                    : "border-stone-200 bg-stone-50 text-stone-600 hover:border-teal-300 hover:bg-teal-50"
+                }`}
+              >
+                {role}
+                <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${
+                  roleFilter === role
+                    ? "bg-teal-200 text-teal-800"
+                    : "bg-stone-200 text-stone-500"
+                }`}>
+                  {count}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* ---------- Results ---------- */}
       <div className="mx-auto max-w-7xl px-4 pb-20 pt-3 sm:px-6 lg:px-8">
         {loading && (
@@ -1009,7 +1119,7 @@ export default function JobsPage() {
               const bl = getBenchmarkLabel(job.negotiation.benchmarkPosition, locale);
 
               return (
-                <div key={job.id} className={`border-b border-stone-100 last:border-b-0 ${isSelected ? "bg-teal-50/50" : ""}`}>
+                <div key={job.id} data-job-id={job.id} className={`border-b border-stone-100 last:border-b-0 ${isSelected ? "bg-teal-50/50" : ""}`}>
                   {/* Hot Job banner */}
                   {job.featured && (
                     <div className="flex items-center gap-2 border-b border-amber-100 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-1.5">
@@ -1215,6 +1325,45 @@ export default function JobsPage() {
                           <NegotiationTips ctx={job.negotiation} locale={locale} />
                         </div>
                       </div>
+
+                      {/* Similar Jobs */}
+                      {(() => {
+                        const similar = getSimilarJobs(job, 4);
+                        if (similar.length === 0) return null;
+                        return (
+                          <div className="mt-4 pt-4 border-t border-stone-200">
+                            <h4 className="text-xs font-semibold text-stone-700 mb-2 flex items-center gap-1.5">
+                              <Users className="size-3.5 text-teal-600" />
+                              {isEs ? "Posiciones Similares" : "Similar Positions"}
+                            </h4>
+                            <div className="grid gap-2 sm:grid-cols-2">
+                              {similar.map((sj) => (
+                                <button
+                                  key={sj.id}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setExpandedId(sj.id);
+                                    // Scroll to the job
+                                    setTimeout(() => {
+                                      document.querySelector(`[data-job-id="${sj.id}"]`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+                                    }, 100);
+                                  }}
+                                  className="flex items-start gap-2 rounded-lg border border-stone-200 bg-white p-2.5 text-left hover:border-teal-300 hover:bg-teal-50/50 transition-colors"
+                                >
+                                  <div className="min-w-0 flex-1">
+                                    <p className="text-xs font-semibold text-stone-900 truncate">{sj.title}</p>
+                                    <p className="text-[10px] text-stone-500 truncate">{sj.orgName} · {sj.location}</p>
+                                    <p className="text-[10px] font-medium text-teal-700 mt-0.5">
+                                      {formatSalary(sj.salaryMin, sj.salaryMax)}
+                                    </p>
+                                  </div>
+                                  <ArrowRight className="size-3 text-stone-400 shrink-0 mt-1" />
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })()}
                     </div>
                   )}
                 </div>
@@ -1332,18 +1481,114 @@ export default function JobsPage() {
           </div>
         )}
 
-        {/* Directory callout */}
+        {/* Directory + Resources callout */}
         {!loading && filteredJobs.length > 0 && (
-          <div className="mt-8 rounded-xl border border-stone-200 bg-white p-6 text-center">
-            <p className="text-sm text-stone-500">
-              {isEs
-                ? `Mostrando ${filteredJobs.length} posiciones de nuestra red. Busca en el `
-                : `Showing ${filteredJobs.length} positions from our network. Browse the `}
-              <Link href="/directory" className="text-teal-700 font-semibold hover:underline">
-                {isEs ? "Directorio FQHC" : "FQHC Directory"}
-              </Link>
-              {isEs ? " para más oportunidades." : " for more opportunities."}
-            </p>
+          <div className="mt-8 space-y-4">
+            <div className="rounded-xl border border-stone-200 bg-white p-6 text-center">
+              <p className="text-sm text-stone-500">
+                {isEs
+                  ? `Mostrando ${filteredJobs.length} posiciones de nuestra red. Busca en el `
+                  : `Showing ${filteredJobs.length} positions from our network. Browse the `}
+                <Link href="/directory" className="text-teal-700 font-semibold hover:underline">
+                  {isEs ? "Directorio FQHC" : "FQHC Directory"}
+                </Link>
+                {isEs ? " para más oportunidades." : " for more opportunities."}
+              </p>
+            </div>
+
+            {/* Career Resources Grid */}
+            <div className="rounded-xl border border-stone-200 bg-gradient-to-br from-teal-50 to-white p-6">
+              <h3 className="text-sm font-bold text-stone-900 mb-3 flex items-center gap-2">
+                <GraduationCap className="size-4 text-teal-600" />
+                {isEs ? "Recursos para tu Búsqueda de Empleo" : "Power Your Job Search"}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <Link
+                  href="/resume-builder"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                >
+                  <FileText className="size-5 text-teal-600 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-xs font-semibold text-stone-900">
+                      {isEs ? "Constructor de Currículum" : "Resume Builder"}
+                    </p>
+                    <p className="text-[10px] text-stone-500 mt-0.5">
+                      {isEs ? "Currículum optimizado para FQHC en minutos" : "FQHC-optimized resume in minutes"}
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  href="/interview-prep"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                >
+                  <MessageSquare className="size-5 text-teal-600 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-xs font-semibold text-stone-900">
+                      {isEs ? "Preparación de Entrevistas" : "Interview Prep"}
+                    </p>
+                    <p className="text-[10px] text-stone-500 mt-0.5">
+                      {isEs ? "Preguntas reales de entrevistas FQHC" : "Real FQHC interview questions & answers"}
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  href="/salary-data"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                >
+                  <BarChart3 className="size-5 text-teal-600 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-xs font-semibold text-stone-900">
+                      {isEs ? "Inteligencia Salarial" : "Salary Intelligence"}
+                    </p>
+                    <p className="text-[10px] text-stone-500 mt-0.5">
+                      {isEs ? "Benchmarks por rol, región y sindicato" : "Benchmarks by role, region & union status"}
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  href="/career-insights"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                >
+                  <Sparkles className="size-5 text-teal-600 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-xs font-semibold text-stone-900">
+                      {isEs ? "Evaluación de Carrera" : "Career Assessment"}
+                    </p>
+                    <p className="text-[10px] text-stone-500 mt-0.5">
+                      {isEs ? "Encuentra tu rol ideal en FQHCs" : "Find your ideal FQHC role in 5 minutes"}
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  href="/pathway"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                >
+                  <TrendingUp className="size-5 text-teal-600 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-xs font-semibold text-stone-900">
+                      {isEs ? "Ruta de Aprendizaje" : "Learning Pathway"}
+                    </p>
+                    <p className="text-[10px] text-stone-500 mt-0.5">
+                      {isEs ? "Habilidades para avanzar en tu carrera FQHC" : "Skills to advance your FQHC career"}
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  href="/certifications"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                >
+                  <GraduationCap className="size-5 text-teal-600 shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-xs font-semibold text-stone-900">
+                      {isEs ? "Certificaciones" : "Certifications"}
+                    </p>
+                    <p className="text-[10px] text-stone-500 mt-0.5">
+                      {isEs ? "Certificaciones relevantes para roles FQHC" : "Relevant certifications for FQHC roles"}
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            </div>
           </div>
         )}
       </div>

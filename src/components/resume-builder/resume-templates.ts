@@ -970,6 +970,112 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
       },
     ],
   },
+  {
+    roleId: "compliance_officer",
+    roleLabel: "Compliance Officer",
+    esRoleLabel: "Oficial de Cumplimiento",
+    objectiveTemplate:
+      "Healthcare Compliance Officer with expertise in FQHC regulatory requirements, HIPAA privacy/security, and HRSA grant compliance. Skilled in billing audits, breach response, and building organizational compliance culture while maintaining mission-driven focus on vulnerable populations.",
+    esObjectiveTemplate:
+      "Oficial de Cumplimiento de Salud con experiencia en requisitos regulatorios de FQHC, privacidad/seguridad HIPAA y cumplimiento de subvenciones HRSA. Habilidades en auditorías de facturación, respuesta de violación y construcción de cultura de cumplimiento organizacional.",
+    bullets: [
+      {
+        id: "co-1",
+        text: "Led HRSA Operational Site Visit (OSV) preparation and remediation for 5-site FQHC; managed Conditions of Award and Areas for Improvement, achieving zero findings on next OSV and maintaining federal funding integrity",
+        esText: "Lideró la preparación y remediación de la Visita al Sitio Operativo (OSV) de HRSA para FQHC de 5 sitios; gestionó Condiciones de Premio y Áreas de Mejora, logrando cero hallazgos en la próxima OSV y manteniendo la integridad de la financiación federal",
+        keywords: ["HRSA OSV", "Conditions of Award", "FQHC compliance", "federal funding", "remediation"],
+      },
+      {
+        id: "co-2",
+        text: "Developed and implemented comprehensive compliance program from scratch including code of conduct, policies on billing, HIPAA, conflict-of-interest, and scope-of-practice; established Compliance Committee and mandatory staff training (95% completion rate)",
+        esText: "Desarrolló e implementó un programa de cumplimiento integral desde cero incluyendo código de conducta, políticas de facturación, HIPAA, conflicto de intereses y alcance de práctica; estableció Comité de Cumplimiento y capacitación obligatoria del personal (95% de tasa de finalización)",
+        keywords: ["compliance program", "code of conduct", "HIPAA policy", "scope-of-practice", "staff training"],
+      },
+      {
+        id: "co-3",
+        text: "Conducted comprehensive PPS billing audits across 40+ providers; identified and resolved billing pattern issues including upcoding and documentation gaps; recovered $185K in overpayments while implementing provider retraining to prevent future violations",
+        esText: "Realizó auditorías integrales de facturación PPS en más de 40 proveedores; identificó y resolvió problemas de patrones de facturación incluyendo codificación excesiva y brechas de documentación; recuperó $185K en pagos excesivos mientras implementaba reentrenamiento del proveedor",
+        keywords: ["PPS billing audit", "billing compliance", "provider education", "audit recovery", "documentation"],
+      },
+      {
+        id: "co-4",
+        text: "Managed HIPAA breach response protocol including incident investigation, patient notification, OCR reporting, and security risk assessment; handled 3 breaches with appropriate notifications and zero OCR penalties",
+        esText: "Gestionó el protocolo de respuesta de violación HIPAA incluyendo investigación de incidentes, notificación de pacientes, informes de OCR y evaluación de riesgos de seguridad; manejó 3 violaciones con notificaciones apropiadas y cero penalizaciones de OCR",
+        keywords: ["HIPAA breach response", "patient notification", "OCR reporting", "security assessment", "incident investigation"],
+      },
+      {
+        id: "co-5",
+        text: "Established 340B drug pricing program compliance and reconciliation process; tracked 200+ Business Associate Agreements with 98% current status; implemented quarterly 340B audits preventing split-billing errors and maintaining contract pharmacy compliance",
+        esText: "Estableció el cumplimiento del programa de precios de drogas 340B y el proceso de reconciliación; rastreó 200+ Acuerdos de Asociados de Negocio con 98% de estado vigente; implementó auditorías trimestrales de 340B previniendo errores de facturación dividida",
+        keywords: ["340B program", "Business Associate Agreements", "contract pharmacy", "program reconciliation", "HIPAA compliance"],
+      },
+      {
+        id: "co-6",
+        text: "Advocated for compliance priorities with C-suite leadership navigating tension between revenue pressure and risk reduction; proposed mitigation strategies that protected organization from audit liability while supporting operational goals (e.g., provider coaching vs. sanctions)",
+        esText: "Abogó por prioridades de cumplimiento con liderazgo de C-suite navegando la tensión entre presión de ingresos y reducción de riesgos; propuso estrategias de mitigación que protegieron la organización de la responsabilidad de auditoría mientras apoyaban objetivos operacionales",
+        keywords: ["leadership advocacy", "risk management", "provider management", "audit prevention", "compliance strategy"],
+      },
+      {
+        id: "co-7",
+        text: "Designed and launched compliance training program tailored to role-specific needs (clinical, billing, administrative); increased knowledge retention from 45% to 82% through monthly case studies and scenario-based learning; tracked compliance incidents with trending dashboard",
+        esText: "Diseñó y lanzó un programa de capacitación de cumplimiento adaptado a necesidades específicas de roles; aumentó la retención de conocimiento del 45% al 82% a través de estudios de caso mensuales y aprendizaje basado en escenarios; rastreó incidentes de cumplimiento con panel de tendencias",
+        keywords: ["compliance training", "knowledge retention", "role-specific training", "staff development", "incident tracking"],
+      },
+      {
+        id: "co-8",
+        text: "Managed board-level compliance reporting and regulatory liaison; compiled quarterly compliance dashboards for Board Compliance Committee; coordinated responses to HRSA, CMS, and state health department inquiries; maintained documentation of all compliance activities for audit trail",
+        esText: "Gestionó reportes de cumplimiento a nivel de junta e intermediación regulatoria; compiló paneles de cumplimiento trimestrales para el Comité de Cumplimiento de la Junta; coordinó respuestas a investigaciones de HRSA, CMS y departamento de salud estatal",
+        keywords: ["board reporting", "regulatory liaison", "HRSA correspondence", "compliance dashboard", "documentation"],
+      },
+    ],
+  },
+  {
+    roleId: "compliance_analyst",
+    roleLabel: "Compliance Analyst",
+    esRoleLabel: "Analista de Cumplimiento",
+    objectiveTemplate:
+      "Detail-oriented Compliance Analyst with expertise in healthcare billing audits, HIPAA compliance, and FQHC regulatory requirements. Experienced in chart review, PPS billing verification, 340B program reconciliation, and supporting comprehensive compliance program operations.",
+    esObjectiveTemplate:
+      "Analista de Cumplimiento orientado/a a detalles con experiencia en auditorías de facturación médica, cumplimiento HIPAA y requisitos regulatorios de FQHC. Experimentado/a en revisión de gráficos, verificación de facturación PPS y reconciliación del programa 340B.",
+    bullets: [
+      {
+        id: "ca-1",
+        text: "Conducted PPS billing audits on 100+ provider encounters per month; reviewed charts for qualifying visit documentation, provider credentials, and billing accuracy; identified patterns and reported findings to Compliance Officer with recommendations for provider retraining",
+        esText: "Realizó auditorías de facturación PPS en más de 100 encuentros de proveedores por mes; revisó gráficos de documentación de visita calificada, credenciales del proveedor y precisión de facturación; identificó patrones e informó hallazgos al Oficial de Cumplimiento",
+        keywords: ["PPS billing audit", "chart review", "provider credentials", "encounter documentation", "audit findings"],
+      },
+      {
+        id: "ca-2",
+        text: "Managed inventory and tracking of 185 Business Associate Agreements; created and maintained compliance database with signature dates, expiration dates, and renewal status; coordinated with IT, Finance, and external vendors to obtain missing or expired BAAs; achieved 98% current status",
+        esText: "Gestionó el inventario y seguimiento de 185 Acuerdos de Asociados de Negocio; creó y mantuvo una base de datos de cumplimiento con fechas de firma, vencimiento y estado de renovación; coordinó con TI, Finanzas y proveedores externos para obtener BAAs faltantes o caducados",
+        keywords: ["Business Associate Agreements", "HIPAA compliance", "vendor management", "compliance tracking", "BAA database"],
+      },
+      {
+        id: "ca-3",
+        text: "Performed 340B drug pricing program reconciliation of 250+ pharmacy claims monthly; matched prescriptions to EHR eligibility data; identified discrepancies and investigated root causes (patient status changes, pharmacy system errors, duplicate enrollment); maintained zero overpayment errors",
+        esText: "Realizó reconciliación del programa de precios de drogas 340B de 250+ reclamos de farmacia mensualmente; cotejó recetas con datos de elegibilidad del EHR; identificó discrepancias e investigó causas raíz; mantuvo cero errores de pago excesivo",
+        keywords: ["340B program", "billing reconciliation", "pharmacy claims", "eligibility verification", "data accuracy"],
+      },
+      {
+        id: "ca-4",
+        text: "Coordinated HIPAA training for 200+ staff members across multiple locations; developed role-specific training modules (clinical, administrative, billing); tracked completion rates and conducted annual refresher training; supported breach incident investigations and incident documentation",
+        esText: "Coordinó la capacitación HIPAA para más de 200 miembros del personal en múltiples ubicaciones; desarrolló módulos de capacitación específicos de roles; rastreó tasas de finalización y realizó capacitación de actualización anual; apoyó investigaciones de incidentes de violación",
+        keywords: ["HIPAA training", "staff training", "compliance education", "breach support", "annual training"],
+      },
+      {
+        id: "ca-5",
+        text: "Performed credentialing file management and verification for 50+ providers including license verification, DEA registration, malpractice history, and peer references; ensured files remained current per accreditation standards; supported external credentialing audits and recredentialing cycles",
+        esText: "Realizó la gestión y verificación de archivos de credenciales para más de 50 proveedores incluyendo verificación de licencia, registro DEA, historial de negligencia y referencias de colegas; aseguró que los archivos permanecieran actuales según normas de acreditación",
+        keywords: ["credentialing", "provider verification", "license verification", "DEA registration", "accreditation compliance"],
+      },
+      {
+        id: "ca-6",
+        text: "Maintained compliance tracking dashboard with metrics on billing audit results, training completion rates, incident trends, and vendor compliance status; presented quarterly reports to Compliance Committee highlighting risks and improvement trends",
+        esText: "Mantuvo un panel de seguimiento de cumplimiento con métricas en resultados de auditoría de facturación, tasas de finalización de capacitación e incidentes; presentó reportes trimestrales al Comité de Cumplimiento destacando riesgos y tendencias de mejora",
+        keywords: ["compliance dashboard", "metrics tracking", "reporting", "data analysis", "trend analysis"],
+      },
+    ],
+  },
 ];
 
 export const COMMON_CERTIFICATIONS = [

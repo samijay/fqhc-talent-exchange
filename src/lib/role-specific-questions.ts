@@ -17,7 +17,9 @@ export type RoleId =
   | "hr_manager"
   | "accountant"
   | "payroll_specialist"
-  | "finance_manager";
+  | "finance_manager"
+  | "compliance_officer"
+  | "compliance_analyst";
 
 export const ROLE_SPECIFIC_QUESTIONS: (AssessmentQuestion & { roleId: RoleId })[] = [
   /* ================================================================ */
@@ -7850,6 +7852,584 @@ export const ROLE_SPECIFIC_QUESTIONS: (AssessmentQuestion & { roleId: RoleId })[
         score: 1,
         behaviorTag: "deference-over-action",
       },
+    ],
+  },
+
+  /* ================================================================ */
+  /*  COMPLIANCE OFFICER                                              */
+  /* ================================================================ */
+
+  // Compliance Officer - Mission (1 of 3)
+  {
+    id: "rs_co_mission1",
+    roleId: "compliance_officer",
+    domain: "mission",
+    scenario:
+      "Your FQHC's CEO asks you to 'go easy' on a billing compliance issue because the organization is already under financial pressure from Medi-Cal cuts. The discrepancy involves $180K in potentially improper same-day encounter billing that could trigger an OIG audit if not corrected.",
+    esScenario:
+      "El CEO de tu FQHC te pide que 'no seas tan estricto' con un problema de cumplimiento de facturación porque la organización ya está bajo presión financiera por los recortes de Medi-Cal. La discrepancia involucra $180K en facturación potencialmente incorrecta de encuentros del mismo día que podría desencadenar una auditoría del OIG si no se corrige.",
+    question: "How do you handle this pressure from leadership?",
+    esQuestion: "¿Cómo manejas esta presión del liderazgo?",
+    options: [
+      { id: "rs_co_m1_a", text: "Present the CEO with a clear risk analysis: the $180K in revenue is dwarfed by the potential $500K-2M False Claims Act penalty. Propose a voluntary self-disclosure to OIG with a corrective action plan that protects both the mission and the finances", esText: "Presentar al CEO un análisis de riesgo claro: los $180K en ingresos son pequeños comparados con la posible multa de $500K-2M de la Ley de Reclamaciones Falsas. Proponer una autodivulgación voluntaria al OIG con un plan de acción correctiva que proteja tanto la misión como las finanzas", score: 4, behaviorTag: "principled-protector" },
+      { id: "rs_co_m1_b", text: "Document the conversation in writing, correct the billing errors immediately, and implement new controls — but don't escalate to the board yet since the CEO may come around", esText: "Documentar la conversación por escrito, corregir los errores de facturación inmediatamente e implementar nuevos controles — pero no escalar a la junta todavía ya que el CEO puede reconsiderar", score: 3, behaviorTag: "quiet-fixer" },
+      { id: "rs_co_m1_c", text: "Compromise by fixing the billing going forward but not retroactively correcting the $180K — this balances compliance with the organization's financial needs", esText: "Comprometerse arreglando la facturación en adelante pero sin corregir retroactivamente los $180K — esto equilibra el cumplimiento con las necesidades financieras de la organización", score: 2, behaviorTag: "compromiser" },
+      { id: "rs_co_m1_d", text: "The CEO has the final say on organizational risk tolerance. Document your recommendation and move on — you've done your job by flagging it", esText: "El CEO tiene la última palabra sobre la tolerancia al riesgo organizacional. Documentar tu recomendación y seguir adelante — hiciste tu trabajo al señalarlo", score: 1, behaviorTag: "passive-documenter" },
+    ],
+  },
+
+  // Compliance Officer - Mission (2 of 3)
+  {
+    id: "rs_co_mission2",
+    roleId: "compliance_officer",
+    domain: "mission",
+    scenario:
+      "During an internal audit, you discover that your FQHC's sliding fee schedule hasn't been updated to reflect the 2026 Federal Poverty Level guidelines. This means approximately 400 patients have been overcharged for 3 months — a direct violation of HRSA's Section 330 grant requirements.",
+    esScenario:
+      "Durante una auditoría interna, descubres que la escala de tarifas deslizantes de tu FQHC no se ha actualizado para reflejar las guías del Nivel Federal de Pobreza 2026. Esto significa que aproximadamente 400 pacientes han sido sobrecobrados durante 3 meses — una violación directa de los requisitos de la subvención Sección 330 de HRSA.",
+    question: "What is your immediate course of action?",
+    esQuestion: "¿Cuál es tu curso de acción inmediato?",
+    options: [
+      { id: "rs_co_m2_a", text: "Immediately update the fee schedule, calculate refunds owed to all 400 patients, notify the CFO and CEO, prepare a patient notification plan, and document the root cause (missed annual update process) with a corrective action to prevent recurrence", esText: "Actualizar inmediatamente la escala de tarifas, calcular reembolsos debidos a los 400 pacientes, notificar al CFO y CEO, preparar un plan de notificación a pacientes, y documentar la causa raíz (proceso de actualización anual omitido) con una acción correctiva para prevenir recurrencia", score: 4, behaviorTag: "comprehensive-corrector" },
+      { id: "rs_co_m2_b", text: "Update the fee schedule immediately and flag the refund issue to the CFO. Let finance handle the refund calculations while you focus on building an annual compliance calendar to prevent this from happening again", esText: "Actualizar la escala de tarifas inmediatamente y señalar el problema de reembolsos al CFO. Dejar que finanzas maneje los cálculos de reembolso mientras te enfocas en construir un calendario de cumplimiento anual para evitar que esto vuelva a suceder", score: 3, behaviorTag: "systemic-thinker" },
+      { id: "rs_co_m2_c", text: "Fix the fee schedule going forward and calculate the average overcharge — if it's under $50 per patient, the refund process may cost more than the overcharges. Present the cost-benefit analysis to leadership", esText: "Arreglar la escala de tarifas en adelante y calcular el sobrecobro promedio — si es menos de $50 por paciente, el proceso de reembolso puede costar más que los sobrecobros. Presentar el análisis costo-beneficio al liderazgo", score: 2, behaviorTag: "cost-rationalizer" },
+      { id: "rs_co_m2_d", text: "Update the fee schedule quietly and hope it doesn't come up in the next HRSA site visit. The overcharges were unintentional and the amounts are small", esText: "Actualizar la escala de tarifas discretamente y esperar que no salga en la próxima visita de sitio de HRSA. Los sobrecobros fueron no intencionales y los montos son pequeños", score: 1, behaviorTag: "avoidance" },
+    ],
+  },
+
+  // Compliance Officer - Mission (3 of 3)
+  {
+    id: "rs_co_mission3",
+    roleId: "compliance_officer",
+    domain: "mission",
+    scenario:
+      "A whistleblower — a medical assistant — reports that a provider has been upcoding patient visits (billing Level 4 E&M codes for Level 2 visits). The provider generates 30% of your FQHC's revenue. The MA is afraid of retaliation.",
+    esScenario:
+      "Un denunciante — un asistente médico — reporta que un proveedor ha estado sobrecodificando visitas de pacientes (facturando códigos E&M de Nivel 4 para visitas de Nivel 2). El proveedor genera el 30% de los ingresos de tu FQHC. El MA tiene miedo de represalias.",
+    question: "How do you handle this situation?",
+    esQuestion: "¿Cómo manejas esta situación?",
+    options: [
+      { id: "rs_co_m3_a", text: "Immediately assure the MA of whistleblower protections under the False Claims Act and CA Labor Code §1102.5. Launch a confidential chart audit of the provider's last 90 days of billing, notify the compliance committee, and document everything in a privileged investigation file", esText: "Asegurar inmediatamente al MA las protecciones de denunciantes bajo la Ley de Reclamaciones Falsas y el Código Laboral de CA §1102.5. Lanzar una auditoría confidencial de expedientes de los últimos 90 días de facturación del proveedor, notificar al comité de cumplimiento, y documentar todo en un archivo de investigación privilegiado", score: 4, behaviorTag: "whistleblower-protector" },
+      { id: "rs_co_m3_b", text: "Thank the MA for reporting, explain that you'll investigate, and start pulling a random sample of the provider's charts to verify the claim before escalating. Keep the MA's identity confidential", esText: "Agradecer al MA por reportar, explicar que investigarás, y comenzar a revisar una muestra aleatoria de los expedientes del proveedor para verificar el reclamo antes de escalar. Mantener la identidad del MA confidencial", score: 3, behaviorTag: "cautious-investigator" },
+      { id: "rs_co_m3_c", text: "Tell the MA you'll look into it but first have an informal conversation with the provider to get their perspective. Maybe there's a documentation issue rather than intentional upcoding", esText: "Decir al MA que lo investigarás pero primero tener una conversación informal con el proveedor para obtener su perspectiva. Tal vez hay un problema de documentación en lugar de sobrecodificación intencional", score: 2, behaviorTag: "premature-confrontation" },
+      { id: "rs_co_m3_d", text: "Acknowledge the concern but explain that you need more evidence before launching a formal investigation. Ask the MA to document specific examples and come back with dates and patient IDs", esText: "Reconocer la preocupación pero explicar que necesitas más evidencia antes de lanzar una investigación formal. Pedir al MA que documente ejemplos específicos y regrese con fechas e identificaciones de pacientes", score: 1, behaviorTag: "burden-shifting" },
+    ],
+  },
+
+  // Compliance Officer - People (1 of 3)
+  {
+    id: "rs_co_people1",
+    roleId: "compliance_officer",
+    domain: "people",
+    scenario:
+      "You're presenting HRSA OSV audit findings to the clinical team. The Medical Director pushes back aggressively: 'These compliance requirements are designed by bureaucrats who've never seen a patient. I'm not changing my workflow for a checklist.' Several providers nod in agreement.",
+    esScenario:
+      "Estás presentando hallazgos de la auditoría OSV de HRSA al equipo clínico. El Director Médico reacciona agresivamente: 'Estos requisitos de cumplimiento fueron diseñados por burócratas que nunca han visto un paciente. No voy a cambiar mi flujo de trabajo por una lista de verificación.' Varios proveedores asienten de acuerdo.",
+    question: "How do you respond to this resistance?",
+    esQuestion: "¿Cómo respondes a esta resistencia?",
+    options: [
+      { id: "rs_co_p1_a", text: "Validate their frustration — the requirements ARE burdensome. Then reframe: 'These 19 requirements are what keeps our $3.2M HRSA grant funded. If we lose that, we lose 40% of our budget and 12 positions. Let me work with you to find the least disruptive way to meet each requirement.' Offer 1:1 time with resistant providers", esText: "Validar su frustración — los requisitos SON onerosos. Luego reformular: 'Estos 19 requisitos son lo que mantiene financiada nuestra subvención de $3.2M de HRSA. Si perdemos eso, perdemos el 40% de nuestro presupuesto y 12 posiciones. Déjame trabajar contigo para encontrar la forma menos disruptiva de cumplir cada requisito.' Ofrecer tiempo individual con proveedores resistentes", score: 4, behaviorTag: "empathetic-reframer" },
+      { id: "rs_co_p1_b", text: "Acknowledge the concern, share a brief story of an FQHC that lost their HRSA grant after an OSV failure, and ask the team to help prioritize which requirements to tackle first so they have ownership of the process", esText: "Reconocer la preocupación, compartir una breve historia de un FQHC que perdió su subvención HRSA después de fallar una OSV, y pedir al equipo que ayude a priorizar qué requisitos abordar primero para que tengan apropiación del proceso", score: 3, behaviorTag: "story-teller" },
+      { id: "rs_co_p1_c", text: "Stand firm: 'I understand your perspective, but these are federal requirements, not suggestions. We need to comply by the deadline. I'll send a detailed action plan by Friday'", esText: "Mantenerte firme: 'Entiendo tu perspectiva, pero estos son requisitos federales, no sugerencias. Necesitamos cumplir para la fecha límite. Enviaré un plan de acción detallado para el viernes'", score: 2, behaviorTag: "authority-leaner" },
+      { id: "rs_co_p1_d", text: "Back down from the confrontation — schedule a follow-up meeting when emotions aren't running so high. You can address it with the CEO first to get executive backing", esText: "Retroceder de la confrontación — programar una reunión de seguimiento cuando las emociones no estén tan altas. Puedes abordarlo primero con el CEO para obtener respaldo ejecutivo", score: 1, behaviorTag: "conflict-avoider" },
+    ],
+  },
+
+  // Compliance Officer - People (2 of 3)
+  {
+    id: "rs_co_people2",
+    roleId: "compliance_officer",
+    domain: "people",
+    scenario:
+      "Three front-desk staff members have failed their annual HIPAA training assessment for the second time. They primarily speak Spanish and struggle with the English-only training materials. One says, 'I know HIPAA — I just can't pass the test in English.'",
+    esScenario:
+      "Tres miembros del personal de recepción han reprobado su evaluación de capacitación HIPAA anual por segunda vez. Hablan principalmente español y tienen dificultades con los materiales de capacitación solo en inglés. Uno dice: 'Yo sé HIPAA — solo no puedo pasar el examen en inglés.'",
+    question: "How do you address this training gap?",
+    esQuestion: "¿Cómo abordas esta brecha de capacitación?",
+    options: [
+      { id: "rs_co_p2_a", text: "Immediately source or create Spanish-language HIPAA training materials and assessments. Work with the staff to understand which concepts they find confusing and build scenario-based training using real front-desk situations they encounter daily. This is a systemic gap that likely affects more staff", esText: "Buscar o crear inmediatamente materiales de capacitación HIPAA en español y evaluaciones. Trabajar con el personal para entender qué conceptos encuentran confusos y construir capacitación basada en escenarios usando situaciones reales de recepción que enfrentan diariamente. Esta es una brecha sistémica que probablemente afecta a más personal", score: 4, behaviorTag: "culturally-responsive" },
+      { id: "rs_co_p2_b", text: "Create a bilingual study guide for the assessment and offer a supervised retake session where they can ask questions in Spanish. Request budget for proper Spanish-language HIPAA materials for next year's training cycle", esText: "Crear una guía de estudio bilingüe para la evaluación y ofrecer una sesión de repetición supervisada donde puedan hacer preguntas en español. Solicitar presupuesto para materiales HIPAA adecuados en español para el próximo ciclo de capacitación", score: 3, behaviorTag: "pragmatic-helper" },
+      { id: "rs_co_p2_c", text: "Pair each staff member with a bilingual colleague who can translate the training content during a group study session. They need to pass the existing assessment — accommodations are fine but the standard stays the same", esText: "Emparejar a cada miembro del personal con un colega bilingüe que pueda traducir el contenido durante una sesión de estudio grupal. Necesitan pasar la evaluación existente — las adaptaciones están bien pero el estándar se mantiene igual", score: 2, behaviorTag: "minimum-accommodation" },
+      { id: "rs_co_p2_d", text: "HIPAA compliance requires passing the assessment. Give them one more chance and if they fail again, document it as a performance issue and involve HR", esText: "El cumplimiento de HIPAA requiere pasar la evaluación. Darles una oportunidad más y si reprueban de nuevo, documentarlo como un problema de rendimiento e involucrar a RRHH", score: 1, behaviorTag: "punitive-compliance" },
+    ],
+  },
+
+  // Compliance Officer - People (3 of 3)
+  {
+    id: "rs_co_people3",
+    roleId: "compliance_officer",
+    domain: "people",
+    scenario:
+      "You've been asked to train the board of directors on their compliance oversight responsibilities. Half the board members are community representatives (patients) with limited formal education. The board chair wants you to keep it under 20 minutes because 'they just need to sign off.'",
+    esScenario:
+      "Te han pedido capacitar a la junta directiva sobre sus responsabilidades de supervisión de cumplimiento. La mitad de los miembros de la junta son representantes comunitarios (pacientes) con educación formal limitada. El presidente de la junta quiere que lo mantengas en menos de 20 minutos porque 'solo necesitan firmar.'",
+    question: "How do you approach this board training?",
+    esQuestion: "¿Cómo abordas esta capacitación de la junta?",
+    options: [
+      { id: "rs_co_p3_a", text: "Push back on the 20-minute limit — board compliance training is an HRSA OSV requirement with specific topics. Create a plain-language, visual-heavy presentation that respects varying education levels. Use real scenarios (sliding fee, conflict of interest) instead of legal jargon. Build in Q&A to ensure genuine understanding, not just signature collection", esText: "Rechazar el límite de 20 minutos — la capacitación de cumplimiento de la junta es un requisito de la OSV de HRSA con temas específicos. Crear una presentación en lenguaje sencillo con muchos elementos visuales que respete diferentes niveles educativos. Usar escenarios reales (escala deslizante, conflicto de intereses) en lugar de jerga legal. Incluir preguntas y respuestas para asegurar comprensión genuina, no solo recolección de firmas", score: 4, behaviorTag: "accessible-educator" },
+      { id: "rs_co_p3_b", text: "Negotiate for 30-45 minutes and create a board-friendly compliance overview that covers the 5 most critical areas. Provide a take-home reference sheet in both English and Spanish. Follow up individually with any board member who has questions", esText: "Negociar por 30-45 minutos y crear un resumen de cumplimiento amigable para la junta que cubra las 5 áreas más críticas. Proporcionar una hoja de referencia para llevar a casa en inglés y español. Hacer seguimiento individual con cualquier miembro de la junta que tenga preguntas", score: 3, behaviorTag: "negotiator" },
+      { id: "rs_co_p3_c", text: "Keep it to 20 minutes as requested but cover the HRSA-required topics at a high level. Provide detailed written materials they can review later and collect signatures confirming they received the training", esText: "Mantenerlo en 20 minutos como se solicitó pero cubrir los temas requeridos por HRSA a un nivel alto. Proporcionar materiales escritos detallados que puedan revisar después y recoger firmas confirmando que recibieron la capacitación", score: 2, behaviorTag: "check-the-box" },
+      { id: "rs_co_p3_d", text: "Comply with the 20-minute request — the board chair knows their members best. Send materials in advance and collect signatures. The important thing is documentation that training occurred", esText: "Cumplir con la solicitud de 20 minutos — el presidente de la junta conoce mejor a sus miembros. Enviar materiales por adelantado y recoger firmas. Lo importante es la documentación de que se realizó la capacitación", score: 1, behaviorTag: "passive-compliance" },
+    ],
+  },
+
+  // Compliance Officer - Execution (1 of 3)
+  {
+    id: "rs_co_execution1",
+    roleId: "compliance_officer",
+    domain: "execution",
+    scenario:
+      "Your FQHC just received a 90-day notice of a HRSA Operational Site Visit. You have 15 of 19 program requirements in good standing, but 4 have significant gaps: board governance documentation, credentialing files missing for 3 providers, the QI/QA plan hasn't been updated in 18 months, and your sliding fee schedule needs recalculation. You have one part-time compliance assistant.",
+    esScenario:
+      "Tu FQHC acaba de recibir un aviso de 90 días de una Visita de Sitio Operacional de HRSA. Tienes 15 de 19 requisitos del programa en buen estado, pero 4 tienen brechas significativas: documentación de gobernanza de la junta, archivos de credencialización faltantes para 3 proveedores, el plan QI/QA no se ha actualizado en 18 meses, y tu escala de tarifas deslizantes necesita recalculación. Tienes un asistente de cumplimiento de medio tiempo.",
+    question: "How do you prioritize and execute the 90-day sprint?",
+    esQuestion: "¿Cómo priorizas y ejecutas el sprint de 90 días?",
+    options: [
+      { id: "rs_co_e1_a", text: "Create a 30-60-90 day sprint: Week 1-4: credentialing files (highest penalty risk), Week 4-8: board governance + sliding fee (parallel tracks, delegate fee to finance), Week 8-12: QI/QA plan update + mock site visit. Request temporary help from admin staff. Send weekly progress reports to CEO and board chair", esText: "Crear un sprint de 30-60-90 días: Semana 1-4: archivos de credencialización (mayor riesgo de penalización), Semana 4-8: gobernanza de junta + escala de tarifas (pistas paralelas, delegar tarifas a finanzas), Semana 8-12: actualización del plan QI/QA + visita de sitio simulada. Solicitar ayuda temporal del personal administrativo. Enviar informes de progreso semanales al CEO y presidente de la junta", score: 4, behaviorTag: "strategic-sprinter" },
+      { id: "rs_co_e1_b", text: "Focus on the two highest-risk items first (credentialing and governance — these can result in Conditions of Award). Tackle QI/QA and sliding fee in parallel during the second half. Ask for overtime approval for your assistant", esText: "Enfocarse en los dos elementos de mayor riesgo primero (credencialización y gobernanza — estos pueden resultar en Condiciones de Adjudicación). Abordar QI/QA y escala de tarifas en paralelo durante la segunda mitad. Pedir aprobación de horas extras para tu asistente", score: 3, behaviorTag: "risk-prioritizer" },
+      { id: "rs_co_e1_c", text: "Start with the easiest fix — the sliding fee schedule recalculation — to build momentum and demonstrate progress. Then tackle the larger items with the remaining time", esText: "Comenzar con la solución más fácil — la recalculación de la escala de tarifas — para generar impulso y demostrar progreso. Luego abordar los elementos más grandes con el tiempo restante", score: 2, behaviorTag: "momentum-seeker" },
+      { id: "rs_co_e1_d", text: "This is too much for one person with a part-time assistant. Escalate to the CEO that you need to hire a consultant or the organization risks HRSA conditions. Don't start until you have adequate resources", esText: "Esto es demasiado para una persona con un asistente de medio tiempo. Escalar al CEO que necesitas contratar un consultor o la organización arriesga condiciones de HRSA. No comenzar hasta tener recursos adecuados", score: 1, behaviorTag: "resource-dependent" },
+    ],
+  },
+
+  // Compliance Officer - Execution (2 of 3)
+  {
+    id: "rs_co_execution2",
+    roleId: "compliance_officer",
+    domain: "execution",
+    scenario:
+      "A staff member's laptop containing unencrypted PHI for 2,300 patients was stolen from their car. The HIPAA Breach Notification Rule requires notifying affected individuals within 60 days and HHS within 60 days (for breaches affecting 500+ individuals, immediate notification to HHS and media is required). It's 5pm on a Friday.",
+    esScenario:
+      "La computadora portátil de un empleado que contenía PHI no encriptada de 2,300 pacientes fue robada de su carro. La Regla de Notificación de Brechas de HIPAA requiere notificar a los individuos afectados dentro de 60 días y al HHS dentro de 60 días (para brechas que afectan a 500+ individuos, se requiere notificación inmediata al HHS y medios). Son las 5pm de un viernes.",
+    question: "Walk through your breach response protocol.",
+    esQuestion: "Describe tu protocolo de respuesta a brechas.",
+    options: [
+      { id: "rs_co_e2_a", text: "Activate breach response immediately: (1) Document the incident with the staff member before memories fade, (2) Report to HHS OCR breach portal tonight — the 500+ threshold requires 'without unreasonable delay', (3) Notify your privacy officer and legal counsel, (4) Monday AM: engage credit monitoring vendor, draft patient notification letters, prepare media statement, (5) Begin risk assessment to determine if encryption could have prevented the breach, (6) File police report for the theft", esText: "Activar respuesta a brechas inmediatamente: (1) Documentar el incidente con el empleado antes de que los recuerdos se desvanezcan, (2) Reportar al portal de brechas de HHS OCR esta noche — el umbral de 500+ requiere 'sin demora irrazonable', (3) Notificar al oficial de privacidad y asesor legal, (4) Lunes AM: contratar proveedor de monitoreo de crédito, redactar cartas de notificación a pacientes, preparar comunicado para medios, (5) Comenzar evaluación de riesgos para determinar si la encriptación podría haber prevenido la brecha, (6) Presentar reporte policial por el robo", score: 4, behaviorTag: "crisis-commander" },
+      { id: "rs_co_e2_b", text: "Secure the facts tonight: interview the staff member, document what was on the laptop, notify the CEO. Monday, engage legal counsel to determine if this qualifies as a reportable breach (the laptop may have been password-protected). Then proceed with HHS notification if required", esText: "Asegurar los hechos esta noche: entrevistar al empleado, documentar qué había en la computadora, notificar al CEO. Lunes, contactar asesor legal para determinar si esto califica como brecha reportable (la computadora puede haber tenido contraseña). Luego proceder con notificación al HHS si es requerido", score: 3, behaviorTag: "methodical-responder" },
+      { id: "rs_co_e2_c", text: "Email the CEO and HR director about the incident and schedule an emergency meeting for Monday morning. The 60-day deadline gives you time — there's no need to rush a response over the weekend", esText: "Enviar email al CEO y director de RRHH sobre el incidente y programar una reunión de emergencia para el lunes por la mañana. El plazo de 60 días te da tiempo — no hay necesidad de apurar una respuesta durante el fin de semana", score: 2, behaviorTag: "delayed-responder" },
+      { id: "rs_co_e2_d", text: "First, check if the laptop was encrypted — if it was, this may not be a reportable breach. Contact IT to verify the encryption status before taking any notification steps", esText: "Primero, verificar si la computadora estaba encriptada — si lo estaba, puede no ser una brecha reportable. Contactar a TI para verificar el estado de encriptación antes de tomar cualquier paso de notificación", score: 1, behaviorTag: "technicality-seeker" },
+    ],
+  },
+
+  // Compliance Officer - Execution (3 of 3)
+  {
+    id: "rs_co_execution3",
+    roleId: "compliance_officer",
+    domain: "execution",
+    scenario:
+      "Your annual billing compliance audit reveals that 12% of PPS claims have documentation that doesn't support the level of service billed. The total exposure is approximately $340K. Your FQHC's CFO wants to 'gradually correct' the billing over the next quarter to avoid a sudden revenue hit.",
+    esScenario:
+      "Tu auditoría anual de cumplimiento de facturación revela que el 12% de los reclamos PPS tienen documentación que no respalda el nivel de servicio facturado. La exposición total es aproximadamente $340K. El CFO de tu FQHC quiere 'corregir gradualmente' la facturación durante el próximo trimestre para evitar un golpe repentino en los ingresos.",
+    question: "How do you approach this billing compliance issue?",
+    esQuestion: "¿Cómo abordas este problema de cumplimiento de facturación?",
+    options: [
+      { id: "rs_co_e3_a", text: "Reject the 'gradual correction' approach — continued improper billing is ongoing fraud risk. Implement immediate corrective action: pause questionable claims, retrain billing staff on PPS documentation requirements, conduct full chart review of flagged claims, and present a voluntary refund plan to the board. The $340K hit now is better than a $3.4M False Claims Act penalty later", esText: "Rechazar el enfoque de 'corrección gradual' — la facturación incorrecta continua es riesgo de fraude en curso. Implementar acción correctiva inmediata: pausar reclamos cuestionables, recapacitar al personal de facturación sobre requisitos de documentación PPS, realizar revisión completa de expedientes señalados, y presentar un plan de reembolso voluntario a la junta. El golpe de $340K ahora es mejor que una multa de $3.4M de la Ley de Reclamaciones Falsas después", score: 4, behaviorTag: "decisive-corrector" },
+      { id: "rs_co_e3_b", text: "Compromise: implement new billing standards immediately for all future claims, but work with the CFO on a 30-day timeline (not a quarter) to address the $340K in historical claims. Document everything in case of future audit", esText: "Comprometerse: implementar nuevos estándares de facturación inmediatamente para todos los reclamos futuros, pero trabajar con el CFO en un cronograma de 30 días (no un trimestre) para abordar los $340K en reclamos históricos. Documentar todo en caso de auditoría futura", score: 3, behaviorTag: "pragmatic-negotiator" },
+      { id: "rs_co_e3_c", text: "Accept the quarterly correction timeline but insist on new documentation standards starting immediately. The 12% error rate suggests a training issue, not fraud — so the gradual approach is reasonable", esText: "Aceptar el cronograma de corrección trimestral pero insistir en nuevos estándares de documentación comenzando inmediatamente. La tasa de error del 12% sugiere un problema de capacitación, no fraude — así que el enfoque gradual es razonable", score: 2, behaviorTag: "rationalized-delay" },
+      { id: "rs_co_e3_d", text: "The CFO manages the financial operations. Document your audit findings, present them in writing, and let finance decide the correction timeline. Your job is to identify the issue, not dictate the remedy", esText: "El CFO maneja las operaciones financieras. Documentar tus hallazgos de auditoría, presentarlos por escrito, y dejar que finanzas decida el cronograma de corrección. Tu trabajo es identificar el problema, no dictar el remedio", score: 1, behaviorTag: "abdication" },
+    ],
+  },
+
+  // Compliance Officer - Growth (1 of 3)
+  {
+    id: "rs_co_growth1",
+    roleId: "compliance_officer",
+    domain: "growth",
+    scenario:
+      "California just announced that FQHC PPS rates for uninsured patients will be eliminated effective July 2026 (the UIS PPS elimination). This is a $1B statewide revenue impact that creates entirely new compliance requirements around financial assistance programs, charity care documentation, and alternative payment models. Your CEO asks, 'What do we need to do to comply?'",
+    esScenario:
+      "California acaba de anunciar que las tarifas PPS de FQHC para pacientes no asegurados se eliminarán a partir de julio de 2026 (la eliminación PPS UIS). Este es un impacto de ingresos de $1B a nivel estatal que crea requisitos de cumplimiento completamente nuevos alrededor de programas de asistencia financiera, documentación de atención caritativa, y modelos de pago alternativos. Tu CEO pregunta, '¿Qué necesitamos hacer para cumplir?'",
+    question: "How do you approach learning and implementing an entirely new regulatory area?",
+    esQuestion: "¿Cómo abordas aprender e implementar un área regulatoria completamente nueva?",
+    options: [
+      { id: "rs_co_g1_a", text: "Within 48 hours: read the DHCS UIS Fact Sheet, attend the next CPCA/NACHC webinar, connect with compliance peers at 3 other FQHCs to share intelligence. Within 2 weeks: draft a compliance impact assessment mapping every affected workflow (billing, intake, financial counseling, reporting). Present to leadership with a phased implementation timeline", esText: "Dentro de 48 horas: leer la Hoja Informativa UIS de DHCS, asistir al próximo seminario web de CPCA/NACHC, conectar con pares de cumplimiento en 3 otros FQHCs para compartir inteligencia. Dentro de 2 semanas: redactar una evaluación de impacto de cumplimiento mapeando cada flujo de trabajo afectado (facturación, admisión, consejería financiera, reportes). Presentar al liderazgo con un cronograma de implementación por fases", score: 4, behaviorTag: "rapid-learner" },
+      { id: "rs_co_g1_b", text: "Start with the official sources: DHCS guidance documents, HRSA FAQ, and CPCA analysis. Build a compliance checklist of new requirements and cross-reference against your current processes. Share the initial analysis within a month", esText: "Comenzar con las fuentes oficiales: documentos de orientación de DHCS, FAQ de HRSA, y análisis de CPCA. Construir una lista de verificación de cumplimiento de nuevos requisitos y cruzar con tus procesos actuales. Compartir el análisis inicial dentro de un mes", score: 3, behaviorTag: "systematic-learner" },
+      { id: "rs_co_g1_c", text: "Recommend hiring a healthcare regulatory consultant who specializes in FQHC reimbursement changes. This is too complex and high-stakes for in-house compliance to handle alone", esText: "Recomendar contratar un consultor regulatorio de salud que se especialice en cambios de reembolso de FQHC. Esto es demasiado complejo y de alto riesgo para que el cumplimiento interno lo maneje solo", score: 2, behaviorTag: "outsource-dependent" },
+      { id: "rs_co_g1_d", text: "Wait for CPCA to publish implementation guidance — they'll have templates and tools. No point in building something from scratch when the professional association will do it for you", esText: "Esperar a que CPCA publique orientación de implementación — tendrán plantillas y herramientas. No tiene sentido construir algo desde cero cuando la asociación profesional lo hará por ti", score: 1, behaviorTag: "passive-waiter" },
+    ],
+  },
+
+  // Compliance Officer - Growth (2 of 3)
+  {
+    id: "rs_co_growth2",
+    roleId: "compliance_officer",
+    domain: "growth",
+    scenario:
+      "Your FQHC is considering deploying an AI ambient scribe (like Abridge or Nabla) to reduce provider documentation burden. The vendor claims the tool is 'HIPAA compliant' but you notice the BAA doesn't address AI model training on patient data, the data retention policy is vague, and there's no mention of how the AI handles documentation errors.",
+    esScenario:
+      "Tu FQHC está considerando implementar un escriba ambiental de IA (como Abridge o Nabla) para reducir la carga de documentación de proveedores. El vendedor afirma que la herramienta es 'compatible con HIPAA' pero notas que el BAA no aborda el entrenamiento del modelo de IA con datos de pacientes, la política de retención de datos es vaga, y no hay mención de cómo la IA maneja errores de documentación.",
+    question: "How do you evaluate this emerging technology from a compliance perspective?",
+    esQuestion: "¿Cómo evalúas esta tecnología emergente desde una perspectiva de cumplimiento?",
+    options: [
+      { id: "rs_co_g2_a", text: "Develop an AI vendor compliance checklist covering: (1) BAA with explicit AI/ML data use clauses, (2) data retention and deletion policies, (3) audit trail for AI-generated documentation, (4) provider review and attestation requirements, (5) error correction protocols, (6) patient consent for AI-assisted documentation. Negotiate BAA amendments before proceeding. Research NEJM Catalyst and AMA guidance on AI in clinical documentation", esText: "Desarrollar una lista de verificación de cumplimiento de vendedores de IA cubriendo: (1) BAA con cláusulas explícitas de uso de datos de IA/ML, (2) políticas de retención y eliminación de datos, (3) rastro de auditoría para documentación generada por IA, (4) requisitos de revisión y atestación del proveedor, (5) protocolos de corrección de errores, (6) consentimiento del paciente para documentación asistida por IA. Negociar enmiendas al BAA antes de proceder. Investigar orientación de NEJM Catalyst y AMA sobre IA en documentación clínica", score: 4, behaviorTag: "tech-forward-compliance" },
+      { id: "rs_co_g2_b", text: "Flag the BAA gaps to the vendor and request specific language on AI data training, retention, and error handling. Delay deployment until the BAA is satisfactory. Research what other FQHCs have done with similar tools", esText: "Señalar las brechas del BAA al vendedor y solicitar lenguaje específico sobre entrenamiento de datos de IA, retención y manejo de errores. Retrasar la implementación hasta que el BAA sea satisfactorio. Investigar qué otros FQHCs han hecho con herramientas similares", score: 3, behaviorTag: "cautious-evaluator" },
+      { id: "rs_co_g2_c", text: "Recommend against the tool — AI in healthcare documentation is too new and the regulatory framework hasn't caught up. Wait until HHS issues specific guidance on AI scribes before deploying", esText: "Recomendar en contra de la herramienta — la IA en documentación de salud es demasiado nueva y el marco regulatorio no se ha actualizado. Esperar hasta que HHS emita orientación específica sobre escribas de IA antes de implementar", score: 2, behaviorTag: "risk-averse-blocker" },
+      { id: "rs_co_g2_d", text: "The vendor says it's HIPAA compliant and they have other healthcare clients. If they're willing to sign a BAA, that's sufficient. The clinical team really needs this tool to reduce burnout", esText: "El vendedor dice que es compatible con HIPAA y tienen otros clientes de salud. Si están dispuestos a firmar un BAA, eso es suficiente. El equipo clínico realmente necesita esta herramienta para reducir el agotamiento", score: 1, behaviorTag: "vendor-trusting" },
+    ],
+  },
+
+  // Compliance Officer - Growth (3 of 3)
+  {
+    id: "rs_co_growth3",
+    roleId: "compliance_officer",
+    domain: "growth",
+    scenario:
+      "You've been the only compliance person at your 200-person FQHC for 3 years. You've kept the organization out of trouble, but you realize you've been reactive — putting out fires rather than building systematic compliance infrastructure. You want to grow into a more strategic role but your days are consumed by audits, training, and incident response.",
+    esScenario:
+      "Has sido la única persona de cumplimiento en tu FQHC de 200 personas durante 3 años. Has mantenido a la organización fuera de problemas, pero te das cuenta de que has sido reactivo — apagando incendios en lugar de construir infraestructura de cumplimiento sistemática. Quieres crecer hacia un rol más estratégico pero tus días se consumen en auditorías, capacitación y respuesta a incidentes.",
+    question: "How do you transition from reactive to strategic compliance?",
+    esQuestion: "¿Cómo haces la transición de cumplimiento reactivo a estratégico?",
+    options: [
+      { id: "rs_co_g3_a", text: "Build the business case for a compliance analyst hire by documenting time spent on each task. Meanwhile, create a compliance risk matrix scoring all 19 HRSA requirements + HIPAA + billing risks. Present to the board: 'Here's where we're strong, here's where we're exposed, and here's my 12-month plan to build systematic resilience.' Pursue CHC certification to formalize your expertise", esText: "Construir el caso de negocio para contratar un analista de cumplimiento documentando el tiempo dedicado a cada tarea. Mientras tanto, crear una matriz de riesgo de cumplimiento puntuando los 19 requisitos de HRSA + HIPAA + riesgos de facturación. Presentar a la junta: 'Aquí es donde somos fuertes, aquí es donde estamos expuestos, y aquí está mi plan de 12 meses para construir resiliencia sistemática.' Obtener la certificación CHC para formalizar tu experiencia", score: 4, behaviorTag: "strategic-builder" },
+      { id: "rs_co_g3_b", text: "Start by documenting and automating your most time-consuming repetitive tasks (annual training scheduling, policy review tracking, incident documentation). Free up 10 hours/week for strategic work. Join HCCA for professional development and networking with compliance peers", esText: "Comenzar documentando y automatizando tus tareas repetitivas más consumidoras de tiempo (programación de capacitación anual, seguimiento de revisión de políticas, documentación de incidentes). Liberar 10 horas/semana para trabajo estratégico. Unirte a HCCA para desarrollo profesional y networking con pares de cumplimiento", score: 3, behaviorTag: "efficiency-builder" },
+      { id: "rs_co_g3_c", text: "Ask the CEO for a 'compliance strategic planning day' — one day per month dedicated to long-term compliance infrastructure. Use that time to build policies, procedures, and monitoring systems", esText: "Pedir al CEO un 'día de planificación estratégica de cumplimiento' — un día por mes dedicado a infraestructura de cumplimiento a largo plazo. Usar ese tiempo para construir políticas, procedimientos y sistemas de monitoreo", score: 2, behaviorTag: "incremental-changer" },
+      { id: "rs_co_g3_d", text: "The reactive approach is working — you haven't had a major compliance failure in 3 years. Strategic planning is nice in theory but the day-to-day demands of the role come first", esText: "El enfoque reactivo está funcionando — no has tenido un fallo de cumplimiento importante en 3 años. La planificación estratégica es buena en teoría pero las demandas diarias del rol son primero", score: 1, behaviorTag: "status-quo-comfort" },
+    ],
+  },
+
+  // Compliance Officer - Transition (1 of 3)
+  {
+    id: "rs_co_transition1",
+    roleId: "compliance_officer",
+    domain: "transition",
+    scenario:
+      "You've accepted a Compliance Officer role at a new FQHC. On your first week, you discover: no compliance committee exists, the last HRSA site visit had 3 Conditions of Award, HIPAA training records are missing for 40% of staff, and the previous compliance person left 6 months ago with no documentation of open issues.",
+    esScenario:
+      "Aceptaste un rol de Oficial de Cumplimiento en un nuevo FQHC. En tu primera semana, descubres: no existe un comité de cumplimiento, la última visita de sitio de HRSA tuvo 3 Condiciones de Adjudicación, los registros de capacitación HIPAA faltan para el 40% del personal, y la persona de cumplimiento anterior se fue hace 6 meses sin documentación de problemas abiertos.",
+    question: "How do you approach your first 90 days?",
+    esQuestion: "¿Cómo abordas tus primeros 90 días?",
+    options: [
+      { id: "rs_co_t1_a", text: "Days 1-30: Complete compliance risk assessment (every domain), resolve HRSA Conditions of Award (these have deadlines), launch emergency HIPAA training for all staff. Days 31-60: Establish compliance committee with board representation, create policy library, start credentialing file audit. Days 61-90: Build annual compliance calendar, present compliance roadmap to board, schedule mock OSV. Document everything from day one — you need a paper trail showing when you arrived and what you inherited", esText: "Días 1-30: Completar evaluación de riesgo de cumplimiento (cada dominio), resolver Condiciones de Adjudicación de HRSA (estas tienen plazos), lanzar capacitación HIPAA de emergencia para todo el personal. Días 31-60: Establecer comité de cumplimiento con representación de la junta, crear biblioteca de políticas, iniciar auditoría de archivos de credencialización. Días 61-90: Construir calendario anual de cumplimiento, presentar hoja de ruta de cumplimiento a la junta, programar OSV simulada. Documentar todo desde el día uno — necesitas un rastro de papel mostrando cuándo llegaste y qué heredaste", score: 4, behaviorTag: "structured-turnaround" },
+      { id: "rs_co_t1_b", text: "Start with the HRSA Conditions of Award — those have hard deadlines and the organization could lose funding. Then tackle HIPAA training gaps. Build the compliance committee and calendar in the second quarter once the fires are out", esText: "Comenzar con las Condiciones de Adjudicación de HRSA — esas tienen plazos firmes y la organización podría perder financiamiento. Luego abordar las brechas de capacitación HIPAA. Construir el comité de cumplimiento y calendario en el segundo trimestre una vez que se apaguen los incendios", score: 3, behaviorTag: "triage-first" },
+      { id: "rs_co_t1_c", text: "Spend the first month listening and learning — understand the culture, meet every department head, and map out all the compliance gaps before making any changes. A new compliance officer who comes in making demands will face resistance", esText: "Pasar el primer mes escuchando y aprendiendo — entender la cultura, reunirte con cada jefe de departamento, y mapear todas las brechas de cumplimiento antes de hacer cambios. Un nuevo oficial de cumplimiento que llega haciendo exigencias enfrentará resistencia", score: 2, behaviorTag: "slow-start" },
+      { id: "rs_co_t1_d", text: "This is too much for one person. Immediately tell the CEO you need a consultant to address the HRSA Conditions and a budget for compliance infrastructure before you can make progress", esText: "Esto es demasiado para una persona. Inmediatamente decir al CEO que necesitas un consultor para abordar las Condiciones de HRSA y un presupuesto para infraestructura de cumplimiento antes de poder avanzar", score: 1, behaviorTag: "resource-gating" },
+    ],
+  },
+
+  // Compliance Officer - Transition (2 of 3)
+  {
+    id: "rs_co_transition2",
+    roleId: "compliance_officer",
+    domain: "transition",
+    scenario:
+      "Two months into your new role, you realize the organization's culture sees compliance as 'the department that says no.' Staff avoid you, don't report issues, and department heads make compliance decisions without consulting you. The previous compliance officer was apparently very punitive.",
+    esScenario:
+      "Dos meses en tu nuevo rol, te das cuenta de que la cultura de la organización ve al cumplimiento como 'el departamento que dice no.' El personal te evita, no reporta problemas, y los jefes de departamento toman decisiones de cumplimiento sin consultarte. El oficial de cumplimiento anterior era aparentemente muy punitivo.",
+    question: "How do you rebuild trust and change the compliance culture?",
+    esQuestion: "¿Cómo reconstruyes la confianza y cambias la cultura de cumplimiento?",
+    options: [
+      { id: "rs_co_t2_a", text: "Rebrand compliance as 'organizational protection' — not punishment. Start with quick wins: help a department solve a problem they've been struggling with (a billing error pattern, a credentialing bottleneck). Hold open office hours. Create a confidential reporting channel. Publicly celebrate when someone reports an issue. Share 'compliance wins' (penalties avoided, processes simplified) in all-staff meetings", esText: "Cambiar la marca de cumplimiento como 'protección organizacional' — no castigo. Comenzar con victorias rápidas: ayudar a un departamento a resolver un problema con el que han luchado (un patrón de errores de facturación, un cuello de botella de credencialización). Tener horas de oficina abiertas. Crear un canal de reporte confidencial. Celebrar públicamente cuando alguien reporta un problema. Compartir 'victorias de cumplimiento' (penalidades evitadas, procesos simplificados) en reuniones de todo el personal", score: 4, behaviorTag: "culture-changer" },
+      { id: "rs_co_t2_b", text: "Schedule 1:1 meetings with every department head to understand their compliance pain points and offer to solve problems rather than create them. Build relationships before enforcing rules", esText: "Programar reuniones individuales con cada jefe de departamento para entender sus puntos de dolor de cumplimiento y ofrecer resolver problemas en lugar de crearlos. Construir relaciones antes de hacer cumplir reglas", score: 3, behaviorTag: "relationship-builder" },
+      { id: "rs_co_t2_c", text: "Focus on making compliance training more engaging and less punitive. If people understand WHY the rules exist, they'll comply voluntarily. Create short, bilingual training videos instead of long policy documents", esText: "Enfocarse en hacer la capacitación de cumplimiento más atractiva y menos punitiva. Si las personas entienden POR QUÉ existen las reglas, cumplirán voluntariamente. Crear videos de capacitación cortos y bilingües en lugar de documentos de política largos", score: 2, behaviorTag: "educator-only" },
+      { id: "rs_co_t2_d", text: "The culture will change naturally as people see consistent, fair enforcement. Don't try to be popular — just be consistent and transparent. People will respect compliance when they see everyone held to the same standard", esText: "La cultura cambiará naturalmente a medida que las personas vean una aplicación consistente y justa. No intentes ser popular — solo sé consistente y transparente. Las personas respetarán el cumplimiento cuando vean que todos son mantenidos al mismo estándar", score: 1, behaviorTag: "enforcement-first" },
+    ],
+  },
+
+  // Compliance Officer - Transition (3 of 3)
+  {
+    id: "rs_co_transition3",
+    roleId: "compliance_officer",
+    domain: "transition",
+    scenario:
+      "You're transitioning from a hospital compliance role to an FQHC. Your hospital background is strong (Joint Commission, CMS, HIPAA) but you've never worked with HRSA grant requirements, PPS billing, 340B, or the community health center model. The interview panel asks: 'What's your 30-day plan for getting up to speed on FQHC-specific compliance?'",
+    esScenario:
+      "Estás haciendo la transición de un rol de cumplimiento hospitalario a un FQHC. Tu experiencia hospitalaria es sólida (Joint Commission, CMS, HIPAA) pero nunca has trabajado con requisitos de subvenciones HRSA, facturación PPS, 340B, o el modelo de centros de salud comunitarios. El panel de entrevista pregunta: '¿Cuál es tu plan de 30 días para ponerte al día con el cumplimiento específico de FQHC?'",
+    question: "What's your answer?",
+    esQuestion: "¿Cuál es tu respuesta?",
+    options: [
+      { id: "rs_co_t3_a", text: "Week 1: Read the HRSA Compliance Manual cover to cover, review the last 2 OSV reports, meet with every department head. Week 2: Shadow the billing team to understand PPS (it's fundamentally different from hospital DRG billing), review 340B program operations and recent HRSA audit findings. Week 3: Attend a NACHC or CPCA webinar, connect with 3 experienced FQHC compliance officers in my region for mentorship. Week 4: Present my gap analysis and learning plan to the CEO. My hospital HIPAA and CMS experience transfers directly — I need to add the HRSA grant and PPS layers", esText: "Semana 1: Leer el Manual de Cumplimiento de HRSA completo, revisar los últimos 2 reportes de OSV, reunirme con cada jefe de departamento. Semana 2: Observar al equipo de facturación para entender PPS (es fundamentalmente diferente de la facturación hospitalaria DRG), revisar operaciones del programa 340B y hallazgos recientes de auditoría HRSA. Semana 3: Asistir a un seminario web de NACHC o CPCA, conectar con 3 oficiales de cumplimiento de FQHC experimentados en mi región para mentoría. Semana 4: Presentar mi análisis de brechas y plan de aprendizaje al CEO. Mi experiencia hospitalaria en HIPAA y CMS se transfiere directamente — necesito agregar las capas de subvención HRSA y PPS", score: 4, behaviorTag: "structured-transition" },
+      { id: "rs_co_t3_b", text: "Focus on the HRSA Compliance Manual and 340B regulations first — those are the most different from hospital compliance. HIPAA and billing fraud concepts transfer well. I'd also join HCCA and NACHC's compliance networks for peer learning", esText: "Enfocarme en el Manual de Cumplimiento de HRSA y regulaciones 340B primero — esos son los más diferentes del cumplimiento hospitalario. Los conceptos de HIPAA y fraude de facturación se transfieren bien. También me uniría a las redes de cumplimiento de HCCA y NACHC para aprendizaje entre pares", score: 3, behaviorTag: "focused-learner" },
+      { id: "rs_co_t3_c", text: "I'd lean heavily on the existing staff who know the FQHC model — they can teach me the HRSA requirements while I bring hospital-level compliance rigor to the organization. It's a partnership", esText: "Me apoyaría mucho en el personal existente que conoce el modelo FQHC — ellos pueden enseñarme los requisitos HRSA mientras yo aporto el rigor de cumplimiento a nivel hospitalario a la organización. Es una asociación", score: 2, behaviorTag: "dependency-lean" },
+      { id: "rs_co_t3_d", text: "Compliance principles are universal — risk assessment, training, documentation, monitoring. The specific regulations are different but the framework is the same. I'd spend the first month learning the content while applying the compliance infrastructure I've already built in hospitals", esText: "Los principios de cumplimiento son universales — evaluación de riesgos, capacitación, documentación, monitoreo. Las regulaciones específicas son diferentes pero el marco es el mismo. Pasaría el primer mes aprendiendo el contenido mientras aplico la infraestructura de cumplimiento que ya construí en hospitales", score: 1, behaviorTag: "overconfident-transferor" },
+    ],
+  },
+
+  /* ================================================================ */
+  /*  COMPLIANCE ANALYST                                              */
+  /* ================================================================ */
+
+  // Compliance Analyst - Mission (1 of 3)
+  {
+    id: "rs_ca_mission1",
+    roleId: "compliance_analyst",
+    domain: "mission",
+    scenario:
+      "You're reviewing chart documentation for a billing compliance audit and discover that a popular provider has been consistently documenting 'patient counseling on diabetes management' for visits that — based on the visit duration and vitals recorded — appear to be routine medication refill appointments. The provider sees 35 patients/day and is loved by the community.",
+    esScenario:
+      "Estás revisando documentación de expedientes para una auditoría de cumplimiento de facturación y descubres que un proveedor popular ha estado documentando consistentemente 'consejería al paciente sobre manejo de diabetes' para visitas que — basado en la duración de la visita y signos vitales registrados — parecen ser citas rutinarias de resurtido de medicamentos. El proveedor ve 35 pacientes/día y es querido por la comunidad.",
+    question: "How do you handle this finding?",
+    esQuestion: "¿Cómo manejas este hallazgo?",
+    options: [
+      { id: "rs_ca_m1_a", text: "Document the pattern with specific chart numbers, visit dates, and time discrepancies. Present the finding to the Compliance Officer with a statistical analysis (e.g., '23 of 30 sampled charts show this pattern'). Recommend a focused audit of this provider's last 6 months of billing. The data speaks — your job is to present it clearly, not to judge the provider's character", esText: "Documentar el patrón con números de expedientes específicos, fechas de visita y discrepancias de tiempo. Presentar el hallazgo al Oficial de Cumplimiento con un análisis estadístico (ej., '23 de 30 expedientes muestreados muestran este patrón'). Recomendar una auditoría enfocada de los últimos 6 meses de facturación de este proveedor. Los datos hablan — tu trabajo es presentarlos claramente, no juzgar el carácter del proveedor", score: 4, behaviorTag: "data-driven-reporter" },
+      { id: "rs_ca_m1_b", text: "Pull a larger sample to confirm the pattern before reporting. If 50+ charts show the same issue, present it to the Compliance Officer. Include a recommendation for provider education on documentation standards", esText: "Sacar una muestra más grande para confirmar el patrón antes de reportar. Si 50+ expedientes muestran el mismo problema, presentarlo al Oficial de Cumplimiento. Incluir una recomendación de educación al proveedor sobre estándares de documentación", score: 3, behaviorTag: "thorough-verifier" },
+      { id: "rs_ca_m1_c", text: "Mention it to the Compliance Officer informally — 'I noticed something odd in Dr. X's charts.' Let them decide whether to investigate further. You don't want to be the one who formally flags a popular provider", esText: "Mencionarlo al Oficial de Cumplimiento informalmente — 'Noté algo extraño en los expedientes del Dr. X.' Dejar que ellos decidan si investigar más. No quieres ser quien señale formalmente a un proveedor popular", score: 2, behaviorTag: "informal-reporter" },
+      { id: "rs_ca_m1_d", text: "The provider is seeing 35 patients a day — of course the documentation isn't perfect. Note it in your audit summary as an area for improvement but don't treat it as a compliance finding. Documentation issues aren't the same as billing fraud", esText: "El proveedor está viendo 35 pacientes al día — por supuesto que la documentación no es perfecta. Anotarlo en tu resumen de auditoría como un área de mejora pero no tratarlo como un hallazgo de cumplimiento. Los problemas de documentación no son lo mismo que fraude de facturación", score: 1, behaviorTag: "minimizer" },
+    ],
+  },
+
+  // Compliance Analyst - Mission (2 of 3)
+  {
+    id: "rs_ca_mission2",
+    roleId: "compliance_analyst",
+    domain: "mission",
+    scenario:
+      "Your FQHC serves a largely undocumented immigrant community. A new state policy requires FQHCs to collect additional demographic data that some patients fear could be shared with immigration authorities. Staff are worried that data collection will drive patients away from care.",
+    esScenario:
+      "Tu FQHC atiende a una comunidad mayormente de inmigrantes indocumentados. Una nueva política estatal requiere que los FQHCs recolecten datos demográficos adicionales que algunos pacientes temen podrían ser compartidos con autoridades de inmigración. El personal está preocupado de que la recolección de datos alejará a los pacientes de la atención.",
+    question: "How do you balance compliance with patient trust?",
+    esQuestion: "¿Cómo equilibras el cumplimiento con la confianza del paciente?",
+    options: [
+      { id: "rs_ca_m2_a", text: "Research the exact regulatory requirement and what data is actually mandated vs. optional. Create a bilingual FAQ for front-desk staff explaining what must be collected, what's optional, and how it's protected (HIPAA, state privacy laws, FQHC confidentiality). Draft patient-facing materials in Spanish explaining their privacy rights. Ensure the data collection workflow doesn't create barriers to care", esText: "Investigar el requisito regulatorio exacto y qué datos son realmente obligatorios vs. opcionales. Crear un FAQ bilingüe para personal de recepción explicando qué debe recolectarse, qué es opcional, y cómo está protegido (HIPAA, leyes de privacidad estatales, confidencialidad de FQHC). Redactar materiales para pacientes en español explicando sus derechos de privacidad. Asegurar que el flujo de recolección de datos no cree barreras a la atención", score: 4, behaviorTag: "community-protector" },
+      { id: "rs_ca_m2_b", text: "Work with the Compliance Officer to implement the minimum data collection required. Add prominent privacy notices in Spanish at intake. Train staff on how to reassure patients about data protection", esText: "Trabajar con el Oficial de Cumplimiento para implementar la recolección mínima de datos requerida. Agregar avisos de privacidad prominentes en español en la admisión. Capacitar al personal sobre cómo tranquilizar a los pacientes sobre protección de datos", score: 3, behaviorTag: "minimum-compliance" },
+      { id: "rs_ca_m2_c", text: "Comply with the state requirement as written — patient privacy is protected by HIPAA regardless. Over-accommodating fears could actually undermine compliance", esText: "Cumplir con el requisito estatal tal como está escrito — la privacidad del paciente está protegida por HIPAA independientemente. Sobre-acomodar miedos podría realmente socavar el cumplimiento", score: 2, behaviorTag: "literal-complier" },
+      { id: "rs_ca_m2_d", text: "Flag the issue to the Compliance Officer and recommend delaying implementation until legal counsel reviews whether the data collection could create liability for the FQHC", esText: "Señalar el problema al Oficial de Cumplimiento y recomendar retrasar la implementación hasta que el asesor legal revise si la recolección de datos podría crear responsabilidad para el FQHC", score: 1, behaviorTag: "delay-recommender" },
+    ],
+  },
+
+  // Compliance Analyst - Mission (3 of 3)
+  {
+    id: "rs_ca_mission3",
+    roleId: "compliance_analyst",
+    domain: "mission",
+    scenario:
+      "During a 340B program review, you discover that your pharmacy has been providing 340B-priced medications to patients who weren't eligible (they had commercial insurance that should have been billed at full price). The estimated duplicate discount exposure is $85K over 12 months.",
+    esScenario:
+      "Durante una revisión del programa 340B, descubres que tu farmacia ha estado proporcionando medicamentos a precio 340B a pacientes que no eran elegibles (tenían seguro comercial que debería haberse facturado a precio completo). La exposición estimada de descuento duplicado es $85K durante 12 meses.",
+    question: "What's your recommended course of action?",
+    esQuestion: "¿Cuál es tu curso de acción recomendado?",
+    options: [
+      { id: "rs_ca_m3_a", text: "Document the full extent of the issue with specific patient counts, drug categories, and dollar amounts. Present to the Compliance Officer with a recommendation to: (1) immediately correct the eligibility screening process, (2) calculate exact duplicate discount amounts per manufacturer, (3) self-report to HRSA and affected manufacturers, (4) implement split-billing or contract pharmacy safeguards. Frame it as: 'We found this ourselves, which puts us in the strongest position for self-correction'", esText: "Documentar la extensión completa del problema con conteos específicos de pacientes, categorías de medicamentos y montos en dólares. Presentar al Oficial de Cumplimiento con una recomendación de: (1) corregir inmediatamente el proceso de verificación de elegibilidad, (2) calcular montos exactos de descuento duplicado por fabricante, (3) auto-reportar a HRSA y fabricantes afectados, (4) implementar salvaguardas de facturación dividida o farmacia contratada. Enmarcarlo como: 'Lo encontramos nosotros mismos, lo que nos pone en la mejor posición para auto-corrección'", score: 4, behaviorTag: "proactive-self-reporter" },
+      { id: "rs_ca_m3_b", text: "Fix the eligibility screening immediately and document the correction. Calculate the $85K exposure and present options to the Compliance Officer: self-report vs. corrective action only. Recommend consulting with a 340B specialist before deciding", esText: "Arreglar la verificación de elegibilidad inmediatamente y documentar la corrección. Calcular la exposición de $85K y presentar opciones al Oficial de Cumplimiento: auto-reporte vs. solo acción correctiva. Recomendar consultar con un especialista 340B antes de decidir", score: 3, behaviorTag: "measured-fixer" },
+      { id: "rs_ca_m3_c", text: "Fix the screening process going forward and note the historical issue in the audit report. The $85K is relatively small for a 340B program and self-reporting could trigger a larger HRSA audit", esText: "Arreglar el proceso de verificación en adelante y anotar el problema histórico en el reporte de auditoría. Los $85K son relativamente pequeños para un programa 340B y auto-reportar podría desencadenar una auditoría más grande de HRSA", score: 2, behaviorTag: "forward-only-fixer" },
+      { id: "rs_ca_m3_d", text: "Check whether other FQHCs in the region have had similar issues — if it's a common problem, HRSA may be more lenient. Hold off on reporting until you understand the enforcement landscape", esText: "Verificar si otros FQHCs en la región han tenido problemas similares — si es un problema común, HRSA puede ser más indulgente. Esperar para reportar hasta que entiendas el panorama de aplicación", score: 1, behaviorTag: "benchmarking-delay" },
+    ],
+  },
+
+  // Compliance Analyst - People
+  {
+    id: "rs_ca_people1",
+    roleId: "compliance_analyst",
+    domain: "people",
+    scenario:
+      "You're conducting HIPAA training for front-desk staff at a busy clinic. Several attendees are on their phones, two are whispering, and one says, 'We do this every year — it's the same stuff. Can we just sign the form and get back to work? We have patients waiting.'",
+    esScenario:
+      "Estás conduciendo capacitación HIPAA para el personal de recepción en una clínica ocupada. Varios asistentes están en sus teléfonos, dos están susurrando, y uno dice: 'Hacemos esto cada año — es lo mismo. ¿Podemos solo firmar el formulario y volver al trabajo? Tenemos pacientes esperando.'",
+    question: "How do you engage a resistant audience?",
+    esQuestion: "¿Cómo enganchas a una audiencia resistente?",
+    options: [
+      { id: "rs_ca_p1_a", text: "Acknowledge their time pressure: 'I know you have patients waiting — let's make this count.' Switch to scenario-based learning using real front-desk situations: 'A patient's ex-spouse calls asking about their appointment. What do you say?' Make it interactive with quick polls. Share a recent breach example where a front-desk mistake cost an FQHC $75K. End with: 'This protects you as much as the patients'", esText: "Reconocer su presión de tiempo: 'Sé que tienen pacientes esperando — hagamos que esto cuente.' Cambiar a aprendizaje basado en escenarios usando situaciones reales de recepción: 'El ex-cónyuge de un paciente llama preguntando por su cita. ¿Qué dices?' Hacerlo interactivo con encuestas rápidas. Compartir un ejemplo reciente de brecha donde un error de recepción le costó a un FQHC $75K. Terminar con: 'Esto los protege a ustedes tanto como a los pacientes'", score: 4, behaviorTag: "engaging-educator" },
+      { id: "rs_ca_p1_b", text: "Keep it brief and focused on what's new this year. Highlight the 2-3 most relevant changes, use a quick quiz format, and let them go within 15 minutes. Follow up with an email summary they can reference", esText: "Mantenerlo breve y enfocado en lo nuevo de este año. Destacar los 2-3 cambios más relevantes, usar un formato de quiz rápido, y dejarlos ir dentro de 15 minutos. Hacer seguimiento con un resumen por email que puedan consultar", score: 3, behaviorTag: "efficient-trainer" },
+      { id: "rs_ca_p1_c", text: "Firmly but politely ask them to put their phones away and participate. Explain that HIPAA training is mandatory and HR tracks completion. You have material to cover and it's important", esText: "Pedir firme pero cortésmente que guarden sus teléfonos y participen. Explicar que la capacitación HIPAA es obligatoria y RRHH rastrea la finalización. Tienes material que cubrir y es importante", score: 2, behaviorTag: "authority-trainer" },
+      { id: "rs_ca_p1_d", text: "They're right — annual refreshers are repetitive. Send the updated materials via email, have them complete a quick online assessment, and collect the attestation forms. In-person training isn't always the best format", esText: "Tienen razón — las actualizaciones anuales son repetitivas. Enviar los materiales actualizados por email, que completen una evaluación rápida en línea, y recoger los formularios de atestación. La capacitación presencial no siempre es el mejor formato", score: 1, behaviorTag: "path-of-least-resistance" },
+    ],
+  },
+
+  // Compliance Analyst - People (2 of 3)
+  {
+    id: "rs_ca_people2",
+    roleId: "compliance_analyst",
+    domain: "people",
+    scenario:
+      "A billing coder confides in you that she's been pressured by her supervisor to 'code up' when documentation is borderline — choosing the higher-paying code when either code could technically apply. She's afraid to report it formally because the supervisor controls her schedule and performance review.",
+    esScenario:
+      "Una codificadora de facturación te confía que ha sido presionada por su supervisora para 'codificar hacia arriba' cuando la documentación es ambigua — elegir el código de mayor pago cuando cualquier código podría técnicamente aplicar. Tiene miedo de reportarlo formalmente porque la supervisora controla su horario y evaluación de desempeño.",
+    question: "How do you handle this sensitive disclosure?",
+    esQuestion: "¿Cómo manejas esta revelación sensible?",
+    options: [
+      { id: "rs_ca_p2_a", text: "Thank her for trusting you. Explain that this is exactly what the compliance program is designed to address. Document her concerns (with her permission), assure her of whistleblower protections under CA Labor Code §1102.5 and the False Claims Act, and escalate to the Compliance Officer through the confidential reporting channel. Offer to accompany her if she wants to report directly. Monitor for any retaliation", esText: "Agradecerle por confiar en ti. Explicar que esto es exactamente para lo que está diseñado el programa de cumplimiento. Documentar sus preocupaciones (con su permiso), asegurarle las protecciones de denunciante bajo el Código Laboral de CA §1102.5 y la Ley de Reclamaciones Falsas, y escalar al Oficial de Cumplimiento a través del canal de reporte confidencial. Ofrecer acompañarla si quiere reportar directamente. Monitorear cualquier represalia", score: 4, behaviorTag: "whistleblower-advocate" },
+      { id: "rs_ca_p2_b", text: "Pull a coding sample from the supervisor's team to verify the pattern independently. If the data confirms systematic upcoding, present the finding to the Compliance Officer without naming the coder as the source", esText: "Sacar una muestra de codificación del equipo de la supervisora para verificar el patrón independientemente. Si los datos confirman sobrecodificación sistemática, presentar el hallazgo al Oficial de Cumplimiento sin nombrar a la codificadora como la fuente", score: 3, behaviorTag: "data-protector" },
+      { id: "rs_ca_p2_c", text: "Suggest she use the anonymous compliance hotline to report the concern formally. You can't be the intermediary — it needs to go through proper channels", esText: "Sugerir que use la línea de cumplimiento anónima para reportar la preocupación formalmente. No puedes ser el intermediario — necesita pasar por canales apropiados", score: 2, behaviorTag: "channel-redirector" },
+      { id: "rs_ca_p2_d", text: "Coding judgment calls in borderline cases aren't necessarily fraud — it depends on the documentation. Suggest she ask for coding guidance from the supervisor in writing so there's a paper trail, but this may not rise to a compliance issue", esText: "Las decisiones de codificación en casos ambiguos no son necesariamente fraude — depende de la documentación. Sugerir que pida orientación de codificación a la supervisora por escrito para que haya un rastro de papel, pero esto puede no llegar a ser un problema de cumplimiento", score: 1, behaviorTag: "minimizer-normalizer" },
+    ],
+  },
+
+  // Compliance Analyst - People (3 of 3)
+  {
+    id: "rs_ca_people3",
+    roleId: "compliance_analyst",
+    domain: "people",
+    scenario:
+      "You need to collect credentialing documentation from 8 providers for HRSA audit preparation. Three providers have been unresponsive to your emails for 2 weeks. Their office manager says, 'They're too busy seeing patients to deal with paperwork. Can't you just pull what you need from the EHR?'",
+    esScenario:
+      "Necesitas recolectar documentación de credencialización de 8 proveedores para preparación de auditoría HRSA. Tres proveedores no han respondido a tus emails por 2 semanas. Su gerente de oficina dice: 'Están muy ocupados viendo pacientes para lidiar con papeleo. ¿No puedes simplemente sacar lo que necesitas del EHR?'",
+    question: "How do you get the documentation without creating conflict?",
+    esQuestion: "¿Cómo obtienes la documentación sin crear conflicto?",
+    options: [
+      { id: "rs_ca_p3_a", text: "Acknowledge the patient care priority. Offer to minimize their burden: 'I'll pull everything I can from the EHR and credentialing files. I just need 10 minutes per provider to verify 3 items that only they can confirm.' Create a pre-filled checklist showing what you already have vs. what's missing. Schedule brief slots during their lunch or between patients. CC the Medical Director on the request with a friendly note about the HRSA deadline", esText: "Reconocer la prioridad de atención al paciente. Ofrecer minimizar su carga: 'Sacaré todo lo que pueda del EHR y archivos de credencialización. Solo necesito 10 minutos por proveedor para verificar 3 elementos que solo ellos pueden confirmar.' Crear una lista de verificación pre-llenada mostrando lo que ya tienes vs. lo que falta. Programar espacios breves durante su almuerzo o entre pacientes. Copiar al Director Médico en la solicitud con una nota amigable sobre la fecha límite de HRSA", score: 4, behaviorTag: "burden-reducer" },
+      { id: "rs_ca_p3_b", text: "Send a follow-up email with the specific documents needed and a deadline tied to the HRSA visit date. Copy the Compliance Officer and Medical Director. Make it clear this is mandatory, not optional", esText: "Enviar un email de seguimiento con los documentos específicos necesarios y una fecha límite vinculada a la fecha de visita HRSA. Copiar al Oficial de Cumplimiento y Director Médico. Dejar claro que esto es obligatorio, no opcional", score: 3, behaviorTag: "escalation-path" },
+      { id: "rs_ca_p3_c", text: "Pull what you can from the EHR and credentialing files. If the remaining gaps are minor, you can work around them or flag them as 'in progress' for the HRSA reviewer", esText: "Sacar lo que puedas del EHR y archivos de credencialización. Si las brechas restantes son menores, puedes trabajar alrededor de ellas o señalarlas como 'en progreso' para el revisor de HRSA", score: 2, behaviorTag: "workaround-finder" },
+      { id: "rs_ca_p3_d", text: "Report the unresponsive providers to the Compliance Officer and let them handle it. You've made your requests — it's their responsibility to comply", esText: "Reportar a los proveedores no responsivos al Oficial de Cumplimiento y dejar que ellos lo manejen. Has hecho tus solicitudes — es su responsabilidad cumplir", score: 1, behaviorTag: "hands-off-reporter" },
+    ],
+  },
+
+  // Compliance Analyst - Execution (1 of 3)
+  {
+    id: "rs_ca_execution1",
+    roleId: "compliance_analyst",
+    domain: "execution",
+    scenario:
+      "You're assigned to build a compliance tracking dashboard for your FQHC. The Compliance Officer wants to monitor: HIPAA training completion rates, credentialing expiration dates, billing audit findings, policy review status, and incident reports. Currently all of this is tracked in separate spreadsheets, email threads, and paper files.",
+    esScenario:
+      "Te asignan construir un tablero de seguimiento de cumplimiento para tu FQHC. El Oficial de Cumplimiento quiere monitorear: tasas de finalización de capacitación HIPAA, fechas de vencimiento de credencialización, hallazgos de auditoría de facturación, estado de revisión de políticas, y reportes de incidentes. Actualmente todo esto se rastrea en hojas de cálculo separadas, hilos de email y archivos de papel.",
+    question: "How do you approach building this system?",
+    esQuestion: "¿Cómo abordas la construcción de este sistema?",
+    options: [
+      { id: "rs_ca_e1_a", text: "Start by mapping every data source and owner. Create a master Excel workbook with linked sheets for each domain (HIPAA, credentialing, billing, policy, incidents). Build automated alerts for: credentials expiring within 60 days, overdue training, and open incidents >30 days. Color-code a dashboard summary sheet. Phase 2: migrate to a shared compliance platform (SharePoint, Smartsheet, or dedicated GRC tool) once the data structure is proven", esText: "Comenzar mapeando cada fuente de datos y responsable. Crear un libro de Excel maestro con hojas vinculadas para cada dominio (HIPAA, credencialización, facturación, política, incidentes). Construir alertas automatizadas para: credenciales que vencen dentro de 60 días, capacitación vencida, e incidentes abiertos >30 días. Codificar por colores una hoja resumen del tablero. Fase 2: migrar a una plataforma de cumplimiento compartida (SharePoint, Smartsheet, o herramienta GRC dedicada) una vez que la estructura de datos esté probada", score: 4, behaviorTag: "systems-builder" },
+      { id: "rs_ca_e1_b", text: "Research compliance tracking software (Compliancy Group, MedTrainer, or Healthicity) that's designed for healthcare organizations. Present 3 options to the Compliance Officer with pricing and features. Don't reinvent the wheel with spreadsheets when purpose-built tools exist", esText: "Investigar software de seguimiento de cumplimiento (Compliancy Group, MedTrainer, o Healthicity) diseñado para organizaciones de salud. Presentar 3 opciones al Oficial de Cumplimiento con precios y características. No reinventar la rueda con hojas de cálculo cuando existen herramientas diseñadas para esto", score: 3, behaviorTag: "tool-researcher" },
+      { id: "rs_ca_e1_c", text: "Create a single consolidated spreadsheet that combines all the existing tracking into one place. Keep it simple — the current users are comfortable with spreadsheets and a new system would require training", esText: "Crear una sola hoja de cálculo consolidada que combine todo el seguimiento existente en un lugar. Mantenerlo simple — los usuarios actuales están cómodos con hojas de cálculo y un nuevo sistema requeriría capacitación", score: 2, behaviorTag: "consolidator" },
+      { id: "rs_ca_e1_d", text: "Ask IT to build a custom database — they can pull from the EHR, HR system, and LMS to auto-populate most of the data. A proper database is better than any spreadsheet", esText: "Pedir a TI que construya una base de datos personalizada — pueden extraer del EHR, sistema de RRHH, y LMS para auto-poblar la mayoría de los datos. Una base de datos adecuada es mejor que cualquier hoja de cálculo", score: 1, behaviorTag: "over-engineering" },
+    ],
+  },
+
+  // Compliance Analyst - Execution (2 of 3)
+  {
+    id: "rs_ca_execution2",
+    roleId: "compliance_analyst",
+    domain: "execution",
+    scenario:
+      "Your FQHC has 180 active Business Associate Agreements (BAAs) with vendors — IT companies, labs, clearinghouses, interpreters, shredding services, etc. The Compliance Officer asks you to verify that all BAAs are current and compliant with the 2024 HIPAA Security Rule updates. You estimate this will take 100+ hours.",
+    esScenario:
+      "Tu FQHC tiene 180 Acuerdos de Asociado de Negocio (BAAs) activos con proveedores — compañías de TI, laboratorios, cámaras de compensación, intérpretes, servicios de trituración, etc. El Oficial de Cumplimiento te pide verificar que todos los BAAs estén vigentes y cumplan con las actualizaciones de la Regla de Seguridad HIPAA 2024. Estimas que esto tomará 100+ horas.",
+    question: "How do you execute this efficiently?",
+    esQuestion: "¿Cómo ejecutas esto eficientemente?",
+    options: [
+      { id: "rs_ca_e2_a", text: "Risk-stratify the 180 BAAs: Tier 1 (cloud/EHR/billing = highest PHI access, ~30 vendors — review first), Tier 2 (labs/specialists = moderate PHI, ~60 vendors — review second), Tier 3 (shredding/cleaning = minimal PHI, ~90 vendors — spot-check 20%). Create a tracking spreadsheet with: vendor name, BAA date, expiration, key clause status (breach notification, subcontractor, termination). Flag expired or non-compliant BAAs for immediate action. Deliver a prioritized report within 4 weeks", esText: "Estratificar por riesgo los 180 BAAs: Nivel 1 (nube/EHR/facturación = mayor acceso a PHI, ~30 proveedores — revisar primero), Nivel 2 (laboratorios/especialistas = PHI moderado, ~60 proveedores — revisar segundo), Nivel 3 (trituración/limpieza = PHI mínimo, ~90 proveedores — verificar por muestreo 20%). Crear una hoja de seguimiento con: nombre del proveedor, fecha del BAA, vencimiento, estado de cláusulas clave (notificación de brecha, subcontratista, terminación). Señalar BAAs vencidos o no conformes para acción inmediata. Entregar un reporte priorizado dentro de 4 semanas", score: 4, behaviorTag: "risk-stratifier" },
+      { id: "rs_ca_e2_b", text: "Create a standard BAA compliance checklist based on the 2024 updates. Work through the vendor list alphabetically, checking each BAA against the checklist. Track completion in a spreadsheet and flag issues as you find them", esText: "Crear una lista de verificación estándar de cumplimiento de BAA basada en las actualizaciones 2024. Trabajar la lista de proveedores alfabéticamente, verificando cada BAA contra la lista. Rastrear el progreso en una hoja de cálculo y señalar problemas a medida que los encuentres", score: 3, behaviorTag: "methodical-reviewer" },
+      { id: "rs_ca_e2_c", text: "Ask each department to verify their own vendor BAAs against a checklist you create. This distributes the work and gets done faster. You'll review the results and follow up on any issues", esText: "Pedir a cada departamento que verifique sus propios BAAs de proveedores contra una lista de verificación que creas. Esto distribuye el trabajo y se hace más rápido. Revisarás los resultados y darás seguimiento a cualquier problema", score: 2, behaviorTag: "delegator" },
+      { id: "rs_ca_e2_d", text: "100 hours is too much for one person. Ask the Compliance Officer to hire a temp or contract worker to handle the BAA review. Your time is better spent on higher-priority audit preparation", esText: "100 horas es demasiado para una persona. Pedir al Oficial de Cumplimiento que contrate un temporal o trabajador por contrato para manejar la revisión de BAA. Tu tiempo se usa mejor en preparación de auditoría de mayor prioridad", score: 1, behaviorTag: "resource-requester" },
+    ],
+  },
+
+  // Compliance Analyst - Execution (3 of 3)
+  {
+    id: "rs_ca_execution3",
+    roleId: "compliance_analyst",
+    domain: "execution",
+    scenario:
+      "You're conducting the monthly 340B reconciliation and discover a discrepancy: 47 prescriptions filled at your contract pharmacy show 340B pricing applied but the patients don't appear in your EHR as active patients. The contract pharmacy says 'our system shows them as eligible.'",
+    esScenario:
+      "Estás conduciendo la reconciliación mensual de 340B y descubres una discrepancia: 47 prescripciones surtidas en tu farmacia contratada muestran precio 340B aplicado pero los pacientes no aparecen en tu EHR como pacientes activos. La farmacia contratada dice 'nuestro sistema los muestra como elegibles.'",
+    question: "How do you resolve this discrepancy?",
+    esQuestion: "¿Cómo resuelves esta discrepancia?",
+    options: [
+      { id: "rs_ca_e3_a", text: "Flag all 47 prescriptions for hold/review immediately. Cross-reference each patient against three data sources: (1) your EHR patient roster, (2) the 340B eligibility database, (3) the contract pharmacy's dispensing records. For any confirmed ineligible patients, calculate the duplicate discount amount owed to manufacturers. Document the root cause — is it a data sync issue, a definition-of-eligible-patient mismatch, or something worse? Report findings to Compliance Officer with a recommended corrective action", esText: "Señalar las 47 prescripciones para retención/revisión inmediatamente. Cruzar cada paciente contra tres fuentes de datos: (1) tu lista de pacientes del EHR, (2) la base de datos de elegibilidad 340B, (3) los registros de dispensación de la farmacia contratada. Para cualquier paciente confirmado como no elegible, calcular el monto de descuento duplicado adeudado a fabricantes. Documentar la causa raíz — ¿es un problema de sincronización de datos, una discrepancia en la definición de paciente elegible, o algo peor? Reportar hallazgos al Oficial de Cumplimiento con acción correctiva recomendada", score: 4, behaviorTag: "forensic-analyst" },
+      { id: "rs_ca_e3_b", text: "Request the contract pharmacy's eligibility documentation for all 47 patients. Compare their records to yours. The discrepancy is likely a data sync lag — but you need to verify before closing the issue", esText: "Solicitar la documentación de elegibilidad de la farmacia contratada para los 47 pacientes. Comparar sus registros con los tuyos. La discrepancia probablemente es un retraso en la sincronización de datos — pero necesitas verificar antes de cerrar el problema", score: 3, behaviorTag: "verification-seeker" },
+      { id: "rs_ca_e3_c", text: "The contract pharmacy manages their own eligibility screening — that's part of the contract. Send them a formal inquiry and ask them to resolve the discrepancy on their end. Follow up in 2 weeks", esText: "La farmacia contratada maneja su propia verificación de elegibilidad — eso es parte del contrato. Enviar una consulta formal y pedir que resuelvan la discrepancia de su lado. Dar seguimiento en 2 semanas", score: 2, behaviorTag: "contract-reliance" },
+      { id: "rs_ca_e3_d", text: "47 out of potentially thousands of prescriptions is a small percentage. Note it in your reconciliation report and monitor the trend over the next 2-3 months before escalating", esText: "47 de potencialmente miles de prescripciones es un porcentaje pequeño. Anotarlo en tu reporte de reconciliación y monitorear la tendencia durante los próximos 2-3 meses antes de escalar", score: 1, behaviorTag: "trend-watcher" },
+    ],
+  },
+
+  // Compliance Analyst - Growth
+  {
+    id: "rs_ca_growth1",
+    roleId: "compliance_analyst",
+    domain: "growth",
+    scenario:
+      "You've been a compliance analyst for 18 months and feel stuck. Your daily work is mostly data entry, training scheduling, and BAA tracking. You want to grow toward a Compliance Officer role but you don't have the CHC certification, your FQHC doesn't have a training budget, and the Compliance Officer isn't going anywhere.",
+    esScenario:
+      "Has sido analista de cumplimiento por 18 meses y te sientes estancado. Tu trabajo diario es mayormente entrada de datos, programación de capacitación y seguimiento de BAA. Quieres crecer hacia un rol de Oficial de Cumplimiento pero no tienes la certificación CHC, tu FQHC no tiene presupuesto de capacitación, y el Oficial de Cumplimiento no se va a ningún lado.",
+    question: "How do you invest in your own growth?",
+    esQuestion: "¿Cómo inviertes en tu propio crecimiento?",
+    options: [
+      { id: "rs_ca_g1_a", text: "Create your own development plan: (1) Ask the Compliance Officer to delegate higher-level tasks (audit preparation, policy drafting, board presentations) so you build experience. (2) Study for CHC certification using free HCCA resources — the exam is $375 and you can self-fund if needed. (3) Volunteer to lead a compliance project (like building the risk matrix or updating all policies). (4) Network with compliance officers at other FQHCs through NACHC/CPCA events. (5) Document your compliance audit findings and present them — visibility builds career equity", esText: "Crear tu propio plan de desarrollo: (1) Pedir al Oficial de Cumplimiento que delegue tareas de nivel más alto (preparación de auditoría, redacción de políticas, presentaciones a la junta) para que construyas experiencia. (2) Estudiar para la certificación CHC usando recursos gratuitos de HCCA — el examen es $375 y puedes autofinanciar si es necesario. (3) Ofrecerte voluntariamente para liderar un proyecto de cumplimiento (como construir la matriz de riesgos o actualizar todas las políticas). (4) Hacer networking con oficiales de cumplimiento en otros FQHCs a través de eventos NACHC/CPCA. (5) Documentar tus hallazgos de auditoría de cumplimiento y presentarlos — la visibilidad construye capital profesional", score: 4, behaviorTag: "self-directed-grower" },
+      { id: "rs_ca_g1_b", text: "Focus on the CHC certification — it's the biggest credential differentiator. Study on your own time using HCCA's study guides. Once certified, your market value increases significantly and you can either grow internally or move to a larger FQHC", esText: "Enfocarte en la certificación CHC — es el mayor diferenciador de credenciales. Estudiar en tu propio tiempo usando las guías de estudio de HCCA. Una vez certificado, tu valor de mercado aumenta significativamente y puedes crecer internamente o moverte a un FQHC más grande", score: 3, behaviorTag: "credential-focused" },
+      { id: "rs_ca_p1_c2", text: "Talk to your Compliance Officer about a succession plan. Express interest in growing into their role and ask what skills/experience you need. They may start delegating more responsibility", esText: "Hablar con tu Oficial de Cumplimiento sobre un plan de sucesión. Expresar interés en crecer hacia su rol y preguntar qué habilidades/experiencia necesitas. Pueden empezar a delegar más responsabilidad", score: 2, behaviorTag: "mentor-seeker" },
+      { id: "rs_ca_g1_d", text: "Start looking for Compliance Officer openings at other FQHCs. 18 months of analyst experience plus your institutional knowledge should qualify you. The fastest path to growth is often a lateral move to a bigger role elsewhere", esText: "Empezar a buscar vacantes de Oficial de Cumplimiento en otros FQHCs. 18 meses de experiencia como analista más tu conocimiento institucional deberían calificarte. El camino más rápido al crecimiento es a menudo un movimiento lateral a un rol más grande en otro lugar", score: 1, behaviorTag: "exit-first" },
+    ],
+  },
+
+  // Compliance Analyst - Growth (2 of 3)
+  {
+    id: "rs_ca_growth2",
+    roleId: "compliance_analyst",
+    domain: "growth",
+    scenario:
+      "Your FQHC wants to implement a new EHR system. The Compliance Officer is involved in the clinical and billing evaluation but asks you to assess the compliance implications. You have no experience evaluating EHR systems.",
+    esScenario:
+      "Tu FQHC quiere implementar un nuevo sistema EHR. El Oficial de Cumplimiento está involucrado en la evaluación clínica y de facturación pero te pide que evalúes las implicaciones de cumplimiento. No tienes experiencia evaluando sistemas EHR.",
+    question: "How do you approach a compliance domain you've never worked in?",
+    esQuestion: "¿Cómo abordas un dominio de cumplimiento en el que nunca has trabajado?",
+    options: [
+      { id: "rs_ca_g2_a", text: "Build a compliance evaluation framework: (1) HIPAA Security Rule requirements (encryption, access controls, audit trails), (2) 21st Century Cures Act compliance (interoperability, information blocking), (3) EHR-specific BAA terms, (4) data migration security, (5) user access management, (6) reporting capabilities for UDS/HEDIS/compliance tracking. Research each area using ONC, HHS, and HCCA resources. Present a vendor comparison matrix focused on compliance criteria", esText: "Construir un marco de evaluación de cumplimiento: (1) requisitos de la Regla de Seguridad HIPAA (encriptación, controles de acceso, rastros de auditoría), (2) cumplimiento de la Ley del Siglo 21 (interoperabilidad, bloqueo de información), (3) términos de BAA específicos de EHR, (4) seguridad de migración de datos, (5) gestión de acceso de usuarios, (6) capacidades de reporte para UDS/HEDIS/seguimiento de cumplimiento. Investigar cada área usando recursos de ONC, HHS y HCCA. Presentar una matriz de comparación de proveedores enfocada en criterios de cumplimiento", score: 4, behaviorTag: "framework-builder" },
+      { id: "rs_ca_g2_b", text: "Connect with compliance analysts at FQHCs that recently went through EHR transitions. Learn from their experience — what compliance issues came up, what they wish they'd evaluated, what surprised them. Combine their insights with your own research", esText: "Conectar con analistas de cumplimiento en FQHCs que recientemente pasaron por transiciones de EHR. Aprender de su experiencia — qué problemas de cumplimiento surgieron, qué desearían haber evaluado, qué los sorprendió. Combinar sus perspectivas con tu propia investigación", score: 3, behaviorTag: "peer-learner" },
+      { id: "rs_ca_e2_c2", text: "Ask the EHR vendors to provide their own compliance documentation — HIPAA attestation, SOC 2 reports, BAA templates. Review these against a standard checklist", esText: "Pedir a los proveedores de EHR que proporcionen su propia documentación de cumplimiento — atestación HIPAA, reportes SOC 2, plantillas de BAA. Revisar estos contra una lista de verificación estándar", score: 2, behaviorTag: "vendor-dependent" },
+      { id: "rs_ca_g2_d", text: "Be honest that you're not qualified to evaluate EHR compliance. Recommend hiring a health IT consultant who specializes in FQHC EHR implementations", esText: "Ser honesto de que no estás calificado para evaluar cumplimiento de EHR. Recomendar contratar un consultor de TI de salud que se especialice en implementaciones de EHR en FQHC", score: 1, behaviorTag: "self-disqualifier" },
+    ],
+  },
+
+  // Compliance Analyst - Growth (3 of 3)
+  {
+    id: "rs_ca_growth3",
+    roleId: "compliance_analyst",
+    domain: "growth",
+    scenario:
+      "You notice that your FQHC's compliance program is entirely reactive — responding to audits, breaches, and complaints. You have an idea for a proactive compliance monitoring system that could prevent issues before they become violations. But nobody asked for it and you're 'just the analyst.'",
+    esScenario:
+      "Notas que el programa de cumplimiento de tu FQHC es completamente reactivo — respondiendo a auditorías, brechas y quejas. Tienes una idea para un sistema proactivo de monitoreo de cumplimiento que podría prevenir problemas antes de que se conviertan en violaciones. Pero nadie lo pidió y eres 'solo el analista.'",
+    question: "Do you pursue this initiative?",
+    esQuestion: "¿Persigues esta iniciativa?",
+    options: [
+      { id: "rs_ca_g3_a", text: "Absolutely. Build a proof of concept on your own time: pick one compliance domain (e.g., credentialing expirations), create an automated monitoring dashboard showing current status + 30/60/90-day forecasts, and demonstrate it to the Compliance Officer. Show the ROI: 'This dashboard would have caught the 3 expired credentials we scrambled to fix last month.' Let the results make the case for expanding to other domains", esText: "Absolutamente. Construir una prueba de concepto en tu propio tiempo: elegir un dominio de cumplimiento (ej., vencimientos de credencialización), crear un tablero de monitoreo automatizado mostrando estado actual + pronósticos de 30/60/90 días, y demostrarlo al Oficial de Cumplimiento. Mostrar el ROI: 'Este tablero habría detectado las 3 credenciales vencidas que nos apuramos a arreglar el mes pasado.' Dejar que los resultados hagan el caso para expandir a otros dominios", score: 4, behaviorTag: "initiative-taker" },
+      { id: "rs_ca_g3_b", text: "Write a brief proposal outlining the concept, estimated time to build, and expected benefits. Share it with the Compliance Officer and ask for permission to spend a few hours per week on it", esText: "Escribir una propuesta breve describiendo el concepto, tiempo estimado para construir, y beneficios esperados. Compartirla con el Oficial de Cumplimiento y pedir permiso para dedicar algunas horas por semana", score: 3, behaviorTag: "proposal-writer" },
+      { id: "rs_ca_g3_c", text: "Mention the idea casually to the Compliance Officer and gauge their interest. If they're supportive, offer to build it. If not, don't push it — they may have reasons you don't know about", esText: "Mencionar la idea casualmente al Oficial de Cumplimiento y evaluar su interés. Si lo apoyan, ofrecer construirlo. Si no, no insistir — pueden tener razones que no conoces", score: 2, behaviorTag: "permission-seeker" },
+      { id: "rs_ca_g3_d", text: "Focus on doing your assigned job well. Proactive monitoring is a great idea but it's not your role to redesign the compliance program. When you become a Compliance Officer, you can implement these changes", esText: "Enfocarte en hacer bien tu trabajo asignado. El monitoreo proactivo es una gran idea pero no es tu rol rediseñar el programa de cumplimiento. Cuando seas Oficial de Cumplimiento, puedes implementar estos cambios", score: 1, behaviorTag: "role-limited" },
+    ],
+  },
+
+  // Compliance Analyst - Transition (1 of 3)
+  {
+    id: "rs_ca_transition1",
+    roleId: "compliance_analyst",
+    domain: "transition",
+    scenario:
+      "You're starting your first compliance role at an FQHC after working in medical billing for 4 years. Your new Compliance Officer is overwhelmed and says, 'I need you to hit the ground running — we have a HRSA site visit in 5 months and I haven't started preparing. Here's the checklist, here's the shared drive. Figure it out.'",
+    esScenario:
+      "Estás comenzando tu primer rol de cumplimiento en un FQHC después de trabajar en facturación médica por 4 años. Tu nuevo Oficial de Cumplimiento está abrumado y dice: 'Necesito que empieces a correr — tenemos una visita de sitio HRSA en 5 meses y no he empezado a preparar. Aquí está la lista de verificación, aquí está el drive compartido. Resuélvelo.'",
+    question: "How do you onboard yourself with minimal support?",
+    esQuestion: "¿Cómo te incorporas con apoyo mínimo?",
+    options: [
+      { id: "rs_ca_t1_a", text: "Week 1: Read the HRSA Compliance Manual chapters on the 19 program requirements. Review the last OSV report to understand what was flagged. Map the shared drive to find existing policies, credentialing files, and training records. Week 2: Create a status tracker for all 19 requirements (green/yellow/red). Week 3-4: Interview department heads to assess current compliance status for their areas. By month 2: Present a gap analysis with a 4-month sprint plan to the Compliance Officer", esText: "Semana 1: Leer los capítulos del Manual de Cumplimiento de HRSA sobre los 19 requisitos del programa. Revisar el último reporte de OSV para entender qué fue señalado. Mapear el drive compartido para encontrar políticas existentes, archivos de credencialización y registros de capacitación. Semana 2: Crear un rastreador de estado para los 19 requisitos (verde/amarillo/rojo). Semana 3-4: Entrevistar a jefes de departamento para evaluar el estado actual de cumplimiento en sus áreas. Para el mes 2: Presentar un análisis de brechas con un plan de sprint de 4 meses al Oficial de Cumplimiento", score: 4, behaviorTag: "self-starter" },
+      { id: "rs_ca_t1_b", text: "Focus on what you know: billing compliance. Start with a PPS billing audit since that's your strength, then expand to HIPAA and governance as you learn the HRSA requirements. Your billing expertise will earn credibility with the team", esText: "Enfocarte en lo que sabes: cumplimiento de facturación. Comenzar con una auditoría de facturación PPS ya que es tu fortaleza, luego expandir a HIPAA y gobernanza a medida que aprendas los requisitos HRSA. Tu experiencia en facturación ganará credibilidad con el equipo", score: 3, behaviorTag: "strength-first" },
+      { id: "rs_ca_t1_c", text: "Ask the Compliance Officer for a structured onboarding plan — even if they're busy, they should provide some guidance. You can't 'figure it out' without understanding the organizational context", esText: "Pedir al Oficial de Cumplimiento un plan de incorporación estructurado — aunque estén ocupados, deberían proporcionar alguna orientación. No puedes 'resolverlo' sin entender el contexto organizacional", score: 2, behaviorTag: "support-dependent" },
+      { id: "rs_ca_t1_d", text: "Start with the checklist they gave you and work through it item by item. Don't overcomplicate it — check off what's done, flag what's missing, and report back weekly", esText: "Comenzar con la lista de verificación que te dieron y trabajarla punto por punto. No lo compliques demasiado — marcar lo que está hecho, señalar lo que falta, y reportar semanalmente", score: 1, behaviorTag: "checklist-follower" },
+    ],
+  },
+
+  // Compliance Analyst - Transition (2 of 3)
+  {
+    id: "rs_ca_transition2",
+    roleId: "compliance_analyst",
+    domain: "transition",
+    scenario:
+      "You're 6 weeks into your new compliance analyst role. You've noticed that the finance team and the compliance team have very different interpretations of PPS billing rules. The finance team bills aggressively to maximize revenue; the compliance team (just you and the CO) flags billing risks. The CFO has told the billing team to 'just bill it' when documentation is borderline. There's clear tension between the departments.",
+    esScenario:
+      "Llevas 6 semanas en tu nuevo rol de analista de cumplimiento. Has notado que el equipo de finanzas y el equipo de cumplimiento tienen interpretaciones muy diferentes de las reglas de facturación PPS. El equipo de finanzas factura agresivamente para maximizar ingresos; el equipo de cumplimiento (solo tú y el CO) señala riesgos de facturación. El CFO ha dicho al equipo de facturación que 'solo factúrenlo' cuando la documentación es ambigua. Hay tensión clara entre los departamentos.",
+    question: "How do you navigate this organizational conflict as a new employee?",
+    esQuestion: "¿Cómo navegas este conflicto organizacional como empleado nuevo?",
+    options: [
+      { id: "rs_ca_t2_a", text: "Don't pick sides — present data. Pull a sample of the 'borderline' claims and analyze outcomes: denial rates, payer audits, overpayment requests. Present the financial risk of aggressive billing: 'These 50 claims have a 35% denial rate and 12% audit trigger rate. Conservative documentation would reduce denials by $45K/quarter and lower audit risk.' Frame compliance as revenue protection, not revenue reduction", esText: "No tomar lados — presentar datos. Sacar una muestra de los reclamos 'ambiguos' y analizar resultados: tasas de denegación, auditorías de pagadores, solicitudes de sobrepago. Presentar el riesgo financiero de la facturación agresiva: 'Estos 50 reclamos tienen una tasa de denegación del 35% y una tasa de activación de auditoría del 12%. La documentación conservadora reduciría denegaciones en $45K/trimestre y disminuiría el riesgo de auditoría.' Enmarcar el cumplimiento como protección de ingresos, no reducción de ingresos", score: 4, behaviorTag: "data-diplomat" },
+      { id: "rs_ca_t2_b", text: "Discuss the tension with the Compliance Officer and develop a joint position on PPS billing standards. Present it to the CFO as a compliance recommendation backed by CMS/HRSA guidance. Having the CO's backing gives your analysis more weight", esText: "Discutir la tensión con el Oficial de Cumplimiento y desarrollar una posición conjunta sobre estándares de facturación PPS. Presentarlo al CFO como una recomendación de cumplimiento respaldada por orientación de CMS/HRSA. Tener el respaldo del CO da más peso a tu análisis", score: 3, behaviorTag: "coalition-builder" },
+      { id: "rs_ca_t2_c", text: "Document the CFO's 'just bill it' directive in your audit notes. If it leads to a billing compliance issue, you'll have a record showing you flagged the risk. Don't push back too hard as a new employee — earn trust first", esText: "Documentar la directiva del CFO de 'solo factúrenlo' en tus notas de auditoría. Si lleva a un problema de cumplimiento de facturación, tendrás un registro mostrando que señalaste el riesgo. No insistir demasiado como empleado nuevo — ganar confianza primero", score: 2, behaviorTag: "cya-documenter" },
+      { id: "rs_ca_t2_d", text: "The CFO outranks you. Focus on your assigned compliance tasks and leave billing disputes to the Compliance Officer and CFO to resolve. Getting in the middle of an executive conflict in your first 6 weeks is a career risk", esText: "El CFO tiene mayor rango que tú. Enfocarte en tus tareas de cumplimiento asignadas y dejar las disputas de facturación para que el Oficial de Cumplimiento y el CFO las resuelvan. Meterte en medio de un conflicto ejecutivo en tus primeras 6 semanas es un riesgo profesional", score: 1, behaviorTag: "conflict-avoider" },
+    ],
+  },
+
+  // Compliance Analyst - Transition (3 of 3)
+  {
+    id: "rs_ca_transition3",
+    roleId: "compliance_analyst",
+    domain: "transition",
+    scenario:
+      "You're interviewing for a compliance analyst position at an FQHC. The hiring manager asks: 'We're a 150-person FQHC with no formal compliance program. We've never had a dedicated compliance person. What would you do in your first 90 days to build one from scratch?'",
+    esScenario:
+      "Estás entrevistando para un puesto de analista de cumplimiento en un FQHC. El gerente de contratación pregunta: 'Somos un FQHC de 150 personas sin programa de cumplimiento formal. Nunca hemos tenido una persona dedicada al cumplimiento. ¿Qué harías en tus primeros 90 días para construir uno desde cero?'",
+    question: "What's your answer?",
+    esQuestion: "¿Cuál es tu respuesta?",
+    options: [
+      { id: "rs_ca_t3_a", text: "Days 1-30 (Assess): Complete compliance risk assessment across all domains — HRSA requirements, HIPAA, billing, 340B, workplace safety. Review last HRSA site visit findings. Interview every department head. Map existing policies and gaps. Days 31-60 (Build): Create compliance committee charter (including board representation), draft core policies (HIPAA, billing compliance, conflict of interest), establish confidential reporting mechanism, build compliance calendar. Days 61-90 (Train): Launch organization-wide HIPAA training, present compliance roadmap to board, start credentialing file audit. Deliverable: A written compliance plan the board can approve, with a 12-month implementation timeline", esText: "Días 1-30 (Evaluar): Completar evaluación de riesgo de cumplimiento en todos los dominios — requisitos HRSA, HIPAA, facturación, 340B, seguridad laboral. Revisar hallazgos de la última visita de sitio HRSA. Entrevistar a cada jefe de departamento. Mapear políticas existentes y brechas. Días 31-60 (Construir): Crear carta del comité de cumplimiento (incluyendo representación de la junta), redactar políticas centrales (HIPAA, cumplimiento de facturación, conflicto de intereses), establecer mecanismo de reporte confidencial, construir calendario de cumplimiento. Días 61-90 (Capacitar): Lanzar capacitación HIPAA a toda la organización, presentar hoja de ruta de cumplimiento a la junta, iniciar auditoría de archivos de credencialización. Entregable: Un plan de cumplimiento escrito que la junta pueda aprobar, con un cronograma de implementación de 12 meses", score: 4, behaviorTag: "program-builder" },
+      { id: "rs_ca_t3_b", text: "Start with the highest-risk areas: HIPAA and HRSA requirements. Get the basics in place — training, policies, credentialing — before expanding to billing compliance, 340B, and other domains. A 150-person FQHC can't do everything at once", esText: "Comenzar con las áreas de mayor riesgo: HIPAA y requisitos HRSA. Poner lo básico en su lugar — capacitación, políticas, credencialización — antes de expandir a cumplimiento de facturación, 340B, y otros dominios. Un FQHC de 150 personas no puede hacer todo a la vez", score: 3, behaviorTag: "risk-based-prioritizer" },
+      { id: "rs_ca_t3_c", text: "Research what other FQHCs of similar size have in place for compliance. Use their programs as a template and adapt it to this organization. No need to reinvent the wheel", esText: "Investigar qué otros FQHCs de tamaño similar tienen en su lugar para cumplimiento. Usar sus programas como plantilla y adaptarla a esta organización. No hay necesidad de reinventar la rueda", score: 2, behaviorTag: "template-adapter" },
+      { id: "rs_ca_t3_d", text: "Hire a compliance consultant to do the initial assessment and build the program framework. As a solo analyst, you'll need expert guidance to set up a program from scratch. Your first 90 days should focus on learning the organization while the consultant builds the infrastructure", esText: "Contratar un consultor de cumplimiento para hacer la evaluación inicial y construir el marco del programa. Como analista solo, necesitarás orientación experta para establecer un programa desde cero. Tus primeros 90 días deberían enfocarse en aprender la organización mientras el consultor construye la infraestructura", score: 1, behaviorTag: "consultant-dependent" },
     ],
   },
 

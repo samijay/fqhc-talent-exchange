@@ -1,6 +1,7 @@
 // academy-progress.ts
 // Generic localStorage-based progress tracking for any Academy course
 // Guests can use without signup — progress keyed by courseId + userId
+// Optional server sync when user provides email (via syncProgress)
 // Last updated: 2026-03-10
 
 /* ------------------------------------------------------------------ */
@@ -190,4 +191,83 @@ export function getAggregateModulesCompleted(userId?: string): number {
     (sum, p) => sum + p.modulesCompleted.length,
     0,
   );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Server Sync — optional, for users who want cross-device progress   */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Sync local progress to server. Call when user provides their email.
+ * This is additive — server-side progress supplements localStorage, never replaces it.
+ */
+export async function syncProgressToServer(
+  progress: AcademyCourseProgress,
+  email: string,
+): Promise<boolean> {
+  try {
+    const { syncProgress } = await import("./track");
+    const exerciseScoreValues: Record<string, number> = {};
+    for (const [id, score] of Object.entries(progress.exerciseScores)) {
+      exerciseScoreValues[id] = score.score;
+    }
+    return await syncProgress({
+      email,
+      course_id: progress.courseId,
+      modules_completed: progress.modulesCompleted,
+      exercise_scores: exerciseScoreValues,
+      total_xp: progress.totalXP,
+      current_module_id: progress.currentModuleId ?? undefined,
+    });
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Load progress from server and merge with local progress (keep the more advanced one).
+ */
+export async function mergeServerProgress(
+  localProgress: AcademyCourseProgress | null,
+  email: string,
+  courseId: string,
+): Promise<AcademyCourseProgress | null> {
+  try {
+    const { getServerProgress } = await import("./track");
+    const server = await getServerProgress(email, courseId);
+    if (!server) return localProgress;
+
+    // If no local progress, use server
+    if (!localProgress) {
+      return {
+        courseId,
+        userId: email,
+        modulesCompleted: server.modules_completed,
+        exerciseScores: Object.fromEntries(
+          Object.entries(server.exercise_scores).map(([id, score]) => [
+            id,
+            { exerciseId: id, score, completedAt: server.last_active_at },
+          ])
+        ),
+        totalXP: server.total_xp,
+        currentModuleId: server.current_module_id,
+        startedAt: server.last_active_at,
+        lastActiveAt: server.last_active_at,
+      };
+    }
+
+    // Merge: take the more advanced state
+    const mergedModules = [...new Set([
+      ...localProgress.modulesCompleted,
+      ...server.modules_completed,
+    ])];
+
+    return {
+      ...localProgress,
+      modulesCompleted: mergedModules,
+      totalXP: Math.max(localProgress.totalXP, server.total_xp),
+    };
+  } catch {
+    return localProgress;
+  }
 }

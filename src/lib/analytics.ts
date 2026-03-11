@@ -230,6 +230,16 @@ export function trackResumeDownload(template: string): void {
     action: "download",
     template,
   });
+  // Also track server-side
+  try {
+    import("./track").then(({ trackEvent: serverTrack }) => {
+      serverTrack({
+        event_type: "resume_create",
+        tool_name: "resume-builder",
+        item_id: template,
+      });
+    });
+  } catch { /* silent */ }
 }
 
 /** Clinic simulator interaction */

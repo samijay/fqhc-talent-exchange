@@ -52,6 +52,8 @@ export const PATHWAY_ROLES = [
   { id: "accountant", en: "Accountant", es: "Contador(a)" },
   { id: "payroll_specialist", en: "Payroll Specialist", es: "Especialista en Nómina" },
   { id: "finance_manager", en: "Finance Manager", es: "Gerente de Finanzas" },
+  { id: "compliance_analyst", en: "Compliance Analyst", es: "Analista de Cumplimiento" },
+  { id: "compliance_officer", en: "Compliance Officer", es: "Oficial de Cumplimiento" },
 ] as const;
 
 export const EXPERIENCE_LEVELS: {
@@ -70,7 +72,7 @@ export const EXPERIENCE_LEVELS: {
 /*  Role → track mapping                                               */
 /* ------------------------------------------------------------------ */
 
-type TrackId = "community-health" | "clinical-operations" | "behavioral-health" | "revenue-admin" | "back-office" | "nursing";
+type TrackId = "community-health" | "clinical-operations" | "behavioral-health" | "revenue-admin" | "back-office" | "nursing" | "compliance-operations";
 
 const ROLE_TO_TRACK: Record<string, TrackId> = {
   chw: "community-health",
@@ -85,6 +87,8 @@ const ROLE_TO_TRACK: Record<string, TrackId> = {
   accountant: "back-office",
   payroll_specialist: "back-office",
   finance_manager: "back-office",
+  compliance_analyst: "compliance-operations",
+  compliance_officer: "compliance-operations",
 };
 
 /* ------------------------------------------------------------------ */

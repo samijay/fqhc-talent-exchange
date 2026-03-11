@@ -83,6 +83,9 @@ export const SALARY_BENCHMARKS: SalaryBenchmark[] = [
   { roleId: "program_manager", label: "Program Manager", esLabel: "Gerente de Programa", p25: 65000, p50: 80000, p75: 95000 },
   { roleId: "medical_director", label: "Medical Director", esLabel: "Director/a Médico/a", p25: 250000, p50: 339000, p75: 390000 },
   { roleId: "director", label: "Director", esLabel: "Director/a", p25: 100000, p50: 135000, p75: 170000 },
+  // Compliance & Risk Operations
+  { roleId: "compliance_analyst", label: "Compliance Analyst", esLabel: "Analista de Cumplimiento", p25: 48000, p50: 62000, p75: 75000 },
+  { roleId: "compliance_officer", label: "Chief Compliance Officer", esLabel: "Director(a) de Cumplimiento", p25: 95000, p50: 125000, p75: 155000 },
 ];
 
 /* ------------------------------------------------------------------ */

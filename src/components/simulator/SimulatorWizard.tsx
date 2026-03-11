@@ -297,6 +297,17 @@ export function SimulatorWizard({ onComplete, onSkip, locale }: SimulatorWizardP
 
   const handleComplete = () => {
     onComplete({ orgName, size, region, services, priority });
+
+    // Track simulator setup completion
+    try {
+      const { trackEvent } = require("@/lib/track");
+      trackEvent({
+        event_type: "simulator_run" as const,
+        tool_name: "simulator-wizard",
+        metadata: { size, region, services, priority },
+        locale: locale as "en" | "es",
+      });
+    } catch { /* tracking should never break the experience */ }
   };
 
   return (
