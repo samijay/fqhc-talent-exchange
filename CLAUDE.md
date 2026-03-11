@@ -1,7 +1,17 @@
 # Memory
 
 ## Me
-Founder of FQHC Talent Exchange — a job marketplace connecting community health professionals with Federally Qualified Health Centers in California.
+Founder of FQHC Talent Exchange — a collaborative intelligence platform giving FQHC talent and organizations an edge through shared best practices, training resources, and strategic data.
+
+## Voice & Tone
+**See `VOICE.md` for the full brand voice guide.** Key principles:
+- Sound like a trusted colleague with good data, not a consultant or salesperson
+- Warm, collaborative, empowering, honest, community-rooted
+- Frame challenges as solvable — lead with what's working
+- Respect that many users think in Spanish first
+- Every number represents a real person — acknowledge the human cost
+- Use "community health" over "safety net" (more dignifying)
+- **The test:** Would a tired CHW feel respected? Would an FQHC CEO find it useful? Would a bilingual MA feel seen? Does it make someone feel more capable?
 
 ## Terms
 | Term | Meaning |

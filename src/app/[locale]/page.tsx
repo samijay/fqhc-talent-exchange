@@ -488,6 +488,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ==================== NEWSLETTER CTA STRIP ==================== */}
+      <div className="border-b border-teal-200 bg-gradient-to-r from-teal-50 via-white to-teal-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            {/* Value prop */}
+            <div className="flex-1 text-center sm:text-left">
+              <p className="text-base font-bold text-stone-900">
+                {isEs
+                  ? "Únete a los líderes FQHC que leen esto cada lunes"
+                  : "Join the FQHC leaders who read this every Monday"}
+              </p>
+              <p className="text-sm text-stone-500 mt-0.5">
+                {isEs
+                  ? "Legislación, financiamiento, IA, despidos — con fuentes primarias. Gratis."
+                  : "Legislation, funding, AI, layoffs — backed by primary sources. Free."}
+              </p>
+            </div>
+            {/* Inline signup form */}
+            <NewsletterSignup
+              variant="inline"
+              defaultAudience="both"
+              showAudienceToggle={false}
+              heading={{ en: "", es: "" }}
+              subheading={{ en: "", es: "" }}
+              className="w-full sm:w-auto sm:min-w-[360px]"
+            />
+          </div>
+        </div>
+      </div>
+
       {/* ==================== TRENDING TICKER ==================== */}
       <div className="border-b border-stone-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center gap-3 py-2.5">

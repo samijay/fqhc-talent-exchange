@@ -122,13 +122,13 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/blog` },
   },
   directory: {
-    title: "California FQHC Directory | Find Community Health Centers",
+    title: "Every FQHC in California — 220 Health Centers with Ratings, Salaries & Programs",
     description:
-      "Browse 214+ Federally Qualified Health Centers across California. Search by region, EHR system, programs, and resilience scores. Find FQHCs in Los Angeles, San Diego, Bay Area, Sacramento, Central Valley, and more.",
+      "The most complete directory of California's 220 FQHCs — Glassdoor ratings, salary ranges, EHR systems, programs, resilience grades, and strategic reports. Search by region, filter by program, compare side-by-side.",
     openGraph: {
-      title: "California FQHC Directory — FQHC Talent",
+      title: "California FQHC Directory — 220 Health Centers with Ratings & Salaries",
       description:
-        "Searchable directory of 214+ FQHCs across California with resilience scores, programs, EHR systems, and strategic reports.",
+        "The most complete directory of California FQHCs — Glassdoor ratings, salary ranges, resilience scores, programs, and strategic reports.",
       url: `${SITE_URL}/directory`,
     },
     alternates: { canonical: `${SITE_URL}/directory` },
@@ -351,9 +351,9 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/strategy/knowledge-map` },
   },
   aiTracker: {
-    title: "FQHC AI Tracker 2026: 22 Adoption Events, 8 Vendors & EHR Compatibility Matrix",
+    title: "Which AI Tools Are FQHCs Actually Using? 22 Real Deployments Tracked (2026)",
     description:
-      "Live tracker: 22 AI adoption events across FQHCs — ambient scribes, RCM automation, scheduling AI. Compare 8 vendors by EHR compatibility (Epic, NextGen, eClinicalWorks). CHAI-NACHC governance framework. Updated weekly.",
+      "Real FQHC AI adoption data — not hype. 22 verified deployments across community health centers: ambient scribes, RCM automation, scheduling AI. Compare 8 vendors by EHR compatibility. See what's working and what's not.",
     openGraph: {
       title: "FQHC AI Tracker 2026 — FQHC Talent",
       description:
@@ -568,9 +568,9 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/fast-track` },
   },
   layoffs: {
-    title: "FQHC Layoff Tracker | California Community Health Center Job Cuts 2025-2026",
+    title: "3,477+ Community Health Workers Laid Off in California — FQHC Layoff Tracker (2026)",
     description:
-      "Track workforce reductions at California FQHCs — WARN Act filings, layoff counts, affected roles, and severance details. 3,477+ workers affected across 20+ organizations. Updated from CA EDD WARN reports.",
+      "Every FQHC layoff in California, tracked. WARN Act filings, affected roles, severance details across 20+ organizations. Updated weekly from CA EDD WARN reports. See which regions and roles are hit hardest.",
     openGraph: {
       title: "FQHC Layoff Tracker — FQHC Talent",
       description:

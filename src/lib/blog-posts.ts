@@ -133,13 +133,13 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "february-2026-jobs-report-healthcare-crisis",
     title:
-      "February 2026 Healthcare Jobs Report: BLS Data Shows 121% of U.S. Job Growth — Then $911B in Cuts",
+      "Healthcare Created 121% of U.S. Job Growth in February — Then Congress Cut $911B from Medicaid",
     esTitle:
-      "Informe de Empleos de Salud Febrero 2026: Datos del BLS Muestran 121% del Crecimiento Laboral — Luego $911B en Recortes",
+      "Salud Creó el 121% del Crecimiento Laboral en Febrero — Luego el Congreso Recortó $911B de Medicaid",
     description:
-      "February 2026 BLS data analysis: healthcare created 121% of all U.S. job growth while every other sector was flat. Then Congress passed $911B in Medicaid cuts. Economic indicators, Kaiser strike impact, and what it means for FQHCs.",
+      "Healthcare was the only sector growing in February 2026 — then Congress passed the largest Medicaid cuts in history. What this means for FQHC jobs, Kaiser strike fallout, and where community health centers are still hiring.",
     esDescription:
-      "Análisis de datos BLS febrero 2026: salud creó 121% del crecimiento laboral de EE.UU. mientras otros sectores estaban planos. Luego el Congreso aprobó $911B en recortes de Medicaid. Indicadores económicos, impacto de huelga Kaiser y lo que significa para FQHCs.",
+      "Salud fue el único sector creciendo en febrero 2026 — luego el Congreso aprobó los mayores recortes de Medicaid en la historia. Qué significa para empleos FQHC, impacto de la huelga Kaiser y dónde siguen contratando los centros de salud.",
     date: "March 6, 2026",
     esDate: "6 de marzo de 2026",
     isoDate: "2026-03-06",
@@ -150,13 +150,13 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "healthcare-hiring-trends-2026",
-    title: "Healthcare Hiring Trends 2026: 82,000 Jobs Added in January — BLS Data & FQHC Growth Analysis",
+    title: "82,000 Healthcare Jobs Added in January 2026 — Which FQHC Roles Are Growing Fastest?",
     esTitle:
-      "Tendencias de Contratación en Salud 2026: 82,000 Empleos en Enero — Datos BLS y Análisis de Crecimiento FQHC",
+      "82,000 Empleos de Salud en Enero 2026 — ¿Qué Roles FQHC Crecen Más Rápido?",
     description:
-      "Healthcare added 82,000 jobs in January 2026 — 63% of all U.S. job growth. BLS data breakdown, HRSA workforce projections, California FQHC hiring surge data, and which community health roles are growing fastest.",
+      "Healthcare created 63% of all U.S. job growth in January 2026. See which California FQHC roles are surging, BLS data breakdown, HRSA projections, and where community health centers are hiring now.",
     esDescription:
-      "Salud añadió 82,000 empleos en enero 2026 — 63% del crecimiento laboral de EE.UU. Desglose de datos BLS, proyecciones HRSA, datos de contratación en FQHCs de California y qué roles de salud comunitaria crecen más rápido.",
+      "Salud creó el 63% del crecimiento laboral de EE.UU. en enero 2026. Descubre qué roles FQHC en California están en auge, datos BLS, proyecciones HRSA y dónde están contratando los centros de salud comunitaria.",
     date: "February 16, 2026",
     esDate: "16 de febrero de 2026",
     isoDate: "2026-02-16",

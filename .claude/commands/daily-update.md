@@ -299,11 +299,74 @@ For each significant regional finding, create an IntelItem with:
 
 ### Skip if:
 
-- Story is already captured in today's Step 3–3.7 (statewide searches may catch regional stories first)
+- Story is already captured in today's Step 3–3.9 (statewide searches may catch regional stories first)
 - Story is older than 14 days and not critical/high impact
 - Story is about a hospital/system with no connection to FQHC workforce pipeline
 
 **Only pause for review if critical regional findings discovered.**
+
+---
+
+## Step 3.9: Compliance & Enforcement Scan
+
+Run 5 compliance-focused web searches:
+
+**Search 1 — HRSA Enforcement:**
+`HRSA FQHC "operational site visit" OR "conditions of award" OR "progressive action" enforcement [current month] [year]`
+
+**Search 2 — HIPAA Breaches:**
+`OCR HIPAA breach settlement "community health center" OR FQHC [current month] [year]`
+
+**Search 3 — OIG / False Claims:**
+`OIG "false claims act" OR "civil monetary penalty" FQHC OR "health center" billing fraud [current month] [year]`
+
+**Search 4 — DHCS Audits:**
+`DHCS California FQHC audit OR "billing compliance" OR "Medi-Cal fraud" [current month] [year]`
+
+**Search 5 — 340B Violations:**
+`340B HRSA audit OR "contract pharmacy" violation OR "manufacturer restriction" FQHC [current month] [year]`
+
+### Sources to Prioritize
+
+- HHS Office for Civil Rights (hhs.gov/ocr) — HIPAA breach portal + settlements
+- OIG (oig.hhs.gov) — enforcement actions, work plans, compliance guidance
+- HRSA (bphc.hrsa.gov) — compliance manual updates, SAC conditions
+- DHCS (dhcs.ca.gov) — Medi-Cal provider bulletins, audit findings
+- CMS (cms.gov) — billing compliance, PPS guidance updates
+- 340B Health (340bhealth.org) — program compliance news
+- Fierce Healthcare, Modern Healthcare — industry enforcement reporting
+
+### What to Capture
+
+For compliance findings, create an IntelItem with:
+- **`category`**: `"compliance"` (maps to ShieldAlert icon, indigo color)
+- **`tags`**: Include relevant compliance domain tag(s): `"hrsa-audits"`, `"hipaa-privacy"`, `"billing-fraud"`, `"340b-compliance"`, `"workforce-compliance"`
+- **`impact`**: Use `"critical"` for enforcement actions with penalties >$100K or multi-FQHC impact; `"high"` for individual settlements, new audit campaigns, or significant rule changes; `"medium"` for guidance updates, compliance resources, or educational enforcement actions
+
+### Decision Rules for Compliance News:
+
+- **Update `fqhc-compliance.ts`** if: new enforcement action creates a new risk item, HRSA updates OSV requirements, new compliance deadline announced, significant penalty sets new precedent
+- **Update `COMPLIANCE_CALENDAR`** if: new filing deadline, audit cycle change, regulatory effective date announced
+- **Add IntelItem only** if: general compliance news, settlement without new requirements, industry trend reporting
+- **Skip if**: story is about non-FQHC healthcare providers, story is >30 days old, or finding already captured in Steps 3–3.8
+
+### Output Format
+
+```typescript
+{
+  id: "oig-fqhc-billing-settlement-[month]-2026",
+  category: "compliance",
+  impact: "high",
+  date: "YYYY-MM-DD",
+  headline: { en: "...", es: "..." },
+  summary: { en: "...", es: "..." },
+  sourceUrl: "https://oig.hhs.gov/...",  // MUST be primary source
+  sourceOrg: "HHS Office of Inspector General",
+  tags: ["billing-fraud", "false-claims-act"]
+}
+```
+
+**Only pause for review if critical enforcement action discovered affecting CA FQHCs.**
 
 ---
 
@@ -361,6 +424,7 @@ Jobs: AltaMed [n], FHCSD [n], AHS [n], La Clinica [n] (total [n], prev [n])
 Policy: [# significant findings] — [one-line summary of each]
 Intel: [# new IntelItems added to fqhc-news-intel.ts] (total [n] items)
 Regional: [region1] + [region2] — [# findings] ([# new IntelItems])
+Compliance: [# enforcement actions found] — [one-line summary] (or "No new enforcement actions")
 Link QC: [# new links verified] / [# broken fixed] / [# spot-checked]
 Blog: [Skipped] or [Drafted: "Title"]
 Build: [PASS/FAIL]
