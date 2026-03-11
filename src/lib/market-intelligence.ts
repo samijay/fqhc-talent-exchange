@@ -47,6 +47,8 @@ export interface FundingCliff {
   peopleAffected: string | null;
   category: "federal" | "state" | "local";
   isPast: boolean;
+  sourceUrl: string;
+  sourceTitle: string;
 }
 
 export interface SalaryIntelligence {
@@ -334,6 +336,8 @@ export function getFundingCliffs(): FundingCliff[] {
         peopleAffected: p.peopleAffected,
         category: p.category,
         isPast: p.date < today,
+        sourceUrl: p.source,
+        sourceTitle: p.sourceTitle,
       };
     })
     .sort((a, b) => a.date.localeCompare(b.date));

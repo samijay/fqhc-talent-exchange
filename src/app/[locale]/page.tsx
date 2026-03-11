@@ -62,6 +62,55 @@ import { calculateResilienceScore } from "@/lib/fqhc-resilience";
 import { BLOG_POSTS, type BlogPost } from "@/lib/blog-posts";
 import { fqhcJobListings } from "@/lib/fqhc-job-listings";
 
+/* ---------- Policy deep-dive mapping: cliff/deadline IDs → internal pages ---------- */
+const POLICY_DEEP_DIVES: Record<string, { href: string; label: { en: string; es: string } }[]> = {
+  "hr1-signed": [
+    { href: "/funding-impact", label: { en: "Full Impact Analysis", es: "Análisis de Impacto Completo" } },
+    { href: "/blog/fqhc-copay-advantage-patient-surge", label: { en: "Copay Exemption Strategy", es: "Estrategia de Exención de Copagos" } },
+    { href: "/strategy/masterclass", label: { en: "Financial Survival Masterclass", es: "Masterclass de Supervivencia Financiera" } },
+  ],
+  "ca-enrollment-freeze": [
+    { href: "/funding-impact", label: { en: "Enrollment Impact Tracker", es: "Rastreador de Impacto en Inscripción" } },
+    { href: "/strategy/cultural-humility", label: { en: "Cultural Humility & Access", es: "Humildad Cultural y Acceso" } },
+  ],
+  "dental-elimination": [
+    { href: "/funding-impact", label: { en: "Revenue Impact Model", es: "Modelo de Impacto en Ingresos" } },
+    { href: "/strategy/clinic-simulator", label: { en: "Simulate Revenue Loss", es: "Simular Pérdida de Ingresos" } },
+  ],
+  "pps-elimination": [
+    { href: "/strategy/clinic-simulator", label: { en: "Model PPS → Fee Schedule Impact", es: "Modelar Impacto PPS → Tarifa" } },
+    { href: "/guides", label: { en: "FQHC Revenue 101 Guide", es: "Guía de Ingresos FQHC 101" } },
+    { href: "/strategy/okrs", label: { en: "Revenue Recovery OKRs", es: "OKRs de Recuperación de Ingresos" } },
+  ],
+  "hr1-community-engagement": [
+    { href: "/funding-impact", label: { en: "Work Requirements Analysis", es: "Análisis de Requisitos Laborales" } },
+  ],
+  "hr1-undocumented-fmap": [
+    { href: "/funding-impact", label: { en: "FMAP Reduction Details", es: "Detalles de Reducción FMAP" } },
+  ],
+  "calaim-waiver-expiry": [
+    { href: "/guides", label: { en: "CalAIM & ECM Workflow Guides", es: "Guías de Flujo CalAIM y ECM" } },
+    { href: "/strategy/okrs", label: { en: "ECM Program OKR Templates", es: "Plantillas OKR para Programas ECM" } },
+    { href: "/strategy/masterclass", label: { en: "Revenue Recovery Masterclass", es: "Masterclass de Recuperación de Ingresos" } },
+  ],
+  "premiums-undocumented": [
+    { href: "/funding-impact", label: { en: "Premium Impact Projections", es: "Proyecciones de Impacto de Primas" } },
+  ],
+};
+
+/* Region name → slug mapping for /intelligence/[region] links */
+const REGION_TO_SLUG: Record<string, string> = {
+  "Los Angeles": "los-angeles",
+  "San Diego": "san-diego",
+  "Bay Area": "bay-area",
+  Sacramento: "sacramento",
+  "Central Valley": "central-valley",
+  "Inland Empire": "inland-empire",
+  "Central Coast": "central-coast",
+  "North State": "north-state",
+  "North Coast": "north-coast",
+};
+
 /* ---------- Module-level data (computed once) ---------- */
 const overview = getMarketOverview();
 
@@ -473,7 +522,7 @@ export default function Home() {
               {isEs ? "Crecimiento" : "Growth"}
             </span>
             <Link
-              href="/insights"
+              href="/strategy/case-studies"
               className="text-sm font-medium text-stone-700 hover:text-teal-700 transition-colors truncate"
             >
               {isEs
@@ -649,41 +698,89 @@ export default function Home() {
                             : cliff.daysUntil < 180
                               ? "border-amber-200 bg-amber-50/50"
                               : "border-stone-200 bg-white";
+                        const isOpen = expandedCliff === cliff.id;
+                        const deepDives = POLICY_DEEP_DIVES[cliff.id] || [];
 
                         return (
                           <div
                             key={cliff.id}
-                            className={`rounded-lg border ${urgencyBg} px-3 py-2.5`}
+                            className={`rounded-lg border ${urgencyBg}`}
                           >
-                            <div className="flex items-start gap-2">
-                              <span
-                                className={`text-sm font-bold tabular-nums ${countColor} w-10 shrink-0 mt-0.5`}
-                              >
-                                {cliff.daysUntil}d
-                              </span>
-                              <div className="flex-1 min-w-0">
-                                <h4 className="font-semibold text-stone-800 text-xs leading-snug">
-                                  {t(cliff.title, locale)}
-                                </h4>
-                                {(cliff.dollarAmount || cliff.peopleAffected) && (
-                                  <div className="mt-1 flex flex-wrap gap-2 text-[10px]">
-                                    {cliff.dollarAmount && (
-                                      <span className="text-stone-600">
-                                        {cliff.dollarAmount}
-                                      </span>
-                                    )}
-                                    {cliff.peopleAffected && (
-                                      <span className="text-red-600">
-                                        {cliff.peopleAffected}
-                                      </span>
-                                    )}
-                                    <span className="text-stone-400">
-                                      {cliff.category}
-                                    </span>
+                            <button
+                              onClick={() =>
+                                setExpandedCliff(isOpen ? null : cliff.id)
+                              }
+                              className="w-full px-3 py-2.5 text-left"
+                            >
+                              <div className="flex items-start gap-2">
+                                <span
+                                  className={`text-sm font-bold tabular-nums ${countColor} w-10 shrink-0 mt-0.5`}
+                                >
+                                  {cliff.daysUntil}d
+                                </span>
+                                <div className="flex-1 min-w-0">
+                                  <h4 className="font-semibold text-stone-800 text-xs leading-snug">
+                                    {t(cliff.title, locale)}
+                                  </h4>
+                                  {(cliff.dollarAmount || cliff.peopleAffected) && (
+                                    <div className="mt-1 flex flex-wrap gap-2 text-[10px]">
+                                      {cliff.dollarAmount && (
+                                        <span className="text-stone-600">
+                                          {cliff.dollarAmount}
+                                        </span>
+                                      )}
+                                      {cliff.peopleAffected && (
+                                        <span className="text-red-600">
+                                          {cliff.peopleAffected}
+                                        </span>
+                                      )}
+                                      <Badge
+                                        variant="outline"
+                                        className="text-[9px] border-stone-300 text-stone-500"
+                                      >
+                                        {cliff.category}
+                                      </Badge>
+                                    </div>
+                                  )}
+                                </div>
+                                <ChevronDown
+                                  className={`h-3 w-3 text-stone-400 shrink-0 mt-1 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                                />
+                              </div>
+                            </button>
+                            {isOpen && (
+                              <div className="px-3 pb-2.5 pt-0.5 border-t border-stone-200/50 space-y-1.5">
+                                <div className="flex items-center gap-2 text-[10px]">
+                                  <Calendar className="size-3 text-stone-400 shrink-0" />
+                                  <span className="text-stone-500">
+                                    {formatDate(cliff.date, locale)}
+                                  </span>
+                                </div>
+                                <a
+                                  href={cliff.sourceUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-[10px] text-teal-700 hover:underline inline-flex items-center gap-1"
+                                >
+                                  <ExternalLink className="size-2.5 shrink-0" />
+                                  {cliff.sourceTitle} →
+                                </a>
+                                {deepDives.length > 0 && (
+                                  <div className="flex flex-wrap gap-1 pt-1">
+                                    {deepDives.map((dd) => (
+                                      <Link
+                                        key={dd.href}
+                                        href={dd.href as "/funding-impact"}
+                                        className="inline-flex items-center gap-1 rounded-full bg-teal-50 border border-teal-200 px-2 py-0.5 text-[10px] font-medium text-teal-700 hover:bg-teal-100 transition-colors"
+                                      >
+                                        <ArrowRight className="size-2.5" />
+                                        {t(dd.label, locale)}
+                                      </Link>
+                                    ))}
                                   </div>
                                 )}
                               </div>
-                            </div>
+                            )}
                           </div>
                         );
                       })}
@@ -739,18 +836,38 @@ export default function Home() {
                             </h4>
                           </button>
                           {isOpen && (
-                            <div className="px-3 pb-2.5 pt-0.5 border-t border-stone-200/50">
-                              <p className="mt-1 text-[11px] text-stone-500 leading-relaxed">
+                            <div className="px-3 pb-2.5 pt-0.5 border-t border-stone-200/50 space-y-1.5">
+                              <p className="text-[11px] text-stone-500 leading-relaxed">
                                 {t(item.summary, locale)}
                               </p>
                               <a
                                 href={item.sourceUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="mt-1 text-[10px] text-teal-700 hover:underline inline-block"
+                                className="text-[10px] text-teal-700 hover:underline inline-flex items-center gap-1"
                               >
+                                <ExternalLink className="size-2.5 shrink-0" />
                                 {item.sourceOrg} →
                               </a>
+                              {/* Deep-dive links if this deadline maps to internal content */}
+                              {item.tags && item.tags.some(tag => ["hr-1", "calaim", "pps", "undocumented"].includes(tag)) && (
+                                <div className="flex flex-wrap gap-1 pt-0.5">
+                                  <Link
+                                    href="/funding-impact"
+                                    className="inline-flex items-center gap-1 rounded-full bg-teal-50 border border-teal-200 px-2 py-0.5 text-[10px] font-medium text-teal-700 hover:bg-teal-100 transition-colors"
+                                  >
+                                    <ArrowRight className="size-2.5" />
+                                    {isEs ? "Análisis Completo" : "Full Analysis"}
+                                  </Link>
+                                  <Link
+                                    href="/strategy/clinic-simulator"
+                                    className="inline-flex items-center gap-1 rounded-full bg-teal-50 border border-teal-200 px-2 py-0.5 text-[10px] font-medium text-teal-700 hover:bg-teal-100 transition-colors"
+                                  >
+                                    <ArrowRight className="size-2.5" />
+                                    {isEs ? "Simular Impacto" : "Simulate Impact"}
+                                  </Link>
+                                </div>
+                              )}
                             </div>
                           )}
                         </div>
@@ -758,13 +875,23 @@ export default function Home() {
                     })}
                   </div>
 
-                  <Link
-                    href="/funding-impact"
-                    className="mt-4 text-sm text-teal-700 hover:text-teal-900 font-medium inline-flex items-center gap-1"
-                  >
-                    {isEs ? "Rastreador Completo" : "Full Impact Tracker"}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <Link
+                      href="/funding-impact"
+                      className="text-sm text-teal-700 hover:text-teal-900 font-medium inline-flex items-center gap-1"
+                    >
+                      {isEs ? "Rastreador Completo" : "Full Impact Tracker"}
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                    <span className="text-stone-300">·</span>
+                    <Link
+                      href="/strategy/masterclass"
+                      className="text-sm text-stone-500 hover:text-teal-700 font-medium inline-flex items-center gap-1"
+                    >
+                      {isEs ? "Masterclass" : "Masterclass"}
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
                 </div>
 
                 {/* Strategic Insights — Condensed & Expandable */}
@@ -954,6 +1081,54 @@ export default function Home() {
                 </Button>
               </div>
             )}
+
+            {/* Strategic cross-links */}
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <Link
+                href="/strategy/guides"
+                className="rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all group"
+              >
+                <div className="text-xs font-semibold text-stone-800 group-hover:text-teal-700">
+                  {isEs ? "Guías Ejecutivas" : "Executive Guides"}
+                </div>
+                <div className="text-[10px] text-stone-500 mt-0.5">
+                  {isEs ? "6 casos de estudio con marco Rumelt" : "6 case studies with Rumelt framework"}
+                </div>
+              </Link>
+              <Link
+                href="/ai-tracker"
+                className="rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all group"
+              >
+                <div className="text-xs font-semibold text-stone-800 group-hover:text-teal-700">
+                  {isEs ? "Rastreador de IA" : "AI Tracker"}
+                </div>
+                <div className="text-[10px] text-stone-500 mt-0.5">
+                  {isEs ? "8 proveedores, matriz de compatibilidad EHR" : "8 vendors, EHR compatibility matrix"}
+                </div>
+              </Link>
+              <Link
+                href="/strategy/scope-of-practice"
+                className="rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all group"
+              >
+                <div className="text-xs font-semibold text-stone-800 group-hover:text-teal-700">
+                  {isEs ? "Alcance de Práctica" : "Scope of Practice"}
+                </div>
+                <div className="text-[10px] text-stone-500 mt-0.5">
+                  {isEs ? "10 roles CA, matriz de delegación" : "10 CA roles, delegation matrix"}
+                </div>
+              </Link>
+              <Link
+                href="/strategy/resilience"
+                className="rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all group"
+              >
+                <div className="text-xs font-semibold text-stone-800 group-hover:text-teal-700">
+                  {isEs ? "Scorecard de Resiliencia" : "Resilience Scorecard"}
+                </div>
+                <div className="text-[10px] text-stone-500 mt-0.5">
+                  {isEs ? "214 FQHCs evaluados en 5 dimensiones" : "214 FQHCs scored across 5 dimensions"}
+                </div>
+              </Link>
+            </div>
           </div>
         </section>
       )}
@@ -1065,6 +1240,15 @@ export default function Home() {
                                 </span>
                               ))}
                             </div>
+                          )}
+                          {REGION_TO_SLUG[region.region] && (
+                            <Link
+                              href={`/intelligence/${REGION_TO_SLUG[region.region]}` as "/intelligence/los-angeles"}
+                              className="mt-2 text-xs font-medium text-teal-700 hover:text-teal-900 inline-flex items-center gap-1"
+                            >
+                              {isEs ? "Inteligencia Regional Completa" : "Full Regional Intelligence"}
+                              <ArrowRight className="size-3" />
+                            </Link>
                           )}
                         </div>
                       </div>
@@ -1183,9 +1367,18 @@ export default function Home() {
 
               {/* Key salary stats */}
               <div className="rounded-xl border border-stone-200 bg-white p-4">
-                <h3 className="font-semibold text-stone-800 mb-3">
-                  {isEs ? "Resumen Salarial" : "Salary Summary"}
-                </h3>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="font-semibold text-stone-800">
+                    {isEs ? "Resumen Salarial" : "Salary Summary"}
+                  </h3>
+                  <Link
+                    href="/salary-data"
+                    className="text-xs font-medium text-teal-700 hover:text-teal-900 inline-flex items-center gap-1"
+                  >
+                    {isEs ? "30 Roles × 9 Regiones" : "30 Roles × 9 Regions"}
+                    <ArrowRight className="size-3" />
+                  </Link>
+                </div>
                 <div className="grid gap-3 sm:grid-cols-3">
                   <div className="text-center p-3 bg-stone-50 rounded-lg">
                     <div className="text-xs text-stone-500 uppercase">

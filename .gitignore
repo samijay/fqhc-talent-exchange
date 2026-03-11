@@ -56,6 +56,9 @@ next-env.d.ts
 .feedback/
 feedback/
 
+# internal marketing content (editorial calendar, LinkedIn guides, draft articles)
+marketing/
+
 # local reference resources (books, spreadsheets, audio — not source code)
 # ignore all subdirectories + binary files inside resources/, keep .md files
 resources/*/
