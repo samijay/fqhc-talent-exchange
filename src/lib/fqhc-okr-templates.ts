@@ -5,7 +5,7 @@
 // Last updated: 2026-02-28
 
 /** Exported for display on pages — updated when new OKR templates are added */
-export const OKR_TEMPLATES_LAST_UPDATED = "2026-03-07"; // 25 templates (+ company-wide)
+export const OKR_TEMPLATES_LAST_UPDATED = "2026-03-10"; // 31 templates (+ company-wide) — added 6 compliance-readiness
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -16,7 +16,8 @@ export type OKRDomain =
   | "workforce-retention"
   | "patient-access"
   | "operational-efficiency"
-  | "cross-department";
+  | "cross-department"
+  | "compliance-readiness";
 
 export interface KeyResult {
   kr: { en: string; es: string };
@@ -92,6 +93,15 @@ export const OKR_DOMAINS: {
     description: {
       en: "Break down silos between clinical, finance, operations, and community outreach",
       es: "Romper silos entre clinica, finanzas, operaciones y alcance comunitario",
+    },
+  },
+  {
+    id: "compliance-readiness",
+    en: "Compliance & Risk Mitigation",
+    es: "Cumplimiento y Mitigacion de Riesgos",
+    description: {
+      en: "Strengthen audit readiness, reduce HIPAA/billing risks, and achieve regulatory benchmarks",
+      es: "Fortalecer preparacion para auditorias, reducir riesgos HIPAA/facturacion y lograr puntos de referencia regulatorios",
     },
   },
 ];
@@ -1507,6 +1517,134 @@ export const OKR_TEMPLATES: OKRTemplate[] = [
     timeframe: "quarterly",
     difficulty: "starter",
     tags: ["chw", "community-health-worker", "billing-codes", "medi-cal", "workforce"],
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  Compliance & Risk Mitigation OKRs (added 2026-03-10)               */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "osv-readiness-2026",
+    domain: "compliance-readiness",
+    objective: {
+      en: "Achieve 100% HRSA OSV Readiness Across All 19 Program Requirements",
+      es: "Lograr 100% de Preparacion para OSV de HRSA en los 19 Requisitos de Programa",
+    },
+    keyResults: [
+      { kr: { en: "Complete governance documentation: board policies, bylaws, conflict-of-interest disclosures, and CEO evaluation (42 CFR 330.304)", es: "Completar documentacion de gobernanza: politicas de junta, estatutos, divulgaciones de conflicto de intereses y evaluacion de CEO" }, metric: "Governance requirements met", target: "5/5 governance requirements documented", departmentsInvolved: ["Executive", "Board of Directors", "Compliance"] },
+      { kr: { en: "Conduct clinical chart audits across 500+ patient records for quality, credentialing, and care coordination compliance", es: "Realizar auditorias clinicas en 500+ registros de pacientes para calidad, credenciales y cumplimiento de coordinacion" }, metric: "Chart audit pass rate", target: "98%+ passing rate", departmentsInvolved: ["Clinical", "Quality", "Medical Directors"] },
+      { kr: { en: "Reconcile PPS cost methodology and document sliding fee schedule compliance (100% FPL = free care)", es: "Conciliar metodologia de costos PPS y documentar cumplimiento de tarifa escalonada (100% FPL = atencion gratuita)" }, metric: "Financial compliance score", target: "<2% variance from HRSA model", departmentsInvolved: ["Finance", "Revenue Cycle", "Patient Services"] },
+    ],
+    context: {
+      en: "HRSA has increased OSV frequency by 30% in FY2026. FQHCs with incomplete governance documentation or sliding fee non-compliance face progressive compliance actions including conditions of award and scope reductions. Your next OSV could be within 12-36 months.",
+      es: "HRSA aumento la frecuencia de OSV en 30% en AF2026. Los FQHCs con documentacion de gobernanza incompleta enfrentan acciones de cumplimiento progresivas incluyendo condiciones de otorgamiento y reducciones de alcance.",
+    },
+    relatedIntelIds: ["hrsa-osv-enforcement-trend-fy2026"],
+    timeframe: "annual",
+    difficulty: "advanced",
+    tags: ["hrsa", "osv", "audit", "governance", "compliance", "chart-audit"],
+  },
+  {
+    id: "hipaa-maturity-program",
+    domain: "compliance-readiness",
+    objective: {
+      en: "Build a HIPAA Privacy and Security Program That Survives an OCR Audit",
+      es: "Construir un Programa de Privacidad y Seguridad HIPAA que Sobreviva una Auditoria OCR",
+    },
+    keyResults: [
+      { kr: { en: "Complete annual risk assessment covering all 21 HIPAA safeguards (45 CFR 164.308)", es: "Completar evaluacion de riesgos anual cubriendo las 21 salvaguardas HIPAA" }, metric: "Risk assessment completeness", target: "100% of safeguards assessed", departmentsInvolved: ["Compliance", "IT", "Privacy Officer"] },
+      { kr: { en: "Achieve 100% workforce HIPAA training completion (annual + role-specific modules)", es: "Lograr 100% de completitud de capacitacion HIPAA del personal" }, metric: "Training completion rate", target: "100% within 30 days of hire + annual refresher", departmentsInvolved: ["Compliance", "HR", "All Departments"] },
+      { kr: { en: "Audit and remediate all Business Associate Agreements — ensure every PHI-touching vendor has signed current BAA", es: "Auditar y remediar todos los Acuerdos de Asociados Comerciales — asegurar que cada proveedor que toca PHI tenga BAA firmado" }, metric: "BAA compliance rate", target: "100% of third parties with signed BAAs", departmentsInvolved: ["Legal", "Compliance", "Procurement"] },
+    ],
+    context: {
+      en: "OCR settled a $1.5M HIPAA breach case with a community health network in March 2026 — root cause was unencrypted email without a current BAA. The OCR uses risk assessments and training records as proof of 'reasonable safeguards.' This OKR converts that proof into a maturity model.",
+      es: "OCR resolvio un caso de violacion HIPAA de $1.5M con una red de salud comunitaria en marzo 2026 — causa raiz fue correo sin encriptar sin BAA vigente. Este OKR convierte la prueba en un modelo de madurez.",
+    },
+    relatedIntelIds: ["ocr-hipaa-breach-settlement-march-2026"],
+    timeframe: "quarterly",
+    difficulty: "intermediate",
+    tags: ["hipaa", "privacy", "security", "risk-assessment", "baa", "training"],
+  },
+  {
+    id: "billing-audit-prevention",
+    domain: "compliance-readiness",
+    objective: {
+      en: "Eliminate False Claims Risk Through Documentation Excellence and Internal Billing Audits",
+      es: "Eliminar Riesgo de Reclamaciones Falsas Mediante Excelencia en Documentacion y Auditorias Internas de Facturacion",
+    },
+    keyResults: [
+      { kr: { en: "Implement monthly internal billing audits: 50+ claims reviewed, <3% error rate on PPS encounter coding", es: "Implementar auditorias internas mensuales de facturacion: 50+ reclamaciones revisadas, <3% tasa de error" }, metric: "Monthly billing error rate", target: "<3% coding error rate", departmentsInvolved: ["Revenue Cycle", "Compliance", "Medical Records"] },
+      { kr: { en: "Train 100% of providers on same-day billing rules, visit documentation standards, and ECM/CCM coding requirements", es: "Capacitar 100% de proveedores en reglas de facturacion del mismo dia y estandares de documentacion" }, metric: "Provider training completion", target: "100% of billing providers trained", departmentsInvolved: ["Clinical", "Revenue Cycle", "Compliance"] },
+      { kr: { en: "Conduct pre-audit review of 24 months of billing data to identify and correct patterns before DHCS review", es: "Realizar revision pre-auditoria de 24 meses de datos de facturacion para identificar y corregir patrones" }, metric: "Pre-audit score", target: "95%+ compliance on self-audit", departmentsInvolved: ["Finance", "Revenue Cycle", "External Auditor"] },
+    ],
+    context: {
+      en: "OIG recovered $4.7B in healthcare fraud in FY2025 with community health centers under increasing scrutiny. California DHCS launched a targeted billing review for 50 FQHCs in 2026. Same-day billing errors and ECM documentation gaps are the top audit triggers.",
+      es: "OIG recupero $4.7B en fraude de salud en AF2025. DHCS de California lanzo una revision de facturacion para 50 FQHCs en 2026. Errores de facturacion del mismo dia y brechas de documentacion ECM son los principales disparadores.",
+    },
+    relatedIntelIds: ["oig-false-claims-fqhc-billing-2026", "dhcs-fqhc-billing-compliance-review-2026"],
+    timeframe: "annual",
+    difficulty: "advanced",
+    tags: ["billing", "false-claims", "oig", "documentation", "pps", "ecm", "audit"],
+  },
+  {
+    id: "340b-compliance-program",
+    domain: "compliance-readiness",
+    objective: {
+      en: "Achieve Full 340B Program Compliance and Audit-Ready Documentation",
+      es: "Lograr Cumplimiento Total del Programa 340B y Documentacion Lista para Auditoria",
+    },
+    keyResults: [
+      { kr: { en: "Implement real-time patient eligibility verification for all 340B transactions (no duplicate discounts)", es: "Implementar verificacion de elegibilidad de pacientes en tiempo real para todas las transacciones 340B" }, metric: "Eligibility verification rate", target: "100% of 340B Rxs verified", departmentsInvolved: ["Pharmacy", "IT", "Compliance"] },
+      { kr: { en: "Audit all contract pharmacy agreements for HRSA compliance — document split-billing methodology and audit trail", es: "Auditar todos los acuerdos de farmacias de contrato para cumplimiento HRSA — documentar metodologia y rastro de auditoria" }, metric: "Contract pharmacy compliance", target: "100% of agreements current", departmentsInvolved: ["Pharmacy", "Legal", "Finance"] },
+      { kr: { en: "Create 340B compliance manual documenting policies, procedures, and responsible staff for every compliance requirement", es: "Crear manual de cumplimiento 340B documentando politicas, procedimientos y personal responsable" }, metric: "Manual completeness", target: "All HRSA OPA requirements covered", departmentsInvolved: ["Pharmacy", "Compliance", "Executive"] },
+    ],
+    context: {
+      en: "HRSA doubled 340B audits in 2026 with 47 entities under review in Q1 alone. Contract pharmacy violations, duplicate discounts, and missing eligibility documentation are the top findings. Non-compliance can result in program repayment and suspension — devastating for FQHCs where 340B savings fund 5-15% of operations.",
+      es: "HRSA duplico auditorias 340B en 2026 con 47 entidades bajo revision solo en Q1. Violaciones de farmacias de contrato y documentacion faltante son los hallazgos principales.",
+    },
+    relatedIntelIds: ["340b-audit-wave-contract-pharmacy-2026"],
+    timeframe: "quarterly",
+    difficulty: "intermediate",
+    tags: ["340b", "pharmacy", "audit", "contract-pharmacy", "eligibility", "compliance"],
+  },
+  {
+    id: "risk-matrix-reduction",
+    domain: "compliance-readiness",
+    objective: {
+      en: "Reduce High and Critical Compliance Risks by 50% Through Systematic Mitigation",
+      es: "Reducir Riesgos de Cumplimiento Altos y Criticos en 50% Mediante Mitigacion Sistematica",
+    },
+    keyResults: [
+      { kr: { en: "Complete risk assessment scoring all compliance risks by likelihood × impact (1-5 each) across HRSA, HIPAA, and billing domains", es: "Completar evaluacion de riesgos puntuando todos los riesgos por probabilidad × impacto en dominios HRSA, HIPAA y facturacion" }, metric: "Risks assessed", target: "100% of identified risks scored", departmentsInvolved: ["Compliance", "Executive", "Quality"] },
+      { kr: { en: "Implement mitigation controls for all critical risks (score 16+) and 80% of high risks (score 12-15)", es: "Implementar controles de mitigacion para todos los riesgos criticos y 80% de los riesgos altos" }, metric: "Mitigation implementation rate", target: "100% critical, 80% high risks mitigated", departmentsInvolved: ["Compliance", "IT", "Clinical", "Finance"] },
+      { kr: { en: "Establish monthly compliance risk review meeting with executive team and quarterly board reporting", es: "Establecer reunion mensual de revision de riesgos con equipo ejecutivo e informes trimestrales a la junta" }, metric: "Review cadence", target: "12 monthly + 4 quarterly reviews completed", departmentsInvolved: ["Executive", "Board", "Compliance"] },
+    ],
+    context: {
+      en: "Most FQHCs operate without a formal compliance risk matrix. The convergence of HRSA enforcement increases, HIPAA breach settlements, and OIG billing scrutiny means unmanaged risks compound. This OKR creates the systematic approach to identify, score, and mitigate risks before they become audit findings.",
+      es: "La mayoria de FQHCs operan sin una matriz formal de riesgos de cumplimiento. La convergencia de aumentos de aplicacion crea riesgos compuestos. Este OKR crea el enfoque sistematico.",
+    },
+    timeframe: "annual",
+    difficulty: "starter",
+    tags: ["risk-matrix", "risk-assessment", "compliance", "mitigation", "governance"],
+  },
+  {
+    id: "compliance-training-program",
+    domain: "compliance-readiness",
+    objective: {
+      en: "Launch Comprehensive Compliance Training Program With 100% Staff Completion",
+      es: "Lanzar Programa Integral de Capacitacion en Cumplimiento con 100% de Completitud del Personal",
+    },
+    keyResults: [
+      { kr: { en: "Develop role-specific compliance training modules: clinical (HIPAA + documentation), billing (PPS + coding), leadership (governance + risk)", es: "Desarrollar modulos de capacitacion por rol: clinico (HIPAA + documentacion), facturacion (PPS + codificacion), liderazgo (gobernanza + riesgo)" }, metric: "Modules developed", target: "3 role-specific tracks created", departmentsInvolved: ["Compliance", "HR", "Training"] },
+      { kr: { en: "Achieve 100% workforce completion of annual compliance training within 60 days of launch", es: "Lograr 100% de completitud de capacitacion anual de cumplimiento dentro de 60 dias" }, metric: "Staff completion rate", target: "100% within 60 days", departmentsInvolved: ["HR", "All Departments"] },
+      { kr: { en: "Track and document all training completions in LMS for audit evidence (HIPAA, OSHA, fraud/abuse, compliance code of conduct)", es: "Rastrear y documentar todas las completitudes de capacitacion en LMS como evidencia de auditoria" }, metric: "Audit-ready documentation", target: "100% of completions logged with dates", departmentsInvolved: ["HR", "Compliance", "IT"] },
+    ],
+    context: {
+      en: "Training documentation is the #1 item auditors check and the #1 gap FQHCs miss. OCR settlements consistently cite 'lack of documented training' as an aggravating factor. This starter OKR ensures every employee has role-appropriate compliance training and that you can prove it during any audit.",
+      es: "La documentacion de capacitacion es el #1 item que los auditores verifican y la #1 brecha que los FQHCs pierden. Este OKR asegura que cada empleado tenga capacitacion apropiada y puedas probarlo.",
+    },
+    timeframe: "quarterly",
+    difficulty: "starter",
+    tags: ["training", "compliance", "hipaa", "workforce", "documentation", "audit-evidence"],
   },
 ];
 

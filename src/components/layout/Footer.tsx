@@ -39,6 +39,14 @@ export default function Footer() {
       { href: "/jobs" as const, label: t("browseJobs") },
       { href: "/directory" as const, label: t("fqhcDirectory") },
     ],
+    [t("compliance")]: [
+      { href: "/compliance" as const, label: t("complianceHub") },
+      { href: "/compliance/hrsa-audits" as const, label: t("hrsaAudits") },
+      { href: "/compliance/hipaa" as const, label: t("hipaa") },
+      { href: "/compliance/billing" as const, label: t("billing") },
+      { href: "/compliance/calendar" as const, label: t("complianceCalendarFooter") },
+      { href: "/compliance/knowledge-base" as const, label: t("knowledgeBase") },
+    ],
     [t("company")]: [
       { href: "/newsletter" as const, label: t("newsletter") },
       { href: "/about" as const, label: t("aboutUs") },

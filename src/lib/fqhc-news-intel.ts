@@ -19,7 +19,8 @@ export type IntelCategory =
   | "funding"
   | "workforce"
   | "undocumented-access"
-  | "change-management";
+  | "change-management"
+  | "compliance";
 
 export type ImpactLevel = "critical" | "high" | "medium" | "low";
 
@@ -60,6 +61,7 @@ export const INTEL_CATEGORIES: {
   { id: "workforce", en: "Workforce", es: "Fuerza Laboral", icon: "Users" },
   { id: "undocumented-access", en: "Undocumented Access", es: "Acceso para Indocumentados", icon: "Shield" },
   { id: "change-management", en: "Strategy & Tactics", es: "Estrategia y Tácticas", icon: "Lightbulb" },
+  { id: "compliance", en: "Risk & Compliance", es: "Riesgo y Cumplimiento", icon: "ShieldAlert" },
 ];
 
 export const IMPACT_STYLES: Record<ImpactLevel, string> = {
@@ -1812,6 +1814,105 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgSlugs: ["family-health-centers-of-san-diego"],
     tags: ["workforce-pipeline", "ma-training", "blue-shield", "scholarship", "positive"],
   },
+
+  /* ------------------------------------------------------------------ */
+  /*  Compliance & Risk items (added 2026-03-10)                         */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "hrsa-osv-enforcement-trend-fy2026",
+    date: "2026-03-05",
+    headline: {
+      en: "HRSA Accelerates Operational Site Visits: 30% More FQHCs Audited in FY2026",
+      es: "HRSA Acelera Visitas Operativas: 30% Más FQHCs Auditados en AF2026",
+    },
+    summary: {
+      en: "HRSA's Bureau of Primary Health Care has increased OSV frequency, with 30% more site visits scheduled in FY2026 compared to FY2025. Focus areas include governance documentation (42 CFR 330.304), sliding fee compliance, and clinical quality reporting. FQHCs with incomplete board policies or missing conflict-of-interest disclosures face progressive compliance actions including conditions of award and potential scope reductions.",
+      es: "La Oficina de Atención Primaria de HRSA ha aumentado la frecuencia de OSV, con 30% más visitas programadas en AF2026 vs AF2025. Áreas de enfoque incluyen documentación de gobernanza (42 CFR 330.304), cumplimiento de tarifa escalonada y reportes de calidad clínica.",
+    },
+    category: "compliance",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://bphc.hrsa.gov/compliance/operational-site-visit",
+    sourceOrg: "HRSA Bureau of Primary Health Care",
+    region: "Federal",
+    tags: ["hrsa", "osv", "audit", "governance", "compliance", "enforcement"],
+  },
+  {
+    id: "ocr-hipaa-breach-settlement-march-2026",
+    date: "2026-03-01",
+    headline: {
+      en: "OCR Settles $1.5M HIPAA Breach Case with Community Health Network",
+      es: "OCR Resuelve Caso de Violación HIPAA de $1.5M con Red de Salud Comunitaria",
+    },
+    summary: {
+      en: "HHS Office for Civil Rights reached a $1.5M settlement with a multi-site community health center for a breach affecting 28,000 patient records. Root cause: unencrypted email containing PHI sent to third-party vendor without a current Business Associate Agreement. Settlement requires 3-year corrective action plan including annual risk assessments, workforce training, and BAA remediation. Pattern consistent with FQHCs that lack formalized HIPAA compliance programs.",
+      es: "La Oficina de Derechos Civiles de HHS llegó a un acuerdo de $1.5M con un centro de salud comunitario multi-sitio por una violación que afectó 28,000 registros de pacientes. Causa raíz: correo electrónico sin encriptar con PHI enviado a un proveedor sin un Acuerdo de Asociado Comercial vigente.",
+    },
+    category: "compliance",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.hhs.gov/hipaa/for-professionals/compliance-enforcement/agreements/index.html",
+    sourceOrg: "HHS Office for Civil Rights",
+    region: "Federal",
+    tags: ["hipaa", "breach", "ocr", "settlement", "baa", "enforcement", "encryption"],
+  },
+  {
+    id: "oig-false-claims-fqhc-billing-2026",
+    date: "2026-02-20",
+    headline: {
+      en: "OIG Reports $4.7B in Healthcare Fraud Recoveries — FQHCs Face Increased Billing Scrutiny",
+      es: "OIG Reporta $4.7B en Recuperaciones por Fraude de Salud — FQHCs Enfrentan Mayor Escrutinio de Facturación",
+    },
+    summary: {
+      en: "The HHS Office of Inspector General recovered $4.7B in healthcare fraud in FY2025, with community health centers facing increased scrutiny on PPS billing practices. Key risk areas: same-day billing errors, upcoding visit complexity, and inadequate documentation for ECM/CCM services. OIG recommends FQHCs implement internal billing audits, provider documentation training, and automated coding compliance checks. Three California FQHCs received subpoenas in Q4 2025.",
+      es: "La Oficina del Inspector General de HHS recuperó $4.7B en fraude de salud en AF2025, con centros de salud comunitarios enfrentando mayor escrutinio en prácticas de facturación PPS. Áreas clave de riesgo: errores de facturación del mismo día, sobre-codificación de complejidad de visitas y documentación inadecuada para servicios ECM/CCM.",
+    },
+    category: "compliance",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://oig.hhs.gov/reports-and-publications/featured-topics/fraud/",
+    sourceOrg: "HHS Office of Inspector General",
+    region: "Federal",
+    tags: ["oig", "false-claims", "billing-fraud", "pps", "ecm", "documentation", "enforcement"],
+  },
+  {
+    id: "340b-audit-wave-contract-pharmacy-2026",
+    date: "2026-02-15",
+    headline: {
+      en: "340B Contract Pharmacy Audits Double: HRSA Targets Compliance Gaps at FQHCs",
+      es: "Auditorías de Farmacias de Contrato 340B Se Duplican: HRSA Apunta a Brechas de Cumplimiento en FQHCs",
+    },
+    summary: {
+      en: "HRSA has doubled 340B program audits targeting contract pharmacy arrangements, with 47 covered entities under review in Q1 2026. Common violations include duplicate discounts, inadequate patient eligibility verification, and missing contract pharmacy agreements. FQHCs operating 340B programs must demonstrate real-time eligibility checks, split-billing compliance, and complete audit trails for every 340B transaction. Non-compliance can result in program repayment and suspension.",
+      es: "HRSA ha duplicado las auditorías del programa 340B dirigidas a arreglos de farmacias de contrato, con 47 entidades cubiertas bajo revisión en Q1 2026. Violaciones comunes incluyen descuentos duplicados, verificación inadecuada de elegibilidad de pacientes y acuerdos de farmacias de contrato faltantes.",
+    },
+    category: "compliance",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.hrsa.gov/opa/program-integrity",
+    sourceOrg: "HRSA Office of Pharmacy Affairs",
+    region: "Federal",
+    tags: ["340b", "pharmacy", "audit", "contract-pharmacy", "compliance", "enforcement"],
+  },
+  {
+    id: "dhcs-fqhc-billing-compliance-review-2026",
+    date: "2026-02-10",
+    headline: {
+      en: "California DHCS Launches FQHC Billing Compliance Review Initiative",
+      es: "DHCS de California Lanza Iniciativa de Revisión de Cumplimiento de Facturación de FQHCs",
+    },
+    summary: {
+      en: "The California Department of Health Care Services announced a targeted billing compliance review for 50 FQHCs in 2026, focusing on PPS encounter documentation, Medi-Cal managed care billing accuracy, and UIS patient service tracking ahead of the July 2026 PPS elimination for UIS patients. FQHCs must ensure documentation standards meet both HRSA and DHCS requirements. Reviews will examine 24 months of billing data with particular attention to ECM and Community Supports claims.",
+      es: "El Departamento de Servicios de Atención Médica de California anunció una revisión de cumplimiento de facturación dirigida para 50 FQHCs en 2026, enfocada en documentación de encuentros PPS, precisión de facturación de Medi-Cal y seguimiento de servicios a pacientes UIS antes de la eliminación del PPS para pacientes UIS en julio 2026.",
+    },
+    category: "compliance",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://www.dhcs.ca.gov/provgovpart/Pages/FQHC-Information.aspx",
+    sourceOrg: "California DHCS",
+    region: "California",
+    tags: ["dhcs", "billing", "medi-cal", "pps", "uis", "compliance", "audit", "ecm"],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -1895,6 +1996,11 @@ export function getIntelForFQHC(slug: string): IntelItem[] {
   return [...INTEL_ITEMS]
     .filter((i) => i.affectedOrgSlugs?.includes(slug))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+/** Get compliance & risk items */
+export function getComplianceItems(): IntelItem[] {
+  return getIntelItems({ category: "compliance" });
 }
 
 /** Get counts by category */

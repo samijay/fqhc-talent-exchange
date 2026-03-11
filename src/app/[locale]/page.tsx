@@ -34,6 +34,7 @@ import {
   UserCheck,
   Calculator,
   GitCompare,
+  ShieldAlert,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -61,6 +62,7 @@ import {
 import { calculateResilienceScore } from "@/lib/fqhc-resilience";
 import { BLOG_POSTS, type BlogPost } from "@/lib/blog-posts";
 import { fqhcJobListings } from "@/lib/fqhc-job-listings";
+import { COMPLIANCE_CALENDAR, DOMAIN_META, getComplianceStats } from "@/lib/fqhc-compliance";
 
 /* ---------- Policy deep-dive mapping: cliff/deadline IDs → internal pages ---------- */
 const POLICY_DEEP_DIVES: Record<string, { href: string; label: { en: string; es: string } }[]> = {
@@ -1132,6 +1134,108 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* ==================== COMPLIANCE ALERTS ==================== */}
+      {(() => {
+        const now = new Date();
+        const currentMonth = now.getMonth() + 1;
+        const upcomingDeadlines = COMPLIANCE_CALENDAR
+          .filter((e) => e.month >= currentMonth && e.month <= currentMonth + 2)
+          .sort((a, b) => a.month - b.month || (a.day ?? 0) - (b.day ?? 0))
+          .slice(0, 4);
+        const stats = getComplianceStats();
+        const domainColor: Record<string, { bg: string; text: string; border: string }> = {
+          "hrsa-audits": { bg: "bg-teal-100", text: "text-teal-800", border: "border-teal-300" },
+          "hipaa-privacy": { bg: "bg-purple-100", text: "text-purple-800", border: "border-purple-300" },
+          "billing-fraud": { bg: "bg-amber-100", text: "text-amber-800", border: "border-amber-300" },
+        };
+        return upcomingDeadlines.length > 0 ? (
+          <section className="py-8 sm:py-10 border-t border-stone-200">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="mb-5 flex items-center justify-between">
+                <h2 className="text-lg font-bold text-stone-900 sm:text-xl flex items-center gap-2">
+                  <ShieldAlert className="size-5 text-indigo-700" />
+                  {isEs ? "Alertas de Cumplimiento" : "Compliance Alerts"}
+                </h2>
+                <Link
+                  href="/compliance"
+                  className="text-sm font-medium text-indigo-700 hover:text-indigo-800 flex items-center gap-1"
+                >
+                  {isEs ? "Centro de Cumplimiento" : "Compliance Hub"}
+                  <ArrowRight className="size-3" />
+                </Link>
+              </div>
+
+              {/* Trending deadline ticker */}
+              <div className="mb-5 rounded-xl bg-gradient-to-r from-stone-800 to-stone-900 p-3">
+                <div className="flex items-center gap-3 overflow-x-auto">
+                  <Badge className="shrink-0 bg-amber-500 text-white hover:bg-amber-500 border-0 text-[10px] font-bold px-2 py-0.5">
+                    <Clock className="size-3 mr-1" />
+                    {isEs ? "PRÓXIMOS" : "UPCOMING"}
+                  </Badge>
+                  {upcomingDeadlines.map((d, i) => {
+                    const domain = DOMAIN_META.find((dm) => dm.id === d.domain);
+                    return (
+                      <Link
+                        key={d.id}
+                        href="/compliance/calendar"
+                        className="shrink-0 text-xs text-stone-300 hover:text-white transition-colors flex items-center gap-1.5"
+                      >
+                        {i > 0 && <span className="text-stone-600 mr-1">•</span>}
+                        <span className={`inline-block w-2 h-2 rounded-full ${domainColor[d.domain]?.bg ?? "bg-stone-400"}`} />
+                        <span>{t(d.requirement, locale).slice(0, 55)}{t(d.requirement, locale).length > 55 ? "…" : ""}</span>
+                        <span className="text-stone-500 text-[10px]">({d.deadline})</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Deadline cards grid */}
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {upcomingDeadlines.map((d) => {
+                  const colors = domainColor[d.domain] ?? { bg: "bg-stone-100", text: "text-stone-700", border: "border-stone-300" };
+                  const domainLabel = DOMAIN_META.find((dm) => dm.id === d.domain);
+                  return (
+                    <Link key={d.id} href="/compliance/calendar" className="group">
+                      <div className={`rounded-xl border ${colors.border} bg-white p-4 hover:shadow-md transition-shadow h-full`}>
+                        <div className="flex items-center gap-2 mb-2">
+                          <Badge className={`${colors.bg} ${colors.text} border ${colors.border} text-[10px] px-1.5 py-0`}>
+                            {domainLabel ? (isEs ? domainLabel.es : domainLabel.en) : d.domain}
+                          </Badge>
+                          <span className="text-[10px] text-stone-400 ml-auto">{d.deadline}</span>
+                        </div>
+                        <h3 className="text-sm font-semibold text-stone-900 mb-1 line-clamp-2 group-hover:text-indigo-700 transition-colors">
+                          {t(d.requirement, locale)}
+                        </h3>
+                        <p className="text-xs text-stone-500 line-clamp-2">{t(d.description, locale)}</p>
+                        <div className="mt-2 flex items-center gap-2 text-[10px] text-stone-400">
+                          <span>{d.responsibleDepartment}</span>
+                          <span>•</span>
+                          <span>{d.preparationWeeks} {isEs ? "sem. prep" : "wks prep"}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* Stats bar */}
+              <div className="mt-4 flex items-center gap-4 text-xs text-stone-500 justify-center">
+                <span>{stats.osvRequirements} {isEs ? "requisitos OSV" : "OSV requirements"}</span>
+                <span>•</span>
+                <span>{stats.criticalRisks + stats.highRisks} {isEs ? "riesgos altos/críticos" : "high/critical risks"}</span>
+                <span>•</span>
+                <span>{stats.calendarEntries} {isEs ? "plazos anuales" : "annual deadlines"}</span>
+                <span>•</span>
+                <Link href="/compliance" className="text-indigo-700 hover:text-indigo-800 font-medium">
+                  {isEs ? "Explorar Todo →" : "Explore All →"}
+                </Link>
+              </div>
+            </div>
+          </section>
+        ) : null;
+      })()}
 
       {/* ==================== ARTICLES ==================== */}
       {articlesFeed.length > 0 && (

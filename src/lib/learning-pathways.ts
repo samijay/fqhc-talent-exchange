@@ -275,6 +275,48 @@ const SHARED_STEPS = {
     href: "/strategy/resilience",
     estimatedMinutes: 10,
   },
+
+  // Compliance
+  hipaaBasics: {
+    id: "hipaa-basics",
+    title: { en: "HIPAA Privacy & Security Essentials", es: "Esenciales de Privacidad y Seguridad HIPAA" },
+    description: { en: "Every FQHC employee handles PHI. Understand breach response, patient rights, and your obligations under 45 CFR 164.", es: "Todo empleado de FQHC maneja PHI. Comprende la respuesta a violaciones, derechos del paciente y tus obligaciones bajo 45 CFR 164." },
+    type: "guide" as const,
+    href: "/compliance/hipaa",
+    estimatedMinutes: 20,
+  },
+  osvComplianceGuide: {
+    id: "osv-compliance-guide",
+    title: { en: "HRSA OSV Compliance Guide", es: "Guía de Cumplimiento de OSV de HRSA" },
+    description: { en: "19-requirement preparation for your next operational site visit. CFR citations, evidence checklists, and common failures.", es: "Preparación de 19 requisitos para tu próxima visita operativa. Citas CFR, listas de evidencia y fallas comunes." },
+    type: "guide" as const,
+    href: "/compliance/hrsa-audits",
+    estimatedMinutes: 30,
+  },
+  billingComplianceGuide: {
+    id: "billing-compliance-guide",
+    title: { en: "Billing Compliance & False Claims Prevention", es: "Cumplimiento de Facturación y Prevención de Reclamaciones Falsas" },
+    description: { en: "PPS billing rules, same-day encounter documentation, ECM/CCM coding standards, and OIG audit triggers.", es: "Reglas de facturación PPS, documentación de encuentros del mismo día, estándares de codificación ECM/CCM y disparadores de auditoría OIG." },
+    type: "guide" as const,
+    href: "/compliance/billing",
+    estimatedMinutes: 25,
+  },
+  complianceMasterclass: {
+    id: "compliance-masterclass",
+    title: { en: "Masterclass: Risk & Compliance", es: "Masterclass: Riesgo y Cumplimiento" },
+    description: { en: "4 deep-dive modules: HIPAA at scale, OSV survival, billing compliance, and 340B audit prevention.", es: "4 módulos profundos: HIPAA a escala, supervivencia OSV, cumplimiento de facturación y prevención de auditoría 340B." },
+    type: "masterclass" as const,
+    href: "/strategy/masterclass",
+    estimatedMinutes: 60,
+  },
+  complianceCalendar: {
+    id: "compliance-calendar",
+    title: { en: "Compliance Calendar", es: "Calendario de Cumplimiento" },
+    description: { en: "18 real FQHC compliance deadlines across HRSA, HIPAA, and billing domains. Never miss a filing deadline.", es: "18 plazos reales de cumplimiento FQHC. Nunca pierdas un plazo de presentación." },
+    type: "tool" as const,
+    href: "/compliance/calendar",
+    estimatedMinutes: 10,
+  },
 };
 
 /* ------------------------------------------------------------------ */
@@ -287,6 +329,11 @@ function buildFoundationPhase(roleId: string, level: ExperienceLevel): PathwayPh
   // Entry and early always get FQHC Revenue 101
   if (level === "entry" || level === "early") {
     steps.push(SHARED_STEPS.fqhcRevenue101);
+  }
+
+  // HIPAA basics for all — every FQHC employee handles PHI
+  if (level === "entry" || level === "early") {
+    steps.push(SHARED_STEPS.hipaaBasics);
   }
 
   // CalAIM for community health / BH roles
@@ -318,6 +365,14 @@ function buildCredentialsPhase(roleId: string, level: ExperienceLevel): PathwayP
   const track = ROLE_TO_TRACK[roleId];
   if (track === "nursing" || track === "clinical-operations" || track === "behavioral-health" || track === "community-health") {
     steps.push(SHARED_STEPS.scopeOfPractice);
+  }
+
+  // OSV awareness for mid+ roles; billing compliance for revenue/finance roles
+  if (level === "mid" || level === "senior") {
+    steps.push(SHARED_STEPS.osvComplianceGuide);
+  }
+  if (track === "revenue-admin" || track === "back-office") {
+    steps.push(SHARED_STEPS.billingComplianceGuide);
   }
 
   return {
@@ -386,6 +441,12 @@ function buildAdvancePhase(roleId: string, level: ExperienceLevel): PathwayPhase
   // Clinic simulator for revenue/ops/leadership
   if (track === "revenue-admin" || track === "back-office" || track === "clinical-operations" || track === "nursing") {
     steps.push(SHARED_STEPS.clinicSimulator);
+  }
+
+  // Compliance masterclass + calendar for mid+ and revenue/finance roles
+  if (level === "mid" || level === "senior") {
+    steps.push(SHARED_STEPS.complianceMasterclass);
+    steps.push(SHARED_STEPS.complianceCalendar);
   }
 
   // Funding impact for all

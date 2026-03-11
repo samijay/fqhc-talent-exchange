@@ -282,6 +282,32 @@ export default function Header() {
         { href: "/blog", label: t("blog"), desc: t("blogDesc") },
       ],
     },
+    {
+      label: t("compliance"),
+      groups: [
+        {
+          heading: t("hrsaAudits"),
+          items: [
+            { href: "/compliance/hrsa-audits", label: t("osvPrepGuide"), desc: t("osvPrepGuideDesc") },
+            { href: "/compliance/calendar", label: t("complianceCalendar"), desc: t("complianceCalendarDesc") },
+          ],
+        },
+        {
+          heading: t("hipaaPrivacy"),
+          items: [
+            { href: "/compliance/hipaa", label: t("hipaaCompliance"), desc: t("hipaaComplianceDesc") },
+            { href: "/compliance/knowledge-base", label: t("knowledgeBase"), desc: t("knowledgeBaseDesc") },
+          ],
+        },
+        {
+          heading: t("billingFraud"),
+          items: [
+            { href: "/compliance/billing", label: t("billingRules"), desc: t("billingRulesDesc") },
+            { href: "/compliance", label: t("complianceHub"), desc: t("complianceHubDesc") },
+          ],
+        },
+      ],
+    },
     { href: "/jobs", label: t("jobs") },
     { href: "/directory", label: t("directory") },
   ];

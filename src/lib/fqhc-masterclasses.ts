@@ -12,6 +12,7 @@ export type MasterclassCategory =
   | "fundraising"
   | "economics"
   | "leadership"
+  | "compliance"
 
 export type MasterclassAudience =
   | "ceo-coo"
@@ -54,6 +55,7 @@ export const MASTERCLASS_CATEGORIES: {
   { id: "fundraising", en: "First-Time Fundraising", es: "Recaudación por Primera Vez", color: "bg-blue-50 text-blue-700 border-blue-200", icon: "HandCoins" },
   { id: "economics", en: "Healthcare Economics", es: "Economía de la Salud", color: "bg-teal-50 text-teal-700 border-teal-200", icon: "TrendingUp" },
   { id: "leadership", en: "Executive Leadership", es: "Liderazgo Ejecutivo", color: "bg-stone-100 text-stone-700 border-stone-300", icon: "Users" },
+  { id: "compliance", en: "Risk & Compliance", es: "Riesgo y Cumplimiento", color: "bg-indigo-50 text-indigo-700 border-indigo-200", icon: "ShieldCheck" },
 ]
 
 export const AUDIENCE_META: {
@@ -990,6 +992,135 @@ export const MASTERCLASSES: MasterclassModule[] = [
       { label: "Scope of Practice Guide", href: "/strategy/scope-of-practice" },
     ],
     tags: ["salary", "compensation", "negotiation", "sb-525", "nhsc", "loan-repayment", "bilingual-premium", "union", "retention", "hr"],
+  },
+
+  // ── Compliance Masterclasses (4 modules) ──────────────────────
+
+  {
+    id: "hipaa-at-scale",
+    title: { en: "HIPAA at Scale: From 1 Breach to 1,000 Notifications", es: "HIPAA a Escala: De 1 Violación a 1,000 Notificaciones" },
+    subtitle: { en: "The true cost of data breaches — and how to prevent them", es: "El verdadero costo de las violaciones de datos — y cómo prevenirlas" },
+    category: "compliance",
+    audience: "ceo-coo",
+    difficulty: "advanced",
+    urgencyStat: { en: "$890K: Average FQHC ransomware incident cost (2025)", es: "$890K: Costo promedio de incidente de ransomware en FQHC (2025)" },
+    whyNow: { en: "Healthcare ransomware attacks increased 256% from 2022 to 2025. FQHCs are prime targets: underfunded IT, legacy systems, and rich patient data. The HIPAA Security Rule update (proposed 2026) will mandate encryption, MFA, and annual penetration testing — significantly raising compliance costs. FQHCs that prepare now will avoid scrambling when the final rule drops.", es: "Los ataques de ransomware en salud aumentaron 256% de 2022 a 2025. Los FQHC son objetivos principales: TI subfinanciada, sistemas legados y datos ricos de pacientes." },
+    learningObjectives: [
+      { en: "Conduct a HIPAA security risk assessment using the HHS SRA Tool", es: "Realizar una evaluación de riesgos de seguridad HIPAA usando la Herramienta SRA del HHS" },
+      { en: "Build a breach response protocol that meets the 60-day notification deadline", es: "Construir un protocolo de respuesta a violaciones que cumpla con el plazo de notificación de 60 días" },
+      { en: "Inventory all vendors handling PHI and ensure BAA coverage", es: "Inventariar todos los proveedores que manejan PHI y asegurar cobertura de BAA" },
+      { en: "Calculate the true cost of a breach vs. the cost of prevention", es: "Calcular el verdadero costo de una violación vs. el costo de prevención" },
+    ],
+    keyTakeaways: [
+      { en: "A 1,000-patient breach costs $100K+ in notifications alone — prevention costs $10-20K/year", es: "Una violación de 1,000 pacientes cuesta $100K+ solo en notificaciones — la prevención cuesta $10-20K/año" },
+      { en: "Missing BAA = automatic HIPAA violation if that vendor has a breach", es: "BAA faltante = violación automática de HIPAA si ese proveedor tiene una violación" },
+      { en: "Air-gapped backups are the single most important ransomware defense", es: "Los respaldos aislados son la defensa más importante contra ransomware" },
+    ],
+    sourceMaterials: [
+      { label: "HHS HIPAA Security Rule", url: "https://www.hhs.gov/hipaa/for-professionals/security/index.html" },
+      { label: "HHS Security Risk Assessment Tool", url: "https://www.healthit.gov/topic/privacy-security-and-hipaa/security-risk-assessment-tool" },
+      { label: "HHS Breach Portal", url: "https://ocrportal.hhs.gov/ocr/breach/breach_report.jsf" },
+    ],
+    siteLinks: [
+      { label: "HIPAA Compliance Guide", href: "/compliance/hipaa" },
+      { label: "Risk Assessment Matrix", href: "/compliance" },
+      { label: "Compliance Calendar", href: "/compliance/calendar" },
+    ],
+    tags: ["hipaa", "breach", "ransomware", "security", "risk-assessment", "baa", "encryption"],
+  },
+  {
+    id: "osv-survival-guide",
+    title: { en: "The OSV Survival Guide: 19 Requirements, 90 Days to Prepare", es: "Guía de Supervivencia OSV: 19 Requisitos, 90 Días para Prepararse" },
+    subtitle: { en: "How to pass your HRSA Operational Site Visit — even on short notice", es: "Cómo pasar su Visita Operativa de HRSA — incluso con poco aviso" },
+    category: "compliance",
+    audience: "ceo-coo",
+    difficulty: "intermediate",
+    urgencyStat: { en: "3-4 gaps are normal; corrective action is not a shutdown", es: "3-4 brechas son normales; la acción correctiva no es un cierre" },
+    whyNow: { en: "HRSA has accelerated OSV schedules for crisis-impacted FQHCs. With H.R. 1 Medicaid cuts and California's PPS elimination for uninsured patients, HRSA is paying closer attention to financial viability and governance. FQHCs that haven't been visited in 4+ years should expect a visit soon. The OSV checklist is your blueprint.", es: "HRSA ha acelerado los calendarios de OSV para FQHCs impactados por la crisis. Con los recortes de Medicaid de H.R. 1, HRSA está prestando más atención a la viabilidad financiera y gobernanza." },
+    learningObjectives: [
+      { en: "Self-assess against all 19 HRSA program requirements", es: "Auto-evaluarse contra los 19 requisitos del programa HRSA" },
+      { en: "Prioritize remediation: governance > clinical > financial > operational", es: "Priorizar remediación: gobernanza > clínico > financiero > operativo" },
+      { en: "Build an evidence portfolio that passes audit on first review", es: "Construir un portafolio de evidencia que pase la auditoría en la primera revisión" },
+      { en: "Develop a 90-day sprint plan for OSV preparation", es: "Desarrollar un plan de sprint de 90 días para preparación de OSV" },
+    ],
+    keyTakeaways: [
+      { en: "Board composition (51% consumer) is the #1 finding — verify patient status annually", es: "La composición de la junta (51% consumidor) es el hallazgo #1 — verificar estado de paciente anualmente" },
+      { en: "Documentation gaps in credentialing and QI are the most common clinical findings", es: "Las brechas de documentación en acreditación y QI son los hallazgos clínicos más comunes" },
+      { en: "Self-disclosure before the OSV is always better than discovery during the visit", es: "La auto-divulgación antes de la OSV siempre es mejor que el descubrimiento durante la visita" },
+    ],
+    sourceMaterials: [
+      { label: "HRSA Compliance Manual", url: "https://bphc.hrsa.gov/compliance/compliance-manual" },
+      { label: "HRSA UDS Resources", url: "https://bphc.hrsa.gov/data-reporting/uds-training-and-technical-assistance" },
+    ],
+    siteLinks: [
+      { label: "OSV Prep Checklist (19 Requirements)", href: "/compliance/hrsa-audits" },
+      { label: "Download OSV Excel Checklist", href: "/compliance" },
+      { label: "Executive Guides", href: "/strategy/guides" },
+    ],
+    tags: ["osv", "hrsa", "site-visit", "governance", "board", "credentialing", "quality", "audit"],
+  },
+  {
+    id: "billing-compliance-revenue-assurance",
+    title: { en: "Billing Compliance: From False Claims Risk to Revenue Assurance", es: "Cumplimiento de Facturación: Del Riesgo de Reclamos Falsos a la Seguridad de Ingresos" },
+    subtitle: { en: "How to maximize FQHC revenue without crossing compliance lines", es: "Cómo maximizar los ingresos de FQHC sin cruzar líneas de cumplimiento" },
+    category: "compliance",
+    audience: "cfo",
+    difficulty: "advanced",
+    urgencyStat: { en: "$27,894: Maximum penalty per false claim (2026 inflation adjustment)", es: "$27,894: Sanción máxima por reclamo falso (ajuste por inflación 2026)" },
+    whyNow: { en: "CMS Recovery Audit Contractors are actively auditing FQHC claims. With revenue pressure from H.R. 1 and California's UIS PPS elimination, FQHCs face a dangerous temptation to optimize billing aggressively. One billing error can cascade: a single false claim triggers $27,894 in penalties plus treble damages. Self-disclosure to OIG can reduce exposure by 90%+.", es: "Los Auditores de Recuperación de CMS están auditando activamente los reclamos de FQHC. Con la presión de ingresos, los FQHC enfrentan una tentación peligrosa de optimizar facturación agresivamente." },
+    learningObjectives: [
+      { en: "Master FQHC-specific PPS billing rules (same-day, incident-to prohibition, modifiers)", es: "Dominar las reglas de facturación PPS específicas de FQHC" },
+      { en: "Build a documentation audit process that catches errors before payers do", es: "Construir un proceso de auditoría de documentación que detecte errores antes que los pagadores" },
+      { en: "Understand False Claims Act liability and whistleblower protections", es: "Entender la responsabilidad de la Ley de Reclamos Falsos y protecciones de denunciantes" },
+      { en: "Implement a coding accuracy program with annual 10% sample audits", es: "Implementar un programa de precisión de codificación con auditorías anuales de muestra del 10%" },
+    ],
+    keyTakeaways: [
+      { en: "FQHCs CANNOT bill incident-to — this is the #1 billing compliance failure", es: "Los FQHC NO PUEDEN facturar incident-to — esta es la falla #1 de cumplimiento de facturación" },
+      { en: "Self-disclosure to OIG reduced one FQHC's exposure from $4.2M to $302K", es: "La auto-divulgación al OIG redujo la exposición de un FQHC de $4.2M a $302K" },
+      { en: "A 5% denial rate on $20M revenue = $1M at risk annually", es: "Una tasa de denegación del 5% sobre $20M de ingresos = $1M en riesgo anualmente" },
+    ],
+    sourceMaterials: [
+      { label: "CMS FQHC PPS Guide", url: "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/FQHCPPS" },
+      { label: "DOJ False Claims Act Statistics", url: "https://www.justice.gov/civil/fraud-statistics" },
+      { label: "OIG Self-Disclosure Info", url: "https://oig.hhs.gov/compliance/self-disclosure-info/" },
+    ],
+    siteLinks: [
+      { label: "Billing Compliance Guide", href: "/compliance/billing" },
+      { label: "Compliance Calendar", href: "/compliance/calendar" },
+      { label: "Clinic Simulator", href: "/strategy/clinic-simulator" },
+    ],
+    tags: ["billing", "false-claims", "pps", "coding", "documentation", "audit", "self-disclosure", "oig"],
+  },
+  {
+    id: "340b-compliance-audit-prevention",
+    title: { en: "340B Program Compliance & Audit Prevention", es: "Cumplimiento del Programa 340B y Prevención de Auditorías" },
+    subtitle: { en: "Protect your most valuable drug pricing benefit", es: "Proteja su beneficio de precios de medicamentos más valioso" },
+    category: "compliance",
+    audience: "cfo",
+    difficulty: "intermediate",
+    urgencyStat: { en: "25-50% drug cost savings at risk if 340B eligibility is lost", es: "25-50% de ahorro en costos de medicamentos en riesgo si se pierde la elegibilidad 340B" },
+    whyNow: { en: "HRSA proposed new 340B integrity rules in 2026. Manufacturer audits are increasing — pharmaceutical companies are challenging 340B eligibility and contract pharmacy arrangements. A duplicate discount violation (receiving 340B price AND Medicaid rebate) can result in repayment, program removal, and False Claims Act liability. FQHCs generating $200K-$2M+ annually from 340B cannot afford to lose this revenue.", es: "HRSA propuso nuevas reglas de integridad 340B en 2026. Las auditorías de fabricantes están aumentando. Una violación de descuento duplicado puede resultar en reembolso, remoción del programa y responsabilidad FCA." },
+    learningObjectives: [
+      { en: "Define 340B eligible patients and implement verification processes", es: "Definir pacientes elegibles 340B e implementar procesos de verificación" },
+      { en: "Prevent duplicate discounts through split billing or Medicaid exclusion files", es: "Prevenir descuentos duplicados a través de facturación dividida o archivos de exclusión de Medicaid" },
+      { en: "Prepare for HRSA and manufacturer audits with monthly reconciliation", es: "Prepararse para auditorías de HRSA y fabricantes con reconciliación mensual" },
+      { en: "Evaluate contract pharmacy arrangements against current HRSA guidance", es: "Evaluar arreglos de farmacia contratada contra la guía actual de HRSA" },
+    ],
+    keyTakeaways: [
+      { en: "Monthly 340B/Medicaid reconciliation is non-negotiable — quarterly is too late", es: "La reconciliación mensual 340B/Medicaid es innegociable — trimestralmente es demasiado tarde" },
+      { en: "Contract pharmacy arrangements are the #1 source of 340B audit findings", es: "Los arreglos de farmacia contratada son la fuente #1 de hallazgos de auditoría 340B" },
+      { en: "One Bay Area FQHC repaid $156K in duplicate discounts — monthly audits now catch errors within 30 days", es: "Un FQHC del Área de la Bahía reembolsó $156K en descuentos duplicados — las auditorías mensuales ahora detectan errores dentro de 30 días" },
+    ],
+    sourceMaterials: [
+      { label: "HRSA 340B Program", url: "https://www.hrsa.gov/opa/340b-drug-pricing-program" },
+      { label: "340B Drug Pricing Program Statute", url: "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title42-section256b" },
+    ],
+    siteLinks: [
+      { label: "Billing Compliance Guide", href: "/compliance/billing" },
+      { label: "Risk Assessment Matrix", href: "/compliance" },
+      { label: "Knowledge Base", href: "/compliance/knowledge-base" },
+    ],
+    tags: ["340b", "pharmacy", "duplicate-discount", "contract-pharmacy", "audit", "compliance", "revenue"],
   },
 ]
 
