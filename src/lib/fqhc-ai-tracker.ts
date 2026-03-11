@@ -5,7 +5,7 @@
 // Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-03-09";
+export const AI_TRACKER_LAST_UPDATED = "2026-03-10";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -641,6 +641,57 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     date: "2025-04-29",
     tags: ["ai-scribe", "ambient-documentation", "altamed", "abridge", "los-angeles", "large-fqhc", "multilingual", "clinical-informatics"],
     featured: true,
+  },
+  // --- Added 2026-03-10 (daily update #16) ---
+  {
+    id: "no-barrier-ai-nachc-accelerator-2026",
+    title: {
+      en: "No Barrier AI Selected for NACHC Accelerator 2026 — AI Medical Interpretation Comes to FQHCs",
+      es: "No Barrier AI Seleccionada para Acelerador NACHC 2026 — Interpretación Médica IA Llega a FQHCs",
+    },
+    description: {
+      en: "No Barrier AI was selected for the NACHC Health Center Innovation Accelerator 2026 cohort to scale its AI-powered medical interpretation platform across FQHCs nationwide. The technology addresses a critical FQHC pain point: 20–25% of patients have limited English proficiency (LEP) but in-person interpreter staffing is expensive and often unavailable. No Barrier uses real-time AI translation across 100+ languages with medical terminology accuracy, integrating into existing EHR workflows. NACHC Accelerator selection signals institutional validation of AI interpretation as a viable alternative to traditional language services in safety-net settings.",
+      es: "No Barrier AI fue seleccionada para la cohorte del Acelerador de Innovación del NACHC 2026 para escalar su plataforma de interpretación médica impulsada por IA en FQHCs a nivel nacional. La tecnología aborda un punto crítico de los FQHCs: 20–25% de pacientes tienen dominio limitado del inglés (LEP) pero la interpretación presencial es cara y a menudo no disponible. No Barrier usa traducción IA en tiempo real en más de 100 idiomas con precisión de terminología médica.",
+    },
+    category: "care-coordination",
+    vendor: "No Barrier AI",
+    partnership: "NACHC Innovation Accelerator",
+    metrics: [
+      { label: "Languages", value: "100+" },
+      { label: "Target Population", value: "20-25% LEP patients at FQHCs" },
+      { label: "Program", value: "NACHC Health Center Innovation Accelerator 2026" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.nobarrier.ai/post/nachc-accelerator-2026",
+    sourceOrg: "No Barrier AI",
+    date: "2026-03-01",
+    tags: ["ai-interpretation", "language-access", "nachc", "lep", "multilingual", "care-coordination"],
+    featured: false,
+  },
+  {
+    id: "himss-2026-ai-implementation-maturity",
+    title: {
+      en: "HIMSS 2026: Healthcare AI Shifts from Hype to Implementation — FQHCs Among Early Adopters",
+      es: "HIMSS 2026: La IA en Salud Pasa del Entusiasmo a la Implementación — FQHCs Entre los Primeros Adoptantes",
+    },
+    description: {
+      en: "HIMSS 2026 and ViVE 2026 (March 2026) marked the industry's transition from 'what AI can do' to 'how to implement AI responsibly.' Key FQHC-relevant developments: ambient AI scribes moving from pilot to standard workflow (Abridge, Sunoh.ai, Nabla leading), AI governance frameworks being adopted (AltaMed's interdisciplinary committee model cited as exemplar), and growing recognition that FQHCs are ideal AI adoption environments due to high documentation burden, multilingual patient needs, and chronic staffing shortages. The conferences also highlighted emerging risks: coding upcreep from AI-optimized documentation and the 'payer AI vs. provider AI' arms race.",
+      es: "HIMSS 2026 y ViVE 2026 (marzo 2026) marcaron la transición de la industria de 'qué puede hacer la IA' a 'cómo implementar la IA responsablemente.' Desarrollos clave para FQHCs: escribas ambientales IA pasando de piloto a flujo estándar, marcos de gobernanza de IA siendo adoptados, y reconocimiento de que los FQHCs son entornos ideales para adopción de IA por alta carga de documentación y necesidades multilingües.",
+    },
+    category: "policy-framework",
+    vendor: null,
+    partnership: null,
+    metrics: [
+      { label: "Event", value: "HIMSS 2026 + ViVE 2026, March 2026" },
+      { label: "Key Theme", value: "Implementation over innovation" },
+      { label: "FQHC Relevance", value: "High — multilingual, documentation burden, staffing" },
+    ],
+    adoptionStage: "framework",
+    sourceUrl: "https://www.htworld.co.uk/insight/himss-2026-artificial-intelligence-finds-its-human-balance-finn26/",
+    sourceOrg: "HTWorld",
+    date: "2026-03-10",
+    tags: ["himss", "vive", "ai-governance", "implementation", "ambient-ai", "conference"],
+    featured: false,
   },
 ];
 

@@ -2041,6 +2041,86 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "California",
     tags: ["dhcs", "billing", "medi-cal", "pps", "uis", "compliance", "audit", "ecm"],
   },
+
+  /* ============================================================== */
+  /*  MARCH 10, 2026 — DAILY UPDATE #16                             */
+  /* ============================================================== */
+  {
+    id: "hr1-rural-health-transformation-fund-50b",
+    date: "2026-03-10",
+    headline: {
+      en: "H.R. 1 Creates $50B Rural Health Transformation Fund — Silver Lining for Rural FQHCs",
+      es: "H.R. 1 Crea Fondo de Transformación de Salud Rural de $50B — Oportunidad para FQHCs Rurales",
+    },
+    summary: {
+      en: "Buried within H.R. 1's massive Medicaid cuts is a $50 billion Rural Health Transformation Program ($10B/year for 5 years, FY 2026–2030) funding grants for rural FQHCs, hospitals, and behavioral health providers. California's likely allocation: ~$500M/year via competitive grants. Eligible applicants include FQHCs in rural shortage areas — targeting North State, North Coast, and Central Valley regions. While it does not offset the far larger Medicaid losses, it represents the first new federal FQHC investment channel since the ACA.",
+      es: "Dentro de los recortes masivos de Medicaid de H.R. 1 hay un Programa de Transformación de Salud Rural de $50 mil millones ($10B/año por 5 años, FY 2026–2030) para FQHCs rurales, hospitales y proveedores de salud conductual. Asignación probable para California: ~$500M/año mediante subvenciones competitivas. No compensa las pérdidas de Medicaid, pero es el primer nuevo canal de inversión federal en FQHCs desde el ACA.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://www.csh.org/2025/08/h-r-1-reshapes-medicaid-what-housing-providers-need-to-know-now/",
+    sourceOrg: "CSH",
+    region: "Federal",
+    tags: ["rural-health", "hr1", "grants", "north-state", "north-coast", "central-valley", "behavioral-health"],
+  },
+  {
+    id: "ca-fqhc-apm-implementation-jan-2026",
+    date: "2026-01-01",
+    headline: {
+      en: "California FQHC Alternative Payment Model Goes Live — Global Payments Replace Fee-for-Service",
+      es: "Modelo de Pago Alternativo para FQHCs de California Entra en Vigor — Pagos Globales Reemplazan Pago por Servicio",
+    },
+    summary: {
+      en: "California's FQHC Alternative Payment Model (APM) launched January 1, 2026, moving participating FQHCs from fee-for-service to prospective global payments with care coordination incentives. The APM provides revenue stability by decoupling payment from visit volume — critical as Medicaid cuts reduce patient panels. However, implementation requires sophisticated cost accounting, care delivery restructuring, and population health infrastructure. DHCS is running an annual enrollment cycle; FQHCs can opt in during open periods.",
+      es: "El Modelo de Pago Alternativo (APM) para FQHCs de California se lanzó el 1 de enero de 2026, moviendo a FQHCs participantes de pago por servicio a pagos globales prospectivos con incentivos de coordinación de atención. Proporciona estabilidad de ingresos al desacoplar el pago del volumen de visitas. Requiere contabilidad de costos sofisticada y reestructuración de entrega de atención.",
+    },
+    category: "change-management",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.chcs.org/resource/implementation-guide-for-the-california-federally-qualified-health-center-alternative-payment-model/",
+    sourceOrg: "CHCS",
+    region: "California",
+    tags: ["apm", "global-payment", "value-based-care", "revenue-model", "dhcs", "care-coordination"],
+  },
+  {
+    id: "glenn-county-hospital-reopening-2026",
+    date: "2026-02-28",
+    headline: {
+      en: "Glenn County's Only Hospital Clears Federal Hurdle to Reopen — Rural Health Resilience Signal",
+      es: "El Único Hospital del Condado de Glenn Supera Obstáculo Federal para Reabrir — Señal de Resiliencia Rural",
+    },
+    summary: {
+      en: "Glenn County's only hospital cleared a federal CMS licensing hurdle needed to reopen, though it still requires millions in additional funding. The rural Central Valley county lost its sole hospital in 2023, forcing residents to travel 30+ miles for emergency care. The reopening effort — led by the Glenn Medical Center Foundation — demonstrates community investment in rural healthcare infrastructure even amid federal funding cuts. Glenn County is served by Ampla Health (the region's primary FQHC).",
+      es: "El único hospital del condado de Glenn superó un obstáculo federal de licencias del CMS necesario para reabrir, aunque aún necesita millones en financiamiento adicional. El condado rural del Valle Central perdió su único hospital en 2023, obligando a los residentes a viajar más de 30 millas para atención de emergencia.",
+    },
+    category: "patient-story",
+    type: "news",
+    impactLevel: "low",
+    sourceUrl: "https://calmatters.org/health/2026/02/glenn-county-comeback-soria-funding/",
+    sourceOrg: "CalMatters",
+    region: "Glenn County",
+    tags: ["rural", "hospital-reopening", "north-state", "central-valley", "cms", "resilience"],
+  },
+  {
+    id: "ca-budget-222b-medi-cal-2026-27",
+    date: "2026-03-10",
+    headline: {
+      en: "California Proposes $222.4B Medi-Cal Budget — Must Absorb $1.1B+ in Federal Medicaid Shortfalls",
+      es: "California Propone Presupuesto de $222.4B para Medi-Cal — Debe Absorber $1.1B+ en Recortes Federales",
+    },
+    summary: {
+      en: "California's proposed 2026–27 budget includes $222.4 billion for Medi-Cal, requiring the state to absorb over $1.1 billion in federal Medicaid funding losses from H.R. 1. The Legislative Analyst's Office warns that federal FMAP sunsetting, enrollment verification requirements, and UIS benefit restrictions compound to create a multi-billion-dollar structural gap by 2028. Budget negotiations will determine whether FQHC supplemental payments, ECM funding, and community health worker billing survive or face further cuts.",
+      es: "El presupuesto propuesto de California 2026–27 incluye $222.4 mil millones para Medi-Cal, requiriendo que el estado absorba más de $1.1 mil millones en pérdidas de financiamiento federal de Medicaid por H.R. 1. El LAO advierte que la expiración del FMAP, requisitos de verificación de inscripción y restricciones de beneficios UIS crean una brecha estructural multimillonaria para 2028.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://lao.ca.gov/Publications/Report/5075",
+    sourceOrg: "CA Legislative Analyst's Office",
+    region: "California",
+    tags: ["state-budget", "medi-cal", "fmap", "structural-deficit", "ecm", "chw-billing"],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
