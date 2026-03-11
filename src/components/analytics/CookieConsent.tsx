@@ -24,7 +24,8 @@ export default function CookieConsent() {
   const handleAccept = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
     setShowBanner(false);
-    // GA4 is already loaded — no action needed since it's in the layout
+    // Notify consent-aware GoogleAnalytics component to load GA4
+    window.dispatchEvent(new Event("cookie-consent-accepted"));
   };
 
   const handleDecline = () => {

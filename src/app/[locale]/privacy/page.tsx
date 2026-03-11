@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 
 interface PolicySection {
   heading: string;
@@ -337,8 +335,13 @@ const esContent: PolicyContent = {
   ],
 };
 
-export default function PrivacyPage() {
-  const locale = useLocale();
+export default async function PrivacyPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const content = locale === "es" ? esContent : enContent;
 
   return (

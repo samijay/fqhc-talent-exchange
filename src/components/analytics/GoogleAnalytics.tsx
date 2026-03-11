@@ -31,9 +31,22 @@ export default function GoogleAnalytics() {
     // Respect explicit opt-out stored in localStorage
     const optedOut = localStorage.getItem("ga-opt-out") === "true";
 
-    if (!dnt && !optedOut) {
+    // Only load GA4 if: no DNT, not opted out, AND user accepted cookies
+    const consent = localStorage.getItem("fqhc-cookie-consent");
+
+    if (!dnt && !optedOut && consent === "accepted") {
       setCanLoad(true);
     }
+
+    // Listen for same-tab consent acceptance (CookieConsent dispatches this)
+    const handleConsent = () => {
+      if (!dnt && !optedOut) setCanLoad(true);
+    };
+    window.addEventListener("cookie-consent-accepted", handleConsent);
+
+    return () => {
+      window.removeEventListener("cookie-consent-accepted", handleConsent);
+    };
   }, []);
 
   if (!GA_MEASUREMENT_ID || !canLoad) return null;

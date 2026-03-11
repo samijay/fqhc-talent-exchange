@@ -26,7 +26,7 @@ const securityHeaders = [
       "img-src 'self' data: blob: https://*.tile.openstreetmap.org https://img.youtube.com https://i.ytimg.com https://static-media.fox.com",
       "font-src 'self'",
       "connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://region1.google-analytics.com",
-      "frame-src 'none' https://www.youtube.com https://www.youtube-nocookie.com",
+      "frame-src https://www.youtube.com https://www.youtube-nocookie.com",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",

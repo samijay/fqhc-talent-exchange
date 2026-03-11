@@ -1,6 +1,6 @@
 // california-fqhcs.ts
 // Comprehensive directory of California Federally Qualified Health Centers (FQHCs)
-// 220 organizations (90 curated + 131 HRSA-imported) — Last updated: 2026-02-19
+// 214 organizations (90 curated + 124 HRSA-enriched) — Last updated: 2026-03-08
 // Data sources: HRSA Health Center data, Glassdoor, CPCA, WARN Act filings
 
 export interface CaliforniaFQHC {
