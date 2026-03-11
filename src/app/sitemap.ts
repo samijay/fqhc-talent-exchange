@@ -4,6 +4,7 @@
 import type { MetadataRoute } from "next";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
 import { getAllRegionSlugs } from "@/lib/regional-intelligence";
+import { OKR_COURSE_MODULES } from "@/lib/okr-course-modules";
 
 const SITE_URL = "https://www.fqhctalent.com";
 
@@ -494,5 +495,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: fqhc.slug === "altamed-health-services" ? 0.8 : 0.6,
   }));
 
-  return [...staticPages, ...locationPages, ...blogPages, ...fqhcProfilePages];
+  // OKR Course module pages
+  const okrModulePages: MetadataRoute.Sitemap = OKR_COURSE_MODULES.map((mod) => ({
+    url: `${SITE_URL}/strategy/okr-course/${mod.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...locationPages, ...blogPages, ...fqhcProfilePages, ...okrModulePages];
 }

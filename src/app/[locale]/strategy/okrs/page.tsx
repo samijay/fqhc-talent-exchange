@@ -402,6 +402,35 @@ export default function OKRTemplatesPage() {
             </button>
           </div>
 
+          {/* OKR Learning callout */}
+          <div className="mb-6 rounded-xl border border-purple-200 bg-purple-50 px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
+            <Target className="size-5 text-purple-600 shrink-0" />
+            <p className="text-sm text-purple-800 flex-1">
+              <span className="font-semibold">
+                {isEs
+                  ? "¿Quieres aprender a escribir OKRs?"
+                  : "Want to learn how to write OKRs?"}
+              </span>{" "}
+              {isEs
+                ? "Toma nuestro curso interactivo gratuito de 45 minutos o lanza un sprint de equipo con tu equipo ejecutivo."
+                : "Take our free 45-minute interactive course or launch a team sprint with your executive team."}
+            </p>
+            <div className="flex gap-2 shrink-0">
+              <Link href="/strategy/okr-course">
+                <Button size="sm" className="bg-purple-600 hover:bg-purple-700 text-white text-xs">
+                  {isEs ? "Curso Individual" : "Individual Course"}
+                  <ArrowRight className="size-3.5 ml-1" />
+                </Button>
+              </Link>
+              <Link href="/strategy/okr-team-sprint">
+                <Button size="sm" variant="outline" className="border-purple-300 text-purple-700 hover:bg-purple-100 text-xs">
+                  {isEs ? "Sprint de Equipo" : "Team Sprint"}
+                  <Users className="size-3.5 ml-1" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+
           {/* Domain filter */}
           <div className="flex items-center gap-2 mb-4">
             <Filter className="size-4 text-stone-400" />
