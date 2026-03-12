@@ -767,7 +767,7 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       },
       {
         label: "NACHC BH Toolkit",
-        url: "https://www.nachc.org/focus-areas/clinical-affairs/behavioral-health/",
+        url: "https://www.nachc.org/focus-areas/policy-matters/behavioral-health/",
       },
     ],
     targetRoles: [
@@ -966,7 +966,7 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       },
       {
         label: "NACHC Billing Primer",
-        url: "https://www.nachc.org/resource/fqhc-billing-and-finance/",
+        url: "https://www.nachc.org/topic/finance/",
       },
       {
         label: "CA DHCS FQHC PPS Rates",
@@ -1101,7 +1101,7 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       },
     ],
     primarySourceUrl:
-      "https://www.cms.gov/About-CMS/Agency-Information/OMH/Downloads/CLAS-Toolkit-12-7-16.pdf",
+      "https://www.cms.gov/files/document/implementing-national-clas-lessons-field.pdf",
     primarySourceOrg: "CMS",
     additionalSources: [
       {
@@ -1114,7 +1114,7 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       },
       {
         label: "NACHC Workforce Data",
-        url: "https://www.nachc.org/research-and-data/",
+        url: "https://www.nachc.org/research-and-data/research-fact-sheets-and-infographics/",
       },
     ],
     targetRoles: [
@@ -1292,12 +1292,12 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       },
     ],
     primarySourceUrl:
-      "https://www.nachc.org/resource/fqhc-billing-and-finance/",
+      "https://www.nachc.org/topic/finance/",
     primarySourceOrg: "NACHC",
     additionalSources: [
       {
         label: "CMS FQHC Billing Guide",
-        url: "https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNProducts/Downloads/fqhcfactsheet.pdf",
+        url: "https://www.cms.gov/files/document/mln006397-federally-qualified-health-center.pdf",
       },
       {
         label: "HRSA UDS Manual",
@@ -1629,7 +1629,7 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       },
       {
         label: "NACHC Documentation Standards",
-        url: "https://www.nachc.org/resource/fqhc-billing-and-finance/",
+        url: "https://www.nachc.org/topic/finance/",
       },
     ],
     targetRoles: [
@@ -1796,7 +1796,7 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       },
       {
         label: "NACHC Section 330 Funding Info",
-        url: "https://www.nachc.org/issues-advocacy/government-relations/appropriations/",
+        url: "https://www.nachc.org/policy-advocacy/policy-priorities/health-center-funding/",
       },
       {
         label: "CA HCAI Workforce Programs",
@@ -2258,7 +2258,7 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       },
       {
         label: "NACHC Grant Support Resources",
-        url: "https://www.nachc.org/focus-areas/policy-matters/resources/",
+        url: "https://www.nachc.org/focus-areas/policy-matters/",
       },
     ],
     targetRoles: ["program-manager", "director-clinical-ops", "revenue-manager"],
@@ -2560,11 +2560,11 @@ export const FQHC_GUIDES: FQHCGuide[] = [
     additionalSources: [
       {
         label: "DLSE: Worker Rights (English/Spanish)",
-        url: "https://dir.ca.gov/dlse/workers-rights.html",
+        url: "https://www.dir.ca.gov/DLSE/Know_Your_Rights.html",
       },
       {
         label: "NLRB: Employee Rights Under NLRA",
-        url: "https://www.nlrb.gov/resources/files/basic-page/documents/emorrev2023final.pdf",
+        url: "https://www.nlrb.gov/news-publications/publications/employee-rights-notice-posting",
       },
       {
         label: "California Labor Code Chapter 2: General Protections",
@@ -2711,11 +2711,11 @@ export const FQHC_GUIDES: FQHCGuide[] = [
     additionalSources: [
       {
         label: "NLRB: Grievance & Arbitration Process",
-        url: "https://www.nlrb.gov/resources/files/basic-page/documents/grievance-and-arbitration.pdf",
+        url: "https://www.nlrb.gov/news-publications/publications/brochures",
       },
       {
         label: "DLSE: Wage Claim Filing Process",
-        url: "https://dir.ca.gov/dlse/WageClaimForm.html",
+        url: "https://www.dir.ca.gov/dlse/howtofilewageclaim.htm",
       },
       {
         label: "California DFEH: Discrimination Complaints",
@@ -2723,7 +2723,7 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       },
       {
         label: "Cal/OSHA: Safety Complaint Filing",
-        url: "https://www.dir.ca.gov/dosh/complaint.html",
+        url: "https://www.dir.ca.gov/dosh/complaint.htm",
       },
     ],
     targetRoles: ["all"],
@@ -2853,12 +2853,12 @@ export const FQHC_GUIDES: FQHCGuide[] = [
         ],
       },
     ],
-    primarySourceUrl: "https://dir.ca.gov/dlse/WageClaimForm.html",
+    primarySourceUrl: "https://www.dir.ca.gov/dlse/howtofilewageclaim.htm",
     primarySourceOrg: "California Division of Labor Standards Enforcement (DLSE)",
     additionalSources: [
       {
         label: "DLSE: Wage Theft Prevention Guide",
-        url: "https://dir.ca.gov/dlse/wage-theft.html",
+        url: "https://www.dir.ca.gov/dlse/Examples_of_Wage_Theft.html",
       },
       {
         label: "California Labor Code Section 200-224 (Wage Payment)",
@@ -2870,7 +2870,7 @@ export const FQHC_GUIDES: FQHCGuide[] = [
       },
       {
         label: "DLSE: Worker Misclassification Prevention",
-        url: "https://dir.ca.gov/dlse/worker-misclassification.html",
+        url: "https://www.dir.ca.gov/fraud_prevention/Misclassification.htm",
       },
     ],
     targetRoles: ["all"],
@@ -3200,7 +3200,7 @@ export const FQHC_GUIDES: FQHCGuide[] = [
     additionalSources: [
       {
         label: "NLRB: Union Contract Basics",
-        url: "https://www.nlrb.gov/resources/files/basic-page/documents/union-contract-basics.pdf",
+        url: "https://www.nlrb.gov/news-publications/publications/brochures",
       },
       {
         label: "SEIU: How to Read Your Union Contract",

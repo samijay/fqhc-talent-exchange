@@ -695,7 +695,7 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
     additionalSources: [
       {
         label: "Nabla AI Ambient Documentation",
-        url: "https://www.nabla.com/ambient/",
+        url: "https://www.nabla.com/",
       },
     ],
     tags: [
@@ -782,7 +782,7 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
     additionalSources: [
       {
         label: "Genesis Community Health",
-        url: "https://www.genesisnv.org/",
+        url: "https://genesisfqhc.org/",
       },
     ],
     tags: [
@@ -877,7 +877,7 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
     additionalSources: [
       {
         label: "CommuniCare Health Centers",
-        url: "https://www.communicarehc.org/",
+        url: "https://communicarehc.org/",
       },
     ],
     tags: [
@@ -1313,12 +1313,12 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
       },
     ],
     strategyCategory: "patient-access",
-    primarySourceUrl: "https://www.zufallhealth.org/about-us/",
+    primarySourceUrl: "https://www.zufallhealth.org/about-us/mission-and-history/",
     primarySourceOrg: "Zufall Health Center",
     additionalSources: [
       {
         label: "Zufall Health Services",
-        url: "https://www.zufallhealth.org/services/",
+        url: "https://www.zufallhealth.org/",
       },
     ],
     tags: [
@@ -1400,7 +1400,7 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
       },
     ],
     strategyCategory: "workforce-retention",
-    primarySourceUrl: "https://www.saludclinic.org/about/",
+    primarySourceUrl: "https://www.saludclinic.org/about-us",
     primarySourceOrg: "Salud Family Health",
     additionalSources: [
       {
@@ -1574,12 +1574,12 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
       },
     ],
     strategyCategory: "revenue-diversification",
-    primarySourceUrl: "https://www.whitman-walker.org/about-us",
+    primarySourceUrl: "https://www.whitman-walker.org/about/",
     primarySourceOrg: "Whitman-Walker Health",
     additionalSources: [
       {
         label: "Whitman-Walker at St. Elizabeths",
-        url: "https://www.whitman-walker.org/st-elizabeths",
+        url: "https://www.whitman-walker.org/max-robinson-center-at-st-es/",
       },
     ],
     tags: [
@@ -1674,7 +1674,7 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
     additionalSources: [
       {
         label: "Asian Health Services Programs",
-        url: "https://asianhealthservices.org/services/",
+        url: "https://asianhealthservices.org/community-programs/",
       },
     ],
     tags: [
@@ -2138,7 +2138,7 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
       },
     ],
     strategyCategory: "patient-access",
-    primarySourceUrl: "https://www.laclinica.org/about-us",
+    primarySourceUrl: "https://laclinica.org/about/",
     primarySourceOrg: "La Clinica de la Raza",
     additionalSources: [
       {
@@ -2151,7 +2151,7 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
       },
       {
         label: "NACHC: School-Based Health Centers",
-        url: "https://www.nachc.org/focus-areas/clinical-affairs/school-based-health-centers/",
+        url: "https://www.nachc.org/topic/school-based-health-centers/",
       },
     ],
     tags: [
@@ -2246,7 +2246,7 @@ export const CASE_STUDIES: FQHCCaseStudy[] = [
       },
       {
         label: "NACHC: Mergers & Acquisitions in Health Centers",
-        url: "https://www.nachc.org/resource/health-center-mergers-and-acquisitions/",
+        url: "https://www.nachc.org/wp-content/uploads/2023/03/47ff072488bee0c4deca1535528da1cd.pdf",
       },
     ],
     tags: [

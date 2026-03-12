@@ -70,12 +70,12 @@ export default function FqhcCareerLadderArticle() {
               items={[
                 "FQHCs promote from within — MA to Clinical Supervisor in 5–6 years, CHW to Program Manager in 3–4 years",
                 "Key certifications that accelerate growth: RN license, CHW Certification, Epic superuser, ECM/CalAIM training",
-                "Bilingual staff advance 40% faster at most California FQHCs due to patient population needs",
+                "Bilingual staff advance faster at most California FQHCs due to patient population needs and bilingual role requirements",
               ]}
               esItems={[
                 "Los FQHCs promueven internamente — MA a Supervisor Clínico en 5–6 años, CHW a Gerente de Programa en 3–4 años",
                 "Certificaciones clave que aceleran el crecimiento: licencia RN, Certificación CHW, superusuario Epic, capacitación ECM/CalAIM",
-                "El personal bilingüe avanza 40% más rápido en la mayoría de los FQHCs de California debido a las necesidades de la población de pacientes",
+                "El personal bilingüe avanza más rápido en la mayoría de los FQHCs de California debido a las necesidades de la población de pacientes y los requisitos de roles bilingües",
               ]}
             />
 
@@ -108,7 +108,8 @@ export default function FqhcCareerLadderArticle() {
               Level 1: Medical Assistant
             </h3>
             <p className="text-stone-700 leading-relaxed">
-              <strong>Typical salary range: $32,000–$40,000/year</strong>
+              <strong>Typical salary range: $32,000–$40,000/year</strong>{" "}
+              <span className="text-sm text-stone-500">(BLS median: $44,200 nationally, $48,050 in CA, May 2024 [1])</span>
             </p>
             <p className="text-stone-700 leading-relaxed">
               You're performing vital signs, rooming patients, assisting with procedures, and supporting the clinical team. You may be taking calls for nurse advice lines or helping with appointment scheduling. You're learning the EHR, understanding FQHC operations, and developing your clinical foundation.
@@ -181,7 +182,8 @@ export default function FqhcCareerLadderArticle() {
               Level 1: Staff RN / Primary Care RN
             </h3>
             <p className="text-stone-700 leading-relaxed">
-              <strong>Typical salary range: $58,000–$72,000/year</strong>
+              <strong>Typical salary range: $58,000–$72,000/year</strong>{" "}
+              <span className="text-sm text-stone-500">(BLS median: $93,600 nationally, significantly higher in CA hospital settings, May 2024; FQHC primary care RN salaries tend lower than hospital rates [2])</span>
             </p>
             <p className="text-stone-700 leading-relaxed">
               You're conducting patient visits, managing a patient panel, coordinating care, and collaborating with providers. You might be doing annual wellness visits, new patient intakes, chronic disease management visits, or acute visits for stable conditions. You're working in the top-of-scope model described in our previous article.
@@ -194,7 +196,7 @@ export default function FqhcCareerLadderArticle() {
               <strong>Typical salary range: $62,000–$78,000/year</strong>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              ECM is one of the fastest-growing programs at California FQHCs, and RNs with ECM training are in high demand. As an ECM RN, you're:
+              ECM is one of the fastest-growing programs at California FQHCs under CalAIM [3], and RNs with ECM training are in high demand. As an ECM RN, you&apos;re:
             </p>
             <ul className="text-stone-700 leading-relaxed space-y-2">
               <li>Conducting comprehensive assessments for high-risk Medicaid members</li>
@@ -447,7 +449,7 @@ export default function FqhcCareerLadderArticle() {
               How ECM, CCM, and Other Programs Create Opportunities
             </h2>
             <p className="text-stone-700 leading-relaxed">
-              California's Medicaid programs (CalAIM, CCM, Community Supports) are creating entirely new career tracks within FQHCs. These programs require:
+              California&apos;s Medi-Cal programs under CalAIM (ECM, CCM, Community Supports) are creating entirely new career tracks within FQHCs [3][4]. These programs require:
             </p>
             <ul className="text-stone-700 leading-relaxed space-y-2">
               <li>Care coordinators and care managers (RN or non-RN)</li>
@@ -550,8 +552,24 @@ export default function FqhcCareerLadderArticle() {
               </li>
             </ul>
             <p className="text-stone-700 leading-relaxed">
-              FQHCs are betting on their people. If you're willing to develop skills, pursue certifications, and demonstrate leadership, they want to retain you and help you advance.
+              FQHCs are betting on their people. If you&apos;re willing to develop skills, pursue certifications, and demonstrate leadership, they want to retain you and help you advance.
             </p>
+
+            {/* Sources */}
+            <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+                {isEs ? "Fuentes" : "Sources"}
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+                <li><a href="https://www.bls.gov/ooh/healthcare/medical-assistants.htm" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Occupational Outlook Handbook: Medical Assistants</a> — U.S. Bureau of Labor Statistics, May 2024</li>
+                <li><a href="https://www.bls.gov/ooh/healthcare/registered-nurses.htm" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Occupational Outlook Handbook: Registered Nurses</a> — U.S. Bureau of Labor Statistics, May 2024</li>
+                <li><a href="https://www.dhcs.ca.gov/CalAIM/ECM/Pages/Home.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Enhanced Care Management & Community Supports</a> — California Department of Health Care Services (DHCS)</li>
+                <li><a href="https://www.dhcs.ca.gov/CalAIM/Pages/CalAIM.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CalAIM: Transforming Medi-Cal</a> — California Department of Health Care Services (DHCS)</li>
+                <li><a href="https://nhsc.hrsa.gov/loan-repayment/nhsc-loan-repayment-program" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">NHSC Loan Repayment Program</a> — HRSA, National Health Service Corps</li>
+                <li><a href="https://hcai.ca.gov/workforce/initiatives/community-health-workers-promotores-chw-p/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Community Health Worker/Promotor/Representative Program</a> — California Department of Health Care Access and Information (HCAI)</li>
+                <li><a href="https://www.bls.gov/ooh/healthcare/nurse-anesthetists-nurse-midwives-and-nurse-practitioners.htm" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Occupational Outlook Handbook: Nurse Practitioners</a> — U.S. Bureau of Labor Statistics</li>
+              </ol>
+            </div>
           </div>
 
           {/* CTA */}

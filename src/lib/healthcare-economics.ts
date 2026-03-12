@@ -229,7 +229,7 @@ export const economicsConcepts: EconomicsConcept[] = [
       en: "Your 330 grant isn't just money — it's the key that unlocks PPS rates, 340B drugs, NHSC loan repayment, and FTCA malpractice coverage. Losing it means losing everything.",
       es: "Tu subvención 330 no es solo dinero — es la llave que desbloquea tarifas PPS, medicamentos 340B, pago de préstamos NHSC y cobertura de mala praxis FTCA.",
     },
-    sourceUrl: "https://www.nachc.org/policy-priorities/federal-funding/",
+    sourceUrl: "https://www.nachc.org/policy-advocacy/policy-priorities/health-center-funding/",
     sourceOrg: "NACHC",
   },
   {

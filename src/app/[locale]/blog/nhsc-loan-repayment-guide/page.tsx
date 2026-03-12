@@ -49,11 +49,11 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The National Health Service Corps (NHSC) is a federal program administered by the Health Resources and Services Administration (HRSA) that helps healthcare professionals repay their student loans in exchange for working in underserved communities. The program has been placing providers in high-need areas since 1972, and today it supports over 20,000 clinicians across the country — many of them working at Federally Qualified Health Centers.",
+          text: "The National Health Service Corps (NHSC) is a federal program administered by the Health Resources and Services Administration (HRSA) that helps healthcare professionals repay their student loans in exchange for working in underserved communities. The program has been placing providers in high-need areas since 1972, and today it supports more than 18,000 primary care medical, dental, and behavioral health providers across the country — many of them working at Federally Qualified Health Centers. [1][2]",
         },
         {
           type: "paragraph",
-          text: "Through the NHSC Loan Repayment Program (LRP), eligible healthcare workers can receive up to $50,000 in tax-free loan repayment for an initial two-year service commitment at an NHSC-approved site. For those working in the Substance Use Disorder (SUD) workforce, awards can reach up to $75,000 for a three-year commitment. These payments go directly toward your qualifying student loans and — critically — they are not treated as taxable income.",
+          text: "Through the NHSC Loan Repayment Program (LRP), eligible healthcare workers can receive up to $50,000 in tax-free loan repayment for an initial two-year service commitment at an NHSC-approved site (up to $75,000 for primary care providers in FY2026). For those working in the Substance Use Disorder (SUD) workforce, awards can reach up to $75,000 for a three-year commitment. These payments go directly toward your qualifying student loans and — critically — they are not treated as taxable income. [3][4]",
         },
         {
           type: "paragraph",
@@ -121,13 +121,13 @@ const enContent: ArticleContent = {
             "Full-Time Loan Repayment Program (LRP): Up to $50,000 in loan repayment for an initial two-year full-time service commitment. This is the most common track and is available to a broad range of eligible disciplines.",
             "Half-Time Loan Repayment Program (LRP): Up to $25,000 in loan repayment for a two-year half-time service commitment (minimum 20 hours per week). This option works well for providers who split their time between multiple sites or have other professional commitments.",
             "Continuation Awards: After completing your initial service commitment, you can apply for additional years of service with continued loan repayment. Continuation awards vary but can add significantly to your total benefit — many providers receive $30,000–$50,000 per additional year of full-time service.",
-            "Students-to-Service (S2S) Program: For students in their final year of health professions school, the S2S program offers up to $120,000 in loan repayment in exchange for a three-year service commitment at an NHSC site after graduation. This is one of the most generous tracks available.",
-            "Substance Use Disorder (SUD) Workforce LRP: Designed for providers who spend at least 40% of their clinical time treating substance use disorders, this track offers up to $75,000 for a three-year full-time commitment. Given the growing demand for SUD services at California FQHCs, this is an increasingly relevant option.",
+            "Students-to-Service (S2S) Program: For students in their final year of health professions school, the S2S program offers up to $120,000 in loan repayment (paid in four annual installments of up to $30,000) in exchange for a three-year full-time service commitment at an NHSC site after graduation. This is one of the most generous tracks available. [5]",
+            "Substance Use Disorder (SUD) Workforce LRP: Designed for providers who provide substance use disorder treatment at NHSC-approved SUD treatment facilities, this track offers up to $75,000 for a three-year full-time commitment (up to $80,000 with the FY2026 Spanish language enhancement). Given the growing demand for SUD services at California FQHCs, this is an increasingly relevant option. [4]",
           ],
         },
         {
           type: "paragraph",
-          text: "All NHSC loan repayment awards are tax-free under federal law, which means the full amount goes toward your loan balance. This is a significant advantage compared to other employer-based loan repayment benefits, which are often treated as taxable income. For a provider with $150,000 in student loan debt, a combination of initial and continuation NHSC awards could eliminate the majority of that balance over a 4–6 year career at an FQHC.",
+          text: "All NHSC loan repayment awards are tax-free under federal law (26 U.S.C. § 108(f)(4)), which means the full amount goes toward your loan balance. This is a significant advantage compared to other employer-based loan repayment benefits, which are often treated as taxable income. For a provider with $150,000 in student loan debt, a combination of initial and continuation NHSC awards could eliminate the majority of that balance over a 4–6 year career at an FQHC. [3]",
         },
       ],
     },
@@ -172,7 +172,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "However, not all NHSC-approved sites are created equal. Your chances of receiving a loan repayment award are heavily influenced by your site's Health Professional Shortage Area (HPSA) score. HPSA scores range from 0 to 25 (for primary care and mental health) or 0 to 26 (for dental), with higher scores indicating greater shortage and need. Sites with higher HPSA scores receive priority in the NHSC selection process, meaning providers at high-scoring sites have a significantly better chance of being approved for loan repayment.",
+          text: "However, not all NHSC-approved sites are created equal. Your chances of receiving a loan repayment award are heavily influenced by your site's Health Professional Shortage Area (HPSA) score. HPSA scores range from 0 to 25 (for primary care and mental health) or 0 to 26 (for dental), with higher scores indicating greater shortage and need. Sites with higher HPSA scores receive priority in the NHSC selection process, meaning providers at high-scoring sites have a significantly better chance of being approved for loan repayment. [6]",
         },
         {
           type: "paragraph",
@@ -216,7 +216,7 @@ const enContent: ArticleContent = {
             "What if I leave early? If you fail to complete your service commitment, you will be required to repay a pro-rated portion of the loan repayment you received, plus interest and penalties. The penalty can be substantial — in some cases, you may owe more than you received. This is why it's important to be genuinely committed to your service site before accepting an NHSC award.",
             "Can I work at multiple sites? Yes, in some cases. The NHSC allows providers to split their time between approved sites, as long as the combined hours meet the minimum requirement (40 hours for full-time, 20 hours for half-time) and all sites are NHSC-approved. You'll need to report all practice sites on your application.",
             "Does moonlighting count? Hours spent moonlighting at a non-NHSC site generally do not count toward your service obligation. However, the NHSC does allow some outside practice under specific conditions. The key is that your primary commitment must be at your approved NHSC site, and any outside work cannot interfere with meeting your minimum hours at the approved site.",
-            "Can I combine NHSC with PSLF? Yes, and this is one of the most powerful financial strategies available to FQHC workers. While your NHSC payments reduce your loan principal, your monthly payments to your remaining balance can count toward PSLF's 120-payment requirement — as long as you're on an income-driven repayment plan and your employer qualifies as a public service organization (which virtually all FQHCs do). After 10 years of qualifying payments, any remaining balance is forgiven through PSLF.",
+            "Can I combine NHSC with PSLF? Yes, and this is one of the most powerful financial strategies available to FQHC workers. While your NHSC payments reduce your loan principal, your monthly payments to your remaining balance can count toward PSLF's 120-payment requirement — as long as you're on an income-driven repayment plan and your employer qualifies as a public service organization (which virtually all FQHCs do as 501(c)(3) nonprofits). After 10 years of qualifying payments, any remaining balance is forgiven through PSLF. [7]",
           ],
         },
         {
@@ -259,11 +259,11 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "El Cuerpo Nacional de Servicios de Salud (NHSC) es un programa federal administrado por la Administración de Recursos y Servicios de Salud (HRSA) que ayuda a los profesionales de la salud a pagar sus préstamos estudiantiles a cambio de trabajar en comunidades desatendidas. El programa ha estado colocando proveedores en áreas de alta necesidad desde 1972, y hoy apoya a más de 20,000 clínicos en todo el país — muchos de ellos trabajando en Centros de Salud Calificados Federalmente.",
+          text: "El Cuerpo Nacional de Servicios de Salud (NHSC) es un programa federal administrado por la Administración de Recursos y Servicios de Salud (HRSA) que ayuda a los profesionales de la salud a pagar sus préstamos estudiantiles a cambio de trabajar en comunidades desatendidas. El programa ha estado colocando proveedores en áreas de alta necesidad desde 1972, y hoy apoya a más de 18,000 proveedores de atención primaria, dental y salud conductual en todo el país — muchos de ellos trabajando en Centros de Salud Calificados Federalmente. [1][2]",
         },
         {
           type: "paragraph",
-          text: "A través del Programa de Pago de Préstamos (LRP) del NHSC, los trabajadores de salud elegibles pueden recibir hasta $50,000 en pago de préstamos libre de impuestos por un compromiso de servicio inicial de dos años en un sitio aprobado por el NHSC. Para aquellos que trabajan en la fuerza laboral de Trastornos por Uso de Sustancias (SUD), las becas pueden alcanzar hasta $75,000 por un compromiso de tres años. Estos pagos se destinan directamente a tus préstamos estudiantiles calificados y — de manera crucial — no se tratan como ingreso sujeto a impuestos.",
+          text: "A través del Programa de Pago de Préstamos (LRP) del NHSC, los trabajadores de salud elegibles pueden recibir hasta $50,000 en pago de préstamos libre de impuestos por un compromiso de servicio inicial de dos años en un sitio aprobado por el NHSC (hasta $75,000 para proveedores de atención primaria en FY2026). Para aquellos que trabajan en la fuerza laboral de Trastornos por Uso de Sustancias (SUD), las becas pueden alcanzar hasta $75,000 por un compromiso de tres años. Estos pagos se destinan directamente a tus préstamos estudiantiles calificados y — de manera crucial — no se tratan como ingreso sujeto a impuestos. [3][4]",
         },
         {
           type: "paragraph",
@@ -331,13 +331,13 @@ const esContent: ArticleContent = {
             "Programa de Pago de Préstamos (LRP) a Tiempo Completo: Hasta $50,000 en pago de préstamos por un compromiso inicial de servicio a tiempo completo de dos años. Esta es la opción más común y está disponible para una amplia gama de disciplinas elegibles.",
             "Programa de Pago de Préstamos (LRP) a Medio Tiempo: Hasta $25,000 en pago de préstamos por un compromiso de servicio a medio tiempo de dos años (mínimo 20 horas por semana). Esta opción funciona bien para proveedores que dividen su tiempo entre múltiples sitios u otras obligaciones profesionales.",
             "Becas de Continuación: Después de completar tu compromiso de servicio inicial, puedes solicitar años adicionales de servicio con pago continuo de préstamos. Las becas de continuación varían pero pueden agregar significativamente a tu beneficio total — muchos proveedores reciben $30,000–$50,000 por cada año adicional de servicio a tiempo completo.",
-            "Programa Students-to-Service (S2S): Para estudiantes en su último año de la escuela de profesiones de salud, el programa S2S ofrece hasta $120,000 en pago de préstamos a cambio de un compromiso de servicio de tres años en un sitio del NHSC después de la graduación. Esta es una de las opciones más generosas disponibles.",
-            "LRP de la Fuerza Laboral de Trastornos por Uso de Sustancias (SUD): Diseñado para proveedores que dedican al menos el 40% de su tiempo clínico al tratamiento de trastornos por uso de sustancias, esta opción ofrece hasta $75,000 por un compromiso de tres años a tiempo completo. Dada la creciente demanda de servicios de SUD en los FQHCs de California, esta es una opción cada vez más relevante.",
+            "Programa Students-to-Service (S2S): Para estudiantes en su último año de la escuela de profesiones de salud, el programa S2S ofrece hasta $120,000 en pago de préstamos (pagado en cuatro cuotas anuales de hasta $30,000) a cambio de un compromiso de servicio de tres años a tiempo completo en un sitio del NHSC después de la graduación. Esta es una de las opciones más generosas disponibles. [5]",
+            "LRP de la Fuerza Laboral de Trastornos por Uso de Sustancias (SUD): Diseñado para proveedores que brindan tratamiento de trastornos por uso de sustancias en instalaciones aprobadas por el NHSC, esta opción ofrece hasta $75,000 por un compromiso de tres años a tiempo completo (hasta $80,000 con la mejora de idioma español en FY2026). Dada la creciente demanda de servicios de SUD en los FQHCs de California, esta es una opción cada vez más relevante. [4]",
           ],
         },
         {
           type: "paragraph",
-          text: "Todas las becas de pago de préstamos del NHSC están libres de impuestos bajo la ley federal, lo que significa que el monto completo se destina al saldo de tu préstamo. Esta es una ventaja significativa en comparación con otros beneficios de pago de préstamos del empleador, que a menudo se tratan como ingreso sujeto a impuestos. Para un proveedor con $150,000 en deuda estudiantil, una combinación de becas iniciales y de continuación del NHSC podría eliminar la mayor parte de ese saldo durante una carrera de 4 a 6 años en un FQHC.",
+          text: "Todas las becas de pago de préstamos del NHSC están libres de impuestos bajo la ley federal (26 U.S.C. § 108(f)(4)), lo que significa que el monto completo se destina al saldo de tu préstamo. Esta es una ventaja significativa en comparación con otros beneficios de pago de préstamos del empleador, que a menudo se tratan como ingreso sujeto a impuestos. Para un proveedor con $150,000 en deuda estudiantil, una combinación de becas iniciales y de continuación del NHSC podría eliminar la mayor parte de ese saldo durante una carrera de 4 a 6 años en un FQHC. [3]",
         },
       ],
     },
@@ -382,7 +382,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Sin embargo, no todos los sitios aprobados por el NHSC son iguales. Tus posibilidades de recibir una beca de pago de préstamos están fuertemente influenciadas por la puntuación del Área de Escasez de Profesionales de Salud (HPSA) de tu sitio. Las puntuaciones HPSA van de 0 a 25 (para atención primaria y salud mental) o de 0 a 26 (para dental), donde las puntuaciones más altas indican mayor escasez y necesidad. Los sitios con puntuaciones HPSA más altas reciben prioridad en el proceso de selección del NHSC, lo que significa que los proveedores en sitios con puntuaciones altas tienen una probabilidad significativamente mayor de ser aprobados para el pago de préstamos.",
+          text: "Sin embargo, no todos los sitios aprobados por el NHSC son iguales. Tus posibilidades de recibir una beca de pago de préstamos están fuertemente influenciadas por la puntuación del Área de Escasez de Profesionales de Salud (HPSA) de tu sitio. Las puntuaciones HPSA van de 0 a 25 (para atención primaria y salud mental) o de 0 a 26 (para dental), donde las puntuaciones más altas indican mayor escasez y necesidad. Los sitios con puntuaciones HPSA más altas reciben prioridad en el proceso de selección del NHSC, lo que significa que los proveedores en sitios con puntuaciones altas tienen una probabilidad significativamente mayor de ser aprobados para el pago de préstamos. [6]",
         },
         {
           type: "paragraph",
@@ -426,7 +426,7 @@ const esContent: ArticleContent = {
             "¿Qué pasa si me voy antes de tiempo? Si no completas tu compromiso de servicio, se te requerirá devolver una porción prorrateada del pago de préstamos que recibiste, más intereses y penalidades. La penalidad puede ser sustancial — en algunos casos, podrías deber más de lo que recibiste. Por eso es importante estar genuinamente comprometido con tu sitio de servicio antes de aceptar una beca del NHSC.",
             "¿Puedo trabajar en múltiples sitios? Sí, en algunos casos. El NHSC permite que los proveedores dividan su tiempo entre sitios aprobados, siempre y cuando las horas combinadas cumplan con el requisito mínimo (40 horas para tiempo completo, 20 horas para medio tiempo) y todos los sitios estén aprobados por el NHSC. Necesitarás reportar todos los sitios de práctica en tu solicitud.",
             "¿Cuenta el trabajo adicional (moonlighting)? Las horas dedicadas a trabajo adicional en un sitio no aprobado por el NHSC generalmente no cuentan para tu obligación de servicio. Sin embargo, el NHSC permite cierta práctica externa bajo condiciones específicas. Lo clave es que tu compromiso principal debe ser en tu sitio aprobado por el NHSC, y cualquier trabajo externo no puede interferir con el cumplimiento de tus horas mínimas en el sitio aprobado.",
-            "¿Puedo combinar el NHSC con PSLF? Sí, y esta es una de las estrategias financieras más poderosas disponibles para los trabajadores de FQHC. Mientras los pagos del NHSC reducen tu capital de préstamo, tus pagos mensuales al saldo restante pueden contar para el requisito de 120 pagos del PSLF — siempre y cuando estés en un plan de pago basado en ingresos y tu empleador califique como una organización de servicio público (lo cual aplica virtualmente a todos los FQHCs). Después de 10 años de pagos calificados, cualquier saldo restante es condonado a través del PSLF.",
+            "¿Puedo combinar el NHSC con PSLF? Sí, y esta es una de las estrategias financieras más poderosas disponibles para los trabajadores de FQHC. Mientras los pagos del NHSC reducen tu capital de préstamo, tus pagos mensuales al saldo restante pueden contar para el requisito de 120 pagos del PSLF — siempre y cuando estés en un plan de pago basado en ingresos y tu empleador califique como una organización de servicio público (lo cual aplica virtualmente a todos los FQHCs como organizaciones 501(c)(3) sin fines de lucro). Después de 10 años de pagos calificados, cualquier saldo restante es condonado a través del PSLF. [7]",
           ],
         },
         {
@@ -511,6 +511,7 @@ export default function NhscLoanRepaymentGuideArticle() {
               {content.openingParagraph}
             </p>
 
+            {/* Note: Source reference numbers [1]-[7] appear inline throughout the article text. See Sources section below. */}
             {content.sections.map((section, idx) => (
               <div key={idx}>
                 <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
@@ -594,6 +595,21 @@ export default function NhscLoanRepaymentGuideArticle() {
                 )}
               </div>
             ))}
+            {/* Sources */}
+            <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+                {locale === "es" ? "Fuentes" : "Sources"}
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+                <li><a href="https://nhsc.hrsa.gov/about-us/timeline" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">NHSC Timeline</a> — HRSA, National Health Service Corps</li>
+                <li><a href="https://nhsc.hrsa.gov/about-us" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Mission, Work, and Impact</a> — HRSA, National Health Service Corps</li>
+                <li><a href="https://nhsc.hrsa.gov/loan-repayment/nhsc-loan-repayment-program" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">NHSC Loan Repayment Program</a> — HRSA, National Health Service Corps</li>
+                <li><a href="https://nhsc.hrsa.gov/loan-repayment/nhsc-sud-workforce-loan-repayment-program" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">NHSC Substance Use Disorder Workforce Loan Repayment Program</a> — HRSA, National Health Service Corps</li>
+                <li><a href="https://nhsc.hrsa.gov/loan-repayment/nhsc-students-to-service-loan-repayment-program" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">NHSC Students to Service Loan Repayment Program</a> — HRSA, National Health Service Corps</li>
+                <li><a href="https://bhw.hrsa.gov/workforce-shortage-areas/shortage-designation/scoring" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Scoring Shortage Designations</a> — HRSA, Bureau of Health Workforce</li>
+                <li><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Public Service Loan Forgiveness (PSLF)</a> — Federal Student Aid, U.S. Department of Education</li>
+              </ol>
+            </div>
           </div>
 
           {/* CTA */}

@@ -167,7 +167,7 @@ export default function ComplianceHubPage() {
       <div className="max-w-6xl mx-auto px-4 py-8 md:py-12">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-8">
-          <Link href="/strategy" className="hover:text-teal-600 transition-colors">
+          <Link href="/strategy/guides" className="hover:text-teal-600 transition-colors">
             {isEs ? "Estrategia" : "Strategy"}
           </Link>
           <span>/</span>

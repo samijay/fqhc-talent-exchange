@@ -351,7 +351,7 @@ export const SCOPE_OF_PRACTICE_ROLES: ScopeOfPracticeRole[] = [
       en: "NP visits are billed at the same PPS encounter rate as physician visits in FQHCs — no revenue reduction. NP salary is typically 60-75% of physician salary, meaning each NP-run panel has a significantly higher revenue-to-cost ratio. FQHCs can expand access by adding NP panels at lower cost than physician panels.",
       es: "Las visitas de NP se facturan a la misma tarifa de encuentro PPS que las visitas medicas en FQHCs — sin reduccion de ingresos. El salario de NP es tipicamente 60-75% del salario medico, lo que significa que cada panel dirigido por NP tiene una relacion ingreso-costo significativamente mayor. Los FQHCs pueden expandir acceso agregando paneles de NP a menor costo que paneles medicos.",
     },
-    primarySourceUrl: "https://www.rn.ca.gov/practice/nps.shtml",
+    primarySourceUrl: "https://www.rn.ca.gov/practice/np.shtml",
   },
 
   /* ---- 3. PA — Physician Assistant ---- */
@@ -364,7 +364,7 @@ export const SCOPE_OF_PRACTICE_ROLES: ScopeOfPracticeRole[] = [
     abbreviation: "PA",
     category: "advanced-practice",
     licensingBody: "Physician Assistant Board (under Medical Board of CA)",
-    licensingBodyUrl: "https://www.pac.ca.gov",
+    licensingBodyUrl: "https://www.pab.ca.gov/",
     caRegulation: "BPC §3500-3546",
     educationRequired: {
       en: "Master's degree from ARC-PA accredited PA program (typically 2-3 years)",
@@ -469,7 +469,7 @@ export const SCOPE_OF_PRACTICE_ROLES: ScopeOfPracticeRole[] = [
       en: "PA visits generate the same PPS encounter rate as physician and NP visits in FQHCs. PA salary is typically similar to NP salary (60-75% of physician salary). Expanding PA scope through broader practice agreements increases encounter volume without adding providers.",
       es: "Las visitas de PA generan la misma tarifa de encuentro PPS que las visitas de medicos y NPs en FQHCs. El salario del PA es tipicamente similar al salario de NP (60-75% del salario medico). Expandir el alcance del PA a traves de acuerdos de practica mas amplios aumenta el volumen de encuentros sin agregar proveedores.",
     },
-    primarySourceUrl: "https://www.pac.ca.gov/consumers/what_is_a_pa",
+    primarySourceUrl: "https://www.pab.ca.gov/about_us/history.shtml",
   },
 
   /* ---- 4. RN — Registered Nurse ---- */
@@ -594,7 +594,7 @@ export const SCOPE_OF_PRACTICE_ROLES: ScopeOfPracticeRole[] = [
       en: "RN-led visits can generate billable encounters under FQHC PPS when they involve assessment, education, or care management — especially for chronic disease management and transitional care management (TCM). RN care coordination also improves quality metrics that affect grant funding and value-based payment bonuses.",
       es: "Las visitas dirigidas por RN pueden generar encuentros facturables bajo PPS de FQHC cuando involucran evaluacion, educacion o manejo de atencion — especialmente para manejo de enfermedades cronicas y manejo de atencion transicional (TCM). La coordinacion de atencion de RN tambien mejora metricas de calidad que afectan el financiamiento por subvenciones y bonos de pago basado en valor.",
     },
-    primarySourceUrl: "https://www.rn.ca.gov/practice/rnscope.shtml",
+    primarySourceUrl: "https://www.rn.ca.gov/practice/npa.shtml",
   },
 
   /* ---- 5. LVN — Licensed Vocational Nurse ---- */
@@ -715,7 +715,7 @@ export const SCOPE_OF_PRACTICE_ROLES: ScopeOfPracticeRole[] = [
       en: "LVN time doesn't directly generate encounters, but enables provider efficiency. LVNs who handle medication administration, wound care, and specimen collection free up RNs for billable activities and allow providers to see more patients per session. Proper LVN utilization typically increases clinic throughput by 10-15%.",
       es: "El tiempo de LVN no genera encuentros directamente, pero permite eficiencia del proveedor. Las LVNs que manejan administracion de medicamentos, cuidado de heridas y recoleccion de muestras liberan a las RNs para actividades facturables y permiten a los proveedores ver mas pacientes por sesion. La utilizacion adecuada de LVN tipicamente aumenta el rendimiento de la clinica en 10-15%.",
     },
-    primarySourceUrl: "https://www.bvnpt.ca.gov/licensees/scope_of_practice.shtml",
+    primarySourceUrl: "https://www.bvnpt.ca.gov/licensees/licensed_vocational_nurses.shtml",
   },
 
   /* ---- 6. MA — Medical Assistant ---- */
@@ -1115,7 +1115,7 @@ export const SCOPE_OF_PRACTICE_ROLES: ScopeOfPracticeRole[] = [
       en: "LCSW visits generate a separate FQHC PPS encounter rate — including on the same day as a medical visit. This same-day billing is a significant revenue opportunity: every warm handoff that results in a same-day BH visit generates an additional $150-250+ encounter. FQHCs that implement BHI with same-day billing typically see 15-30% increases in per-patient revenue.",
       es: "Las visitas de LCSW generan una tarifa de encuentro PPS de FQHC separada — incluyendo el mismo dia que una visita medica. Esta facturacion del mismo dia es una oportunidad de ingresos significativa: cada transferencia calida que resulta en una visita de salud conductual del mismo dia genera un encuentro adicional de $150-250+. Los FQHCs que implementan BHI con facturacion del mismo dia tipicamente ven aumentos de 15-30% en ingresos por paciente.",
     },
-    primarySourceUrl: "https://www.bbs.ca.gov/licensees/lcsw.html",
+    primarySourceUrl: "https://www.bbs.ca.gov/applicants/lcsw.html",
   },
 
   /* ---- 9. AMFT/ASW — Associate MFT / Associate Social Worker ---- */
@@ -1240,7 +1240,7 @@ export const SCOPE_OF_PRACTICE_ROLES: ScopeOfPracticeRole[] = [
       en: "Associate visits are billable at the same PPS encounter rate as licensed clinician visits in FQHCs — no revenue reduction. With associate salaries 30-40% lower than LCSW/LMFT salaries, the revenue-to-cost ratio is significantly higher. A single associate generating 6-8 encounters/day at $150-250+ PPS rate produces $900-2,000+/day in revenue against a salary cost of $55,000-70,000/year. The only additional cost is supervisor time.",
       es: "Las visitas de asociados se facturan a la misma tarifa de encuentro PPS que las visitas de clinicos licenciados en FQHCs — sin reduccion de ingresos. Con salarios de asociados 30-40% menores que los salarios de LCSW/LMFT, la relacion ingreso-costo es significativamente mayor. Un solo asociado generando 6-8 encuentros/dia a una tarifa PPS de $150-250+ produce $900-2,000+/dia en ingresos contra un costo salarial de $55,000-70,000/ano. El unico costo adicional es el tiempo del supervisor.",
     },
-    primarySourceUrl: "https://www.bbs.ca.gov/licensees/associate_clinical_social_worker.html",
+    primarySourceUrl: "https://www.bbs.ca.gov/applicants/lcsw.html",
   },
 
   /* ---- 10. RDH — Registered Dental Hygienist ---- */
@@ -1374,7 +1374,7 @@ export const SCOPE_OF_PRACTICE_ROLES: ScopeOfPracticeRole[] = [
       en: "Dental hygienist visits generate the FQHC dental PPS encounter rate — a separate billable encounter from medical visits. RDHAPs working in community settings generate encounters that would otherwise not exist (patients who never come to the clinic). The Virtual Dental Home model has demonstrated 30-50% increases in dental encounter volume for FQHCs that deploy community-based hygienists. Dental sealant programs in schools are particularly high-ROI.",
       es: "Las visitas de higienistas dentales generan la tarifa de encuentro dental PPS de FQHC — un encuentro facturable separado de las visitas medicas. Las RDHAPs trabajando en entornos comunitarios generan encuentros que de otro modo no existirian (pacientes que nunca vienen a la clinica). El modelo de Hogar Dental Virtual ha demostrado aumentos de 30-50% en el volumen de encuentros dentales para FQHCs que despliegan higienistas comunitarias. Los programas de selladores dentales en escuelas son particularmente de alto ROI.",
     },
-    primarySourceUrl: "https://www.dbc.ca.gov/licensees/registered_dental_hygienist.shtml",
+    primarySourceUrl: "https://www.dhbc.ca.gov/consumers/duties_rdh.shtml",
   },
 ];
 

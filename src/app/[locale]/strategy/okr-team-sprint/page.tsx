@@ -80,7 +80,7 @@ export default function TeamSprintPage() {
         <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-6">
             <Link
-              href="/strategy"
+              href="/strategy/guides"
               className="hover:text-teal-600 transition-colors"
             >
               {isEs ? "Estrategia" : "Strategy"}
@@ -135,7 +135,7 @@ export default function TeamSprintPage() {
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-8">
           <Link
-            href="/strategy"
+            href="/strategy/guides"
             className="hover:text-teal-600 transition-colors"
           >
             {isEs ? "Estrategia" : "Strategy"}

@@ -315,6 +315,23 @@ export default function WorkingAtTopOfScopeFqhcArticle() {
             </p>
           </div>
 
+          {/* Sources */}
+          <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+            <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+              {isEs ? "Fuentes" : "Sources"}
+            </h2>
+            <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <li><a href="https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?article=2.&chapter=6.&division=2.&lawCode=BPC" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">California Business and Professions Code &sect; 2725 &mdash; Registered Nurse Scope of Practice</a> &mdash; California Legislative Information. {isEs ? "Define el alcance de la pr\u00e1ctica de enfermer\u00eda en California, incluyendo funciones superpuestas con m\u00e9dicos." : "Defines the scope of nursing practice in California, including overlapping functions with physicians."}</li>
+              <li><a href="https://codes.findlaw.com/ca/business-and-professions-code/bpc-sect-2069/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">California BPC &sect; 2069 &mdash; Medical Assistant Scope and Delegation</a> &mdash; FindLaw / California Legislative Information. {isEs ? "Reglas de delegaci\u00f3n para asistentes m\u00e9dicos bajo supervisi\u00f3n de m\u00e9dicos y NPs." : "Delegation rules for medical assistants under physician and NP supervision."}</li>
+              <li><a href="https://www.sciencedirect.com/science/article/pii/S0091743524001993" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Implementing an advanced team-based care model in a federally qualified health center (FQHC)</a> &mdash; ScienceDirect / Preventive Medicine, 2024. {isEs ? "Modelo de atenci\u00f3n en equipo avanzado donde los coordinadores de equipo de atenci\u00f3n permanecen con los proveedores durante las visitas." : "Advanced team-based care model where care team coordinators remain with providers during visits."}</li>
+              <li><a href="https://www.ncqa.org/news/ncqa-awarded-new-hrsa-task-order-to-expand-access-to-patient-centered-and-behavioral-health-care/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">NCQA Awarded HRSA Task Order to Expand Access to Patient-Centered Care</a> &mdash; NCQA. {isEs ? "M\u00e1s de 3,200 centros de salud de HRSA han obtenido Reconocimiento PCMH de NCQA." : "More than 3,200 HRSA health centers have earned NCQA PCMH Recognition."}</li>
+              <li><a href="https://www.cms.gov/priorities/innovation/innovation-models/fqhcs" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">FQHC Advanced Primary Care Practice Demonstration</a> &mdash; CMS. {isEs ? "Demostraci\u00f3n CMS-HRSA del modelo PCMH para hasta 195,000 pacientes de Medicare." : "CMS-HRSA demonstration of PCMH model for up to 195,000 Medicare patients."}</li>
+              <li><a href="https://www.nachc.org/wp-content/uploads/2022/03/NACHC-2022-Workforce-Survey-Full-Report-1.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{isEs ? "Estado Actual de la Fuerza Laboral de Centros de Salud" : "Current State of the Health Center Workforce"}</a> &mdash; NACHC, 2022. {isEs ? "M\u00e1s del 70% de FQHCs enfrentan escasez cr\u00edtica de m\u00e9dicos, enfermeros y proveedores de salud mental." : "Over 70% of FQHCs face critical shortages in physicians, nurses, and mental health providers."}</li>
+              <li><a href="https://data.hrsa.gov/topics/health-centers/uds" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Health Center Program UDS Data</a> &mdash; HRSA, 2024. {isEs ? "Datos de dotaci\u00f3n de personal, volumen de pacientes e indicadores cl\u00ednicos de centros de salud." : "Health center staffing, patient volume, and clinical quality indicator data."}</li>
+              <li><a href="https://ochin.org/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">OCHIN Epic EHR Network</a> &mdash; OCHIN. {isEs ? "Red de EHR basada en Epic que atiende a 6.3+ millones de pacientes en m\u00e1s de 2,000 sitios." : "Epic-based EHR network serving 6.3+ million patients across 2,000+ sites."}</li>
+            </ol>
+          </div>
+
           {/* CTA */}
           <ArticleCTA
             audience="intel-brief"

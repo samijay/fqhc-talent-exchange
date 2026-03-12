@@ -198,7 +198,7 @@ export const RETENTION_STRATEGIES: RetentionStrategy[] = [
     timeToImpact: "12+ months",
     primarySource: {
       label: "NACHC Workforce Report 2024",
-      url: "https://www.nachc.org/research-and-data/workforce/",
+      url: "https://www.nachc.org/topic/workforce/",
     },
     crossLinks: [
       { label: "Scope of Practice", href: "/strategy/scope-of-practice" },
@@ -475,7 +475,7 @@ export const RETENTION_STRATEGIES: RetentionStrategy[] = [
     timeToImpact: "1-3 months",
     primarySource: {
       label: "NACHC Community Engagement Toolkit",
-      url: "https://www.nachc.org/resource/community-engagement/",
+      url: "https://www.nachc.org/resource/report-broadening-research-participation-through-community-engagement/",
     },
     crossLinks: [
       { label: "Cultural Humility", href: "/strategy/cultural-humility" },
@@ -669,7 +669,7 @@ export const RETENTION_STRATEGIES: RetentionStrategy[] = [
     timeToImpact: "6-12 months",
     primarySource: {
       label: "NACHC Workforce Investment Report 2024",
-      url: "https://www.nachc.org/research-and-data/workforce/",
+      url: "https://www.nachc.org/topic/workforce/",
     },
     crossLinks: [
       { label: "Certification Catalog", href: "/certifications" },
@@ -843,7 +843,7 @@ export const RETENTION_BENCHMARKS: RetentionBenchmark[] = [
     hospitalComparison: "22%",
     source: {
       label: "NACHC / FrontRunner HC Workforce Report 2024",
-      url: "https://www.nachc.org/research-and-data/workforce/",
+      url: "https://www.nachc.org/topic/workforce/",
     },
     direction: "lower-is-better",
   },
@@ -879,7 +879,7 @@ export const RETENTION_BENCHMARKS: RetentionBenchmark[] = [
     hospitalComparison: "28%",
     source: {
       label: "NACHC Workforce Report 2024",
-      url: "https://www.nachc.org/research-and-data/workforce/",
+      url: "https://www.nachc.org/topic/workforce/",
     },
     direction: "lower-is-better",
   },

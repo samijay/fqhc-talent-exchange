@@ -604,6 +604,51 @@ export default function TopFqhcInterviewQuestionsArticle() {
                 )}
               </div>
             ))}
+
+            {/* Sources */}
+            <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+                {locale === "es" ? "Fuentes" : "Sources"}
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+                <li>
+                  <a href="https://www.dhcs.ca.gov/CalAIM/ECM/Pages/Home.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Gestión de Atención Mejorada (ECM) y Servicios Comunitarios" : "Enhanced Care Management (ECM) & Community Supports"}
+                  </a>{" "}
+                  &mdash; {locale === "es" ? "DHCS California. Criterios de poblaciones de enfoque, guía de políticas y requisitos del programa." : "California DHCS. Populations of focus criteria, policy guide, and program requirements."}
+                </li>
+                <li>
+                  <a href="https://www.dhcs.ca.gov/CalAIM/ECM/Documents/ECM-Policy-Guide.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Guía de Políticas de ECM CalAIM (PDF)" : "CalAIM ECM Policy Guide (PDF)"}
+                  </a>{" "}
+                  &mdash; DHCS, {locale === "es" ? "actualizado agosto 2024. Evaluaciones integrales, planes de atención individualizados, frecuencia de contacto." : "updated August 2024. Comprehensive assessments, individualized care plans, outreach frequency."}
+                </li>
+                <li>
+                  <a href="https://bphc.hrsa.gov/data-reporting/uds-training-and-technical-assistance" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Asistencia Técnica del Sistema Uniforme de Datos (UDS)" : "Uniform Data System (UDS) Technical Assistance"}
+                  </a>{" "}
+                  &mdash; HRSA. {locale === "es" ? "Requisitos de reporte y métricas de calidad para centros de salud." : "Reporting requirements and quality metrics for health centers."}
+                </li>
+                <li>
+                  <a href="https://data.hrsa.gov/topics/health-centers/uds" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Portal de Datos UDS de HRSA" : "HRSA UDS Data Portal"}
+                  </a>{" "}
+                  &mdash; HRSA. {locale === "es" ? "Datos públicos de centros de salud para investigar FQHCs antes de entrevistas." : "Public health center data for researching FQHCs before interviews."}
+                </li>
+                <li>
+                  <a href="https://nhsc.hrsa.gov/loan-repayment/nhsc-loan-repayment-program" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Programa de Pago de Préstamos NHSC" : "NHSC Loan Repayment Program"}
+                  </a>{" "}
+                  &mdash; HRSA. {locale === "es" ? "Hasta $75K para proveedores de atención primaria por compromiso de 2 años en sitios HPSA." : "Up to $75K for primary care providers for a 2-year commitment at HPSA sites."}
+                </li>
+                <li>
+                  <a href="https://bphc.hrsa.gov/compliance/compliance-manual/chapter1" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Manual de Cumplimiento del Programa de Centros de Salud" : "Health Center Program Compliance Manual"}
+                  </a>{" "}
+                  &mdash; HRSA. {locale === "es" ? "Autorización de la Sección 330, requisitos de gobernanza y escala deslizante." : "Section 330 authorization, governance and sliding fee scale requirements."}
+                </li>
+              </ol>
+            </div>
           </div>
 
           {/* CTA */}

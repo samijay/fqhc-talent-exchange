@@ -56,7 +56,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Because FQHCs receive Section 330 grant funding and serve as NHSC-approved sites, they can offer loan repayment programs worth tens of thousands of dollars. Because they're nonprofits, your employment counts toward Public Service Loan Forgiveness. Because they prioritize workforce retention in underserved areas, many FQHCs offer retirement matching, tuition reimbursement, and schedule flexibility that goes well beyond industry norms.",
+          text: "Because FQHCs receive Section 330 grant funding under the Public Health Service Act and serve as NHSC-approved sites, they can offer loan repayment programs worth tens of thousands of dollars. Because they're 501(c)(3) nonprofits, your employment counts toward Public Service Loan Forgiveness. Because they prioritize workforce retention in underserved areas, many FQHCs offer retirement matching, tuition reimbursement, and schedule flexibility that goes well beyond industry norms. [1][2]",
         },
         {
           type: "paragraph",
@@ -95,7 +95,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The National Health Service Corps (NHSC) Loan Repayment Program is one of the single most valuable benefits available to FQHC workers. Through this federal program, eligible healthcare professionals can receive up to $50,000 in tax-free student loan repayment for an initial two-year service commitment at an NHSC-approved site. For substance use disorder specialists, awards can reach $75,000 over three years.",
+          text: "The National Health Service Corps (NHSC) Loan Repayment Program is one of the single most valuable benefits available to FQHC workers. Through this federal program, eligible healthcare professionals can receive up to $50,000 in tax-free student loan repayment for an initial two-year service commitment at an NHSC-approved site (up to $75,000 for primary care providers in FY2026). For substance use disorder specialists, awards can reach $75,000 over three years. [3]",
         },
         {
           type: "paragraph",
@@ -126,7 +126,7 @@ const enContent: ArticleContent = {
         {
           type: "list",
           items: [
-            "403(b) plans: Available at virtually all FQHCs. You contribute pre-tax dollars from your paycheck, reducing your current taxable income while building retirement savings. The 2026 contribution limit is $23,500 ($31,000 if you're age 50 or older).",
+            "403(b) plans: Available at virtually all FQHCs. You contribute pre-tax dollars from your paycheck, reducing your current taxable income while building retirement savings. The 2026 contribution limit is $24,500 ($32,500 if you're age 50 or older). [4]",
             "Employer match: Many FQHCs match employee contributions at 3% to 6% of salary. Some offer a dollar-for-dollar match up to a certain percentage, while others use a tiered formula. A 4% match on a $65,000 salary adds $2,600 per year in free money to your retirement account.",
             "Vesting schedules: Some FQHCs offer immediate vesting on employer contributions, while others use a 2–5 year vesting schedule. Ask about vesting during the offer stage — it affects how much of the employer's contributions you keep if you leave early.",
             "Pension plans: A small number of larger FQHCs and those affiliated with county health systems still offer defined benefit pension plans. These are increasingly rare in healthcare, making them an exceptional benefit when available.",
@@ -150,7 +150,7 @@ const enContent: ArticleContent = {
           type: "list",
           items: [
             "PTO accrual: Most FQHCs start employees at 15–20 days of PTO per year (3–4 weeks), with increases based on tenure. After 5 years, many workers accrue 25+ days annually. Some FQHCs use a combined PTO bank, while others separate vacation and sick time.",
-            "Sick leave: In addition to PTO, many FQHCs provide 8–12 dedicated sick days per year. California law requires a minimum of 5 paid sick days, but most FQHCs significantly exceed this requirement.",
+            "Sick leave: In addition to PTO, many FQHCs provide 8–12 dedicated sick days per year. California law requires a minimum of 5 paid sick days (40 hours) under SB 616, effective January 1, 2024, but most FQHCs significantly exceed this requirement. [5]",
             "Paid holidays: FQHCs typically observe 10–13 paid holidays per year, including federal holidays, the day after Thanksgiving, Christmas Eve, and sometimes additional floating holidays.",
             "Extended leave: Many FQHCs offer paid parental leave (2–6 weeks beyond California's state disability and paid family leave), bereavement leave, and jury duty pay. Some also provide sabbatical programs for long-tenured employees.",
           ],
@@ -219,9 +219,9 @@ const enContent: ArticleContent = {
           items: [
             "Sliding fee scale for employees: FQHCs are required to offer a sliding fee scale for patients based on income. At many FQHCs, employees and their families can access the organization's own healthcare services at reduced or no cost. This is especially valuable for dental, behavioral health, and primary care.",
             "Employee wellness programs: Many FQHCs offer wellness stipends ($200–$500/year for gym memberships, fitness equipment, or wellness activities), employee assistance programs (EAPs) with free counseling sessions, and on-site wellness activities.",
-            "Student loan assistance beyond NHSC: Some FQHCs offer their own employer-funded student loan repayment programs in addition to NHSC eligibility. Under current tax law, employers can contribute up to $5,250 per year tax-free toward employee student loans.",
-            "Public Service Loan Forgiveness (PSLF): Because all FQHCs are 501(c)(3) nonprofits, every payment you make on federal student loans while employed at an FQHC counts toward the 120 payments required for complete loan forgiveness under PSLF. Over a 10-year career, this could eliminate your entire remaining federal student loan balance.",
-            "Malpractice coverage: FQHCs covered under the Federal Tort Claims Act (FTCA) provide medical malpractice coverage to their employees at no cost. This is a significant benefit for clinical providers, who would otherwise need to purchase their own malpractice insurance ($5,000–$20,000 per year depending on specialty).",
+            "Student loan assistance beyond NHSC: Some FQHCs offer their own employer-funded student loan repayment programs in addition to NHSC eligibility. Under IRC Section 127, employers can contribute up to $5,250 per year tax-free toward employee student loans (made permanent by the One Big Beautiful Bill Act of 2025, with inflation indexing starting 2026). [6]",
+            "Public Service Loan Forgiveness (PSLF): Because all FQHCs are 501(c)(3) nonprofits, every payment you make on federal Direct Loans while employed at an FQHC counts toward the 120 qualifying payments required for complete loan forgiveness under PSLF. Over a 10-year career, this could eliminate your entire remaining federal student loan balance. [7]",
+            "Malpractice coverage: FQHCs deemed under the Federal Tort Claims Act (FTCA) through HRSA provide medical malpractice coverage to their employees at no cost. This coverage extends to governing board members, officers, employees, and certain contractors. This is a significant benefit for clinical providers, who would otherwise need to purchase their own malpractice insurance ($5,000–$20,000 per year depending on specialty). [8]",
             "Commuter benefits: Some California FQHCs offer pre-tax commuter benefits, transit passes, or mileage reimbursement for employees who work at multiple sites.",
           ],
         },
@@ -326,7 +326,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Debido a que los FQHCs reciben fondos de la Seccion 330 y sirven como sitios aprobados por el NHSC, pueden ofrecer programas de pago de prestamos por valor de decenas de miles de dolares. Debido a que son organizaciones sin fines de lucro, tu empleo cuenta para la Condonacion de Prestamos por Servicio Publico. Debido a que priorizan la retencion de la fuerza laboral en areas desatendidas, muchos FQHCs ofrecen contribuciones de jubilacion, reembolso de matricula y flexibilidad de horario que va mucho mas alla de las normas de la industria.",
+          text: "Debido a que los FQHCs reciben fondos de la Seccion 330 bajo la Ley del Servicio de Salud Publica y sirven como sitios aprobados por el NHSC, pueden ofrecer programas de pago de prestamos por valor de decenas de miles de dolares. Debido a que son organizaciones sin fines de lucro 501(c)(3), tu empleo cuenta para la Condonacion de Prestamos por Servicio Publico. Debido a que priorizan la retencion de la fuerza laboral en areas desatendidas, muchos FQHCs ofrecen contribuciones de jubilacion, reembolso de matricula y flexibilidad de horario que va mucho mas alla de las normas de la industria. [1][2]",
         },
         {
           type: "paragraph",
@@ -365,7 +365,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "El Programa de Pago de Prestamos del Cuerpo Nacional de Servicios de Salud (NHSC) es uno de los beneficios individuales mas valiosos disponibles para los trabajadores de FQHC. A traves de este programa federal, los profesionales de salud elegibles pueden recibir hasta $50,000 en pago de prestamos estudiantiles libre de impuestos por un compromiso de servicio inicial de dos anos en un sitio aprobado por el NHSC. Para especialistas en trastornos por uso de sustancias, las becas pueden alcanzar $75,000 durante tres anos.",
+          text: "El Programa de Pago de Prestamos del Cuerpo Nacional de Servicios de Salud (NHSC) es uno de los beneficios individuales mas valiosos disponibles para los trabajadores de FQHC. A traves de este programa federal, los profesionales de salud elegibles pueden recibir hasta $50,000 en pago de prestamos estudiantiles libre de impuestos por un compromiso de servicio inicial de dos anos en un sitio aprobado por el NHSC (hasta $75,000 para proveedores de atencion primaria en FY2026). Para especialistas en trastornos por uso de sustancias, las becas pueden alcanzar $75,000 durante tres anos. [3]",
         },
         {
           type: "paragraph",
@@ -397,7 +397,7 @@ const esContent: ArticleContent = {
         {
           type: "list",
           items: [
-            "Planes 403(b): Disponibles en practicamente todos los FQHCs. Tu contribuyes dolares antes de impuestos de tu cheque de pago, reduciendo tu ingreso gravable actual mientras construyes ahorros para la jubilacion. El limite de contribucion de 2026 es de $23,500 ($31,000 si tienes 50 anos o mas).",
+            "Planes 403(b): Disponibles en practicamente todos los FQHCs. Tu contribuyes dolares antes de impuestos de tu cheque de pago, reduciendo tu ingreso gravable actual mientras construyes ahorros para la jubilacion. El limite de contribucion de 2026 es de $24,500 ($32,500 si tienes 50 anos o mas). [4]",
             "Igualacion del empleador: Muchos FQHCs igualan las contribuciones del empleado al 3% al 6% del salario. Algunos ofrecen igualacion dolar por dolar hasta cierto porcentaje, mientras que otros usan una formula escalonada. Una igualacion del 4% en un salario de $65,000 agrega $2,600 por ano en dinero gratis a tu cuenta de jubilacion.",
             "Periodos de adquisicion: Algunos FQHCs ofrecen adquisicion inmediata de las contribuciones del empleador, mientras que otros usan un periodo de adquisicion de 2 a 5 anos. Pregunta sobre la adquisicion durante la etapa de oferta — afecta cuanto de las contribuciones del empleador conservas si te vas antes.",
             "Planes de pension: Un pequeno numero de FQHCs mas grandes y aquellos afiliados con sistemas de salud del condado todavia ofrecen planes de pension de beneficio definido. Estos son cada vez mas raros en salud, haciendolos un beneficio excepcional cuando estan disponibles.",
@@ -421,7 +421,7 @@ const esContent: ArticleContent = {
           type: "list",
           items: [
             "Acumulacion de PTO: La mayoria de los FQHCs comienzan a los empleados con 15–20 dias de PTO por ano (3–4 semanas), con aumentos basados en la antiguedad. Despues de 5 anos, muchos trabajadores acumulan 25+ dias anualmente. Algunos FQHCs usan un banco combinado de PTO, mientras que otros separan vacaciones y tiempo por enfermedad.",
-            "Licencia por enfermedad: Ademas del PTO, muchos FQHCs proporcionan 8–12 dias dedicados de enfermedad por ano. La ley de California requiere un minimo de 5 dias de enfermedad pagados, pero la mayoria de los FQHCs superan significativamente este requisito.",
+            "Licencia por enfermedad: Ademas del PTO, muchos FQHCs proporcionan 8–12 dias dedicados de enfermedad por ano. La ley de California requiere un minimo de 5 dias de enfermedad pagados (40 horas) bajo SB 616, vigente desde el 1 de enero de 2024, pero la mayoria de los FQHCs superan significativamente este requisito. [5]",
             "Dias festivos pagados: Los FQHCs tipicamente observan 10–13 dias festivos pagados por ano, incluyendo dias festivos federales, el dia despues de Accion de Gracias, Nochebuena, y a veces dias festivos flotantes adicionales.",
             "Licencia extendida: Muchos FQHCs ofrecen licencia parental pagada (2–6 semanas mas alla de la discapacidad estatal de California y la licencia familiar pagada), licencia por duelo y pago por servicio de jurado. Algunos tambien proporcionan programas sabaticos para empleados con larga antiguedad.",
           ],
@@ -490,9 +490,9 @@ const esContent: ArticleContent = {
           items: [
             "Escala de tarifas deslizantes para empleados: Los FQHCs estan obligados a ofrecer una escala de tarifas deslizantes para los pacientes basada en los ingresos. En muchos FQHCs, los empleados y sus familias pueden acceder a los propios servicios de salud de la organizacion a costo reducido o sin costo. Esto es especialmente valioso para dental, salud conductual y atencion primaria.",
             "Programas de bienestar para empleados: Muchos FQHCs ofrecen estipendios de bienestar ($200–$500/ano para membresias de gimnasio, equipo de fitness o actividades de bienestar), programas de asistencia al empleado (EAPs) con sesiones de consejeria gratuitas, y actividades de bienestar en el sitio.",
-            "Asistencia de prestamos estudiantiles mas alla del NHSC: Algunos FQHCs ofrecen sus propios programas de pago de prestamos estudiantiles financiados por el empleador ademas de la elegibilidad del NHSC. Bajo la ley fiscal actual, los empleadores pueden contribuir hasta $5,250 por ano libre de impuestos hacia los prestamos estudiantiles de los empleados.",
-            "Condonacion de Prestamos por Servicio Publico (PSLF): Debido a que todos los FQHCs son organizaciones sin fines de lucro 501(c)(3), cada pago que hagas en prestamos estudiantiles federales mientras estas empleado en un FQHC cuenta para los 120 pagos requeridos para la condonacion completa de prestamos bajo PSLF. Durante una carrera de 10 anos, esto podria eliminar tu saldo restante completo de prestamos estudiantiles federales.",
-            "Cobertura de negligencia medica: Los FQHCs cubiertos bajo la Ley Federal de Reclamaciones por Agravios (FTCA) proporcionan cobertura de negligencia medica a sus empleados sin costo. Este es un beneficio significativo para los proveedores clinicos, quienes de otra manera necesitarian comprar su propio seguro de negligencia ($5,000–$20,000 por ano dependiendo de la especialidad).",
+            "Asistencia de prestamos estudiantiles mas alla del NHSC: Algunos FQHCs ofrecen sus propios programas de pago de prestamos estudiantiles financiados por el empleador ademas de la elegibilidad del NHSC. Bajo la Seccion 127 del IRC, los empleadores pueden contribuir hasta $5,250 por ano libre de impuestos hacia los prestamos estudiantiles de los empleados (hecho permanente por la Ley One Big Beautiful Bill de 2025, con indexacion por inflacion a partir de 2026). [6]",
+            "Condonacion de Prestamos por Servicio Publico (PSLF): Debido a que todos los FQHCs son organizaciones sin fines de lucro 501(c)(3), cada pago que hagas en Prestamos Directos federales mientras estas empleado en un FQHC cuenta para los 120 pagos calificados requeridos para la condonacion completa de prestamos bajo PSLF. Durante una carrera de 10 anos, esto podria eliminar tu saldo restante completo de prestamos estudiantiles federales. [7]",
+            "Cobertura de negligencia medica: Los FQHCs designados bajo la Ley Federal de Reclamaciones por Agravios (FTCA) a traves de HRSA proporcionan cobertura de negligencia medica a sus empleados sin costo. Esta cobertura se extiende a miembros de la junta directiva, oficiales, empleados y ciertos contratistas. Este es un beneficio significativo para los proveedores clinicos, quienes de otra manera necesitarian comprar su propio seguro de negligencia ($5,000–$20,000 por ano dependiendo de la especialidad). [8]",
             "Beneficios de transporte: Algunos FQHCs de California ofrecen beneficios de transporte antes de impuestos, pases de transito o reembolso de millaje para empleados que trabajan en multiples sitios.",
           ],
         },
@@ -738,6 +738,22 @@ export default function FqhcBenefitsGuideArticle() {
                 )}
               </div>
             ))}
+            {/* Sources */}
+            <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+                {locale === "es" ? "Fuentes" : "Sources"}
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+                <li><a href="https://bphc.hrsa.gov/compliance/compliance-manual/chapter1" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Health Center Program Eligibility (Section 330)</a> — HRSA, Bureau of Primary Health Care</li>
+                <li><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Public Service Loan Forgiveness (PSLF)</a> — Federal Student Aid, U.S. Department of Education</li>
+                <li><a href="https://nhsc.hrsa.gov/loan-repayment/nhsc-loan-repayment-program" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">NHSC Loan Repayment Program</a> — HRSA, National Health Service Corps</li>
+                <li><a href="https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-403b-contribution-limits" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">403(b) Contribution Limits</a> — Internal Revenue Service (IRS)</li>
+                <li><a href="https://www.dir.ca.gov/dlse/paid_sick_leave.htm" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">California Paid Sick Leave: Frequently Asked Questions (SB 616)</a> — California Department of Industrial Relations</li>
+                <li><a href="https://www.irs.gov/newsroom/frequently-asked-questions-about-educational-assistance-programs" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Educational Assistance Programs (Section 127)</a> — Internal Revenue Service (IRS)</li>
+                <li><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">PSLF: 120 Qualifying Payments</a> — Federal Student Aid, U.S. Department of Education</li>
+                <li><a href="https://bphc.hrsa.gov/compliance/ftca" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Federal Tort Claims Act (FTCA) Program</a> — HRSA, Bureau of Primary Health Care</li>
+              </ol>
+            </div>
           </div>
 
           {/* CTA */}

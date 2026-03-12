@@ -913,7 +913,7 @@ export const FQHC_AI_VENDORS: AIVendor[] = [
       { en: "AI coding carries compliance risk — requires human review process", es: "La codificación de IA conlleva riesgo de cumplimiento — requiere proceso de revisión humana" },
       { en: "Limited FQHC customer references available publicly", es: "Referencias de clientes de FQHC limitadas disponibles públicamente" },
     ],
-    sourceUrl: "https://www.nachc.org/resources/ai-tools-for-community-health-centers/",
+    sourceUrl: "https://www.nachc.org/topic/health-information-technology/",
     sourceOrg: "NACHC",
     lastVerified: "2026-03-01",
     fqhcFit: "moderate",

@@ -77,7 +77,7 @@ export const INTEL_BRIEF_001: IntelBriefContent = {
       summary:
         "HRSA's FY2026 Health Center Service Area Competition explicitly requires alignment with 'Make America Healthy Again' priorities — shifting from health disparities/social determinants to chronic disease prevention, nutrition, and reducing medication overreliance. Two tranches: ~$232M (March start) and ~$171M (May start). Warning: FQHCs emphasizing language access or social needs may score lower under new criteria.",
       sourceUrl:
-        "https://www.communitylinkconsulting.com/blog/fqhc-2026-federal-grant-updates",
+        "https://web.archive.org/web/2025/https://www.communitylinkconsulting.com/blog/fqhc-2026-federal-grant-updates",
       sourceOrg: "Community Link Consulting",
     },
     {

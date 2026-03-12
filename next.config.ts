@@ -101,6 +101,17 @@ const nextConfig: NextConfig = {
         destination: "/:locale",
         permanent: true,
       },
+      // Redirect /strategy → /strategy/guides (no standalone /strategy page)
+      {
+        source: "/strategy",
+        destination: "/strategy/guides",
+        permanent: true,
+      },
+      {
+        source: "/:locale/strategy",
+        destination: "/:locale/strategy/guides",
+        permanent: true,
+      },
       // Redirect /strategy/knowledge-map → /pathway (Learning Pathway is the successor)
       {
         source: "/strategy/knowledge-map",

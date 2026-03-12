@@ -475,55 +475,46 @@ export default function FQHCCopayAdvantageArticle() {
               </div>
             ))}
 
-            {/* Sources Section */}
-            <div className="mt-12 rounded-xl border border-stone-200 bg-stone-50 p-6">
-              <h3 className="mb-3 text-lg font-bold text-stone-900">
-                {locale === "es" ? "Fuentes de Datos" : "Data Sources"}
-              </h3>
-              <ul className="space-y-1 text-sm text-stone-600">
+            {/* Sources */}
+            <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+                {locale === "es" ? "Fuentes" : "Sources"}
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "H.R. 1 (One Big Beautiful Bill), disposiciones de costos compartidos de Medicaid"
-                    : "H.R. 1 (One Big Beautiful Bill), Medicaid cost-sharing provisions"}{" "}
-                  — congress.gov
+                  <a href="https://www.congress.gov/bill/119th-congress/house-bill/1/text" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">H.R. 1 — One Big Beautiful Bill Act, Section 71120: Cost-Sharing Requirements</a> — U.S. Congress, 2025. {locale === "es" ? "Copagos de hasta $35 para afiliados de expansión de Medicaid; exención para FQHCs, CCBHCs y clínicas rurales." : "Up to $35 copays for Medicaid expansion enrollees; exemption for FQHCs, CCBHCs, and rural health clinics."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "NACHC, Datos de la Fuerza Laboral de Centros de Salud Comunitarios 2025"
-                    : "NACHC, Community Health Center Workforce Data 2025"}{" "}
-                  — nachc.org
+                  <a href="https://www.healthmanagement.com/blog/h-r-1-signed-into-law-what-it-means-for-medicaid-and-public-coverage/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">H.R. 1 Signed Into Law: Impact on Medicaid and Coverage</a> — Health Management Associates, 2025. {locale === "es" ? "Análisis de la exención de copago para FQHCs y disposiciones clave." : "Analysis of FQHC copay exemption and key provisions."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "CHCF, Impacto de H.R. 1 en Medi-Cal"
-                    : "CHCF, H.R. 1 Impact on Medi-Cal"}{" "}
-                  — chcf.org
+                  <a href="https://www.hrsa.gov/about/news/press-releases/new-data-health-center-patients" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Health Centers Serve Record Number of Patients</a> — HRSA, 2025. {locale === "es" ? "32.5 millones de pacientes atendidos en centros de salud financiados por HRSA (récord histórico del programa de 60 años)." : "32.5 million patients served at HRSA-funded health centers (60-year program record)."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "DHCS, Cronograma de Cobertura para Indocumentados"
-                    : "DHCS, Undocumented Coverage Timeline"}{" "}
-                  — dhcs.ca.gov
+                  <a href="https://www.nachc.org/wp-content/uploads/2025/09/NACHC-Policy-Papers_CHC-Workforce_Sept2025.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CHC Workforce Policy Paper</a> — NACHC, September 2025. {locale === "es" ? "55% de CHCs no pueden cubrir posiciones críticas; 86% no pueden ofrecer salarios competitivos." : "55% of CHCs cannot fill critical positions; 86% cannot offer competitive salaries."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Rastreador de Despidos e Inteligencia de FQHC Talent"
-                    : "FQHC Talent Layoff Tracker & Intelligence"}{" "}
-                  — fqhctalent.com
+                  <a href="https://www.nachc.org/2024-uds-early-takeaways-community-health-center-growth-under-pressure/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">2024 UDS Early Takeaways: CHC Growth Under Pressure</a> — NACHC, 2025. {locale === "es" ? "Margen operativo promedio de CHCs cayó a -2.1%; 1 de cada 4 CHCs con márgenes por debajo de -5%." : "Average CHC operating margin fell to -2.1%; 1 in 4 CHCs operating below -5%."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "HRSA, Datos de Centros de Salud 2025"
-                    : "HRSA, Health Center Data 2025"}{" "}
-                  — data.hrsa.gov
+                  <a href="https://www.chcf.org/resource/how-massive-federal-cuts-will-create-unprecedented-challenges-medi-cal-patients-providers/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">How Massive Federal Cuts Will Create Unprecedented Challenges for Medi-Cal</a> — California Health Care Foundation, 2026. {locale === "es" ? "Impacto de H.R. 1 en Medi-Cal: $30 mil millones anuales en recortes federales." : "H.R. 1 impact on Medi-Cal: $30 billion/year in federal funding cuts."}
                 </li>
-              </ul>
+                <li>
+                  <a href="https://www.dhcs.ca.gov/federal-impacts/Documents/DHCS-HR1-Implementation-Plan.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">H.R. 1 Implementation Plan</a> — DHCS, January 2026. {locale === "es" ? "Cronograma de implementación: congelamiento de inscripciones (Ene 2026), dental (Jul 2026), PPS (Oct 2026)." : "Implementation timeline: enrollment freeze (Jan 2026), dental (Jul 2026), PPS (Oct 2026)."}
+                </li>
+                <li>
+                  <a href="https://www.dhcs.ca.gov/provgovpart/Pages/CalAIM-1115-and-1915b-Waiver-Renewals.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CalAIM 1115 and 1915(b) Waiver Renewals</a> — DHCS, 2026. {locale === "es" ? "Exención CalAIM vence el 31 de diciembre de 2026; proceso de renovación en curso." : "CalAIM waiver expires December 31, 2026; renewal process underway."}
+                </li>
+                <li>
+                  <a href="https://lacounty.gov/2026/02/13/public-health-ending-clinic-services-at-seven-locations-due-to-significant-funding-cuts/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Public Health Ending Clinic Services at Seven Locations</a> — LA County, February 2026. {locale === "es" ? "7 de 13 clínicas de salud pública cerradas por déficit de $50 millones." : "7 of 13 public health clinics closed due to $50M funding shortfall."}
+                </li>
+                <li>
+                  <a href="https://www.abc10.com/article/news/local/sacramento-county-health-funding-cut-rfk-california-doge/103-b1e53d57-777f-462c-becd-67bfebb4c89e" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Sacramento County Faces $26M Funding Cut</a> — ABC10, 2025. {locale === "es" ? "Sacramento pierde $26M en fondos de salud por rescisión de subvenciones federales de HHS." : "Sacramento loses $26M in health funding from HHS federal grant rescission."}
+                </li>
+                <li>
+                  <a href="https://www.commonwealthfund.org/blog/2022/how-differences-medicaid-medicare-and-commercial-health-insurance-payment-rates-impact" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">How Differences in Medicaid, Medicare, and Commercial Payment Rates Impact Access</a> — Commonwealth Fund, 2022. {locale === "es" ? "Medicaid paga ~30% menos que Medicare; Medicaid representa 43% de ingresos de CHCs." : "Medicaid pays ~30% less than Medicare; Medicaid accounts for 43% of CHC revenue."}
+                </li>
+              </ol>
             </div>
           </div>
 

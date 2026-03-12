@@ -568,6 +568,23 @@ export default function LaidOffFqhcFastTrackArticle() {
             ))}
           </div>
 
+          {/* Sources */}
+          <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+            <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+              {locale === "es" ? "Fuentes" : "Sources"}
+            </h2>
+            <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <li><a href="https://edd.ca.gov/en/jobs_and_training/Layoff_Services_WARN/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Ley de Notificación de Ajuste y Recapacitación del Trabajador (WARN)" : "Worker Adjustment and Retraining Notification (WARN)"}</a> — California Employment Development Department. {locale === "es" ? "Requisitos de aviso de 60 días para empleadores con 75+ empleados." : "60-day notice requirements for employers with 75+ employees."}</li>
+              <li><a href="https://www.dmhc.ca.gov/HealthCareinCalifornia/TypesofPlans/KeepYourHealthCoverage(COBRA).aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Mantenga su Cobertura de Salud (COBRA)" : "Keep Your Health Coverage (COBRA)"}</a> — California Department of Managed Health Care. {locale === "es" ? "Cobertura de continuación COBRA y Cal-COBRA hasta 36 meses." : "COBRA and Cal-COBRA continuation coverage up to 36 months."}</li>
+              <li><a href="https://www.dir.ca.gov/dlse/faq_paydays.htm" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Días de Pago, Períodos de Pago y Salarios Finales" : "Paydays, Pay Periods, and Final Wages"}</a> — California DIR/DLSE. {locale === "es" ? "Ley de California sobre pago final y pago de vacaciones acumuladas (Código Laboral §201, §227.3)." : "California law on final paycheck and accrued vacation payout (Labor Code §201, §227.3)."}</li>
+              <li><a href="https://calaim.dhcs.ca.gov/pages/enhanced-care-management" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Enhanced Care Management</a> — California DHCS CalAIM. {locale === "es" ? "Guía del programa ECM y expansión bajo CalAIM." : "ECM program guide and expansion under CalAIM."}</li>
+              <li><a href="https://lao.ca.gov/Publications/Report/5003" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Presupuesto 2025-26: Actualización de ECM y Community Supports de CalAIM" : "The 2025-26 Budget: CalAIM ECM and Community Supports Implementation Update"}</a> — California Legislative Analyst&apos;s Office, 2025. {locale === "es" ? "Gasto en ECM de $956 millones, aumento del 466% desde 2021-22." : "ECM spending at $956 million, a 466% increase since 2021-22."}</li>
+              <li><a href="https://www.nachc.org/wp-content/uploads/2022/03/NACHC-2022-Workforce-Survey-Full-Report-1.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Estado Actual de la Fuerza Laboral de Centros de Salud" : "Current State of the Health Center Workforce"}</a> — NACHC, 2022. {locale === "es" ? "El 68% de centros de salud reportaron perder 5-25% de fuerza laboral." : "68% of health centers reported losing 5-25% of their workforce."}</li>
+              <li><a href="https://data.hrsa.gov/topics/health-centers/uds" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Health Center Program UDS Data</a> — HRSA, 2024. {locale === "es" ? "32.4 millones de pacientes atendidos en centros de salud financiados por HRSA." : "32.4 million patients served at HRSA-funded health centers."}</li>
+              <li><a href="https://ochin.org/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">OCHIN Health IT and EHR Solutions</a> — OCHIN. {locale === "es" ? "Red de EHR Epic para centros de salud comunitarios, 6.3+ millones de pacientes." : "Epic-based EHR network for community health centers, 6.3+ million patients."}</li>
+            </ol>
+          </div>
+
           {/* CTA */}
           <ArticleCTA
             audience="the-pulse"

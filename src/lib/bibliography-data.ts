@@ -1371,7 +1371,7 @@ export const BIBLIOGRAPHY_ENTRIES: BibliographyEntry[] = [
     id: "340b-funding-health-equity",
     title: "340B Funding Health Equity",
     organization: "NACHC",
-    url: "https://www.nachc.org/research-and-data/health-centers-and-340b-funding-health-equity/",
+    url: "https://www.nachc.org/resource/health-centers-and-340b-funding-health-equity/",
     description:
       "Research on how health centers use 340B savings to fund health equity initiatives.",
     category: "financial-management",
@@ -1582,7 +1582,7 @@ export const BIBLIOGRAPHY_ENTRIES: BibliographyEntry[] = [
     id: "nachc-ceo-competencies",
     title: "NACHC CEO Competencies",
     organization: "NACHC",
-    url: "https://www.nachc.org/resource/chief-executive-officer-ceo-competencies-domains-and-skills-tasks/",
+    url: "https://www.nachc.org/training-events/training-for-health-center-professionals/leadership-development/",
     description:
       "12 competency domains for FQHC CEOs (adapted from ACHE 2023). Only 64% of boards satisfied with succession planning.",
     category: "governance",
@@ -1633,7 +1633,7 @@ export const BIBLIOGRAPHY_ENTRIES: BibliographyEntry[] = [
   {
     id: "scenario-planning",
     title: "Scenario Planning",
-    url: "https://www.communitylinkconsulting.com/blog/scenario-planning-fqhc-federal-funding-uncertainty",
+    url: "https://www.communitylinkconsulting.com/clc-articles-tips/scenario-planning-fqhc-federal-funding-uncertainty",
     description:
       'Build "if/then" models for Medicaid cuts, 330 funding, 340B changes. Community Link Consulting.',
     category: "strategic-planning",

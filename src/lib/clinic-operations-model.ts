@@ -407,7 +407,7 @@ export const DISEASE_PROTOCOLS: DiseaseProtocol[] = [
       { en: "Medication adherence rate", es: "Tasa de adherencia a medicamentos" },
       { en: "Annual lipid panel", es: "Panel lipídico anual" },
     ],
-    sourceUrl: "https://www.nachc.org/resource/fqhc-billing-and-finance/",
+    sourceUrl: "https://www.nachc.org/topic/finance/",
   },
   {
     id: "depression",

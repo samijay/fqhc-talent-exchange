@@ -1902,7 +1902,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     staffCount: "200+",
     programs: ["ECM", "CCM", "BH Integration", "Community Supports"],
     ehrSystem: "OCHIN Epic",
-    website: "https://www.communicarehc.org",
+    website: "https://communicarehc.org",
     description:
       "CommuniCare Health Centers provides comprehensive medical, dental, and behavioral health services to underserved communities across Yolo County, including Davis, Woodland, and West Sacramento.",
     glassdoorRating: null,

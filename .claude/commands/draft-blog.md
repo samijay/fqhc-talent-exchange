@@ -45,9 +45,29 @@ Write a complete article following these quality guidelines:
 - Use **real data** from the codebase — actual salary ranges, layoff counts, job listing numbers, FQHC names
 - Include **specific California/FQHC context** — not generic healthcare content
 - Make it **actionable** — every article should help a job seeker or employer take a next step
-- Cite data sources when referencing external statistics
 - Write at an 8th-grade reading level — clear and accessible
 - Target **800-1,200 words** for the EN version
+
+### Citations (MANDATORY — every article must have sources)
+- **Every statistical claim, dollar amount, percentage, or policy reference MUST have an inline source link**
+- Use this format for inline links: `<a href="URL" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">linked text</a>`
+- **Primary source hierarchy**: Government (HRSA, CMS, DHCS, BLS, EDD) > Policy orgs (KFF, NACHC, CHCF, CPCA) > Industry pubs > News
+- Use WebSearch to find and verify primary source URLs for every claim
+- **Every article MUST end with a Sources section** (before the CTA/related articles):
+```tsx
+{/* Sources */}
+<div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+  <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+    {isEs ? "Fuentes" : "Sources"}
+  </h2>
+  <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+    <li><a href="URL" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Source Title</a> — Organization, Date</li>
+  </ol>
+</div>
+```
+- The Sources section must appear in BOTH English and Spanish versions
+- **Minimum 5 primary sources per article** — if you can't find 5, the article needs more research
+- If a source URL can't be verified, use {/* TODO: verify source */} so it gets caught in review
 
 ### Structure
 - **TLDRCard** with 3-4 key takeaways near the top
@@ -72,7 +92,8 @@ Write a complete article following these quality guidelines:
 Show the complete article content — both EN and ES versions — and wait for approval. Highlight:
 - Word count
 - Data points used from the codebase
-- Any external sources cited
+- **Source count and list** — every article must cite ≥5 primary sources with working URLs
+- Any claims where a primary source couldn't be found (flagged with TODO)
 
 **Wait for approval before creating any files.**
 

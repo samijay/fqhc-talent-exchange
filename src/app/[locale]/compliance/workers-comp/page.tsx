@@ -999,7 +999,7 @@ export default function WorkersCompPage() {
             </a>
 
             <a
-              href="https://www.dir.ca.gov/dosh/healthcare-guidance.html"
+              href="https://www.dir.ca.gov/dosh/puborder.asp"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-stone-200 bg-white p-5 hover:shadow-md transition-shadow"

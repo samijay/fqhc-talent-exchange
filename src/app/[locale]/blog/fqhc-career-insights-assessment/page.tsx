@@ -580,6 +580,20 @@ export default function FqhcCareerInsightsAssessmentArticle() {
             ))}
           </div>
 
+          {/* Sources */}
+          <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+            <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+              {locale === "es" ? "Fuentes" : "Sources"}
+            </h2>
+            <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <li><a href="https://pubmed.ncbi.nlm.nih.gov/32353895/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Situational judgement test validity for selection: A systematic review and meta-analysis</a> — PubMed, 2020. {locale === "es" ? "Validez predictiva de las pruebas de juicio situacional (r = 0.32) para el desempeño laboral interpersonal." : "Predictive validity of situational judgment tests (r = 0.32) for interpersonal workplace performance."}</li>
+              <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10753968/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Assessing professionalism in mental health clinicians: development and validation of a situational judgement test</a> — PMC, 2023. {locale === "es" ? "Las SJT muestran validez predictiva incremental sobre evaluaciones de personalidad para calificaciones de profesionalismo." : "SJTs show incremental predictive validity over personality assessments for professionalism ratings."}</li>
+              <li><a href="https://www.nachc.org/wp-content/uploads/2022/03/NACHC-2022-Workforce-Survey-Full-Report-1.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Current State of the Health Center Workforce</a> — NACHC, 2022. {locale === "es" ? "El 68% de los centros de salud perdieron 5-25% de su fuerza laboral en seis meses." : "68% of health centers lost 5-25% of their workforce in six months."}</li>
+              <li><a href="https://data.hrsa.gov/topics/health-centers/uds" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Health Center Program Uniform Data System (UDS) Data</a> — HRSA, 2024. {locale === "es" ? "32.4 millones de pacientes atendidos en centros de salud financiados por HRSA." : "32.4 million patients served at HRSA-funded health centers."}</li>
+              <li><a href="https://www.bls.gov/ooh/community-and-social-service/community-health-workers.htm" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Community Health Workers: Occupational Outlook Handbook</a> — U.S. Bureau of Labor Statistics, 2024. {locale === "es" ? "Empleo de CHW proyectado a crecer 13% de 2023 a 2033." : "CHW employment projected to grow 13% from 2023 to 2033."}</li>
+            </ol>
+          </div>
+
           {/* CTA */}
           <ArticleCTA
             audience="the-pulse"

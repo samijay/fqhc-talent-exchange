@@ -505,62 +505,40 @@ export default function FQHCAIScribesArticle() {
               </div>
             ))}
 
-            {/* Sources Section */}
-            <div className="mt-12 rounded-xl border border-stone-200 bg-stone-50 p-6">
-              <h3 className="mb-3 text-lg font-bold text-stone-900">
-                {locale === "es" ? "Fuentes de Datos" : "Data Sources"}
-              </h3>
-              <ul className="space-y-1 text-sm text-stone-600">
+            {/* Sources */}
+            <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+                {locale === "es" ? "Fuentes" : "Sources"}
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Encuesta de Médicos de la AMA sobre adopción de IA, 2024"
-                    : "AMA Physician Survey on AI Adoption, 2024"}{" "}
-                  — ama-assn.org
+                  <a href="https://www.ama-assn.org/practice-management/digital-health/2-3-physicians-are-using-health-ai-78-2023" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">2 in 3 Physicians Are Using Health AI — Up 78% from 2023</a> — American Medical Association, 2025. {locale === "es" ? "Adopción de IA saltó del 38% (2023) al 66% (2024); encuesta de ~1,200 médicos." : "AI adoption jumped from 38% (2023) to 66% (2024); survey of ~1,200 physicians."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Alianza NACHC-eClinicalWorks, noviembre 2025"
-                    : "NACHC-eClinicalWorks Partnership, November 2025"}{" "}
-                  — nachc.org
+                  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12492056/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Use of Ambient AI Scribes to Reduce Administrative Burden and Professional Burnout</a> — JAMA Network Open (Olson et al.), 2025. {locale === "es" ? "Estudio de 263 médicos en 6 sistemas de salud: agotamiento bajó de 51.9% a 38.8% con Abridge." : "263-physician study across 6 health systems: burnout dropped from 51.9% to 38.8% with Abridge."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Guía de Acción de IA de NACHC, septiembre 2025"
-                    : "NACHC AI Action Guide, September 2025"}{" "}
-                  — nachc.org
+                  <a href="https://www.nachc.org/nachc-and-eclinicalworks-partner-to-advance-health-it-and-ai-innovations-at-community-health-centers/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">NACHC and eClinicalWorks Partner to Advance Health IT and AI at CHCs</a> — NACHC, November 2025. {locale === "es" ? "Alianza para llevar herramientas de IA a CHCs; eClinicalWorks atiende 850 CHCs." : "Partnership to bring AI tools to CHCs; eClinicalWorks serves 850 CHCs."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Abridge Best in KLAS 2026 para IA Ambiental"
-                    : "Abridge Best in KLAS 2026 for Ambient AI"}{" "}
-                  — klasresearch.com
+                  <a href="https://www.nachc.org/wp-content/uploads/2025/11/NACHC-AI-Action-Guide_September-2025.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Action Guide: Artificial Intelligence (AI)</a> — NACHC, September 2025. {locale === "es" ? "Guía paso a paso para evaluar y adoptar herramientas de IA en centros de salud comunitarios." : "Step-by-step framework for evaluating and adopting AI tools at community health centers."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Estudio de agotamiento con 263 médicos, npj Digital Medicine"
-                    : "263-Physician Burnout Study, npj Digital Medicine"}{" "}
-                  — nature.com
+                  <a href="https://www.abridge.com/blog/riverside-data" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Riverside Health: 11% wRVU Increase and Improved Patient Experience with Abridge</a> — Abridge, 2025. {locale === "es" ? "Aumento del 11% en wRVUs y 14% en diagnósticos HCC tras implementar IA ambiental." : "11% increase in wRVUs and 14% increase in HCC diagnoses after ambient AI implementation."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "athenahealth athenaAmbient, febrero 2026"
-                    : "athenahealth athenaAmbient Launch, February 2026"}{" "}
-                  — athenahealth.com
+                  <a href="https://www.nature.com/articles/s41746-025-02272-z" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Policy Brief: Ambient AI Scribes and the Coding Arms Race</a> — npj Digital Medicine, December 2025. {locale === "es" ? "Análisis de riesgos de sobrecodificación con IA ambiental; implicaciones de wRVU y HCC." : "Analysis of upcoding risks with ambient AI; wRVU and HCC implications."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Claude for Healthcare de Anthropic, enero 2026"
-                    : "Anthropic Claude for Healthcare, January 2026"}{" "}
-                  — anthropic.com
+                  <a href="https://www.athenahealth.com/solutions/ambient-notes" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">athenaAmbient: Ambient AI Scribe</a> — athenahealth, February 2026. {locale === "es" ? "Escriba de IA ambiental gratuito para todos los clientes de athenahealth; sin costo adicional." : "Free ambient AI scribe for all athenahealth customers; no additional cost."}
                 </li>
-              </ul>
+                <li>
+                  <a href="https://www.elationhealth.com/resources/blogs/elation-health-and-anthropic-team-to-power-clinical-insights-for-primary-care" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Elation Health and Anthropic Team to Power Clinical Insights</a> — Elation Health, January 2026. {locale === "es" ? "Reducción del 61% en tiempo de revisión de expedientes con Claude de Anthropic." : "61% reduction in chart review time with Anthropic's Claude."}
+                </li>
+                <li>
+                  <a href="https://www.nachc.org/looming-medicaid-changes-threaten-to-deepen-the-community-health-center-workforce-crisis/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Looming Medicaid Changes Threaten to Deepen the CHC Workforce Crisis</a> — NACHC, 2025. {locale === "es" ? "60% de CHCs y 70% de CHCs rurales citan el costo como barrera principal para adoptar IA." : "60% of CHCs and 70% of rural CHCs cite cost as the primary barrier to AI adoption."}
+                </li>
+              </ol>
             </div>
           </div>
 

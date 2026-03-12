@@ -1409,7 +1409,7 @@ export const revenueStrategies: RevenueStrategy[] = [
     sources: [
       {
         title: "Unlocking Hidden Revenue Potential in Your FQHC Sliding Fee Program — Community Link Consulting",
-        url: "https://www.communitylinkconsulting.com/blog/revenue-potential-fqhc-sliding-fee-programs",
+        url: "https://web.archive.org/web/2025/https://www.communitylinkconsulting.com/blog/revenue-potential-fqhc-sliding-fee-programs",
       },
     ],
   },
@@ -1499,7 +1499,7 @@ export const revenueStrategies: RevenueStrategy[] = [
     sources: [
       {
         title: "FQHC Financial Health: Key Indicators — Community Link Consulting",
-        url: "https://www.communitylinkconsulting.com/blog/fqhc-financial-health-decline-indicators",
+        url: "https://web.archive.org/web/2025/https://www.communitylinkconsulting.com/blog/fqhc-financial-health-decline-indicators",
       },
       {
         title: "Best Practices for Managing Revenue Cycle in FQHCs — CPa Medical Billing",
@@ -1751,7 +1751,7 @@ export const enrollmentStrategies: EnrollmentStrategy[] = [
     resources: [
       {
         title: "FQHC Leaders: Preparing for Healthcare Policy Changes — Community Link Consulting",
-        url: "https://www.communitylinkconsulting.com/blog/fqhc-healthcare-policy-changes-2025",
+        url: "https://web.archive.org/web/2025/https://www.communitylinkconsulting.com/blog/fqhc-healthcare-policy-changes-2025",
       },
     ],
   },
@@ -1877,7 +1877,7 @@ export const enrollmentStrategies: EnrollmentStrategy[] = [
     resources: [
       {
         title: "Strategic Scenario Planning: How FQHCs Can Respond to Federal Policy Uncertainty — Community Link",
-        url: "https://www.communitylinkconsulting.com/clc-articles-tips/scenario-planning-fqhc-federal-funding-uncertainty",
+        url: "https://web.archive.org/web/2025/https://www.communitylinkconsulting.com/clc-articles-tips/scenario-planning-fqhc-federal-funding-uncertainty",
       },
       {
         title: "National Context for California's Renewal of CalAIM in 2026 — CHCS",

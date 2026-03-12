@@ -54,7 +54,7 @@ export default function SprintWorkspacePage() {
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-6">
           <Link
-            href="/strategy"
+            href="/strategy/guides"
             className="hover:text-teal-600 transition-colors"
           >
             {isEs ? "Estrategia" : "Strategy"}

@@ -127,7 +127,7 @@ export const LEGISLATIVE_BILLS: LegislativeBill[] = [
       en: "$4.6B at risk across 1,400+ FQHC organizations nationally. CA FQHCs receive ~$500M annually from this fund.",
       es: "$4.6 mil millones en riesgo para más de 1,400 organizaciones FQHC a nivel nacional. Los FQHCs de CA reciben ~$500 millones anuales de este fondo.",
     },
-    primarySource: "https://www.nachc.org/research-and-data/research-fact-sheets-and-infographics/chc-fund/",
+    primarySource: "https://www.nachc.org/research-and-data/research-fact-sheets-and-infographics/",
     sourceLabel: "NACHC — CHC Fund",
     affectedPrograms: ["HRSA Section 330", "Capital Development", "National Health Service Corps"],
     region: "Federal",

@@ -59,7 +59,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "Enhanced Care Management is a statewide benefit under California's CalAIM initiative — the sweeping Medi-Cal transformation launched by the Department of Health Care Services (DHCS). ECM replaces earlier fragmented care management programs with a single, standardized model designed to serve Medi-Cal members who face the most complex health and social challenges.",
+          text: "Enhanced Care Management is a statewide Medi-Cal managed care plan benefit under California's CalAIM (California Advancing and Innovating Medi-Cal) initiative — the sweeping Medi-Cal transformation launched by the Department of Health Care Services (DHCS) on January 1, 2022. ECM builds on and replaces the earlier Whole Person Care (WPC) Pilots and Health Homes Program (HHP), scaling up those interventions into a single, statewide care management approach for Medi-Cal members who face the most complex health and social challenges. [1][2]",
         },
         {
           type: "paragraph",
@@ -76,11 +76,11 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "Before CalAIM, community health worker positions at FQHCs were often grant-funded and temporary. When the grant ended, the position ended. ECM changes this dynamic significantly. Because ECM is a permanent Medi-Cal benefit — not a time-limited pilot — the positions it funds are more sustainable. FQHCs that build strong ECM programs can maintain stable staffing as long as they serve their assigned member panels effectively.",
+          text: "Before CalAIM, community health worker positions at FQHCs were often grant-funded and temporary. When the grant ended, the position ended. ECM changes this dynamic significantly. Because ECM is a statewide Medi-Cal managed care plan benefit — not a time-limited pilot — the positions it funds are more sustainable. FQHCs that build strong ECM programs can maintain stable staffing as long as they serve their assigned member panels effectively. [2]",
         },
         {
           type: "paragraph",
-          text: "The scale is substantial. Every managed care plan in California is required to offer ECM, and most contract with FQHCs as their primary delivery partners. As health plans expand their ECM enrollment targets, FQHCs need more staff to manage larger panels. The result is a steady pipeline of new positions — from frontline outreach workers to program managers who oversee entire ECM operations.",
+          text: "The scale is substantial. Every Medi-Cal managed care plan in California is required to offer ECM as part of CalAIM, and most contract with FQHCs as their primary delivery partners. As health plans expand their ECM enrollment targets, FQHCs need more staff to manage larger panels. The result is a steady pipeline of new positions — from frontline outreach workers to program managers who oversee entire ECM operations. [3]",
         },
         {
           type: "paragraph",
@@ -152,7 +152,7 @@ const enContent: ArticleContent = {
         {
           type: "paragraph",
           boldText: "CHW certification.",
-          text: " California's Community Health Worker certification, while not always required, significantly strengthens your candidacy. It signals to employers that you have formalized training in community health principles, cultural competency, and health education — all of which are core to ECM delivery.",
+          text: " California's Community Health Worker certification (established under SB 803, administered by HCAI), while not always required, significantly strengthens your candidacy. It signals to employers that you have formalized training in community health principles, cultural competency, and health education — all of which are core to ECM delivery. Note: As of 2026, HCAI has paused the statewide certification rollout due to budget cuts, but the CHW Medi-Cal benefit remains active. [4]",
         },
       ],
     },
@@ -305,7 +305,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "La Gestión de Atención Mejorada es un beneficio estatal bajo la iniciativa CalAIM de California — la transformación integral de Medi-Cal lanzada por el Departamento de Servicios de Atención Médica (DHCS). ECM reemplaza programas anteriores de gestión de atención fragmentados con un modelo único y estandarizado diseñado para servir a miembros de Medi-Cal que enfrentan los desafíos de salud y sociales más complejos.",
+          text: "La Gestión de Atención Mejorada es un beneficio estatal de plan de atención administrada de Medi-Cal bajo la iniciativa CalAIM (California Advancing and Innovating Medi-Cal) — la transformación integral de Medi-Cal lanzada por el Departamento de Servicios de Atención Médica (DHCS) el 1 de enero de 2022. ECM se basa en y reemplaza los Programas Piloto de Whole Person Care (WPC) y el Health Homes Program (HHP), escalando esas intervenciones en un enfoque único de gestión de atención a nivel estatal para miembros de Medi-Cal que enfrentan los desafíos de salud y sociales más complejos. [1][2]",
         },
         {
           type: "paragraph",
@@ -322,11 +322,11 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "Antes de CalAIM, los puestos de trabajadores de salud comunitaria en los FQHCs a menudo eran financiados por subvenciones y temporales. Cuando la subvención terminaba, el puesto terminaba. ECM cambia esta dinámica significativamente. Porque ECM es un beneficio permanente de Medi-Cal — no un piloto limitado en el tiempo — los puestos que financia son más sostenibles. Los FQHCs que construyen programas sólidos de ECM pueden mantener personal estable mientras sirvan sus paneles de miembros asignados de manera efectiva.",
+          text: "Antes de CalAIM, los puestos de trabajadores de salud comunitaria en los FQHCs a menudo eran financiados por subvenciones y temporales. Cuando la subvención terminaba, el puesto terminaba. ECM cambia esta dinámica significativamente. Porque ECM es un beneficio de plan de atención administrada de Medi-Cal a nivel estatal — no un piloto limitado en el tiempo — los puestos que financia son más sostenibles. Los FQHCs que construyen programas sólidos de ECM pueden mantener personal estable mientras sirvan sus paneles de miembros asignados de manera efectiva. [2]",
         },
         {
           type: "paragraph",
-          text: "La escala es sustancial. Cada plan de atención administrada en California está obligado a ofrecer ECM, y la mayoría contrata con FQHCs como sus socios de entrega primarios. A medida que los planes de salud amplían sus objetivos de inscripción en ECM, los FQHCs necesitan más personal para administrar paneles más grandes. El resultado es un flujo constante de nuevos puestos — desde trabajadores de alcance de primera línea hasta gerentes de programa que supervisan operaciones completas de ECM.",
+          text: "La escala es sustancial. Cada plan de atención administrada de Medi-Cal en California está obligado a ofrecer ECM como parte de CalAIM, y la mayoría contrata con FQHCs como sus socios de entrega primarios. A medida que los planes de salud amplían sus objetivos de inscripción en ECM, los FQHCs necesitan más personal para administrar paneles más grandes. El resultado es un flujo constante de nuevos puestos — desde trabajadores de alcance de primera línea hasta gerentes de programa que supervisan operaciones completas de ECM. [3]",
         },
         {
           type: "paragraph",
@@ -657,6 +657,19 @@ export default function WhatIsECMArticle() {
                 )}
               </div>
             ))}
+            {/* Sources */}
+            <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+                {locale === "es" ? "Fuentes" : "Sources"}
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+                <li><a href="https://www.dhcs.ca.gov/CalAIM/Pages/CalAIM.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CalAIM: Transforming Medi-Cal</a> — California Department of Health Care Services (DHCS)</li>
+                <li><a href="https://www.dhcs.ca.gov/CalAIM/ECM/Pages/Home.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Enhanced Care Management & Community Supports</a> — DHCS CalAIM</li>
+                <li><a href="https://www.dhcs.ca.gov/CalAIM/ECM/Documents/CalAIM-ECM-Policy-Guide.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CalAIM Enhanced Care Management Policy Guide</a> — DHCS, Updated January 2026</li>
+                <li><a href="https://hcai.ca.gov/workforce/initiatives/community-health-workers-promotores-chw-p/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Community Health Worker/Promotor/Representative Program</a> — California Department of Health Care Access and Information (HCAI)</li>
+                <li><a href="https://www.chcf.org/resource/calaim-in-focus/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CalAIM in Focus</a> — California Health Care Foundation (CHCF)</li>
+              </ol>
+            </div>
           </div>
 
           {/* CTA */}

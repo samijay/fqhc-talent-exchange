@@ -1016,6 +1016,69 @@ export default function FqhcVsPrivatePracticeArticle() {
                 )}
               </div>
             ))}
+
+            {/* Sources */}
+            <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+                {locale === "es" ? "Fuentes" : "Sources"}
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+                <li>
+                  <a href="https://nhsc.hrsa.gov/loan-repayment/nhsc-loan-repayment-program" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    NHSC Loan Repayment Program
+                  </a>{" "}
+                  &mdash; HRSA, {locale === "es" ? "actualizado 2026" : "updated 2026"}. {locale === "es" ? "Hasta $75K para proveedores de atención primaria, $50K para otros, por compromiso de 2 años." : "Up to $75K for primary care providers, $50K for others, for a 2-year commitment."}
+                </li>
+                <li>
+                  <a href="https://bphc.hrsa.gov/compliance/compliance-manual/chapter1" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Manual de Cumplimiento del Programa de Centros de Salud — Capítulo 1: Elegibilidad" : "Health Center Program Compliance Manual — Chapter 1: Eligibility"}
+                  </a>{" "}
+                  &mdash; HRSA Bureau of Primary Health Care. {locale === "es" ? "Autorización de la Sección 330, requisitos de escala deslizante, atención sin importar capacidad de pago." : "Section 330 authorization, sliding fee scale requirements, care regardless of ability to pay."}
+                </li>
+                <li>
+                  <a href="https://www.hrsa.gov/opa" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Programa de Precios de Medicamentos 340B" : "340B Drug Pricing Program"}
+                  </a>{" "}
+                  &mdash; HRSA Office of Pharmacy Affairs. {locale === "es" ? "Descuentos del 20-50% en medicamentos ambulatorios para entidades cubiertas incluyendo FQHCs." : "20-50% discounts on outpatient drugs for covered entities including FQHCs."}
+                </li>
+                <li>
+                  <a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB525" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    SB 525: {locale === "es" ? "Salarios mínimos: trabajadores de salud" : "Minimum wages: health care workers"}
+                  </a>{" "}
+                  &mdash; {locale === "es" ? "Legislatura de California, 2023. Clínicas comunitarias alcanzan $25/hr para junio 2027." : "California Legislature, 2023. Community clinics reach $25/hr by June 2027."}
+                </li>
+                <li>
+                  <a href="https://www.dhcs.ca.gov/CalAIM/ECM/Pages/Home.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Gestión de Atención Mejorada y Servicios Comunitarios" : "Enhanced Care Management & Community Supports"}
+                  </a>{" "}
+                  &mdash; {locale === "es" ? "DHCS California. Beneficio estatal de Medi-Cal para miembros con necesidades complejas." : "California DHCS. Statewide Medi-Cal benefit for members with complex needs."}
+                </li>
+                <li>
+                  <a href="https://www.nachc.org/resource/community-health-center-chartbook/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Libro de Gráficos de Centros de Salud Comunitarios 2024" : "Community Health Center Chartbook 2024"}
+                  </a>{" "}
+                  &mdash; NACHC. {locale === "es" ? "Los CHCs atienden a casi 34 millones de pacientes; datos de personal, servicios y resultados de calidad." : "CHCs serve nearly 34 million patients; staffing, services, and quality outcomes data."}
+                </li>
+                <li>
+                  <a href="https://www.hcinnovationgroup.com/policy-value-based-care/health-equity/news/55132016/survey-over-70-percent-of-fqhcs-face-critical-staff-shortages" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Encuesta: Más del 70% de FQHCs enfrentan escasez crítica de personal" : "Survey: Over 70% of FQHCs Face Critical Staff Shortages"}
+                  </a>{" "}
+                  &mdash; HCI Innovation Group / Commonwealth Fund, 2024
+                </li>
+                <li>
+                  <a href="https://www.nachc.org/policy-advocacy/policy-priorities/health-center-workforce/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Fuerza Laboral de Centros de Salud" : "Health Center Workforce"}
+                  </a>{" "}
+                  &mdash; NACHC. {locale === "es" ? "Datos de vacantes, rotación de personal y recomendaciones de política." : "Vacancy data, staff turnover, and policy recommendations."}
+                </li>
+                <li>
+                  <a href="https://bphc.hrsa.gov/data-reporting/uds-training-and-technical-assistance" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Sistema Uniforme de Datos (UDS)" : "Uniform Data System (UDS)"}
+                  </a>{" "}
+                  &mdash; HRSA. {locale === "es" ? "Requisitos de reporte anual para centros de salud: datos de pacientes, servicios, personal, costos e ingresos." : "Annual reporting requirements for health centers: patient data, services, staffing, costs, and revenues."}
+                </li>
+              </ol>
+            </div>
           </div>
 
           {/* CTA */}

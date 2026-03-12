@@ -600,55 +600,46 @@ export default function HealthcareHiringTrendsArticle() {
               </div>
             ))}
 
-            {/* Sources Section */}
-            <div className="mt-12 rounded-xl border border-stone-200 bg-stone-50 p-6">
-              <h3 className="mb-3 text-lg font-bold text-stone-900">
-                {locale === "es" ? "Fuentes de Datos" : "Data Sources"}
-              </h3>
-              <ul className="space-y-1 text-sm text-stone-600">
+            {/* Sources */}
+            <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+                {locale === "es" ? "Fuentes" : "Sources"}
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "BLS Informe de Situación del Empleo, enero 2026"
-                    : "BLS Employment Situation Report, January 2026"}{" "}
-                  — bls.gov
+                  <a href="https://www.bls.gov/news.release/archives/empsit_02112026.htm" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Employment Situation Report, January 2026</a> — U.S. Bureau of Labor Statistics, February 2026. {locale === "es" ? "Sector salud añadió 82,000 empleos; ambulatoria +50,300, hospitales +18,300, enfermería +13,300. Total nómina: 130,000." : "Healthcare added 82,000 jobs; ambulatory +50,300, hospitals +18,300, nursing +13,300. Total nonfarm: 130,000."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Proyecciones de la Fuerza Laboral de HRSA (NCHWA), diciembre 2025"
-                    : "HRSA Workforce Projections (NCHWA), December 2025"}{" "}
-                  — data.hrsa.gov
+                  <a href="https://www.bls.gov/news.release/pdf/ecopro.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Employment Projections 2024-2034</a> — U.S. Bureau of Labor Statistics, 2025. {locale === "es" ? "Proyecciones de empleo por ocupación incluyendo trabajadores de salud comunitaria." : "Occupational employment projections including community health workers."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Proyecciones de Empleo del BLS 2024-2034"
-                    : "BLS Employment Projections 2024-2034"}{" "}
-                  — bls.gov
+                  <a href="https://www.bls.gov/ooh/community-and-social-service/community-health-workers.htm" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Community Health Workers: Occupational Outlook Handbook</a> — BLS, 2025. {locale === "es" ? "Crecimiento proyectado del 11% (2024-2034), mucho más rápido que el promedio de 3% para todas las ocupaciones." : "Projected 11% growth (2024-2034), much faster than the 3% average for all occupations."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Perfil Estatal de CPCA California 2025"
-                    : "CPCA California State Profile 2025"}{" "}
-                  — cpca.org
+                  <a href="https://bhw.hrsa.gov/data-research/projecting-health-workforce-supply-demand" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Health Workforce Projections 2023-2038</a> — HRSA NCHWA, December 2025. {locale === "es" ? "Escasez proyectada de 136,350 psicólogos para 2038; 46% de escasez de dentistas en áreas no metropolitanas." : "Projected shortage of 136,350 psychologists by 2038; 46% dentist shortage in nonmetro areas."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Rastreador de Despidos de FQHC Talent"
-                    : "FQHC Talent Layoff Tracker"}{" "}
-                  — fqhctalent.com/layoffs
+                  <a href="https://data.hrsa.gov/topics/health-workforce/shortage-areas" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Health Workforce Shortage Areas (HPSA Data)</a> — HRSA, 2025. {locale === "es" ? "137 millones de estadounidenses (40%) viven en un Área de Escasez de Profesionales de Salud Mental." : "137 million Americans (40%) live in a Mental Health HPSA."}
                 </li>
                 <li>
-                  •{" "}
-                  {locale === "es"
-                    ? "Datos UDS de NACHC / HRSA"
-                    : "NACHC / HRSA UDS Data"}{" "}
-                  — nachc.org, data.hrsa.gov
+                  <a href="https://www.nachc.org/wp-content/uploads/2025/09/NACHC-Policy-Papers_CHC-Workforce_Sept2025.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CHC Workforce Policy Paper</a> — NACHC, September 2025. {locale === "es" ? "70%+ de FQHCs enfrentan escasez crítica de personal; 55% no pueden cubrir posiciones." : "70%+ of FQHCs face critical staffing shortages; 55% cannot fill positions."}
                 </li>
-              </ul>
+                <li>
+                  <a href="https://www.nachc.org/community-health-centers-provide-primary-care-to-nearly-34-million-patients" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Community Health Centers Provide Primary Care to Nearly 34 Million Patients</a> — NACHC, 2025. {locale === "es" ? "326,000+ empleados en 16,000+ sitios a nivel nacional." : "326,000+ staff across 16,000+ sites nationally."}
+                </li>
+                <li>
+                  <a href="https://www.cpca.org/CPCA/About/Publications_and_Reports/CHC_Data/CPCA/About/CHC_Data.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">California State Profile 2025</a> — CPCA, 2025. {locale === "es" ? "CHCs de CA generaron 134,000 empleos, $25.5 mil millones en producción económica, $3.1 mil millones en ingresos fiscales." : "CA CHCs generated 134,000 jobs, $25.5B in economic output, $3.1B in tax revenue."}
+                </li>
+                <li>
+                  <a href="https://www.dhcs.ca.gov/services/medi-cal/Documents/CHW-FAQs.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CHW Medi-Cal Benefit FAQs</a> — DHCS, 2024. {locale === "es" ? "Servicios de CHW se convirtieron en beneficio facturable por Medi-Cal (SPA 22-0001, ampliado con SPA 24-0016)." : "CHW services became a billable Medi-Cal benefit (SPA 22-0001, expanded with SPA 24-0016)."}
+                </li>
+                <li>
+                  <a href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB525" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">SB 525: Health Care Worker Minimum Wage</a> — California Legislature, 2023. {locale === "es" ? "Salario mínimo de $25/hr para 2027 para clínicas comunitarias y FQHCs." : "$25/hr minimum wage by 2027 for community clinics and FQHCs."}
+                </li>
+                <li>
+                  <a href="https://www.nachc.org/2024-uds-early-takeaways-community-health-center-growth-under-pressure/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">2024 UDS Early Takeaways: CHC Growth Under Pressure</a> — NACHC, 2025. {locale === "es" ? "Avisos WARN Act de CA muestran 3,477+ trabajadores desplazados. Margen de CHCs -2%." : "CA WARN Act filings show 3,477+ displaced workers. CHC margin -2%."}
+                </li>
+              </ol>
             </div>
           </div>
 

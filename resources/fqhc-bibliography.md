@@ -313,7 +313,7 @@ HRSA requires FQHCs to adopt a strategic plan **at least every 3 years** but doe
 
 | Framework | Application | Key Source |
 |-----------|------------|------------|
-| **Scenario Planning** | Build "if/then" models for Medicaid cuts, 330 funding, 340B changes | [Community Link Consulting](https://www.communitylinkconsulting.com/blog/scenario-planning-fqhc-federal-funding-uncertainty) |
+| **Scenario Planning** | Build "if/then" models for Medicaid cuts, 330 funding, 340B changes | [Community Link Consulting](https://www.communitylinkconsulting.com/clc-articles-tips/scenario-planning-fqhc-federal-funding-uncertainty) |
 | **Rumelt ("Good Strategy/Bad Strategy")** | Diagnosis → Guiding Policy → Coherent Actions; maps well to defined FQHC challenges | Used on fqhctalent.com; no direct FQHC literature yet |
 | **Porter's Five Forces** | Retail clinics, MCO bargaining power, telehealth substitutes | [ClearPoint Strategy](https://www.clearpointstrategy.com/blog/strategic-planning-models-healthcare) |
 | **Blue Ocean Strategy** | FQHCs' integrated model (primary + BH + dental + pharmacy + social) is inherently blue ocean | [blueoceanstrategy.com](https://www.blueoceanstrategy.com/blog/blue-ocean-strategy-healthcare-industry/) |

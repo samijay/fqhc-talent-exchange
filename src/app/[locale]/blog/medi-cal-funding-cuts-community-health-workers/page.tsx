@@ -445,6 +445,39 @@ export default function MediCalFundingCutsArticle() {
                 )}
               </div>
             ))}
+
+            {/* Sources */}
+            <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+                {locale === "es" ? "Fuentes" : "Sources"}
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+                <li>
+                  <a href="https://www.dhcs.ca.gov/dataandstats/Pages/Medi-Cal-Eligibility-Statistics.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Estadísticas de Elegibilidad de Medi-Cal" : "Medi-Cal Eligibility Statistics"}</a> — DHCS, 2025. {locale === "es" ? "Más de 15 millones de residentes cubiertos por Medi-Cal." : "Over 15 million California residents covered by Medi-Cal."}
+                </li>
+                <li>
+                  <a href="https://www.dhcs.ca.gov/provgovpart/Pages/CalAIM-1115-and-1915b-Waiver-Renewals.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Renovación de Exención CalAIM 1115 y 1915(b)" : "CalAIM 1115 and 1915(b) Waiver Renewals"}</a> — DHCS, 2026. {locale === "es" ? "Exención CalAIM vence 31 de diciembre de 2026; ECM y Apoyos Comunitarios autorizados bajo esta exención." : "CalAIM waiver expires December 31, 2026; ECM and Community Supports authorized under this waiver."}
+                </li>
+                <li>
+                  <a href="https://lao.ca.gov/Publications/Report/5003" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Actualización de Implementación de CalAIM ECM y Apoyos Comunitarios" : "CalAIM ECM and Community Supports Implementation Update"}</a> — California LAO, 2025. {locale === "es" ? "Gasto de ECM propuesto en $956M; Apoyos Comunitarios en $231M para 2025-26." : "ECM spending proposed at $956M; Community Supports at $231M for 2025-26."}
+                </li>
+                <li>
+                  <a href="https://www.dhcs.ca.gov/federal-impacts/Documents/DHCS-HR1-Implementation-Plan.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Plan de Implementación de H.R. 1" : "H.R. 1 Implementation Plan"}</a> — DHCS, January 2026. {locale === "es" ? "Eliminación de tasas PPS (Oct 2026), recortes dentales (Jul 2026), congelamiento de inscripciones (Ene 2026)." : "PPS rate elimination (Oct 2026), dental cuts (Jul 2026), enrollment freeze (Jan 2026)."}
+                </li>
+                <li>
+                  <a href="https://www.chcf.org/resource/how-massive-federal-cuts-will-create-unprecedented-challenges-medi-cal-patients-providers/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Cómo Recortes Federales Masivos Crearán Desafíos sin Precedentes para Medi-Cal" : "How Massive Federal Cuts Will Create Unprecedented Challenges for Medi-Cal"}</a> — CHCF, 2026. {locale === "es" ? "H.R. 1 recorta casi $1 billón de Medicaid; impacto de $30 mil millones anuales en Medi-Cal." : "H.R. 1 cuts nearly $1 trillion from Medicaid; $30 billion/year impact on Medi-Cal."}
+                </li>
+                <li>
+                  <a href="https://www.nachc.org/wp-content/uploads/2025/09/NACHC-Policy-Papers_CHC-Workforce_Sept2025.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Documento de Política de la Fuerza Laboral de CHCs" : "CHC Workforce Policy Paper"}</a> — NACHC, September 2025. {locale === "es" ? "55% de CHCs no pueden cubrir posiciones críticas; trabajadores de primera línea desproporcionadamente afectados." : "55% of CHCs cannot fill critical positions; frontline workers disproportionately affected."}
+                </li>
+                <li>
+                  <a href="https://www.dhcs.ca.gov/services/medi-cal/Documents/CHW-FAQs.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Preguntas Frecuentes sobre el Beneficio Medi-Cal de CHW" : "CHW Medi-Cal Benefit FAQs"}</a> — DHCS, 2024. {locale === "es" ? "Servicios de CHW como beneficio facturable por Medi-Cal bajo SPA 22-0001." : "CHW services as a billable Medi-Cal benefit under SPA 22-0001."}
+                </li>
+                <li>
+                  <a href="https://calbudgetcenter.org/resources/timeline-of-funding-cuts-to-medi-cal-and-calfresh-in-california/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Cronología de Recortes de Fondos a Medi-Cal y CalFresh" : "Timeline of Funding Cuts to Medi-Cal and CalFresh in California"}</a> — California Budget &amp; Policy Center, 2025. {locale === "es" ? "Cronología de recortes de financiamiento federales y estatales que afectan a Medi-Cal." : "Timeline of federal and state funding cuts affecting Medi-Cal."}
+                </li>
+              </ol>
+            </div>
           </div>
 
           {/* CTA */}

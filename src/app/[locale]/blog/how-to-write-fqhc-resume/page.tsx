@@ -577,6 +577,51 @@ export default function HowToWriteFqhcResumeArticle() {
                 )}
               </div>
             ))}
+
+            {/* Sources */}
+            <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-700">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
+                {locale === "es" ? "Fuentes" : "Sources"}
+              </h2>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+                <li>
+                  <a href="https://bphc.hrsa.gov/compliance/compliance-manual/chapter1" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Manual de Cumplimiento del Programa de Centros de Salud — Capítulo 1" : "Health Center Program Compliance Manual — Chapter 1"}
+                  </a>{" "}
+                  &mdash; HRSA. {locale === "es" ? "Autorización de la Sección 330 y requisitos operacionales de FQHCs." : "Section 330 authorization and FQHC operational requirements."}
+                </li>
+                <li>
+                  <a href="https://www.dhcs.ca.gov/CalAIM/ECM/Pages/Home.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Gestión de Atención Mejorada (ECM) CalAIM" : "CalAIM Enhanced Care Management (ECM)"}
+                  </a>{" "}
+                  &mdash; {locale === "es" ? "DHCS California. Flujos de trabajo, documentación y requisitos del programa ECM." : "California DHCS. ECM workflows, documentation, and program requirements."}
+                </li>
+                <li>
+                  <a href="https://bphc.hrsa.gov/data-reporting/uds-training-and-technical-assistance" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Sistema Uniforme de Datos (UDS)" : "Uniform Data System (UDS)"}
+                  </a>{" "}
+                  &mdash; HRSA. {locale === "es" ? "Métricas de reporte que los FQHCs usan para medir resultados de calidad." : "Reporting metrics FQHCs use to measure quality outcomes."}
+                </li>
+                <li>
+                  <a href="https://www.ncqa.org/programs/health-care-providers-practices/patient-centered-medical-home-pcmh/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Hogar Médico Centrado en el Paciente (PCMH)" : "Patient-Centered Medical Home (PCMH)"}
+                  </a>{" "}
+                  &mdash; NCQA. {locale === "es" ? "Estándares de reconocimiento PCMH utilizados por muchos FQHCs." : "PCMH recognition standards used by many FQHCs."}
+                </li>
+                <li>
+                  <a href="https://www.ncqa.org/hedis/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Medidas HEDIS" : "HEDIS Measures"}
+                  </a>{" "}
+                  &mdash; NCQA. {locale === "es" ? "Conjunto de medidas de efectividad de datos de salud referenciado en métricas de calidad de FQHCs." : "Healthcare Effectiveness Data and Information Set referenced in FQHC quality metrics."}
+                </li>
+                <li>
+                  <a href="https://nhsc.hrsa.gov/loan-repayment/nhsc-loan-repayment-program" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
+                    {locale === "es" ? "Programa de Pago de Préstamos NHSC" : "NHSC Loan Repayment Program"}
+                  </a>{" "}
+                  &mdash; HRSA. {locale === "es" ? "Programa de reembolso de préstamos para profesionales de salud en sitios aprobados." : "Loan repayment program for health professionals at approved sites."}
+                </li>
+              </ol>
+            </div>
           </div>
 
           {/* CTA */}

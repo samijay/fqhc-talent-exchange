@@ -164,7 +164,7 @@ export const MASTERCLASSES: MasterclassModule[] = [
       { en: "FQHCs that plan now will absorb patients from centers that didn't — crisis creates opportunity for the prepared", es: "Los FQHCs que planifican ahora absorberán pacientes de los centros que no lo hicieron — la crisis crea oportunidades para los preparados" },
     ],
     sourceMaterials: [
-      { label: "Community Link: Scenario Planning for FQHCs", url: "https://www.communitylinkconsulting.com/blog/scenario-planning-fqhc-federal-funding-uncertainty" },
+      { label: "Community Link: Scenario Planning for FQHCs", url: "https://www.communitylinkconsulting.com/clc-articles-tips/scenario-planning-fqhc-federal-funding-uncertainty" },
       { label: "Maximized Revenue: Building a Resilient Financial Plan", url: "https://www.maximizedrevenue.com/preparing-for-the-next-funding-cycle-building-a-resilient-financial-plan-for-your-fqhc/" },
       { label: "NACHC 2024 UDS Early Takeaways", url: "https://www.nachc.org/2024-uds-early-takeaways-community-health-center-growth-under-pressure/" },
     ],
@@ -209,7 +209,7 @@ export const MASTERCLASSES: MasterclassModule[] = [
     ],
     sourceMaterials: [
       { label: "NACHC: 340B Critical Program", url: "https://www.nachc.org/resource/340-b-a-critical-program-for-health-centers/" },
-      { label: "NACHC: 340B Funding Health Equity", url: "https://www.nachc.org/research-and-data/health-centers-and-340b-funding-health-equity/" },
+      { label: "NACHC: 340B Funding Health Equity", url: "https://www.nachc.org/resource/health-centers-and-340b-funding-health-equity/" },
       { label: "CBO: Growth in the 340B Program", url: "https://www.cbo.gov/publication/61730" },
       { label: "340B Report (News)", url: "https://340breport.com/" },
     ],
@@ -653,8 +653,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
       { en: "The burnout reduction alone justifies the cost — 70% of FQHCs report physician shortages, and burnt-out doctors leave", es: "La reducción del agotamiento por sí sola justifica el costo — el 70% de los FQHCs reportan escasez de médicos, y los doctores agotados se van" },
     ],
     sourceMaterials: [
-      { label: "Sun River Health: Sunoh.ai Deployment", url: "https://sunoh.ai/sun-river-health-case-study" },
-      { label: "Abridge: Best in KLAS 2026", url: "https://www.abridge.com/blog/abridge-wins-best-in-klas-2026-for-ambient-ai" },
+      { label: "Sun River Health: Sunoh.ai Deployment", url: "https://sunoh.ai/press-releases/providers-at-sun-river-health-successfully-utilize-sunoh-ai-to-document-over-7000-visits-monthly/" },
+      { label: "Abridge: Best in KLAS 2026", url: "https://www.abridge.com/press-release/best-in-klas-2026-press" },
       { label: "Commonwealth Fund 2024 FQHC Survey (Workforce)", url: "https://www.commonwealthfund.org/publications/issue-briefs/2024/aug/community-health-centers-meeting-primary-care-needs-2024-FQHC-survey" },
     ],
     siteLinks: [
@@ -698,7 +698,7 @@ export const MASTERCLASSES: MasterclassModule[] = [
       { en: "The 'interim CEO playbook' isn't pessimism — it's insurance that takes 2 days to create and can save 6 months of crisis", es: "El 'manual de CEO interino' no es pesimismo — es un seguro que toma 2 días crear y puede ahorrar 6 meses de crisis" },
     ],
     sourceMaterials: [
-      { label: "NACHC CEO Competencies & Professional Development", url: "https://www.nachc.org/resource/chief-executive-officer-ceo-competencies-domains-and-skills-tasks/" },
+      { label: "NACHC CEO Competencies & Professional Development", url: "https://www.nachc.org/training-events/training-for-health-center-professionals/leadership-development/" },
       { label: "NACHC CEO Succession Planning Toolkit (PDF)", url: "https://www.nachc.org/wp-content/uploads/2023/03/Succession-Planning-Toolkit.pdf" },
       { label: "NACHC Board Roles & Responsibilities (PDF)", url: "https://www.nachc.org/wp-content/uploads/2023/10/Health-Center-Board-Roles-and-Responsibilities-10-23.pdf" },
     ],
@@ -969,7 +969,7 @@ export const MASTERCLASSES: MasterclassModule[] = [
       },
       {
         label: "NACHC: CHC Workforce Compensation Survey",
-        url: "https://www.nachc.org/research-and-data/research/workforce-data/",
+        url: "https://www.nachc.org/topic/workforce/",
       },
       {
         label: "HRSA: Nurse Corps Loan Repayment Program",
@@ -1157,10 +1157,10 @@ export const MASTERCLASSES: MasterclassModule[] = [
       { en: "One Central Coast FQHC prevented 8 back injuries in 2 years through seated exams + proper MAs + massage therapy benefit = $120K saved in claims", es: "Un FQHC de la Costa Central previno 8 lesiones de espalda en 2 años a través de exámenes sentados + MAs apropiados + beneficio de masaje = $120K ahorrados en reclamaciones" },
     ],
     sourceMaterials: [
-      { label: "Cal/OSHA: Healthcare Worker Safety Resources", url: "https://www.dir.ca.gov/dosh/COVID-19/healthcare-worker-safety-faq.html" },
+      { label: "Cal/OSHA: Healthcare Worker Safety Resources", url: "https://www.dir.ca.gov/dosh/puborder.asp" },
       { label: "BLS: Nonfatal Occupational Injury & Illness Rates (Healthcare)", url: "https://www.bls.gov/iif/oshsum.htm#healthcare" },
       { label: "NCCI: Workers Comp Statistics for Healthcare", url: "https://www.ncci.com/documents/research-publications" },
-      { label: "California Department of Industrial Relations: SB 553 Guidelines", url: "https://www.dir.ca.gov/dosh/Healthcarepilot.html" },
+      { label: "California Department of Industrial Relations: SB 553 Guidelines", url: "https://www.dir.ca.gov/dosh/workplace-violence-prevention-in-healthcare.html" },
     ],
     siteLinks: [
       { label: "Workers Comp Compliance Tool", href: "/compliance/workers-comp" },
@@ -1202,7 +1202,7 @@ export const MASTERCLASSES: MasterclassModule[] = [
     ],
     sourceMaterials: [
       { label: "California SB 553: Workplace Violence Prevention for Healthcare", url: "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB553" },
-      { label: "Cal/OSHA Standards for Workplace Violence Prevention", url: "https://www.dir.ca.gov/dosh/standards/WVPP/" },
+      { label: "Cal/OSHA Standards for Workplace Violence Prevention", url: "https://www.dir.ca.gov/dosh/workplace-violence.html" },
       { label: "NIOSH Workplace Violence Prevention Resources", url: "https://www.cdc.gov/niosh/topics/violence/default.html" },
       { label: "OSHA Best Practices for Healthcare Violence Prevention", url: "https://www.osha.gov/dsg/hospitals/documents/HealthCareGuidelines.pdf" },
     ],
@@ -1248,7 +1248,7 @@ export const MASTERCLASSES: MasterclassModule[] = [
       { label: "OSHA 1904: Recording and Reporting Occupational Injuries", url: "https://www.osha.gov/recordkeeping/1904" },
       { label: "OSHA IIPP Guidelines for Healthcare", url: "https://www.osha.gov/dsg/hospitals/documents/1.4_Guidelines_for_ADL.pdf" },
       { label: "National Safety Council: Culture of Safety Toolkit", url: "https://www.nsc.org/workplace/safety-culture" },
-      { label: "California DIR: Injury and Illness Prevention Program (IIPP)", url: "https://www.dir.ca.gov/dosh/etools/etools.html" },
+      { label: "California DIR: Injury and Illness Prevention Program (IIPP)", url: "https://www.dir.ca.gov/DOSH/etools/09-031/" },
     ],
     siteLinks: [
       { label: "Workers Comp Reduction Guide", href: "/guides" },
@@ -1290,7 +1290,7 @@ export const MASTERCLASSES: MasterclassModule[] = [
     ],
     sourceMaterials: [
       { label: "California SB 525: Healthcare Worker Minimum Wage", url: "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202120220SB525" },
-      { label: "State of California Department of Industrial Relations: SB 525 Implementation", url: "https://www.dir.ca.gov/dlse/sb-525-health-care-worker-minimum-wage.html" },
+      { label: "State of California Department of Industrial Relations: SB 525 Implementation", url: "https://www.dir.ca.gov/dlse/Health-Care-Worker-Minimum-Wage-FAQ.htm" },
       { label: "California Hospital Association: SB 525 Economic Impact Analysis", url: "https://www.calhospital.org/" },
       { label: "NACHC: SB 525 Implications for FQHC Sustainability", url: "https://www.nachc.org/" },
     ],
@@ -1334,10 +1334,10 @@ export const MASTERCLASSES: MasterclassModule[] = [
       { en: "10 CA FQHCs are now unionized — collaboration frameworks (joint labor-management committees) reduce conflict and improve retention", es: "10 FQHCs de CA están ahora sindicalizados — marcos de colaboración reducen conflicto y mejoran retención" },
     ],
     sourceMaterials: [
-      { label: "NLRB: Employees' Rights Under the National Labor Relations Act", url: "https://www.nlrb.gov/resources/files/basic-page/documents/emorrev2023final.pdf" },
-      { label: "NLRB Section 7 Protection: Protected Concerted Activity", url: "https://www.nlrb.gov/about-nlrb/what-we-do/strategic-documents/national-labor-relations-act" },
-      { label: "NLRB: Weingarten Rights (Union Representation in Interviews)", url: "https://www.nlrb.gov/resources/files/basic-page/documents/weingarten-rights-poster.pdf" },
-      { label: "California Labor Commissioner: Workers' Rights", url: "https://dir.ca.gov/dlse/workers-rights.html" },
+      { label: "NLRB: Employees' Rights Under the National Labor Relations Act", url: "https://www.nlrb.gov/news-publications/publications/employee-rights-notice-posting" },
+      { label: "NLRB Section 7 Protection: Protected Concerted Activity", url: "https://www.nlrb.gov/guidance/key-reference-materials/national-labor-relations-act" },
+      { label: "NLRB: Weingarten Rights (Union Representation in Interviews)", url: "https://www.nlrb.gov/about-nlrb/rights-we-protect/your-rights/weingarten-rights" },
+      { label: "California Labor Commissioner: Workers' Rights", url: "https://www.dir.ca.gov/DLSE/Know_Your_Rights.html" },
     ],
     siteLinks: [
       { label: "Union Directory", href: "/unions" },

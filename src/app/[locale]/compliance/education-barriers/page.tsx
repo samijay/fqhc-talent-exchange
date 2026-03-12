@@ -488,7 +488,7 @@ export default function EducationBarriersPage() {
 
             {/* DLSE */}
             <a
-              href="https://www.dir.ca.gov/dlse/wage-claims.html"
+              href="https://www.dir.ca.gov/dlse/howtofilewageclaim.htm"
               target="_blank"
               rel="noopener noreferrer"
               className="block p-6 bg-white border border-stone-200 rounded-lg hover:shadow-lg hover:border-teal-300 transition-all"

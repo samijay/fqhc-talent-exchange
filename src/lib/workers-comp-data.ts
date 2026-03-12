@@ -109,7 +109,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "8 CCR §5193",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/bloodborne-pathogens-standard.html",
+      "https://www.dir.ca.gov/dosh/bloodbornefaq.html",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -147,7 +147,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "8 CCR §5120",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/hc-standards-guide.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA Healthcare Guidance",
   },
   {
@@ -192,7 +192,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "SB 553, 8 CCR §3203",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/workplace-violence-prevention.html",
+      "https://www.dir.ca.gov/dosh/workplace-violence.html",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -237,7 +237,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "8 CCR §5199",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/covid19-standards-guide.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA COVID-19 Guidance",
   },
   {
@@ -281,7 +281,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "8 CCR §5110, §5120",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/upper-extremity-injuries-guide.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -319,7 +319,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "8 CCR §5155, §5157",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/hazard-communication-standards.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -357,7 +357,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "8 CCR §3270",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/fall-protection-standards.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -395,7 +395,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "8 CCR §5193",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/bloodborne-pathogens-standard.html",
+      "https://www.dir.ca.gov/dosh/bloodbornefaq.html",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -433,7 +433,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "8 CCR §5193",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/latex-allergy-guidance.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -471,7 +471,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "8 CCR §5110",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/dental-ergonomics-guide.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -509,7 +509,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "Labor Code §3600, 8 CCR §3203",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/psychiatric-injury-guidance.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -623,7 +623,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "8 CCR §5100",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/ionizing-radiation-standards.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -661,7 +661,7 @@ export const HAZARDS: WorkersCompHazard[] = [
     ],
     calOshaCitation: "8 CCR §2700",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/electrical-safety-standards.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
 ];
@@ -705,7 +705,7 @@ export const COST_REDUCTION_STRATEGIES: CostReductionStrategy[] = [
       },
     ],
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/safe-patient-handling-guide.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -746,7 +746,7 @@ export const COST_REDUCTION_STRATEGIES: CostReductionStrategy[] = [
       },
     ],
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/sharps-injury-log-requirements.html",
+      "https://www.dir.ca.gov/dosh/bloodbornefaq.html",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -791,7 +791,7 @@ export const COST_REDUCTION_STRATEGIES: CostReductionStrategy[] = [
       },
     ],
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/workplace-violence-prevention.html",
+      "https://www.dir.ca.gov/dosh/workplace-violence.html",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -832,7 +832,7 @@ export const COST_REDUCTION_STRATEGIES: CostReductionStrategy[] = [
       },
     ],
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/ergonomics-resources.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -882,7 +882,7 @@ export const COST_REDUCTION_STRATEGIES: CostReductionStrategy[] = [
       },
     ],
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/iipp-standards.html",
+      "https://www.dir.ca.gov/dosh/dosh_publications/IIPP-Model-nonhigh-hazard.html",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -969,7 +969,7 @@ export const COST_REDUCTION_STRATEGIES: CostReductionStrategy[] = [
       },
     ],
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/safety-committees-requirements.html",
+      "https://www.dir.ca.gov/dosh/dosh_publications/IIPP-Model-nonhigh-hazard.html",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -1010,7 +1010,7 @@ export const COST_REDUCTION_STRATEGIES: CostReductionStrategy[] = [
       },
     ],
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/respiratory-protection-standards.html",
+      "https://www.dir.ca.gov/dosh/dosh_publications/respiratory-protection-fs.pdf",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -1051,7 +1051,7 @@ export const COST_REDUCTION_STRATEGIES: CostReductionStrategy[] = [
       },
     ],
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/bloodborne-pathogens-standard.html",
+      "https://www.dir.ca.gov/dosh/bloodbornefaq.html",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -1092,7 +1092,7 @@ export const COST_REDUCTION_STRATEGIES: CostReductionStrategy[] = [
       },
     ],
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/stress-injury-prevention.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -1208,7 +1208,7 @@ export const CASE_STUDIES: WorkersCompCaseStudy[] = [
     costSavings: "$148K reduction in year 1 (compared to previous year costs)",
     timeframe: "12 months from implementation to full realization",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/safe-patient-handling-guide.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -1234,7 +1234,7 @@ export const CASE_STUDIES: WorkersCompCaseStudy[] = [
     costSavings: "$89K reduction (fewer claims + reduced turnover + avoided litigation)",
     timeframe: "18 months from planning to cultural embedding",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/workplace-violence-prevention.html",
+      "https://www.dir.ca.gov/dosh/workplace-violence.html",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -1260,7 +1260,7 @@ export const CASE_STUDIES: WorkersCompCaseStudy[] = [
     costSavings: "$29K reduction in year 1 (compared to previous injury costs + device elimination savings)",
     timeframe: "9 months from procurement to payoff",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/sharps-injury-prevention-guide.html",
+      "https://www.dir.ca.gov/dosh/bloodbornefaq.html",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -1286,7 +1286,7 @@ export const CASE_STUDIES: WorkersCompCaseStudy[] = [
     costSavings: "$26K reduction + estimated $35K in increased clinical capacity and productivity",
     timeframe: "8 months from assessment to full implementation",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/dental-ergonomics-guide.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
@@ -1364,7 +1364,7 @@ export const CASE_STUDIES: WorkersCompCaseStudy[] = [
     costSavings: "$45K reduction in claim costs + $156K from reduced turnover (estimated 11 FTE retained) + improved operational continuity",
     timeframe: "6-12 months to culture shift; 12+ months for sustained impact",
     primarySourceUrl:
-      "https://www.dir.ca.gov/dosh/stress-injury-prevention.html",
+      "https://www.dir.ca.gov/dosh/puborder.asp",
     primarySourceOrg: "Cal/OSHA",
   },
   {
