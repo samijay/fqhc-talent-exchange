@@ -307,6 +307,13 @@ export default function Header() {
             { href: "/compliance", label: t("complianceHub"), desc: t("complianceHubDesc") },
           ],
         },
+        {
+          heading: isEs ? "Operaciones y Cumplimiento" : "Operations & Compliance",
+          items: [
+            { href: "/compliance/workers-comp", label: isEs ? "Compensación de Trabajadores" : "Workers' Compensation", desc: isEs ? "Gestión de lesiones laborales y riesgos" : "Manage workplace injuries & risks" },
+            { href: "/compliance/education-barriers", label: isEs ? "Barreras Educativas" : "Education Barriers", desc: isEs ? "Requisitos de credenciales y licencias" : "Credential & licensing requirements" },
+          ],
+        },
       ],
     },
     { href: "/jobs", label: t("jobs") },

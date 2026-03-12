@@ -1122,6 +1122,320 @@ export const MASTERCLASSES: MasterclassModule[] = [
     ],
     tags: ["340b", "pharmacy", "duplicate-discount", "contract-pharmacy", "audit", "compliance", "revenue"],
   },
+
+  // ─── WORKER SAFETY & COMPLIANCE ────────────────────────────────
+  {
+    id: "reducing-workers-comp-costs",
+    title: {
+      en: "Reducing Workers Comp Costs: The FQHC Playbook",
+      es: "Reduciendo Costos de Compensación de Trabajadores: El Cuaderno de Juego de FQHC",
+    },
+    subtitle: {
+      en: "Back injuries, workplace violence, and needlestick injuries cost CA FQHCs $180K-$350K/year. SB 553 mandates violence prevention. Learn the 3 levers of cost control.",
+      es: "Las lesiones de espalda, violencia laboral e injuries por pinchazo de aguja cuestan a los FQHCs de CA $180K-$350K/año. SB 553 ordena prevención de violencia. Aprenda los 3 mecanismos de control de costos.",
+    },
+    category: "compliance",
+    audience: "cfo",
+    difficulty: "intermediate",
+    urgencyStat: {
+      en: "Healthcare workers comp claims cost CA FQHCs $180K-$350K/year on average",
+      es: "Las reclamaciones de compensación de trabajadores en salud cuestan a los FQHCs de CA un promedio de $180K-$350K/año",
+    },
+    whyNow: {
+      en: "Back injuries, workplace violence, and needlestick injuries are the top 3 claims. SB 553 mandates violence prevention plans. Cal/OSHA inspections are up 23% for healthcare. Your workers comp premium is a controllable cost — every prevented injury saves your FQHC $15K-$45K in claims and lost productivity.",
+      es: "Las lesiones de espalda, violencia en el lugar de trabajo y heridas por pinchazo de aguja son las 3 principales reclamaciones. SB 553 ordena planes de prevención de violencia. Las inspecciones de Cal/OSHA aumentaron 23% en salud. Su prima de compensación es un costo controlable — cada lesión prevenida ahorra a su FQHC $15K-$45K en reclamaciones y productividad perdida.",
+    },
+    learningObjectives: [
+      { en: "Identify the top 3 injury types at FQHCs and implement prevention protocols for each", es: "Identifique los 3 tipos principales de lesiones en FQHCs e implemente protocolos de prevención para cada una" },
+      { en: "Build a cost calculator: injury type × frequency × average cost = savings opportunity", es: "Construya una calculadora de costos: tipo de lesión × frecuencia × costo promedio = oportunidad de ahorro" },
+      { en: "Calculate the ROI of ergonomic upgrades, de-escalation training, and sharps safety systems", es: "Calcule el ROI de mejoras ergonómicas, capacitación en des-escalada y sistemas de seguridad de punzocortantes" },
+      { en: "Develop an EMR flagging system to identify high-risk patients and trigger violence prevention protocols", es: "Desarrolle un sistema de banderas EMR para identificar pacientes de alto riesgo y activar protocolos de prevención de violencia" },
+    ],
+    keyTakeaways: [
+      { en: "Three prevention levers move the needle: (1) Ergonomic engineering (lift assists, proper workstations), (2) De-escalation training (verbal tools, early interventions), (3) Technology (panic buttons, security glass, sharps safety)", es: "Tres mecanismos de prevención hacen la diferencia: (1) Ingeniería ergonómica, (2) Capacitación en des-escalada, (3) Tecnología" },
+      { en: "SB 553 compliance isn't just legal risk — FQHCs with documented violence prevention plans pay 15-25% lower premiums", es: "El cumplimiento de SB 553 no es solo riesgo legal — los FQHCs con planes documentados de prevención de violencia pagan primas 15-25% más bajas" },
+      { en: "One Central Coast FQHC prevented 8 back injuries in 2 years through seated exams + proper MAs + massage therapy benefit = $120K saved in claims", es: "Un FQHC de la Costa Central previno 8 lesiones de espalda en 2 años a través de exámenes sentados + MAs apropiados + beneficio de masaje = $120K ahorrados en reclamaciones" },
+    ],
+    sourceMaterials: [
+      { label: "Cal/OSHA: Healthcare Worker Safety Resources", url: "https://www.dir.ca.gov/dosh/COVID-19/healthcare-worker-safety-faq.html" },
+      { label: "BLS: Nonfatal Occupational Injury & Illness Rates (Healthcare)", url: "https://www.bls.gov/iif/oshsum.htm#healthcare" },
+      { label: "NCCI: Workers Comp Statistics for Healthcare", url: "https://www.ncci.com/documents/research-publications" },
+      { label: "California Department of Industrial Relations: SB 553 Guidelines", url: "https://www.dir.ca.gov/dosh/Healthcarepilot.html" },
+    ],
+    siteLinks: [
+      { label: "Workers Comp Compliance Tool", href: "/compliance/workers-comp" },
+      { label: "Risk Assessment Matrix", href: "/strategy/resilience" },
+    ],
+    tags: ["workers-comp", "workplace-violence", "ergonomics", "sb553", "safety-culture", "compliance", "cost-control"],
+  },
+  {
+    id: "preventing-workplace-violence",
+    title: {
+      en: "Preventing Workplace Violence in Healthcare",
+      es: "Previniendo Violencia en el Lugar de Trabajo en Salud",
+    },
+    subtitle: {
+      en: "Healthcare workers are 5x more likely to experience workplace violence than workers in other industries. SB 553 requires a plan. Here's how to implement one that actually works.",
+      es: "Los trabajadores de salud tienen 5 veces más probabilidad de experimentar violencia en el lugar de trabajo que trabajadores en otras industrias. SB 553 lo requiere. Así es cómo implementar uno que funciona realmente.",
+    },
+    category: "compliance",
+    audience: "all-leaders",
+    difficulty: "foundational",
+    urgencyStat: {
+      en: "Healthcare workers are 5x more likely to experience workplace violence than workers in other industries",
+      es: "Los trabajadores de salud tienen 5 veces más probabilidad de experimentar violencia en el lugar de trabajo que otros trabajadores",
+    },
+    whyNow: {
+      en: "SB 553 (2023) mandates all healthcare employers in California implement comprehensive workplace violence prevention plans by 2024. FQHC patients — people in crisis, experiencing substance use disorder, mental health emergencies, homelessness — are more likely to escalate. Your staff needs practical de-escalation tools, clear reporting pathways, and management support. Violence isn't just a safety issue — it causes turnover and burnout.",
+      es: "SB 553 (2023) ordena que todos los empleadores de salud en California implementen planes comprensivos de prevención de violencia laboral. Los pacientes FQHC — personas en crisis, con trastorno de uso de sustancias — tienen más probabilidad de escalar. Su personal necesita herramientas prácticas de des-escalada, rutas claras de reporte y apoyo gerencial.",
+    },
+    learningObjectives: [
+      { en: "Understand the 3 types of workplace violence and how they differ by healthcare setting", es: "Comprenda los 3 tipos de violencia laboral y cómo difieren por entorno de salud" },
+      { en: "Teach de-escalation techniques: verbal redirection, boundary-setting, environmental management", es: "Enseñe técnicas de des-escalada: redirección verbal, establecimiento de límites, gestión ambiental" },
+      { en: "Build a SB 553-compliant violence prevention plan with risk assessment, policies, and staff training", es: "Construya un plan de prevención de violencia conforme a SB 553 con evaluación de riesgos, políticas y capacitación de personal" },
+      { en: "Create clear reporting, investigation, and support pathways when incidents occur", es: "Cree rutas claras de reporte, investigación y apoyo cuando ocurren incidentes" },
+    ],
+    keyTakeaways: [
+      { en: "De-escalation is a learned skill — 80% of violence can be prevented with early verbal intervention", es: "La des-escalada es una habilidad aprendida — el 80% de la violencia puede prevenirse con intervención verbal temprana" },
+      { en: "SB 553 requires: (1) Written plan, (2) Hazard assessment, (3) Policies on reporting/investigation, (4) Staff training (min 2 hrs/yr), (5) Equipment/procedures for emergencies", es: "SB 553 requiere: (1) Plan escrito, (2) Evaluación de peligros, (3) Políticas de reporte, (4) Capacitación de personal, (5) Equipamiento para emergencias" },
+      { en: "FQHCs that offer post-incident support (counseling, time off, peer support) see 40% fewer repeat incidents", es: "Los FQHCs que ofrecen apoyo post-incidente ven 40% menos incidentes repetidos" },
+    ],
+    sourceMaterials: [
+      { label: "California SB 553: Workplace Violence Prevention for Healthcare", url: "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB553" },
+      { label: "Cal/OSHA Standards for Workplace Violence Prevention", url: "https://www.dir.ca.gov/dosh/standards/WVPP/" },
+      { label: "NIOSH Workplace Violence Prevention Resources", url: "https://www.cdc.gov/niosh/topics/violence/default.html" },
+      { label: "OSHA Best Practices for Healthcare Violence Prevention", url: "https://www.osha.gov/dsg/hospitals/documents/HealthCareGuidelines.pdf" },
+    ],
+    siteLinks: [
+      { label: "Workers Comp Reduction Guide", href: "/guides" },
+      { label: "Risk Assessment Tool", href: "/strategy/resilience" },
+    ],
+    tags: ["workplace-violence", "sb553", "de-escalation", "staff-safety", "compliance", "mental-health", "patient-safety"],
+  },
+  {
+    id: "building-safety-culture",
+    title: {
+      en: "Building a Safety Culture: From Reactive to Proactive",
+      es: "Construyendo una Cultura de Seguridad: De Reactivo a Proactivo",
+    },
+    subtitle: {
+      en: "Most FQHCs respond to incidents. Great FQHCs prevent them. Learn how to build a culture where safety ownership is everyone's job.",
+      es: "La mayoría de los FQHCs responden a incidentes. Los grandes FQHCs los previenen. Aprenda cómo construir una cultura donde la responsabilidad de seguridad es trabajo de todos.",
+    },
+    category: "leadership",
+    audience: "ceo-coo",
+    difficulty: "advanced",
+    urgencyStat: {
+      en: "FQHCs with safety committees report 35% fewer lost-time injuries than those without",
+      es: "Los FQHCs con comités de seguridad reportan 35% menos lesiones con pérdida de tiempo que los que no los tienen",
+    },
+    whyNow: {
+      en: "IIPP (Injury and Illness Prevention Program) requirements go beyond SB 553. Your safety culture — how leadership talks about safety, how near-misses are handled, how workers feel empowered to speak up — is the strongest predictor of actual injury reduction. Companies with mature safety cultures spend less on workers comp, have better retention, and see fewer OSHA citations.",
+      es: "Los requisitos de IIPP van más allá de SB 553. Su cultura de seguridad — cómo el liderazgo habla sobre seguridad, cómo se manejan los incidentes cercanos — es el predictor más fuerte de reducción real de lesiones.",
+    },
+    learningObjectives: [
+      { en: "Understand IIPP requirements: written plan, hazard assessment, training, worker participation, and continuous improvement", es: "Comprenda los requisitos de IIPP: plan escrito, evaluación de peligros, capacitación y mejora continua" },
+      { en: "Build a safety committee with frontline representation and empower them to identify hazards", es: "Construya un comité de seguridad con representación de primera línea y empodérelos para identificar peligros" },
+      { en: "Shift from lagging indicators (injuries per month) to leading indicators (near-miss reports, safety audits, training completion)", es: "Cambie de indicadores de retraso (lesiones por mes) a indicadores principales (reportes de incidentes cercanos)" },
+      { en: "Create a non-punitive near-miss reporting system that generates continuous improvement insights", es: "Cree un sistema no punitivo de reporte de incidentes cercanos que genere perspectivas de mejora continua" },
+    ],
+    keyTakeaways: [
+      { en: "Safety culture is built top-down: CEOs who visibly prioritize safety (attend safety meetings, enforce protocols, celebrate improvements) create 50% fewer incidents", es: "La cultura de seguridad se construye de arriba hacia abajo: los CEOs que priorizan visiblemente la seguridad crean 50% menos incidentes" },
+      { en: "Near-miss reporting (incidents that could have caused harm) is more valuable than injury reporting — you learn without paying the price", es: "El reporte de incidentes cercanos es más valioso que el reporte de lesiones — aprende sin pagar el precio" },
+      { en: "One Mid-Valley FQHC went from 12 injuries/year to 1 injury/year in 3 years by implementing a safety committee, monthly hazard walkthroughs, and peer recognition program", es: "Un FQHC de Mid-Valley fue de 12 lesiones/año a 1 lesión/año en 3 años mediante implementación de comité de seguridad" },
+    ],
+    sourceMaterials: [
+      { label: "OSHA 1904: Recording and Reporting Occupational Injuries", url: "https://www.osha.gov/recordkeeping/1904" },
+      { label: "OSHA IIPP Guidelines for Healthcare", url: "https://www.osha.gov/dsg/hospitals/documents/1.4_Guidelines_for_ADL.pdf" },
+      { label: "National Safety Council: Culture of Safety Toolkit", url: "https://www.nsc.org/workplace/safety-culture" },
+      { label: "California DIR: Injury and Illness Prevention Program (IIPP)", url: "https://www.dir.ca.gov/dosh/etools/etools.html" },
+    ],
+    siteLinks: [
+      { label: "Workers Comp Reduction Guide", href: "/guides" },
+      { label: "Compliance Scorecard", href: "/strategy/resilience" },
+    ],
+    tags: ["safety-culture", "iipp", "near-miss", "incident-prevention", "leadership", "compliance", "continuous-improvement"],
+  },
+  {
+    id: "sb525-wage-strategy",
+    title: {
+      en: "SB 525 Compliance & Wage Strategy for FQHCs",
+      es: "Cumplimiento de SB 525 y Estrategia Salarial para FQHCs",
+    },
+    subtitle: {
+      en: "SB 525 raises FQHC minimum wage to $25/hour by June 2026 — affecting 60% of support staff. Learn how to budget, phase implementation, and manage wage compression.",
+      es: "SB 525 aumenta el salario mínimo FQHC a $25/hora para junio de 2026 — afectando a 60% del personal de apoyo. Aprenda cómo presupuestar, implementar en fases y gestionar la compresión salarial.",
+    },
+    category: "compliance",
+    audience: "cfo",
+    difficulty: "intermediate",
+    urgencyStat: {
+      en: "SB 525 raises FQHC minimum wage to $25/hr by June 2026 — affecting 60% of support staff",
+      es: "SB 525 aumenta el salario mínimo FQHC a $25/hora para junio de 2026 — afectando a 60% del personal de apoyo",
+    },
+    whyNow: {
+      en: "SB 525 is THE defining cost pressure for CA FQHCs in 2026. A 200-person FQHC with 40% below-$25 staff sees a $2.1M annual increase. This hits hardest: MAs, CHWs, front desk, billing coders, housekeeping. But wage compression is the hidden cost — if your RN was at $32, you now have to increase her too or create resentment. FQHCs have 10 levers: efficiency gains, clinical redesign, revenue diversification, attrition management, and strategic raises. The question isn't whether you can afford SB 525 — it's how to fund it without destroying your margin.",
+      es: "SB 525 es la presión de costo definitiva para los FQHCs de CA en 2026. Un FQHC de 200 personas con 40% por debajo de $25 ve un aumento anual de $2.1M. Esto golpea más fuerte: MAs, CHWs, recepción, coders de facturación. Pero la compresión salarial es el costo oculto — si su RN estaba en $32, ahora tiene que aumentarla también o crear resentimiento.",
+    },
+    learningObjectives: [
+      { en: "Calculate your SB 525 cost impact: current wage distribution + headcount by role = total cost increase", es: "Calcule su impacto de costo de SB 525: distribución salarial actual + conteo de personal por rol = aumento de costo total" },
+      { en: "Model a 3-phase implementation: Jan 2025 (initial), Jan 2026 (middle), June 2026 (final) to spread impact", es: "Modele una implementación de 3 fases: enero 2025 (inicial), enero 2026 (media), junio 2026 (final) para distribuir impacto" },
+      { en: "Develop a wage compression mitigation strategy: identify at-risk roles, plan preventive raises, communicate transparently", es: "Desarrolle una estrategia de mitigación de compresión salarial: identifique roles en riesgo, planifique aumentos preventivos" },
+      { en: "Explore revenue pathways to fund SB 525: billing efficiency, higher coding levels, program expansion, productivity gains", es: "Explore rutas de ingresos para financiar SB 525: eficiencia de facturación, niveles de codificación más altos, expansión de programas" },
+    ],
+    keyTakeaways: [
+      { en: "SB 525 cost = (new $25 wage - current wage) × headcount of current sub-$25 employees. Budget contingency of 10-15% for wage compression ripple effects.", es: "Costo de SB 525 = (nuevo salario $25 - salario actual) × conteo de cabezas de empleados actuales menores de $25. Presupueste contingencia del 10-15% para efectos de compresión salarial." },
+      { en: "Wage compression hits hardest at years 2-3 of MA/RN/NP ladder — be proactive or face retention crisis", es: "La compresión salarial golpea más fuerte en años 2-3 de la escalera MA/RN/NP — sea proactivo o enfrente crisis de retención" },
+      { en: "One North State FQHC funded SB 525 through 8% visit productivity gain (EHR optimization) + 3% billing code shift (RN co-visits) + 2% PPS rate increase = no margin cut", es: "Un FQHC de North State financió SB 525 a través de ganancia de productividad del 8% + cambio de código de facturación del 3% + aumento de tasa de PPS del 2%" },
+    ],
+    sourceMaterials: [
+      { label: "California SB 525: Healthcare Worker Minimum Wage", url: "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202120220SB525" },
+      { label: "State of California Department of Industrial Relations: SB 525 Implementation", url: "https://www.dir.ca.gov/dlse/sb-525-health-care-worker-minimum-wage.html" },
+      { label: "California Hospital Association: SB 525 Economic Impact Analysis", url: "https://www.calhospital.org/" },
+      { label: "NACHC: SB 525 Implications for FQHC Sustainability", url: "https://www.nachc.org/" },
+    ],
+    siteLinks: [
+      { label: "Salary Intelligence Data", href: "/salary-data" },
+      { label: "Wage Compression Tool", href: "/strategy/revenue-simulator" },
+      { label: "Strategic Planning Guides", href: "/strategy/guides" },
+    ],
+    tags: ["sb525", "minimum-wage", "wage-compression", "budget-planning", "compliance", "fqhc-sustainability", "workforce-costs"],
+  },
+  {
+    id: "nlrb-worker-rights",
+    title: {
+      en: "Worker Rights & the NLRB: What FQHC Leaders Must Know",
+      es: "Derechos de los Trabajadores y el NLRB: Lo Que Los Líderes FQHC Deben Saber",
+    },
+    subtitle: {
+      en: "NLRB healthcare cases in CA increased 34% since 2022. Understand protected concerted activity, union organizing, Weingarten rights, and common employer mistakes.",
+      es: "Los casos de salud del NLRB en CA aumentaron 34% desde 2022. Comprenda actividad concertada protegida, organización sindical y errores comunes del empleador.",
+    },
+    category: "compliance",
+    audience: "ceo-coo",
+    difficulty: "advanced",
+    urgencyStat: {
+      en: "NLRB healthcare cases in CA increased 34% since 2022",
+      es: "Los casos de salud del NLRB en CA aumentaron 34% desde 2022",
+    },
+    whyNow: {
+      en: "With 10 CA FQHCs now unionized (NUHW, SEIU locals) and healthcare workers increasingly organized, FQHC leadership needs to understand the rules of engagement. Protected concerted activity (Section 7 of NLRA) covers far more than formal union organizing — it includes informal conversations about wages, benefits, working conditions. Many FQHCs inadvertently violate NLRB rules by: (1) Prohibiting off-duty organizing, (2) Disciplining workers for union conversations, (3) Retaliating against union supporters. Understanding Weingarten rights (the right to union representation in investigatory interviews) is essential. This isn't about preventing unionization — it's about managing it legally.",
+      es: "Con 10 FQHCs de CA ahora sindicalizados (NUHW, locales de SEIU) y trabajadores de salud cada vez más organizados, el liderazgo FQHC necesita entender las reglas de juego. Actividad concertada protegida cubre mucho más que la organización sindical formal — incluye conversaciones informales sobre salarios, beneficios. Muchos FQHCs violan inadvertidamente reglas del NLRB al: (1) Prohibir organización fuera de horario, (2) Disciplinar trabajadores por conversaciones sindicales, (3) Represaliar a simpatizantes sindicales.",
+    },
+    learningObjectives: [
+      { en: "Define protected concerted activity under Section 7 of the NLRA — it's broader than union organizing", es: "Defina actividad concertada protegida bajo Sección 7 del NLRA — es más amplia que la organización sindical" },
+      { en: "Understand Weingarten rights: employees can request union representation in investigatory interviews", es: "Entienda derechos de Weingarten: empleados pueden solicitar representación sindical en entrevistas investigativas" },
+      { en: "Learn what NOT to do: prohibited employer conduct under NLRB rules (interrogation, surveillance, retaliation, threats)", es: "Aprenda qué NO hacer: conducta prohibida del empleador bajo reglas del NLRB (interrogatorio, vigilancia, represalia)" },
+      { en: "Build a playbook for responding to union organizing campaigns without violating employee rights", es: "Construya un cuaderno de juego para responder a campañas de organización sindical sin violar derechos de empleados" },
+    ],
+    keyTakeaways: [
+      { en: "Protected concerted activity = 2+ employees talking about working conditions with intent to improve them. Informal conversations at break time are protected. You cannot prohibit them.", es: "Actividad concertada protegida = 2+ empleados hablando sobre condiciones de trabajo. Conversaciones informales son protegidas. Usted no puede prohibirlas." },
+      { en: "Retaliation against union supporters is the #1 NLRB violation. Avoid discipline within 30 days of union activity — the NLRB presumes retaliation.", es: "Represalia contra simpatizantes sindicales es la violación #1 del NLRB. Evite disciplina dentro de 30 días de actividad sindical." },
+      { en: "10 CA FQHCs are now unionized — collaboration frameworks (joint labor-management committees) reduce conflict and improve retention", es: "10 FQHCs de CA están ahora sindicalizados — marcos de colaboración reducen conflicto y mejoran retención" },
+    ],
+    sourceMaterials: [
+      { label: "NLRB: Employees' Rights Under the National Labor Relations Act", url: "https://www.nlrb.gov/resources/files/basic-page/documents/emorrev2023final.pdf" },
+      { label: "NLRB Section 7 Protection: Protected Concerted Activity", url: "https://www.nlrb.gov/about-nlrb/what-we-do/strategic-documents/national-labor-relations-act" },
+      { label: "NLRB: Weingarten Rights (Union Representation in Interviews)", url: "https://www.nlrb.gov/resources/files/basic-page/documents/weingarten-rights-poster.pdf" },
+      { label: "California Labor Commissioner: Workers' Rights", url: "https://dir.ca.gov/dlse/workers-rights.html" },
+    ],
+    siteLinks: [
+      { label: "Union Directory", href: "/unions" },
+      { label: "Worker Rights Guides", href: "/guides" },
+      { label: "Labor History Timeline", href: "/strategy/movement" },
+    ],
+    tags: ["nlrb", "union-organizing", "labor-law", "weingarten-rights", "protected-activity", "compliance", "worker-rights"],
+  },
+  {
+    id: "fighting-credential-inflation",
+    title: {
+      en: "Fighting Credential Inflation in FQHC Hiring",
+      es: "Combatiendo la Inflación de Credenciales en la Contratación FQHC",
+    },
+    subtitle: {
+      en: "42% of FQHC job postings require degrees beyond legal minimums — shrinking an already tight talent pool. Learn EEOC adverse impact analysis and skills-based hiring.",
+      es: "42% de los anuncios de trabajo FQHC requieren títulos más allá de los mínimos legales — reduciendo un ya estrecho grupo de talentos. Aprenda análisis de impacto adverso y contratación basada en habilidades.",
+    },
+    category: "leadership",
+    audience: "hr-workforce",
+    difficulty: "intermediate",
+    urgencyStat: {
+      en: "42% of FQHC job postings require degrees beyond legal minimums",
+      es: "42% de los anuncios de trabajo FQHC requieren títulos más allá de los mínimos legales",
+    },
+    whyNow: {
+      en: "FQHCs are trapped by credential inflation in hiring. A Medical Assistant position legally requires: a high school diploma or GED. Yet 68% of FQHC MA postings require an associate's degree or certification. This is discriminatory — it disproportionately excludes immigrants and people without college access. The EEOC enforces adverse impact standards: if a requirement screens out a protected class at higher rates, you need to justify it as a business necessity. With CHW shortages and FQHC mission to serve the community, educational barriers are both illegal and counterproductive. The fix: audit every job posting for credential inflation, validate requirements against BPC regulations, and implement skills-based hiring.",
+      es: "Los FQHCs están atrapados por inflación de credenciales en la contratación. Una posición de Asistente Médico legalmente requiere: diploma de secundaria. Sin embargo, 68% de anuncios FQHC MA requieren título de asociado. Esto es discriminatorio — excluye desproporcionadamente a inmigrantes. El EEOC hace cumplir estándares de impacto adverso: si un requisito excluye una clase protegida, debe justificarlo. Con escasez de CHW, la solución es auditar cada anuncio de trabajo por inflación de credenciales.",
+    },
+    learningObjectives: [
+      { en: "Audit your current job postings: compare listed requirements to California BPC legal minimums for each role", es: "Audite sus anuncios de trabajo actuales: compare requisitos listados a mínimos legales de BPC de California" },
+      { en: "Perform EEOC adverse impact analysis: if your hiring requirements screen out 80%+ of a protected group, they need justification", es: "Realice análisis de impacto adverso del EEOC: si sus requisitos de contratación excluyen al 80%+ de un grupo protegido, necesitan justificación" },
+      { en: "Redesign job postings to focus on demonstrated skills, certifications, and on-the-job training pathways rather than educational degrees", es: "Rediseñe anuncios de trabajo para enfocarse en habilidades demostrables, certificaciones y rutas de capacitación en el trabajo" },
+      { en: "Build a peer mentor or apprenticeship model: hire for potential + provide training for specific credentials", es: "Construya un modelo de mentor de pares o aprendizaje: contrate por potencial + proporcione capacitación para credenciales específicas" },
+    ],
+    keyTakeaways: [
+      { en: "Legal minimums ≠ posting minimums. MA: high school diploma (legal); CHW: high school diploma (legal); RN: BSN (legal); LCSW: MSW (legal). Everything else is your choice — choose for diversity, not gatekeeping.", es: "Mínimos legales ≠ mínimos de anuncio. MA: diploma de secundaria; CHW: diploma de secundaria. Todo lo demás es su elección — elija por diversidad, no por control de acceso." },
+      { en: "Credential inflation causes 'adverse impact' when it disproportionately screens out protected classes (women, immigrants, people of color). You can be sued.", es: "La inflación de credenciales causa 'impacto adverso' cuando excluye desproporcionadamente clases protegidas. Puede ser demandado." },
+      { en: "One Bay Area FQHC removed 'associate's degree' requirement from MA posting → 3x more applicants, 40% women of color hired (vs 18% before)", es: "Un FQHC del Área de la Bahía removió requisito de 'título de asociado' de anuncio MA → 3x más solicitantes, 40% mujeres de color contratadas" },
+    ],
+    sourceMaterials: [
+      { label: "EEOC: Adverse Impact & Disparate Impact Guidelines", url: "https://www.eeoc.gov/eeoc/publications/fs-nondiscrimination.cfm" },
+      { label: "California Board of Physicians: MA Licensure Requirements", url: "https://www.mbc.ca.gov/regulations/scope-of-practice.html" },
+      { label: "California Department of Healthcare Services: CHW Requirements", url: "https://www.dhcs.ca.gov/" },
+      { label: "Harvard Business Review: Skills-Based Hiring Best Practices", url: "https://hbr.org/2023/06/hire-for-skills-not-credentials" },
+    ],
+    siteLinks: [
+      { label: "Salary Intelligence by Role", href: "/salary-data" },
+      { label: "Education Barriers Guide", href: "/guides" },
+      { label: "Certification Pathways", href: "/certifications" },
+    ],
+    tags: ["hiring", "credential-inflation", "eeoc", "adverse-impact", "diversity-equity", "skills-based-hiring", "recruitment"],
+  },
+  {
+    id: "salary-negotiation-edge",
+    title: {
+      en: "Salary Negotiation & Total Comp: The FQHC Edge",
+      es: "Negociación Salarial y Compensación Total: La Ventaja FQHC",
+    },
+    subtitle: {
+      en: "FQHCs that communicate total comp value (NHSC loans, FTCA, mission) reduce turnover by 18%. Learn how to position FQHC compensation as premium.",
+      es: "Los FQHCs que comunican valor de compensación total (préstamos NHSC, FTCA, misión) reducen rotación en 18%. Aprenda cómo posicionar la compensación FQHC como premium.",
+    },
+    category: "leadership",
+    audience: "hr-workforce",
+    difficulty: "foundational",
+    urgencyStat: {
+      en: "FQHCs that communicate total comp value (NHSC loans, FTCA, mission) reduce turnover by 18%",
+      es: "Los FQHCs que comunican valor de compensación total reducen rotación en 18%",
+    },
+    whyNow: {
+      en: "Candidates see the base salary of $45K at your FQHC and compare it to $48K at a hospital. They pick the hospital. But they don't know about: National Health Service Corps loan repayment ($25K-$50K for eligible roles), Federal Tort Claims Act coverage (you're covered if sued, unlike private practice), mission premium (working with uninsured patients is actually valuable, not a sacrifice), SB 525 positioning (you're ahead of the wave), bilingual pay differentials, flexible schedules, smaller team dynamics, continuity of care. Total compensation at FQHCs often exceeds hospitals — but only if you explain it. This is both HR and GTM.",
+      es: "Los candidatos ven el salario base de $45K en su FQHC y lo comparan con $48K en un hospital. Eligen el hospital. Pero no saben sobre: repago de préstamos NHSC ($25K-$50K), cobertura de Tort Reclamaciones Federales, misión premium. Compensación total en FQHCs a menudo excede hospitales — pero solo si la explica.",
+    },
+    learningObjectives: [
+      { en: "Map out the 10 components of total compensation for each FQHC role: base salary, health insurance, retirement, NHSC eligibility, FTCA, PTO, mission/impact value, bilingual differential, loan repayment pathway", es: "Mapee los 10 componentes de compensación total para cada rol FQHC: salario base, seguro de salud, jubilación, elegibilidad NHSC" },
+      { en: "Calculate actual total comp: for NP at $120K salary + $30K NHSC eligible + $15K health/retirement + $5K mission premium (self-reported) = $170K value proposition", es: "Calcule compensación total actual: para NP en $120K salario + $30K elegible NHSC + $15K salud/jubilación = $170K propuesta de valor" },
+      { en: "Develop salary negotiation talking points: NHSC repayment timeline, mission impact data, SB 525 positioning, bilingual premium, continuity-of-care advantage", es: "Desarrolle puntos de negociación salarial: cronograma de repago NHSC, datos de impacto de misión, posicionamiento de SB 525" },
+      { en: "Train HR/hiring managers to communicate total comp during offer stage and throughout onboarding", es: "Capacite a HR/gerentes de contratación para comunicar compensación total durante etapa de oferta y durante incorporación" },
+    ],
+    keyTakeaways: [
+      { en: "NHSC loan repayment is the #1 underutilized FQHC recruiting tool. $30-50K forgiveness for eligible roles. Position it front-and-center in offers.", es: "El repago de préstamos NHSC es la herramienta de reclutamiento #1 subutilizada en FQHC. Posiciónela frente y centro en ofertas." },
+      { en: "Bilingual differential ($2-5/hr) + mission premium (emotional/cultural value) + FTCA coverage (peace of mind) + small-team dynamics = total comp advantage over hospital 'wage matching'", es: "Diferencial bilingüe + prima de misión + cobertura FTCA + dinámicas de equipo pequeño = ventaja de compensación total sobre hospitales" },
+      { en: "FQHCs that create a 'total comp calculator' and explain it to candidates during interviews report 22% higher offer acceptance rates", es: "Los FQHCs que crean una 'calculadora de compensación total' y la explican a candidatos durante entrevistas reportan 22% tasas de aceptación de ofertas más altas" },
+    ],
+    sourceMaterials: [
+      { label: "NHSC Loan Repayment Program (HRSA)", url: "https://nhsc.hrsa.gov/loan-repayment" },
+      { label: "Federal Tort Claims Act (28 USC 1346): FQHC Coverage", url: "https://www.justice.gov/civil/federal-tort-claims-act-ftca" },
+      { label: "Bureau of Labor Statistics: Occupational Employment & Wages", url: "https://www.bls.gov/oes/" },
+      { label: "NACHC: Total Compensation & Benefits Benchmarking Survey", url: "https://www.nachc.org/" },
+    ],
+    siteLinks: [
+      { label: "Salary Intelligence Dashboard", href: "/salary-data" },
+      { label: "Career Roadmap (Salary Progression)", href: "/career-roadmap" },
+      { label: "Career Resources (NHSC & Loans)", href: "/resources" },
+    ],
+    tags: ["total-compensation", "salary-negotiation", "nhsc", "recruitment", "retention", "candidate-experience", "fqhc-advantage"],
+  },
 ]
 
 // ── Helper Functions ───────────────────────────────────────────

@@ -2420,6 +2420,805 @@ export const FQHC_GUIDES: FQHCGuide[] = [
     tags: ["telehealth", "remote-work", "billing", "hipaa", "medi-cal", "technology"],
     lastUpdated: "2026-03-04",
   },
+
+  /* ============================================================== */
+  /*  PROGRAMS & COMPLIANCE - WORKER RIGHTS                         */
+  /* ============================================================== */
+  {
+    id: "california-labor-law-rights",
+    title: {
+      en: "Your Rights Under California Labor Law",
+      es: "Tus Derechos Bajo la Ley Laboral de California",
+    },
+    summary: {
+      en: "California labor law gives you protections beyond federal law. Learn what 'at-will employment' really means, what activities are protected, wage & hour basics, and how to file a complaint if something feels wrong.",
+      es: "La ley laboral de California te da protecciones más allá de la ley federal. Aprende qué significa realmente 'empleo a voluntad', qué actividades están protegidas, lo básico de salarios y horarios, y cómo presentar una queja si algo se siente mal.",
+    },
+    category: "programs-compliance",
+    difficulty: "beginner",
+    readTime: "12 min",
+    sections: [
+      {
+        heading: {
+          en: "At-Will Employment Exceptions in California",
+          es: "Excepciones de Empleo a Voluntad en California",
+        },
+        keyPoints: [
+          {
+            en: "California is an 'at-will' state — your employer can fire you for any reason, any time, without cause. BUT there are major exceptions.",
+            es: "California es un estado 'a voluntad' — tu empleador puede despedirte por cualquier razón, cualquier momento. PERO hay excepciones importantes.",
+          },
+          {
+            en: "Public policy exception: You CANNOT be fired for activities protected by law (jury duty, military service, voting, filing labor complaints, exercising labor rights)",
+            es: "Excepción de política pública: NO PUEDES ser despedido por actividades protegidas por ley (deber de jurado, servicio militar, voto, presentación de quejas laborales)",
+          },
+          {
+            en: "Implied contract exception: If your FQHC has a handbook or gave oral promises about job security, those can create enforceable contracts",
+            es: "Excepción de contrato implícito: Si tu FQHC tiene un manual o hizo promesas verbales sobre seguridad laboral, esas pueden crear contratos exigibles",
+          },
+          {
+            en: "Covenant of good faith exception: Employers cannot fire you in bad faith or solely to avoid paying earned benefits (like vacation or bonuses)",
+            es: "Excepción de buena fe: Los empleadores no pueden despedirte de mala fe o solo para evitar pagar beneficios ganados",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Protected Concerted Activities",
+          es: "Actividades Concertadas Protegidas",
+        },
+        keyPoints: [
+          {
+            en: "You have a RIGHT to discuss wages, hours, and working conditions with coworkers — this is protected by the National Labor Relations Act (NLRA)",
+            es: "Tienes DERECHO a discutir salarios, horarios y condiciones de trabajo con compañeros — esto está protegido por la NLRA",
+          },
+          {
+            en: "Protected activity includes: informal conversations about pay, union organizing, filing safety complaints, or asking about benefits — even without a union",
+            es: "La actividad protegida incluye: conversaciones informales sobre pago, organización sindical, presentación de quejas de seguridad — incluso sin un sindicato",
+          },
+          {
+            en: "Retaliation is illegal: Your employer cannot discipline, fire, or demote you for protected activities. No exceptions.",
+            es: "La represalia es ilegal: Tu empleador no puede disciplinarte, despedirte o degradarte por actividades protegidas. Sin excepciones.",
+          },
+          {
+            en: "If you are retaliated against within 30 days of protected activity, the NLRB assumes retaliation occurred — burden shifts to employer to prove otherwise",
+            es: "Si eres represaliado dentro de 30 días de actividad protegida, el NLRB asume represalia — la carga se traslada al empleador para probar lo contrario",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Wage & Hour Basics",
+          es: "Lo Básico de Salarios y Horarios",
+        },
+        keyPoints: [
+          {
+            en: "Minimum wage in California is at least $16.50/hour (as of 2024). Some cities (SF, LA, Oakland) have higher minimum wages.",
+            es: "El salario mínimo en California es al menos $16.50/hora (a partir de 2024). Algunas ciudades tienen salarios mínimos más altos.",
+          },
+          {
+            en: "Overtime (OT): 1.5x pay for hours over 8/day or 40/week; 2x pay for hours over 12/day. Healthcare workers have specific OT rules.",
+            es: "Horas extraordinarias (OT): 1.5x pago por horas más de 8/día o 40/semana; 2x pago por horas más de 12/día.",
+          },
+          {
+            en: "All hours worked = paid hours. Charting, staff meetings, break time that's not truly free = work. Off-the-clock work is wage theft.",
+            es: "Todas las horas trabajadas = horas pagadas. Documentación, reuniones de personal, tiempo de descanso que no es realmente libre = trabajo. Trabajo fuera de horario es robo de salarios.",
+          },
+          {
+            en: "Pay stubs must show: gross pay, deductions (federal tax, FICA, etc.), net pay. Ask your employer to explain any deductions you don't understand.",
+            es: "Los recibos de pago deben mostrar: pago bruto, deducciones, pago neto. Pide a tu empleador que explique cualquier deducción que no entiendas.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Anti-Retaliation Protections",
+          es: "Protecciones Contra Represalia",
+        },
+        keyPoints: [
+          {
+            en: "You cannot be fired, demoted, or suspended for: reporting labor violations, filing a workers comp claim, refusing illegal work, taking jury duty, or requesting reasonable accommodations",
+            es: "No puedes ser despedido, degradado o suspendido por: reportar violaciones laborales, presentar reclamo de compensación de trabajadores, rehusar trabajo ilegal",
+          },
+          {
+            en: "Retaliation includes: creating a hostile work environment (sudden negative evaluations, schedule changes, harassment) as punishment for protected activity",
+            es: "La represalia incluye: crear un ambiente de trabajo hostil (evaluaciones negativas repentinas, cambios de horario, acoso) como castigo por actividad protegida",
+          },
+          {
+            en: "If you suspect retaliation: document dates, actions, witnesses. Keep copies of communications. Report to your FQHC's HR and the California Division of Labor Standards Enforcement (DLSE).",
+            es: "Si sospechas represalia: documenta fechas, acciones, testigos. Guarda copias de comunicaciones. Reporta a RR.HH. y al DLSE.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "How to File a Complaint with DLSE",
+          es: "Cómo Presentar una Queja con DLSE",
+        },
+        keyPoints: [
+          {
+            en: "DLSE (dir.ca.gov/dlse) investigates wage theft, unpaid overtime, retaliation, and other labor violations. It's free.",
+            es: "DLSE investiga robo de salarios, horas extraordinarias no pagadas, represalia y otras violaciones laborales. Es gratis.",
+          },
+          {
+            en: "You can file a wage claim online or by mail. You do NOT need a lawyer. You do NOT need to be a citizen.",
+            es: "Puedes presentar una reclamación de salarios en línea o por correo. NO necesitas abogado. NO necesitas ser ciudadano.",
+          },
+          {
+            en: "Timeline: You must file within 1-4 years depending on violation type. Bring: pay stubs, time records, emails, any evidence of unpaid wages.",
+            es: "Plazo: Debes presentar dentro de 1-4 años dependiendo del tipo de violación. Trae: recibos de pago, registros de tiempo, evidencia de salarios no pagados.",
+          },
+          {
+            en: "DLSE can order your employer to pay back wages + penalties. If you win, your employer pays attorney's fees and court costs.",
+            es: "DLSE puede ordenar a tu empleador pagar salarios atrasados + multas. Si ganas, tu empleador paga honorarios de abogado y costos judiciales.",
+          },
+        ],
+      },
+    ],
+    primarySourceUrl: "https://dir.ca.gov/dlse/",
+    primarySourceOrg: "California Division of Labor Standards Enforcement (DLSE)",
+    additionalSources: [
+      {
+        label: "DLSE: Worker Rights (English/Spanish)",
+        url: "https://dir.ca.gov/dlse/workers-rights.html",
+      },
+      {
+        label: "NLRB: Employee Rights Under NLRA",
+        url: "https://www.nlrb.gov/resources/files/basic-page/documents/emorrev2023final.pdf",
+      },
+      {
+        label: "California Labor Code Chapter 2: General Protections",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?lawCode=LAB&division=2",
+      },
+      {
+        label: "State Bar of California: Free/Low-Cost Legal Help",
+        url: "https://www.lawhelpca.org/",
+      },
+    ],
+    targetRoles: ["all"],
+    tags: ["worker-rights", "labor-law", "wage-theft", "retaliation", "compliance", "california-labor-code"],
+    lastUpdated: "2026-03-11",
+  },
+  {
+    id: "grievance-process-filing",
+    title: {
+      en: "The Grievance Process: When and How to File",
+      es: "El Proceso de Queja: Cuándo y Cómo Presentar",
+    },
+    summary: {
+      en: "Not sure if your issue is grievable? Learn when to file a grievance, what the union vs non-union pathways look like, documentation requirements, timelines, and when to escalate.",
+      es: "¿No estás seguro si tu problema es una queja? Aprende cuándo presentar una queja, qué parecen las rutas sindicales vs no sindicales, requisitos de documentación y plazos.",
+    },
+    category: "programs-compliance",
+    difficulty: "intermediate",
+    readTime: "15 min",
+    sections: [
+      {
+        heading: {
+          en: "What Issues Are Grievable?",
+          es: "¿Qué Problemas Son Quejables?",
+        },
+        keyPoints: [
+          {
+            en: "Grievable issues (typically) include: wrongful discipline, wage/hour violations, breach of contract, unsafe working conditions, discrimination, retaliation, or denial of benefits",
+            es: "Los problemas quejables (típicamente) incluyen: disciplina injusta, violaciones de salarios/horarios, incumplimiento de contrato, condiciones de trabajo inseguras, discriminación, represalia",
+          },
+          {
+            en: "Non-grievable issues: decisions within management discretion (hiring choices, schedule preferences not in contract, at-will terminations without protected-activity angle) usually cannot be grieved",
+            es: "Problemas no quejables: decisiones dentro de discreción gerencial (opciones de contratación, preferencias de horario no en contrato) generalmente no pueden ser quejadas",
+          },
+          {
+            en: "When in doubt, file it anyway. Your union rep (if applicable) or HR can advise whether it's grievable. You have nothing to lose by asking.",
+            es: "Si tienes dudas, presenta de todas formas. Tu representante sindical (si aplica) o RR.HH. puede asesorarte. No tienes nada que perder preguntando.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Union Pathways: Steps 1-3",
+          es: "Rutas Sindicales: Pasos 1-3",
+        },
+        keyPoints: [
+          {
+            en: "Step 1 (Informal): Talk to your manager within 5-10 days of issue. Try to resolve it verbally. If unresolved, move to Step 2.",
+            es: "Paso 1 (Informal): Habla con tu gerente dentro de 5-10 días del problema. Intenta resolverlo verbalmente. Si no se resuelve, ve al Paso 2.",
+          },
+          {
+            en: "Step 2 (Formal): File written grievance with union rep. Include: date of incident, what happened, policy violated, what you want (reinstatement, back pay, etc.). Usually 10-15 day response window.",
+            es: "Paso 2 (Formal): Presenta queja escrita con representante sindical. Incluye: fecha del incidente, qué pasó, política violada, qué quieres. Generalmente ventana de respuesta de 10-15 días.",
+          },
+          {
+            en: "Step 3 (Arbitration): If unresolved after Step 2, go to arbitration — independent arbitrator hears both sides and issues binding decision. Usually 30-60 days.",
+            es: "Paso 3 (Arbitración): Si no se resuelve después del Paso 2, ve a arbitración — un árbitro independiente escucha ambos lados e emite decisión vinculante.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Non-Union Pathways: HR & Legal Options",
+          es: "Rutas No Sindicales: Opciones de RR.HH. y Legales",
+        },
+        keyPoints: [
+          {
+            en: "If your FQHC doesn't have a union: Report to HR first (in writing, by email). Document your complaint. Keep a copy for your records.",
+            es: "Si tu FQHC no tiene sindicato: Reporta a RR.HH. primero (por escrito, por correo electrónico). Documenta tu queja. Guarda una copia.",
+          },
+          {
+            en: "HR may offer internal investigation, mediation, or grievance process depending on FQHC policy. Ask for timeline and next steps.",
+            es: "RR.HH. puede ofrecer investigación interna, mediación o proceso de quejas según la política FQHC. Pregunta por plazo y próximos pasos.",
+          },
+          {
+            en: "If internal process fails: You can file with DFEH (discrimination), DLSE (wage/hour), Cal/OSHA (safety), or NLRB (retaliation). These are free government agencies.",
+            es: "Si el proceso interno falla: Puedes presentar ante DFEH (discriminación), DLSE (salarios), Cal/OSHA (seguridad) o NLRB (represalia). Estas son agencias gubernamentales gratuitas.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Documentation Requirements",
+          es: "Requisitos de Documentación",
+        },
+        keyPoints: [
+          {
+            en: "Date: Exact date of incident (or date you first became aware of issue)",
+            es: "Fecha: Fecha exacta del incidente (o fecha en que primero te enteraste del problema)",
+          },
+          {
+            en: "What happened: Clear, factual description. Avoid emotions; stick to what you observed/experienced. Include witnesses.",
+            es: "Qué pasó: Descripción clara, fáctica. Evita emociones; apégate a lo que observaste. Incluye testigos.",
+          },
+          {
+            en: "Policy violated: Cite specific FQHC handbook policy, contract clause, or labor law. Example: 'Violated Handbook Section 4.3 on Wage Payment'",
+            es: "Política violada: Cita la política específica del manual FQHC, cláusula de contrato o ley laboral.",
+          },
+          {
+            en: "Relief requested: Be specific. Don't just say 'fix it.' Say 'reinstatement to previous role' or 'back pay for 40 unpaid overtime hours' or 'written apology in personnel file'",
+            es: "Remedio solicitado: Sé específico. No solo digas 'arréglalo.' Di 'reintegración al rol anterior' o 'pago atrasado por 40 horas extraordinarias no pagadas'",
+          },
+          {
+            en: "Evidence: Pay stubs, emails, text messages, schedules, photos of unsafe conditions, witness statements — anything that backs up your claim",
+            es: "Evidencia: Recibos de pago, correos electrónicos, mensajes de texto, horarios, fotos de condiciones inseguras, declaraciones de testigos",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Timeline Expectations & Escalation",
+          es: "Expectativas de Plazos y Escalación",
+        },
+        keyPoints: [
+          {
+            en: "Union grievances: Usually resolve within 60-90 days if arbitration goes to hearing. May take longer if employer appeals.",
+            es: "Quejas sindicales: Generalmente se resuelven dentro de 60-90 días si la arbitración va a audiencia.",
+          },
+          {
+            en: "Non-union: HR may take 30-60 days to investigate. Government agencies (DLSE, DFEH) may take 6-12 months.",
+            es: "No sindical: RR.HH. puede tardar 30-60 días en investigar. Las agencias gubernamentales pueden tardar 6-12 meses.",
+          },
+          {
+            en: "Don't give up: Long timelines don't mean you won't win. Agencies regularly award back pay, penalties, and attorney's fees.",
+            es: "No te rindas: Los plazos largos no significan que no ganarás. Las agencias regularmente otorgan salarios atrasados, multas y honorarios de abogado.",
+          },
+          {
+            en: "Escalation: If HR doesn't respond within stated timeframe, escalate to your FQHC's CEO or board. If that fails, file with government agency.",
+            es: "Escalación: Si RR.HH. no responde dentro del plazo establecido, escalala a tu CEO o junta FQHC. Si eso falla, presenta ante agencia gubernamental.",
+          },
+        ],
+      },
+    ],
+    primarySourceUrl: "https://www.nlrb.gov/",
+    primarySourceOrg: "National Labor Relations Board (NLRB)",
+    additionalSources: [
+      {
+        label: "NLRB: Grievance & Arbitration Process",
+        url: "https://www.nlrb.gov/resources/files/basic-page/documents/grievance-and-arbitration.pdf",
+      },
+      {
+        label: "DLSE: Wage Claim Filing Process",
+        url: "https://dir.ca.gov/dlse/WageClaimForm.html",
+      },
+      {
+        label: "California DFEH: Discrimination Complaints",
+        url: "https://www.dfeh.ca.gov/complaints/",
+      },
+      {
+        label: "Cal/OSHA: Safety Complaint Filing",
+        url: "https://www.dir.ca.gov/dosh/complaint.html",
+      },
+    ],
+    targetRoles: ["all"],
+    tags: ["grievance-process", "union", "dispute-resolution", "labor-law", "compliance", "workers-rights"],
+    lastUpdated: "2026-03-11",
+  },
+  {
+    id: "wage-theft-prevention-reporting",
+    title: {
+      en: "Wage Theft Prevention & Reporting in Healthcare",
+      es: "Prevención y Reportaje de Robo de Salarios en Salud",
+    },
+    summary: {
+      en: "Wage theft in healthcare is common but preventable. Learn what wage theft looks like in FQHCs, how to identify violations, documentation strategies, and how to report and recover.",
+      es: "El robo de salarios en salud es común pero prevenible. Aprende qué se ve como robo de salarios en FQHCs, cómo identificar violaciones, estrategias de documentación y cómo reportar y recuperarse.",
+    },
+    category: "programs-compliance",
+    difficulty: "beginner",
+    readTime: "10 min",
+    sections: [
+      {
+        heading: {
+          en: "Common Wage Theft Patterns at FQHCs",
+          es: "Patrones Comunes de Robo de Salarios en FQHCs",
+        },
+        keyPoints: [
+          {
+            en: "Off-the-clock work: Charting, EMR work, staff meetings, cleaning, or prep done before/after shift without pay. This is wage theft.",
+            es: "Trabajo fuera de horario: Documentación, trabajo EMR, reuniones de personal, limpieza o preparación realizada antes/después de turno sin pago. Esto es robo de salarios.",
+          },
+          {
+            en: "Misclassification: Calling you 'salary-exempt' when you should be hourly. Salaried staff who work 50+ hours/week must still be paid for OT if not truly exempt.",
+            es: "Clasificación errónea: Llamándote 'exento de salario' cuando deberías ser por hora. El personal asalariado que trabaja 50+ horas/semana aún debe ser pagado por OT.",
+          },
+          {
+            en: "Unpaid breaks: California law: 10-minute breaks paid, 30-minute+ meal periods unpaid. But if you can't fully disconnect (phone on, pager), it's a paid break.",
+            es: "Descansos no pagados: Ley de California: descansos de 10 minutos pagados, períodos de comida de 30+ minutos no pagados. Pero si no puedes desconectarte completamente, es descanso pagado.",
+          },
+          {
+            en: "Unpaid overtime: Working over 8 hours/day or 40 hours/week without 1.5x or 2x pay. Your FQHC cannot waive OT — it's illegal.",
+            es: "Horas extraordinarias no pagadas: Trabajar más de 8 horas/día o 40 horas/semana sin pago 1.5x o 2x. Tu FQHC no puede renunciar a OT — es ilegal.",
+          },
+          {
+            en: "Deduction from final paycheck: Money taken for uniforms, shortages, or damages. Generally illegal unless it brings you above minimum wage.",
+            es: "Deducción del cheque de pago final: Dinero tomado por uniformes, faltantes o daños. Generalmente ilegal a menos que te traiga por encima del salario mínimo.",
+          },
+          {
+            en: "Not paying earned bonuses: Promised holiday bonuses, attendance bonuses, or referral bonuses not paid. If promised, must be paid.",
+            es: "No pagar bonificaciones ganadas: Bonificaciones de vacaciones prometidas, bonificaciones de asistencia o bonificaciones de referencia no pagadas.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "How to Identify Violations",
+          es: "Cómo Identificar Violaciones",
+        },
+        keyPoints: [
+          {
+            en: "Review your pay stubs: Gross pay should cover ALL hours worked. If you worked 42 hours but only paid for 40, that's a red flag.",
+            es: "Revisa tus recibos de pago: El pago bruto debe cubrir TODAS las horas trabajadas. Si trabajaste 42 horas pero solo pagaste 40, eso es una bandera roja.",
+          },
+          {
+            en: "Track your time: Write down when you arrive, leave, and any breaks/unpaid time. Use your phone's notes app if no time clock exists.",
+            es: "Haz seguimiento de tu tiempo: Anota cuándo llegas, te vas y cualquier descanso. Usa la aplicación de notas de tu teléfono si no existe reloj de tiempo.",
+          },
+          {
+            en: "Compare to coworkers: Are you working off-the-clock while others aren't? Are raises going to some people but not others without clear reason?",
+            es: "Compara con compañeros: ¿Estás trabajando fuera de horario mientras otros no? ¿Los aumentos van a algunas personas pero no a otras sin razón clara?",
+          },
+          {
+            en: "Calculate expected pay: (Hours × Hourly Rate) + (OT Hours × Rate × 1.5 or 2) = what you SHOULD be paid. Compare to actual paycheck.",
+            es: "Calcula el pago esperado: (Horas × Tasa Horaria) + (Horas OT × Tasa × 1.5 o 2) = lo que DEBERÍAS ser pagado. Compara con tu cheque real.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Documentation Strategies",
+          es: "Estrategias de Documentación",
+        },
+        keyPoints: [
+          {
+            en: "TIME TRACKING: Start immediately. Use your phone's notes, a spreadsheet, or a notebook. Write: date, clock-in time, clock-out time, total hours, any unpaid work.",
+            es: "SEGUIMIENTO DE TIEMPO: Comienza inmediatamente. Usa las notas de tu teléfono, una hoja de cálculo o un cuaderno.",
+          },
+          {
+            en: "KEEP PAYSTUBS: Save every pay stub for 4 years. Don't throw them away. They're proof of what you were paid.",
+            es: "GUARDA RECIBOS DE PAGO: Guarda cada recibo de pago durante 4 años. No los tires. Son prueba de lo que te pagaron.",
+          },
+          {
+            en: "EMAIL RECORDS: Screenshot or save emails about work requests, schedules, or instructions to work off-the-clock. Forward important emails to your personal email.",
+            es: "REGISTROS DE CORREO ELECTRÓNICO: Captura pantalla o guarda correos electrónicos sobre solicitudes de trabajo, horarios o instrucciones para trabajar fuera de horario.",
+          },
+          {
+            en: "TEXT/CHAT RECORDS: Save any texts or Slack messages where manager asks you to 'just finish charting' or work after hours.",
+            es: "REGISTROS DE TEXTO/CHAT: Guarda cualquier texto o mensaje de Slack donde el gerente te pide 'termina solo la documentación' o trabaja después de horario.",
+          },
+          {
+            en: "WITNESS NAMES: If coworkers also worked off-the-clock, write down their names and what you saw. They may be witnesses.",
+            es: "NOMBRES DE TESTIGOS: Si compañeros de trabajo también trabajaron fuera de horario, anota sus nombres y lo que viste.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Reporting to DLSE & Recovery Options",
+          es: "Reportar a DLSE y Opciones de Recuperación",
+        },
+        keyPoints: [
+          {
+            en: "File a wage claim with DLSE (dir.ca.gov/dlse) within 1-4 years of the violation. It's free. You don't need a lawyer.",
+            es: "Presenta una reclamación de salarios con DLSE (dir.ca.gov/dlse) dentro de 1-4 años de la violación. Es gratis. No necesitas abogado.",
+          },
+          {
+            en: "Include in your claim: dates of violations, hours unpaid, wage stubs, time tracking records, any written evidence (emails, texts).",
+            es: "Incluye en tu reclamación: fechas de violaciones, horas no pagadas, recibos de salarios, registros de seguimiento de tiempo, cualquier evidencia escrita.",
+          },
+          {
+            en: "DLSE investigates and can order your FQHC to pay: (1) Back wages + interest, (2) Penalties (up to $50/violation), (3) Your attorney's fees and court costs if you win.",
+            es: "DLSE investiga y puede ordenar a tu FQHC pagar: (1) Salarios atrasados + interés, (2) Multas (hasta $50/violación), (3) Tus honorarios de abogado y costos judiciales si ganas.",
+          },
+          {
+            en: "You can also file a class action with a lawyer. Many wage theft lawsuits settle for $thousands or $millions if many workers are affected.",
+            es: "También puedes presentar una demanda colectiva con un abogado. Muchas demandas de robo de salarios se resuelven por $miles o $millones si muchos trabajadores se ven afectados.",
+          },
+        ],
+      },
+    ],
+    primarySourceUrl: "https://dir.ca.gov/dlse/WageClaimForm.html",
+    primarySourceOrg: "California Division of Labor Standards Enforcement (DLSE)",
+    additionalSources: [
+      {
+        label: "DLSE: Wage Theft Prevention Guide",
+        url: "https://dir.ca.gov/dlse/wage-theft.html",
+      },
+      {
+        label: "California Labor Code Section 200-224 (Wage Payment)",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?lawCode=LAB&division=2&title=&part=&chapter=2&article=",
+      },
+      {
+        label: "Legal Aid Organizations (Class Action Resources)",
+        url: "https://www.lawhelpca.org/",
+      },
+      {
+        label: "DLSE: Worker Misclassification Prevention",
+        url: "https://dir.ca.gov/dlse/worker-misclassification.html",
+      },
+    ],
+    targetRoles: ["all"],
+    tags: ["wage-theft", "wage-claim", "unpaid-overtime", "off-the-clock", "dlse", "compliance", "worker-rights"],
+    lastUpdated: "2026-03-11",
+  },
+  {
+    id: "salary-negotiation-prep",
+    title: {
+      en: "Salary Negotiation Preparation Checklist",
+      es: "Lista de Verificación de Preparación para Negociación Salarial",
+    },
+    summary: {
+      en: "Most healthcare workers don't negotiate salary out of fear or lack of knowledge. This guide walks you through research, talking points, scripts, and follow-up — for both initial offers and annual raises.",
+      es: "La mayoría de los trabajadores de salud no negocian salario por miedo o falta de conocimiento. Esta guía te lleva a través de investigación, puntos de conversación, scripts y seguimiento.",
+    },
+    category: "programs-compliance",
+    difficulty: "beginner",
+    readTime: "8 min",
+    sections: [
+      {
+        heading: {
+          en: "Research Your Market Rate",
+          es: "Investiga Tu Tasa de Mercado",
+        },
+        keyPoints: [
+          {
+            en: "Use free tools: BLS.gov (Bureau of Labor Statistics), PayScale, Glassdoor salary data for your FQHC specifically, and indeed.com job postings.",
+            es: "Usa herramientas gratuitas: BLS.gov, PayScale, datos salariales de Glassdoor para tu FQHC específicamente e indeed.com.",
+          },
+          {
+            en: "Look for YOUR role, YOUR region, YOUR experience level: Medical Assistant at Bay Area FQHC ≠ Medical Assistant at rural Central Valley FQHC. Salaries differ by 20-30%.",
+            es: "Busca TU rol, TU región, TU nivel de experiencia: Asistente Médico en Área de la Bahía ≠ Asistente Médico en Área Rural. Los salarios difieren en 20-30%.",
+          },
+          {
+            en: "P25 (25th percentile) = below average. P50 (median) = market rate. P75 (75th percentile) = above average. Aim for P50 or higher based on your experience.",
+            es: "P25 = por debajo del promedio. P50 (mediana) = tasa de mercado. P75 = por encima del promedio. Apunta a P50 o superior según tu experiencia.",
+          },
+          {
+            en: "Adjust for FQHC-specific factors: NHSC eligibility (add $25-50K value), mission premium (add 10-15% vs hospital), bilingual bonus (add $2-5/hr), SB 525 positioning (you're ahead of the wave).",
+            es: "Ajusta por factores FQHC: Elegibilidad NHSC (suma $25-50K valor), prima de misión (suma 10-15% vs hospital), bonificación bilingüe (suma $2-5/hr).",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Know Your Total Compensation",
+          es: "Conoce Tu Compensación Total",
+        },
+        keyPoints: [
+          {
+            en: "Base salary is just the start. Calculate total comp: (Base salary) + (Health insurance value) + (Retirement/401k match) + (PTO value) + (Bonuses/differentials) + (NHSC eligibility) + (FTCA peace-of-mind value)",
+            es: "El salario base es solo el comienzo. Calcula compensación total: (Salario base) + (Valor de seguro de salud) + (Jubilación/401k match) + (Valor de PTO) + (Bonificaciones/diferenciales) + (Elegibilidad NHSC)",
+          },
+          {
+            en: "Health insurance: A family PPO plan costs employers $15K-25K/year. That's part of YOUR comp.",
+            es: "Seguro de salud: Un plan PPO familiar cuesta a los empleadores $15K-25K/año. Eso es parte de TU compensación.",
+          },
+          {
+            en: "Bilingual differential: If you speak Spanish fluently, you add value. $2-5/hour is standard. Ask for it explicitly.",
+            es: "Diferencial bilingüe: Si hablas español con fluidez, añades valor. $2-5/hora es estándar. Pídelo explícitamente.",
+          },
+          {
+            en: "NHSC eligibility: If eligible, repayment starts at $25K. Over your career, could be $100K+. Factor this into your negotiation.",
+            es: "Elegibilidad NHSC: Si es elegible, el repago comienza en $25K. Durante su carrera, podría ser $100K+. Factor en su negociación.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Prepare Your Talking Points",
+          es: "Prepara Tus Puntos de Conversación",
+        },
+        keyPoints: [
+          {
+            en: "Point 1: Market data — 'Based on BLS data, the median MA salary in the Bay Area is $42K. I have 5 years of FQHC experience. I'm asking for $45K.'",
+            es: "Punto 1: Datos de mercado — 'Según datos de BLS, el salario mediano de MA en el Área de la Bahía es $42K. Tengo 5 años de experiencia en FQHC. Estoy pidiendo $45K.'",
+          },
+          {
+            en: "Point 2: Your specific value — 'I'm bilingual (Spanish/English), which increases patient access and reduces interpreter costs. I should earn the differential.'",
+            es: "Punto 2: Tu valor específico — 'Soy bilingüe (español/inglés), lo que aumenta el acceso de pacientes. Debería ganar el diferencial.'",
+          },
+          {
+            en: "Point 3: Retention — 'I love working at [FQHC name] and want to build my career here. A competitive salary helps me stay. Replacing a good employee costs 50-200% of annual salary.'",
+            es: "Punto 3: Retención — 'Me encanta trabajar en [nombre FQHC] y quiero construir mi carrera aquí. Un salario competitivo me ayuda a quedarme.'",
+          },
+          {
+            en: "Point 4: Contribution — 'I've completed [certification/training], led [project], mentored [staff], and consistently receive positive feedback. I'm ready for the next level.'",
+            es: "Punto 4: Contribución — 'He completado [certificación/capacitación], lideré [proyecto], mentoré [personal] y siempre recibo retroalimentación positiva.'",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Practice Scripts (Use These Words)",
+          es: "Scripts de Práctica (Usa Estas Palabras)",
+        },
+        keyPoints: [
+          {
+            en: "OPENING: 'I'm excited to discuss compensation. I've done research on market rates for my role and region, and I'd like to walk through my numbers.'",
+            es: "APERTURA: 'Estoy emocionado de discutir compensación. He investigado tasas de mercado para mi rol y región, y me gustaría revisar mis números.'",
+          },
+          {
+            en: "PRESENTING YOUR NUMBER: 'Based on BLS data, my experience level, and my bilingual skills, I'm asking for $48K [not 'I'd like' — be direct]. How does that land?'",
+            es: "PRESENTANDO TU NÚMERO: 'Basado en datos de BLS, mi nivel de experiencia y mis habilidades bilingües, estoy pidiendo $48K. ¿Qué te parece?'",
+          },
+          {
+            en: "IF THEY SAY NO: 'I understand budget constraints. What would it take to get to $48K? Can we revisit in 6 months? What if I lead [X project]?'",
+            es: "SI DICEN QUE NO: 'Entiendo restricciones presupuestarias. ¿Qué se necesitaría para llegar a $48K? ¿Podemos revisitar en 6 meses?'",
+          },
+          {
+            en: "IF THEY COUNTER LOW: 'I appreciate the offer of $44K. That's below market for my region. Can we meet in the middle at $46K?'",
+            es: "SI CONTRAOFRECEN BAJO: 'Aprecio la oferta de $44K. Eso está por debajo del mercado para mi región. ¿Podemos llegar a un acuerdo en $46K?'",
+          },
+          {
+            en: "CLOSING: 'I'm grateful for this opportunity. Let's put this in writing — can you send me an offer letter with the agreed salary, start date, and benefits?'",
+            es: "CIERRE: 'Estoy agradecido por esta oportunidad. Pongamos esto por escrito — ¿puedes enviarme una carta de oferta?'",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Follow-Up in Writing",
+          es: "Seguimiento por Escrito",
+        },
+        keyPoints: [
+          {
+            en: "After negotiation conversation: Send an email to your manager that says: 'Thank you for discussing compensation with me. As we agreed, my new salary is $48K effective [date]. I look forward to the updated offer letter.'",
+            es: "Después de la conversación de negociación: Envía un correo electrónico a tu gerente que diga: 'Gracias por discutir compensación conmigo. Como acordamos, mi nuevo salario es $48K efectivo [fecha].'",
+          },
+          {
+            en: "GET IT IN WRITING: Written confirmation (email or formal offer letter) is crucial. Verbal promises don't hold up in disputes.",
+            es: "CONSÍGUELO POR ESCRITO: La confirmación escrita (correo electrónico u oferta formal) es crucial. Las promesas verbales no se mantienen en disputas.",
+          },
+          {
+            en: "Store copies: Keep email confirmation of negotiated salary. If you're underpaid later, this is proof of what was promised.",
+            es: "Guarda copias: Mantén confirmación por correo electrónico del salario negociado. Si te pagan menos después, esto es prueba de lo que fue prometido.",
+          },
+        ],
+      },
+    ],
+    primarySourceUrl: "https://www.bls.gov/oes/",
+    primarySourceOrg: "Bureau of Labor Statistics (BLS)",
+    additionalSources: [
+      {
+        label: "BLS: Occupational Employment & Wage Data",
+        url: "https://www.bls.gov/oes/",
+      },
+      {
+        label: "Glassdoor Salary Reviews (FQHC-specific)",
+        url: "https://www.glassdoor.com/",
+      },
+      {
+        label: "NACHC: Salary Benchmarking Survey (PDF)",
+        url: "https://www.nachc.org/",
+      },
+      {
+        label: "FQHC Talent Exchange: Salary Intelligence Dashboard",
+        url: "https://www.fqhctalent.com/salary-data",
+      },
+    ],
+    targetRoles: ["all"],
+    tags: ["salary-negotiation", "compensation", "market-research", "bls-data", "career-growth", "wage-equity"],
+    lastUpdated: "2026-03-11",
+  },
+  {
+    id: "understanding-union-contract",
+    title: {
+      en: "Understanding Your Union Contract",
+      es: "Entendiendo Tu Contrato Sindical",
+    },
+    summary: {
+      en: "Your union contract is your legal protection. Learn how to read the key sections, understand grievance procedures, wage scales, seniority rules, and management rights — so you know what your employer can and cannot do.",
+      es: "Tu contrato sindical es tu protección legal. Aprende cómo leer las secciones clave, entender procedimientos de quejas, escalas salariales, reglas de antigüedad — para que sepas qué puede y no puede hacer tu empleador.",
+    },
+    category: "programs-compliance",
+    difficulty: "intermediate",
+    readTime: "15 min",
+    sections: [
+      {
+        heading: {
+          en: "Why Your Union Contract Matters",
+          es: "Por Qué Tu Contrato Sindical Importa",
+        },
+        keyPoints: [
+          {
+            en: "Your union contract is a LEGAL AGREEMENT between your union and your employer. It overrides at-will employment — you can't be fired without just cause.",
+            es: "Tu contrato sindical es un ACUERDO LEGAL entre tu sindicato y tu empleador. Anula el empleo a voluntad — no puedes ser despedido sin causa justificada.",
+          },
+          {
+            en: "Union contracts cover: wages, benefits, hours, working conditions, discipline procedures, grievance rights, and seniority rules. Everything in writing.",
+            es: "Los contratos sindicales cubren: salarios, beneficios, horas, condiciones de trabajo, procedimientos disciplinarios, derechos de quejas y reglas de antigüedad.",
+          },
+          {
+            en: "Your employer is legally bound to follow every word. If they violate the contract, you have a grievance right — managed by your union.",
+            es: "Tu empleador está legalmente obligado a seguir cada palabra. Si violan el contrato, tienes derecho a queja — manejado por tu sindicato.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Key Contract Sections to Know",
+          es: "Secciones Clave del Contrato a Conocer",
+        },
+        keyPoints: [
+          {
+            en: "PREAMBLE/RECOGNITION: States that the union represents you and your employer recognizes the union. This is the foundation.",
+            es: "PREÁMBULO/RECONOCIMIENTO: Establece que el sindicato te representa y tu empleador reconoce el sindicato.",
+          },
+          {
+            en: "WAGE SCALES: Lists your job title and salary bands. Example: 'Medical Assistant Step 1: $45K, Step 2: $47K, Step 3: $50K' based on years of service.",
+            es: "ESCALAS DE SALARIO: Enumera tu título de trabajo y bandas salariales. Ejemplo: 'Asistente Médico Paso 1: $45K, Paso 2: $47K, Paso 3: $50K' según años de servicio.",
+          },
+          {
+            en: "GRIEVANCE PROCEDURE: Step-by-step process for filing complaints. Usually: Informal Discussion → Formal Grievance → Arbitration. Know your timelines (5-10 days per step).",
+            es: "PROCEDIMIENTO DE QUEJAS: Proceso paso a paso para presentar quejas. Generalmente: Discusión Informal → Queja Formal → Arbitración. Conoce tus plazos.",
+          },
+          {
+            en: "SENIORITY & RECALL: Seniority = years of employment. Contract usually says: 'In case of layoffs, most junior employees are cut first. In case of rehire, most senior are called back first.'",
+            es: "ANTIGÜEDAD Y RETIRO: Antigüedad = años de empleo. Contrato generalmente dice: 'En caso de despidos, los empleados más junior se cortan primero. En caso de recontratación, los más antiguos se llaman primero.'",
+          },
+          {
+            en: "DISCIPLINE & DISCHARGE: Your employer cannot fire you without just cause. Must follow progressive discipline: verbal warning → written warning → suspension → termination (with union review at each step).",
+            es: "DISCIPLINA Y DESPIDO: Tu empleador no puede despedirte sin causa justificada. Debe seguir disciplina progresiva: advertencia verbal → advertencia escrita → suspensión → terminación.",
+          },
+          {
+            en: "MANAGEMENT RIGHTS CLAUSE: What the employer CAN do without union approval (usually: hire, assign work, set schedules within contract limits). Anything outside = grievable.",
+            es: "CLÁUSULA DE DERECHOS GERENCIALES: Lo que el empleador PUEDE hacer sin aprobación sindical. Todo lo demás = quejable.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Grievance Procedures: Step-by-Step",
+          es: "Procedimientos de Quejas: Paso a Paso",
+        },
+        keyPoints: [
+          {
+            en: "STEP 1 (Days 1-5): Informal discussion with your manager. Tell them: 'I believe this violates the contract. [Cite contract section]. Can we resolve this?' Keep notes.",
+            es: "PASO 1 (Días 1-5): Discusión informal con tu gerente. Dile: 'Creo que esto viola el contrato. ¿Podemos resolver esto?' Mantén notas.",
+          },
+          {
+            en: "STEP 2 (Days 5-15): If unresolved, file formal grievance with your union steward. Must be IN WRITING. State: date of violation, contract section cited, relief requested.",
+            es: "PASO 2 (Días 5-15): Si no se resuelve, presenta queja formal con tu representante sindical. Debe ser POR ESCRITO. Indica: fecha, sección de contrato, remedio solicitado.",
+          },
+          {
+            en: "STEP 3 (Days 15-30): Management responds. Union steward discusses with manager/HR. Many grievances resolve here.",
+            es: "PASO 3 (Días 15-30): La gerencia responde. El representante sindical discute con gerente/RR.HH.",
+          },
+          {
+            en: "STEP 4 (Days 30-90): If still unresolved, ARBITRATION. Independent arbitrator (neutral third party) hears evidence from both sides and issues binding decision.",
+            es: "PASO 4 (Días 30-90): Si aún sin resolver, ARBITRACIÓN. Árbitro independiente (tercero neutral) escucha evidencia y emite decisión vinculante.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Wage Scales & Differentials",
+          es: "Escalas de Salarios y Diferenciales",
+        },
+        keyPoints: [
+          {
+            en: "Steps/Progression: Most healthcare contracts have 3-5 'steps' based on years of service. Step 1 = new hire. Step 3-5 = experienced. You move up automatically (usually yearly).",
+            es: "Pasos/Progresión: La mayoría de contratos de salud tienen 3-5 'pasos' basados en años de servicio. Paso 1 = nuevo empleado. Paso 3-5 = experimentado. Te mueves hacia arriba automáticamente.",
+          },
+          {
+            en: "Bilingual/Spanish differential: If you speak Spanish fluently, contract may add $2-5/hour. Make sure you claim this — employers often forget.",
+            es: "Diferencial bilingüe/español: Si hablas español con fluidez, el contrato puede añadir $2-5/hora. Asegúrate de reclamar esto — los empleadores a menudo olvidan.",
+          },
+          {
+            en: "Shift differentials: Night shift, weekend, holiday pay often adds 10-15% to base. Check if your contract includes this.",
+            es: "Diferenciales de turno: El turno nocturno, fin de semana, pago de feriados a menudo suma 10-15% a la base.",
+          },
+          {
+            en: "Overtime (OT): Anything over 8 hours/day or 40 hours/week = 1.5x pay (or 2x pay over 12 hours/day). This is in the contract AND California law.",
+            es: "Horas extraordinarias (OT): Cualquier cosa más de 8 horas/día o 40 horas/semana = pago 1.5x. Esto está en el contrato Y en la ley de California.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Seniority & Layoff/Recall Rights",
+          es: "Antigüedad y Derechos de Despido/Retiro",
+        },
+        keyPoints: [
+          {
+            en: "SENIORITY = years of continuous employment at the FQHC. Your seniority determines: layoff order, promotion eligibility, shift choice, and recall rights.",
+            es: "ANTIGÜEDAD = años de empleo continuo en el FQHC. Tu antigüedad determina: orden de despido, elegibilidad de promoción, elección de turno y derechos de retiro.",
+          },
+          {
+            en: "LAST IN, FIRST OUT (LIFO): In layoffs, the most recently hired are let go first. If you have 10 years, you're usually protected unless your whole department closes.",
+            es: "ÚLTIMO ENTRADA, PRIMER SALIDA (LIFO): En despidos, los contratados recientemente se van primero. Si tienes 10 años, generalmente estás protegido.",
+          },
+          {
+            en: "RECALL RIGHTS: If you're laid off, you stay on a recall list (usually 1-2 years). If your FQHC rehires, most senior workers are called back first.",
+            es: "DERECHOS DE RETIRO: Si te despiden, permaneces en una lista de retiro (generalmente 1-2 años). Si tu FQHC recontrata, los trabajadores más antiguos se llaman primero.",
+          },
+          {
+            en: "Example: If your FQHC lays off 20 people due to budget cuts, seniority order determines who goes. If you're a 3-year MA and there's a 1-year MA, the 1-year person is let go first.",
+            es: "Ejemplo: Si tu FQHC despide a 20 personas debido a recortes presupuestarios, el orden de antigüedad determina quién se va.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Management Rights Clause: What They Can & Can't Do",
+          es: "Cláusula de Derechos Gerenciales: Qué Pueden y No Pueden Hacer",
+        },
+        keyPoints: [
+          {
+            en: "Management can (usually): hire/fire for just cause, assign work, set schedules (within contract), create new policies (if not contradicting contract).",
+            es: "La gerencia puede (generalmente): contratar/despedir por causa justificada, asignar trabajo, establecer horarios (dentro del contrato), crear nuevas políticas.",
+          },
+          {
+            en: "Management cannot: change wages, benefits, or working conditions without union negotiation. Cannot subcontract your job to 1099 contractors. Cannot permanently change your shift without seniority order.",
+            es: "La gerencia no puede: cambiar salarios, beneficios o condiciones de trabajo sin negociación sindical. No puede subcontratar tu trabajo. No puede cambiar permanentemente tu turno sin orden de antigüedad.",
+          },
+          {
+            en: "If management tries something new and you think it violates the contract: FILE A GRIEVANCE. Don't just accept it. Your union has your back.",
+            es: "Si la gerencia intenta algo nuevo y crees que viola el contrato: PRESENTA UNA QUEJA. No lo aceptes. Tu sindicato te respalda.",
+          },
+        ],
+      },
+    ],
+    primarySourceUrl: "https://www.nlrb.gov/",
+    primarySourceOrg: "National Labor Relations Board (NLRB)",
+    additionalSources: [
+      {
+        label: "NLRB: Union Contract Basics",
+        url: "https://www.nlrb.gov/resources/files/basic-page/documents/union-contract-basics.pdf",
+      },
+      {
+        label: "SEIU: How to Read Your Union Contract",
+        url: "https://www.seiu.org/",
+      },
+      {
+        label: "NUHW: Contract FAQ",
+        url: "https://nuhw.org/",
+      },
+      {
+        label: "California Department of Industrial Relations: Labor Rights",
+        url: "https://dir.ca.gov/dlse/",
+      },
+    ],
+    targetRoles: ["all"],
+    tags: ["union-contract", "labor-rights", "grievance-procedure", "seniority", "wage-scales", "collective-bargaining", "unionized-fqhc"],
+    lastUpdated: "2026-03-11",
+  },
 ];
 
 /* ------------------------------------------------------------------ */

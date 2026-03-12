@@ -807,6 +807,28 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/compliance/knowledge-base` },
   },
+  complianceEducationBarriers: {
+    title: "Fighting Education Barriers in Healthcare | EEOC Adverse Impact & Job Requirements",
+    description:
+      "Challenge education requirements that aren't legally required in California FQHCs. Role-by-role legal analysis, EEOC adverse impact framework, and 4-step process to fight credential inflation.",
+    keywords: [
+      "education barriers",
+      "EEOC",
+      "adverse impact",
+      "credential inflation",
+      "job requirements",
+      "FQHC",
+      "healthcare workforce",
+      "California labor law",
+    ],
+    openGraph: {
+      title: "Fighting Education Barriers — FQHC Talent",
+      description:
+        "Challenge unnecessary education requirements. EEOC framework, role-by-role analysis, and 4-step challenge process.",
+      url: `${SITE_URL}/compliance/education-barriers`,
+    },
+    alternates: { canonical: `${SITE_URL}/compliance/education-barriers` },
+  },
   okrCourse: {
     title: "Master OKRs for Your FQHC | Free Interactive Course with AI Critique",
     description:

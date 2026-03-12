@@ -45,6 +45,8 @@ export default function Footer() {
       { href: "/compliance/hrsa-audits" as const, label: t("hrsaAudits") },
       { href: "/compliance/hipaa" as const, label: t("hipaa") },
       { href: "/compliance/billing" as const, label: t("billing") },
+      { href: "/compliance/workers-comp" as const, label: "Workers' Compensation" },
+      { href: "/compliance/education-barriers" as const, label: "Education Barriers" },
       { href: "/compliance/calendar" as const, label: t("complianceCalendarFooter") },
       { href: "/compliance/knowledge-base" as const, label: t("knowledgeBase") },
     ],
