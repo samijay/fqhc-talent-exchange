@@ -123,7 +123,7 @@ const enContent: ArticleContent = {
         {
           type: "list",
           items: [
-            "Community Health Workers (SOC 21-1094): BLS projects 14% growth over 10 years — nearly triple the average for all occupations. California has the highest concentration of CHW positions in the country.",
+            "Community Health Workers (SOC 21-1094): BLS projects 11% growth from 2024–2034 — nearly four times the 3% average for all occupations. California has the highest concentration of CHW positions in the country.",
             "Medical Assistants: Consistently one of the most-posted roles at FQHCs, with 620+ active listings in our database. High turnover (32%+) drives constant hiring demand.",
             "Care Coordinators / Case Managers: Fueled by ECM, CCM, and CalAIM programs. These roles are revenue-generating for FQHCs and increasingly protected from budget cuts.",
             "Nurse Practitioners & Physician Assistants: FQHCs are aggressively hiring mid-level providers to expand access. NHSC loan repayment makes these roles especially attractive.",
@@ -289,7 +289,7 @@ const esContent: ArticleContent = {
         {
           type: "list",
           items: [
-            "Trabajadores de Salud Comunitaria (SOC 21-1094): El BLS proyecta un crecimiento del 14% en 10 años — casi el triple del promedio para todas las ocupaciones. California tiene la mayor concentración de posiciones CHW en el país.",
+            "Trabajadores de Salud Comunitaria (SOC 21-1094): El BLS proyecta un crecimiento del 11% de 2024 a 2034 — casi cuatro veces el promedio del 3% para todas las ocupaciones. California tiene la mayor concentración de posiciones CHW en el país.",
             "Asistentes Médicos: Consistentemente uno de los roles más publicados en FQHCs, con 620+ listados activos en nuestra base de datos. Alta rotación (32%+) impulsa la demanda constante.",
             "Coordinadores de Atención / Gestores de Casos: Impulsados por programas ECM, CCM y CalAIM. Estos roles generan ingresos para FQHCs y están cada vez más protegidos de recortes.",
             "Enfermeras Practicantes y Asistentes Médicos (NP/PA): Los FQHCs están contratando agresivamente proveedores de nivel medio. El programa NHSC de pago de préstamos hace estos roles especialmente atractivos.",
