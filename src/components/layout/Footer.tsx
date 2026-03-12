@@ -9,10 +9,10 @@ export default function Footer() {
   const t = useTranslations("footer");
 
   const footerLinks = {
-    Academy: [
-      { href: "/strategy/okr-course" as const, label: "OKR Course" },
+    [t("academy")]: [
+      { href: "/strategy/okr-course" as const, label: t("okrCourse") },
       { href: "/strategy/clinic-simulator" as const, label: t("clinicSimulator") },
-      { href: "/strategy/revenue-simulator" as const, label: "Revenue Simulator" },
+      { href: "/strategy/revenue-simulator" as const, label: t("revenueSimulator") },
       { href: "/career-insights" as const, label: t("careerAssessment") },
       { href: "/interview-prep" as const, label: t("interviewPrep") },
       { href: "/resume-builder" as const, label: t("resumeBuilder") },
@@ -45,8 +45,8 @@ export default function Footer() {
       { href: "/compliance/hrsa-audits" as const, label: t("hrsaAudits") },
       { href: "/compliance/hipaa" as const, label: t("hipaa") },
       { href: "/compliance/billing" as const, label: t("billing") },
-      { href: "/compliance/workers-comp" as const, label: "Workers' Compensation" },
-      { href: "/compliance/education-barriers" as const, label: "Education Barriers" },
+      { href: "/compliance/workers-comp" as const, label: t("workersComp") },
+      { href: "/compliance/education-barriers" as const, label: t("educationBarriers") },
       { href: "/compliance/calendar" as const, label: t("complianceCalendarFooter") },
       { href: "/compliance/knowledge-base" as const, label: t("knowledgeBase") },
     ],
