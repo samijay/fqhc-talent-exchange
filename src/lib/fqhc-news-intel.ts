@@ -94,6 +94,84 @@ export const INTEL_ITEMS: IntelItem[] = [
   /*  REGIONAL — March 12, 2026                                      */
   /* ============================================================== */
   {
+    id: "sbnc-wyatt-5m-donation-westside-expansion",
+    date: "2026-03-11",
+    headline: {
+      en: "Santa Barbara Neighborhood Clinics Receives $5M Wyatt Family Gift — Largest in FQHC's History",
+      es: "Clínicas Vecinales de Santa Barbara Reciben $5M de la Familia Wyatt — La Mayor Donación en su Historia",
+    },
+    summary: {
+      en: "The Wyatt family of Montecito donated $5M to Santa Barbara Neighborhood Clinics — the largest family gift in the FQHC's history. The new three-story Wyatt Family Health Center (under construction at Micheltorena & San Andres) will expand capacity from 20,000 to 28,000 patients annually (+41%). Completion expected December 2026. SBNC serves 1 in 10 South SB County residents; 92% are low-income.",
+      es: "La familia Wyatt de Montecito donó $5M a las Clínicas Vecinales de Santa Barbara — el mayor regalo familiar en la historia del FQHC. El nuevo Centro de Salud Familiar Wyatt expandirá la capacidad de 20,000 a 28,000 pacientes anuales (+41%). SBNC atiende a 1 de cada 10 residentes del sur del condado de SB; 92% son de bajos ingresos.",
+    },
+    category: "funding",
+    impactLevel: "medium",
+    type: "news",
+    sourceUrl: "https://www.independent.com/2026/03/11/guardian-angels-drop-5-million-donation-on-new-santa-barbara-neighborhood-clinic/",
+    sourceOrg: "Santa Barbara Independent",
+    region: "Santa Barbara County",
+    affectedOrgs: ["Santa Barbara Neighborhood Clinics"],
+    affectedOrgSlugs: ["santa-barbara-neighborhood-clinics"],
+    tags: ["central-coast", "santa-barbara", "philanthropy", "fqhc-expansion", "capital-campaign"],
+  },
+  {
+    id: "hr-7391-340b-fqhc-protection-act",
+    date: "2026-02-10",
+    headline: {
+      en: "Bipartisan Bill H.R. 7391 Would Exempt FQHCs from 340B Rebate Model — 35 Cosponsors",
+      es: "Proyecto Bipartidista H.R. 7391 Eximiría a FQHCs del Modelo de Reembolso 340B — 35 Copatrocinadores",
+    },
+    summary: {
+      en: "Reps. Auchincloss (D-MA) and Bergman (R-MI) introduced the Community Health Center Drug Pricing Protection Act to exempt FQHCs from HRSA's 340B Rebate Model Pilot Program. The bill mandates upfront ceiling-price purchasing — no post-purchase reconciliation. Currently has 35 cosponsors. HRSA's RFI on 340B rebates has comments due April 20, 2026. FQHCs account for 1% of healthcare spending but treat 10% of Americans.",
+      es: "Los representantes Auchincloss (D-MA) y Bergman (R-MI) presentaron la Ley de Protección de Precios de Medicamentos para Centros de Salud Comunitarios para eximir a los FQHCs del Programa Piloto de Reembolso 340B. Actualmente tiene 35 copatrocinadores. Los comentarios sobre la RFI de HRSA vencen el 20 de abril de 2026.",
+    },
+    category: "legislation",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://auchincloss.house.gov/media/press-releases/reps-auchincloss-and-bergman-defend-fqhcs-from-financial-constraints-amidst-340b-reform",
+    sourceOrg: "U.S. House of Representatives",
+    region: "Federal",
+    tags: ["340b", "legislation", "drug-pricing", "bipartisan", "fqhc-protection"],
+  },
+  {
+    id: "kaiser-mental-health-strike-march-2026",
+    date: "2026-03-05",
+    headline: {
+      en: "Kaiser Mental Health Workers Plan March 18 Strike Over AI Replacement Fears",
+      es: "Trabajadores de Salud Mental de Kaiser Planean Huelga el 18 de Marzo por Temores de Reemplazo por IA",
+    },
+    summary: {
+      en: "100+ mental health therapists, social workers, and psychologists at Kaiser Permanente Santa Rosa (NUHW) announced a March 18 one-day strike. The union alleges Kaiser is outsourcing jobs and replacing therapists with AI. Kaiser's HR VP called it a 'false narrative,' saying AI isn't replacing 'human assessment.' This follows the 31,000-worker nursing strike (Jan 26–Feb 24) that ended with a 21.5% raise. Displaced Kaiser mental health workers are potential FQHC recruits.",
+      es: "Más de 100 terapeutas, trabajadores sociales y psicólogos en Kaiser Permanente Santa Rosa (NUHW) anunciaron una huelga de un día el 18 de marzo. El sindicato alega que Kaiser está externalizando trabajos y reemplazando terapeutas con IA. Esto sigue a la huelga de 31,000 enfermeras que terminó con un aumento del 21.5%.",
+    },
+    category: "workforce",
+    impactLevel: "medium",
+    type: "news",
+    sourceUrl: "https://www.pressdemocrat.com/2026/03/05/kaiser-permanente-mental-health-workers-in-santa-rosa-set-to-strike-this-month/",
+    sourceOrg: "Press Democrat",
+    region: "Sonoma County",
+    tags: ["bay-area", "kaiser", "mental-health", "labor-strike", "ai-replacement", "nuhw", "workforce-pipeline"],
+  },
+  {
+    id: "geiger-gibson-medicaid-cuts-fqhc-medicare-impact",
+    date: "2026-03-01",
+    headline: {
+      en: "GWU Research: Medicaid Cuts Will Also Devastate FQHC Medicare Patients — Cross-Subsidy at Risk",
+      es: "Investigación GWU: Recortes de Medicaid También Devastarán Pacientes de Medicare en FQHCs — Subsidio Cruzado en Riesgo",
+    },
+    summary: {
+      en: "Geiger Gibson Program at GWU finds Medicaid cuts won't just affect Medicaid patients — they'll undermine care for 7.4M Medicare patients at community health centers. FQHCs use Medicaid revenue to cross-subsidize Medicare and uninsured care. If Medicaid volume drops, health centers may reduce hours, close sites, or cut services that Medicare patients depend on. CHCs operated at -2% average margin in 2024.",
+      es: "El Programa Geiger Gibson en GWU encuentra que los recortes de Medicaid no solo afectarán a pacientes de Medicaid — socavarán la atención de 7.4M pacientes de Medicare en centros de salud comunitarios. Si el volumen de Medicaid disminuye, los centros pueden reducir horarios, cerrar sitios o recortar servicios.",
+    },
+    category: "funding",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://geigergibson.publichealth.gwu.edu/three-key-things-know-about-how-medicaid-cuts-will-impact-community-health-center-medicare-patients",
+    sourceOrg: "Geiger Gibson Program / GWU",
+    region: "Federal",
+    tags: ["medicaid", "medicare", "cross-subsidy", "research", "fqhc-finances"],
+  },
+  {
     id: "sd-county-safety-net-bridge-program",
     date: "2026-03-03",
     headline: {
