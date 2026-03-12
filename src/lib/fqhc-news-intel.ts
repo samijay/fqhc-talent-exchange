@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-10";
+export const INTEL_LAST_UPDATED = "2026-03-12";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -90,6 +90,72 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 /* ------------------------------------------------------------------ */
 
 export const INTEL_ITEMS: IntelItem[] = [
+  /* ============================================================== */
+  /*  REGIONAL — March 12, 2026                                      */
+  /* ============================================================== */
+  {
+    id: "sd-county-safety-net-bridge-program",
+    date: "2026-03-03",
+    headline: {
+      en: "San Diego County Votes 4-1 to Overhaul Safety Net — Exploring Primary Care Clinics for Uninsured",
+      es: "Condado de San Diego Vota 4-1 para Reformar Red de Seguridad — Explora Clínicas de Atención Primaria para No Asegurados",
+    },
+    summary: {
+      en: "San Diego County supervisors approved overhauling the County Medical Services program, which served fewer than 40 people last year despite 327,000 Medi-Cal recipients at risk from H.R. 1. Supervisor Montgomery Steppe proposed 'Safety Net Bridge' primary care clinics for anyone losing coverage. A half-cent sales tax ballot measure could generate $360M/year for safety-net programs. The county faces $200-300M/year in additional costs by 2028.",
+      es: "Los supervisores del condado de San Diego aprobaron la reforma del programa de Servicios Médicos del Condado, que atendió a menos de 40 personas el año pasado a pesar de 327,000 beneficiarios de Medi-Cal en riesgo por H.R. 1. La supervisora Montgomery Steppe propuso clínicas de atención primaria 'Puente de Red de Seguridad'. Una medida de impuesto de medio centavo podría generar $360M/año.",
+    },
+    category: "funding",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://timesofsandiego.com/health/2026/03/03/san-diego-county-supervisors-vote-overhaul-safety-net-health-program/",
+    sourceOrg: "Times of San Diego",
+    region: "San Diego County",
+    affectedOrgs: ["Neighborhood Healthcare", "Family Health Centers of San Diego", "San Ysidro Health"],
+    affectedOrgSlugs: ["neighborhood-healthcare", "family-health-centers-of-san-diego", "san-ysidro-health"],
+    tags: ["san-diego", "safety-net", "medi-cal", "county-funding", "ballot-measure"],
+  },
+  {
+    id: "nhcare-warns-hundreds-fqhcs-shut-down",
+    date: "2026-03-07",
+    headline: {
+      en: "Neighborhood Healthcare Warns 'Hundreds of FQHCs Will Shut Down in a Year' as H.R. 1 Cuts Hit",
+      es: "Neighborhood Healthcare Advierte que 'Cientos de FQHCs Cerrarán en un Año' por los Recortes de H.R. 1",
+    },
+    summary: {
+      en: "Neighborhood Healthcare's Director of External Affairs warned that hundreds of California FQHCs face closure within a year as H.R. 1 cuts take effect. Palomar Health, Sharp HealthCare, and other San Diego institutions are bracing for impact. 75,000 noncitizens in San Diego County will lose Medi-Cal access by October 2026. Healthcare leaders predict hospitals will be 'overrun' as clinics close.",
+      es: "La Directora de Asuntos Externos de Neighborhood Healthcare advirtió que cientos de FQHCs de California enfrentan cierre dentro de un año por los recortes de H.R. 1. 75,000 no ciudadanos en el condado de San Diego perderán acceso a Medi-Cal para octubre de 2026.",
+    },
+    category: "workforce",
+    impactLevel: "critical",
+    type: "news",
+    sourceUrl: "https://www.nhcare.org/local-healthcare-institutions-prepare-for-impact-of-hr1-cuts-government-shutdown/",
+    sourceOrg: "Neighborhood Healthcare",
+    region: "San Diego County",
+    affectedOrgs: ["Neighborhood Healthcare"],
+    affectedOrgSlugs: ["neighborhood-healthcare"],
+    tags: ["san-diego", "hr-1", "fqhc-closure", "workforce"],
+  },
+  {
+    id: "ie-snap-ed-nutrition-programs-closing-april-2026",
+    date: "2026-02-06",
+    headline: {
+      en: "Inland Empire Nutrition Programs Closing April 30 — SNAP-Ed Eliminated by H.R. 1",
+      es: "Programas de Nutrición del Inland Empire Cierran el 30 de Abril — SNAP-Ed Eliminado por H.R. 1",
+    },
+    summary: {
+      en: "San Bernardino and Riverside county public health nutrition programs will close April 30, 2026 after H.R. 1 eliminated the $536M SNAP-Ed program. LA County's program closes June 30. These programs operated for decades through schools, clinics, farmers markets, and community events. The closures disproportionately affect communities already facing food and health challenges.",
+      es: "Los programas de nutrición de salud pública de los condados de San Bernardino y Riverside cerrarán el 30 de abril de 2026 después de que H.R. 1 eliminara el programa SNAP-Ed de $536M. Estas clausuras afectan desproporcionadamente a comunidades que ya enfrentan desafíos alimentarios y de salud.",
+    },
+    category: "funding",
+    impactLevel: "medium",
+    type: "deadline",
+    sourceUrl: "https://www.pressenterprise.com/2026/02/06/nutrition-education-programs-ending-across-inland-empire/",
+    sourceOrg: "Press-Enterprise",
+    region: "San Bernardino County",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["inland-empire", "snap-ed", "nutrition", "public-health", "hr-1"],
+  },
   /* ============================================================== */
   /*  BAY AREA CRISIS — March 2026                                   */
   /* ============================================================== */
