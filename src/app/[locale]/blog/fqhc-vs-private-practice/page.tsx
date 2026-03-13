@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, ComparisonTable, SalaryRangeChart } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
@@ -711,8 +709,8 @@ const esContent: ArticleContent = {
   ],
 };
 
-export default function FqhcVsPrivatePracticeArticle() {
-  const locale = useLocale();
+export default async function FqhcVsPrivatePracticeArticle() {
+  const locale = await getLocale();
   const isEs = locale === "es";
   const content = isEs ? esContent : enContent;
 

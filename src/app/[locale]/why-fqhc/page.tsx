@@ -1,6 +1,4 @@
-"use client";
-
-import { useLocale } from "next-intl";
+import { getLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import {
   Heart,
@@ -149,8 +147,8 @@ const salaryHighlights = SALARY_BENCHMARKS.filter((b) => highlightRoles.includes
 /* ------------------------------------------------------------------ */
 /*  Page component                                                     */
 /* ------------------------------------------------------------------ */
-export default function WhyFQHCPage() {
-  const locale = useLocale();
+export default async function WhyFQHCPage() {
+  const locale = await getLocale();
 
   return (
     <main className="min-h-screen bg-white">

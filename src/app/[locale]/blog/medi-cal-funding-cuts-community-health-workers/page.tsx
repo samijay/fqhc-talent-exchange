@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, FundingCliffCard, StatCallout } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
@@ -269,8 +267,8 @@ const esContent: ArticleContent = {
   ],
 };
 
-export default function MediCalFundingCutsArticle() {
-  const locale = useLocale();
+export default async function MediCalFundingCutsArticle() {
+  const locale = await getLocale();
   const isEs = locale === "es";
   const content = isEs ? esContent : enContent;
 

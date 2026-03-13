@@ -1,14 +1,13 @@
 // app/blog/fqhc-career-ladder-ma-rn-provider/page.tsx
-"use client";
 
 import Link from "next/link";
-import { useLocale } from "next-intl";
+import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, CareerLadderViz, SalaryRangeChart } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 
-export default function FqhcCareerLadderArticle() {
-  const locale = useLocale();
+export default async function FqhcCareerLadderArticle() {
+  const locale = await getLocale();
   const isEs = locale === "es";
 
   return (

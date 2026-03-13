@@ -3,48 +3,49 @@
 /*  Uses the `docx` library to create professional documents           */
 /*  for both Resume Builder and Job Posting Builder                    */
 /*                                                                     */
-/*  Templates include placeholder text for incomplete sections so       */
-/*  users can easily fill them in after download.                      */
+/*  PERFORMANCE: docx (~920KB) and file-saver are dynamically imported */
+/*  so they only load when the user actually downloads a document.     */
 /* ------------------------------------------------------------------ */
 
-import {
-  Document,
-  Paragraph,
-  TextRun,
-  AlignmentType,
-  BorderStyle,
-  TabStopPosition,
-  TabStopType,
-  Packer,
-} from "docx";
-import { saveAs } from "file-saver";
+// Type-only imports — erased at compile time, zero bundle impact
+import type { Paragraph as ParaType, TextRun as TextRunType } from "docx";
+
+type DocxModule = typeof import("docx");
+
+// Cached modules — loaded once per session on first download
+let _docx: DocxModule | null = null;
+let _saveAs: ((blob: Blob, filename: string) => void) | null = null;
+
+async function loadDeps() {
+  if (!_docx) _docx = await import("docx");
+  if (!_saveAs) _saveAs = (await import("file-saver")).saveAs;
+  return { docx: _docx, saveAs: _saveAs };
+}
 
 /* ------------------------------------------------------------------ */
-/*  Shared helpers                                                     */
+/*  Shared helpers — take docx module to avoid top-level import        */
 /* ------------------------------------------------------------------ */
 
-/** Section heading with bottom border */
-function sectionHeading(text: string, color = "333333"): Paragraph {
-  return new Paragraph({
+function sectionHeading(d: DocxModule, text: string, color = "333333") {
+  return new d.Paragraph({
     children: [
-      new TextRun({
+      new d.TextRun({
         text: text.toUpperCase(),
         bold: true,
-        size: 20, // 10pt
+        size: 20,
         font: "Georgia",
         color,
       }),
     ],
     spacing: { before: 280, after: 80 },
     border: {
-      bottom: { style: BorderStyle.SINGLE, size: 1, color },
+      bottom: { style: d.BorderStyle.SINGLE, size: 1, color },
     },
   });
 }
 
-/** Placeholder text in grey italic — signals "fill this in" */
-function placeholder(text: string): TextRun {
-  return new TextRun({
+function placeholder(d: DocxModule, text: string) {
+  return new d.TextRun({
     text,
     italics: true,
     size: 20,
@@ -53,14 +54,12 @@ function placeholder(text: string): TextRun {
   });
 }
 
-/** Normal body text */
-function bodyText(text: string, color = "444444"): TextRun {
-  return new TextRun({ text, size: 20, font: "Georgia", color });
+function bodyText(d: DocxModule, text: string, color = "444444") {
+  return new d.TextRun({ text, size: 20, font: "Georgia", color });
 }
 
-/** Bold label text */
-function labelText(text: string): TextRun {
-  return new TextRun({ text, bold: true, size: 20, font: "Georgia", color: "444444" });
+function labelText(d: DocxModule, text: string) {
+  return new d.TextRun({ text, bold: true, size: 20, font: "Georgia", color: "444444" });
 }
 
 function formatDateStr(dateStr: string, isEs: boolean): string {
@@ -106,6 +105,8 @@ export interface ResumeDocxData {
 }
 
 export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
+  const { docx: d, saveAs } = await loadDeps();
+
   const t = data.isEs
     ? {
         summary: "Resumen Profesional",
@@ -169,76 +170,78 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
   const hasName = data.firstName || data.lastName;
   const locationParts = [data.city, data.region].filter(Boolean).join(", ");
 
-  const sections: Paragraph[] = [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const sections: any[] = [];
 
   /* --- Header: Name --- */
   sections.push(
-    new Paragraph({
+    new d.Paragraph({
       children: [
         hasName
-          ? new TextRun({ text: `${data.firstName} ${data.lastName}`.trim(), bold: true, size: 32, font: "Georgia", color: "1a1a1a" })
-          : placeholder(t.placeholderName),
+          ? new d.TextRun({ text: `${data.firstName} ${data.lastName}`.trim(), bold: true, size: 32, font: "Georgia", color: "1a1a1a" })
+          : placeholder(d, t.placeholderName),
       ],
-      alignment: AlignmentType.CENTER,
+      alignment: d.AlignmentType.CENTER,
       spacing: { after: 40 },
     }),
   );
 
   /* --- Header: Contact --- */
-  const contactChildren: TextRun[] = [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const contactChildren: any[] = [];
   if (data.email) {
-    contactChildren.push(bodyText(data.email, "555555"));
+    contactChildren.push(bodyText(d, data.email, "555555"));
   } else {
-    contactChildren.push(placeholder(t.placeholderEmail));
+    contactChildren.push(placeholder(d, t.placeholderEmail));
   }
-  contactChildren.push(bodyText("  •  ", "AAAAAA"));
+  contactChildren.push(bodyText(d, "  •  ", "AAAAAA"));
   if (data.phone) {
-    contactChildren.push(bodyText(data.phone, "555555"));
+    contactChildren.push(bodyText(d, data.phone, "555555"));
   } else {
-    contactChildren.push(placeholder(t.placeholderPhone));
+    contactChildren.push(placeholder(d, t.placeholderPhone));
   }
-  contactChildren.push(bodyText("  •  ", "AAAAAA"));
+  contactChildren.push(bodyText(d, "  •  ", "AAAAAA"));
   if (locationParts) {
-    contactChildren.push(bodyText(locationParts, "555555"));
+    contactChildren.push(bodyText(d, locationParts, "555555"));
   } else {
-    contactChildren.push(placeholder(t.placeholderLocation));
+    contactChildren.push(placeholder(d, t.placeholderLocation));
   }
 
   sections.push(
-    new Paragraph({
+    new d.Paragraph({
       children: contactChildren,
-      alignment: AlignmentType.CENTER,
+      alignment: d.AlignmentType.CENTER,
       spacing: { after: 120 },
       border: {
-        bottom: { style: BorderStyle.SINGLE, size: 2, color: "333333" },
+        bottom: { style: d.BorderStyle.SINGLE, size: 2, color: "333333" },
       },
     }),
   );
 
   /* --- Professional Summary --- */
-  sections.push(sectionHeading(t.summary));
+  sections.push(sectionHeading(d, t.summary));
   sections.push(
-    new Paragraph({
+    new d.Paragraph({
       children: [
         data.objective
-          ? bodyText(data.objective)
-          : placeholder(t.placeholderSummary),
+          ? bodyText(d, data.objective)
+          : placeholder(d, t.placeholderSummary),
       ],
       spacing: { after: 80 },
     }),
   );
 
   /* --- Skills & Qualifications (always show — with placeholders for empty) --- */
-  sections.push(sectionHeading(t.skills));
+  sections.push(sectionHeading(d, t.skills));
 
   // Programs
   sections.push(
-    new Paragraph({
+    new d.Paragraph({
       children: [
-        labelText(`${t.programs}: `),
+        labelText(d, `${t.programs}: `),
         data.programs.length > 0
-          ? bodyText(data.programs.join(", "))
-          : placeholder(t.placeholderPrograms),
+          ? bodyText(d, data.programs.join(", "))
+          : placeholder(d, t.placeholderPrograms),
       ],
       spacing: { after: 40 },
     }),
@@ -246,12 +249,12 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
 
   // EHR Systems
   sections.push(
-    new Paragraph({
+    new d.Paragraph({
       children: [
-        labelText(`${t.ehr}: `),
+        labelText(d, `${t.ehr}: `),
         data.ehrSystems.length > 0
-          ? bodyText(data.ehrSystems.join(", "))
-          : placeholder(t.placeholderEhr),
+          ? bodyText(d, data.ehrSystems.join(", "))
+          : placeholder(d, t.placeholderEhr),
       ],
       spacing: { after: 40 },
     }),
@@ -259,12 +262,12 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
 
   // Certifications
   sections.push(
-    new Paragraph({
+    new d.Paragraph({
       children: [
-        labelText(`${t.certs}: `),
+        labelText(d, `${t.certs}: `),
         data.certifications.length > 0
-          ? bodyText(data.certifications.join(", "))
-          : placeholder(t.placeholderCerts),
+          ? bodyText(d, data.certifications.join(", "))
+          : placeholder(d, t.placeholderCerts),
       ],
       spacing: { after: 40 },
     }),
@@ -283,17 +286,17 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
       : "";
 
   sections.push(
-    new Paragraph({
+    new d.Paragraph({
       children: [
-        labelText(`${t.langs}: `),
-        langText ? bodyText(langText) : placeholder(t.placeholderLangs),
+        labelText(d, `${t.langs}: `),
+        langText ? bodyText(d, langText) : placeholder(d, t.placeholderLangs),
       ],
       spacing: { after: 40 },
     }),
   );
 
   /* --- Professional Experience --- */
-  sections.push(sectionHeading(t.experience));
+  sections.push(sectionHeading(d, t.experience));
 
   if (data.workHistory.length > 0) {
     for (let i = 0; i < data.workHistory.length; i++) {
@@ -303,19 +306,19 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
         : "";
 
       sections.push(
-        new Paragraph({
-          tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
+        new d.Paragraph({
+          tabStops: [{ type: d.TabStopType.RIGHT, position: d.TabStopPosition.MAX }],
           children: [
             job.title
-              ? new TextRun({ text: job.title, bold: true, size: 20, font: "Georgia", color: "1a1a1a" })
-              : placeholder(t.placeholderJob),
+              ? new d.TextRun({ text: job.title, bold: true, size: 20, font: "Georgia", color: "1a1a1a" })
+              : placeholder(d, t.placeholderJob),
             ...(job.employer
-              ? [bodyText(` | ${job.employer}`, "555555")]
-              : [bodyText(" | ", "AAAAAA"), placeholder(t.placeholderEmployer)]),
-            new TextRun({ text: "\t" }),
+              ? [bodyText(d, ` | ${job.employer}`, "555555")]
+              : [bodyText(d, " | ", "AAAAAA"), placeholder(d, t.placeholderEmployer)]),
+            new d.TextRun({ text: "\t" }),
             dateRange
-              ? new TextRun({ text: dateRange, size: 18, font: "Georgia", color: "777777" })
-              : placeholder(t.placeholderDates),
+              ? new d.TextRun({ text: dateRange, size: 18, font: "Georgia", color: "777777" })
+              : placeholder(d, t.placeholderDates),
           ],
           spacing: { before: 120, after: 40 },
         }),
@@ -325,8 +328,8 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
       if (i === 0 && data.selectedBulletTexts.length > 0) {
         for (const bullet of data.selectedBulletTexts) {
           sections.push(
-            new Paragraph({
-              children: [bodyText(bullet)],
+            new d.Paragraph({
+              children: [bodyText(d, bullet)],
               bullet: { level: 0 },
               spacing: { after: 40 },
             }),
@@ -336,8 +339,8 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
         // Placeholder bullets
         for (const ph of [t.placeholderBullet1, t.placeholderBullet2, t.placeholderBullet3]) {
           sections.push(
-            new Paragraph({
-              children: [placeholder(ph)],
+            new d.Paragraph({
+              children: [placeholder(d, ph)],
               bullet: { level: 0 },
               spacing: { after: 40 },
             }),
@@ -348,22 +351,22 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
   } else {
     // No work history — show template structure
     sections.push(
-      new Paragraph({
-        tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
+      new d.Paragraph({
+        tabStops: [{ type: d.TabStopType.RIGHT, position: d.TabStopPosition.MAX }],
         children: [
-          placeholder(t.placeholderJob),
-          bodyText(" | ", "AAAAAA"),
-          placeholder(t.placeholderEmployer),
-          new TextRun({ text: "\t" }),
-          placeholder(t.placeholderDates),
+          placeholder(d, t.placeholderJob),
+          bodyText(d, " | ", "AAAAAA"),
+          placeholder(d, t.placeholderEmployer),
+          new d.TextRun({ text: "\t" }),
+          placeholder(d, t.placeholderDates),
         ],
         spacing: { before: 120, after: 40 },
       }),
     );
     for (const ph of [t.placeholderBullet1, t.placeholderBullet2, t.placeholderBullet3]) {
       sections.push(
-        new Paragraph({
-          children: [placeholder(ph)],
+        new d.Paragraph({
+          children: [placeholder(d, ph)],
           bullet: { level: 0 },
           spacing: { after: 40 },
         }),
@@ -371,24 +374,24 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
     }
 
     // Second position template
-    sections.push(new Paragraph({ spacing: { after: 80 } }));
+    sections.push(new d.Paragraph({ spacing: { after: 80 } }));
     sections.push(
-      new Paragraph({
-        tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
+      new d.Paragraph({
+        tabStops: [{ type: d.TabStopType.RIGHT, position: d.TabStopPosition.MAX }],
         children: [
-          placeholder(t.placeholderJob),
-          bodyText(" | ", "AAAAAA"),
-          placeholder(t.placeholderEmployer),
-          new TextRun({ text: "\t" }),
-          placeholder(t.placeholderDates),
+          placeholder(d, t.placeholderJob),
+          bodyText(d, " | ", "AAAAAA"),
+          placeholder(d, t.placeholderEmployer),
+          new d.TextRun({ text: "\t" }),
+          placeholder(d, t.placeholderDates),
         ],
         spacing: { before: 40, after: 40 },
       }),
     );
     for (const ph of [t.placeholderBullet1, t.placeholderBullet2]) {
       sections.push(
-        new Paragraph({
-          children: [placeholder(ph)],
+        new d.Paragraph({
+          children: [placeholder(d, ph)],
           bullet: { level: 0 },
           spacing: { after: 40 },
         }),
@@ -397,25 +400,25 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
   }
 
   /* --- Education --- */
-  sections.push(sectionHeading(t.education));
+  sections.push(sectionHeading(d, t.education));
 
   const hasEducation = data.education.length > 0 && data.education.some((e) => e.institution || e.degree);
   if (hasEducation) {
     for (const edu of data.education) {
       if (!edu.institution && !edu.degree) continue;
       sections.push(
-        new Paragraph({
-          tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
+        new d.Paragraph({
+          tabStops: [{ type: d.TabStopType.RIGHT, position: d.TabStopPosition.MAX }],
           children: [
             edu.degree
-              ? new TextRun({ text: edu.degree, bold: true, size: 20, font: "Georgia", color: "1a1a1a" })
-              : placeholder(t.placeholderDegree),
+              ? new d.TextRun({ text: edu.degree, bold: true, size: 20, font: "Georgia", color: "1a1a1a" })
+              : placeholder(d, t.placeholderDegree),
             ...(edu.institution
-              ? [bodyText(` | ${edu.institution}`, "555555")]
-              : [bodyText(" | ", "AAAAAA"), placeholder(t.placeholderInstitution)]),
+              ? [bodyText(d, ` | ${edu.institution}`, "555555")]
+              : [bodyText(d, " | ", "AAAAAA"), placeholder(d, t.placeholderInstitution)]),
             ...(edu.year
-              ? [new TextRun({ text: "\t" }), new TextRun({ text: edu.year, size: 18, font: "Georgia", color: "777777" })]
-              : [new TextRun({ text: "\t" }), placeholder(t.placeholderYear)]),
+              ? [new d.TextRun({ text: "\t" }), new d.TextRun({ text: edu.year, size: 18, font: "Georgia", color: "777777" })]
+              : [new d.TextRun({ text: "\t" }), placeholder(d, t.placeholderYear)]),
           ],
           spacing: { after: 40 },
         }),
@@ -424,14 +427,14 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
   } else {
     // Template education entries
     sections.push(
-      new Paragraph({
-        tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
+      new d.Paragraph({
+        tabStops: [{ type: d.TabStopType.RIGHT, position: d.TabStopPosition.MAX }],
         children: [
-          placeholder(t.placeholderDegree),
-          bodyText(" | ", "AAAAAA"),
-          placeholder(t.placeholderInstitution),
-          new TextRun({ text: "\t" }),
-          placeholder(t.placeholderYear),
+          placeholder(d, t.placeholderDegree),
+          bodyText(d, " | ", "AAAAAA"),
+          placeholder(d, t.placeholderInstitution),
+          new d.TextRun({ text: "\t" }),
+          placeholder(d, t.placeholderYear),
         ],
         spacing: { after: 40 },
       }),
@@ -439,7 +442,7 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
   }
 
   // Build document
-  const doc = new Document({
+  const doc = new d.Document({
     sections: [{
       properties: {
         page: {
@@ -450,7 +453,7 @@ export async function generateResumeDocx(data: ResumeDocxData): Promise<void> {
     }],
   });
 
-  const blob = await Packer.toBlob(doc);
+  const blob = await d.Packer.toBlob(doc);
   const name = hasName ? `${data.firstName}_${data.lastName}` : "FQHC_Resume";
   const langSuffix = data.isEs ? "_ES" : "_EN";
   saveAs(blob, `${name}_Resume${langSuffix}.docx`);
@@ -465,14 +468,17 @@ export async function generateJobPostingDocx(
   roleId: string,
   orgName: string,
 ): Promise<void> {
+  const { docx: d, saveAs } = await loadDeps();
+
   const lines = content.split("\n");
-  const paragraphs: Paragraph[] = [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const paragraphs: any[] = [];
 
   for (const line of lines) {
     const trimmed = line.trim();
 
     if (!trimmed) {
-      paragraphs.push(new Paragraph({ spacing: { after: 80 } }));
+      paragraphs.push(new d.Paragraph({ spacing: { after: 80 } }));
       continue;
     }
 
@@ -486,9 +492,9 @@ export async function generateJobPostingDocx(
 
     if (isHeader) {
       paragraphs.push(
-        new Paragraph({
+        new d.Paragraph({
           children: [
-            new TextRun({
+            new d.TextRun({
               text: cleanHeader.toUpperCase(),
               bold: true,
               size: 22,
@@ -498,15 +504,15 @@ export async function generateJobPostingDocx(
           ],
           spacing: { before: 200, after: 80 },
           border: {
-            bottom: { style: BorderStyle.SINGLE, size: 1, color: "0F766E" },
+            bottom: { style: d.BorderStyle.SINGLE, size: 1, color: "0F766E" },
           },
         }),
       );
     } else if (isBullet) {
       paragraphs.push(
-        new Paragraph({
+        new d.Paragraph({
           children: [
-            new TextRun({ text: bulletText, size: 20, font: "Calibri", color: "333333" }),
+            new d.TextRun({ text: bulletText, size: 20, font: "Calibri", color: "333333" }),
           ],
           bullet: { level: 0 },
           spacing: { after: 40 },
@@ -514,9 +520,9 @@ export async function generateJobPostingDocx(
       );
     } else {
       paragraphs.push(
-        new Paragraph({
+        new d.Paragraph({
           children: [
-            new TextRun({ text: trimmed, size: 20, font: "Calibri", color: "333333" }),
+            new d.TextRun({ text: trimmed, size: 20, font: "Calibri", color: "333333" }),
           ],
           spacing: { after: 60 },
         }),
@@ -524,7 +530,7 @@ export async function generateJobPostingDocx(
     }
   }
 
-  const doc = new Document({
+  const doc = new d.Document({
     sections: [{
       properties: {
         page: {
@@ -535,7 +541,7 @@ export async function generateJobPostingDocx(
     }],
   });
 
-  const blob = await Packer.toBlob(doc);
+  const blob = await d.Packer.toBlob(doc);
   const safeOrgName = orgName ? orgName.replace(/\s+/g, "-").toLowerCase() : "fqhc";
   saveAs(blob, `job-posting-${roleId}-${safeOrgName}.docx`);
 }
