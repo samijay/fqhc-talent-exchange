@@ -179,7 +179,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "https://opendoorhealth.wd503.myworkdayjobs.com/wday/cxs/opendoorhealth/ODCHC/jobs",
     notes:
-      "42 jobs found 2026-03-09 (prev 41, +1). Workday wd503 tenant confirmed. Rural North Coast FQHC (Humboldt, Del Norte, Trinity counties).",
+      "46 jobs found 2026-03-12 (prev 42, +4). Workday wd503 tenant confirmed. Rural North Coast FQHC (Humboldt, Del Norte, Trinity counties).",
   },
   {
     fqhcSlug: "valley-health-team",
