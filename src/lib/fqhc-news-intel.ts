@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-12";
+export const INTEL_LAST_UPDATED = "2026-03-13";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -90,6 +90,86 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 /* ------------------------------------------------------------------ */
 
 export const INTEL_ITEMS: IntelItem[] = [
+  /* ============================================================== */
+  /*  March 13, 2026                                                 */
+  /* ============================================================== */
+  {
+    id: "sb-1422-durazo-uis-medi-cal-restoration",
+    date: "2026-03-10",
+    headline: {
+      en: "Sen. Durazo Introduces SB 1422 to Reverse Medi-Cal Cuts for Undocumented Adults",
+      es: "Senadora Durazo Presenta SB 1422 para Revertir Recortes de Medi-Cal para Adultos Indocumentados",
+    },
+    summary: {
+      en: "California Sen. Maria Elena Durazo (D-Los Angeles) introduced SB 1422 to restore full Medi-Cal eligibility for all income-qualifying adults regardless of immigration status — reversing the January 2026 enrollment freeze that blocked new undocumented applicants. Nearly 1.7M undocumented immigrants are currently enrolled in Medi-Cal. The freeze eliminated PPS payments to FQHCs for UIS patients, forcing health centers to absorb care costs or turn patients away.",
+      es: "La senadora María Elena Durazo presentó SB 1422 para restaurar la elegibilidad completa de Medi-Cal para todos los adultos sin importar su estatus migratorio — revirtiendo la congelación de inscripción de enero 2026. Casi 1.7M de inmigrantes indocumentados están inscritos en Medi-Cal. La congelación eliminó los pagos PPS a los FQHCs para pacientes UIS.",
+    },
+    category: "undocumented-access",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://calmatters.org/health/2026/03/durazo-reverse-medical-undocumented-immigrants/",
+    sourceOrg: "CalMatters",
+    region: "California",
+    tags: ["medi-cal", "undocumented", "sb-1422", "pps", "uis"],
+  },
+  {
+    id: "oc-hca-clinic-closures-federal-cuts",
+    date: "2026-03-07",
+    headline: {
+      en: "Orange County Health Care Agency Closes Clinics Due to Federal Funding Cuts",
+      es: "Agencia de Salud del Condado de Orange Cierra Clínicas por Recortes de Fondos Federales",
+    },
+    summary: {
+      en: "The Orange County Health Care Agency is closing several public health clinics due to federal funding cuts, mirroring LA County's closure of 7 of 13 DPH clinics on Feb 27. Combined with $50M+ in LA County cuts, Southern California is losing significant public health infrastructure. Displaced patients are being directed to FQHCs and community health centers.",
+      es: "La Agencia de Salud del Condado de Orange cierra varias clínicas de salud pública por recortes de fondos federales, reflejando el cierre de 7 de 13 clínicas de LA County. Los pacientes desplazados están siendo dirigidos a FQHCs y centros de salud comunitarios.",
+    },
+    category: "funding",
+    impactLevel: "medium",
+    type: "news",
+    sourceUrl: "https://abc7.com/post/federal-funding-cuts-force-orange-county-health-care-agency-close-clinics/16162489/",
+    sourceOrg: "ABC7 Los Angeles",
+    region: "Orange County",
+    tags: ["orange-county", "clinic-closures", "los-angeles", "federal-cuts"],
+  },
+  {
+    id: "rand-665b-state-medicaid-decline-decade",
+    date: "2026-03-04",
+    headline: {
+      en: "RAND: State Medicaid Budgets Will Decline by $665B Over Next Decade Under H.R. 1",
+      es: "RAND: Presupuestos Estatales de Medicaid Disminuirán $665B en la Próxima Década Bajo H.R. 1",
+    },
+    summary: {
+      en: "A RAND Health analysis published by Stateline finds state Medicaid budgets will be reduced by a total of $665 billion over the next decade under H.R. 1. With FQHCs deriving ~43% of revenue from Medicaid, the projected decline signals sustained revenue compression for California's 215 community health centers. CBO estimates 11.8M will directly lose coverage, plus 3.1M through marketplace plans.",
+      es: "Un análisis de RAND Health publicado por Stateline encuentra que los presupuestos estatales de Medicaid se reducirán $665B en la próxima década bajo H.R. 1. Con los FQHCs derivando ~43% de ingresos de Medicaid, la disminución proyectada señala compresión de ingresos sostenida para los 215 centros de salud comunitarios de California.",
+    },
+    category: "funding",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://stateline.org/2026/03/04/state-medicaid-budgets-will-decline-by-665-billion-under-new-federal-law-report-finds/",
+    sourceOrg: "Stateline / RAND Health",
+    region: "Federal",
+    tags: ["medicaid", "hr-1", "rand", "revenue"],
+  },
+  {
+    id: "peterson-ambient-ai-scribes-fastest-adoption",
+    date: "2026-03-13",
+    headline: {
+      en: "Peterson Institute: Ambient AI Scribes on Track to Be Fastest-Adopted Health Tech in History",
+      es: "Instituto Peterson: Escribas de IA Ambiental en Camino a Ser la Tecnología de Salud de Adopción Más Rápida",
+    },
+    summary: {
+      en: "A Peterson Health Technology Institute report finds ambient AI scribes are becoming one of the fastest-adopted technologies in healthcare history. For FQHCs, the technology addresses critical clinician burnout — Neighborhood Healthcare (CA FQHC, 500K+ visits, 30 facilities) successfully piloted Nabla AI scribes. However, rural FQHCs face connectivity and cost barriers, as North Country Healthcare (AZ) discovered.",
+      es: "Un informe del Instituto Peterson encuentra que los escribas de IA ambiental se están convirtiendo en una de las tecnologías de adopción más rápida en la historia de la salud. Para los FQHCs, la tecnología aborda el agotamiento clínico crítico, pero los FQHCs rurales enfrentan barreras de conectividad y costo.",
+    },
+    category: "change-management",
+    impactLevel: "medium",
+    type: "strategy",
+    sourceUrl: "https://www.beckershospitalreview.com/healthcare-information-technology/ai/from-pilot-to-priority-the-rise-of-ambient-ai-scribes-in-healthcare/",
+    sourceOrg: "Becker's Hospital Review / Peterson Institute",
+    region: "Federal",
+    affectedOrgSlugs: ["neighborhood-healthcare"],
+    tags: ["ai", "ambient-documentation", "clinician-burnout", "technology"],
+  },
   /* ============================================================== */
   /*  REGIONAL — March 12, 2026                                      */
   /* ============================================================== */
