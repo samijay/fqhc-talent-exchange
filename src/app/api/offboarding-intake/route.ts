@@ -169,7 +169,7 @@ export async function POST(request: Request) {
     <tr><td style="padding:8px 12px;font-weight:600;">Notes</td><td style="padding:8px 12px;">${escapeHtml(notes || "None")}</td></tr>
   </table>
 
-  <p style="margin-top:16px;"><a href="https://supabase.com/dashboard/project/jwaeiteocbiavlydkzjt/editor" style="color:#0d9488;">View in Supabase →</a></p>
+  <p style="margin-top:16px;"><a href="https://supabase.com/dashboard" style="color:#0d9488;">View in Supabase →</a></p>
 </body>
 </html>`.trim(),
         });

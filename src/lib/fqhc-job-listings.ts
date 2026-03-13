@@ -4074,7 +4074,7 @@ export const fqhcJobListings: FQHCJobListing[] = [
   },
   {
     id: "fqhc-188",
-    fqhcSlug: "central-coast-community-health",
+    fqhcSlug: "community-health-centers-central-coast",
     title: "Dental Hygienist",
     roleType: "Dental Hygienist",
     department: "Dental",
