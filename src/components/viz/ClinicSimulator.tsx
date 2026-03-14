@@ -25,9 +25,14 @@ import {
   generateOptimizations,
   SIZE_PRESETS,
   STAFF_COSTS,
+  BACK_OFFICE_COSTS,
+  NON_PERSONNEL_DEFAULTS,
+  NON_PERSONNEL_LABELS,
   formatCurrency,
   type SimulatorInputs,
   type StaffingInput,
+  type BackOfficeInput,
+  type NonPersonnelInput,
   type ScheduleInput,
   type RevenueInput,
   type DiseaseInput,
@@ -55,6 +60,8 @@ const t = (obj: { en: string; es: string }, locale: string) =>
 
 function wizardToInputs(config: WizardConfig): {
   staffing: StaffingInput;
+  backOffice: BackOfficeInput;
+  nonPersonnel: NonPersonnelInput;
   schedule: ScheduleInput;
   revenue: RevenueInput;
   disease: DiseaseInput;
@@ -71,6 +78,8 @@ function wizardToInputs(config: WizardConfig): {
 
   // Start with preset values
   const staffing = { ...preset.staffing };
+  const backOffice = { ...preset.backOffice };
+  const nonPersonnel = { ...preset.nonPersonnel };
   const schedule = { ...preset.schedule };
   const revenue = { ...preset.revenue };
   const disease = { ...preset.disease };
@@ -78,6 +87,7 @@ function wizardToInputs(config: WizardConfig): {
   // Adjust based on services
   if (!config.services.dental) {
     staffing.dentalProviders = 0;
+    backOffice.dentalAssistants = 0;
     revenue.dentalSameDayRate = 0;
   }
   if (!config.services.behavioralHealth) {
@@ -91,9 +101,10 @@ function wizardToInputs(config: WizardConfig): {
   }
   if (config.services.pharmacy340B) {
     // 340B doesn't have a direct input in clinic model but affects optimization pathways
+  } else {
+    backOffice.pharmacy = 0;
   }
   if (config.services.ccm) {
-    // CCM is driven by disease profile, boost chronic conditions slightly
     disease.diabeticPercent = Math.max(disease.diabeticPercent, 20);
     disease.htnPercent = Math.max(disease.htnPercent, 30);
   }
@@ -132,7 +143,7 @@ function wizardToInputs(config: WizardConfig): {
     revenue.mediCalPercent = Math.min(revenue.mediCalPercent + 5, 85);
   }
 
-  return { staffing, schedule, revenue, disease, sizePreset: sizeKey };
+  return { staffing, backOffice, nonPersonnel, schedule, revenue, disease, sizePreset: sizeKey };
 }
 
 /* ------------------------------------------------------------------ */
@@ -493,6 +504,11 @@ function ResultsPanel({
                 value: results.ccmRevenue,
                 color: "bg-blue-500",
               },
+              {
+                label: isEs ? "Subvenciones" : "Grants",
+                value: results.grantRevenue,
+                color: "bg-green-500",
+              },
             ]
               .filter((s) => s.value > 0)
               .map((source) => (
@@ -532,6 +548,11 @@ function ResultsPanel({
                 label: "CCM",
                 color: "bg-blue-500",
                 value: results.ccmRevenue,
+              },
+              {
+                label: isEs ? "Subvenciones" : "Grants",
+                color: "bg-green-500",
+                value: results.grantRevenue,
               },
             ]
               .filter((s) => s.value > 0)
@@ -675,12 +696,62 @@ function ResultsPanel({
             </div>
             <div className="flex justify-between border-t border-stone-100 pt-2">
               <span className="text-stone-500">
-                {isEs ? "Nómina anual" : "Annual Payroll"}
+                {isEs ? "Personal clínico" : "Clinical Payroll"}
               </span>
               <span className="font-bold text-stone-900">
-                {formatCurrency(results.annualPayroll)}
+                {formatCurrency(results.clinicalPayroll)}
               </span>
             </div>
+            <div className="flex justify-between">
+              <span className="text-stone-500">
+                {isEs ? "Personal de apoyo" : "Support Payroll"}
+              </span>
+              <span className="font-bold text-stone-900">
+                {formatCurrency(results.backOfficePayroll)}
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-stone-500">
+                {isEs ? "No personal" : "Non-Personnel"}
+              </span>
+              <span className="font-bold text-stone-900">
+                {formatCurrency(results.nonPersonnelCosts)}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Financial Health Check */}
+      <div className="rounded-xl border border-stone-200 bg-white p-4">
+        <h4 className="mb-2 text-sm font-bold text-stone-700">
+          {isEs ? "Indicadores de Salud Financiera" : "Financial Health Check"}
+        </h4>
+        <div className="space-y-2 text-sm">
+          <div className="flex items-center justify-between">
+            <span className="text-stone-500">
+              {isEs ? "Personal total" : "Total Staff"}
+            </span>
+            <span className="font-bold text-stone-900">
+              {results.totalStaffCount} ({results.clinicalStaffCount} + {results.backOfficeStaffCount})
+            </span>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-stone-500">
+              {isEs ? "Personal como % del costo" : "Personnel % of Cost"}
+            </span>
+            <span className={`font-bold ${
+              results.personnelPctOfCost >= 73 && results.personnelPctOfCost <= 77
+                ? "text-green-700"
+                : results.personnelPctOfCost >= 70 && results.personnelPctOfCost <= 80
+                  ? "text-amber-600"
+                  : "text-red-600"
+            }`}>
+              {results.personnelPctOfCost.toFixed(1)}%
+              <span className="ml-1 text-[10px] text-stone-400">
+                ({isEs ? "objetivo" : "target"}: 73-77%)
+              </span>
+            </span>
           </div>
         </div>
       </div>
@@ -801,6 +872,12 @@ export function ClinicSimulator() {
   const [staffing, setStaffing] = useState<StaffingInput>(
     defaultPreset.staffing,
   );
+  const [backOffice, setBackOffice] = useState<BackOfficeInput>(
+    defaultPreset.backOffice,
+  );
+  const [nonPersonnel, setNonPersonnel] = useState<NonPersonnelInput>(
+    defaultPreset.nonPersonnel,
+  );
   const [schedule, setSchedule] = useState<ScheduleInput>(
     defaultPreset.schedule,
   );
@@ -819,6 +896,8 @@ export function ClinicSimulator() {
       const preset =
         SIZE_PRESETS.find((p) => p.id === size) ?? SIZE_PRESETS[0];
       setStaffing(preset.staffing);
+      setBackOffice(preset.backOffice);
+      setNonPersonnel(preset.nonPersonnel);
       setSchedule(preset.schedule);
       setRevenue(preset.revenue);
       setDisease(preset.disease);
@@ -833,6 +912,8 @@ export function ClinicSimulator() {
     (config: WizardConfig) => {
       const mapped = wizardToInputs(config);
       setStaffing(mapped.staffing);
+      setBackOffice(mapped.backOffice);
+      setNonPersonnel(mapped.nonPersonnel);
       setSchedule(mapped.schedule);
       setRevenue(mapped.revenue);
       setDisease(mapped.disease);
@@ -870,6 +951,20 @@ export function ClinicSimulator() {
     },
     [],
   );
+  const updateBackOffice = useCallback(
+    (key: keyof BackOfficeInput, val: number) => {
+      setBackOffice((prev) => ({ ...prev, [key]: val }));
+      setSizePreset("custom");
+    },
+    [],
+  );
+  const updateNonPersonnel = useCallback(
+    (key: keyof NonPersonnelInput, val: number) => {
+      setNonPersonnel((prev) => ({ ...prev, [key]: val }));
+      setSizePreset("custom");
+    },
+    [],
+  );
   const updateSchedule = useCallback(
     (key: keyof ScheduleInput, val: number) => {
       setSchedule((prev) => ({ ...prev, [key]: val }));
@@ -896,12 +991,14 @@ export function ClinicSimulator() {
   const inputs: SimulatorInputs = useMemo(
     () => ({
       staffing,
+      backOffice,
+      nonPersonnel,
       schedule,
       revenue,
       disease,
       sizePreset: sizePreset === "custom" ? "mid-size" : sizePreset,
     }),
-    [staffing, schedule, revenue, disease, sizePreset],
+    [staffing, backOffice, nonPersonnel, schedule, revenue, disease, sizePreset],
   );
   const results = useMemo(() => calculateSimulation(inputs), [inputs]);
   const optimizations = useMemo(
@@ -910,7 +1007,9 @@ export function ClinicSimulator() {
   );
 
   // Staffing summary
-  const staffSummary = `${staffing.physicians} MD, ${staffing.nps} NP, ${staffing.pas} PA, ${staffing.rns} RN, ${staffing.mas} MA, ${staffing.bhProviders} BH, ${staffing.dentalProviders} Dental`;
+  const clinicalCount = Object.values(staffing).reduce((a, b) => a + b, 0);
+  const backOfficeCount = Object.values(backOffice).reduce((a, b) => a + b, 0);
+  const staffSummary = `${clinicalCount} clinical + ${backOfficeCount} support = ${clinicalCount + backOfficeCount} total`;
 
   return (
     <div className="overflow-hidden rounded-2xl border border-stone-200 bg-stone-50">
@@ -981,12 +1080,12 @@ export function ClinicSimulator() {
                           : "Mid-Size (~240)"
                         : size === "small"
                           ? isEs
-                            ? "Pequeño (~250)"
-                            : "Small (~250)"
+                            ? "Pequeño (~80)"
+                            : "Small (~80)"
                           : size === "large"
                             ? isEs
-                              ? "Grande (~1,000)"
-                              : "Large (~1,000)"
+                              ? "Grande (~700)"
+                              : "Large (~700)"
                             : isEs
                               ? "Personalizado"
                               : "Custom"}
@@ -1025,6 +1124,68 @@ export function ClinicSimulator() {
                     onChange={(v) => updateStaffing(key, v)}
                   />
                 ))}
+              </Section>
+
+              {/* Back-Office & Support Staff */}
+              <Section
+                title={isEs ? "Personal de Apoyo y Administrativo" : "Back-Office & Support Staff"}
+                icon={Users}
+                summary={`${backOfficeCount} ${isEs ? "personal de apoyo" : "support staff"}`}
+              >
+                {(
+                  [
+                    ["executiveLeadership", 0, 10, 1],
+                    ["clinicalOps", 0, 30, 1],
+                    ["hrAdmin", 0, 20, 1],
+                    ["financeBilling", 0, 30, 1],
+                    ["it", 0, 15, 1],
+                    ["facilities", 0, 25, 1],
+                    ["frontDesk", 0, 100, 1],
+                    ["dentalAssistants", 0, 30, 1],
+                    ["pharmacy", 0, 20, 1],
+                    ["programsCaseManagement", 0, 100, 1],
+                    ["nursingLeadership", 0, 15, 1],
+                    ["labPhlebotomy", 0, 15, 1],
+                  ] as [keyof BackOfficeInput, number, number, number][]
+                ).map(([key, min, max, step]) => (
+                  <NumberField
+                    key={key}
+                    label={t(BACK_OFFICE_COSTS[key].label, locale)}
+                    value={backOffice[key]}
+                    min={min}
+                    max={max}
+                    step={step}
+                    onChange={(v) => updateBackOffice(key, v)}
+                  />
+                ))}
+              </Section>
+
+              {/* Non-Personnel Expenses */}
+              <Section
+                title={isEs ? "Gastos No Personales" : "Non-Personnel Expenses"}
+                icon={DollarSign}
+                summary={`${Object.values(nonPersonnel).reduce((a, b) => a + b, 0).toFixed(1)}% ${isEs ? "de ingresos" : "of revenue"}`}
+              >
+                {(Object.keys(nonPersonnel) as (keyof NonPersonnelInput)[]).map((key) => (
+                  <NumberField
+                    key={key}
+                    label={t(NON_PERSONNEL_LABELS[key], locale)}
+                    value={nonPersonnel[key]}
+                    min={0}
+                    max={15}
+                    step={0.1}
+                    suffix="%"
+                    onChange={(v) => updateNonPersonnel(key, v)}
+                  />
+                ))}
+                <div className="mt-2 rounded-lg bg-stone-50 p-2.5 text-xs text-stone-600">
+                  <strong>{isEs ? "Total" : "Total"}:</strong>{" "}
+                  {Object.values(nonPersonnel).reduce((a, b) => a + b, 0).toFixed(1)}%{" "}
+                  {isEs ? "de ingresos" : "of revenue"}{" "}
+                  <span className="text-stone-400">
+                    ({isEs ? "benchmark: 25-28%" : "benchmark: 25-28%"})
+                  </span>
+                </div>
               </Section>
 
               {/* Schedule */}
@@ -1178,6 +1339,25 @@ export function ClinicSimulator() {
                     updateRevenue("regionalMultiplier", v)
                   }
                 />
+                <div className="border-t border-stone-100 pt-3">
+                  <NumberField
+                    label={
+                      isEs
+                        ? "Subvenciones y otros ingresos ($)"
+                        : "Grants & Other Revenue ($)"
+                    }
+                    value={revenue.grantRevenue}
+                    min={0}
+                    max={30_000_000}
+                    step={100_000}
+                    onChange={(v) => updateRevenue("grantRevenue", v)}
+                  />
+                  <p className="mt-1 text-[10px] text-stone-400">
+                    {isEs
+                      ? "HRSA §330, suplementos estatales, margen 340B, bonos de calidad"
+                      : "HRSA §330, state supplemental, 340B margin, quality bonuses"}
+                  </p>
+                </div>
               </Section>
 
               {/* Disease Management */}

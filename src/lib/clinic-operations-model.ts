@@ -1,7 +1,8 @@
 // Clinic Operations Model — financial simulation engine for CA FQHC staffing & revenue
 // Sources: CMS FQHC PPS rules, CA DHCS PPS rates, NACHC billing guides, HRSA BPHC
 // Medi-Cal billing rules: WIC §14132.100, DHCS FQHC APM Guide, Noridian MAC
-// Last updated: 2026-03-06
+// Staffing data: Real CA FQHC staffing model (240 HC, 210 FTE, 112 roles, 27 UDS categories)
+// Last updated: 2026-03-13
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -16,6 +17,34 @@ export interface StaffingInput {
   chws: number; // Community Health Workers
   bhProviders: number; // LCSW / Psychologist
   dentalProviders: number; // Dentists
+}
+
+/** Back-office & support staff — 12 grouped categories from real FQHC data */
+export interface BackOfficeInput {
+  executiveLeadership: number; // CEO/COO/CMO
+  clinicalOps: number; // Directors, Clinic Managers, QI
+  hrAdmin: number; // HR, Training, Administrative
+  financeBilling: number; // Rev Cycle, Billers, Accountants, CFO
+  it: number; // IT, Health Informatics
+  facilities: number; // Maintenance, Housekeeping, Drivers
+  frontDesk: number; // Patient Services, Referral Coord, Call Center
+  dentalAssistants: number; // Dental Assistants, Dental Hygienists
+  pharmacy: number; // Pharmacists + Pharmacy Techs
+  programsCaseManagement: number; // Case Managers, Outreach, Enrollment
+  nursingLeadership: number; // DON, Nurse Supervisors, Charge Nurses
+  labPhlebotomy: number; // Lab Techs, Phlebotomists
+}
+
+/** Non-personnel expenses as percentage of revenue (replaces flat overheadPercent) */
+export interface NonPersonnelInput {
+  facilitiesPercent: number; // Rent, utilities, maintenance — 8.5%
+  itEhrPercent: number; // IT systems, EHR licensing — 3.7%
+  medicalSuppliesPercent: number; // Clinical supplies, lab reagents — 3.7%
+  insurancePercent: number; // Malpractice, liability — 2.7%
+  badDebtPercent: number; // Uncollectibles, write-offs — 2.1%
+  professionalServicesPercent: number; // Legal, accounting, consulting — 1.6%
+  depreciationPercent: number; // Equipment, building — 1.6%
+  otherPercent: number; // Training, travel, marketing — 1.3%
 }
 
 export interface ScheduleInput {
@@ -33,6 +62,7 @@ export interface RevenueInput {
   apmEnrolled: boolean; // FQHC Alternative Payment Model (unlocks same-day BH billing under Medi-Cal)
   mediCalPercent: number; // 0-100 (percent of payer mix that is Medi-Cal vs Medicare)
   regionalMultiplier: number; // 0.88-1.15
+  grantRevenue: number; // HRSA §330 grants + state supplemental + 340B pharmacy margin + quality bonuses
 }
 
 export interface DiseaseInput {
@@ -44,6 +74,8 @@ export interface DiseaseInput {
 
 export interface SimulatorInputs {
   staffing: StaffingInput;
+  backOffice: BackOfficeInput;
+  nonPersonnel: NonPersonnelInput;
   schedule: ScheduleInput;
   revenue: RevenueInput;
   disease: DiseaseInput;
@@ -67,14 +99,27 @@ export interface SimulatorOutput {
   bhRevenue: number;
   ecmRevenue: number;
   ccmRevenue: number;
+  grantRevenue: number; // HRSA §330, state supplemental, 340B, quality bonuses
   totalAnnualRevenue: number;
   revenuePerEncounter: number;
 
-  // Cost
-  annualPayroll: number;
-  payrollBreakdown: { role: string; count: number; totalCost: number }[];
-  annualOverhead: number;
+  // Cost — broken out by clinical vs back-office vs non-personnel
+  clinicalPayroll: number;
+  clinicalPayrollBreakdown: { role: string; count: number; totalCost: number }[];
+  backOfficePayroll: number;
+  backOfficePayrollBreakdown: { role: string; count: number; totalCost: number }[];
+  annualPayroll: number; // clinical + back-office combined
+  payrollBreakdown: { role: string; count: number; totalCost: number }[]; // all staff combined
+  nonPersonnelCosts: number; // itemized non-personnel total
+  nonPersonnelBreakdown: { category: string; amount: number; percent: number }[];
+  annualOverhead: number; // alias for nonPersonnelCosts (backward compat)
   totalAnnualCost: number;
+
+  // Staffing totals
+  clinicalStaffCount: number;
+  backOfficeStaffCount: number;
+  totalStaffCount: number;
+  personnelPctOfCost: number; // Target: 73-77% (CA median 74.9%)
 
   // Efficiency
   netMargin: number;
@@ -111,11 +156,13 @@ export interface FQHCSizePreset {
   label: { en: string; es: string };
   description: { en: string; es: string };
   staffing: StaffingInput;
+  backOffice: BackOfficeInput;
+  nonPersonnel: NonPersonnelInput;
   schedule: ScheduleInput;
   revenue: RevenueInput;
   disease: DiseaseInput;
   annualPatients: number;
-  overheadPercent: number;
+  overheadPercent: number; // kept for backward compat — ignored by calculateSimulation
 }
 
 export interface DiseaseProtocol {
@@ -134,52 +181,148 @@ export interface DiseaseProtocol {
 /*  Constants — sourced from existing data files                       */
 /* ------------------------------------------------------------------ */
 
-// Staff costs (P50 from SALARY_BENCHMARKS in job-posting-templates.ts)
-// Benefits overhead based on typical CA FQHC benefit packages
+// Clinical staff costs — CA-accurate salaries (P50) with uniform 30.75% benefits loading
+// Source: Real CA FQHC payroll data, BLS OES CA 2025, SB 525 minimum wage law
+// Benefits loading: 30.75% covers health insurance, retirement (403b match), PTO, payroll taxes, workers' comp
+const BENEFITS_RATE = 0.3075;
+
 export const STAFF_COSTS: Record<
   keyof StaffingInput,
   { salary: number; benefitsRate: number; label: { en: string; es: string } }
 > = {
   physicians: {
-    salary: 270_000,
-    benefitsRate: 0.3,
+    salary: 285_000,
+    benefitsRate: BENEFITS_RATE,
     label: { en: "Physicians (MD/DO)", es: "Médicos (MD/DO)" },
   },
   nps: {
-    salary: 145_000,
-    benefitsRate: 0.28,
+    salary: 165_000,
+    benefitsRate: BENEFITS_RATE,
     label: { en: "Nurse Practitioners", es: "Enfermeras Practicantes" },
   },
   pas: {
-    salary: 140_000,
-    benefitsRate: 0.28,
+    salary: 155_000,
+    benefitsRate: BENEFITS_RATE,
     label: { en: "Physician Assistants", es: "Asistentes Médicos (PA)" },
   },
   rns: {
-    salary: 105_000,
-    benefitsRate: 0.28,
+    salary: 120_000,
+    benefitsRate: BENEFITS_RATE,
     label: { en: "Registered Nurses", es: "Enfermeras Registradas" },
   },
   mas: {
-    salary: 42_000,
-    benefitsRate: 0.25,
+    salary: 52_000, // SB 525: $25/hr by 2027 for FQHCs
+    benefitsRate: BENEFITS_RATE,
     label: { en: "Medical Assistants", es: "Asistentes Médicos" },
   },
   chws: {
-    salary: 45_000,
-    benefitsRate: 0.25,
+    salary: 50_000,
+    benefitsRate: BENEFITS_RATE,
     label: { en: "Community Health Workers", es: "Promotores de Salud" },
   },
   bhProviders: {
-    salary: 72_000,
-    benefitsRate: 0.28,
+    salary: 85_000,
+    benefitsRate: BENEFITS_RATE,
     label: { en: "BH Providers (LCSW)", es: "Proveedores de Salud Conductual" },
   },
   dentalProviders: {
-    salary: 185_000,
-    benefitsRate: 0.3,
+    salary: 195_000,
+    benefitsRate: BENEFITS_RATE,
     label: { en: "Dentists", es: "Dentistas" },
   },
+};
+
+// Back-office & support staff costs — 12 grouped categories
+// Source: Real CA FQHC staffing data (240 HC, 210 FTE, 112 unique roles)
+export const BACK_OFFICE_COSTS: Record<
+  keyof BackOfficeInput,
+  { salary: number; benefitsRate: number; label: { en: string; es: string } }
+> = {
+  executiveLeadership: {
+    salary: 250_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "Executive Leadership (CEO/COO/CMO)", es: "Liderazgo Ejecutivo (CEO/COO/CMO)" },
+  },
+  clinicalOps: {
+    salary: 115_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "Clinical Ops (Directors, QI)", es: "Ops Clínicas (Directores, QI)" },
+  },
+  hrAdmin: {
+    salary: 115_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "HR & Administration", es: "RRHH y Administración" },
+  },
+  financeBilling: {
+    salary: 88_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "Finance & Billing", es: "Finanzas y Facturación" },
+  },
+  it: {
+    salary: 92_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "IT / Health Informatics", es: "TI / Informática en Salud" },
+  },
+  facilities: {
+    salary: 60_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "Facilities & Maintenance", es: "Instalaciones y Mantenimiento" },
+  },
+  frontDesk: {
+    salary: 52_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "Front Desk / Patient Services", es: "Recepción / Servicios al Paciente" },
+  },
+  dentalAssistants: {
+    salary: 64_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "Dental Assistants / Hygienists", es: "Asistentes / Higienistas Dentales" },
+  },
+  pharmacy: {
+    salary: 120_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "Pharmacy (RPh + Techs)", es: "Farmacia (RPh + Técnicos)" },
+  },
+  programsCaseManagement: {
+    salary: 65_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "Programs & Case Management", es: "Programas y Manejo de Casos" },
+  },
+  nursingLeadership: {
+    salary: 125_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "Nursing Leadership (DON, Supervisors)", es: "Liderazgo de Enfermería (DON, Supervisores)" },
+  },
+  labPhlebotomy: {
+    salary: 60_000,
+    benefitsRate: BENEFITS_RATE,
+    label: { en: "Lab / Phlebotomy", es: "Laboratorio / Flebotomía" },
+  },
+};
+
+// Default non-personnel expense percentages (as % of revenue)
+// Source: NACHC benchmark data, CHCF reports, UDS cost analysis
+// Total: 25.2% — matches industry benchmark of 25-28% non-personnel
+export const NON_PERSONNEL_DEFAULTS: NonPersonnelInput = {
+  facilitiesPercent: 8.5, // Rent, utilities, maintenance
+  itEhrPercent: 3.7, // IT systems, EHR licensing, telecom
+  medicalSuppliesPercent: 3.7, // Clinical supplies, lab reagents, pharmacy supplies
+  insurancePercent: 2.7, // Malpractice, general liability, D&O
+  badDebtPercent: 2.1, // Uncollectibles, write-offs, sliding scale adjustments
+  professionalServicesPercent: 1.6, // Legal, accounting, consulting, audit
+  depreciationPercent: 1.6, // Equipment, building improvements, vehicles
+  otherPercent: 1.3, // Training, CME, travel, marketing, recruitment
+};
+
+export const NON_PERSONNEL_LABELS: Record<keyof NonPersonnelInput, { en: string; es: string }> = {
+  facilitiesPercent: { en: "Facilities (rent, utilities)", es: "Instalaciones (renta, servicios)" },
+  itEhrPercent: { en: "IT / EHR Systems", es: "TI / Sistemas EHR" },
+  medicalSuppliesPercent: { en: "Medical Supplies", es: "Suministros Médicos" },
+  insurancePercent: { en: "Insurance (malpractice)", es: "Seguros (mala praxis)" },
+  badDebtPercent: { en: "Bad Debt / Write-offs", es: "Deuda Incobrable" },
+  professionalServicesPercent: { en: "Professional Services", es: "Servicios Profesionales" },
+  depreciationPercent: { en: "Depreciation", es: "Depreciación" },
+  otherPercent: { en: "Other (training, travel)", es: "Otros (capacitación, viajes)" },
 };
 
 // PPS rates (from CA DHCS FQHC rate data, NACHC billing guides)
@@ -224,10 +367,11 @@ export const SIZE_PRESETS: FQHCSizePreset[] = [
     id: "mid-size",
     label: { en: "Mid-Size FQHC (~240 staff)", es: "FQHC Mediano (~240 empleados)" },
     description: {
-      en: "Multi-site community health center. ~25,000 patients. Comprehensive services including dental, behavioral health, pharmacy, HIV services. Based on real California FQHC staffing data.",
-      es: "Centro de salud comunitario multisitio. ~25,000 pacientes. Servicios integrales incluyendo dental, salud conductual, farmacia, servicios VIH. Basado en datos reales de un FQHC de California.",
+      en: "Multi-site community health center. ~30,000 patients. Comprehensive services including dental, behavioral health, pharmacy, HIV services. Based on real California FQHC staffing data (240 headcount, 210 FTE).",
+      es: "Centro de salud comunitario multisitio. ~30,000 pacientes. Servicios integrales incluyendo dental, salud conductual, farmacia, servicios VIH. Basado en datos reales de un FQHC de California (240 empleados, 210 FTE).",
     },
     staffing: {
+      // ~114 clinical staff (from real FQHC staffing model)
       physicians: 10,
       nps: 11,
       pas: 0,
@@ -237,6 +381,22 @@ export const SIZE_PRESETS: FQHCSizePreset[] = [
       bhProviders: 6,
       dentalProviders: 5,
     },
+    backOffice: {
+      // ~152 back-office/support staff (from real FQHC data: 240 total - 88 clinical = 152)
+      executiveLeadership: 4, // CEO, COO, CMO, CAO
+      clinicalOps: 12, // Directors, Clinic Managers, QI Coordinators
+      hrAdmin: 8, // HR Director, HR staff, Training, Compliance
+      financeBilling: 15, // CFO, Rev Cycle Director, Billers, Coders, Accountants, AP/AR
+      it: 4, // IT Director, EHR Analyst, Help Desk, Informatics
+      facilities: 8, // Maintenance, Housekeeping, Drivers, Security
+      frontDesk: 35, // Front Desk, Call Center, Referral Coord, Patient Nav, Interpreters
+      dentalAssistants: 12, // DAs, Dental Hygienists
+      pharmacy: 7, // RPh + Techs
+      programsCaseManagement: 32, // Case Managers, Outreach Workers, Enrollment Assistors, Grant staff
+      nursingLeadership: 6, // DON, Nurse Supervisors, Charge Nurses, Infection Control
+      labPhlebotomy: 6, // Lab Techs, Phlebotomists
+    },
+    nonPersonnel: { ...NON_PERSONNEL_DEFAULTS },
     schedule: {
       hoursPerDay: 8,
       daysPerWeek: 5,
@@ -251,6 +411,7 @@ export const SIZE_PRESETS: FQHCSizePreset[] = [
       apmEnrolled: false,
       mediCalPercent: 70,
       regionalMultiplier: 1.05,
+      grantRevenue: 7_000_000, // HRSA §330 ($3.5M) + State supplemental ($1M) + 340B ($1.5M) + Quality bonuses ($1M)
     },
     disease: {
       diabeticPercent: 20,
@@ -258,40 +419,63 @@ export const SIZE_PRESETS: FQHCSizePreset[] = [
       depressionPercent: 16,
       copdPercent: 9,
     },
-    annualPatients: 25_000,
-    overheadPercent: 32,
+    annualPatients: 30_000,
+    overheadPercent: 25, // legacy — now calculated from nonPersonnel
   },
   {
     id: "small",
-    label: { en: "Small FQHC (~250 staff)", es: "FQHC Pequeño (~250 empleados)" },
+    label: { en: "Small FQHC (~80 staff)", es: "FQHC Pequeño (~80 empleados)" },
     description: {
-      en: "Single-site or 2-3 sites. ~15,000 patients. Typical rural or suburban CA FQHC.",
-      es: "Un sitio o 2-3 sitios. ~15,000 pacientes. FQHC típico rural o suburbano en CA.",
+      en: "Single-site or 2-3 sites. ~12,000 patients. Typical rural or suburban CA FQHC with lean operations.",
+      es: "Un sitio o 2-3 sitios. ~12,000 pacientes. FQHC típico rural o suburbano en CA con operaciones lean.",
     },
     staffing: {
-      physicians: 8,
-      nps: 6,
-      pas: 4,
-      rns: 15,
-      mas: 25,
-      chws: 10,
-      bhProviders: 5,
-      dentalProviders: 3,
+      // ~40 clinical staff
+      physicians: 4,
+      nps: 5,
+      pas: 2,
+      rns: 5,
+      mas: 12,
+      chws: 5,
+      bhProviders: 3,
+      dentalProviders: 2,
+    },
+    backOffice: {
+      // ~41 back-office/support staff
+      executiveLeadership: 2, // CEO + Medical Director
+      clinicalOps: 3, // Clinic Manager, QI
+      hrAdmin: 2, // HR Manager + Admin
+      financeBilling: 4, // CFO, Billing Mgr, 2 Billers
+      it: 1, // IT Manager (often outsourced)
+      facilities: 2, // Maintenance, Janitorial
+      frontDesk: 10, // Front Desk, Referrals, Patient Nav
+      dentalAssistants: 3, // DAs
+      pharmacy: 2, // RPh + Tech
+      programsCaseManagement: 6, // Outreach, Case Mgmt
+      nursingLeadership: 2, // Charge Nurse, Lead LVN
+      labPhlebotomy: 2, // Lab/Phlebotomy
+    },
+    nonPersonnel: {
+      ...NON_PERSONNEL_DEFAULTS,
+      facilitiesPercent: 9.5, // Higher per-capita for small orgs
+      itEhrPercent: 4.2, // Less economies of scale
+      otherPercent: 1.6, // More per-capita training costs
     },
     schedule: {
       hoursPerDay: 8,
       daysPerWeek: 5,
-      encountersPerProviderPerDay: 18,
-      noShowRate: 15,
+      encountersPerProviderPerDay: 16,
+      noShowRate: 18,
     },
     revenue: {
-      ppsRate: 225,
+      ppsRate: 215,
       dentalSameDayRate: 8,
       bhSameDayRate: 8,
-      ecmEnrollmentRate: 5,
+      ecmEnrollmentRate: 4,
       apmEnrolled: false,
       mediCalPercent: 75,
-      regionalMultiplier: 1.0,
+      regionalMultiplier: 0.95,
+      grantRevenue: 3_000_000, // HRSA §330 ($1.5M) + State supplemental ($0.5M) + 340B ($0.5M) + Quality bonuses ($0.5M)
     },
     disease: {
       diabeticPercent: 18,
@@ -299,25 +483,48 @@ export const SIZE_PRESETS: FQHCSizePreset[] = [
       depressionPercent: 15,
       copdPercent: 8,
     },
-    annualPatients: 15_000,
-    overheadPercent: 35,
+    annualPatients: 12_000,
+    overheadPercent: 28, // legacy
   },
   {
     id: "large",
-    label: { en: "Large FQHC (~1,000 staff)", es: "FQHC Grande (~1,000 empleados)" },
+    label: { en: "Large FQHC (~700 staff)", es: "FQHC Grande (~700 empleados)" },
     description: {
-      en: "Multi-site network (8-15 sites). ~60,000 patients. Urban CA FQHC with economies of scale.",
-      es: "Red multisitio (8-15 sitios). ~60,000 pacientes. FQHC urbano en CA con economías de escala.",
+      en: "Multi-site network (10-20 sites). ~80,000 patients. Urban CA FQHC with economies of scale, specialty services, and PACE program.",
+      es: "Red multisitio (10-20 sitios). ~80,000 pacientes. FQHC urbano en CA con economías de escala, servicios especializados y programa PACE.",
     },
     staffing: {
-      physicians: 30,
-      nps: 25,
-      pas: 15,
-      rns: 60,
-      mas: 100,
-      chws: 40,
+      // ~260 clinical staff
+      physicians: 25,
+      nps: 30,
+      pas: 10,
+      rns: 35,
+      mas: 80,
+      chws: 35,
       bhProviders: 20,
-      dentalProviders: 12,
+      dentalProviders: 10,
+    },
+    backOffice: {
+      // ~530 back-office/support staff (large orgs have deeper admin layers)
+      executiveLeadership: 10, // CEO, COO, CMO, CFO, CNO, CDO, VPs, Chiefs
+      clinicalOps: 30, // Directors, Site Managers, QI team, Population Health
+      hrAdmin: 25, // HR Director + team, Training, Compliance, Credentialing, L&D
+      financeBilling: 45, // Rev Cycle team, AP/AR, Accounting, Analysts, Coding
+      it: 20, // CTO/CIO, IT team, EHR analysts, Security, Telehealth
+      facilities: 30, // Multi-site maintenance, Housekeeping, Fleet, Security
+      frontDesk: 125, // Front Desk, Call Center, Referrals, Patient Nav across 15+ sites
+      dentalAssistants: 25, // DAs, Hygienists across sites
+      pharmacy: 25, // Multiple RPh + Techs across sites
+      programsCaseManagement: 135, // Large programs, grants, outreach, enrollment, community partnerships
+      nursingLeadership: 20, // DON, Site Nurse Supervisors, Clinical Managers
+      labPhlebotomy: 18, // Lab across multiple sites
+    },
+    nonPersonnel: {
+      ...NON_PERSONNEL_DEFAULTS,
+      facilitiesPercent: 8.0, // Moderate scale savings
+      itEhrPercent: 3.5, // Volume licensing
+      insurancePercent: 2.5, // Better rates at scale
+      otherPercent: 1.2, // Efficient training programs
     },
     schedule: {
       hoursPerDay: 10,
@@ -330,9 +537,10 @@ export const SIZE_PRESETS: FQHCSizePreset[] = [
       dentalSameDayRate: 15,
       bhSameDayRate: 12,
       ecmEnrollmentRate: 8,
-      apmEnrolled: false,
+      apmEnrolled: true, // Large orgs more likely to be APM-enrolled
       mediCalPercent: 65,
       regionalMultiplier: 1.08,
+      grantRevenue: 8_000_000, // HRSA §330 ($4M) + State supplemental ($1.5M) + 340B ($1.5M) + Quality bonuses ($1M)
     },
     disease: {
       diabeticPercent: 22,
@@ -340,8 +548,8 @@ export const SIZE_PRESETS: FQHCSizePreset[] = [
       depressionPercent: 18,
       copdPercent: 10,
     },
-    annualPatients: 60_000,
-    overheadPercent: 28,
+    annualPatients: 80_000,
+    overheadPercent: 24, // legacy
   },
 ];
 
@@ -539,9 +747,9 @@ export interface ScaleFactor {
 
 export const SCALE_FACTORS: ScaleFactor[] = [
   {
-    category: { en: "Overhead as % of Revenue", es: "Gastos generales como % de ingresos" },
-    smallFQHC: { en: "32-38%", es: "32-38%" },
-    largeFQHC: { en: "25-30%", es: "25-30%" },
+    category: { en: "Non-Personnel as % of Revenue", es: "No personal como % de ingresos" },
+    smallFQHC: { en: "28-33%", es: "28-33%" },
+    largeFQHC: { en: "22-26%", es: "22-26%" },
     advantage: "large",
   },
   {
@@ -586,15 +794,27 @@ export const SCALE_FACTORS: ScaleFactor[] = [
 /*  Calculation Engine                                                 */
 /* ------------------------------------------------------------------ */
 
+/** Compute total non-personnel as % of revenue */
+function computeNonPersonnelTotal(np: NonPersonnelInput): number {
+  return (
+    np.facilitiesPercent +
+    np.itEhrPercent +
+    np.medicalSuppliesPercent +
+    np.insurancePercent +
+    np.badDebtPercent +
+    np.professionalServicesPercent +
+    np.depreciationPercent +
+    np.otherPercent
+  );
+}
+
 export function calculateSimulation(inputs: SimulatorInputs): SimulatorOutput {
-  const { staffing, schedule, revenue, disease } = inputs;
+  const { staffing, backOffice, nonPersonnel, schedule, revenue, disease } = inputs;
   const preset = SIZE_PRESETS.find((p) => p.id === inputs.sizePreset);
-  const overheadPercent = preset?.overheadPercent ?? 32;
   const annualPatients = preset?.annualPatients ?? 30_000;
 
   // Count billable providers (MD, NP, PA, LCSW, Dentists can bill independently under PPS)
   const medicalProviders = staffing.physicians + staffing.nps + staffing.pas;
-  const billableProviders = medicalProviders + staffing.bhProviders + staffing.dentalProviders;
 
   // Working days per year
   const workingDaysPerYear =
@@ -613,21 +833,17 @@ export function calculateSimulation(inputs: SimulatorInputs): SimulatorOutput {
     encountersPerYear * (revenue.dentalSameDayRate / 100);
 
   // BH same-day encounters — payer-aware calculation
-  // Medicare: same-day Medical + BH = 2 PPS encounters
-  // Medi-Cal: same-day Medical + BH = 1 PPS only (WIC §14132.100)
-  // FQHC APM: bypasses Medi-Cal restriction via PMPM capitation
   const bhEncountersPerYear =
     encountersPerYear * (revenue.bhSameDayRate / 100);
   const mediCalShare = revenue.mediCalPercent / 100;
   const medicareShare = 1 - mediCalShare;
-  // Under Medi-Cal without APM, same-day BH doesn't generate a SECOND PPS
   const bhBillableAsSecondPPS = revenue.apmEnrolled
-    ? bhEncountersPerYear // APM: all BH encounters generate additional value
-    : bhEncountersPerYear * medicareShare; // Only Medicare portion generates 2nd PPS
+    ? bhEncountersPerYear
+    : bhEncountersPerYear * medicareShare;
 
   // ECM encounters (monthly face-to-face for enrolled patients)
   const ecmPatients = annualPatients * (revenue.ecmEnrollmentRate / 100);
-  const ecmEncountersPerYear = ecmPatients * 12; // monthly visits
+  const ecmEncountersPerYear = ecmPatients * 12;
 
   // Revenue calculations
   const adjustedPPS = revenue.ppsRate * revenue.regionalMultiplier;
@@ -636,17 +852,18 @@ export function calculateSimulation(inputs: SimulatorInputs): SimulatorOutput {
   const bhRevenue = bhBillableAsSecondPPS * adjustedPPS;
   const ecmRevenue = ecmPatients * ECM_PMPM.default * 12;
 
-  // CCM revenue (chronic care management billing for eligible patients)
+  // CCM revenue
   const chronicPercent =
     (disease.diabeticPercent + disease.htnPercent + disease.copdPercent) / 100;
-  const ccmEligiblePatients = annualPatients * chronicPercent * 0.3; // ~30% capture rate
+  const ccmEligiblePatients = annualPatients * chronicPercent * 0.3;
   const ccmRevenue = ccmEligiblePatients * CCM_RATES.ccm99490 * 12;
 
+  const grantRevenue = revenue.grantRevenue ?? 0;
   const totalAnnualRevenue =
-    basePPSRevenue + dentalRevenue + bhRevenue + ecmRevenue + ccmRevenue;
+    basePPSRevenue + dentalRevenue + bhRevenue + ecmRevenue + ccmRevenue + grantRevenue;
 
-  // Cost calculations
-  const payrollBreakdown = (
+  // ── Clinical payroll ──
+  const clinicalPayrollBreakdown = (
     Object.keys(staffing) as (keyof StaffingInput)[]
   ).map((role) => {
     const count = staffing[role];
@@ -654,15 +871,52 @@ export function calculateSimulation(inputs: SimulatorInputs): SimulatorOutput {
     const totalCost = count * cost.salary * (1 + cost.benefitsRate);
     return { role: cost.label.en, count, totalCost };
   });
-
-  const annualPayroll = payrollBreakdown.reduce(
-    (sum, item) => sum + item.totalCost,
-    0
+  const clinicalPayroll = clinicalPayrollBreakdown.reduce(
+    (sum, item) => sum + item.totalCost, 0
   );
-  const annualOverhead = annualPayroll * (overheadPercent / 100);
-  const totalAnnualCost = annualPayroll + annualOverhead;
 
-  // Efficiency metrics
+  // ── Back-office payroll ──
+  const backOfficePayrollBreakdown = (
+    Object.keys(backOffice) as (keyof BackOfficeInput)[]
+  ).map((role) => {
+    const count = backOffice[role];
+    const cost = BACK_OFFICE_COSTS[role];
+    const totalCost = count * cost.salary * (1 + cost.benefitsRate);
+    return { role: cost.label.en, count, totalCost };
+  });
+  const backOfficePayroll = backOfficePayrollBreakdown.reduce(
+    (sum, item) => sum + item.totalCost, 0
+  );
+
+  // ── Total personnel cost ──
+  const annualPayroll = clinicalPayroll + backOfficePayroll;
+  const payrollBreakdown = [...clinicalPayrollBreakdown, ...backOfficePayrollBreakdown];
+
+  // ── Non-personnel costs (itemized, as % of revenue) ──
+  const nonPersonnelBreakdown = (
+    Object.keys(nonPersonnel) as (keyof NonPersonnelInput)[]
+  ).map((key) => {
+    const percent = nonPersonnel[key];
+    const amount = totalAnnualRevenue * (percent / 100);
+    const label = NON_PERSONNEL_LABELS[key];
+    return { category: label.en, amount, percent };
+  });
+  const nonPersonnelCosts = nonPersonnelBreakdown.reduce(
+    (sum, item) => sum + item.amount, 0
+  );
+
+  // ── Total cost ──
+  const totalAnnualCost = annualPayroll + nonPersonnelCosts;
+
+  // ── Staffing counts ──
+  const clinicalStaffCount = Object.values(staffing).reduce((a, b) => a + b, 0);
+  const backOfficeStaffCount = Object.values(backOffice).reduce((a, b) => a + b, 0);
+  const totalStaffCount = clinicalStaffCount + backOfficeStaffCount;
+  const personnelPctOfCost = totalAnnualCost > 0
+    ? (annualPayroll / totalAnnualCost) * 100
+    : 0;
+
+  // ── Efficiency metrics ──
   const totalEncountersAll =
     encountersPerYear + dentalEncountersPerYear + bhBillableAsSecondPPS;
   const netMargin = totalAnnualRevenue - totalAnnualCost;
@@ -696,14 +950,26 @@ export function calculateSimulation(inputs: SimulatorInputs): SimulatorOutput {
     bhRevenue,
     ecmRevenue,
     ccmRevenue,
+    grantRevenue,
     totalAnnualRevenue,
     revenuePerEncounter:
       totalEncountersAll > 0 ? totalAnnualRevenue / totalEncountersAll : 0,
 
+    clinicalPayroll,
+    clinicalPayrollBreakdown,
+    backOfficePayroll,
+    backOfficePayrollBreakdown,
     annualPayroll,
     payrollBreakdown,
-    annualOverhead,
+    nonPersonnelCosts,
+    nonPersonnelBreakdown,
+    annualOverhead: nonPersonnelCosts, // backward compat alias
     totalAnnualCost,
+
+    clinicalStaffCount,
+    backOfficeStaffCount,
+    totalStaffCount,
+    personnelPctOfCost,
 
     netMargin,
     netMarginPercent,
@@ -1077,4 +1343,4 @@ export function generateOptimizations(
   return pathways;
 }
 
-export const CLINIC_MODEL_LAST_UPDATED = "2026-03-06";
+export const CLINIC_MODEL_LAST_UPDATED = "2026-03-13";
