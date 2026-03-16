@@ -201,12 +201,12 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "laid-off-fqhc-fast-track-job-search",
-    title: "Laid Off from an FQHC? 1,000+ Open Positions & Free Career Tools (2026)",
-    esTitle: "\u00bfDespedido/a de un FQHC? 1,000+ Posiciones Abiertas y Herramientas Gratis (2026)",
+    title: "Laid Off from an FQHC? 1,700+ Open Positions & Free Career Tools (2026)",
+    esTitle: "\u00bfDespedido/a de un FQHC? 1,700+ Posiciones Abiertas y Herramientas Gratis (2026)",
     description:
-      "3,477 California community health workers displaced by Medi-Cal cuts — but 1,000+ FQHC positions are open right now. Free resume builder, career assessment, and job listings across 214 FQHCs. Get job-ready today.",
+      "3,477 California community health workers displaced by Medi-Cal cuts — but 1,700+ FQHC positions are open right now. Free resume builder, career assessment, and job listings across 214 FQHCs. Get job-ready today.",
     esDescription:
-      "3,477 trabajadores de salud comunitaria desplazados por recortes de Medi-Cal — pero 1,000+ posiciones FQHC están abiertas ahora. Constructor de currículum gratis, evaluación de carrera y empleos en 214 FQHCs.",
+      "3,477 trabajadores de salud comunitaria desplazados por recortes de Medi-Cal — pero 1,700+ posiciones FQHC están abiertas ahora. Constructor de currículum gratis, evaluación de carrera y empleos en 214 FQHCs.",
     date: "February 15, 2026",
     esDate: "15 de febrero de 2026",
     isoDate: "2026-02-15",

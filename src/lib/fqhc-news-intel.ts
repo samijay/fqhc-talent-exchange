@@ -1532,6 +1532,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.kqed.org/news/12033968/san-franciscos-hhs-office-close-federal-health-cuts-pelosi",
     sourceOrg: "KQED",
     region: "San Francisco County",
+    affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "mission-neighborhood-health-center"],
     tags: ["hhs", "federal-cuts", "region9", "doge", "grant-workshops"],
   },
   {

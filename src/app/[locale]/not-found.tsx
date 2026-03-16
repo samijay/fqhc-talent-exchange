@@ -51,7 +51,7 @@ export default function LocaleNotFound() {
               <span className="text-sm font-medium text-stone-900 group-hover:text-teal-700 dark:text-stone-100">
                 Browse Jobs
               </span>
-              <span className="block text-xs text-stone-400">1,000+ listings</span>
+              <span className="block text-xs text-stone-400">1,700+ listings</span>
             </div>
           </Link>
           <Link

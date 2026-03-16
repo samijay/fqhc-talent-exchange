@@ -78,7 +78,7 @@ function getSimplifiedRegion(rawRegion: string): string {
 export const metadata: Metadata = {
   title: "FQHC Talent | California's Strategic Intelligence Platform for Community Health Centers",
   description:
-    "Real-time intelligence for FQHC executives: 220+ California FQHCs tracked, 1,000+ job listings, AI adoption monitoring, resilience scores, salary benchmarks across 9 regions, policy tracking, and free career tools. Updated weekly from primary sources.",
+    "Real-time intelligence for FQHC executives: 220+ California FQHCs tracked, 1,700+ job listings, AI adoption monitoring, resilience scores, salary benchmarks across 9 regions, policy tracking, and free career tools. Updated weekly from primary sources.",
   keywords: [
     "FQHC intelligence platform",
     "California FQHC data",
@@ -122,7 +122,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FQHC Talent — California's FQHC Intelligence Platform",
     description:
-      "220+ FQHCs tracked. 1,000+ jobs. AI adoption monitoring. Salary benchmarks. Policy tracking. Free career tools. All from primary sources.",
+      "220+ FQHCs tracked. 1,700+ jobs. AI adoption monitoring. Salary benchmarks. Policy tracking. Free career tools. All from primary sources.",
   },
   alternates: {
     canonical: SITE_URL,
@@ -300,7 +300,7 @@ export default function Home() {
     "@type": "WebPage",
     name: "FQHC Talent — California's FQHC Strategic Intelligence Platform",
     description:
-      "Real-time intelligence for FQHC executives: 220+ California FQHCs tracked, 1,000+ job listings, AI adoption monitoring, resilience scores, salary benchmarks, and free career tools.",
+      "Real-time intelligence for FQHC executives: 220+ California FQHCs tracked, 1,700+ job listings, AI adoption monitoring, resilience scores, salary benchmarks, and free career tools.",
     url: SITE_URL,
     isPartOf: { "@type": "WebSite", name: "FQHC Talent", url: SITE_URL },
     about: [

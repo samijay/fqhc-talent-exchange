@@ -311,7 +311,7 @@ export default function NewsletterQuestionnairePage() {
             ) : (
               <>
                 <Link href="/jobs" className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white p-3 text-sm text-teal-700 hover:border-teal-300 transition-colors">
-                  <ArrowRight className="size-4 shrink-0" /> {isEs ? "Explorar 1,047 empleos en FQHCs" : "Browse 1,047 FQHC jobs"}
+                  <ArrowRight className="size-4 shrink-0" /> {isEs ? "Explorar 1,700+ empleos en FQHCs" : "Browse 1,700+ FQHC jobs"}
                 </Link>
                 <Link href="/career-insights" className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white p-3 text-sm text-teal-700 hover:border-teal-300 transition-colors">
                   <ArrowRight className="size-4 shrink-0" /> {isEs ? "Evaluación de carrera gratuita" : "Free career assessment"}
