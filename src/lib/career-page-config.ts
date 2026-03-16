@@ -225,6 +225,18 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
       "SmartRecruiters API confirmed — both 'DavisStreetCommunityCenterInc' and 'DavisStreetCommunityCenter' return totalFound: 0. No public postings available as of 2026-03-15. Small East Bay FQHC may not be actively hiring or uses different recruitment channels.",
   },
 
+  // ── HRMDirect (server-rendered HTML, scrapeable) ── ✅
+  {
+    fqhcSlug: "community-health-centers-central-coast",
+    scrapeable: true,
+    atsType: "direct",
+    lastChecked: "2026-03-15",
+    atsApiUrl:
+      "https://communityhealthcenters.hrmdirect.com/employment/job-openings.php?search=true&nohd=&dept=-1&city=-1&state=-1",
+    notes:
+      "48 jobs found 2026-03-15. Uses HRMDirect — same ATS as La Clinica. Server-rendered HTML, scrapeable via WebFetch. Central Coast FQHC (Santa Barbara + SLO counties, 15 sites, 75K+ patients, OCHIN Epic). Heavy provider hiring: 14 physicians, 3 NP/PAs, 2 dentists. Departments: Medical, Dental, Behavioral Health, IT, Billing, Optometry, Referrals, Administration, PACE.",
+  },
+
   // ── JazzHR (WebFetch-scrapeable, JS-rendered for API) ── ✅
   {
     fqhcSlug: "mission-neighborhood-health-center",
