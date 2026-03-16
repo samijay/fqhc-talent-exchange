@@ -108,6 +108,21 @@ interface SerializedResource {
   sourceOrg: string;
 }
 
+interface SerializedSimilarJob {
+  id: string;
+  title: string;
+  fqhcSlug: string;
+  fqhcName: string;
+  department: string;
+  type: string;
+  location: string;
+  salaryMin: number;
+  salaryMax: number;
+  bilingual: boolean;
+  programs: string[];
+  matchReason: string;
+}
+
 interface SimilarFQHC {
   slug: string;
   name: string;
@@ -162,6 +177,7 @@ export interface ProfileTabsProps {
   certifications: SerializedCertification[];
   resources: SerializedResource[];
   similarFQHCs: SimilarFQHC[];
+  similarJobs: SerializedSimilarJob[];
   resilience: ResilienceData;
   details: QuickDetails;
   profileCompleteness: number;
@@ -219,6 +235,7 @@ export function ProfileTabs({
   certifications,
   resources,
   similarFQHCs,
+  similarJobs,
   resilience,
   details,
   profileCompleteness,
@@ -311,7 +328,7 @@ export function ProfileTabs({
             />
           )}
           {activeTab === "jobs" && (
-            <JobsTab jobs={jobs} fqhcName={fqhcName} locale={locale} />
+            <JobsTab jobs={jobs} similarJobs={similarJobs} fqhcName={fqhcName} locale={locale} />
           )}
           {activeTab === "strategy" && (
             <StrategyTab
@@ -821,73 +838,150 @@ function NewsTab({
 
 function JobsTab({
   jobs,
+  similarJobs,
   fqhcName,
   locale,
 }: {
   jobs: SerializedJob[];
+  similarJobs: SerializedSimilarJob[];
   fqhcName: string;
   locale: string;
 }) {
   const isEs = locale === "es";
-
-  if (jobs.length === 0) {
-    return (
-      <div className="rounded-xl border border-stone-200 bg-white p-8 text-center">
-        <Briefcase className="mx-auto size-8 text-stone-300" />
-        <p className="mt-3 text-stone-500">
-          {isEs
-            ? `No hay posiciones abiertas en ${fqhcName} en este momento.`
-            : `No open positions at ${fqhcName} right now.`}
-        </p>
-        <Link
-          href="/jobs"
-          className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
-        >
-          {isEs ? "Ver todos los empleos" : "Browse all jobs"} <ArrowRight className="size-3" />
-        </Link>
-      </div>
-    );
-  }
+  const [showAllSimilar, setShowAllSimilar] = useState(false);
+  const visibleSimilar = showAllSimilar ? similarJobs : similarJobs.slice(0, 4);
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-lg font-bold text-stone-900">
-        {isEs ? "Posiciones Abiertas" : "Open Positions"}
-        <span className="ml-2 text-sm font-normal text-stone-500">({jobs.length})</span>
-      </h2>
-      {jobs.map((job) => (
-        <div
-          key={job.id}
-          className="rounded-lg border border-stone-200 bg-white p-4 transition-colors hover:border-teal-200 hover:bg-teal-50/30"
-        >
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-            <div>
-              <h3 className="font-semibold text-stone-900">{job.title}</h3>
-              <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-stone-500">
-                <span>{job.department}</span>
-                <span>·</span>
-                <span>{job.type}</span>
-                <span>·</span>
-                <span>{job.location}</span>
+    <div className="space-y-6">
+      {/* Current FQHC Open Positions */}
+      {jobs.length === 0 ? (
+        <div className="rounded-xl border border-stone-200 bg-white p-8 text-center">
+          <Briefcase className="mx-auto size-8 text-stone-300" />
+          <p className="mt-3 text-stone-500">
+            {isEs
+              ? `No hay posiciones abiertas en ${fqhcName} en este momento.`
+              : `No open positions at ${fqhcName} right now.`}
+          </p>
+          <Link
+            href="/jobs"
+            className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
+          >
+            {isEs ? "Ver todos los empleos" : "Browse all jobs"} <ArrowRight className="size-3" />
+          </Link>
+        </div>
+      ) : (
+        <div className="space-y-4">
+          <h2 className="text-lg font-bold text-stone-900">
+            {isEs ? "Posiciones Abiertas" : "Open Positions"}
+            <span className="ml-2 text-sm font-normal text-stone-500">({jobs.length})</span>
+          </h2>
+          {jobs.map((job) => (
+            <div
+              key={job.id}
+              className="rounded-lg border border-stone-200 bg-white p-4 transition-colors hover:border-teal-200 hover:bg-teal-50/30"
+            >
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 className="font-semibold text-stone-900">{job.title}</h3>
+                  <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-stone-500">
+                    <span>{job.department}</span>
+                    <span>·</span>
+                    <span>{job.type}</span>
+                    <span>·</span>
+                    <span>{job.location}</span>
+                  </div>
+                </div>
+                <span className="text-sm font-semibold text-teal-700">
+                  {formatSalary(job.salaryMin)} – {formatSalary(job.salaryMax)}
+                </span>
+              </div>
+              <p className="mt-2 text-sm text-stone-600">{job.description}</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {job.bilingual && (
+                  <Badge variant="secondary" className="bg-amber-50 text-amber-700 text-xs">
+                    Bilingual
+                  </Badge>
+                )}
+                {job.programs.map((p) => (
+                  <Badge key={p} variant="secondary" className="text-xs">{p}</Badge>
+                ))}
               </div>
             </div>
-            <span className="text-sm font-semibold text-teal-700">
-              {formatSalary(job.salaryMin)} – {formatSalary(job.salaryMax)}
-            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Similar Jobs at Other FQHCs */}
+      {similarJobs.length > 0 && (
+        <div className="space-y-4">
+          <div className="flex items-center gap-2 border-t border-stone-200 pt-6">
+            <Users className="size-5 text-teal-600" />
+            <h2 className="text-lg font-bold text-stone-900">
+              {isEs ? "Empleos Similares en Otros FQHCs" : "Similar Jobs at Other FQHCs"}
+              <span className="ml-2 text-sm font-normal text-stone-500">({similarJobs.length})</span>
+            </h2>
           </div>
-          <p className="mt-2 text-sm text-stone-600">{job.description}</p>
-          <div className="mt-3 flex flex-wrap gap-1.5">
-            {job.bilingual && (
-              <Badge variant="secondary" className="bg-amber-50 text-amber-700 text-xs">
-                Bilingual
-              </Badge>
-            )}
-            {job.programs.map((p) => (
-              <Badge key={p} variant="secondary" className="text-xs">{p}</Badge>
-            ))}
+          <p className="text-sm text-stone-500">
+            {isEs
+              ? `Posiciones similares a las que ofrece ${fqhcName} en otras organizaciones de California.`
+              : `Positions similar to what ${fqhcName} offers at other California community health centers.`}
+          </p>
+          {visibleSimilar.map((sj) => (
+            <Link
+              key={sj.id}
+              href={`/directory/${sj.fqhcSlug}#jobs`}
+              className="block rounded-lg border border-stone-200 bg-white p-4 transition-colors hover:border-teal-200 hover:bg-teal-50/30"
+            >
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 className="font-semibold text-stone-900">{sj.title}</h3>
+                  <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-stone-500">
+                    <span className="font-medium text-teal-700">{sj.fqhcName}</span>
+                    <span>·</span>
+                    <span>{sj.department}</span>
+                    <span>·</span>
+                    <span>{sj.location}</span>
+                  </div>
+                </div>
+                <span className="text-sm font-semibold text-teal-700">
+                  {formatSalary(sj.salaryMin)} – {formatSalary(sj.salaryMax)}
+                </span>
+              </div>
+              <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                <Badge variant="secondary" className="bg-teal-50 text-teal-700 text-xs">
+                  {sj.matchReason}
+                </Badge>
+                {sj.bilingual && (
+                  <Badge variant="secondary" className="bg-amber-50 text-amber-700 text-xs">
+                    Bilingual
+                  </Badge>
+                )}
+                {sj.programs.slice(0, 3).map((p) => (
+                  <Badge key={p} variant="secondary" className="text-xs">{p}</Badge>
+                ))}
+              </div>
+            </Link>
+          ))}
+          {similarJobs.length > 4 && !showAllSimilar && (
+            <button
+              onClick={() => setShowAllSimilar(true)}
+              className="w-full rounded-lg border border-stone-200 bg-white py-3 text-sm font-medium text-teal-700 transition-colors hover:bg-teal-50"
+            >
+              {isEs
+                ? `Ver ${similarJobs.length - 4} empleos similares más`
+                : `Show ${similarJobs.length - 4} more similar jobs`}
+            </button>
+          )}
+          <div className="text-center">
+            <Link
+              href="/jobs"
+              className="inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
+            >
+              {isEs ? "Explorar todos los empleos" : "Explore all jobs"} <ArrowRight className="size-3" />
+            </Link>
           </div>
         </div>
-      ))}
+      )}
     </div>
   );
 }

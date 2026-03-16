@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { californiaFQHCs, typicalFqhcBenefits } from "@/lib/california-fqhcs";
-import { fqhcJobListings } from "@/lib/fqhc-job-listings";
+import { fqhcJobListings, getSimilarJobsForFQHC } from "@/lib/fqhc-job-listings";
 import { getIntelForFQHC } from "@/lib/fqhc-news-intel";
 import { getCaseStudiesForFQHC } from "@/lib/fqhc-case-studies";
 import { calculateResilienceScore, getSimilarFQHCs } from "@/lib/fqhc-resilience";
@@ -120,6 +120,7 @@ export default async function FQHCProfilePage({
   const relevantResources = getResourcesForFQHC(fqhc);
   const relevantCerts = getCertificationsForFQHC(fqhc);
   const similar = getSimilarFQHCs(slug, 3);
+  const similarJobs = getSimilarJobsForFQHC(slug, 8);
   const profileCompleteness = calcProfileCompleteness(fqhc);
 
   // Serialize for client component (only fields the UI needs)
@@ -135,6 +136,24 @@ export default async function FQHCProfilePage({
     programs: j.programs,
     description: j.description,
   }));
+
+  const serializedSimilarJobs = similarJobs.map((sj) => {
+    const sjFqhc = californiaFQHCs.find((f) => f.slug === sj.fqhcSlug);
+    return {
+      id: sj.id,
+      title: sj.title,
+      fqhcSlug: sj.fqhcSlug,
+      fqhcName: sjFqhc?.name || sj.fqhcSlug,
+      department: sj.department,
+      type: sj.type,
+      location: sj.location,
+      salaryMin: sj.salaryMin,
+      salaryMax: sj.salaryMax,
+      bilingual: sj.bilingual,
+      programs: sj.programs,
+      matchReason: sj.matchReason,
+    };
+  });
 
   const serializedIntel = relatedIntel.map((i) => ({
     id: i.id,
@@ -339,6 +358,7 @@ export default async function FQHCProfilePage({
         certifications={serializedCerts}
         resources={serializedResources}
         similarFQHCs={similar}
+        similarJobs={serializedSimilarJobs}
         resilience={resilienceData}
         profileCompleteness={profileCompleteness}
         details={{

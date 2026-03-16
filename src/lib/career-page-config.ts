@@ -162,12 +162,12 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
   },
   {
     fqhcSlug: "united-health-centers",
-    scrapeable: false,
+    scrapeable: true,
     atsType: "icims",
-    lastChecked: "2026-03-07",
+    lastChecked: "2026-03-15",
     atsApiUrl: "https://nonprovider-unitedhealthcenters.icims.com/jobs/search",
     notes:
-      "iCIMS portal confirmed but JS-rendered only — curl returns HTML page, no JSON API. Cannot scrape programmatically. Two portals: nonprovider and provider. Manual review required. Major Central Valley FQHC (Fresno/Tulare/Kings/Madera counties).",
+      "iCIMS portal — JS-rendered but WebFetch can extract page 1 data. Two portals: nonprovider (20 jobs found 2026-03-15, page 1 of 4) and provider (20 jobs found 2026-03-15, page 1 of 2). ~40 total openings. Pagination requires cookies. Major Central Valley FQHC (Fresno/Tulare/Kings/Madera counties, 22 sites, 120K+ patients).",
   },
 
   // ── Additional Workday (JSON API available) ── ✅
@@ -179,38 +179,38 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "https://opendoorhealth.wd503.myworkdayjobs.com/wday/cxs/opendoorhealth/ODCHC/jobs",
     notes:
-      "46 jobs found 2026-03-12 (prev 42, +4). Workday wd503 tenant confirmed. Rural North Coast FQHC (Humboldt, Del Norte, Trinity counties).",
+      "46 jobs found 2026-03-15 (prev 46, = — stable). Workday wd503 tenant confirmed. User-Agent header required. Limit max 20 per request. Categories: Clinical Operations (4), Dental (1), Finance (2), IT (1), Medical Clinical (15), Patient Services (2), Provider (20). Locations: Eureka (19), Crescent City (7), Fortuna (6), Arcata (5), McKinleyville (3), Willow Creek (3), Ferndale (2), ECHC (1). Rural North Coast FQHC (Humboldt, Del Norte, Trinity counties).",
   },
   {
     fqhcSlug: "valley-health-team",
     scrapeable: false,
-    atsType: "workday",
-    lastChecked: "2026-03-07",
+    atsType: "unknown",
+    lastChecked: "2026-03-15",
     atsApiUrl: null,
     notes:
-      "Workday endpoint valleyhealthlink.wd5 returns Valley Health System (Winchester, VA) — completely different organization. Wrong tenant. Valley Health Team (CA) actual ATS unknown. Needs manual investigation via valleyhealthteam.org/careers.",
+      "NOT Workday — wd5 endpoint is Valley Health System (Winchester, VA), wrong org. Website valleyhealthteam.org redirects to vht.org. No careers page found at vht.org. ATS unknown. Central Valley FQHC (Fresno area). Needs manual investigation.",
   },
 
   // ── iCIMS (API available) ── ✅
   {
     fqhcSlug: "marin-community-clinics",
-    scrapeable: false,
+    scrapeable: true,
     atsType: "icims",
-    lastChecked: "2026-03-07",
+    lastChecked: "2026-03-15",
     atsApiUrl: "https://careers-marinclinic.icims.com/jobs/search",
     notes:
-      "iCIMS portal confirmed but JS-rendered only — returns HTML page, no JSON API. Cannot scrape programmatically. Manual review required at careers-marinclinic.icims.com.",
+      "iCIMS portal — JS-rendered but WebFetch can extract page 1 (20 jobs found 2026-03-15, page 1 of 4). Pagination requires cookies. Locations: San Rafael, Novato, Larkspur, Greenbrae. Bay Area FQHC (Marin County, 6 sites, 32K+ patients, NextGen EHR).",
   },
 
   // ── JobVite (API available) ── ✅
   {
     fqhcSlug: "petaluma-health-center",
-    scrapeable: false,
+    scrapeable: true,
     atsType: "jobvite",
-    lastChecked: "2026-03-07",
-    atsApiUrl: "https://jobs.jobvite.com/phc/",
+    lastChecked: "2026-03-15",
+    atsApiUrl: "https://jobs.jobvite.com/phc/jobs",
     notes:
-      "JobVite portal confirmed at jobs.jobvite.com/phc/ but JS-rendered (AngularJS SPA). No public JSON endpoint at jobs.json — returns JS application shell. Cannot scrape programmatically. Petaluma/Sonoma County FQHC. 3.9★ Glassdoor.",
+      "JobVite portal at jobs.jobvite.com/phc/jobs — WebFetch can extract full job list. 24 jobs found 2026-03-15. Departments: Billing, Dental, Dental Providers, Finance, Medical Assistants, Mental Health Providers, Nurse Practitioner, OB, Primary Care Providers, Urgent Care, Vision. Petaluma/Sonoma County FQHC. 3.9★ Glassdoor, 20 sites, 41K+ patients, OCHIN Epic.",
   },
 
   // ── SmartRecruiters (API available) ── ✅
@@ -218,11 +218,11 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     fqhcSlug: "the-davis-street-community-center",
     scrapeable: false,
     atsType: "smartrecruiters",
-    lastChecked: "2026-03-07",
+    lastChecked: "2026-03-15",
     atsApiUrl:
       "https://careers.smartrecruiters.com/DavisStreetCommunityCenterInc",
     notes:
-      "SmartRecruiters API tested — returns totalFound: 0. Company may not have public postings listed or company ID is incorrect. Try 'DavisStreetCommunityCenter' (without 'Inc') or check if postings require auth. Manual review at careers.smartrecruiters.com/DavisStreetCommunityCenterInc.",
+      "SmartRecruiters API confirmed — both 'DavisStreetCommunityCenterInc' and 'DavisStreetCommunityCenter' return totalFound: 0. No public postings available as of 2026-03-15. Small East Bay FQHC may not be actively hiring or uses different recruitment channels.",
   },
 
   // ── JazzHR (WebFetch-scrapeable, JS-rendered for API) ── ✅

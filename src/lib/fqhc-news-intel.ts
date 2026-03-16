@@ -153,6 +153,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://calmatters.org/health/2026/03/durazo-reverse-medical-undocumented-immigrants/",
     sourceOrg: "CalMatters",
     region: "California",
+    affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "clinica-sierra-vista", "san-ysidro-health"],
     tags: ["medi-cal", "undocumented", "sb-1422", "pps", "uis"],
   },
   {
@@ -172,6 +173,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://abc7.com/post/federal-funding-cuts-force-orange-county-health-care-agency-close-clinics/16162489/",
     sourceOrg: "ABC7 Los Angeles",
     region: "Orange County",
+    affectedOrgSlugs: ["share-our-selves", "families-together-of-orange-county", "north-orange-county-regional-health-foundation"],
     tags: ["orange-county", "clinic-closures", "los-angeles", "federal-cuts"],
   },
   {
@@ -273,6 +275,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.pressdemocrat.com/2026/03/05/kaiser-permanente-mental-health-workers-in-santa-rosa-set-to-strike-this-month/",
     sourceOrg: "Press Democrat",
     region: "Sonoma County",
+    affectedOrgSlugs: ["petaluma-health-center", "mchc-health-centers", "redwood-community-health-coalition"],
     tags: ["bay-area", "kaiser", "mental-health", "labor-strike", "ai-replacement", "nuhw", "workforce-pipeline"],
   },
   {
@@ -354,7 +357,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Press-Enterprise",
     region: "San Bernardino County",
     affectedOrgs: [],
-    affectedOrgSlugs: [],
+    affectedOrgSlugs: ["borrego-health", "sac-health", "riverside-university-health-system-chc", "community-health-systems-inc", "inland-faculty-medical-group"],
     tags: ["inland-empire", "snap-ed", "nutrition", "public-health", "hr-1"],
   },
   /* ============================================================== */
@@ -399,7 +402,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "San Francisco Chronicle",
     region: "San Francisco",
     affectedOrgs: ["SF Community Health Center", "NEMS", "HealthRIGHT 360"],
-    affectedOrgSlugs: ["san-francisco-community-health-center"],
+    affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "healthright-360"],
     tags: ["budget-cuts", "bay-area", "san-francisco", "dph", "medi-cal", "county-funding"],
   },
   {
@@ -524,6 +527,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.abc10.com/article/news/local/sacramento-county-health-funding-cut-rfk-california-doge/103-b1e53d57-777f-462c-becd-67bfebb4c89e",
     sourceOrg: "ABC10 Sacramento",
     region: "Sacramento County",
+    affectedOrgSlugs: ["sacramento-county-primary", "wellspace-health", "elica-health-centers", "one-community-health"],
     tags: ["sacramento", "federal-cuts", "hhs", "cdc-grants", "patient-volume"],
   },
   {
@@ -544,6 +548,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "PR Newswire",
     region: "California",
     affectedOrgs: ["Comprehensive Community Health Centers"],
+    affectedOrgSlugs: ["comprehensive-community-health-centers"],
     tags: ["expansion", "nevada", "fqhc-growth", "los-angeles", "transparent-pricing"],
   },
   {
@@ -563,6 +568,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.ktvu.com/video/fmc-s5kjj7k3h2w09riy",
     sourceOrg: "KTVU",
     region: "Bay Area",
+    affectedOrgSlugs: ["lifelong-medical-care", "asian-health-services", "la-clinica-de-la-raza", "healthright-360"],
     tags: ["ai", "street-medicine", "unhoused", "calAIM", "ecm", "scope-expansion", "chw"],
   },
 
@@ -682,6 +688,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://health-access.org/senator-durazo-and-assemblymember-arambula-introduce-medi-cal-access-restoration-act-to-reverse-enrollment-freeze-for-undocumented-californians/",
     sourceOrg: "Health Access California",
     region: "California",
+    affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "clinica-sierra-vista", "san-ysidro-health"],
     tags: ["undocumented", "medi-cal", "enrollment-freeze", "restoration"],
   },
 
@@ -705,6 +712,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://calmatters.org/health/2025/05/newsom-freeze-medi-cal-undocumented-immigrants/",
     sourceOrg: "CalMatters",
     region: "California",
+    affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "clinica-sierra-vista", "san-ysidro-health", "la-maestra-community-health-centers", "kheir-clinic", "umma-community-clinic"],
     tags: ["undocumented", "medi-cal", "enrollment-freeze", "revenue-impact", "in-effect"],
   },
   {
@@ -724,6 +732,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.dhcs.ca.gov/Medi-Cal/Pages/immigration-status-categories.aspx",
     sourceOrg: "CA DHCS",
     region: "California",
+    affectedOrgSlugs: ["altamed-health-services", "san-ysidro-health", "family-health-centers-of-san-diego", "clinica-sierra-vista", "la-maestra-community-health-centers"],
     tags: ["undocumented", "dental", "medi-cal", "revenue-impact"],
   },
   {
@@ -743,6 +752,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.dhcs.ca.gov/Budget/Documents/DHCS-TBL-Policy-Changes-to-Individuals-with-UIS-Fact-Sheet.pdf",
     sourceOrg: "CA DHCS",
     region: "California",
+    affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "clinica-sierra-vista", "san-ysidro-health", "la-maestra-community-health-centers", "kheir-clinic", "umma-community-clinic"],
     tags: ["undocumented", "pps", "revenue-impact", "fee-schedule"],
   },
   {
@@ -908,7 +918,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Santa Clara County",
     region: "Santa Clara County",
     affectedOrgs: ["Santa Clara Valley Medical Center"],
-    affectedOrgSlugs: [],
+    affectedOrgSlugs: ["county-of-santa-clara", "indian-health-center-of-santa-clara-valley", "school-health-clinics-of-santa-clara-county", "gardner-health-services"],
     tags: ["layoffs", "county-cuts", "budget-deficit"],
   },
   {
@@ -929,7 +939,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Becker's Payer Issues",
     region: "Los Angeles County",
     affectedOrgs: ["L.A. Care Health Plan"],
-    affectedOrgSlugs: [],
+    affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "northeast-valley-health-corporation", "eisner-health", "south-central-family-health-center"],
     tags: ["layoffs", "managed-care", "warn-act", "ecm-impact"],
   },
   {
@@ -950,7 +960,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "The Oaklandside",
     region: "Alameda County",
     affectedOrgs: ["Alameda Health System"],
-    affectedOrgSlugs: [],
+    affectedOrgSlugs: ["alameda-health-system"],
     tags: ["layoffs", "deferred", "dsh-funding", "mental-health", "working-group"],
   },
   {
@@ -1011,6 +1021,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.kvpr.org/health/2026-02-10/valley-hospitals-clinics-brace-for-financial-tsunami-threatening-health-care-access",
     sourceOrg: "KVPR (Valley Public Radio)",
     region: "Central Valley",
+    affectedOrgSlugs: ["united-health-centers", "family-healthcare-network", "clinica-sierra-vista", "camarena-health", "golden-valley-health-centers"],
     tags: ["central-valley", "farmworkers", "medi-cal", "financial-distress"],
   },
 
@@ -1075,7 +1086,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "ElevenFlo",
     region: "Los Angeles County",
     affectedOrgs: ["Prospect Medical Holdings"],
-    affectedOrgSlugs: [],
+    affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "south-central-family-health-center", "watts-healthcare-corporation"],
     tags: ["private-equity", "closures", "patient-displacement"],
   },
 
@@ -1175,6 +1186,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.cbsnews.com/losangeles/news/funding-cuts-los-angeles-county-public-health-closing-clinics/",
     sourceOrg: "CBS News Los Angeles",
     region: "Los Angeles",
+    affectedOrgSlugs: ["altamed-health-services", "northeast-valley-health-corporation", "st-johns-community-health", "south-central-family-health-center", "watts-healthcare-corporation"],
     tags: ["clinic-closures", "public-health", "la-county", "federal-cuts", "patient-redirect"],
   },
   {
@@ -1397,6 +1409,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Mission Local",
     region: "San Francisco County",
     affectedOrgs: ["San Francisco Community Clinic Consortium"],
+    affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "healthright-360", "mission-neighborhood-health-center"],
     tags: ["sf-budget", "dph-cuts", "community-clinics", "safety-net"],
   },
   {
@@ -1416,6 +1429,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://sfstandard.com/2026/03/02/san-francisco-budget-deficit-layoffs-jobs/",
     sourceOrg: "SF Standard",
     region: "San Francisco County",
+    affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "mission-neighborhood-health-center"],
     tags: ["sf-budget", "layoffs", "dph", "city-workforce"],
   },
   {
@@ -1436,7 +1450,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "KALW",
     region: "San Francisco County",
     affectedOrgs: ["San Francisco Community Health Center", "San Francisco AIDS Foundation"],
-    affectedOrgSlugs: ["san-francisco-community-health-center"],
+    affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "mission-neighborhood-health-center"],
     tags: ["sf-budget", "cbo-cuts", "lgbtq-health", "workforce-development"],
   },
   {
@@ -1478,6 +1492,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "SF Standard",
     region: "San Francisco County",
     affectedOrgs: ["San Francisco Community Clinic Consortium"],
+    affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "mission-neighborhood-health-center", "healthright-360"],
     tags: ["medi-cal", "hr1", "coverage-loss", "budget-deficit", "sfccc"],
   },
   {
@@ -1497,6 +1512,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.kqed.org/news/12069772/trump-eliminates-157-jobs-at-the-san-francisco-veterans-affairs-medical-center",
     sourceOrg: "KQED",
     region: "San Francisco County",
+    affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services"],
     tags: ["va", "federal-cuts", "workforce", "veterans"],
   },
   {
@@ -1579,6 +1595,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://fox5sandiego.com/news/local-news/san-diego-county/san-diego-county-funding-cuts/amp/",
     sourceOrg: "Fox 5 San Diego",
     region: "San Diego County",
+    affectedOrgSlugs: ["family-health-centers-of-san-diego", "san-ysidro-health", "neighborhood-healthcare", "la-maestra-community-health-centers", "vista-community-clinic"],
     tags: ["san-diego", "federal-cuts", "medi-cal", "calfresh", "budget-deficit"],
   },
   {
@@ -1640,6 +1657,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.chcf.org/resource/riverside-county-potential-medi-cal-cuts-distress-constituents-health-leaders/",
     sourceOrg: "CHCF",
     region: "Riverside County",
+    affectedOrgSlugs: ["borrego-health", "sac-health", "riverside-university-health-system-chc", "centro-medico-community-clinic", "community-health-systems-inc"],
     tags: ["inland-empire", "iehp", "medi-cal", "riverside", "san-bernardino", "coverage-loss"],
   },
   {
@@ -1659,6 +1677,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.sbsun.com/2026/01/11/two-thirds-of-appointments-at-loma-linda-va-outpatient-clinics-canceled-due-to-staff-shortages-audit-findsaudit-finds-69-of-canceled-appointments-at-loma-linda-va-outpatient-clinics-due-to-staffing-s/",
     sourceOrg: "San Bernardino Sun",
     region: "San Bernardino County",
+    affectedOrgSlugs: ["sac-health", "loma-linda-university-health-sac", "borrego-health"],
     tags: ["inland-empire", "va", "staffing", "loma-linda", "veterans"],
   },
   /* ============================================================== */
@@ -1744,6 +1763,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.montereycountynow.com/blogs/news_blog/trumps-big-beautiful-bill-will-mean-decreased-access-to-health-care-and-increased-costs-to/article_f4c26c47-bc5f-4ded-8e19-bd18b3de3f09.html",
     sourceOrg: "Monterey County Now",
     region: "Monterey County",
+    affectedOrgSlugs: ["county-of-monterey", "community-health-centers-central-coast"],
     tags: ["monterey", "natividad", "medi-cal", "dsh", "fmap", "undocumented", "central-coast"],
   },
   // --- Added 2026-03-06 (daily update #12) ---
@@ -1765,7 +1785,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "East Bay Times",
     region: "Alameda County",
     affectedOrgs: ["Alameda Health System"],
-    affectedOrgSlugs: [],
+    affectedOrgSlugs: ["alameda-health-system"],
     tags: ["layoffs-deferred", "working-group", "mental-health", "medicaid", "bay-area"],
   },
   {
@@ -1950,6 +1970,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.dhcs.ca.gov/Medi-Cal/Pages/immigration-status-categories.aspx",
     sourceOrg: "CA Department of Health Care Services",
     region: "California",
+    affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "clinica-sierra-vista", "san-ysidro-health", "la-maestra-community-health-centers"],
     tags: ["undocumented", "medi-cal-premium", "coverage-loss", "uis", "july-2027", "enrollment"],
   },
   {
@@ -1969,6 +1990,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.chcf.org/resource/how-massive-federal-cuts-will-create-unprecedented-challenges-medi-cal-patients-providers/",
     sourceOrg: "California Health Care Foundation",
     region: "California",
+    affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "san-ysidro-health", "clinica-sierra-vista", "united-health-centers", "la-maestra-community-health-centers", "kheir-clinic"],
     tags: ["pps", "undocumented-patients", "uis", "revenue-cut", "july-2026", "los-angeles", "san-diego", "central-valley", "dental"],
   },
   {
@@ -2186,6 +2208,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.prnewswire.com/news-releases/more-than-900-california-families-to-find-housing-stability-in-2026-thanks-to-31-25-million-investment-by-health-net-302701671.html",
     sourceOrg: "Health Net / Centene",
     region: "California",
+    affectedOrgSlugs: ["altamed-health-services", "jwch-institute", "wellspace-health", "community-medical-centers", "county-of-stanislaus"],
     tags: ["housing", "calaim", "community-supports", "health-net", "positive"],
   },
   {
@@ -2329,6 +2352,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://www.csh.org/2025/08/h-r-1-reshapes-medicaid-what-housing-providers-need-to-know-now/",
     sourceOrg: "CSH",
     region: "Federal",
+    affectedOrgSlugs: ["shasta-community-health-center", "open-door-community-health-centers", "mountain-valleys-health-centers", "hill-country-community-clinic", "mchc-health-centers"],
     tags: ["rural-health", "hr1", "grants", "north-state", "north-coast", "central-valley", "behavioral-health"],
   },
   {
@@ -2367,6 +2391,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceUrl: "https://calmatters.org/health/2026/02/glenn-county-comeback-soria-funding/",
     sourceOrg: "CalMatters",
     region: "Glenn County",
+    affectedOrgSlugs: ["ampla-health-sacramento"],
     tags: ["rural", "hospital-reopening", "north-state", "central-valley", "cms", "resilience"],
   },
   {

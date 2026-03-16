@@ -124,7 +124,7 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
       "https://www.eclinicalworks.com/31-provider-fqhc-to-leverage-eclinicalworks-ai-driven-ehr-and-sunoh-ai-ai-medical-scribe/",
     sourceOrg: "eClinicalWorks",
     date: "2026-02-15",
-    tags: ["eclinicalworks", "sunoh", "california-fqhc", "nachc-select", "san-diego"],
+    tags: ["eclinicalworks", "sunoh", "california-fqhc", "nachc-select", "san-diego", "imperial-beach-community-clinic"],
   },
   {
     id: "ambient-ai-coding-policy-brief",
@@ -406,7 +406,7 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceUrl: "https://www.techtarget.com/healthtechanalytics/feature/How-an-FQHC-is-using-ambient-AI-to-reduce-clinician-burden",
     sourceOrg: "TechTarget",
     date: "2026-02-15",
-    tags: ["ambient-ai", "california-fqhc", "nabla", "patient-acceptance", "large-scale"],
+    tags: ["ambient-ai", "california-fqhc", "nabla", "patient-acceptance", "large-scale", "neighborhood-healthcare"],
     featured: true,
   },
   {
@@ -505,7 +505,7 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceUrl: "https://snahc.org/2025/08/29/ai-scribes-revolutionizing-medical-documentation/",
     sourceOrg: "Sacramento Native American Health Center",
     date: "2025-08-29",
-    tags: ["ambient-ai", "scribe", "documentation", "native-american", "cultural-sensitivity", "tribal-health"],
+    tags: ["ambient-ai", "scribe", "documentation", "native-american", "cultural-sensitivity", "tribal-health", "sacramento-native-american-health-center"],
   },
   {
     id: "abridge-best-in-klas-2026",
@@ -560,7 +560,7 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
       "eclinicalworks",
       "sunoh-ai",
       "ambient-scribe",
-      "imperial-beach",
+      "imperial-beach-community-clinic",
       "southern-california",
     ],
   },
@@ -614,7 +614,7 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceUrl: "https://www.ktvu.com/video/fmc-s5kjj7k3h2w09riy",
     sourceOrg: "KTVU / CalMatters",
     date: "2026-01-28",
-    tags: ["street-medicine", "unhoused", "calAIM", "ecm", "bay-area", "chw-scope-expansion", "medi-cal"],
+    tags: ["street-medicine", "unhoused", "calAIM", "ecm", "bay-area", "chw-scope-expansion", "medi-cal", "lifelong-medical-care"],
     featured: true,
   },
   {
@@ -639,7 +639,7 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceUrl: "https://www.businesswire.com/news/home/20250429541473/en/AltaMed-Health-Services-Corporation-Partners-with-Abridge-to-Bring-Leading-AI-Technology-to-Multilingual-Communities",
     sourceOrg: "BusinessWire",
     date: "2025-04-29",
-    tags: ["ai-scribe", "ambient-documentation", "altamed", "abridge", "los-angeles", "large-fqhc", "multilingual", "clinical-informatics"],
+    tags: ["ai-scribe", "ambient-documentation", "altamed-health-services", "abridge", "los-angeles", "large-fqhc", "multilingual", "clinical-informatics"],
     featured: true,
   },
   // --- Added 2026-03-10 (daily update #16) ---
