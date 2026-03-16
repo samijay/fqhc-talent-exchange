@@ -9,7 +9,8 @@ import { routing } from "@/i18n/routing";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
-import CookieConsent from "@/components/analytics/CookieConsent";
+// Cookie consent banner removed — CCPA requires opt-out only (not opt-in).
+// GA now loads immediately; users can opt out via privacy policy or GA browser add-on.
 import FeedbackButton from "@/components/layout/FeedbackButton";
 import { Toaster } from "@/components/ui/sonner";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
@@ -50,7 +51,6 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Header />
             <main className="min-h-screen">{children}</main>
             <Footer />
-            <CookieConsent />
             <GoogleAnalytics />
             <FeedbackButton />
             <Toaster />

@@ -6,13 +6,15 @@ import { useEffect, useState } from "react";
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 /**
- * GoogleAnalytics — consent-first, DNT-respecting.
+ * GoogleAnalytics — DNT-respecting, no consent gate.
  *
- * GA scripts only load when:
- * 1. The user has NOT enabled Do Not Track (DNT) in their browser
- * 2. The user has not explicitly opted out (localStorage "ga-opt-out")
+ * GA scripts load immediately unless:
+ * 1. The user has enabled Do Not Track (DNT) in their browser
+ * 2. The user has explicitly opted out (localStorage "ga-opt-out")
  *
- * This matches our privacy policy's claims about DNT detection.
+ * No cookie consent banner required — CCPA (California) requires
+ * opt-out only, not opt-in. Users can opt out via privacy policy
+ * or the Google Analytics Opt-out Browser Add-on.
  */
 export default function GoogleAnalytics() {
   const [canLoad, setCanLoad] = useState(false);
@@ -31,22 +33,10 @@ export default function GoogleAnalytics() {
     // Respect explicit opt-out stored in localStorage
     const optedOut = localStorage.getItem("ga-opt-out") === "true";
 
-    // Only load GA4 if: no DNT, not opted out, AND user accepted cookies
-    const consent = localStorage.getItem("fqhc-cookie-consent");
-
-    if (!dnt && !optedOut && consent === "accepted") {
+    // Load GA4 if: no DNT and not opted out
+    if (!dnt && !optedOut) {
       setCanLoad(true);
     }
-
-    // Listen for same-tab consent acceptance (CookieConsent dispatches this)
-    const handleConsent = () => {
-      if (!dnt && !optedOut) setCanLoad(true);
-    };
-    window.addEventListener("cookie-consent-accepted", handleConsent);
-
-    return () => {
-      window.removeEventListener("cookie-consent-accepted", handleConsent);
-    };
   }, []);
 
   if (!GA_MEASUREMENT_ID || !canLoad) return null;

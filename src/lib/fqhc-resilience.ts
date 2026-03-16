@@ -483,6 +483,53 @@ export function getResilienceByRegion(region: string): ResilienceScore[] {
   return getAllResilienceScores().filter((s) => s.region === region);
 }
 
+/** Find FQHCs similar to a given one (same region, similar size/programs) */
+export function getSimilarFQHCs(
+  slug: string,
+  limit: number = 3
+): { slug: string; name: string; region: string; grade: string; score: number; sharedPrograms: number }[] {
+  const target = californiaFQHCs.find((f) => f.slug === slug);
+  if (!target) return [];
+
+  const targetScore = calculateResilienceScore(target);
+  const targetPrograms = new Set(target.programs);
+  const targetPatients = parseInt(target.patientCount.replace(/[^0-9]/g, "")) || 0;
+
+  return californiaFQHCs
+    .filter((f) => f.slug !== slug)
+    .map((f) => {
+      const score = calculateResilienceScore(f);
+      const sharedPrograms = f.programs.filter((p) => targetPrograms.has(p)).length;
+      const patients = parseInt(f.patientCount.replace(/[^0-9]/g, "")) || 0;
+
+      // Similarity scoring (higher = more similar)
+      let similarity = 0;
+      if (f.region === target.region) similarity += 40; // same region = strong signal
+      similarity += sharedPrograms * 5; // shared programs
+      if (f.ehrSystem === target.ehrSystem && f.ehrSystem !== "Unknown") similarity += 10;
+      // Size similarity (within 50% range)
+      if (targetPatients > 0 && patients > 0) {
+        const ratio = Math.min(patients, targetPatients) / Math.max(patients, targetPatients);
+        similarity += Math.round(ratio * 20);
+      }
+      // Score proximity
+      similarity += Math.max(0, 10 - Math.abs(targetScore.overall - score.overall) / 5);
+
+      return {
+        slug: f.slug,
+        name: f.name,
+        region: f.region,
+        grade: score.grade,
+        score: score.overall,
+        sharedPrograms,
+        _similarity: similarity,
+      };
+    })
+    .sort((a, b) => b._similarity - a._similarity)
+    .slice(0, limit)
+    .map(({ _similarity, ...rest }) => rest);
+}
+
 export function getResilienceStats() {
   const scores = getAllResilienceScores();
   const overalls = scores.map((s) => s.overall);

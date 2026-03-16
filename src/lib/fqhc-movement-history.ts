@@ -1245,6 +1245,37 @@ export function getAllianceById(id: string): CrossCulturalAlliance | undefined {
   return CROSS_CULTURAL_ALLIANCES.find((alliance) => alliance.id === id);
 }
 
+/** Get movement events related to a specific FQHC (by name match in organizations) */
+export function getMovementEventsForFQHC(
+  _slug: string,
+  fqhcName: string
+): TimelineEvent[] {
+  // Extract key words from FQHC name for matching
+  const nameKey = fqhcName.toLowerCase();
+  return MOVEMENT_EVENTS.filter((event) =>
+    event.organizations.some((org) => {
+      const orgLower = org.toLowerCase();
+      // Check if org name includes key part of FQHC name or vice versa
+      return (
+        orgLower.includes(nameKey) ||
+        nameKey.includes(orgLower) ||
+        // Check first few significant words overlap
+        nameKey.split(/\s+/).filter((w) => w.length > 3).some((w) => orgLower.includes(w))
+      );
+    })
+  ).sort((a, b) => a.year - b.year);
+}
+
+/** Get alliances mentioning a specific FQHC (by name match) */
+export function getAlliancesForFQHC(fqhcName: string): CrossCulturalAlliance[] {
+  const nameKey = fqhcName.toLowerCase();
+  return CROSS_CULTURAL_ALLIANCES.filter((alliance) => {
+    const desc = alliance.description.en.toLowerCase();
+    const relevance = alliance.relevanceToFQHC.en.toLowerCase();
+    return desc.includes(nameKey) || relevance.includes(nameKey);
+  });
+}
+
 export function getTimelineRange(): { minYear: number; maxYear: number } {
   const years = MOVEMENT_EVENTS.map((e) => e.year);
   const endYears = MOVEMENT_EVENTS.filter((e) => e.endYear).map((e) => e.endYear!);

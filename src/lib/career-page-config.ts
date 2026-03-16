@@ -4,7 +4,7 @@
 // Last updated: 2026-03-07 (daily update #14, expanded with 20+ FQHCs)
 
 /** Exported for display on pages — updated by /daily-update and /scrape-jobs pipelines */
-export const CAREER_CONFIG_LAST_UPDATED = "2026-03-13";
+export const CAREER_CONFIG_LAST_UPDATED = "2026-03-15";
 
 export interface CareerPageConfig {
   fqhcSlug: string;
@@ -41,40 +41,40 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     fqhcSlug: "altamed-health-services",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-03-13",
+    lastChecked: "2026-03-15",
     atsApiUrl:
       "https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs",
     notes:
-      "Largest FQHC in CA. 251 jobs found 2026-03-13 (prev 253, -2 — stable). AltaMed generated $15.1B economic impact (2019-2024), supports 12,000 jobs, serves 465,000 Medi-Cal patients. Abridge AI scribe deployment confirmed. Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
+      "Largest FQHC in CA. 248 jobs found 2026-03-15 (prev 247, +1 — stable). AltaMed generated $15.1B economic impact (2019-2024), supports 12,000 jobs, serves 465,000 Medi-Cal patients. Abridge AI scribe deployment confirmed. Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
   },
   {
     fqhcSlug: "family-health-centers-of-san-diego",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-03-13",
+    lastChecked: "2026-03-15",
     atsApiUrl:
       "https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs",
     notes:
-      "160 jobs found 2026-03-13 (prev 162, -2 — stable). DOC (physician) portal currently shows 0 jobs. Blue Shield invested $80K in MA training scholarships at FHCSD Laura Rodriguez MA Institute. Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
+      "157 jobs found 2026-03-15 (prev 157, = — stable). DOC (physician) portal currently shows 0 jobs. Blue Shield invested $80K in MA training scholarships at FHCSD Laura Rodriguez MA Institute. Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
   },
   {
     fqhcSlug: "asian-health-services",
     scrapeable: true,
     atsType: "lever",
-    lastChecked: "2026-03-13",
+    lastChecked: "2026-03-15",
     atsApiUrl: "https://api.lever.co/v0/postings/ahschc?mode=json",
     notes:
-      "21 jobs found 2026-03-13 (prev 21, =). Lever slug is 'ahschc'.",
+      "20 jobs found 2026-03-15 (prev 20, = — stable). Lever slug is 'ahschc'.",
   },
   {
     fqhcSlug: "la-clinica-de-la-raza",
     scrapeable: true,
     atsType: "direct",
-    lastChecked: "2026-03-13",
+    lastChecked: "2026-03-15",
     atsApiUrl:
       "http://laclinica.hrmdirect.com/employment/job-openings.php?search=true&dept=-1&city=-1&state=-1",
     notes:
-      "189 jobs found 2026-03-13 (prev 188, +1 — stable). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
+      "190 jobs found 2026-03-15 (prev 190, = — stable). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
   },
 
   // ── ADP Workforce Now (JS-only, not scrapeable) ── ❌

@@ -749,6 +749,17 @@ export const californiaFQHCLayoffs: LayoffEntry[] = [
 /*  Helper functions                                                    */
 /* ------------------------------------------------------------------ */
 
+/** Get layoff entries for a specific FQHC by slug */
+export function getLayoffsForFQHC(slug: string): LayoffEntry[] {
+  return californiaFQHCLayoffs
+    .filter((l) => l.slug === slug)
+    .sort(
+      (a, b) =>
+        new Date(b.dateAnnounced).getTime() -
+        new Date(a.dateAnnounced).getTime()
+    );
+}
+
 export function getLayoffStats() {
   const entries = californiaFQHCLayoffs;
   const totalAffected = entries.reduce(

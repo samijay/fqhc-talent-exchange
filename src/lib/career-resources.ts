@@ -599,6 +599,25 @@ export function getAllSources(): { org: string; url: string }[] {
   return CAREER_RESOURCES.map((r) => ({ org: r.sourceOrg, url: r.url }));
 }
 
+/** Get resources relevant to a specific FQHC based on their programs and NHSC status */
+export function getResourcesForFQHC(fqhc: {
+  nhscApproved: boolean;
+  programs: string[];
+  ecmProvider: boolean;
+}): CareerResource[] {
+  return CAREER_RESOURCES.filter((r) => {
+    // NHSC loan repayment is relevant if FQHC is NHSC-approved
+    if (r.category === "loan-repayment" && fqhc.nhscApproved) return true;
+    // ECM resources for ECM providers
+    if (fqhc.ecmProvider && r.tags.some((t) => ["care_coordinator", "chw", "case_manager"].includes(t))) return true;
+    // BH resources if FQHC has BH Integration
+    if (fqhc.programs.includes("BH Integration") && r.tags.includes("behavioral_health")) return true;
+    // Free training is always relevant
+    if (r.cost === "free" && r.isFeatured) return true;
+    return false;
+  });
+}
+
 /** Count resources by cost tier */
 export function getResourceCounts(): {
   total: number;

@@ -1160,6 +1160,31 @@ export function getFeaturedAIItems(): AIAdoptionItem[] {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
+/** Get AI adoption items relevant to a specific FQHC by slug or name */
+export function getAIAdoptionForFQHC(
+  slug: string,
+  fqhcName: string
+): AIAdoptionItem[] {
+  const nameWords = fqhcName.toLowerCase().split(/\s+/).filter((w) => w.length > 3);
+  return AI_ADOPTION_ITEMS.filter((item) => {
+    // Check tags for slug match
+    if (item.tags.some((t) => t.toLowerCase() === slug.toLowerCase())) return true;
+    // Check description for FQHC name match
+    const desc = item.description.en.toLowerCase();
+    if (nameWords.length >= 2 && nameWords.every((w) => desc.includes(w))) return true;
+    return false;
+  }).sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+}
+
+/** Get AI vendors used by a specific FQHC (by name match in fqhcCustomers) */
+export function getVendorsForFQHC(fqhcName: string): AIVendor[] {
+  return FQHC_AI_VENDORS.filter((v) =>
+    v.fqhcCustomers.some((c) => c.toLowerCase().includes(fqhcName.toLowerCase().split(" ")[0]))
+  );
+}
+
 /** Get counts by adoption stage */
 export function getAdoptionStageCounts(): Record<AdoptionStage, number> {
   const counts = {} as Record<AdoptionStage, number>;

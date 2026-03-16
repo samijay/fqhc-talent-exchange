@@ -1119,3 +1119,31 @@ export function getCertificationsForRole(roleId: string): {
 export function filterByCost(certs: Certification[], tier: CostTier): Certification[] {
   return certs.filter((c) => c.costTier === tier);
 }
+
+/** Get certifications relevant to an FQHC based on their programs and hiring */
+export function getCertificationsForFQHC(fqhc: {
+  programs: string[];
+  ecmProvider: boolean;
+}): Certification[] {
+  const relevantRoles: string[] = [];
+  // Map FQHC programs to role IDs
+  if (fqhc.ecmProvider || fqhc.programs.includes("ECM")) {
+    relevantRoles.push("chw", "care_coordinator", "case_manager");
+  }
+  if (fqhc.programs.includes("BH Integration") || fqhc.programs.includes("BH-ASO")) {
+    relevantRoles.push("behavioral_health", "social-worker");
+  }
+  if (fqhc.programs.includes("Dental")) {
+    relevantRoles.push("dental");
+  }
+  if (fqhc.programs.includes("Pharmacy")) {
+    relevantRoles.push("pharmacy");
+  }
+  // Always include general nursing/MA certs
+  relevantRoles.push("registered_nurse", "medical_assistant");
+
+  const uniqueRoles = [...new Set(relevantRoles)];
+  return CERTIFICATIONS.filter((c) =>
+    uniqueRoles.some((r) => c.requiredFor.includes(r) || c.helpfulFor.includes(r))
+  );
+}

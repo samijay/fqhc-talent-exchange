@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-13";
+export const INTEL_LAST_UPDATED = "2026-03-15";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -90,6 +90,49 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 /* ------------------------------------------------------------------ */
 
 export const INTEL_ITEMS: IntelItem[] = [
+  /* ============================================================== */
+  /*  March 14, 2026                                                 */
+  /* ============================================================== */
+  {
+    id: "ahrq-ambient-scribe-implementation-guide",
+    date: "2026-03-14",
+    headline: {
+      en: "AHRQ Funds $2M Study on Safe AI Scribe Implementation in Primary Care",
+      es: "AHRQ Financia Estudio de $2M sobre Implementación Segura de Escribas IA en Atención Primaria",
+    },
+    summary: {
+      en: "The Agency for Healthcare Research and Quality awarded nearly $2M to Brigham and Women's Hospital to develop a prototype guide for safe integration of ambient digital scribes into primary care. The study focuses on physician burnout reduction, quality improvement, and technology usability — directly relevant for FQHCs considering AI scribe adoption. This federal validation signals ambient AI is moving from hype to evidence-based implementation.",
+      es: "AHRQ otorgó casi $2M al Brigham and Women's Hospital para desarrollar una guía prototipo para la integración segura de escribas digitales ambientales en atención primaria. El estudio se centra en la reducción del agotamiento médico y la mejora de calidad.",
+    },
+    category: "change-management" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://digital.ahrq.gov/ahrq-funded-projects/search/download?page=&_format=csv",
+    sourceOrg: "AHRQ Digital Healthcare Research",
+    region: "Federal",
+    tags: ["ai-adoption", "ambient-ai", "primary-care", "federal-research"],
+  },
+  {
+    id: "north-coast-fqhcs-medicaid-vulnerability-2026",
+    date: "2026-03-14",
+    headline: {
+      en: "North Coast FQHCs Brace for H.R. 1 Impact — Open Door CEO Warns 50%+ Patients on Medi-Cal",
+      es: "FQHCs de la Costa Norte se Preparan para Impacto de H.R. 1 — CEO de Open Door Advierte que 50%+ Pacientes Tienen Medi-Cal",
+    },
+    summary: {
+      en: "Open Door Community Health Centers, the largest provider of obstetrics and primary care in Humboldt and Del Norte counties, warns that over half its patients are on Medi-Cal. As other rural practices have closed over time, FQHCs like Open Door have become the only option. Partnership HealthPlan describes Medicaid as an 'economic engine' for its 24 rural counties. H.R. 1 changes won't take full effect until late 2026, creating a slow-motion crisis for North Coast safety-net providers.",
+      es: "Open Door Community Health Centers, el mayor proveedor de obstetricia y atención primaria en los condados de Humboldt y Del Norte, advierte que más de la mitad de sus pacientes tienen Medi-Cal. A medida que otras prácticas rurales han cerrado, los FQHCs se han convertido en la única opción.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://lostcoastoutpost.com/2025/jul/3/local-reactions-health-care-workers-passage-trump/",
+    sourceOrg: "Lost Coast Outpost",
+    region: "Humboldt County",
+    affectedOrgs: ["Open Door Community Health Centers"],
+    affectedOrgSlugs: ["open-door-community-health-centers"],
+    tags: ["north-coast", "rural-fqhc", "medicaid-cuts", "open-door"],
+  },
   /* ============================================================== */
   /*  March 13, 2026                                                 */
   /* ============================================================== */
