@@ -167,7 +167,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     lastChecked: "2026-03-15",
     atsApiUrl: "https://nonprovider-unitedhealthcenters.icims.com/jobs/search",
     notes:
-      "iCIMS portal — JS-rendered but WebFetch can extract page 1 data. Two portals: nonprovider (20 jobs found 2026-03-15, page 1 of 4) and provider (20 jobs found 2026-03-15, page 1 of 2). ~40 total openings. Pagination requires cookies. Major Central Valley FQHC (Fresno/Tulare/Kings/Madera counties, 22 sites, 120K+ patients).",
+      "iCIMS portal — JS-rendered but WebFetch can extract paginated data. Two portals: nonprovider (~54 jobs, 4 pages) and provider (~20 jobs, 2 pages). ~74 total openings found 2026-03-15. 72 listings in static data (uhc-001 to uhc-072). New batch added 2026-03-15: 32 jobs including ECM Lead Care Manager, QI Specialist, Data Analyst, CPHW, WIC RD, PA-C, FNP, 2 Physicians ($200-270K), LCSW, Optometrist, plus MAs across Sanger/Reedley/Parlier/Kerman/Dinuba. Locations: Fresno (multiple sites), Sanger, Reedley, Selma, Hanford, Delano, Lemoore, Parlier, Fowler, Huron, Kerman, Visalia, Dinuba, Corcoran. Major Central Valley FQHC (Fresno/Tulare/Kings/Madera counties, 22+ sites, 120K+ patients).",
   },
 
   // ── Additional Workday (JSON API available) ── ✅
@@ -199,7 +199,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     lastChecked: "2026-03-15",
     atsApiUrl: "https://careers-marinclinic.icims.com/jobs/search",
     notes:
-      "iCIMS portal — JS-rendered but WebFetch can extract page 1 (20 jobs found 2026-03-15, page 1 of 4). Pagination requires cookies. Locations: San Rafael, Novato, Larkspur, Greenbrae. Bay Area FQHC (Marin County, 6 sites, 32K+ patients, NextGen EHR).",
+      "iCIMS portal — JS-rendered but WebFetch can extract paginated data. ~62 jobs found 2026-03-15 (4 pages, prev ~20 page 1 only). 44 listings in static data (marin-001 to marin-044). New batch added 2026-03-15: 21 jobs including Director BH Fellowship Training, RN, MA Supervisor, Revenue Cycle Liaison, Medical Scribe, 5 Physicians ($243-286K), 3 FNP/PAs ($135-170K), BH Clinical Supervisor LCSW, Dentists, Senior Financial Analyst. Locations: San Rafael, Novato, Larkspur, Greenbrae. Bay Area FQHC (Marin County, 6 sites, 32K+ patients, OCHIN Epic).",
   },
 
   // ── JobVite (API available) ── ✅
@@ -210,7 +210,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     lastChecked: "2026-03-15",
     atsApiUrl: "https://jobs.jobvite.com/phc/jobs",
     notes:
-      "JobVite portal at jobs.jobvite.com/phc/jobs — WebFetch can extract full job list. 24 jobs found 2026-03-15. Departments: Billing, Dental, Dental Providers, Finance, Medical Assistants, Mental Health Providers, Nurse Practitioner, OB, Primary Care Providers, Urgent Care, Vision. Petaluma/Sonoma County FQHC. 3.9★ Glassdoor, 20 sites, 41K+ patients, OCHIN Epic.",
+      "JobVite portal at jobs.jobvite.com/phc/jobs — WebFetch can extract full job list. 24 jobs found 2026-03-15 (prev 24, = — stable). 27 listings in static data (phc-001 to phc-027). Departments: Billing, Dental, Dental Providers, Finance, Medical Assistants, Mental Health Providers, Nurse Practitioner, OB, Primary Care Providers, Urgent Care, Vision. New: Medical Director Rural Health, Urgent Care Physician, Staff Dentist, Internal Medicine Physician. Petaluma/Sonoma County FQHC. 3.9★ Glassdoor, 20 sites, 41K+ patients, OCHIN Epic.",
   },
 
   // ── SmartRecruiters (API available) ── ✅
