@@ -615,6 +615,18 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/strategy/masterclass` },
   },
+  strategyResearch: {
+    title: "FQHC Academic Research Archive | Evidence Base for Community Health Strategy",
+    description:
+      "Curated academic research, peer-reviewed studies, and evidence-based resources for FQHC executives and policymakers. Primary sources from HRSA, NACHC, KFF, CHCF, and leading universities.",
+    openGraph: {
+      title: "FQHC Research Archive — FQHC Talent",
+      description:
+        "Academic research and evidence base for FQHC strategy — peer-reviewed studies, policy briefs, and primary sources.",
+      url: `${SITE_URL}/strategy/research`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/research` },
+  },
   resumeBuilder: {
     title: "Free FQHC Resume Builder | Community Health Resume Templates",
     description:

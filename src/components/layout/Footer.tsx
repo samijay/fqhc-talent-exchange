@@ -29,6 +29,7 @@ export default function Footer() {
       { href: "/strategy/resilience" as const, label: t("resilience") },
       { href: "/strategy/scope-of-practice" as const, label: t("scopeOfPractice") },
       { href: "/strategy/workforce-resilience" as const, label: t("workforceResilience") },
+      { href: "/strategy/research" as const, label: t("researchArchive") },
     ],
     [t("intelligence")]: [
       { href: "/" as const, label: t("dashboard") },

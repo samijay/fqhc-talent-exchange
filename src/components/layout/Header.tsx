@@ -246,6 +246,7 @@ export default function Header() {
             { href: "/strategy/frameworks", label: t("executionFrameworks") },
             { href: "/strategy/masterclass", label: t("masterclass") },
             { href: "/strategy/leaders", label: t("thoughtLeaders") },
+            { href: "/strategy/research", label: t("researchArchive") },
           ],
         },
         {
