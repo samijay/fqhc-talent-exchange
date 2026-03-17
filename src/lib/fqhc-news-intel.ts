@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-15";
+export const INTEL_LAST_UPDATED = "2026-03-17";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -90,6 +90,49 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 /* ------------------------------------------------------------------ */
 
 export const INTEL_ITEMS: IntelItem[] = [
+  /* ============================================================== */
+  /*  March 17, 2026                                                 */
+  /* ============================================================== */
+  {
+    id: "stat-news-fqhc-financial-sustainability-crisis",
+    date: "2026-03-17",
+    headline: {
+      en: "STAT News: FQHCs' Greatest Threat Isn't Funding Cuts — It's Structural Insolvency",
+      es: "STAT News: La Mayor Amenaza para los FQHCs No Son los Recortes — Es la Insolvencia Estructural",
+    },
+    summary: {
+      en: "A major STAT News analysis argues that FQHCs face an existential financial crisis beyond federal funding cuts. FQHC net margins collapsed from 5.3% (2020-2022) to negative 2.1% in 2024. The community health center program posted a 2% program-wide financial loss in 2025. Federal grants remained flat 2019-2023 while healthcare costs rose 25%+. One restructured FQHC found core medical services operating at a '$5/visit loss.' Author calls for rigorous financial discipline and program performance analysis as 'foundational to mission delivery.'",
+      es: "Un análisis de STAT News argumenta que los FQHCs enfrentan una crisis financiera existencial más allá de los recortes federales. Los márgenes netos de FQHC colapsaron de 5.3% (2020-2022) a -2.1% negativo en 2024. El programa reportó una pérdida financiera del 2% en 2025. Las subvenciones federales se mantuvieron estancadas 2019-2023 mientras los costos de salud subieron 25%+.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "analysis" as IntelType,
+    sourceUrl: "https://www.statnews.com/2026/03/17/federally-qualified-health-centers-fqhcs-crisis/",
+    sourceOrg: "STAT News",
+    region: "Federal",
+    tags: ["financial-sustainability", "margins", "structural-deficit", "operations", "strategy"],
+  },
+  {
+    id: "la-county-sales-tax-june-ballot-confirmed",
+    date: "2026-03-16",
+    headline: {
+      en: "LA County Half-Cent Health Tax Confirmed for June 2 Ballot — $1B/Year for Safety-Net Clinics",
+      es: "Impuesto de Medio Centavo de Salud del Condado de LA Confirmado para Boleta del 2 de Junio — $1B/Año para Clínicas de Red de Seguridad",
+    },
+    summary: {
+      en: "The LA County Board of Supervisors formally placed a half-cent sales tax on the June 2 primary ballot, expected to generate ~$1B/year for safety-net health care. St. John's Community Health ($240M revenue, 28 clinics, 144K patients) could lose up to one-third of its budget from Medi-Cal cuts and contributed $2M+ to the campaign. Proposed allocation: 47% free/reduced care, 22% DHS, 10% DPH. This is the first major county-level ballot measure in the nation specifically designed to offset H.R. 1 Medicaid cuts.",
+      es: "La Junta de Supervisores del Condado de LA colocó formalmente un impuesto de medio centavo en la boleta del 2 de junio, que generaría ~$1B/año para salud de red de seguridad. St. John's Community Health ($240M en ingresos, 28 clínicas, 144K pacientes) podría perder un tercio de su presupuesto. Primera medida a nivel de condado diseñada para compensar los recortes de Medicaid de H.R. 1.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://kffhealthnews.org/news/article/federal-cuts-state-tax-increases-budget-shortfalls-health-clinics-los-angeles-california/",
+    sourceOrg: "KFF Health News",
+    region: "Los Angeles County",
+    affectedOrgs: ["St. John's Community Health", "Community Clinic Association of LA County"],
+    affectedOrgSlugs: ["st-johns-community-health"],
+    tags: ["sales-tax", "ballot-measure", "june-ballot", "safety-net", "los-angeles", "revenue-model"],
+  },
   /* ============================================================== */
   /*  March 14, 2026                                                 */
   /* ============================================================== */
