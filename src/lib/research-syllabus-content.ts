@@ -421,3 +421,213 @@ export const CLINICIAN_TRACK: CurriculumTrack = {
     },
   ],
 }
+
+// ── TRACK 2: NON-CLINICIAN — COMMUNITY HEALTH ESSENTIALS ─
+
+const nonClinicianFoundationalLessons: SyllabusLesson[] = [
+  {
+    entryId: "geiger-first-chcs-2005",
+    narrative: {
+      en: "Before there were FQHCs, before there was Medicaid, before there was any organized safety net — there was a doctor named Jack Geiger who believed that poverty itself was a disease, and that a clinic could treat it. In 1965, he opened two community health centers: one in Mound Bayou, Mississippi (one of the poorest places in America) and one in Columbia Point, Boston (a public housing project). These were the first community health centers in the United States.\n\nWhat made Geiger's clinics revolutionary wasn't the medical care — it was everything else. He hired community members as health workers (the first CHWs). He prescribed food through the pharmacy. He organized clean water infrastructure. When administrators questioned why a medical clinic was buying groceries, Geiger famously replied: \"The last time I checked my textbook, the treatment for malnutrition was food.\"\n\nThis is YOUR origin story. If you're a CHW, an MA, an outreach worker, or a front desk coordinator at an FQHC — your role exists because Jack Geiger proved that healthcare is about more than what happens in the exam room. Every time you screen a patient for food insecurity, connect someone to housing, or translate for a family — you're continuing what he started.",
+      es: "Antes de los FQHCs, antes de Medicaid — un médico llamado Jack Geiger creía que la pobreza era una enfermedad que una clínica podía tratar. En 1965 abrió los primeros centros en Mississippi y Boston. Contrató miembros de la comunidad como trabajadores de salud — los primeros TSC. Prescribía comida por la farmacia.\n\nEsta es TU historia de origen. Si eres TSC, AM o coordinador — tu rol existe porque Geiger demostró que la atención médica va más allá del consultorio."
+    },
+    keyInsight: { en: "You are not an afterthought in the care team — you are the original innovation. Community health workers existed before nurse practitioners, before physician assistants, before any other \"extender\" role.", es: "No eres un complemento del equipo — eres la innovación original. Los TSC existieron antes que NPs, PAs o cualquier otro rol." },
+    quotes: [{ text: { en: "The last time I checked my textbook, the treatment for malnutrition was food.", es: "La última vez que revisé mi libro de texto, el tratamiento para la desnutrición era comida." }, attribution: "— H. Jack Geiger, MD, 1967" }],
+    transitionNote: { en: "Geiger showed that health is shaped by where you live, what you eat, and how much money you have. Paula Braveman's SDOH framework put a name to this — and it's the framework behind every screening you do.", es: "Geiger mostró que la salud la moldea dónde vives. El marco DSDS de Braveman le puso nombre — y es el marco detrás de cada tamizaje que haces." },
+    readingMinutes: 5,
+  },
+  {
+    entryId: "braveman-sdoh-framework-2011",
+    narrative: {
+      en: "In 2011, Paula Braveman and colleagues published a landmark paper in the Annual Review of Public Health that organized decades of evidence into a single, clear framework: the Social Determinants of Health. SDOH encompasses five domains — economic stability, education, social and community context, health and healthcare access, and neighborhood and built environment.\n\nThe most powerful finding: your zip code is a stronger predictor of your health than your genetic code. In California, life expectancy can vary by 15 years between neighborhoods just miles apart. The reasons aren't medical — they're structural: access to healthy food, exposure to pollution, availability of safe housing, proximity to violence.\n\nFor CHWs and outreach workers, this framework validates what you already know from experience. When you help a patient apply for CalFresh, find stable housing, or navigate a domestic violence situation — you're not doing \"social work instead of healthcare.\" You ARE doing healthcare. The SDOH framework proves that these interventions are as medically important as any prescription.",
+      es: "Braveman organizó décadas de evidencia en un marco claro: los Determinantes Sociales de la Salud. Cinco dominios: estabilidad económica, educación, contexto social, acceso a salud, y vecindario. Tu código postal predice mejor tu salud que tu código genético.\n\nPara TSC: cuando ayudas con CalFresh o vivienda, no estás haciendo \"trabajo social\" — ESTÁS haciendo atención médica."
+    },
+    keyInsight: { en: "When you help a patient apply for CalFresh, find housing, or escape violence — you are practicing evidence-based medicine. The SDOH framework proves it.", es: "Cuando ayudas con CalFresh, vivienda o seguridad — estás practicando medicina basada en evidencia." },
+    quotes: [{ text: { en: "Where we live, learn, work, and play profoundly affects our health — in ways that are often more powerful than medical care.", es: "Donde vivimos, aprendemos, trabajamos y jugamos afecta profundamente nuestra salud — a menudo más que la atención médica." }, attribution: "— Paula Braveman, Annual Review of Public Health, 2011" }],
+    transitionNote: { en: "The SDOH framework tells us what matters. Healthy People 2030 turns that into measurable goals — including the ones your FQHC reports on.", es: "El marco DSDS nos dice qué importa. Healthy People 2030 lo convierte en metas medibles." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "healthy-people-2030-sdoh",
+    narrative: {
+      en: "Healthy People 2030 is the federal government's roadmap for improving health — and it puts SDOH at the center. This isn't abstract: HRSA uses Healthy People targets to set the quality measures your FQHC reports on every year in UDS (Uniform Data System) reporting. When your clinic screens for food insecurity, housing instability, or transportation barriers — you're generating the data that feeds these national objectives.\n\nThe framework organizes SDOH into five domains with specific, measurable targets. For example: reduce the proportion of people who are food insecure, increase the proportion of adults who can obtain health information they need, reduce emergency department visits for conditions treatable in primary care.\n\nAs a non-clinician, you may be the person actually doing these screenings. Understanding that this work connects to national health objectives — and to your FQHC's grant funding — helps you see why that \"one more form\" matters.",
+      es: "Healthy People 2030 es la hoja de ruta federal para mejorar la salud. HRSA usa estas metas para las medidas de calidad que tu FQHC reporta en UDS. Cuando tu clínica evalúa inseguridad alimentaria o inestabilidad de vivienda — estás generando datos para estos objetivos nacionales.\n\nComo no clínico, puedes ser quien hace estos tamizajes. Entender la conexión con los objetivos nacionales te ayuda a ver por qué cada formulario importa."
+    },
+    keyInsight: { en: "The SDOH screenings you administer aren't busy work — they generate the data that justifies your FQHC's federal funding and shapes national health policy.", es: "Los tamizajes DSDS que administras no son trabajo burocrático — generan los datos que justifican el financiamiento federal." },
+    quotes: [{ text: { en: "Healthy People 2030 sets data-driven national objectives to improve health and well-being over the next decade, with an overarching goal of eliminating health disparities and achieving health equity.", es: "Healthy People 2030 establece objetivos nacionales basados en datos con la meta de eliminar disparidades y lograr equidad en salud." }, attribution: "— HHS Office of Disease Prevention and Health Promotion, 2020" }],
+    transitionNote: { en: "Screenings and frameworks are important — but how do you interact with patients who carry invisible wounds? SAMHSA's trauma-informed care framework changes how you approach every patient encounter.", es: "Los tamizajes son importantes — pero ¿cómo interactúas con pacientes que cargan heridas invisibles?" },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "substance-abuse-tic-guide-2014",
+    narrative: {
+      en: "Many FQHC patients have experienced trauma — poverty, immigration, violence, childhood abuse, racism, homelessness. SAMHSA's trauma-informed care framework recognizes that this trauma affects how patients interact with your clinic at every touchpoint — from the waiting room to the checkout desk.\n\nThe six TIC principles are: safety (does your clinic feel physically and emotionally safe?), trustworthiness and transparency (do patients know what to expect?), peer support (are people with lived experience part of the team?), collaboration (do patients have a voice in their care?), empowerment (do interactions build capability?), and cultural/historical/gender awareness.\n\nFor front desk staff, MAs, and CHWs, this means understanding that the patient who arrives angry may be anxious, the one who misses appointments may be avoiding a trigger in the building, and the one who refuses to fill out forms may have literacy challenges or a history of information being used against them. TIC doesn't mean accepting harmful behavior — it means responding with curiosity instead of judgment.",
+      es: "Muchos pacientes de FQHCs han experimentado trauma. El marco de SAMHSA reconoce que esto afecta cada interacción. Seis principios: seguridad, confianza, apoyo entre pares, colaboración, empoderamiento y conciencia cultural.\n\nPara personal de recepción, AM y TSC: el paciente enojado puede estar ansioso. TIC significa responder con curiosidad en vez de juicio."
+    },
+    keyInsight: { en: "You are often the first person a patient sees. Your greeting, your tone, your patience at the front desk — these are clinical interventions, whether you realize it or not.", es: "A menudo eres la primera persona que un paciente ve. Tu saludo, tu tono — son intervenciones clínicas." },
+    quotes: [{ text: { en: "Trauma-informed care is not about what is wrong with you — it is about what happened to you.", es: "El cuidado informado por trauma no es sobre qué está mal contigo — es sobre qué te pasó." }, attribution: "— SAMHSA, 2014" }],
+    transitionNote: { en: "TIC helps you understand patient behavior. Next: health literacy research explains why the way you communicate matters as much as what you communicate.", es: "TIC te ayuda a entender el comportamiento. Siguiente: la alfabetización en salud explica por qué cómo comunicas importa tanto como qué comunicas." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "berkman-health-literacy-systematic-2011",
+    narrative: {
+      en: "This AHRQ systematic review of 96 studies found that 36% of US adults have basic or below-basic health literacy — meaning they struggle to understand medication instructions, appointment reminders, or discharge summaries. Among FQHC populations, rates are even higher: 58% of Hispanic adults scored at basic or below-basic levels.\n\nThe health consequences are severe: low health literacy is associated with more hospitalizations, greater emergency department use, lower use of preventive services, poorer medication adherence, and higher mortality. Patients aren't \"non-compliant\" — they may not understand what they're supposed to do.\n\nFor MAs, CHWs, and outreach workers, this evidence supports using plain language, teach-back methods (asking patients to repeat instructions in their own words), visual aids, and translated materials. When you take the extra 30 seconds to make sure a patient understands their medications, you're not being slow — you're preventing a hospitalization.",
+      es: "Esta revisión de 96 estudios encontró que 36% de adultos de EE.UU. tienen alfabetización en salud básica o inferior. Entre poblaciones de FQHCs, las tasas son aún más altas: 58% de adultos hispanos.\n\nPara AM y TSC: usar lenguaje simple y teach-back no es ser lento — es prevenir hospitalizaciones."
+    },
+    keyInsight: { en: "When a patient doesn't follow instructions, the first question should be: did they understand? Teach-back — asking patients to explain in their own words — is one of the most powerful tools in community health.", es: "Cuando un paciente no sigue instrucciones, la primera pregunta es: ¿entendió? Teach-back es una de las herramientas más poderosas." },
+    quotes: [{ text: { en: "Low health literacy is consistently associated with more hospitalizations, greater emergency department use, lower mammography screening, lower influenza immunization, poorer ability to take medications appropriately, and higher mortality among the elderly.", es: "La baja alfabetización en salud se asocia con más hospitalizaciones, mayor uso de urgencias, menor adherencia a medicamentos y mayor mortalidad." }, attribution: "— Berkman et al., Annals of Internal Medicine, 2011" }],
+    transitionNote: { en: "You've completed the foundational level. You understand the origins of community health, the social determinants framework, trauma-informed care, and health literacy. Next: the evidence that proves CHW interventions work — the research that justifies your job.", es: "Has completado el nivel fundamental. Siguiente: la evidencia que demuestra que las intervenciones de TSC funcionan." },
+    readingMinutes: 4,
+  },
+]
+
+const nonClinicianIntermediateLessons: SyllabusLesson[] = [
+  {
+    entryId: "kim-chw-systematic-review-2016",
+    narrative: {
+      en: "If anyone ever questions whether CHW programs are worth the investment, this is the study to cite. This systematic review analyzed 37 randomized controlled trials — the gold standard of medical evidence — and found that CHW interventions significantly improved outcomes across three areas: chronic disease management (HbA1c reduction of 0.21% in diabetics), cancer screening (18% increase in mammography), and childhood immunization rates.\n\nThe evidence was strongest for chronic disease and preventive care — precisely the areas where FQHCs focus. CHWs were effective because they did things clinicians couldn't: home visits, culturally appropriate education, navigation through complex systems, and sustained follow-up between clinic visits.",
+      es: "Si alguien cuestiona la inversión en programas de TSC, este es el estudio a citar. 37 ensayos aleatorizados: los TSC mejoraron significativamente el control de diabetes, el tamizaje de cáncer y las tasas de vacunación infantil.\n\nLos TSC fueron efectivos porque hicieron lo que los clínicos no podían: visitas domiciliarias, educación culturalmente apropiada y seguimiento sostenido."
+    },
+    keyInsight: { en: "CHW effectiveness isn't anecdotal — it's backed by 37 randomized trials. Your work has the same level of evidence as most medications.", es: "La efectividad de los TSC no es anecdótica — está respaldada por 37 ensayos aleatorizados." },
+    quotes: [{ text: { en: "Community health worker interventions produced significant improvements in chronic disease management, preventive care completion, and health behaviors among low-income populations.", es: "Las intervenciones de TSC produjeron mejoras significativas en manejo de enfermedades crónicas, cuidado preventivo y conductas de salud." }, attribution: "— Kim et al., Journal of Public Health Management and Practice, 2016" }],
+    transitionNote: { en: "This review showed CHWs work. The IMPaCT trial at Penn Medicine showed exactly how much — with the most rigorous evidence ever generated for a CHW model.", es: "Esta revisión mostró que los TSC funcionan. El ensayo IMPaCT mostró exactamente cuánto." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "kangovi-impress-trial-2020",
+    narrative: {
+      en: "Shreya Kangovi at Penn Medicine asked: what happens if you train CHWs using a standardized, evidence-based protocol and embed them in primary care teams? The IMPaCT (Individualized Management for Patient-Centered Targets) trial enrolled patients across 3 health systems and randomly assigned them to receive CHW support or usual care.\n\nThe results were dramatic: CHW-supported patients had a 65% reduction in hospitalizations, improved chronic disease control, and better mental health outcomes. The key to IMPaCT's success was its structured approach: CHWs didn't just \"help\" — they followed a specific protocol including goal-setting, action planning, social needs assessment, and care coordination.\n\nIMPaCT is now the model that many CA FQHCs use for their ECM (Enhanced Care Management) programs under CalAIM. If you're doing ECM work, you're building on this evidence base.",
+      es: "Kangovi preguntó: ¿qué pasa si entrenas TSC con un protocolo estandarizado? El ensayo IMPaCT: pacientes con TSC tuvieron 65% menos hospitalizaciones y mejores resultados de salud mental.\n\nIMPaCT es el modelo que muchos FQHCs de CA usan para sus programas ECM bajo CalAIM."
+    },
+    keyInsight: { en: "The IMPaCT model proves that structured CHW programs — with clear protocols, not just good intentions — reduce hospitalizations by 65%. Structure is what separates effective CHW programs from well-meaning ones.", es: "IMPaCT demuestra que programas estructurados de TSC — con protocolos claros — reducen hospitalizaciones 65%." },
+    quotes: [{ text: { en: "Standardized community health worker support reduced hospitalizations by 65% and improved chronic disease outcomes — not through clinical interventions, but through addressing the social and behavioral factors that drive poor health.", es: "El apoyo estandarizado de TSC redujo hospitalizaciones 65% — no por intervenciones clínicas, sino abordando factores sociales y conductuales." }, attribution: "— Kangovi et al., JAMA Internal Medicine, 2020" }],
+    transitionNote: { en: "IMPaCT showed what's possible. NACHC's integration guide shows how to make it operational in your FQHC.", es: "IMPaCT mostró lo posible. La guía de NACHC muestra cómo hacerlo operativo." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "nachc-chw-integration-guide-2023",
+    narrative: {
+      en: "The NACHC guide is the operational playbook for building or expanding CHW programs within FQHCs. It covers the practical questions: How do you hire CHWs? (Recruit from the communities you serve.) How do you supervise them? (Clinical oversight + peer mentoring.) How do you document their work in the EHR? (Standardized templates.) How do you pay for them? (Medicaid billing codes, grant funding, ECM contracts.)\n\nThe guide is especially relevant now because CalAIM's ECM program has created new funded CHW roles across California. FQHCs that build strong CHW infrastructure aren't just improving care — they're building a sustainable revenue stream.",
+      es: "La guía de NACHC es el manual operativo para programas de TSC en FQHCs. Cubre: contratación, supervisión, documentación en HCE, y financiamiento (códigos de Medicaid, subvenciones, contratos ECM).\n\nEspecialmente relevante ahora que CalAIM ECM ha creado nuevos roles financiados de TSC en California."
+    },
+    keyInsight: { en: "CHW programs are no longer grant-dependent passion projects. CalAIM ECM has created sustainable, Medicaid-funded CHW positions — but only for FQHCs that build the infrastructure to support them.", es: "Los programas de TSC ya no dependen de subvenciones. CalAIM ECM creó posiciones sostenibles financiadas por Medicaid." },
+    quotes: [{ text: { en: "The most effective CHW programs recruit from the communities they serve, provide structured training, integrate CHWs into care teams as equal partners, and sustain positions through diversified funding.", es: "Los programas más efectivos reclutan de las comunidades, proveen entrenamiento estructurado e integran TSC como socios iguales." }, attribution: "— NACHC, Integrating Community Health Workers, 2023" }],
+    transitionNote: { en: "Building programs is important. But what about YOUR career? SB 803 is creating a pathway to professional certification for CHWs in California.", es: "¿Pero qué hay de TU carrera? SB 803 está creando una vía de certificación profesional para TSC en California." },
+    readingMinutes: 3,
+  },
+  {
+    entryId: "ca-sb803-chw-certification-2021",
+    narrative: {
+      en: "SB 803 is the law that could transform the CHW profession in California. Signed in 2021, it creates a voluntary state certification for CHWs, defines their scope of practice, establishes training standards, and mandates a study of Medi-Cal reimbursement for CHW services.\n\nThe promise is significant: once fully implemented, certified CHWs could bill Medi-Cal directly for services like health education, care coordination, and social needs navigation. This would fundamentally change the economics of CHW employment — from grant-funded positions that disappear when funding ends, to billable roles with sustainable revenue.\n\nHowever, implementation has stalled. The HCAI Advisory Workgroup has been meeting since 2022 but certification guidance has been paused since November 2023. The CHW profession is in a holding pattern — the law exists, but the operational framework doesn't yet.",
+      es: "SB 803 podría transformar la profesión de TSC en California: certificación voluntaria, definición de alcance, estándares de entrenamiento, y estudio de reembolso de Medi-Cal para servicios de TSC.\n\nSin embargo, la implementación está estancada desde noviembre 2023. La ley existe pero el marco operativo aún no."
+    },
+    keyInsight: { en: "SB 803 could let certified CHWs bill Medi-Cal directly — transforming CHW work from grant-dependent to revenue-generating. Watch for implementation updates from HCAI.", es: "SB 803 podría permitir que TSC certificados facturen Medi-Cal directamente — de dependientes de subvenciones a generadores de ingresos." },
+    quotes: [{ text: { en: "This bill would establish a voluntary certification for community health workers, define their scope of services, and require the Department of Health Care Services to study Medi-Cal reimbursement mechanisms for CHW services.", es: "Este proyecto establece certificación voluntaria para TSC, define su alcance y requiere estudio de reembolso de Medi-Cal." }, attribution: "— California Legislature, SB 803, 2021" }],
+    transitionNote: { en: "Your certification path is being built. Next: the care transitions model that shows exactly how CHWs and RNs prevent hospital readmissions — a fundable, measurable activity.", es: "Tu vía de certificación se está construyendo. Siguiente: el modelo de transiciones de cuidado que muestra cómo TSC previenen readmisiones." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "coleman-care-transitions-intervention-2006",
+    narrative: {
+      en: "Eric Coleman's Care Transitions Intervention is the evidence base behind one of the most impactful things CHWs and RNs do: preventing hospital readmissions. The model is simple but powerful: a transition coach (often a CHW or RN) visits the patient at home within 72 hours of hospital discharge, reviews medications, ensures follow-up appointments are scheduled, and provides a personal health record.\n\nThe trial reduced 30-day readmissions by 30% and 180-day readmissions by 17%. The cost per patient was minimal compared to the cost of a readmission ($15,000+). This is why ECM programs invest heavily in post-discharge follow-up.",
+      es: "El modelo de Coleman: un coach de transición visita al paciente en casa dentro de 72 horas del alta, revisa medicamentos y asegura seguimiento. Redujo readmisiones a 30 días en 30%.\n\nPor esto los programas ECM invierten en seguimiento post-alta."
+    },
+    keyInsight: { en: "A single home visit within 72 hours of discharge reduces readmissions by 30%. This is one of the highest-value activities a CHW or care coordinator can perform.", es: "Una visita domiciliaria dentro de 72 horas del alta reduce readmisiones 30%. Una de las actividades de mayor valor que un TSC puede realizar." },
+    quotes: [{ text: { en: "The Care Transitions Intervention reduced 30-day rehospitalization rates by 30% through a relatively low-cost model relying on a transition coach, medication self-management, and a personal health record.", es: "La Intervención de Transiciones redujo readmisiones 30% con un modelo de bajo costo." }, attribution: "— Coleman et al., Archives of Internal Medicine, 2006" }],
+    transitionNote: { en: "You've seen how CHWs prevent readmissions. The final lesson in this level covers the California program that's creating funded CHW positions right now — CalAIM ECM.", es: "Has visto cómo los TSC previenen readmisiones. La última lección cubre el programa que está creando posiciones financiadas ahora — CalAIM ECM." },
+    readingMinutes: 3,
+  },
+  {
+    entryId: "dhcs-calaims-ecm-2022",
+    narrative: {
+      en: "Enhanced Care Management is California's biggest investment in community-based care coordination — and it's creating more CHW and care coordinator jobs than any program in FQHC history. ECM targets Medi-Cal's highest-need members: people experiencing homelessness, those with serious mental illness, high ED utilizers, and people transitioning from incarceration.\n\nFor non-clinicians, ECM means structured caseloads, individualized care plans, regular community outreach, and cross-system coordination (medical, behavioral health, housing, food, transportation). FQHCs bill monthly per-member rates for ECM — creating predictable, sustainable funding for these roles.\n\nIf you're a CHW or care coordinator in California, ECM is likely how your position is funded. Understanding the policy helps you understand your own job security and career trajectory.",
+      es: "ECM es la mayor inversión de California en coordinación comunitaria — creando más empleos de TSC que cualquier programa en la historia de FQHCs. Para no clínicos: caseloads estructurados, planes individualizados y coordinación entre sistemas.\n\nSi eres TSC en California, ECM probablemente financia tu posición."
+    },
+    keyInsight: { en: "ECM isn't just a program — it's the economic engine that sustains CHW and care coordinator positions in CA FQHCs. Understanding ECM policy is understanding your career.", es: "ECM no es solo un programa — es el motor económico que sostiene posiciones de TSC en FQHCs de CA." },
+    quotes: [{ text: { en: "ECM provides whole-person, comprehensive care management for the highest-need Medi-Cal members, addressing clinical and non-clinical needs through dedicated care teams embedded in communities.", es: "ECM proporciona gestión integral para los miembros de Medi-Cal con mayores necesidades, con equipos dedicados en las comunidades." }, attribution: "— DHCS, ECM Policy Guide, 2022" }],
+    transitionNote: { en: "You've completed the intermediate level — the evidence that validates and funds community health work. The advanced level covers structural issues: racism in health systems, SDOH screening evidence, and the populations that need community health workers most.", es: "Has completado el nivel intermedio. El nivel avanzado cubre temas estructurales: racismo, tamizaje DSDS y las poblaciones que más necesitan TSC." },
+    readingMinutes: 4,
+  },
+]
+
+const nonClinicianAdvancedLessons: SyllabusLesson[] = [
+  {
+    entryId: "pinto-structural-racism-fqhcs-2022",
+    narrative: {
+      en: "This Commonwealth Fund analysis asks a hard question: if FQHCs serve communities of color at disproportionate rates, are FQHCs themselves affected by structural racism? The answer is yes — in ways that go beyond patient demographics. FQHCs in predominantly Black and Latino neighborhoods receive less per-patient funding, face more regulatory burden, and have higher staff turnover than FQHCs in whiter communities.\n\nThe report proposes equity-centered quality metrics that go beyond traditional HEDIS measures — looking at disparities within FQHC patient populations, not just comparing FQHCs to national averages. For non-clinicians, this means the data you collect on patient demographics isn't just administrative — it's the foundation for measuring and addressing inequity.",
+      es: "Este análisis pregunta: ¿los FQHCs mismos son afectados por el racismo estructural? Sí — los FQHCs en vecindarios negros y latinos reciben menos financiamiento por paciente y tienen mayor rotación de personal.\n\nPara no clínicos: los datos demográficos que recopilas son la base para medir y abordar la inequidad."
+    },
+    keyInsight: { en: "Structural racism doesn't stop at the FQHC door. The data you collect on race, ethnicity, and language isn't paperwork — it's the tool for measuring whether your clinic is actually reducing disparities or reproducing them.", es: "El racismo estructural no se detiene en la puerta del FQHC. Los datos que recopilas son la herramienta para medir si tu clínica reduce o reproduce disparidades." },
+    quotes: [{ text: { en: "Addressing structural racism in health centers requires moving beyond diversity statements to examining how racism shapes funding, staffing, and quality measurement systems.", es: "Abordar el racismo estructural requiere ir más allá de declaraciones de diversidad para examinar cómo el racismo moldea sistemas de financiamiento, personal y calidad." }, attribution: "— Pinto et al., Commonwealth Fund, 2022" }],
+    transitionNote: { en: "Structural issues require structural interventions. The next study shows which SDOH screening interventions actually improve outcomes — and which don't.", es: "Los problemas estructurales requieren intervenciones estructurales. El siguiente estudio muestra qué intervenciones de tamizaje DSDS realmente funcionan." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "gottlieb-sdoh-screening-fqhc-2016",
+    narrative: {
+      en: "HRSA now expects FQHCs to screen for social determinants — but does screening actually help patients? This UCSF systematic review of 39 SDOH interventions found: food insecurity screening plus referral reduced food insecurity by 25%, housing referrals reduced homelessness by 18%, and transportation assistance increased appointment adherence by 22%.\n\nBut here's the critical finding: screening WITHOUT referral resources was not only ineffective — it could increase patient frustration and erode trust. Asking a patient \"Are you food insecure?\" and then having nowhere to send them is worse than not asking at all.\n\nFor CHWs and outreach workers, this validates the importance of maintaining current referral directories, building relationships with community organizations, and closing the loop on every referral.",
+      es: "La revisión de UCSF encontró que tamizaje + derivación funciona: inseguridad alimentaria -25%, falta de vivienda -18%, adherencia a citas +22%. Pero tamizaje SIN recursos de derivación puede aumentar la frustración del paciente.\n\nPara TSC: mantener directorios de derivación actualizados y cerrar el ciclo en cada referencia es esencial."
+    },
+    keyInsight: { en: "Screening without referral resources does more harm than good. Your community resource knowledge — knowing which food banks are open, which shelters have beds, which programs accept undocumented patients — is as clinically important as any screening tool.", es: "Tamizaje sin recursos de derivación hace más daño que bien. Tu conocimiento de recursos comunitarios es tan clínicamente importante como cualquier herramienta." },
+    quotes: [{ text: { en: "Screening for social determinants without the capacity to address identified needs may increase patient frustration and erode trust in the health care system.", es: "El tamizaje sin capacidad de abordar necesidades identificadas puede aumentar la frustración y erosionar la confianza." }, attribution: "— Gottlieb et al., PLOS ONE, 2016" }],
+    transitionNote: { en: "You understand screening. The next two readings cover the populations that most need your work — and why.", es: "Entiendes el tamizaje. Las siguientes lecturas cubren las poblaciones que más necesitan tu trabajo." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "ortega-undocumented-health-access-2015",
+    narrative: {
+      en: "This Health Affairs study documents what FQHC staff see every day: 71% of undocumented adults are uninsured, 52% have no usual source of care, and 40% report difficulty accessing care due to cost. But the key finding is this: 47% of undocumented adults who DO have a usual provider receive care at an FQHC or community clinic. FQHCs are the safety net for people who fall through every other safety net.\n\nWith California's July 2026 UIS PPS elimination threatening the financial model FQHCs use to serve this population, this evidence quantifies the access gap that will widen without FQHC care. For CHWs serving undocumented communities, this data supports advocacy for maintaining FQHC services.",
+      es: "El estudio documenta: 71% de adultos indocumentados sin seguro, 52% sin fuente habitual de cuidado. Pero 47% de los que SÍ tienen proveedor reciben atención en un FQHC. Los FQHCs son la red de seguridad para quienes caen de todas las demás.\n\nCon la eliminación del PPS UIS en julio 2026, este dato cuantifica la brecha que se ampliará sin los FQHCs."
+    },
+    keyInsight: { en: "FQHCs are the last safety net — 47% of undocumented adults with a usual provider receive care at an FQHC. When politicians talk about cutting FQHC funding, they're talking about eliminating care for millions.", es: "Los FQHCs son la última red — 47% de adultos indocumentados con proveedor habitual reciben atención en un FQHC." },
+    quotes: [{ text: { en: "Among undocumented immigrants who had a usual source of care, 47% received that care at a community health center or public clinic — making FQHCs the single largest provider of care to this population.", es: "Entre inmigrantes indocumentados con fuente habitual de cuidado, 47% lo recibían en un centro de salud comunitario." }, attribution: "— Ortega et al., Health Affairs, 2015" }],
+    transitionNote: { en: "The final lesson covers another population that depends on community health infrastructure — California's farmworkers, who grow half the nation's produce but have almost no access to healthcare.", es: "La última lección cubre a los trabajadores agrícolas de California — producen la mitad de las frutas y verduras del país pero casi no tienen acceso a atención médica." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "villarejo-farmworker-health-2016",
+    narrative: {
+      en: "California's farmworkers feed the nation — the state produces over 50% of US fruits, vegetables, and nuts. Yet 70% of farmworkers lack health insurance, 50% report food insecurity (a bitter irony for people who harvest food), and they face occupational hazards including heat illness, pesticide exposure, and musculoskeletal injury. Only 20% have access to any form of health coverage.\n\nMigrant Health Centers — FQHCs designated under Section 330(g) specifically to serve migrant and seasonal farmworkers — are often the only healthcare these workers ever see. Organizations like Clinica de Salud del Valle de Salinas, Valley Health Team, and Borrego Health operate mobile clinics and evening hours to reach workers in the fields.\n\nFor community health workers serving agricultural communities, this research validates the importance of culturally specific outreach: understanding harvest seasons, knowing which crops correlate with which injuries, and building trust in communities where immigration status creates fear of any institutional contact.",
+      es: "Los trabajadores agrícolas de CA alimentan la nación pero 70% no tienen seguro y enfrentan riesgos: calor, pesticidas, lesiones. Los Centros de Salud Migrante son a menudo la única atención que reciben.\n\nPara TSC sirviendo comunidades agrícolas: entender temporadas de cosecha y construir confianza es esencial."
+    },
+    keyInsight: { en: "The people who feed California can't afford to see a doctor. Migrant Health FQHCs exist to close this gap — and CHWs who understand agricultural communities are irreplaceable.", es: "Las personas que alimentan a California no pueden pagar un médico. Los FQHCs de Salud Migrante cierran esta brecha." },
+    quotes: [{ text: { en: "California's farmworkers face a convergence of health risks — occupational exposure, poverty, food insecurity, housing instability, and lack of insurance — that no single intervention can address. Only comprehensive, community-based care can meet these intersecting needs.", es: "Los trabajadores agrícolas de CA enfrentan riesgos convergentes que ninguna intervención individual puede abordar." }, attribution: "— Villarejo et al., Journal of Rural Health, 2016" }],
+    transitionNote: { en: "Congratulations — you've completed the Non-Clinician: Community Health Essentials curriculum. From Geiger's founding vision to the evidence behind CHW effectiveness to the populations that need you most, you now have the research foundation that validates your role. You're not support staff — you're the innovation that makes community health centers work.", es: "Felicitaciones — has completado el currículo de No Clínico. No eres personal de apoyo — eres la innovación que hace funcionar los centros de salud comunitarios." },
+    readingMinutes: 5,
+  },
+]
+
+export const NON_CLINICIAN_TRACK: CurriculumTrack = {
+  id: "non-clinician-community-health",
+  name: { en: "Non-Clinician: Community Health Essentials", es: "No Clínico: Fundamentos de Salud Comunitaria" },
+  audience: "non-clinician",
+  description: { en: "For CHWs, MAs, outreach workers, and admin staff — understanding the evidence behind community health work and your role in the care team.", es: "Para TSC, AM, trabajadores de extensión y personal administrativo — la evidencia detrás del trabajo de salud comunitaria." },
+  levels: [
+    {
+      level: "foundational", label: { en: "Why Community Health Matters", es: "Por Qué Importa la Salud Comunitaria" },
+      overview: { en: "These five readings explain the intellectual and moral foundations of community health work. You'll learn where FQHCs came from, why social determinants matter more than medical care, how trauma shapes patient encounters, and why health literacy is a clinical issue.", es: "Estas cinco lecturas explican los fundamentos del trabajo de salud comunitaria. Aprenderás de dónde vienen los FQHCs y por qué los determinantes sociales importan más que la atención médica." },
+      entryIds: ["geiger-first-chcs-2005", "braveman-sdoh-framework-2011", "healthy-people-2030-sdoh", "substance-abuse-tic-guide-2014", "berkman-health-literacy-systematic-2011"],
+      lessons: nonClinicianFoundationalLessons,
+    },
+    {
+      level: "intermediate", label: { en: "Building Your Practice", es: "Construyendo Tu Práctica" },
+      overview: { en: "Now let's look at the evidence that proves CHW and care coordination interventions work — and the California programs creating funded positions right now. These readings build your professional knowledge and career strategy.", es: "Veamos la evidencia que demuestra que las intervenciones de TSC funcionan — y los programas de California creando posiciones financiadas ahora." },
+      entryIds: ["kim-chw-systematic-review-2016", "kangovi-impress-trial-2020", "nachc-chw-integration-guide-2023", "ca-sb803-chw-certification-2021", "coleman-care-transitions-intervention-2006", "dhcs-calaims-ecm-2022"],
+      lessons: nonClinicianIntermediateLessons,
+    },
+    {
+      level: "advanced", label: { en: "Research & Advocacy", es: "Investigación y Abogacía" },
+      overview: { en: "The advanced level covers structural issues that shape the communities you serve: racism in health systems, the evidence for SDOH screening, and the populations that most depend on community health infrastructure.", es: "El nivel avanzado cubre temas estructurales: racismo en sistemas de salud, evidencia de tamizaje DSDS, y las poblaciones que más dependen de la infraestructura de salud comunitaria." },
+      entryIds: ["pinto-structural-racism-fqhcs-2022", "gottlieb-sdoh-screening-fqhc-2016", "ortega-undocumented-health-access-2015", "villarejo-farmworker-health-2016"],
+      lessons: nonClinicianAdvancedLessons,
+    },
+  ],
+}
+
+// ── ASSEMBLED TRACKS ARRAY ───────────────────────────────
+
+export const SYLLABUS_TRACKS: CurriculumTrack[] = [
+  CLINICIAN_TRACK,
+  NON_CLINICIAN_TRACK,
+]
