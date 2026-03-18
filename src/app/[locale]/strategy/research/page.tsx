@@ -38,6 +38,8 @@ import {
   type ResearchEntry,
   type CurriculumTrack,
 } from "@/lib/fqhc-research-archive";
+import { SYLLABUS_TRACKS } from "@/lib/research-syllabus-content";
+import { SyllabusReader } from "@/components/research/SyllabusReader";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -484,27 +486,19 @@ export default function ResearchArchivePage() {
 
         {/* ── Curriculum Tab ───────────────────────── */}
         {activeTab === "curriculum" && (
-          <div className="space-y-6">
-            <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-200 dark:border-amber-700 p-5">
+          <div>
+            <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-200 dark:border-amber-700 p-5 mb-6">
               <h2 className="text-lg font-bold text-amber-900 dark:text-amber-200 mb-2">
-                {isEs ? "Currículos Guiados" : "Guided Curriculum Tracks"}
+                {isEs ? "Currículos Guiados con Instructor Experto" : "Expert-Guided Curriculum Tracks"}
               </h2>
               <p className="text-sm text-amber-700 dark:text-amber-400">
                 {isEs
-                  ? "Rutas de aprendizaje curadas para diferentes audiencias — desde fundamentos hasta investigación avanzada. Cada pista progresa a través de 3 niveles con lecturas seleccionadas."
-                  : "Curated learning paths for different audiences — from foundations to advanced research. Each track progresses through 3 levels with selected readings."}
+                  ? "Rutas de aprendizaje interactivas con narrativas expertas, citas directas atribuidas, ideas clave y transiciones entre lecciones. Progresa a través de 3 niveles — tu avance se guarda automáticamente."
+                  : "Interactive learning paths with expert narratives, attributed direct quotes, key insights, and lesson-to-lesson transitions. Progress through 3 levels — your progress is saved automatically."}
               </p>
             </div>
 
-            {CURRICULUM_TRACKS.map((track) => (
-              <TrackCard
-                key={track.id}
-                track={track}
-                locale={locale}
-                isExpanded={expandedTracks.has(track.id)}
-                onToggle={() => toggleTrack(track.id)}
-              />
-            ))}
+            <SyllabusReader tracks={SYLLABUS_TRACKS} />
           </div>
         )}
 
