@@ -39,7 +39,7 @@ export default function ModulePage() {
   const moduleId = params.moduleId as string;
 
   const moduleIndex = OKR_COURSE_MODULES.findIndex((m) => m.id === moduleId);
-  const module = OKR_COURSE_MODULES[moduleIndex];
+  const courseModule = OKR_COURSE_MODULES[moduleIndex];
 
   const [progress, setProgress] = useState<CourseProgress | null>(() =>
     loadProgress(user?.id)
@@ -73,7 +73,7 @@ export default function ModulePage() {
   }, [moduleId]);
 
   // Module not found
-  if (!module) {
+  if (!courseModule) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center px-4 text-center gap-4">
         <Target className="h-12 w-12 text-stone-300 dark:text-stone-600" aria-hidden="true" />
@@ -131,7 +131,7 @@ export default function ModulePage() {
             {isEs ? "¡Módulo Completado!" : "Module Complete!"}
           </h2>
           <p className="text-stone-600 dark:text-stone-400">
-            {t(module.title, locale)}
+            {t(courseModule.title, locale)}
           </p>
 
           {/* Share button */}
@@ -142,10 +142,10 @@ export default function ModulePage() {
               const url = window.location.href;
               if (navigator.share) {
                 navigator.share({
-                  title: t(module.title, locale),
+                  title: t(courseModule.title, locale),
                   text: isEs
-                    ? `Acabo de completar "${t(module.title, locale)}" en FQHC Talent Academy`
-                    : `I just completed "${t(module.title, locale)}" on FQHC Talent Academy`,
+                    ? `Acabo de completar "${t(courseModule.title, locale)}" en FQHC Talent Academy`
+                    : `I just completed "${t(courseModule.title, locale)}" on FQHC Talent Academy`,
                   url,
                 });
               } else {
@@ -199,7 +199,7 @@ export default function ModulePage() {
         </Link>
         <span aria-hidden="true">/</span>
         <span className="text-stone-800 dark:text-stone-200 font-medium">
-          {t(module.title, locale)}
+          {t(courseModule.title, locale)}
         </span>
       </nav>
 
@@ -215,10 +215,10 @@ export default function ModulePage() {
                 {isEs ? "Módulo" : "Module"} {moduleIndex + 1} / {OKR_COURSE_MODULES.length}
               </Badge>
               <h1 className="text-lg font-bold text-stone-800 dark:text-stone-100">
-                {t(module.title, locale)}
+                {t(courseModule.title, locale)}
               </h1>
               <p className="text-sm text-stone-500 dark:text-stone-400 mt-1">
-                {t(module.subtitle, locale)}
+                {t(courseModule.subtitle, locale)}
               </p>
             </div>
           </div>
@@ -227,7 +227,7 @@ export default function ModulePage() {
 
       {/* Module player */}
       <ModuleScreen
-        module={module}
+        module={courseModule}
         progress={progress || { userId: "guest", totalXP: 0, modulesCompleted: [], exerciseScores: {}, currentModuleId: null, capstoneSubmitted: null, startedAt: new Date().toISOString(), lastActiveAt: new Date().toISOString() }}
         onExerciseComplete={handleExerciseComplete}
         onModuleComplete={handleModuleComplete}

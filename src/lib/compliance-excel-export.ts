@@ -4,9 +4,6 @@
 // "use client" — runs in browser only (file-saver triggers download)
 
 import type {
-  OSVChecklistItem,
-  ComplianceCalendarEntry,
-  ComplianceRiskItem,
   OSVRequirementArea,
   ComplianceDomain,
 } from "./fqhc-compliance";

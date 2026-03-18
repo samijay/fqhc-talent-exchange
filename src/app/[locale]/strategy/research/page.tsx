@@ -17,10 +17,7 @@ import {
   Library,
   Award,
   Calendar,
-  ArrowRight,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   RESEARCH_ENTRIES,
   RESEARCH_ARCHIVE_LAST_UPDATED,
@@ -36,7 +33,6 @@ import {
   type AudienceTrack,
   type ResearchLevel,
   type ResearchEntry,
-  type CurriculumTrack,
 } from "@/lib/fqhc-research-archive";
 import { SYLLABUS_TRACKS } from "@/lib/research-syllabus-content";
 import { SyllabusReader } from "@/components/research/SyllabusReader";
@@ -173,87 +169,6 @@ function EntryCard({
 }
 
 /* ------------------------------------------------------------------ */
-/*  Curriculum Track Card                                              */
-/* ------------------------------------------------------------------ */
-
-function TrackCard({
-  track,
-  locale,
-  isExpanded,
-  onToggle,
-}: {
-  track: CurriculumTrack;
-  locale: string;
-  isExpanded: boolean;
-  onToggle: () => void;
-}) {
-  const audienceMeta = AUDIENCE_TRACKS.find((a) => a.id === track.audience);
-  const totalEntries = track.levels.reduce((sum, l) => sum + l.entryIds.length, 0);
-
-  return (
-    <div className="rounded-xl border-2 border-teal-200 bg-teal-50/50 dark:border-teal-700 dark:bg-teal-900/20 shadow-sm">
-      <button
-        onClick={onToggle}
-        className="w-full text-left p-5 flex items-start justify-between gap-3"
-      >
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            <GraduationCap className="h-5 w-5 text-teal-700 dark:text-teal-400" />
-            <h3 className="font-bold text-teal-900 dark:text-teal-200 text-base">
-              {t(track.name, locale)}
-            </h3>
-          </div>
-          <p className="text-sm text-teal-700 dark:text-teal-400">
-            {t(track.description, locale)}
-          </p>
-          <p className="text-xs text-teal-600 dark:text-teal-500 mt-1">
-            {totalEntries} {locale === "es" ? "recursos" : "resources"} &middot;{" "}
-            {track.levels.length} {locale === "es" ? "niveles" : "levels"}
-            {audienceMeta && <> &middot; {t(audienceMeta, locale)}</>}
-          </p>
-        </div>
-        <span className="shrink-0 mt-1 text-teal-400">
-          {isExpanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
-        </span>
-      </button>
-
-      {isExpanded && (
-        <div className="px-5 pb-5 border-t border-teal-200 dark:border-teal-700 pt-4 space-y-4">
-          {track.levels.map((level) => {
-            const levelMeta = LEVEL_META.find((l) => l.id === level.level);
-            return (
-              <div key={level.level}>
-                <div className="flex items-center gap-2 mb-2">
-                  {levelMeta && (
-                    <span className={`text-xs px-2 py-0.5 rounded-full border ${levelMeta.color}`}>
-                      {t(levelMeta, locale)}
-                    </span>
-                  )}
-                  <span className="text-sm font-medium text-stone-700 dark:text-stone-300">
-                    {t(level.label, locale)}
-                  </span>
-                </div>
-                <ol className="list-decimal list-inside space-y-1 ml-2">
-                  {level.entryIds.map((id) => {
-                    const entry = RESEARCH_ENTRIES.find((e) => e.id === id);
-                    return entry ? (
-                      <li key={id} className="text-sm text-stone-600 dark:text-stone-400">
-                        <span className="font-medium">{t(entry.title, locale)}</span>{" "}
-                        <span className="text-stone-400">({entry.year})</span>
-                      </li>
-                    ) : null;
-                  })}
-                </ol>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
-}
-
-/* ------------------------------------------------------------------ */
 /*  Main Page                                                          */
 /* ------------------------------------------------------------------ */
 
@@ -267,21 +182,12 @@ export default function ResearchArchivePage() {
   const [levelFilter, setLevelFilter] = useState<ResearchLevel | "all">("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
-  const [expandedTracks, setExpandedTracks] = useState<Set<string>>(new Set());
   const [activeTab, setActiveTab] = useState<"archive" | "curriculum" | "researchers">("archive");
 
   const toggleEntry = (id: string) => {
     setExpandedIds((prev) => {
       const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
-      return next;
-    });
-  };
-
-  const toggleTrack = (id: string) => {
-    setExpandedTracks((prev) => {
-      const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) { next.delete(id); } else { next.add(id); }
       return next;
     });
   };

@@ -48,7 +48,7 @@ export default function FqhcJobsSacramento() {
             FQHC Jobs in Sacramento
           </h1>
           <p className="text-xl text-stone-600 leading-relaxed">
-            Sacramento's Federally Qualified Health Centers serve the
+            Sacramento&apos;s Federally Qualified Health Centers serve the
             capital region with growing programs in Enhanced Care Management,
             behavioral health integration, and chronic disease management. With
             10+ FQHCs and expanding community health infrastructure,
@@ -66,7 +66,7 @@ export default function FqhcJobsSacramento() {
           </h2>
           <div className="space-y-6 text-stone-700 text-lg leading-relaxed">
             <p>
-              Sacramento's FQHC network includes organizations like
+              Sacramento&apos;s FQHC network includes organizations like
               WellSpace Health, Sacramento Native American Health Center, Elica
               Health Centers, CommuniCare Health Centers, and One Community
               Health. These centers serve a diverse patient population across
@@ -74,7 +74,7 @@ export default function FqhcJobsSacramento() {
               areas.
             </p>
             <p>
-              As California's capital, Sacramento is at the center of
+              As California&apos;s capital, Sacramento is at the center of
               Medi-Cal policy decisions that shape FQHC operations statewide.
               Local health centers are often early adopters of CalAIM programs,
               creating new roles in care management, population health, and
@@ -145,7 +145,7 @@ export default function FqhcJobsSacramento() {
             </p>
             <p>
               <strong>Behavioral Health Integration</strong> is expanding
-              across Sacramento's FQHCs, with increasing demand for
+              across Sacramento&apos;s FQHCs, with increasing demand for
               licensed therapists, marriage and family therapists, and substance
               use counselors who can work alongside primary care teams.
             </p>
@@ -168,12 +168,12 @@ export default function FqhcJobsSacramento() {
               Browse job openings at Sacramento-area community health centers —
               plus free career tools and salary data.
             </p>
-            <a
+            <Link
               href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
               Build Your Free Resume
-            </a>
+            </Link>
           </div>
         </div>
       </section>

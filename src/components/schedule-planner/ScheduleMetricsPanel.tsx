@@ -7,14 +7,11 @@ import {
   DollarSign,
   Users,
   AlertTriangle,
-  TrendingUp,
-  Clock,
   AlertCircle,
   CheckCircle2,
   Info,
-  Zap,
 } from "lucide-react";
-import type { ScheduleMetrics, ScheduleWarning } from "@/lib/schedule-planner-engine";
+import type { ScheduleMetrics } from "@/lib/schedule-planner-engine";
 
 /* ------------------------------------------------------------------ */
 /*  Props                                                              */
@@ -85,7 +82,6 @@ export function ScheduleMetricsPanel({
   const isEs = locale === "es";
 
   const criticalWarnings = metrics.allWarnings.filter((w) => w.severity === "critical");
-  const otherWarnings = metrics.allWarnings.filter((w) => w.severity !== "critical");
 
   return (
     <div className="space-y-4">

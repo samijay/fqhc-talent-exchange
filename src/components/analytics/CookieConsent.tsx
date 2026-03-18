@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { X } from "lucide-react";
 
 const COOKIE_CONSENT_KEY = "fqhc-cookie-consent";
@@ -66,17 +67,17 @@ export default function CookieConsent() {
               {isEs ? (
                 <>
                   Lea nuestra{" "}
-                  <a href="/es/privacy" className="underline hover:text-stone-600">
+                  <Link href="/privacy" className="underline hover:text-stone-600">
                     Política de Privacidad
-                  </a>
+                  </Link>
                   .
                 </>
               ) : (
                 <>
                   Read our{" "}
-                  <a href="/privacy" className="underline hover:text-stone-600">
+                  <Link href="/privacy" className="underline hover:text-stone-600">
                     Privacy Policy
-                  </a>
+                  </Link>
                   .
                 </>
               )}

@@ -6,36 +6,27 @@ import {
   ChevronLeft,
   ChevronRight,
   Users,
-  Briefcase,
   Building2,
   TrendingUp,
   Shield,
   Zap,
   DollarSign,
   BarChart3,
-  Target,
-  ArrowRight,
-  Globe,
   FileText,
   Brain,
   Clock,
   AlertTriangle,
   CheckCircle2,
-  Star,
   XCircle,
-  Search,
   Layers,
   Mail,
   Calendar,
-  Rocket,
   Filter,
   Award,
-  BookOpen,
 } from "lucide-react";
 import {
   getMarketOverview,
   getRegionalSnapshots,
-  getRoleDemand,
 } from "@/lib/market-intelligence";
 
 /* ------------------------------------------------------------------ */
@@ -43,7 +34,6 @@ import {
 /* ------------------------------------------------------------------ */
 const overview = getMarketOverview();
 const regions = getRegionalSnapshots();
-const roles = getRoleDemand();
 
 /* ------------------------------------------------------------------ */
 /*  Slide types                                                        */

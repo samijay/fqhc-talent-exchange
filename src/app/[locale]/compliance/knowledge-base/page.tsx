@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { BookOpen, Search, ExternalLink, ShieldCheck, Lock, DollarSign } from "lucide-react";
+import { Search, ExternalLink } from "lucide-react";
 import { REGULATORY_ITEMS, DOMAIN_META, type ComplianceDomain } from "@/lib/fqhc-compliance";
 
 const t = (obj: { en: string; es: string }, locale: string) => locale === "es" ? obj.es : obj.en;

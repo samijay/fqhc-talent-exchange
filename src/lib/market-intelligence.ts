@@ -2,11 +2,11 @@
 // Aggregation functions that compute unique insights from existing data files
 // Used by the homepage intelligence dashboard
 
-import { californiaFQHCs, fqhcSalaryRanges, type CaliforniaFQHC } from "./california-fqhcs";
+import { californiaFQHCs } from "./california-fqhcs";
 import { fqhcJobListings, type FQHCJobListing } from "./fqhc-job-listings";
-import { californiaFQHCLayoffs, getLayoffStats, type LayoffEntry } from "./california-fqhc-layoffs";
-import { SALARY_BENCHMARKS, type SalaryBenchmark } from "./job-posting-templates";
-import { policyTimeline, implementationTimeline } from "./funding-impact-data";
+import { californiaFQHCLayoffs, getLayoffStats } from "./california-fqhc-layoffs";
+import { SALARY_BENCHMARKS } from "./job-posting-templates";
+import { policyTimeline } from "./funding-impact-data";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */

@@ -27,7 +27,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { SALARY_BENCHMARKS, type SalaryBenchmark } from "@/lib/job-posting-templates";
+import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 import {
   CAREER_PATHWAYS,
   REGIONAL_MULTIPLIERS,
@@ -37,9 +37,6 @@ import {
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 function fmt(amount: number): string {
   return `$${Math.round(amount / 1000)}k`;
@@ -166,7 +163,7 @@ export default function SalaryDataPage() {
     });
 
     return data;
-  }, [search, deptFilter, regionFilter, sortKey, sortDir, multiplier]);
+  }, [search, deptFilter, sortKey, sortDir, multiplier]);
 
   // Max salary for bar scaling
   const maxSalary = useMemo(

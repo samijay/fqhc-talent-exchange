@@ -15,10 +15,7 @@ import {
   Activity,
   Shield,
   Newspaper,
-  BookOpen,
   Briefcase,
-  Brain,
-  Cpu,
   Calendar,
   Lightbulb,
   ChevronDown,
@@ -40,7 +37,6 @@ import { Badge } from "@/components/ui/badge";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { IntelCard } from "@/components/intel/IntelCard";
 import {
-  INTEL_CATEGORIES,
   IMPACT_STYLES,
   type IntelItem,
 } from "@/lib/fqhc-news-intel";
@@ -365,12 +361,11 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
     domainMeta,
     newsRegionsOrdered,
     newsFilterCategories,
-    intelFilterCategories,
   } = data;
 
   const [newsFilter, setNewsFilter] = useState<string>("all");
   const [newsRegion, setNewsRegion] = useState<string>("all");
-  const [intelFilter, setIntelFilter] = useState<string>("all");
+  const [intelFilter] = useState<string>("all");
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [showAllNews, setShowAllNews] = useState(false);
   const [showAllIntel, setShowAllIntel] = useState(false);
@@ -1198,7 +1193,6 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                   {isEs ? "PROXIMOS" : "UPCOMING"}
                 </Badge>
                 {complianceDeadlines.map((d, i) => {
-                  const dmEntry = domainMeta.find((dm) => dm.id === d.domain);
                   return (
                     <Link
                       key={d.id}

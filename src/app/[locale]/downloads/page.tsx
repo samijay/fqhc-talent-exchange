@@ -9,7 +9,6 @@ import {
   FileText,
   File,
   ArrowRight,
-  Search,
   ArrowLeft,
   Target,
   Calendar,

@@ -20,6 +20,7 @@ export function useFavorites(contentType: string) {
   // Fetch all favorites for this content type on mount
   useEffect(() => {
     if (!user) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFavoriteIds(new Set());
       setLoading(false);
       return;

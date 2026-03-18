@@ -16,16 +16,16 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { moduleId } = await params;
-  const module = OKR_COURSE_MODULES.find((m) => m.id === moduleId);
+  const courseModule = OKR_COURSE_MODULES.find((m) => m.id === moduleId);
 
-  if (!module) {
+  if (!courseModule) {
     return {
       title: "Module Not Found | FQHC Talent",
     };
   }
 
-  const title = module.title.en;
-  const description = `${module.subtitle.en}. Free interactive module with ${module.exercises.length} exercises. Part of the FQHC OKR Course.`;
+  const title = courseModule.title.en;
+  const description = `${courseModule.subtitle.en}. Free interactive module with ${courseModule.exercises.length} exercises. Part of the FQHC OKR Course.`;
 
   return {
     title: `${title} | FQHC OKR Course`,
@@ -49,8 +49,8 @@ export default async function Layout({
   params: Promise<{ moduleId: string }>;
 }) {
   const { moduleId } = await params;
-  const module = OKR_COURSE_MODULES.find((m) => m.id === moduleId);
-  const title = module?.title.en ?? "Module";
+  const courseModule = OKR_COURSE_MODULES.find((m) => m.id === moduleId);
+  const title = courseModule?.title.en ?? "Module";
 
   return (
     <>

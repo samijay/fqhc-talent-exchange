@@ -59,15 +59,6 @@ const COST_LABELS: Record<CostTier, { en: string; es: string }> = {
   varies: { en: "Varies", es: "Varía" },
 };
 
-function formatDeadline(dateStr: string, locale: string): string {
-  const d = new Date(dateStr + "T00:00:00");
-  return d.toLocaleDateString(locale === "es" ? "es-US" : "en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-}
-
 function daysUntil(dateStr: string): number {
   const now = new Date();
   const target = new Date(dateStr + "T00:00:00");

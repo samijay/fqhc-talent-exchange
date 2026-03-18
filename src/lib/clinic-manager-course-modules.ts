@@ -7,7 +7,6 @@ import type {
   AcademyModule,
   AcademyExercise,
   AcademyCourseDefinition,
-  BilingualText,
 } from "./academy-types";
 
 /* ================================================================== */

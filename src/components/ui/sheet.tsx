@@ -12,13 +12,13 @@ interface SheetContentProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
 }
 
-interface SheetHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
+type SheetHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
-interface SheetTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
+type SheetTitleProps = React.HTMLAttributes<HTMLHeadingElement>
 
-interface SheetDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+type SheetDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>
 
-interface SheetCloseProps extends React.HTMLAttributes<HTMLButtonElement> {}
+type SheetCloseProps = React.HTMLAttributes<HTMLButtonElement>
 
 const Sheet = ({
   open,

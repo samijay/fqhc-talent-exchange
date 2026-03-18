@@ -390,7 +390,7 @@ function buildCredentialsPhase(roleId: string, level: ExperienceLevel): PathwayP
   };
 }
 
-function buildExpertisePhase(roleId: string, _level: ExperienceLevel): PathwayPhase {
+function buildExpertisePhase(roleId: string): PathwayPhase {
   const steps: PathwayStep[] = [];
   const track = ROLE_TO_TRACK[roleId];
 
@@ -506,7 +506,7 @@ export function generateLearningPathway(
 
   // Phase 3: Expertise (early, mid, senior)
   if (level !== "entry") {
-    phases.push(buildExpertisePhase(roleId, level));
+    phases.push(buildExpertisePhase(roleId));
   }
 
   // Phase 4: Advance (mid, senior)

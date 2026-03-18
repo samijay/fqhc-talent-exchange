@@ -23,7 +23,6 @@ import {
   CAREER_PATHWAYS,
   REGIONAL_MULTIPLIERS,
   adjustSalary,
-  type CareerPathway,
   type CareerLevel,
 } from "@/lib/career-pathways";
 

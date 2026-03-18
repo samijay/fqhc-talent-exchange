@@ -6,9 +6,7 @@ import { useLocale } from "next-intl";
 import {
   AlertTriangle,
   ArrowRight,
-  Ban,
   BookOpen,
-  Calendar,
   ChevronDown,
   ChevronUp,
   DollarSign,
@@ -31,8 +29,6 @@ import {
   fqhcRevenueModel,
   keySources,
   programStatusLabels,
-  type PolicyChange,
-  type ProgramImpact,
 } from "@/lib/funding-impact-data";
 
 /* ------------------------------------------------------------------ */
@@ -296,8 +292,6 @@ export default function FundingImpactPage() {
   const [timelineFilter, setTimelineFilter] = useState<"all" | "federal" | "state">("all");
   const [undocOnly, setUndocOnly] = useState(false);
   const [expandedTimeline, setExpandedTimeline] = useState<string | null>(null);
-  const [expandedProgram, setExpandedProgram] = useState<string | null>(null);
-
   /* filter timeline */
   const filteredTimeline = policyTimeline.filter((p) => {
     if (timelineFilter !== "all" && p.category !== timelineFilter) return false;
@@ -503,7 +497,6 @@ export default function FundingImpactPage() {
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filteredPrograms.map((prog) => {
-            const isExpanded = expandedProgram === prog.id;
             return (
               <div
                 key={prog.id}

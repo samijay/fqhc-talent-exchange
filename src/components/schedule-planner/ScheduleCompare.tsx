@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import {
   type WeeklySchedule,
-  type ScheduleMetrics,
   calculateScheduleMetrics,
 } from "@/lib/schedule-planner-engine";
 import { downloadScheduleComparisonAsExcel } from "@/lib/schedule-excel-export";

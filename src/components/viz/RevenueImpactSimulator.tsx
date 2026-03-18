@@ -11,8 +11,6 @@ import {
   DollarSign,
   AlertTriangle,
   Info,
-  Sparkles,
-  Settings2,
 } from "lucide-react";
 import {
   SimulatorWizard,
@@ -20,14 +18,10 @@ import {
   type OrgSize,
 } from "@/components/simulator/SimulatorWizard";
 import { ModeToggle, type SimMode } from "@/components/simulator/ModeToggle";
-import { DeltaBadge } from "@/components/simulator/StickyResults";
 
 /* ------------------------------------------------------------------ */
 /*  Bilingual helper                                                   */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
 /*  Size-based MODEL configurations                                    */
@@ -183,7 +177,7 @@ export function RevenueImpactSimulator() {
   // Mode
   const [mode, setMode] = useState<SimMode>("wizard");
   const [orgSize, setOrgSize] = useState<OrgSize>("mid-size");
-  const [baselineImpacts, setBaselineImpacts] = useState<Impacts | null>(null);
+  const [, setBaselineImpacts] = useState<Impacts | null>(null);
 
   // Slider state
   const [federalChange, setFederalChange] = useState(0);

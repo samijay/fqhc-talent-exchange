@@ -794,20 +794,6 @@ export const SCALE_FACTORS: ScaleFactor[] = [
 /*  Calculation Engine                                                 */
 /* ------------------------------------------------------------------ */
 
-/** Compute total non-personnel as % of revenue */
-function computeNonPersonnelTotal(np: NonPersonnelInput): number {
-  return (
-    np.facilitiesPercent +
-    np.itEhrPercent +
-    np.medicalSuppliesPercent +
-    np.insurancePercent +
-    np.badDebtPercent +
-    np.professionalServicesPercent +
-    np.depreciationPercent +
-    np.otherPercent
-  );
-}
-
 export function calculateSimulation(inputs: SimulatorInputs): SimulatorOutput {
   const { staffing, backOffice, nonPersonnel, schedule, revenue, disease } = inputs;
   const preset = SIZE_PRESETS.find((p) => p.id === inputs.sizePreset);

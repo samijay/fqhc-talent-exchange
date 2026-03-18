@@ -3,14 +3,12 @@
 
 import { useMemo, useState } from "react";
 import { useLocale } from "next-intl";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Calendar,
   AlertCircle,
   AlertTriangle,
   Info,
-  ChevronRight,
   Filter,
 } from "lucide-react";
 import type {

@@ -10,7 +10,6 @@ import {
   Star,
   Scale,
   GraduationCap,
-  Cpu,
   Shield,
   Briefcase,
   Lightbulb,
@@ -230,7 +229,7 @@ function LeaderCard({
                   leader.relatedCaseStudyIds!.map((id) => (
                     <Link
                       key={id}
-                      href={"/strategy/guides" as "/strategy/guides"}
+                      href={"/strategy/guides" as const}
                       className="inline-flex items-center gap-1 rounded-full bg-amber-50 border border-amber-200 px-2.5 py-1 text-xs font-medium text-amber-700 hover:bg-amber-100 transition-colors"
                     >
                       <BookOpen className="size-3" />
@@ -241,7 +240,7 @@ function LeaderCard({
                   leader.relatedEconomicsIds!.map((id) => (
                     <Link
                       key={id}
-                      href={"/strategy/economics" as "/strategy/economics"}
+                      href={"/strategy/economics" as const}
                       className="inline-flex items-center gap-1 rounded-full bg-blue-50 border border-blue-200 px-2.5 py-1 text-xs font-medium text-blue-700 hover:bg-blue-100 transition-colors"
                     >
                       <DollarSign className="size-3" />
@@ -252,7 +251,7 @@ function LeaderCard({
                   leader.relatedFrameworkIds!.map((id) => (
                     <Link
                       key={id}
-                      href={"/strategy/frameworks" as "/strategy/frameworks"}
+                      href={"/strategy/frameworks" as const}
                       className="inline-flex items-center gap-1 rounded-full bg-purple-50 border border-purple-200 px-2.5 py-1 text-xs font-medium text-purple-700 hover:bg-purple-100 transition-colors"
                     >
                       <Layers className="size-3" />
@@ -380,8 +379,6 @@ export default function ThoughtLeadersPage() {
   // Stats
   const totalLeaders = THOUGHT_LEADERS.length;
   const categoryCount = Object.keys(leaderCategoryMeta).length;
-  const linkedinCount = THOUGHT_LEADERS.filter((l) => l.linkedinUrl).length;
-
   return (
     <div className="bg-stone-50">
       {/* ── Hero ── */}

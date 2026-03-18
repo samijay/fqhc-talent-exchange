@@ -79,7 +79,7 @@ export default function DashboardPage() {
 
   // ── Watchlist State ──
   const [watchlist, setWatchlist] = useState<WatchlistItem[]>([]);
-  const [watchlistLoading, setWatchlistLoading] = useState(true);
+  const [, setWatchlistLoading] = useState(true);
   const [fqhcSearch, setFqhcSearch] = useState("");
   const [keywordInput, setKeywordInput] = useState("");
 
@@ -127,6 +127,7 @@ export default function DashboardPage() {
   // ── Populate settings from profile ──
   useEffect(() => {
     if (profile) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDisplayName(profile.display_name ?? "");
       setRole(profile.role);
       setOrganization(profile.organization ?? "");

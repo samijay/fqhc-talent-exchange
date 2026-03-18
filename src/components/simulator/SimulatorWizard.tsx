@@ -4,7 +4,6 @@
 
 import { useState } from "react";
 import {
-  Building2,
   MapPin,
   Heart,
   Stethoscope,
@@ -21,6 +20,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/track";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -300,7 +300,6 @@ export function SimulatorWizard({ onComplete, onSkip, locale }: SimulatorWizardP
 
     // Track simulator setup completion
     try {
-      const { trackEvent } = require("@/lib/track");
       trackEvent({
         event_type: "simulator_run" as const,
         tool_name: "simulator-wizard",

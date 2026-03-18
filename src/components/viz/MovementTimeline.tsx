@@ -13,7 +13,6 @@ import {
   Sprout,
   TrendingUp,
   AlertTriangle,
-  Users,
   Handshake,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";

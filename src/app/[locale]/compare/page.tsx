@@ -74,14 +74,6 @@ function impactColor(level: string | null): string {
   }
 }
 
-/** Returns true if `val` is the best in the row (highest number or rating). */
-function isBest(val: number | null, allVals: (number | null)[], higher = true): boolean {
-  const nums = allVals.filter((v): v is number => v !== null);
-  if (nums.length < 2) return false;
-  if (val === null) return false;
-  return higher ? val === Math.max(...nums) : val === Math.min(...nums);
-}
-
 const bestCell = "bg-teal-50/60";
 
 /* ------------------------------------------------------------------ */
@@ -363,7 +355,6 @@ function DimensionChart({
 
 export default function ComparePage() {
   const locale = useLocale();
-  const isEs = locale === "es";
 
   const [selected, setSelected] = useState<string[]>([]);
 
@@ -522,12 +513,12 @@ export default function ComparePage() {
                       label={t(labels.ratingLabel, locale)}
                       values={fqhcs.map((f) =>
                         f.glassdoorRating !== null ? (
-                          <span className="flex items-center gap-1">
+                          <span key={f.slug} className="flex items-center gap-1">
                             <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                             {f.glassdoorRating.toFixed(1)}
                           </span>
                         ) : (
-                          <span className="text-stone-400">{t(labels.na, locale)}</span>
+                          <span key={f.slug} className="text-stone-400">{t(labels.na, locale)}</span>
                         )
                       )}
                       bestIdx={bestOf(fqhcs.map((f) => f.glassdoorRating))}
@@ -555,7 +546,7 @@ export default function ComparePage() {
                       label={t(labels.programsLabel, locale)}
                       values={fqhcs.map((f) =>
                         f.programs.length > 0 ? (
-                          <div className="flex flex-wrap gap-1">
+                          <div key={f.slug} className="flex flex-wrap gap-1">
                             {f.programs.map((p) => (
                               <Badge key={p} variant="secondary" className="text-xs bg-teal-50 text-teal-700">
                                 {p}
@@ -563,7 +554,7 @@ export default function ComparePage() {
                             ))}
                           </div>
                         ) : (
-                          <span className="text-stone-400">{t(labels.noneReported, locale)}</span>
+                          <span key={f.slug} className="text-stone-400">{t(labels.noneReported, locale)}</span>
                         )
                       )}
                       bestIdx={bestOf(fqhcs.map((f) => f.programs.length))}
@@ -589,23 +580,23 @@ export default function ComparePage() {
                     </tr>
                     <CompareRow
                       label={t(labels.overallGrade, locale)}
-                      values={scores.map((s) => (
-                        <Badge className={`${gradeColor(s.grade)} font-bold text-sm`}>
+                      values={scores.map((s, i) => (
+                        <Badge key={i} className={`${gradeColor(s.grade)} font-bold text-sm`}>
                           {s.grade}
                         </Badge>
                       ))}
                     />
                     <CompareRow
                       label={t(labels.overallScore, locale)}
-                      values={scores.map((s) => (
-                        <span className="font-semibold">{s.overall}/100</span>
+                      values={scores.map((s, i) => (
+                        <span key={i} className="font-semibold">{s.overall}/100</span>
                       ))}
                       bestIdx={bestOf(scores.map((s) => s.overall))}
                     />
                     <CompareRow
                       label={t(labels.riskLevel, locale)}
-                      values={scores.map((s) => (
-                        <Badge className={`${riskColor(s.riskLevel)} text-xs capitalize`}>
+                      values={scores.map((s, i) => (
+                        <Badge key={i} className={`${riskColor(s.riskLevel)} text-xs capitalize`}>
                           {s.riskLevel}
                         </Badge>
                       ))}
@@ -639,7 +630,7 @@ export default function ComparePage() {
                     <CompareRow
                       label={t(labels.impactLevel, locale)}
                       values={fqhcs.map((f) => (
-                        <Badge className={`${impactColor(f.fundingImpactLevel)} text-xs capitalize`}>
+                        <Badge key={f.slug} className={`${impactColor(f.fundingImpactLevel)} text-xs capitalize`}>
                           {f.fundingImpactLevel || t(labels.unknown, locale)}
                         </Badge>
                       ))}
@@ -672,10 +663,10 @@ export default function ComparePage() {
                     <CompareRow
                       label={t(labels.unionLabel, locale)}
                       values={fqhcs.map((f) => {
-                        if (!f.unionInfo) return <span className="text-stone-400">{t(labels.unknown, locale)}</span>;
+                        if (!f.unionInfo) return <span key={f.slug} className="text-stone-400">{t(labels.unknown, locale)}</span>;
                         if (f.unionInfo.unionized) {
                           return (
-                            <div className="space-y-1">
+                            <div key={f.slug} className="space-y-1">
                               <Badge className="bg-blue-100 text-blue-800 text-xs">
                                 {t(labels.unionized, locale)}
                               </Badge>
@@ -685,7 +676,7 @@ export default function ComparePage() {
                             </div>
                           );
                         }
-                        return <span className="text-stone-500">{t(labels.notUnionized, locale)}</span>;
+                        return <span key={f.slug} className="text-stone-500">{t(labels.notUnionized, locale)}</span>;
                       })}
                     />
 
@@ -701,7 +692,7 @@ export default function ComparePage() {
                     <CompareRow
                       label={t(labels.ecmLabel, locale)}
                       values={fqhcs.map((f) => (
-                        <Badge className={f.ecmProvider ? "bg-teal-100 text-teal-800 text-xs" : "bg-stone-100 text-stone-500 text-xs"}>
+                        <Badge key={f.slug} className={f.ecmProvider ? "bg-teal-100 text-teal-800 text-xs" : "bg-stone-100 text-stone-500 text-xs"}>
                           {f.ecmProvider ? t(labels.yes, locale) : t(labels.no, locale)}
                         </Badge>
                       ))}
@@ -709,7 +700,7 @@ export default function ComparePage() {
                     <CompareRow
                       label={t(labels.nhscLabel, locale)}
                       values={fqhcs.map((f) => (
-                        <Badge className={f.nhscApproved ? "bg-teal-100 text-teal-800 text-xs" : "bg-stone-100 text-stone-500 text-xs"}>
+                        <Badge key={f.slug} className={f.nhscApproved ? "bg-teal-100 text-teal-800 text-xs" : "bg-stone-100 text-stone-500 text-xs"}>
                           {f.nhscApproved ? t(labels.yes, locale) : t(labels.no, locale)}
                         </Badge>
                       ))}
@@ -718,8 +709,8 @@ export default function ComparePage() {
                     {/* ---- Data Completeness ---- */}
                     <CompareRow
                       label={t(labels.dataComplete, locale)}
-                      values={scores.map((s) => (
-                        <div className="flex items-center gap-2">
+                      values={scores.map((s, i) => (
+                        <div key={i} className="flex items-center gap-2">
                           <div className="flex-1 bg-stone-100 rounded-full h-2 max-w-24">
                             <div
                               className="bg-teal-500 h-full rounded-full transition-all"

@@ -271,7 +271,7 @@ function buildGuideFrontMatter(
   locale: string,
   templateCount: number,
 ) {
-  const { Paragraph, TextRun, HeadingLevel, AlignmentType, BorderStyle, Table, TableRow, TableCell, WidthType, ShadingType } = docx;
+  const { Paragraph, TextRun, HeadingLevel, BorderStyle, Table, TableRow, TableCell, WidthType, ShadingType } = docx;
   const isEs = locale === "es";
   const elements: (InstanceType<typeof Paragraph> | InstanceType<typeof Table>)[] = [];
 
@@ -422,7 +422,7 @@ export async function downloadOKRsAsDocx(
   const docx = await import("docx");
   const { saveAs } = await import("file-saver");
 
-  const { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, PageBreak, Header, Footer, PageNumber, BorderStyle, TabStopType, TabStopPosition } = docx;
+  const { Document, Packer, Paragraph, TextRun, AlignmentType, PageBreak, Header, Footer, PageNumber, BorderStyle, TabStopType, TabStopPosition } = docx;
   const isEs = locale === "es";
 
   const sorted = [

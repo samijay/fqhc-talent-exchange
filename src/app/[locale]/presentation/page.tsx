@@ -4,8 +4,6 @@ import { useState, useEffect, useCallback } from "react";
 import {
   ChevronLeft,
   ChevronRight,
-  Terminal,
-  Zap,
   Database,
   Brain,
   Clock,

@@ -343,10 +343,6 @@ export interface SizePreset {
   noShowRate: number;
 }
 
-let nextId = 1;
-function genId(): string {
-  return `staff-${nextId++}`;
-}
 
 function makeStaff(
   name: string,
@@ -946,13 +942,7 @@ export function cloneSchedule(schedule: WeeklySchedule, newName: string): Weekly
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     staff: schedule.staff.map((s) => ({ ...s, id: generateId() })),
-    assignments: schedule.assignments.map((a) => {
-      const oldStaffId = a.staffId;
-      const oldStaff = schedule.staff.find((s) => s.id === oldStaffId);
-      // Find corresponding new staff member by matching index
-      const oldIdx = schedule.staff.indexOf(oldStaff!);
-      return { ...a, id: generateId() };
-    }),
+    assignments: schedule.assignments.map((a) => ({ ...a, id: generateId() })),
   };
 }
 

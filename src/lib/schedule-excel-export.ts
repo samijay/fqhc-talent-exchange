@@ -7,7 +7,6 @@ import type {
   WeeklySchedule,
   ScheduleMetrics,
   DayOfWeek,
-  StaffRole,
 } from "./schedule-planner-engine";
 import {
   ROLE_CONFIG,
@@ -15,82 +14,6 @@ import {
   DAY_LABELS,
   calculateScheduleMetrics,
 } from "./schedule-planner-engine";
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
-
-/* ------------------------------------------------------------------ */
-/*  Color palette — matches schedule planner UI                        */
-/* ------------------------------------------------------------------ */
-
-const COLORS = {
-  navy: "1B3A5C",
-  indigo: "3730A3",
-  teal: "0D7377",
-  lightTeal: "D4EFEF",
-  green: "27AE60",
-  lightGreen: "D5F5E3",
-  amber: "D4870E",
-  lightAmber: "FFF3D6",
-  red: "C0392B",
-  lightRed: "FADBD8",
-  white: "FFFFFF",
-  lightGray: "F2F4F4",
-  medGray: "95A5A6",
-  black: "000000",
-};
-
-// Map Tailwind role colors to Excel hex colors
-const ROLE_EXCEL_COLORS: Record<StaffRole, { bg: string; text: string }> = {
-  physician:        { bg: "DBEAFE", text: "1D4ED8" },
-  np:               { bg: "E0E7FF", text: "4338CA" },
-  pa:               { bg: "EDE9FE", text: "6D28D9" },
-  rn:               { bg: "DCFCE7", text: "15803D" },
-  ma:               { bg: "CCFBF1", text: "0F766E" },
-  chw:              { bg: "FEF3C7", text: "B45309" },
-  bh:               { bg: "F3E8FF", text: "7C3AED" },
-  dentist:          { bg: "FFE4E6", text: "BE123C" },
-  dental_hygienist: { bg: "FCE7F3", text: "BE185D" },
-  dental_assistant: { bg: "FDF2F8", text: "DB2777" },
-  front_desk:       { bg: "F5F5F4", text: "44403C" },
-  care_coordinator: { bg: "CFFAFE", text: "0E7490" },
-};
-
-/* ------------------------------------------------------------------ */
-/*  Style helpers — SheetJS cell styling                               */
-/* ------------------------------------------------------------------ */
-
-function thinBorder() {
-  const side = { style: "thin" as const, color: { rgb: "BDC3C7" } };
-  return { top: side, bottom: side, left: side, right: side };
-}
-
-function headerStyle() {
-  return {
-    font: { name: "Arial", bold: true, color: { rgb: COLORS.white }, sz: 11 },
-    fill: { fgColor: { rgb: COLORS.indigo } },
-    alignment: { horizontal: "center" as const, vertical: "center" as const, wrapText: true },
-    border: thinBorder(),
-  };
-}
-
-function subheaderStyle(bgColor = COLORS.lightTeal) {
-  return {
-    font: { name: "Arial", bold: true, color: { rgb: COLORS.navy }, sz: 10 },
-    fill: { fgColor: { rgb: bgColor } },
-    alignment: { horizontal: "left" as const, vertical: "center" as const, wrapText: true },
-    border: thinBorder(),
-  };
-}
-
-function bodyStyle(opts?: { bold?: boolean; color?: string; fill?: string; center?: boolean }) {
-  return {
-    font: { name: "Arial", sz: 10, bold: opts?.bold, color: opts?.color ? { rgb: opts.color } : undefined },
-    fill: opts?.fill ? { fgColor: { rgb: opts.fill } } : undefined,
-    alignment: { horizontal: opts?.center ? ("center" as const) : ("left" as const), vertical: "center" as const, wrapText: true },
-    border: thinBorder(),
-  };
-}
 
 function formatHour(h: number): string {
   if (h === 0) return "12:00 AM";

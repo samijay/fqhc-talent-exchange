@@ -788,16 +788,16 @@ export default async function FebruaryJobsReportArticle() {
                   <ul className="space-y-1 text-sm text-stone-600">
                     <li>
                       &bull;{" "}
-                      <a href="/layoffs" className="text-teal-700 underline hover:text-teal-900">
+                      <Link href="/layoffs" className="text-teal-700 underline hover:text-teal-900">
                         {locale === "es" ? "Rastreador de Despidos" : "Layoff Tracker"}
-                      </a>{" "}
+                      </Link>{" "}
                       &mdash; 20 {locale === "es" ? "eventos" : "events"}, 3,477+ {locale === "es" ? "trabajadores" : "workers"}
                     </li>
                     <li>
                       &bull;{" "}
-                      <a href="/" className="text-teal-700 underline hover:text-teal-900">
+                      <Link href="/" className="text-teal-700 underline hover:text-teal-900">
                         {locale === "es" ? "Dashboard de Inteligencia" : "Intelligence Dashboard"}
-                      </a>{" "}
+                      </Link>{" "}
                       &mdash; {locale === "es" ? "actualizado diariamente" : "updated daily"}
                     </li>
                   </ul>

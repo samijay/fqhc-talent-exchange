@@ -26,8 +26,6 @@ import {
   MASTERCLASSES,
   MASTERCLASSES_LAST_UPDATED,
   MASTERCLASS_CATEGORIES,
-  AUDIENCE_META,
-  DIFFICULTY_META,
   getMasterclassCounts,
   getCategoryMeta,
   getAudienceMeta,

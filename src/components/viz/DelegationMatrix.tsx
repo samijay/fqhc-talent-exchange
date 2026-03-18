@@ -3,7 +3,7 @@
 
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
-import { Shield, X, ChevronDown, Filter, Info } from "lucide-react";
+import { Shield, X, Filter, Info } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */

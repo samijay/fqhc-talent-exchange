@@ -16,11 +16,9 @@ import {
   Save,
   Copy,
   Trash2,
-  Clock,
   Users,
   BarChart3,
   Building2,
-  Download,
   Settings2,
   FolderOpen,
   GitCompareArrows,
@@ -28,13 +26,11 @@ import {
   Edit3,
   Check,
   X,
-  Sparkles,
 } from "lucide-react";
 import {
   SimulatorWizard,
   type WizardConfig,
 } from "@/components/simulator/SimulatorWizard";
-import { ModeToggle, type SimMode } from "@/components/simulator/ModeToggle";
 import { ScheduleGrid } from "@/components/schedule-planner/ScheduleGrid";
 import { ScheduleMetricsPanel } from "@/components/schedule-planner/ScheduleMetricsPanel";
 import { ScheduleCompare } from "@/components/schedule-planner/ScheduleCompare";
@@ -56,7 +52,6 @@ import {
   updateOperatingHours,
   loadSavedSchedules,
   saveSchedule,
-  saveSchedules,
   deleteSchedule,
   cloneSchedule,
   generateId,
@@ -98,6 +93,7 @@ export default function SchedulePlannerPage() {
   // Load saved schedules on mount
   useEffect(() => {
     const saved = loadSavedSchedules();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSavedSchedules(saved.schedules);
     if (saved.activeScheduleId) {
       const active = saved.schedules.find((s) => s.id === saved.activeScheduleId);
@@ -114,6 +110,7 @@ export default function SchedulePlannerPage() {
       saveSchedule(schedule);
       // Refresh saved list
       const saved = loadSavedSchedules();
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSavedSchedules(saved.schedules);
     }
   }, [schedule]);

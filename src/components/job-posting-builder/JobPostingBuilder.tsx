@@ -9,7 +9,6 @@ import {
   Briefcase,
   FileText,
   DollarSign,
-  Shield,
   Users,
   ArrowRight,
   ArrowLeft,
@@ -36,14 +35,11 @@ import {
 } from "@/components/ui/select";
 import {
   JOB_POSTING_TEMPLATES,
-  SALARY_BENCHMARKS,
   STANDARD_BENEFITS,
   SCREENING_CATEGORIES,
   getSalaryBenchmark,
   getSalaryCompetitiveness,
   formatSalary,
-  type PostingTemplate,
-  type SalaryBenchmark,
 } from "@/lib/job-posting-templates";
 import { generateJobPostingDocx } from "@/lib/docx-generator";
 

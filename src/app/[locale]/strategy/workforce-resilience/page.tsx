@@ -10,7 +10,6 @@ import {
   ChevronDown,
   ChevronUp,
   AlertTriangle,
-  CheckCircle2,
   ExternalLink,
   Calculator,
   TrendingUp,
@@ -22,25 +21,19 @@ import {
   GraduationCap,
   BarChart3,
   Clock,
-  Zap,
-  SlidersHorizontal,
   Info,
   BookOpen,
-  Shield,
   Target,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   WORKFORCE_RESILIENCE_LAST_UPDATED,
   PILLAR_META,
-  DIFFICULTY_META as WR_DIFFICULTY_META,
   RETENTION_STRATEGIES,
   TURNOVER_COST_ROLES,
   RETENTION_BENCHMARKS,
   HERO_STATS,
   getStrategiesByPillar,
-  getPillarMeta,
   getDifficultyMeta,
   getStrategyCounts,
   getRelatedContent,

@@ -15,7 +15,6 @@ const AMBER_BG = "#FFFBEB";
 const AMBER_BORDER = "#FDE68A";
 const RED = "#B91C1C";
 const RED_BG = "#FEF2F2";
-const RED_BORDER = "#FECACA";
 const GREEN = "#15803D";
 
 /* ------------------------------------------------------------------ */

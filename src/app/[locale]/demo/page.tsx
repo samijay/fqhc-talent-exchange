@@ -20,7 +20,6 @@ import {
   Sprout,
   Compass,
   CheckCircle2,
-  Clock,
   Star,
   Shield,
   DollarSign,

@@ -20,7 +20,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   getRegionBySlug,
-  getRegionSlug,
   getAllRegionSlugs,
   getRegionalStats,
   getRegionalFQHCs,
@@ -29,7 +28,6 @@ import {
   REGION_SLUGS,
 } from "@/lib/regional-intelligence";
 import { IMPACT_LABELS, IMPACT_STYLES } from "@/lib/fqhc-news-intel";
-import { DIMENSION_META } from "@/lib/fqhc-resilience";
 
 /* ------------------------------------------------------------------ */
 /*  Static Params                                                      */

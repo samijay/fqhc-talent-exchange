@@ -90,7 +90,6 @@ const PROGRAM_OPTIONS = [
 
 export default function CareerAssessment({
   fqhcName,
-  fqhcSlug,
   fqhcPrograms,
   fqhcEhrSystem,
   onClose,

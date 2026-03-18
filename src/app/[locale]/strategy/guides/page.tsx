@@ -15,9 +15,7 @@ import {
   Lightbulb,
   CheckCircle2,
   BarChart3,
-  ExternalLink,
   Filter,
-  Signal,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

@@ -15,8 +15,6 @@ import {
 } from "@/lib/okr-course-progress";
 import { OKR_COURSE_MODULES } from "@/lib/okr-course-modules";
 import { useState, useEffect } from "react";
-import type { OKRDomain } from "@/lib/fqhc-okr-templates";
-
 export default function CapstonePage() {
   const locale = useLocale();
   const isEs = locale === "es";
@@ -30,17 +28,14 @@ export default function CapstonePage() {
   useEffect(() => {
     const progress = loadProgress(user?.id);
     if (progress) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setHasAccess(canAccessCapstone(progress, prerequisiteIds));
     } else {
       setHasAccess(false);
     }
   }, [user?.id, prerequisiteIds]);
 
-  const handleCapstoneComplete = (
-    domain: OKRDomain,
-    objective: string,
-    keyResults: string[]
-  ) => {
+  const handleCapstoneComplete = () => {
     const progress = loadProgress(user?.id);
     if (progress) {
       const updated = completeModule(progress, "capstone");

@@ -249,6 +249,7 @@ export function ProfileTabs({
   useEffect(() => {
     const hash = window.location.hash.replace("#", "") as TabId;
     if (TABS.some((t) => t.id === hash)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setActiveTab(hash);
     }
   }, []);
@@ -561,7 +562,6 @@ function OverviewTab({
   slug,
   details,
   resilience,
-  profileCompleteness: _profileCompleteness,
   locale,
 }: {
   fqhcName: string;

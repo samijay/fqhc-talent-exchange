@@ -35,6 +35,7 @@ export default function GoogleAnalytics() {
 
     // Load GA4 if: no DNT and not opted out
     if (!dnt && !optedOut) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCanLoad(true);
     }
   }, []);

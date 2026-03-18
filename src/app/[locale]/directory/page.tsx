@@ -23,7 +23,6 @@ import {
   GraduationCap,
   Briefcase,
   Globe,
-  Phone,
   MapPin as MapPinIcon,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -79,7 +78,7 @@ function generateSampleJobs(fqhc: CaliforniaFQHC): SampleJob[] {
   ];
 
   // Add ECM-specific jobs if applicable
-  let jobs = [...baseJobs];
+  const jobs = [...baseJobs];
   if (fqhc.ecmProvider && fqhc.programs.includes("ECM")) {
     jobs.push({
       title: "Care Coordinator - ECM Program",

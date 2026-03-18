@@ -20,7 +20,6 @@ import {
   Shield,
   TrendingUp,
   X,
-  Scale,
   GitCompareArrows,
   Lightbulb,
   Users,
@@ -33,8 +32,8 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
-import { fqhcJobListings, type FQHCJobListing } from "@/lib/fqhc-job-listings";
-import { californiaFQHCs, regions, fqhcSalaryRanges } from "@/lib/california-fqhcs";
+import { fqhcJobListings } from "@/lib/fqhc-job-listings";
+import { californiaFQHCs, regions } from "@/lib/california-fqhcs";
 import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 import {
   getJobNegotiationContext,
@@ -237,8 +236,8 @@ function matchesSalaryRange(min: number, max: number, range: string): boolean {
 /*  SalaryBar — visual benchmark comparison                            */
 /* ------------------------------------------------------------------ */
 
-function SalaryBar({ min, max, roleType, locale }: {
-  min: number; max: number; roleType: string; locale: string;
+function SalaryBar({ min, max, roleType }: {
+  min: number; max: number; roleType: string;
 }) {
   const p50 = getBenchmarkP50(roleType);
   if (!p50) return null;
@@ -344,7 +343,6 @@ function ComparePanel({
 
         <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${jobs.length}, 1fr)` }}>
           {jobs.map((job) => {
-            const fqhc = fqhcMap.get(job.fqhcSlug);
             return (
               <div key={job.id} className="rounded-xl border border-stone-200 p-4">
                 <div className="flex items-start justify-between mb-3">
@@ -368,7 +366,7 @@ function ComparePanel({
                       {formatSalary(job.salaryMin, job.salaryMax)}
                     </span>
                   </div>
-                  <SalaryBar min={job.salaryMin} max={job.salaryMax} roleType={job.roleType} locale={locale} />
+                  <SalaryBar min={job.salaryMin} max={job.salaryMax} roleType={job.roleType} />
 
                   {/* Market position */}
                   {(() => {
@@ -492,7 +490,7 @@ export default function JobsPage() {
   const isEs = locale === "es";
 
   // Live jobs from Supabase
-  const [liveJobs, setLiveJobs] = useState<JobOpening[]>([]);
+  const [, setLiveJobs] = useState<JobOpening[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -547,6 +545,7 @@ export default function JobsPage() {
   useEffect(() => {
     try {
       const saved = localStorage.getItem("fqhc-job-favorites");
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (saved) setFavorites(new Set(JSON.parse(saved)));
     } catch {}
   }, []);
@@ -1318,7 +1317,7 @@ export default function JobsPage() {
                                 {formatSalary(job.salaryMin, job.salaryMax)}
                               </span>
                             </div>
-                            <SalaryBar min={job.salaryMin} max={job.salaryMax} roleType={job.roleType} locale={locale} />
+                            <SalaryBar min={job.salaryMin} max={job.salaryMax} roleType={job.roleType} />
                           </div>
 
                           {/* Negotiation tips */}

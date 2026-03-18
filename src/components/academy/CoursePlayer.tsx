@@ -6,7 +6,6 @@ import { useState, useCallback, useEffect } from "react";
 import { useLocale } from "next-intl";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   ChevronRight,
   BookOpen,

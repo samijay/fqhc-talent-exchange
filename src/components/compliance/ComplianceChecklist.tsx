@@ -1,19 +1,14 @@
 // ComplianceChecklist.tsx — Interactive compliance checklist with progress tracking
 "use client";
 
-import { useState, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { useLocale } from "next-intl";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   CheckCircle2,
   Circle,
   Filter,
-  Download,
   Clock,
-  AlertTriangle,
-  BookOpen,
   ChevronDown,
   ChevronRight,
 } from "lucide-react";

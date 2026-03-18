@@ -8,11 +8,9 @@ import {
   ArrowRight,
   ArrowUpDown,
   BarChart3,
-  Building2,
   ChevronDown,
   ExternalLink,
   Search,
-  Shield,
   TrendingUp,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";

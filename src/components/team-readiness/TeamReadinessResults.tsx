@@ -20,7 +20,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 import type { DomainId } from "@/lib/career-assessment-engine";
-import type { ManagerAssessmentResults, LeadershipRoleId } from "@/lib/manager-assessment-engine";
+import type { ManagerAssessmentResults } from "@/lib/manager-assessment-engine";
 import { LEADERSHIP_ROLES, MANAGER_DOMAIN_DEFINITIONS } from "@/lib/manager-assessment-engine";
 import { MANAGER_ROLE_INSIGHTS } from "@/lib/manager-role-insights";
 import { getPrioritizedActions, getMatchedStructures } from "@/lib/management-actions";
@@ -170,11 +170,6 @@ export function TeamReadinessResults({ results, onStartOver }: TeamReadinessResu
   // Get prioritized actions and structures
   const actions = getPrioritizedActions(results.domainScores, 6);
   const structures = getMatchedStructures(results.domainScores, 4);
-
-  // Prioritize Five Conversations by lowest-scoring domains
-  const sortedDomains = [...domainIds].sort(
-    (a, b) => results.domainScores[a].percentage - results.domainScores[b].percentage,
-  );
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">

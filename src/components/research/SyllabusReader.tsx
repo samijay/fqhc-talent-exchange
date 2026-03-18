@@ -407,6 +407,7 @@ export function SyllabusReader({ tracks }: { tracks: CurriculumTrack[] }) {
 
   // Load progress from localStorage on mount
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setProgress(loadProgress());
   }, []);
 

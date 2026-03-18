@@ -1,7 +1,7 @@
 // FQHC Academy — Central hub for all training, courses, and career tools
 "use client";
 
-import { useState } from "react";
+import { createElement, useState } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -35,9 +35,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import {
   ACADEMY_COURSES,
   LEARNING_TOOLS,
-  TIME_TRACKS,
-  getLiveCourses,
-  getComingSoonCourses,
   type AcademyCourse,
   type LearningTool,
   type TimeTrack,
@@ -83,7 +80,6 @@ function CourseCard({
   locale: string;
   isEs: boolean;
 }) {
-  const Icon = getIcon(course.icon);
   const isLive = course.status === "live";
 
   const colorMap: Record<string, string> = {
@@ -111,7 +107,7 @@ function CourseCard({
         {/* Icon + meta */}
         <div className="flex items-start gap-4 mb-4">
           <div className={`rounded-xl p-3 ${iconBg}`}>
-            <Icon className="size-6" />
+            {createElement(getIcon(course.icon), { className: "size-6" })}
           </div>
           <div className="flex-1 min-w-0">
             <h3 className="font-bold text-stone-900 dark:text-stone-100 leading-tight">
@@ -190,14 +186,10 @@ function CourseCard({
 function ToolCard({
   tool,
   locale,
-  isEs,
 }: {
   tool: LearningTool;
   locale: string;
-  isEs: boolean;
 }) {
-  const Icon = getIcon(tool.icon);
-
   const colorMap: Record<string, string> = {
     teal: "text-teal-600 dark:text-teal-400",
     blue: "text-blue-600 dark:text-blue-400",
@@ -212,7 +204,7 @@ function ToolCard({
   return (
     <Link href={tool.href as "/career-insights"}>
       <div className="group flex items-start gap-3 rounded-xl border border-stone-200 bg-white p-4 transition-all hover:shadow-md hover:border-teal-200 dark:border-stone-700 dark:bg-stone-800/50 dark:hover:border-teal-800">
-        <Icon className={`size-5 mt-0.5 shrink-0 ${iconColor}`} />
+        {createElement(getIcon(tool.icon), { className: `size-5 mt-0.5 shrink-0 ${iconColor}` })}
         <div className="min-w-0">
           <h4 className="font-semibold text-sm text-stone-900 dark:text-stone-100 group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
             {t(tool.title, locale)}
@@ -297,8 +289,6 @@ export default function AcademyPage() {
   const isEs = locale === "es";
   const [timeFilter, setTimeFilter] = useState<TimeTrack | "all">("all");
 
-  const liveCourses = getLiveCourses();
-  const comingSoon = getComingSoonCourses();
   const filteredCourses =
     timeFilter === "all"
       ? ACADEMY_COURSES
@@ -500,7 +490,6 @@ export default function AcademyPage() {
                 key={tool.id}
                 tool={tool}
                 locale={locale}
-                isEs={isEs}
               />
             ))}
           </div>

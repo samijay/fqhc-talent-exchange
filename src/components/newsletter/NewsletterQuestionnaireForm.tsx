@@ -95,9 +95,6 @@ const ORG_SIZES = [
 /*  Helpers                                                             */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
-
 function ProgressDots({ step, total }: { step: number; total: number }) {
   return (
     <div className="flex items-center gap-1.5 mb-6">

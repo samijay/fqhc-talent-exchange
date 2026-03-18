@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Lock, Download, AlertTriangle, ExternalLink, ChevronDown, ChevronUp, Shield, FileKey, Users, Eye, Laptop } from "lucide-react";
-import { REGULATORY_ITEMS, COMPLIANCE_RISKS, COMPLIANCE_CASE_STUDIES, getRegulationsByDomain, getRisksByDomain, getCaseStudiesByDomain, getRiskScore, getRiskLevel } from "@/lib/fqhc-compliance";
+import { Download, AlertTriangle, ExternalLink, ChevronDown, ChevronUp, FileKey, Users, Eye, Laptop } from "lucide-react";
+import { getRegulationsByDomain, getRisksByDomain, getCaseStudiesByDomain, getRiskScore, getRiskLevel } from "@/lib/fqhc-compliance";
 import { downloadRiskMatrixAsExcel } from "@/lib/compliance-excel-export";
 
 const t = (obj: { en: string; es: string }, locale: string) => locale === "es" ? obj.es : obj.en;

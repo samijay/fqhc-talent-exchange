@@ -3,7 +3,7 @@
 /*  180 questions: 15 per role × 12 FQHC roles (3 per domain × 5)    */
 /* ------------------------------------------------------------------ */
 
-import type { AssessmentQuestion, DomainId } from "./career-assessment-engine";
+import type { AssessmentQuestion } from "./career-assessment-engine";
 
 export type RoleId =
   | "chw"

@@ -100,7 +100,7 @@ export default async function FqhcCareerLadderArticle() {
               The Medical Assistant (MA) Career Path
             </h2>
             <p className="text-stone-700 leading-relaxed">
-              The MA role is often an entry point into healthcare, and at FQHCs, it's a legitimate starting point for a long career. Here's the typical progression:
+              The MA role is often an entry point into healthcare, and at FQHCs, it&apos;s a legitimate starting point for a long career. Here&apos;s the typical progression:
             </p>
 
             <h3 className="text-xl font-bold text-stone-900 mt-8 mb-3">
@@ -111,7 +111,7 @@ export default async function FqhcCareerLadderArticle() {
               <span className="text-sm text-stone-500">(BLS median: $44,200 nationally, $48,050 in CA, May 2024 [1])</span>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              You're performing vital signs, rooming patients, assisting with procedures, and supporting the clinical team. You may be taking calls for nurse advice lines or helping with appointment scheduling. You're learning the EHR, understanding FQHC operations, and developing your clinical foundation.
+              You&apos;re performing vital signs, rooming patients, assisting with procedures, and supporting the clinical team. You may be taking calls for nurse advice lines or helping with appointment scheduling. You&apos;re learning the EHR, understanding FQHC operations, and developing your clinical foundation.
             </p>
             <p className="text-stone-700 leading-relaxed">
               This role typically lasts 1–2 years. Your goal during this phase is to become proficient with your EHR, understand FQHC programs (ECM, CCM, Community Supports, etc.), develop strong clinical skills, and demonstrate reliability and initiative.
@@ -124,7 +124,7 @@ export default async function FqhcCareerLadderArticle() {
               <strong>Typical salary range: $42,000–$52,000/year</strong>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              You're now expanding your role. You might be conducting more complex rooming, handling medication reconciliation, identifying HCC coding opportunities, or managing care gaps. You're mentoring newer MAs, helping troubleshoot EHR issues, and contributing to workflow improvements.
+              You&apos;re now expanding your role. You might be conducting more complex rooming, handling medication reconciliation, identifying HCC coding opportunities, or managing care gaps. You&apos;re mentoring newer MAs, helping troubleshoot EHR issues, and contributing to workflow improvements.
             </p>
             <p className="text-stone-700 leading-relaxed">
               Some FQHCs have you pursue certifications at this level: CMA (Certified Medical Assistant) or RMA (Registered Medical Assistant). A CMA credential costs $200–$300 and typically requires passing a certification exam after your work experience. Many FQHCs will cover the cost.
@@ -140,7 +140,7 @@ export default async function FqhcCareerLadderArticle() {
               <strong>Typical salary range: $50,000–$65,000/year</strong>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              At this level, you're transitioning out of direct patient care into an operational or supervisory role. You might be:
+              At this level, you&apos;re transitioning out of direct patient care into an operational or supervisory role. You might be:
             </p>
             <ul className="text-stone-700 leading-relaxed space-y-2">
               <li>
@@ -154,7 +154,7 @@ export default async function FqhcCareerLadderArticle() {
               </li>
             </ul>
             <p className="text-stone-700 leading-relaxed">
-              To make this jump, you need to demonstrate leadership, problem-solving ability, and a genuine interest in operations. You've typically been in a lead MA role for 2–3 years and have shown initiative in improving workflows.
+              To make this jump, you need to demonstrate leadership, problem-solving ability, and a genuine interest in operations. You&apos;ve typically been in a lead MA role for 2–3 years and have shown initiative in improving workflows.
             </p>
 
             <h3 className="text-xl font-bold text-stone-900 mt-8 mb-3">
@@ -164,7 +164,7 @@ export default async function FqhcCareerLadderArticle() {
               <strong>Typical salary range: $60,000–$80,000/year</strong>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              You're now managing an entire clinic or clinical operations team. You oversee scheduling, staff management, quality metrics, patient flow, and budget. You work closely with medical directors and nursing leadership. You might manage 15–30 staff members.
+              You&apos;re now managing an entire clinic or clinical operations team. You oversee scheduling, staff management, quality metrics, patient flow, and budget. You work closely with medical directors and nursing leadership. You might manage 15–30 staff members.
             </p>
             <p className="text-stone-700 leading-relaxed">
               To reach this level, you typically need some formal management training or coursework. Many FQHCs encourage staff in clinical operations roles to pursue an associate degree in healthcare management or enroll in supervisory training programs.
@@ -174,7 +174,7 @@ export default async function FqhcCareerLadderArticle() {
               The Registered Nurse (RN) Career Path
             </h2>
             <p className="text-stone-700 leading-relaxed">
-              RNs at FQHCs have multiple career pathways. You can stay in direct patient care and become a clinical leader, or you can move into care management, care coordination, or nursing leadership. Here's the landscape:
+              RNs at FQHCs have multiple career pathways. You can stay in direct patient care and become a clinical leader, or you can move into care management, care coordination, or nursing leadership. Here&apos;s the landscape:
             </p>
 
             <h3 className="text-xl font-bold text-stone-900 mt-8 mb-3">
@@ -185,7 +185,7 @@ export default async function FqhcCareerLadderArticle() {
               <span className="text-sm text-stone-500">(BLS median: $93,600 nationally, significantly higher in CA hospital settings, May 2024; FQHC primary care RN salaries tend lower than hospital rates [2])</span>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              You're conducting patient visits, managing a patient panel, coordinating care, and collaborating with providers. You might be doing annual wellness visits, new patient intakes, chronic disease management visits, or acute visits for stable conditions. You're working in the top-of-scope model described in our previous article.
+              You&apos;re conducting patient visits, managing a patient panel, coordinating care, and collaborating with providers. You might be doing annual wellness visits, new patient intakes, chronic disease management visits, or acute visits for stable conditions. You&apos;re working in the top-of-scope model described in our previous article.
             </p>
 
             <h3 className="text-xl font-bold text-stone-900 mt-8 mb-3">
@@ -215,7 +215,7 @@ export default async function FqhcCareerLadderArticle() {
               <strong>Typical salary range: $70,000–$90,000/year</strong>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              You're now overseeing a care management program. You might be:
+              You&apos;re now overseeing a care management program. You might be:
             </p>
             <ul className="text-stone-700 leading-relaxed space-y-2">
               <li>
@@ -229,7 +229,7 @@ export default async function FqhcCareerLadderArticle() {
               </li>
             </ul>
             <p className="text-stone-700 leading-relaxed">
-              At this level, you're typically managing 5–10 staff members and managing multiple programs or a large program. You need to demonstrate leadership, understanding of FQHC program operations, and ability to manage budgets and outcomes.
+              At this level, you&apos;re typically managing 5–10 staff members and managing multiple programs or a large program. You need to demonstrate leadership, understanding of FQHC program operations, and ability to manage budgets and outcomes.
             </p>
 
             <h3 className="text-xl font-bold text-stone-900 mt-8 mb-3">
@@ -239,7 +239,7 @@ export default async function FqhcCareerLadderArticle() {
               <strong>Typical salary range: $85,000–$130,000/year</strong>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              You're now responsible for all nursing and/or care management operations at the FQHC. You manage budgets, oversee hiring and staff development, ensure quality and compliance, and work closely with the medical director and CEO. You might manage 30–50+ staff members across multiple programs.
+              You&apos;re now responsible for all nursing and/or care management operations at the FQHC. You manage budgets, oversee hiring and staff development, ensure quality and compliance, and work closely with the medical director and CEO. You might manage 30–50+ staff members across multiple programs.
             </p>
             <p className="text-stone-700 leading-relaxed">
               To reach director level, you typically need:
@@ -263,7 +263,7 @@ export default async function FqhcCareerLadderArticle() {
               <strong>Typical salary range: $150,000–$220,000/year (MD/DO); $110,000–$160,000/year (NP/PA)</strong>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              You're providing clinical care: managing patient visits, conducting procedures, addressing acute and chronic conditions, and integrating behavioral health into primary care. You're working within the team-based care model, focusing on complex patients while RNs manage preventive care.
+              You&apos;re providing clinical care: managing patient visits, conducting procedures, addressing acute and chronic conditions, and integrating behavioral health into primary care. You&apos;re working within the team-based care model, focusing on complex patients while RNs manage preventive care.
             </p>
 
             <h3 className="text-xl font-bold text-stone-900 mt-8 mb-3">
@@ -273,7 +273,7 @@ export default async function FqhcCareerLadderArticle() {
               <strong>Typical salary range: $170,000–$240,000/year (MD/DO); $125,000–$180,000/year (NP/PA)</strong>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              You're taking on additional responsibilities. You might be:
+              You&apos;re taking on additional responsibilities. You might be:
             </p>
             <ul className="text-stone-700 leading-relaxed space-y-2">
               <li>Mentoring other providers and supporting team leadership</li>
@@ -292,7 +292,7 @@ export default async function FqhcCareerLadderArticle() {
               <strong>Typical salary range: $185,000–$280,000/year (MD/DO); $140,000–$220,000/year (NP/PA, if credentialed for role)</strong>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              You're overseeing clinical operations for a site or the entire FQHC. You manage other providers, oversee clinical quality, ensure regulatory compliance, work with nursing leadership, and report to the executive leadership team. You might see patients 50% of the time and spend 50% in administrative duties, or you might move to full administrative time depending on the organization.
+              You&apos;re overseeing clinical operations for a site or the entire FQHC. You manage other providers, oversee clinical quality, ensure regulatory compliance, work with nursing leadership, and report to the executive leadership team. You might see patients 50% of the time and spend 50% in administrative duties, or you might move to full administrative time depending on the organization.
             </p>
             <p className="text-stone-700 leading-relaxed">
               To reach Medical Director level, you need demonstrated clinical leadership, understanding of FQHC operations and programs, and often additional training in healthcare administration or management.
@@ -305,7 +305,7 @@ export default async function FqhcCareerLadderArticle() {
               <strong>Typical salary range: $200,000–$350,000+/year</strong>
             </p>
             <p className="text-stone-700 leading-relaxed">
-              You're responsible for all clinical operations, quality, and safety across the entire FQHC. You work with the CEO, oversee multiple medical directors, manage large budgets, and participate in strategic planning. This is a C-suite executive role.
+              You&apos;re responsible for all clinical operations, quality, and safety across the entire FQHC. You work with the CEO, oversee multiple medical directors, manage large budgets, and participate in strategic planning. This is a C-suite executive role.
             </p>
 
             <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
@@ -391,7 +391,7 @@ export default async function FqhcCareerLadderArticle() {
               The Bilingual Advantage: How Language Skills Accelerate Advancement
             </h2>
             <p className="text-stone-700 leading-relaxed">
-              If you speak Spanish, Hmong, Vietnamese, Tagalog, or another language common in your community, you have a significant advantage in FQHC careers. Here's why:
+              If you speak Spanish, Hmong, Vietnamese, Tagalog, or another language common in your community, you have a significant advantage in FQHC careers. Here&apos;s why:
             </p>
             <ul className="text-stone-700 leading-relaxed space-y-2">
               <li>
@@ -404,11 +404,11 @@ export default async function FqhcCareerLadderArticle() {
                 <strong>Leadership roles require bilingual staff:</strong> FQHCs serving predominantly monolingual patient populations want bilingual supervisors and managers who can lead teams, mentor staff, and support patients directly when needed.
               </li>
               <li>
-                <strong>Care coordination roles prefer bilingual candidates:</strong> ECM, CCM, and Community Supports programs all benefit from bilingual staff who can conduct outreach and coordination in the patient's preferred language.
+                <strong>Care coordination roles prefer bilingual candidates:</strong> ECM, CCM, and Community Supports programs all benefit from bilingual staff who can conduct outreach and coordination in the patient&apos;s preferred language.
               </li>
             </ul>
             <p className="text-stone-700 leading-relaxed">
-              If you're not yet bilingual but speak English fluently and are interested in FQHC careers, consider learning Spanish or another language commonly spoken in your region. Many FQHCs offer language classes to staff.
+              If you&apos;re not yet bilingual but speak English fluently and are interested in FQHC careers, consider learning Spanish or another language commonly spoken in your region. Many FQHCs offer language classes to staff.
             </p>
 
             {/* Inline tool callout: Career Assessment */}
@@ -457,14 +457,14 @@ export default async function FqhcCareerLadderArticle() {
               <li>Data analysts and program evaluators</li>
             </ul>
             <p className="text-stone-700 leading-relaxed">
-              If you work in one of these programs early in your career, you're building specialized expertise that FQHCs desperately need. Program-specific knowledge can lead to higher pay, faster advancement, and opportunities to move into leadership quickly because there's less competition for program-specific expertise than for general clinical skills.
+              If you work in one of these programs early in your career, you&apos;re building specialized expertise that FQHCs desperately need. Program-specific knowledge can lead to higher pay, faster advancement, and opportunities to move into leadership quickly because there&apos;s less competition for program-specific expertise than for general clinical skills.
             </p>
 
             <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
               Building Your Strategic Career Plan
             </h2>
             <p className="text-stone-700 leading-relaxed">
-              Here's how to strategically climb the FQHC career ladder:
+              Here&apos;s how to strategically climb the FQHC career ladder:
             </p>
             <ol className="text-stone-700 leading-relaxed space-y-3">
               <li>
@@ -480,7 +480,7 @@ export default async function FqhcCareerLadderArticle() {
                 <strong>Take on informal leadership.</strong> Mentor newer staff, lead a committee, volunteer for special projects, help troubleshoot problems. Demonstrate that you think like a leader.
               </li>
               <li>
-                <strong>Have a conversation with your manager.</strong> Tell them you're interested in advancement. Ask what skills, certifications, or experience would position you for the next level. Most managers will help you create a development plan.
+                <strong>Have a conversation with your manager.</strong> Tell them you&apos;re interested in advancement. Ask what skills, certifications, or experience would position you for the next level. Most managers will help you create a development plan.
               </li>
               <li>
                 <strong>Apply for promotions internally.</strong> FQHCs prefer to promote from within. When a position opens, apply for it. Your internal experience and relationships will give you an edge over external candidates.
@@ -505,7 +505,7 @@ export default async function FqhcCareerLadderArticle() {
               Timeline Expectations
             </h2>
             <p className="text-stone-700 leading-relaxed">
-              Here's a realistic timeline for FQHC career advancement:
+              Here&apos;s a realistic timeline for FQHC career advancement:
             </p>
             <div className="bg-stone-50 rounded-lg p-6 my-6">
               <ul className="text-stone-700 space-y-2">
@@ -530,21 +530,21 @@ export default async function FqhcCareerLadderArticle() {
               </ul>
             </div>
             <p className="text-stone-700 leading-relaxed">
-              These timelines assume you're performing well, pursuing relevant certifications, and actively seeking advancement opportunities. Advancement can happen faster if you develop specialized expertise (ECM, behavioral health, operations) or if your FQHC has high turnover creating leadership opportunities.
+              These timelines assume you&apos;re performing well, pursuing relevant certifications, and actively seeking advancement opportunities. Advancement can happen faster if you develop specialized expertise (ECM, behavioral health, operations) or if your FQHC has high turnover creating leadership opportunities.
             </p>
 
             <h2 className="text-2xl font-bold text-stone-900 mt-12 mb-4">
               Why FQHC Advancement Beats Hospital and Private Practice
             </h2>
             <p className="text-stone-700 leading-relaxed">
-              One final thought: if you're comparing FQHC careers to other healthcare settings, the FQHC advantage is clear advancement pathways. Here's why:
+              One final thought: if you&apos;re comparing FQHC careers to other healthcare settings, the FQHC advantage is clear advancement pathways. Here&apos;s why:
             </p>
             <ul className="text-stone-700 leading-relaxed space-y-2">
               <li>
                 <strong>Hospitals</strong> often have rigid hierarchies and limited supervisor/manager roles. You might be a bedside nurse for 10+ years with few advancement options without leaving clinical care.
               </li>
               <li>
-                <strong>Private practices</strong> are small. There's nowhere to go unless the practice expands.
+                <strong>Private practices</strong> are small. There&apos;s nowhere to go unless the practice expands.
               </li>
               <li>
                 <strong>FQHCs</strong> actively invest in staff development, promote from within, and create new roles as programs grow. You can build a multi-decade career with genuine advancement opportunities.

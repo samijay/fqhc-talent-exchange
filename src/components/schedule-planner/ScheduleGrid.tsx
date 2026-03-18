@@ -3,7 +3,7 @@
 
 import { useMemo } from "react";
 import { useLocale } from "next-intl";
-import { Clock, AlertTriangle, Plus, X } from "lucide-react";
+import { Clock, Plus, X } from "lucide-react";
 import {
   type WeeklySchedule,
   type StaffMember,
@@ -39,13 +39,6 @@ function formatHour(h: number): string {
 
 function groupStaffByRole(staff: StaffMember[]): { group: string; members: StaffMember[] }[] {
   const groupOrder = ["provider", "dental", "behavioral", "support", "admin"];
-  const groupLabels: Record<string, { en: string; es: string }> = {
-    provider: { en: "Providers", es: "Proveedores" },
-    dental: { en: "Dental Team", es: "Equipo Dental" },
-    behavioral: { en: "Behavioral Health", es: "Salud Mental" },
-    support: { en: "Support Staff", es: "Personal de Apoyo" },
-    admin: { en: "Administration", es: "Administración" },
-  };
 
   const groups: Record<string, StaffMember[]> = {};
 
@@ -185,7 +178,6 @@ export function ScheduleGrid({
                     {/* Day cells */}
                     {activeDays.map((day) => {
                       const assignment = memberAssignments?.get(day);
-                      const hours = schedule.operatingHours[day];
 
                       if (assignment) {
                         // Filled shift

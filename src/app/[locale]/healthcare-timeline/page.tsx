@@ -12,17 +12,13 @@ import {
   ChevronUp,
   ExternalLink,
   FileText,
-  Globe,
-  Handshake,
   Heart,
   Landmark,
   MapPin,
   Megaphone,
   Scale,
-  Shield,
   Stethoscope,
   TrendingUp,
-  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

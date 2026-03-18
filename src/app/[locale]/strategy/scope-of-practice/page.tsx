@@ -16,7 +16,6 @@ import {
   Users,
   Heart,
   Brain,
-  Smile,
   UserCheck,
   AlertTriangle,
   TrendingUp,
@@ -508,7 +507,6 @@ export default function ScopeOfPracticePage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {SCOPE_OF_PRACTICE_ROLES.map((role) => {
-              const catMeta = SCOPE_CATEGORIES.find((c) => c.id === role.category);
               return (
                 <div
                   key={role.id}

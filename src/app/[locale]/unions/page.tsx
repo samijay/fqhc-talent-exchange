@@ -36,7 +36,6 @@ import {
   type UnionProfile,
   type LaborTimelineEvent,
   type CuratedResource,
-  type CommonInterestItem,
 } from "@/lib/union-data";
 
 /* ------------------------------------------------------------------ */

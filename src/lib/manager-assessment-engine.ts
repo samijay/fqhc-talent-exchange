@@ -6,7 +6,6 @@
 
 import type {
   DomainId,
-  AnswerOption,
   AssessmentQuestion,
   DomainDefinition,
   DomainScore,

@@ -10,7 +10,6 @@ import {
   Calendar,
   ChevronDown,
   ChevronUp,
-  DollarSign,
   ExternalLink,
   Filter,
   MapPin,

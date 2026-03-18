@@ -13,8 +13,6 @@ import {
   BookOpen,
   Pill,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-
 const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
 

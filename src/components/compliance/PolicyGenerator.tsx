@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
   FileText,
-  Download,
   Copy,
   Check,
   ArrowLeft,
@@ -73,15 +72,16 @@ export function PolicyGenerator({ domain }: PolicyGeneratorProps) {
   const handleCopyToClipboard = useCallback(() => {
     if (!selectedTemplate) return;
 
+    const loc = (obj: { en: string; es: string }) => (isEs ? obj.es : obj.en);
     const text = selectedTemplate.sections
       .map((section) => {
-        const heading = fillTemplate(t(section.heading), values);
-        const content = fillTemplate(t(section.content), values);
+        const heading = fillTemplate(loc(section.heading), values);
+        const content = fillTemplate(loc(section.content), values);
         return `${heading}\n\n${content}`;
       })
       .join("\n\n---\n\n");
 
-    const header = `${t(selectedTemplate.title)}\n${selectedTemplate.sourceRegulation ? `Reference: ${selectedTemplate.sourceRegulation}` : ""}\nGenerated: ${new Date().toLocaleDateString()}\n\n`;
+    const header = `${loc(selectedTemplate.title)}\n${selectedTemplate.sourceRegulation ? `Reference: ${selectedTemplate.sourceRegulation}` : ""}\nGenerated: ${new Date().toLocaleDateString()}\n\n`;
 
     navigator.clipboard.writeText(header + text);
     setCopied(true);

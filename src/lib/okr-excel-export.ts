@@ -12,27 +12,6 @@ const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
-/*  Color palette — navy/teal/amber/green/red professional scheme      */
-/* ------------------------------------------------------------------ */
-
-const COLORS = {
-  navy: "1B3A5C",
-  teal: "0D7377",
-  lightTeal: "D4EFEF",
-  amber: "D4870E",
-  lightAmber: "FFF3D6",
-  green: "27AE60",
-  lightGreen: "D5F5E3",
-  red: "C0392B",
-  lightRed: "FADBD8",
-  white: "FFFFFF",
-  lightGray: "F2F4F4",
-  inputBlue: "EBF5FB",
-  medGray: "95A5A6",
-  black: "000000",
-};
-
-/* ------------------------------------------------------------------ */
 /*  Column definitions for the KR tracking table                       */
 /* ------------------------------------------------------------------ */
 
@@ -54,70 +33,6 @@ const KR_COL_WIDTHS = [
 const KR_HEADERS_EN = ["#", "KEY RESULT", "METRIC", "TARGET", "OWNER", "CURRENT VALUE", "SCORE (0-1)", "WEIGHT", "WEIGHTED", "STATUS", "NOTES / EVIDENCE", "DUE DATE"];
 const KR_HEADERS_ES = ["#", "RESULTADO CLAVE", "MÉTRICA", "META", "PROPIETARIO", "VALOR ACTUAL", "PUNTAJE (0-1)", "PESO", "PONDERADO", "ESTADO", "NOTAS / EVIDENCIA", "FECHA LÍMITE"];
 
-/* ------------------------------------------------------------------ */
-/*  Style helpers — SheetJS cell styling                               */
-/* ------------------------------------------------------------------ */
-
-function headerStyle() {
-  return {
-    font: { name: "Arial", bold: true, color: { rgb: COLORS.white }, sz: 11 },
-    fill: { fgColor: { rgb: COLORS.navy } },
-    alignment: { horizontal: "center" as const, vertical: "center" as const, wrapText: true },
-    border: thinBorder(),
-  };
-}
-
-function subheaderStyle() {
-  return {
-    font: { name: "Arial", bold: true, color: { rgb: COLORS.navy }, sz: 10 },
-    fill: { fgColor: { rgb: COLORS.lightTeal } },
-    alignment: { horizontal: "left" as const, vertical: "center" as const, wrapText: true },
-    border: thinBorder(),
-  };
-}
-
-function bodyStyle(opts?: { bold?: boolean; color?: string; fill?: string; italic?: boolean; center?: boolean }) {
-  return {
-    font: { name: "Arial", sz: 10, bold: opts?.bold, color: opts?.color ? { rgb: opts.color } : undefined, italic: opts?.italic },
-    fill: opts?.fill ? { fgColor: { rgb: opts.fill } } : undefined,
-    alignment: { horizontal: opts?.center ? ("center" as const) : ("left" as const), vertical: "center" as const, wrapText: true },
-    border: thinBorder(),
-  };
-}
-
-function inputStyle() {
-  return {
-    font: { name: "Arial", sz: 10, color: { rgb: "0000FF" } },
-    fill: { fgColor: { rgb: COLORS.inputBlue } },
-    alignment: { horizontal: "center" as const, vertical: "center" as const },
-    border: thinBorder(),
-  };
-}
-
-function formulaStyle() {
-  return {
-    font: { name: "Arial", sz: 10, bold: true, color: { rgb: COLORS.black } },
-    alignment: { horizontal: "center" as const, vertical: "center" as const },
-    border: thinBorder(),
-    numFmt: "0.00",
-  };
-}
-
-function thinBorder() {
-  const side = { style: "thin" as const, color: { rgb: "BDC3C7" } };
-  return { top: side, bottom: side, left: side, right: side };
-}
-
-/* ------------------------------------------------------------------ */
-/*  Apply styles to cells (SheetJS-XLSX-style plugin format)           */
-/* ------------------------------------------------------------------ */
-
-function setStyle(ws: Record<string, unknown>, ref: string, style: Record<string, unknown>) {
-  const cell = ws[ref] as Record<string, unknown> | undefined;
-  if (cell) {
-    cell.s = style;
-  }
-}
 
 /* ------------------------------------------------------------------ */
 /*  Build one worksheet per OKR template                               */

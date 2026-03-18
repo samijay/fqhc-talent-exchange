@@ -6,13 +6,9 @@
 /* ------------------------------------------------------------------ */
 
 const SITE = "https://www.fqhctalent.com";
-const TEAL = "#0F766E";
-const TEAL_LIGHT = "#F0FDFA";
-const TEAL_BORDER = "#99F6E4";
 const INDIGO = "#4338CA";
 const INDIGO_LIGHT = "#EEF2FF";
 const INDIGO_BORDER = "#C7D2FE";
-const AMBER = "#F59E0B";
 const AMBER_BG = "#FFFBEB";
 
 /* ------------------------------------------------------------------ */

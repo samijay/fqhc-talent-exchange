@@ -69,12 +69,12 @@ export default function FqhcJobsLosAngeles() {
           </h2>
           <div className="space-y-6 text-stone-700 text-lg leading-relaxed">
             <p>
-              LA County's FQHC network is one of the largest in the nation.
+              LA County&apos;s FQHC network is one of the largest in the nation.
               Major health centers include AltaMed Health Services, APLA Health,
               Community Health Alliance of Pasadena (ChapCare), Eisner Health,
               JWCH Institute, Los Angeles Christian Health Centers, Northeast
               Valley Health Corporation, South Central Family Health Center,
-              St. John's Community Health, T.H.E. Health and Wellness
+              St. John&apos;s Community Health, T.H.E. Health and Wellness
               Centers, and dozens more across the county.
             </p>
             <p>
@@ -185,7 +185,7 @@ export default function FqhcJobsLosAngeles() {
             </p>
             <p>
               <strong>Behavioral Health Integration</strong> continues to expand
-              across LA's community health centers, with growing demand for
+              across LA&apos;s community health centers, with growing demand for
               licensed therapists, substance use counselors, and psychiatric
               nurse practitioners who can work in integrated primary care
               settings.
@@ -202,12 +202,12 @@ export default function FqhcJobsLosAngeles() {
               Browse job openings at LA-area community health centers — plus
               free career tools and salary data.
             </p>
-            <a
+            <Link
               href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
               Build Your Free Resume
-            </a>
+            </Link>
           </div>
         </div>
       </section>

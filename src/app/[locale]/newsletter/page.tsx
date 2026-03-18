@@ -37,7 +37,6 @@ type AudienceChoice = "intel-brief" | "the-pulse" | "both";
 
 function TrackCard({
   locale,
-  isEs,
   icon: Icon,
   title,
   badgeLabel,
@@ -49,7 +48,6 @@ function TrackCard({
   onSelect,
 }: {
   locale: string;
-  isEs: boolean;
   icon: React.ElementType;
   title: string;
   badgeLabel: string;
@@ -212,7 +210,6 @@ export default function NewsletterPage() {
           <div className="grid gap-4 sm:grid-cols-2 mb-10">
             <TrackCard
               locale={locale}
-              isEs={isEs}
               icon={Briefcase}
               title="Intel Brief"
               badgeLabel={isEs ? "Para Lideres" : "For Leaders"}
@@ -261,7 +258,6 @@ export default function NewsletterPage() {
 
             <TrackCard
               locale={locale}
-              isEs={isEs}
               icon={Users}
               title="The Pulse"
               badgeLabel={isEs ? "Para Candidatos" : "For Job Seekers"}

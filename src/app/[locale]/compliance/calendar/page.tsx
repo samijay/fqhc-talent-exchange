@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Calendar, Download, ExternalLink, ShieldCheck, Lock, DollarSign } from "lucide-react";
+import { Download, ExternalLink, ShieldCheck, Lock, DollarSign } from "lucide-react";
 import { COMPLIANCE_CALENDAR, DOMAIN_META, type ComplianceDomain } from "@/lib/fqhc-compliance";
 import { downloadComplianceCalendarAsExcel } from "@/lib/compliance-excel-export";
 

@@ -522,12 +522,19 @@ export function getSimilarFQHCs(
         grade: score.grade,
         score: score.overall,
         sharedPrograms,
-        _similarity: similarity,
+        similarity,
       };
     })
-    .sort((a, b) => b._similarity - a._similarity)
+    .sort((a, b) => b.similarity - a.similarity)
     .slice(0, limit)
-    .map(({ _similarity, ...rest }) => rest);
+    .map(({ slug, name, region, grade, score, sharedPrograms }) => ({
+      slug,
+      name,
+      region,
+      grade,
+      score,
+      sharedPrograms,
+    }));
 }
 
 export function getResilienceStats() {

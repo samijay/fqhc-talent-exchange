@@ -49,9 +49,9 @@ export default function FqhcJobsBayArea() {
             FQHC Jobs in the San Francisco Bay Area
           </h1>
           <p className="text-xl text-stone-600 leading-relaxed">
-            The Bay Area's 40+ Federally Qualified Health Centers span San
+            The Bay Area&apos;s 40+ Federally Qualified Health Centers span San
             Francisco, Oakland, San Jose, and surrounding communities, serving
-            some of California's most diverse patient populations. From
+            some of California&apos;s most diverse patient populations. From
             Marin County to Silicon Valley, FQHCs are hiring across clinical,
             care coordination, and community outreach roles.
           </p>
@@ -75,7 +75,7 @@ export default function FqhcJobsBayArea() {
               Vietnamese, Tagalog, and dozens of other languages.
             </p>
             <p>
-              The region's high cost of living creates unique recruitment
+              The region&apos;s high cost of living creates unique recruitment
               challenges for FQHCs, making competitive salaries and benefits
               packages essential. Many Bay Area health centers offer loan
               repayment programs, housing assistance, and other incentives to
@@ -141,7 +141,7 @@ export default function FqhcJobsBayArea() {
               <strong>Enhanced Care Management (ECM)</strong> programs in the
               Bay Area focus heavily on individuals experiencing homelessness
               and those with serious mental health conditions — reflecting the
-              region's acute housing and behavioral health challenges.
+              region&apos;s acute housing and behavioral health challenges.
               FQHCs are hiring care managers and outreach workers with
               street-level experience.
             </p>
@@ -170,12 +170,12 @@ export default function FqhcJobsBayArea() {
               Browse job openings at Bay Area community health centers — plus
               free career tools and salary data.
             </p>
-            <a
+            <Link
               href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
               Build Your Free Resume
-            </a>
+            </Link>
           </div>
         </div>
       </section>

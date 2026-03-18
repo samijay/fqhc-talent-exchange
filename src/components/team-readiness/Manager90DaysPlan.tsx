@@ -2,13 +2,7 @@
 
 import { useState } from "react";
 import {
-  Target,
-  Handshake,
-  Zap,
-  Sprout,
-  Compass,
   CheckCircle,
-  Users,
   BookOpen,
   ArrowRight,
   Download,
@@ -19,7 +13,6 @@ import {
   ExternalLink,
 } from "lucide-react";
 import type { Manager90DaysPlan } from "@/lib/manager-90-days";
-import type { DomainId } from "@/lib/career-assessment-engine";
 
 /* ------------------------------------------------------------------ */
 /*  i18n                                                                */
@@ -97,14 +90,6 @@ const DOMAIN_COLORS: Record<string, { bg: string; text: string; border: string }
   transition: { bg: "bg-purple-50", text: "text-purple-700", border: "border-purple-200" },
 };
 
-const DOMAIN_ICONS: Record<DomainId, typeof Target> = {
-  mission: Target,
-  people: Handshake,
-  execution: Zap,
-  growth: Sprout,
-  transition: Compass,
-};
-
 const STARS_COLORS: Record<string, { badge: string; border: string }> = {
   startup: { badge: "bg-emerald-100 text-emerald-700", border: "border-emerald-200" },
   turnaround: { badge: "bg-red-100 text-red-700", border: "border-red-200" },
@@ -149,7 +134,6 @@ interface Manager90DaysPlanProps {
 export function Manager90DaysPlanComponent({ plan, locale }: Manager90DaysPlanProps) {
   const isEs = locale === "es";
   const t = UI[isEs ? "es" : "en"];
-  const tr = (obj: { en: string; es: string }) => (isEs ? obj.es : obj.en);
 
   const [foglampChecked, setFoglampChecked] = useState<Record<string, boolean>>({});
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heart, ArrowRight, Search, Map, FileText, BarChart3 } from "lucide-react";
+import { ArrowRight, Search, Map, FileText, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function LocaleNotFound() {

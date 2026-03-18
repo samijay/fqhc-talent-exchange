@@ -12,7 +12,6 @@ import {
   BookOpen,
   AlertTriangle,
   ArrowRight,
-  Scale,
   ChevronRight,
   Shield,
   Briefcase,
@@ -20,7 +19,6 @@ import {
 import {
   DOMAIN_META,
   COMPLIANCE_CALENDAR,
-  COMPLIANCE_LEGISLATION,
   COMPLIANCE_CASE_STUDIES,
   getComplianceStats,
   type ComplianceDomain,
@@ -91,9 +89,6 @@ export default function ComplianceLandingPage() {
     .sort((a, b) => a.month - b.month || (a.day ?? 0) - (b.day ?? 0))
     .slice(0, 4);
 
-  const recentLegislation = COMPLIANCE_LEGISLATION
-    .filter((l) => l.status === "enacted" || l.status === "effective")
-    .slice(0, 3);
 
   const allDomains = [
     ...DOMAIN_META.map((domain) => ({

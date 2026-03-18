@@ -109,6 +109,7 @@ export default function PathwayPage() {
       try {
         const stored = localStorage.getItem(key);
         if (stored) {
+          // eslint-disable-next-line react-hooks/set-state-in-effect
           setCompletedSteps(new Set(JSON.parse(stored)));
         }
       } catch {

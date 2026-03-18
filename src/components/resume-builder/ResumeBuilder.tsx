@@ -55,7 +55,6 @@ import {
   COMMON_CERTIFICATIONS,
   LANGUAGE_OPTIONS,
   PROFICIENCY_LEVELS,
-  type LanguageProficiency,
   type ProficiencyLevel,
 } from "./resume-templates";
 import {

@@ -7,9 +7,6 @@
 /*  so they only load when the user actually downloads a document.     */
 /* ------------------------------------------------------------------ */
 
-// Type-only imports — erased at compile time, zero bundle impact
-import type { Paragraph as ParaType, TextRun as TextRunType } from "docx";
-
 type DocxModule = typeof import("docx");
 
 // Cached modules — loaded once per session on first download

@@ -48,7 +48,7 @@ export default function FqhcJobsSanDiego() {
             FQHC Jobs in San Diego
           </h1>
           <p className="text-xl text-stone-600 leading-relaxed">
-            San Diego County's Federally Qualified Health Centers serve
+            San Diego County&apos;s Federally Qualified Health Centers serve
             diverse border communities with specialized programs in behavioral
             health, chronic disease management, and integrated primary care.
             With 15+ FQHCs operating across the county, opportunities span from
@@ -65,14 +65,14 @@ export default function FqhcJobsSanDiego() {
           </h2>
           <div className="space-y-6 text-stone-700 text-lg leading-relaxed">
             <p>
-              San Diego's FQHC network includes major organizations like
+              San Diego&apos;s FQHC network includes major organizations like
               Family Health Centers of San Diego, La Maestra Community Health
               Centers, San Ysidro Health, Neighborhood Healthcare, and Vista
               Community Clinic. These centers serve hundreds of thousands of
               patients across urban, suburban, and border communities.
             </p>
             <p>
-              The region's proximity to the U.S.–Mexico border creates
+              The region&apos;s proximity to the U.S.–Mexico border creates
               unique workforce needs. Bilingual (Spanish-English) community
               health workers and patient navigators are in especially high
               demand, as are professionals experienced with cross-border health
@@ -137,7 +137,7 @@ export default function FqhcJobsSanDiego() {
           <div className="space-y-6 text-stone-700 text-lg leading-relaxed">
             <p>
               <strong>Enhanced Care Management (ECM)</strong> is expanding
-              rapidly across San Diego's FQHCs, with programs targeting
+              rapidly across San Diego&apos;s FQHCs, with programs targeting
               high-need Medi-Cal members including those experiencing
               homelessness, individuals with serious mental illness, and
               patients with multiple chronic conditions.
@@ -166,12 +166,12 @@ export default function FqhcJobsSanDiego() {
               Browse job openings at San Diego-area community health centers —
               plus free career tools and salary data.
             </p>
-            <a
+            <Link
               href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
               Build Your Free Resume
-            </a>
+            </Link>
           </div>
         </div>
       </section>

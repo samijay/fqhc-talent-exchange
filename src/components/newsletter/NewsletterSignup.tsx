@@ -11,7 +11,6 @@ import {
   CheckCircle2,
   Loader2,
   XCircle,
-  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackNewsletterSignup } from "@/lib/analytics";

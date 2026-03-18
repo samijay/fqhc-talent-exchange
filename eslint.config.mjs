@@ -14,6 +14,9 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Vercel build artifacts:
     ".vercel/**",
+    // Non-production scripts and archived code:
+    "scripts/**",
+    "_archive/**",
   ]),
 ]);
 

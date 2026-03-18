@@ -82,13 +82,6 @@ const GRADE_COLORS: Record<string, string> = {
   F: "bg-red-100 text-red-800 border-red-300",
 };
 
-const GRADE_BAR_COLORS: Record<string, string> = {
-  A: "bg-emerald-500",
-  B: "bg-teal-500",
-  C: "bg-amber-500",
-  D: "bg-orange-500",
-  F: "bg-red-500",
-};
 
 const RISK_LABELS: Record<string, { en: string; es: string }> = {
   low: { en: "Low Risk", es: "Riesgo Bajo" },

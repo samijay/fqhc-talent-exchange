@@ -49,11 +49,11 @@ export default function FqhcJobsInlandEmpire() {
             FQHC Jobs in the Inland Empire
           </h1>
           <p className="text-xl text-stone-600 leading-relaxed">
-            The Inland Empire's rapidly growing FQHC network is expanding
-            to meet the needs of one of California's fastest-growing
+            The Inland Empire&apos;s rapidly growing FQHC network is expanding
+            to meet the needs of one of California&apos;s fastest-growing
             regions. With 20+ Federally Qualified Health Centers across
             Riverside and San Bernardino counties, community health career
-            opportunities are growing alongside the region's population.
+            opportunities are growing alongside the region&apos;s population.
           </p>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function FqhcJobsInlandEmpire() {
           </h2>
           <div className="space-y-6 text-stone-700 text-lg leading-relaxed">
             <p>
-              The Inland Empire's FQHC network includes organizations like
+              The Inland Empire&apos;s FQHC network includes organizations like
               Borrego Health, Inland Empire Health Plan partners, SAC Health,
               Desert Healthcare District, Riverside University Health System
               Community Health Centers, and Loma Linda University Health
@@ -143,18 +143,18 @@ export default function FqhcJobsInlandEmpire() {
               with FQHCs to serve high-need Medi-Cal populations. New ECM
               programs are driving demand for care managers, community health
               workers, and outreach specialists who can serve patients across
-              the region's sprawling geography.
+              the region&apos;s sprawling geography.
             </p>
             <p>
               <strong>Community Supports</strong> programs are a growing area
               of FQHC activity in the Inland Empire, particularly housing
               navigation and medically tailored meals services. The
-              region's affordable housing challenges are creating new roles
+              region&apos;s affordable housing challenges are creating new roles
               that bridge healthcare and social services.
             </p>
             <p>
               <strong>Telehealth &amp; Mobile Health</strong> services are
-              essential in the Inland Empire's vast geography, especially
+              essential in the Inland Empire&apos;s vast geography, especially
               in eastern San Bernardino County where patients may live hours
               from the nearest clinic. FQHCs are hiring staff experienced in
               remote patient engagement and mobile clinic operations.
@@ -171,12 +171,12 @@ export default function FqhcJobsInlandEmpire() {
               Browse job openings at Inland Empire community health centers —
               plus free career tools and salary data.
             </p>
-            <a
+            <Link
               href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
               Build Your Free Resume
-            </a>
+            </Link>
           </div>
         </div>
       </section>

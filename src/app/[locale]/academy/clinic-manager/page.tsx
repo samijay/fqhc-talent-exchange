@@ -4,7 +4,6 @@
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
-  Building2,
   BookOpen,
   Zap,
   Clock,
@@ -31,7 +30,7 @@ import {
   CLINIC_MANAGER_TOTAL_MINUTES,
 } from "@/lib/clinic-manager-course-modules";
 import { useAuth } from "@/components/auth/AuthProvider";
-import { useState } from "react";
+import { createElement, useState } from "react";
 
 const ICON_MAP: Record<string, React.ElementType> = {
   DollarSign,
@@ -186,13 +185,11 @@ export default function ClinicManagerCoursePage() {
             {isEs ? "Módulos del Curso" : "Course Modules"}
           </h2>
           <div className="space-y-3">
-            {CLINIC_MANAGER_MODULES.map((mod) => {
-              const Icon = ICON_MAP[mod.icon] || BookOpen;
-              return (
+            {CLINIC_MANAGER_MODULES.map((mod) => (
                 <Card key={mod.id} className="border-stone-200 dark:border-stone-700">
                   <CardContent className="p-4 flex items-center gap-4">
                     <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center shrink-0">
-                      <Icon className="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
+                      {createElement(ICON_MAP[mod.icon] || BookOpen, { className: "h-4 w-4 text-indigo-600 dark:text-indigo-400" })}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-stone-800 dark:text-stone-200 truncate">
@@ -208,8 +205,7 @@ export default function ClinicManagerCoursePage() {
                     </div>
                   </CardContent>
                 </Card>
-              );
-            })}
+            ))}
           </div>
         </div>
 

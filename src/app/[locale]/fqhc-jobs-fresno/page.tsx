@@ -49,7 +49,7 @@ export default function FqhcJobsFresno() {
             FQHC Jobs in Fresno &amp; the Central Valley
           </h1>
           <p className="text-xl text-stone-600 leading-relaxed">
-            The Central Valley's FQHCs serve California's
+            The Central Valley&apos;s FQHCs serve California&apos;s
             agricultural heartland, providing essential healthcare to farming
             communities, migrant workers, and underserved rural populations.
             With 15+ FQHCs across the region, demand for bilingual community
@@ -66,12 +66,12 @@ export default function FqhcJobsFresno() {
           </h2>
           <div className="space-y-6 text-stone-700 text-lg leading-relaxed">
             <p>
-              The Central Valley's FQHC network includes organizations
+              The Central Valley&apos;s FQHC network includes organizations
               like Clinica Sierra Vista, United Health Centers of the San
               Joaquin Valley, Family Healthcare Network, Camarena Health, and
               Golden Valley Health Centers. These health centers operate across
               a vast geographic area stretching from Bakersfield to Stockton,
-              serving some of California's most medically underserved
+              serving some of California&apos;s most medically underserved
               communities.
             </p>
             <p>
@@ -155,7 +155,7 @@ export default function FqhcJobsFresno() {
             <p>
               <strong>Chronic Disease Management</strong> programs addressing
               diabetes, hypertension, and obesity are expanding rapidly, driven
-              by high rates of chronic conditions in the region's
+              by high rates of chronic conditions in the region&apos;s
               underserved populations. FQHCs need care coordinators and health
               educators with experience in culturally tailored prevention
               programs.
@@ -172,12 +172,12 @@ export default function FqhcJobsFresno() {
               Browse job openings at Central Valley community health centers —
               plus free career tools and salary data.
             </p>
-            <a
+            <Link
               href="/resume-builder"
               className="inline-flex items-center justify-center rounded-lg bg-teal-700 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-800 transition-colors"
             >
               Build Your Free Resume
-            </a>
+            </Link>
           </div>
         </div>
       </section>

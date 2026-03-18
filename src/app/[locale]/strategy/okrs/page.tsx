@@ -13,7 +13,6 @@ import {
   Users,
   Clock,
   Target,
-  Download,
   Star,
   FileSpreadsheet,
   FileText,

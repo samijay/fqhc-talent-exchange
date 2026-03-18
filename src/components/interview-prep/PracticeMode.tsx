@@ -6,7 +6,6 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { useLocale } from "next-intl";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   ArrowRight,
   ArrowLeft,
@@ -28,7 +27,6 @@ import { Link } from "@/i18n/navigation";
 import {
   getQuestionsByRole,
   getTopQuestionsForRole,
-  getRoleGuide,
   INTERVIEW_QUESTIONS,
   type InterviewQuestion,
   type InterviewCategory,
@@ -84,7 +82,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
   const [selectedRole, setSelectedRole] = useState<string>("");
   const [questionCount, setQuestionCount] = useState(5);
   const [timedMode, setTimedMode] = useState(false);
-  const [timeLimit, setTimeLimit] = useState(120); // seconds
+  const [timeLimit] = useState(120); // seconds
 
   // Practice state
   const [phase, setPhase] = useState<PracticePhase>("setup");
@@ -93,7 +91,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
   const [answers, setAnswers] = useState<PracticeAnswer[]>([]);
   const [userAnswer, setUserAnswer] = useState("");
   const [timeElapsed, setTimeElapsed] = useState(0);
-  const [showModelAnswer, setShowModelAnswer] = useState(false);
+  const [, setShowModelAnswer] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -102,6 +100,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
   // Timer logic
   useEffect(() => {
     if (phase === "question") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setTimeElapsed(0);
       timerRef.current = setInterval(() => {
         setTimeElapsed((prev) => prev + 1);
@@ -556,8 +555,6 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
     answers.forEach((a) => {
       distribution[a.selfScore - 1]++;
     });
-
-    const roleGuide = selectedRole ? getRoleGuide(selectedRole) : null;
 
     return (
       <div className="max-w-2xl mx-auto space-y-4">

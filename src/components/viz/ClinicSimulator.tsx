@@ -26,7 +26,6 @@ import {
   SIZE_PRESETS,
   STAFF_COSTS,
   BACK_OFFICE_COSTS,
-  NON_PERSONNEL_DEFAULTS,
   NON_PERSONNEL_LABELS,
   formatCurrency,
   type SimulatorInputs,
@@ -860,7 +859,7 @@ export function ClinicSimulator() {
   // Baseline results from wizard (used for delta comparison)
   const [baselineResults, setBaselineResults] =
     useState<SimulatorOutput | null>(null);
-  const [wizardLabel, setWizardLabel] = useState("");
+  const [, setWizardLabel] = useState("");
 
   // Size preset
   const [sizePreset, setSizePreset] = useState<

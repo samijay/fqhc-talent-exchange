@@ -25,7 +25,6 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  AI_ADOPTION_ITEMS,
   AI_CATEGORIES,
   AI_TRACKER_LAST_UPDATED,
   ADOPTION_STAGES,
@@ -57,15 +56,6 @@ import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 
 const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
-
-function formatDate(dateStr: string, locale: string): string {
-  const d = new Date(dateStr + "T00:00:00");
-  return d.toLocaleDateString(locale === "es" ? "es-US" : "en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-}
 
 function formatShortDate(dateStr: string, locale: string): string {
   const d = new Date(dateStr + "T00:00:00");
@@ -132,11 +122,9 @@ function EHRDot({ level }: { level: "native" | "api" | "partial" | "none" }) {
 
 function VendorCard({
   vendor,
-  locale,
   isEs,
 }: {
   vendor: AIVendor;
-  locale: string;
   isEs: boolean;
 }) {
   const fitColors = {
@@ -1001,7 +989,6 @@ export default function AITrackerPage() {
               <VendorCard
                 key={vendor.id}
                 vendor={vendor}
-                locale={locale}
                 isEs={isEs}
               />
             ))}

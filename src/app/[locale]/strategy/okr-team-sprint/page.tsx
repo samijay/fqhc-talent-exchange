@@ -17,7 +17,6 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useAuth } from "@/components/auth/AuthProvider";
 import { SprintSetup, InviteCodeDisplay } from "@/components/okr-team-sprint/SprintSetup";
 
 interface SavedSprint {
@@ -32,8 +31,6 @@ interface SavedSprint {
 export default function TeamSprintPage() {
   const locale = useLocale();
   const isEs = locale === "es";
-  const { user } = useAuth();
-
   const [view, setView] = useState<"landing" | "create" | "created">(
     "landing"
   );
@@ -41,7 +38,6 @@ export default function TeamSprintPage() {
   const [createdSprint, setCreatedSprint] = useState<SavedSprint | null>(
     null
   );
-  const [joinCode, setJoinCode] = useState("");
 
   // Load saved sprints
   useEffect(() => {
@@ -49,6 +45,7 @@ export default function TeamSprintPage() {
       const saved = JSON.parse(
         localStorage.getItem("okr-team-sprints") || "[]"
       );
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMySprints(saved);
     } catch {
       setMySprints([]);

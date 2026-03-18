@@ -13,15 +13,9 @@ import {
   ChevronUp,
   ExternalLink,
   Filter,
-  FileText,
-  Gavel,
-  Globe,
   Bell,
-  TrendingDown,
   Clock,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
   LEGISLATIVE_BILLS,
@@ -191,7 +185,7 @@ export default function LegislativeTrackerPage() {
 
   const [filterImpact, setFilterImpact] = useState<LegislativeImpact | "all">("all");
   const [filterChamber, setFilterChamber] = useState<LegislativeChamber | "all">("all");
-  const [filterTrack, setFilterTrack] = useState<LegislativeTrack | "all">("all");
+  const [filterTrack] = useState<LegislativeTrack | "all">("all");
 
   const stats = getBillStats();
   const deadlines = getUpcomingDeadlines().slice(0, 3);

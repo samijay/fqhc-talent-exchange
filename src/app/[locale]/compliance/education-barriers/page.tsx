@@ -19,13 +19,11 @@ import {
   Users,
   BarChart3,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   getEducationBarriers,
   getEducationBarrierChallengeSteps,
   LABOR_RIGHTS_LAST_UPDATED,
-  type EducationBarrier,
 } from "@/lib/labor-rights-data";
 
 /* ------------------------------------------------------------------ */
