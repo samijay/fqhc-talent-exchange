@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
+import { checkRateLimit, getClientIp } from "@/lib/security";
 
 /* ------------------------------------------------------------------ */
 /*  POST /api/team-readiness — Save manager assessment results         */
@@ -19,6 +20,13 @@ const resultsSchema = z.object({
 
 export async function POST(request: Request) {
   try {
+    // Rate limit: 10 per minute per IP
+    const ip = getClientIp(request);
+    const rl = checkRateLimit(`team-readiness:${ip}`, { limit: 10, windowMs: 60_000 });
+    if (!rl.allowed) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
     const body = await request.json();
     const result = resultsSchema.safeParse(body);
 

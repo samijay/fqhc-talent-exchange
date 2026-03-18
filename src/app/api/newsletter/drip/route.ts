@@ -125,10 +125,11 @@ export async function GET(request: Request) {
     }
 
     console.log(`[drip] Completed: ${sent} sent, ${skipped} skipped, ${errors.length} errors`);
+    // Don't return subscriber emails in response — PII protection
     return NextResponse.json({
       sent,
       skipped,
-      ...(errors.length > 0 ? { errors } : {}),
+      ...(errors.length > 0 ? { errorCount: errors.length } : {}),
     });
   } catch (err) {
     console.error("[drip] Unexpected error:", err);

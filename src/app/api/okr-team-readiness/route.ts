@@ -8,6 +8,7 @@ import {
   type TeamReadinessRequest,
   type TeamReadinessResponse,
 } from "@/lib/okr-ai-critique";
+import { checkRateLimit, getClientIp } from "@/lib/security";
 
 // Input limits
 const MAX_OBJECTIVES = 10;
@@ -16,6 +17,13 @@ const MAX_TEXT_LENGTH = 500;
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limit: 5 per minute per IP (AI-backed endpoint)
+    const ip = getClientIp(request);
+    const rl = checkRateLimit(`okr-team-readiness:${ip}`, { limit: 5, windowMs: 60_000 });
+    if (!rl.allowed) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
     // Guard against oversized payloads
     const contentLength = request.headers.get("content-length");
     if (contentLength && parseInt(contentLength) > 50_000) {
