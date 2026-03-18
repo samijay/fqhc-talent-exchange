@@ -71,6 +71,18 @@ export interface ResearchEntry {
   tags: string[]
 }
 
+export interface SyllabusLesson {
+  entryId: string
+  narrative: { en: string; es: string }
+  keyInsight: { en: string; es: string }
+  quotes: {
+    text: { en: string; es: string }
+    attribution: string
+  }[]
+  transitionNote: { en: string; es: string }
+  readingMinutes: number
+}
+
 export interface CurriculumTrack {
   id: string
   name: { en: string; es: string }
@@ -79,7 +91,9 @@ export interface CurriculumTrack {
   levels: {
     level: ResearchLevel
     label: { en: string; es: string }
+    overview?: { en: string; es: string }
     entryIds: string[]
+    lessons?: SyllabusLesson[]
   }[]
 }
 
