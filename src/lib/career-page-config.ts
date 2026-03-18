@@ -4,7 +4,7 @@
 // Last updated: 2026-03-07 (daily update #14, expanded with 20+ FQHCs)
 
 /** Exported for display on pages — updated by /daily-update and /scrape-jobs pipelines */
-export const CAREER_CONFIG_LAST_UPDATED = "2026-03-15";
+export const CAREER_CONFIG_LAST_UPDATED = "2026-03-18";
 
 export interface CareerPageConfig {
   fqhcSlug: string;
