@@ -625,9 +625,373 @@ export const NON_CLINICIAN_TRACK: CurriculumTrack = {
   ],
 }
 
+// ── TRACK 3: PUBLIC HEALTH — POPULATION & POLICY ─────────
+
+const publicHealthFoundationalLessons: SyllabusLesson[] = [
+  {
+    entryId: "starfield-primary-care-1994",
+    narrative: {
+      en: "If you study public health and don't read Starfield, you're building on sand. Barbara Starfield's 1994 work established the framework that connects primary care supply to population health outcomes — and it remains the most cited evidence for why primary care investment matters more than specialty expansion.\n\nHer four pillars — first contact, longitudinality, comprehensiveness, and coordination — aren't just clinical concepts. They're population health architecture. Nations with strong primary care infrastructure have lower infant mortality, longer life expectancy, and smaller health disparities, independent of GDP or total health spending. This finding has been replicated across 18 countries and 30 years of data.\n\nFor public health students, the implication is profound: the most effective population health intervention isn't a vaccine or a screening program — it's a well-functioning primary care system. And in America, FQHCs are the closest thing we have to a deliberate primary care infrastructure for underserved populations.",
+      es: "Starfield estableció el marco que conecta la atención primaria con resultados de salud poblacional. Naciones con atención primaria fuerte tienen menor mortalidad infantil e menor disparidades, independiente del PIB. Para salud pública, la intervención más efectiva es un sistema de atención primaria funcional."
+    },
+    keyInsight: { en: "Primary care infrastructure is a population health intervention. Every FQHC that stays open is an epidemiological event — its closure measurably worsens community health outcomes.", es: "La infraestructura de atención primaria es una intervención de salud poblacional. Cada FQHC que permanece abierto es un evento epidemiológico." },
+    quotes: [{ text: { en: "Countries with a stronger primary care orientation tend to have lower rates of all-cause mortality, all-cause premature mortality, and cause-specific premature mortality from asthma, bronchitis, emphysema, pneumonia, and cardiovascular disease.", es: "Países con orientación más fuerte hacia atención primaria tienden a tener menores tasas de mortalidad por todas las causas." }, attribution: "— Barbara Starfield, Primary Care: Balancing Health Needs, Services, and Technology, 1994" }],
+    transitionNote: { en: "Starfield gives you the theory. Braveman gives you the framework for why primary care alone isn't enough — social determinants shape health before patients ever reach a clinic.", es: "Starfield da la teoría. Braveman da el marco de por qué la atención primaria sola no es suficiente." },
+    readingMinutes: 5,
+  },
+  {
+    entryId: "braveman-sdoh-framework-2011",
+    narrative: {
+      en: "Paula Braveman's 2011 paper didn't invent the concept of social determinants — that goes back to Rudolf Virchow in the 1840s — but it organized decades of fragmented evidence into a coherent, actionable framework. Her five domains (economic stability, education, social context, healthcare access, neighborhood environment) gave public health a common language and a measurement strategy.\n\nThe paper's most powerful contribution was quantifying the gradient: health disparities aren't just about poverty vs. wealth. They follow a gradient where each step up the socioeconomic ladder correlates with better health outcomes. This means interventions at every level — not just for the poorest — produce population health gains.\n\nFor FQHC-focused public health work, Braveman's framework explains why FQHCs that screen for SDOH and connect patients to resources aren't doing \"extra\" work — they're doing the core work of population health.",
+      es: "Braveman organizó décadas de evidencia en un marco coherente. Las disparidades siguen un gradiente — cada escalón socioeconómico se correlaciona con mejores resultados. Para salud pública, los FQHCs que tamizán DSDS están haciendo el trabajo central de salud poblacional."
+    },
+    keyInsight: { en: "Health disparities follow a gradient, not a threshold. This means population health interventions need to reach across the socioeconomic spectrum, not just target the poorest — and FQHCs serve patients across this gradient.", es: "Las disparidades siguen un gradiente. Las intervenciones deben alcanzar todo el espectro socioeconómico." },
+    quotes: [{ text: { en: "The gradient means that health disparities affect not only the poor but also middle-income groups. Each step up in socioeconomic position is associated with better health.", es: "El gradiente significa que las disparidades afectan no solo a los pobres sino también a grupos de ingreso medio." }, attribution: "— Braveman et al., Annual Review of Public Health, 2011" }],
+    transitionNote: { en: "SDOH gives you the 'what' of health disparities. Healthy People 2030 gives you the 'how much' — measurable national targets that shape FQHC accountability.", es: "DSDS da el 'qué'. Healthy People 2030 da el 'cuánto' — metas medibles que moldean la rendición de cuentas de FQHCs." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "healthy-people-2030-sdoh",
+    narrative: {
+      en: "Healthy People is the federal government's decadal exercise in setting national health objectives — and the 2030 edition is the first to make SDOH a core organizing framework rather than a side topic. For public health professionals, this matters because Healthy People targets flow downstream into everything: HRSA grant requirements, UDS quality measures, state health department priorities, and Medicaid managed care quality incentives.\n\nThe practical effect for FQHCs: when Healthy People 2030 sets a target to 'reduce the proportion of people living in food deserts,' HRSA eventually builds that into grant reporting. When it targets 'increase the proportion of adults who receive a colorectal cancer screening,' that becomes a HEDIS measure FQHCs are scored on.\n\nUnderstanding this pipeline — from national objective to grant requirement to clinic workflow — is essential for anyone designing population health interventions in the safety net.",
+      es: "Healthy People 2030 es el primer ciclo que hace DSDS un marco central. Las metas fluyen hacia requisitos HRSA, medidas UDS, prioridades estatales e incentivos de calidad de Medicaid. Entender esta cadena es esencial para diseñar intervenciones de salud poblacional."
+    },
+    keyInsight: { en: "Healthy People targets aren't aspirational — they cascade into HRSA grant requirements, UDS measures, and Medicaid quality incentives. They're the architecture of FQHC accountability.", es: "Las metas de Healthy People no son aspiracionales — se convierten en requisitos de HRSA, medidas UDS e incentivos de calidad." },
+    quotes: [{ text: { en: "Healthy People 2030 sets data-driven national objectives with an overarching goal of eliminating health disparities, achieving health equity, and attaining health literacy to improve the health and well-being of all.", es: "Healthy People 2030 establece objetivos nacionales basados en datos con la meta de eliminar disparidades y lograr equidad." }, attribution: "— HHS Office of Disease Prevention and Health Promotion, 2020" }],
+    transitionNote: { en: "National objectives set the 'what.' Section 330 of the Public Health Service Act sets the 'who' — defining which organizations can be FQHCs and what they must do.", es: "Los objetivos nacionales establecen el 'qué'. La Sección 330 establece el 'quién' — qué organizaciones pueden ser FQHCs." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "taylor-section-330-history-2004",
+    narrative: {
+      en: "Section 330 of the Public Health Service Act is the legal DNA of every FQHC in America. Jessamy Taylor's NHPF background paper explains the five requirements that define FQHCs: located in a medically underserved area, provide comprehensive primary care, use a sliding fee scale, have a community-majority governing board (51% patients), and serve all patients regardless of ability to pay.\n\nThese aren't bureaucratic requirements — they're the legislative embodiment of Jack Geiger's original vision. The patient-majority board requirement ensures community accountability. The sliding fee scale ensures access. The comprehensive services requirement (medical, dental, behavioral health, pharmacy, enabling services) prevents the fragmented care model that fails vulnerable populations.\n\nFor public health students, Section 330 is a case study in how legislation can encode population health principles into organizational structure.",
+      es: "La Sección 330 define el ADN legal de cada FQHC: ubicación en área desatendida, atención integral, escala de tarifas, junta comunitaria (51% pacientes), servir a todos sin importar capacidad de pago. Es un estudio de caso de cómo la legislación puede codificar principios de salud poblacional."
+    },
+    keyInsight: { en: "Section 330 is population health encoded in law. The patient-majority board, sliding fee scale, and open-door requirements aren't red tape — they're the mechanism that makes FQHCs accountable to the communities they serve.", es: "La Sección 330 es salud poblacional codificada en ley." },
+    quotes: [{ text: { en: "Health centers must serve all residents of their service area regardless of their ability to pay for services, and charges must be adjusted based on patients' ability to pay.", es: "Los centros de salud deben servir a todos los residentes independientemente de su capacidad de pago." }, attribution: "— Public Health Service Act, Section 330" }],
+    transitionNote: { en: "Section 330 creates FQHCs. Medicaid pays for them — and Jennifer Tolbert's unwinding tracker shows what happens when that coverage erodes.", es: "La Sección 330 crea FQHCs. Medicaid los paga — y el rastreador de Tolbert muestra qué pasa cuando esa cobertura se erosiona." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "tolbert-medicaid-unwinding-2024",
+    narrative: {
+      en: "KFF's Medicaid unwinding tracker documents the largest health coverage disruption since the ACA: over 25 million people disenrolled from Medicaid between April 2023 and December 2024 after the end of the COVID continuous enrollment provision. The most devastating finding: over 70% of disenrollments were procedural — meaning people lost coverage not because they were ineligible, but because they didn't complete paperwork, didn't receive renewal notices, or encountered administrative barriers.\n\nFor FQHCs, this is a double hit: patients lose Medicaid coverage AND the FQHC loses revenue for those visits. The patients don't stop needing care — they just become uninsured patients that FQHCs serve at a loss.\n\nThis is the essential context for the 2026 H.R. 1 threat. If 25 million people were disenrolled through administrative churn alone, the policy-driven Medicaid cuts in H.R. 1 could be catastrophic for FQHC patient panels and revenue.",
+      es: "El rastreador de KFF documenta la mayor disrupción de cobertura desde el ACA: 25+ millones desinscriptos, 70%+ por razones procedimentales. Para FQHCs, los pacientes no dejan de necesitar cuidado — se convierten en pacientes no asegurados atendidos a pérdida."
+    },
+    keyInsight: { en: "70% of Medicaid disenrollments were procedural, not because people became ineligible. Administrative churn is a public health crisis that FQHCs absorb — in lost revenue and increased uncompensated care.", es: "70% de las desinscripciones fueron procedimentales. La rotación administrativa es una crisis que los FQHCs absorben." },
+    quotes: [{ text: { en: "Procedural disenrollments — cases where coverage was terminated for reasons other than a determination that the individual is ineligible — accounted for more than 70% of all Medicaid disenrollments during the unwinding period.", es: "Las desinscripciones procedimentales representaron más del 70% de todas las desinscripciones de Medicaid." }, attribution: "— Tolbert, Drake, Damico; KFF Medicaid Enrollment and Unwinding Tracker, 2024" }],
+    transitionNote: { en: "You've completed the foundational level — the architecture of primary care, SDOH, national objectives, FQHC law, and coverage dynamics. Next: the evidence that proves FQHCs deliver results.", es: "Has completado el nivel fundamental. Siguiente: la evidencia de que los FQHCs entregan resultados." },
+    readingMinutes: 5,
+  },
+]
+
+const publicHealthIntermediateLessons: SyllabusLesson[] = [
+  {
+    entryId: "starfield-primary-care-specialty-2005",
+    narrative: {
+      en: "This 2005 Milbank Quarterly review is Starfield's masterwork — the paper that turned her 1994 framework into quantified, cross-national evidence. Synthesizing data from 18 countries, she demonstrated that each additional primary care physician per 10,000 population was associated with a 5.3% reduction in all-cause mortality. No specialty showed a comparable population-level effect.\n\nThe policy implication is clear: investing in primary care workforce produces measurable population health gains. But the US has consistently underinvested in primary care relative to specialty care — only 30% of US physicians are in primary care, compared to 50%+ in countries with better health outcomes.\n\nFQHCs are the exception: they are purpose-built primary care organizations. Every dollar cut from FQHC funding is a dollar removed from the most effective population health intervention we have.",
+      es: "La revisión de 2005 de Starfield: cada médico de atención primaria adicional por 10,000 habitantes se asocia con 5.3% de reducción en mortalidad. Ninguna especialidad muestra efecto comparable. Los FQHCs son organizaciones de atención primaria por diseño."
+    },
+    keyInsight: { en: "Each additional primary care physician per 10,000 population reduces all-cause mortality by 5.3%. No specialty achieves this. FQHCs are the US system's primary care infrastructure — cutting their funding directly increases mortality.", es: "Cada médico de atención primaria adicional por 10,000 reduce mortalidad 5.3%. Recortar financiamiento de FQHCs aumenta la mortalidad." },
+    quotes: [{ text: { en: "Primary care physician supply was associated with lower all-cause mortality, lower infant mortality, lower low birth weight, and lower self-rated fair/poor health — even after controlling for socioeconomic and lifestyle factors.", es: "La oferta de médicos de atención primaria se asoció con menor mortalidad, independiente de factores socioeconómicos." }, attribution: "— Starfield, Shi, Macinko; Milbank Quarterly, 2005" }],
+    transitionNote: { en: "Starfield proves primary care reduces mortality. Sommers proves that Medicaid coverage — the funding mechanism for FQHC care — independently saves lives.", es: "Starfield demuestra que la atención primaria reduce mortalidad. Sommers demuestra que Medicaid salva vidas." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "sommers-medicaid-expansion-mortality-2017",
+    narrative: {
+      en: "Benjamin Sommers and colleagues at Harvard provided the most rigorous answer to a politically charged question: does Medicaid expansion actually save lives? Using quasi-experimental methods comparing expansion and non-expansion states, they found that Medicaid expansion was associated with a 0.13 percentage point decline in annual mortality among near-elderly adults — roughly 1 life saved per 239-316 coverage gains.\n\nThis isn't a theoretical projection. It's a measured reduction in death among real people who gained coverage. The mechanism: increased outpatient visits and prescription drug use (people managing chronic disease rather than waiting for emergencies).\n\nFor public health professionals tracking H.R. 1's proposed Medicaid cuts: if 1 life is saved per 300 coverage gains, then 3.4 million Californians losing Medicaid could mean over 11,000 excess deaths. That's the scale of the public health emergency we're measuring.",
+      es: "Sommers demostró que la expansión de Medicaid salva 1 vida por cada 239-316 personas cubiertas. Si 3.4 millones de californianos pierden Medicaid bajo H.R. 1, podrían haber más de 11,000 muertes adicionales."
+    },
+    keyInsight: { en: "Medicaid expansion saves 1 life per 239-316 coverage gains. Apply that ratio to H.R. 1's projected 3.4M California coverage losses, and you're looking at 11,000+ excess deaths. That's the number policymakers need to hear.", es: "La expansión de Medicaid salva 1 vida por cada 300 personas cubiertas. H.R. 1 podría causar 11,000+ muertes adicionales en California." },
+    quotes: [{ text: { en: "Medicaid expansion was associated with a significant reduction in all-cause mortality of 0.13 percentage points, driven by reductions in disease-related deaths and corresponding to approximately 1 life saved per 239 to 316 adults gaining coverage.", es: "La expansión de Medicaid se asoció con reducción significativa en mortalidad, salvando aprox. 1 vida por cada 239-316 adultos." }, attribution: "— Sommers, Gawande, Baicker; JAMA Internal Medicine, 2017" }],
+    transitionNote: { en: "Sommers quantified what coverage does. Shin and Rosenbaum quantified what happens to FQHCs when that coverage shifts — the financial dependency that makes Medicaid cuts existential.", es: "Sommers cuantificó lo que hace la cobertura. Shin y Rosenbaum cuantificaron la dependencia financiera que hace los recortes existenciales." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "shin-fqhc-medicaid-dependence-2020",
+    narrative: {
+      en: "Peter Shin and Sara Rosenbaum at GWU's Geiger Gibson Program have been tracking FQHC finances for two decades. Their central finding: Medicaid's share of FQHC revenue grew from 37% pre-ACA to 44% nationally after expansion — and in California, many FQHCs derive 65%+ of revenue from Medi-Cal.\n\nThis concentration creates what financial analysts call a 'single payer risk.' When your largest customer is a government program subject to political negotiation, your financial stability depends on political outcomes, not market performance. This is exactly the vulnerability H.R. 1 exploits.\n\nThe Geiger Gibson program's data is the most authoritative source on FQHC finances. They track revenue mix, patient demographics, and operational metrics across all 1,400+ FQHCs nationally — making their analyses the evidence base for congressional testimony and appropriations arguments.",
+      es: "Shin y Rosenbaum documentan: Medicaid representa 44% de ingresos de FQHCs nacionalmente, 65%+ en California. Esta concentración crea 'riesgo de pagador único' — la estabilidad depende de resultados políticos, no de mercado."
+    },
+    keyInsight: { en: "When 65% of your revenue comes from one payer that's subject to congressional negotiation, your financial model is a political bet. The Geiger Gibson data quantifies this vulnerability for every FQHC in America.", es: "Cuando 65% de tus ingresos vienen de un pagador sujeto a negociación, tu modelo financiero es una apuesta política." },
+    quotes: [{ text: { en: "Medicaid revenue accounted for 44% of total health center revenue in 2019, up from 37% in 2010, making community health centers more financially dependent on Medicaid than at any point in their history.", es: "Medicaid representó 44% de los ingresos totales de centros de salud en 2019, desde 37% en 2010." }, attribution: "— Shin, Rosenbaum; Geiger Gibson/RCHN Community Health Foundation, 2020" }],
+    transitionNote: { en: "Financial vulnerability is quantified. But are FQHCs actually delivering quality care? Bruce Landon's NEJM study answered that definitively.", es: "La vulnerabilidad está cuantificada. ¿Pero entregan calidad? El estudio de Landon en NEJM respondió definitivamente." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "landon-fqhc-quality-comparison-2007",
+    narrative: {
+      en: "This NEJM study settled a debate that had simmered for decades: do FQHCs deliver quality care, or are they just cheap care for poor people? Bruce Landon compared FQHC performance on 9 HEDIS measures to national Medicaid benchmarks and found that FQHCs scored at or above average on 8 of 9 measures — including diabetes care, cancer screening, and prenatal care.\n\nThe significance is amplified by context: FQHCs achieve these results while serving the most complex, highest-acuity patients in the healthcare system — uninsured, undocumented, homeless, non-English-speaking, multiply-comorbid. They're not just 'as good as' well-resourced practices serving healthy populations. They're achieving quality parity with a fraction of the resources.\n\nFor public health researchers, this evidence transforms the FQHC narrative from 'charity care' to 'high-value care' — a critical distinction for policy advocacy.",
+      es: "Landon comparó FQHCs con benchmarks HEDIS nacionales: puntuaciones iguales o superiores en 8 de 9 medidas, sirviendo a los pacientes más complejos. Esto transforma la narrativa de 'caridad' a 'atención de alto valor'."
+    },
+    keyInsight: { en: "FQHCs achieve quality parity with well-resourced practices while serving the sickest, poorest patients in America. They're not cheap care — they're high-value care. This distinction is essential for policy advocacy.", es: "Los FQHCs logran paridad de calidad sirviendo a los pacientes más enfermos y pobres. No es atención barata — es atención de alto valor." },
+    quotes: [{ text: { en: "Health centers performed as well as or better than national Medicaid benchmarks on 8 of 9 quality measures, despite serving a substantially more disadvantaged patient population.", es: "Los centros de salud tuvieron desempeño igual o mejor que benchmarks nacionales de Medicaid en 8 de 9 medidas." }, attribution: "— Landon et al., New England Journal of Medicine, 2007" }],
+    transitionNote: { en: "Quality is proven. The final reading examines what happens when safety-net access fails — the devastating health outcomes among people experiencing homelessness.", es: "La calidad está probada. La última lectura examina qué pasa cuando el acceso a la red de seguridad falla." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "baggett-homeless-health-disparities-2010",
+    narrative: {
+      en: "Travis Baggett's AJPH analysis documents the health catastrophe of homelessness with devastating precision: people experiencing homelessness have 3-4x higher rates of chronic disease, 5x higher emergency department utilization, and an average life expectancy 17 years shorter than the general population.\n\nHCH (Health Care for the Homeless) FQHCs — designated under Section 330(h) — are the primary healthcare home for this population. They combine medical care with the 'enabling services' (case management, housing navigation, transportation, outreach) that Geiger pioneered in 1965. Without HCH FQHCs, hospital emergency departments become the default primary care — at 10x the cost and a fraction of the effectiveness.\n\nCalifornia's homeless population is the largest in the US (over 180,000 in 2024). CalAIM's ECM program targets this population specifically — but only works if FQHCs have the capacity to deliver care.",
+      es: "Las personas sin hogar tienen 3-4x más enfermedad crónica, 5x más uso de urgencias, y 17 años menos de esperanza de vida. Los FQHCs HCH son su hogar de atención primaria. Sin ellos, las urgencias hospitalarias se convierten en atención primaria a 10x el costo."
+    },
+    keyInsight: { en: "Homelessness shortens life expectancy by 17 years. HCH FQHCs are the only healthcare model that works for this population — combining clinical care with housing, case management, and outreach in a single system.", es: "La falta de hogar acorta la esperanza de vida 17 años. Los FQHCs HCH son el único modelo que funciona para esta población." },
+    quotes: [{ text: { en: "Homeless adults experience a staggering burden of disease, with age-adjusted mortality rates 3 to 4 times higher than the general population and average life expectancy approximately 17 years shorter.", es: "Los adultos sin hogar experimentan tasas de mortalidad 3-4 veces mayores y esperanza de vida 17 años menor." }, attribution: "— Baggett et al., American Journal of Public Health, 2010" }],
+    transitionNote: { en: "You've completed the intermediate level — from Starfield's mortality evidence to Sommers' coverage impact to Landon's quality proof to Baggett's access crisis. The advanced level covers policy architecture: how to change systems, not just study them.", es: "Has completado el nivel intermedio. El nivel avanzado cubre arquitectura de políticas: cómo cambiar sistemas." },
+    readingMinutes: 4,
+  },
+]
+
+const publicHealthAdvancedLessons: SyllabusLesson[] = [
+  {
+    entryId: "rosenbaum-fqhc-policy-evolution-2017",
+    narrative: {
+      en: "Sara Rosenbaum is the most important FQHC policy scholar alive. Her KFF brief traces the entire arc of FQHC policy — from Jack Geiger's OEO-funded experiments in 1965, through Nixon's attempts to defund them, Carter's expansion, Reagan's budget cuts, Clinton's FQHC growth initiative, Bush's dramatic doubling of health centers (adding 1,200 new sites), and Obama's ACA investment ($11B Health Center Trust Fund).\n\nWhat emerges is a remarkable pattern: FQHCs have survived and grown under every president since Johnson, regardless of party. They enjoy rare bipartisan support because they serve red and blue districts alike — 1 in 11 Americans gets care at a health center. The current H.R. 1 threat is the first time this bipartisan consensus has been seriously challenged.\n\nRosenbaum's analysis helps public health advocates understand the political dynamics: FQHCs aren't just a health program — they're a jobs program, an economic development engine, and a community anchor. Arguments for FQHC funding need to speak all three languages.",
+      es: "Rosenbaum traza el arco completo de la política de FQHCs — desde Geiger en 1965, a través de cada presidente. Los FQHCs han sobrevivido bajo todos los partidos porque 1 de 11 americanos recibe cuidado en un centro de salud. H.R. 1 es la primera amenaza seria al consenso bipartidista."
+    },
+    keyInsight: { en: "FQHCs have survived every president since Johnson because they serve 1 in 11 Americans across red and blue districts. The H.R. 1 threat is the first real challenge to this bipartisan consensus — understanding the political history helps design effective advocacy.", es: "Los FQHCs han sobrevivido a todos los presidentes porque sirven a 1 de 11 americanos. H.R. 1 es el primer desafío real al consenso bipartidista." },
+    quotes: [{ text: { en: "Health centers have experienced growth under virtually every president since their creation, reflecting a rare and enduring bipartisan investment in community-based primary care for medically underserved populations.", es: "Los centros de salud han crecido bajo virtualmente cada presidente, reflejando una inversión bipartidista rara y duradera." }, attribution: "— Sara Rosenbaum, KFF Issue Brief, 2017" }],
+    transitionNote: { en: "Rosenbaum maps the political landscape. Pinto examines the structural inequities that persist within that landscape — the ways racism shapes FQHC funding, staffing, and quality measurement.", es: "Rosenbaum mapea el paisaje político. Pinto examina las inequidades estructurales que persisten dentro de ese paisaje." },
+    readingMinutes: 5,
+  },
+  {
+    entryId: "pinto-structural-racism-fqhcs-2022",
+    narrative: {
+      en: "This Commonwealth Fund analysis confronts an uncomfortable truth: even within the safety net, structural racism operates. FQHCs in predominantly Black and Latino communities receive less per-patient funding, face more regulatory scrutiny, and experience higher staff turnover than FQHCs in whiter communities — even when controlling for patient volume and complexity.\n\nThe report goes beyond diagnosis to propose solutions: equity-adjusted quality metrics that measure disparities within FQHC populations (not just FQHC-vs-national comparisons), targeted funding for FQHCs serving the highest-disparity communities, and workforce development specifically for underrepresented providers.\n\nFor public health researchers, this is a call to examine our own measurement systems. If our quality metrics don't capture racial disparities within FQHCs, we can't address them. If our funding formulas don't account for structural disadvantage, we're perpetuating it.",
+      es: "Los FQHCs en comunidades negras y latinas reciben menos financiamiento por paciente y tienen mayor rotación de personal. El informe propone métricas ajustadas por equidad y financiamiento dirigido. Si nuestras métricas no capturan disparidades raciales, no podemos abordarlas."
+    },
+    keyInsight: { en: "Structural racism operates within the safety net itself. FQHCs in Black and Latino communities are systematically under-resourced — and our quality metrics are designed in ways that can obscure this inequity.", es: "El racismo estructural opera dentro de la red de seguridad misma. Los FQHCs en comunidades negras y latinas están sistemáticamente sub-financiados." },
+    quotes: [{ text: { en: "Addressing structural racism in health centers requires moving beyond diversity statements to examining how racism shapes funding formulas, staffing patterns, and the quality measurement systems we use to evaluate performance.", es: "Abordar el racismo estructural requiere examinar cómo moldea las fórmulas de financiamiento, patrones de personal y sistemas de medición." }, attribution: "— Pinto et al., Commonwealth Fund, 2022" }],
+    transitionNote: { en: "Pinto shows the equity gaps. McWilliams shows one possible future — value-based payment models that could realign incentives. But are FQHCs ready for that transition?", es: "Pinto muestra las brechas de equidad. McWilliams muestra un futuro posible — modelos de pago basados en valor." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "mcwilliams-aco-savings-2016",
+    narrative: {
+      en: "Michael McWilliams' NEJM study of Medicare ACOs found that physician-led ACOs achieved nearly 3x the savings of hospital-led ACOs (1.9% vs 0.7%). The savings came from reducing post-acute care and emergency visits — not from stinting on services. This finding has profound implications for FQHCs considering the transition from PPS (cost-based, per-visit) to value-based payment.\n\nCalifornia launched its FQHC APM (Alternative Payment Model) in January 2026, offering global capitation as an alternative to PPS. The ACO evidence suggests that physician-group organizations like FQHCs may actually thrive under value-based models — they're already doing the population health management, care coordination, and prevention that generate savings.\n\nThe risk, however, is real: FQHCs serving the most complex patients may be penalized by risk-adjustment models that don't fully capture social complexity. Getting value-based payment right for FQHCs requires models that account for SDOH, not just clinical acuity.",
+      es: "Las ACOs lideradas por médicos lograron 3x más ahorros que las hospitalarias. California lanzó su APM para FQHCs en enero 2026. Los FQHCs pueden prosperar bajo pago basado en valor — pero los modelos de ajuste por riesgo deben capturar complejidad social."
+    },
+    keyInsight: { en: "Physician-led organizations like FQHCs may actually be better positioned for value-based payment than hospitals — but only if risk-adjustment models account for social determinants, not just clinical diagnosis codes.", es: "Organizaciones lideradas por médicos como FQHCs pueden estar mejor posicionadas para pago basado en valor — si los modelos ajustan por determinantes sociales." },
+    quotes: [{ text: { en: "Physician group-led ACOs generated estimated savings of 1.9% per beneficiary, approximately triple the savings of hospital-integrated ACOs, with reductions concentrated in post-acute care and emergency utilization.", es: "Las ACOs lideradas por grupos médicos generaron ahorros de 1.9%, triple que las ACOs hospitalarias." }, attribution: "— McWilliams et al., New England Journal of Medicine, 2016" }],
+    transitionNote: { en: "ACO evidence shows the opportunity. The final reading covers the data system that underpins everything — UDS, the measurement infrastructure that makes FQHC research, accountability, and advocacy possible.", es: "La evidencia de ACOs muestra la oportunidad. La última lectura cubre UDS — la infraestructura que hace posible toda la investigación de FQHCs." },
+    readingMinutes: 5,
+  },
+  {
+    entryId: "hrsa-uds-reporting-2024",
+    narrative: {
+      en: "The Uniform Data System is the unsung hero of FQHC research. Every year, all 1,400+ FQHCs report 800+ data elements to HRSA: patient demographics, service utilization, staffing ratios, financial metrics, and clinical quality measures. This creates one of the richest datasets in American healthcare — and it's publicly available.\n\nUDS data powers everything in the FQHC world: NACHC's advocacy uses UDS to demonstrate national impact (30M+ patients served). Researchers use UDS to study quality, access, and disparities. HRSA uses UDS for grant monitoring and renewal decisions. State associations use UDS for benchmarking.\n\nFor public health researchers, UDS is a gold mine — but one that requires careful interpretation. UDS measures what's reported, not what's happening. FQHCs with better data infrastructure appear to have 'worse' outcomes because they're actually documenting conditions that other FQHCs are missing. Understanding this measurement artifact is essential for honest research.\n\nCongratulations — you've completed the Public Health: Population & Policy curriculum. You now understand the evidence architecture from Starfield's primary care theory through Section 330's legal framework to UDS's measurement infrastructure. You're equipped to research, advocate, and shape policy for the safety net.",
+      es: "UDS es el héroe anónimo de la investigación de FQHCs. 1,400+ FQHCs reportan 800+ datos anualmente — creando uno de los conjuntos de datos más ricos en salud de EE.UU. Felicitaciones — has completado el currículo de Salud Pública."
+    },
+    keyInsight: { en: "UDS is the measurement infrastructure that makes FQHC research possible — 800+ data elements from 1,400+ health centers, publicly available. But UDS measures what's reported, not what's real. Better data infrastructure can make FQHCs look 'worse' because they're actually documenting more.", es: "UDS es la infraestructura que hace posible la investigación de FQHCs — pero mide lo reportado, no lo real." },
+    quotes: [{ text: { en: "UDS is the primary source of comprehensive data on the demographic characteristics, services provided, clinical processes, and health outcomes of health center patients, submitted annually by all HRSA-funded health centers.", es: "UDS es la fuente principal de datos integrales sobre características, servicios, procesos clínicos y resultados de pacientes de centros de salud." }, attribution: "— HRSA Bureau of Primary Health Care, 2024" }],
+    transitionNote: { en: "You've completed the Public Health curriculum. From Starfield's theory to Rosenbaum's policy to UDS's measurement — you now have the evidence architecture to research, advocate, and shape FQHC policy.", es: "Has completado el currículo de Salud Pública." },
+    readingMinutes: 5,
+  },
+]
+
+export const PUBLIC_HEALTH_TRACK: CurriculumTrack = {
+  id: "public-health-population",
+  name: { en: "Public Health: Population & Policy", es: "Salud Pública: Población y Política" },
+  audience: "public-health",
+  description: { en: "For MPH students, researchers, and public health professionals — the evidence base connecting FQHCs to population health outcomes.", es: "Para estudiantes de MPH, investigadores y profesionales de salud pública — la evidencia que conecta FQHCs con resultados de salud poblacional." },
+  levels: [
+    {
+      level: "foundational", label: { en: "Health Systems & Equity", es: "Sistemas de Salud y Equidad" },
+      overview: { en: "Five readings that establish the intellectual architecture of FQHC-based population health: Starfield's primary care theory, Braveman's SDOH framework, Healthy People's national objectives, Section 330's legal structure, and the Medicaid unwinding crisis.", es: "Cinco lecturas que establecen la arquitectura intelectual de la salud poblacional basada en FQHCs." },
+      entryIds: ["starfield-primary-care-1994", "braveman-sdoh-framework-2011", "healthy-people-2030-sdoh", "taylor-section-330-history-2004", "tolbert-medicaid-unwinding-2024"],
+      lessons: publicHealthFoundationalLessons,
+    },
+    {
+      level: "intermediate", label: { en: "Evidence & Outcomes", es: "Evidencia y Resultados" },
+      overview: { en: "Five landmark studies proving that primary care investment, Medicaid coverage, and FQHC care delivery produce measurable population health improvements — and what happens when access fails.", es: "Cinco estudios de referencia que demuestran que la inversión en atención primaria y cobertura de Medicaid produce mejoras medibles en salud poblacional." },
+      entryIds: ["starfield-primary-care-specialty-2005", "sommers-medicaid-expansion-mortality-2017", "shin-fqhc-medicaid-dependence-2020", "landon-fqhc-quality-comparison-2007", "baggett-homeless-health-disparities-2010"],
+      lessons: publicHealthIntermediateLessons,
+    },
+    {
+      level: "advanced", label: { en: "Policy & Systems Change", es: "Política y Cambio Sistémico" },
+      overview: { en: "Four readings on policy architecture: Rosenbaum's 50-year legislative history, structural racism in the safety net, value-based payment evidence, and the UDS measurement system that underpins all FQHC research.", es: "Cuatro lecturas sobre arquitectura de políticas: historia legislativa de Rosenbaum, racismo estructural, pago basado en valor, y el sistema UDS." },
+      entryIds: ["rosenbaum-fqhc-policy-evolution-2017", "pinto-structural-racism-fqhcs-2022", "mcwilliams-aco-savings-2016", "hrsa-uds-reporting-2024"],
+      lessons: publicHealthAdvancedLessons,
+    },
+  ],
+}
+
+// ── TRACK 4: EXECUTIVE — STRATEGY & FINANCE ──────────────
+
+const executiveFoundationalLessons: SyllabusLesson[] = [
+  {
+    entryId: "taylor-section-330-history-2004",
+    narrative: {
+      en: "If you lead an FQHC and haven't read Section 330, you're managing a $10M+ organization without understanding its legal charter. This NHPF background paper covers what every executive must know: the five core requirements (medically underserved area, comprehensive services, sliding fee, patient-majority board, open-door policy), FTCA malpractice coverage (worth $500K+/year in saved insurance premiums), and the Health Center Trust Fund that provides your federal grant.\n\nThe governance requirement — 51% patient-majority board — is the most distinctive feature of the FQHC model and the one executives navigate most carefully. Your board members are your patients. They may not have healthcare management experience, but they have lived experience of your services. Managing this dynamic — educating board members on financial complexity while genuinely incorporating their community perspective — is the essential leadership skill for FQHC executives.",
+      es: "Si lideras un FQHC sin haber leído la Sección 330, estás gestionando una organización de $10M+ sin entender su carta legal. Cinco requisitos básicos: área desatendida, servicios integrales, escala de tarifas, junta de pacientes, puerta abierta. Protección FTCA vale $500K+/año."
+    },
+    keyInsight: { en: "FTCA malpractice coverage alone is worth $500K+/year to your organization. Understanding Section 330 requirements isn't compliance — it's financial strategy.", es: "La cobertura FTCA vale $500K+/año. Entender la Sección 330 no es cumplimiento — es estrategia financiera." },
+    quotes: [{ text: { en: "The governing board must be composed so that a majority of members are individuals being served by the health center, ensuring that the communities served have a direct voice in governance.", es: "La junta directiva debe tener mayoría de individuos servidos por el centro de salud." }, attribution: "— Public Health Service Act, Section 330" }],
+    transitionNote: { en: "Section 330 is your legal charter. PPS is your revenue engine — understanding how you actually get paid.", es: "La Sección 330 es tu carta legal. PPS es tu motor de ingresos." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "rosenbaum-pps-fqhc-reimbursement-2010",
+    narrative: {
+      en: "PPS (Prospective Payment System) is the financial foundation of every FQHC in America, and most executives don't fully understand how it works. Sara Rosenbaum's primer explains the mechanics: your PPS rate is a per-visit, cost-based reimbursement established by BBA 1997, adjusted annually for inflation (MEI). It covers ALL Medicaid-covered services in a single encounter rate — medical, dental, behavioral health, pharmacy.\n\nThe critical concept is 'change-in-scope': when you add a new service (say, dental) or a new site, you can request a PPS rate adjustment to reflect the new costs. This is the mechanism for revenue growth within PPS — and it requires meticulous cost reporting.\n\nThe wrap-around payment is another essential concept: your state Medicaid agency pays managed care organizations, who pay you a negotiated rate. If that rate is below your PPS rate, the state owes you the difference (the 'wrap'). Many FQHCs leave money on the table by not aggressively pursuing wrap-around payments.",
+      es: "PPS es el reembolso por visita basado en costos. Cambio de alcance permite ajustar la tasa cuando agregas servicios. El pago wrap-around: si las MCO pagan menos que tu tasa PPS, el estado te debe la diferencia. Muchos FQHCs dejan dinero en la mesa."
+    },
+    keyInsight: { en: "Change-in-scope adjustments and wrap-around payment reconciliation are where FQHCs leave money on the table. Every new service you add should trigger a change-in-scope request. Every MCO payment should be reconciled against your PPS rate.", es: "Los ajustes de cambio de alcance y el pago wrap-around son donde los FQHCs dejan dinero en la mesa." },
+    quotes: [{ text: { en: "The FQHC PPS rate represents a per-visit payment based on reasonable costs, adjusted annually by the Medicare Economic Index, and covering the full scope of services provided during a qualifying encounter.", es: "La tasa PPS de FQHCs representa un pago por visita basado en costos razonables, ajustado anualmente." }, attribution: "— Rosenbaum, Shin; Geiger Gibson/RCHN, 2010" }],
+    transitionNote: { en: "PPS is your Medicaid revenue. 340B is your second-largest revenue source — and it's under threat.", es: "PPS es tu ingreso de Medicaid. 340B es tu segunda fuente — y está bajo amenaza." },
+    readingMinutes: 5,
+  },
+  {
+    entryId: "340b-hrsa-program-overview-2024",
+    narrative: {
+      en: "The 340B Drug Pricing Program allows FQHCs to purchase outpatient drugs at 25-50% discounts from manufacturers. The program generated $43.9 billion in savings across all covered entities in 2022 — and for many FQHCs, 340B pharmacy revenue is the second-largest revenue source after Medicaid.\n\nHow it works: you buy a drug at the 340B price (say, $10), dispense it to a patient, and get reimbursed by their insurance at the commercial rate (say, $40). The $30 spread funds uncompensated care, expanded services, and pharmacy operations. Some FQHCs generate $1M+ annually from 340B alone.\n\nThe program is under intense political pressure from pharmaceutical manufacturers who argue it's grown beyond its original intent. H.R. 7391 (the 340B FQHC Protection Act, with 35 bipartisan cosponsors) is critical legislation to watch. If 340B is restricted, many FQHCs would need to close their pharmacies — eliminating both revenue and patient access to affordable medications.",
+      es: "340B permite a FQHCs comprar medicamentos con 25-50% de descuento. Muchos FQHCs generan $1M+ anualmente de 340B. H.R. 7391 es legislación crítica para proteger este programa. Si se restringe, muchos FQHCs cerrarían sus farmacias."
+    },
+    keyInsight: { en: "340B pharmacy can generate $1M+ annually for your FQHC. If you don't have an in-house pharmacy, 340B contract pharmacy arrangements are available — but they're under legislative threat. H.R. 7391 is the bill to watch.", es: "La farmacia 340B puede generar $1M+ anualmente. H.R. 7391 es la legislación a vigilar." },
+    quotes: [{ text: { en: "The 340B program generated $43.9 billion in savings for covered entities in 2022, enabling safety-net providers to stretch scarce federal resources to reach more eligible patients and provide more comprehensive services.", es: "El programa 340B generó $43.9 mil millones en ahorros en 2022, permitiendo a proveedores de red de seguridad extender recursos." }, attribution: "— HRSA, 340B Drug Pricing Program Overview, 2024" }],
+    transitionNote: { en: "340B is your pharmacy strategy. NACHC's workforce data is your people strategy — the staffing crisis every executive is navigating.", es: "340B es tu estrategia de farmacia. Los datos de NACHC son tu estrategia de personas." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "nachc-workforce-study-2023",
+    narrative: {
+      en: "NACHC's workforce survey quantifies what every FQHC executive experiences daily: you can't hire fast enough. The national data shows FQHCs need 46,000+ additional staff to meet current demand. Vacancy rates are highest for psychiatrists (25%), dentists (20%), and family physicians (15%). Average time-to-fill for providers exceeds 120 days.\n\nThe workforce crisis compounds every other challenge: you can't grow revenue without providers to see patients, you can't meet quality metrics without adequate staffing ratios, and you can't comply with scope-of-practice regulations without proper supervision chains.\n\nNHSC loan repayment ($50K-$75K over 2 years) remains the most effective recruitment tool, but the program's funding is subject to annual appropriations. J-1 visa waivers bring international medical graduates to underserved areas — 15% of FQHC physicians are IMGs. Understanding these pipeline programs is essential executive knowledge.",
+      es: "FQHCs necesitan 46,000+ empleados adicionales. Vacancia más alta: psiquiatras (25%), dentistas (20%), médicos familiares (15%). NHSC y visas J-1 son las herramientas de reclutamiento más efectivas."
+    },
+    keyInsight: { en: "You're competing with hospital systems that pay 20-40% more for the same providers. Your competitive advantages: NHSC loan repayment ($50-75K), mission alignment, work-life balance, and scope-of-practice autonomy. Lead with those.", es: "Compites con hospitales que pagan 20-40% más. Tus ventajas: NHSC, misión, equilibrio vida-trabajo y autonomía de práctica." },
+    quotes: [{ text: { en: "Health centers reported needing more than 46,000 additional health care professionals to meet their communities' needs, with the most acute shortages in behavioral health, dental, and primary care providers.", es: "Los centros de salud reportaron necesitar más de 46,000 profesionales adicionales para satisfacer necesidades." }, attribution: "— NACHC Workforce Study, 2023" }],
+    transitionNote: { en: "Workforce is your biggest constraint. SB 525 is your biggest cost driver — and it's just getting started.", es: "La fuerza laboral es tu mayor restricción. SB 525 es tu mayor impulsor de costos." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "ca-sb525-healthcare-minimum-wage-2023",
+    narrative: {
+      en: "SB 525 established California's phased healthcare minimum wage: $21/hour for FQHCs starting October 2024, rising to $25/hour by 2027. This applies to ALL healthcare facility employees — not just clinical staff. Your front desk coordinators, janitors, kitchen staff, and medical records clerks are all covered.\n\nThe direct budget impact is significant: our analysis found 8 entry-level FQHC roles with P25 salaries below the $43,680 annual floor. But the indirect impact is even larger: wage compression. When entry-level wages rise to $21/hr, experienced MAs who were making $22/hr expect raises too. The compression effect pushes all wages up by 5-15% across the organization.\n\nFor CFOs: model the full compression impact, not just the minimum wage floor. For CHROs: this is an opportunity to restructure pay bands and create clear career ladders. For CEOs: advocate for PPS rate adjustments that account for SB 525 cost increases.",
+      es: "SB 525: $21/hr para FQHCs desde octubre 2024, subiendo a $25/hr para 2027. Aplica a TODO el personal. La compresión salarial empuja todos los salarios 5-15%. Modelen el impacto completo, no solo el piso."
+    },
+    keyInsight: { en: "SB 525's direct cost is manageable. The wage compression effect — experienced staff expecting raises when entry-level wages increase — is the real budget risk. Model it now, before 2027 arrives.", es: "El costo directo de SB 525 es manejable. La compresión salarial es el riesgo real. Modélenlo ahora." },
+    quotes: [{ text: { en: "Beginning October 16, 2024, the minimum wage for health care facility employees is $21 per hour for clinics, with increases to $22 in 2025 and reaching $25 per hour by January 1, 2027.", es: "A partir del 16 de octubre de 2024, el salario mínimo para empleados de establecimientos de salud es $21/hr para clínicas." }, attribution: "— California DIR, SB 525 Healthcare Worker Minimum Wage FAQ, 2023" }],
+    transitionNote: { en: "You've completed the foundational level — the legal, financial, workforce, and regulatory architecture of running an FQHC. Next: revenue strategy and sustainability.", es: "Has completado el nivel fundamental. Siguiente: estrategia de ingresos y sostenibilidad." },
+    readingMinutes: 4,
+  },
+]
+
+const executiveIntermediateLessons: SyllabusLesson[] = [
+  {
+    entryId: "shin-fqhc-medicaid-dependence-2020",
+    narrative: {
+      en: "Peter Shin's analysis is the financial vulnerability assessment every FQHC board should see. Nationally, Medicaid accounts for 44% of FQHC revenue — up from 37% pre-ACA. In California, many FQHCs exceed 65%. This concentration creates existential risk: when your largest payer is a government program subject to political whims, you need a diversification strategy.\n\nThe strategic response to Medicaid dependence is revenue diversification across five pillars: (1) 340B pharmacy expansion, (2) dental program growth via Denti-Cal, (3) behavioral health integration via CCBHC or ECM, (4) Medicare enrollment growth (aging population + AltaMed PACE model), and (5) philanthropic development. FQHCs that pursue all five can reduce Medicaid dependence below 50% — a critical resilience threshold.",
+      es: "Medicaid representa 44% de ingresos nacionalmente, 65%+ en CA. La respuesta estratégica: diversificación en 5 pilares — farmacia 340B, dental, salud conductual, Medicare y filantropía. Reducir dependencia debajo de 50% es un umbral crítico de resiliencia."
+    },
+    keyInsight: { en: "65% Medicaid dependence is a strategic vulnerability, not just a financial metric. Your goal: reduce Medicaid share below 50% through 5 diversification pillars — 340B, dental, BH/CCBHC, Medicare, and philanthropy.", es: "65% de dependencia de Medicaid es una vulnerabilidad estratégica. Meta: reducir debajo de 50% con 5 pilares de diversificación." },
+    quotes: [{ text: { en: "The growing share of Medicaid revenue creates a financial dependency that leaves health centers increasingly vulnerable to federal and state budget decisions over which they have limited control.", es: "La creciente participación de Medicaid crea una dependencia financiera que deja a los centros de salud vulnerables a decisiones presupuestarias." }, attribution: "— Shin, Rosenbaum; Geiger Gibson/RCHN, 2020" }],
+    transitionNote: { en: "Medicaid dependence is the risk. Rosenbaum's policy evolution shows you which political levers to pull.", es: "La dependencia de Medicaid es el riesgo. La evolución de políticas de Rosenbaum muestra qué palancas políticas usar." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "rosenbaum-fqhc-policy-evolution-2017",
+    narrative: {
+      en: "Every FQHC executive should understand the political dynamics that determine their funding. Rosenbaum's historical analysis reveals the pattern: FQHCs grow when they have bipartisan champions (Bush doubled health centers; Obama invested $11B), and they face risk when they become politically associated with one party.\n\nThe current threat is unprecedented: H.R. 1 proposes Medicaid cuts of $880B-$2.3T over 10 years while simultaneously threatening the CHCF Trust Fund reauthorization due December 2026. This is the first time both FQHC revenue streams (Medicaid payments + federal grants) face simultaneous political risk.\n\nFor executives: your advocacy strategy needs to speak three languages. To fiscal conservatives: FQHCs save money (every $1 in FQHC funding saves $3-$4 in averted ED visits). To healthcare reformers: FQHCs deliver quality parity at lower cost. To community leaders: FQHCs are the largest employer in many underserved communities.",
+      es: "Los FQHCs crecen con campeones bipartidistas. La amenaza actual es sin precedentes: H.R. 1 recorta Medicaid mientras el CHCF expira en diciembre 2026. Su estrategia de abogacía necesita hablar tres idiomas: fiscal, calidad y empleo comunitario."
+    },
+    keyInsight: { en: "Your advocacy pitch has three versions: (1) fiscal conservative — FQHCs save $3-4 per $1 invested, (2) healthcare reformer — quality parity at lower cost, (3) community leader — largest employer in underserved communities. Know your audience.", es: "Tu discurso de abogacía tiene 3 versiones: fiscal ($3-4 por $1), reformista (calidad a menor costo), comunitario (mayor empleador)." },
+    quotes: [{ text: { en: "Health centers have experienced growth under virtually every president since their creation, reflecting an enduring bipartisan consensus that is now, for the first time, seriously threatened.", es: "Los centros de salud han crecido bajo cada presidente, reflejando un consenso bipartidista ahora seriamente amenazado." }, attribution: "— Sara Rosenbaum, KFF, 2017" }],
+    transitionNote: { en: "Political strategy protects existing revenue. PCMH recognition creates new revenue — and demonstrates quality to payers.", es: "La estrategia política protege ingresos existentes. PCMH crea nuevos ingresos." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "ncqa-pcmh-standards-2023",
+    narrative: {
+      en: "NCQA's Patient-Centered Medical Home recognition is the quality credential that unlocks per-member-per-month (PMPM) payments from many managed care organizations. Level 3 recognition (the highest) demonstrates that your FQHC has formalized team-based care, population health management, care coordination, and quality measurement systems.\n\nThe financial case is straightforward: PMPM payments of $3-8 per attributed member per month can generate $200K-$500K annually for a mid-size FQHC. Combined with improved quality metrics that affect managed care contract rates, the ROI on PCMH recognition typically exceeds the investment within 12-18 months.\n\nThe operational investment is significant: EHR template standardization, care management workflows, patient registry implementation, and quality reporting infrastructure. But these are capabilities you need regardless — PCMH just provides the external accountability framework and the financial incentive to build them.",
+      es: "El reconocimiento PCMH desbloquea pagos PMPM de $3-8 por miembro por mes, generando $200K-$500K anuales. El ROI típicamente excede la inversión en 12-18 meses. Las capacidades que necesitas para PCMH son las que necesitas de todos modos."
+    },
+    keyInsight: { en: "PCMH Level 3 recognition can generate $200K-$500K annually in PMPM payments. The ROI exceeds the investment within 12-18 months — and the operational capabilities it builds are ones you need anyway.", es: "PCMH Nivel 3 puede generar $200K-$500K anuales. El ROI excede la inversión en 12-18 meses." },
+    quotes: [{ text: { en: "PCMH recognition demonstrates a health center's commitment to team-based, coordinated, data-driven care — and increasingly unlocks value-based payment arrangements with managed care organizations.", es: "El reconocimiento PCMH demuestra compromiso con cuidado en equipo y coordinado — desbloqueando pagos basados en valor." }, attribution: "— NCQA, PCMH Standards, 2023" }],
+    transitionNote: { en: "PCMH is your quality credential. UDS is your accountability system — and the data that proves your impact to funders, policymakers, and boards.", es: "PCMH es tu credencial de calidad. UDS es tu sistema de rendición de cuentas." },
+    readingMinutes: 4,
+  },
+  {
+    entryId: "hrsa-uds-reporting-2024",
+    narrative: {
+      en: "UDS isn't just a reporting obligation — it's your performance management system, your board dashboard, and your advocacy ammunition. The 800+ data elements you report annually to HRSA create the most comprehensive picture of your organization's performance available anywhere.\n\nSmart executives use UDS strategically: benchmark against peer FQHCs (by size, region, patient demographics), identify quality improvement targets that will affect grant renewals, and build board presentations around UDS trend data. HRSA's own data tools let you compare your performance against state and national medians.\n\nThe quality measures that matter most for grant renewal: diabetes HbA1c control, depression screening and follow-up, hypertension control, cancer screening rates, and prenatal care timing. If any of these falls below the 33rd percentile nationally, expect HRSA scrutiny. If they fall below the 10th percentile, expect conditions on your award.",
+      es: "UDS no es solo una obligación — es tu sistema de gestión. Usa UDS estratégicamente: benchmark contra pares, identificar metas de mejora, construir presentaciones para la junta. Si las métricas caen debajo del percentil 33, espera escrutinio de HRSA."
+    },
+    keyInsight: { en: "UDS is your early warning system. If diabetes HbA1c control, depression screening, or hypertension management falls below the 33rd percentile nationally, HRSA will notice. Monitor these metrics quarterly, not just at UDS submission time.", es: "UDS es tu sistema de alerta temprana. Si las métricas caen debajo del percentil 33, HRSA notará." },
+    quotes: [{ text: { en: "UDS data serves multiple purposes: grant accountability, national advocacy, quality improvement benchmarking, and congressional reporting on health center impact.", es: "Los datos UDS sirven múltiples propósitos: rendición de cuentas, abogacía, benchmarking de calidad y reportes al Congreso." }, attribution: "— HRSA Bureau of Primary Health Care, 2024" }],
+    transitionNote: { en: "You've mastered the revenue and accountability landscape. The advanced level covers the transformation ahead: value-based payment, AI, and new behavioral health funding models.", es: "Has dominado el panorama de ingresos y rendición de cuentas. El nivel avanzado cubre la transformación por venir." },
+    readingMinutes: 4,
+  },
+]
+
+const executiveAdvancedLessons: SyllabusLesson[] = [
+  {
+    entryId: "mcwilliams-aco-savings-2016",
+    narrative: {
+      en: "The transition from fee-for-service/PPS to value-based payment is coming — and McWilliams' NEJM evidence suggests FQHCs may actually be well-positioned for it. Physician-led ACOs achieved 1.9% savings per beneficiary (nearly 3x hospital-led ACOs), with savings concentrated in reduced post-acute care and ED visits.\n\nFQHCs already do the work that generates ACO savings: care coordination, chronic disease management, prevention, and SDOH intervention. The challenge is infrastructure: risk stratification analytics, real-time quality dashboards, and actuarial capacity to model global capitation risk.\n\nCalifornia's FQHC APM (launched January 2026) offers an optional path to global payment. The early adopters will be FQHCs with strong data teams, established PCMH infrastructure, and patient panels large enough to absorb actuarial risk. For smaller FQHCs, joining an FQHC-led ACO (like C3) provides the collective scale needed for value-based contracts.",
+      es: "ACOs lideradas por médicos logran 3x más ahorros. Los FQHCs ya hacen el trabajo que genera ahorros. California lanzó su APM en enero 2026. FQHCs más pequeños pueden unirse a ACOs como C3 para escala colectiva."
+    },
+    keyInsight: { en: "FQHCs already do the work that generates value-based savings — care coordination, prevention, SDOH intervention. The gap is infrastructure: analytics, dashboards, and actuarial capacity. Invest there before signing value-based contracts.", es: "Los FQHCs ya hacen el trabajo que genera ahorros basados en valor. La brecha es infraestructura: analítica y capacidad actuarial." },
+    quotes: [{ text: { en: "Physician group-led ACOs generated savings nearly three times those of hospital-integrated systems, suggesting that primary care-oriented organizations may be better positioned for value-based payment success.", es: "Las ACOs lideradas por grupos médicos generaron ahorros 3 veces mayores, sugiriendo que organizaciones de atención primaria pueden estar mejor posicionadas." }, attribution: "— McWilliams et al., NEJM, 2016" }],
+    transitionNote: { en: "Value-based payment is the revenue future. AI-assisted documentation is the operational future — and it's arriving faster than most executives expect.", es: "El pago basado en valor es el futuro de ingresos. La documentación asistida por IA es el futuro operativo." },
+    readingMinutes: 5,
+  },
+  {
+    entryId: "lin-ambient-ai-documentation-2024",
+    narrative: {
+      en: "Stanford's study of ambient AI scribing found 40% documentation time reduction and improved note completeness — but also raised concerns about HCC/wRVU upcoding and hallucinated clinical details. For FQHC executives, the PPS billing model creates a different risk profile than fee-for-service: upcoding doesn't directly increase your per-visit payment (PPS is a flat rate), so the financial incentive to upcode is lower.\n\nBut the quality risks remain: AI-generated notes may include clinical details that didn't occur in the visit, creating malpractice liability and quality measurement distortion. FQHC executives implementing AI scribing need: provider-level note review protocols, quality auditing procedures, and clear vendor accountability frameworks.\n\nAltaMed's deployment of Abridge across 60+ sites (500K+ patients, 28 languages) is the largest FQHC AI implementation in the US and the most relevant case study for other FQHCs considering adoption. Their selection criteria — multilingual support, Epic integration, clinician burnout reduction — represent the key decision factors.",
+      es: "IA de documentación reduce tiempo 40% pero tiene riesgos: detalles alucinados y responsabilidad legal. El modelo PPS de FQHCs reduce el riesgo de sobrecodificación. AltaMed desplegó Abridge en 60+ sitios — el mayor caso de estudio para FQHCs."
+    },
+    keyInsight: { en: "PPS billing means FQHCs face lower upcoding risk from AI scribing than fee-for-service practices. But quality risks (hallucinated details, malpractice liability) remain. Implement with provider review protocols and quality auditing.", es: "El PPS significa menor riesgo de sobrecodificación con IA. Pero los riesgos de calidad permanecen. Implementar con protocolos de revisión." },
+    quotes: [{ text: { en: "Ambient AI documentation reduced physician documentation time by approximately 40% while maintaining or improving note completeness — but also introduced risks of coding inflation and clinical detail fabrication that require institutional safeguards.", es: "La documentación ambiental con IA redujo tiempo de documentación 40% pero introdujo riesgos que requieren salvaguardas institucionales." }, attribution: "— Lin et al., NEJM AI, 2024" }],
+    transitionNote: { en: "AI handles documentation. CCBHC certification handles behavioral health funding — a critical diversification strategy as Medicaid revenue contracts.", es: "La IA maneja documentación. La certificación CCBHC maneja financiamiento de salud conductual — una estrategia crítica de diversificación." },
+    readingMinutes: 5,
+  },
+  {
+    entryId: "samhsa-ccbhc-certification-2024",
+    narrative: {
+      en: "CCBHC (Certified Community Behavioral Health Clinic) certification is the most significant behavioral health funding opportunity since the ACA. The CCBHC model provides PPS-like cost-based reimbursement for ALL behavioral health services — including crisis services, substance use treatment, and psychiatric care — regardless of payer.\n\nFor FQHC executives, CCBHC certification serves two strategic purposes: (1) revenue diversification — behavioral health services become cost-based rather than dependent on inadequate fee-for-service rates, and (2) competitive positioning — CCBHCs must provide 24/7 crisis services, evidence-based practices, and integrated care coordination, creating a quality differentiation from standalone BH providers.\n\nThe operational requirements are substantial: 24/7 crisis services (can be via contract), evidence-based practices for designated conditions, care coordination with physical health, and quality reporting. But for FQHCs already providing integrated behavioral health, the incremental investment is manageable — and the revenue upside is significant.\n\nCongratulations — you've completed the Executive: Strategy & Finance curriculum. From Section 330's legal architecture through PPS mechanics, 340B strategy, workforce navigation, and value-based transformation — you now have the evidence base to lead your FQHC through the 2026 crisis with strategic clarity.",
+      es: "CCBHC proporciona reembolso basado en costos para TODOS los servicios de salud conductual. Para ejecutivos: diversificación de ingresos + diferenciación competitiva. Los requisitos operativos son sustanciales pero manejables para FQHCs que ya integran salud conductual.\n\nFelicitaciones — has completado el currículo Ejecutivo."
+    },
+    keyInsight: { en: "CCBHC certification is the biggest behavioral health revenue opportunity in a decade. If you already provide integrated BH, the incremental investment to meet CCBHC requirements is smaller than you think — and the cost-based reimbursement model fundamentally changes BH economics.", es: "La certificación CCBHC es la mayor oportunidad de ingresos de salud conductual en una década." },
+    quotes: [{ text: { en: "CCBHCs receive a cost-based, per-diem reimbursement rate that covers the full scope of behavioral health services, creating financial sustainability for comprehensive crisis, treatment, and recovery services.", es: "Los CCBHCs reciben reembolso basado en costos que cubre el alcance completo de servicios de salud conductual." }, attribution: "— SAMHSA, CCBHC Certification Criteria, 2024" }],
+    transitionNote: { en: "You've completed the Executive curriculum. Section 330 → PPS → 340B → Workforce → SB 525 → Medicaid dependence → Policy advocacy → PCMH → UDS → Value-based payment → AI → CCBHC. You have the evidence base to lead.", es: "Has completado el currículo Ejecutivo. Tienes la base de evidencia para liderar." },
+    readingMinutes: 5,
+  },
+]
+
+export const EXECUTIVE_TRACK: CurriculumTrack = {
+  id: "executive-strategy",
+  name: { en: "Executive: Strategy & Finance", es: "Ejecutivo: Estrategia y Finanzas" },
+  audience: "executive",
+  description: { en: "For CEOs, CFOs, COOs, and board members — the policy, financial, and strategic evidence that shapes FQHC decision-making.", es: "Para CEOs, CFOs, COOs y miembros de junta — la evidencia de políticas, finanzas y estrategia." },
+  levels: [
+    {
+      level: "foundational", label: { en: "FQHC Business Model", es: "Modelo de Negocio de FQHCs" },
+      overview: { en: "Five readings that cover the legal, financial, and regulatory architecture of running an FQHC: Section 330 requirements, PPS reimbursement mechanics, 340B pharmacy strategy, workforce crisis data, and SB 525 cost impact.", es: "Cinco lecturas sobre la arquitectura legal, financiera y regulatoria de administrar un FQHC." },
+      entryIds: ["taylor-section-330-history-2004", "rosenbaum-pps-fqhc-reimbursement-2010", "340b-hrsa-program-overview-2024", "nachc-workforce-study-2023", "ca-sb525-healthcare-minimum-wage-2023"],
+      lessons: executiveFoundationalLessons,
+    },
+    {
+      level: "intermediate", label: { en: "Revenue & Sustainability", es: "Ingresos y Sostenibilidad" },
+      overview: { en: "Four readings on financial sustainability: Medicaid dependence risk, political advocacy strategy, PCMH revenue opportunities, and UDS performance management.", es: "Cuatro lecturas sobre sostenibilidad financiera: riesgo de dependencia de Medicaid, abogacía política, PCMH y gestión de desempeño UDS." },
+      entryIds: ["shin-fqhc-medicaid-dependence-2020", "rosenbaum-fqhc-policy-evolution-2017", "ncqa-pcmh-standards-2023", "hrsa-uds-reporting-2024"],
+      lessons: executiveIntermediateLessons,
+    },
+    {
+      level: "advanced", label: { en: "Innovation & Transformation", es: "Innovación y Transformación" },
+      overview: { en: "Three readings on the forces reshaping FQHC operations: value-based payment models, AI-assisted documentation, and CCBHC behavioral health funding.", es: "Tres lecturas sobre las fuerzas que remodelan las operaciones de FQHCs: pago basado en valor, IA y financiamiento CCBHC." },
+      entryIds: ["mcwilliams-aco-savings-2016", "lin-ambient-ai-documentation-2024", "samhsa-ccbhc-certification-2024"],
+      lessons: executiveAdvancedLessons,
+    },
+  ],
+}
+
 // ── ASSEMBLED TRACKS ARRAY ───────────────────────────────
 
 export const SYLLABUS_TRACKS: CurriculumTrack[] = [
   CLINICIAN_TRACK,
   NON_CLINICIAN_TRACK,
+  PUBLIC_HEALTH_TRACK,
+  EXECUTIVE_TRACK,
 ]
