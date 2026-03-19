@@ -23,6 +23,7 @@ import { getResourcesForFQHC } from "@/lib/career-resources";
 import { getCertificationsForFQHC } from "@/lib/certification-data";
 import { ProfileTabs } from "@/components/directory/ProfileTabs";
 import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
+import { MedicalOrganizationJsonLd } from "@/components/seo/JsonLd";
 
 /* ------------------------------------------------------------------ */
 /*  Static Params                                                      */
@@ -235,6 +236,18 @@ export default async function FQHCProfilePage({
 
   return (
     <div className="bg-stone-50">
+      <MedicalOrganizationJsonLd
+        name={fqhc.name}
+        description={fqhc.missionStatement || fqhc.description}
+        slug={slug}
+        city={fqhc.city}
+        county={fqhc.county}
+        website={fqhc.website}
+        programs={fqhc.programs}
+        patientCount={fqhc.patientCount}
+        siteCount={fqhc.siteCount}
+        nhscApproved={fqhc.nhscApproved}
+      />
       {/* ==================== HERO ==================== */}
       <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-12 text-white sm:py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">

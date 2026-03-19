@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useLocale } from "next-intl";
+import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import {
   GraduationCap,
@@ -17,6 +18,9 @@ import {
   Brain,
   ExternalLink,
   RotateCcw,
+  Share2,
+  Check,
+  Link2,
 } from "lucide-react";
 import {
   generateLearningPathway,
@@ -93,14 +97,46 @@ const TYPE_META: Record<
 export default function PathwayPage() {
   const locale = useLocale();
   const isEs = locale === "es";
+  const searchParams = useSearchParams();
 
   // Selection state
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [selectedLevel, setSelectedLevel] = useState<ExperienceLevel | null>(null);
   const [pathway, setPathway] = useState<LearningPathway | null>(null);
+  const [shareState, setShareState] = useState<"idle" | "copied">("idle");
 
   // Completion tracking
   const [completedSteps, setCompletedSteps] = useState<Set<string>>(new Set());
+
+  // Auto-generate from URL params (e.g. /pathway?role=chw&level=entry)
+  useEffect(() => {
+    const roleParam = searchParams.get("role");
+    const levelParam = searchParams.get("level") as ExperienceLevel | null;
+    if (roleParam && levelParam) {
+      const validRole = PATHWAY_ROLES.find((r) => r.id === roleParam);
+      const validLevel = EXPERIENCE_LEVELS.find((l) => l.id === levelParam);
+      if (validRole && validLevel) {
+        const pw = generateLearningPathway(roleParam, levelParam);
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setSelectedRole(roleParam);
+         
+        setSelectedLevel(levelParam);
+         
+        setPathway(pw);
+        // Load saved progress
+        const key = getStorageKey(roleParam, levelParam);
+        try {
+          const stored = localStorage.getItem(key);
+          if (stored) {
+             
+            setCompletedSteps(new Set(JSON.parse(stored)));
+          }
+        } catch {
+          // ignore
+        }
+      }
+    }
+  }, [searchParams]);
 
   // Load completion state from localStorage
   useEffect(() => {
@@ -141,12 +177,64 @@ export default function PathwayPage() {
     [pathway]
   );
 
+  // Build shareable URL for current pathway
+  const getShareUrl = useCallback(() => {
+    if (!pathway) return "";
+    const base = typeof window !== "undefined" ? window.location.origin : "";
+    const localePath = locale === "es" ? "/es" : "";
+    return `${base}${localePath}/pathway?role=${pathway.roleId}&level=${pathway.level}`;
+  }, [pathway, locale]);
+
+  // Share / copy-to-clipboard
+  const handleShare = useCallback(async () => {
+    const url = getShareUrl();
+    const role = PATHWAY_ROLES.find((r) => r.id === pathway?.roleId);
+    const level = EXPERIENCE_LEVELS.find((l) => l.id === pathway?.level);
+    const title = isEs
+      ? `Ruta de Aprendizaje FQHC: ${role?.es ?? ""} — ${level?.es ?? ""}`
+      : `FQHC Learning Pathway: ${role?.en ?? ""} — ${level?.en ?? ""}`;
+    const text = isEs
+      ? "Mira esta ruta de aprendizaje personalizada para profesionales de FQHC."
+      : "Check out this personalized learning pathway for FQHC professionals.";
+
+    // Try native share first (mobile)
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, text, url });
+        return;
+      } catch {
+        // User cancelled or not supported — fall through to clipboard
+      }
+    }
+
+    // Fallback: copy to clipboard
+    try {
+      await navigator.clipboard.writeText(url);
+      setShareState("copied");
+      setTimeout(() => setShareState("idle"), 2000);
+    } catch {
+      // Last resort: prompt
+      window.prompt(isEs ? "Copia este enlace:" : "Copy this link:", url);
+    }
+  }, [getShareUrl, pathway, isEs]);
+
   // Generate pathway
   const handleGenerate = () => {
     if (selectedRole && selectedLevel) {
       const pw = generateLearningPathway(selectedRole, selectedLevel);
       setPathway(pw);
       setCompletedSteps(new Set());
+      // Update URL without full reload
+      const localePath = locale === "es" ? "/es" : "";
+      const newUrl = `${localePath}/pathway?role=${selectedRole}&level=${selectedLevel}`;
+      window.history.replaceState({}, "", newUrl);
+      // Persist role selection so other pages can pre-filter
+      try {
+        localStorage.setItem("fqhc-selected-role", selectedRole);
+        localStorage.setItem("fqhc-selected-level", selectedLevel);
+      } catch {
+        // ignore
+      }
       // Try to load saved progress
       const key = getStorageKey(selectedRole, selectedLevel);
       try {
@@ -165,6 +253,9 @@ export default function PathwayPage() {
     setSelectedRole(null);
     setSelectedLevel(null);
     setCompletedSteps(new Set());
+    // Clear URL params
+    const localePath = locale === "es" ? "/es" : "";
+    window.history.replaceState({}, "", `${localePath}/pathway`);
   };
 
   // Progress calculation
@@ -200,6 +291,17 @@ export default function PathwayPage() {
               ? "Selecciona tu rol y nivel de experiencia para obtener una ruta de aprendizaje curada a través de guías, evaluaciones, certificaciones y herramientas estratégicas."
               : "Select your role and experience level to get a curated learning journey through guides, assessments, certifications, and strategic tools."}
           </p>
+          {pathway && (
+            <button
+              onClick={handleShare}
+              className="mt-4 inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-900/30 px-4 py-2 text-sm font-medium text-teal-300 transition-all hover:bg-teal-900/50"
+            >
+              <Link2 className="size-4" />
+              {shareState === "copied"
+                ? isEs ? "¡Enlace copiado!" : "Link copied!"
+                : isEs ? "Compartir esta ruta" : "Share this pathway"}
+            </button>
+          )}
         </div>
       </section>
 
@@ -319,13 +421,35 @@ export default function PathwayPage() {
                       {isEs ? "horas" : "hours"}
                     </p>
                   </div>
-                  <button
-                    onClick={handleReset}
-                    className="flex items-center gap-1 rounded-lg border border-stone-200 px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50"
-                  >
-                    <RotateCcw className="size-3" />
-                    {isEs ? "Cambiar" : "Change"}
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleShare}
+                      className={`flex items-center gap-1 rounded-lg border px-3 py-1.5 text-xs font-medium transition-all ${
+                        shareState === "copied"
+                          ? "border-teal-300 bg-teal-50 text-teal-700"
+                          : "border-stone-200 text-stone-600 hover:bg-stone-50"
+                      }`}
+                    >
+                      {shareState === "copied" ? (
+                        <>
+                          <Check className="size-3" />
+                          {isEs ? "¡Copiado!" : "Copied!"}
+                        </>
+                      ) : (
+                        <>
+                          <Share2 className="size-3" />
+                          {isEs ? "Compartir" : "Share"}
+                        </>
+                      )}
+                    </button>
+                    <button
+                      onClick={handleReset}
+                      className="flex items-center gap-1 rounded-lg border border-stone-200 px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50"
+                    >
+                      <RotateCcw className="size-3" />
+                      {isEs ? "Cambiar" : "Change"}
+                    </button>
+                  </div>
                 </div>
 
                 {/* Progress bar */}
@@ -467,6 +591,15 @@ export default function PathwayPage() {
                       ? "Has completado todos los pasos. ¡Estás listo para tu próximo paso en FQHCs!"
                       : "You've completed all steps. You're ready for your next move in FQHCs!"}
                   </p>
+                  <button
+                    onClick={handleShare}
+                    className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-sm font-bold text-white transition-all hover:bg-white/30"
+                  >
+                    <Share2 className="size-4" />
+                    {shareState === "copied"
+                      ? isEs ? "¡Enlace copiado!" : "Link copied!"
+                      : isEs ? "Compartir con un colega" : "Share with a colleague"}
+                  </button>
                 </div>
               )}
             </div>

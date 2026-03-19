@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { previewIntelBrief, previewPulse } from "@/lib/newsletter-send";
+import { verifySecret } from "@/lib/security";
 import type { IntelBriefContent, PulseContent } from "@/lib/newsletter-templates";
+import { fqhcJobListings } from "@/lib/fqhc-job-listings";
 
 /**
  * GET /api/newsletter/preview?track=intel-brief
@@ -75,9 +77,9 @@ const SAMPLE_PULSE: PulseContent = {
   issueNumber: 1,
   date: new Date().toISOString().slice(0, 10),
   summary:
-    "577 open positions across 4 major FQHCs this week. AltaMed leads with 234 openings. Care coordination and behavioral health roles are in highest demand across all regions.",
+    `${fqhcJobListings.length} open positions across 4 major FQHCs this week. AltaMed leads with 234 openings. Care coordination and behavioral health roles are in highest demand across all regions.`,
   jobHighlights: {
-    totalJobs: 577,
+    totalJobs: fqhcJobListings.length,
     newThisWeek: 23,
     topFQHCs: [
       { name: "AltaMed Health Services", count: 234, url: "https://www.fqhctalent.com/directory/altamed-health-services" },
@@ -126,7 +128,8 @@ export async function GET(request: Request) {
   const secret = process.env.NEWSLETTER_SECRET;
   const authHeader = request.headers.get("authorization");
 
-  if (!isDev && (!secret || authHeader !== `Bearer ${secret}`)) {
+  const token = authHeader?.startsWith("Bearer ") ? authHeader.slice(7) : "";
+  if (!isDev && (!secret || !token || !verifySecret(token, secret))) {
     return NextResponse.json(
       { error: "Preview only available in development or with valid auth." },
       { status: 403 },

@@ -352,3 +352,78 @@ export function BreadcrumbJsonLd({
     />
   );
 }
+
+// MedicalOrganization structured data for FQHC directory profiles
+export function MedicalOrganizationJsonLd({
+  name,
+  description,
+  slug,
+  city,
+  county,
+  website,
+  programs,
+  patientCount,
+  siteCount,
+  nhscApproved,
+}: {
+  name: string;
+  description?: string;
+  slug: string;
+  city: string;
+  county: string;
+  website?: string;
+  programs: string[];
+  patientCount?: string;
+  siteCount?: number | string;
+  nhscApproved?: boolean;
+}) {
+  const data: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    name,
+    url: `https://www.fqhctalent.com/directory/${slug}`,
+    ...(description && { description }),
+    ...(website && { sameAs: website }),
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: city,
+      addressRegion: "CA",
+      addressCountry: "US",
+    },
+    areaServed: {
+      "@type": "Place",
+      name: `${county} County, California`,
+    },
+    medicalSpecialty: "General Practice",
+    isAcceptingNewPatients: true,
+    ...(nhscApproved && {
+      hasCredential: {
+        "@type": "EducationalOccupationalCredential",
+        credentialCategory: "NHSC Approved Site",
+        recognizedBy: {
+          "@type": "Organization",
+          name: "National Health Service Corps",
+        },
+      },
+    }),
+    ...(programs.length > 0 && {
+      availableService: programs.slice(0, 5).map((p) => ({
+        "@type": "MedicalTherapy",
+        name: p,
+      })),
+    }),
+    ...(patientCount && { numberOfPatients: patientCount }),
+    ...(siteCount && { numberOfLocations: String(siteCount) }),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.fqhctalent.com/directory/${slug}`,
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
