@@ -62,7 +62,10 @@ function CaseStudyCard({
   const diffMeta = DIFFICULTY_META.find((d) => d.id === cs.difficulty);
 
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden">
+    <div className="relative rounded-2xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden">
+      <div className="absolute right-12 top-6 z-10 flex items-center gap-1">
+        <FavoriteButton contentType="case-study" contentId={cs.id} size="sm" />
+      </div>
       {/* Header */}
       <button
         onClick={onToggle}
@@ -97,9 +100,6 @@ function CaseStudyCard({
             <p className="mt-2 text-sm text-stone-500">
               {t(cs.headline, locale)}
             </p>
-          </div>
-          <div className="flex flex-shrink-0 items-center gap-1 mt-1" onClick={(e) => e.stopPropagation()}>
-            <FavoriteButton contentType="case-study" contentId={cs.id} size="sm" />
           </div>
           <div className="flex-shrink-0 mt-1 text-stone-400">
             {isExpanded ? (

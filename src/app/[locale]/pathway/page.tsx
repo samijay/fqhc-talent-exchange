@@ -163,7 +163,6 @@ export default function PathwayPage() {
         const serverData = await getServerProgress(user.email!, courseId);
         const serverSteps = serverData?.modules_completed ?? [];
         const merged = [...new Set([...localSteps, ...serverSteps])];
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setCompletedSteps(new Set(merged));
         // Persist merged set back to both
         try {

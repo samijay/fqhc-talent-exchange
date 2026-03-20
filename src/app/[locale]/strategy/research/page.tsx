@@ -70,7 +70,10 @@ function EntryCard({
   const typeMeta = TYPE_META.find((tm) => tm.id === entry.type);
 
   return (
-    <div className="rounded-xl border border-stone-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-stone-700 dark:bg-stone-800">
+    <div className="relative rounded-xl border border-stone-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-stone-700 dark:bg-stone-800">
+      <div className="absolute right-12 top-5 z-10 flex items-center gap-1">
+        <FavoriteButton contentType="research" contentId={entry.id} size="sm" />
+      </div>
       <button
         onClick={onToggle}
         className="w-full text-left p-5 flex items-start justify-between gap-3"
@@ -108,14 +111,9 @@ function EntryCard({
           </p>
         </div>
 
-        <div className="shrink-0 mt-1 flex items-center gap-1">
-          <div onClick={(e) => e.stopPropagation()}>
-            <FavoriteButton contentType="research" contentId={entry.id} size="sm" />
-          </div>
-          <span className="text-stone-400">
-            {isExpanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
-          </span>
-        </div>
+        <span className="shrink-0 mt-1 text-stone-400">
+          {isExpanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+        </span>
       </button>
 
       {isExpanded && (

@@ -357,7 +357,10 @@ function CertCard({
   const badge = IMPACT_BADGES[cert.impactType];
 
   return (
-    <div className="rounded-xl border border-stone-200 bg-white transition-shadow hover:shadow-sm">
+    <div className="relative rounded-xl border border-stone-200 bg-white transition-shadow hover:shadow-sm">
+      <div className="absolute right-12 top-5 z-10 flex items-center gap-1">
+        <FavoriteButton contentType="certification" contentId={cert.id} size="sm" />
+      </div>
       <button
         onClick={onToggle}
         className="flex w-full items-start justify-between gap-4 p-5 text-left"
@@ -393,9 +396,6 @@ function CertCard({
               {isEs ? cert.esSalaryImpact : cert.salaryImpact}
             </span>
           </div>
-        </div>
-        <div className="flex shrink-0 items-center gap-1" onClick={(e) => e.stopPropagation()}>
-          <FavoriteButton contentType="certification" contentId={cert.id} size="sm" />
         </div>
         {isExpanded ? (
           <ChevronUp className="size-5 shrink-0 text-stone-400" />

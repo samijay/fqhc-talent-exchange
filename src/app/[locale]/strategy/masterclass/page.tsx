@@ -69,7 +69,10 @@ function MasterclassCard({
   const diffMeta = getDifficultyMeta(mc.difficulty);
 
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden">
+    <div className="relative rounded-2xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden">
+      <div className="absolute right-12 top-6 z-10 flex items-center gap-1">
+        <FavoriteButton contentType="masterclass" contentId={mc.id} size="sm" />
+      </div>
       {/* Header — always visible */}
       <button
         onClick={onToggle}
@@ -112,18 +115,13 @@ function MasterclassCard({
               {t(mc.subtitle, locale)}
             </p>
           </div>
-          <div className="flex-shrink-0 mt-1 flex items-center gap-1">
-            <div onClick={(e) => e.stopPropagation()}>
-              <FavoriteButton contentType="masterclass" contentId={mc.id} size="sm" />
-            </div>
-            <span className="text-stone-400">
-              {isExpanded ? (
-                <ChevronUp className="size-5" />
-              ) : (
-                <ChevronDown className="size-5" />
-              )}
-            </span>
-          </div>
+          <span className="flex-shrink-0 mt-1 text-stone-400">
+            {isExpanded ? (
+              <ChevronUp className="size-5" />
+            ) : (
+              <ChevronDown className="size-5" />
+            )}
+          </span>
         </div>
 
         {/* Urgency stat — always visible */}

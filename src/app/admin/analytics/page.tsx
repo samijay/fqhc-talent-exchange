@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 // ── Types ──

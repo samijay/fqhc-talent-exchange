@@ -30,16 +30,26 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Too many requests" }, { status: 429 });
   }
 
-  // Auth check — require logged-in user with admin email
-  const supabase = await createServerSupabaseClient();
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
+  // Auth check — accept either:
+  // (a) Secret key via ?key= query param (uses NEWSLETTER_SECRET)
+  // (b) Logged-in Supabase user with admin email
+  const url = new URL(request.url);
+  const keyParam = url.searchParams.get("key");
+  const adminSecret = process.env.NEWSLETTER_SECRET;
 
-  if (authError || !user?.email) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const hasValidKey = adminSecret && keyParam === adminSecret;
 
-  if (!ADMIN_EMAIL || user.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
-    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  if (!hasValidKey) {
+    const supabase = await createServerSupabaseClient();
+    const { data: { user }, error: authError } = await supabase.auth.getUser();
+
+    if (authError || !user?.email) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    if (!ADMIN_EMAIL || user.email.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
   }
 
   // Run all queries in parallel

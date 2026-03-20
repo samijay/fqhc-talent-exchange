@@ -68,7 +68,10 @@ function GuideCard({
   const isEs = locale === "es";
 
   return (
-    <div className="rounded-xl border border-stone-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+    <div className="relative rounded-xl border border-stone-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+      <div className="absolute right-12 top-5 z-10 flex items-center gap-1">
+        <FavoriteButton contentType="guide" contentId={guide.id} size="sm" />
+      </div>
       {/* Collapsed header — always visible */}
       <button
         onClick={() => {
@@ -133,19 +136,14 @@ function GuideCard({
           </div>
         </div>
 
-        {/* Favorite + Expand/collapse icon */}
-        <div className="flex-shrink-0 mt-1 flex items-center gap-1">
-          <div onClick={(e) => e.stopPropagation()}>
-            <FavoriteButton contentType="guide" contentId={guide.id} size="sm" />
-          </div>
-          <span className="text-stone-400">
-            {expanded ? (
-              <ChevronUp className="h-5 w-5" />
-            ) : (
-              <ChevronDown className="h-5 w-5" />
-            )}
-          </span>
-        </div>
+        {/* Expand/collapse icon */}
+        <span className="flex-shrink-0 mt-1 text-stone-400">
+          {expanded ? (
+            <ChevronUp className="h-5 w-5" />
+          ) : (
+            <ChevronDown className="h-5 w-5" />
+          )}
+        </span>
       </button>
 
       {/* Expanded content */}
