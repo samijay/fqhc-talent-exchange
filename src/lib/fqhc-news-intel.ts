@@ -213,6 +213,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "AHRQ Digital Healthcare Research",
     region: "Federal",
     tags: ["ai-adoption", "ambient-ai", "primary-care", "federal-research"],
+    keyTakeaways: [
+      { en: "AHRQ awarded nearly $2M to Brigham and Women's Hospital for safe AI scribe integration guide", es: "AHRQ otorgó casi $2M al Brigham and Women's Hospital para guía de integración segura de escribas IA" },
+      { en: "Study focuses on physician burnout reduction, quality improvement, and technology usability", es: "El estudio se centra en reducción del agotamiento médico, mejora de calidad y usabilidad tecnológica" },
+      { en: "Federal validation signals ambient AI is moving from hype to evidence-based implementation", es: "La validación federal señala que la IA ambiental pasa del hype a la implementación basada en evidencia" },
+      { en: "Action: FQHCs considering AI scribes should wait for this guide before committing to a vendor", es: "Acción: FQHCs considerando escribas IA deberían esperar esta guía antes de comprometerse con un proveedor" },
+    ],
   },
   {
     id: "north-coast-fqhcs-medicaid-vulnerability-2026",
@@ -234,6 +240,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Open Door Community Health Centers"],
     affectedOrgSlugs: ["open-door-community-health-centers"],
     tags: ["north-coast", "rural-fqhc", "medicaid-cuts", "open-door"],
+    keyTakeaways: [
+      { en: "Open Door CHC: over 50% of patients on Medi-Cal — largest OB/primary care provider in Humboldt and Del Norte counties", es: "Open Door CHC: más del 50% de pacientes en Medi-Cal — mayor proveedor de obstetricia y atención primaria en los condados de Humboldt y Del Norte" },
+      { en: "Partnership HealthPlan calls Medicaid an 'economic engine' for 24 rural counties", es: "Partnership HealthPlan llama a Medicaid un 'motor económico' para 24 condados rurales" },
+      { en: "H.R. 1 changes won't take full effect until late 2026 — a slow-motion crisis for rural providers", es: "Los cambios de H.R. 1 no surtirán efecto completo hasta finales de 2026 — una crisis en cámara lenta para proveedores rurales" },
+      { en: "As rural practices close, FQHCs like Open Door become the ONLY remaining option", es: "Al cerrar prácticas rurales, FQHCs como Open Door se convierten en la ÚNICA opción restante" },
+    ],
   },
   /* ============================================================== */
   /*  March 13, 2026                                                 */
@@ -257,6 +269,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "California",
     affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "clinica-sierra-vista", "san-ysidro-health"],
     tags: ["medi-cal", "undocumented", "sb-1422", "pps", "uis"],
+    keyTakeaways: [
+      { en: "SB 1422 would reverse the January 2026 enrollment freeze for undocumented adults", es: "SB 1422 revertiría la congelación de inscripción de enero 2026 para adultos indocumentados" },
+      { en: "1.7M undocumented immigrants currently enrolled in Medi-Cal", es: "1.7M de inmigrantes indocumentados actualmente inscritos en Medi-Cal" },
+      { en: "The freeze eliminated PPS payments to FQHCs for UIS patients — forcing health centers to absorb costs", es: "La congelación eliminó pagos PPS a FQHCs por pacientes UIS — obligando a centros de salud a absorber costos" },
+      { en: "If passed, would restore PPS encounter revenue for FQHCs serving undocumented populations", es: "Si se aprueba, restauraría ingresos por encuentros PPS para FQHCs que atienden poblaciones indocumentadas" },
+    ],
   },
   {
     id: "oc-hca-clinic-closures-federal-cuts",
@@ -277,6 +295,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Orange County",
     affectedOrgSlugs: ["share-our-selves", "families-together-of-orange-county", "north-orange-county-regional-health-foundation"],
     tags: ["orange-county", "clinic-closures", "los-angeles", "federal-cuts"],
+    keyTakeaways: [
+      { en: "OC Health Care Agency closing several clinics — mirrors LA County's closure of 7 of 13 DPH clinics on Feb 27", es: "Agencia de Salud del Condado de Orange cierra varias clínicas — refleja el cierre de 7 de 13 clínicas de LA County el 27 de feb" },
+      { en: "Combined with $50M+ in LA County cuts, Southern California is losing significant public health infrastructure", es: "Combinado con $50M+ en recortes de LA County, el sur de California pierde infraestructura significativa de salud pública" },
+      { en: "Displaced patients being directed to FQHCs and community health centers", es: "Pacientes desplazados están siendo dirigidos a FQHCs y centros de salud comunitarios" },
+      { en: "Action: SoCal FQHCs should prepare for patient volume surges from clinic redirections", es: "Acción: FQHCs del sur de CA deben prepararse para aumentos de volumen por redirecciones de clínicas" },
+    ],
   },
   {
     id: "rand-665b-state-medicaid-decline-decade",
@@ -296,6 +320,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Stateline / RAND Health",
     region: "Federal",
     tags: ["medicaid", "hr-1", "rand", "revenue"],
+    keyTakeaways: [
+      { en: "RAND: state Medicaid budgets reduced by $665 billion total over the next decade under H.R. 1", es: "RAND: presupuestos estatales de Medicaid reducidos $665 mil millones en total en la próxima década bajo H.R. 1" },
+      { en: "FQHCs derive ~43% of revenue from Medicaid — sustained revenue compression ahead", es: "FQHCs derivan ~43% de ingresos de Medicaid — compresión sostenida de ingresos por venir" },
+      { en: "CBO estimates 11.8M will directly lose coverage + 3.1M through marketplace plans", es: "CBO estima que 11.8M perderán cobertura directamente + 3.1M a través de planes del mercado" },
+      { en: "California's 215 FQHCs face among the largest state-level revenue impacts nationally", es: "Los 215 FQHCs de California enfrentan de los mayores impactos de ingresos a nivel estatal" },
+    ],
   },
   {
     id: "peterson-ambient-ai-scribes-fastest-adoption",
@@ -316,6 +346,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Federal",
     affectedOrgSlugs: ["neighborhood-healthcare"],
     tags: ["ai", "ambient-documentation", "clinician-burnout", "technology"],
+    keyTakeaways: [
+      { en: "Peterson Institute: ambient AI scribes becoming one of the fastest-adopted technologies in healthcare history", es: "Instituto Peterson: escribas de IA ambiental se convierten en una de las tecnologías de adopción más rápida en la historia de la salud" },
+      { en: "Neighborhood Healthcare (CA FQHC, 500K+ visits, 30 facilities) successfully piloted Nabla AI scribes", es: "Neighborhood Healthcare (FQHC de CA, 500K+ visitas, 30 instalaciones) implementó con éxito escribas IA Nabla" },
+      { en: "Rural FQHCs face connectivity and cost barriers — North Country Healthcare (AZ) encountered challenges", es: "FQHCs rurales enfrentan barreras de conectividad y costo — North Country Healthcare (AZ) encontró desafíos" },
+      { en: "Action: FQHCs should evaluate AI scribe options now while early adoption advantages remain", es: "Acción: FQHCs deberían evaluar opciones de escribas IA ahora mientras las ventajas de adopción temprana persisten" },
+    ],
   },
   /* ============================================================== */
   /*  REGIONAL — March 12, 2026                                      */
@@ -340,6 +376,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Santa Barbara Neighborhood Clinics"],
     affectedOrgSlugs: ["santa-barbara-neighborhood-clinics"],
     tags: ["central-coast", "santa-barbara", "philanthropy", "fqhc-expansion", "capital-campaign"],
+    keyTakeaways: [
+      { en: "$5M Wyatt family gift — largest family donation in SBNC's history", es: "Donación de $5M de la familia Wyatt — la mayor donación familiar en la historia de SBNC" },
+      { en: "New three-story Wyatt Family Health Center expands capacity from 20,000 to 28,000 patients (+41%)", es: "Nuevo centro de tres pisos expande la capacidad de 20,000 a 28,000 pacientes (+41%)" },
+      { en: "SBNC serves 1 in 10 South Santa Barbara County residents; 92% are low-income", es: "SBNC atiende a 1 de cada 10 residentes del sur del condado de SB; 92% son de bajos ingresos" },
+      { en: "Completion expected December 2026 — a model of philanthropic investment during the funding crisis", es: "Terminación esperada en diciembre 2026 — un modelo de inversión filantrópica durante la crisis de financiamiento" },
+    ],
   },
   {
     id: "hr-7391-340b-fqhc-protection-act",
@@ -359,6 +401,13 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "U.S. House of Representatives",
     region: "Federal",
     tags: ["340b", "legislation", "drug-pricing", "bipartisan", "fqhc-protection"],
+    keyTakeaways: [
+      { en: "Bipartisan bill H.R. 7391 would exempt FQHCs from HRSA's 340B Rebate Model Pilot Program", es: "Proyecto bipartidista H.R. 7391 eximiría a FQHCs del Programa Piloto de Reembolso 340B de HRSA" },
+      { en: "Currently has 35 cosponsors — mandates upfront ceiling-price purchasing (no post-purchase reconciliation)", es: "Actualmente tiene 35 copatrocinadores — exige compra a precio tope por adelantado (sin reconciliación posterior)" },
+      { en: "HRSA's RFI on 340B rebates has comments due April 20, 2026", es: "La RFI de HRSA sobre reembolsos 340B tiene fecha límite de comentarios el 20 de abril de 2026" },
+      { en: "FQHCs account for 1% of healthcare spending but treat 10% of Americans", es: "FQHCs representan el 1% del gasto en salud pero tratan al 10% de los estadounidenses" },
+      { en: "Action: Submit comments on HRSA RFI before April 20 deadline", es: "Acción: Enviar comentarios sobre la RFI de HRSA antes de la fecha límite del 20 de abril" },
+    ],
   },
   {
     id: "kaiser-mental-health-strike-march-2026",
@@ -379,6 +428,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Sonoma County",
     affectedOrgSlugs: ["petaluma-health-center", "mchc-health-centers", "redwood-community-health-coalition"],
     tags: ["bay-area", "kaiser", "mental-health", "labor-strike", "ai-replacement", "nuhw", "workforce-pipeline"],
+    keyTakeaways: [
+      { en: "100+ mental health therapists, social workers, and psychologists at Kaiser Santa Rosa (NUHW) announced March 18 strike", es: "100+ terapeutas, trabajadores sociales y psicólogos en Kaiser Santa Rosa (NUHW) anunciaron huelga el 18 de marzo" },
+      { en: "Union alleges Kaiser outsourcing jobs and replacing therapists with AI", es: "El sindicato alega que Kaiser externaliza trabajos y reemplaza terapeutas con IA" },
+      { en: "Follows the 31,000-worker nursing strike (Jan 26 - Feb 24) that ended with 21.5% raise over 4 years", es: "Sigue a la huelga de 31,000 enfermeras (26 ene - 24 feb) que terminó con aumento de 21.5% en 4 años" },
+      { en: "Displaced Kaiser mental health workers are potential FQHC recruits", es: "Trabajadores desplazados de salud mental de Kaiser son potenciales reclutas para FQHCs" },
+    ],
   },
   {
     id: "geiger-gibson-medicaid-cuts-fqhc-medicare-impact",
@@ -398,6 +453,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Geiger Gibson Program / GWU",
     region: "Federal",
     tags: ["medicaid", "medicare", "cross-subsidy", "research", "fqhc-finances"],
+    keyTakeaways: [
+      { en: "Medicaid cuts will also undermine care for 7.4M Medicare patients at community health centers", es: "Recortes de Medicaid también socavarán atención de 7.4M pacientes de Medicare en centros de salud comunitarios" },
+      { en: "FQHCs use Medicaid revenue to cross-subsidize Medicare and uninsured care", es: "FQHCs usan ingresos de Medicaid para subsidiar cruzadamente la atención de Medicare y pacientes sin seguro" },
+      { en: "CHCs operated at -2% average margin in 2024 — no cushion to absorb further losses", es: "CHCs operaron con margen promedio de -2% en 2024 — sin colchón para absorber más pérdidas" },
+      { en: "Risk: reduced hours, site closures, or service cuts that Medicare patients depend on", es: "Riesgo: horarios reducidos, cierres de sitios o recortes de servicios de los que dependen pacientes de Medicare" },
+    ],
   },
   {
     id: "sd-county-safety-net-bridge-program",
@@ -419,6 +480,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Neighborhood Healthcare", "Family Health Centers of San Diego", "San Ysidro Health"],
     affectedOrgSlugs: ["neighborhood-healthcare", "family-health-centers-of-san-diego", "san-ysidro-health"],
     tags: ["san-diego", "safety-net", "medi-cal", "county-funding", "ballot-measure"],
+    keyTakeaways: [
+      { en: "SD County supervisors approved 4-1 to overhaul County Medical Services — served fewer than 40 people last year", es: "Supervisores del condado de SD aprobaron 4-1 la reforma de Servicios Médicos del Condado — atendió a menos de 40 personas el año pasado" },
+      { en: "327,000 Medi-Cal recipients at risk from H.R. 1 in San Diego County", es: "327,000 beneficiarios de Medi-Cal en riesgo por H.R. 1 en el condado de San Diego" },
+      { en: "Supervisor proposes 'Safety Net Bridge' primary care clinics for anyone losing coverage", es: "Supervisora propone clínicas de atención primaria 'Puente de Red de Seguridad' para quienes pierdan cobertura" },
+      { en: "Half-cent sales tax could generate $360M/year; county faces $200-300M/year in additional costs by 2028", es: "Impuesto de medio centavo podría generar $360M/año; condado enfrenta $200-300M/año en costos adicionales para 2028" },
+    ],
   },
   {
     id: "nhcare-warns-hundreds-fqhcs-shut-down",
@@ -440,6 +507,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Neighborhood Healthcare"],
     affectedOrgSlugs: ["neighborhood-healthcare"],
     tags: ["san-diego", "hr-1", "fqhc-closure", "workforce"],
+    keyTakeaways: [
+      { en: "Neighborhood Healthcare warns 'hundreds of California FQHCs face closure within a year'", es: "Neighborhood Healthcare advierte que 'cientos de FQHCs de California enfrentan cierre dentro de un año'" },
+      { en: "75,000 noncitizens in SD County will lose Medi-Cal access by October 2026", es: "75,000 no ciudadanos en el condado de SD perderán acceso a Medi-Cal para octubre de 2026" },
+      { en: "Healthcare leaders predict hospitals will be 'overrun' as clinics close", es: "Líderes de salud predicen que los hospitales serán 'desbordados' al cerrar clínicas" },
+      { en: "Palomar Health, Sharp HealthCare also bracing for impact", es: "Palomar Health, Sharp HealthCare también se preparan para el impacto" },
+    ],
   },
   {
     id: "ie-snap-ed-nutrition-programs-closing-april-2026",
@@ -461,6 +534,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: [],
     affectedOrgSlugs: ["borrego-health", "sac-health", "riverside-university-health-system-chc", "community-health-systems-inc", "inland-faculty-medical-group"],
     tags: ["inland-empire", "snap-ed", "nutrition", "public-health", "hr-1"],
+    keyTakeaways: [
+      { en: "San Bernardino and Riverside nutrition programs close April 30, 2026; LA County's closes June 30", es: "Programas de nutrición de San Bernardino y Riverside cierran el 30 de abril de 2026; el de LA County el 30 de junio" },
+      { en: "H.R. 1 eliminated the $536M SNAP-Ed program nationwide", es: "H.R. 1 eliminó el programa SNAP-Ed de $536M a nivel nacional" },
+      { en: "Programs operated for decades through schools, clinics, farmers markets, and community events", es: "Los programas operaron por décadas a través de escuelas, clínicas, mercados de agricultores y eventos comunitarios" },
+      { en: "Closures disproportionately affect communities already facing food and health challenges", es: "Los cierres afectan desproporcionadamente a comunidades que ya enfrentan desafíos alimentarios y de salud" },
+    ],
   },
   /* ============================================================== */
   /*  BAY AREA CRISIS — March 2026                                   */
@@ -538,6 +617,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "KQED",
     region: "California",
     tags: ["cdc-grants", "federal-cuts", "hhs-restructuring", "doge", "prevention", "immunization", "sti-screening"],
+    keyTakeaways: [
+      { en: "~$600M in CDC grants rescinded from California as part of HHS restructuring and DOGE push", es: "~$600M en subvenciones del CDC rescindidas de California como parte de la reestructuración del HHS y el impulso DOGE" },
+      { en: "Affected programs: chronic disease prevention, immunization outreach, STI screening — all core FQHC services", es: "Programas afectados: prevención de enfermedades crónicas, vacunación, detección de ITS — todos servicios centrales de FQHC" },
+      { en: "California and 22 other states have filed suit challenging the cuts", es: "California y otros 22 estados han demandado para impugnar los recortes" },
+      { en: "Action: FQHCs receiving CDC pass-through funding should immediately audit grant dependence", es: "Acción: FQHCs que reciben fondos CDC deben auditar inmediatamente la dependencia de subvenciones" },
+    ],
   },
   {
     id: "sf-community-health-center-federal-funding-terminated",
@@ -587,6 +672,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["La Clínica de La Raza"],
     affectedOrgSlugs: ["la-clinica-de-la-raza"],
     tags: ["data-breach", "cybersecurity", "bay-area", "hipaa", "patient-records", "ehr-security"],
+    keyTakeaways: [
+      { en: "La Clínica de La Raza disclosed a data breach — unauthorized access to patient health records", es: "La Clínica de La Raza reveló una violación de datos — acceso no autorizado a registros de salud de pacientes" },
+      { en: "Serves 90,000+ patients across Alameda, Contra Costa, and Solano counties", es: "Atiende a más de 90,000 pacientes en los condados de Alameda, Contra Costa y Solano" },
+      { en: "73% of health centers reported a cyber incident in the past 2 years per NACHC surveys", es: "El 73% de los centros de salud reportaron un incidente cibernético en los últimos 2 años según NACHC" },
+      { en: "Action: FQHCs should review cybersecurity posture, conduct breach response drills, and update BAAs", es: "Acción: FQHCs deben revisar su postura de ciberseguridad, realizar simulacros de respuesta a brechas y actualizar BAAs" },
+    ],
   },
   {
     id: "santa-clara-county-183m-health-cuts",
@@ -638,6 +729,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "PMC / NIH",
     region: "Federal",
     tags: ["ai", "ambient-scribe", "coding", "revenue-integrity", "wRVUs", "policy"],
+    keyTakeaways: [
+      { en: "Ambient AI scribes increasingly deployed to capture more revenue through intensive coding, not just burnout reduction", es: "Escribas de IA ambiental cada vez más desplegados para capturar más ingresos por codificación intensiva, no solo reducción de agotamiento" },
+      { en: "Riverside Health saw 11% rise in physician wRVUs and 14% increase in HCC diagnoses per encounter", es: "Riverside Health vio un aumento del 11% en wRVUs de médicos y 14% en diagnósticos HCC por encuentro" },
+      { en: "For FQHCs under PPS, coding intensity impact is different — but value-based contracts need monitoring", es: "Para FQHCs bajo PPS, el impacto de la intensidad de codificación es diferente — pero los contratos basados en valor necesitan monitoreo" },
+      { en: "Action: FQHCs in value-based contracts should monitor whether AI notes are inflating risk scores", es: "Acción: FQHCs en contratos basados en valor deben monitorear si las notas de IA están inflando puntajes de riesgo" },
+    ],
   },
   {
     id: "sacramento-26m-hhs-funding-cut",
@@ -658,6 +755,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Sacramento County",
     affectedOrgSlugs: ["sacramento-county-primary", "wellspace-health", "elica-health-centers", "one-community-health"],
     tags: ["sacramento", "federal-cuts", "hhs", "cdc-grants", "patient-volume"],
+    keyTakeaways: [
+      { en: "Sacramento County risks losing $26M in federal health funding after HHS rescinds COVID-era CDC grants", es: "Sacramento County arriesga perder $26M en fondos federales de salud tras la rescisión de subvenciones CDC" },
+      { en: "California and 22 other states have filed suit challenging the cuts", es: "California y otros 22 estados han demandado para impugnar los recortes" },
+      { en: "Sacramento FQHCs grew from 10 to 29 facilities in 8 years — may face patient surges as county services contract", es: "FQHCs de Sacramento crecieron de 10 a 29 instalaciones en 8 años — podrían enfrentar aumentos de pacientes al reducirse servicios del condado" },
+    ],
   },
   {
     id: "cchc-nevada-expansion",
@@ -679,6 +781,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Comprehensive Community Health Centers"],
     affectedOrgSlugs: ["comprehensive-community-health-centers"],
     tags: ["expansion", "nevada", "fqhc-growth", "los-angeles", "transparent-pricing"],
+    keyTakeaways: [
+      { en: "CCHC (LA County FQHC) opened first out-of-state location in Las Vegas on March 2", es: "CCHC (FQHC del Condado de LA) abrió su primera ubicación fuera del estado en Las Vegas el 2 de marzo" },
+      { en: "Grew from 45,000 visits in 2004 to 177,000+ by 2023 — signals FQHC network sophistication", es: "Creció de 45,000 visitas en 2004 a 177,000+ en 2023 — señala sofisticación de redes FQHC" },
+      { en: "Transparent pricing model: $125 new patient visits with walk-in access", es: "Modelo de precios transparentes: $125 visitas de nuevos pacientes con acceso sin cita" },
+      { en: "Could inform California FQHC expansion strategies as in-state financial pressures mount", es: "Podría informar estrategias de expansión de FQHCs de California ante presiones financieras internas" },
+    ],
   },
   {
     id: "akido-labs-bay-area-ai-street-medicine",
@@ -699,6 +807,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Bay Area",
     affectedOrgSlugs: ["lifelong-medical-care", "asian-health-services", "la-clinica-de-la-raza", "healthright-360"],
     tags: ["ai", "street-medicine", "unhoused", "calAIM", "ecm", "scope-expansion", "chw"],
+    keyTakeaways: [
+      { en: "ScopeAI: tablet-guided CHW visits with 92% diagnostic accuracy, remote physician review, MAT within 4 hours", es: "ScopeAI: visitas de CHW guiadas por tableta con 92% de precisión diagnóstica, revisión médica remota, MAT en 4 horas" },
+      { en: "In LA/Kern: serves 6,000 unhoused patients with 70% retention and 40% ED reduction", es: "En LA/Kern: atiende a 6,000 pacientes sin hogar con 70% de retención y 40% de reducción de urgencias" },
+      { en: "Entirely funded by Medi-Cal CalAIM ECM — no grants needed", es: "Financiado completamente por CalAIM ECM de Medi-Cal — sin subvenciones necesarias" },
+      { en: "Raises questions about AI experimentation on vulnerable populations and CHW scope expansion via technology", es: "Plantea preguntas sobre experimentación con IA en poblaciones vulnerables y expansión del alcance de CHW mediante tecnología" },
+    ],
   },
 
   /* ============================================================== */
@@ -722,6 +836,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CHCF",
     region: "Federal",
     tags: ["hr1", "medicaid", "funding-cuts", "work-requirements"],
+    keyTakeaways: [
+      { en: "$1 trillion in national Medicaid cuts over 10 years — largest in U.S. history", es: "$1 billón en recortes nacionales a Medicaid en 10 años — los mayores en la historia de EE.UU." },
+      { en: "California projected to lose $30 billion annually in Medicaid funding", es: "California proyectado a perder $30 mil millones anualmente en fondos de Medicaid" },
+      { en: "Work requirements, enrollment freezes, and PPS rate changes directly threaten FQHC funding models", es: "Requisitos de trabajo, congelamiento de inscripción y cambios en tarifas PPS amenazan directamente modelos de financiamiento de FQHCs" },
+    ],
   },
   {
     id: "ca-sues-federal-cuts",
@@ -741,6 +860,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CA Attorney General",
     region: "California",
     tags: ["lawsuit", "federal-cuts", "fqhc-funding"],
+    keyTakeaways: [
+      { en: "CA Attorney General sues over federal clawback of $600 million in health funding", es: "Fiscal General de CA demanda por recuperación federal de $600 millones en fondos de salud" },
+      { en: "Cuts argued to violate federal spending agreements and disproportionately harm safety-net providers", es: "Se argumenta que los recortes violan acuerdos de gasto federal y perjudican desproporcionadamente a proveedores de red de seguridad" },
+      { en: "FQHCs are among the safety-net providers most affected by these cuts", es: "Los FQHCs están entre los proveedores de red de seguridad más afectados por estos recortes" },
+    ],
   },
   {
     id: "chw-medi-cal-billing",
@@ -760,6 +884,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CA DHCS",
     region: "California",
     tags: ["chw", "billing-codes", "medi-cal", "hiring"],
+    keyTakeaways: [
+      { en: "CHW services are now a billable Medi-Cal benefit — most significant CHW workforce change in a decade", es: "Los servicios de CHW ahora son un beneficio facturable de Medi-Cal — el cambio más significativo para la fuerza laboral CHW en una década" },
+      { en: "FQHCs can bill for CHW encounters, creating sustainable funding beyond grants", es: "Los FQHCs pueden facturar por encuentros de CHW, creando financiamiento sostenible más allá de subvenciones" },
+      { en: "Action: FQHCs should integrate CHW billing codes into their EHR workflows immediately", es: "Acción: los FQHCs deben integrar códigos de facturación CHW en sus flujos de trabajo de EHR inmediatamente" },
+    ],
   },
   {
     id: "sb-525-minimum-wage",
@@ -779,6 +908,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CA Legislature",
     region: "California",
     tags: ["sb-525", "minimum-wage", "compensation"],
+    keyTakeaways: [
+      { en: "CA healthcare minimum wage reaches $25/hr for FQHC workers by 2027", es: "El salario mínimo de salud de CA alcanza $25/hr para trabajadores de FQHC para 2027" },
+      { en: "Raises floors for MAs, front desk, and entry-level clinical staff", es: "Eleva pisos salariales para MAs, recepción y personal clínico de nivel inicial" },
+      { en: "Compresses wage differentials for experienced workers — may increase turnover at mid-level", es: "Comprime diferenciales salariales para trabajadores experimentados — puede aumentar rotación en nivel medio" },
+    ],
   },
 
   {
@@ -799,6 +933,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CA LAO — Ballot Analysis",
     region: "California",
     tags: ["ballot-initiative", "transparency", "administration", "2026-election"],
+    keyTakeaways: [
+      { en: "Initiative #25-0008: FQHCs must spend at least 90% of revenue on direct patient care", es: "Iniciativa #25-0008: FQHCs deben gastar al menos 90% de ingresos en atención directa al paciente" },
+      { en: "Full financial transparency reporting would be required", es: "Se requeriría información de transparencia financiera completa" },
+      { en: "Could fundamentally reshape FQHC administration budgets and executive compensation if passed", es: "Podría remodelar fundamentalmente los presupuestos administrativos de FQHCs y compensación ejecutiva si se aprueba" },
+      { en: "Potential November 2026 ballot — FQHC leaders should track signature gathering progress", es: "Posible boleta de noviembre 2026 — líderes de FQHC deben seguir el progreso de recolección de firmas" },
+    ],
   },
   {
     id: "ca-democrats-restore-undocumented-benefits",
@@ -819,6 +959,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "California",
     affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "clinica-sierra-vista", "san-ysidro-health"],
     tags: ["undocumented", "medi-cal", "enrollment-freeze", "restoration"],
+    keyTakeaways: [
+      { en: "Legislation aims to reverse Medi-Cal enrollment freeze for undocumented adults (frozen Jan 2026)", es: "Legislación busca revertir el congelamiento de inscripción Medi-Cal para adultos indocumentados (congelado ene 2026)" },
+      { en: "If successful, would restore PPS encounter revenue for FQHCs serving undocumented populations", es: "Si tiene éxito, restauraría ingresos por encuentros PPS para FQHCs que sirven a poblaciones indocumentadas" },
+      { en: "Cites public health and economic costs of coverage gaps as justification", es: "Cita costos de salud pública y económicos de las brechas de cobertura como justificación" },
+    ],
   },
 
   /* ============================================================== */
@@ -843,6 +988,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "California",
     affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "clinica-sierra-vista", "san-ysidro-health", "la-maestra-community-health-centers", "kheir-clinic", "umma-community-clinic"],
     tags: ["undocumented", "medi-cal", "enrollment-freeze", "revenue-impact", "in-effect"],
+    keyTakeaways: [
+      { en: "New Medi-Cal enrollment halted for undocumented adults ages 26-49 as of January 1, 2026", es: "Nueva inscripción en Medi-Cal detenida para adultos indocumentados de 26-49 años desde el 1 de enero de 2026" },
+      { en: "Saves $77.9M in 2025-26 but rises to $3.3B annually by 2028-29", es: "Ahorra $77.9M en 2025-26 pero sube a $3.3 mil millones anuales para 2028-29" },
+      { en: "1.7M undocumented Californians currently have Medi-Cal coverage", es: "1.7M californianos indocumentados actualmente tienen cobertura Medi-Cal" },
+      { en: "FQHCs must serve new undocumented patients on sliding fee scale with no encounter revenue", es: "Los FQHCs deben atender a nuevos pacientes indocumentados en escala de tarifa variable sin ingresos por encuentro" },
+    ],
   },
   {
     id: "dental-elimination-undocumented",
@@ -863,6 +1014,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "California",
     affectedOrgSlugs: ["altamed-health-services", "san-ysidro-health", "family-health-centers-of-san-diego", "clinica-sierra-vista", "la-maestra-community-health-centers"],
     tags: ["undocumented", "dental", "medi-cal", "revenue-impact"],
+    keyTakeaways: [
+      { en: "Dental benefits eliminated for undocumented Medi-Cal enrollees effective July 1, 2026", es: "Beneficios dentales eliminados para inscritos indocumentados de Medi-Cal efectivo 1 de julio de 2026" },
+      { en: "Saves $308M in 2026-27 and $336M annually thereafter", es: "Ahorra $308M en 2026-27 y $336M anualmente en adelante" },
+      { en: "FQHCs with dental programs will lose all dental encounter revenue for undocumented patients", es: "FQHCs con programas dentales perderán todos los ingresos por encuentros dentales para pacientes indocumentados" },
+    ],
   },
   {
     id: "pps-elimination-undocumented",
@@ -883,6 +1039,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "California",
     affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "clinica-sierra-vista", "san-ysidro-health", "la-maestra-community-health-centers", "kheir-clinic", "umma-community-clinic"],
     tags: ["undocumented", "pps", "revenue-impact", "fee-schedule"],
+    keyTakeaways: [
+      { en: "PPS rates ($200-400/visit) replaced by lower Medi-Cal Fee Schedule for undocumented services", es: "Tarifas PPS ($200-400/visita) reemplazadas por tarifas más bajas del Cuadro de Tarifas de Medi-Cal para servicios a indocumentados" },
+      { en: "Represents a 50-70% per-encounter revenue cut for these patients", es: "Representa un recorte de ingresos del 50-70% por encuentro para estos pacientes" },
+      { en: "Effective October 1, 2026 — FQHCs with large undocumented populations face severe shortfalls", es: "Vigente 1 de octubre de 2026 — FQHCs con grandes poblaciones indocumentadas enfrentan graves déficits" },
+    ],
   },
   {
     id: "fqhc-copay-exemption",
@@ -902,6 +1063,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "KFF",
     region: "Federal",
     tags: ["copay-exemption", "competitive-advantage", "patient-retention"],
+    keyTakeaways: [
+      { en: "H.R. 1 allows states to impose up to $35 Medicaid copays — but FQHCs are exempt by statute", es: "H.R. 1 permite a los estados imponer copagos de hasta $35 de Medicaid — pero los FQHCs están exentos por ley" },
+      { en: "Patients face copays at hospitals and private clinics but NOT at FQHCs", es: "Los pacientes enfrentan copagos en hospitales y clínicas privadas pero NO en FQHCs" },
+      { en: "Action: proactively market this exemption to attract and retain patients", es: "Acción: promover activamente esta exención para atraer y retener pacientes" },
+    ],
   },
 
   /* ============================================================== */
@@ -925,6 +1091,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "NACHC",
     region: "Federal",
     tags: ["nachc", "chcf", "reauthorization", "340b", "telehealth", "workforce"],
+    keyTakeaways: [
+      { en: "$4.6B Community Health Center Fund — largest increase in a decade", es: "Fondo de Centros de Salud Comunitarios de $4.6B — mayor aumento en una década" },
+      { en: "Expires December 31, 2026 without reauthorization — creating funding cliff", es: "Expira el 31 de diciembre de 2026 sin reautorización — creando precipicio de financiamiento" },
+      { en: "NACHC released policy papers on 340B protection, workforce pipeline, telehealth permanence", es: "NACHC publicó documentos de política sobre protección 340B, fuerza laboral, permanencia de telesalud" },
+      { en: "Program posted 2% patient loss in 2025 — structural decline even before H.R. 1", es: "El programa registró pérdida de 2% de pacientes en 2025 — declive estructural incluso antes de H.R. 1" },
+    ],
   },
   {
     id: "hrsa-maha-alignment-fy2026",
@@ -944,6 +1116,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "HRSA",
     region: "Federal",
     tags: ["hrsa", "grants", "maha", "chronic-disease", "nutrition"],
+    keyTakeaways: [
+      { en: "HRSA FY2026 grants shifting priorities toward chronic disease prevention, nutrition, mental health", es: "Subvenciones HRSA FY2026 cambiando prioridades hacia prevención de enfermedades crónicas, nutrición, salud mental" },
+      { en: "FQHCs must align grant proposals with 'Make America Healthy Again' priorities", es: "FQHCs deben alinear propuestas de subvenciones con prioridades 'Make America Healthy Again'" },
+      { en: "Action: align renewal applications with MAHA priorities to maximize competitiveness", es: "Acción: alinear solicitudes de renovación con prioridades MAHA para maximizar competitividad" },
+    ],
   },
   {
     id: "cpca-pcdc-partnership-2026",
@@ -963,6 +1140,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CPCA",
     region: "California",
     tags: ["cpca", "pcdc", "partnership", "infrastructure", "community-development"],
+    keyTakeaways: [
+      { en: "Low-interest loan program for FQHC facility expansions, equipment, and care infrastructure", es: "Programa de préstamos a bajo interés para expansiones de instalaciones de FQHC, equipamiento e infraestructura de atención" },
+      { en: "Alternative to traditional lending for safety-net providers facing capital constraints", es: "Alternativa a préstamos tradicionales para proveedores de red de seguridad con restricciones de capital" },
+      { en: "Integrates community development financing with health center needs", es: "Integra financiamiento de desarrollo comunitario con necesidades de centros de salud" },
+    ],
   },
 
   /* ============================================================== */
@@ -986,6 +1168,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CA DHCS",
     region: "California",
     tags: ["calaim", "waiver", "ecm", "community-supports"],
+    keyTakeaways: [
+      { en: "CalAIM waiver expires December 31, 2026 — $1.2B/year in ECM/Community Supports at stake", es: "Exención CalAIM expira 31 de diciembre de 2026 — $1.2B/año en ECM/Apoyos Comunitarios en juego" },
+      { en: "Thousands of care coordination, CHW, and housing navigator positions threatened", es: "Miles de puestos de coordinación de cuidado, CHW y navegadores de vivienda amenazados" },
+      { en: "Action: build ECM caseload NOW while the waiver is active", es: "Acción: construir carga de casos ECM AHORA mientras la exención está activa" },
+    ],
   },
 
   /* ============================================================== */
@@ -1009,6 +1196,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "HCAI",
     region: "California",
     tags: ["chw", "promotora", "certification", "sb-803", "workforce-pipeline", "hcai"],
+    keyTakeaways: [
+      { en: "HCAI CHW Advisory Workgroup continues through June 2026, but 2024 budget cuts eliminated most HCAI funding", es: "Grupo Asesor CHW de HCAI continúa hasta junio 2026, pero recortes del presupuesto 2024 eliminaron la mayoría del financiamiento" },
+      { en: "CHW certification guidance paused since November 2023 — SB 803 rules still pending", es: "Guía de certificación CHW pausada desde noviembre 2023 — reglas de SB 803 aún pendientes" },
+      { en: "Medi-Cal CHW billing codes (active since Jul 2022) remain in place — FQHCs can still bill", es: "Códigos de facturación Medi-Cal para CHW (activos desde jul 2022) siguen vigentes — FQHCs pueden seguir facturando" },
+    ],
   },
   {
     id: "cpehn-inclusionary-hiring",
@@ -1028,6 +1220,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CPEHN",
     region: "California",
     tags: ["diversity", "clas-standards", "community-representation", "hiring", "equity"],
+    keyTakeaways: [
+      { en: "CPEHN advancing inclusionary hiring policies to strengthen community representation at FQHCs", es: "CPEHN avanzando políticas de contratación inclusiva para fortalecer representación comunitaria en FQHCs" },
+      { en: "Aligns with CLAS Standards — emphasizes hiring from communities served", es: "Se alinea con Estándares CLAS — enfatiza contratación desde las comunidades atendidas" },
+      { en: "Critical where 90%+ of patients are Latino but leadership demographics don't match", es: "Crítico donde más del 90% de pacientes son latinos pero la demografía de liderazgo no coincide" },
+    ],
   },
   {
     id: "santa-clara-365-ftes",
@@ -1049,6 +1246,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Santa Clara Valley Medical Center"],
     affectedOrgSlugs: ["county-of-santa-clara", "indian-health-center-of-santa-clara-valley", "school-health-clinics-of-santa-clara-county", "gardner-health-services"],
     tags: ["layoffs", "county-cuts", "budget-deficit"],
+    keyTakeaways: [
+      { en: "365 FTE positions eliminated across Santa Clara County healthcare system", es: "365 puestos FTE eliminados en el sistema de salud del Condado de Santa Clara" },
+      { en: "Part of $183M in cuts to address a $470M county budget deficit", es: "Parte de $183M en recortes para abordar un déficit presupuestario de $470M del condado" },
+      { en: "Affected roles span clinical, administrative, and support staff", es: "Los puestos afectados abarcan personal clínico, administrativo y de apoyo" },
+      { en: "County cites declining federal reimbursements and rising labor costs", es: "El condado cita disminución de reembolsos federales y aumento de costos laborales" },
+    ],
   },
   {
     id: "la-care-225-layoffs",
@@ -1070,6 +1273,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["L.A. Care Health Plan"],
     affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "northeast-valley-health-corporation", "eisner-health", "south-central-family-health-center"],
     tags: ["layoffs", "managed-care", "warn-act", "ecm-impact"],
+    keyTakeaways: [
+      { en: "225 employees laid off at L.A. Care — nation's largest publicly operated health plan", es: "225 empleados despedidos en L.A. Care — el plan de salud público más grande del país" },
+      { en: "WARN Act notice filed, effective March 13, 2026", es: "Aviso WARN Act presentado, efectivo 13 de marzo de 2026" },
+      { en: "As major ECM contractor for LA-area FQHCs, cuts may ripple into FQHC contract revenue", es: "Como contratista importante de ECM para FQHCs del área de LA, los recortes pueden afectar ingresos por contratos de FQHCs" },
+    ],
   },
   {
     id: "ahs-layoffs-deferred",
@@ -1091,6 +1299,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Alameda Health System"],
     affectedOrgSlugs: ["alameda-health-system"],
     tags: ["layoffs", "deferred", "dsh-funding", "mental-health", "working-group"],
+    keyTakeaways: [
+      { en: "187 planned layoffs (211 positions) at AHS deferred — were set for March 9", es: "187 despidos planificados (211 puestos) en AHS aplazados — estaban programados para el 9 de marzo" },
+      { en: "Board created working group to explore alternatives to mental health program closures", es: "La Junta creó grupo de trabajo para explorar alternativas a cierres de programas de salud mental" },
+      { en: "AHS projects losing $100M+ annually from federal Medicaid cuts under H.R. 1", es: "AHS proyecta perder más de $100M anuales por recortes federales de Medicaid bajo H.R. 1" },
+    ],
   },
   {
     id: "nachc-workforce-crisis",
@@ -1110,6 +1323,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "NACHC",
     region: "Federal",
     tags: ["workforce-shortage", "vacancy-rates", "work-requirements"],
+    keyTakeaways: [
+      { en: "55% of community health centers face critical staffing shortages", es: "55% de los centros de salud comunitarios enfrentan escasez crítica de personal" },
+      { en: "Vacancy rates exceed 20% for physicians, nurses, and behavioral health providers", es: "Las tasas de vacantes superan el 20% para médicos, enfermeras y proveedores de salud conductual" },
+      { en: "5.6 million patients could lose coverage under proposed work requirements — $32B revenue loss nationally", es: "5.6 millones de pacientes podrían perder cobertura bajo requisitos de trabajo propuestos — pérdida de $32B a nivel nacional" },
+    ],
   },
 
   {
@@ -1132,6 +1350,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Indian Health Center of Santa Clara Valley"],
     affectedOrgSlugs: ["indian-health-center-of-santa-clara-valley"],
     tags: ["closure", "fqhc", "warn-act", "native-american", "tribal-health"],
+    keyTakeaways: [
+      { en: "Indian Health Center of Santa Clara Valley permanently closed — 21 employees displaced", es: "Indian Health Center de Santa Clara Valley cerró permanentemente — 21 empleados desplazados" },
+      { en: "Served Native American and Alaska Native communities with primary care, dental, BH, and traditional healing", es: "Servía a comunidades nativas americanas con atención primaria, dental, salud conductual y sanación tradicional" },
+      { en: "Significant loss for tribal healthcare access in Silicon Valley", es: "Pérdida significativa para el acceso a salud tribal en Silicon Valley" },
+    ],
   },
   {
     id: "sjv-clinics-financial-tsunami",
@@ -1152,6 +1375,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Central Valley",
     affectedOrgSlugs: ["united-health-centers", "family-healthcare-network", "clinica-sierra-vista", "camarena-health", "golden-valley-health-centers"],
     tags: ["central-valley", "farmworkers", "medi-cal", "financial-distress"],
+    keyTakeaways: [
+      { en: "SJV FQHCs warn of financial 'tsunami' as federal Medicaid cuts compound with rising costs", es: "FQHCs del Valle de San Joaquín advierten de 'tsunami' financiero por recortes de Medicaid y costos crecientes" },
+      { en: "Region serves predominantly Latino farmworker populations with high Medi-Cal dependency", es: "La región sirve poblaciones predominantemente latinas de trabajadores agrícolas con alta dependencia de Medi-Cal" },
+      { en: "Exceptionally vulnerable to per-capita cap models and work requirements", es: "Excepcionalmente vulnerable a modelos de tope per cápita y requisitos de trabajo" },
+    ],
   },
 
   /* ============================================================== */
@@ -1175,6 +1403,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Kaufman Hall",
     region: "Federal",
     tags: ["mergers", "financial-distress", "consolidation", "patient-volume"],
+    keyTakeaways: [
+      { en: "43% of all healthcare M&A in 2025 was driven by financial distress — a record high (Kaufman Hall)", es: "43% de todas las fusiones y adquisiciones en salud en 2025 fue por dificultades financieras — récord histórico (Kaufman Hall)" },
+      { en: "Financially stressed hospitals being acquired or closed push patients to remaining safety-net providers", es: "Hospitales con dificultades financieras adquiridos o cerrados empujan pacientes a proveedores de red de seguridad restantes" },
+      { en: "Action: monitor local hospital financial health and prepare for patient volume surges", es: "Acción: monitorear la salud financiera de hospitales locales y prepararse para aumentos de volumen de pacientes" },
+    ],
   },
   {
     id: "united-health-centers-ipa-launch",
@@ -1196,6 +1429,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["United Health Centers of the San Joaquin Valley"],
     affectedOrgSlugs: ["united-health-centers"],
     tags: ["ipa", "revenue-diversification", "managed-care", "capitation"],
+    keyTakeaways: [
+      { en: "United Health Centers launched for-profit IPA: United Physicians Network", es: "United Health Centers lanzó IPA con fines de lucro: United Physicians Network" },
+      { en: "Unusual FQHC-to-IPA expansion may signal new revenue diversification model for large FQHCs", es: "Expansión inusual de FQHC a IPA podría señalar nuevo modelo de diversificación de ingresos para FQHCs grandes" },
+      { en: "Aims to capture managed care capitation revenue beyond traditional PPS encounters", es: "Busca capturar ingresos de capitación de atención administrada más allá de encuentros PPS tradicionales" },
+    ],
   },
   {
     id: "prospect-medical-closures",
@@ -1217,6 +1455,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Prospect Medical Holdings"],
     affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "south-central-family-health-center", "watts-healthcare-corporation"],
     tags: ["private-equity", "closures", "patient-displacement"],
+    keyTakeaways: [
+      { en: "Private equity-backed Prospect Medical Holdings closing facilities and selling assets across LA County", es: "Prospect Medical Holdings, respaldado por capital privado, cerrando instalaciones y vendiendo activos en el condado de LA" },
+      { en: "Closures in underserved areas push more patients toward FQHCs without corresponding funding increases", es: "Los cierres en áreas desatendidas empujan más pacientes hacia FQHCs sin aumentos de financiamiento correspondientes" },
+      { en: "FQHCs near Prospect facilities should prepare for increased patient volume and acuity", es: "FQHCs cerca de instalaciones de Prospect deben prepararse para mayor volumen y agudeza de pacientes" },
+    ],
   },
 
   /* ============================================================== */
@@ -1240,6 +1483,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "NACHC",
     region: "California",
     tags: ["pps-cuts", "sliding-fee", "340b", "revenue-strategy"],
+    keyTakeaways: [
+      { en: "PPS rates for undocumented patient services drop Oct 2026 — FQHCs must decide: absorb the loss or restrict services", es: "Tarifas PPS para servicios a pacientes indocumentados bajan en octubre 2026 — FQHCs deben decidir: absorber la pérdida o restringir servicios" },
+      { en: "Maximize 340B drug pricing savings to cross-subsidize reduced PPS revenue", es: "Maximizar ahorros de precios de medicamentos 340B para subsidiar cruzadamente ingresos PPS reducidos" },
+      { en: "Renegotiate managed care contracts and apply for HRSA New Access Points or expanded scope grants", es: "Renegociar contratos de atención administrada y solicitar subvenciones HRSA de Nuevos Puntos de Acceso o alcance expandido" },
+      { en: "Partner with county indigent care programs for supplemental funding to maintain sliding fee access", es: "Asociarse con programas de cuidado indigente del condado para financiamiento suplementario y mantener acceso a tarifa variable" },
+    ],
   },
   {
     id: "strategy-chw-outreach-undocumented",
@@ -1259,6 +1508,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "FQHC Associates",
     region: "California",
     tags: ["undocumented", "chw", "outreach", "enrollment-freeze"],
+    keyTakeaways: [
+      { en: "New Medi-Cal enrollment frozen for undocumented adults ages 26-49 — FQHCs must proactively communicate doors remain open", es: "Nueva inscripción de Medi-Cal congelada para adultos indocumentados de 26-49 — FQHCs deben comunicar proactivamente que las puertas permanecen abiertas" },
+      { en: "Deploy bilingual CHWs and promotora networks to community events, churches, legal aid, and consulates", es: "Desplegar CHWs bilingües y redes de promotoras en eventos comunitarios, iglesias, asistencia legal y consulados" },
+      { en: "FQHCs never report immigration status — emphasize this in all outreach messaging", es: "FQHCs nunca reportan estatus migratorio — enfatizar esto en todos los mensajes de alcance" },
+      { en: "Focus messaging on sliding fee scale, no-copay visits, and FQHC statutory protections", es: "Enfocar mensajes en escala de tarifa variable, visitas sin copago y protecciones legales de FQHCs" },
+    ],
   },
   {
     id: "strategy-revenue-diversification",
@@ -1278,6 +1533,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "NACHC",
     region: "California",
     tags: ["340b", "grants", "mco", "revenue", "co-visit"],
+    keyTakeaways: [
+      { en: "Contract pharmacy arrangements can generate $500K-$2M annually in 340B savings", es: "Acuerdos de farmacia por contrato pueden generar $500K-$2M anuales en ahorros 340B" },
+      { en: "Stack grants: HRSA Quality Improvement, SAMHSA CCBHC, state HCAI workforce grants", es: "Apilar subvenciones: Mejora de Calidad HRSA, CCBHC de SAMHSA, subvenciones de fuerza laboral HCAI estatales" },
+      { en: "Use CalAIM Community Supports as new revenue streams when renegotiating MCO contracts", es: "Usar Community Supports de CalAIM como nuevas fuentes de ingresos al renegociar contratos MCO" },
+      { en: "Bill CHW encounters under new Medi-Cal codes and implement co-visit billing systematically", es: "Facturar encuentros de CHW bajo nuevos códigos Medi-Cal e implementar facturación de co-visitas sistemáticamente" },
+    ],
   },
   {
     id: "strategy-undocumented-doors-open",
@@ -1297,6 +1558,13 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "NILC",
     region: "California",
     tags: ["undocumented", "communication", "patient-retention", "immigration"],
+    keyTakeaways: [
+      { en: "Fear of immigration enforcement is driving undocumented patients away from healthcare — even from FQHCs", es: "El miedo a la aplicación migratoria está alejando a pacientes indocumentados de la atención médica — incluso de FQHCs" },
+      { en: "Post multilingual signage stating FQHC does not collect or share immigration status", es: "Colocar señalización multilingüe indicando que el FQHC no recopila ni comparte estatus migratorio" },
+      { en: "Train all front desk staff to verbally reassure patients about confidentiality protections", es: "Capacitar a todo el personal de recepción para tranquilizar verbalmente a pacientes sobre protecciones de confidencialidad" },
+      { en: "Use community radio and social media in Spanish, Vietnamese, and Mandarin for outreach", es: "Usar radio comunitaria y redes sociales en español, vietnamita y mandarín para alcance" },
+      { en: "Coordinate with legal aid for on-site 'Know Your Rights' sessions", es: "Coordinar con asistencia legal para sesiones de 'Conozca Sus Derechos' en el sitio" },
+    ],
   },
   {
     id: "la-county-dph-7-clinics-closing",
@@ -1317,6 +1585,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Los Angeles",
     affectedOrgSlugs: ["altamed-health-services", "northeast-valley-health-corporation", "st-johns-community-health", "south-central-family-health-center", "watts-healthcare-corporation"],
     tags: ["clinic-closures", "public-health", "la-county", "federal-cuts", "patient-redirect"],
+    keyTakeaways: [
+      { en: "7 LA County DPH clinics closing Feb 27, 2026 — Antelope Valley, Inglewood, Pomona, Hollywood Wilshire, Torrance, and 2 LA locations", es: "7 clínicas del DPH del condado de LA cierran el 27 de febrero de 2026 — Antelope Valley, Inglewood, Pomona, Hollywood Wilshire, Torrance y 2 ubicaciones de LA" },
+      { en: "Over $50M in cumulative federal, state, and local funding cuts cited", es: "Más de $50M en recortes acumulados de fondos federales, estatales y locales citados" },
+      { en: "Federal funding = ~50% of DPH budget — services affected include STI testing, vaccinations, TB treatment", es: "Fondos federales = ~50% del presupuesto del DPH — servicios afectados incluyen pruebas de ITS, vacunaciones, tratamiento de TB" },
+      { en: "Patients redirected to remaining facilities — increased demand on nearby FQHCs is likely", es: "Pacientes redirigidos a instalaciones restantes — probable aumento de demanda en FQHCs cercanos" },
+    ],
   },
   {
     id: "cchc-nevada-expansion",
@@ -1338,6 +1612,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Comprehensive Community Health Centers"],
     affectedOrgSlugs: ["comprehensive-community-health-centers"],
     tags: ["expansion", "nevada", "out-of-state", "growth-strategy"],
+    keyTakeaways: [
+      { en: "CCHC opened Las Vegas clinic March 2, 2026 — first out-of-state expansion by a California FQHC", es: "CCHC abrió clínica en Las Vegas el 2 de marzo de 2026 — primera expansión fuera del estado por un FQHC de California" },
+      { en: "CCHC grew from 45,000 visits in 2004 to over 177,000 in 2023 across 6 LA County clinics", es: "CCHC creció de 45,000 visitas en 2004 a más de 177,000 en 2023 en 6 clínicas del condado de LA" },
+      { en: "Signals California FQHCs seeking growth beyond state lines as in-state financial pressures mount", es: "Indica que FQHCs de California buscan crecimiento fuera del estado ante presiones financieras internas" },
+    ],
   },
   {
     id: "strategy-copay-exemption-advantage",
@@ -1357,6 +1636,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "KFF",
     region: "Federal",
     tags: ["copay-exemption", "patient-acquisition", "competitive-advantage"],
+    keyTakeaways: [
+      { en: "H.R. 1 allows states to impose $35 Medicaid copays — but FQHCs are statutorily exempt", es: "H.R. 1 permite a los estados imponer copagos de $35 de Medicaid — pero FQHCs están exentos por ley" },
+      { en: "Target patients currently using hospital EDs or urgent cares that will start charging copays", es: "Dirigirse a pacientes que actualmente usan urgencias de hospitales que empezarán a cobrar copagos" },
+      { en: "Add 'No Copay' messaging to all patient-facing materials, website, and signage", es: "Agregar mensaje 'Sin Copago' a todos los materiales para pacientes, sitio web y señalización" },
+      { en: "Coordinate with managed care plans to redirect members to FQHCs for copay-free visits", es: "Coordinar con planes de atención administrada para redirigir miembros a FQHCs para visitas sin copago" },
+    ],
   },
 
   /* ============================================================== */
@@ -1380,6 +1665,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Community Link Consulting",
     region: "Federal",
     tags: ["340b", "pharmacy", "revenue", "creative-financing", "cash-flow"],
+    keyTakeaways: [
+      { en: "HRSA 340B rebate model pilot launched Jan 1, 2026 — 8 manufacturers, 10 drugs (Eliquis, Enbrel, Jardiance, Stelara)", es: "Programa piloto de reembolso 340B de HRSA lanzado el 1 de enero de 2026 — 8 fabricantes, 10 medicamentos (Eliquis, Enbrel, Jardiance, Stelara)" },
+      { en: "FQHCs must now buy at wholesale and submit rebate claims within 45 days — changes cash-flow timing", es: "FQHCs ahora deben comprar al por mayor y presentar reclamos de reembolso en 45 días — cambia el tiempo de flujo de efectivo" },
+      { en: "Most FQHCs capture only 20-30% of eligible 340B prescriptions — audit current capture rates", es: "La mayoría de FQHCs capturan solo 20-30% de recetas 340B elegibles — auditar tasas de captura actuales" },
+      { en: "Invest in 340B software integrating with your EHR and model cash-flow scenarios for delayed rebate timing", es: "Invertir en software 340B integrado con su EHR y modelar escenarios de flujo de efectivo para reembolsos diferidos" },
+    ],
   },
   {
     id: "strategy-dpc-hsa-fqhc-revenue",
@@ -1399,6 +1690,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "HSA for America",
     region: "Federal",
     tags: ["dpc", "hsa", "subscription-revenue", "creative-financing", "employer-contracts"],
+    keyTakeaways: [
+      { en: "H.R. 1 made DPC memberships HSA-eligible starting Jan 1, 2026 — up to $150/mo individual, $300/mo family", es: "H.R. 1 hizo membresías DPC elegibles para HSA desde el 1 de enero de 2026 — hasta $150/mes individual, $300/mes familiar" },
+      { en: "Some FQHCs already generate $300K+/year from 500 subscription members via DPC overlay", es: "Algunos FQHCs ya generan $300K+/año de 500 miembros de suscripción mediante DPC" },
+      { en: "DPC creates subscription revenue from commercially insured/HSA patients alongside existing PPS", es: "DPC crea ingresos por suscripción de pacientes con seguro comercial/HSA junto al PPS existente" },
+      { en: "Ensure PPS compliance — DPC fees must not conflict with sliding fee scale or HRSA requirements", es: "Asegurar cumplimiento de PPS — tarifas DPC no deben conflictar con escala de tarifa variable o requisitos de HRSA" },
+    ],
   },
   {
     id: "strategy-ecm-ryan-white-integration",
@@ -1420,6 +1717,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Golden Valley Health Centers"],
     affectedOrgSlugs: ["golden-valley-health-centers"],
     tags: ["ecm", "ryan-white", "hiv", "calaim", "creative-financing", "revenue-layering", "grant-integration"],
+    keyTakeaways: [
+      { en: "FQHCs with Ryan White funding can layer CalAIM ECM revenue on top of existing HIV/AIDS grants", es: "FQHCs con fondos Ryan White pueden agregar ingresos ECM de CalAIM sobre subvenciones existentes de VIH/SIDA" },
+      { en: "Critical exclusion: members on the HIV/AIDS HCBS Waiver (MCWP) cannot simultaneously receive ECM", es: "Exclusión crítica: miembros en la Exención HCBS de VIH/SIDA (MCWP) no pueden recibir ECM simultáneamente" },
+      { en: "Ryan White remains payer of last resort — ECM captures Medi-Cal revenue first", es: "Ryan White sigue siendo pagador de último recurso — ECM captura ingresos Medi-Cal primero" },
+      { en: "Golden Valley Health Centers (Merced County) is modeling ECM + HIV focus as a sustainability playbook", es: "Golden Valley Health Centers (Condado de Merced) está modelando ECM + enfoque VIH como manual de sostenibilidad" },
+    ],
   },
   {
     id: "strategy-fqhc-creative-financing-playbook",
@@ -1439,6 +1742,13 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CHC Consulting Group",
     region: "Federal",
     tags: ["creative-financing", "revenue-diversification", "340b", "dpc", "ecm", "apm", "revenue-cycle", "survival-playbook"],
+    keyTakeaways: [
+      { en: "Most FQHCs capture only 20-30% of eligible 340B prescriptions — millions in missed revenue", es: "La mayoría de FQHCs capturan solo 20-30% de recetas 340B elegibles — millones en ingresos perdidos" },
+      { en: "DPC subscription overlay: $150/mo HSA-eligible (new Jan 2026) creates recurring non-Medicaid revenue", es: "DPC por suscripción: $150/mes elegible para HSA (nuevo enero 2026) crea ingresos recurrentes no-Medicaid" },
+      { en: "PPS rules allow FQHC payment under APMs if revenue ≥ PPS equivalent — explore value-based contracts", es: "Reglas PPS permiten pago a FQHC bajo APMs si ingresos ≥ equivalente PPS — explorar contratos basados en valor" },
+      { en: "A 3-5% improvement in revenue cycle collections = hundreds of thousands in additional annual revenue", es: "Una mejora del 3-5% en cobros del ciclo de ingresos = cientos de miles en ingresos anuales adicionales" },
+      { en: "CHCF expires Dec 2026 and Medicaid cuts squeezing margins — diversify NOW across all 6 strategies", es: "CHCF expira en diciembre 2026 y recortes de Medicaid comprimen márgenes — diversificar AHORA con las 6 estrategias" },
+    ],
   },
   {
     id: "ca-sues-600m-cdc-cuts",
@@ -1458,6 +1768,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "California Attorney General",
     region: "California",
     tags: ["cdc-cuts", "lawsuit", "federal-funding", "hiv", "health-equity", "workforce"],
+    keyTakeaways: [
+      { en: "At stake for California: $130M from the Public Health Infrastructure Grant alone, supporting 400+ health workforce jobs", es: "En juego para California: $130M solo de la Subvención de Infraestructura de Salud Pública, apoyando 400+ empleos de salud" },
+      { en: "HHS targeted CDC grants exclusively in 4 Democratic-led states — CA, CO, IL, MN", es: "HHS dirigió subvenciones CDC exclusivamente a 4 estados demócratas — CA, CO, IL, MN" },
+      { en: "Federal Judge Manish Shah issued a 14-day block, finding states would suffer 'irreparable harm'", es: "El juez federal Manish Shah emitió un bloqueo de 14 días, determinando que los estados sufrirían 'daño irreparable'" },
+      { en: "Targeted programs include LA County's $6M health equity initiative and $1.1M HIV surveillance", es: "Programas afectados incluyen la iniciativa de equidad en salud de $6M del condado de LA y $1.1M de vigilancia de VIH" },
+    ],
   },
   {
     id: "ryan-white-ending-49pct-hiv-increase",
@@ -1502,6 +1818,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Center for Health Care Strategies",
     region: "California",
     tags: ["calaim", "ecm", "waiver-renewal", "community-supports", "sdoh", "deadline"],
+    keyTakeaways: [
+      { en: "CalAIM 1115 waiver expires December 31, 2026 — ECM revenue depends on this renewal", es: "La exención CalAIM 1115 expira el 31 de diciembre de 2026 — los ingresos ECM dependen de esta renovación" },
+      { en: "Since Jan 2022: 326,000+ members enrolled in ECM and 368,000+ in Community Supports", es: "Desde enero 2022: 326,000+ miembros inscritos en ECM y 368,000+ en Community Supports" },
+      { en: "Federal administration has withdrawn guidance supporting SDOH through Medicaid — renewal at risk", es: "Administración federal ha retirado guías que apoyan SDOH a través de Medicaid — renovación en riesgo" },
+      { en: "Build ECM volume NOW while the waiver is active, and prepare contingency plans if renewal is delayed or narrowed", es: "Construir volumen ECM AHORA mientras la exención está activa, y preparar planes de contingencia si la renovación se retrasa o reduce" },
+    ],
   },
   {
     id: "strategy-ecm-volume-urgency",
@@ -1521,6 +1843,13 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "DHCS CalAIM",
     region: "California",
     tags: ["ecm", "calaim", "ryan-white", "volume-building", "creative-financing", "chw", "waiver-renewal"],
+    keyTakeaways: [
+      { en: "Screen every Medi-Cal patient for ECM eligibility — 7 populations of focus including HIV+, SMI, SUD, homelessness, justice-involved", es: "Evaluar cada paciente Medi-Cal para elegibilidad ECM — 7 poblaciones de enfoque incluyendo VIH+, SMI, SUD, personas sin hogar, personas involucradas en justicia" },
+      { en: "Ryan White clients on Medi-Cal (not MCWP waiver) can be ECM-enrolled — layer revenue on grant-funded programs", es: "Clientes Ryan White en Medi-Cal (no exención MCWP) pueden inscribirse en ECM — agregar ingresos sobre programas de subvención" },
+      { en: "Cross-train CHWs for both ECM care coordination and Ryan White case management", es: "Capacitar CHWs en coordinación de cuidados ECM y gestión de casos Ryan White simultáneamente" },
+      { en: "Build data infrastructure showing ECM outcomes (reduced ED visits, improved engagement) to justify waiver renewal", es: "Construir infraestructura de datos mostrando resultados ECM (visitas a urgencias reducidas, mejor compromiso) para justificar renovación de exención" },
+      { en: "Join CPCA and NACHC advocacy for waiver renewal with full ECM/Community Supports authority", es: "Unirse a la defensa de CPCA y NACHC para renovación de exención con autoridad completa de ECM/Community Supports" },
+    ],
   },
 
   /* ============================================================== */
@@ -1546,6 +1875,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["San Francisco Community Clinic Consortium"],
     affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "healthright-360", "mission-neighborhood-health-center"],
     tags: ["sf-budget", "dph-cuts", "community-clinics", "safety-net"],
+    keyTakeaways: [
+      { en: "Mayor Lurie ordered SF DPH to cut $40M over two years: $20M staff (up to 100 employees) + $20M CBO contracts", es: "El alcalde Lurie ordenó al DPH de SF recortar $40M en dos años: $20M personal (hasta 100 empleados) + $20M contratos con organizaciones comunitarias" },
+      { en: "Combined with $877M city budget deficit driven by federal healthcare cuts", es: "Combinado con un déficit presupuestario de $877M impulsado por recortes federales de salud" },
+      { en: "Threatens safety-net infrastructure serving 110,000+ patients across 12 SFCCC member clinics", es: "Amenaza infraestructura de red de seguridad que sirve a más de 110,000 pacientes en 12 clínicas del SFCCC" },
+    ],
   },
   {
     id: "sf-500-city-jobs-eliminated",
@@ -1566,6 +1900,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "San Francisco County",
     affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "mission-neighborhood-health-center"],
     tags: ["sf-budget", "layoffs", "dph", "city-workforce"],
+    keyTakeaways: [
+      { en: "500 city positions to be eliminated ($100M in personnel savings) to address $877M budget deficit", es: "500 puestos de la ciudad serán eliminados ($100M en ahorros de personal) para abordar déficit de $877M" },
+      { en: "SF DPH is the city's largest agency with 7,766 employees — faces the deepest cuts", es: "El DPH de SF es la agencia más grande de la ciudad con 7,766 empleados — enfrenta los recortes más profundos" },
+      { en: "Departments must submit cut plans by March 12, 2026", es: "Los departamentos deben presentar planes de recortes antes del 12 de marzo de 2026" },
+      { en: "Last year's layoff proposal of 150 resulted in ~40 actual cuts after union negotiations", es: "La propuesta de despido del año pasado de 150 resultó en ~40 recortes reales después de negociaciones sindicales" },
+    ],
   },
   {
     id: "sf-dph-17m-cbo-cuts",
@@ -1587,6 +1927,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["San Francisco Community Health Center", "San Francisco AIDS Foundation"],
     affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "mission-neighborhood-health-center"],
     tags: ["sf-budget", "cbo-cuts", "lgbtq-health", "workforce-development"],
+    keyTakeaways: [
+      { en: "$17M cut from CBOs: $6M workforce development, $5.8M UCSF affiliation, $3.9M other, $1.3M mental health vocational", es: "$17M recortados de organizaciones comunitarias: $6M desarrollo laboral, $5.8M afiliación UCSF, $3.9M otros, $1.3M vocacionales de salud mental" },
+      { en: "Disproportionately impacts LGBTQ+, African American, and Chinese community health services", es: "Impacta desproporcionadamente servicios de salud LGBTQ+, afroamericanos y chinos" },
+      { en: "SF AIDS Foundation loses $800K; NAMI SF programs 100% cut", es: "SF AIDS Foundation pierde $800K; programas de NAMI SF eliminados 100%" },
+    ],
   },
   {
     id: "sfchc-transhope-funding-terminated",
@@ -1608,6 +1953,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["San Francisco Community Health Center"],
     affectedOrgSlugs: ["san-francisco-community-health-center"],
     tags: ["federal-funding", "transhope", "lgbtq-health", "grant-termination"],
+    keyTakeaways: [
+      { en: "Over $300,000 in federal funding terminated effective February 11, 2026 — more terminations expected", es: "Más de $300,000 en fondos federales terminados efectivos el 11 de febrero de 2026 — más terminaciones esperadas" },
+      { en: "Cuts targeted TransHOPE — a program training young community leaders in peer-based education", es: "Recortes dirigidos a TransHOPE — un programa que entrena líderes comunitarios jóvenes en educación entre pares" },
+      { en: "SFCHC is a key safety-net provider for LGBTQ+ and people of color communities", es: "SFCHC es un proveedor clave de red de seguridad para comunidades LGBTQ+ y personas de color" },
+    ],
   },
   {
     id: "sf-50k-medi-cal-loss",
@@ -1629,6 +1979,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["San Francisco Community Clinic Consortium"],
     affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "mission-neighborhood-health-center", "healthright-360"],
     tags: ["medi-cal", "hr1", "coverage-loss", "budget-deficit", "sfccc"],
+    keyTakeaways: [
+      { en: "25,000-50,000 San Franciscans could lose Medi-Cal by end of 2027 under H.R. 1 provisions", es: "25,000-50,000 sanfranciscanos podrían perder Medi-Cal para fines de 2027 bajo provisiones de H.R. 1" },
+      { en: "SF faces a $400M budget hole through 2038 — $315M next year alone", es: "SF enfrenta un agujero presupuestario de $400M hasta 2038 — $315M solo el próximo año" },
+      { en: "SFCCC CEO Johanna Liu: 'service cuts at one provider affect the entire system'", es: "Directora de SFCCC Johanna Liu: 'los recortes en un proveedor afectan todo el sistema'" },
+      { en: "Healthy San Francisco program revival under consideration as a coverage backstop", es: "Reactivación del programa Healthy San Francisco bajo consideración como respaldo de cobertura" },
+    ],
   },
   {
     id: "sf-va-157-jobs-cut",
@@ -1649,6 +2005,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "San Francisco County",
     affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services"],
     tags: ["va", "federal-cuts", "workforce", "veterans"],
+    keyTakeaways: [
+      { en: "157 positions eliminated at SF VA Medical Center as part of nationwide 37,000 vacant position cuts", es: "157 puestos eliminados en el Centro Médico VA de SF como parte de recortes nacionales de 37,000 puestos vacantes" },
+      { en: "Cuts include the only emergency room social worker position — raises care continuity concerns", es: "Recortes incluyen el único puesto de trabajador social de urgencias — plantea preocupaciones de continuidad de atención" },
+      { en: "Veterans often rely on community health centers for follow-up care — FQHCs may see increased veteran referrals", es: "Veteranos frecuentemente dependen de centros de salud comunitarios para atención de seguimiento — FQHCs podrían ver más derivaciones de veteranos" },
+    ],
   },
   {
     id: "sf-hhs-region9-closure",
@@ -1669,6 +2030,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "San Francisco County",
     affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "mission-neighborhood-health-center"],
     tags: ["hhs", "federal-cuts", "region9", "doge", "grant-workshops"],
+    keyTakeaways: [
+      { en: "318 HHS Region 9 staff eliminated — managed Medicare, Medicaid, and indigenous health for CA, AZ, HI, NV, and 6 territories", es: "318 empleados de HHS Región 9 eliminados — gestionaban Medicare, Medicaid y salud indígena para CA, AZ, HI, NV y 6 territorios" },
+      { en: "Office regularly hosted grant workshops with community health centers — that resource is now gone", es: "La oficina regularmente organizaba talleres de subvenciones con centros de salud comunitarios — ese recurso ya no existe" },
+      { en: "Part of RFK Jr.'s plan to cut 60,000+ HHS positions nationwide", es: "Parte del plan de RFK Jr. de eliminar 60,000+ puestos de HHS a nivel nacional" },
+      { en: "FQHCs should identify alternative channels for HRSA grant technical assistance", es: "FQHCs deben identificar canales alternativos para asistencia técnica de subvenciones HRSA" },
+    ],
   },
   {
     id: "nejm-ai-inflection-point",
@@ -1720,6 +2087,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Family Health Centers of San Diego", "San Ysidro Health", "Neighborhood Healthcare"],
     affectedOrgSlugs: ["family-health-centers-of-san-diego", "san-ysidro-health", "neighborhood-healthcare"],
     tags: ["san-diego", "safety-net", "medi-cal", "coverage-loss", "county-reform"],
+    keyTakeaways: [
+      { en: "Board voted 4-1 to reform County Medical Services — most restrictive safety-net program among large CA counties", es: "Junta votó 4-1 para reformar Servicios Médicos del Condado — programa más restrictivo entre grandes condados de CA" },
+      { en: "H.R. 1 will strip Medi-Cal from ~75,000 noncitizens in SD County starting Oct 2026", es: "H.R. 1 eliminará Medi-Cal de ~75,000 no ciudadanos en el condado de SD a partir de octubre 2026" },
+      { en: "~400,000 San Diegans total at risk of losing coverage", es: "~400,000 sandieguinos en total en riesgo de perder cobertura" },
+      { en: "Subcommittee has 60 days to propose reforms including eliminating property liens and expanding virtual applications", es: "Subcomité tiene 60 días para proponer reformas incluyendo eliminar gravámenes y solicitudes virtuales" },
+    ],
   },
   {
     id: "sd-county-300m-funding-loss",
@@ -1740,6 +2113,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "San Diego County",
     affectedOrgSlugs: ["family-health-centers-of-san-diego", "san-ysidro-health", "neighborhood-healthcare", "la-maestra-community-health-centers", "vista-community-clinic"],
     tags: ["san-diego", "federal-cuts", "medi-cal", "calfresh", "budget-deficit"],
+    keyTakeaways: [
+      { en: "$300M in federal funding losses hitting San Diego County — from $1.1B Medi-Cal + $300M CalFresh cuts statewide", es: "$300M en pérdidas de fondos federales golpean al condado de SD — de $1.1B en Medi-Cal + $300M de CalFresh a nivel estatal" },
+      { en: "Board Chair Lawson-Remer: cuts 'show up when you call 911'", es: "Presidenta Lawson-Remer: los recortes 'se notan cuando llamas al 911'" },
+      { en: "Hospital reimbursements declining while emergency departments face rising uninsured patient volume", es: "Reembolsos hospitalarios disminuyen mientras salas de emergencia enfrentan aumento de pacientes sin seguro" },
+    ],
   },
   {
     id: "sd-nhcare-fqhc-closure-warning",
@@ -1761,6 +2139,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Neighborhood Healthcare", "Palomar Health", "Sharp HealthCare"],
     affectedOrgSlugs: ["neighborhood-healthcare"],
     tags: ["san-diego", "fqhc-closures", "hr1", "workforce", "hospital-overload"],
+    keyTakeaways: [
+      { en: "'Hundreds of FQHCs throughout the state will shut down in a year' — Neighborhood Healthcare Director of External Affairs", es: "'Cientos de FQHCs en todo el estado cerrarán en un año' — Directora de Asuntos Externos de Neighborhood Healthcare" },
+      { en: "Palomar Health, Sharp HealthCare preparing for $300M in annual lost revenue", es: "Palomar Health, Sharp HealthCare se preparan para $300M en ingresos anuales perdidos" },
+      { en: "Warning: 'hospitals in San Diego County are going to be overrun' as patients lose coverage", es: "Advertencia: 'los hospitales del condado de San Diego serán desbordados' cuando pacientes pierdan cobertura" },
+    ],
   },
   {
     id: "sd-san-ysidro-55m-center-opens",
@@ -1782,6 +2165,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["San Ysidro Health"],
     affectedOrgSlugs: ["san-ysidro-health"],
     tags: ["san-diego", "san-ysidro", "expansion", "national-city", "medi-cal"],
+    paywalled: true,
+    keyTakeaways: [
+      { en: "$54.5M Macias Family Health Center opened in National City amid intensifying Medi-Cal cuts", es: "Centro de Salud Familiar Macias de $54.5M abierto en National City durante intensificación de recortes a Medi-Cal" },
+      { en: "CEO Kevin Mattson: 'a fraught moment' — work requirements will increase uninsured while reducing revenue", es: "CEO Kevin Mattson: 'un momento tenso' — requisitos de trabajo aumentarán no asegurados mientras reducen ingresos" },
+      { en: "La Maestra and FHCSD also bracing for higher demand with less funding", es: "La Maestra y FHCSD también preparándose para mayor demanda con menos financiamiento" },
+    ],
   },
   {
     id: "ie-medi-cal-1-6m-at-risk",
@@ -1802,6 +2191,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Riverside County",
     affectedOrgSlugs: ["borrego-health", "sac-health", "riverside-university-health-system-chc", "centro-medico-community-clinic", "community-health-systems-inc"],
     tags: ["inland-empire", "iehp", "medi-cal", "riverside", "san-bernardino", "coverage-loss"],
+    keyTakeaways: [
+      { en: "IEHP serves 1.6M members — Riverside 42% enrolled, San Bernardino 45% enrolled", es: "IEHP sirve a 1.6M miembros — Riverside 42% inscrito, San Bernardino 45% inscrito" },
+      { en: "Projected $10-20B annual state Medi-Cal cuts could force clinics to cut dental, vision, and podiatry first", es: "Recortes proyectados de $10-20B anuales podrían forzar clínicas a eliminar dental, visión y podiatría primero" },
+      { en: "Centro Medico (15,000 patients, nearly all Medi-Cal) warns of months-long waits", es: "Centro Medico (15,000 pacientes, casi todos Medi-Cal) advierte de esperas de meses" },
+      { en: "IEHP contracts with 9,000 providers, hundreds of clinics, and every hospital in both counties", es: "IEHP contrata con 9,000 proveedores, cientos de clínicas y cada hospital en ambos condados" },
+    ],
   },
   {
     id: "ie-va-loma-linda-staffing-crisis",
@@ -1822,6 +2217,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "San Bernardino County",
     affectedOrgSlugs: ["sac-health", "loma-linda-university-health-sac", "borrego-health"],
     tags: ["inland-empire", "va", "staffing", "loma-linda", "veterans"],
+    keyTakeaways: [
+      { en: "64,000 appointments canceled at VA Loma Linda from Oct 2021-Sep 2023 — per VA OIG audit", es: "64,000 citas canceladas en VA Loma Linda de oct 2021-sep 2023 — según auditoría del OIG del VA" },
+      { en: "Two-thirds of cancellations directly due to staffing shortages at 5 IE outpatient clinics", es: "Dos tercios de las cancelaciones directamente por escasez de personal en 5 clínicas ambulatorias del IE" },
+      { en: "Veterans displaced from VA care increasingly turning to FQHCs — increasing community health center demand", es: "Veteranos desplazados del VA recurren cada vez más a FQHCs — aumentando demanda de centros de salud comunitarios" },
+    ],
   },
   /* ============================================================== */
   /*  2026-03-05: LA + Central Coast Regional Scan                  */
@@ -1846,6 +2246,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["St. John's Community Health", "AltaMed Health Services", "APLA Health"],
     affectedOrgSlugs: ["st-johns-community-health", "altamed-health-services", "apla-health"],
     tags: ["la-county", "federal-cuts", "hospital-closure", "dhs", "medi-cal", "workforce"],
+    keyTakeaways: [
+      { en: "$1.5B in federal cuts over 5 years; DHS — 70% of $6.5B budget from federal funds — projects $1.85B annual deficit by 2028-29", es: "$1.5B en recortes federales en 5 años; DHS — 70% de presupuesto de $6.5B de fondos federales — proyecta déficit anual de $1.85B para 2028-29" },
+      { en: "County public hospital closure now 'last resort' on the table", es: "Cierre de hospital público del condado ahora es 'último recurso'" },
+      { en: "700K+ residents could lose Medi-Cal under new work requirements", es: "700K+ residentes podrían perder Medi-Cal por nuevos requisitos de trabajo" },
+      { en: "St. John's Community Health (120K patients) faces 'closing several health centers' and 'laying off hundreds of staff'", es: "St. John's Community Health (120K pacientes) enfrenta 'cerrar varios centros de salud' y 'despedir a cientos de empleados'" },
+    ],
   },
   {
     id: "oc-health-agency-clinic-closures",
@@ -1867,6 +2273,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Share Our Selves"],
     affectedOrgSlugs: ["share-our-selves"],
     tags: ["orange-county", "clinic-closures", "federal-grants", "wic", "family-planning"],
+    keyTakeaways: [
+      { en: "5 federal grants lost totaling $13M — children & family planning clinic closes June 30, dental May 6", es: "5 subvenciones federales perdidas por $13M — clínica infantil y planificación familiar cierra 30 de junio, dental 6 de mayo" },
+      { en: "WIC services at Santa Ana and Buena Park locations also reduced", es: "Servicios WIC en Santa Ana y Buena Park también reducidos" },
+      { en: "Affected families transitioning to CalOptima, Kaiser, and FQHCs", es: "Familias afectadas en transición a CalOptima, Kaiser y FQHCs" },
+    ],
   },
   {
     id: "sb-county-budget-bloodbath-17m-public-health",
@@ -1888,6 +2299,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Clinicas del Camino Real"],
     affectedOrgSlugs: ["clinicas-del-camino-real"],
     tags: ["santa-barbara", "budget-deficit", "public-health", "layoffs", "immigrant-patients", "central-coast"],
+    keyTakeaways: [
+      { en: "$66M deficit over 5 years; Public Health ($25M cuts) and Social Services ($28M) hardest hit", es: "Déficit de $66M en 5 años; Salud Pública ($25M en recortes) y Servicios Sociales ($28M) más afectados" },
+      { en: "Public Health deficit breakdown: $7.6M structural + $6.6M state cuts + $3.2M H.R. 1 = $17.4M total", es: "Desglose del déficit de Salud Pública: $7.6M estructural + $6.6M recortes estatales + $3.2M H.R. 1 = $17.4M total" },
+      { en: "55.2 FTE layoffs paused + 7,000 immigrant patients' transition paused by court injunction", es: "55.2 despidos FTE pausados + transición de 7,000 pacientes inmigrantes pausada por orden judicial" },
+      { en: "Specialty services (endocrinology, neurology, urology) may be eliminated; furloughs and wage freezes on the table", es: "Servicios de especialidad (endocrinología, neurología, urología) podrían eliminarse; licencias sin sueldo y congelamiento salarial en consideración" },
+    ],
   },
   {
     id: "monterey-natividad-38k-medi-cal-loss",
@@ -1908,6 +2325,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Monterey County",
     affectedOrgSlugs: ["county-of-monterey", "community-health-centers-central-coast"],
     tags: ["monterey", "natividad", "medi-cal", "dsh", "fmap", "undocumented", "central-coast"],
+    keyTakeaways: [
+      { en: "38,000 Monterey County residents will lose Medi-Cal over 4 years under H.R. 1", es: "38,000 residentes del condado de Monterey perderán Medi-Cal en 4 años bajo H.R. 1" },
+      { en: "Natividad Medical Center's $14M/year DSH funding in limbo", es: "Fondos DSH de $14M/año de Natividad Medical Center en limbo" },
+      { en: "FMAP drops from 90% to 50% for undocumented emergency care starting Oct 1, 2026", es: "FMAP baja del 90% al 50% para atención de emergencia de indocumentados a partir del 1 de octubre de 2026" },
+      { en: "Supervisors concerned about 'negative impact on the financial health of Natividad' — county's safety-net hospital", es: "Supervisores preocupados por 'impacto negativo en la salud financiera de Natividad' — hospital de red de seguridad del condado" },
+    ],
   },
   // --- Added 2026-03-06 (daily update #12) ---
   {
@@ -1958,6 +2381,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["St. John's Community Health", "Community Clinic Association of LA County"],
     affectedOrgSlugs: ["st-johns-community-health"],
     tags: ["sales-tax", "coalition", "seiu", "ballot-measure", "medi-cal", "los-angeles"],
+    keyTakeaways: [
+      { en: "Coalition led by St. John's CEO Jim Mangia + SEIU 721/2015 pushing half-cent sales tax for LA County", es: "Coalición liderada por CEO de St. John's Jim Mangia + SEIU 721/2015 impulsa impuesto de medio centavo en condado de LA" },
+      { en: "Would offset Medi-Cal cuts affecting 3.3M county residents", es: "Compensaría recortes de Medi-Cal que afectan a 3.3M residentes del condado" },
+      { en: "Proposed allocation: 47% free/reduced-cost care for uninsured, 22% DHS, 10% DPH", es: "Asignación propuesta: 47% atención gratuita/reducida para no asegurados, 22% DHS, 10% DPH" },
+      { en: "Requesting June ballot placement or will pursue November initiative through petition", es: "Solicitan colocación en boleta de junio o buscarán iniciativa de noviembre por petición" },
+    ],
   },
   {
     id: "c3-aco-expands-california-fqhcs",
@@ -1977,6 +2406,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Business Wire",
     region: "California",
     tags: ["aco", "value-based-care", "shared-savings", "revenue-diversification"],
+    keyTakeaways: [
+      { en: "C3 = largest non-profit FQHC-governed ACO in the country — expanded to California Jan 1, 2026", es: "C3 = mayor ACO sin fines de lucro gobernada por FQHCs en el país — se expandió a California 1 ene 2026" },
+      { en: "Accountable for 240,000+ Medicaid and Medicare beneficiaries in value-based arrangements", es: "Responsable de más de 240,000 beneficiarios de Medicaid y Medicare en acuerdos basados en valor" },
+      { en: "$152M+ in shared savings earned since 2018", es: "$152M+ en ahorros compartidos generados desde 2018" },
+      { en: "ACO participation = key revenue diversification strategy as Medicaid cuts loom", es: "Participación en ACO = estrategia clave de diversificación de ingresos ante recortes de Medicaid" },
+    ],
   },
 
   /* ============================================================== */
@@ -2000,6 +2435,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "BLS",
     region: "Federal",
     tags: ["jobs-report", "unemployment", "recession-risk", "labor-market"],
+    keyTakeaways: [
+      { en: "U.S. economy lost 92,000 jobs in February (consensus expected +59,000)", es: "Economía de EE.UU. perdió 92,000 empleos en febrero (consenso esperaba +59,000)" },
+      { en: "Unemployment rose to 4.4%; labor force participation fell to 62.0% (lowest since Dec 2021)", es: "Desempleo subió a 4.4%; participación laboral cayó a 62.0% (la más baja desde dic 2021)" },
+      { en: "December revised from +48,000 to -17,000 — a 65,000-job swing", es: "Diciembre revisado de +48,000 a -17,000 — un giro de 65,000 empleos" },
+      { en: "Federal government employment down 330,000 since October 2024", es: "Empleo del gobierno federal bajó 330,000 desde octubre 2024" },
+    ],
   },
   {
     id: "healthcare-jobs-negative-feb-2026",
@@ -2019,6 +2460,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "BLS",
     region: "Federal",
     tags: ["healthcare-jobs", "kaiser-strike", "nursing", "labor-market-fragility"],
+    keyTakeaways: [
+      { en: "Healthcare lost 28,000 jobs in February after adding 77,000 in January", es: "Sector salud perdió 28,000 empleos en febrero después de agregar 77,000 en enero" },
+      { en: "31,000 Kaiser Permanente nurses on strike = largest open-ended nurses strike in U.S. history (Jan 26-Feb 24)", es: "31,000 enfermeras de Kaiser en huelga = mayor huelga abierta de enfermeras en historia de EE.UU. (26 ene-24 feb)" },
+      { en: "Healthcare created 436,000 jobs in 12 months = 121% of ALL U.S. job growth", es: "Sector salud creó 436,000 empleos en 12 meses = 121% de TODO el crecimiento laboral de EE.UU." },
+      { en: "Glassdoor: healthcare added 693,000 jobs in 2025 while all other industries combined lost 500,000+", es: "Glassdoor: salud agregó 693,000 empleos en 2025 mientras todas las demás industrias combinadas perdieron 500,000+" },
+    ],
   },
   {
     id: "kaiser-strike-ends-21pct-raise",
@@ -2038,6 +2485,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Nurse.Org",
     region: "California",
     tags: ["kaiser", "strike", "nursing", "wage-increase", "unac-uhcp", "staffing-ratios"],
+    keyTakeaways: [
+      { en: "30-day strike ended Feb 24 with 21.5% wage increase over 4 years", es: "Huelga de 30 días terminó 24 feb con aumento salarial de 21.5% en 4 años" },
+      { en: "31,000 UNAC/UHCP nurses and healthcare professionals in California and Hawaii participated", es: "31,000 enfermeros y profesionales de UNAC/UHCP en California y Hawái participaron" },
+      { en: "Strike issues: staffing ratios, wage parity, and patient safety", es: "Temas de la huelga: ratios de personal, paridad salarial y seguridad del paciente" },
+      { en: "Settlement sets new compensation benchmark for all California healthcare workers", es: "El acuerdo establece nuevo punto de referencia de compensación para todos los trabajadores de salud de California" },
+    ],
   },
   {
     id: "healthcare-carrying-labor-market",
@@ -2057,6 +2510,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Marketplace / APM",
     region: "Federal",
     tags: ["labor-market", "structural-risk", "medicaid-cuts", "economic-vulnerability"],
+    keyTakeaways: [
+      { en: "Healthcare = 121% of net U.S. employment gains over 12 months; 63% of all jobs added in January 2026", es: "Salud = 121% de ganancias netas de empleo en EE.UU. en 12 meses; 63% de todos los empleos agregados en enero 2026" },
+      { en: "Every other major sector flat or negative — healthcare is the sole engine of job growth", es: "Todos los demás sectores planos o negativos — salud es el único motor de crecimiento laboral" },
+      { en: "Omair Sharif: 'labor market so soft it cannot withstand a strike of 31K healthcare workers, because no one else is hiring'", es: "Omair Sharif: 'mercado laboral tan débil que no puede resistir una huelga de 31K trabajadores de salud, porque nadie más está contratando'" },
+      { en: "H.R. 1 Medicaid cuts threaten the one sector still creating jobs — a national economic vulnerability", es: "Recortes de Medicaid de H.R. 1 amenazan al único sector que aún crea empleos — vulnerabilidad económica nacional" },
+    ],
   },
 
   /* ============================================================== */
@@ -2082,6 +2541,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Santa Clara Valley Healthcare"],
     affectedOrgSlugs: ["county-of-santa-clara"],
     tags: ["sales-tax", "ballot-measure", "medicaid-offset", "measure-a", "bay-area", "revenue-model"],
+    keyTakeaways: [
+      { en: "Measure A = 0.625% sales tax, 57% voter approval, generates $330M/year for healthcare (effective April 1, 2026)", es: "Medida A = impuesto de 0.625%, 57% aprobación, genera $330M/año para salud (vigente 1 abril 2026)" },
+      { en: "First CA county to pass a sales tax specifically to offset federal Medicaid cuts", es: "Primer condado de CA en aprobar impuesto de ventas específicamente para compensar recortes federales de Medicaid" },
+      { en: "Covers ~1/3 of the county's estimated $1B+ annual revenue loss from H.R. 1", es: "Cubre ~1/3 de la pérdida estimada de $1B+ anual del condado por H.R. 1" },
+      { en: "LA County now pursuing similar half-cent sales tax — could become statewide model", es: "Condado de LA busca impuesto similar de medio centavo — podría ser modelo estatal" },
+    ],
   },
   {
     id: "sacramento-county-26m-hhs-funding-cut",
@@ -2102,6 +2567,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Sacramento County",
     affectedOrgSlugs: ["sacramento-county-primary"],
     tags: ["sacramento", "hhs-restructuring", "federal-cuts", "doge", "public-health", "grant-termination"],
+    keyTakeaways: [
+      { en: "$26M in federal health funding at risk from HHS restructuring and DOGE-aligned cuts", es: "$26M en fondos federales de salud en riesgo por reestructuración del HHS y recortes de DOGE" },
+      { en: "California and 22 other states have filed suit to block the cuts", es: "California y 22 otros estados han demandado para bloquear los recortes" },
+      { en: "Separate $233K HHS grant termination already stalled a community health leadership program in South Sacramento", es: "Terminación separada de subvención de $233K del HHS ya detuvo un programa comunitario de salud en el sur de Sacramento" },
+    ],
   },
   {
     id: "medi-cal-30-premium-undocumented-2027",
@@ -2122,6 +2592,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "California",
     affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "clinica-sierra-vista", "san-ysidro-health", "la-maestra-community-health-centers"],
     tags: ["undocumented", "medi-cal-premium", "coverage-loss", "uis", "july-2027", "enrollment"],
+    keyTakeaways: [
+      { en: "$30/month premium for undocumented Medi-Cal members ages 19-59 starting July 1, 2027", es: "Prima de $30/mes para miembros indocumentados de Medi-Cal de 19-59 años a partir del 1 de julio de 2027" },
+      { en: "Dental benefits for UIS members already eliminated effective July 1, 2026", es: "Beneficios dentales para miembros UIS ya eliminados desde el 1 de julio de 2026" },
+      { en: "Combined with Jan 2026 enrollment freeze + PPS elimination = compounding disinvestment in 1.6M undocumented enrollees", es: "Combinado con congelamiento de inscripción de ene 2026 + eliminación de PPS = desinversión compuesta en 1.6M inscritos indocumentados" },
+      { en: "Premiums will accelerate coverage loss and increase FQHC uncompensated care burden", es: "Las primas acelerarán la pérdida de cobertura y aumentarán la carga de atención no compensada de FQHCs" },
+    ],
   },
   {
     id: "ca-pps-elimination-uis-july-2026",
@@ -2142,6 +2618,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "California",
     affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "comprehensive-community-health-centers", "san-ysidro-health", "clinica-sierra-vista", "united-health-centers", "la-maestra-community-health-centers", "kheir-clinic"],
     tags: ["pps", "undocumented-patients", "uis", "revenue-cut", "july-2026", "los-angeles", "san-diego", "central-valley", "dental"],
+    keyTakeaways: [
+      { en: "PPS rates eliminated for FQHC services to UIS patients starting July 1, 2026 — replaced by regular Medi-Cal FFS (50-70% less per encounter)", es: "Tasas PPS eliminadas para servicios de FQHC a pacientes UIS a partir del 1 de julio de 2026 — reemplazadas por tarifa regular de Medi-Cal (50-70% menos por encuentro)" },
+      { en: "CA LAO scores this as $1B in annual General Fund savings = $1B in annual FQHC revenue loss", es: "LAO de CA califica esto como $1B en ahorros anuales del Fondo General = $1B en pérdida anual de ingresos para FQHCs" },
+      { en: "Dental benefits for undocumented Medi-Cal enrollees also eliminated: $308M savings in 2026-27", es: "Beneficios dentales para inscritos indocumentados también eliminados: $308M de ahorro en 2026-27" },
+      { en: "FQHCs in LA, San Diego, and Central Valley with large undocumented panels face most severe exposure", es: "FQHCs en LA, San Diego y Valle Central con grandes paneles de indocumentados enfrentan la exposición más severa" },
+    ],
   },
   {
     id: "hrsa-maha-grant-competition-fy2026",
@@ -2161,6 +2643,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Community Link Consulting",
     region: "Federal",
     tags: ["hrsa", "maha", "grants", "fy2026", "chronic-disease", "health-disparities", "service-area-competition"],
+    keyTakeaways: [
+      { en: "$403M total in FY2026 SAC awards: 93 awards (~$232M, March start) + 51 awards (~$171M, May start)", es: "$403M total en premios SAC FY2026: 93 premios (~$232M, inicio marzo) + 51 premios (~$171M, inicio mayo)" },
+      { en: "Grants now require MAHA alignment — shifting focus from health disparities/SDOH to chronic disease prevention and nutrition", es: "Subvenciones ahora requieren alineación MAHA — cambiando enfoque de disparidades/SDOH a prevención de enfermedades crónicas y nutrición" },
+      { en: "MAHA Elevate program: ~$100M for preventive lifestyle interventions", es: "Programa MAHA Elevate: ~$100M para intervenciones preventivas de estilo de vida" },
+      { en: "Warning: FQHCs serving undocumented populations or emphasizing language access may score lower under new criteria", es: "Advertencia: FQHCs que sirven poblaciones indocumentadas o enfatizan acceso lingüístico podrían obtener puntuaciones más bajas" },
+    ],
   },
   {
     id: "united-health-centers-40th-clinic-west-fresno",
@@ -2181,6 +2669,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Fresno County",
     affectedOrgSlugs: ["united-health-centers"],
     tags: ["central-valley", "fresno", "expansion", "health-care-desert", "quality-leader", "ipa"],
+    keyTakeaways: [
+      { en: "UHC's 40th location opened Jan 23, 2026 in West Fresno 'health care desert'", es: "Ubicación 40 de UHC abierta el 23 de enero de 2026 en el 'desierto de atención médica' del oeste de Fresno" },
+      { en: "UHC serves 100,000+ patients with 450,000 annual appointments across Fresno, Kings, and Tulare counties", es: "UHC atiende a más de 100,000 pacientes con 450,000 citas anuales en los condados de Fresno, Kings y Tulare" },
+      { en: "HRSA Top 10% Health Center Quality Leader in 2025", es: "Líder de Calidad Top 10% de Centros de Salud del HRSA en 2025" },
+      { en: "Also launched United Physicians Network (for-profit IPA) as revenue diversification strategy", es: "También lanzó United Physicians Network (IPA con fines de lucro) como estrategia de diversificación de ingresos" },
+    ],
   },
   {
     id: "chcf-sjv-regional-report-2025",
@@ -2201,6 +2695,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Fresno County",
     affectedOrgSlugs: ["united-health-centers", "family-healthcare-network"],
     tags: ["central-valley", "san-joaquin", "medi-cal-dependency", "revenue-exposure", "regional-analysis"],
+    keyTakeaways: [
+      { en: "SJV community health centers provide 3.2M visits/year with 77% of revenue from Medi-Cal (above statewide average)", es: "Centros de salud del SJV brindan 3.2M visitas/año con 77% de ingresos de Medi-Cal (superior al promedio estatal)" },
+      { en: "Half of all CHC visits concentrated in just two orgs: Family HealthCare Network and United Health Centers", es: "La mitad de todas las visitas de CHC concentradas en solo dos organizaciones: Family HealthCare Network y United Health Centers" },
+      { en: "SJV's FQHC ecosystem is structurally the most vulnerable in California to Medicaid cuts + PPS elimination", es: "El ecosistema de FQHCs del SJV es estructuralmente el más vulnerable de California a recortes de Medicaid + eliminación de PPS" },
+    ],
   },
   {
     id: "chc-2pct-financial-loss-2025",
@@ -2220,6 +2719,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "FQHC Associates",
     region: "Federal",
     tags: ["financial-loss", "structural-strain", "chcf", "revenue-erosion", "program-wide"],
+    keyTakeaways: [
+      { en: "Community health center program posted 2% financial loss in 2025 — structural strain before H.R. 1 cuts take effect", es: "Programa de centros de salud comunitarios registró pérdida financiera del 2% en 2025 — tensión estructural antes de que surtan efecto los recortes de H.R. 1" },
+      { en: "$4.6B in CHCF funding only authorized through December 2026", es: "$4.6B en financiamiento CHCF autorizado solo hasta diciembre 2026" },
+      { en: "Medicaid = 43% of health center revenue nationally", es: "Medicaid = 43% de ingresos de centros de salud a nivel nacional" },
+      { en: "Negative margin came despite largest CHCF funding increase in a decade — grant funding alone cannot offset structural erosion", es: "Margen negativo ocurrió a pesar del mayor aumento de financiamiento CHCF en una década — las subvenciones solas no compensan la erosión estructural" },
+    ],
   },
 
   /* ============================================================== */
@@ -2243,6 +2748,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Center for Health Care Strategies / DHCS",
     region: "California",
     tags: ["calaim", "waiver", "ecm", "community-supports", "expiration", "workforce-risk"],
+    keyTakeaways: [
+      { en: "CalAIM 1115 and 1915(b) waivers expire December 31, 2026 — no formal renewal application submitted", es: "Exoneraciones CalAIM 1115 y 1915(b) expiran 31 dic 2026 — sin solicitud formal de renovación presentada" },
+      { en: "$1.2B annually in ECM and Community Supports at risk — thousands of positions statewide", es: "$1.2B anuales en ECM y Apoyos Comunitarios en riesgo — miles de puestos en todo el estado" },
+      { en: "Combined with CHCF authorization cliff (also Dec 2026) = double uncertainty event for safety net", es: "Combinado con precipicio de autorización CHCF (también dic 2026) = doble evento de incertidumbre para la red de seguridad" },
+    ],
   },
   {
     id: "chcf-authorization-cliff-dec-2026",
@@ -2262,6 +2772,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Synergy Billing / Congress",
     region: "Federal",
     tags: ["chcf", "authorization", "funding-cliff", "reauthorization", "federal"],
+    keyTakeaways: [
+      { en: "CHCF set at $4.6B for FY2026 but authorization only through December 2026 — not historical 5-year pattern", es: "CHCF fijado en $4.6B para AF2026 pero autorización solo hasta diciembre 2026 — no el patrón histórico de 5 años" },
+      { en: "Creates hiring hesitancy, slows capital investment, and narrows strategic planning windows", es: "Crea vacilación en contratación, frena inversión de capital y reduce ventanas de planificación estratégica" },
+      { en: "All FQHCs nationwide affected — short-term authorization = short-term thinking", es: "Todos los FQHCs a nivel nacional afectados — autorización a corto plazo = pensamiento a corto plazo" },
+    ],
   },
   {
     id: "nachc-workforce-39pct-shortage-2038",
@@ -2281,6 +2796,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "National Association of Community Health Centers",
     region: "Federal",
     tags: ["nachc", "workforce", "shortage", "primary-care", "dentist", "pipeline"],
+    keyTakeaways: [
+      { en: "CHC workforce: 326,000+ individuals across 17,000 locations serving 52 million people", es: "Fuerza laboral CHC: 326,000+ individuos en 17,000 ubicaciones sirviendo a 52 millones de personas" },
+      { en: "By 2038: 39% PCP shortage and 46% dentist shortage in nonmetro areas", es: "Para 2038: 39% de escasez de médicos de atención primaria y 46% de dentistas en áreas no metropolitanas" },
+      { en: "NACHC requests $2.1B for five years and authorization of $950M/year", es: "NACHC solicita $2.1B por cinco años y autorización de $950M/año" },
+    ],
   },
   {
     id: "altamed-15b-economic-impact",
@@ -2302,6 +2822,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["AltaMed Health Services"],
     affectedOrgSlugs: ["altamed-health-services"],
     tags: ["altamed", "economic-impact", "advocacy", "largest-fqhc", "positive"],
+    keyTakeaways: [
+      { en: "AltaMed generated $15.1B in economic impact from 2019-2024 — growth from $1.08B to $4.24B projected", es: "AltaMed generó $15.1B en impacto económico de 2019-2024 — crecimiento de $1.08B a $4.24B proyectado" },
+      { en: "Supports 12,000 jobs, serves 465,000 Medi-Cal patients, operates 60+ health centers", es: "Apoya 12,000 empleos, sirve a 465,000 pacientes de Medi-Cal, opera más de 60 centros de salud" },
+      { en: "Every $1 spent generates $1.50 in economic activity — powerful advocacy data for FQHC sector", es: "Cada $1 gastado genera $1.50 en actividad económica — datos poderosos de defensa para el sector FQHC" },
+    ],
   },
   {
     id: "ab-1460-340b-contract-pharmacy-2026",
@@ -2321,6 +2846,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "McDermott Will & Emery / California Legislature",
     region: "California",
     tags: ["340b", "contract-pharmacy", "ab-1460", "legislation", "rural"],
+    keyTakeaways: [
+      { en: "AB 1460 would prohibit pharma manufacturers from restricting 340B contract pharmacy arrangements", es: "AB 1460 prohibiría a fabricantes farmacéuticos restringir arreglos de farmacias de contrato 340B" },
+      { en: "Passed Assembly in 2025, stalled in Senate — expected to return in 2026", es: "Pasó la Asamblea en 2025, se detuvo en el Senado — se espera que regrese en 2026" },
+      { en: "8 states enacted similar laws; 23 have pending bills — critical for rural FQHCs", es: "8 estados aprobaron leyes similares; 23 tienen proyectos pendientes — crítico para FQHCs rurales" },
+      { en: "340B hit $81B in 2024 (+23% YoY) — IRA rebate exemptions begin impacting margins in 2026", es: "340B alcanzó $81B en 2024 (+23% interanual) — exenciones de reembolso del IRA comienzan a impactar márgenes en 2026" },
+    ],
   },
   {
     id: "healthcare-hiring-momentum-icims-2026",
@@ -2340,6 +2871,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "iCIMS",
     region: "Federal",
     tags: ["hiring", "momentum", "icims", "positive", "workforce-data"],
+    keyTakeaways: [
+      { en: "January 2026: clinical healthcare applications +10%, openings +20%, hires +5% month-over-month", es: "Enero 2026: solicitudes clínicas de salud +10%, vacantes +20%, contrataciones +5% mes a mes" },
+      { en: "Nonclinical: applications +17%, openings +15%, hires +6% MoM", es: "No clínico: solicitudes +17%, vacantes +15%, contrataciones +6% mes a mes" },
+      { en: "Strong demand cycle for healthcare talent despite funding uncertainty", es: "Fuerte ciclo de demanda de talento de salud a pesar de la incertidumbre de financiamiento" },
+    ],
   },
   {
     id: "health-net-31m-housing-investment",
@@ -2360,6 +2896,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "California",
     affectedOrgSlugs: ["altamed-health-services", "jwch-institute", "wellspace-health", "community-medical-centers", "county-of-stanislaus"],
     tags: ["housing", "calaim", "community-supports", "health-net", "positive"],
+    keyTakeaways: [
+      { en: "Health Net (Centene): $31.25M in grants for 10 housing projects in LA, Sacramento, San Joaquin, Stanislaus", es: "Health Net (Centene): $31.25M en subvenciones para 10 proyectos de vivienda en LA, Sacramento, San Joaquín, Stanislaus" },
+      { en: "900+ affordable housing units; $93M total dedicated to housing since 2020", es: "900+ unidades de vivienda asequible; $93M total dedicados a vivienda desde 2020" },
+      { en: "Intersects with CalAIM Community Supports — FQHCs with housing navigation could benefit from increased stock", es: "Se cruza con Apoyos Comunitarios CalAIM — FQHCs con navegación de vivienda podrían beneficiarse de mayor inventario" },
+    ],
   },
   {
     id: "blue-shield-ma-training-scholarships-fhcsd",
@@ -2381,6 +2922,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Family Health Centers of San Diego"],
     affectedOrgSlugs: ["family-health-centers-of-san-diego"],
     tags: ["workforce-pipeline", "ma-training", "blue-shield", "scholarship", "positive"],
+    keyTakeaways: [
+      { en: "Blue Shield invested $80K in Laura Rodriguez MA Institute at FHCSD — 710 hours of MA training", es: "Blue Shield invirtió $80K en el Instituto de MA Laura Rodríguez en FHCSD — 710 horas de formación de MA" },
+      { en: "Direct FQHC workforce pipeline investment by a managed care plan — replicable model", es: "Inversión directa en fuerza laboral FQHC por un plan de salud — modelo replicable" },
+      { en: "Supports full-time and part-time MA training tracks", es: "Apoya formación de MA de tiempo completo y parcial" },
+    ],
   },
 
   /* ------------------------------------------------------------------ */
@@ -2404,6 +2950,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "HRSA Bureau of Primary Health Care",
     region: "Federal",
     tags: ["hrsa", "osv", "audit", "governance", "compliance", "enforcement"],
+    keyTakeaways: [
+      { en: "HRSA increased OSV frequency: 30% more site visits scheduled in FY2026 vs FY2025", es: "HRSA aumentó frecuencia de OSV: 30% más visitas programadas en AF2026 vs AF2025" },
+      { en: "Focus: governance documentation (42 CFR 330.304), sliding fee compliance, clinical quality reporting", es: "Enfoque: documentación de gobernanza (42 CFR 330.304), cumplimiento de tarifa escalonada, reportes de calidad clínica" },
+      { en: "Non-compliance risks: conditions of award and potential scope reductions", es: "Riesgos de no cumplimiento: condiciones de premio y posibles reducciones de alcance" },
+    ],
   },
   {
     id: "ocr-hipaa-breach-settlement-march-2026",
@@ -2423,6 +2974,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "HHS Office for Civil Rights",
     region: "Federal",
     tags: ["hipaa", "breach", "ocr", "settlement", "baa", "enforcement", "encryption"],
+    keyTakeaways: [
+      { en: "$1.5M settlement for breach affecting 28,000 patient records at multi-site community health center", es: "Acuerdo de $1.5M por violación que afectó 28,000 registros de pacientes en centro de salud comunitario multi-sitio" },
+      { en: "Root cause: unencrypted email with PHI sent to vendor without current BAA", es: "Causa raíz: correo electrónico sin encriptar con PHI enviado a proveedor sin BAA vigente" },
+      { en: "3-year corrective action plan required: annual risk assessments, workforce training, BAA remediation", es: "Plan de acción correctiva de 3 años requerido: evaluaciones de riesgo anuales, capacitación de personal, remediación de BAA" },
+    ],
   },
   {
     id: "oig-false-claims-fqhc-billing-2026",
@@ -2442,6 +2998,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "HHS Office of Inspector General",
     region: "Federal",
     tags: ["oig", "false-claims", "billing-fraud", "pps", "ecm", "documentation", "enforcement"],
+    keyTakeaways: [
+      { en: "OIG recovered $4.7B in healthcare fraud in FY2025; FQHCs face increased PPS billing scrutiny", es: "OIG recuperó $4.7B en fraude de salud en AF2025; FQHCs enfrentan mayor escrutinio de facturación PPS" },
+      { en: "Key risks: same-day billing errors, upcoding visit complexity, inadequate ECM/CCM documentation", es: "Riesgos clave: errores de facturación del mismo día, sobre-codificación de visitas, documentación inadecuada de ECM/CCM" },
+      { en: "Three California FQHCs received subpoenas in Q4 2025", es: "Tres FQHCs de California recibieron citaciones en Q4 2025" },
+      { en: "Action: implement internal billing audits, documentation training, automated coding compliance", es: "Acción: implementar auditorías internas de facturación, capacitación en documentación, cumplimiento de codificación automatizado" },
+    ],
   },
   {
     id: "340b-audit-wave-contract-pharmacy-2026",
@@ -2461,6 +3023,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "HRSA Office of Pharmacy Affairs",
     region: "Federal",
     tags: ["340b", "pharmacy", "audit", "contract-pharmacy", "compliance", "enforcement"],
+    keyTakeaways: [
+      { en: "HRSA doubled 340B audits: 47 covered entities under review in Q1 2026", es: "HRSA duplicó auditorías 340B: 47 entidades cubiertas bajo revisión en Q1 2026" },
+      { en: "Common violations: duplicate discounts, inadequate eligibility verification, missing pharmacy agreements", es: "Violaciones comunes: descuentos duplicados, verificación inadecuada de elegibilidad, acuerdos de farmacia faltantes" },
+      { en: "Non-compliance: program repayment and suspension", es: "No cumplimiento: reembolso al programa y suspensión" },
+      { en: "Action: demonstrate real-time eligibility checks, split-billing compliance, complete audit trails", es: "Acción: demostrar verificaciones de elegibilidad en tiempo real, cumplimiento de facturación dividida, rastros de auditoría completos" },
+    ],
   },
   {
     id: "dhcs-fqhc-billing-compliance-review-2026",
@@ -2480,6 +3048,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "California DHCS",
     region: "California",
     tags: ["dhcs", "billing", "medi-cal", "pps", "uis", "compliance", "audit", "ecm"],
+    keyTakeaways: [
+      { en: "DHCS targeting 50 FQHCs for billing compliance review in 2026", es: "DHCS apuntando a 50 FQHCs para revisión de cumplimiento de facturación en 2026" },
+      { en: "Focus: PPS encounter documentation, Medi-Cal billing accuracy, UIS patient tracking before Jul 2026 PPS elimination", es: "Enfoque: documentación de encuentros PPS, precisión de facturación Medi-Cal, seguimiento de pacientes UIS antes de eliminación PPS jul 2026" },
+      { en: "Reviews will examine 24 months of billing data with focus on ECM/Community Supports claims", es: "Revisiones examinarán 24 meses de datos de facturación con enfoque en reclamos de ECM/Apoyos Comunitarios" },
+    ],
   },
 
   /* ============================================================== */
@@ -2504,6 +3077,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Federal",
     affectedOrgSlugs: ["shasta-community-health-center", "open-door-community-health-centers", "mountain-valleys-health-centers", "hill-country-community-clinic", "mchc-health-centers"],
     tags: ["rural-health", "hr1", "grants", "north-state", "north-coast", "central-valley", "behavioral-health"],
+    keyTakeaways: [
+      { en: "$50B Rural Health Transformation Program ($10B/year for 5 years, FY 2026-2030) inside H.R. 1", es: "Programa de Transformación de Salud Rural de $50B ($10B/año por 5 años, AF 2026-2030) dentro de H.R. 1" },
+      { en: "CA likely allocation: ~$500M/year via competitive grants for rural FQHCs", es: "Asignación probable para CA: ~$500M/año mediante subvenciones competitivas para FQHCs rurales" },
+      { en: "Targets North State, North Coast, and Central Valley regions — first new federal FQHC channel since ACA", es: "Apunta a regiones del Norte del Estado, Costa Norte y Valle Central — primer nuevo canal federal de FQHC desde el ACA" },
+      { en: "Does not offset far larger Medicaid losses — but represents a new opportunity", es: "No compensa las pérdidas mucho mayores de Medicaid — pero representa una nueva oportunidad" },
+    ],
   },
   {
     id: "ca-fqhc-apm-implementation-jan-2026",
@@ -2523,6 +3102,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CHCS",
     region: "California",
     tags: ["apm", "global-payment", "value-based-care", "revenue-model", "dhcs", "care-coordination"],
+    keyTakeaways: [
+      { en: "CA FQHC APM launched Jan 1, 2026 — moving from fee-for-service to prospective global payments", es: "APM de FQHC de CA lanzado 1 ene 2026 — moviendo de pago por servicio a pagos globales prospectivos" },
+      { en: "Revenue stability: decouples payment from visit volume — critical as Medicaid cuts reduce panels", es: "Estabilidad de ingresos: desacopla el pago del volumen de visitas — crítico mientras recortes de Medicaid reducen paneles" },
+      { en: "Requires sophisticated cost accounting, care delivery restructuring, population health infrastructure", es: "Requiere contabilidad de costos sofisticada, reestructuración de entrega de atención, infraestructura de salud poblacional" },
+      { en: "DHCS annual enrollment cycle — FQHCs can opt in during open periods", es: "Ciclo de inscripción anual de DHCS — FQHCs pueden optar durante períodos abiertos" },
+    ],
   },
   {
     id: "glenn-county-hospital-reopening-2026",
@@ -2543,6 +3128,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     region: "Glenn County",
     affectedOrgSlugs: ["ampla-health-sacramento"],
     tags: ["rural", "hospital-reopening", "north-state", "central-valley", "cms", "resilience"],
+    keyTakeaways: [
+      { en: "Glenn County's only hospital cleared CMS licensing hurdle to reopen — still needs millions in funding", es: "El único hospital del condado de Glenn superó obstáculo de licencias CMS para reabrir — aún necesita millones en financiamiento" },
+      { en: "Rural Central Valley county lost sole hospital in 2023 — residents travel 30+ miles for emergency care", es: "Condado rural del Valle Central perdió su único hospital en 2023 — residentes viajan más de 30 millas para atención de emergencia" },
+      { en: "Glenn County served by Ampla Health (region's primary FQHC)", es: "Condado de Glenn servido por Ampla Health (el FQHC principal de la región)" },
+    ],
   },
   {
     id: "ca-budget-222b-medi-cal-2026-27",
@@ -2562,6 +3152,11 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CA Legislative Analyst's Office",
     region: "California",
     tags: ["state-budget", "medi-cal", "fmap", "structural-deficit", "ecm", "chw-billing"],
+    keyTakeaways: [
+      { en: "CA proposed 2026-27 budget: $222.4B for Medi-Cal, absorbing $1.1B+ in federal losses", es: "Presupuesto propuesto de CA 2026-27: $222.4B para Medi-Cal, absorbiendo $1.1B+ en pérdidas federales" },
+      { en: "LAO warns: FMAP sunsetting + enrollment verification + UIS restrictions = multi-billion gap by 2028", es: "LAO advierte: expiración de FMAP + verificación de inscripción + restricciones UIS = brecha de miles de millones para 2028" },
+      { en: "Budget negotiations will determine survival of FQHC supplemental payments, ECM funding, and CHW billing", es: "Negociaciones presupuestarias determinarán supervivencia de pagos suplementarios de FQHC, financiamiento ECM y facturación CHW" },
+    ],
   },
 ];
 
