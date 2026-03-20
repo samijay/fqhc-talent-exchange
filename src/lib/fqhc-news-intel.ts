@@ -41,6 +41,10 @@ export interface IntelItem {
   affectedOrgs?: string[];
   affectedOrgSlugs?: string[]; // Slugs from california-fqhcs.ts for linking to /directory/[slug]
   tags: string[];
+  /** True if the source is behind a paywall — signals our summary IS the value */
+  paywalled?: boolean;
+  /** Structured key takeaways — shown as bullet list in expanded view */
+  keyTakeaways?: { en: string; es: string }[];
 }
 
 /* ------------------------------------------------------------------ */
@@ -123,6 +127,13 @@ export const INTEL_ITEMS: IntelItem[] = [
       "chcf",
       "medi-cal",
     ],
+    keyTakeaways: [
+      { en: "Shasta CHC: 82% of patient visits are Medi-Cal (60% of revenue)", es: "Shasta CHC: 82% de las visitas son Medi-Cal (60% de ingresos)" },
+      { en: "Hill Country CEO: 'If I lose 30% of revenue, I make a 30% reduction in staff'", es: "CEO de Hill Country: 'Si pierdo 30% de ingresos, hago una reducción del 30% en personal'" },
+      { en: "Overdose deaths 70% above statewide rate; average ACE score 5 vs. 2 statewide", es: "Muertes por sobredosis 70% por encima del promedio estatal; puntuación ACE promedio 5 vs. 2 estatal" },
+      { en: "Enhanced premium subsidies expired Jan 1 — ~9,800 North State residents affected", es: "Subsidios de primas mejorados expiraron el 1 de enero — ~9,800 residentes del norte afectados" },
+      { en: "CHCF hosting in-person Redding event April 2 to discuss findings", es: "CHCF organiza evento presencial en Redding el 2 de abril para discutir hallazgos" },
+    ],
   },
   /* ============================================================== */
   /*  March 17, 2026                                                 */
@@ -145,6 +156,14 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "STAT News",
     region: "Federal",
     tags: ["financial-sustainability", "margins", "structural-deficit", "operations", "strategy"],
+    paywalled: true,
+    keyTakeaways: [
+      { en: "Net margins collapsed from +5.3% (2020-22) to -2.1% in 2024 — a 7.4-point swing", es: "Márgenes netos colapsaron de +5.3% (2020-22) a -2.1% en 2024 — una caída de 7.4 puntos" },
+      { en: "2% program-wide financial loss in 2025 — the first net loss in program history", es: "Pérdida financiera del 2% en todo el programa en 2025 — la primera pérdida neta en la historia del programa" },
+      { en: "Federal grants stayed flat 2019-2023 while costs rose 25%+", es: "Subvenciones federales se mantuvieron estancadas 2019-2023 mientras costos subieron 25%+" },
+      { en: "One FQHC found core medical services operating at a '$5/visit loss' after restructuring", es: "Un FQHC descubrió que servicios médicos básicos operaban con 'pérdida de $5/visita' después de reestructuración" },
+      { en: "Author argues structural insolvency — not just funding cuts — is the existential threat", es: "El autor argumenta que la insolvencia estructural — no solo los recortes — es la amenaza existencial" },
+    ],
   },
   {
     id: "la-county-sales-tax-june-ballot-confirmed",
@@ -166,6 +185,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["St. John's Community Health", "Community Clinic Association of LA County"],
     affectedOrgSlugs: ["st-johns-community-health"],
     tags: ["sales-tax", "ballot-measure", "june-ballot", "safety-net", "los-angeles", "revenue-model"],
+    keyTakeaways: [
+      { en: "Half-cent sales tax on June 2 ballot — expected to generate ~$1B/year", es: "Impuesto de medio centavo en boleta del 2 de junio — generaría ~$1B/año" },
+      { en: "Allocation: 47% free/reduced care, 22% DHS, 10% DPH", es: "Distribución: 47% atención gratuita/reducida, 22% DHS, 10% DPH" },
+      { en: "St. John's ($240M revenue, 28 clinics) could lose 1/3 of budget from Medi-Cal cuts", es: "St. John's ($240M en ingresos, 28 clínicas) podría perder 1/3 del presupuesto por recortes de Medi-Cal" },
+      { en: "First county-level ballot measure in the nation designed to offset H.R. 1 Medicaid cuts", es: "Primera medida a nivel de condado en la nación diseñada para compensar los recortes de Medicaid de H.R. 1" },
+    ],
   },
   /* ============================================================== */
   /*  March 14, 2026                                                 */
@@ -460,6 +485,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Alameda Health System"],
     affectedOrgSlugs: ["alameda-health-system"],
     tags: ["layoffs", "bay-area", "safety-net", "seiu-1021", "deficit", "trauma-center", "patient-surge"],
+    keyTakeaways: [
+      { en: "188 layoffs blocked by Board of Supervisors after SEIU 1021 mobilization — but $91.7M deficit unresolved", es: "188 despidos bloqueados por la Junta de Supervisores tras movilización de SEIU 1021 — pero déficit de $91.7M sin resolver" },
+      { en: "AHS operates the ONLY Level 1 Trauma Center in Alameda County (Highland Hospital)", es: "AHS opera el ÚNICO Centro de Trauma Nivel 1 en el Condado de Alameda (Highland Hospital)" },
+      { en: "4 FQHC wellness centers serve 40,000+ patients — potential patient surges if outpatient services cut", es: "4 centros de bienestar FQHC atienden a 40,000+ pacientes — posibles aumentos si se reducen servicios ambulatorios" },
+      { en: "Action: FQHCs in Alameda County should prepare for patient redistribution if AHS reduces services", es: "Acción: FQHCs en el Condado de Alameda deben prepararse para redistribución de pacientes si AHS reduce servicios" },
+    ],
   },
   {
     id: "sf-dph-17m-budget-cuts-2026",
@@ -481,6 +512,13 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["SF Community Health Center", "NEMS", "HealthRIGHT 360"],
     affectedOrgSlugs: ["san-francisco-community-health-center", "north-east-medical-services", "healthright-360"],
     tags: ["budget-cuts", "bay-area", "san-francisco", "dph", "medi-cal", "county-funding"],
+    paywalled: true,
+    keyTakeaways: [
+      { en: "$17M in DPH budget cuts for FY2026-27 — driven by declining federal reimbursements + rising labor costs", es: "$17M en recortes de presupuesto del DPH para FY2026-27 — por reembolsos federales en declive + costos laborales crecientes" },
+      { en: "SF Community Health Center, NEMS, HealthRIGHT 360 anticipate reduced county contract funding", es: "SF CHC, NEMS, HealthRIGHT 360 anticipan reducción en fondos de contratos del condado" },
+      { en: "SF adding 2,400+ new Medi-Cal enrollees monthly — demand rising as funding falls", es: "SF agrega 2,400+ nuevos inscritos en Medi-Cal mensualmente — demanda sube mientras fondos caen" },
+      { en: "Action: Model 10-15% reductions in local funding and review county contract terms now", es: "Acción: Modelar reducciones del 10-15% en fondos locales y revisar términos de contratos del condado ahora" },
+    ],
   },
   {
     id: "cdc-600m-grant-rescissions-california",
@@ -521,6 +559,13 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["San Francisco Community Health Center"],
     affectedOrgSlugs: ["san-francisco-community-health-center"],
     tags: ["ryan-white", "hiv", "bay-area", "hrsa", "federal-cuts", "lgbtq", "api-community"],
+    paywalled: true,
+    keyTakeaways: [
+      { en: "Ryan White HIV/AIDS funding abruptly terminated — first direct federal cut to an SF FQHC", es: "Fondos Ryan White de VIH/SIDA terminados abruptamente — primer recorte federal directo a un FQHC de SF" },
+      { en: "3,000+ patients served — many LGBTQ+ and API communities", es: "3,000+ pacientes atendidos — muchas comunidades LGBTQ+ y API" },
+      { en: "SF DPH exploring emergency bridge funding", es: "DPH de SF explorando fondos de emergencia puente" },
+      { en: "Signals escalating risk for ALL HRSA-dependent programs across the state", es: "Señala riesgo creciente para TODOS los programas dependientes de HRSA en todo el estado" },
+    ],
   },
   {
     id: "la-clinica-data-breach-2026",
@@ -563,6 +608,13 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["County of Santa Clara", "Indian Health Center of Santa Clara Valley", "School Health Clinics of Santa Clara County"],
     affectedOrgSlugs: ["county-of-santa-clara", "indian-health-center-of-santa-clara-valley", "school-health-clinics-of-santa-clara-county"],
     tags: ["budget-cuts", "bay-area", "santa-clara", "clinic-closures", "patient-redistribution", "structural-deficit"],
+    paywalled: true,
+    keyTakeaways: [
+      { en: "$183M in cuts to Health & Hospital System — driven by $325M structural deficit", es: "$183M en recortes al Sistema de Salud y Hospitales — por un déficit estructural de $325M" },
+      { en: "Valley Health Center network (9 FQHC sites, 120K+ patients) faces clinic closures and reduced hours", es: "Red de Valley Health Center (9 sitios FQHC, 120K+ pacientes) enfrenta cierres y horarios reducidos" },
+      { en: "Indian Health Center + School Health Clinics may lose county supplemental funding", es: "Indian Health Center + School Health Clinics podrían perder fondos suplementarios del condado" },
+      { en: "Action: Prepare contingency plans for patient redistribution in South Bay", es: "Acción: Preparar planes de contingencia para redistribución de pacientes en South Bay" },
+    ],
   },
 
   /* ============================================================== */
@@ -1425,6 +1477,12 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Annals of Internal Medicine",
     region: "Federal",
     tags: ["ryan-white", "hiv", "funding-threat", "ecm", "simulation-study"],
+    paywalled: true,
+    keyTakeaways: [
+      { en: "Simulation: eliminating Ryan White = 49% increase in new HIV infections by 2030", es: "Simulación: eliminar Ryan White = aumento del 49% en nuevas infecciones de VIH para 2030" },
+      { en: "For FQHCs with Ryan White Part C/D: ECM revenue layering is urgent as a financial hedge", es: "Para FQHCs con Ryan White Parte C/D: superposición de ingresos ECM es urgente como cobertura financiera" },
+      { en: "2026 National Ryan White Conference Aug 4-7 in DC — focus: 'Strengthening our Foundation'", es: "Conferencia Nacional Ryan White 2026, 4-7 de agosto en DC — enfoque: 'Fortaleciendo nuestra Fundación'" },
+    ],
   },
   {
     id: "calaim-1115-waiver-renewal-2026",
@@ -1630,6 +1688,13 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "NEJM Catalyst",
     region: "Federal",
     tags: ["ai", "implementation-science", "ambient-scribe", "ucsf"],
+    paywalled: true,
+    keyTakeaways: [
+      { en: "Guest-edited by UCSF Health Chief AI Officer Sara Murray — signals institutional legitimacy", es: "Editado por la Directora de IA de UCSF Health Sara Murray — señala legitimidad institucional" },
+      { en: "Ambient scribes = fastest health tech adoption in history — but that's just the beginning", es: "Escribas ambientales = adopción de tecnología de salud más rápida en la historia — pero eso es solo el comienzo" },
+      { en: "Next wave: AI for care coordination, population health, and revenue cycle optimization", es: "Próxima ola: IA para coordinación de cuidados, salud poblacional y optimización del ciclo de ingresos" },
+      { en: "Key insight: translating AI hype into ROI depends on implementation science fundamentals", es: "Idea clave: traducir el hype de IA en ROI depende de fundamentos de ciencia de implementación" },
+    ],
   },
 
   /* ============================================================== */
@@ -1865,6 +1930,13 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: ["Alameda Health System"],
     affectedOrgSlugs: ["alameda-health-system"],
     tags: ["layoffs-deferred", "working-group", "mental-health", "medicaid", "bay-area"],
+    paywalled: true,
+    keyTakeaways: [
+      { en: "183 layoffs deferred + mental health unit closures halted (were set for March 9)", es: "183 despidos diferidos + cierres de unidades de salud mental detenidos (estaban programados para el 9 de marzo)" },
+      { en: "Working group (supervisors + unions + AHS admin) must close $91.7M deficit by July 1", es: "Grupo de trabajo (supervisores + sindicatos + administración AHS) debe cerrar déficit de $91.7M antes del 1 de julio" },
+      { en: "60% of AHS patients on Medicaid — system faces $100M/year in losses by 2030", es: "60% de pacientes de AHS en Medicaid — sistema enfrenta pérdidas de $100M/año para 2030" },
+      { en: "CEO: H.R. 1 is 'the largest roll-back of federal health care spending in history'", es: "CEO: H.R. 1 es 'la mayor reducción de gasto federal en salud de la historia'" },
+    ],
   },
   {
     id: "la-county-healthcare-sales-tax-coalition",

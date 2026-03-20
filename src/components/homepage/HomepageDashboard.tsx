@@ -543,13 +543,12 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
             {isEs ? "Tendencia" : "Trending"}
           </span>
           <Link
-            href="/strategy/okr-course"
+            href="/strategy/resilience"
             className="text-sm font-medium text-stone-700 hover:text-teal-700 transition-colors truncate"
           >
-            <span className="hidden sm:inline">{"\uD83C\uDFAF"} </span>
             {isEs
-              ? "NUEVO: Curso OKR Interactivo — aprende, practica, y construye tus OKRs con retroalimentacion de IA \u2192"
-              : "NEW: Interactive OKR Course — learn, practice, and build your OKRs with AI feedback \u2192"}
+              ? "Scorecard de Resiliencia: 220 FQHCs evaluados en 5 dimensiones — vea su calificación \u2192"
+              : "Resilience Scorecard: 220 FQHCs scored across 5 dimensions — see your grade \u2192"}
           </Link>
           <span className="hidden lg:inline-block h-4 w-px bg-stone-300 flex-shrink-0" />
           <span className="hidden lg:inline-flex items-center gap-1 flex-shrink-0">
@@ -567,16 +566,16 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
           </span>
           <span className="hidden xl:inline-block h-4 w-px bg-stone-300 flex-shrink-0" />
           <span className="hidden xl:inline-flex items-center gap-1 flex-shrink-0">
-            <span className="flex-shrink-0 inline-flex items-center gap-1 rounded bg-emerald-600 text-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
-              {isEs ? "Crecimiento" : "Growth"}
+            <span className="flex-shrink-0 inline-flex items-center gap-1 rounded bg-amber-600 text-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+              {isEs ? "Análisis" : "Analysis"}
             </span>
             <Link
-              href="/strategy/case-studies"
+              href="/strategy/masterclass"
               className="text-sm font-medium text-stone-700 hover:text-teal-700 transition-colors truncate"
             >
               {isEs
-                ? "CCHC se expande a Nevada — modelo FQHC crece \u2192"
-                : "CCHC expands to Nevada — FQHC model growing \u2192"}
+                ? "Masterclass: 18 módulos para la crisis 2026 — comience gratis \u2192"
+                : "Masterclass: 18 modules for the 2026 crisis — start free \u2192"}
             </Link>
           </span>
         </div>

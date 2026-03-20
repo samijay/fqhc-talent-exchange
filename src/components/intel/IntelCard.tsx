@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Lock } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
@@ -72,6 +72,12 @@ export function IntelCard({
                   {isEs ? catMeta.es : catMeta.en}
                 </span>
               )}
+              {item.paywalled && (
+                <span className="inline-flex items-center gap-0.5 text-[10px] bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded-full border border-amber-200">
+                  <Lock className="size-2.5" />
+                  {isEs ? "Exclusivo" : "Paywalled"}
+                </span>
+              )}
             </div>
             <h3
               className={`font-semibold text-stone-800 leading-snug ${compact ? "text-sm" : ""}`}
@@ -99,6 +105,24 @@ export function IntelCard({
           <p className="text-sm text-stone-600 leading-relaxed">
             {t(item.summary, locale)}
           </p>
+
+          {/* Key Takeaways — structured bullet list */}
+          {item.keyTakeaways && item.keyTakeaways.length > 0 && (
+            <div className="mt-3 rounded-lg bg-stone-50 border border-stone-200 p-3">
+              <h4 className="text-xs font-bold text-stone-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                {item.paywalled && <Lock className="size-3 text-amber-600" />}
+                {isEs ? "Puntos Clave" : "Key Takeaways"}
+              </h4>
+              <ul className="space-y-1.5">
+                {item.keyTakeaways.map((takeaway, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-stone-700">
+                    <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-teal-500" />
+                    <span className="leading-relaxed">{t(takeaway, locale)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Tags */}
           {item.tags.length > 0 && (

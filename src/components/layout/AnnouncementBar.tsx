@@ -15,14 +15,14 @@ export default function AnnouncementBar() {
   return (
     <div className="relative bg-gradient-to-r from-amber-500 to-amber-400 text-stone-900">
       <Link
-        href="/"
+        href="/strategy/masterclass"
         className="flex items-center justify-center gap-2 px-8 py-2 text-center text-xs font-semibold sm:text-sm"
       >
         <Zap className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "STAT News: La mayor amenaza para los FQHCs no son los recortes — es la insolvencia estructural. Márgenes en -2.1% →"
-            : "STAT News: FQHCs' greatest threat isn't funding cuts — it's structural insolvency. Margins at -2.1% →"}
+            ? "Márgenes de FQHC cayeron a -2.1% — 18 módulos de crisis para sobrevivir 2026 →"
+            : "FQHC margins collapsed to -2.1% — 18 crisis modules to survive 2026 →"}
         </span>
       </Link>
       <button
