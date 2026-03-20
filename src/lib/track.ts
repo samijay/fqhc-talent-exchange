@@ -16,7 +16,7 @@ export type TrackEventType =
   | "pathway_complete"
   | "assessment_complete";
 
-interface TrackEventPayload {
+export interface TrackEventPayload {
   event_type: TrackEventType;
   tool_name: string;
   item_id?: string;

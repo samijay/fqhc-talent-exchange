@@ -16,6 +16,13 @@ import {
   Clock,
   Check,
   Bookmark,
+  FileText,
+  Download,
+  Target,
+  Calculator,
+  Map,
+  Award,
+  Package,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useAuth } from "@/components/auth/AuthProvider";
@@ -26,6 +33,7 @@ import {
   filterIntelByWatchlist,
   getContentById,
   CONTENT_TYPE_LABELS,
+  TOOL_EVENT_LABELS,
   type WatchlistItem,
   type FavoriteItem,
 } from "@/lib/user-preferences";
@@ -99,6 +107,12 @@ export default function DashboardPage() {
   const [libraryLoading, setLibraryLoading] = useState(true);
   const [libraryFilter, setLibraryFilter] = useState<string>("all");
 
+  // ── Creations State ──
+  const [creations, setCreations] = useState<
+    { event_type: string; tool_name: string; item_id: string | null; metadata: Record<string, unknown> | null; created_at: string }[]
+  >([]);
+  const [creationsLoading, setCreationsLoading] = useState(true);
+
   // ── Settings State ──
   const [displayName, setDisplayName] = useState("");
   const [role, setRole] = useState("job_seeker");
@@ -149,6 +163,22 @@ export default function DashboardPage() {
         setLibraryLoading(false);
       });
   }, [user, supabase]);
+
+  // ── Load creations (tool events by email) ──
+  useEffect(() => {
+    if (!user?.email) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setCreationsLoading(false);
+      return;
+    }
+    fetch("/api/user-creations")
+      .then((res) => res.json())
+      .then(({ creations: data }) => {
+        setCreations(data ?? []);
+        setCreationsLoading(false);
+      })
+      .catch(() => setCreationsLoading(false));
+  }, [user?.email]);
 
   // ── Populate settings from profile ──
   useEffect(() => {
@@ -465,6 +495,69 @@ export default function DashboardPage() {
                 );
               })}
             </>
+          )}
+
+          {/* My Creations */}
+          {!creationsLoading && creations.length > 0 && (
+            <div className="mt-8 border-t border-stone-200 pt-6">
+              <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-stone-400">
+                <Award className="size-4" />
+                {t({ en: "My Creations", es: "Mis Creaciones" }, locale)} ({creations.length})
+              </h3>
+              <div className="space-y-2">
+                {Object.entries(
+                  creations.reduce<Record<string, typeof creations>>((acc, c) => {
+                    const key = c.event_type;
+                    if (!acc[key]) acc[key] = [];
+                    acc[key].push(c);
+                    return acc;
+                  }, {})
+                ).map(([eventType, items]) => {
+                  const label = TOOL_EVENT_LABELS[eventType] ?? { en: eventType, es: eventType };
+                  const IconMap: Record<string, React.ElementType> = {
+                    resume_create: FileText,
+                    okr_download: Download,
+                    okr_download_all: Package,
+                    assessment_complete: Target,
+                    simulator_run: Calculator,
+                    pathway_start: Map,
+                    pathway_complete: Award,
+                  };
+                  const Icon = IconMap[eventType] ?? FileText;
+
+                  return (
+                    <div key={eventType} className="rounded-lg border border-stone-200 bg-white p-4">
+                      <div className="mb-2 flex items-center gap-2">
+                        <Icon className="size-4 text-teal-600" />
+                        <span className="text-sm font-semibold text-stone-700">
+                          {t(label, locale)}
+                        </span>
+                        <span className="rounded-full bg-teal-50 px-2 py-0.5 text-xs font-medium text-teal-700">
+                          {items.length}
+                        </span>
+                      </div>
+                      <div className="space-y-1">
+                        {items.slice(0, 5).map((item, idx) => (
+                          <div key={idx} className="flex items-center justify-between text-sm">
+                            <span className="text-stone-600">
+                              {item.item_id || item.tool_name}
+                            </span>
+                            <span className="text-xs text-stone-400">
+                              {new Date(item.created_at).toLocaleDateString()}
+                            </span>
+                          </div>
+                        ))}
+                        {items.length > 5 && (
+                          <p className="text-xs text-stone-400">
+                            +{items.length - 5} {t({ en: "more", es: "más" }, locale)}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           )}
         </div>
       )}

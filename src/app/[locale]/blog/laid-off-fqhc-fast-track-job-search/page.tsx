@@ -3,6 +3,7 @@ import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
+import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 
 interface ArticleContent {
   category: string;
@@ -451,6 +452,7 @@ export default async function LaidOffFqhcFastTrackArticle() {
         ]}
       />
       <ContentViewTracker contentType="blog" contentId="laid-off-fqhc-fast-track-job-search" />
+      <BlogArticleToolbar slug="laid-off-fqhc-fast-track-job-search" />
 
       <article className="py-16 px-6">
         <div className="max-w-3xl mx-auto">

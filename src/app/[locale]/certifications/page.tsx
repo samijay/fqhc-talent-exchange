@@ -27,6 +27,9 @@ import {
   type CertImpactType,
   type CostTier,
 } from "@/lib/certification-data";
+import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
+import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
+import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 
 const ROLE_OPTIONS = [
   { id: "all", en: "All Roles", es: "Todos los roles" },
@@ -99,6 +102,7 @@ function CertificationsContent() {
   const [typeFilter, setTypeFilter] = useState<CertImpactType | "all">(initialType);
   const [expandedCert, setExpandedCert] = useState<string | null>(null);
   const [shareState, setShareState] = useState<"idle" | "copied">("idle");
+  const { reads, markAsReading } = useContentReads("certification");
 
   const syncUrl = useCallback((role: string, cost: string, type: string) => {
     const localePath = locale === "es" ? "/es" : "";
@@ -269,9 +273,12 @@ function CertificationsContent() {
                       cert={cert}
                       isEs={isEs}
                       isExpanded={expandedCert === cert.id}
-                      onToggle={() =>
-                        setExpandedCert(expandedCert === cert.id ? null : cert.id)
-                      }
+                      onToggle={() => {
+                        const expanding = expandedCert !== cert.id;
+                        setExpandedCert(expanding ? cert.id : null);
+                        if (expanding) markAsReading(cert.id);
+                      }}
+                      read={reads.get(cert.id)}
                     />
                   ))}
                 </div>
@@ -291,9 +298,12 @@ function CertificationsContent() {
                       cert={cert}
                       isEs={isEs}
                       isExpanded={expandedCert === cert.id}
-                      onToggle={() =>
-                        setExpandedCert(expandedCert === cert.id ? null : cert.id)
-                      }
+                      onToggle={() => {
+                        const expanding = expandedCert !== cert.id;
+                        setExpandedCert(expanding ? cert.id : null);
+                        if (expanding) markAsReading(cert.id);
+                      }}
+                      read={reads.get(cert.id)}
                     />
                   ))}
                 </div>
@@ -336,11 +346,13 @@ function CertCard({
   isEs,
   isExpanded,
   onToggle,
+  read,
 }: {
   cert: Certification;
   isEs: boolean;
   isExpanded: boolean;
   onToggle: () => void;
+  read: ContentRead | undefined;
 }) {
   const badge = IMPACT_BADGES[cert.impactType];
 
@@ -352,6 +364,7 @@ function CertCard({
       >
         <div className="flex-1">
           <div className="flex flex-wrap items-center gap-2">
+            <ReadStatusBadge read={read} />
             <h3 className="text-base font-bold text-stone-900">
               {isEs ? cert.esName : cert.name}
             </h3>
@@ -380,6 +393,9 @@ function CertCard({
               {isEs ? cert.esSalaryImpact : cert.salaryImpact}
             </span>
           </div>
+        </div>
+        <div className="flex shrink-0 items-center gap-1" onClick={(e) => e.stopPropagation()}>
+          <FavoriteButton contentType="certification" contentId={cert.id} size="sm" />
         </div>
         {isExpanded ? (
           <ChevronUp className="size-5 shrink-0 text-stone-400" />

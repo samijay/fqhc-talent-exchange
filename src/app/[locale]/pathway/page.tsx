@@ -1,7 +1,7 @@
 // Learning Pathway — personalized learning journey for FQHC professionals
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
@@ -23,6 +23,8 @@ import {
   Link2,
 } from "lucide-react";
 import { ShareableAchievement } from "@/components/share/ShareableAchievement";
+import { trackEvent, syncProgress, getServerProgress } from "@/lib/track";
+import { useAuth } from "@/components/auth/AuthProvider";
 import {
   generateLearningPathway,
   PATHWAY_ROLES,
@@ -99,6 +101,7 @@ export default function PathwayPage() {
   const locale = useLocale();
   const isEs = locale === "es";
   const searchParams = useSearchParams();
+  const { user } = useAuth();
 
   // Selection state
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
@@ -108,6 +111,7 @@ export default function PathwayPage() {
 
   // Completion tracking
   const [completedSteps, setCompletedSteps] = useState<Set<string>>(new Set());
+  const completionTracked = useRef(false);
 
   // Auto-generate from URL params (e.g. /pathway?role=chw&level=entry)
   useEffect(() => {
@@ -139,44 +143,70 @@ export default function PathwayPage() {
     }
   }, [searchParams]);
 
-  // Load completion state from localStorage
+  // Load completion state from localStorage + merge with server
   useEffect(() => {
-    if (pathway) {
+    if (!pathway) return;
+    const key = getStorageKey(pathway.roleId, pathway.level);
+    const courseId = `pathway-${pathway.roleId}-${pathway.level}`;
+    let localSteps: string[] = [];
+
+    try {
+      const stored = localStorage.getItem(key);
+      if (stored) localSteps = JSON.parse(stored);
+    } catch {
+      // ignore
+    }
+
+    if (user?.email) {
+      // Merge localStorage with server progress
+      (async () => {
+        const serverData = await getServerProgress(user.email!, courseId);
+        const serverSteps = serverData?.modules_completed ?? [];
+        const merged = [...new Set([...localSteps, ...serverSteps])];
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setCompletedSteps(new Set(merged));
+        // Persist merged set back to both
+        try {
+          localStorage.setItem(key, JSON.stringify(merged));
+        } catch { /* ignore */ }
+        if (merged.length > serverSteps.length) {
+          syncProgress({ email: user.email!, course_id: courseId, modules_completed: merged });
+        }
+      })();
+    } else if (localSteps.length > 0) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setCompletedSteps(new Set(localSteps));
+    }
+  }, [pathway, user?.email]);
+
+  // Save completion state (localStorage + server sync)
+  function toggleStep(stepId: string) {
+    if (!pathway) return;
+    setCompletedSteps((prev) => {
+      const next = new Set(prev);
+      if (next.has(stepId)) {
+        next.delete(stepId);
+      } else {
+        next.add(stepId);
+      }
+      const arr = [...next];
       const key = getStorageKey(pathway.roleId, pathway.level);
       try {
-        const stored = localStorage.getItem(key);
-        if (stored) {
-          // eslint-disable-next-line react-hooks/set-state-in-effect
-          setCompletedSteps(new Set(JSON.parse(stored)));
-        }
+        localStorage.setItem(key, JSON.stringify(arr));
       } catch {
-        // ignore localStorage errors
+        // ignore
       }
-    }
-  }, [pathway]);
-
-  // Save completion state
-  const toggleStep = useCallback(
-    (stepId: string) => {
-      if (!pathway) return;
-      setCompletedSteps((prev) => {
-        const next = new Set(prev);
-        if (next.has(stepId)) {
-          next.delete(stepId);
-        } else {
-          next.add(stepId);
-        }
-        const key = getStorageKey(pathway.roleId, pathway.level);
-        try {
-          localStorage.setItem(key, JSON.stringify([...next]));
-        } catch {
-          // ignore
-        }
-        return next;
-      });
-    },
-    [pathway]
-  );
+      // Sync to server if logged in
+      if (user?.email) {
+        syncProgress({
+          email: user.email,
+          course_id: `pathway-${pathway.roleId}-${pathway.level}`,
+          modules_completed: arr,
+        });
+      }
+      return next;
+    });
+  }
 
   // Build shareable URL for current pathway
   const getShareUrl = useCallback(() => {
@@ -225,6 +255,12 @@ export default function PathwayPage() {
       const pw = generateLearningPathway(selectedRole, selectedLevel);
       setPathway(pw);
       setCompletedSteps(new Set());
+      completionTracked.current = false;
+      trackEvent({
+        event_type: "pathway_start",
+        tool_name: "learning-pathway",
+        item_id: `${selectedRole}-${selectedLevel}`,
+      });
       // Update URL without full reload
       const localePath = locale === "es" ? "/es" : "";
       const newUrl = `${localePath}/pathway?role=${selectedRole}&level=${selectedLevel}`;
@@ -270,6 +306,18 @@ export default function PathwayPage() {
   const progressPercent = pathway
     ? Math.round((completedCount / pathway.totalSteps) * 100)
     : 0;
+
+  // Track pathway completion once
+  useEffect(() => {
+    if (progressPercent === 100 && pathway && !completionTracked.current) {
+      completionTracked.current = true;
+      trackEvent({
+        event_type: "pathway_complete",
+        tool_name: "learning-pathway",
+        item_id: `${pathway.roleId}-${pathway.level}`,
+      });
+    }
+  }, [progressPercent, pathway]);
 
   return (
     <main className="min-h-screen bg-stone-50">

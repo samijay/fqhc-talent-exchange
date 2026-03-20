@@ -38,6 +38,7 @@ import {
 import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 import { FIVE_CONVERSATIONS, FOGLAMP } from "@/lib/first-90-days";
 import { trackAssessmentStart, trackAssessmentComplete } from "@/lib/analytics";
+import { trackEvent } from "@/lib/track";
 
 /* ------------------------------------------------------------------ */
 /*  i18n — EN / ES UI strings                                         */
@@ -255,6 +256,12 @@ export default function CareerInsights({ onComplete, onSkip, roleId }: CareerIns
       const assessmentResults = calculateAssessmentResults(updatedAnswers, locale, roleId);
       setResults(assessmentResults);
       trackAssessmentComplete(roleId || "general", assessmentResults.overallScore);
+      trackEvent({
+        event_type: "assessment_complete",
+        tool_name: "career-assessment",
+        item_id: roleId || "general",
+        metadata: { score: assessmentResults.overallScore },
+      });
       onComplete(assessmentResults);
     }
   }

@@ -15,14 +15,14 @@ export default function AnnouncementBar() {
   return (
     <div className="relative bg-gradient-to-r from-amber-500 to-amber-400 text-stone-900">
       <Link
-        href="/blog/fqhc-ai-scribes-what-workers-need-to-know"
+        href="/"
         className="flex items-center justify-center gap-2 px-8 py-2 text-center text-xs font-semibold sm:text-sm"
       >
         <Zap className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "66% de médicos ya usan IA para documentación. Cómo cambia tu trabajo en FQHCs — leer análisis →"
-            : "66% of physicians now use AI scribes. How ambient AI is changing FQHC workflows — read analysis →"}
+            ? "STAT News: La mayor amenaza para los FQHCs no son los recortes — es la insolvencia estructural. Márgenes en -2.1% →"
+            : "STAT News: FQHCs' greatest threat isn't funding cuts — it's structural insolvency. Margins at -2.1% →"}
         </span>
       </Link>
       <button

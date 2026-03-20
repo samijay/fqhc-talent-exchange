@@ -28,6 +28,7 @@ import {
 } from "@/lib/manager-assessment-engine";
 import { TeamReadinessResults } from "./TeamReadinessResults";
 import { trackManagerAssessmentStart, trackManagerAssessmentComplete } from "@/lib/analytics";
+import { trackEvent } from "@/lib/track";
 
 /* ------------------------------------------------------------------ */
 /*  i18n                                                                */
@@ -174,6 +175,12 @@ export function TeamReadinessAssessment() {
       );
       setResults(assessmentResults);
       trackManagerAssessmentComplete(selectedRole, assessmentResults.overallScore);
+      trackEvent({
+        event_type: "assessment_complete",
+        tool_name: "team-readiness",
+        item_id: selectedRole,
+        metadata: { score: assessmentResults.overallScore },
+      });
       setScreen("results");
 
       // Background save — fire and forget, never blocks the UI

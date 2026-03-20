@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-17";
+export const INTEL_LAST_UPDATED = "2026-03-20";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -91,6 +91,40 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 
 export const INTEL_ITEMS: IntelItem[] = [
   /* ============================================================== */
+  /*  MARCH 20, 2026 — DAILY UPDATE #24                             */
+  /* ============================================================== */
+  {
+    id: "chcf-rural-north-medicaid-devastation-report",
+    date: "2026-03-20",
+    headline: {
+      en: "CHCF: Federal Medicaid Cuts Would 'Devastate' California's Rural North Health Systems",
+      es: "CHCF: Recortes Federales de Medicaid 'Devastarían' los Sistemas de Salud del Norte Rural de California",
+    },
+    summary: {
+      en: "A new CHCF analysis details how H.R. 1's Medicaid cuts threaten rural Northern California FQHCs. At Shasta Community Health Center, 82% of patient visits are Medi-Cal (60% of revenue). Hill Country CHC's CEO warns: 'If I lose 30% of my revenue, I will have to make a 30% reduction' in staff and services. Drug overdose deaths in Shasta/Lassen are 70% above statewide rates, and the average ACE score is 5 (vs. 2 statewide). Enhanced premium subsidies expired Jan 1, affecting ~9,800 residents. CHCF hosting in-person event in Redding April 2 to discuss findings.",
+      es: "Un nuevo análisis de CHCF detalla cómo los recortes de Medicaid de H.R. 1 amenazan a los FQHCs del norte rural de California. En Shasta CHC, 82% de las visitas son Medi-Cal (60% de ingresos). La CEO de Hill Country CHC advierte: 'Si pierdo 30% de mis ingresos, tendré que hacer una reducción del 30%.' Las muertes por sobredosis en Shasta/Lassen están 70% por encima del promedio estatal. CHCF organiza evento presencial en Redding el 2 de abril.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl:
+      "https://www.chcf.org/resource/federal-medicaid-cuts-would-devastate-health-care-systems-californias-vast-rural-north/",
+    sourceOrg: "California Health Care Foundation",
+    region: "Shasta County",
+    affectedOrgSlugs: [
+      "shasta-community-health-center",
+      "hill-country-community-clinic",
+    ],
+    tags: [
+      "rural-health",
+      "medicaid-cuts",
+      "hr1",
+      "north-state",
+      "chcf",
+      "medi-cal",
+    ],
+  },
+  /* ============================================================== */
   /*  March 17, 2026                                                 */
   /* ============================================================== */
   {
@@ -106,7 +140,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     },
     category: "funding" as IntelCategory,
     impactLevel: "high" as ImpactLevel,
-    type: "analysis" as IntelType,
+    type: "news" as IntelType,
     sourceUrl: "https://www.statnews.com/2026/03/17/federally-qualified-health-centers-fqhcs-crisis/",
     sourceOrg: "STAT News",
     region: "Federal",

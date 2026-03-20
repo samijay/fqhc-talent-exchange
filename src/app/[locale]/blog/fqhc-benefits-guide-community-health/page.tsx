@@ -4,6 +4,7 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, TotalCompVisual } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
+import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 
 interface ArticleContent {
   category: string;
@@ -598,6 +599,7 @@ export default async function FqhcBenefitsGuideArticle() {
         ]}
       />
       <ContentViewTracker contentType="blog" contentId="fqhc-benefits-guide-community-health" />
+      <BlogArticleToolbar slug="fqhc-benefits-guide-community-health" />
 
       <article className="py-16 px-6">
         <div className="max-w-3xl mx-auto">

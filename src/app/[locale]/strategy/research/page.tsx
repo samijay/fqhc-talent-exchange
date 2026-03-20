@@ -39,6 +39,7 @@ import { SyllabusReader } from "@/components/research/SyllabusReader";
 import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
 import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
 import { ShareButton } from "@/components/share/ShareButton";
+import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -107,9 +108,14 @@ function EntryCard({
           </p>
         </div>
 
-        <span className="shrink-0 mt-1 text-stone-400">
-          {isExpanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
-        </span>
+        <div className="shrink-0 mt-1 flex items-center gap-1">
+          <div onClick={(e) => e.stopPropagation()}>
+            <FavoriteButton contentType="research" contentId={entry.id} size="sm" />
+          </div>
+          <span className="text-stone-400">
+            {isExpanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+          </span>
+        </div>
       </button>
 
       {isExpanded && (

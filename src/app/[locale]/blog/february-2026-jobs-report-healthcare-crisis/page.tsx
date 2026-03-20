@@ -4,6 +4,7 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, StatCallout } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
+import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 
 interface ArticleContent {
   category: string;
@@ -432,6 +433,7 @@ export default async function FebruaryJobsReportArticle() {
         ]}
       />
       <ContentViewTracker contentType="blog" contentId="february-2026-jobs-report-healthcare-crisis" />
+      <BlogArticleToolbar slug="february-2026-jobs-report-healthcare-crisis" />
 
       <article className="px-6 py-16">
         <div className="mx-auto max-w-3xl">

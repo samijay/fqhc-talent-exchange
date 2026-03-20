@@ -28,6 +28,9 @@ import {
   type StrategyCategory,
   type FQHCCaseStudy,
 } from "@/lib/fqhc-case-studies";
+import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
+import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
+import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -46,12 +49,14 @@ function CaseStudyCard({
   isEs,
   isExpanded,
   onToggle,
+  read,
 }: {
   cs: FQHCCaseStudy;
   locale: string;
   isEs: boolean;
   isExpanded: boolean;
   onToggle: () => void;
+  read: ContentRead | undefined;
 }) {
   const catMeta = STRATEGY_CATEGORIES.find((c) => c.id === cs.strategyCategory);
   const diffMeta = DIFFICULTY_META.find((d) => d.id === cs.difficulty);
@@ -81,7 +86,10 @@ function CaseStudyCard({
               )}
               <span className="text-xs text-stone-400">{cs.location}</span>
             </div>
-            <h3 className="text-lg font-bold text-stone-900">{cs.fqhcName}</h3>
+            <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+              <ReadStatusBadge read={read} />
+              {cs.fqhcName}
+            </h3>
             <div className="flex items-center gap-1.5 mt-1 text-xs text-stone-400">
               <Calendar className="size-3" />
               <span>{cs.timeframe}</span>
@@ -89,6 +97,9 @@ function CaseStudyCard({
             <p className="mt-2 text-sm text-stone-500">
               {t(cs.headline, locale)}
             </p>
+          </div>
+          <div className="flex flex-shrink-0 items-center gap-1 mt-1" onClick={(e) => e.stopPropagation()}>
+            <FavoriteButton contentType="case-study" contentId={cs.id} size="sm" />
           </div>
           <div className="flex-shrink-0 mt-1 text-stone-400">
             {isExpanded ? (
@@ -242,12 +253,14 @@ export default function ExecutiveGuidesPage() {
   const isEs = locale === "es";
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
   const [activeCategory, setActiveCategory] = useState<StrategyCategory | "all">("all");
+  const { reads, markAsReading } = useContentReads("case-study");
 
   const toggle = (id: string) => {
     setExpandedIds((prev) => {
       const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
+      const expanding = !next.has(id);
+      if (expanding) { next.add(id); markAsReading(id); }
+      else next.delete(id);
       return next;
     });
   };
@@ -416,6 +429,7 @@ export default function ExecutiveGuidesPage() {
                 isEs={isEs}
                 isExpanded={expandedIds.has(cs.id)}
                 onToggle={() => toggle(cs.id)}
+                read={reads.get(cs.id)}
               />
             ))}
           </div>

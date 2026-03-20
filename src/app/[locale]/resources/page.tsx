@@ -31,6 +31,9 @@ import {
   type ResourceCategory,
   type CostTier,
 } from "@/lib/career-resources";
+import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
+import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
+import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -127,9 +130,13 @@ const YOUR_TOOLS = [
 function ResourceCard({
   resource,
   locale,
+  read,
+  onVisit,
 }: {
   resource: CareerResource;
   locale: string;
+  read: ContentRead | undefined;
+  onVisit: () => void;
 }) {
   const isEs = locale === "es";
   const hasDeadline = resource.deadline && daysUntil(resource.deadline) > 0;
@@ -146,12 +153,14 @@ function ResourceCard({
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1">
           <div className="flex items-center gap-2 flex-wrap">
+            <ReadStatusBadge read={read} />
             <h3 className="font-semibold text-stone-900">
               {t(resource.name, locale)}
             </h3>
             {resource.isFeatured && (
               <Star className="size-4 fill-amber-400 text-amber-400" />
             )}
+            <FavoriteButton contentType="resource" contentId={resource.id} size="sm" />
           </div>
           <p className="mt-0.5 text-sm text-stone-500">{resource.sourceOrg}</p>
         </div>
@@ -209,6 +218,7 @@ function ResourceCard({
         href={resource.url}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={onVisit}
         className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-teal-50 px-4 py-2 text-sm font-medium text-teal-700 transition-colors hover:bg-teal-100"
       >
         {isEs ? "Visitar Programa" : "Visit Program"}
@@ -230,6 +240,7 @@ export default function ResourcesPage() {
     ResourceCategory | "all"
   >("all");
   const [costFilter, setCostFilter] = useState<CostTier | "all">("all");
+  const { reads, markAsRead } = useContentReads("resource");
 
   const upcomingDeadlines = useMemo(() => getUpcomingDeadlines(), []);
   const sources = useMemo(() => getAllSources(), []);
@@ -405,6 +416,8 @@ export default function ResourcesPage() {
                       key={resource.id}
                       resource={resource}
                       locale={locale}
+                      read={reads.get(resource.id)}
+                      onVisit={() => markAsRead(resource.id)}
                     />
                   ))}
                 </div>

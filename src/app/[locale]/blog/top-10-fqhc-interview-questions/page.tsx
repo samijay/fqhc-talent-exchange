@@ -3,6 +3,7 @@ import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
+import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 
 interface ArticleContent {
   category: string;
@@ -493,6 +494,7 @@ export default async function TopFqhcInterviewQuestionsArticle() {
         ]}
       />
       <ContentViewTracker contentType="blog" contentId="top-10-fqhc-interview-questions" />
+      <BlogArticleToolbar slug="top-10-fqhc-interview-questions" />
 
       <article className="py-16 px-6">
         <div className="max-w-3xl mx-auto">

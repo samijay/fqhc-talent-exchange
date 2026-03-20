@@ -36,6 +36,7 @@ import {
 import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
 import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
 import { ShareButton } from "@/components/share/ShareButton";
+import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -111,12 +112,17 @@ function MasterclassCard({
               {t(mc.subtitle, locale)}
             </p>
           </div>
-          <div className="flex-shrink-0 mt-1 text-stone-400">
-            {isExpanded ? (
-              <ChevronUp className="size-5" />
-            ) : (
-              <ChevronDown className="size-5" />
-            )}
+          <div className="flex-shrink-0 mt-1 flex items-center gap-1">
+            <div onClick={(e) => e.stopPropagation()}>
+              <FavoriteButton contentType="masterclass" contentId={mc.id} size="sm" />
+            </div>
+            <span className="text-stone-400">
+              {isExpanded ? (
+                <ChevronUp className="size-5" />
+              ) : (
+                <ChevronDown className="size-5" />
+              )}
+            </span>
           </div>
         </div>
 

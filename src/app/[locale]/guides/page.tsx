@@ -34,6 +34,7 @@ import {
 import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
 import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
 import { ShareButton } from "@/components/share/ShareButton";
+import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -132,13 +133,18 @@ function GuideCard({
           </div>
         </div>
 
-        {/* Expand/collapse icon */}
-        <div className="flex-shrink-0 mt-1 text-stone-400">
-          {expanded ? (
-            <ChevronUp className="h-5 w-5" />
-          ) : (
-            <ChevronDown className="h-5 w-5" />
-          )}
+        {/* Favorite + Expand/collapse icon */}
+        <div className="flex-shrink-0 mt-1 flex items-center gap-1">
+          <div onClick={(e) => e.stopPropagation()}>
+            <FavoriteButton contentType="guide" contentId={guide.id} size="sm" />
+          </div>
+          <span className="text-stone-400">
+            {expanded ? (
+              <ChevronUp className="h-5 w-5" />
+            ) : (
+              <ChevronDown className="h-5 w-5" />
+            )}
+          </span>
         </div>
       </button>
 

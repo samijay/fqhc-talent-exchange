@@ -216,3 +216,13 @@ export const CONTENT_TYPE_LABELS: Record<string, { en: string; es: string }> = {
   blog: { en: "Blog", es: "Blog" },
   research: { en: "Research", es: "Investigacion" },
 };
+
+export const TOOL_EVENT_LABELS: Record<string, { en: string; es: string }> = {
+  resume_create: { en: "Resumes Created", es: "Currículos Creados" },
+  okr_download: { en: "OKR Downloads", es: "Descargas OKR" },
+  okr_download_all: { en: "Full OKR Packs", es: "Paquetes OKR Completos" },
+  assessment_complete: { en: "Assessments Completed", es: "Evaluaciones Completadas" },
+  simulator_run: { en: "Simulator Runs", es: "Simulaciones" },
+  pathway_start: { en: "Pathways Started", es: "Rutas Iniciadas" },
+  pathway_complete: { en: "Pathways Completed", es: "Rutas Completadas" },
+};
