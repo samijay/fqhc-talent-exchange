@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { Suspense, useEffect, useState, useCallback } from "react";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -97,17 +97,22 @@ function SkeletonCard() {
   );
 }
 
-// ── Page ──
+// ── Page (inner) ──
 
-export default function AdminAnalyticsPage() {
+function AdminAnalyticsInner() {
   const { user, loading: authLoading } = useAuth();
+  const searchParams = useSearchParams();
+  const secretKey = searchParams.get("key");
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   const fetchData = useCallback(async () => {
     try {
-      const res = await fetch("/api/admin/analytics");
+      const apiUrl = secretKey
+        ? `/api/admin/analytics?key=${encodeURIComponent(secretKey)}`
+        : "/api/admin/analytics";
+      const res = await fetch(apiUrl);
       if (res.status === 401) {
         setError("sign-in");
         return;
@@ -136,10 +141,10 @@ export default function AdminAnalyticsPage() {
     fetchData();
     const interval = setInterval(fetchData, 60_000);
     return () => clearInterval(interval);
-  }, [authLoading, fetchData]);
+  }, [authLoading, fetchData, secretKey]);
 
-  // Auth loading
-  if (authLoading) {
+  // Auth loading (skip if using secret key)
+  if (authLoading && !secretKey) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-stone-50 dark:bg-stone-900">
         <p className="text-stone-500">Checking auth...</p>
@@ -147,8 +152,8 @@ export default function AdminAnalyticsPage() {
     );
   }
 
-  // Not signed in
-  if (error === "sign-in" || (!user && !loading)) {
+  // Not signed in (skip if using secret key)
+  if (!secretKey && (error === "sign-in" || (!user && !loading))) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-stone-50 dark:bg-stone-900">
         <h1 className="text-xl font-bold text-stone-800 dark:text-stone-200">Sign in required</h1>
@@ -366,5 +371,21 @@ export default function AdminAnalyticsPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+// ── Page (exported) ──
+
+export default function AdminAnalyticsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-stone-50 dark:bg-stone-900">
+          <div className="size-8 animate-spin rounded-full border-2 border-stone-300 border-t-teal-700" />
+        </div>
+      }
+    >
+      <AdminAnalyticsInner />
+    </Suspense>
   );
 }
