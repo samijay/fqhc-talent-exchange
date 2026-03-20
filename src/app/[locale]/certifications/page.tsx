@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, Suspense } from "react";
+import { useState, useMemo, useCallback, Suspense } from "react";
 import {
   Award,
   DollarSign,
@@ -15,6 +15,8 @@ import {
   FileText,
   ClipboardCheck,
   Briefcase,
+  Share2,
+  Check,
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
@@ -28,18 +30,31 @@ import {
 
 const ROLE_OPTIONS = [
   { id: "all", en: "All Roles", es: "Todos los roles" },
+  // Clinical & Care
   { id: "chw", en: "Community Health Worker", es: "Promotor(a) de Salud" },
   { id: "care_coordinator", en: "Care Coordinator", es: "Coordinador(a) de Cuidado" },
   { id: "medical_assistant", en: "Medical Assistant", es: "Asistente Médico" },
   { id: "case_manager", en: "Case Manager", es: "Gerente de Casos" },
   { id: "behavioral_health", en: "BH Specialist", es: "Especialista en Salud Conductual" },
   { id: "registered_nurse", en: "Registered Nurse", es: "Enfermero(a) Registrado(a)" },
+  { id: "charge-nurse", en: "Charge Nurse", es: "Enfermero(a) a Cargo" },
+  { id: "nurse-manager", en: "Nurse Manager", es: "Gerente de Enfermería" },
+  { id: "cno", en: "Chief Nursing Officer", es: "Director(a) de Enfermería" },
+  { id: "licensed-therapist", en: "Licensed Therapist", es: "Terapeuta Licenciado(a)" },
+  // Operations & Admin
   { id: "patient_services", en: "Patient Services", es: "Servicios al Paciente" },
-  { id: "revenue_cycle", en: "Revenue Cycle", es: "Ciclo de Ingresos" },
+  { id: "clinical-ops-supervisor", en: "Clinical Ops Supervisor", es: "Supervisor(a) de Ops Clínicas" },
   { id: "hr_manager", en: "HR Manager", es: "Gerente de Recursos Humanos" },
+  // Finance & Revenue
+  { id: "revenue_cycle", en: "Revenue Cycle", es: "Ciclo de Ingresos" },
   { id: "accountant", en: "Accountant", es: "Contador(a)" },
   { id: "payroll_specialist", en: "Payroll Specialist", es: "Especialista en Nómina" },
   { id: "finance_manager", en: "Finance Manager", es: "Gerente de Finanzas" },
+  { id: "director-finance", en: "Finance Director", es: "Director(a) de Finanzas" },
+  // Compliance
+  { id: "compliance_analyst", en: "Compliance Analyst", es: "Analista de Cumplimiento" },
+  { id: "compliance_officer", en: "Compliance Officer", es: "Oficial de Cumplimiento" },
+  { id: "compliance_manager", en: "Compliance Manager", es: "Gerente de Cumplimiento" },
 ];
 
 const COST_OPTIONS: { id: CostTier | "all"; en: string; es: string }[] = [
@@ -77,10 +92,45 @@ function CertificationsContent() {
   const searchParams = useSearchParams();
 
   const initialRole = searchParams.get("role") || "all";
+  const initialCost = (searchParams.get("cost") || "all") as CostTier | "all";
+  const initialType = (searchParams.get("type") || "all") as CertImpactType | "all";
   const [roleFilter, setRoleFilter] = useState(initialRole);
-  const [costFilter, setCostFilter] = useState<CostTier | "all">("all");
-  const [typeFilter, setTypeFilter] = useState<CertImpactType | "all">("all");
+  const [costFilter, setCostFilter] = useState<CostTier | "all">(initialCost);
+  const [typeFilter, setTypeFilter] = useState<CertImpactType | "all">(initialType);
   const [expandedCert, setExpandedCert] = useState<string | null>(null);
+  const [shareState, setShareState] = useState<"idle" | "copied">("idle");
+
+  const syncUrl = useCallback((role: string, cost: string, type: string) => {
+    const localePath = locale === "es" ? "/es" : "";
+    const params = new URLSearchParams();
+    if (role !== "all") params.set("role", role);
+    if (cost !== "all") params.set("cost", cost);
+    if (type !== "all") params.set("type", type);
+    const qs = params.toString();
+    window.history.replaceState({}, "", `${localePath}/certifications${qs ? `?${qs}` : ""}`);
+  }, [locale]);
+
+  const handleShare = useCallback(async () => {
+    const base = typeof window !== "undefined" ? window.location.origin : "";
+    const localePath = locale === "es" ? "/es" : "";
+    const params = new URLSearchParams();
+    if (roleFilter !== "all") params.set("role", roleFilter);
+    if (costFilter !== "all") params.set("cost", costFilter);
+    if (typeFilter !== "all") params.set("type", typeFilter);
+    const qs = params.toString();
+    const url = `${base}${localePath}/certifications${qs ? `?${qs}` : ""}`;
+
+    if (navigator.share) {
+      try { await navigator.share({ title: isEs ? "Certificaciones FQHC" : "FQHC Certifications", url }); return; } catch { /* fall through */ }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setShareState("copied");
+      setTimeout(() => setShareState("idle"), 2000);
+    } catch {
+      window.prompt(isEs ? "Copia este enlace:" : "Copy this link:", url);
+    }
+  }, [locale, roleFilter, costFilter, typeFilter, isEs]);
 
   const filtered = useMemo(() => {
     return CERTIFICATIONS.filter((cert) => {
@@ -120,6 +170,16 @@ function CertificationsContent() {
               ? "15 certificaciones con costos, duración, impacto salarial y programas de capacitación específicos de California."
               : "15 certifications with costs, duration, salary impact, and California-specific training programs."}
           </p>
+          <button
+            onClick={handleShare}
+            className="mt-4 inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-700/40 px-4 py-2 text-sm font-medium text-teal-200 transition-all hover:bg-teal-700/60"
+          >
+            {shareState === "copied" ? (
+              <><Check className="size-4" />{isEs ? "¡Enlace copiado!" : "Link copied!"}</>
+            ) : (
+              <><Share2 className="size-4" />{isEs ? "Compartir" : "Share"}</>
+            )}
+          </button>
         </div>
       </section>
 
@@ -137,7 +197,7 @@ function CertificationsContent() {
               </label>
               <select
                 value={roleFilter}
-                onChange={(e) => setRoleFilter(e.target.value)}
+                onChange={(e) => { setRoleFilter(e.target.value); syncUrl(e.target.value, costFilter, typeFilter); }}
                 className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-700 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
               >
                 {ROLE_OPTIONS.map((opt) => (
@@ -153,7 +213,7 @@ function CertificationsContent() {
               </label>
               <select
                 value={costFilter}
-                onChange={(e) => setCostFilter(e.target.value as CostTier | "all")}
+                onChange={(e) => { const v = e.target.value as CostTier | "all"; setCostFilter(v); syncUrl(roleFilter, v, typeFilter); }}
                 className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-700 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
               >
                 {COST_OPTIONS.map((opt) => (
@@ -169,7 +229,7 @@ function CertificationsContent() {
               </label>
               <select
                 value={typeFilter}
-                onChange={(e) => setTypeFilter(e.target.value as CertImpactType | "all")}
+                onChange={(e) => { const v = e.target.value as CertImpactType | "all"; setTypeFilter(v); syncUrl(roleFilter, costFilter, v); }}
                 className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-700 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
               >
                 {TYPE_OPTIONS.map((opt) => (

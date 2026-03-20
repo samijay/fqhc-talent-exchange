@@ -568,7 +568,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$8,000–$12,000/año",
     impactType: "salary_boost",
     requiredFor: [],
-    helpfulFor: ["program-manager", "director-community", "director-clinical-ops"],
+    helpfulFor: ["program-manager", "director-community", "director-clinical-ops", "clinical-ops-supervisor", "cno"],
     description:
       "Globally recognized project management credential. Valuable for FQHC program managers overseeing grants, clinical programs, and operational initiatives.",
     esDescription:
@@ -608,7 +608,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "Requerido para roles de RN",
     impactType: "required",
     requiredFor: ["registered_nurse", "charge-nurse"],
-    helpfulFor: ["nurse-manager"],
+    helpfulFor: ["nurse-manager", "cno"],
     description:
       "Advanced emergency cardiac care certification. Required for most RN positions in FQHCs, especially those handling urgent/emergent situations.",
     esDescription:
@@ -647,7 +647,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$3,000–$8,000/año",
     impactType: "salary_boost",
     requiredFor: ["revenue_cycle"],
-    helpfulFor: ["revenue-manager", "compliance-officer"],
+    helpfulFor: ["revenue-manager", "compliance_officer"],
     description:
       "AHIMA's gold-standard certification for medical coding. Validates expertise in ICD-10-CM, ICD-10-PCS, and CPT/HCPCS coding systems. Covers both inpatient and outpatient coding, Medicare/Medicaid compliance, and reimbursement methodology. Open-book exam with 107 questions over 4 hours.",
     esDescription:
@@ -687,7 +687,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$15,000–$30,000/año",
     impactType: "salary_boost",
     requiredFor: [],
-    helpfulFor: ["revenue-manager", "compliance-officer", "director-clinical-ops"],
+    helpfulFor: ["revenue-manager", "compliance_officer", "compliance_analyst", "director-clinical-ops"],
     description:
       "The highest AHIMA credential for health information management professionals. RHIAs manage medical records systems, ensure data quality and integrity, oversee coding operations, and maintain HIPAA compliance. They lead HIM departments, design health data systems, and run privacy/security programs.",
     esDescription:
@@ -727,7 +727,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$5,000–$12,000/año",
     impactType: "salary_boost",
     requiredFor: [],
-    helpfulFor: ["revenue_cycle", "revenue-manager", "compliance-officer"],
+    helpfulFor: ["revenue_cycle", "revenue-manager", "compliance_officer", "compliance_analyst"],
     description:
       "Advanced AAPC credential for medical record documentation review, coding accuracy validation, compliance risk assessment, and fraud/abuse identification. Unlike pure coding credentials, the CPMA tests the ability to evaluate whether coding and documentation support medical necessity and meet payer requirements.",
     esDescription:
@@ -809,7 +809,7 @@ export const CERTIFICATIONS: Certification[] = [
     requiredFor: [],
     helpfulFor: [
       "medical_assistant", "patient_services", "care_coordinator",
-      "registered_nurse", "program-manager",
+      "registered_nurse", "program-manager", "clinical-ops-supervisor", "cno",
     ],
     description:
       "Training on telehealth operations for non-clinical staff. Covers the facilitator role within interprofessional teams, telehealth delivery types, troubleshooting technical issues, legal/ethical/regulatory considerations, and 'webside manner.' Designed for staff who support virtual visit operations.",
@@ -851,7 +851,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$8,000–$12,000/año",
     impactType: "salary_boost",
     requiredFor: [],
-    helpfulFor: ["compliance_officer", "quality_officer", "revenue_cycle", "finance_manager"],
+    helpfulFor: ["compliance_officer", "compliance_analyst", "compliance_manager", "senior_compliance_analyst", "quality_officer", "revenue_cycle", "finance_manager"],
     description: "National certification for healthcare compliance professionals. Covers fraud/abuse, HIPAA, coding compliance, OIG guidance, and compliance program management. The gold standard for FQHC compliance officers.",
     esDescription: "Certificación nacional para profesionales de cumplimiento de salud. Cubre fraude/abuso, HIPAA, cumplimiento de codificación, guía OIG y gestión de programas de cumplimiento.",
     californiaNote: "Increasingly required by larger FQHCs and ACOs in California. CHC-certified compliance officers can lead OSV prep, manage HIPAA programs, and oversee billing compliance. HCCA offers exam prep academies 3x/year.",
@@ -887,7 +887,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "Requerido — no diferenciador salarial",
     impactType: "required",
     requiredFor: [],
-    helpfulFor: ["compliance_officer", "registered_nurse", "medical_assistant", "care_coordinator", "patient_services", "revenue_cycle", "hr_manager"],
+    helpfulFor: ["compliance_officer", "compliance_analyst", "registered_nurse", "medical_assistant", "care_coordinator", "patient_services", "revenue_cycle", "hr_manager"],
     description: "Mandatory annual training for all HIPAA-covered entity workforce members. Documents compliance with 45 CFR 164.530(b) training requirements. Covers patient privacy rights, minimum necessary standard, breach notification, and security safeguards.",
     esDescription: "Capacitación anual obligatoria para todos los miembros de entidades cubiertas por HIPAA. Documenta cumplimiento con requisitos de capacitación 45 CFR 164.530(b). Cubre derechos de privacidad del paciente y salvaguardas de seguridad.",
     californiaNote: "California's CCPA/CPRA imposes stricter privacy requirements beyond HIPAA. Many FQHCs require combined HIPAA + CCPA training. Training completion records are the #1 item OCR auditors check during HIPAA investigations.",
@@ -923,7 +923,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$3,000–$5,000/año",
     impactType: "salary_boost",
     requiredFor: [],
-    helpfulFor: ["revenue_cycle", "finance_manager", "accountant"],
+    helpfulFor: ["revenue_cycle", "finance_manager", "director-finance", "accountant", "payroll_specialist"],
     description: "Deep expertise in FQHC Prospective Payment System methodology, same-day billing rules, encounter documentation requirements, and HRSA cost accounting. Critical for audit defense and revenue optimization.",
     esDescription: "Experiencia profunda en metodología PPS de FQHC, reglas de facturación del mismo día, requisitos de documentación de encuentros y contabilidad de costos HRSA. Crítico para defensa de auditoría.",
     californiaNote: "FQHC billing specialists in California must understand federal PPS rules, Medi-Cal Alternative Payment Methodology (APM), and the July 2026 PPS elimination for UIS patients. CPCA offers annual billing conferences and NACHC has online PPS training modules.",
@@ -959,7 +959,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$8,000–$15,000/año",
     impactType: "salary_boost",
     requiredFor: [],
-    helpfulFor: ["compliance_officer", "privacy_officer", "chief_compliance"],
+    helpfulFor: ["compliance_officer", "compliance_analyst", "compliance_manager", "senior_compliance_analyst", "privacy_officer", "chief_compliance"],
     description:
       "National certification for healthcare privacy and compliance professionals. Demonstrates expertise in HIPAA regulations, privacy governance, breach response, and FQHC-specific privacy risk management.",
     esDescription:
@@ -999,7 +999,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$12,000–$20,000/año",
     impactType: "salary_boost",
     requiredFor: [],
-    helpfulFor: ["chief_compliance", "compliance_officer", "finance_manager"],
+    helpfulFor: ["chief_compliance", "compliance_officer", "compliance_analyst", "compliance_manager", "senior_compliance_analyst", "finance_manager"],
     description:
       "Advanced certification for senior compliance professionals and organizational leaders. Covers compliance program design, investigations, training, monitoring, and ethics in healthcare settings.",
     esDescription:
@@ -1039,7 +1039,7 @@ export const CERTIFICATIONS: Certification[] = [
     esSalaryImpact: "+$3,000–$6,000/año",
     impactType: "salary_boost",
     requiredFor: [],
-    helpfulFor: ["safety_officer", "hr_manager", "facility_manager", "supervisor"],
+    helpfulFor: ["safety_officer", "hr_manager", "compliance_officer", "compliance_analyst", "compliance_manager", "facility_manager", "supervisor", "clinical-ops-supervisor"],
     description:
       "Comprehensive healthcare occupational safety certification covering bloodborne pathogen exposure control, healthcare worker injury prevention, workplace violence prevention, and Cal/OSHA compliance for FQHC environments.",
     esDescription:
@@ -1101,6 +1101,256 @@ export const CERTIFICATIONS: Certification[] = [
       "ASIS International — Profesionales de Seguridad en Atención Médica",
     ],
   },
+  {
+    id: "shrm-cp",
+    name: "SHRM Certified Professional",
+    esName: "Profesional Certificado SHRM",
+    abbreviation: "SHRM-CP",
+    issuer: "Society for Human Resource Management (SHRM)",
+    esIssuer: "Sociedad para la Gestión de Recursos Humanos (SHRM)",
+    costRange: "$435–$595 exam fee (early bird member / non-member)",
+    esCostRange: "$435–$595 tarifa de examen (miembro anticipado / no miembro)",
+    costTier: "under_1000",
+    duration: "2–4 months preparation (recommended 60–80 study hours)",
+    esDuration: "2–4 meses de preparación (60–80 horas de estudio recomendadas)",
+    renewalPeriod: "Every 3 years (60 PDCs — Professional Development Credits)",
+    esRenewalPeriod: "Cada 3 años (60 PDCs — Créditos de Desarrollo Profesional)",
+    salaryImpact: "+$5,000–$10,000/year",
+    esSalaryImpact: "+$5,000–$10,000/año",
+    impactType: "salary_boost",
+    requiredFor: [],
+    helpfulFor: ["hr_manager"],
+    description:
+      "The SHRM-CP validates competency in HR operations, employee relations, talent acquisition, and compliance. Covers behavioral competencies (leadership, ethical practice, relationship management) and HR knowledge domains (people, organization, workplace). Widely recognized in healthcare HR.",
+    esDescription:
+      "El SHRM-CP valida competencia en operaciones de RRHH, relaciones laborales, adquisición de talento y cumplimiento. Cubre competencias conductuales (liderazgo, práctica ética, gestión de relaciones) y dominios de conocimiento de RRHH. Ampliamente reconocido en RRHH de atención médica.",
+    californiaNote:
+      "Highly valued in California FQHC HR departments, especially for compliance with SB 525 (healthcare minimum wage), AB 1825 (harassment prevention training), and DFEH reporting requirements. Many FQHC HR manager job postings list SHRM-CP as preferred.",
+    esCaliforniaNote:
+      "Muy valorado en departamentos de RRHH de FQHC de California, especialmente para cumplimiento con SB 525 (salario mínimo de salud), AB 1825 (capacitación de prevención de acoso) y requisitos de reporte DFEH. Muchas publicaciones de empleo listan SHRM-CP como preferido.",
+    whereToGet: [
+      "SHRM — shrm.org (computer-based testing at Prometric centers)",
+      "UCLA Extension — HR Management Certificate (SHRM-aligned)",
+      "UC Irvine Division of Continuing Education — HR Program",
+      "San Diego State University — SHRM Learning System",
+      "Cal State Fullerton — HR Certificate Program",
+    ],
+    esWhereToGet: [
+      "SHRM — shrm.org (examen por computadora en centros Prometric)",
+      "UCLA Extension — Certificado de Gestión de RRHH (alineado con SHRM)",
+      "UC Irvine División de Educación Continua — Programa de RRHH",
+      "San Diego State University — Sistema de Aprendizaje SHRM",
+      "Cal State Fullerton — Programa de Certificado de RRHH",
+    ],
+  },
+  {
+    id: "phr",
+    name: "Professional in Human Resources",
+    esName: "Profesional en Recursos Humanos",
+    abbreviation: "PHR",
+    issuer: "HR Certification Institute (HRCI)",
+    esIssuer: "Instituto de Certificación de RRHH (HRCI)",
+    costRange: "$395 exam fee + $100 application",
+    esCostRange: "$395 tarifa de examen + $100 solicitud",
+    costTier: "under_500",
+    duration: "2–4 months preparation",
+    esDuration: "2–4 meses de preparación",
+    renewalPeriod: "Every 3 years (60 recertification credits)",
+    esRenewalPeriod: "Cada 3 años (60 créditos de recertificación)",
+    salaryImpact: "+$5,000–$10,000/year",
+    esSalaryImpact: "+$5,000–$10,000/año",
+    impactType: "salary_boost",
+    requiredFor: [],
+    helpfulFor: ["hr_manager"],
+    description:
+      "The PHR demonstrates mastery of technical and operational aspects of HR management. Covers employee and labor relations (39%), business management (20%), talent planning and acquisition (16%), total rewards (15%), and learning and development (10%). Strong focus on US employment law.",
+    esDescription:
+      "El PHR demuestra dominio de aspectos técnicos y operativos de la gestión de RRHH. Cubre relaciones laborales (39%), gestión empresarial (20%), planificación y adquisición de talento (16%), recompensas totales (15%) y aprendizaje y desarrollo (10%).",
+    californiaNote:
+      "The PHR California (PHRca) add-on certification covers CA-specific employment law: FEHA, Cal/OSHA, DFEH, Wage Orders, CFRA, and Paid Family Leave. Highly relevant for FQHCs navigating SB 525 minimum wage implementation and healthcare staffing regulations.",
+    esCaliforniaNote:
+      "La certificación adicional PHR California (PHRca) cubre leyes laborales específicas de CA: FEHA, Cal/OSHA, DFEH, Órdenes Salariales, CFRA y Licencia Familiar Pagada. Muy relevante para FQHCs que navegan la implementación del salario mínimo SB 525.",
+    whereToGet: [
+      "HRCI — hrci.org (Pearson VUE testing centers)",
+      "UCLA Extension — PHR/SPHR Exam Prep",
+      "UC Berkeley Extension — HR Management Program",
+      "USC Bovard College — Human Resource Management Certificate",
+      "San José State University — HR Certificate with PHR prep",
+    ],
+    esWhereToGet: [
+      "HRCI — hrci.org (centros de prueba Pearson VUE)",
+      "UCLA Extension — Preparación para examen PHR/SPHR",
+      "UC Berkeley Extension — Programa de Gestión de RRHH",
+      "USC Bovard College — Certificado de Gestión de Recursos Humanos",
+      "San José State University — Certificado de RRHH con preparación PHR",
+    ],
+  },
+  {
+    id: "chhr",
+    name: "Certified in Healthcare Human Resources",
+    esName: "Certificado en Recursos Humanos de Salud",
+    abbreviation: "CHHR",
+    issuer: "American Society for Healthcare Human Resources Administration (ASHHRA/AHA)",
+    esIssuer: "Sociedad Americana de Administración de Recursos Humanos de Salud (ASHHRA/AHA)",
+    costRange: "$295–$425 exam fee (member/non-member)",
+    esCostRange: "$295–$425 tarifa de examen (miembro/no miembro)",
+    costTier: "under_500",
+    duration: "2–4 months preparation (requires 5–8 years healthcare HR experience)",
+    esDuration: "2–4 meses de preparación (requiere 5–8 años de experiencia en RRHH de salud)",
+    renewalPeriod: "Every 3 years (professional development through ASHHRA)",
+    esRenewalPeriod: "Cada 3 años (desarrollo profesional a través de ASHHRA)",
+    salaryImpact: "+$8,000–$15,000/year",
+    esSalaryImpact: "+$8,000–$15,000/año",
+    impactType: "salary_boost",
+    requiredFor: [],
+    helpfulFor: ["hr_manager"],
+    description:
+      "The only healthcare-specific HR certification. Validates expertise in healthcare HR challenges: clinical workforce recruitment, credentialing, labor relations in unionized environments, regulatory compliance (Joint Commission, CMS, OSHA), and healthcare-specific compensation structures. Requires significant healthcare HR experience (5-8 years depending on education).",
+    esDescription:
+      "La única certificación de RRHH específica de atención médica. Valida experiencia en desafíos de RRHH de salud: reclutamiento de fuerza laboral clínica, credencialización, relaciones laborales en entornos sindicalizados, cumplimiento regulatorio y estructuras de compensación específicas de salud. Requiere experiencia significativa en RRHH de salud (5-8 años según educación).",
+    californiaNote:
+      "Directly relevant for FQHC HR directors managing SB 525 minimum wage implementation, SEIU/NUHW bargaining agreements, HCAI reporting, and clinical credentialing. ASHHRA is a professional membership group of the American Hospital Association (AHA). Scholarship vouchers available for ASHHRA members.",
+    esCaliforniaNote:
+      "Directamente relevante para directores de RRHH de FQHC que gestionan la implementación del salario mínimo SB 525, acuerdos de negociación SEIU/NUHW, reportes HCAI y credencialización clínica. ASHHRA es un grupo profesional de la Asociación Americana de Hospitales (AHA).",
+    whereToGet: [
+      "ASHHRA — ashhra.org (online proctored via Honorlock)",
+      "ASHHRA Annual Conference — certification prep workshops",
+      "AHA-affiliated healthcare HR networking groups in CA",
+      "Self-study with ASHHRA certification resources",
+    ],
+    esWhereToGet: [
+      "ASHHRA — ashhra.org (en línea supervisado vía Honorlock)",
+      "Conferencia Anual ASHHRA — talleres de preparación",
+      "Grupos de networking de RRHH de salud afiliados a AHA en CA",
+      "Auto-estudio con recursos de certificación ASHHRA",
+    ],
+  },
+  {
+    id: "chfp",
+    name: "Certified Healthcare Financial Professional",
+    esName: "Profesional Financiero de Salud Certificado",
+    abbreviation: "CHFP",
+    issuer: "Healthcare Financial Management Association (HFMA)",
+    esIssuer: "Asociación de Gestión Financiera de Atención Médica (HFMA)",
+    costRange: "$225–$300/year HFMA membership (exam included with All-Access membership)",
+    esCostRange: "$225–$300/año membresía HFMA (examen incluido con membresía All-Access)",
+    costTier: "under_500",
+    duration: "3–6 months preparation (Module I: 14–20 hrs + Module II: 3-hr exam)",
+    esDuration: "3–6 meses de preparación (Módulo I: 14–20 hrs + Módulo II: examen de 3 hrs)",
+    renewalPeriod: "Every 3 years (60 CPE credits)",
+    esRenewalPeriod: "Cada 3 años (60 créditos CPE)",
+    salaryImpact: "+$5,000–$12,000/year",
+    esSalaryImpact: "+$5,000–$12,000/año",
+    impactType: "salary_boost",
+    requiredFor: [],
+    helpfulFor: ["finance_manager", "director-finance", "accountant", "revenue_cycle"],
+    description:
+      "The CHFP covers healthcare-specific financial management: revenue cycle, managed care contracting, financial reporting, compliance, and reimbursement methodologies. Directly applicable to FQHC PPS rate setting, 340B program accounting, and grant financial management.",
+    esDescription:
+      "El CHFP cubre gestión financiera específica de salud: ciclo de ingresos, contratación de atención administrada, informes financieros, cumplimiento y metodologías de reembolso. Directamente aplicable a FQHCs para tasas PPS, contabilidad del programa 340B y gestión financiera de subvenciones.",
+    californiaNote:
+      "Highly relevant for California FQHCs managing PPS rates, 340B revenue, Medi-Cal managed care contracts, and HRSA grant compliance. HFMA's Southern California and Northern California chapters offer networking and study groups. Understanding FQHC cost reports (OSHPD/CMS-222) is a key competency.",
+    esCaliforniaNote:
+      "Muy relevante para FQHCs de California que gestionan tasas PPS, ingresos 340B, contratos de atención administrada de Medi-Cal y cumplimiento de subvenciones HRSA. Los capítulos de HFMA del sur y norte de California ofrecen networking y grupos de estudio.",
+    whereToGet: [
+      "HFMA — hfma.org (online proctored exam)",
+      "HFMA Southern California Chapter — study groups and prep",
+      "HFMA Northern California Chapter — certification workshops",
+      "University of Scranton — Online Healthcare Management (HFMA-aligned)",
+      "Self-study via HFMA Body of Knowledge resources",
+    ],
+    esWhereToGet: [
+      "HFMA — hfma.org (examen en línea supervisado)",
+      "Capítulo HFMA del Sur de California — grupos de estudio y preparación",
+      "Capítulo HFMA del Norte de California — talleres de certificación",
+      "Universidad de Scranton — Gestión de Salud en Línea (alineado con HFMA)",
+      "Auto-estudio vía recursos HFMA Body of Knowledge",
+    ],
+  },
+  {
+    id: "fpc",
+    name: "Fundamental Payroll Certification",
+    esName: "Certificación Fundamental de Nómina",
+    abbreviation: "FPC",
+    issuer: "PayrollOrg (formerly American Payroll Association)",
+    esIssuer: "PayrollOrg (anteriormente Asociación Americana de Nómina)",
+    costRange: "$359–$459 (member/non-member exam fee)",
+    esCostRange: "$359–$459 (tarifa de examen miembro/no miembro)",
+    costTier: "under_500",
+    duration: "2–3 months preparation",
+    esDuration: "2–3 meses de preparación",
+    renewalPeriod: "Every 5 years (120 RCHs — Recertification Credit Hours)",
+    esRenewalPeriod: "Cada 5 años (120 RCHs — Horas de Crédito de Recertificación)",
+    salaryImpact: "+$3,000–$5,000/year",
+    esSalaryImpact: "+$3,000–$5,000/año",
+    impactType: "salary_boost",
+    requiredFor: ["payroll_specialist"],
+    helpfulFor: ["accountant", "hr_manager"],
+    description:
+      "The FPC validates foundational payroll knowledge: payroll calculations, tax compliance, withholding, fringe benefits, and payroll systems. Entry-level certification ideal for FQHC payroll staff managing complex healthcare compensation (shift differentials, on-call pay, bilingual premiums, SB 525 minimum wage compliance).",
+    esDescription:
+      "El FPC valida conocimiento fundamental de nómina: cálculos de nómina, cumplimiento fiscal, retenciones, beneficios complementarios y sistemas de nómina. Certificación de nivel inicial ideal para personal de nómina FQHC que gestiona compensación compleja de salud.",
+    californiaNote:
+      "Critical for California FQHC payroll staff. CA has unique payroll requirements: SDI withholding, PFL contributions, CalSavers mandate, and SB 525 healthcare minimum wage ($25/hr by 2027 for FQHCs). Payroll errors in healthcare can trigger penalties from EDD, IRS, and HCAI.",
+    esCaliforniaNote:
+      "Crítico para personal de nómina de FQHC en California. CA tiene requisitos únicos: retención SDI, contribuciones PFL, mandato CalSavers y salario mínimo de salud SB 525 ($25/hr para 2027 en FQHCs). Errores de nómina pueden generar sanciones de EDD, IRS y HCAI.",
+    whereToGet: [
+      "PayrollOrg — payroll.org (online or Prometric testing centers)",
+      "PayrollOrg Payroll Practice Essentials course (online, self-paced)",
+      "Los Angeles Valley College — Payroll Accounting Certificate",
+      "California community colleges — Accounting/Payroll programs",
+      "ADP/Paychex vendor-specific training (complements FPC)",
+    ],
+    esWhereToGet: [
+      "PayrollOrg — payroll.org (en línea o centros Prometric)",
+      "Curso PayrollOrg Payroll Practice Essentials (en línea, a su ritmo)",
+      "Los Angeles Valley College — Certificado de Contabilidad de Nómina",
+      "Colegios comunitarios de California — Programas de Contabilidad/Nómina",
+      "Capacitación de proveedores ADP/Paychex (complementa FPC)",
+    ],
+  },
+  {
+    id: "cpp",
+    name: "Certified Payroll Professional",
+    esName: "Profesional de Nómina Certificado",
+    abbreviation: "CPP",
+    issuer: "PayrollOrg (formerly American Payroll Association)",
+    esIssuer: "PayrollOrg (anteriormente Asociación Americana de Nómina)",
+    costRange: "$427–$609 (member/non-member exam fee)",
+    esCostRange: "$427–$609 (tarifa de examen miembro/no miembro)",
+    costTier: "under_1000",
+    duration: "3–6 months preparation (requires 3+ years payroll experience)",
+    esDuration: "3–6 meses de preparación (requiere 3+ años de experiencia en nómina)",
+    renewalPeriod: "Every 5 years (120 RCHs)",
+    esRenewalPeriod: "Cada 5 años (120 RCHs)",
+    salaryImpact: "+$8,000–$12,000/year (15-20% over non-certified peers)",
+    esSalaryImpact: "+$8,000–$12,000/año (15-20% más que pares no certificados)",
+    impactType: "salary_boost",
+    requiredFor: [],
+    helpfulFor: ["payroll_specialist", "finance_manager", "director-finance", "hr_manager"],
+    description:
+      "Advanced payroll certification covering complex payroll operations: multi-state compliance, garnishments, benefits administration, payroll accounting, and management. Requires 3+ years payroll experience or 2 years + college coursework. The step up from FPC for senior payroll roles.",
+    esDescription:
+      "Certificación avanzada de nómina que cubre operaciones complejas: cumplimiento multi-estatal, embargos, administración de beneficios, contabilidad de nómina y gestión. Requiere 3+ años de experiencia en nómina. El siguiente paso del FPC para roles senior de nómina.",
+    californiaNote:
+      "Essential for senior FQHC payroll staff managing CA-specific complexities: SB 525 tiered minimum wage implementation ($23→$25/hr rollout), multiple bargaining unit pay scales (SEIU, NUHW), shift differentials, on-call structures, and HCAI reporting. CPP holders command $5-10K more than non-certified peers.",
+    esCaliforniaNote:
+      "Esencial para personal senior de nómina FQHC que gestiona complejidades específicas de CA: implementación del salario mínimo escalonado SB 525, múltiples escalas salariales de unidades de negociación (SEIU, NUHW), diferenciales de turno y reportes HCAI.",
+    whereToGet: [
+      "PayrollOrg — payroll.org (online or Prometric testing centers)",
+      "PayrollOrg Mastery Program (advanced online prep)",
+      "UCLA Extension — Payroll Management courses",
+      "California Payroll Conference (annual, includes CPE credits)",
+      "Self-study with PayrollOrg's The Payroll Source textbook",
+    ],
+    esWhereToGet: [
+      "PayrollOrg — payroll.org (en línea o centros Prometric)",
+      "Programa de Maestría PayrollOrg (preparación avanzada en línea)",
+      "UCLA Extension — Cursos de Gestión de Nómina",
+      "Conferencia de Nómina de California (anual, incluye créditos CPE)",
+      "Auto-estudio con el libro The Payroll Source de PayrollOrg",
+    ],
+  },
 ];
 
 // Helper: get certifications for a specific role
@@ -1131,7 +1381,7 @@ export function getCertificationsForFQHC(fqhc: {
     relevantRoles.push("chw", "care_coordinator", "case_manager");
   }
   if (fqhc.programs.includes("BH Integration") || fqhc.programs.includes("BH-ASO")) {
-    relevantRoles.push("behavioral_health", "social-worker");
+    relevantRoles.push("behavioral_health", "licensed-therapist");
   }
   if (fqhc.programs.includes("Dental")) {
     relevantRoles.push("dental");

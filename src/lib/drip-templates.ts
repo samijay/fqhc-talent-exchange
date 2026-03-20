@@ -5,6 +5,8 @@
 /*  "Both" audience gets the employer sequence                        */
 /* ------------------------------------------------------------------ */
 
+import { EMAIL_FOOTER_HTML } from "@/lib/security";
+
 const SITE = "https://www.fqhctalent.com";
 const TEAL = "#0F766E";
 const TEAL_LIGHT = "#F0FDFA";
@@ -34,7 +36,8 @@ function dripFooter(unsubscribeUrl: string): string {
     FQHC Talent Exchange — California's FQHC Strategic Monitor<br />
     <a href="${SITE}" style="color:#a8a29e;">fqhctalent.com</a> ·
     <a href="${unsubscribeUrl}" style="color:#a8a29e;">Unsubscribe</a>
-  </p>`;
+  </p>
+  ${EMAIL_FOOTER_HTML}`;
 }
 
 /* ------------------------------------------------------------------ */

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
 import { resend, ADMIN_EMAIL, FROM_EMAIL } from "@/lib/resend";
-import { checkRateLimit, getClientIp, escapeHtml } from "@/lib/security";
+import { checkRateLimit, getClientIp, escapeHtml, EMAIL_FOOTER_HTML } from "@/lib/security";
 
 /* ------------------------------------------------------------------ */
 /*  POST /api/locum-requests — FQHC coverage request form               */
@@ -114,6 +114,7 @@ export async function POST(request: Request) {
   <p style="font-size: 13px; color: #a8a29e; margin-top: 24px;">
     Questions? Reply to this email or contact us at hello@fqhctalent.com.
   </p>
+  ${EMAIL_FOOTER_HTML}
 </body>
 </html>`.trim(),
         });
@@ -151,6 +152,7 @@ export async function POST(request: Request) {
   <p style="font-size: 13px; color: #a8a29e; margin-top: 24px;">
     View all requests in your Supabase dashboard.
   </p>
+  ${EMAIL_FOOTER_HTML}
 </body>
 </html>`.trim(),
         });

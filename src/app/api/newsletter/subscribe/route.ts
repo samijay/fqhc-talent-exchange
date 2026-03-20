@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
 import { resend, FROM_EMAIL } from "@/lib/resend";
-import { checkRateLimit, getClientIp } from "@/lib/security";
+import { checkRateLimit, getClientIp, EMAIL_FOOTER_HTML } from "@/lib/security";
 
 const subscribeSchema = z.object({
   email: z.string().email().max(255),
@@ -124,6 +124,7 @@ export async function POST(request: Request) {
     Questions? Reply to this email or reach us at hello@fqhctalent.com.<br />
     <a href="${unsubscribeUrl}" style="color:#a8a29e;">Unsubscribe</a> · <a href="https://www.fqhctalent.com" style="color:#a8a29e;">fqhctalent.com</a>
   </p>
+  ${EMAIL_FOOTER_HTML}
 </body>
 </html>`,
         });

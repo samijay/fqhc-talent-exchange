@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { sendIntelBrief, sendPulse } from "@/lib/newsletter-send";
+import { verifySecret } from "@/lib/security";
 import type { IntelBriefContent, PulseContent } from "@/lib/newsletter-templates";
 
 /**
@@ -28,8 +29,9 @@ export async function POST(request: Request) {
       );
     }
 
-    const authHeader = request.headers.get("authorization");
-    if (!authHeader || authHeader !== `Bearer ${secret}`) {
+    const authHeader = request.headers.get("authorization") ?? "";
+    const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
+    if (!token || !verifySecret(token, secret)) {
       return NextResponse.json(
         { error: "Unauthorized" },
         { status: 401 },

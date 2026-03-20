@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { resend, FROM_EMAIL } from "@/lib/resend";
 import { getDripEmail, getDripDays } from "@/lib/drip-templates";
+import { verifySecret } from "@/lib/security";
 
 /* ------------------------------------------------------------------ */
 /*  GET /api/newsletter/drip                                           */
@@ -29,8 +30,9 @@ export async function GET(request: Request) {
       { status: 503 }
     );
   }
-  const authHeader = request.headers.get("authorization");
-  if (!authHeader || authHeader !== `Bearer ${secret}`) {
+  const authHeader = request.headers.get("authorization") ?? "";
+  const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
+  if (!token || !verifySecret(token, secret)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

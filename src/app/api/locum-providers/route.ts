@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
 import { resend, ADMIN_EMAIL, FROM_EMAIL } from "@/lib/resend";
-import { checkRateLimit, getClientIp, escapeHtml } from "@/lib/security";
+import { checkRateLimit, getClientIp, escapeHtml, EMAIL_FOOTER_HTML } from "@/lib/security";
 
 /* ------------------------------------------------------------------ */
 /*  POST /api/locum-providers — Provider interest form submission       */
@@ -124,6 +124,7 @@ export async function POST(request: Request) {
     Questions? Reply to this email or reach us at hello@fqhctalent.com.<br />
     <a href="https://www.fqhctalent.com" style="color:#a8a29e;">fqhctalent.com</a>
   </p>
+  ${EMAIL_FOOTER_HTML}
 </body>
 </html>`,
         });
@@ -154,6 +155,7 @@ export async function POST(request: Request) {
     ${ehrExperience?.length ? `<tr><td style="padding:8px 12px;font-weight:600;">EHR</td><td style="padding:8px 12px;">${ehrExperience.map(escapeHtml).join(", ")}</td></tr>` : ""}
   </table>
   <p style="font-size:13px;color:#a8a29e;margin-top:20px;">View in Supabase → locum_providers table.</p>
+  ${EMAIL_FOOTER_HTML}
 </body>
 </html>`,
         });

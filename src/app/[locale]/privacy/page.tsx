@@ -17,7 +17,7 @@ interface PolicyContent {
 
 const enContent: PolicyContent = {
   title: "Privacy Policy",
-  lastUpdated: "Last updated: March 10, 2026",
+  lastUpdated: "Last updated: March 18, 2026",
   breadcrumbHome: "Home",
   breadcrumbPrivacy: "Privacy Policy",
   intro:
@@ -70,7 +70,10 @@ const enContent: PolicyContent = {
         "Supabase: Database hosting and file storage (servers located in the United States). Stores your profile information and uploaded resumes.",
         "Resend: Email delivery service. Processes your email address and name to send confirmation and notification emails.",
         "Vercel: Website hosting and server-side processing. Processes requests to our site including form submissions.",
-        "Google Analytics 4: Anonymized website analytics. Collects aggregated usage data via cookies. Does not receive your name, email, or any personally identifiable information from us.",
+        "Google Analytics 4: Anonymized website analytics. Collects aggregated usage data via cookies. Does not receive your name, email, or any personally identifiable information from us. Analytics data may be shared across our domains (fqhctalent.com and healthcaretalent.org) for a unified understanding of site usage.",
+        "Calendly: If you choose to book a call or briefing through our scheduling links, you will be redirected to Calendly, a third-party scheduling service. Calendly collects your name, email, and any information you provide during booking. Calendly's privacy policy is available at calendly.com/privacy.",
+        "Cloudflare: DNS and email routing services. Processes domain-level traffic and routes incoming emails to our team.",
+        "For more information about how our service providers handle your data, you can review their respective privacy policies: Supabase (supabase.com/privacy), Resend (resend.com/legal/privacy-policy), Vercel (vercel.com/legal/privacy-policy), and Google Analytics (policies.google.com/privacy).",
         "We may disclose your information if required by law — for example, in response to a valid court order, subpoena, or government request — or if we believe disclosure is necessary to protect the safety of our users, the public, or our platform.",
       ],
     },
@@ -180,7 +183,7 @@ const enContent: PolicyContent = {
 
 const esContent: PolicyContent = {
   title: "Política de Privacidad",
-  lastUpdated: "Última actualización: 10 de marzo de 2026",
+  lastUpdated: "Última actualización: 18 de marzo de 2026",
   breadcrumbHome: "Inicio",
   breadcrumbPrivacy: "Política de Privacidad",
   intro:
@@ -233,7 +236,10 @@ const esContent: PolicyContent = {
         "Supabase: Alojamiento de base de datos y almacenamiento de archivos (servidores ubicados en los Estados Unidos). Almacena su información de perfil y currículos cargados.",
         "Resend: Servicio de entrega de correo electrónico. Procesa su dirección de correo electrónico y nombre para enviar correos de confirmación y notificación.",
         "Vercel: Alojamiento web y procesamiento del lado del servidor. Procesa solicitudes a nuestro sitio incluyendo envíos de formularios.",
-        "Google Analytics 4: Análisis web anonimizado. Recopila datos de uso agregados mediante cookies. No recibe su nombre, correo electrónico ni ninguna información de identificación personal de nuestra parte.",
+        "Google Analytics 4: Análisis web anonimizado. Recopila datos de uso agregados mediante cookies. No recibe su nombre, correo electrónico ni ninguna información de identificación personal de nuestra parte. Los datos analíticos pueden compartirse entre nuestros dominios (fqhctalent.com y healthcaretalent.org) para una comprensión unificada del uso del sitio.",
+        "Calendly: Si elige programar una llamada o sesión informativa a través de nuestros enlaces de programación, será redirigido a Calendly, un servicio de programación de terceros. Calendly recopila su nombre, correo electrónico y cualquier información que proporcione durante la reserva. La política de privacidad de Calendly está disponible en calendly.com/privacy.",
+        "Cloudflare: Servicios de DNS y enrutamiento de correo electrónico. Procesa el tráfico a nivel de dominio y enruta los correos electrónicos entrantes a nuestro equipo.",
+        "Para más información sobre cómo nuestros proveedores de servicios manejan sus datos, puede revisar sus respectivas políticas de privacidad: Supabase (supabase.com/privacy), Resend (resend.com/legal/privacy-policy), Vercel (vercel.com/legal/privacy-policy) y Google Analytics (policies.google.com/privacy).",
         "Podemos divulgar su información si lo requiere la ley — por ejemplo, en respuesta a una orden judicial válida, citación o solicitud gubernamental — o si creemos que la divulgación es necesaria para proteger la seguridad de nuestros usuarios, el público o nuestra plataforma.",
       ],
     },

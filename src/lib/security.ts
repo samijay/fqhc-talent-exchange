@@ -2,6 +2,27 @@
  * Security utilities for the FQHC Talent
  */
 
+import crypto from "crypto";
+
+/**
+ * Constant-time comparison of two strings to prevent timing attacks.
+ * Use for comparing secrets (API keys, auth tokens, etc.)
+ */
+export function verifySecret(actual: string, expected: string): boolean {
+  if (actual.length !== expected.length) return false;
+  try {
+    return crypto.timingSafeEqual(Buffer.from(actual), Buffer.from(expected));
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Standard email footer with physical address for CAN-SPAM compliance.
+ * Include at the bottom of all outbound emails.
+ */
+export const EMAIL_FOOTER_HTML = `<p style="font-size:10px;color:#a8a29e;margin-top:24px;border-top:1px solid #e7e5e4;padding-top:12px;">FQHC Talent &middot; Los Angeles, CA &middot; <a href="https://www.fqhctalent.com/privacy" style="color:#a8a29e;text-decoration:underline;">Privacy Policy</a></p>`;
+
 /**
  * Escape HTML special characters to prevent XSS in email templates.
  * Use this on ANY user-supplied string before inserting into HTML.

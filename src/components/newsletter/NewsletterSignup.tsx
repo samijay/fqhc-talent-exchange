@@ -252,11 +252,11 @@ export function NewsletterSignup({
         )}
       </form>
 
-      {/* Trust line + privacy */}
+      {/* Consent + privacy */}
       <p className={`mt-2 text-xs ${variant === "banner" ? "text-teal-200" : "text-stone-400"}`}>
         {isEs
-          ? "Fuentes primarias. Sin spam. Cancela en un clic. "
-          : "Primary sources. No spam. Unsubscribe anytime. "}
+          ? "Al suscribirte, aceptas recibir correos semanales. Sin spam. Cancela en un clic. "
+          : "By subscribing, you agree to receive weekly emails. No spam. Unsubscribe anytime. "}
         <Link
           href="/privacy"
           className={`underline transition-colors ${

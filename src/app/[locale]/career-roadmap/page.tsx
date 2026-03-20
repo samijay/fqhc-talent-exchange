@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Heart,
   Stethoscope,
@@ -16,8 +16,11 @@ import {
   ClipboardCheck,
   FileText,
   Briefcase,
+  Share2,
+  Check,
 } from "lucide-react";
 import { useLocale } from "next-intl";
+import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import {
   CAREER_PATHWAYS,
@@ -49,10 +52,53 @@ function formatSalary(amount: number): string {
 export default function CareerRoadmapPage() {
   const locale = useLocale();
   const isEs = locale === "es";
+  const searchParams = useSearchParams();
 
   const [selectedPathway, setSelectedPathway] = useState<string>("community-health");
   const [selectedRegion, setSelectedRegion] = useState<number>(4); // Sacramento = baseline
   const [expandedLevel, setExpandedLevel] = useState<number | null>(null);
+  const [shareState, setShareState] = useState<"idle" | "copied">("idle");
+
+  // Init from URL params (e.g. /career-roadmap?track=nursing&region=0)
+  useEffect(() => {
+    const trackParam = searchParams.get("track");
+    const regionParam = searchParams.get("region");
+    if (trackParam && CAREER_PATHWAYS.find((p) => p.id === trackParam)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setSelectedPathway(trackParam);
+    }
+    if (regionParam !== null) {
+      const idx = Number(regionParam);
+      if (!isNaN(idx) && idx >= 0 && idx < REGIONAL_MULTIPLIERS.length) {
+         
+        setSelectedRegion(idx);
+      }
+    }
+  }, [searchParams]);
+
+  // Sync URL when selections change
+  const syncUrl = useCallback((track: string, region: number) => {
+    const localePath = locale === "es" ? "/es" : "";
+    window.history.replaceState({}, "", `${localePath}/career-roadmap?track=${track}&region=${region}`);
+  }, [locale]);
+
+  const handleShare = useCallback(async () => {
+    const base = typeof window !== "undefined" ? window.location.origin : "";
+    const localePath = locale === "es" ? "/es" : "";
+    const url = `${base}${localePath}/career-roadmap?track=${selectedPathway}&region=${selectedRegion}`;
+    const title = isEs ? "Trayectoria Profesional FQHC" : "FQHC Career Roadmap";
+
+    if (navigator.share) {
+      try { await navigator.share({ title, url }); return; } catch { /* fall through */ }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setShareState("copied");
+      setTimeout(() => setShareState("idle"), 2000);
+    } catch {
+      window.prompt(isEs ? "Copia este enlace:" : "Copy this link:", url);
+    }
+  }, [locale, selectedPathway, selectedRegion, isEs]);
 
   const pathway = CAREER_PATHWAYS.find((p) => p.id === selectedPathway)!;
   const region = REGIONAL_MULTIPLIERS[selectedRegion];
@@ -77,6 +123,16 @@ export default function CareerRoadmapPage() {
               ? "Explora 5 trayectorias profesionales en FQHCs de California — con salarios, certificaciones y habilidades en cada nivel."
               : "Explore 5 career tracks in California FQHCs — with salaries, certifications, and skills at every level."}
           </p>
+          <button
+            onClick={handleShare}
+            className="mt-4 inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-700/40 px-4 py-2 text-sm font-medium text-teal-200 transition-all hover:bg-teal-700/60"
+          >
+            {shareState === "copied" ? (
+              <><Check className="size-4" />{isEs ? "¡Enlace copiado!" : "Link copied!"}</>
+            ) : (
+              <><Share2 className="size-4" />{isEs ? "Compartir esta vista" : "Share this view"}</>
+            )}
+          </button>
         </div>
       </section>
 
@@ -92,6 +148,7 @@ export default function CareerRoadmapPage() {
                 onClick={() => {
                   setSelectedPathway(p.id);
                   setExpandedLevel(null);
+                  syncUrl(p.id, selectedRegion);
                 }}
                 className={`rounded-xl border-2 p-4 text-left transition-all ${
                   isActive
@@ -130,7 +187,11 @@ export default function CareerRoadmapPage() {
               </label>
               <select
                 value={selectedRegion}
-                onChange={(e) => setSelectedRegion(Number(e.target.value))}
+                onChange={(e) => {
+                  const idx = Number(e.target.value);
+                  setSelectedRegion(idx);
+                  syncUrl(selectedPathway, idx);
+                }}
                 className="rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-700 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
               >
                 {REGIONAL_MULTIPLIERS.map((r, i) => (
@@ -331,6 +392,12 @@ function CareerLevelCard({
                   </li>
                 ))}
               </ul>
+              <Link
+                href={`/certifications?role=${level.roleId}`}
+                className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-teal-700 hover:text-teal-800"
+              >
+                {isEs ? "Ver detalles →" : "View details →"}
+              </Link>
             </div>
 
             {/* Key skills */}

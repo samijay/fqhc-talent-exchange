@@ -250,7 +250,7 @@ const SHARED_STEPS = {
   certifications: {
     id: "certifications",
     title: { en: "CA Certifications Catalog", es: "Catálogo de Certificaciones CA" },
-    description: { en: "20 California-specific certifications with cost, duration, salary impact, and where to get them.", es: "20 certificaciones específicas de California con costo, duración, impacto salarial y dónde obtenerlas." },
+    description: { en: "30+ California-specific certifications with cost, duration, salary impact, and where to get them.", es: "30+ certificaciones específicas de California con costo, duración, impacto salarial y dónde obtenerlas." },
     type: "certification" as const,
     href: "/certifications",
     estimatedMinutes: 15,
@@ -358,7 +358,12 @@ function buildFoundationPhase(roleId: string, level: ExperienceLevel): PathwayPh
 }
 
 function buildCredentialsPhase(roleId: string, level: ExperienceLevel): PathwayPhase {
-  const steps: PathwayStep[] = [SHARED_STEPS.certifications];
+  // Create role-specific certifications step with deep-link
+  const certsStep: PathwayStep = {
+    ...SHARED_STEPS.certifications,
+    href: `/certifications?role=${roleId}`,
+  };
+  const steps: PathwayStep[] = [certsStep];
 
   // Entry/early get career resources for free training programs
   if (level === "entry" || level === "early") {
@@ -523,6 +528,14 @@ export function generateLearningPathway(
     (sum, p) => sum + p.steps.reduce((s, step) => s + step.estimatedMinutes, 0),
     0
   );
+
+  // Deep-link: append ?role= to all step hrefs so destination pages pre-filter
+  for (const phase of phases) {
+    for (const step of phase.steps) {
+      const separator = step.href.includes("?") ? "&" : "?";
+      step.href = `${step.href}${separator}role=${roleId}`;
+    }
+  }
 
   return {
     roleId,

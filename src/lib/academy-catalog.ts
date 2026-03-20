@@ -281,6 +281,50 @@ export const ACADEMY_COURSES: AcademyCourse[] = [
     tags: ["Compliance", "Billing", "PPS", "False Claims Act"],
     xpTotal: 140,
   },
+
+  // ---- RESEARCH CURRICULUM TRACKS ----
+  {
+    id: "research-clinician",
+    title: { en: "Clinician Research Track", es: "Ruta de Investigación Clínica" },
+    subtitle: {
+      en: "The science behind FQHC primary care — from Starfield to ambient AI",
+      es: "La ciencia detrás de la atención primaria en FQHC — de Starfield a IA ambiental",
+    },
+    description: {
+      en: "15 expert-curated lessons tracing the foundations of community health: primary care effectiveness, chronic disease management, behavioral health integration, and the AI revolution in documentation.",
+      es: "15 lecciones curadas por expertos que trazan los fundamentos de la salud comunitaria: efectividad de atención primaria, manejo de enfermedades crónicas, integración de salud conductual y la revolución de IA en documentación.",
+    },
+    href: "/strategy/research?track=clinician",
+    icon: "Microscope",
+    color: "blue",
+    status: "live",
+    timeTrack: "deep-dive",
+    estimatedMinutes: 180,
+    moduleCount: 15,
+    audience: "clinical",
+    tags: ["Research", "Primary Care", "Evidence-Based", "AI"],
+  },
+  {
+    id: "research-non-clinician",
+    title: { en: "Non-Clinician Research Track", es: "Ruta de Investigación No Clínica" },
+    subtitle: {
+      en: "Social determinants, CHW evidence, and the future of community health",
+      es: "Determinantes sociales, evidencia de CHW y el futuro de la salud comunitaria",
+    },
+    description: {
+      en: "15 lessons covering the social mission of FQHCs: SDOH frameworks, CHW effectiveness research, health literacy, trauma-informed care, and serving undocumented communities.",
+      es: "15 lecciones que cubren la misión social de los FQHC: marcos de SDOH, investigación de efectividad de CHW, alfabetización en salud, atención informada por trauma y atención a comunidades indocumentadas.",
+    },
+    href: "/strategy/research?track=non-clinician",
+    icon: "Users",
+    color: "green",
+    status: "live",
+    timeTrack: "deep-dive",
+    estimatedMinutes: 180,
+    moduleCount: 15,
+    audience: "all",
+    tags: ["Research", "SDOH", "CHW", "Health Equity"],
+  },
 ];
 
 /* ------------------------------------------------------------------ */

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
 import { resend, ADMIN_EMAIL, FROM_EMAIL } from "@/lib/resend";
-import { checkRateLimit, getClientIp, escapeHtml } from "@/lib/security";
+import { checkRateLimit, getClientIp, escapeHtml, EMAIL_FOOTER_HTML } from "@/lib/security";
 
 /* ------------------------------------------------------------------ */
 /*  GET /api/candidate-waitlist — return live signup count             */
@@ -218,6 +218,7 @@ export async function POST(request: Request) {
     <br />
     <a href="https://www.fqhctalent.com" style="color: #a8a29e;">fqhctalent.com</a>
   </p>
+  ${EMAIL_FOOTER_HTML}
 </body>
 </html>`.trim(),
         });

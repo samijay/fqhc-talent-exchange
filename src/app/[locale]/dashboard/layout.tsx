@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
 import { redirect } from "next/navigation";
+import { pageMetadata } from "@/lib/seo-config";
+
+export const metadata: Metadata = pageMetadata.dashboard;
 
 /**
  * Dashboard layout — server-side auth guard.

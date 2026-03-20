@@ -28,6 +28,10 @@ import {
   CheckCircle2,
   Lock,
   Star,
+  PlayCircle,
+  Microscope,
+  Receipt,
+  ClipboardCheck,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -39,6 +43,10 @@ import {
   type LearningTool,
   type TimeTrack,
 } from "@/lib/academy-catalog";
+import {
+  getLearningProgressSummary,
+  type LearningProgressSummary,
+} from "@/lib/learning-progress";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -63,9 +71,90 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
   Award,
   Zap,
   BookOpen,
+  Microscope,
+  Users,
+  Receipt,
+  ClipboardCheck,
 };
 
 const getIcon = (name: string) => ICON_MAP[name] || BookOpen;
+
+/* ------------------------------------------------------------------ */
+/*  Continue Where You Left Off                                        */
+/* ------------------------------------------------------------------ */
+
+function ContinueCard({
+  summary,
+  locale,
+  isEs,
+}: {
+  summary: LearningProgressSummary;
+  locale: string;
+  isEs: boolean;
+}) {
+  if (!summary.hasActivity || !summary.mostRecent) return null;
+
+  const recent = summary.mostRecent;
+
+  return (
+    <div className="rounded-2xl border-2 border-teal-200 bg-gradient-to-r from-teal-50 via-white to-teal-50 p-5 sm:p-6 dark:border-teal-900 dark:from-teal-950/30 dark:to-stone-900">
+      <div className="flex items-start gap-4">
+        <div className="rounded-xl bg-teal-100 p-3 dark:bg-teal-900/40">
+          <PlayCircle className="size-6 text-teal-700 dark:text-teal-400" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-400">
+            {isEs ? "Continúa Donde Lo Dejaste" : "Continue Where You Left Off"}
+          </p>
+          <h3 className="mt-1 text-lg font-bold text-stone-900 dark:text-stone-100">
+            {t(recent.title, locale)}
+          </h3>
+          <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
+            {t(recent.detail, locale)}
+          </p>
+
+          {/* Progress bar */}
+          <div className="mt-3 flex items-center gap-3">
+            <div className="h-2 flex-1 rounded-full bg-stone-200 dark:bg-stone-700 overflow-hidden">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-teal-500 to-teal-600 transition-all duration-500"
+                style={{ width: `${recent.progress}%` }}
+              />
+            </div>
+            <span className="text-xs font-bold text-teal-700 dark:text-teal-400 whitespace-nowrap">
+              {recent.progress}%
+            </span>
+          </div>
+
+          {/* Stats row */}
+          <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-stone-500 dark:text-stone-400">
+            {summary.totalXP > 0 && (
+              <span className="flex items-center gap-1">
+                <Sparkles className="size-3.5 text-amber-500" />
+                {summary.totalXP} XP {isEs ? "total" : "total"}
+              </span>
+            )}
+            {summary.totalCoursesStarted > 1 && (
+              <span className="flex items-center gap-1">
+                <BookOpen className="size-3.5" />
+                {summary.totalCoursesStarted} {isEs ? "cursos activos" : "active courses"}
+              </span>
+            )}
+          </div>
+
+          <div className="mt-4">
+            <Link href={recent.href as "/academy"}>
+              <Button className="bg-teal-700 hover:bg-teal-800 text-white">
+                {isEs ? "Continuar" : "Continue"}
+                <ArrowRight className="size-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 /* ------------------------------------------------------------------ */
 /*  Course Card                                                        */
@@ -288,11 +377,17 @@ export default function AcademyPage() {
   const locale = useLocale();
   const isEs = locale === "es";
   const [timeFilter, setTimeFilter] = useState<TimeTrack | "all">("all");
+  const [audienceFilter, setAudienceFilter] = useState<"all" | "leaders" | "job-seekers" | "clinical">("all");
+  // Load progress via lazy initializer (runs once on client mount, no effect needed)
+  const [progressSummary] = useState<LearningProgressSummary | null>(
+    () => getLearningProgressSummary()
+  );
 
-  const filteredCourses =
-    timeFilter === "all"
-      ? ACADEMY_COURSES
-      : ACADEMY_COURSES.filter((c) => c.timeTrack === timeFilter);
+  const filteredCourses = ACADEMY_COURSES.filter((c) => {
+    if (timeFilter !== "all" && c.timeTrack !== timeFilter) return false;
+    if (audienceFilter !== "all" && c.audience !== audienceFilter && c.audience !== "all") return false;
+    return true;
+  });
 
   const totalModules = ACADEMY_COURSES.reduce((s, c) => s + c.moduleCount, 0);
   const totalHours = Math.round(
@@ -362,6 +457,50 @@ export default function AcademyPage() {
         </div>
       </section>
 
+      {/* ---- Continue Where You Left Off (only shown if user has progress) ---- */}
+      {progressSummary?.hasActivity && (
+        <section className="mx-auto max-w-6xl px-4 pt-8 sm:pt-12">
+          <ContinueCard summary={progressSummary} locale={locale} isEs={isEs} />
+        </section>
+      )}
+
+      {/* ---- Quick Start (show when no progress) ---- */}
+      {!progressSummary?.hasActivity && (
+        <section className="mx-auto max-w-6xl px-4 pt-8 sm:pt-12">
+          <div className="rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-white p-5 sm:p-6 dark:border-amber-900/50 dark:from-amber-950/20 dark:to-stone-900">
+            <div className="flex items-start gap-4">
+              <div className="rounded-xl bg-amber-100 p-3 dark:bg-amber-900/40">
+                <Compass className="size-6 text-amber-700 dark:text-amber-400" />
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-stone-900 dark:text-stone-100">
+                  {isEs ? "¿No sabes por dónde empezar?" : "Not sure where to start?"}
+                </h3>
+                <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
+                  {isEs
+                    ? "Toma nuestra evaluación de carrera de 3 minutos o genera una ruta de aprendizaje personalizada según tu rol."
+                    : "Take our 3-minute career assessment or generate a personalized learning pathway based on your role."}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <Link href="/career-insights">
+                    <Button size="sm" className="bg-teal-700 hover:bg-teal-800 text-white">
+                      <Compass className="size-4 mr-1.5" />
+                      {isEs ? "Evaluación de Carrera" : "Career Assessment"}
+                    </Button>
+                  </Link>
+                  <Link href="/pathway">
+                    <Button size="sm" variant="outline" className="border-teal-300 text-teal-700 hover:bg-teal-50 dark:border-teal-700 dark:text-teal-400">
+                      <Route className="size-4 mr-1.5" />
+                      {isEs ? "Ruta de Aprendizaje" : "Learning Pathway"}
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ---- How Much Time Do You Have? ---- */}
       <section className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
         <div className="text-center mb-8">
@@ -380,6 +519,28 @@ export default function AcademyPage() {
           onSelect={setTimeFilter}
           isEs={isEs}
         />
+
+        {/* Audience filter */}
+        <div className="mt-6 flex flex-wrap gap-2 justify-center">
+          {([
+            { key: "all" as const, en: "All", es: "Todos" },
+            { key: "leaders" as const, en: "For Leaders", es: "Para Líderes" },
+            { key: "job-seekers" as const, en: "For Job Seekers", es: "Para Buscadores" },
+            { key: "clinical" as const, en: "Clinical", es: "Clínico" },
+          ]).map(({ key, en, es }) => (
+            <button
+              key={key}
+              onClick={() => setAudienceFilter(key)}
+              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
+                audienceFilter === key
+                  ? "bg-teal-100 text-teal-800 ring-1 ring-teal-300 dark:bg-teal-900/40 dark:text-teal-300 dark:ring-teal-700"
+                  : "text-stone-500 hover:text-teal-700 dark:text-stone-400 dark:hover:text-teal-400"
+              }`}
+            >
+              {isEs ? es : en}
+            </button>
+          ))}
+        </div>
       </section>
 
       {/* ---- Featured Course (OKR) ---- */}

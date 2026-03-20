@@ -283,6 +283,7 @@ The single highest-impact fix for user experience. Currently, "use client" pages
 | 64 | **EHR Skills Assessment** | Medium | Matching | OCHIN Epic, NextGen, eCW proficiency assessment |
 | 65 | **Union Organizing Risk Map** | Low | Content | Score FQHCs on unionization likelihood |
 | 66 | **Legislative Alert System** | Medium | Value | Track bills affecting FQHC funding, notify subscribers |
+| 114 | **Grant Tracker** | Medium | Content/B2B | Page + tool tracking grant opportunities for FQHCs: (1) Active grant opportunities (HRSA, foundation, state, federal) with eligibility criteria, (2) Upcoming deadlines with countdown/calendar view, (3) Grant news and legislation affecting funding streams, (4) Tips for grant writing and compliance (HRSA OSV prep, budget narratives, UDS reporting alignment), (5) Historical grant award data (SAC, CHC, MHCC, BPHC awards by FQHC), (6) Filter by grant type, amount range, eligibility (new vs competing, FQHC size, programs). Complements existing funding-impact page and resilience scorecard. Data sources: HRSA BPHC, Grants.gov, CA DHCS, foundation directories. Could feed into Intel Brief newsletter as "Grant Watch" section. |
 
 ---
 

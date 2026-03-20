@@ -2,8 +2,13 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-  title: "FQHC Talent",
-  description: "The talent exchange built for community health",
+  title: {
+    default: "FQHC Talent | Strategic Intelligence for California FQHCs",
+    template: "%s | FQHC Talent",
+  },
+  description:
+    "Strategic intelligence platform for California's Federally Qualified Health Centers. Policy tracking, workforce data, salary benchmarks, and free career tools for FQHC professionals.",
+  metadataBase: new URL("https://www.fqhctalent.com"),
 };
 
 export const viewport: Viewport = {

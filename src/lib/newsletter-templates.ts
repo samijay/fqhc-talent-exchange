@@ -148,6 +148,9 @@ function unsubscribeLink(token: string): string {
           · <a href="${SITE}/newsletter" style="color: #a8a29e; text-decoration: underline;">Manage preferences</a>
           · <a href="${SITE}" style="color: #a8a29e; text-decoration: underline;">fqhctalent.com</a>
         </p>
+        <p style="font-size: 10px; color: #78716c; margin: 8px 0 0 0;">
+          FQHC Talent · Los Angeles, CA · <a href="${SITE}/privacy" style="color: #78716c; text-decoration: underline;">Privacy Policy</a>
+        </p>
       </td>
     </tr>
   </table>`;
