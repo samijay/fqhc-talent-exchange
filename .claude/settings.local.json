@@ -248,7 +248,14 @@
       "WebFetch(domain:copehealthsolutions.com)",
       "WebFetch(domain:www.commonwealthfund.org)",
       "WebFetch(domain:www.beckershospitalreview.com)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(while read f)",
+      "Bash(do)",
+      "Bash(LAYOUT=\"$f%/*/layout.tsx\")",
+      "Bash(if [ -f \"$LAYOUT\" ])",
+      "Bash(then)",
+      "Bash(else)",
+      "Bash(fi)"
     ]
   }
 }

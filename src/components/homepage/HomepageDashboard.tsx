@@ -4,6 +4,9 @@
 import { useState, useMemo } from "react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
+import { useAuth } from "@/components/auth/AuthProvider";
+import { ExecutiveDashboard } from "./ExecutiveDashboard";
+import { JobSeekerDashboard } from "./JobSeekerDashboard";
 import {
   ArrowRight,
   Star,
@@ -338,6 +341,9 @@ function DemandBadge({ signal }: { signal: "hot" | "steady" | "cooling" }) {
 export function HomepageDashboard({ data }: { data: HomepageData }) {
   const locale = useLocale();
   const isEs = locale === "es";
+  const { user, profile, loading: authLoading } = useAuth();
+  const isLoggedIn = !authLoading && !!user && !!profile;
+  const isExecutive = isLoggedIn && (profile.role === "executive" || profile.role === "manager");
 
   const {
     overview,
@@ -412,6 +418,15 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
 
   return (
     <div className="bg-stone-50">
+      {/* ==================== PERSONALIZED DASHBOARD (logged-in users) ==================== */}
+      {isLoggedIn && (
+        isExecutive ? (
+          <ExecutiveDashboard data={data} locale={locale} />
+        ) : (
+          <JobSeekerDashboard data={data} locale={locale} />
+        )
+      )}
+
       {/* ==================== HERO ==================== */}
       <section className="relative overflow-hidden bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-900/20 via-transparent to-transparent" />

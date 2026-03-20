@@ -36,6 +36,9 @@ import {
 } from "@/lib/fqhc-research-archive";
 import { SYLLABUS_TRACKS } from "@/lib/research-syllabus-content";
 import { SyllabusReader } from "@/components/research/SyllabusReader";
+import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
+import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
+import { ShareButton } from "@/components/share/ShareButton";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -53,11 +56,13 @@ function EntryCard({
   locale,
   isExpanded,
   onToggle,
+  read,
 }: {
   entry: ResearchEntry;
   locale: string;
   isExpanded: boolean;
   onToggle: () => void;
+  read: ContentRead | undefined;
 }) {
   const domain = RESEARCH_DOMAINS.find((d) => d.id === entry.domain);
   const level = LEVEL_META.find((l) => l.id === entry.level);
@@ -90,7 +95,8 @@ function EntryCard({
           </div>
 
           {/* Title */}
-          <h3 className="font-semibold text-stone-900 dark:text-stone-100 text-sm sm:text-base leading-snug">
+          <h3 className="font-semibold text-stone-900 dark:text-stone-100 text-sm sm:text-base leading-snug flex items-center gap-2">
+            <ReadStatusBadge read={read} />
             {t(entry.title, locale)}
           </h3>
 
@@ -152,16 +158,24 @@ function EntryCard({
             ))}
           </div>
 
-          {/* Source link */}
-          <a
-            href={entry.sourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-teal-700 hover:text-teal-900 dark:text-teal-400 dark:hover:text-teal-300 font-medium"
-          >
-            {locale === "es" ? "Ver fuente original" : "View original source"}
-            <ExternalLink className="h-3.5 w-3.5" />
-          </a>
+          {/* Source link + Share */}
+          <div className="flex items-center justify-between">
+            <a
+              href={entry.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-teal-700 hover:text-teal-900 dark:text-teal-400 dark:hover:text-teal-300 font-medium"
+            >
+              {locale === "es" ? "Ver fuente original" : "View original source"}
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+            <ShareButton
+              url={`https://www.fqhctalent.com/strategy/research#${entry.id}`}
+              title={entry.title.en}
+              description={entry.description.en}
+              size="sm"
+            />
+          </div>
         </div>
       )}
     </div>
@@ -175,6 +189,7 @@ function EntryCard({
 export default function ResearchArchivePage() {
   const locale = useLocale();
   const isEs = locale === "es";
+  const { reads, markAsReading } = useContentReads("research");
 
   // Filters
   const [domainFilter, setDomainFilter] = useState<ResearchDomain | "all">("all");
@@ -187,7 +202,12 @@ export default function ResearchArchivePage() {
   const toggleEntry = (id: string) => {
     setExpandedIds((prev) => {
       const next = new Set(prev);
-      if (next.has(id)) { next.delete(id); } else { next.add(id); }
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+        markAsReading(id);
+      }
       return next;
     });
   };
@@ -377,6 +397,7 @@ export default function ResearchArchivePage() {
                   locale={locale}
                   isExpanded={expandedIds.has(entry.id)}
                   onToggle={() => toggleEntry(entry.id)}
+                  read={reads.get(entry.id)}
                 />
               ))}
               {filteredEntries.length === 0 && (

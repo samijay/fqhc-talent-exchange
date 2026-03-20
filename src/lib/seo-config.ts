@@ -4,7 +4,7 @@
 export const SITE_URL = "https://www.fqhctalent.com";
 export const SITE_NAME = "FQHC Talent";
 export const SITE_DESCRIPTION =
-  "California's FQHC strategic intelligence platform — executive dashboards, workforce data, policy tracking, free career tools, and 214+ FQHC profiles. Built for the leaders and professionals navigating the biggest crisis in community health history.";
+  "California's FQHC strategic intelligence platform — executive dashboards, workforce data, policy tracking, free career tools, and 220+ FQHC profiles. Built for the leaders and professionals navigating the biggest crisis in community health history.";
 
 // Root layout metadata — merge this into your existing layout.tsx
 export const rootMetadata = {
@@ -103,7 +103,7 @@ export const pageMetadata = {
     openGraph: {
       title: "For Job Seekers — FQHC Talent",
       description:
-        "Free career tools for community health professionals. Resume builder, salary intelligence, and 214+ FQHC profiles.",
+        "Free career tools for community health professionals. Resume builder, salary intelligence, and 220+ FQHC profiles.",
       url: `${SITE_URL}/for-job-seekers`,
     },
     alternates: { canonical: `${SITE_URL}/for-job-seekers` },

@@ -3,6 +3,7 @@ import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, StatCallout } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
+import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 
 interface ArticleContent {
   category: string;
@@ -333,6 +334,7 @@ export default async function FQHCCopayAdvantageArticle() {
           },
         ]}
       />
+      <ContentViewTracker contentType="blog" contentId="fqhc-copay-advantage-patient-surge" />
 
       <article className="px-6 py-16">
         <div className="mx-auto max-w-3xl">

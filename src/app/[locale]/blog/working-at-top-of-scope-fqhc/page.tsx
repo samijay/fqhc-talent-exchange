@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
+import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 
 export default async function WorkingAtTopOfScopeFqhcArticle() {
   const locale = await getLocale();
@@ -24,6 +25,7 @@ export default async function WorkingAtTopOfScopeFqhcArticle() {
           },
         ]}
       />
+      <ContentViewTracker contentType="blog" contentId="working-at-top-of-scope-fqhc" />
 
       <article className="py-16 px-6">
         <div className="max-w-3xl mx-auto">

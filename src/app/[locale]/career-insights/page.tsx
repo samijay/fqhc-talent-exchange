@@ -22,6 +22,7 @@ import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import CareerInsights from "@/components/resume-builder/CareerInsights";
 import First90DaysPlan from "@/components/career-insights/First90DaysPlan";
+import { ShareableAchievement } from "@/components/share/ShareableAchievement";
 import { generateFirst90DaysPlan } from "@/lib/first-90-days";
 import type { AssessmentResults } from "@/lib/career-assessment-engine";
 import type { First90DaysPlan as First90DaysPlanType } from "@/lib/first-90-days";
@@ -405,6 +406,15 @@ export default function CareerInsightsPage() {
                 {isEs ? "Tomar de nuevo" : "Retake Assessment"}
               </button>
             </div>
+
+            {/* Share achievement */}
+            <ShareableAchievement
+              type="assessment"
+              title={isEs ? "Evaluación de Carrera FQHC" : "FQHC Career Assessment"}
+              subtitle={selectedRole ? ROLES.find(r => r.id === selectedRole)?.[isEs ? "es" : "en"] : undefined}
+              contentId={`career-assessment-${selectedRole}`}
+              locale={locale}
+            />
           </div>
         )}
       </div>

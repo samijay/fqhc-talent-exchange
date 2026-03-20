@@ -3,6 +3,7 @@ import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, FundingCliffCard, StatCallout } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
+import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 
 interface ArticleContent {
   category: string;
@@ -290,6 +291,7 @@ export default async function MediCalFundingCutsArticle() {
           },
         ]}
       />
+      <ContentViewTracker contentType="blog" contentId="medi-cal-funding-cuts-community-health-workers" />
 
       <article className="py-16 px-6">
         <div className="max-w-3xl mx-auto">

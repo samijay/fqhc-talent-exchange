@@ -409,6 +409,19 @@ After adding any new IntelItem entries, verify all source URLs are valid:
 
 ---
 
+## Step 4.5: Announcement Banner Check
+
+Review `src/components/layout/AnnouncementBar.tsx` — the site-wide top banner headline. Update if:
+- The current headline is >7 days old
+- A new blog post, critical intel item, or major event is more compelling
+- A new blog was drafted in Step 4
+
+Pick the most impactful recent content: new blog post, critical/high-impact intel item, or breaking news. Update both EN and ES text and the `href` link. Keep copy short and punchy (under 100 chars).
+
+**Skip if the current banner is still timely and relevant.**
+
+---
+
 ## Step 5: Apply Changes + Summary
 
 1. Update `career-page-config.ts` notes with new job counts and date

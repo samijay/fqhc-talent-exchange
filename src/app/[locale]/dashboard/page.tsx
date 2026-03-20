@@ -12,6 +12,10 @@ import {
   Search,
   LogOut,
   Save,
+  BookOpen,
+  Clock,
+  Check,
+  Bookmark,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useAuth } from "@/components/auth/AuthProvider";
@@ -42,6 +46,7 @@ const t = (obj: { en: string; es: string }, locale: string) =>
 
 const TABS = [
   { id: "feed", icon: Rss, label: { en: "My Feed", es: "Mi Feed" } },
+  { id: "library", icon: BookOpen, label: { en: "My Library", es: "Mi Biblioteca" } },
   { id: "favorites", icon: BookmarkCheck, label: { en: "Favorites", es: "Favoritos" } },
   { id: "watchlist", icon: Eye, label: { en: "Watchlist", es: "Lista de Seguimiento" } },
   { id: "settings", icon: Settings, label: { en: "Settings", es: "Configuración" } },
@@ -87,6 +92,13 @@ export default function DashboardPage() {
   const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
   const [favoritesLoading, setFavoritesLoading] = useState(true);
 
+  // ── Library State ──
+  const [contentReads, setContentReads] = useState<
+    { content_type: string; content_id: string; status: string; progress: number; last_read_at: string }[]
+  >([]);
+  const [libraryLoading, setLibraryLoading] = useState(true);
+  const [libraryFilter, setLibraryFilter] = useState<string>("all");
+
   // ── Settings State ──
   const [displayName, setDisplayName] = useState("");
   const [role, setRole] = useState("job_seeker");
@@ -121,6 +133,20 @@ export default function DashboardPage() {
       .then(({ data }) => {
         setFavorites((data as FavoriteItem[]) ?? []);
         setFavoritesLoading(false);
+      });
+  }, [user, supabase]);
+
+  // ── Load library (content reads) ──
+  useEffect(() => {
+    if (!user) return;
+    supabase
+      .from("content_reads")
+      .select("content_type, content_id, status, progress, last_read_at")
+      .eq("user_id", user.id)
+      .order("last_read_at", { ascending: false })
+      .then(({ data }) => {
+        setContentReads(data ?? []);
+        setLibraryLoading(false);
       });
   }, [user, supabase]);
 
@@ -323,6 +349,122 @@ export default function DashboardPage() {
                 <FavoriteButton contentType="intel" contentId={item.id} size="sm" />
               </div>
             ))
+          )}
+        </div>
+      )}
+
+      {/* LIBRARY */}
+      {tab === "library" && (
+        <div className="space-y-6">
+          {libraryLoading ? (
+            <p className="text-sm text-stone-500">
+              {t({ en: "Loading...", es: "Cargando..." }, locale)}
+            </p>
+          ) : contentReads.length === 0 ? (
+            <div className="rounded-lg border border-stone-200 bg-stone-50 p-8 text-center">
+              <BookOpen className="mx-auto size-8 text-stone-300" />
+              <p className="mt-3 text-stone-500">
+                {t(
+                  {
+                    en: "Your library is empty. Content you view will appear here automatically.",
+                    es: "Tu biblioteca esta vacia. El contenido que veas aparecera aqui automaticamente.",
+                  },
+                  locale
+                )}
+              </p>
+            </div>
+          ) : (
+            <>
+              {/* Filter pills */}
+              <div className="flex flex-wrap gap-2">
+                {["all", ...new Set(contentReads.map((r) => r.content_type))].map((type) => (
+                  <button
+                    key={type}
+                    onClick={() => setLibraryFilter(type)}
+                    className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors ${
+                      libraryFilter === type
+                        ? "bg-teal-700 text-white"
+                        : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                    }`}
+                  >
+                    {type === "all"
+                      ? t({ en: "All", es: "Todo" }, locale)
+                      : t(CONTENT_TYPE_LABELS[type] ?? { en: type, es: type }, locale)}
+                  </button>
+                ))}
+              </div>
+
+              {/* Group by status */}
+              {(["reading", "read", "want_to_read"] as const).map((status) => {
+                const items = contentReads.filter(
+                  (r) =>
+                    r.status === status &&
+                    (libraryFilter === "all" || r.content_type === libraryFilter)
+                );
+                if (items.length === 0) return null;
+
+                const statusLabel = {
+                  reading: { en: "Currently Reading", es: "Leyendo Actualmente" },
+                  read: { en: "Completed", es: "Completado" },
+                  want_to_read: { en: "Saved for Later", es: "Guardado para Despues" },
+                };
+                const StatusIcon = status === "read" ? Check : status === "reading" ? Clock : Bookmark;
+
+                return (
+                  <div key={status}>
+                    <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-stone-400">
+                      <StatusIcon className="size-4" />
+                      {t(statusLabel[status], locale)} ({items.length})
+                    </h3>
+                    <div className="space-y-2">
+                      {items.map((item) => {
+                        const content = getContentById(item.content_type, item.content_id);
+                        return (
+                          <div
+                            key={`${item.content_type}-${item.content_id}`}
+                            className="flex items-center justify-between rounded-lg border border-stone-200 bg-white p-3"
+                          >
+                            <div className="min-w-0 flex-1">
+                              {content ? (
+                                <Link
+                                  href={content.href as "/jobs"}
+                                  className="text-sm font-medium text-stone-900 hover:text-teal-700"
+                                >
+                                  {t(content.title, locale)}
+                                </Link>
+                              ) : (
+                                <span className="text-sm text-stone-500">
+                                  {item.content_id}
+                                </span>
+                              )}
+                              <div className="mt-1 flex items-center gap-2">
+                                <span className="rounded bg-stone-100 px-1.5 py-0.5 text-xs text-stone-500">
+                                  {t(CONTENT_TYPE_LABELS[item.content_type] ?? { en: item.content_type, es: item.content_type }, locale)}
+                                </span>
+                                {item.status === "reading" && item.progress > 0 && (
+                                  <div className="flex items-center gap-1.5">
+                                    <div className="h-1 w-16 rounded-full bg-stone-200">
+                                      <div
+                                        className="h-1 rounded-full bg-teal-600"
+                                        style={{ width: `${item.progress}%` }}
+                                      />
+                                    </div>
+                                    <span className="text-xs text-stone-400">{item.progress}%</span>
+                                  </div>
+                                )}
+                                <span className="text-xs text-stone-400">
+                                  {new Date(item.last_read_at).toLocaleDateString()}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </>
           )}
         </div>
       )}

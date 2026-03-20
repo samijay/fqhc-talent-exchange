@@ -5,6 +5,7 @@ import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, CareerLadderViz, SalaryRangeChart } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
+import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 
 export default async function FqhcCareerLadderArticle() {
   const locale = await getLocale();
@@ -28,6 +29,7 @@ export default async function FqhcCareerLadderArticle() {
           },
         ]}
       />
+      <ContentViewTracker contentType="blog" contentId="fqhc-career-ladder-ma-rn-provider" />
 
       <article className="py-16 px-6">
         <div className="max-w-3xl mx-auto">

@@ -22,6 +22,7 @@ import {
   Check,
   Link2,
 } from "lucide-react";
+import { ShareableAchievement } from "@/components/share/ShareableAchievement";
 import {
   generateLearningPathway,
   PATHWAY_ROLES,
@@ -579,27 +580,36 @@ export default function PathwayPage() {
 
               {/* Completion message */}
               {progressPercent === 100 && (
-                <div className="rounded-xl bg-gradient-to-r from-teal-600 to-teal-500 p-6 text-center text-white">
-                  <GraduationCap className="mx-auto size-10 mb-2" />
-                  <h3 className="text-xl font-bold">
-                    {isEs
-                      ? "🎉 ¡Ruta Completada!"
-                      : "🎉 Pathway Complete!"}
-                  </h3>
-                  <p className="mt-1 text-sm text-teal-100">
-                    {isEs
-                      ? "Has completado todos los pasos. ¡Estás listo para tu próximo paso en FQHCs!"
-                      : "You've completed all steps. You're ready for your next move in FQHCs!"}
-                  </p>
-                  <button
-                    onClick={handleShare}
-                    className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-sm font-bold text-white transition-all hover:bg-white/30"
-                  >
-                    <Share2 className="size-4" />
-                    {shareState === "copied"
-                      ? isEs ? "¡Enlace copiado!" : "Link copied!"
-                      : isEs ? "Compartir con un colega" : "Share with a colleague"}
-                  </button>
+                <div className="space-y-4">
+                  <div className="rounded-xl bg-gradient-to-r from-teal-600 to-teal-500 p-6 text-center text-white">
+                    <GraduationCap className="mx-auto size-10 mb-2" />
+                    <h3 className="text-xl font-bold">
+                      {isEs
+                        ? "🎉 ¡Ruta Completada!"
+                        : "🎉 Pathway Complete!"}
+                    </h3>
+                    <p className="mt-1 text-sm text-teal-100">
+                      {isEs
+                        ? "Has completado todos los pasos. ¡Estás listo para tu próximo paso en FQHCs!"
+                        : "You've completed all steps. You're ready for your next move in FQHCs!"}
+                    </p>
+                    <button
+                      onClick={handleShare}
+                      className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-sm font-bold text-white transition-all hover:bg-white/30"
+                    >
+                      <Share2 className="size-4" />
+                      {shareState === "copied"
+                        ? isEs ? "¡Enlace copiado!" : "Link copied!"
+                        : isEs ? "Compartir con un colega" : "Share with a colleague"}
+                    </button>
+                  </div>
+                  <ShareableAchievement
+                    type="pathway"
+                    title={pathway?.roleLabel ? (isEs ? pathway.roleLabel.es : pathway.roleLabel.en) : "Learning Pathway"}
+                    subtitle={pathway?.levelLabel ? (isEs ? pathway.levelLabel.es : pathway.levelLabel.en) : undefined}
+                    contentId={`${selectedRole}-${selectedLevel}`}
+                    locale={locale}
+                  />
                 </div>
               )}
             </div>

@@ -31,6 +31,9 @@ import {
   type GuideCategory,
   type DifficultyLevel,
 } from "@/lib/fqhc-guides";
+import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
+import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
+import { ShareButton } from "@/components/share/ShareButton";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -52,9 +55,13 @@ const CATEGORY_ICONS: Record<GuideCategory, typeof Stethoscope> = {
 function GuideCard({
   guide,
   locale,
+  read,
+  onExpand,
 }: {
   guide: FQHCGuide;
   locale: string;
+  read: ContentRead | undefined;
+  onExpand: (id: string) => void;
 }) {
   const [expanded, setExpanded] = useState(false);
   const isEs = locale === "es";
@@ -63,12 +70,16 @@ function GuideCard({
     <div className="rounded-xl border border-stone-200 bg-white shadow-sm transition-shadow hover:shadow-md">
       {/* Collapsed header — always visible */}
       <button
-        onClick={() => setExpanded(!expanded)}
+        onClick={() => {
+          if (!expanded) onExpand(guide.id);
+          setExpanded(!expanded);
+        }}
         className="w-full text-left p-5 flex items-start gap-4"
       >
         <div className="flex-1 min-w-0">
           {/* Title row */}
-          <h3 className="text-lg font-semibold text-stone-800 leading-snug">
+          <h3 className="text-lg font-semibold text-stone-800 leading-snug flex items-center gap-2">
+            <ReadStatusBadge read={read} />
             {t(guide.title, locale)}
           </h3>
 
@@ -160,31 +171,39 @@ function GuideCard({
             </div>
           ))}
 
-          {/* Sources */}
+          {/* Sources + Share */}
           <div className="mt-5 pt-4 border-t border-stone-100">
-            <div className="flex flex-wrap gap-2">
-              <a
-                href={guide.primarySourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-teal-50 px-3 py-2 text-sm font-medium text-teal-700 hover:bg-teal-100 transition-colors"
-              >
-                <ExternalLink className="h-3.5 w-3.5" />
-                {isEs ? "Ver Fuente Primaria" : "View Primary Source"} (
-                {guide.primarySourceOrg})
-              </a>
-              {guide.additionalSources.map((src, i) => (
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex flex-wrap gap-2">
                 <a
-                  key={i}
-                  href={src.url}
+                  href={guide.primarySourceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 rounded-lg border border-stone-200 px-2.5 py-1.5 text-xs text-stone-600 hover:bg-stone-50 transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-teal-50 px-3 py-2 text-sm font-medium text-teal-700 hover:bg-teal-100 transition-colors"
                 >
-                  <ExternalLink className="h-3 w-3" />
-                  {src.label}
+                  <ExternalLink className="h-3.5 w-3.5" />
+                  {isEs ? "Ver Fuente Primaria" : "View Primary Source"} (
+                  {guide.primarySourceOrg})
                 </a>
-              ))}
+                {guide.additionalSources.map((src, i) => (
+                  <a
+                    key={i}
+                    href={src.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-lg border border-stone-200 px-2.5 py-1.5 text-xs text-stone-600 hover:bg-stone-50 transition-colors"
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                    {src.label}
+                  </a>
+                ))}
+              </div>
+              <ShareButton
+                url={`https://www.fqhctalent.com/guides#${guide.id}`}
+                title={guide.title.en}
+                description={guide.summary.en}
+                size="sm"
+              />
             </div>
           </div>
         </div>
@@ -240,6 +259,7 @@ const FAQ_SCHEMA_ITEMS = FQHC_GUIDES.slice(0, 8).map((guide) => ({
 export default function GuidesPage() {
   const locale = useLocale();
   const isEs = locale === "es";
+  const { reads, markAsReading } = useContentReads("guide");
 
   const [categoryFilter, setCategoryFilter] = useState<
     GuideCategory | "all"
@@ -430,6 +450,8 @@ export default function GuidesPage() {
                         key={guide.id}
                         guide={guide}
                         locale={locale}
+                        read={reads.get(guide.id)}
+                        onExpand={(id) => markAsReading(id)}
                       />
                     ))}
                   </div>

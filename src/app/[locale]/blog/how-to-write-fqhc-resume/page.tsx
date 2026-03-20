@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
+import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 
 interface ArticleContent {
   category: string;
@@ -460,6 +461,7 @@ export default async function HowToWriteFqhcResumeArticle() {
           },
         ]}
       />
+      <ContentViewTracker contentType="blog" contentId="how-to-write-fqhc-resume" />
 
       <article className="py-16 px-6">
         <div className="max-w-3xl mx-auto">

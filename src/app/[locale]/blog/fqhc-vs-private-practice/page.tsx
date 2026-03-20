@@ -3,6 +3,7 @@ import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { TLDRCard, ComparisonTable, SalaryRangeChart } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
+import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 
 interface TableRow {
   factor: string;
@@ -753,6 +754,7 @@ export default async function FqhcVsPrivatePracticeArticle() {
           },
         ]}
       />
+      <ContentViewTracker contentType="blog" contentId="fqhc-vs-private-practice" />
 
       <article className="py-16 px-6">
         <div className="max-w-3xl mx-auto">

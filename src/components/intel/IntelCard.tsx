@@ -12,6 +12,7 @@ import {
   type IntelItem,
 } from "@/lib/fqhc-news-intel";
 import { trackIntelExpand } from "@/lib/analytics";
+import { ShareButton } from "@/components/share/ShareButton";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -150,18 +151,25 @@ export function IntelCard({
             </div>
           )}
 
-          {/* Source — hyperlinked text, not arrow icon */}
+          {/* Source + Share */}
           <div className="mt-3 flex items-center justify-between border-t border-stone-100 pt-2.5">
             <span className="text-[11px] text-stone-400">{item.region}</span>
-            <a
-              href={item.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-medium text-teal-700 hover:text-teal-900 hover:underline transition-colors"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {item.sourceOrg} →
-            </a>
+            <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
+              <ShareButton
+                url={`https://www.fqhctalent.com/#${item.id}`}
+                title={item.headline.en}
+                description={item.summary.en}
+                size="sm"
+              />
+              <a
+                href={item.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-medium text-teal-700 hover:text-teal-900 hover:underline transition-colors"
+              >
+                {item.sourceOrg} →
+              </a>
+            </div>
           </div>
         </div>
       )}

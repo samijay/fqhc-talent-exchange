@@ -15,14 +15,14 @@ export default function AnnouncementBar() {
   return (
     <div className="relative bg-gradient-to-r from-amber-500 to-amber-400 text-stone-900">
       <Link
-        href="/blog/february-2026-jobs-report-healthcare-crisis"
+        href="/blog/fqhc-ai-scribes-what-workers-need-to-know"
         className="flex items-center justify-center gap-2 px-8 py-2 text-center text-xs font-semibold sm:text-sm"
       >
         <Zap className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "EE.UU. perdió 92K empleos. El sector salud carga toda la economía — leer análisis →"
-            : "U.S. lost 92K jobs. Healthcare is carrying the entire economy — read analysis →"}
+            ? "66% de médicos ya usan IA para documentación. Cómo cambia tu trabajo en FQHCs — leer análisis →"
+            : "66% of physicians now use AI scribes. How ambient AI is changing FQHC workflows — read analysis →"}
         </span>
       </Link>
       <button

@@ -1,9 +1,13 @@
-import { type IntelItem } from "@/lib/fqhc-news-intel";
+import { type IntelItem, INTEL_ITEMS } from "@/lib/fqhc-news-intel";
 import { MASTERCLASSES } from "@/lib/fqhc-masterclasses";
 import { CASE_STUDIES } from "@/lib/fqhc-case-studies";
 import { OKR_TEMPLATES } from "@/lib/fqhc-okr-templates";
 import { FQHC_GUIDES } from "@/lib/fqhc-guides";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
+import { BLOG_POSTS } from "@/lib/blog-posts";
+import { CERTIFICATIONS } from "@/lib/certification-data";
+import { CAREER_RESOURCES } from "@/lib/career-resources";
+import { RESEARCH_ENTRIES } from "@/lib/fqhc-research-archive";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -141,8 +145,53 @@ export function getContentById(
     }
 
     case "intel": {
-      // Intel items are resolved directly from the feed
-      return null;
+      const item = INTEL_ITEMS.find((i) => i.id === contentId);
+      if (!item) return null;
+      return {
+        title: item.headline,
+        href: "/",
+        subtitle: item.summary,
+      };
+    }
+
+    case "blog": {
+      const post = BLOG_POSTS.find((p) => p.slug === contentId);
+      if (!post) return null;
+      return {
+        title: { en: post.title, es: post.esTitle },
+        href: `/blog/${post.slug}`,
+        subtitle: { en: post.description, es: post.esDescription },
+      };
+    }
+
+    case "certification": {
+      const cert = CERTIFICATIONS.find((c) => c.id === contentId);
+      if (!cert) return null;
+      return {
+        title: { en: cert.name, es: cert.esName },
+        href: "/certifications",
+        subtitle: { en: cert.description, es: cert.esDescription },
+      };
+    }
+
+    case "resource": {
+      const res = CAREER_RESOURCES.find((r) => r.id === contentId);
+      if (!res) return null;
+      return {
+        title: res.name,
+        href: "/resources",
+        subtitle: res.description,
+      };
+    }
+
+    case "research": {
+      const entry = RESEARCH_ENTRIES.find((r) => r.id === contentId);
+      if (!entry) return null;
+      return {
+        title: entry.title,
+        href: "/strategy/research",
+        subtitle: entry.description,
+      };
     }
 
     default:
@@ -165,4 +214,5 @@ export const CONTENT_TYPE_LABELS: Record<string, { en: string; es: string }> = {
   fqhc: { en: "FQHCs", es: "FQHCs" },
   job: { en: "Jobs", es: "Empleos" },
   blog: { en: "Blog", es: "Blog" },
+  research: { en: "Research", es: "Investigacion" },
 };

@@ -512,13 +512,17 @@ export default function JobsPage() {
   const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(50);
+
+  // Reset visible count when filters change
+  const resetPagination = useCallback(() => setVisibleCount(50), []);
 
   const handleColumnSort = useCallback((field: SortField) => {
     if (sortField === field) {
       setSortDir((prev) => (prev === "asc" ? "desc" : "asc"));
     } else {
       setSortField(field);
-      setSortDir(field === "salary" || field === "market" ? "desc" : "asc");
+      setSortDir(field === "salary" || field === "market" || field === "posted" ? "desc" : "asc");
     }
   }, [sortField]);
 
@@ -655,12 +659,22 @@ export default function JobsPage() {
         sorted.sort((a, b) => a.type.localeCompare(b.type) * dir);
         break;
       case "posted":
-        sorted.sort((a, b) => b.postedDate.localeCompare(a.postedDate) * dir);
+        sorted.sort((a, b) => a.postedDate.localeCompare(b.postedDate) * dir);
         break;
     }
 
     return sorted;
   }, [search, roleFilter, regionFilter, salaryFilter, unionFilter, orgFilter, languageFilter, sortField, sortDir, showFavoritesOnly, favorites]);
+
+  // Reset pagination when filters/sort change
+  const filterKey = `${search}|${roleFilter}|${regionFilter}|${salaryFilter}|${unionFilter}|${orgFilter}|${languageFilter}|${sortField}|${sortDir}|${showFavoritesOnly}`;
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setVisibleCount(50);
+  }, [filterKey]);
+
+  const visibleJobs = useMemo(() => filteredJobs.slice(0, visibleCount), [filteredJobs, visibleCount]);
+  const hasMore = filteredJobs.length > visibleCount;
 
   // Active filter count
   const activeFilterCount = [
@@ -682,7 +696,8 @@ export default function JobsPage() {
     setOrgFilter("all");
     setLanguageFilter("all");
     setShowFavoritesOnly(false);
-  }, []);
+    resetPagination();
+  }, [resetPagination]);
 
   const toggleCompare = useCallback((id: string) => {
     setCompareIds((prev) => {
@@ -771,7 +786,7 @@ export default function JobsPage() {
               onValueChange={(v) => {
                 const f = v as SortField;
                 setSortField(f);
-                setSortDir(f === "salary" || f === "market" ? "desc" : "asc");
+                setSortDir(f === "salary" || f === "market" || f === "posted" ? "desc" : "asc");
               }}
             >
               <SelectTrigger className="h-10 w-32 sm:w-44 text-xs flex">
@@ -1111,7 +1126,7 @@ export default function JobsPage() {
             </div>
 
             {/* Rows */}
-            {filteredJobs.map((job) => {
+            {visibleJobs.map((job) => {
               const isExpanded = expandedId === job.id;
               const isSelected = compareIds.has(job.id);
               const isFavorited = favorites.has(job.id);
@@ -1374,7 +1389,7 @@ export default function JobsPage() {
         {/* ===== GRID VIEW ===== */}
         {!loading && filteredJobs.length > 0 && viewMode === "grid" && (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredJobs.map((job) => {
+            {visibleJobs.map((job) => {
               const bl = getBenchmarkLabel(job.negotiation.benchmarkPosition, locale);
               const isSelected = compareIds.has(job.id);
               const isFavorited = favorites.has(job.id);
@@ -1477,6 +1492,22 @@ export default function JobsPage() {
                 </div>
               );
             })}
+          </div>
+        )}
+
+        {/* Show More */}
+        {!loading && hasMore && (
+          <div className="mt-4 text-center">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setVisibleCount((prev) => prev + 50)}
+              className="w-full max-w-md text-sm"
+            >
+              {isEs
+                ? `Mostrar más (${visibleCount} de ${filteredJobs.length})`
+                : `Show more (${visibleCount} of ${filteredJobs.length})`}
+            </Button>
           </div>
         )}
 

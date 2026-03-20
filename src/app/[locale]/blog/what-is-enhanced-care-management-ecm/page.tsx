@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
+import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 
 interface RoleCard {
   title: string;
@@ -519,6 +520,7 @@ export default async function WhatIsECMArticle() {
           },
         ]}
       />
+      <ContentViewTracker contentType="blog" contentId="what-is-enhanced-care-management-ecm" />
 
       <article className="py-16 px-6">
         <div className="max-w-3xl mx-auto">

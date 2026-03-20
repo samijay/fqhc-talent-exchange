@@ -33,6 +33,9 @@ import {
   type MasterclassCategory,
   type MasterclassModule,
 } from "@/lib/fqhc-masterclasses";
+import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
+import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
+import { ShareButton } from "@/components/share/ShareButton";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -51,12 +54,14 @@ function MasterclassCard({
   isEs,
   isExpanded,
   onToggle,
+  read,
 }: {
   mc: MasterclassModule;
   locale: string;
   isEs: boolean;
   isExpanded: boolean;
   onToggle: () => void;
+  read: ContentRead | undefined;
 }) {
   const catMeta = getCategoryMeta(mc.category);
   const audMeta = getAudienceMeta(mc.audience);
@@ -98,7 +103,8 @@ function MasterclassCard({
             </div>
 
             {/* Title + subtitle */}
-            <h3 className="text-lg font-bold text-stone-900">
+            <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+              <ReadStatusBadge read={read} />
               {t(mc.title, locale)}
             </h3>
             <p className="mt-1 text-sm text-stone-500">
@@ -183,13 +189,21 @@ function MasterclassCard({
             </ul>
           </div>
 
-          {/* Source Materials + Site Links */}
+          {/* Source Materials + Site Links + Share */}
           <div className="border-t border-stone-100 pt-4">
-            <div className="flex items-center gap-2 mb-3">
-              <BookOpen className="size-4 text-stone-500" />
-              <h4 className="text-sm font-bold uppercase tracking-wider text-stone-600">
-                {isEs ? "Materiales de Referencia" : "Source Materials"}
-              </h4>
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <BookOpen className="size-4 text-stone-500" />
+                <h4 className="text-sm font-bold uppercase tracking-wider text-stone-600">
+                  {isEs ? "Materiales de Referencia" : "Source Materials"}
+                </h4>
+              </div>
+              <ShareButton
+                url={`https://www.fqhctalent.com/strategy/masterclass#${mc.id}`}
+                title={mc.title.en}
+                description={mc.subtitle.en}
+                size="sm"
+              />
             </div>
             <div className="flex flex-wrap gap-2">
               {mc.sourceMaterials.map((src) => (
@@ -231,12 +245,17 @@ export default function MasterclassPage() {
   const isEs = locale === "es";
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
   const [activeCategory, setActiveCategory] = useState<MasterclassCategory | "all">("all");
+  const { reads, markAsReading } = useContentReads("masterclass");
 
   const toggle = (id: string) => {
     setExpandedIds((prev) => {
       const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+        markAsReading(id);
+      }
       return next;
     });
   };
@@ -385,6 +404,7 @@ export default function MasterclassPage() {
                 isEs={isEs}
                 isExpanded={expandedIds.has(mc.id)}
                 onToggle={() => toggle(mc.id)}
+                read={reads.get(mc.id)}
               />
             ))}
           </div>
