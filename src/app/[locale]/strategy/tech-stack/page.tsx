@@ -132,7 +132,8 @@ function VendorCard({ vendor, locale }: { vendor: TechVendor; locale: string }) 
       {/* Expand toggle */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="mt-3 flex items-center gap-1 text-xs font-medium text-teal-700 hover:text-teal-800 dark:text-teal-400"
+        aria-expanded={expanded}
+        className="mt-3 flex items-center gap-1 text-xs font-medium text-teal-700 hover:text-teal-800 dark:text-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-1 rounded"
       >
         {expanded
           ? (isEs ? "Menos detalles" : "Less detail")
@@ -340,7 +341,9 @@ function StackProfileCard({ profile, locale }: { profile: TechStackProfile; loca
         </div>
         <button
           onClick={() => setExpanded(!expanded)}
-          className="text-teal-700 hover:text-teal-800 dark:text-teal-400"
+          aria-expanded={expanded}
+          aria-label={expanded ? "Collapse" : "Expand"}
+          className="text-teal-700 hover:text-teal-800 dark:text-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-500 rounded"
         >
           {expanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
         </button>
