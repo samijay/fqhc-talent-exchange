@@ -39,6 +39,24 @@ export function generateBlogMetadata(slug: string) {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "fqhc-technology-stack-guide-2026",
+    title:
+      "Your FQHC Technology Stack in 2026: 12 Categories, 28 Vendors, and the Decisions That Actually Matter",
+    esTitle:
+      "Tu Stack Tecnológico FQHC en 2026: 12 Categorías, 28 Proveedores y las Decisiones que Realmente Importan",
+    description:
+      "A practical guide to evaluating FQHC technology vendors across EHR, billing, HR, cybersecurity, and 8 more categories. Real pricing, FQHC-specific discounts, and a decision framework for health centers of any size.",
+    esDescription:
+      "Una guía práctica para evaluar proveedores de tecnología para FQHCs en EHR, facturación, RRHH, ciberseguridad y 8 categorías más. Precios reales, descuentos específicos para FQHCs y un marco de decisión.",
+    date: "March 20, 2026",
+    esDate: "20 de marzo de 2026",
+    isoDate: "2026-03-20",
+    category: "Technology & AI",
+    esCategory: "Tecnología e IA",
+    readTime: "10 min read",
+    esReadTime: "10 min de lectura",
+  },
+  {
     slug: "hrsa-site-visit-survival-guide-2026",
     title: "HRSA Site Visit Survival Guide: 19 Requirements Every California FQHC Must Master",
     esTitle: "Guía de Supervivencia de Visita de HRSA: 19 Requisitos que Todo FQHC de California Debe Dominar",
