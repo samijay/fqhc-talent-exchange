@@ -374,6 +374,18 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/newsletter` },
   },
+  sponsor: {
+    title: "Sponsor the FQHC Intel Brief | Reach Community Health Center Decision-Makers",
+    description:
+      "Reach California's FQHC executives with sponsored newsletter placement, AI Tracker vendor listings, and co-branded content. The only intelligence platform dedicated to community health centers.",
+    openGraph: {
+      title: "Sponsorship — FQHC Talent",
+      description:
+        "Reach FQHC CEOs, CFOs, and HR directors. Sponsor the weekly Intel Brief or get listed on our AI vendor tracker.",
+      url: `${SITE_URL}/sponsor`,
+    },
+    alternates: { canonical: `${SITE_URL}/sponsor` },
+  },
   strategyScopeOfPractice: {
     title: "FQHC Scope-of-Practice Guide | Top-of-License Workforce Management for California",
     description:
@@ -626,6 +638,18 @@ export const pageMetadata = {
       url: `${SITE_URL}/strategy/research`,
     },
     alternates: { canonical: `${SITE_URL}/strategy/research` },
+  },
+  techStack: {
+    title: "FQHC Technology Stack Guide | 28 Vendors Across 12 Categories",
+    description:
+      "Complete FQHC technology vendor comparison — EHR, billing, HR, cybersecurity, AI, and more. Pricing, FQHC discounts, compatibility matrices, and sample stack profiles for small, medium, and large community health centers.",
+    openGraph: {
+      title: "FQHC Technology Stack — FQHC Talent",
+      description:
+        "28 vendors across 12 categories. FQHC pricing, NACHC partnerships, EHR compatibility, and recommended stacks by org size.",
+      url: `${SITE_URL}/strategy/tech-stack`,
+    },
+    alternates: { canonical: `${SITE_URL}/strategy/tech-stack` },
   },
   resumeBuilder: {
     title: "Free FQHC Resume Builder | Community Health Resume Templates",

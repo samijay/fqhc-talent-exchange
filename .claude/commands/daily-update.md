@@ -370,6 +370,44 @@ For compliance findings, create an IntelItem with:
 
 ---
 
+## Step 3.10: FQHC Tech Stack Scan (3 searches)
+
+Monitor technology vendor news relevant to FQHCs. Data lives in `src/lib/fqhc-tech-stack.ts`.
+
+### Searches
+
+1. "FQHC healthcare technology vendor 2026" — new partnerships, product launches, pricing changes
+2. "community health center EHR implementation" — EHR migrations, go-lives, integration updates
+3. "NACHC technology partnership discount" — consortium deals, nonprofit pricing, FQHC-specific programs
+
+### What to Update
+
+- **Update `fqhc-tech-stack.ts`** if: vendor launches FQHC-specific product, pricing change confirmed, new NACHC/CPCA partnership, EHR integration added/removed, security breach at vendor used by FQHCs, vendor acquired or merged
+- **Add IntelItem** if: major vendor announcement affects FQHC operations (e.g., EHR company acquired, cybersecurity incident)
+- **Skip if**: general enterprise software news, consumer-facing health tech, non-FQHC healthcare IT
+
+### Decision Rules for Tech Stack News:
+
+- **High impact:** EHR vendor acquisition/sunset, NACHC-endorsed tool change, cybersecurity breach at FQHC vendor, major pricing increase
+- **Medium:** New FQHC integration, vendor partnership, product feature launch for community health
+- **Low:** Industry conference announcements, minor feature updates, general healthcare IT trends
+
+### Output Format
+
+For vendor updates, provide the fields to change:
+```typescript
+// Update vendor "vendor-id":
+{
+  field: "value",  // e.g. pricingNote, fqhcDiscount, ehrIntegrations
+}
+```
+
+For new vendors, provide full `TechVendor` object matching the interface in `fqhc-tech-stack.ts`.
+
+**Only pause for review if a vendor used by multiple FQHCs has a critical issue (breach, shutdown, acquisition).**
+
+---
+
 ## Step 4: Blog (Mondays only)
 
 Skip unless today is Monday or specifically requested.
@@ -438,6 +476,7 @@ Policy: [# significant findings] — [one-line summary of each]
 Intel: [# new IntelItems added to fqhc-news-intel.ts] (total [n] items)
 Regional: [region1] + [region2] — [# findings] ([# new IntelItems])
 Compliance: [# enforcement actions found] — [one-line summary] (or "No new enforcement actions")
+Tech Stack: [# vendor updates] — [one-line summary] (or "No new vendor updates")
 Link QC: [# new links verified] / [# broken fixed] / [# spot-checked]
 Blog: [Skipped] or [Drafted: "Title"]
 Build: [PASS/FAIL]

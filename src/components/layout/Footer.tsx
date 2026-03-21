@@ -31,9 +31,12 @@ export default function Footer() {
       { href: "/strategy/workforce-resilience" as const, label: t("workforceResilience") },
       { href: "/strategy/research" as const, label: t("researchArchive") },
     ],
+    [t("technology")]: [
+      { href: "/strategy/tech-stack" as const, label: t("techStack") },
+      { href: "/ai-tracker" as const, label: t("aiTracker") },
+    ],
     [t("intelligence")]: [
       { href: "/" as const, label: t("dashboard") },
-      { href: "/ai-tracker" as const, label: t("aiTracker") },
       { href: "/intelligence/legislation" as const, label: t("legislativeTracker") },
       { href: "/layoffs" as const, label: t("layoffTracker") },
       { href: "/salary-data" as const, label: t("salaryIntel") },

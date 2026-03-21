@@ -276,12 +276,18 @@ export default function Header() {
       label: t("intelligence"),
       children: [
         { href: "/", label: t("dashboard"), desc: t("dashboardDesc") },
-        { href: "/ai-tracker", label: t("aiTracker"), desc: t("aiTrackerDesc") },
         { href: "/intelligence/legislation", label: t("legislativeTracker"), desc: t("legislativeTrackerDesc") },
         { href: "/layoffs", label: t("layoffs"), desc: t("layoffsDesc") },
         { href: "/salary-data", label: t("salaryData"), desc: t("salaryDataDesc") },
         { href: "/intelligence/los-angeles", label: t("regionalIntel"), desc: t("regionalIntelDesc") },
         { href: "/blog", label: t("blog"), desc: t("blogDesc") },
+      ],
+    },
+    {
+      label: t("technology"),
+      children: [
+        { href: "/strategy/tech-stack", label: t("techStack"), desc: t("techStackDesc") },
+        { href: "/ai-tracker", label: t("aiTracker"), desc: t("aiTrackerDesc") },
       ],
     },
     {
