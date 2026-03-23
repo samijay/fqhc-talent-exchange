@@ -14,6 +14,8 @@ export interface BlogPost {
   esCategory: string;
   readTime: string;
   esReadTime: string;
+  /** Set to false for posts that are in the data but don't have a page file yet */
+  live?: boolean;
 }
 
 // Helper to generate Next.js Metadata for a blog post by slug
@@ -58,6 +60,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "hrsa-site-visit-survival-guide-2026",
+    live: false, // page file not yet created
     title: "HRSA Site Visit Survival Guide: 19 Requirements Every California FQHC Must Master",
     esTitle: "Guía de Supervivencia de Visita de HRSA: 19 Requisitos que Todo FQHC de California Debe Dominar",
     description: "Your OSV is coming. Here are the 19 HRSA program requirements with CFR citations, common failures, and a downloadable 30-day prep checklist for governance, clinical, financial, and operational readiness.",
@@ -72,6 +75,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "hipaa-compliance-for-fqhcs-2026-update",
+    live: false, // page file not yet created
     title: "HIPAA Compliance for FQHCs: 2026 Update on Breaches, BAAs, and OCR Penalties",
     esTitle: "Cumplimiento HIPAA para FQHCs: Actualización 2026 sobre Violaciones, BAAs y Multas de OCR",
     description: "HIPAA enforcement is accelerating. Learn the 5 compliance gaps FQHCs miss most, how to respond to breaches in 72 hours, why your BAA audit matters, and what the latest OCR settlements mean for your org.",
@@ -86,6 +90,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "billing-compliance-avoiding-false-claims-2026",
+    live: false, // page file not yet created
     title: "Billing Compliance: Avoiding False Claims Act Penalties at California FQHCs",
     esTitle: "Cumplimiento de Facturación: Evitando Multas de la Ley de Reclamaciones Falsas en FQHCs de California",
     description: "OIG recovered $4.7B in healthcare fraud last year. Understand PPS billing rules, same-day encounter documentation, ECM/CCM coding standards, and the 3 compliance gaps that trigger OIG audits at FQHCs.",
@@ -100,6 +105,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "340b-program-compliance-audit-prevention",
+    live: false, // page file not yet created
     title: "340B Program Compliance: Avoiding Contract Pharmacy Violations and Audit Triggers",
     esTitle: "Cumplimiento del Programa 340B: Evitando Violaciones de Farmacias de Contrato y Disparadores de Auditoría",
     description: "340B audits have doubled since 2024. Learn the 6 compliance rules that trigger manufacturer recalls, contract pharmacy pitfalls, split-billing requirements, and what to document for every 340B transaction.",
@@ -387,3 +393,7 @@ export const BLOG_POSTS: BlogPost[] = [
     esReadTime: "8 min de lectura",
   },
 ];
+
+// Slugs for all live blog posts (those with page files published).
+// Derived automatically — add new posts to BLOG_POSTS above and omit `live: false` when the page is ready.
+export const PUBLISHED_BLOG_SLUGS = BLOG_POSTS.filter((p) => p.live !== false).map((p) => p.slug);

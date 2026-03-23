@@ -11,9 +11,7 @@ export function OrganizationJsonLd() {
     description:
       "California's FQHC strategic intelligence platform — executive dashboards, workforce data, policy tracking, free career tools, and 220+ FQHC profiles for the leaders and professionals navigating community health.",
     sameAs: [
-      // Add your social profiles here
-      // "https://www.linkedin.com/company/fqhc-talent-exchange",
-      // "https://twitter.com/fqhctalent",
+      "https://www.linkedin.com/company/fqhc-talent-exchange",
     ],
     address: {
       "@type": "PostalAddress",

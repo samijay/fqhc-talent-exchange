@@ -133,7 +133,7 @@ function AdminAnalyticsInner() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [secretKey]);
 
   // Initial fetch + auto-refresh every 60s
   useEffect(() => {

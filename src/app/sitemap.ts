@@ -5,6 +5,7 @@ import type { MetadataRoute } from "next";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
 import { getAllRegionSlugs } from "@/lib/regional-intelligence";
 import { OKR_COURSE_MODULES } from "@/lib/okr-course-modules";
+import { PUBLISHED_BLOG_SLUGS } from "@/lib/blog-posts";
 
 const SITE_URL = "https://www.fqhctalent.com";
 
@@ -18,25 +19,9 @@ const locationSlugs = [
   "riverside-san-bernardino",
 ];
 
-// Blog post slugs — add new posts here as you publish them
-const blogSlugs = [
-  "fqhc-ai-scribes-what-workers-need-to-know",
-  "fqhc-copay-advantage-patient-surge",
-  "february-2026-jobs-report-healthcare-crisis",
-  "healthcare-hiring-trends-2026",
-  "fqhc-salary-negotiation-guide",
-  "fqhc-benefits-guide-community-health",
-  "laid-off-fqhc-fast-track-job-search",
-  "fqhc-career-insights-assessment",
-  "fqhc-vs-private-practice",
-  "top-10-fqhc-interview-questions",
-  "nhsc-loan-repayment-guide",
-  "medi-cal-funding-cuts-community-health-workers",
-  "what-is-enhanced-care-management-ecm",
-  "how-to-write-fqhc-resume",
-  "working-at-top-of-scope-fqhc",
-  "fqhc-career-ladder-ma-rn-provider",
-];
+// Blog post slugs — derived automatically from PUBLISHED_BLOG_SLUGS in blog-posts.ts.
+// To add a new post: add it to BLOG_POSTS in blog-posts.ts (no live: false) and create its page file.
+const blogSlugs = PUBLISHED_BLOG_SLUGS;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages
