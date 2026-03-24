@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>FQHC Talent Exchange — Email Preview</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f4; color: #1c1917; }
+  .header { background: linear-gradient(135deg, #0f766e, #115e59); color: white; padding: 24px 32px; }
+  .header h1 { font-size: 20px; font-weight: 700; }
+  .header p { color: #99f6e4; font-size: 13px; margin-top: 4px; }
+  .layout { display: flex; min-height: calc(100vh - 72px); }
+  .sidebar { width: 320px; background: white; border-right: 1px solid #e7e5e4; overflow-y: auto; flex-shrink: 0; }
+  .group-label { font-size: 11px; font-weight: 700; color: #0f766e; text-transform: uppercase; letter-spacing: 0.8px; padding: 16px 16px 6px; }
+  .nav-btn { display: block; width: 100%; text-align: left; border: none; background: none; padding: 10px 16px; font-size: 14px; color: #44403c; cursor: pointer; border-left: 3px solid transparent; transition: all 0.15s; }
+  .nav-btn:hover { background: #f0fdfa; color: #0f766e; }
+  .nav-btn.active { background: #f0fdfa; color: #0f766e; font-weight: 600; border-left-color: #0f766e; }
+  .preview-area { flex: 1; padding: 24px; display: flex; flex-direction: column; align-items: center; }
+  .email-meta { margin-bottom: 16px; text-align: center; }
+  .email-meta h2 { font-size: 16px; color: #1c1917; }
+  .email-meta p { font-size: 13px; color: #78716c; margin-top: 2px; }
+  .email-frame { background: white; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); width: 100%; max-width: 660px; overflow: hidden; }
+  .email-frame iframe { width: 100%; border: none; min-height: 800px; }
+  .badge { display: inline-block; background: #f0fdfa; color: #0f766e; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; margin-left: 6px; vertical-align: middle; }
+  .badge.new { background: #fef3c7; color: #92400e; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>FQHC Talent Exchange — Email Preview</h1>
+    <p>13 email templates · Issue #3 + 3 drip tracks (3 emails each)</p>
+  </div>
+  <div class="layout">
+    <div class="sidebar" id="sidebar"></div>
+    <div class="preview-area">
+      <div class="email-meta" id="meta">
+        <h2>Select an email to preview</h2>
+        <p>Choose from the sidebar</p>
+      </div>
+      <div class="email-frame" id="frame-wrap" style="display:none;">
+        <iframe id="preview" sandbox="allow-same-origin"></iframe>
+      </div>
+    </div>
+  </div>
+
+<script>
+const emails = [{"id":"ib3","label":"Intel Brief #3 (EN)","group":"Issue #3 — March 25","file":"intel-brief-003.html"},{"id":"ib3es","label":"Intel Brief #3 (ES)","group":"Issue #3 — March 25","file":"intel-brief-003-es.html"},{"id":"p3","label":"The Pulse #3 (EN)","group":"Issue #3 — March 25","file":"pulse-003.html"},{"id":"p3es","label":"The Pulse #3 (ES)","group":"Issue #3 — March 25","file":"pulse-003-es.html"},{"id":"cd1","label":"Day 3 — What FQHCs look for","group":"Candidate Drip (The Pulse)","file":"drip-the-pulse-step1.html"},{"id":"cd2","label":"Day 7 — Salary intel","group":"Candidate Drip (The Pulse)","file":"drip-the-pulse-step2.html"},{"id":"cd3","label":"Day 14 — Career toolkit + Academy","group":"Candidate Drip (The Pulse)","file":"drip-the-pulse-step3.html"},{"id":"ed1","label":"Day 3 — Platform tour","group":"Employer Drip (Intel Brief)","file":"drip-intel-brief-step1.html"},{"id":"ed2","label":"Day 7 — Resilience scorecard","group":"Employer Drip (Intel Brief)","file":"drip-intel-brief-step2.html"},{"id":"ed3","label":"Day 14 — Case studies + Academy","group":"Employer Drip (Intel Brief)","file":"drip-intel-brief-step3.html"},{"id":"bd1","label":"Day 3 — Full platform tour","group":"Both Track Drip (NEW)","file":"drip-both-step1.html"},{"id":"bd2","label":"Day 7 — Complete workforce picture","group":"Both Track Drip (NEW)","file":"drip-both-step2.html"},{"id":"bd3","label":"Day 14 — Command center + Academy","group":"Both Track Drip (NEW)","file":"drip-both-step3.html"}];
+const groups = ["Issue #3 — March 25","Candidate Drip (The Pulse)","Employer Drip (Intel Brief)","Both Track Drip (NEW)"];
+
+const contents = {};
+contents["ib3"] = `
+\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e
+  \x3cmeta charset="utf-8" /\x3e
+  \x3cmeta name="viewport" content="width=device-width, initial-scale=1.0" /\x3e
+  \x3ctitle\x3eFQHC Intel Brief #3\x3c/title\x3e
+\x3c/head\x3e
+\x3cbody style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1C1917; background: #FAFAF9;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3c!-- Issue badge --\x3e
+  \x3cdiv style="text-align: center; margin-bottom: 8px;"\x3e
+    \x3cspan style="display: inline-block; background: #1C1917; color: white; font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.5px;"\x3e
+      INTEL BRIEF #3 · March 25, 2026
+    \x3c/span\x3e
+  \x3c/div\x3e
+
+  \x3ch2 style="text-align: center; font-size: 22px; color: #1C1917; margin: 16px 0 24px; font-weight: 800;"\x3e
+    Weekly Executive Briefing
+  \x3c/h2\x3e
+
+  \x3c!-- TL;DR --\x3e
+  \x3cdiv style="background: #F0FDFA; border-left: 4px solid #0F766E; padding: 14px 16px; margin: 0 0 24px; border-radius: 0 8px 8px 0;"\x3e
+    \x3cp style="margin: 0 0 4px; font-weight: 700; color: #0F766E; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;"\x3e
+      TL;DR
+    \x3c/p\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #1C1917; line-height: 1.6;"\x3e
+      Healthcare lost 28K jobs in February — the first negative month in three years. CBO scores H.R. 1 at \$30B/year in Medicaid cuts; California bears the largest exposure. One bright spot: the 4th Circuit vacated HRSA's 340B pilot, a rare legal win for FQHCs. But 77% of CA counties report mental health shortages, dental cuts hit July 1, and NACHC warns 1 in 4 FQHCs may need emergency stabilization by Q4.
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  
+  \x3ctable style="width: 100%; border-collapse: collapse;"\x3e
+    
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          The Hard Truth
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eCBO Scores H.R. 1 at \$30B/Year in Medicaid Cuts — CA Bears Largest Exposure\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eUpdated CBO score: \$880B in federal Medicaid reductions over 10 years. California's 15.4M enrollees face the biggest single-state hit. DHCS estimates 2.7M could lose coverage.\x3c/p\x3e
+      \x3ca href="https://www.cbo.gov/publication/60935" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: Congressional Budget Office →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eHealthcare Lost 28K Jobs in February — First Negative Month in 3 Years\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eHospitals (-17K) and nursing facilities (-8K) led losses. Ambulatory care held flat. Medicaid uncertainty is chilling hiring before formal cuts hit.\x3c/p\x3e
+      \x3ca href="https://www.bls.gov/news.release/empsit.nr0.htm" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: Bureau of Labor Statistics →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eMedi-Cal Dental Cuts for Undocumented Patients — July 1, \$308M Impact\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eDental benefits for undocumented enrollees end July 1. Unlike medical visits (which drop to FFS), dental gets zero reimbursement. Model your dental program impact now.\x3c/p\x3e
+      \x3ca href="https://www.dhcs.ca.gov/services/medi-cal/Pages/Dental.aspx" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: CA Dept. of Health Care Services →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eNACHC: 1 in 4 FQHCs May Need Emergency Stabilization by Q4\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eFlat Section 330 grants + rising costs + Medicaid cuts = 'triple compression.' NACHC requesting \$2.1B in emergency stabilization over 2 years.\x3c/p\x3e
+      \x3ca href="https://www.nachc.org/policy-advocacy/health-center-funding/" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: NACHC →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3e77% of CA Counties Report Mental Health Provider Shortages\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eRural counties hit hardest — Siskiyou, Modoc, Lassen have fewer than 5 MH providers per 100K. BH visits are billable and increasingly valued by managed care.\x3c/p\x3e
+      \x3ca href="https://www.chcf.org/publication/california-mental-health-provider-shortage/" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: California Health Care Foundation →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eKaiser Nursing Contract Settles at 21.5% Raise — Wage Pressure Hits FQHCs\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eThe new Kaiser benchmark is resetting salary expectations across CA. FQHCs competing for RNs/NPs face upward pressure, especially in Bay Area and Sacramento.\x3c/p\x3e
+      \x3ca href="https://www.beckershospitalreview.com/hr/kaiser-permanente-strike-31000-nurses-ratify-contract.html" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: Becker's Hospital Review →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+
+    
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          The Bright Spots
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3e4th Circuit Vacates HRSA's 340B Pilot — FQHCs Win on Drug Pricing\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eCourt ruled HRSA exceeded its authority. Upfront ceiling-price purchasing stays. Watch H.R. 7391 (35 cosponsors) to make the exemption permanent.\x3c/p\x3e
+      \x3ca href="https://www.340bhealth.org/newsroom/press-releases/court-vacates-340b-rebate-pilot/" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: 340B Health →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eCA Counties Are Creating Their Own Health Taxes — \$1.3B+ and Growing\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eSanta Clara's Measure A (\$330M/yr) goes live April 1. A second county has a \$1B/yr measure on the June 2 ballot at 58% support. San Diego and Alameda are exploring similar models. A new county-level revenue strategy is emerging statewide.\x3c/p\x3e
+      \x3ca href="https://kffhealthnews.org/news/article/federal-cuts-state-tax-increases-budget-shortfalls-health-clinics-los-angeles-california/" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: KFF Health News →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eSanta Clara Measure A Revenue Starts April 1 — \$330M/Year Now Flowing\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eFirst actual revenue from a county-level Medicaid offset. San Diego and Alameda are watching closely to replicate the model.\x3c/p\x3e
+      \x3ca href="https://www.naco.org/news/california-county-sales-tax-measure-backfills-federal-healthcare-cuts" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: National Association of Counties →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eNextGen Ambient AI Cuts 1.5–2 Hours/Day of Documentation at FQHCs\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eTwo community health centers report near-instant drops in after-hours charting after deploying NextGen Ambient Assist natively inside the EHR. Over 90% accuracy on SOAP notes.\x3c/p\x3e
+      \x3ca href="https://www.healthcareittoday.com/2026/02/10/how-nextgen-healthcares-ambient-ai-helped-two-clinics-break-the-cycle-of-pajama-time/" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: Healthcare IT Today →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eCMS Prior Auth Transparency Rules Take Effect — MA Plans Must Explain Denials\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eUnder CMS-0057-F, MA plans, Medicaid MCOs, and CHIP must now give specific denial reasons and publicly report prior auth metrics. New leverage for FQHCs fighting opaque denials.\x3c/p\x3e
+      \x3ca href="https://www.cms.gov/cms-interoperability-and-prior-authorization-final-rule-cms-0057-f" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: CMS →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+  \x3c/table\x3e
+
+  
+  \x3cdiv style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; padding: 18px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 4px; font-size: 11px; font-weight: 700; color: #065F46; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+      ✨ Success Story
+    \x3c/p\x3e
+    \x3cp style="margin: 6px 0 2px; font-size: 16px; font-weight: 700; color: #1C1917; line-height: 1.35;"\x3e\$5M Gift Funds Largest FQHC Expansion on the Central Coast\x3c/p\x3e
+    \x3cp style="margin: 0 0 8px; font-size: 12px; font-weight: 600; color: #065F46;"\x3eSanta Barbara Neighborhood Clinics\x3c/p\x3e
+    \x3cp style="margin: 0 0 10px; font-size: 13px; color: #44403C; line-height: 1.6;"\x3eThe Wyatt family donation — the largest in SBNC's history — will fund a new health center opening December 2026. SBNC serves 1 in 10 South Santa Barbara County residents; 92% are low-income. In a sea of cuts, this is a rare expansion story and a model for philanthropic revenue diversification.\x3c/p\x3e
+    \x3cdiv style="background: white; border-radius: 6px; padding: 10px 14px; border-left: 3px solid #10B981;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #065F46;"\x3e→ Result: Capacity grows from 20,000 to 28,000 patients (+41%)\x3c/p\x3e
+    \x3c/div\x3e
+    \x3cp style="margin: 8px 0 0; font-size: 11px;"\x3e\x3ca href="https://www.independent.com/2026/03/11/guardian-angels-drop-5-million-donation-on-new-santa-barbara-neighborhood-clinic/" style="color: #065F46;"\x3eRead full story →\x3c/a\x3e\x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3cdiv style="background: #F5F5F4; border: 1px solid #D6D3D1; border-radius: 8px; padding: 18px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 4px; font-size: 11px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+      🛠️ Toolkit
+    \x3c/p\x3e
+    \x3cp style="margin: 6px 0 4px; font-size: 16px; font-weight: 700; color: #1C1917;"\x3eCHAI-NACHC AI Vendor Assessment Checklist\x3c/p\x3e
+    \x3cp style="margin: 0 0 12px; font-size: 13px; color: #44403C; line-height: 1.6;"\x3eThe definitive pre-purchase evaluation framework for FQHCs considering AI tools. Built by the Coalition for Health AI and NACHC — covers safety-net appropriateness, bias testing, interoperability, and lock-in risk.\x3c/p\x3e
+    \x3ca href="https://www.nachc.org/chai-and-nachc-join-forces-to-prioritize-community-health-centers-in-ai-adoption/" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eGet the Toolkit →\x3c/a\x3e
+  \x3c/div\x3e
+  
+  
+
+  \x3c!-- Key Dates --\x3e
+  
+  \x3ctable style="width: 100%; border-collapse: collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Key Dates
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eApr 1, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eSanta Clara Measure A revenue begins (\$330M/yr for healthcare)\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eApr 2, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eCHCF Rural North event in Redding — Medicaid cut impact on rural FQHCs\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eApr 20, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eHRSA 340B Rebate Model RFI comments due (pilot vacated, but watch for legislative alternatives)\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eJan 1, 2027\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eCMS prior auth API requirements deadline for MA/Medicaid plans (CMS-0057-F)\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eJun 2, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eCA county \$1B/yr health sales tax on primary ballot (second county to vote)\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eJul 1, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eCA eliminates FQHC PPS rates + dental benefits for undocumented patients\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eDec 31, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eCalAIM waiver + CHCF \$4.6B authorization both expire\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+  \x3c/table\x3e
+  
+
+  
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 10px; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.5px;"\x3e
+      What We're Watching Next Week
+    \x3c/p\x3e
+    
+    \x3cdiv style="margin-bottom: 8px;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #1C1917;"\x3eDHCS CalAIM waiver renewal application\x3c/p\x3e
+      \x3cp style="margin: 2px 0 0; font-size: 12px; color: #78716C; line-height: 1.5;"\x3eNo submission yet — each week increases risk for the \$1.2B program.\x3c/p\x3e
+    \x3c/div\x3e
+    \x3cdiv style="margin-bottom: 8px;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #1C1917;"\x3eSenate markup of H.R. 1\x3c/p\x3e
+      \x3cp style="margin: 2px 0 0; font-size: 12px; color: #78716C; line-height: 1.5;"\x3eAmendments could change the Medicaid cut trajectory.\x3c/p\x3e
+    \x3c/div\x3e
+    \x3cdiv style="margin-bottom: 8px;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #1C1917;"\x3eCA county health tax ballot polling\x3c/p\x3e
+      \x3cp style="margin: 2px 0 0; font-size: 12px; color: #78716C; line-height: 1.5;"\x3e58% support is fragile. Opposition spending is accelerating.\x3c/p\x3e
+    \x3c/div\x3e
+  \x3c/div\x3e
+  
+  \x3cdiv style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;"\x3e
+    \x3cp style="margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #92400E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+      ❤️ From the Movement
+    \x3c/p\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #1C1917; line-height: 1.6; font-style: italic;"\x3e
+      In 1965, a group of Black women in Mound Bayou, Mississippi formed the first community health center board — insisting that patients, not doctors, should govern the clinics that served them. That principle of community governance is still the law for every FQHC today.
+    \x3c/p\x3e
+    \x3cp style="margin: 6px 0 0; font-size: 11px; color: #78716C;"\x3e— National Association of Community Health Centers\x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3c!-- Featured Content --\x3e
+  
+  \x3cdiv style="background: #F5F5F4; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;"\x3e
+    \x3cp style="margin: 0 0 6px; font-size: 16px; font-weight: 700; color: #1C1917;"\x3eFQHC Academy — Free 30-Day Email Course\x3c/p\x3e
+    \x3cp style="margin: 0 0 12px; font-size: 13px; color: #44403C; line-height: 1.5;"\x3e15 bite-size lessons on PPS billing, CalAIM, 340B, and more. Bilingual quizzes. Track progress on your dashboard.\x3c/p\x3e
+    \x3ca href="https://www.fqhctalent.com/academy" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eRead More →\x3c/a\x3e
+  \x3c/div\x3e
+  
+
+  \x3cdiv style="text-align: center; margin: 24px 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eFull Dashboard →\x3c/a\x3e
+  \x3c/div\x3e
+
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      Found this useful?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Forward to a colleague →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Unsubscribe
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Manage preferences
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Privacy Policy
+    \x3c/a\x3e\x3cbr /\x3e
+    Content is for informational purposes only and does not constitute professional advice.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["ib3es"] = `
+\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e
+  \x3cmeta charset="utf-8" /\x3e
+  \x3cmeta name="viewport" content="width=device-width, initial-scale=1.0" /\x3e
+  \x3ctitle\x3eFQHC Intel Brief #3\x3c/title\x3e
+\x3c/head\x3e
+\x3cbody style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1C1917; background: #FAFAF9;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3c!-- Issue badge --\x3e
+  \x3cdiv style="text-align: center; margin-bottom: 8px;"\x3e
+    \x3cspan style="display: inline-block; background: #1C1917; color: white; font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.5px;"\x3e
+      INTEL BRIEF #3 · March 25, 2026
+    \x3c/span\x3e
+  \x3c/div\x3e
+
+  \x3ch2 style="text-align: center; font-size: 22px; color: #1C1917; margin: 16px 0 24px; font-weight: 800;"\x3e
+    Informe Ejecutivo Semanal
+  \x3c/h2\x3e
+
+  \x3c!-- TL;DR --\x3e
+  \x3cdiv style="background: #F0FDFA; border-left: 4px solid #0F766E; padding: 14px 16px; margin: 0 0 24px; border-radius: 0 8px 8px 0;"\x3e
+    \x3cp style="margin: 0 0 4px; font-weight: 700; color: #0F766E; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;"\x3e
+      TL;DR
+    \x3c/p\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #1C1917; line-height: 1.6;"\x3e
+      Healthcare lost 28K jobs in February — the first negative month in three years. CBO scores H.R. 1 at \$30B/year in Medicaid cuts; California bears the largest exposure. One bright spot: the 4th Circuit vacated HRSA's 340B pilot, a rare legal win for FQHCs. But 77% of CA counties report mental health shortages, dental cuts hit July 1, and NACHC warns 1 in 4 FQHCs may need emergency stabilization by Q4.
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  
+  \x3ctable style="width: 100%; border-collapse: collapse;"\x3e
+    
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Lo que Preocupa
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eCBO Scores H.R. 1 at \$30B/Year in Medicaid Cuts — CA Bears Largest Exposure\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eUpdated CBO score: \$880B in federal Medicaid reductions over 10 years. California's 15.4M enrollees face the biggest single-state hit. DHCS estimates 2.7M could lose coverage.\x3c/p\x3e
+      \x3ca href="https://www.cbo.gov/publication/60935" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: Congressional Budget Office →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eHealthcare Lost 28K Jobs in February — First Negative Month in 3 Years\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eHospitals (-17K) and nursing facilities (-8K) led losses. Ambulatory care held flat. Medicaid uncertainty is chilling hiring before formal cuts hit.\x3c/p\x3e
+      \x3ca href="https://www.bls.gov/news.release/empsit.nr0.htm" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: Bureau of Labor Statistics →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eMedi-Cal Dental Cuts for Undocumented Patients — July 1, \$308M Impact\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eDental benefits for undocumented enrollees end July 1. Unlike medical visits (which drop to FFS), dental gets zero reimbursement. Model your dental program impact now.\x3c/p\x3e
+      \x3ca href="https://www.dhcs.ca.gov/services/medi-cal/Pages/Dental.aspx" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: CA Dept. of Health Care Services →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eNACHC: 1 in 4 FQHCs May Need Emergency Stabilization by Q4\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eFlat Section 330 grants + rising costs + Medicaid cuts = 'triple compression.' NACHC requesting \$2.1B in emergency stabilization over 2 years.\x3c/p\x3e
+      \x3ca href="https://www.nachc.org/policy-advocacy/health-center-funding/" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: NACHC →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3e77% of CA Counties Report Mental Health Provider Shortages\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eRural counties hit hardest — Siskiyou, Modoc, Lassen have fewer than 5 MH providers per 100K. BH visits are billable and increasingly valued by managed care.\x3c/p\x3e
+      \x3ca href="https://www.chcf.org/publication/california-mental-health-provider-shortage/" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: California Health Care Foundation →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #EF4444; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eKaiser Nursing Contract Settles at 21.5% Raise — Wage Pressure Hits FQHCs\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eThe new Kaiser benchmark is resetting salary expectations across CA. FQHCs competing for RNs/NPs face upward pressure, especially in Bay Area and Sacramento.\x3c/p\x3e
+      \x3ca href="https://www.beckershospitalreview.com/hr/kaiser-permanente-strike-31000-nurses-ratify-contract.html" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: Becker's Hospital Review →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+
+    
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Las Buenas Noticias
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3e4th Circuit Vacates HRSA's 340B Pilot — FQHCs Win on Drug Pricing\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eCourt ruled HRSA exceeded its authority. Upfront ceiling-price purchasing stays. Watch H.R. 7391 (35 cosponsors) to make the exemption permanent.\x3c/p\x3e
+      \x3ca href="https://www.340bhealth.org/newsroom/press-releases/court-vacates-340b-rebate-pilot/" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: 340B Health →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eCA Counties Are Creating Their Own Health Taxes — \$1.3B+ and Growing\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eSanta Clara's Measure A (\$330M/yr) goes live April 1. A second county has a \$1B/yr measure on the June 2 ballot at 58% support. San Diego and Alameda are exploring similar models. A new county-level revenue strategy is emerging statewide.\x3c/p\x3e
+      \x3ca href="https://kffhealthnews.org/news/article/federal-cuts-state-tax-increases-budget-shortfalls-health-clinics-los-angeles-california/" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: KFF Health News →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eSanta Clara Measure A Revenue Starts April 1 — \$330M/Year Now Flowing\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eFirst actual revenue from a county-level Medicaid offset. San Diego and Alameda are watching closely to replicate the model.\x3c/p\x3e
+      \x3ca href="https://www.naco.org/news/california-county-sales-tax-measure-backfills-federal-healthcare-cuts" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: National Association of Counties →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eNextGen Ambient AI Cuts 1.5–2 Hours/Day of Documentation at FQHCs\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eTwo community health centers report near-instant drops in after-hours charting after deploying NextGen Ambient Assist natively inside the EHR. Over 90% accuracy on SOAP notes.\x3c/p\x3e
+      \x3ca href="https://www.healthcareittoday.com/2026/02/10/how-nextgen-healthcares-ambient-ai-helped-two-clinics-break-the-cycle-of-pajama-time/" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: Healthcare IT Today →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+  \x3ctr\x3e
+    \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+      \x3cdiv style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981; margin-right: 6px; vertical-align: middle;"\x3e\x3c/div\x3e
+      \x3cspan style="font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35; vertical-align: middle;"\x3eCMS Prior Auth Transparency Rules Take Effect — MA Plans Must Explain Denials\x3c/span\x3e
+      \x3cp style="margin: 4px 0 6px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eUnder CMS-0057-F, MA plans, Medicaid MCOs, and CHIP must now give specific denial reasons and publicly report prior auth metrics. New leverage for FQHCs fighting opaque denials.\x3c/p\x3e
+      \x3ca href="https://www.cms.gov/cms-interoperability-and-prior-authorization-final-rule-cms-0057-f" style="color: #0F766E; font-size: 12px; text-decoration: none; font-weight: 500;"\x3eSource: CMS →\x3c/a\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+  \x3c/table\x3e
+
+  
+  \x3cdiv style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; padding: 18px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 4px; font-size: 11px; font-weight: 700; color: #065F46; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+      ✨ Success Story
+    \x3c/p\x3e
+    \x3cp style="margin: 6px 0 2px; font-size: 16px; font-weight: 700; color: #1C1917; line-height: 1.35;"\x3e\$5M Gift Funds Largest FQHC Expansion on the Central Coast\x3c/p\x3e
+    \x3cp style="margin: 0 0 8px; font-size: 12px; font-weight: 600; color: #065F46;"\x3eSanta Barbara Neighborhood Clinics\x3c/p\x3e
+    \x3cp style="margin: 0 0 10px; font-size: 13px; color: #44403C; line-height: 1.6;"\x3eThe Wyatt family donation — the largest in SBNC's history — will fund a new health center opening December 2026. SBNC serves 1 in 10 South Santa Barbara County residents; 92% are low-income. In a sea of cuts, this is a rare expansion story and a model for philanthropic revenue diversification.\x3c/p\x3e
+    \x3cdiv style="background: white; border-radius: 6px; padding: 10px 14px; border-left: 3px solid #10B981;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #065F46;"\x3e→ Result: Capacity grows from 20,000 to 28,000 patients (+41%)\x3c/p\x3e
+    \x3c/div\x3e
+    \x3cp style="margin: 8px 0 0; font-size: 11px;"\x3e\x3ca href="https://www.independent.com/2026/03/11/guardian-angels-drop-5-million-donation-on-new-santa-barbara-neighborhood-clinic/" style="color: #065F46;"\x3eRead full story →\x3c/a\x3e\x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3cdiv style="background: #F5F5F4; border: 1px solid #D6D3D1; border-radius: 8px; padding: 18px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 4px; font-size: 11px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+      🛠️ Toolkit
+    \x3c/p\x3e
+    \x3cp style="margin: 6px 0 4px; font-size: 16px; font-weight: 700; color: #1C1917;"\x3eCHAI-NACHC AI Vendor Assessment Checklist\x3c/p\x3e
+    \x3cp style="margin: 0 0 12px; font-size: 13px; color: #44403C; line-height: 1.6;"\x3eThe definitive pre-purchase evaluation framework for FQHCs considering AI tools. Built by the Coalition for Health AI and NACHC — covers safety-net appropriateness, bias testing, interoperability, and lock-in risk.\x3c/p\x3e
+    \x3ca href="https://www.nachc.org/chai-and-nachc-join-forces-to-prioritize-community-health-centers-in-ai-adoption/" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eGet the Toolkit →\x3c/a\x3e
+  \x3c/div\x3e
+  
+  
+
+  \x3c!-- Key Dates --\x3e
+  
+  \x3ctable style="width: 100%; border-collapse: collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Fechas Clave
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eApr 1, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eSanta Clara Measure A revenue begins (\$330M/yr for healthcare)\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eApr 2, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eCHCF Rural North event in Redding — Medicaid cut impact on rural FQHCs\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eApr 20, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eHRSA 340B Rebate Model RFI comments due (pilot vacated, but watch for legislative alternatives)\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eJan 1, 2027\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eCMS prior auth API requirements deadline for MA/Medicaid plans (CMS-0057-F)\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eJun 2, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eCA county \$1B/yr health sales tax on primary ballot (second county to vote)\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eJul 1, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eCA eliminates FQHC PPS rates + dental benefits for undocumented patients\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 5px 0;"\x3e
+        \x3cspan style="display: inline-block; background: #FFFBEB; border: 1px solid #FDE68A; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;"\x3eDec 31, 2026\x3c/span\x3e
+        \x3cspan style="font-size: 12px; color: #44403C;"\x3eCalAIM waiver + CHCF \$4.6B authorization both expire\x3c/span\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+  \x3c/table\x3e
+  
+
+  
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 10px; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.5px;"\x3e
+      What We're Watching Next Week
+    \x3c/p\x3e
+    
+    \x3cdiv style="margin-bottom: 8px;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #1C1917;"\x3eDHCS CalAIM waiver renewal application\x3c/p\x3e
+      \x3cp style="margin: 2px 0 0; font-size: 12px; color: #78716C; line-height: 1.5;"\x3eNo submission yet — each week increases risk for the \$1.2B program.\x3c/p\x3e
+    \x3c/div\x3e
+    \x3cdiv style="margin-bottom: 8px;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #1C1917;"\x3eSenate markup of H.R. 1\x3c/p\x3e
+      \x3cp style="margin: 2px 0 0; font-size: 12px; color: #78716C; line-height: 1.5;"\x3eAmendments could change the Medicaid cut trajectory.\x3c/p\x3e
+    \x3c/div\x3e
+    \x3cdiv style="margin-bottom: 8px;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #1C1917;"\x3eCA county health tax ballot polling\x3c/p\x3e
+      \x3cp style="margin: 2px 0 0; font-size: 12px; color: #78716C; line-height: 1.5;"\x3e58% support is fragile. Opposition spending is accelerating.\x3c/p\x3e
+    \x3c/div\x3e
+  \x3c/div\x3e
+  
+  \x3cdiv style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;"\x3e
+    \x3cp style="margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #92400E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+      ❤️ From the Movement
+    \x3c/p\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #1C1917; line-height: 1.6; font-style: italic;"\x3e
+      In 1965, a group of Black women in Mound Bayou, Mississippi formed the first community health center board — insisting that patients, not doctors, should govern the clinics that served them. That principle of community governance is still the law for every FQHC today.
+    \x3c/p\x3e
+    \x3cp style="margin: 6px 0 0; font-size: 11px; color: #78716C;"\x3e— National Association of Community Health Centers\x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3c!-- Featured Content --\x3e
+  
+  \x3cdiv style="background: #F5F5F4; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;"\x3e
+    \x3cp style="margin: 0 0 6px; font-size: 16px; font-weight: 700; color: #1C1917;"\x3eFQHC Academy — Free 30-Day Email Course\x3c/p\x3e
+    \x3cp style="margin: 0 0 12px; font-size: 13px; color: #44403C; line-height: 1.5;"\x3e15 bite-size lessons on PPS billing, CalAIM, 340B, and more. Bilingual quizzes. Track progress on your dashboard.\x3c/p\x3e
+    \x3ca href="https://www.fqhctalent.com/academy" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eLeer Más →\x3c/a\x3e
+  \x3c/div\x3e
+  
+
+  \x3cdiv style="text-align: center; margin: 24px 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eVer Dashboard →\x3c/a\x3e
+  \x3c/div\x3e
+
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      ¿Te resultó útil?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Reenvía a un colega →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Cancelar suscripción
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Preferencias
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Política de Privacidad
+    \x3c/a\x3e\x3cbr /\x3e
+    El contenido es solo para fines informativos y no constituye asesoramiento profesional.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["p3"] = `
+\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e
+  \x3cmeta charset="utf-8" /\x3e
+  \x3cmeta name="viewport" content="width=device-width, initial-scale=1.0" /\x3e
+  \x3ctitle\x3eThe Pulse #3\x3c/title\x3e
+\x3c/head\x3e
+\x3cbody style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1C1917; background: #FAFAF9;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3cdiv style="text-align: center; margin-bottom: 8px;"\x3e
+    \x3cspan style="display: inline-block; background: #0F766E; color: white; font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.5px;"\x3e
+      THE PULSE #3 · March 25, 2026
+    \x3c/span\x3e
+  \x3c/div\x3e
+
+  \x3ch2 style="text-align: center; font-size: 22px; color: #1C1917; margin: 16px 0 24px; font-weight: 800;"\x3e
+    Your Weekly FQHC Career Update
+  \x3c/h2\x3e
+
+  \x3cdiv style="background: #F0FDFA; border-left: 4px solid #0F766E; padding: 14px 16px; margin: 0 0 24px; border-radius: 0 8px 8px 0;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #1C1917; line-height: 1.6;"\x3e
+      Healthcare lost 28K jobs in February — first negative month in three years. But FQHCs held flat. The safety net needs bilingual staff, BH professionals (77% of CA counties have shortages), and ECM-trained coordinators more than ever. 1,674 open positions this week.
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3ctable style="width: 100%; border-collapse: collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Job Market This Week
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 10px 0 16px;"\x3e
+        \x3ctable style="width: 100%; text-align: center; background: #F5F5F4; border-radius: 8px;"\x3e
+          \x3ctr\x3e
+            
+  \x3ctd style="padding: 12px; text-align: center;"\x3e
+    \x3cp style="font-size: 26px; font-weight: 800; color: #0F766E; margin: 0; line-height: 1;"\x3e1,674\x3c/p\x3e
+    \x3cp style="font-size: 11px; color: #78716C; margin: 4px 0 0;"\x3eTotal Jobs\x3c/p\x3e
+  \x3c/td\x3e
+            
+  \x3ctd style="padding: 12px; text-align: center;"\x3e
+    \x3cp style="font-size: 26px; font-weight: 800; color: #15803D; margin: 0; line-height: 1;"\x3e+31\x3c/p\x3e
+    \x3cp style="font-size: 11px; color: #78716C; margin: 4px 0 0;"\x3eNew This Week\x3c/p\x3e
+  \x3c/td\x3e
+          \x3c/tr\x3e
+        \x3c/table\x3e
+        \x3cp style="margin: 14px 0 6px; font-size: 13px; font-weight: 700; color: #44403C;"\x3e
+          Top Hiring FQHCs:
+        \x3c/p\x3e
+        
+        \x3cp style="margin: 5px 0; font-size: 13px;"\x3e
+          \x3ca href="https://www.fqhctalent.com/jobs?fqhc=altamed-health-services" style="color: #0F766E; text-decoration: none; font-weight: 600;"\x3eAltaMed Health Services\x3c/a\x3e
+          \x3cspan style="color: #78716C;"\x3e — 275 open\x3c/span\x3e
+        \x3c/p\x3e
+        \x3cp style="margin: 5px 0; font-size: 13px;"\x3e
+          \x3ca href="https://www.fqhctalent.com/jobs?fqhc=la-clinica-de-la-raza" style="color: #0F766E; text-decoration: none; font-weight: 600;"\x3eLa Clinica de la Raza\x3c/a\x3e
+          \x3cspan style="color: #78716C;"\x3e — 192 open\x3c/span\x3e
+        \x3c/p\x3e
+        \x3cp style="margin: 5px 0; font-size: 13px;"\x3e
+          \x3ca href="https://www.fqhctalent.com/jobs?fqhc=family-health-centers-of-san-diego" style="color: #0F766E; text-decoration: none; font-weight: 600;"\x3eFamily Health Centers of San Diego\x3c/a\x3e
+          \x3cspan style="color: #78716C;"\x3e — 148 open\x3c/span\x3e
+        \x3c/p\x3e
+        \x3cp style="margin: 5px 0; font-size: 13px;"\x3e
+          \x3ca href="https://www.fqhctalent.com/jobs?fqhc=santa-barbara-neighborhood-clinics" style="color: #0F766E; text-decoration: none; font-weight: 600;"\x3eSanta Barbara Neighborhood Clinics\x3c/a\x3e
+          \x3cspan style="color: #78716C;"\x3e — 22 open\x3c/span\x3e
+        \x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+
+    
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          What's Happening
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+    \x3ctr\x3e
+      \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 3px; font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35;"\x3eHealthcare Lost 28K Jobs — But FQHCs Held Flat\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eHospitals (-17K) and nursing facilities (-8K) cut. Ambulatory care held. FQHCs that kept hiring through uncertainty have stronger financials — target them.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 3px; font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35;"\x3e77% of CA Counties Have BH Shortages — Jobs Are Everywhere\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eLicensed therapists, LCSWs, psychiatric NPs: FQHCs offer competitive pay plus NHSC loan repayment. Rural counties have fewer than 5 MH providers per 100K.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 3px; font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35;"\x3eCA County Health Taxes Could Trigger Statewide Hiring Surges\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eMultiple California counties are putting health sales taxes on the ballot to offset Medicaid cuts. If they pass, expect FQHC hiring waves across the state. Update your resume now.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    
+  \x3c/table\x3e
+
+  
+  \x3cdiv style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 4px; font-size: 11px; font-weight: 700; color: #065F46; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+      ✨ Success Story
+    \x3c/p\x3e
+    \x3cp style="margin: 4px 0 2px; font-size: 15px; font-weight: 700; color: #1C1917;"\x3e\$5M Gift Opens 8,000 New Patient Slots on the Central Coast\x3c/p\x3e
+    \x3cp style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: #065F46;"\x3eSanta Barbara Neighborhood Clinics\x3c/p\x3e
+    \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eThe Wyatt family donation — the largest in SBNC's history — funds a new health center opening December 2026. SBNC serves 1 in 10 South Santa Barbara County residents, and 92% of patients are low-income. They're hiring now to staff the expansion: 22 open positions this week.\x3c/p\x3e
+    \x3cp style="margin: 6px 0 0; font-size: 11px;"\x3e\x3ca href="https://www.independent.com/2026/03/11/guardian-angels-drop-5-million-donation-on-new-santa-barbara-neighborhood-clinic/" style="color: #065F46;"\x3eRead more →\x3c/a\x3e\x3c/p\x3e
+  \x3c/div\x3e
+  
+
+  \x3c!-- Tool Spotlight --\x3e
+  \x3ctable style="width: 100%; border-collapse: collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Free Tool
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 10px 0 16px;"\x3e
+        \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px;"\x3e
+          \x3cp style="margin: 0 0 3px; font-size: 15px; font-weight: 700; color: #0F766E;"\x3eFQHC Academy — Free Email Course\x3c/p\x3e
+          \x3cp style="margin: 0 0 10px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3e15 bite-size lessons on PPS billing, CalAIM, 340B, and clinical ops. Bilingual quizzes. Show FQHC knowledge before your interview.\x3c/p\x3e
+          \x3ca href="https://www.fqhctalent.com/academy" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eTry It Free →\x3c/a\x3e
+        \x3c/div\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+
+    
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Quick Tips
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+    \x3ctr\x3e
+      \x3ctd style="padding: 6px 0 10px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 2px; font-size: 14px; font-weight: 700; color: #1C1917;"\x3eUse the Kaiser Benchmark in Salary Negotiations\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eKaiser's new 21.5% nursing raise is resetting expectations. FQHCs can't match base salary, but total comp (NHSC loan repayment + schedule flexibility + lower patient ratios) often wins. Know your numbers.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 6px 0 10px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 2px; font-size: 14px; font-weight: 700; color: #1C1917;"\x3eNextGen AI Is Live — Put It on Your Resume\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eNextGen just deployed ambient AI natively across its FQHC EHR. If you've used it, add 'NextGen ambient AI documentation' to your skills. If not, ask about it in interviews.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 6px 0 10px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 2px; font-size: 14px; font-weight: 700; color: #1C1917;"\x3eRevenue-Adjacent Roles Are the Safest Bet\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eWith 1 in 4 FQHCs facing stabilization risk, roles that generate or protect revenue are most secure: billing coders, grant writers, ECM coordinators, 340B pharmacy staff.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    
+  \x3c/table\x3e
+
+  
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 10px; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.5px;"\x3e
+      What We're Watching Next Week
+    \x3c/p\x3e
+    
+    \x3cdiv style="margin-bottom: 8px;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #1C1917;"\x3eMarch BLS jobs report (April 4)\x3c/p\x3e
+      \x3cp style="margin: 2px 0 0; font-size: 12px; color: #78716C; line-height: 1.5;"\x3eWill the 28K loss continue or bounce back?\x3c/p\x3e
+    \x3c/div\x3e
+    \x3cdiv style="margin-bottom: 8px;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #1C1917;"\x3eCA county health tax ballot polling\x3c/p\x3e
+      \x3cp style="margin: 2px 0 0; font-size: 12px; color: #78716C; line-height: 1.5;"\x3eIf it passes June 2, expect a statewide FQHC hiring wave.\x3c/p\x3e
+    \x3c/div\x3e
+  \x3c/div\x3e
+  
+  \x3cdiv style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;"\x3e
+    \x3cp style="margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #92400E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+      ❤️ From the Movement
+    \x3c/p\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #1C1917; line-height: 1.6; font-style: italic;"\x3e
+      La Clinica de la Raza was founded in 1971 by Chicana activists in Oakland's Fruitvale district who were tired of watching their neighbors get turned away from hospitals. Today it's one of the largest FQHCs in California — 192 open positions this week alone.
+    \x3c/p\x3e
+    \x3cp style="margin: 6px 0 0; font-size: 11px; color: #78716C;"\x3e— La Clinica de la Raza archives\x3c/p\x3e
+  \x3c/div\x3e
+
+  
+  \x3cdiv style="background: #F5F5F4; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 4px; font-size: 15px; font-weight: 700; color: #1C1917;"\x3e10 FQHC Interview Questions They Will Ask\x3c/p\x3e
+    \x3cp style="margin: 0 0 10px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eMission alignment, cultural humility, underserved community experience. Free prep tool with STAR framework examples and role-specific coaching.\x3c/p\x3e
+    \x3ca href="https://www.fqhctalent.com/interview-prep" style="color: #0F766E; font-size: 13px; font-weight: 600; text-decoration: none;"\x3e
+      Read More →
+    \x3c/a\x3e
+  \x3c/div\x3e
+  
+
+  \x3cdiv style="text-align: center; margin: 24px 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/jobs" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eBrowse All FQHC Jobs →\x3c/a\x3e
+  \x3c/div\x3e
+
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      Found this useful?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Forward to a colleague →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Unsubscribe
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Manage preferences
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Privacy Policy
+    \x3c/a\x3e\x3cbr /\x3e
+    Content is for informational purposes only and does not constitute professional advice.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["p3es"] = `
+\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e
+  \x3cmeta charset="utf-8" /\x3e
+  \x3cmeta name="viewport" content="width=device-width, initial-scale=1.0" /\x3e
+  \x3ctitle\x3eThe Pulse #3\x3c/title\x3e
+\x3c/head\x3e
+\x3cbody style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1C1917; background: #FAFAF9;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3cdiv style="text-align: center; margin-bottom: 8px;"\x3e
+    \x3cspan style="display: inline-block; background: #0F766E; color: white; font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.5px;"\x3e
+      THE PULSE #3 · March 25, 2026
+    \x3c/span\x3e
+  \x3c/div\x3e
+
+  \x3ch2 style="text-align: center; font-size: 22px; color: #1C1917; margin: 16px 0 24px; font-weight: 800;"\x3e
+    Tu Actualización Semanal
+  \x3c/h2\x3e
+
+  \x3cdiv style="background: #F0FDFA; border-left: 4px solid #0F766E; padding: 14px 16px; margin: 0 0 24px; border-radius: 0 8px 8px 0;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #1C1917; line-height: 1.6;"\x3e
+      Healthcare lost 28K jobs in February — first negative month in three years. But FQHCs held flat. The safety net needs bilingual staff, BH professionals (77% of CA counties have shortages), and ECM-trained coordinators more than ever. 1,674 open positions this week.
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3ctable style="width: 100%; border-collapse: collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Mercado Laboral
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 10px 0 16px;"\x3e
+        \x3ctable style="width: 100%; text-align: center; background: #F5F5F4; border-radius: 8px;"\x3e
+          \x3ctr\x3e
+            
+  \x3ctd style="padding: 12px; text-align: center;"\x3e
+    \x3cp style="font-size: 26px; font-weight: 800; color: #0F766E; margin: 0; line-height: 1;"\x3e1,674\x3c/p\x3e
+    \x3cp style="font-size: 11px; color: #78716C; margin: 4px 0 0;"\x3eEmpleos\x3c/p\x3e
+  \x3c/td\x3e
+            
+  \x3ctd style="padding: 12px; text-align: center;"\x3e
+    \x3cp style="font-size: 26px; font-weight: 800; color: #15803D; margin: 0; line-height: 1;"\x3e+31\x3c/p\x3e
+    \x3cp style="font-size: 11px; color: #78716C; margin: 4px 0 0;"\x3eNuevos\x3c/p\x3e
+  \x3c/td\x3e
+          \x3c/tr\x3e
+        \x3c/table\x3e
+        \x3cp style="margin: 14px 0 6px; font-size: 13px; font-weight: 700; color: #44403C;"\x3e
+          FQHCs Contratando:
+        \x3c/p\x3e
+        
+        \x3cp style="margin: 5px 0; font-size: 13px;"\x3e
+          \x3ca href="https://www.fqhctalent.com/jobs?fqhc=altamed-health-services" style="color: #0F766E; text-decoration: none; font-weight: 600;"\x3eAltaMed Health Services\x3c/a\x3e
+          \x3cspan style="color: #78716C;"\x3e — 275 open\x3c/span\x3e
+        \x3c/p\x3e
+        \x3cp style="margin: 5px 0; font-size: 13px;"\x3e
+          \x3ca href="https://www.fqhctalent.com/jobs?fqhc=la-clinica-de-la-raza" style="color: #0F766E; text-decoration: none; font-weight: 600;"\x3eLa Clinica de la Raza\x3c/a\x3e
+          \x3cspan style="color: #78716C;"\x3e — 192 open\x3c/span\x3e
+        \x3c/p\x3e
+        \x3cp style="margin: 5px 0; font-size: 13px;"\x3e
+          \x3ca href="https://www.fqhctalent.com/jobs?fqhc=family-health-centers-of-san-diego" style="color: #0F766E; text-decoration: none; font-weight: 600;"\x3eFamily Health Centers of San Diego\x3c/a\x3e
+          \x3cspan style="color: #78716C;"\x3e — 148 open\x3c/span\x3e
+        \x3c/p\x3e
+        \x3cp style="margin: 5px 0; font-size: 13px;"\x3e
+          \x3ca href="https://www.fqhctalent.com/jobs?fqhc=santa-barbara-neighborhood-clinics" style="color: #0F766E; text-decoration: none; font-weight: 600;"\x3eSanta Barbara Neighborhood Clinics\x3c/a\x3e
+          \x3cspan style="color: #78716C;"\x3e — 22 open\x3c/span\x3e
+        \x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+
+    
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Tendencias
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+    \x3ctr\x3e
+      \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 3px; font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35;"\x3eHealthcare Lost 28K Jobs — But FQHCs Held Flat\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eHospitals (-17K) and nursing facilities (-8K) cut. Ambulatory care held. FQHCs that kept hiring through uncertainty have stronger financials — target them.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 3px; font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35;"\x3e77% of CA Counties Have BH Shortages — Jobs Are Everywhere\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eLicensed therapists, LCSWs, psychiatric NPs: FQHCs offer competitive pay plus NHSC loan repayment. Rural counties have fewer than 5 MH providers per 100K.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 3px; font-size: 14px; font-weight: 700; color: #1C1917; line-height: 1.35;"\x3eCA County Health Taxes Could Trigger Statewide Hiring Surges\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eMultiple California counties are putting health sales taxes on the ballot to offset Medicaid cuts. If they pass, expect FQHC hiring waves across the state. Update your resume now.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    
+  \x3c/table\x3e
+
+  
+  \x3cdiv style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 4px; font-size: 11px; font-weight: 700; color: #065F46; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+      ✨ Success Story
+    \x3c/p\x3e
+    \x3cp style="margin: 4px 0 2px; font-size: 15px; font-weight: 700; color: #1C1917;"\x3e\$5M Gift Opens 8,000 New Patient Slots on the Central Coast\x3c/p\x3e
+    \x3cp style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: #065F46;"\x3eSanta Barbara Neighborhood Clinics\x3c/p\x3e
+    \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eThe Wyatt family donation — the largest in SBNC's history — funds a new health center opening December 2026. SBNC serves 1 in 10 South Santa Barbara County residents, and 92% of patients are low-income. They're hiring now to staff the expansion: 22 open positions this week.\x3c/p\x3e
+    \x3cp style="margin: 6px 0 0; font-size: 11px;"\x3e\x3ca href="https://www.independent.com/2026/03/11/guardian-angels-drop-5-million-donation-on-new-santa-barbara-neighborhood-clinic/" style="color: #065F46;"\x3eRead more →\x3c/a\x3e\x3c/p\x3e
+  \x3c/div\x3e
+  
+
+  \x3c!-- Tool Spotlight --\x3e
+  \x3ctable style="width: 100%; border-collapse: collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Herramienta Gratuita
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 10px 0 16px;"\x3e
+        \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px;"\x3e
+          \x3cp style="margin: 0 0 3px; font-size: 15px; font-weight: 700; color: #0F766E;"\x3eFQHC Academy — Free Email Course\x3c/p\x3e
+          \x3cp style="margin: 0 0 10px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3e15 bite-size lessons on PPS billing, CalAIM, 340B, and clinical ops. Bilingual quizzes. Show FQHC knowledge before your interview.\x3c/p\x3e
+          \x3ca href="https://www.fqhctalent.com/academy" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eProbar Gratis →\x3c/a\x3e
+        \x3c/div\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+
+    
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Consejos
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    
+    \x3ctr\x3e
+      \x3ctd style="padding: 6px 0 10px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 2px; font-size: 14px; font-weight: 700; color: #1C1917;"\x3eUse the Kaiser Benchmark in Salary Negotiations\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eKaiser's new 21.5% nursing raise is resetting expectations. FQHCs can't match base salary, but total comp (NHSC loan repayment + schedule flexibility + lower patient ratios) often wins. Know your numbers.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 6px 0 10px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 2px; font-size: 14px; font-weight: 700; color: #1C1917;"\x3eNextGen AI Is Live — Put It on Your Resume\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eNextGen just deployed ambient AI natively across its FQHC EHR. If you've used it, add 'NextGen ambient AI documentation' to your skills. If not, ask about it in interviews.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    \x3ctr\x3e
+      \x3ctd style="padding: 6px 0 10px; border-bottom: 1px solid #F5F5F4;"\x3e
+        \x3cp style="margin: 0 0 2px; font-size: 14px; font-weight: 700; color: #1C1917;"\x3eRevenue-Adjacent Roles Are the Safest Bet\x3c/p\x3e
+        \x3cp style="margin: 0; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eWith 1 in 4 FQHCs facing stabilization risk, roles that generate or protect revenue are most secure: billing coders, grant writers, ECM coordinators, 340B pharmacy staff.\x3c/p\x3e
+      \x3c/td\x3e
+    \x3c/tr\x3e
+    
+  \x3c/table\x3e
+
+  
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 10px; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.5px;"\x3e
+      What We're Watching Next Week
+    \x3c/p\x3e
+    
+    \x3cdiv style="margin-bottom: 8px;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #1C1917;"\x3eMarch BLS jobs report (April 4)\x3c/p\x3e
+      \x3cp style="margin: 2px 0 0; font-size: 12px; color: #78716C; line-height: 1.5;"\x3eWill the 28K loss continue or bounce back?\x3c/p\x3e
+    \x3c/div\x3e
+    \x3cdiv style="margin-bottom: 8px;"\x3e
+      \x3cp style="margin: 0; font-size: 13px; font-weight: 600; color: #1C1917;"\x3eCA county health tax ballot polling\x3c/p\x3e
+      \x3cp style="margin: 2px 0 0; font-size: 12px; color: #78716C; line-height: 1.5;"\x3eIf it passes June 2, expect a statewide FQHC hiring wave.\x3c/p\x3e
+    \x3c/div\x3e
+  \x3c/div\x3e
+  
+  \x3cdiv style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;"\x3e
+    \x3cp style="margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #92400E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+      ❤️ From the Movement
+    \x3c/p\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #1C1917; line-height: 1.6; font-style: italic;"\x3e
+      La Clinica de la Raza was founded in 1971 by Chicana activists in Oakland's Fruitvale district who were tired of watching their neighbors get turned away from hospitals. Today it's one of the largest FQHCs in California — 192 open positions this week alone.
+    \x3c/p\x3e
+    \x3cp style="margin: 6px 0 0; font-size: 11px; color: #78716C;"\x3e— La Clinica de la Raza archives\x3c/p\x3e
+  \x3c/div\x3e
+
+  
+  \x3cdiv style="background: #F5F5F4; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0 0 4px; font-size: 15px; font-weight: 700; color: #1C1917;"\x3e10 FQHC Interview Questions They Will Ask\x3c/p\x3e
+    \x3cp style="margin: 0 0 10px; font-size: 13px; color: #44403C; line-height: 1.55;"\x3eMission alignment, cultural humility, underserved community experience. Free prep tool with STAR framework examples and role-specific coaching.\x3c/p\x3e
+    \x3ca href="https://www.fqhctalent.com/interview-prep" style="color: #0F766E; font-size: 13px; font-weight: 600; text-decoration: none;"\x3e
+      Leer Más →
+    \x3c/a\x3e
+  \x3c/div\x3e
+  
+
+  \x3cdiv style="text-align: center; margin: 24px 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/jobs" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eVer Empleos →\x3c/a\x3e
+  \x3c/div\x3e
+
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      ¿Te resultó útil?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Reenvía a un colega →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Cancelar suscripción
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Preferencias
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Política de Privacidad
+    \x3c/a\x3e\x3cbr /\x3e
+    El contenido es solo para fines informativos y no constituye asesoramiento profesional.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["cd1"] = `\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e\x3cmeta charset="utf-8" /\x3e\x3cmeta name="viewport" content="width=device-width,initial-scale=1" /\x3e\x3c/head\x3e
+\x3cbody style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;color:#1C1917;background:#ffffff;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3ch2 style="color:#0F766E;font-size:20px;margin:0 0 8px;"\x3e3 things FQHC employers actually look for\x3c/h2\x3e
+  \x3cp style="color:#78716C;font-size:13px;margin:0 0 20px;"\x3eDay 3 of your onboarding series\x3c/p\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;margin:0 0 20px;"\x3e
+    Most resumes miss what FQHC hiring managers care about most. After reviewing hundreds of job listings across California, here's what keeps showing up:
+  \x3c/p\x3e
+
+  \x3ctable role="presentation" style="width:100%;border-collapse:collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          What Sets Candidates Apart
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e\x3ctd style="padding:0 0 20px;"\x3e
+
+      \x3cdiv style="background:#F0FDFA;border:1px solid #99F6E4;border-radius:8px;padding:20px;"\x3e
+        \x3cdiv style="margin-bottom:16px;"\x3e
+          \x3cp style="margin:0;font-weight:700;color:#0F766E;font-size:15px;"\x3e1. ECM & CalAIM experience\x3c/p\x3e
+          \x3cp style="margin:6px 0 0;color:#44403C;font-size:14px;line-height:1.6;"\x3e
+            Enhanced Care Management is California's highest-priority Medi-Cal program. Mentioning ECM or CCM puts you in the top 15% of applicants.
+          \x3c/p\x3e
+        \x3c/div\x3e
+        \x3cdiv style="margin-bottom:16px;"\x3e
+          \x3cp style="margin:0;font-weight:700;color:#0F766E;font-size:15px;"\x3e2. OCHIN Epic proficiency\x3c/p\x3e
+          \x3cp style="margin:6px 0 0;color:#44403C;font-size:14px;line-height:1.6;"\x3e
+            Over 60% of CA FQHCs run OCHIN Epic. If you've used any Epic product, call it out — "OCHIN Epic" is more powerful on a resume than just "Epic."
+          \x3c/p\x3e
+        \x3c/div\x3e
+        \x3cdiv\x3e
+          \x3cp style="margin:0;font-weight:700;color:#0F766E;font-size:15px;"\x3e3. Bilingual skills (any language)\x3c/p\x3e
+          \x3cp style="margin:6px 0 0;color:#44403C;font-size:14px;line-height:1.6;"\x3e
+            Spanish is in highest demand, but Vietnamese, Tagalog, Korean, and Cantonese all open doors in the Bay Area and LA.
+          \x3c/p\x3e
+        \x3c/div\x3e
+      \x3c/div\x3e
+
+    \x3c/td\x3e\x3c/tr\x3e
+  \x3c/table\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;"\x3e
+    Our free Resume Builder has templates pre-built for 8 FQHC roles — each highlights exactly these signals.
+  \x3c/p\x3e
+
+  \x3cdiv style="text-align:center;margin:20px 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/resume-builder" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eBuild Your FQHC Resume →\x3c/a\x3e
+  \x3c/div\x3e
+
+  \x3cdiv style="background:#F5F5F4;border-radius:8px;padding:14px;margin:20px 0;"\x3e
+    \x3cp style="margin:0;font-size:13px;color:#44403C;line-height:1.6;"\x3e
+      \x3cstrong style="color:#1C1917;"\x3eAlso worth bookmarking:\x3c/strong\x3e
+      \x3ca href="https://www.fqhctalent.com/jobs" style="color:#0F766E;font-weight:600;"\x3e1,674+ FQHC job listings\x3c/a\x3e across 9 CA regions, updated weekly from live career pages.
+    \x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      Found this useful?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Forward to a colleague →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Unsubscribe
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Manage preferences
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Privacy Policy
+    \x3c/a\x3e\x3cbr /\x3e
+    Content is for informational purposes only and does not constitute professional advice.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["cd2"] = `\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e\x3cmeta charset="utf-8" /\x3e\x3cmeta name="viewport" content="width=device-width,initial-scale=1" /\x3e\x3c/head\x3e
+\x3cbody style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;color:#1C1917;background:#ffffff;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3ch2 style="color:#0F766E;font-size:20px;margin:0 0 8px;"\x3eWhat does an FQHC job pay in your region?\x3c/h2\x3e
+  \x3cp style="color:#78716C;font-size:13px;margin:0 0 20px;"\x3eDay 7 of your onboarding series\x3c/p\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;margin:0 0 20px;"\x3e
+    Salary ranges at FQHCs vary significantly by region, role, and org size. Here's a quick benchmark:
+  \x3c/p\x3e
+
+  \x3ctable style="width:100%;border-collapse:collapse;font-size:14px;margin:20px 0;border-radius:8px;overflow:hidden;"\x3e
+    \x3cthead\x3e
+      \x3ctr style="background:#0F766E;"\x3e
+        \x3cth style="text-align:left;padding:10px 12px;font-weight:600;color:white;"\x3eRole\x3c/th\x3e
+        \x3cth style="text-align:right;padding:10px 12px;font-weight:600;color:white;"\x3eLA/SD P50\x3c/th\x3e
+        \x3cth style="text-align:right;padding:10px 12px;font-weight:600;color:white;"\x3eBay Area P50\x3c/th\x3e
+      \x3c/tr\x3e
+    \x3c/thead\x3e
+    \x3ctbody\x3e
+      \x3ctr style="border-bottom:1px solid #F5F5F4;"\x3e
+        \x3ctd style="padding:10px 12px;color:#44403C;"\x3eCare Coordinator\x3c/td\x3e
+        \x3ctd style="padding:10px 12px;text-align:right;color:#0F766E;font-weight:700;"\x3e\$55K\x3c/td\x3e
+        \x3ctd style="padding:10px 12px;text-align:right;color:#0F766E;font-weight:700;"\x3e\$66K\x3c/td\x3e
+      \x3c/tr\x3e
+      \x3ctr style="background:#FAFAF9;border-bottom:1px solid #F5F5F4;"\x3e
+        \x3ctd style="padding:10px 12px;color:#44403C;"\x3eCommunity Health Worker\x3c/td\x3e
+        \x3ctd style="padding:10px 12px;text-align:right;color:#0F766E;font-weight:700;"\x3e\$48K\x3c/td\x3e
+        \x3ctd style="padding:10px 12px;text-align:right;color:#0F766E;font-weight:700;"\x3e\$58K\x3c/td\x3e
+      \x3c/tr\x3e
+      \x3ctr style="border-bottom:1px solid #F5F5F4;"\x3e
+        \x3ctd style="padding:10px 12px;color:#44403C;"\x3eRegistered Nurse (RN)\x3c/td\x3e
+        \x3ctd style="padding:10px 12px;text-align:right;color:#0F766E;font-weight:700;"\x3e\$88K\x3c/td\x3e
+        \x3ctd style="padding:10px 12px;text-align:right;color:#0F766E;font-weight:700;"\x3e\$106K\x3c/td\x3e
+      \x3c/tr\x3e
+      \x3ctr style="background:#FAFAF9;"\x3e
+        \x3ctd style="padding:10px 12px;color:#44403C;"\x3eNurse Practitioner (NP)\x3c/td\x3e
+        \x3ctd style="padding:10px 12px;text-align:right;color:#0F766E;font-weight:700;"\x3e\$138K\x3c/td\x3e
+        \x3ctd style="padding:10px 12px;text-align:right;color:#0F766E;font-weight:700;"\x3e\$166K\x3c/td\x3e
+      \x3c/tr\x3e
+    \x3c/tbody\x3e
+  \x3c/table\x3e
+
+  \x3cdiv style="background:#FFFBEB;border-left:4px solid #F59E0B;padding:14px 16px;border-radius:0 8px 8px 0;margin:20px 0;"\x3e
+    \x3cp style="margin:0;font-size:14px;color:#92400E;line-height:1.6;"\x3e
+      \x3cstrong\x3eDon't forget total comp:\x3c/strong\x3e NHSC loan repayment (\$25–\$50K/year), state-funded CHW certification, and SB 525 \$25/hr minimum wage floor add significant value beyond base salary.
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3cdiv style="text-align:center;margin:20px 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/salary-data" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eSee Full Salary Data →\x3c/a\x3e
+  \x3c/div\x3e
+
+  \x3cp style="color:#78716C;font-size:13px;line-height:1.7;"\x3e
+    See 30 roles × 9 regions with P25/P50/P75 breakdowns and regional comparison tool.
+  \x3c/p\x3e
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      Found this useful?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Forward to a colleague →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Unsubscribe
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Manage preferences
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Privacy Policy
+    \x3c/a\x3e\x3cbr /\x3e
+    Content is for informational purposes only and does not constitute professional advice.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["cd3"] = `\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e\x3cmeta charset="utf-8" /\x3e\x3cmeta name="viewport" content="width=device-width,initial-scale=1" /\x3e\x3c/head\x3e
+\x3cbody style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;color:#1C1917;background:#ffffff;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3ch2 style="color:#0F766E;font-size:20px;margin:0 0 8px;"\x3eYour personalized FQHC career toolkit\x3c/h2\x3e
+  \x3cp style="color:#78716C;font-size:13px;margin:0 0 20px;"\x3eDay 14 — Final onboarding email\x3c/p\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;margin:0 0 20px;"\x3e
+    Over the last two weeks, you've seen what FQHC employers want, how salaries stack up, and where the jobs are. Now let's get personal.
+  \x3c/p\x3e
+
+  \x3ctable role="presentation" style="width:100%;border-collapse:collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Know Your Readiness
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e\x3ctd style="padding:0 0 10px;"\x3e
+      \x3cp style="color:#44403C;line-height:1.7;font-size:15px;"\x3e
+        Our 15-question Career Assessment gives you a personalized role-readiness score, a 90-day plan tailored to your target role, and specific skills gaps to close.
+      \x3c/p\x3e
+      \x3cdiv style="text-align:center;margin:16px 0;"\x3e
+        \x3ca href="https://www.fqhctalent.com/career-insights" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eTake Career Assessment →\x3c/a\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e\x3c/tr\x3e
+  \x3c/table\x3e
+
+  
+  \x3cdiv style="background: #F5F5F4; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;"\x3e
+    \x3cp style="margin: 0 0 4px; font-size: 14px; font-weight: 700; color: #1C1917;"\x3e
+      Your personalized dashboard
+    \x3c/p\x3e
+    \x3cp style="margin: 0 0 12px; font-size: 13px; color: #78716C;"\x3e
+      We save your career assessment, resume progress, and course completion in one place.
+    \x3c/p\x3e
+    \x3ca href="https://www.fqhctalent.com/dashboard" style="display: inline-block; background: #1C1917; color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600;"\x3e
+      Go to My Dashboard →
+    \x3c/a\x3e
+  \x3c/div\x3e
+
+  
+  \x3cdiv style="background: #EEF2FF; border: 1px solid #C7D2FE; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0; font-weight: 700; color: #4338CA; font-size: 14px;"\x3e
+      FQHC Academy — Free Email Course
+    \x3c/p\x3e
+    \x3cp style="margin: 6px 0 10px; font-size: 13px; color: #44403C; line-height: 1.5;"\x3e
+      15 bite-size email lessons over 30 days — PPS billing, same-day rules, clinical workflows, and more. Each includes a mini quiz. Bilingual.
+    \x3c/p\x3e
+    \x3ca href="https://www.fqhctalent.com/academy" style="display: inline-block; background: #4338CA; color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600;"\x3e
+      Start Free Course →
+    \x3c/a\x3e
+  \x3c/div\x3e
+
+  
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0; font-weight: 700; color: #0F766E; font-size: 14px;"\x3e
+      Our Mission
+    \x3c/p\x3e
+    \x3cp style="margin: 8px 0 0; font-size: 13px; color: #44403C; line-height: 1.6;"\x3e
+      Strengthen California’s safety-net workforce by connecting mission-driven health professionals with FQHCs — faster, smarter, and with the cultural fit that matters.
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3cp style="color:#78716C;font-size:13px;line-height:1.7;margin-top:20px;"\x3e
+    You're now fully onboarded as a \x3cstrong style="color:#1C1917;"\x3ePulse\x3c/strong\x3e subscriber. Each Tuesday you'll receive job highlights, market trends, salary updates, and career tips — all FQHC-specific, all with primary sources.
+  \x3c/p\x3e
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      Found this useful?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Forward to a colleague →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Unsubscribe
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Manage preferences
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Privacy Policy
+    \x3c/a\x3e\x3cbr /\x3e
+    Content is for informational purposes only and does not constitute professional advice.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["ed1"] = `\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e\x3cmeta charset="utf-8" /\x3e\x3cmeta name="viewport" content="width=device-width,initial-scale=1" /\x3e\x3c/head\x3e
+\x3cbody style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;color:#1C1917;background:#ffffff;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3ch2 style="color:#0F766E;font-size:20px;margin:0 0 8px;"\x3eYour FQHC intelligence platform — where to start\x3c/h2\x3e
+  \x3cp style="color:#78716C;font-size:13px;margin:0 0 20px;"\x3eDay 3 of your onboarding series\x3c/p\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;margin:0 0 20px;"\x3e
+    You're subscribed to the \x3cstrong\x3eFQHC Intel Brief\x3c/strong\x3e — California's only executive intelligence feed built specifically for FQHC leaders. Here's what's available to you:
+  \x3c/p\x3e
+
+  \x3ctable role="presentation" style="width:100%;border-collapse:collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Your Intelligence Toolkit
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e\x3ctd style="padding:0 0 20px;"\x3e
+
+      \x3cdiv style="background:#F5F5F4;border-radius:8px;padding:20px;"\x3e
+        \x3cdiv style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #D6D3D1;"\x3e
+          \x3cp style="margin:0;"\x3e\x3ca href="https://www.fqhctalent.com" style="color:#0F766E;font-weight:700;font-size:15px;text-decoration:none;"\x3eIntelligence Dashboard →\x3c/a\x3e\x3c/p\x3e
+          \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3eBreaking intel, funding cliffs, AI adoption tracking — updated daily.\x3c/p\x3e
+        \x3c/div\x3e
+        \x3cdiv style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #D6D3D1;"\x3e
+          \x3cp style="margin:0;"\x3e\x3ca href="https://www.fqhctalent.com/ai-tracker" style="color:#0F766E;font-weight:700;font-size:15px;text-decoration:none;"\x3eAI Adoption Tracker →\x3c/a\x3e\x3c/p\x3e
+          \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3e17+ documented AI implementations. Ambient scribes, RCM tools, predictive analytics — what's real vs. hype.\x3c/p\x3e
+        \x3c/div\x3e
+        \x3cdiv style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #D6D3D1;"\x3e
+          \x3cp style="margin:0;"\x3e\x3ca href="https://www.fqhctalent.com/funding-impact" style="color:#0F766E;font-weight:700;font-size:15px;text-decoration:none;"\x3eH.R. 1 Impact Tracker →\x3c/a\x3e\x3c/p\x3e
+          \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3e\$4.6B in threatened FQHC funding. Policy timeline, revenue scenarios — updated as legislation moves.\x3c/p\x3e
+        \x3c/div\x3e
+        \x3cdiv\x3e
+          \x3cp style="margin:0;"\x3e\x3ca href="https://www.fqhctalent.com/layoffs" style="color:#0F766E;font-weight:700;font-size:15px;text-decoration:none;"\x3eLayoff & WARN Tracker →\x3c/a\x3e\x3c/p\x3e
+          \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3e20 events, 3,477+ workers tracked from CA WARN Act filings.\x3c/p\x3e
+        \x3c/div\x3e
+      \x3c/div\x3e
+
+    \x3c/td\x3e\x3c/tr\x3e
+  \x3c/table\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;"\x3e
+    Your Intel Brief arrives every Tuesday. Each issue covers policy, funding, workforce, and AI — with primary source links for every claim.
+  \x3c/p\x3e
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      Found this useful?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Forward to a colleague →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Unsubscribe
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Manage preferences
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Privacy Policy
+    \x3c/a\x3e\x3cbr /\x3e
+    Content is for informational purposes only and does not constitute professional advice.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["ed2"] = `\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e\x3cmeta charset="utf-8" /\x3e\x3cmeta name="viewport" content="width=device-width,initial-scale=1" /\x3e\x3c/head\x3e
+\x3cbody style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;color:#1C1917;background:#ffffff;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3ch2 style="color:#0F766E;font-size:20px;margin:0 0 8px;"\x3eHow does your FQHC score on resilience?\x3c/h2\x3e
+  \x3cp style="color:#78716C;font-size:13px;margin:0 0 20px;"\x3eDay 7 of your onboarding series\x3c/p\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;margin:0 0 20px;"\x3e
+    We've scored all 219 California FQHCs across 5 dimensions of organizational resilience:
+  \x3c/p\x3e
+
+  \x3cdiv style="background:#F0FDFA;border:1px solid #99F6E4;border-radius:8px;padding:20px;margin:20px 0;"\x3e
+    \x3ctable style="width:100%;font-size:14px;border-collapse:collapse;"\x3e
+      \x3ctr style="border-bottom:1px solid #99F6E4;"\x3e
+        \x3ctd style="padding:8px 0;color:#44403C;font-weight:600;"\x3eProgram Diversity\x3c/td\x3e
+        \x3ctd style="padding:8px 0;color:#78716C;text-align:right;"\x3e25%\x3c/td\x3e
+      \x3c/tr\x3e
+      \x3ctr style="border-bottom:1px solid #99F6E4;"\x3e
+        \x3ctd style="padding:8px 0;color:#44403C;font-weight:600;"\x3eWorkforce Stability\x3c/td\x3e
+        \x3ctd style="padding:8px 0;color:#78716C;text-align:right;"\x3e20%\x3c/td\x3e
+      \x3c/tr\x3e
+      \x3ctr style="border-bottom:1px solid #99F6E4;"\x3e
+        \x3ctd style="padding:8px 0;color:#44403C;font-weight:600;"\x3eQuality Indicators\x3c/td\x3e
+        \x3ctd style="padding:8px 0;color:#78716C;text-align:right;"\x3e20%\x3c/td\x3e
+      \x3c/tr\x3e
+      \x3ctr style="border-bottom:1px solid #99F6E4;"\x3e
+        \x3ctd style="padding:8px 0;color:#44403C;font-weight:600;"\x3eFinancial Positioning\x3c/td\x3e
+        \x3ctd style="padding:8px 0;color:#78716C;text-align:right;"\x3e20%\x3c/td\x3e
+      \x3c/tr\x3e
+      \x3ctr\x3e
+        \x3ctd style="padding:8px 0;color:#44403C;font-weight:600;"\x3eData Maturity\x3c/td\x3e
+        \x3ctd style="padding:8px 0;color:#78716C;text-align:right;"\x3e15%\x3c/td\x3e
+      \x3c/tr\x3e
+    \x3c/table\x3e
+  \x3c/div\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;"\x3e
+    Find your organization in the Resilience Scorecard to see your grade, factor-level breakdown, and peer comparison.
+  \x3c/p\x3e
+
+  \x3cdiv style="text-align:center;margin:20px 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/strategy/resilience" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eResilience Scorecard →\x3c/a\x3e
+    \x3ca href="https://www.fqhctalent.com/directory" style="display: inline-block; background: #F5F5F4; color: #0F766E; border: 1px solid #0F766E; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eFind Your FQHC →\x3c/a\x3e
+  \x3c/div\x3e
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      Found this useful?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Forward to a colleague →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Unsubscribe
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Manage preferences
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Privacy Policy
+    \x3c/a\x3e\x3cbr /\x3e
+    Content is for informational purposes only and does not constitute professional advice.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["ed3"] = `\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e\x3cmeta charset="utf-8" /\x3e\x3cmeta name="viewport" content="width=device-width,initial-scale=1" /\x3e\x3c/head\x3e
+\x3cbody style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;color:#1C1917;background:#ffffff;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3ch2 style="color:#0F766E;font-size:20px;margin:0 0 8px;"\x3eWhat top-performing FQHCs are doing right now\x3c/h2\x3e
+  \x3cp style="color:#78716C;font-size:13px;margin:0 0 20px;"\x3eDay 14 — Final onboarding email\x3c/p\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;margin:0 0 20px;"\x3e
+    Six real case studies analyzed using Rumelt's Good Strategy framework — Diagnose, Guiding Policy, Coherent Actions, Outcomes:
+  \x3c/p\x3e
+
+  \x3ctable role="presentation" style="width:100%;border-collapse:collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Case Studies
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e\x3ctd style="padding:0 0 20px;"\x3e
+
+      \x3cdiv style="background:#F5F5F4;border-radius:8px;padding:20px;"\x3e
+        \x3cdiv style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #D6D3D1;"\x3e
+          \x3cp style="margin:0;font-weight:700;color:#1C1917;font-size:14px;"\x3ePureView Health Network\x3c/p\x3e
+          \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3eMerged 3 struggling FQHCs → saved 47,000 patients from losing coverage.\x3c/p\x3e
+        \x3c/div\x3e
+        \x3cdiv style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #D6D3D1;"\x3e
+          \x3cp style="margin:0;font-weight:700;color:#1C1917;font-size:14px;"\x3eSun River Health\x3c/p\x3e
+          \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3eDeployed Sunoh.ai ambient AI at 500+ providers → 7,000 visits/month, 40% doc-time reduction.\x3c/p\x3e
+        \x3c/div\x3e
+        \x3cdiv\x3e
+          \x3cp style="margin:0;font-weight:700;color:#1C1917;font-size:14px;"\x3eMCR Health\x3c/p\x3e
+          \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3e340B optimization + revenue diversification → 23% revenue increase, \$2.4M in new grants.\x3c/p\x3e
+        \x3c/div\x3e
+      \x3c/div\x3e
+
+    \x3c/td\x3e\x3c/tr\x3e
+  \x3c/table\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;"\x3e
+    We also have 25 OKR templates built for the 2026 funding crisis — downloadable Excel workbooks with tracking columns.
+  \x3c/p\x3e
+
+  \x3cdiv style="text-align:center;margin:20px 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/strategy/guides" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eRead Case Studies →\x3c/a\x3e
+    \x3ca href="https://www.fqhctalent.com/strategy/okrs" style="display: inline-block; background: #F5F5F4; color: #0F766E; border: 1px solid #0F766E; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eDownload OKR Templates →\x3c/a\x3e
+  \x3c/div\x3e
+
+  
+  \x3cdiv style="background: #F5F5F4; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;"\x3e
+    \x3cp style="margin: 0 0 4px; font-size: 14px; font-weight: 700; color: #1C1917;"\x3e
+      Your personalized dashboard
+    \x3c/p\x3e
+    \x3cp style="margin: 0 0 12px; font-size: 13px; color: #78716C;"\x3e
+      We save your career assessment, resume progress, and course completion in one place.
+    \x3c/p\x3e
+    \x3ca href="https://www.fqhctalent.com/dashboard" style="display: inline-block; background: #1C1917; color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600;"\x3e
+      Go to My Dashboard →
+    \x3c/a\x3e
+  \x3c/div\x3e
+
+  
+  \x3cdiv style="background: #EEF2FF; border: 1px solid #C7D2FE; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0; font-weight: 700; color: #4338CA; font-size: 14px;"\x3e
+      FQHC Academy — Free Email Course
+    \x3c/p\x3e
+    \x3cp style="margin: 6px 0 10px; font-size: 13px; color: #44403C; line-height: 1.5;"\x3e
+      15 bite-size email lessons over 30 days — PPS billing, same-day rules, clinical workflows, and more. Each includes a mini quiz. Bilingual.
+    \x3c/p\x3e
+    \x3ca href="https://www.fqhctalent.com/academy" style="display: inline-block; background: #4338CA; color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600;"\x3e
+      Start Free Course →
+    \x3c/a\x3e
+  \x3c/div\x3e
+
+  \x3cp style="color:#78716C;font-size:13px;line-height:1.7;margin-top:20px;"\x3e
+    You're now fully onboarded as an \x3cstrong style="color:#1C1917;"\x3eIntel Brief\x3c/strong\x3e subscriber. Your weekly briefing arrives every Tuesday — policy, funding, workforce, and AI with primary sources.
+  \x3c/p\x3e
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      Found this useful?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Forward to a colleague →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Unsubscribe
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Manage preferences
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Privacy Policy
+    \x3c/a\x3e\x3cbr /\x3e
+    Content is for informational purposes only and does not constitute professional advice.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["bd1"] = `\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e\x3cmeta charset="utf-8" /\x3e\x3cmeta name="viewport" content="width=device-width,initial-scale=1" /\x3e\x3c/head\x3e
+\x3cbody style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;color:#1C1917;background:#ffffff;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3ch2 style="color:#0F766E;font-size:20px;margin:0 0 8px;"\x3eYou picked \x3cem\x3eboth\x3c/em\x3e briefings — here's why that's smart\x3c/h2\x3e
+  \x3cp style="color:#78716C;font-size:13px;margin:0 0 20px;"\x3eDay 3 of your onboarding series\x3c/p\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;margin:0 0 20px;"\x3e
+    Whether you're an FQHC leader who wants to understand the candidate market, or a clinician who wants the executive view — you now get the full picture. Here's everything available to you:
+  \x3c/p\x3e
+
+  \x3ctable role="presentation" style="width:100%;border-collapse:collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          For the Strategist in You
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e\x3ctd style="padding:0 0 10px;"\x3e
+      \x3cdiv style="background:#F5F5F4;border-radius:8px;padding:16px;margin-bottom:8px;"\x3e
+        \x3cp style="margin:0;"\x3e\x3ca href="https://www.fqhctalent.com" style="color:#0F766E;font-weight:700;font-size:14px;text-decoration:none;"\x3eIntelligence Dashboard →\x3c/a\x3e\x3c/p\x3e
+        \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3eBreaking intel, funding cliffs, AI adoption — updated daily.\x3c/p\x3e
+      \x3c/div\x3e
+      \x3cdiv style="background:#F5F5F4;border-radius:8px;padding:16px;margin-bottom:8px;"\x3e
+        \x3cp style="margin:0;"\x3e\x3ca href="https://www.fqhctalent.com/ai-tracker" style="color:#0F766E;font-weight:700;font-size:14px;text-decoration:none;"\x3eAI Adoption Tracker →\x3c/a\x3e\x3c/p\x3e
+        \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3e17+ real AI deployments across FQHCs — what's working.\x3c/p\x3e
+      \x3c/div\x3e
+      \x3cdiv style="background:#F5F5F4;border-radius:8px;padding:16px;"\x3e
+        \x3cp style="margin:0;"\x3e\x3ca href="https://www.fqhctalent.com/funding-impact" style="color:#0F766E;font-weight:700;font-size:14px;text-decoration:none;"\x3eH.R. 1 Impact Tracker →\x3c/a\x3e\x3c/p\x3e
+        \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3e\$4.6B in threatened FQHC funding. Policy timelines updated live.\x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e\x3c/tr\x3e
+
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          For the Career Builder in You
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e\x3ctd style="padding:0 0 10px;"\x3e
+      \x3cdiv style="background:#F5F5F4;border-radius:8px;padding:16px;margin-bottom:8px;"\x3e
+        \x3cp style="margin:0;"\x3e\x3ca href="https://www.fqhctalent.com/jobs" style="color:#0F766E;font-weight:700;font-size:14px;text-decoration:none;"\x3e1,674+ FQHC Jobs →\x3c/a\x3e\x3c/p\x3e
+        \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3eAcross 9 CA regions, updated weekly from live career pages.\x3c/p\x3e
+      \x3c/div\x3e
+      \x3cdiv style="background:#F5F5F4;border-radius:8px;padding:16px;margin-bottom:8px;"\x3e
+        \x3cp style="margin:0;"\x3e\x3ca href="https://www.fqhctalent.com/salary-data" style="color:#0F766E;font-weight:700;font-size:14px;text-decoration:none;"\x3eSalary Explorer →\x3c/a\x3e\x3c/p\x3e
+        \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3e30 roles × 9 regions with P25/P50/P75 breakdowns.\x3c/p\x3e
+      \x3c/div\x3e
+      \x3cdiv style="background:#F5F5F4;border-radius:8px;padding:16px;"\x3e
+        \x3cp style="margin:0;"\x3e\x3ca href="https://www.fqhctalent.com/resume-builder" style="color:#0F766E;font-weight:700;font-size:14px;text-decoration:none;"\x3eFQHC Resume Builder →\x3c/a\x3e\x3c/p\x3e
+        \x3cp style="margin:4px 0 0;color:#78716C;font-size:13px;"\x3eTemplates pre-built for 8 FQHC roles with the right keywords.\x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e\x3c/tr\x3e
+  \x3c/table\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;"\x3e
+    Every Tuesday you'll receive \x3cstrong\x3etwo briefings\x3c/strong\x3e: the Intel Brief (policy, funding, AI) and The Pulse (jobs, salaries, career intel).
+  \x3c/p\x3e
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      Found this useful?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Forward to a colleague →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Unsubscribe
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Manage preferences
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Privacy Policy
+    \x3c/a\x3e\x3cbr /\x3e
+    Content is for informational purposes only and does not constitute professional advice.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["bd2"] = `\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e\x3cmeta charset="utf-8" /\x3e\x3cmeta name="viewport" content="width=device-width,initial-scale=1" /\x3e\x3c/head\x3e
+\x3cbody style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;color:#1C1917;background:#ffffff;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3ch2 style="color:#0F766E;font-size:20px;margin:0 0 8px;"\x3eThe complete FQHC workforce picture\x3c/h2\x3e
+  \x3cp style="color:#78716C;font-size:13px;margin:0 0 20px;"\x3eDay 7 of your onboarding series\x3c/p\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;margin:0 0 20px;"\x3e
+    Because you follow both tracks, you see what most people miss — how executive strategy decisions ripple into front-line careers, and vice versa. Here's the view from both sides:
+  \x3c/p\x3e
+
+  \x3ctable role="presentation" style="width:100%;border-collapse:collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          The Executive View
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e\x3ctd style="padding:0 0 10px;"\x3e
+      \x3cdiv style="background:#F0FDFA;border:1px solid #99F6E4;border-radius:8px;padding:16px;"\x3e
+        \x3cp style="margin:0;font-weight:700;color:#0F766E;font-size:14px;"\x3eResilience Scorecard\x3c/p\x3e
+        \x3cp style="margin:6px 0 0;color:#44403C;font-size:14px;line-height:1.6;"\x3e
+          219 California FQHCs scored across Program Diversity (25%), Workforce Stability (20%), Quality (20%), Financial Positioning (20%), and Data Maturity (15%). Find your org and see how you compare.
+        \x3c/p\x3e
+        \x3cdiv style="margin-top:12px;"\x3e
+          \x3ca href="https://www.fqhctalent.com/strategy/resilience" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eView Scorecard →\x3c/a\x3e
+        \x3c/div\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e\x3c/tr\x3e
+
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          The Career View
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e\x3ctd style="padding:0 0 10px;"\x3e
+      \x3cdiv style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:16px;"\x3e
+        \x3cp style="margin:0;font-weight:700;color:#92400E;font-size:14px;"\x3eSalary Benchmarks by Region\x3c/p\x3e
+        \x3cp style="margin:6px 0 0;color:#44403C;font-size:14px;line-height:1.6;"\x3e
+          Care Coordinator: \$55K (LA) → \$66K (Bay Area). NP: \$138K → \$166K. Plus NHSC loan repayment (\$25–50K/year) and SB 525 \$25/hr floor — total comp matters.
+        \x3c/p\x3e
+        \x3cdiv style="margin-top:12px;"\x3e
+          \x3ca href="https://www.fqhctalent.com/salary-data" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eFull Salary Data →\x3c/a\x3e
+        \x3c/div\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e\x3c/tr\x3e
+  \x3c/table\x3e
+
+  \x3cdiv style="background:#F5F5F4;border-radius:8px;padding:16px;margin:20px 0;"\x3e
+    \x3cp style="margin:0;font-size:14px;color:#44403C;line-height:1.6;"\x3e
+      \x3cstrong style="color:#1C1917;"\x3eWhy this matters together:\x3c/strong\x3e Leaders who understand salary realities retain staff. Clinicians who understand funding threats make smarter career moves. You're getting both.
+    \x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      Found this useful?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Forward to a colleague →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Unsubscribe
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Manage preferences
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Privacy Policy
+    \x3c/a\x3e\x3cbr /\x3e
+    Content is for informational purposes only and does not constitute professional advice.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+contents["bd3"] = `\x3c!DOCTYPE html\x3e
+\x3chtml\x3e
+\x3chead\x3e\x3cmeta charset="utf-8" /\x3e\x3cmeta name="viewport" content="width=device-width,initial-scale=1" /\x3e\x3c/head\x3e
+\x3cbody style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:40px 20px;color:#1C1917;background:#ffffff;"\x3e
+  
+  \x3cdiv style="background: linear-gradient(135deg, #0F766E 0%, #115E59 100%); border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;"\x3e
+    \x3ch1 style="color: white; font-size: 22px; font-weight: 800; margin: 0; letter-spacing: -0.3px;"\x3e
+      FQHC Talent \x3cspan style="color: #F59E0B;"\x3e♥\x3c/span\x3e
+    \x3c/h1\x3e
+    \x3cp style="color: #99F6E4; font-size: 12px; margin: 6px 0 0 0; letter-spacing: 0.5px; text-transform: uppercase;"\x3e
+      California's FQHC Strategic Monitor
+    \x3c/p\x3e
+  \x3c/div\x3e
+  
+  \x3ch2 style="color:#0F766E;font-size:20px;margin:0 0 8px;"\x3eYour personalized FQHC command center\x3c/h2\x3e
+  \x3cp style="color:#78716C;font-size:13px;margin:0 0 20px;"\x3eDay 14 — Final onboarding email\x3c/p\x3e
+
+  \x3cp style="color:#44403C;line-height:1.7;font-size:15px;margin:0 0 20px;"\x3e
+    Two weeks in. You've explored the platform, seen the data, and understand why FQHC intelligence matters. Here's how to make it personal:
+  \x3c/p\x3e
+
+  \x3ctable role="presentation" style="width:100%;border-collapse:collapse;"\x3e
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Leadership Tools
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e\x3ctd style="padding:0 0 10px;"\x3e
+      \x3cp style="color:#44403C;line-height:1.7;font-size:15px;"\x3e
+        Six case studies from top-performing FQHCs — from multi-org mergers to 340B optimization — plus 25 downloadable OKR templates built for the 2026 funding crisis.
+      \x3c/p\x3e
+      \x3cdiv style="text-align:center;margin:12px 0;"\x3e
+        \x3ca href="https://www.fqhctalent.com/strategy/guides" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eCase Studies →\x3c/a\x3e
+        \x3ca href="https://www.fqhctalent.com/strategy/okrs" style="display: inline-block; background: #F5F5F4; color: #0F766E; border: 1px solid #0F766E; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eOKR Templates →\x3c/a\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e\x3c/tr\x3e
+
+    
+  \x3ctr\x3e
+    \x3ctd style="padding: 28px 0 10px;"\x3e
+      \x3cdiv style="border-left: 3px solid #0F766E; padding-left: 10px;"\x3e
+        \x3cp style="margin: 0; font-size: 12px; font-weight: 700; color: #0F766E; text-transform: uppercase; letter-spacing: 0.8px;"\x3e
+          Career Tools
+        \x3c/p\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e
+  \x3c/tr\x3e
+    \x3ctr\x3e\x3ctd style="padding:0 0 10px;"\x3e
+      \x3cp style="color:#44403C;line-height:1.7;font-size:15px;"\x3e
+        Take the 15-question Career Assessment for a personalized role-readiness score and 90-day plan tailored to your target FQHC role.
+      \x3c/p\x3e
+      \x3cdiv style="text-align:center;margin:12px 0;"\x3e
+        \x3ca href="https://www.fqhctalent.com/career-insights" style="display: inline-block; background: #0F766E; color: white; border: none; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eCareer Assessment →\x3c/a\x3e
+        \x3ca href="https://www.fqhctalent.com/interview-prep" style="display: inline-block; background: #F5F5F4; color: #0F766E; border: 1px solid #0F766E; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; margin: 4px;"\x3eInterview Prep →\x3c/a\x3e
+      \x3c/div\x3e
+    \x3c/td\x3e\x3c/tr\x3e
+  \x3c/table\x3e
+
+  
+  \x3cdiv style="background: #F5F5F4; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;"\x3e
+    \x3cp style="margin: 0 0 4px; font-size: 14px; font-weight: 700; color: #1C1917;"\x3e
+      Your personalized dashboard
+    \x3c/p\x3e
+    \x3cp style="margin: 0 0 12px; font-size: 13px; color: #78716C;"\x3e
+      We save your career assessment, resume progress, and course completion in one place.
+    \x3c/p\x3e
+    \x3ca href="https://www.fqhctalent.com/dashboard" style="display: inline-block; background: #1C1917; color: white; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600;"\x3e
+      Go to My Dashboard →
+    \x3c/a\x3e
+  \x3c/div\x3e
+
+  
+  \x3cdiv style="background: #EEF2FF; border: 1px solid #C7D2FE; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0; font-weight: 700; color: #4338CA; font-size: 14px;"\x3e
+      FQHC Academy — Free Email Course
+    \x3c/p\x3e
+    \x3cp style="margin: 6px 0 10px; font-size: 13px; color: #44403C; line-height: 1.5;"\x3e
+      15 bite-size email lessons over 30 days — PPS billing, same-day rules, clinical workflows, and more. Each includes a mini quiz. Bilingual.
+    \x3c/p\x3e
+    \x3ca href="https://www.fqhctalent.com/academy" style="display: inline-block; background: #4338CA; color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600;"\x3e
+      Start Free Course →
+    \x3c/a\x3e
+  \x3c/div\x3e
+
+  
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 16px; margin: 24px 0;"\x3e
+    \x3cp style="margin: 0; font-weight: 700; color: #0F766E; font-size: 14px;"\x3e
+      Our Mission
+    \x3c/p\x3e
+    \x3cp style="margin: 8px 0 0; font-size: 13px; color: #44403C; line-height: 1.6;"\x3e
+      Strengthen California’s safety-net workforce by connecting mission-driven health professionals with FQHCs — faster, smarter, and with the cultural fit that matters.
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3cp style="color:#78716C;font-size:13px;line-height:1.7;margin-top:20px;"\x3e
+    You're now fully onboarded. Every Tuesday you'll receive \x3cstrong style="color:#1C1917;"\x3eboth\x3c/strong\x3e the Intel Brief and The Pulse — the full FQHC picture, delivered to your inbox.
+  \x3c/p\x3e
+  
+  \x3c!-- Forward CTA --\x3e
+  \x3cdiv style="background: #F0FDFA; border: 1px solid #99F6E4; border-radius: 8px; padding: 14px; margin: 32px 0 20px; text-align: center;"\x3e
+    \x3cp style="margin: 0; font-size: 14px; color: #0F766E;"\x3e
+      Found this useful?
+      \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #0F766E; text-decoration: underline; font-weight: 600; margin-left: 4px;"\x3e
+        Forward to a colleague →
+      \x3c/a\x3e
+    \x3c/p\x3e
+  \x3c/div\x3e
+
+  \x3chr style="border: none; border-top: 1px solid #E7E5E4; margin: 20px 0;" /\x3e
+
+  \x3c!-- Links --\x3e
+  \x3cp style="font-size: 11px; color: #78716C; text-align: center; line-height: 1.8; margin: 0;"\x3e
+    \x3ca href="https://www.fqhctalent.com/api/newsletter/unsubscribe?token=PREVIEW_TOKEN" style="color: #78716C; text-decoration: underline;"\x3e
+      Unsubscribe
+    \x3c/a\x3e · 
+    \x3ca href="https://www.fqhctalent.com/newsletter" style="color: #78716C; text-decoration: underline;"\x3e
+      Manage preferences
+    \x3c/a\x3e ·
+    \x3ca href="https://www.fqhctalent.com" style="color: #78716C; text-decoration: underline;"\x3efqhctalent.com\x3c/a\x3e
+  \x3c/p\x3e
+
+  \x3c!-- Legal --\x3e
+  \x3cp style="font-size: 10px; color: #A8A29E; text-align: center; margin: 12px 0 0 0; line-height: 1.6;"\x3e
+    FQHC Talent · Los Angeles, CA ·
+    \x3ca href="https://www.fqhctalent.com/privacy" style="color: #A8A29E; text-decoration: underline;"\x3e
+      Privacy Policy
+    \x3c/a\x3e\x3cbr /\x3e
+    Content is for informational purposes only and does not constitute professional advice.
+  \x3c/p\x3e
+\x3c/body\x3e
+\x3c/html\x3e`;
+
+// Unescape
+for (const k of Object.keys(contents)) {
+  contents[k] = contents[k].replace(/\\x3c/g, "<").replace(/\\x3e/g, ">");
+}
+
+// Build sidebar
+const sidebar = document.getElementById("sidebar");
+for (const g of groups) {
+  const lbl = document.createElement("div");
+  lbl.className = "group-label";
+  lbl.textContent = g;
+  sidebar.appendChild(lbl);
+  for (const e of emails.filter(x => x.group === g)) {
+    const btn = document.createElement("button");
+    btn.className = "nav-btn";
+    btn.dataset.id = e.id;
+    btn.innerHTML = e.label + (e.group.includes("NEW") ? '<span class="badge new">NEW</span>' : '');
+    btn.onclick = () => showEmail(e.id);
+    sidebar.appendChild(btn);
+  }
+}
+
+function showEmail(id) {
+  const e = emails.find(x => x.id === id);
+  document.querySelectorAll(".nav-btn").forEach(b => b.classList.toggle("active", b.dataset.id === id));
+  document.getElementById("meta").innerHTML = '<h2>' + e.label + '</h2><p>' + e.group + '</p>';
+  document.getElementById("frame-wrap").style.display = "block";
+  const iframe = document.getElementById("preview");
+  iframe.srcdoc = contents[id];
+  // Auto-resize
+  iframe.onload = () => {
+    try { iframe.style.height = iframe.contentDocument.body.scrollHeight + 40 + "px"; } catch(_) {}
+  };
+}
+
+// Show first email by default
+showEmail("ib3");
+</script>
+</body>
+</html>

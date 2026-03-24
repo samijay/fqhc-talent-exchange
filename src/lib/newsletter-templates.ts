@@ -1,108 +1,135 @@
 /* ------------------------------------------------------------------ */
 /*  Newsletter Email Templates — Intel Brief + The Pulse               */
-/*  HTML email templates for the two newsletter tracks                 */
-/*  Uses inline styles for email client compatibility                  */
+/*  Uses the shared email design system from email-helpers.ts          */
 /* ------------------------------------------------------------------ */
 
-import { emailHeader, emailFooter } from "@/lib/email-helpers";
+import {
+  emailHeader,
+  emailFooter,
+  sectionDivider,
+  impactBadge,
+  sourceLink,
+  statCard,
+  ctaButton,
+  BRAND,
+} from "@/lib/email-helpers";
 
 const SITE = "https://www.fqhctalent.com";
-const TEAL = "#0F766E";
-const TEAL_LIGHT = "#F0FDFA";
-const TEAL_BORDER = "#99F6E4";
-const AMBER = "#F59E0B";
-const AMBER_BG = "#FFFBEB";
-const AMBER_BORDER = "#FDE68A";
-const RED = "#B91C1C";
-const RED_BG = "#FEF2F2";
-const GREEN = "#15803D";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
 /* ------------------------------------------------------------------ */
 
+interface NewsItem {
+  headline: string;
+  summary: string;
+  sourceUrl: string;
+  sourceOrg: string;
+  impactLevel?: "critical" | "high" | "medium";
+}
+
 export interface IntelBriefContent {
-  /** Issue number */
   issueNumber: number;
-  /** e.g. "2026-02-28" */
   date: string;
-  /** Top-line executive summary (2-3 sentences) */
   executiveSummary: string;
-  /** Policy and legislative updates */
-  policyUpdates: {
-    headline: string;
+
+  /* --- NEW: Good / Bad news split --- */
+  badNews?: NewsItem[];
+  goodNews?: NewsItem[];
+
+  /* --- NEW: Success story + toolkit --- */
+  successStory?: {
+    org: string;
+    title: string;
     summary: string;
-    sourceUrl: string;
-    sourceOrg: string;
-    impactLevel: "critical" | "high" | "medium";
-  }[];
-  /** Funding and financial alerts */
+    result: string;
+    sourceUrl?: string;
+  };
+  toolkit?: {
+    title: string;
+    description: string;
+    url: string;
+  };
+
+  /* --- Legacy section-based layout (Issues #1-2) --- */
+  policyUpdates: NewsItem[];
   fundingAlerts: {
     headline: string;
     summary: string;
     sourceUrl: string;
     sourceOrg: string;
   }[];
-  /** Workforce and layoff news */
   workforceUpdates: {
     headline: string;
     summary: string;
     sourceUrl: string;
     sourceOrg: string;
   }[];
-  /** AI and technology adoption */
   aiUpdates: {
     headline: string;
     summary: string;
     sourceUrl: string;
   }[];
-  /** Key dates coming up */
+
   keyDates: {
     date: string;
     event: string;
   }[];
-  /** Featured strategy content from the site */
   featuredContent: {
     title: string;
     description: string;
     url: string;
   };
+  watchingNextWeek?: {
+    item: string;
+    why: string;
+  }[];
+  movementTrivia?: {
+    fact: string;
+    source?: string;
+  };
 }
 
 export interface PulseContent {
-  /** Issue number */
   issueNumber: number;
-  /** e.g. "2026-02-28" */
   date: string;
-  /** Top-line summary for job seekers */
   summary: string;
-  /** New job listings highlight */
   jobHighlights: {
     totalJobs: number;
     newThisWeek: number;
     topFQHCs: { name: string; count: number; url: string }[];
   };
-  /** Salary and market trends */
   marketTrends: {
     headline: string;
     summary: string;
   }[];
-  /** Free tool spotlight */
   toolSpotlight: {
     name: string;
     description: string;
     url: string;
   };
-  /** Career tips */
   careerTips: {
     title: string;
     body: string;
   }[];
-  /** Featured blog post */
   featuredPost: {
     title: string;
     excerpt: string;
     url: string;
+  };
+  successStory?: {
+    org: string;
+    headline: string;
+    summary: string;
+    sourceUrl?: string;
+  };
+  watchingNextWeek?: {
+    item: string;
+    why: string;
+  }[];
+  movementTrivia?: {
+    fact: string;
+    source?: string;
   };
 }
 
@@ -110,50 +137,73 @@ export interface PulseContent {
 /*  Shared blocks                                                      */
 /* ------------------------------------------------------------------ */
 
-function impactBadge(level: "critical" | "high" | "medium"): string {
-  const styles: Record<string, { bg: string; color: string; label: string }> = {
-    critical: { bg: RED_BG, color: RED, label: "CRITICAL" },
-    high: { bg: AMBER_BG, color: AMBER, label: "HIGH" },
-    medium: { bg: "#F5F5F4", color: "#78716C", label: "MEDIUM" },
-  };
-  const s = styles[level];
-  return `<span style="display: inline-block; background: ${s.bg}; color: ${s.color}; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 2px 6px; border-radius: 4px;">${s.label}</span>`;
+function watchingNextWeekHtml(items: { item: string; why: string }[]): string {
+  if (!items || items.length === 0) return "";
+  return `
+  <div style="background: ${BRAND.tealLight}; border: 1px solid ${BRAND.tealBorder}; border-radius: 8px; padding: 16px; margin: 24px 0;">
+    <p style="margin: 0 0 10px; font-size: 12px; font-weight: 700; color: ${BRAND.teal}; text-transform: uppercase; letter-spacing: 0.5px;">
+      What We're Watching Next Week
+    </p>
+    ${items.map(i => `
+    <div style="margin-bottom: 8px;">
+      <p style="margin: 0; font-size: 13px; font-weight: 600; color: ${BRAND.stone900};">${i.item}</p>
+      <p style="margin: 2px 0 0; font-size: 12px; color: ${BRAND.stone500}; line-height: 1.5;">${i.why}</p>
+    </div>`).join("")}
+  </div>`;
 }
 
-function sourceLink(url: string, org: string): string {
-  return `<a href="${url}" style="color: ${TEAL}; font-size: 12px; text-decoration: none;">Source: ${org} →</a>`;
+function movementTriviaHtml(trivia?: { fact: string; source?: string }): string {
+  if (!trivia) return "";
+  return `
+  <div style="background: ${BRAND.amberBg}; border: 1px solid ${BRAND.amberBorder}; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;">
+    <p style="margin: 0 0 6px; font-size: 11px; font-weight: 700; color: #92400E; text-transform: uppercase; letter-spacing: 0.8px;">
+      \u2764\ufe0f From the Movement
+    </p>
+    <p style="margin: 0; font-size: 14px; color: ${BRAND.stone900}; line-height: 1.6; font-style: italic;">
+      ${trivia.fact}
+    </p>
+    ${trivia.source ? `<p style="margin: 6px 0 0; font-size: 11px; color: ${BRAND.stone500};">\u2014 ${trivia.source}</p>` : ""}
+  </div>`;
 }
 
-function sectionHeader(title: string, emoji: string): string {
+function successStoryHtml(story: { org: string; title: string; summary: string; result: string; sourceUrl?: string }): string {
+  return `
+  <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; padding: 18px; margin: 24px 0;">
+    <p style="margin: 0 0 4px; font-size: 11px; font-weight: 700; color: #065F46; text-transform: uppercase; letter-spacing: 0.8px;">
+      \u2728 Success Story
+    </p>
+    <p style="margin: 6px 0 2px; font-size: 16px; font-weight: 700; color: ${BRAND.stone900}; line-height: 1.35;">${story.title}</p>
+    <p style="margin: 0 0 8px; font-size: 12px; font-weight: 600; color: #065F46;">${story.org}</p>
+    <p style="margin: 0 0 10px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.6;">${story.summary}</p>
+    <div style="background: white; border-radius: 6px; padding: 10px 14px; border-left: 3px solid #10B981;">
+      <p style="margin: 0; font-size: 13px; font-weight: 600; color: #065F46;">\u2192 Result: ${story.result}</p>
+    </div>
+    ${story.sourceUrl ? `<p style="margin: 8px 0 0; font-size: 11px;"><a href="${story.sourceUrl}" style="color: #065F46;">Read full story \u2192</a></p>` : ""}
+  </div>`;
+}
+
+function toolkitHtml(toolkit: { title: string; description: string; url: string }): string {
+  return `
+  <div style="background: ${BRAND.stone100}; border: 1px solid ${BRAND.stone300}; border-radius: 8px; padding: 18px; margin: 24px 0;">
+    <p style="margin: 0 0 4px; font-size: 11px; font-weight: 700; color: ${BRAND.teal}; text-transform: uppercase; letter-spacing: 0.8px;">
+      \ud83d\udee0\ufe0f Toolkit
+    </p>
+    <p style="margin: 6px 0 4px; font-size: 16px; font-weight: 700; color: ${BRAND.stone900};">${toolkit.title}</p>
+    <p style="margin: 0 0 12px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.6;">${toolkit.description}</p>
+    ${ctaButton("Get the Toolkit \u2192", toolkit.url)}
+  </div>`;
+}
+
+function newsItemHtml(item: NewsItem, color: string): string {
   return `
   <tr>
-    <td style="padding: 24px 0 8px;">
-      <p style="margin: 0; font-size: 14px; font-weight: 700; color: ${TEAL}; text-transform: uppercase; letter-spacing: 0.5px;">
-        ${emoji} ${title}
-      </p>
+    <td style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;">
+      <div style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: ${color}; margin-right: 6px; vertical-align: middle;"></div>
+      <span style="font-size: 14px; font-weight: 700; color: ${BRAND.stone900}; line-height: 1.35; vertical-align: middle;">${item.headline}</span>
+      <p style="margin: 4px 0 6px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.55;">${item.summary}</p>
+      ${sourceLink(item.sourceUrl, item.sourceOrg)}
     </td>
   </tr>`;
-}
-
-function unsubscribeLink(token: string): string {
-  return `
-  <table style="width: 100%; border-top: 1px solid #292524; margin-top: 24px; padding-top: 16px;">
-    <tr>
-      <td style="text-align: center; padding: 8px;">
-        <p style="font-size: 13px; color: #78716c; margin: 0 0 6px 0;">
-          Found this useful? <a href="https://www.fqhctalent.com/newsletter" style="color: #0d9488; text-decoration: underline; font-weight: 600;">Forward to a colleague →</a>
-        </p>
-        <p style="font-size: 11px; color: #a8a29e; margin: 0;">
-          <a href="${SITE}/api/newsletter/unsubscribe?token=${token}" style="color: #a8a29e; text-decoration: underline;">Unsubscribe</a>
-          · <a href="${SITE}/newsletter" style="color: #a8a29e; text-decoration: underline;">Manage preferences</a>
-          · <a href="${SITE}" style="color: #a8a29e; text-decoration: underline;">fqhctalent.com</a>
-        </p>
-        <p style="font-size: 10px; color: #78716c; margin: 8px 0 0 0;">
-          FQHC Talent · Los Angeles, CA · <a href="${SITE}/privacy" style="color: #78716c; text-decoration: underline;">Privacy Policy</a>
-        </p>
-      </td>
-    </tr>
-  </table>`;
 }
 
 /* ------------------------------------------------------------------ */
@@ -163,7 +213,82 @@ function unsubscribeLink(token: string): string {
 export function intelBriefHtml(
   content: IntelBriefContent,
   unsubscribeToken: string,
+  isEs: boolean = false,
 ): string {
+  // Decide layout: new (good/bad split) vs. legacy (sections)
+  const useNewLayout = (content.badNews && content.badNews.length > 0) ||
+                       (content.goodNews && content.goodNews.length > 0);
+
+  const newLayoutHtml = useNewLayout ? `
+  <table style="width: 100%; border-collapse: collapse;">
+    ${content.badNews && content.badNews.length > 0 ? `
+    ${sectionDivider(isEs ? "Lo que Preocupa" : "The Hard Truth")}
+    ${content.badNews.map(item => newsItemHtml(item, "#EF4444")).join("")}
+    ` : ""}
+
+    ${content.goodNews && content.goodNews.length > 0 ? `
+    ${sectionDivider(isEs ? "Las Buenas Noticias" : "The Bright Spots")}
+    ${content.goodNews.map(item => newsItemHtml(item, "#10B981")).join("")}
+    ` : ""}
+  </table>
+
+  ${content.successStory ? successStoryHtml(content.successStory) : ""}
+  ${content.toolkit ? toolkitHtml(content.toolkit) : ""}
+  ` : "";
+
+  const legacyLayoutHtml = !useNewLayout ? `
+  <table style="width: 100%; border-collapse: collapse;">
+    ${content.policyUpdates.length > 0 ? `
+    ${sectionDivider(isEs ? "Pol\u00edtica y Legislaci\u00f3n" : "Policy & Legislative")}
+    ${content.policyUpdates.map(p => `
+    <tr>
+      <td style="padding: 10px 0 14px; border-bottom: 1px solid #F5F5F4;">
+        <div style="margin-bottom: 6px;">${impactBadge(p.impactLevel ?? "medium")}</div>
+        <p style="margin: 0 0 4px; font-size: 15px; font-weight: 700; color: ${BRAND.stone900}; line-height: 1.35;">${p.headline}</p>
+        <p style="margin: 4px 0 8px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.6;">${p.summary}</p>
+        ${sourceLink(p.sourceUrl, p.sourceOrg)}
+      </td>
+    </tr>`).join("")}
+    ` : ""}
+
+    ${content.fundingAlerts.length > 0 ? `
+    ${sectionDivider(isEs ? "Financiamiento" : "Funding & Financial")}
+    ${content.fundingAlerts.map(f => `
+    <tr>
+      <td style="padding: 10px 0 14px; border-bottom: 1px solid #F5F5F4;">
+        <p style="margin: 0 0 4px; font-size: 15px; font-weight: 700; color: ${BRAND.stone900}; line-height: 1.35;">${f.headline}</p>
+        <p style="margin: 4px 0 8px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.6;">${f.summary}</p>
+        ${sourceLink(f.sourceUrl, f.sourceOrg)}
+      </td>
+    </tr>`).join("")}
+    ` : ""}
+
+    ${content.workforceUpdates.length > 0 ? `
+    ${sectionDivider(isEs ? "Fuerza Laboral" : "Workforce & Layoffs")}
+    ${content.workforceUpdates.map(w => `
+    <tr>
+      <td style="padding: 10px 0 14px; border-bottom: 1px solid #F5F5F4;">
+        <p style="margin: 0 0 4px; font-size: 15px; font-weight: 700; color: ${BRAND.stone900}; line-height: 1.35;">${w.headline}</p>
+        <p style="margin: 4px 0 8px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.6;">${w.summary}</p>
+        ${sourceLink(w.sourceUrl, w.sourceOrg)}
+      </td>
+    </tr>`).join("")}
+    ` : ""}
+
+    ${content.aiUpdates.length > 0 ? `
+    ${sectionDivider(isEs ? "IA y Tecnolog\u00eda" : "AI & Technology")}
+    ${content.aiUpdates.map(a => `
+    <tr>
+      <td style="padding: 10px 0 14px; border-bottom: 1px solid #F5F5F4;">
+        <p style="margin: 0 0 4px; font-size: 15px; font-weight: 700; color: ${BRAND.stone900}; line-height: 1.35;">${a.headline}</p>
+        <p style="margin: 4px 0 8px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.6;">${a.summary}</p>
+        ${sourceLink(a.sourceUrl, "Source")}
+      </td>
+    </tr>`).join("")}
+    ` : ""}
+  </table>
+  ` : "";
+
   return `
 <!DOCTYPE html>
 <html>
@@ -172,131 +297,81 @@ export function intelBriefHtml(
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FQHC Intel Brief #${content.issueNumber}</title>
 </head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1c1917; background: #FAFAF9;">
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: ${BRAND.stone900}; background: ${BRAND.stone50};">
   ${emailHeader()}
 
   <!-- Issue badge -->
   <div style="text-align: center; margin-bottom: 8px;">
-    <span style="display: inline-block; background: #1C1917; color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px;">
-      INTEL BRIEF #${content.issueNumber} · ${content.date}
+    <span style="display: inline-block; background: ${BRAND.stone900}; color: white; font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.5px;">
+      INTEL BRIEF #${content.issueNumber} \u00b7 ${content.date}
     </span>
   </div>
 
-  <h2 style="text-align: center; font-size: 22px; color: #1c1917; margin: 16px 0;">
-    Weekly Executive Briefing
+  <h2 style="text-align: center; font-size: 22px; color: ${BRAND.stone900}; margin: 16px 0 24px; font-weight: 800;">
+    ${isEs ? "Informe Ejecutivo Semanal" : "Weekly Executive Briefing"}
   </h2>
 
-  <!-- Executive Summary -->
-  <div style="background: ${TEAL_LIGHT}; border-left: 4px solid ${TEAL}; padding: 16px; margin: 24px 0; border-radius: 0 8px 8px 0;">
-    <p style="margin: 0; font-weight: 700; color: ${TEAL}; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
-      Executive Summary
+  <!-- TL;DR -->
+  <div style="background: ${BRAND.tealLight}; border-left: 4px solid ${BRAND.teal}; padding: 14px 16px; margin: 0 0 24px; border-radius: 0 8px 8px 0;">
+    <p style="margin: 0 0 4px; font-weight: 700; color: ${BRAND.teal}; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">
+      ${isEs ? "TL;DR" : "TL;DR"}
     </p>
-    <p style="margin: 8px 0 0; font-size: 14px; color: #1c1917; line-height: 1.6;">
+    <p style="margin: 0; font-size: 14px; color: ${BRAND.stone900}; line-height: 1.6;">
       ${content.executiveSummary}
     </p>
   </div>
 
+  ${newLayoutHtml}
+  ${legacyLayoutHtml}
+
+  <!-- Key Dates -->
+  ${content.keyDates.length > 0 ? `
   <table style="width: 100%; border-collapse: collapse;">
-    ${content.policyUpdates.length > 0 ? `
-    ${sectionHeader("Policy & Legislative", "📋")}
-    ${content.policyUpdates.map(p => `
-    <tr>
-      <td style="padding: 8px 0 12px; border-bottom: 1px solid #f5f5f4;">
-        <div style="margin-bottom: 4px;">
-          ${impactBadge(p.impactLevel)}
-          <span style="font-size: 14px; font-weight: 600; color: #1c1917; margin-left: 4px;">${p.headline}</span>
-        </div>
-        <p style="margin: 4px 0; font-size: 13px; color: #44403c; line-height: 1.5;">${p.summary}</p>
-        ${sourceLink(p.sourceUrl, p.sourceOrg)}
-      </td>
-    </tr>`).join("")}
-    ` : ""}
-
-    ${content.fundingAlerts.length > 0 ? `
-    ${sectionHeader("Funding & Financial", "💰")}
-    ${content.fundingAlerts.map(f => `
-    <tr>
-      <td style="padding: 8px 0 12px; border-bottom: 1px solid #f5f5f4;">
-        <p style="margin: 0 0 4px; font-size: 14px; font-weight: 600; color: #1c1917;">${f.headline}</p>
-        <p style="margin: 4px 0; font-size: 13px; color: #44403c; line-height: 1.5;">${f.summary}</p>
-        ${sourceLink(f.sourceUrl, f.sourceOrg)}
-      </td>
-    </tr>`).join("")}
-    ` : ""}
-
-    ${content.workforceUpdates.length > 0 ? `
-    ${sectionHeader("Workforce & Layoffs", "👥")}
-    ${content.workforceUpdates.map(w => `
-    <tr>
-      <td style="padding: 8px 0 12px; border-bottom: 1px solid #f5f5f4;">
-        <p style="margin: 0 0 4px; font-size: 14px; font-weight: 600; color: #1c1917;">${w.headline}</p>
-        <p style="margin: 4px 0; font-size: 13px; color: #44403c; line-height: 1.5;">${w.summary}</p>
-        ${sourceLink(w.sourceUrl, w.sourceOrg)}
-      </td>
-    </tr>`).join("")}
-    ` : ""}
-
-    ${content.aiUpdates.length > 0 ? `
-    ${sectionHeader("AI & Technology", "🤖")}
-    ${content.aiUpdates.map(a => `
-    <tr>
-      <td style="padding: 8px 0 12px; border-bottom: 1px solid #f5f5f4;">
-        <p style="margin: 0 0 4px; font-size: 14px; font-weight: 600; color: #1c1917;">${a.headline}</p>
-        <p style="margin: 4px 0; font-size: 13px; color: #44403c; line-height: 1.5;">${a.summary}</p>
-        ${sourceLink(a.sourceUrl, "Source")}
-      </td>
-    </tr>`).join("")}
-    ` : ""}
-
-    ${content.keyDates.length > 0 ? `
-    ${sectionHeader("Key Dates Ahead", "📅")}
+    ${sectionDivider(isEs ? "Fechas Clave" : "Key Dates")}
     ${content.keyDates.map(d => `
     <tr>
-      <td style="padding: 6px 0;">
-        <span style="display: inline-block; background: ${AMBER_BG}; border: 1px solid ${AMBER_BORDER}; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; color: #92400E; margin-right: 8px;">${d.date}</span>
-        <span style="font-size: 13px; color: #44403c;">${d.event}</span>
+      <td style="padding: 5px 0;">
+        <span style="display: inline-block; background: ${BRAND.amberBg}; border: 1px solid ${BRAND.amberBorder}; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; color: #92400E; margin-right: 6px;">${d.date}</span>
+        <span style="font-size: 12px; color: ${BRAND.stone700};">${d.event}</span>
       </td>
     </tr>`).join("")}
-    ` : ""}
   </table>
+  ` : ""}
+
+  ${watchingNextWeekHtml(content.watchingNextWeek ?? [])}
+  ${movementTriviaHtml(content.movementTrivia)}
 
   <!-- Featured Content -->
   ${content.featuredContent ? `
-  <div style="background: #F5F5F4; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;">
-    <p style="margin: 0; font-size: 12px; color: #78716C; text-transform: uppercase; letter-spacing: 0.5px;">Featured on FQHC Talent</p>
-    <p style="margin: 8px 0 4px; font-size: 16px; font-weight: 700; color: #1c1917;">${content.featuredContent.title}</p>
-    <p style="margin: 0 0 12px; font-size: 13px; color: #44403c;">${content.featuredContent.description}</p>
-    <a href="${content.featuredContent.url}" style="display: inline-block; background: ${TEAL}; color: white; padding: 10px 24px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600;">
-      Read More →
-    </a>
+  <div style="background: ${BRAND.stone100}; border-radius: 8px; padding: 16px; margin: 24px 0; text-align: center;">
+    <p style="margin: 0 0 6px; font-size: 16px; font-weight: 700; color: ${BRAND.stone900};">${content.featuredContent.title}</p>
+    <p style="margin: 0 0 12px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.5;">${content.featuredContent.description}</p>
+    ${ctaButton(isEs ? "Leer M\u00e1s \u2192" : "Read More \u2192", content.featuredContent.url)}
   </div>
   ` : ""}
 
-  <!-- CTA -->
-  <div style="text-align: center; margin: 32px 0;">
-    <a href="${SITE}" style="display: inline-block; background: ${TEAL}; color: white; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">
-      View Full Dashboard →
-    </a>
+  <div style="text-align: center; margin: 24px 0;">
+    ${ctaButton(isEs ? "Ver Dashboard \u2192" : "Full Dashboard \u2192", SITE)}
   </div>
 
-  ${emailFooter(false)}
-  ${unsubscribeLink(unsubscribeToken)}
+  ${emailFooter(isEs, unsubscribeToken)}
 </body>
 </html>`;
 }
 
 /* ------------------------------------------------------------------ */
-/*  Intel Brief — Subject Line Generator                               */
+/*  Intel Brief — Subject Line                                         */
 /* ------------------------------------------------------------------ */
 
 export function intelBriefSubject(content: IntelBriefContent): string {
-  const hasCritical = content.policyUpdates.some((p) => p.impactLevel === "critical");
-  const prefix = hasCritical ? "🔴 " : "";
+  const hasCritical = content.policyUpdates.some((p) => p.impactLevel === "critical") ||
+                      content.badNews?.some((n) => n.impactLevel === "critical");
+  const prefix = hasCritical ? "\ud83d\udd34 " : "";
   const topHeadline =
+    content.badNews?.[0]?.headline ||
     content.policyUpdates[0]?.headline ||
     content.fundingAlerts[0]?.headline ||
-    content.workforceUpdates[0]?.headline ||
-    "This Week in FQHC Policy";
+    "This Week in FQHC";
   return `${prefix}Intel Brief #${content.issueNumber}: ${topHeadline}`;
 }
 
@@ -307,6 +382,7 @@ export function intelBriefSubject(content: IntelBriefContent): string {
 export function pulseHtml(
   content: PulseContent,
   unsubscribeToken: string,
+  isEs: boolean = false,
 ): string {
   return `
 <!DOCTYPE html>
@@ -316,119 +392,121 @@ export function pulseHtml(
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Pulse #${content.issueNumber}</title>
 </head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: #1c1917; background: #FAFAF9;">
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px; color: ${BRAND.stone900}; background: ${BRAND.stone50};">
   ${emailHeader()}
 
-  <!-- Issue badge -->
   <div style="text-align: center; margin-bottom: 8px;">
-    <span style="display: inline-block; background: ${TEAL}; color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px;">
-      THE PULSE #${content.issueNumber} · ${content.date}
+    <span style="display: inline-block; background: ${BRAND.teal}; color: white; font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 20px; letter-spacing: 0.5px;">
+      THE PULSE #${content.issueNumber} \u00b7 ${content.date}
     </span>
   </div>
 
-  <h2 style="text-align: center; font-size: 22px; color: #1c1917; margin: 16px 0;">
-    Your Weekly FQHC Career Update
+  <h2 style="text-align: center; font-size: 22px; color: ${BRAND.stone900}; margin: 16px 0 24px; font-weight: 800;">
+    ${isEs ? "Tu Actualizaci\u00f3n Semanal" : "Your Weekly FQHC Career Update"}
   </h2>
 
-  <!-- Summary -->
-  <div style="background: ${TEAL_LIGHT}; border-left: 4px solid ${TEAL}; padding: 16px; margin: 24px 0; border-radius: 0 8px 8px 0;">
-    <p style="margin: 0; font-size: 14px; color: #1c1917; line-height: 1.6;">
+  <div style="background: ${BRAND.tealLight}; border-left: 4px solid ${BRAND.teal}; padding: 14px 16px; margin: 0 0 24px; border-radius: 0 8px 8px 0;">
+    <p style="margin: 0; font-size: 14px; color: ${BRAND.stone900}; line-height: 1.6;">
       ${content.summary}
     </p>
   </div>
 
   <table style="width: 100%; border-collapse: collapse;">
-    <!-- Job Highlights -->
-    ${sectionHeader("Job Market This Week", "💼")}
+    ${sectionDivider(isEs ? "Mercado Laboral" : "Job Market This Week")}
     <tr>
-      <td style="padding: 8px 0 16px;">
-        <table style="width: 100%; text-align: center; background: #F5F5F4; border-radius: 8px;">
+      <td style="padding: 10px 0 16px;">
+        <table style="width: 100%; text-align: center; background: ${BRAND.stone100}; border-radius: 8px;">
           <tr>
-            <td style="padding: 12px;">
-              <p style="font-size: 24px; font-weight: 800; color: ${TEAL}; margin: 0;">${content.jobHighlights.totalJobs}</p>
-              <p style="font-size: 11px; color: #78716c; margin: 4px 0 0;">Total Jobs</p>
-            </td>
-            <td style="padding: 12px;">
-              <p style="font-size: 24px; font-weight: 800; color: ${GREEN}; margin: 0;">+${content.jobHighlights.newThisWeek}</p>
-              <p style="font-size: 11px; color: #78716c; margin: 4px 0 0;">New This Week</p>
-            </td>
+            ${statCard(content.jobHighlights.totalJobs.toLocaleString(), isEs ? "Empleos" : "Total Jobs", BRAND.teal)}
+            ${statCard(`+${content.jobHighlights.newThisWeek}`, isEs ? "Nuevos" : "New This Week", BRAND.green)}
           </tr>
         </table>
-        <p style="margin: 12px 0 4px; font-size: 13px; font-weight: 600; color: #44403c;">Top Hiring FQHCs:</p>
+        <p style="margin: 14px 0 6px; font-size: 13px; font-weight: 700; color: ${BRAND.stone700};">
+          ${isEs ? "FQHCs Contratando:" : "Top Hiring FQHCs:"}
+        </p>
         ${content.jobHighlights.topFQHCs.map(f => `
-        <p style="margin: 4px 0; font-size: 13px; color: #44403c;">
-          <a href="${f.url}" style="color: ${TEAL}; text-decoration: none; font-weight: 600;">${f.name}</a>
-          <span style="color: #78716c;"> — ${f.count} open positions</span>
+        <p style="margin: 5px 0; font-size: 13px;">
+          <a href="${f.url}" style="color: ${BRAND.teal}; text-decoration: none; font-weight: 600;">${f.name}</a>
+          <span style="color: ${BRAND.stone500};"> \u2014 ${f.count} open</span>
         </p>`).join("")}
       </td>
     </tr>
 
     ${content.marketTrends.length > 0 ? `
-    ${sectionHeader("Market Trends", "📈")}
+    ${sectionDivider(isEs ? "Tendencias" : "What's Happening")}
     ${content.marketTrends.map(m => `
     <tr>
-      <td style="padding: 8px 0 12px; border-bottom: 1px solid #f5f5f4;">
-        <p style="margin: 0 0 4px; font-size: 14px; font-weight: 600; color: #1c1917;">${m.headline}</p>
-        <p style="margin: 0; font-size: 13px; color: #44403c; line-height: 1.5;">${m.summary}</p>
-      </td>
-    </tr>`).join("")}
-    ` : ""}
-
-    <!-- Tool Spotlight -->
-    ${sectionHeader("Free Tool Spotlight", "🛠️")}
-    <tr>
-      <td style="padding: 8px 0 16px;">
-        <div style="background: ${TEAL_LIGHT}; border: 1px solid ${TEAL_BORDER}; border-radius: 8px; padding: 16px;">
-          <p style="margin: 0 0 4px; font-size: 16px; font-weight: 700; color: ${TEAL};">${content.toolSpotlight.name}</p>
-          <p style="margin: 0 0 12px; font-size: 13px; color: #44403c; line-height: 1.5;">${content.toolSpotlight.description}</p>
-          <a href="${content.toolSpotlight.url}" style="display: inline-block; background: ${TEAL}; color: white; padding: 8px 20px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600;">
-            Try It Free →
-          </a>
-        </div>
-      </td>
-    </tr>
-
-    ${content.careerTips.length > 0 ? `
-    ${sectionHeader("Career Tips", "💡")}
-    ${content.careerTips.map(tip => `
-    <tr>
-      <td style="padding: 8px 0 12px; border-bottom: 1px solid #f5f5f4;">
-        <p style="margin: 0 0 4px; font-size: 14px; font-weight: 600; color: #1c1917;">${tip.title}</p>
-        <p style="margin: 0; font-size: 13px; color: #44403c; line-height: 1.5;">${tip.body}</p>
+      <td style="padding: 8px 0 12px; border-bottom: 1px solid #F5F5F4;">
+        <p style="margin: 0 0 3px; font-size: 14px; font-weight: 700; color: ${BRAND.stone900}; line-height: 1.35;">${m.headline}</p>
+        <p style="margin: 0; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.55;">${m.summary}</p>
       </td>
     </tr>`).join("")}
     ` : ""}
   </table>
 
-  <!-- Featured Post -->
+  ${content.successStory ? `
+  <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 8px; padding: 16px; margin: 24px 0;">
+    <p style="margin: 0 0 4px; font-size: 11px; font-weight: 700; color: #065F46; text-transform: uppercase; letter-spacing: 0.8px;">
+      \u2728 Success Story
+    </p>
+    <p style="margin: 4px 0 2px; font-size: 15px; font-weight: 700; color: ${BRAND.stone900};">${content.successStory.headline}</p>
+    <p style="margin: 0 0 6px; font-size: 12px; font-weight: 600; color: #065F46;">${content.successStory.org}</p>
+    <p style="margin: 0; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.55;">${content.successStory.summary}</p>
+    ${content.successStory.sourceUrl ? `<p style="margin: 6px 0 0; font-size: 11px;"><a href="${content.successStory.sourceUrl}" style="color: #065F46;">Read more \u2192</a></p>` : ""}
+  </div>
+  ` : ""}
+
+  <!-- Tool Spotlight -->
+  <table style="width: 100%; border-collapse: collapse;">
+    ${sectionDivider(isEs ? "Herramienta Gratuita" : "Free Tool")}
+    <tr>
+      <td style="padding: 10px 0 16px;">
+        <div style="background: ${BRAND.tealLight}; border: 1px solid ${BRAND.tealBorder}; border-radius: 8px; padding: 14px;">
+          <p style="margin: 0 0 3px; font-size: 15px; font-weight: 700; color: ${BRAND.teal};">${content.toolSpotlight.name}</p>
+          <p style="margin: 0 0 10px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.55;">${content.toolSpotlight.description}</p>
+          ${ctaButton(isEs ? "Probar Gratis \u2192" : "Try It Free \u2192", content.toolSpotlight.url)}
+        </div>
+      </td>
+    </tr>
+
+    ${content.careerTips.length > 0 ? `
+    ${sectionDivider(isEs ? "Consejos" : "Quick Tips")}
+    ${content.careerTips.map(tip => `
+    <tr>
+      <td style="padding: 6px 0 10px; border-bottom: 1px solid #F5F5F4;">
+        <p style="margin: 0 0 2px; font-size: 14px; font-weight: 700; color: ${BRAND.stone900};">${tip.title}</p>
+        <p style="margin: 0; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.55;">${tip.body}</p>
+      </td>
+    </tr>`).join("")}
+    ` : ""}
+  </table>
+
+  ${watchingNextWeekHtml(content.watchingNextWeek ?? [])}
+  ${movementTriviaHtml(content.movementTrivia)}
+
   ${content.featuredPost ? `
-  <div style="background: #F5F5F4; border-radius: 8px; padding: 16px; margin: 24px 0;">
-    <p style="margin: 0; font-size: 12px; color: #78716C; text-transform: uppercase; letter-spacing: 0.5px;">From the Blog</p>
-    <p style="margin: 8px 0 4px; font-size: 16px; font-weight: 700; color: #1c1917;">${content.featuredPost.title}</p>
-    <p style="margin: 0 0 12px; font-size: 13px; color: #44403c; line-height: 1.5;">${content.featuredPost.excerpt}</p>
-    <a href="${content.featuredPost.url}" style="color: ${TEAL}; font-size: 13px; font-weight: 600; text-decoration: none;">
-      Read More →
+  <div style="background: ${BRAND.stone100}; border-radius: 8px; padding: 16px; margin: 24px 0;">
+    <p style="margin: 0 0 4px; font-size: 15px; font-weight: 700; color: ${BRAND.stone900};">${content.featuredPost.title}</p>
+    <p style="margin: 0 0 10px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.55;">${content.featuredPost.excerpt}</p>
+    <a href="${content.featuredPost.url}" style="color: ${BRAND.teal}; font-size: 13px; font-weight: 600; text-decoration: none;">
+      ${isEs ? "Leer M\u00e1s \u2192" : "Read More \u2192"}
     </a>
   </div>
   ` : ""}
 
-  <!-- CTA -->
-  <div style="text-align: center; margin: 32px 0;">
-    <a href="${SITE}/jobs" style="display: inline-block; background: ${TEAL}; color: white; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">
-      Browse All FQHC Jobs →
-    </a>
+  <div style="text-align: center; margin: 24px 0;">
+    ${ctaButton(isEs ? "Ver Empleos \u2192" : "Browse All FQHC Jobs \u2192", `${SITE}/jobs`)}
   </div>
 
-  ${emailFooter(false)}
-  ${unsubscribeLink(unsubscribeToken)}
+  ${emailFooter(isEs, unsubscribeToken)}
 </body>
 </html>`;
 }
 
 /* ------------------------------------------------------------------ */
-/*  The Pulse — Subject Line Generator                                 */
+/*  The Pulse — Subject Line                                           */
 /* ------------------------------------------------------------------ */
 
 export function pulseSubject(content: PulseContent): string {
-  return `The Pulse #${content.issueNumber}: ${content.jobHighlights.totalJobs} FQHC Jobs (+${content.jobHighlights.newThisWeek} new)`;
+  return `The Pulse #${content.issueNumber}: ${content.jobHighlights.totalJobs.toLocaleString()} FQHC Jobs (+${content.jobHighlights.newThisWeek} new)`;
 }

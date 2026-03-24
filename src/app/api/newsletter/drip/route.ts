@@ -46,7 +46,7 @@ export async function GET(request: Request) {
       .from("newsletter_subscribers")
       .select("id, email, audience, drip_step, subscribed_at, unsubscribe_token")
       .eq("status", "active")
-      .lt("drip_step", 4); // max 4 drip emails (steps 0–3)
+      .lt("drip_step", 3); // max 3 drip emails (steps 0–2)
 
     if (error) {
       console.error("[drip] Supabase fetch error:", error.message);

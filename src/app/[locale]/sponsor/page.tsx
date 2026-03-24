@@ -35,7 +35,7 @@ export default function SponsorPage() {
               { icon: Users, label: "FQHC Organizations", value: "215+", sub: "All California FQHCs covered" },
               { icon: BarChart3, label: "Intel Items Tracked", value: "121+", sub: "Primary sources for every claim" },
               { icon: Target, label: "FQHC Jobs Monitored", value: "1,674", sub: "Across 30+ organizations" },
-              { icon: Mail, label: "Weekly Intel Brief", value: "Every Monday", sub: "Executive-level policy intelligence" },
+              { icon: Mail, label: "Weekly Intel Brief", value: "Every Tuesday", sub: "Executive-level policy intelligence" },
             ].map((stat) => (
               <div key={stat.label} className="rounded-lg border border-stone-800 bg-stone-900 p-6 text-center">
                 <stat.icon className="mx-auto mb-3 h-6 w-6 text-teal-500" />
@@ -90,7 +90,7 @@ export default function SponsorPage() {
               <h3 className="text-xl font-bold text-white">Intel Brief Sponsor</h3>
               <p className="mt-2 text-sm text-stone-500">
                 Your brand featured in our weekly executive intelligence briefing, sent to FQHC
-                CEOs, CFOs, and HR directors every Monday.
+                CEOs, CFOs, and HR directors every Tuesday.
               </p>
               <ul className="mt-4 space-y-2">
                 {[

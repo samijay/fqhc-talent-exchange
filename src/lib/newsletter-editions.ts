@@ -511,13 +511,306 @@ export const PULSE_002: PulseContent = {
   },
 };
 
+/* ================================================================== */
+/*  ISSUE #3 — Week of March 25, 2026                                 */
+/* ================================================================== */
+
+export const INTEL_BRIEF_003: IntelBriefContent = {
+  issueNumber: 3,
+  date: "March 25, 2026",
+
+  executiveSummary:
+    "Healthcare lost 28K jobs in February — the first negative month in three years. CBO scores H.R. 1 at $30B/year in Medicaid cuts; California bears the largest exposure. One bright spot: the 4th Circuit vacated HRSA's 340B pilot, a rare legal win for FQHCs. But 77% of CA counties report mental health shortages, dental cuts hit July 1, and NACHC warns 1 in 4 FQHCs may need emergency stabilization by Q4.",
+
+  /* ---------- THE HARD TRUTH (red dots) ---------- */
+  badNews: [
+    {
+      headline: "CBO Scores H.R. 1 at $30B/Year in Medicaid Cuts — CA Bears Largest Exposure",
+      summary:
+        "Updated CBO score: $880B in federal Medicaid reductions over 10 years. California's 15.4M enrollees face the biggest single-state hit. DHCS estimates 2.7M could lose coverage.",
+      sourceUrl: "https://www.cbo.gov/publication/60935",
+      sourceOrg: "Congressional Budget Office",
+      impactLevel: "critical",
+    },
+    {
+      headline: "Healthcare Lost 28K Jobs in February — First Negative Month in 3 Years",
+      summary:
+        "Hospitals (-17K) and nursing facilities (-8K) led losses. Ambulatory care held flat. Medicaid uncertainty is chilling hiring before formal cuts hit.",
+      sourceUrl: "https://www.bls.gov/news.release/empsit.nr0.htm",
+      sourceOrg: "Bureau of Labor Statistics",
+      impactLevel: "critical",
+    },
+    {
+      headline: "Medi-Cal Dental Cuts for Undocumented Patients — July 1, $308M Impact",
+      summary:
+        "Dental benefits for undocumented enrollees end July 1. Unlike medical visits (which drop to FFS), dental gets zero reimbursement. Model your dental program impact now.",
+      sourceUrl: "https://www.dhcs.ca.gov/services/medi-cal/Pages/Dental.aspx",
+      sourceOrg: "CA Dept. of Health Care Services",
+      impactLevel: "critical",
+    },
+    {
+      headline: "NACHC: 1 in 4 FQHCs May Need Emergency Stabilization by Q4",
+      summary:
+        "Flat Section 330 grants + rising costs + Medicaid cuts = 'triple compression.' NACHC requesting $2.1B in emergency stabilization over 2 years.",
+      sourceUrl: "https://www.nachc.org/policy-advocacy/health-center-funding/",
+      sourceOrg: "NACHC",
+      impactLevel: "high",
+    },
+    {
+      headline: "77% of CA Counties Report Mental Health Provider Shortages",
+      summary:
+        "Rural counties hit hardest — Siskiyou, Modoc, Lassen have fewer than 5 MH providers per 100K. BH visits are billable and increasingly valued by managed care.",
+      sourceUrl: "https://www.chcf.org/publication/california-mental-health-provider-shortage/",
+      sourceOrg: "California Health Care Foundation",
+      impactLevel: "high",
+    },
+    {
+      headline: "Kaiser Nursing Contract Settles at 21.5% Raise — Wage Pressure Hits FQHCs",
+      summary:
+        "The new Kaiser benchmark is resetting salary expectations across CA. FQHCs competing for RNs/NPs face upward pressure, especially in Bay Area and Sacramento.",
+      sourceUrl: "https://www.beckershospitalreview.com/hr/kaiser-permanente-strike-31000-nurses-ratify-contract.html",
+      sourceOrg: "Becker's Hospital Review",
+    },
+  ],
+
+  /* ---------- THE BRIGHT SPOTS (green dots) ---------- */
+  goodNews: [
+    {
+      headline: "4th Circuit Vacates HRSA's 340B Pilot — FQHCs Win on Drug Pricing",
+      summary:
+        "Court ruled HRSA exceeded its authority. Upfront ceiling-price purchasing stays. Watch H.R. 7391 (35 cosponsors) to make the exemption permanent.",
+      sourceUrl: "https://www.340bhealth.org/newsroom/press-releases/court-vacates-340b-rebate-pilot/",
+      sourceOrg: "340B Health",
+      impactLevel: "high",
+    },
+    {
+      headline: "CA Counties Are Creating Their Own Health Taxes — $1.3B+ and Growing",
+      summary:
+        "Santa Clara's Measure A ($330M/yr) goes live April 1. A second county has a $1B/yr measure on the June 2 ballot at 58% support. San Diego and Alameda are exploring similar models. A new county-level revenue strategy is emerging statewide.",
+      sourceUrl: "https://kffhealthnews.org/news/article/federal-cuts-state-tax-increases-budget-shortfalls-health-clinics-los-angeles-california/",
+      sourceOrg: "KFF Health News",
+    },
+    {
+      headline: "Santa Clara Measure A Revenue Starts April 1 — $330M/Year Now Flowing",
+      summary:
+        "First actual revenue from a county-level Medicaid offset. San Diego and Alameda are watching closely to replicate the model.",
+      sourceUrl: "https://www.naco.org/news/california-county-sales-tax-measure-backfills-federal-healthcare-cuts",
+      sourceOrg: "National Association of Counties",
+    },
+    {
+      headline: "NextGen Ambient AI Cuts 1.5–2 Hours/Day of Documentation at FQHCs",
+      summary:
+        "Two community health centers report near-instant drops in after-hours charting after deploying NextGen Ambient Assist natively inside the EHR. Over 90% accuracy on SOAP notes.",
+      sourceUrl: "https://www.healthcareittoday.com/2026/02/10/how-nextgen-healthcares-ambient-ai-helped-two-clinics-break-the-cycle-of-pajama-time/",
+      sourceOrg: "Healthcare IT Today",
+    },
+    {
+      headline: "CMS Prior Auth Transparency Rules Take Effect — MA Plans Must Explain Denials",
+      summary:
+        "Under CMS-0057-F, MA plans, Medicaid MCOs, and CHIP must now give specific denial reasons and publicly report prior auth metrics. New leverage for FQHCs fighting opaque denials.",
+      sourceUrl: "https://www.cms.gov/cms-interoperability-and-prior-authorization-final-rule-cms-0057-f",
+      sourceOrg: "CMS",
+    },
+  ],
+
+  /* ---------- SUCCESS STORY ---------- */
+  successStory: {
+    org: "Santa Barbara Neighborhood Clinics",
+    title: "$5M Gift Funds Largest FQHC Expansion on the Central Coast",
+    summary:
+      "The Wyatt family donation — the largest in SBNC's history — will fund a new health center opening December 2026. SBNC serves 1 in 10 South Santa Barbara County residents; 92% are low-income. In a sea of cuts, this is a rare expansion story and a model for philanthropic revenue diversification.",
+    result: "Capacity grows from 20,000 to 28,000 patients (+41%)",
+    sourceUrl: "https://www.independent.com/2026/03/11/guardian-angels-drop-5-million-donation-on-new-santa-barbara-neighborhood-clinic/",
+  },
+
+  /* ---------- TOOLKIT ---------- */
+  toolkit: {
+    title: "CHAI-NACHC AI Vendor Assessment Checklist",
+    description:
+      "The definitive pre-purchase evaluation framework for FQHCs considering AI tools. Built by the Coalition for Health AI and NACHC — covers safety-net appropriateness, bias testing, interoperability, and lock-in risk.",
+    url: "https://www.nachc.org/chai-and-nachc-join-forces-to-prioritize-community-health-centers-in-ai-adoption/",
+  },
+
+  /* ---------- Legacy fields (required by interface, empty for new layout) ---------- */
+  policyUpdates: [],
+  fundingAlerts: [],
+  workforceUpdates: [],
+  aiUpdates: [],
+
+  keyDates: [
+    {
+      date: "Apr 1, 2026",
+      event: "Santa Clara Measure A revenue begins ($330M/yr for healthcare)",
+    },
+    {
+      date: "Apr 2, 2026",
+      event: "CHCF Rural North event in Redding — Medicaid cut impact on rural FQHCs",
+    },
+    {
+      date: "Apr 20, 2026",
+      event: "HRSA 340B Rebate Model RFI comments due (pilot vacated, but watch for legislative alternatives)",
+    },
+    {
+      date: "Jan 1, 2027",
+      event: "CMS prior auth API requirements deadline for MA/Medicaid plans (CMS-0057-F)",
+    },
+    {
+      date: "Jun 2, 2026",
+      event: "CA county $1B/yr health sales tax on primary ballot (second county to vote)",
+    },
+    {
+      date: "Jul 1, 2026",
+      event: "CA eliminates FQHC PPS rates + dental benefits for undocumented patients",
+    },
+    {
+      date: "Dec 31, 2026",
+      event: "CalAIM waiver + CHCF $4.6B authorization both expire",
+    },
+  ],
+
+  featuredContent: {
+    title: "FQHC Academy — Free 30-Day Email Course",
+    description:
+      "15 bite-size lessons on PPS billing, CalAIM, 340B, and more. Bilingual quizzes. Track progress on your dashboard.",
+    url: "https://www.fqhctalent.com/academy",
+  },
+
+  movementTrivia: {
+    fact: "In 1965, a group of Black women in Mound Bayou, Mississippi formed the first community health center board — insisting that patients, not doctors, should govern the clinics that served them. That principle of community governance is still the law for every FQHC today.",
+    source: "National Association of Community Health Centers",
+  },
+
+  watchingNextWeek: [
+    {
+      item: "DHCS CalAIM waiver renewal application",
+      why: "No submission yet — each week increases risk for the $1.2B program.",
+    },
+    {
+      item: "Senate markup of H.R. 1",
+      why: "Amendments could change the Medicaid cut trajectory.",
+    },
+    {
+      item: "CA county health tax ballot polling",
+      why: "58% support is fragile. Opposition spending is accelerating.",
+    },
+  ],
+};
+
+/* ------------------------------------------------------------------ */
+
+export const PULSE_003: PulseContent = {
+  issueNumber: 3,
+  date: "March 25, 2026",
+
+  summary:
+    "Healthcare lost 28K jobs in February — first negative month in three years. But FQHCs held flat. The safety net needs bilingual staff, BH professionals (77% of CA counties have shortages), and ECM-trained coordinators more than ever. 1,674 open positions this week.",
+
+  jobHighlights: {
+    totalJobs: 1674,
+    newThisWeek: 31,
+    topFQHCs: [
+      {
+        name: "AltaMed Health Services",
+        count: 275,
+        url: "https://www.fqhctalent.com/jobs?fqhc=altamed-health-services",
+      },
+      {
+        name: "La Clinica de la Raza",
+        count: 192,
+        url: "https://www.fqhctalent.com/jobs?fqhc=la-clinica-de-la-raza",
+      },
+      {
+        name: "Family Health Centers of San Diego",
+        count: 148,
+        url: "https://www.fqhctalent.com/jobs?fqhc=family-health-centers-of-san-diego",
+      },
+      {
+        name: "Santa Barbara Neighborhood Clinics",
+        count: 22,
+        url: "https://www.fqhctalent.com/jobs?fqhc=santa-barbara-neighborhood-clinics",
+      },
+    ],
+  },
+
+  marketTrends: [
+    {
+      headline: "Healthcare Lost 28K Jobs — But FQHCs Held Flat",
+      summary:
+        "Hospitals (-17K) and nursing facilities (-8K) cut. Ambulatory care held. FQHCs that kept hiring through uncertainty have stronger financials — target them.",
+    },
+    {
+      headline: "77% of CA Counties Have BH Shortages — Jobs Are Everywhere",
+      summary:
+        "Licensed therapists, LCSWs, psychiatric NPs: FQHCs offer competitive pay plus NHSC loan repayment. Rural counties have fewer than 5 MH providers per 100K.",
+    },
+    {
+      headline: "CA County Health Taxes Could Trigger Statewide Hiring Surges",
+      summary:
+        "Multiple California counties are putting health sales taxes on the ballot to offset Medicaid cuts. If they pass, expect FQHC hiring waves across the state. Update your resume now.",
+    },
+  ],
+
+  toolSpotlight: {
+    name: "FQHC Academy — Free Email Course",
+    description:
+      "15 bite-size lessons on PPS billing, CalAIM, 340B, and clinical ops. Bilingual quizzes. Show FQHC knowledge before your interview.",
+    url: "https://www.fqhctalent.com/academy",
+  },
+
+  careerTips: [
+    {
+      title: "Use the Kaiser Benchmark in Salary Negotiations",
+      body: "Kaiser's new 21.5% nursing raise is resetting expectations. FQHCs can't match base salary, but total comp (NHSC loan repayment + schedule flexibility + lower patient ratios) often wins. Know your numbers.",
+    },
+    {
+      title: "NextGen AI Is Live — Put It on Your Resume",
+      body: "NextGen just deployed ambient AI natively across its FQHC EHR. If you've used it, add 'NextGen ambient AI documentation' to your skills. If not, ask about it in interviews.",
+    },
+    {
+      title: "Revenue-Adjacent Roles Are the Safest Bet",
+      body: "With 1 in 4 FQHCs facing stabilization risk, roles that generate or protect revenue are most secure: billing coders, grant writers, ECM coordinators, 340B pharmacy staff.",
+    },
+  ],
+
+  featuredPost: {
+    title: "10 FQHC Interview Questions They Will Ask",
+    excerpt:
+      "Mission alignment, cultural humility, underserved community experience. Free prep tool with STAR framework examples and role-specific coaching.",
+    url: "https://www.fqhctalent.com/interview-prep",
+  },
+
+  successStory: {
+    org: "Santa Barbara Neighborhood Clinics",
+    headline: "$5M Gift Opens 8,000 New Patient Slots on the Central Coast",
+    summary:
+      "The Wyatt family donation — the largest in SBNC's history — funds a new health center opening December 2026. SBNC serves 1 in 10 South Santa Barbara County residents, and 92% of patients are low-income. They're hiring now to staff the expansion: 22 open positions this week.",
+    sourceUrl: "https://www.independent.com/2026/03/11/guardian-angels-drop-5-million-donation-on-new-santa-barbara-neighborhood-clinic/",
+  },
+
+  movementTrivia: {
+    fact: "La Clinica de la Raza was founded in 1971 by Chicana activists in Oakland's Fruitvale district who were tired of watching their neighbors get turned away from hospitals. Today it's one of the largest FQHCs in California — 192 open positions this week alone.",
+    source: "La Clinica de la Raza archives",
+  },
+
+  watchingNextWeek: [
+    {
+      item: "March BLS jobs report (April 4)",
+      why: "Will the 28K loss continue or bounce back?",
+    },
+    {
+      item: "CA county health tax ballot polling",
+      why: "If it passes June 2, expect a statewide FQHC hiring wave.",
+    },
+  ],
+};
+
 /* ------------------------------------------------------------------ */
 /*  Edition Index — Add new editions here for easy access              */
 /* ------------------------------------------------------------------ */
 
 export const NEWSLETTER_EDITIONS = {
-  intelBrief: [INTEL_BRIEF_001, INTEL_BRIEF_002],
-  pulse: [PULSE_001, PULSE_002],
+  intelBrief: [INTEL_BRIEF_001, INTEL_BRIEF_002, INTEL_BRIEF_003],
+  pulse: [PULSE_001, PULSE_002, PULSE_003],
 };
 
 /** Get the latest edition for a given track */

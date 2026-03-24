@@ -297,8 +297,8 @@ export default function NewsletterPage() {
                 },
               ]}
               frequency={{
-                en: "Weekly — Wednesdays",
-                es: "Semanal — Miercoles",
+                en: "Weekly — Tuesdays",
+                es: "Semanal — Martes",
               }}
               isSelected={pulseSelected}
               onSelect={() => handleTrackClick("the-pulse")}
