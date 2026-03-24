@@ -290,13 +290,234 @@ export const PULSE_001: PulseContent = {
   },
 };
 
+/* ================================================================== */
+/*  ISSUE #2 — Week of March 20, 2026                                 */
+/* ================================================================== */
+
+export const INTEL_BRIEF_002: IntelBriefContent = {
+  issueNumber: 2,
+  date: "March 20, 2026",
+
+  executiveSummary:
+    "The structural case against FQHC survival just got louder. STAT News published a landmark analysis arguing the real threat isn't H.R. 1 — it's that FQHCs have been structurally insolvent since 2024, with net margins swinging from +5.3% to -2.1% in two years. Meanwhile, LA County placed a $1B/year health sales tax on the June 2 ballot (the first county measure in the nation designed to offset Medicaid cuts), CHCF detailed how rural North State FQHCs could lose 30% of revenue, and San Francisco's largest LGBTQ+ health center lost its Ryan White HIV funding overnight. The pattern is clear: federal, state, and county funding are all contracting simultaneously. FQHCs that haven't stress-tested their finances against this triple compression are running out of time.",
+
+  policyUpdates: [
+    {
+      headline: "STAT News: FQHCs' Greatest Threat Isn't Funding Cuts — It's Structural Insolvency",
+      summary:
+        "A major STAT News analysis argues FQHCs face an existential crisis beyond any single funding cut. Net margins collapsed from +5.3% (2020-22) to -2.1% in 2024 — a 7.4-point swing. The community health center program posted its first-ever net loss in 2025. Federal grants stayed flat 2019-2023 while costs rose 25%+. One restructured FQHC found core medical services operating at a '$5/visit loss.' The author calls for rigorous financial discipline as 'foundational to mission delivery' — not a nice-to-have.",
+      sourceUrl: "https://www.statnews.com/2026/03/17/federally-qualified-health-centers-fqhcs-crisis/",
+      sourceOrg: "STAT News",
+      impactLevel: "critical",
+    },
+    {
+      headline: "SB 1422: Bill to Reverse Medi-Cal Enrollment Freeze for Undocumented Adults",
+      summary:
+        "Sen. Durazo (D-LA) introduced SB 1422 to restore full Medi-Cal eligibility regardless of immigration status — reversing the January 2026 enrollment freeze. Nearly 1.7M undocumented immigrants are currently enrolled. The freeze eliminated PPS payments for UIS patients, forcing FQHCs to absorb care costs. Whether this bill gains traction will signal California's commitment to the coverage model it pioneered.",
+      sourceUrl: "https://calmatters.org/health/2026/03/durazo-reverse-medical-undocumented-immigrants/",
+      sourceOrg: "CalMatters",
+      impactLevel: "high",
+    },
+    {
+      headline: "H.R. 7391: Bipartisan Bill Would Exempt FQHCs from 340B Rebate Model — 35 Cosponsors",
+      summary:
+        "The Community Health Center Drug Pricing Protection Act would exempt FQHCs from HRSA's 340B Rebate Model Pilot, mandating upfront ceiling-price purchasing instead of post-purchase reconciliation. 35 bipartisan cosponsors. HRSA's RFI on 340B rebates has comments due April 20. For FQHCs without in-house pharmacies, passage would protect access to 340B discounts that cross-subsidize care.",
+      sourceUrl: "https://auchincloss.house.gov/media/press-releases/reps-auchincloss-and-bergman-defend-fqhcs-from-financial-constraints-amidst-340b-reform",
+      sourceOrg: "U.S. House of Representatives",
+      impactLevel: "high",
+    },
+  ],
+
+  fundingAlerts: [
+    {
+      headline: "LA County: $1B/Year Health Tax on June 2 Ballot — First County-Level Medicaid Offset",
+      summary:
+        "The LA County Board of Supervisors placed a half-cent sales tax on the June 2 primary ballot, projected to generate ~$1B/year for safety-net care. St. John's Community Health ($240M revenue, 28 clinics) could lose a third of its budget without it. Proposed allocation: 47% free/reduced care, 22% DHS, 10% DPH. Following Santa Clara's Measure A ($330M/year effective April 1), a Southern California model is emerging. If this passes, expect San Diego ($360M ballot measure) and others to follow.",
+      sourceUrl: "https://kffhealthnews.org/news/article/federal-cuts-state-tax-increases-budget-shortfalls-health-clinics-los-angeles-california/",
+      sourceOrg: "KFF Health News",
+    },
+    {
+      headline: "CHCF: H.R. 1 Would 'Devastate' Rural Northern California Health Systems",
+      summary:
+        "A new CHCF report details the threat to rural North State FQHCs. At Shasta CHC, 82% of visits are Medi-Cal (60% of revenue). Hill Country CHC's CEO: 'If I lose 30% of my revenue, I will have to make a 30% reduction in staff.' Overdose deaths in Shasta/Lassen run 70% above statewide rates. CHCF hosting in-person event in Redding on April 2 — FQHCs in the North State should attend.",
+      sourceUrl: "https://www.chcf.org/resource/federal-medicaid-cuts-would-devastate-health-care-systems-californias-vast-rural-north/",
+      sourceOrg: "California Health Care Foundation",
+    },
+    {
+      headline: "SF Community Health Center Loses Ryan White HIV Funding — 3,000+ Patients at Risk",
+      summary:
+        "San Francisco Community Health Center had its federal Ryan White funding abruptly terminated as part of HRSA restructuring. The clinic serves 3,000+ patients — many LGBTQ+ and API communities — with HIV prevention and treatment. SF DPH is exploring emergency bridge funding. This is the first direct federal funding termination to hit an SF FQHC and signals escalating risk for all HRSA-dependent programs.",
+      sourceUrl: "https://www.sfchronicle.com/health/article/sf-community-health-center-ryan-white-funding-19952187.php",
+      sourceOrg: "San Francisco Chronicle",
+    },
+    {
+      headline: "RAND: State Medicaid Budgets Will Decline $665B Over Next Decade Under H.R. 1",
+      summary:
+        "RAND Health analysis finds state Medicaid budgets face a total $665B reduction over the next decade. With FQHCs deriving ~43% of revenue from Medicaid, this signals sustained revenue compression — not a one-time cut. CBO estimates 11.8M will directly lose coverage, plus 3.1M through marketplace plans.",
+      sourceUrl: "https://stateline.org/2026/03/04/state-medicaid-budgets-will-decline-by-665-billion-under-new-federal-law-report-finds/",
+      sourceOrg: "Stateline / RAND Health",
+    },
+  ],
+
+  workforceUpdates: [
+    {
+      headline: "Neighborhood Healthcare CEO: 'Hundreds of FQHCs Will Shut Down in a Year'",
+      summary:
+        "Neighborhood Healthcare's Director of External Affairs warned that hundreds of California FQHCs face closure within a year as H.R. 1 cuts take effect. 75,000 noncitizens in San Diego County alone will lose Medi-Cal access by October 2026. SD County supervisors voted 4-1 to explore 'Safety Net Bridge' clinics and a $360M/year sales tax ballot measure. Healthcare leaders predict hospitals will be 'overrun' as clinics close.",
+      sourceUrl: "https://www.nhcare.org/local-healthcare-institutions-prepare-for-impact-of-hr1-cuts-government-shutdown/",
+      sourceOrg: "Neighborhood Healthcare",
+    },
+    {
+      headline: "Kaiser Mental Health Strike: AI Replacement Fears Drive March 18 Walkout",
+      summary:
+        "100+ mental health workers at Kaiser Santa Rosa (NUHW) struck March 18 over AI replacement concerns. Kaiser's HR VP called it a 'false narrative,' but the union alleges outsourcing. This follows the 31,000-worker nursing strike that ended with a 21.5% raise. Displaced Kaiser mental health professionals are potential FQHC recruits — especially in the North Bay where BH staffing gaps are critical.",
+      sourceUrl: "https://www.pressdemocrat.com/2026/03/05/kaiser-permanente-mental-health-workers-in-santa-rosa-set-to-strike-this-month/",
+      sourceOrg: "Press Democrat",
+    },
+    {
+      headline: "Santa Barbara: $5M Wyatt Gift Funds Largest FQHC Expansion on the Central Coast",
+      summary:
+        "Santa Barbara Neighborhood Clinics received a $5M gift from the Wyatt family — the largest in the FQHC's history. The new Wyatt Family Health Center (opening December 2026) will expand capacity from 20,000 to 28,000 patients (+41%). SBNC serves 1 in 10 South SB County residents; 92% are low-income. In a sea of cuts, this is a rare expansion story — and a model for philanthropic revenue diversification.",
+      sourceUrl: "https://www.independent.com/2026/03/11/guardian-angels-drop-5-million-donation-on-new-santa-barbara-neighborhood-clinic/",
+      sourceOrg: "Santa Barbara Independent",
+    },
+  ],
+
+  aiUpdates: [
+    {
+      headline: "AHRQ Funds $2M Study on Safe AI Scribe Implementation in Primary Care",
+      summary:
+        "The Agency for Healthcare Research and Quality awarded $2M to Brigham and Women's Hospital to develop a guide for safe integration of ambient AI scribes into primary care. This federal validation signals ambient AI is moving from hype to evidence-based implementation — use this as justification when pitching AI adoption to your board.",
+      sourceUrl: "https://digital.ahrq.gov/ahrq-funded-projects/search/download?page=&_format=csv",
+    },
+    {
+      headline: "Peterson Institute: Ambient AI Scribes Are Fastest-Adopted Health Tech in History",
+      summary:
+        "A Peterson Health Technology Institute report confirms ambient AI scribes are becoming the fastest-adopted technology in healthcare history. Neighborhood Healthcare (CA FQHC, 500K+ visits) successfully piloted Nabla AI scribes. But rural FQHCs face connectivity and cost barriers — North Country Healthcare (AZ) found implementation harder than expected.",
+      sourceUrl: "https://www.beckershospitalreview.com/healthcare-information-technology/ai/from-pilot-to-priority-the-rise-of-ambient-ai-scribes-in-healthcare/",
+    },
+  ],
+
+  keyDates: [
+    {
+      date: "Apr 2, 2026",
+      event: "CHCF Rural North event in Redding — Medicaid cut impact on rural FQHCs",
+    },
+    {
+      date: "Apr 20, 2026",
+      event: "HRSA RFI comments due on 340B Rebate Model (H.R. 7391 would exempt FQHCs)",
+    },
+    {
+      date: "Jun 2, 2026",
+      event: "LA County half-cent health sales tax on primary ballot (~$1B/year)",
+    },
+    {
+      date: "Jul 1, 2026",
+      event: "CA eliminates FQHC PPS rates for undocumented patients (~$1B revenue impact)",
+    },
+    {
+      date: "Dec 31, 2026",
+      event: "CalAIM waiver expires ($1.2B ECM/Community Supports at risk)",
+    },
+    {
+      date: "Dec 31, 2026",
+      event: "CHCF $4.6B authorization expires (no multi-year renewal announced)",
+    },
+  ],
+
+  featuredContent: {
+    title: "Your FQHC's Strategic Intelligence Report",
+    description:
+      "We built a free 10-section strategic report for every one of California's 215 FQHCs — resilience assessment, funding vulnerability, workforce intel, related intelligence, and action items. Find yours and see how your organization scores.",
+    url: "https://www.fqhctalent.com/strategy/resilience",
+  },
+};
+
+export const PULSE_002: PulseContent = {
+  issueNumber: 2,
+  date: "March 20, 2026",
+
+  summary:
+    "1,674 FQHC jobs across California this week — AltaMed is on a hiring surge with 270 open positions (+22 since last week). Meanwhile, the FQHC sector is dealing with the STAT News 'structural insolvency' bombshell, but here's what that means for you: FQHCs need efficiency more than ever, which means bilingual staff, ECM-trained coordinators, and anyone who can help do more with less is in high demand. Now is the time to position yourself as the solution, not part of the problem they're cutting.",
+
+  jobHighlights: {
+    totalJobs: 1674,
+    newThisWeek: 22,
+    topFQHCs: [
+      {
+        name: "AltaMed Health Services",
+        count: 270,
+        url: "https://www.fqhctalent.com/jobs?fqhc=altamed-health-services",
+      },
+      {
+        name: "La Clinica de la Raza",
+        count: 187,
+        url: "https://www.fqhctalent.com/jobs?fqhc=la-clinica-de-la-raza",
+      },
+      {
+        name: "Family Health Centers of San Diego",
+        count: 145,
+        url: "https://www.fqhctalent.com/jobs?fqhc=family-health-centers-of-san-diego",
+      },
+      {
+        name: "Community Health Centers of Central Coast",
+        count: 48,
+        url: "https://www.fqhctalent.com/jobs?fqhc=community-health-centers-of-the-central-coast",
+      },
+    ],
+  },
+
+  marketTrends: [
+    {
+      headline: "STAT News Says FQHCs Are 'Structurally Insolvent' — What It Means for Your Job Search",
+      summary:
+        "A major STAT News analysis this week argued FQHCs face structural insolvency beyond just funding cuts. For job seekers, this actually creates opportunity: FQHCs desperately need people who can help them become more efficient — revenue cycle specialists, data analysts, grant writers, and anyone with ECM/CalAIM experience. Positions that generate or protect revenue are the most secure.",
+    },
+    {
+      headline: "LA County's $1B Health Tax Could Create Thousands of FQHC Jobs",
+      summary:
+        "LA County placed a half-cent sales tax on the June 2 ballot that would generate $1B/year for safety-net care. If it passes, expect a surge in FQHC hiring across Southern California — especially care coordinators, community health workers, and clinical staff. St. John's Community Health alone has 28 clinics that could expand. Keep an eye on this vote.",
+    },
+    {
+      headline: "AI Scribe Skills Are Becoming a Resume Differentiator",
+      summary:
+        "Two major developments this week: AHRQ funded a $2M study on safe AI scribe implementation, and the Peterson Institute confirmed ambient AI is the fastest-adopted health tech in history. FQHCs are actively deploying these tools (AltaMed has Abridge across 60+ sites). If you have any AI documentation experience, make sure it's on your resume.",
+    },
+  ],
+
+  toolSpotlight: {
+    name: "FQHC Resume Builder — Now with Provider Templates",
+    description:
+      "Our free resume builder now includes templates for 12 FQHC roles — including new provider templates for Physicians, NPs, PAs, and Dentists. Each template includes FQHC-specific bullet points that hiring managers actually screen for: ECM experience, UDS reporting, PCMH, PPS billing, and CalAIM readiness.",
+    url: "https://www.fqhctalent.com/resume-builder",
+  },
+
+  careerTips: [
+    {
+      title: "Revenue-Generating Roles Are the Most Secure in 2026",
+      body: "With FQHCs operating at negative margins for the first time ever, positions that directly generate or protect revenue are the safest bets: revenue cycle specialists, billing coders, grant writers, ECM coordinators (billable), and 340B pharmacy staff. If your role touches revenue, highlight that in every interview.",
+    },
+    {
+      title: "The Kaiser Strike Created an Opening for BH Professionals",
+      body: "100+ mental health workers struck at Kaiser Santa Rosa this month, and the 31,000-nurse strike ended with a 21.5% raise. Kaiser's labor costs are rising, which may push some BH professionals toward FQHCs. If you're a licensed therapist, LCSW, or psychologist considering a switch, FQHC behavioral health integration programs offer competitive pay with a mission-driven environment.",
+    },
+  ],
+
+  featuredPost: {
+    title: "Compare FQHCs Side by Side Before You Apply",
+    excerpt:
+      "Not sure which FQHC is right for you? Our free comparison tool lets you evaluate up to 3 FQHCs side-by-side across 10 dimensions: Glassdoor ratings, programs, resilience scores, salary ranges, union status, and more. Make an informed decision about where to build your career.",
+    url: "https://www.fqhctalent.com/compare",
+  },
+};
+
 /* ------------------------------------------------------------------ */
 /*  Edition Index — Add new editions here for easy access              */
 /* ------------------------------------------------------------------ */
 
 export const NEWSLETTER_EDITIONS = {
-  intelBrief: [INTEL_BRIEF_001],
-  pulse: [PULSE_001],
+  intelBrief: [INTEL_BRIEF_001, INTEL_BRIEF_002],
+  pulse: [PULSE_001, PULSE_002],
 };
 
 /** Get the latest edition for a given track */

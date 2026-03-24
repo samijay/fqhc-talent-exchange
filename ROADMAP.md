@@ -302,85 +302,98 @@ The single highest-impact fix for user experience. Currently, "use client" pages
 
 ---
 
-## 💰 Go-To-Market & First Dollar Strategy
+## 💰 Go-To-Market & Revenue Strategy
 
-### What You Have Today (as of 2026-03-08)
+*Updated 2026-03-20 — Pivoted from job placement to audience monetization model*
 
-1. **214 FQHC profiles** — 89 curated + 125 hrsa-enriched (0 stubs remaining). Core fields 100% complete (EHR, programs, patient/staff counts). Glassdoor coverage: 27% (57/214). Coverage vulnerability: 47%. Union info: 10%.
-2. **1,046 job listings** with real salary data + 617 live API-scrapeable jobs across 4 FQHCs (AltaMed 258, FHCSD 153, AHS 20, La Clinica 186) + 6 new scrapeable FQHCs pending next /scrape-jobs run
-3. **Career assessment** — 5 behavioral domains, role-specific scenarios, transition readiness scoring, opt-in STARS 90-day plan, provider roles included
-4. **Resume builder** — FQHC-optimized, 12 role templates (incl. 4 provider: MD, NP, PA, Dentist), 17 languages
-5. **Interview prep tool** — 6 FQHC roles + 4 provider roles, STAR tips, red flags, follow-ups, salary data, NHSC info
-6. **Career roadmap** — 5 tracks, 4 levels, CA salary data with regional multipliers
-7. **Certification catalog** — 20 CA-specific certs with ROI data
-8. **Layoff intelligence** — 20 tracked events, 3,477+ affected workers
-9. **Executive intelligence dashboard** — homepage with breaking intel, funding cliffs, workforce data, 74 curated intel items
-10. **AI Implementation Tracker** — 19 adoption items tracked + **8 vendors compared** (EHR matrix, fit ratings, pricing, FQHC customers)
-11. **Manager Team Readiness** — B2B lead gen tool with 35 questions, 4 leadership roles, STARS diagnosis, Liberating Structures
-12. **Policy & intel pipeline** — 6 slash commands with subscriber intelligence step: `/daily-update` (WARN + jobs + policy + AI + regional + cultural scans), `/scan-policy`, `/intel-brief` (Step 0: subscriber segmentation), `/update-layoffs`, `/scrape-jobs`, `/draft-blog`
-13. **Newsletter system** — Intel Brief + The Pulse tracks, 5-step questionnaire capturing role/challenge/topics, welcome drip (8 emails, 2 tracks), Supabase subscriber table with JSONB preferences, batch send via Resend
-14. **Resilience Scorecard** — all 215 FQHCs scored across 5 dimensions (program diversity, workforce stability, data maturity, quality indicators, financial positioning)
-15. **FQHC Comparison Tool** — side-by-side comparison of 2-3 FQHCs with resilience dimensions, programs, Glassdoor, funding, union, best-value highlighting
-16. **9 Regional Intelligence dashboards** — per-region FQHC tables, resilience distribution, EHR landscape, layoff impact, job count, regional intel feed
-17. **220 per-FQHC Strategic Reports** (SSG) — 10-section reports with Calendly CTA + intake form link
-18. **25 OKR Templates** — 5 domains, 3 difficulty levels, company-wide flagship template covering all 8 clinical roles
-19. **15 Masterclass modules** — deep-dive strategy for the 2026 crisis (financial survival, revenue recovery, undocumented care, fundraising, economics, leadership)
-20. **Flywheel content strategy** — 4-stage flywheel (DISCOVER → SUBSCRIBE → ENGAGE → CONVERT), documented in `.feedback/strategy/flywheel-strategy.md`
+### Revenue Model: Sell Access, Not Services
 
-### Two-Track GTM
+**Core insight:** Don't sell TO FQHCs (negative margins, cutting budgets). Sell ACCESS to FQHC decision-makers to vendors/suppliers who want to reach them.
 
-#### Track A: Candidate Acquisition (Free — Volume Play)
-Position as the **#1 free career platform for community health workers**:
-- Resume builder → Career assessment → Career roadmap → Certifications → Job listings
-- **For displaced workers:** "Get job-ready in 30 minutes — free resume, free assessment, free career plan"
-- **For career changers:** "Discover your path in community health"
-- **SEO + content marketing** drives organic traffic; tools convert to waitlist signups
-- Every candidate who completes assessment + resume = qualified lead for The Drop
+| Revenue Stream | Price | Buyer | Status |
+|----------------|-------|-------|--------|
+| **Newsletter sponsorship** | $500-2K/issue | AI vendors, EHR companies, staffing agencies | Not started — need subscribers first |
+| **Vendor directory / sponsored listings** | $200-1K/month | AI vendors (Abridge, Sunoh.ai), EHR companies | AI Tracker page built — no paid listings yet |
+| **Affiliate/referral** | Variable | Staffing agencies (15-25% of placement), training programs ($50-500/enrollment) | Links exist — no tracking |
+| **Sponsored content / webinars** | $2-5K/piece | Vendors wanting to present to FQHC audience | Not started |
 
-#### Track B: FQHC Revenue (Paid — Tiered Services)
+### What's NOT the Revenue Model
 
-**Lead with layoffs** — FQHCs facing workforce reductions need a partner:
+- ~~Job board fees~~ — FQHCs have their own ATS + Indeed
+- ~~Job placement/staffing~~ — Requires recruiting operation we don't have
+- ~~SaaS tools sold to FQHCs~~ — Budget-constrained buyers cutting staff
+- ~~Consulting~~ — Possible long-term, not near-term
 
-| Tier | Service | Price | Trigger |
-|------|---------|-------|---------|
-| **Free** | Directory listing, access to candidate pool, self-serve insights | $0 | Any FQHC |
-| **Offboarding Lite** | We intake displaced workers, build resumes, assess skills, promote to hiring FQHCs | $500-1,500/event | FQHC announces layoffs |
-| **Offboarding Pro** | Managed transition: dedicated support, career coaching, priority matching | $2-5K/event | Larger layoffs (50+ workers) |
-| **The Drop** | Monthly batch of 5-10 pre-screened, assessed candidates for open roles | $500-1,500/mo or $200-500/intro | Actively hiring FQHCs |
-| **Placement** | Direct placement with success guarantee | 10-15% first-year salary | Hard-to-fill roles (RN, BH, dental) |
+### Target Buyers (Who Has Money)
 
-**Why this works:**
-- **Layoffs create urgency** — FQHCs doing layoffs want to do right by their staff
-- **Free tools build trust** — candidates experience value before we pitch employers
-- **Data is the moat** — 220 FQHCs, quality scores, labor history, live job counts
-- **Offboarding → placement pipeline** — workers we help today become candidates we place tomorrow
+| Buyer | Why They'd Pay | Example |
+|-------|---------------|---------|
+| AI/health tech vendors | AI Tracker = buying guide for FQHC execs evaluating tools | Abridge (Best in KLAS, AltaMed customer) |
+| EHR vendors | EHR compatibility matrix reaches FQHC IT decision-makers | eClinicalWorks, athenahealth, NextGen |
+| Staffing agencies | Job seekers on our site = referral pipeline | AMN Healthcare, CompHealth, CHC Solutions |
+| Training/certification programs | Cert catalog recommends their programs | CHW training, NHSC programs |
+| Revenue cycle companies | Guides/masterclass reach CFOs | RCM vendors |
 
-### GTM Sequence (Updated)
+### 90-Day California Revenue Test
 
-| Phase | Action | Revenue Model | Timeline |
-|-------|--------|---------------|----------|
-| **1. Free Value** | Platform live. 220 FQHCs, tools, content, SEO. | None — candidate acquisition | ✅ Done |
-| **2. Outreach** | Email 10-15 HR directors. Lead with layoff data + their FQHC profile. Offer free "Talent Intelligence Brief" for their region. | None — relationship building | Week 1-2 |
-| **3. Offboarding Pilot** | Partner with 1-2 FQHCs facing layoffs. Offer managed offboarding for displaced staff. | Offboarding fee ($500-1,500) | Week 2-4 |
-| **4. First Placement** | Match displaced workers to hiring FQHCs via The Drop or direct placement. | Placement fee ($2-5K) | Week 4-8 |
-| **5. Talent Drop Pilot** | Offer 3 hiring FQHCs a monthly Talent Drop. | Subscription ($500-1,500/mo) | Month 2-3 |
-| **6. Scale** | Employer dashboard, automated matching, multi-region. | Recurring revenue | Month 3-6 |
+**Month 1 (Week 1-4): Build the Audience**
+- [ ] Get 100 Intel Brief subscribers via direct outreach to 174 CA FQHC orgs
+- [ ] Send 3 consecutive weekly Intel Briefs (prove cadence)
+- [ ] Track open rates, clicks, replies
+- [ ] Verify Resend domain (DKIM records in Cloudflare)
+- [ ] Build cold outreach email sequence (3-touch)
+- [ ] Find 100 target contacts (CEOs, HR directors, CFOs)
+- [ ] Send personalized outreach in batches of 10/day
+
+**Month 2 (Week 5-8): Prove Engagement**
+- [ ] Send Intel Briefs #4-7 (maintain weekly cadence)
+- [ ] Survey subscribers: "What tools is your org evaluating?"
+- [ ] Approach first sponsor (Abridge = ideal: Best in KLAS, AltaMed customer, FQHC-focused)
+- [ ] Offer $500 single-issue test sponsorship
+- [ ] Add affiliate tracking to cert/training recommendations
+- [ ] Launch `/sponsor` page with audience stats + pricing
+
+**Month 3 (Week 9-12): First Revenue**
+- [ ] Close first sponsor ($500 test)
+- [ ] Expand to 2-3 more vendor conversations
+- [ ] Add National Watch section (trigger-law states, undocumented rollback tracker)
+- [ ] Evaluate: 100+ subscribers + 40%+ open rate + sponsor = go national
+
+**Decision Point at 90 Days:**
+- **Green light** (50+ subs, 40%+ opens, sponsor interest) → Go national with intelligence layer
+- **Red flag** (< 20 subs, < 20% opens, no replies) → Content isn't resonating; talk to the few who did respond
+
+### What You Have Today (as of 2026-03-20)
+
+1. **215 FQHC profiles** — 90 curated + 125 hrsa-enriched. Core fields 100% complete.
+2. **1,053 static + 621 live API jobs** = 1,674 total across 30+ FQHCs
+3. **121 curated intel items** across 9 categories with primary sources
+4. **19 AI tracker items + 8 vendor comparisons** with EHR matrix
+5. **Intel Brief #1 written** — ready to send (March 10 edition in `newsletter-editions.ts`)
+6. **Newsletter infrastructure 95% built** — templates, send API, drip sequences, subscriber table, questionnaire
+7. **220 per-FQHC strategic reports** with Calendly CTA
+8. **25 OKR templates, 18 masterclass modules, 22 case studies**
+9. **Cold outreach templates** — 3-email sequence in `marketing/outreach/`
+10. **Zero subscribers, zero revenue** — the building phase is over
+
+### National Expansion (Post-Validation)
+
+| Phase | What | When | Effort |
+|-------|------|------|--------|
+| **1. National Intelligence** | H.R. 1 state tracker, 9 trigger-law states, undocumented coverage rollback across 14 states + DC | After Month 1 (if subs growing) | 2 weeks |
+| **2. Vendor Marketplace** | Expand AI Tracker to paid vendor listings, sponsor page | Month 2-3 | 2 weeks |
+| **3. Beachhead State** | Full depth in NY, OR, or TX (HRSA import + intel + jobs) | Month 4-6 | 2-3 months |
+| **4. Multi-State Pipeline** | Systematize state expansion, 2-4 weeks per new state | Month 6-12 | Ongoing |
 
 ### What Blocks Revenue?
 
 | Blocker | Impact | Fix |
 |---------|--------|-----|
-| ~~Fast-track promises "48 hours"~~ | ~~Sets unrealistic expectations~~ | ✅ Repositioned — free tools + priority intake (shipped #51) |
-| No employer dashboard | Can't show candidates at scale | Build after first manual placement |
-| No auth system | Can't gate premium features | Build after first revenue |
-| **Nothing blocks outreach** | You have data, tools, and content no competitor has | Pick up the phone |
-
-### The Honest Answer
-
-The platform is strong. The data is unique. The tools are real. What's needed is **10 outbound emails to FQHC HR directors** — specifically:
-1. FQHCs that just did layoffs (offer offboarding support)
-2. FQHCs that are actively hiring (offer The Drop)
-3. FQHCs in regions with both layoffs AND hiring (the arbitrage opportunity)
+| **Zero subscribers** | Can't sell sponsorships without an audience | Outreach campaign (this month) |
+| **Resend domain verification** | Emails may land in spam | Check DKIM records in Cloudflare |
+| **No sponsor page** | Vendors can't self-serve | Build `/sponsor` with audience stats |
+| **No open rate tracking** | Can't prove value to sponsors | Wire up Resend webhooks |
+| Nothing blocks outreach | Data, tools, content all built | **Start sending emails** |
 
 ---
 
