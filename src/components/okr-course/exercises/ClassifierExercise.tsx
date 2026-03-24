@@ -83,12 +83,12 @@ export function ClassifierExercise({
   return (
     <div className="flex flex-col gap-4 w-full max-w-lg mx-auto">
       {/* Instruction */}
-      <p className="text-sm font-medium text-stone-600 dark:text-stone-400">
+      <p className="text-sm font-medium text-stone-600 dark:text-stone-500">
         {t(exercise.instruction)}
       </p>
 
       {/* Progress */}
-      <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400" role="status" aria-live="polite">
+      <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500" role="status" aria-live="polite">
         <span aria-label={locale === "es" ? `Elemento ${currentIndex + 1} de ${totalItems}` : `Item ${currentIndex + 1} of ${totalItems}`}>
           {currentIndex + 1} / {totalItems}
         </span>

@@ -36,7 +36,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
 const FIT_STYLES: Record<string, string> = {
   high: "bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300",
   moderate: "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300",
-  low: "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400",
+  low: "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-500",
 };
 
 const FIT_LABELS: Record<string, { en: string; es: string }> = {
@@ -81,7 +81,7 @@ function VendorCard({ vendor, locale }: { vendor: TechVendor; locale: string }) 
               </Badge>
             )}
           </div>
-          <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
+          <p className="mt-1 text-sm text-stone-600 dark:text-stone-500">
             {t(vendor.tagline, locale)}
           </p>
         </div>
@@ -102,7 +102,7 @@ function VendorCard({ vendor, locale }: { vendor: TechVendor; locale: string }) 
             </p>
           )}
           {vendor.pricingNote && (
-            <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
+            <p className="text-xs text-stone-500 dark:text-stone-500 mt-0.5">
               {t(vendor.pricingNote, locale)}
             </p>
           )}
@@ -122,7 +122,7 @@ function VendorCard({ vendor, locale }: { vendor: TechVendor; locale: string }) 
       {/* Key Features (always visible) */}
       <ul className="mt-3 space-y-1">
         {vendor.keyFeatures.slice(0, 3).map((f, i) => (
-          <li key={i} className="flex items-start gap-1.5 text-xs text-stone-600 dark:text-stone-400">
+          <li key={i} className="flex items-start gap-1.5 text-xs text-stone-600 dark:text-stone-500">
             <CheckCircle2 className="mt-0.5 h-3 w-3 shrink-0 text-teal-500" />
             {t(f, locale)}
           </li>
@@ -145,7 +145,7 @@ function VendorCard({ vendor, locale }: { vendor: TechVendor; locale: string }) 
       {expanded && (
         <div className="mt-3 space-y-3 border-t border-stone-100 pt-3 dark:border-stone-700">
           {/* Description */}
-          <p className="text-xs text-stone-600 dark:text-stone-400">
+          <p className="text-xs text-stone-600 dark:text-stone-500">
             {t(vendor.description, locale)}
           </p>
 
@@ -154,7 +154,7 @@ function VendorCard({ vendor, locale }: { vendor: TechVendor; locale: string }) 
             <p className="text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">
               {isEs ? "Por que para FQHCs" : "Why for FQHCs"}
             </p>
-            <p className="text-xs text-stone-600 dark:text-stone-400">
+            <p className="text-xs text-stone-600 dark:text-stone-500">
               {t(vendor.fqhcFitReason, locale)}
             </p>
           </div>
@@ -163,7 +163,7 @@ function VendorCard({ vendor, locale }: { vendor: TechVendor; locale: string }) 
           {vendor.keyFeatures.length > 3 && (
             <ul className="space-y-1">
               {vendor.keyFeatures.slice(3).map((f, i) => (
-                <li key={i} className="flex items-start gap-1.5 text-xs text-stone-600 dark:text-stone-400">
+                <li key={i} className="flex items-start gap-1.5 text-xs text-stone-600 dark:text-stone-500">
                   <CheckCircle2 className="mt-0.5 h-3 w-3 shrink-0 text-teal-500" />
                   {t(f, locale)}
                 </li>
@@ -281,7 +281,7 @@ function CategorySection({
               {t(CRITICALITY_LABELS[category.criticalityLevel], locale)}
             </span>
           </div>
-          <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
+          <p className="mt-1 text-sm text-stone-600 dark:text-stone-500">
             {t(category.description, locale)}
           </p>
           <p className="mt-1 text-xs text-stone-500">
@@ -348,7 +348,7 @@ function StackProfileCard({ profile, locale }: { profile: TechStackProfile; loca
           {expanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
         </button>
       </div>
-      <p className="mt-2 text-xs text-stone-600 dark:text-stone-400">
+      <p className="mt-2 text-xs text-stone-600 dark:text-stone-500">
         {t(profile.description, locale)}
       </p>
       {expanded && (
@@ -366,7 +366,7 @@ function StackProfileCard({ profile, locale }: { profile: TechStackProfile; loca
                   {vendor.name}
                 </span>
                 {item.note && (
-                  <span className="text-stone-400 truncate">— {item.note}</span>
+                  <span className="text-stone-500 truncate">— {item.note}</span>
                 )}
               </div>
             );
@@ -436,7 +436,7 @@ export default function TechStackPage() {
               ? "Guia completa de proveedores de software para centros de salud comunitarios — precios, compatibilidad, descuentos y evaluaciones de compatibilidad FQHC."
               : "The complete guide to software vendors for community health centers — pricing, compatibility, FQHC discounts, and fit assessments across every category."}
           </p>
-          <p className="mt-2 text-xs text-stone-400">
+          <p className="mt-2 text-xs text-stone-500">
             {isEs ? "Actualizado" : "Updated"}: {TECH_STACK_LAST_UPDATED}
           </p>
 
@@ -451,7 +451,7 @@ export default function TechStackPage() {
             ].map((s) => (
               <div key={s.label} className="rounded-lg bg-white/10 px-4 py-2 backdrop-blur">
                 <p className="text-xl font-bold text-white">{s.value}</p>
-                <p className="text-xs text-stone-400">{s.label}</p>
+                <p className="text-xs text-stone-500">{s.label}</p>
               </div>
             ))}
           </div>
@@ -464,7 +464,7 @@ export default function TechStackPage() {
           {/* Search + Fit Filter */}
           <div className="flex flex-wrap items-center gap-3 mb-3">
             <div className="relative flex-1 min-w-[200px]">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-500" />
               <input
                 type="text"
                 value={search}
@@ -474,7 +474,7 @@ export default function TechStackPage() {
               />
             </div>
             <div className="flex items-center gap-1.5">
-              <Filter className="h-4 w-4 text-stone-400" />
+              <Filter className="h-4 w-4 text-stone-500" />
               {["all", "high", "moderate", "low"].map((fit) => (
                 <button
                   key={fit}
@@ -482,7 +482,7 @@ export default function TechStackPage() {
                   className={`rounded-full px-3 py-1 text-xs font-medium transition ${
                     fitFilter === fit
                       ? "bg-teal-700 text-white"
-                      : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400"
+                      : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-500"
                   }`}
                 >
                   {fit === "all" ? (isEs ? "Todos" : "All") : t(FIT_LABELS[fit], locale)}
@@ -498,7 +498,7 @@ export default function TechStackPage() {
               className={`rounded-full px-3 py-1 text-xs font-medium transition ${
                 activeCat === "all"
                   ? "bg-teal-700 text-white"
-                  : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400"
+                  : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-500"
               }`}
             >
               {isEs ? "Todas las categorias" : "All Categories"}
@@ -513,7 +513,7 @@ export default function TechStackPage() {
                   className={`flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium transition ${
                     activeCat === cat.id
                       ? "bg-teal-700 text-white"
-                      : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400"
+                      : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-500"
                   }`}
                 >
                   <Icon className="h-3 w-3" />
@@ -539,7 +539,7 @@ export default function TechStackPage() {
             { level: "partial", color: "bg-amber-500", label: "Partial" },
             { level: "none", color: "bg-stone-400", label: "None" },
           ].map((l) => (
-            <span key={l.level} className="flex items-center gap-1 text-stone-600 dark:text-stone-400">
+            <span key={l.level} className="flex items-center gap-1 text-stone-600 dark:text-stone-500">
               <span className={`h-2 w-2 rounded-full ${l.color}`} />
               {l.label}
             </span>
@@ -604,7 +604,7 @@ export default function TechStackPage() {
                 {isEs ? "Adopcion de IA en FQHCs" : "AI adoption monitoring"}
               </p>
             </div>
-            <ArrowRight className="ml-auto h-4 w-4 text-stone-400" />
+            <ArrowRight className="ml-auto h-4 w-4 text-stone-500" />
           </Link>
           <Link
             href="/strategy/resilience"
@@ -619,7 +619,7 @@ export default function TechStackPage() {
                 {isEs ? "220 FQHCs evaluados" : "220 FQHCs scored"}
               </p>
             </div>
-            <ArrowRight className="ml-auto h-4 w-4 text-stone-400" />
+            <ArrowRight className="ml-auto h-4 w-4 text-stone-500" />
           </Link>
           <Link
             href="/strategy/guides"
@@ -634,7 +634,7 @@ export default function TechStackPage() {
                 {isEs ? "Casos de estudio reales" : "Real case studies"}
               </p>
             </div>
-            <ArrowRight className="ml-auto h-4 w-4 text-stone-400" />
+            <ArrowRight className="ml-auto h-4 w-4 text-stone-500" />
           </Link>
         </section>
 

@@ -30,8 +30,6 @@ export default function Footer() {
       { href: "/strategy/scope-of-practice" as const, label: t("scopeOfPractice") },
       { href: "/strategy/workforce-resilience" as const, label: t("workforceResilience") },
       { href: "/strategy/research" as const, label: t("researchArchive") },
-    ],
-    [t("technology")]: [
       { href: "/strategy/tech-stack" as const, label: t("techStack") },
       { href: "/ai-tracker" as const, label: t("aiTracker") },
     ],
@@ -68,9 +66,9 @@ export default function Footer() {
   return (
     <footer className="border-t border-stone-200 bg-white pb-16">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
           {/* Logo & description */}
-          <div className="space-y-4">
+          <div className="col-span-2 md:col-span-3 lg:col-span-4 space-y-4">
             <Link href="/" className="flex items-center gap-2">
               <Heart className="size-6 fill-teal-700 text-teal-700" />
               <span className="text-lg font-bold tracking-tight text-stone-900">
@@ -111,23 +109,23 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 border-t border-stone-200 pt-6">
-          <p className="text-xs text-stone-400 text-center mb-4">
+          <p className="text-xs text-stone-500 text-center mb-4">
             {t("disclaimer")}
           </p>
           <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
-            <p className="text-sm text-stone-400">
+            <p className="text-sm text-stone-500">
               {t("copyright", { year: new Date().getFullYear() })}
             </p>
             <div className="flex items-center gap-4">
               <Link
                 href="/privacy"
-                className="text-sm text-stone-400 transition-colors hover:text-teal-700"
+                className="text-sm text-stone-500 transition-colors hover:text-teal-700"
               >
                 {t("privacy")}
               </Link>
               <Link
                 href="/terms"
-                className="text-sm text-stone-400 transition-colors hover:text-teal-700"
+                className="text-sm text-stone-500 transition-colors hover:text-teal-700"
               >
                 {t("terms")}
               </Link>

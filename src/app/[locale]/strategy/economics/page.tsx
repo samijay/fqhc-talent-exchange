@@ -92,7 +92,7 @@ function ConceptCard({
             <h3 className="text-base font-semibold text-stone-900">
               {t(concept.title, locale)}
             </h3>
-            <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full bg-${domain.color}-100 text-${domain.color}-700`}>
+            <span className={`text-xs font-medium px-2 py-0.5 rounded-full bg-${domain.color}-100 text-${domain.color}-700`}>
               {t(domain.label, locale)}
             </span>
           </div>
@@ -104,7 +104,7 @@ function ConceptCard({
           )}
         </div>
         <ChevronDown
-          className={`size-5 shrink-0 text-stone-400 transition-transform ${expanded ? "rotate-180" : ""}`}
+          className={`size-5 shrink-0 text-stone-500 transition-transform ${expanded ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -130,7 +130,7 @@ function ConceptCard({
 
           {/* Source */}
           <div className="mt-3 flex items-center gap-1">
-            <ExternalLink className="size-3 text-stone-400" />
+            <ExternalLink className="size-3 text-stone-500" />
             <a
               href={concept.sourceUrl}
               target="_blank"
@@ -191,15 +191,15 @@ export default function HealthcareEconomicsPage() {
           <div className="mt-10 grid grid-cols-3 gap-4 rounded-xl bg-white/5 p-4">
             <div className="text-center">
               <p className="text-2xl font-bold text-amber-400">{economicsConcepts.length}</p>
-              <p className="text-xs text-stone-400">{isEs ? "Conceptos" : "Concepts"}</p>
+              <p className="text-xs text-stone-500">{isEs ? "Conceptos" : "Concepts"}</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-amber-400">3</p>
-              <p className="text-xs text-stone-400">{isEs ? "Niveles" : "Levels"}</p>
+              <p className="text-xs text-stone-500">{isEs ? "Niveles" : "Levels"}</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-amber-400">{domains.length}</p>
-              <p className="text-xs text-stone-400">{isEs ? "Dominios" : "Domains"}</p>
+              <p className="text-xs text-stone-500">{isEs ? "Dominios" : "Domains"}</p>
             </div>
           </div>
         </div>
@@ -236,7 +236,7 @@ export default function HealthcareEconomicsPage() {
                         : "border-stone-200 bg-white hover:border-stone-300"
                     }`}
                   >
-                    <LevelIcon className={`size-5 ${active ? "text-stone-900" : "text-stone-400"}`} />
+                    <LevelIcon className={`size-5 ${active ? "text-stone-900" : "text-stone-500"}`} />
                     <div>
                       <p className={`text-sm font-semibold ${active ? "text-stone-900" : "text-stone-600"}`}>
                         {t(meta.label, locale)}
@@ -300,7 +300,7 @@ export default function HealthcareEconomicsPage() {
               <h3 className="text-sm font-semibold text-teal-300">
                 {isEs ? "Nuevos Empleados" : "New Hires"}
               </h3>
-              <p className="mt-1 text-xs text-stone-400 leading-relaxed">
+              <p className="mt-1 text-xs text-stone-500 leading-relaxed">
                 {isEs
                   ? "Use el nivel Fundamentos durante la incorporación. Combine con FOGLAMP para contextualizar las cifras financieras del FQHC."
                   : "Use the Foundation level during onboarding. Combine with FOGLAMP to contextualize the FQHC's financial figures."}
@@ -311,7 +311,7 @@ export default function HealthcareEconomicsPage() {
               <h3 className="text-sm font-semibold text-amber-300">
                 {isEs ? "Personal Operacional" : "Operational Staff"}
               </h3>
-              <p className="mt-1 text-xs text-stone-400 leading-relaxed">
+              <p className="mt-1 text-xs text-stone-500 leading-relaxed">
                 {isEs
                   ? "Use el nivel Operacional para capacitación trimestral. El personal que entiende la economía documenta mejor y captura más ingresos."
                   : "Use the Operational level for quarterly training. Staff who understand the economics document better and capture more revenue."}
@@ -322,7 +322,7 @@ export default function HealthcareEconomicsPage() {
               <h3 className="text-sm font-semibold text-rose-300">
                 {isEs ? "Junta Directiva / Ejecutivos" : "Board / Executives"}
               </h3>
-              <p className="mt-1 text-xs text-stone-400 leading-relaxed">
+              <p className="mt-1 text-xs text-stone-500 leading-relaxed">
                 {isEs
                   ? "Use el nivel Estratégico para presentaciones de junta y planificación anual. Los escenarios y modelado financiero apoyan decisiones de inversión."
                   : "Use the Strategic level for board presentations and annual planning. The scenarios and financial modeling support investment decisions."}

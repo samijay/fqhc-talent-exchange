@@ -106,11 +106,11 @@ function FrameworkCard({
             {t(framework.tagline, locale)}
           </p>
           <div className="mt-2 flex flex-wrap gap-1.5">
-            <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-stone-100 text-stone-600">
+            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-stone-100 text-stone-600">
               {t(catMeta.label, locale)}
             </span>
             <span
-              className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${
+              className={`text-xs font-medium px-2 py-0.5 rounded-full ${
                 framework.shareableLevel === "all-staff"
                   ? "bg-teal-100 text-teal-700"
                   : framework.shareableLevel === "managers"
@@ -124,7 +124,7 @@ function FrameworkCard({
           </div>
         </div>
         <ChevronDown
-          className={`size-5 shrink-0 text-stone-400 transition-transform ${expanded ? "rotate-180" : ""}`}
+          className={`size-5 shrink-0 text-stone-500 transition-transform ${expanded ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -144,7 +144,7 @@ function FrameworkCard({
             {framework.steps.map((step, i) => (
               <div key={i} className="rounded-lg bg-stone-50 p-3">
                 <div className="flex items-start gap-2">
-                  <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-stone-200 text-[10px] font-bold text-stone-600">
+                  <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-stone-200 text-xs font-bold text-stone-600">
                     {i + 1}
                   </span>
                   <div>
@@ -182,7 +182,7 @@ function FrameworkCard({
 
           {/* Source */}
           <div className="mt-3 flex items-center gap-1">
-            <ExternalLink className="size-3 text-stone-400" />
+            <ExternalLink className="size-3 text-stone-500" />
             <a
               href={framework.sourceUrl}
               target="_blank"
@@ -251,17 +251,17 @@ export default function ExecutionFrameworksPage() {
           <div className="mt-10 grid grid-cols-3 gap-4 rounded-xl bg-white/5 p-4">
             <div className="text-center">
               <p className="text-2xl font-bold text-amber-400">{executionFrameworks.length}</p>
-              <p className="text-xs text-stone-400">{isEs ? "Marcos" : "Frameworks"}</p>
+              <p className="text-xs text-stone-500">{isEs ? "Marcos" : "Frameworks"}</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-amber-400">{categories.length}</p>
-              <p className="text-xs text-stone-400">{isEs ? "Categorías" : "Categories"}</p>
+              <p className="text-xs text-stone-500">{isEs ? "Categorías" : "Categories"}</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-amber-400">
                 {executionFrameworks.filter((f) => f.shareableLevel === "all-staff").length}
               </p>
-              <p className="text-xs text-stone-400">{isEs ? "Para Todo el Personal" : "All-Staff Shareable"}</p>
+              <p className="text-xs text-stone-500">{isEs ? "Para Todo el Personal" : "All-Staff Shareable"}</p>
             </div>
           </div>
         </div>
@@ -340,7 +340,7 @@ export default function ExecutionFrameworksPage() {
 
         {filtered.length === 0 && (
           <div className="text-center py-16">
-            <p className="text-stone-400 text-sm">
+            <p className="text-stone-500 text-sm">
               {isEs ? "No hay marcos que coincidan con estos filtros." : "No frameworks match these filters."}
             </p>
           </div>
@@ -354,7 +354,7 @@ export default function ExecutionFrameworksPage() {
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-lg bg-white/5 p-4">
               <p className="text-sm font-semibold text-teal-300">1. {isEs ? "Diagnosticar" : "Diagnose"}</p>
-              <p className="mt-1 text-xs text-stone-400">
+              <p className="mt-1 text-xs text-stone-500">
                 {isEs
                   ? "Use Cynefin para entender qué tipo de problema enfrenta"
                   : "Use Cynefin to understand what type of problem you're facing"}
@@ -362,7 +362,7 @@ export default function ExecutionFrameworksPage() {
             </div>
             <div className="rounded-lg bg-white/5 p-4">
               <p className="text-sm font-semibold text-amber-300">2. {isEs ? "Evaluar" : "Assess"}</p>
-              <p className="mt-1 text-xs text-stone-400">
+              <p className="mt-1 text-xs text-stone-500">
                 {isEs
                   ? "Use la Evaluación de Preparación antes de lanzar"
                   : "Use the Readiness Assessment before launching"}
@@ -370,7 +370,7 @@ export default function ExecutionFrameworksPage() {
             </div>
             <div className="rounded-lg bg-white/5 p-4">
               <p className="text-sm font-semibold text-rose-300">3. {isEs ? "Ejecutar" : "Execute"}</p>
-              <p className="mt-1 text-xs text-stone-400">
+              <p className="mt-1 text-xs text-stone-500">
                 {isEs
                   ? "Elija Kotter (org-wide) o ADKAR (individual) para gestionar el cambio"
                   : "Choose Kotter (org-wide) or ADKAR (individual) to manage the change"}
@@ -378,7 +378,7 @@ export default function ExecutionFrameworksPage() {
             </div>
             <div className="rounded-lg bg-white/5 p-4">
               <p className="text-sm font-semibold text-blue-300">4. {isEs ? "Mejorar" : "Improve"}</p>
-              <p className="mt-1 text-xs text-stone-400">
+              <p className="mt-1 text-xs text-stone-500">
                 {isEs
                   ? "Use DMAIC o PDSA para mejora continua basada en datos"
                   : "Use DMAIC or PDSA for data-driven continuous improvement"}

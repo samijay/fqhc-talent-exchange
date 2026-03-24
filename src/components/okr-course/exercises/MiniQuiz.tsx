@@ -79,7 +79,7 @@ export function MiniQuiz({ exercise, onComplete }: MiniQuizProps) {
   return (
     <div className="flex flex-col gap-4 w-full max-w-lg mx-auto">
       {/* Progress */}
-      <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400">
+      <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500">
         <Brain className="h-4 w-4" />
         <span>
           {locale === "es" ? "Pregunta" : "Question"} {currentIndex + 1} /{" "}
@@ -139,7 +139,7 @@ export function MiniQuiz({ exercise, onComplete }: MiniQuizProps) {
                     <div className="w-5 h-5 shrink-0" />
                   )
                 ) : (
-                  <div className="w-5 h-5 rounded-full border-2 border-stone-300 dark:border-stone-600 shrink-0 mt-0.5 flex items-center justify-center text-xs text-stone-400">
+                  <div className="w-5 h-5 rounded-full border-2 border-stone-300 dark:border-stone-600 shrink-0 mt-0.5 flex items-center justify-center text-xs text-stone-500">
                     {String.fromCharCode(65 + i)}
                   </div>
                 )}
@@ -150,7 +150,7 @@ export function MiniQuiz({ exercise, onComplete }: MiniQuizProps) {
                   </p>
                   {/* Show explanation after selection */}
                   {showResult && (isSelected || isCorrectOption) && (
-                    <p className="text-xs text-stone-500 dark:text-stone-400 mt-2 leading-relaxed">
+                    <p className="text-xs text-stone-500 dark:text-stone-500 mt-2 leading-relaxed">
                       {t(option.explanation)}
                     </p>
                   )}

@@ -119,7 +119,7 @@ function TurnoverCostCalculator({ locale, isEs }: { locale: string; isEs: boolea
             {isEs ? "Calculadora de Costo de Rotación" : "Turnover Cost Calculator"}
           </h3>
         </div>
-        <p className="text-sm text-stone-400">
+        <p className="text-sm text-stone-500">
           {isEs
             ? "Modelo su costo anual de rotación y ahorros potenciales con mejoras en retención"
             : "Model your annual turnover cost and potential savings from retention improvements"}
@@ -146,7 +146,7 @@ function TurnoverCostCalculator({ locale, isEs }: { locale: string; isEs: boolea
               onChange={(e) => setOrgSize(Number(e.target.value))}
               className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-r from-stone-200 to-teal-200 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-stone-800 [&::-webkit-slider-thumb]:shadow-md"
             />
-            <div className="flex justify-between text-[10px] text-stone-400 mt-1">
+            <div className="flex justify-between text-xs text-stone-500 mt-1">
               <span>20</span>
               <span>{isEs ? "FQHC mediano" : "Mid-size FQHC"}</span>
               <span>500</span>
@@ -172,7 +172,7 @@ function TurnoverCostCalculator({ locale, isEs }: { locale: string; isEs: boolea
               onChange={(e) => setTurnoverRate(Number(e.target.value))}
               className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-r from-teal-200 via-amber-200 to-red-300 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-stone-800 [&::-webkit-slider-thumb]:shadow-md"
             />
-            <div className="flex justify-between text-[10px] text-stone-400 mt-1">
+            <div className="flex justify-between text-xs text-stone-500 mt-1">
               <span>5% ({isEs ? "excelente" : "excellent"})</span>
               <span>{isEs ? "Promedio FQHC: 32%" : "FQHC avg: 32%"}</span>
               <span>50%</span>
@@ -196,7 +196,7 @@ function TurnoverCostCalculator({ locale, isEs }: { locale: string; isEs: boolea
               onChange={(e) => setTargetRate(Number(e.target.value))}
               className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-r from-teal-300 to-teal-100 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-stone-800 [&::-webkit-slider-thumb]:shadow-md"
             />
-            <div className="flex justify-between text-[10px] text-stone-400 mt-1">
+            <div className="flex justify-between text-xs text-stone-500 mt-1">
               <span>5%</span>
               <span>{isEs ? "Mejores: 12-15%" : "Top performers: 12-15%"}</span>
               <span>{turnoverRate}%</span>
@@ -257,7 +257,7 @@ function TurnoverCostCalculator({ locale, isEs }: { locale: string; isEs: boolea
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-4 flex items-start gap-2 text-[11px] text-stone-400">
+        <div className="mt-4 flex items-start gap-2 text-xs text-stone-500">
           <Info className="size-3.5 mt-0.5 flex-shrink-0" />
           <p>
             {isEs
@@ -302,7 +302,7 @@ function StrategyCard({
                   {isEs ? diffMeta.es : diffMeta.en}
                 </Badge>
               )}
-              <span className="inline-flex items-center gap-1 text-xs text-stone-400">
+              <span className="inline-flex items-center gap-1 text-xs text-stone-500">
                 <Clock className="size-3" />
                 {strategy.timeToImpact}
               </span>
@@ -311,7 +311,7 @@ function StrategyCard({
               {t(strategy.title, locale)}
             </h4>
           </div>
-          <div className="flex-shrink-0 mt-1 text-stone-400">
+          <div className="flex-shrink-0 mt-1 text-stone-500">
             {isExpanded ? <ChevronUp className="size-5" /> : <ChevronDown className="size-5" />}
           </div>
         </div>
@@ -422,10 +422,10 @@ export default function WorkforceResiliencePage() {
                 <p className="text-2xl font-bold text-red-400 sm:text-3xl">
                   {stat.value}
                 </p>
-                <p className="mt-1 text-xs text-stone-400 leading-relaxed">
+                <p className="mt-1 text-xs text-stone-500 leading-relaxed">
                   {t(stat.label, locale)}
                 </p>
-                <p className="mt-1 text-[10px] text-stone-500">
+                <p className="mt-1 text-xs text-stone-500">
                   {stat.source}
                 </p>
               </div>
@@ -495,7 +495,7 @@ export default function WorkforceResiliencePage() {
                         {t(pillar.description, locale)}
                       </p>
                     </div>
-                    <div className="flex-shrink-0 text-stone-400">
+                    <div className="flex-shrink-0 text-stone-500">
                       {isOpen ? <ChevronUp className="size-5" /> : <ChevronDown className="size-5" />}
                     </div>
                   </button>
@@ -634,7 +634,7 @@ export default function WorkforceResiliencePage() {
                     <ArrowRight className="size-4" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <Badge variant="outline" className="mb-1 text-[10px]">
+                    <Badge variant="outline" className="mb-1 text-xs">
                       {item.type}
                     </Badge>
                     <h4 className="font-semibold text-stone-900 group-hover:text-teal-700">
@@ -716,13 +716,13 @@ export default function WorkforceResiliencePage() {
 
         {/* ── Last Updated + Disclaimer ──────────────────────── */}
         <div className="border-t border-stone-200 pt-6 text-center">
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-stone-500">
             {isEs ? "Última actualización" : "Last updated"}: {WORKFORCE_RESILIENCE_LAST_UPDATED} ·{" "}
             {RETENTION_STRATEGIES.length} {isEs ? "estrategias" : "strategies"} ·{" "}
             {RETENTION_BENCHMARKS.length} {isEs ? "benchmarks" : "benchmarks"} ·{" "}
             {TURNOVER_COST_ROLES.length} {isEs ? "roles en el modelo de costos" : "roles in cost model"}
           </p>
-          <p className="mt-2 text-[11px] text-stone-400 max-w-2xl mx-auto">
+          <p className="mt-2 text-xs text-stone-500 max-w-2xl mx-auto">
             {isEs
               ? "Todas las estadísticas provienen de fuentes primarias (NACHC, HRSA, SHRM, BLS, NSI, AHRQ). Los modelos de costos son estimaciones basadas en promedios de la industria. Los resultados reales varían por organización."
               : "All statistics sourced from primary sources (NACHC, HRSA, SHRM, BLS, NSI, AHRQ). Cost models are estimates based on industry averages. Actual results vary by organization."}

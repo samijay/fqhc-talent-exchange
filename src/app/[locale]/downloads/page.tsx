@@ -236,12 +236,12 @@ export default function DownloadsPage() {
                     <div className="flex items-start justify-between mb-3">
                       <Badge
                         variant="outline"
-                        className={`text-[10px] uppercase ${FORMAT_COLORS[item.format]}`}
+                        className={`text-xs uppercase ${FORMAT_COLORS[item.format]}`}
                       >
                         <FormatIcon className="h-3 w-3 mr-1" />
                         .{item.format}
                       </Badge>
-                      <span className="text-[10px] text-stone-400 flex items-center gap-1">
+                      <span className="text-xs text-stone-500 flex items-center gap-1">
                         <CatIcon className="h-3 w-3" />
                         {isEs
                           ? catInfo?.esTitle ?? item.category

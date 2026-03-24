@@ -575,7 +575,7 @@ export default function PathwayPage() {
                                 {done ? (
                                   <CheckCircle2 className="size-5 text-teal-600" />
                                 ) : (
-                                  <Circle className="size-5 text-stone-300 hover:text-stone-400" />
+                                  <Circle className="size-5 text-stone-300 hover:text-stone-500" />
                                 )}
                               </button>
 
@@ -583,12 +583,12 @@ export default function PathwayPage() {
                               <div className="flex-1 min-w-0">
                                 <div className="flex flex-wrap items-center gap-2 mb-1">
                                   <span
-                                    className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold ${meta.bgColor} ${meta.color}`}
+                                    className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-bold ${meta.bgColor} ${meta.color}`}
                                   >
                                     <Icon className="size-3" />
                                     {t(meta.label, locale)}
                                   </span>
-                                  <span className="flex items-center gap-1 text-[10px] text-stone-400">
+                                  <span className="flex items-center gap-1 text-xs text-stone-500">
                                     <Clock className="size-3" />
                                     {step.estimatedMinutes}{" "}
                                     {isEs ? "min" : "min"}
@@ -665,7 +665,7 @@ export default function PathwayPage() {
       </section>
 
       {/* Footer */}
-      <div className="mx-auto max-w-4xl px-4 pb-8 text-xs text-stone-400 text-center">
+      <div className="mx-auto max-w-4xl px-4 pb-8 text-xs text-stone-500 text-center">
         {isEs ? "Última actualización" : "Last updated"}:{" "}
         {LEARNING_PATHWAYS_LAST_UPDATED}
       </div>

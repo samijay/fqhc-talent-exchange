@@ -250,7 +250,7 @@ export default function SalaryDataPage() {
           {/* Filters */}
           <div className="flex flex-col sm:flex-row gap-3 mb-4">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-stone-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-stone-500" />
               <Input
                 placeholder={isEs ? "Buscar rol..." : "Search role..."}
                 value={search}
@@ -406,12 +406,12 @@ export default function SalaryDataPage() {
               </tbody>
             </table>
             {filteredBenchmarks.length === 0 && (
-              <div className="py-8 text-center text-stone-400 text-sm">
+              <div className="py-8 text-center text-stone-500 text-sm">
                 {isEs ? "No se encontraron roles." : "No roles found."}
               </div>
             )}
           </div>
-          <p className="mt-2 text-xs text-stone-400">
+          <p className="mt-2 text-xs text-stone-500">
             {isEs
               ? "Fuente: Datos del mercado FQHC de California, 2025-2026. Salarios anuales."
               : "Source: California FQHC market data, 2025-2026. Annual salaries."}
@@ -582,7 +582,7 @@ export default function SalaryDataPage() {
                     );
                   })}
               </div>
-              <p className="mt-4 text-xs text-stone-400">
+              <p className="mt-4 text-xs text-stone-500">
                 {isEs
                   ? "Los multiplicadores reflejan diferencias en el costo de vida entre las regiones de California."
                   : "Multipliers reflect cost-of-living differences across California regions."}

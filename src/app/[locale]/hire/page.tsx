@@ -224,7 +224,7 @@ function ResourceSection({
                       {t(card.label, locale)}
                     </h3>
                     {card.badge && (
-                      <Badge variant="secondary" className={`text-[10px] font-medium ${colors.badgeBg}`}>
+                      <Badge variant="secondary" className={`text-xs font-medium ${colors.badgeBg}`}>
                         {t(card.badge, locale)}
                       </Badge>
                     )}
@@ -280,7 +280,7 @@ export default function HirePage() {
           </p>
 
           {/* Stats bar */}
-          <div className="mx-auto mt-8 flex max-w-xl flex-wrap items-center justify-center gap-6 text-sm text-stone-400">
+          <div className="mx-auto mt-8 flex max-w-xl flex-wrap items-center justify-center gap-6 text-sm text-stone-500">
             <div className="flex items-center gap-1.5">
               <Crosshair className="size-4 text-amber-400" />
               <span>

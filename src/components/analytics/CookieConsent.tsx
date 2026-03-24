@@ -63,7 +63,7 @@ export default function CookieConsent() {
                 ? "Utilizamos Google Analytics para entender cómo se usa nuestro sitio y poder mejorarlo. No recopilamos información personal a través de cookies. Puede optar por no participar en cualquier momento."
                 : "We use Google Analytics to understand how our site is used so we can make it better. We don't collect personal information through cookies. You can opt out at any time."}
             </p>
-            <p className="mt-1.5 text-xs text-stone-400">
+            <p className="mt-1.5 text-xs text-stone-500">
               {isEs ? (
                 <>
                   Lea nuestra{" "}
@@ -85,7 +85,7 @@ export default function CookieConsent() {
           </div>
           <button
             onClick={handleDecline}
-            className="shrink-0 rounded-full p-1 text-stone-400 hover:bg-stone-100 hover:text-stone-600 transition-colors"
+            className="shrink-0 rounded-full p-1 text-stone-500 hover:bg-stone-100 hover:text-stone-600 transition-colors"
             aria-label={isEs ? "Cerrar" : "Close"}
           >
             <X className="size-4" />

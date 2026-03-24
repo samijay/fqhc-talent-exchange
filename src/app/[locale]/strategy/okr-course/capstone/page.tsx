@@ -47,7 +47,7 @@ export default function CapstonePage() {
   if (hasAccess === null) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse text-stone-400">
+        <div className="motion-safe:animate-pulse text-stone-500">
           {isEs ? "Cargando..." : "Loading..."}
         </div>
       </div>
@@ -65,7 +65,7 @@ export default function CapstonePage() {
               ? "Completa todos los módulos primero"
               : "Complete all modules first"}
           </h1>
-          <p className="text-stone-500 dark:text-stone-400 mb-6">
+          <p className="text-stone-500 dark:text-stone-500 mb-6">
             {isEs
               ? "El Capstone se desbloquea después de completar los módulos 1-5. ¡Estás casi ahí!"
               : "The Capstone unlocks after completing modules 1-5. You're almost there!"}
@@ -85,7 +85,7 @@ export default function CapstonePage() {
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-6">
+        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-6">
           <Link
             href="/strategy/guides"
             className="hover:text-teal-600 transition-colors"

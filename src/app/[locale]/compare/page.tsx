@@ -195,7 +195,7 @@ function FQHCSelector({
       {selected.length < MAX_COMPARE && (
         <div className="relative">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-500" />
             <Input
               placeholder={t(labels.searchPlaceholder, locale)}
               value={query}
@@ -322,7 +322,7 @@ function DimensionChart({
                 <span className="text-sm font-medium text-stone-700">
                   {t({ en: dim.en, es: dim.es }, locale)}
                 </span>
-                <span className="text-xs text-stone-400">
+                <span className="text-xs text-stone-500">
                   {t({ en: `Weight: ${Math.round(dim.weight * 100)}%`, es: `Peso: ${Math.round(dim.weight * 100)}%` }, locale)}
                 </span>
               </div>
@@ -430,7 +430,7 @@ export default function ComparePage() {
         </Link>
 
         {!canCompare && (
-          <div className="text-center py-16 text-stone-400">
+          <div className="text-center py-16 text-stone-500">
             <Building2 className="w-12 h-12 mx-auto mb-4 text-stone-300" />
             <p className="text-lg">{t(labels.needTwo, locale)}</p>
             <p className="text-sm mt-2">{t(labels.selectUp, locale)}</p>
@@ -518,7 +518,7 @@ export default function ComparePage() {
                             {f.glassdoorRating.toFixed(1)}
                           </span>
                         ) : (
-                          <span key={f.slug} className="text-stone-400">{t(labels.na, locale)}</span>
+                          <span key={f.slug} className="text-stone-500">{t(labels.na, locale)}</span>
                         )
                       )}
                       bestIdx={bestOf(fqhcs.map((f) => f.glassdoorRating))}
@@ -554,7 +554,7 @@ export default function ComparePage() {
                             ))}
                           </div>
                         ) : (
-                          <span key={f.slug} className="text-stone-400">{t(labels.noneReported, locale)}</span>
+                          <span key={f.slug} className="text-stone-500">{t(labels.noneReported, locale)}</span>
                         )
                       )}
                       bestIdx={bestOf(fqhcs.map((f) => f.programs.length))}
@@ -663,7 +663,7 @@ export default function ComparePage() {
                     <CompareRow
                       label={t(labels.unionLabel, locale)}
                       values={fqhcs.map((f) => {
-                        if (!f.unionInfo) return <span key={f.slug} className="text-stone-400">{t(labels.unknown, locale)}</span>;
+                        if (!f.unionInfo) return <span key={f.slug} className="text-stone-500">{t(labels.unknown, locale)}</span>;
                         if (f.unionInfo.unionized) {
                           return (
                             <div key={f.slug} className="space-y-1">

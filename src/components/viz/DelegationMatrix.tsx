@@ -122,7 +122,7 @@ export function DelegationMatrix({
                 : "Delegation Matrix — Scope of Practice"}
           </h3>
         </div>
-        <p className="text-sm text-stone-400">
+        <p className="text-sm text-stone-500">
           {isEs
             ? "Haga clic en cualquier celda para ver la cita regulatoria y el contexto de FQHC"
             : "Click any cell to see the regulatory citation and FQHC context"}
@@ -132,7 +132,7 @@ export function DelegationMatrix({
       {/* Department filter */}
       <div className="px-6 py-3 border-b border-stone-100 bg-stone-50">
         <div className="flex items-center gap-2 flex-wrap">
-          <Filter className="size-3.5 text-stone-400" />
+          <Filter className="size-3.5 text-stone-500" />
           <span className="text-xs font-medium text-stone-500 uppercase tracking-wider">
             {isEs ? "Departamento" : "Department"}:
           </span>
@@ -178,7 +178,7 @@ export function DelegationMatrix({
                   title={t(role.title, locale)}
                 >
                   <span className="block">{role.abbreviation}</span>
-                  <span className="block text-[10px] font-normal text-stone-400 leading-tight mt-0.5">
+                  <span className="block text-xs font-normal text-stone-500 leading-tight mt-0.5">
                     {t(role.title, locale).split(" ")[0]}
                   </span>
                 </th>
@@ -301,7 +301,7 @@ export function DelegationMatrix({
 
             <button
               onClick={() => setSelectedCell(null)}
-              className="rounded-md p-1 text-stone-400 hover:text-stone-600 hover:bg-stone-200/50 transition-colors"
+              className="rounded-md p-1 text-stone-500 hover:text-stone-600 hover:bg-stone-200/50 transition-colors"
             >
               <X className="size-4" />
             </button>

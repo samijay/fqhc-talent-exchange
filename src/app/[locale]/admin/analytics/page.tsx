@@ -73,9 +73,9 @@ function MetricCard({ label, value, sub }: { label: string; value: number; sub?:
   const display = value === -1 ? "—" : value.toLocaleString();
   return (
     <div className="rounded-lg border border-stone-200 bg-white p-4 dark:border-stone-700 dark:bg-stone-800">
-      <p className="text-sm text-stone-500 dark:text-stone-400">{label}</p>
+      <p className="text-sm text-stone-500 dark:text-stone-500">{label}</p>
       <p className="mt-1 text-2xl font-bold text-stone-900 dark:text-stone-100">{display}</p>
-      {sub && <p className="mt-0.5 text-xs text-stone-400 dark:text-stone-500">{sub}</p>}
+      {sub && <p className="mt-0.5 text-xs text-stone-500 dark:text-stone-500">{sub}</p>}
     </div>
   );
 }
@@ -90,7 +90,7 @@ function SectionHeader({ title }: { title: string }) {
 
 function SkeletonCard() {
   return (
-    <div className="animate-pulse rounded-lg border border-stone-200 bg-white p-4 dark:border-stone-700 dark:bg-stone-800">
+    <div className="motion-safe:animate-pulse rounded-lg border border-stone-200 bg-white p-4 dark:border-stone-700 dark:bg-stone-800">
       <div className="h-4 w-24 rounded bg-stone-200 dark:bg-stone-700" />
       <div className="mt-3 h-7 w-16 rounded bg-stone-200 dark:bg-stone-700" />
     </div>
@@ -193,7 +193,7 @@ function AdminAnalyticsInner() {
     return (
       <div className="min-h-screen bg-stone-50 p-6 dark:bg-stone-900">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-8 h-8 w-64 animate-pulse rounded bg-stone-200 dark:bg-stone-700" />
+          <div className="mb-8 h-8 w-64 motion-safe:animate-pulse rounded bg-stone-200 dark:bg-stone-700" />
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {Array.from({ length: 12 }).map((_, i) => <SkeletonCard key={i} />)}
           </div>
@@ -236,13 +236,13 @@ function AdminAnalyticsInner() {
             <h1 className="text-2xl font-bold text-stone-900 dark:text-stone-100">
               FQHC Talent Exchange — Analytics
             </h1>
-            <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
+            <p className="mt-1 text-sm text-stone-500 dark:text-stone-500">
               Last refreshed: {new Date(data.generatedAt).toLocaleString()} &middot; Auto-refreshes every 60s
             </p>
           </div>
           <button
             onClick={fetchData}
-            className="rounded-lg border border-stone-300 px-3 py-1.5 text-sm text-stone-600 hover:bg-stone-100 dark:border-stone-600 dark:text-stone-400 dark:hover:bg-stone-800"
+            className="rounded-lg border border-stone-300 px-3 py-1.5 text-sm text-stone-600 hover:bg-stone-100 dark:border-stone-600 dark:text-stone-500 dark:hover:bg-stone-800"
           >
             Refresh
           </button>
@@ -259,7 +259,7 @@ function AdminAnalyticsInner() {
             <p className="mt-1 text-3xl font-bold text-amber-900 dark:text-amber-100">{totalToolUses.toLocaleString()}</p>
           </div>
           <div className="rounded-xl border-2 border-stone-200 bg-white p-5 dark:border-stone-700 dark:bg-stone-800">
-            <p className="text-sm font-medium text-stone-600 dark:text-stone-400">Learning Events</p>
+            <p className="text-sm font-medium text-stone-600 dark:text-stone-500">Learning Events</p>
             <p className="mt-1 text-3xl font-bold text-stone-900 dark:text-stone-100">{totalLearning.toLocaleString()}</p>
           </div>
         </div>
@@ -319,7 +319,7 @@ function AdminAnalyticsInner() {
               <div className="flex items-end gap-2" style={{ height: 120 }}>
                 {data.weeklyTrends.map((week) => (
                   <div key={week.week} className="flex flex-1 flex-col items-center gap-1">
-                    <span className="text-xs font-medium text-stone-600 dark:text-stone-400">
+                    <span className="text-xs font-medium text-stone-600 dark:text-stone-500">
                       {week.signups}
                     </span>
                     <div
@@ -328,7 +328,7 @@ function AdminAnalyticsInner() {
                         height: `${Math.max((week.signups / maxWeekly) * 80, 4)}px`,
                       }}
                     />
-                    <span className="text-[10px] text-stone-400">
+                    <span className="text-xs text-stone-500">
                       {new Date(week.week).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
                     </span>
                   </div>
@@ -352,13 +352,13 @@ function AdminAnalyticsInner() {
                       {formatEventType(event.event_type)}
                     </span>
                     {event.tool_name && (
-                      <span className="ml-2 text-xs text-stone-400">{event.tool_name}</span>
+                      <span className="ml-2 text-xs text-stone-500">{event.tool_name}</span>
                     )}
                     {event.item_id && (
-                      <span className="ml-2 text-xs text-stone-400">#{event.item_id}</span>
+                      <span className="ml-2 text-xs text-stone-500">#{event.item_id}</span>
                     )}
                   </div>
-                  <span className="text-xs text-stone-400">{timeAgo(event.created_at)}</span>
+                  <span className="text-xs text-stone-500">{timeAgo(event.created_at)}</span>
                 </li>
               ))}
             </ul>
@@ -366,7 +366,7 @@ function AdminAnalyticsInner() {
         </div>
 
         {/* Footer */}
-        <p className="mt-8 pb-8 text-center text-xs text-stone-400">
+        <p className="mt-8 pb-8 text-center text-xs text-stone-500">
           Counts of -1 indicate the table may not exist yet. Check Supabase.
         </p>
       </div>
@@ -381,7 +381,7 @@ export default function AdminAnalyticsPage() {
     <Suspense
       fallback={
         <div className="flex min-h-screen items-center justify-center bg-stone-50 dark:bg-stone-900">
-          <div className="size-8 animate-spin rounded-full border-2 border-stone-300 border-t-teal-700" />
+          <div className="size-8 motion-safe:animate-spin rounded-full border-2 border-stone-300 border-t-teal-700" />
         </div>
       }
     >

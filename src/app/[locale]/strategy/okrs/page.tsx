@@ -118,7 +118,7 @@ function OKRCard({
               >
                 {isEs ? diffMeta.es : diffMeta.en}
               </Badge>
-              <span className="text-xs text-stone-400 flex items-center gap-1">
+              <span className="text-xs text-stone-500 flex items-center gap-1">
                 <Clock className="size-3" />
                 {okr.timeframe === "quarterly"
                   ? isEs
@@ -139,7 +139,7 @@ function OKRCard({
               </p>
             )}
           </div>
-          <div className="flex-shrink-0 mt-1 text-stone-400">
+          <div className="flex-shrink-0 mt-1 text-stone-500">
             {isExpanded ? (
               <ChevronUp className="size-5" />
             ) : (
@@ -149,7 +149,7 @@ function OKRCard({
         </div>
 
         {/* Quick stats */}
-        <div className="mt-2 flex items-center gap-3 text-xs text-stone-400">
+        <div className="mt-2 flex items-center gap-3 text-xs text-stone-500">
           <span>
             {okr.keyResults.length} {isEs ? "KRs" : "Key Results"}
           </span>
@@ -198,12 +198,12 @@ function OKRCard({
                     </div>
                     {/* Departments */}
                     <div className="mt-2 flex items-center gap-1.5">
-                      <Users className="size-3 text-stone-400" />
+                      <Users className="size-3 text-stone-500" />
                       <div className="flex flex-wrap gap-1">
                         {kr.departmentsInvolved.map((dept) => (
                           <span
                             key={dept}
-                            className="text-[10px] bg-stone-200 text-stone-600 px-1.5 py-0.5 rounded"
+                            className="text-xs bg-stone-200 text-stone-600 px-1.5 py-0.5 rounded"
                           >
                             {dept}
                           </span>
@@ -250,7 +250,7 @@ function OKRCard({
                 {okr.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[10px] bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded"
+                    className="text-xs bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded"
                   >
                     {tag}
                   </span>
@@ -334,7 +334,7 @@ export default function OKRTemplatesPage() {
               ? "Objetivos y Resultados Clave disenados para romper silos entre departamentos y conectar estrategia con resultados medibles."
               : "Objectives & Key Results designed to break down silos between departments and connect strategy to measurable outcomes."}
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-stone-400">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-stone-500">
             <span>
               {counts.total} {isEs ? "plantillas" : "templates"}
             </span>
@@ -432,7 +432,7 @@ export default function OKRTemplatesPage() {
 
           {/* Domain filter */}
           <div className="flex items-center gap-2 mb-4">
-            <Filter className="size-4 text-stone-400" />
+            <Filter className="size-4 text-stone-500" />
             <span className="text-xs font-medium text-stone-500 uppercase">
               {isEs ? "Dominio" : "Domain"}:
             </span>
@@ -465,7 +465,7 @@ export default function OKRTemplatesPage() {
 
           {/* Difficulty filter */}
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <Target className="size-4 text-stone-400" />
+            <Target className="size-4 text-stone-500" />
             <span className="text-xs font-medium text-stone-500 uppercase">
               {isEs ? "Dificultad" : "Difficulty"}:
             </span>

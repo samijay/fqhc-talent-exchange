@@ -156,7 +156,7 @@ export default function BibliographyPage() {
               ? "Biblioteca de referencia curada para ejecutivos, investigadores y profesionales de centros de salud comunitarios."
               : "Curated reference library for community health center executives, researchers, and professionals."}
           </p>
-          <p className="text-sm text-stone-400 mt-4">
+          <p className="text-sm text-stone-500 mt-4">
             {isEs ? "Última actualización: 1 de marzo de 2026" : "Last updated: March 1, 2026"}
           </p>
         </div>
@@ -168,7 +168,7 @@ export default function BibliographyPage() {
           <div className="flex flex-col sm:flex-row gap-4">
             {/* Search */}
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-500" />
               <input
                 type="text"
                 placeholder={
@@ -289,9 +289,9 @@ export default function BibliographyPage() {
                       </div>
                     </div>
                     {isExpanded ? (
-                      <ChevronUp className="h-5 w-5 text-stone-400" />
+                      <ChevronUp className="h-5 w-5 text-stone-500" />
                     ) : (
-                      <ChevronDown className="h-5 w-5 text-stone-400" />
+                      <ChevronDown className="h-5 w-5 text-stone-500" />
                     )}
                   </button>
 
@@ -308,14 +308,14 @@ export default function BibliographyPage() {
                               <div className="flex items-center gap-2 mb-1 flex-wrap">
                                 <Badge
                                   variant="outline"
-                                  className={`text-[10px] px-1.5 py-0 ${TYPE_COLORS[entry.type]}`}
+                                  className={`text-xs px-1.5 py-0 ${TYPE_COLORS[entry.type]}`}
                                 >
                                   {isEs
                                     ? TYPE_LABELS[entry.type].es
                                     : TYPE_LABELS[entry.type].en}
                                 </Badge>
                                 {entry.subcategory && (
-                                  <span className="text-[10px] text-stone-400">
+                                  <span className="text-xs text-stone-500">
                                     {entry.subcategory}
                                   </span>
                                 )}
@@ -329,7 +329,7 @@ export default function BibliographyPage() {
                                     className="hover:text-teal-700 transition-colors inline-flex items-center gap-1"
                                   >
                                     {entry.title}
-                                    <ExternalLink className="h-3 w-3 text-stone-400" />
+                                    <ExternalLink className="h-3 w-3 text-stone-500" />
                                   </a>
                                 ) : (
                                   entry.title

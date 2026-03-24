@@ -259,7 +259,7 @@ export function RevenueImpactSimulator() {
                   : "Revenue Impact Simulator"}
               </h3>
             </div>
-            <p className="text-sm text-stone-400">
+            <p className="text-sm text-stone-500">
               {mode === "manual"
                 ? isEs
                   ? `Modelando: ${getSizeLabel(orgSize, true)}`
@@ -335,7 +335,7 @@ export function RevenueImpactSimulator() {
                 onChange={(e) => setFederalChange(Number(e.target.value))}
                 className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-r from-red-200 via-stone-200 to-teal-200 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-stone-800 [&::-webkit-slider-thumb]:shadow-md"
               />
-              <div className="flex justify-between text-[10px] text-stone-400 mt-1">
+              <div className="flex justify-between text-xs text-stone-500 mt-1">
                 <span>-30%</span>
                 <span>{isEs ? "Sin cambio" : "No change"}</span>
                 <span>+10%</span>
@@ -373,7 +373,7 @@ export function RevenueImpactSimulator() {
                 onChange={(e) => setPharmacy340B(Number(e.target.value))}
                 className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-r from-stone-200 via-teal-100 to-teal-300 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-stone-800 [&::-webkit-slider-thumb]:shadow-md"
               />
-              <div className="flex justify-between text-[10px] text-stone-400 mt-1">
+              <div className="flex justify-between text-xs text-stone-500 mt-1">
                 <span>{isEs ? "Ninguna" : "None"}</span>
                 <span>
                   {isEs ? "Básica (contrato)" : "Basic (contract)"}
@@ -407,7 +407,7 @@ export function RevenueImpactSimulator() {
                 onChange={(e) => setTopOfScope(Number(e.target.value))}
                 className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-r from-stone-200 to-teal-300 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-stone-800 [&::-webkit-slider-thumb]:shadow-md"
               />
-              <div className="flex justify-between text-[10px] text-stone-400 mt-1">
+              <div className="flex justify-between text-xs text-stone-500 mt-1">
                 <span>
                   0% ({isEs ? "estado actual" : "current state"})
                 </span>
@@ -440,7 +440,7 @@ export function RevenueImpactSimulator() {
                 }
                 className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-r from-stone-200 to-teal-300 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-stone-800 [&::-webkit-slider-thumb]:shadow-md"
               />
-              <div className="flex justify-between text-[10px] text-stone-400 mt-1">
+              <div className="flex justify-between text-xs text-stone-500 mt-1">
                 <span>0%</span>
                 <span>
                   -50% {isEs ? "rotación" : "turnover"}
@@ -523,7 +523,7 @@ export function RevenueImpactSimulator() {
                   className="flex items-center justify-between text-sm"
                 >
                   <div className="flex items-center gap-2">
-                    <item.icon className="size-3.5 text-stone-400" />
+                    <item.icon className="size-3.5 text-stone-500" />
                     <span className="text-stone-600">{item.label}</span>
                   </div>
                   <span
@@ -532,7 +532,7 @@ export function RevenueImpactSimulator() {
                         ? "text-teal-700"
                         : item.value < 0
                           ? "text-red-700"
-                          : "text-stone-400"
+                          : "text-stone-500"
                     }`}
                   >
                     {item.value > 0 ? "+" : ""}$
@@ -585,7 +585,7 @@ export function RevenueImpactSimulator() {
           </div>
 
           {/* Disclaimer */}
-          <div className="mt-4 flex items-start gap-2 text-[11px] text-stone-400">
+          <div className="mt-4 flex items-start gap-2 text-xs text-stone-500">
             <Info className="size-3.5 mt-0.5 flex-shrink-0" />
             <p>
               {isEs

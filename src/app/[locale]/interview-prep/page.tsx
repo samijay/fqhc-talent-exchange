@@ -120,7 +120,7 @@ function QuestionCard({
               {isEs ? q.esQuestion : q.question}
             </p>
           </div>
-          <div className="mt-1 flex-shrink-0 text-stone-400">
+          <div className="mt-1 flex-shrink-0 text-stone-500">
             {expanded ? (
               <ChevronUp className="size-5" />
             ) : (
@@ -228,7 +228,7 @@ function QuestionCard({
             <ul className="space-y-1.5">
               {(isEs ? q.esFollowUpQuestions : q.followUpQuestions).map((fq, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-stone-600">
-                  <span className="mt-0.5 text-stone-400">→</span>
+                  <span className="mt-0.5 text-stone-500">→</span>
                   {fq}
                 </li>
               ))}

@@ -117,7 +117,7 @@ export function ComplianceChecklist({
           <h3 className="text-lg font-bold text-stone-800 dark:text-stone-200">
             {t(domain.title)}
           </h3>
-          <p className="text-sm text-stone-500 dark:text-stone-400">
+          <p className="text-sm text-stone-500 dark:text-stone-500">
             {filteredItems.length} {isEs ? "elementos" : "items"} · {domain.checklistItems.filter((i) => progress.completedItems[i.id]).length} {isEs ? "completados" : "completed"}
           </p>
         </div>
@@ -129,7 +129,7 @@ export function ComplianceChecklist({
           }`}>
             {score}%
           </div>
-          <p className="text-[10px] text-stone-400">
+          <p className="text-xs text-stone-500">
             {isEs ? "cumplimiento" : "compliance"}
           </p>
         </div>
@@ -149,7 +149,7 @@ export function ComplianceChecklist({
 
       {/* Filters */}
       <div className="flex items-center gap-2 flex-wrap mb-4">
-        <Filter className="h-3.5 w-3.5 text-stone-400" />
+        <Filter className="h-3.5 w-3.5 text-stone-500" />
         {(["all", ...frequencyOrder] as const).map((freq) => (
           <button
             key={freq}
@@ -157,7 +157,7 @@ export function ComplianceChecklist({
             className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
               filterFrequency === freq
                 ? "bg-stone-800 text-white dark:bg-stone-200 dark:text-stone-900"
-                : "bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-400 hover:bg-stone-200"
+                : "bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-500 hover:bg-stone-200"
             }`}
           >
             {freq === "all"
@@ -169,7 +169,7 @@ export function ComplianceChecklist({
           onClick={() => setShowCompleted(!showCompleted)}
           className={`ml-auto rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
             showCompleted
-              ? "bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-400"
+              ? "bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-500"
               : "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300"
           }`}
         >
@@ -192,7 +192,7 @@ export function ComplianceChecklist({
                   <Clock className="h-2.5 w-2.5 mr-1" />
                   {t(FREQUENCY_LABELS[freq])}
                 </Badge>
-                <span className="text-xs text-stone-400">
+                <span className="text-xs text-stone-500">
                   ({items.filter((i) => progress.completedItems[i.id]).length}/{items.length})
                 </span>
               </div>
@@ -240,27 +240,27 @@ export function ComplianceChecklist({
                               </p>
                               <div className="flex items-center gap-2 mt-1">
                                 {item.required && (
-                                  <span className="text-[10px] font-medium text-red-500">
+                                  <span className="text-xs font-medium text-red-500">
                                     {isEs ? "REQUERIDO" : "REQUIRED"}
                                   </span>
                                 )}
                                 {item.sourceRegulation && (
-                                  <span className="text-[10px] text-stone-400">
+                                  <span className="text-xs text-stone-500">
                                     {item.sourceRegulation}
                                   </span>
                                 )}
                               </div>
                             </div>
                             {isExpanded ? (
-                              <ChevronDown className="h-4 w-4 text-stone-400 shrink-0 mt-0.5" />
+                              <ChevronDown className="h-4 w-4 text-stone-500 shrink-0 mt-0.5" />
                             ) : (
-                              <ChevronRight className="h-4 w-4 text-stone-400 shrink-0 mt-0.5" />
+                              <ChevronRight className="h-4 w-4 text-stone-500 shrink-0 mt-0.5" />
                             )}
                           </button>
 
                           {/* Expanded details */}
                           {isExpanded && (
-                            <div className="mt-2 text-xs text-stone-500 dark:text-stone-400 leading-relaxed border-t border-stone-100 dark:border-stone-800 pt-2">
+                            <div className="mt-2 text-xs text-stone-500 dark:text-stone-500 leading-relaxed border-t border-stone-100 dark:border-stone-800 pt-2">
                               {t(item.description)}
                               {isComplete && progress.completedItems[item.id] && (
                                 <p className="mt-2 text-green-600 dark:text-green-400">
@@ -281,7 +281,7 @@ export function ComplianceChecklist({
       </div>
 
       {filteredItems.length === 0 && (
-        <div className="py-8 text-center text-stone-400">
+        <div className="py-8 text-center text-stone-500">
           <CheckCircle2 className="h-8 w-8 mx-auto mb-2 text-green-400" />
           <p className="text-sm">
             {isEs ? "¡Todos los elementos están completos!" : "All items are complete!"}

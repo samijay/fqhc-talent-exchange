@@ -98,7 +98,7 @@ function LessonView({
     <div className="max-w-3xl mx-auto">
       {/* Header bar */}
       <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400">
+        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500">
           <BookOpen className="h-4 w-4" />
           <span>{levelLabel}</span>
           <span>·</span>
@@ -111,7 +111,7 @@ function LessonView({
         </div>
         <button
           onClick={onClose}
-          className="p-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-400"
+          className="p-1.5 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500"
         >
           <X className="h-5 w-5" />
         </button>
@@ -121,7 +121,7 @@ function LessonView({
       <h2 className="text-xl sm:text-2xl font-bold text-stone-900 dark:text-stone-100 mb-1">
         {t(entry.title, locale)}
       </h2>
-      <p className="text-sm text-stone-500 dark:text-stone-400 mb-6">
+      <p className="text-sm text-stone-500 dark:text-stone-500 mb-6">
         {entry.authors} ({entry.year})
         {entry.journal && <> · <em>{entry.journal}</em></>}
       </p>
@@ -151,7 +151,7 @@ function LessonView({
                   <p className="text-sm italic text-stone-700 dark:text-stone-300">
                     &ldquo;{t(q.text, locale)}&rdquo;
                   </p>
-                  <p className="text-xs text-stone-500 dark:text-stone-400 mt-1 not-italic">
+                  <p className="text-xs text-stone-500 dark:text-stone-500 mt-1 not-italic">
                     {q.attribution}
                   </p>
                 </div>
@@ -190,8 +190,8 @@ function LessonView({
       {/* Transition note */}
       {lesson.transitionNote && hasNext && (
         <div className="bg-stone-100 dark:bg-stone-800 rounded-lg p-4 mb-8">
-          <p className="text-sm text-stone-600 dark:text-stone-400 italic flex gap-2">
-            <ArrowRight className="h-4 w-4 shrink-0 mt-0.5 text-stone-400" />
+          <p className="text-sm text-stone-600 dark:text-stone-500 italic flex gap-2">
+            <ArrowRight className="h-4 w-4 shrink-0 mt-0.5 text-stone-500" />
             {t(lesson.transitionNote, locale)}
           </p>
         </div>
@@ -298,7 +298,7 @@ function TrackOverview({
         {completedCount > 0 && (
           <button
             onClick={onResetTrack}
-            className="text-xs text-stone-400 hover:text-stone-600 mt-1 flex items-center gap-1"
+            className="text-xs text-stone-500 hover:text-stone-600 mt-1 flex items-center gap-1"
           >
             <RotateCcw className="h-3 w-3" />
             {isEs ? "Reiniciar progreso" : "Reset progress"}
@@ -334,7 +334,7 @@ function TrackOverview({
                 </h3>
               </div>
               {level.overview && (
-                <p className="text-xs text-stone-500 dark:text-stone-400 mb-3 ml-1">
+                <p className="text-xs text-stone-500 dark:text-stone-500 mb-3 ml-1">
                   {t(level.overview, locale)}
                 </p>
               )}
@@ -359,7 +359,7 @@ function TrackOverview({
                       }`}
                     >
                       {isLocked ? (
-                        <Lock className="h-4 w-4 text-stone-400 shrink-0" />
+                        <Lock className="h-4 w-4 text-stone-500 shrink-0" />
                       ) : isComplete ? (
                         <CheckCircle2 className="h-4 w-4 text-teal-600 dark:text-teal-400 shrink-0" />
                       ) : (
@@ -375,7 +375,7 @@ function TrackOverview({
                         >
                           {entry ? t(entry.title, locale) : lesson.entryId}
                         </p>
-                        <p className="text-xs text-stone-400 dark:text-stone-500">
+                        <p className="text-xs text-stone-500 dark:text-stone-500">
                           {entry?.authors} ({entry?.year}) · {lesson.readingMinutes} min
                         </p>
                       </div>
@@ -522,10 +522,10 @@ export function SyllabusReader({ tracks }: { tracks: CurriculumTrack[] }) {
                       {t(track.name, locale)}
                     </h3>
                   </div>
-                  <p className="text-sm text-stone-600 dark:text-stone-400 mb-2">
+                  <p className="text-sm text-stone-600 dark:text-stone-500 mb-2">
                     {t(track.description, locale)}
                   </p>
-                  <div className="flex items-center gap-3 text-xs text-stone-500 dark:text-stone-400">
+                  <div className="flex items-center gap-3 text-xs text-stone-500 dark:text-stone-500">
                     <span>{totalLessons} {isEs ? "lecciones" : "lessons"}</span>
                     <span>·</span>
                     <span>{track.levels.length} {isEs ? "niveles" : "levels"}</span>
@@ -543,7 +543,7 @@ export function SyllabusReader({ tracks }: { tracks: CurriculumTrack[] }) {
                       {pct}%
                     </span>
                   )}
-                  <ChevronRight className="h-5 w-5 text-stone-400 ml-auto mt-1" />
+                  <ChevronRight className="h-5 w-5 text-stone-500 ml-auto mt-1" />
                 </div>
               </div>
               {/* Mini progress bar */}
@@ -618,7 +618,7 @@ export function SyllabusReader({ tracks }: { tracks: CurriculumTrack[] }) {
             {t(selectedTrack.name, locale)}
           </h2>
         </div>
-        <p className="text-sm text-stone-600 dark:text-stone-400 mb-6">
+        <p className="text-sm text-stone-600 dark:text-stone-500 mb-6">
           {t(selectedTrack.description, locale)}
         </p>
 

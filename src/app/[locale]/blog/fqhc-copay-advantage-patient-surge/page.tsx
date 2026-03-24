@@ -482,7 +482,7 @@ export default async function FQHCCopayAdvantageArticle() {
               <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
                 {locale === "es" ? "Fuentes" : "Sources"}
               </h2>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-500">
                 <li>
                   <a href="https://www.congress.gov/bill/119th-congress/house-bill/1/text" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">H.R. 1 — One Big Beautiful Bill Act, Section 71120: Cost-Sharing Requirements</a> — U.S. Congress, 2025. {locale === "es" ? "Copagos de hasta $35 para afiliados de expansión de Medicaid; exención para FQHCs, CCBHCs y clínicas rurales." : "Up to $35 copays for Medicaid expansion enrollees; exemption for FQHCs, CCBHCs, and rural health clinics."}
                 </li>

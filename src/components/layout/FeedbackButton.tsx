@@ -121,7 +121,7 @@ export default function FeedbackButton() {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="rounded-md p-1 text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-600"
+              className="rounded-md p-1 text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-600"
               aria-label="Close"
             >
               <X className="size-4" />
@@ -152,7 +152,7 @@ export default function FeedbackButton() {
               maxLength={2000}
               rows={3}
               placeholder={t.messagePlaceholder}
-              className="w-full resize-none rounded-lg border border-stone-200 px-3 py-2 text-sm text-stone-900 placeholder:text-stone-400 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full resize-none rounded-lg border border-stone-200 px-3 py-2 text-sm text-stone-900 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
             />
 
             <input
@@ -160,7 +160,7 @@ export default function FeedbackButton() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t.emailPlaceholder}
-              className="w-full rounded-lg border border-stone-200 px-3 py-2 text-sm text-stone-900 placeholder:text-stone-400 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full rounded-lg border border-stone-200 px-3 py-2 text-sm text-stone-900 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
             />
 
             <button
@@ -170,7 +170,7 @@ export default function FeedbackButton() {
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className="size-4 animate-spin" />
+                  <Loader2 className="size-4 motion-safe:animate-spin" />
                   {t.sending}
                 </>
               ) : (

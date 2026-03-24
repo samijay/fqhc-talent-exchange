@@ -123,10 +123,10 @@ export function DragSortRanking({
   return (
     <div className="flex flex-col gap-4 w-full max-w-lg mx-auto">
       {/* Instruction */}
-      <p className="text-sm font-medium text-stone-600 dark:text-stone-400">
+      <p className="text-sm font-medium text-stone-600 dark:text-stone-500">
         {t(exercise.instruction)}
       </p>
-      <p className="text-xs text-stone-400 dark:text-stone-500">
+      <p className="text-xs text-stone-500 dark:text-stone-500">
         {locale === "es"
           ? "Usa las flechas para reordenar los elementos"
           : "Use the arrows to reorder items"}
@@ -159,7 +159,7 @@ export function DragSortRanking({
                       ? "bg-green-200 text-green-800 dark:bg-green-800 dark:text-green-200"
                       : status === "incorrect"
                         ? "bg-red-200 text-red-800 dark:bg-red-800 dark:text-red-200"
-                        : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400"
+                        : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-500"
                   }`}
                 >
                   {position + 1}

@@ -186,12 +186,12 @@ function EventCard({
                   {event.year}{event.endYear ? `–${event.endYear}` : ""}
                 </span>
                 <span
-                  className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${meta.bgColor} ${meta.color}`}
+                  className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-bold uppercase tracking-wider ${meta.bgColor} ${meta.color}`}
                 >
                   {t(meta.label, locale)}
                 </span>
                 {event.location && (
-                  <span className="text-[10px] text-stone-400">
+                  <span className="text-xs text-stone-500">
                     {event.location}
                   </span>
                 )}
@@ -201,7 +201,7 @@ function EventCard({
               </h4>
             </div>
             <ChevronDown
-              className={`size-4 text-stone-400 flex-shrink-0 transition-transform ${
+              className={`size-4 text-stone-500 flex-shrink-0 transition-transform ${
                 isExpanded ? "rotate-180" : ""
               }`}
             />
@@ -237,7 +237,7 @@ function EventCard({
                     {/* Video title strip */}
                     {event.videoTitle && (
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-2 py-1.5">
-                        <p className="text-[10px] text-white font-medium line-clamp-1">
+                        <p className="text-xs text-white font-medium line-clamp-1">
                           {t(event.videoTitle, locale)}
                         </p>
                       </div>
@@ -261,8 +261,8 @@ function EventCard({
 
               {/* Source indicator */}
               <div className="flex items-center gap-1 mt-1.5">
-                <ExternalLink className="size-2.5 text-stone-400" />
-                <span className="text-[10px] text-stone-400">{event.primarySourceOrg}</span>
+                <ExternalLink className="size-2.5 text-stone-500" />
+                <span className="text-xs text-stone-500">{event.primarySourceOrg}</span>
               </div>
             </div>
           )}
@@ -297,7 +297,7 @@ function EventCard({
                         className="inline-flex items-center gap-2 rounded-lg bg-white border border-stone-200 px-3 py-1.5"
                       >
                         {/* Initials avatar */}
-                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-stone-100 text-[10px] font-bold text-stone-600">
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-stone-100 text-xs font-bold text-stone-600">
                           {person.name
                             .split(" ")
                             .map((n) => n[0])
@@ -308,7 +308,7 @@ function EventCard({
                           <span className="text-xs font-medium text-stone-900 block leading-tight">
                             {person.name}
                           </span>
-                          <span className="text-[10px] text-stone-500 block leading-tight">
+                          <span className="text-xs text-stone-500 block leading-tight">
                             {t(person.role, locale)}
                             {person.background && ` · ${person.background}`}
                           </span>
@@ -325,7 +325,7 @@ function EventCard({
                   {event.organizations.map((org) => (
                     <span
                       key={org}
-                      className="inline-block rounded-full bg-stone-100 px-2.5 py-0.5 text-[10px] font-medium text-stone-600"
+                      className="inline-block rounded-full bg-stone-100 px-2.5 py-0.5 text-xs font-medium text-stone-600"
                     >
                       {org}
                     </span>
@@ -344,7 +344,7 @@ function EventCard({
                     loading="lazy"
                   />
                   {(event.imageCaption || event.imageCredit) && (
-                    <div className="bg-stone-50 px-3 py-1.5 text-[10px] text-stone-500">
+                    <div className="bg-stone-50 px-3 py-1.5 text-xs text-stone-500">
                       {event.imageCaption && (
                         <span>{t(event.imageCaption, locale)}</span>
                       )}
@@ -458,7 +458,7 @@ export function MovementTimeline({
                     <span className="text-xs font-bold text-teal-700 uppercase tracking-wider">
                       {era.yearRange}
                     </span>
-                    <span className="text-xs text-stone-400">
+                    <span className="text-xs text-stone-500">
                       ({eraEvents.length} {isEs ? "eventos" : "events"})
                     </span>
                   </div>
@@ -470,7 +470,7 @@ export function MovementTimeline({
                   </p>
                 </div>
                 <ChevronDown
-                  className={`size-5 text-stone-400 flex-shrink-0 transition-transform ${
+                  className={`size-5 text-stone-500 flex-shrink-0 transition-transform ${
                     isOpen ? "rotate-180" : ""
                   }`}
                 />
@@ -489,7 +489,7 @@ export function MovementTimeline({
                     />
                   ))}
                   {eraEvents.length === 0 && (
-                    <p className="text-sm text-stone-400 italic pl-16 py-4">
+                    <p className="text-sm text-stone-500 italic pl-16 py-4">
                       {isEs ? "No hay eventos en esta era." : "No events in this era."}
                     </p>
                   )}

@@ -156,7 +156,7 @@ export default function CareerRoadmapPage() {
                     : "border-stone-200 bg-white hover:border-stone-300"
                 }`}
               >
-                <div className={`mb-2 ${isActive ? c.text : "text-stone-400"}`}>
+                <div className={`mb-2 ${isActive ? c.text : "text-stone-500"}`}>
                   {PATHWAY_ICONS[p.icon]}
                 </div>
                 <div className={`text-sm font-semibold ${isActive ? c.text : "text-stone-700"}`}>
@@ -363,14 +363,14 @@ function CareerLevelCard({
                 <span className={`font-semibold ${colors.text}`}>
                   {formatSalary(adjP25)}–{formatSalary(adjP75)}
                 </span>
-                <span className="text-stone-400">
+                <span className="text-stone-500">
                   {isEs ? "mediana" : "median"}: {formatSalary(adjP50)}
                 </span>
               </div>
             </div>
           </div>
           <ChevronDown
-            className={`size-5 shrink-0 text-stone-400 transition-transform ${
+            className={`size-5 shrink-0 text-stone-500 transition-transform ${
               isExpanded ? "rotate-180" : ""
             }`}
           />

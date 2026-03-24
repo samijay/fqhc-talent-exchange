@@ -43,7 +43,7 @@ function SeverityIcon({ severity }: { severity: DeadlineSeverity }) {
     case "medium":
       return <Info className="h-4 w-4 text-blue-500 shrink-0" />;
     default:
-      return <Info className="h-4 w-4 text-stone-400 shrink-0" />;
+      return <Info className="h-4 w-4 text-stone-500 shrink-0" />;
   }
 }
 
@@ -107,7 +107,7 @@ export function RegulatoryCalendar({
             <Calendar className="h-5 w-5 text-indigo-500" />
             {isEs ? "Calendario Regulatorio" : "Regulatory Calendar"}
           </h3>
-          <span className="text-xs text-stone-400">
+          <span className="text-xs text-stone-500">
             {deadlines.length} {isEs ? "fechas límite" : "deadlines"}
           </span>
         </div>
@@ -116,13 +116,13 @@ export function RegulatoryCalendar({
       {/* Domain filter */}
       {!compact && (
         <div className="flex items-center gap-2 flex-wrap mb-4">
-          <Filter className="h-3.5 w-3.5 text-stone-400" />
+          <Filter className="h-3.5 w-3.5 text-stone-500" />
           <button
             onClick={() => setFilterDomain("all")}
             className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
               filterDomain === "all"
                 ? "bg-stone-800 text-white dark:bg-stone-200 dark:text-stone-900"
-                : "bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-400 hover:bg-stone-200"
+                : "bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-500 hover:bg-stone-200"
             }`}
           >
             {isEs ? "Todos" : "All"}
@@ -134,7 +134,7 @@ export function RegulatoryCalendar({
               className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
                 filterDomain === domain.id
                   ? `${domain.color} ${domain.textColor}`
-                  : "bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-400 hover:bg-stone-200"
+                  : "bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-500 hover:bg-stone-200"
               }`}
             >
               {t(domain.shortTitle)}
@@ -157,12 +157,12 @@ export function RegulatoryCalendar({
                 <div className={`text-xs font-bold uppercase tracking-wider ${
                   isCurrentMonth
                     ? "text-indigo-600 dark:text-indigo-400"
-                    : "text-stone-400"
+                    : "text-stone-500"
                 }`}>
                   {monthName} {year}
                 </div>
                 {isCurrentMonth && (
-                  <Badge className="bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 text-[9px]">
+                  <Badge className="bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 text-xs">
                     {isEs ? "ACTUAL" : "CURRENT"}
                   </Badge>
                 )}
@@ -192,7 +192,7 @@ export function RegulatoryCalendar({
                           <div className="text-lg font-bold text-stone-800 dark:text-stone-200 leading-none">
                             {date.getDate()}
                           </div>
-                          <div className="text-[9px] text-stone-400 uppercase">
+                          <div className="text-xs text-stone-500 uppercase">
                             {monthName.slice(0, 3)}
                           </div>
                         </div>
@@ -203,30 +203,30 @@ export function RegulatoryCalendar({
                             <SeverityIcon severity={deadline.severity} />
                             <p className={`text-sm font-medium ${
                               isPast
-                                ? "text-stone-400 line-through"
+                                ? "text-stone-500 line-through"
                                 : "text-stone-800 dark:text-stone-200"
                             }`}>
                               {t(deadline.title)}
                             </p>
                           </div>
                           {!compact && (
-                            <p className="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
+                            <p className="text-xs text-stone-500 dark:text-stone-500 leading-relaxed">
                               {t(deadline.description)}
                             </p>
                           )}
                           <div className="flex items-center gap-2 mt-1">
                             {domain && (
-                              <Badge className={`${domain.color} ${domain.textColor} text-[9px]`}>
+                              <Badge className={`${domain.color} ${domain.textColor} text-xs`}>
                                 {t(domain.shortTitle)}
                               </Badge>
                             )}
                             {deadline.isRecurring && (
-                              <span className="text-[10px] text-stone-400">
+                              <span className="text-xs text-stone-500">
                                 ↻ {isEs ? "Recurrente" : "Recurring"}
                               </span>
                             )}
                             {isWithin30Days && !isPast && (
-                              <span className="text-[10px] font-medium text-amber-600 dark:text-amber-400">
+                              <span className="text-xs font-medium text-amber-600 dark:text-amber-400">
                                 ⏰ {isEs ? "Próximamente" : "Coming up"}
                               </span>
                             )}
@@ -243,7 +243,7 @@ export function RegulatoryCalendar({
       </div>
 
       {deadlines.length === 0 && (
-        <div className="py-8 text-center text-stone-400">
+        <div className="py-8 text-center text-stone-500">
           <Calendar className="h-8 w-8 mx-auto mb-2" />
           <p className="text-sm">
             {isEs ? "No hay fechas límite para este filtro" : "No deadlines for this filter"}

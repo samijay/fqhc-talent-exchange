@@ -436,7 +436,7 @@ export default function LocumTenensPage() {
                   </p>
                   <div className="flex items-end justify-between border-t border-stone-100 pt-3">
                     <div>
-                      <p className="text-xs text-stone-400">
+                      <p className="text-xs text-stone-500">
                         {isEs ? "Agencia" : "Agency"}
                       </p>
                       <p className="text-sm font-medium text-red-600 line-through">
@@ -444,7 +444,7 @@ export default function LocumTenensPage() {
                       </p>
                     </div>
                     <div>
-                      <p className="text-xs text-stone-400">
+                      <p className="text-xs text-stone-500">
                         {isEs ? "Tarifa FQHC" : "FQHC Rate"}
                       </p>
                       <p className="text-sm font-bold text-teal-700">
@@ -683,7 +683,7 @@ export default function LocumTenensPage() {
                   </select>
                 </div>
               </div>
-              <p className="mt-4 text-[11px] text-stone-400 leading-relaxed">
+              <p className="mt-4 text-xs text-stone-500 leading-relaxed">
                 {isEs
                   ? "Al enviar este formulario, aceptas que tu información de contacto y experiencia profesional será almacenada para conectarte con oportunidades de locum tenens. No compartimos tus datos con terceros sin tu consentimiento."
                   : "By submitting, you agree that your contact information and professional experience will be stored to connect you with locum tenens opportunities. We do not share your data with third parties without your consent."}
@@ -906,7 +906,7 @@ export default function LocumTenensPage() {
                   }
                 />
               </div>
-              <p className="mt-4 text-[11px] text-stone-300/70 leading-relaxed">
+              <p className="mt-4 text-xs text-stone-300/70 leading-relaxed">
                 {isEs
                   ? "Al enviar esta solicitud, aceptas que tu información organizacional será almacenada para conectarte con proveedores de cobertura. No compartimos tus datos con terceros sin tu consentimiento."
                   : "By submitting, you agree that your organization information will be stored to connect you with coverage providers. We do not share your data with third parties without your consent."}
@@ -949,9 +949,9 @@ export default function LocumTenensPage() {
                     {t(faq.question, locale)}
                   </span>
                   {openFaq === i ? (
-                    <ChevronUp className="size-4 shrink-0 text-stone-400" />
+                    <ChevronUp className="size-4 shrink-0 text-stone-500" />
                   ) : (
-                    <ChevronDown className="size-4 shrink-0 text-stone-400" />
+                    <ChevronDown className="size-4 shrink-0 text-stone-500" />
                   )}
                 </button>
                 {openFaq === i && (
@@ -997,7 +997,7 @@ export default function LocumTenensPage() {
 
         {/* Source citations */}
         <div className="mt-8 border-t border-stone-200 pt-6 text-center">
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-stone-500">
             {isEs ? "Fuentes" : "Sources"}:{" "}
             {MARKET_STATS.sources.map((s, i) => (
               <span key={s.label}>
@@ -1013,7 +1013,7 @@ export default function LocumTenensPage() {
               </span>
             ))}
           </p>
-          <p className="mt-1 text-xs text-stone-400">
+          <p className="mt-1 text-xs text-stone-500">
             {isEs ? "Última actualización" : "Last updated"}: {LOCUM_LAST_UPDATED}
           </p>
         </div>

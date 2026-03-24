@@ -109,7 +109,7 @@ function ContinueCard({
           <h3 className="mt-1 text-lg font-bold text-stone-900 dark:text-stone-100">
             {t(recent.title, locale)}
           </h3>
-          <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
+          <p className="mt-1 text-sm text-stone-500 dark:text-stone-500">
             {t(recent.detail, locale)}
           </p>
 
@@ -127,7 +127,7 @@ function ContinueCard({
           </div>
 
           {/* Stats row */}
-          <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-stone-500 dark:text-stone-400">
+          <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-stone-500 dark:text-stone-500">
             {summary.totalXP > 0 && (
               <span className="flex items-center gap-1">
                 <Sparkles className="size-3.5 text-amber-500" />
@@ -202,7 +202,7 @@ function CourseCard({
             <h3 className="font-bold text-stone-900 dark:text-stone-100 leading-tight">
               {t(course.title, locale)}
             </h3>
-            <p className="text-sm text-stone-500 dark:text-stone-400 mt-1">
+            <p className="text-sm text-stone-500 dark:text-stone-500 mt-1">
               {t(course.subtitle, locale)}
             </p>
           </div>
@@ -214,7 +214,7 @@ function CourseCard({
         </p>
 
         {/* Stats row */}
-        <div className="flex items-center gap-4 text-xs text-stone-500 dark:text-stone-400 mb-4">
+        <div className="flex items-center gap-4 text-xs text-stone-500 dark:text-stone-500 mb-4">
           <span className="flex items-center gap-1">
             <Clock className="size-3.5" />
             {course.estimatedMinutes} min
@@ -239,7 +239,7 @@ function CourseCard({
             <Badge
               key={tag}
               variant="secondary"
-              className="text-xs bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400"
+              className="text-xs bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-500"
             >
               {tag}
             </Badge>
@@ -257,7 +257,7 @@ function CourseCard({
         ) : (
           <Button
             variant="outline"
-            className="w-full border-stone-300 text-stone-500 dark:border-stone-600 dark:text-stone-400"
+            className="w-full border-stone-300 text-stone-500 dark:border-stone-600 dark:text-stone-500"
             disabled
           >
             {isEs ? "Notificarme al Lanzar" : "Notify Me at Launch"}
@@ -298,11 +298,11 @@ function ToolCard({
           <h4 className="font-semibold text-sm text-stone-900 dark:text-stone-100 group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
             {t(tool.title, locale)}
           </h4>
-          <p className="text-xs text-stone-500 dark:text-stone-400 mt-1 line-clamp-2">
+          <p className="text-xs text-stone-500 dark:text-stone-500 mt-1 line-clamp-2">
             {t(tool.description, locale)}
           </p>
         </div>
-        <ArrowRight className="size-4 shrink-0 text-stone-400 opacity-0 group-hover:opacity-100 transition-opacity mt-0.5" />
+        <ArrowRight className="size-4 shrink-0 text-stone-500 opacity-0 group-hover:opacity-100 transition-opacity mt-0.5" />
       </div>
     </Link>
   );
@@ -450,7 +450,7 @@ export default function AcademyPage() {
                 <div className="text-2xl font-bold text-white">
                   {stat.value}
                 </div>
-                <div className="text-xs text-stone-400">{stat.label}</div>
+                <div className="text-xs text-stone-500">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -476,7 +476,7 @@ export default function AcademyPage() {
                 <h3 className="font-bold text-stone-900 dark:text-stone-100">
                   {isEs ? "¿No sabes por dónde empezar?" : "Not sure where to start?"}
                 </h3>
-                <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
+                <p className="mt-1 text-sm text-stone-600 dark:text-stone-500">
                   {isEs
                     ? "Toma nuestra evaluación de carrera de 3 minutos o genera una ruta de aprendizaje personalizada según tu rol."
                     : "Take our 3-minute career assessment or generate a personalized learning pathway based on your role."}
@@ -507,7 +507,7 @@ export default function AcademyPage() {
           <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 sm:text-3xl">
             {isEs ? "¿Cuánto Tiempo Tienes?" : "How Much Time Do You Have?"}
           </h2>
-          <p className="mt-2 text-stone-500 dark:text-stone-400 max-w-xl mx-auto">
+          <p className="mt-2 text-stone-500 dark:text-stone-500 max-w-xl mx-auto">
             {isEs
               ? "Elige tu ritmo de aprendizaje. Cada módulo funciona de forma independiente."
               : "Pick your learning pace. Every module works standalone."}
@@ -534,7 +534,7 @@ export default function AcademyPage() {
               className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
                 audienceFilter === key
                   ? "bg-teal-100 text-teal-800 ring-1 ring-teal-300 dark:bg-teal-900/40 dark:text-teal-300 dark:ring-teal-700"
-                  : "text-stone-500 hover:text-teal-700 dark:text-stone-400 dark:hover:text-teal-400"
+                  : "text-stone-500 hover:text-teal-700 dark:text-stone-500 dark:hover:text-teal-400"
               }`}
             >
               {isEs ? es : en}
@@ -565,7 +565,7 @@ export default function AcademyPage() {
                   ? "6 módulos interactivos con ejercicios prácticos, simuladores de puntuación y un proyecto final. 100% gratis, en tu navegador, sin cuenta necesaria."
                   : "6 interactive modules with hands-on exercises, scoring simulators, and a capstone project. 100% free, in your browser, no account needed."}
               </p>
-              <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-stone-500 dark:text-stone-400">
+              <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-stone-500 dark:text-stone-500">
                 <span className="flex items-center gap-1">
                   <Clock className="size-4" /> 90 min
                 </span>
@@ -595,7 +595,7 @@ export default function AcademyPage() {
           <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
             {isEs ? "Catálogo de Cursos" : "Course Catalog"}
           </h2>
-          <span className="text-sm text-stone-500 dark:text-stone-400">
+          <span className="text-sm text-stone-500 dark:text-stone-500">
             {filteredCourses.length} {isEs ? "cursos" : "courses"}
             {timeFilter !== "all" && (
               <button
@@ -620,7 +620,7 @@ export default function AcademyPage() {
         </div>
 
         {filteredCourses.length === 0 && (
-          <div className="text-center py-12 text-stone-500 dark:text-stone-400">
+          <div className="text-center py-12 text-stone-500 dark:text-stone-500">
             <BookOpen className="mx-auto size-8 mb-3 opacity-50" />
             <p>
               {isEs
@@ -638,7 +638,7 @@ export default function AcademyPage() {
             <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 sm:text-3xl">
               {isEs ? "Herramientas de Carrera" : "Career Tools"}
             </h2>
-            <p className="mt-2 text-stone-500 dark:text-stone-400 max-w-xl mx-auto">
+            <p className="mt-2 text-stone-500 dark:text-stone-500 max-w-xl mx-auto">
               {isEs
                 ? "Herramientas interactivas gratuitas para cada etapa de tu carrera en salud comunitaria."
                 : "Free interactive tools for every stage of your community health career."}
@@ -719,7 +719,7 @@ export default function AcademyPage() {
                 <h3 className="font-semibold text-stone-900 dark:text-stone-100">
                   {item.title}
                 </h3>
-                <p className="text-sm text-stone-500 dark:text-stone-400 mt-1">
+                <p className="text-sm text-stone-500 dark:text-stone-500 mt-1">
                   {item.desc}
                 </p>
               </div>

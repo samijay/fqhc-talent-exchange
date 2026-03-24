@@ -7,16 +7,18 @@ import { useLocale } from "next-intl";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { ExecutiveDashboard } from "./ExecutiveDashboard";
 import { JobSeekerDashboard } from "./JobSeekerDashboard";
+import { HeroSection } from "./HeroSection";
+import { TrendingTicker } from "./TrendingTicker";
+import { FeaturedFQHCsSection } from "./FeaturedFQHCsSection";
+import { SourcesSection } from "./SourcesSection";
+import { ToolkitSection } from "./ToolkitSection";
 import {
   ArrowRight,
-  Star,
   MapPin,
   Building2,
   Users,
   AlertTriangle,
   Clock,
-  Activity,
-  Shield,
   Newspaper,
   Briefcase,
   Calendar,
@@ -27,12 +29,6 @@ import {
   TrendingUp,
   TrendingDown,
   ExternalLink,
-  Target,
-  GraduationCap,
-  FileEdit,
-  UserCheck,
-  Calculator,
-  GitCompare,
   ShieldAlert,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -273,15 +269,15 @@ function BlogArticleCard({
           <div className="flex flex-wrap items-center gap-1.5 mb-1">
             <Badge
               variant="outline"
-              className="text-[10px] font-semibold bg-indigo-50 text-indigo-700 border-indigo-200"
+              className="text-xs font-semibold bg-indigo-50 text-indigo-700 border-indigo-200"
             >
               <Newspaper className="size-3 mr-0.5" />
               {isEs ? "Articulo" : "Article"}
             </Badge>
-            <span className="text-[11px] text-stone-400">
+            <span className="text-xs text-stone-500">
               {formatDate(post.isoDate, locale)}
             </span>
-            <span className="text-[10px] bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded-full">
+            <span className="text-xs bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded-full">
               {isEs ? post.esCategory : post.category}
             </span>
           </div>
@@ -294,7 +290,7 @@ function BlogArticleCard({
         </div>
       </div>
       <div className="mt-2 flex items-center justify-between">
-        <span className="text-[11px] text-stone-400">
+        <span className="text-xs text-stone-500">
           {isEs ? post.esReadTime : post.readTime}
         </span>
         <span className="text-xs font-medium text-teal-700">
@@ -427,159 +423,13 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
         )
       )}
 
-      {/* ==================== HERO ==================== */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-900/20 via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-3 flex items-center justify-center gap-2">
-              <Activity className="size-5 text-teal-400" />
-              <span className="text-sm font-medium uppercase tracking-wider text-teal-400">
-                {isEs
-                  ? "Inteligencia Ejecutiva FQHC"
-                  : "FQHC Executive Intelligence"}
-              </span>
-            </div>
+      <HeroSection
+        overview={overview}
+        nextCliff={nextCliff}
+        latestNewsDate={latestNewsDate}
+      />
 
-            <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-              {isEs
-                ? "Dashboard de Inteligencia FQHC"
-                : "FQHC Intelligence Dashboard"}
-            </h1>
-
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-stone-300 sm:text-lg">
-              {isEs
-                ? "Legislacion, financiamiento, fuerza laboral, IA, y analisis estrategico — actualizado diariamente."
-                : "Legislation, funding, workforce, AI, and strategic analysis — updated daily."}
-            </p>
-
-            <div className="mt-3 flex items-center justify-center gap-1.5 text-xs text-stone-400">
-              <Clock className="size-3" />
-              <span>
-                {isEs ? "Ultima actualizacion:" : "Last updated:"}{" "}
-                {latestNewsDate}
-              </span>
-            </div>
-          </div>
-
-          {/* Stat strip — all tiles are clickable */}
-          <div className="mt-8 mx-auto max-w-3xl grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <Link href="/directory" className="rounded-lg bg-white/10 backdrop-blur p-3 text-center hover:bg-white/20 transition-colors cursor-pointer">
-              <div className="text-xs text-stone-400 uppercase tracking-wide">
-                {isEs ? "FQHCs Rastreados" : "FQHCs Tracked"}
-              </div>
-              <div className="text-2xl font-bold text-white">
-                {overview.totalFQHCs}
-              </div>
-            </Link>
-            <Link href="/jobs" className="rounded-lg bg-white/10 backdrop-blur p-3 text-center hover:bg-white/20 transition-colors cursor-pointer">
-              <div className="text-xs text-stone-400 uppercase tracking-wide">
-                {isEs ? "Empleos Activos" : "Active Jobs"}
-              </div>
-              <div className="text-2xl font-bold text-white">
-                {overview.totalJobs}+
-              </div>
-            </Link>
-            <Link href="/layoffs" className="rounded-lg bg-white/10 backdrop-blur p-3 text-center hover:bg-white/20 transition-colors cursor-pointer">
-              <div className="text-xs text-red-400 uppercase tracking-wide">
-                {isEs ? "Trabajadores Desplazados" : "Workers Displaced"}
-              </div>
-              <div className="text-2xl font-bold text-red-400">
-                {overview.totalLayoffWorkers.toLocaleString()}+
-              </div>
-            </Link>
-            <Link href="/funding-impact" className="rounded-lg bg-white/10 backdrop-blur p-3 text-center hover:bg-white/20 transition-colors cursor-pointer">
-              <div className="text-xs text-amber-400 uppercase tracking-wide">
-                {isEs ? "Proximo Riesgo Fiscal" : "Next Funding Cliff"}
-              </div>
-              <div className="text-2xl font-bold text-amber-400">
-                {nextCliff ? `${nextCliff.daysUntil}d` : "\u2014"}
-              </div>
-              {nextCliff && (
-                <div className="text-[10px] text-stone-400 mt-0.5 truncate">
-                  {t(nextCliff.title, locale)}
-                </div>
-              )}
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== NEWSLETTER CTA STRIP ==================== */}
-      <div className="border-b border-teal-200 bg-gradient-to-r from-teal-50 via-white to-teal-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            {/* Value prop */}
-            <div className="flex-1 text-center sm:text-left">
-              <p className="text-base font-bold text-stone-900">
-                {isEs
-                  ? "Unete a los lideres FQHC que leen esto cada lunes"
-                  : "Join the FQHC leaders who read this every Monday"}
-              </p>
-              <p className="text-sm text-stone-500 mt-0.5">
-                {isEs
-                  ? "Legislacion, financiamiento, IA, despidos — con fuentes primarias. Gratis."
-                  : "Legislation, funding, AI, layoffs — backed by primary sources. Free."}
-              </p>
-            </div>
-            {/* Inline signup form */}
-            <NewsletterSignup
-              variant="inline"
-              defaultAudience="both"
-              showAudienceToggle={false}
-              heading={{ en: "", es: "" }}
-              subheading={{ en: "", es: "" }}
-              className="w-full sm:w-auto sm:min-w-[360px]"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* ==================== TRENDING TICKER ==================== */}
-      <div className="border-b border-stone-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center gap-3 py-2.5">
-          <span className="flex-shrink-0 inline-flex items-center gap-1 rounded bg-teal-700 text-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider animate-pulse">
-            <TrendingUp className="size-3" />
-            {isEs ? "Tendencia" : "Trending"}
-          </span>
-          <Link
-            href="/strategy/resilience"
-            className="text-sm font-medium text-stone-700 hover:text-teal-700 transition-colors truncate"
-          >
-            {isEs
-              ? "Scorecard de Resiliencia: 220 FQHCs evaluados en 5 dimensiones — vea su calificación \u2192"
-              : "Resilience Scorecard: 220 FQHCs scored across 5 dimensions — see your grade \u2192"}
-          </Link>
-          <span className="hidden lg:inline-block h-4 w-px bg-stone-300 flex-shrink-0" />
-          <span className="hidden lg:inline-flex items-center gap-1 flex-shrink-0">
-            <span className="flex-shrink-0 inline-flex items-center gap-1 rounded bg-red-600 text-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
-              {isEs ? "Critico" : "Critical"}
-            </span>
-            <Link
-              href="/blog/fqhc-copay-advantage-patient-surge"
-              className="text-sm font-medium text-stone-700 hover:text-teal-700 transition-colors truncate"
-            >
-              {isEs
-                ? "H.R. 1 copagos de $35 — FQHCs exentos \u2192"
-                : "H.R. 1 $35 copays — FQHCs exempt \u2192"}
-            </Link>
-          </span>
-          <span className="hidden xl:inline-block h-4 w-px bg-stone-300 flex-shrink-0" />
-          <span className="hidden xl:inline-flex items-center gap-1 flex-shrink-0">
-            <span className="flex-shrink-0 inline-flex items-center gap-1 rounded bg-amber-600 text-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
-              {isEs ? "Análisis" : "Analysis"}
-            </span>
-            <Link
-              href="/strategy/masterclass"
-              className="text-sm font-medium text-stone-700 hover:text-teal-700 transition-colors truncate"
-            >
-              {isEs
-                ? "Masterclass: 18 módulos para la crisis 2026 — comience gratis \u2192"
-                : "Masterclass: 18 modules for the 2026 crisis — start free \u2192"}
-            </Link>
-          </span>
-        </div>
-      </div>
+      <TrendingTicker />
 
       {/* ==================== BREAKING NEWS + SIDEBAR ==================== */}
       <section className="py-8 sm:py-12">
@@ -590,7 +440,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
               <AlertTriangle className="size-5 text-red-600" />
               {isEs ? "Noticias de Ultima Hora" : "Breaking News"}
             </h2>
-            <span className="text-xs text-stone-400">
+            <span className="text-xs text-stone-500">
               {isEs ? "Actualizado" : "Updated"}: {latestNewsDate}
             </span>
           </div>
@@ -619,7 +469,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                 >
                   {isEs ? cat.es : cat.en}
                   <span
-                    className={`ml-1.5 ${isActive ? "text-red-200" : "text-stone-400"}`}
+                    className={`ml-1.5 ${isActive ? "text-red-200" : "text-stone-500"}`}
                   >
                     {count}
                   </span>
@@ -631,7 +481,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
 
           {/* Regional filter — prominent pill row */}
           <div className="mb-6 flex flex-wrap items-center gap-1.5">
-            <MapPin className="size-4 text-stone-400 mr-1" />
+            <MapPin className="size-4 text-stone-500 mr-1" />
             <button
               onClick={() => {
                 setNewsRegion("all");
@@ -668,7 +518,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                 >
                   {label}
                   <span
-                    className={`ml-1 text-[10px] ${isActive ? "text-teal-200" : "text-stone-400"}`}
+                    className={`ml-1 text-xs ${isActive ? "text-teal-200" : "text-stone-500"}`}
                   >
                     {count}
                   </span>
@@ -721,7 +571,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                     </h3>
                     <Badge
                       variant="outline"
-                      className="text-[10px] ml-auto text-amber-700 border-amber-300"
+                      className="text-xs ml-auto text-amber-700 border-amber-300"
                     >
                       {upcomingCliffs.length + deadlineItems.length}
                     </Badge>
@@ -730,7 +580,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                   {/* Funding Cliffs — compact expandable rows */}
                   {upcomingCliffs.length > 0 && (
                     <div className="space-y-1.5 mb-3">
-                      <p className="text-[10px] font-bold text-amber-700 uppercase tracking-wider mb-1">
+                      <p className="text-xs font-bold text-amber-700 uppercase tracking-wider mb-1">
                         {isEs ? "Riesgos Fiscales" : "Funding Cliffs"}
                       </p>
                       {upcomingCliffs.map((cliff) => {
@@ -771,7 +621,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                                     {t(cliff.title, locale)}
                                   </h4>
                                   {(cliff.dollarAmount || cliff.peopleAffected) && (
-                                    <div className="mt-1 flex flex-wrap gap-2 text-[10px]">
+                                    <div className="mt-1 flex flex-wrap gap-2 text-xs">
                                       {cliff.dollarAmount && (
                                         <span className="text-stone-600">
                                           {cliff.dollarAmount}
@@ -784,7 +634,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                                       )}
                                       <Badge
                                         variant="outline"
-                                        className="text-[9px] border-stone-300 text-stone-500"
+                                        className="text-xs border-stone-300 text-stone-500"
                                       >
                                         {cliff.category}
                                       </Badge>
@@ -792,14 +642,14 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                                   )}
                                 </div>
                                 <ChevronDown
-                                  className={`h-3 w-3 text-stone-400 shrink-0 mt-1 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                                  className={`h-3 w-3 text-stone-500 shrink-0 mt-1 transition-transform ${isOpen ? "rotate-180" : ""}`}
                                 />
                               </div>
                             </button>
                             {isOpen && (
                               <div className="px-3 pb-2.5 pt-0.5 border-t border-stone-200/50 space-y-1.5">
-                                <div className="flex items-center gap-2 text-[10px]">
-                                  <Calendar className="size-3 text-stone-400 shrink-0" />
+                                <div className="flex items-center gap-2 text-xs">
+                                  <Calendar className="size-3 text-stone-500 shrink-0" />
                                   <span className="text-stone-500">
                                     {formatDate(cliff.date, locale)}
                                   </span>
@@ -808,7 +658,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                                   href={cliff.sourceUrl}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-[10px] text-teal-700 hover:underline inline-flex items-center gap-1"
+                                  className="text-xs text-teal-700 hover:underline inline-flex items-center gap-1"
                                 >
                                   <ExternalLink className="size-2.5 shrink-0" />
                                   {cliff.sourceTitle} →
@@ -819,7 +669,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                                       <Link
                                         key={dd.href}
                                         href={dd.href as "/funding-impact"}
-                                        className="inline-flex items-center gap-1 rounded-full bg-teal-50 border border-teal-200 px-2 py-0.5 text-[10px] font-medium text-teal-700 hover:bg-teal-100 transition-colors"
+                                        className="inline-flex items-center gap-1 rounded-full bg-teal-50 border border-teal-200 px-2 py-0.5 text-xs font-medium text-teal-700 hover:bg-teal-100 transition-colors"
                                       >
                                         <ArrowRight className="size-2.5" />
                                         {t(dd.label, locale)}
@@ -837,7 +687,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
 
                   {/* Deadline items — compact expandable rows */}
                   <div className="space-y-1.5">
-                    <p className="text-[10px] font-bold text-stone-500 uppercase tracking-wider mb-1">
+                    <p className="text-xs font-bold text-stone-500 uppercase tracking-wider mb-1">
                       {isEs ? "Fechas de Politicas" : "Policy Dates"}
                     </p>
                     {deadlineItems.map((item) => {
@@ -862,7 +712,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                             <div className="flex items-center gap-2 mb-1">
                               <Badge
                                 variant="outline"
-                                className={`text-[9px] font-semibold shrink-0 ${IMPACT_STYLES[item.impactLevel]}`}
+                                className={`text-xs font-semibold shrink-0 ${IMPACT_STYLES[item.impactLevel]}`}
                               >
                                 {isPast
                                   ? isEs
@@ -872,11 +722,11 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                                     ? "Proximo"
                                     : "Upcoming"}
                               </Badge>
-                              <span className="text-[10px] text-stone-400 shrink-0">
+                              <span className="text-xs text-stone-500 shrink-0">
                                 {formatDate(item.date, locale)}
                               </span>
                               <ChevronDown
-                                className={`h-3 w-3 text-stone-400 shrink-0 ml-auto transition-transform ${isOpen ? "rotate-180" : ""}`}
+                                className={`h-3 w-3 text-stone-500 shrink-0 ml-auto transition-transform ${isOpen ? "rotate-180" : ""}`}
                               />
                             </div>
                             <h4 className="font-semibold text-stone-800 text-xs leading-snug">
@@ -885,14 +735,14 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                           </button>
                           {isOpen && (
                             <div className="px-3 pb-2.5 pt-0.5 border-t border-stone-200/50 space-y-1.5">
-                              <p className="text-[11px] text-stone-500 leading-relaxed">
+                              <p className="text-xs text-stone-500 leading-relaxed">
                                 {t(item.summary, locale)}
                               </p>
                               <a
                                 href={item.sourceUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[10px] text-teal-700 hover:underline inline-flex items-center gap-1"
+                                className="text-xs text-teal-700 hover:underline inline-flex items-center gap-1"
                               >
                                 <ExternalLink className="size-2.5 shrink-0" />
                                 {item.sourceOrg} →
@@ -902,14 +752,14 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                                 <div className="flex flex-wrap gap-1 pt-0.5">
                                   <Link
                                     href="/funding-impact"
-                                    className="inline-flex items-center gap-1 rounded-full bg-teal-50 border border-teal-200 px-2 py-0.5 text-[10px] font-medium text-teal-700 hover:bg-teal-100 transition-colors"
+                                    className="inline-flex items-center gap-1 rounded-full bg-teal-50 border border-teal-200 px-2 py-0.5 text-xs font-medium text-teal-700 hover:bg-teal-100 transition-colors"
                                   >
                                     <ArrowRight className="size-2.5" />
                                     {isEs ? "Analisis Completo" : "Full Analysis"}
                                   </Link>
                                   <Link
                                     href="/strategy/clinic-simulator"
-                                    className="inline-flex items-center gap-1 rounded-full bg-teal-50 border border-teal-200 px-2 py-0.5 text-[10px] font-medium text-teal-700 hover:bg-teal-100 transition-colors"
+                                    className="inline-flex items-center gap-1 rounded-full bg-teal-50 border border-teal-200 px-2 py-0.5 text-xs font-medium text-teal-700 hover:bg-teal-100 transition-colors"
                                   >
                                     <ArrowRight className="size-2.5" />
                                     {isEs ? "Simular Impacto" : "Simulate Impact"}
@@ -951,7 +801,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                     </h3>
                     <Badge
                       variant="outline"
-                      className="text-[10px] ml-auto text-teal-700 border-teal-300"
+                      className="text-xs ml-auto text-teal-700 border-teal-300"
                     >
                       {strategyItems.length}
                     </Badge>
@@ -974,19 +824,19 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                               {t(item.headline, locale)}
                             </h4>
                             <ChevronDown
-                              className={`h-3 w-3 text-stone-400 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                              className={`h-3 w-3 text-stone-500 shrink-0 transition-transform ${isOpen ? "rotate-180" : ""}`}
                             />
                           </button>
                           {isOpen && (
                             <div className="px-3 pb-2.5 pt-0.5 border-t border-stone-200/50">
-                              <p className="text-[11px] text-stone-500 leading-relaxed">
+                              <p className="text-xs text-stone-500 leading-relaxed">
                                 {t(item.summary, locale)}
                               </p>
                               <a
                                 href={item.sourceUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="mt-1 text-[10px] text-teal-700 hover:underline inline-block"
+                                className="mt-1 text-xs text-teal-700 hover:underline inline-block"
                               >
                                 {item.sourceOrg} →
                               </a>
@@ -1139,7 +989,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                 <div className="text-xs font-semibold text-stone-800 group-hover:text-teal-700">
                   {isEs ? "Guias Ejecutivas" : "Executive Guides"}
                 </div>
-                <div className="text-[10px] text-stone-500 mt-0.5">
+                <div className="text-xs text-stone-500 mt-0.5">
                   {isEs ? "6 casos de estudio con marco Rumelt" : "6 case studies with Rumelt framework"}
                 </div>
               </Link>
@@ -1150,7 +1000,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                 <div className="text-xs font-semibold text-stone-800 group-hover:text-teal-700">
                   {isEs ? "Rastreador de IA" : "AI Tracker"}
                 </div>
-                <div className="text-[10px] text-stone-500 mt-0.5">
+                <div className="text-xs text-stone-500 mt-0.5">
                   {isEs ? "8 proveedores, matriz de compatibilidad EHR" : "8 vendors, EHR compatibility matrix"}
                 </div>
               </Link>
@@ -1161,7 +1011,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                 <div className="text-xs font-semibold text-stone-800 group-hover:text-teal-700">
                   {isEs ? "Alcance de Practica" : "Scope of Practice"}
                 </div>
-                <div className="text-[10px] text-stone-500 mt-0.5">
+                <div className="text-xs text-stone-500 mt-0.5">
                   {isEs ? "10 roles CA, matriz de delegacion" : "10 CA roles, delegation matrix"}
                 </div>
               </Link>
@@ -1172,7 +1022,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                 <div className="text-xs font-semibold text-stone-800 group-hover:text-teal-700">
                   {isEs ? "Scorecard de Resiliencia" : "Resilience Scorecard"}
                 </div>
-                <div className="text-[10px] text-stone-500 mt-0.5">
+                <div className="text-xs text-stone-500 mt-0.5">
                   {isEs ? "214 FQHCs evaluados en 5 dimensiones" : "214 FQHCs scored across 5 dimensions"}
                 </div>
               </Link>
@@ -1202,7 +1052,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
             {/* Trending deadline ticker */}
             <div className="mb-5 rounded-xl bg-gradient-to-r from-stone-800 to-stone-900 p-3">
               <div className="flex items-center gap-3 overflow-x-auto">
-                <Badge className="shrink-0 bg-amber-500 text-white hover:bg-amber-500 border-0 text-[10px] font-bold px-2 py-0.5">
+                <Badge className="shrink-0 bg-amber-500 text-white hover:bg-amber-500 border-0 text-xs font-bold px-2 py-0.5">
                   <Clock className="size-3 mr-1" />
                   {isEs ? "PROXIMOS" : "UPCOMING"}
                 </Badge>
@@ -1216,7 +1066,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                       {i > 0 && <span className="text-stone-600 mr-1">&bull;</span>}
                       <span className={`inline-block w-2 h-2 rounded-full ${domainColor[d.domain]?.bg ?? "bg-stone-400"}`} />
                       <span>{t(d.requirement, locale).slice(0, 55)}{t(d.requirement, locale).length > 55 ? "\u2026" : ""}</span>
-                      <span className="text-stone-500 text-[10px]">({d.deadline})</span>
+                      <span className="text-stone-500 text-xs">({d.deadline})</span>
                     </Link>
                   );
                 })}
@@ -1232,16 +1082,16 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                   <Link key={d.id} href="/compliance/calendar" className="group">
                     <div className={`rounded-xl border ${colors.border} bg-white p-4 hover:shadow-md transition-shadow h-full`}>
                       <div className="flex items-center gap-2 mb-2">
-                        <Badge className={`${colors.bg} ${colors.text} border ${colors.border} text-[10px] px-1.5 py-0`}>
+                        <Badge className={`${colors.bg} ${colors.text} border ${colors.border} text-xs px-1.5 py-0`}>
                           {domainLabel ? (isEs ? domainLabel.es : domainLabel.en) : d.domain}
                         </Badge>
-                        <span className="text-[10px] text-stone-400 ml-auto">{d.deadline}</span>
+                        <span className="text-xs text-stone-500 ml-auto">{d.deadline}</span>
                       </div>
                       <h3 className="text-sm font-semibold text-stone-900 mb-1 line-clamp-2 group-hover:text-indigo-700 transition-colors">
                         {t(d.requirement, locale)}
                       </h3>
                       <p className="text-xs text-stone-500 line-clamp-2">{t(d.description, locale)}</p>
-                      <div className="mt-2 flex items-center gap-2 text-[10px] text-stone-400">
+                      <div className="mt-2 flex items-center gap-2 text-xs text-stone-500">
                         <span>{d.responsibleDepartment}</span>
                         <span>&bull;</span>
                         <span>{d.preparationWeeks} {isEs ? "sem. prep" : "wks prep"}</span>
@@ -1329,9 +1179,9 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                           {region.region}
                         </h3>
                         {isExpanded ? (
-                          <ChevronUp className="h-4 w-4 text-stone-400" />
+                          <ChevronUp className="h-4 w-4 text-stone-500" />
                         ) : (
-                          <ChevronDown className="h-4 w-4 text-stone-400" />
+                          <ChevronDown className="h-4 w-4 text-stone-500" />
                         )}
                       </div>
                       <div className="mt-2 flex gap-4 text-xs">
@@ -1369,7 +1219,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
                               {region.topRoles.slice(0, 3).map((r) => (
                                 <span
                                   key={r.role}
-                                  className="bg-teal-50 text-teal-700 px-1.5 py-0.5 rounded text-[10px]"
+                                  className="bg-teal-50 text-teal-700 px-1.5 py-0.5 rounded text-xs"
                                 >
                                   {r.role}
                                 </span>
@@ -1407,12 +1257,12 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
               {isEs ? "Datos del Mercado Laboral" : "Workforce Market Data"}
             </h2>
             {showMarketData ? (
-              <ChevronUp className="h-4 w-4 text-stone-400" />
+              <ChevronUp className="h-4 w-4 text-stone-500" />
             ) : (
-              <ChevronDown className="h-4 w-4 text-stone-400" />
+              <ChevronDown className="h-4 w-4 text-stone-500" />
             )}
             {!showMarketData && (
-              <span className="text-xs text-stone-400 ml-2">
+              <span className="text-xs text-stone-500 ml-2">
                 {isEs ? "Clic para expandir" : "Click to expand"}
               </span>
             )}
@@ -1546,337 +1396,19 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
         </div>
       </section>
 
-      {/* ==================== FEATURED FQHCS ==================== */}
-      <section className="bg-white py-12 sm:py-16 border-t border-stone-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
-              {isEs
-                ? "FQHCs Destacados de California"
-                : "Featured California FQHCs"}
-            </h2>
-            <p className="mt-3 text-stone-500">
-              {isEs
-                ? `Directorio de ${overview.totalFQHCs} centros de salud comunitarios con valoraciones, empleos y programas.`
-                : `Directory of ${overview.totalFQHCs} community health centers with ratings, jobs, and programs.`}
-            </p>
-          </div>
+      <FeaturedFQHCsSection
+        featuredFQHCs={featuredFQHCs}
+        overview={overview}
+      />
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredFQHCs.map((fqhc) => {
-              const gradeColor =
-                fqhc.resilienceGrade === "A"
-                  ? "bg-emerald-100 text-emerald-800"
-                  : fqhc.resilienceGrade === "B"
-                    ? "bg-teal-100 text-teal-800"
-                    : fqhc.resilienceGrade === "C"
-                      ? "bg-amber-100 text-amber-800"
-                      : fqhc.resilienceGrade === "D"
-                        ? "bg-orange-100 text-orange-800"
-                        : "bg-red-100 text-red-800";
+      <SourcesSection allSources={allSources} />
 
-              return (
-                <Link
-                  key={fqhc.slug}
-                  href={`/directory/${fqhc.slug}` as "/directory"}
-                  className="group rounded-2xl border border-stone-200 bg-stone-50 p-6 transition-all hover:-translate-y-1 hover:border-teal-200 hover:shadow-md"
-                >
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="font-semibold text-stone-900 group-hover:text-teal-700">
-                        {fqhc.name}
-                      </h3>
-                      <p className="mt-1 flex items-center gap-1 text-sm text-stone-500">
-                        <MapPin className="size-3.5" />
-                        {fqhc.city}, CA
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {fqhc.glassdoorRating && (
-                        <div className="flex items-center gap-1 rounded-lg bg-amber-50 px-2 py-1">
-                          <Star className="size-3.5 fill-amber-500 text-amber-500" />
-                          <span className="text-sm font-semibold text-amber-700">
-                            {fqhc.glassdoorRating.toFixed(1)}
-                          </span>
-                        </div>
-                      )}
-                      <div
-                        className={`flex items-center gap-1 rounded-lg px-2 py-1 ${gradeColor}`}
-                        title={
-                          isEs
-                            ? "Puntuacion de Resiliencia"
-                            : "Resilience Score"
-                        }
-                      >
-                        <Shield className="size-3.5" />
-                        <span className="text-sm font-semibold">
-                          {fqhc.resilienceGrade}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 flex items-center gap-4 text-xs text-stone-500">
-                    <span className="flex items-center gap-1">
-                      <Building2 className="size-3.5" />
-                      {fqhc.siteCount} {isEs ? "sitios" : "sites"}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Users className="size-3.5" />
-                      {fqhc.staffCount} {isEs ? "personal" : "staff"}
-                    </span>
-                    <span className="flex items-center gap-1 text-teal-600">
-                      <Activity className="size-3.5" />
-                      {fqhc.resilienceOverall}/100
-                    </span>
-                  </div>
-
-                  <p className="mt-3 text-xs font-medium text-teal-700 opacity-0 transition-opacity group-hover:opacity-100">
-                    {isEs ? "Ver perfil" : "View profile"}{" "}
-                    <ArrowRight className="inline size-3" />
-                  </p>
-                </Link>
-              );
-            })}
-          </div>
-
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button variant="outline" size="lg" asChild>
-              <Link href="/directory">
-                {isEs
-                  ? `Ver los ${overview.totalFQHCs} FQHCs`
-                  : `View All ${overview.totalFQHCs} FQHCs`}{" "}
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <Link href="/strategy/resilience">
-                <Shield className="size-4" />
-                {isEs
-                  ? "Scorecard de Resiliencia"
-                  : "Resilience Scorecard"}{" "}
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== SOURCES INDEX ==================== */}
-      <section className="py-8 sm:py-12 border-t border-stone-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-xl border border-stone-200 bg-stone-50 p-6">
-            <h2 className="text-lg font-bold text-stone-800 mb-3">
-              {isEs ? "Indice de Fuentes" : "Sources Index"}
-            </h2>
-            <p className="text-sm text-stone-500 mb-4">
-              {isEs
-                ? "Toda la inteligencia proviene de fuentes primarias verificables."
-                : "All intelligence is sourced from verifiable primary sources."}
-            </p>
-            <ul className="grid gap-1 sm:grid-cols-2 lg:grid-cols-3">
-              {allSources.map((src, i) => (
-                <li key={i} className="text-sm">
-                  <a
-                    href={src.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-teal-700 hover:text-teal-900 hover:underline inline-flex items-center gap-1"
-                  >
-                    <ExternalLink className="h-3 w-3 flex-shrink-0" />
-                    <span className="font-medium">{src.org}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== YOUR TOOLKIT ==================== */}
-      <section className="py-10 sm:py-14">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-stone-800">
-              {isEs ? "Tu Kit de Herramientas FQHC" : "Your FQHC Toolkit"}
-            </h2>
-            <p className="mt-2 text-stone-500 max-w-xl mx-auto">
-              {isEs
-                ? "Herramientas gratuitas para convertir la inteligencia en estrategia y accion."
-                : "Free tools to turn intelligence into strategy and action."}
-            </p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {/* OKR Templates */}
-            <Link
-              href="/strategy/okrs"
-              className="group rounded-xl border border-stone-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-teal-300 transition-all"
-            >
-              <div className="flex items-start gap-3">
-                <div className="rounded-lg bg-teal-50 p-2.5 text-teal-600 group-hover:bg-teal-100 transition-colors">
-                  <Target className="h-5 w-5" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-stone-800 group-hover:text-teal-700 transition-colors">
-                    {isEs ? "Plantillas OKR" : "OKR Templates"}
-                  </h3>
-                  <p className="text-sm text-stone-500 mt-0.5">
-                    {isEs
-                      ? "OKRs listos para FQHC — alineados con estandares UDS y HRSA."
-                      : "FQHC-ready OKRs aligned to UDS metrics & HRSA standards."}
-                  </p>
-                  <span className="inline-flex items-center text-xs font-medium text-teal-600 mt-2 group-hover:translate-x-0.5 transition-transform">
-                    {isEs ? "Explorar" : "Try Free"} <ArrowRight className="ml-1 h-3 w-3" />
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Learning Pathway */}
-            <Link
-              href="/pathway"
-              className="group rounded-xl border border-stone-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-teal-300 transition-all"
-            >
-              <div className="flex items-start gap-3">
-                <div className="rounded-lg bg-purple-50 p-2.5 text-purple-600 group-hover:bg-purple-100 transition-colors">
-                  <GraduationCap className="h-5 w-5" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-stone-800 group-hover:text-teal-700 transition-colors">
-                    {isEs ? "Ruta de Aprendizaje" : "Learning Pathway"}
-                  </h3>
-                  <p className="text-sm text-stone-500 mt-0.5">
-                    {isEs
-                      ? "Cursos y certificaciones paso a paso para carreras en FQHC."
-                      : "Step-by-step courses & certifications for FQHC careers."}
-                  </p>
-                  <span className="inline-flex items-center text-xs font-medium text-teal-600 mt-2 group-hover:translate-x-0.5 transition-transform">
-                    {isEs ? "Explorar" : "Try Free"} <ArrowRight className="ml-1 h-3 w-3" />
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Resume Builder */}
-            <Link
-              href="/resume-builder"
-              className="group rounded-xl border border-stone-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-teal-300 transition-all"
-            >
-              <div className="flex items-start gap-3">
-                <div className="rounded-lg bg-blue-50 p-2.5 text-blue-600 group-hover:bg-blue-100 transition-colors">
-                  <FileEdit className="h-5 w-5" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-stone-800 group-hover:text-teal-700 transition-colors">
-                    {isEs ? "Constructor de Curriculum" : "Resume Builder"}
-                  </h3>
-                  <p className="text-sm text-stone-500 mt-0.5">
-                    {isEs
-                      ? "Genera curriculums optimizados para roles en salud comunitaria."
-                      : "Build resumes optimized for community health center roles."}
-                  </p>
-                  <span className="inline-flex items-center text-xs font-medium text-teal-600 mt-2 group-hover:translate-x-0.5 transition-transform">
-                    {isEs ? "Explorar" : "Try Free"} <ArrowRight className="ml-1 h-3 w-3" />
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Career Assessment */}
-            <Link
-              href="/career-insights"
-              className="group rounded-xl border border-stone-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-teal-300 transition-all"
-            >
-              <div className="flex items-start gap-3">
-                <div className="rounded-lg bg-amber-50 p-2.5 text-amber-600 group-hover:bg-amber-100 transition-colors">
-                  <UserCheck className="h-5 w-5" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-stone-800 group-hover:text-teal-700 transition-colors">
-                    {isEs ? "Evaluacion de Carrera" : "Career Assessment"}
-                  </h3>
-                  <p className="text-sm text-stone-500 mt-0.5">
-                    {isEs
-                      ? "Descubre tu rol ideal en FQHC basado en tus habilidades y metas."
-                      : "Find your ideal FQHC role based on your skills and goals."}
-                  </p>
-                  <span className="inline-flex items-center text-xs font-medium text-teal-600 mt-2 group-hover:translate-x-0.5 transition-transform">
-                    {isEs ? "Explorar" : "Try Free"} <ArrowRight className="ml-1 h-3 w-3" />
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Clinic Simulator */}
-            <Link
-              href="/strategy/clinic-simulator"
-              className="group rounded-xl border border-stone-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-teal-300 transition-all"
-            >
-              <div className="flex items-start gap-3">
-                <div className="rounded-lg bg-emerald-50 p-2.5 text-emerald-600 group-hover:bg-emerald-100 transition-colors">
-                  <Calculator className="h-5 w-5" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-stone-800 group-hover:text-teal-700 transition-colors">
-                    {isEs ? "Simulador de Clinica" : "Clinic Simulator"}
-                  </h3>
-                  <p className="text-sm text-stone-500 mt-0.5">
-                    {isEs
-                      ? "Modela escenarios de personal, financiamiento e impacto en pacientes."
-                      : "Model staffing, funding, and patient impact scenarios."}
-                  </p>
-                  <span className="inline-flex items-center text-xs font-medium text-teal-600 mt-2 group-hover:translate-x-0.5 transition-transform">
-                    {isEs ? "Explorar" : "Try Free"} <ArrowRight className="ml-1 h-3 w-3" />
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Compare FQHCs */}
-            <Link
-              href="/compare"
-              className="group rounded-xl border border-stone-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-teal-300 transition-all"
-            >
-              <div className="flex items-start gap-3">
-                <div className="rounded-lg bg-rose-50 p-2.5 text-rose-600 group-hover:bg-rose-100 transition-colors">
-                  <GitCompare className="h-5 w-5" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-stone-800 group-hover:text-teal-700 transition-colors">
-                    {isEs ? "Comparar FQHCs" : "Compare FQHCs"}
-                  </h3>
-                  <p className="text-sm text-stone-500 mt-0.5">
-                    {isEs
-                      ? "Compara salarios, beneficios y metricas entre centros de salud."
-                      : "Compare salaries, benefits, and metrics across health centers."}
-                  </p>
-                  <span className="inline-flex items-center text-xs font-medium text-teal-600 mt-2 group-hover:translate-x-0.5 transition-transform">
-                    {isEs ? "Explorar" : "Try Free"} <ArrowRight className="ml-1 h-3 w-3" />
-                  </span>
-                </div>
-              </div>
-            </Link>
-          </div>
-
-          {/* Action bar */}
-          <div className="mt-6 text-center">
-            <Link href="/strategy/guides">
-              <Button
-                size="lg"
-                className="bg-stone-800 text-white hover:bg-stone-700 font-semibold"
-              >
-                {isEs ? "Ver Todas las Guias Ejecutivas" : "View All Executive Guides"}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ToolkitSection />
 
       {/* ==================== DATA DISCLAIMER ==================== */}
       <section className="bg-stone-50 py-6">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-stone-500">
             {isEs
               ? "Datos agregados de HRSA, BLS, CA EDD WARN Act, DHCS, y publicaciones de empleo de FQHCs. Actualizado marzo 2026."
               : "Data aggregated from HRSA, BLS, CA EDD WARN Act, DHCS, and FQHC job postings. Updated March 2026."}

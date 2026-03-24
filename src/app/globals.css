@@ -80,6 +80,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* Brand colors — semantic tokens for theming */
+  --brand-primary: var(--color-teal-700, #0f766e);
+  --brand-primary-hover: var(--color-teal-800, #115e59);
+  --brand-accent: var(--color-amber-500, #f59e0b);
+  --brand-danger: var(--color-red-600, #dc2626);
+  --brand-highlight: var(--color-indigo-400, #818cf8);
+  --brand-muted: var(--color-stone-500, #78716c);
+  --brand-bg: var(--color-stone-50, #fafaf9);
 }
 
 .dark {

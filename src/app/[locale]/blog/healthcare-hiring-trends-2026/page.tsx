@@ -509,7 +509,7 @@ export default async function HealthcareHiringTrendsArticle() {
                   </div>
                 </div>
               </div>
-              <p className="mt-3 text-xs text-stone-400">
+              <p className="mt-3 text-xs text-stone-500">
                 {locale === "es"
                   ? "Fuente: BLS, Informe de Situación del Empleo, enero 2026"
                   : "Source: BLS, Employment Situation Report, January 2026"}
@@ -607,7 +607,7 @@ export default async function HealthcareHiringTrendsArticle() {
               <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
                 {locale === "es" ? "Fuentes" : "Sources"}
               </h2>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-500">
                 <li>
                   <a href="https://www.bls.gov/news.release/archives/empsit_02112026.htm" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Employment Situation Report, January 2026</a> — U.S. Bureau of Labor Statistics, February 2026. {locale === "es" ? "Sector salud añadió 82,000 empleos; ambulatoria +50,300, hospitales +18,300, enfermería +13,300. Total nómina: 130,000." : "Healthcare added 82,000 jobs; ambulatory +50,300, hospitals +18,300, nursing +13,300. Total nonfarm: 130,000."}
                 </li>

@@ -246,7 +246,7 @@ function StepIndicator({
                     ? "bg-teal-600 text-white"
                     : isActive
                       ? "bg-teal-100 text-teal-700 ring-2 ring-teal-400"
-                      : "bg-stone-100 text-stone-400"
+                      : "bg-stone-100 text-stone-500"
                 }`}
               >
                 {isDone ? (
@@ -257,7 +257,7 @@ function StepIndicator({
               </div>
               <span
                 className={`hidden sm:inline text-xs font-medium ${
-                  isActive ? "text-teal-700" : isDone ? "text-teal-600" : "text-stone-400"
+                  isActive ? "text-teal-700" : isDone ? "text-teal-600" : "text-stone-500"
                 }`}
               >
                 {isEs ? label.es : label.en}
@@ -360,7 +360,7 @@ export function SimulatorWizard({ onComplete, onSkip, locale }: SimulatorWizardP
               value={orgName}
               onChange={(e) => setOrgName(e.target.value)}
               placeholder={isEs ? "ej. Centro de Salud Comunitario" : "e.g. Community Health Center"}
-              className="w-full rounded-xl border border-stone-300 px-4 py-3 text-sm text-stone-900 placeholder:text-stone-400 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full rounded-xl border border-stone-300 px-4 py-3 text-sm text-stone-900 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
             />
           </div>
 
@@ -390,7 +390,7 @@ export function SimulatorWizard({ onComplete, onSkip, locale }: SimulatorWizardP
                       </div>
                     </div>
                     <div className="text-right shrink-0 ml-4">
-                      <div className="text-xs text-stone-400">
+                      <div className="text-xs text-stone-500">
                         {isEs ? "Personal" : "Staff"}
                       </div>
                       <div className="font-bold text-stone-700">{opt.staff}</div>
@@ -442,7 +442,7 @@ export function SimulatorWizard({ onComplete, onSkip, locale }: SimulatorWizardP
                     className={`rounded-lg p-2 shrink-0 ${
                       isActive
                         ? "bg-teal-100 text-teal-700"
-                        : "bg-stone-100 text-stone-400"
+                        : "bg-stone-100 text-stone-500"
                     }`}
                   >
                     <svc.icon className="size-5" />
@@ -497,7 +497,7 @@ export function SimulatorWizard({ onComplete, onSkip, locale }: SimulatorWizardP
                     className={`rounded-lg p-2.5 shrink-0 ${
                       isActive
                         ? "bg-teal-100 text-teal-700"
-                        : "bg-stone-100 text-stone-400"
+                        : "bg-stone-100 text-stone-500"
                     }`}
                   >
                     <opt.icon className="size-5" />
@@ -532,7 +532,7 @@ export function SimulatorWizard({ onComplete, onSkip, locale }: SimulatorWizardP
           ) : (
             <button
               onClick={onSkip}
-              className="text-sm text-stone-400 hover:text-stone-600 inline-flex items-center gap-1"
+              className="text-sm text-stone-500 hover:text-stone-600 inline-flex items-center gap-1"
             >
               <Settings2 className="size-3.5" />
               {isEs ? "Ir directo al modo manual" : "Skip to manual mode"}

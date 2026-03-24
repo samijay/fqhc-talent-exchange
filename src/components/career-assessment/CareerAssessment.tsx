@@ -309,7 +309,7 @@ export default function CareerAssessment({
                   >
                     <Icon
                       className={`w-8 h-8 mx-auto mb-3 ${
-                        isSelected ? 'text-teal-700' : 'text-stone-400'
+                        isSelected ? 'text-teal-700' : 'text-stone-500'
                       }`}
                     />
                     <p

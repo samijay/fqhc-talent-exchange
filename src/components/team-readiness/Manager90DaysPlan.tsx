@@ -193,7 +193,7 @@ export function Manager90DaysPlanComponent({ plan, locale }: Manager90DaysPlanPr
       {/*  3-Phase Action Plan                                           */}
       {/* ============================================================ */}
       <div>
-        <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-stone-400">{t.phasesTitle}</h3>
+        <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-stone-500">{t.phasesTitle}</h3>
         <div className="space-y-5 sm:space-y-6">
           {phases.map((phase, phaseIndex) => {
             const style = PHASE_STYLES[phaseIndex];
@@ -226,7 +226,7 @@ export function Manager90DaysPlanComponent({ plan, locale }: Manager90DaysPlanPr
                             <p className="text-sm leading-relaxed text-stone-700">
                               {isEs ? item.esText : item.text}
                             </p>
-                            <span className={`mt-1 inline-block rounded-full border px-2 py-0.5 text-[11px] font-semibold ${domainColors.bg} ${domainColors.text} ${domainColors.border}`}>
+                            <span className={`mt-1 inline-block rounded-full border px-2 py-0.5 text-xs font-semibold ${domainColors.bg} ${domainColors.text} ${domainColors.border}`}>
                               {domainLabel}
                             </span>
                           </div>
@@ -305,7 +305,7 @@ export function Manager90DaysPlanComponent({ plan, locale }: Manager90DaysPlanPr
           </div>
           <div className="shrink-0 text-right">
             <span className="text-lg font-bold text-teal-700">{foglampComplete}/{plan.teamFoglamp.length}</span>
-            <p className="text-xs text-stone-400">{isEs ? "completo" : "complete"}</p>
+            <p className="text-xs text-stone-500">{isEs ? "completo" : "complete"}</p>
           </div>
         </div>
 

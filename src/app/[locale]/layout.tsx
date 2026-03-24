@@ -45,11 +45,18 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
+            {/* Skip-to-content link for keyboard/screen reader users */}
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-md focus:bg-teal-700 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg"
+            >
+              {locale === "es" ? "Saltar al contenido" : "Skip to content"}
+            </a>
             <OrganizationJsonLd />
             <WebSiteJsonLd />
             <AnnouncementBar />
             <Header />
-            <main className="min-h-screen">{children}</main>
+            <main id="main-content" className="min-h-screen">{children}</main>
             <Footer />
             <GoogleAnalytics />
             <FeedbackButton />

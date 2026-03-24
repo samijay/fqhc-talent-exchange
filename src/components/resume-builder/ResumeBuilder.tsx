@@ -720,7 +720,7 @@ export default function ResumeBuilder() {
 
               {isUploading ? (
                 <div className="flex flex-col items-center gap-3">
-                  <Loader2 className="size-10 animate-spin text-teal-700" />
+                  <Loader2 className="size-10 motion-safe:animate-spin text-teal-700" />
                   <p className="text-sm font-medium text-stone-700">
                     {locale === "es" ? "Procesando tu currículum..." : "Processing your resume..."}
                   </p>
@@ -748,7 +748,7 @@ export default function ResumeBuilder() {
                         ? "Soporta archivos PDF, DOCX y TXT (máx. 5MB)"
                         : "Supports PDF, DOCX, and TXT files (max 5MB)"}
                     </p>
-                    <p className="mt-2 text-[11px] text-stone-400 leading-relaxed max-w-sm">
+                    <p className="mt-2 text-xs text-stone-500 leading-relaxed max-w-sm">
                       {locale === "es"
                         ? "Al subir tu archivo, aceptas que su contenido será procesado para extraer texto y pre-llenar el formulario. Los archivos se almacenan de forma segura con URLs firmadas de acceso limitado. No compartimos tu archivo con terceros."
                         : "By uploading, you agree that your file will be processed to extract text and pre-fill the form. Files are stored securely with time-limited signed URLs. We do not share your file with third parties."}
@@ -988,7 +988,7 @@ export default function ResumeBuilder() {
                     >
                       <Icon
                         className={`mx-auto mb-2 size-7 ${
-                          isSelected ? "text-teal-700" : "text-stone-400"
+                          isSelected ? "text-teal-700" : "text-stone-500"
                         }`}
                       />
                       <p

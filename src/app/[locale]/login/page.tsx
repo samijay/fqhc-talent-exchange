@@ -262,7 +262,7 @@ function LoginForm() {
         className="flex w-full items-center justify-center gap-3 rounded-lg border border-stone-300 bg-white px-4 py-3 text-sm font-medium text-stone-700 shadow-sm transition-colors hover:bg-stone-50 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {googleLoading ? (
-          <div className="size-5 animate-spin rounded-full border-2 border-stone-300 border-t-teal-700" />
+          <div className="size-5 motion-safe:animate-spin rounded-full border-2 border-stone-300 border-t-teal-700" />
         ) : (
           <svg className="size-5" viewBox="0 0 24 24">
             <path
@@ -294,7 +294,7 @@ function LoginForm() {
           <div className="w-full border-t border-stone-200" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="bg-white px-4 text-stone-400">
+          <span className="bg-white px-4 text-stone-500">
             {t({ en: "or", es: "o" }, locale)}
           </span>
         </div>
@@ -314,7 +314,7 @@ function LoginForm() {
             {t({ en: "Email", es: "Correo electrónico" }, locale)}
           </label>
           <div className="relative mt-1">
-            <Mail className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
+            <Mail className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-500" />
             <input
               id="email"
               type="email"
@@ -322,7 +322,7 @@ function LoginForm() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-lg border border-stone-300 py-2.5 pl-10 pr-4 text-sm text-stone-900 placeholder:text-stone-400 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full rounded-lg border border-stone-300 py-2.5 pl-10 pr-4 text-sm text-stone-900 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
               placeholder="you@example.com"
             />
           </div>
@@ -345,13 +345,13 @@ function LoginForm() {
               minLength={6}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-lg border border-stone-300 py-2.5 pl-4 pr-10 text-sm text-stone-900 placeholder:text-stone-400 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full rounded-lg border border-stone-300 py-2.5 pl-4 pr-10 text-sm text-stone-900 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
               placeholder={mode === "signup" ? t({ en: "At least 6 characters", es: "Al menos 6 caracteres" }, locale) : "••••••••"}
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-600"
             >
               {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
             </button>
@@ -414,7 +414,7 @@ function LoginForm() {
       </p>
 
       {/* Back to site */}
-      <p className="text-center text-sm text-stone-400">
+      <p className="text-center text-sm text-stone-500">
         <Link href="/" className="hover:text-teal-600">
           ← {t({ en: "Back to site", es: "Volver al sitio" }, locale)}
         </Link>
@@ -432,7 +432,7 @@ export default function LoginPage() {
     <div className="flex min-h-[80vh] items-center justify-center px-4 py-12">
       <Suspense fallback={
         <div className="flex items-center justify-center">
-          <div className="size-8 animate-spin rounded-full border-2 border-stone-300 border-t-teal-700" />
+          <div className="size-8 motion-safe:animate-spin rounded-full border-2 border-stone-300 border-t-teal-700" />
         </div>
       }>
         <LoginForm />

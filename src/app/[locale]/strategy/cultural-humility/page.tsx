@@ -85,7 +85,7 @@ function CompetencyCard({
           </p>
         </div>
         <ChevronDown
-          className={`mt-1 size-5 shrink-0 text-stone-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+          className={`mt-1 size-5 shrink-0 text-stone-500 transition-transform ${isExpanded ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -103,7 +103,7 @@ function CompetencyCard({
 
           {/* Practical Steps */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
+            <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">
               {locale === "es" ? "Pasos Prácticos" : "Practical Steps"}
             </p>
             <div className="space-y-3">
@@ -126,7 +126,7 @@ function CompetencyCard({
           {/* FQHC Examples */}
           {comp.fqhcExamples.length > 0 && (
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">
                 {locale === "es" ? "Ejemplos en FQHCs" : "FQHC Examples"}
               </p>
               <ul className="space-y-1.5">
@@ -143,7 +143,7 @@ function CompetencyCard({
           {/* Metrics */}
           {comp.metrics.length > 0 && (
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-2">
                 {locale === "es" ? "Métricas & Puntos de Referencia" : "Metrics & Benchmarks"}
               </p>
               <div className="grid gap-2 sm:grid-cols-2">
@@ -223,7 +223,7 @@ function ScenarioCard({
           </div>
         </div>
         <ChevronDown
-          className={`mt-1 size-5 shrink-0 text-stone-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+          className={`mt-1 size-5 shrink-0 text-stone-500 transition-transform ${isExpanded ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -320,7 +320,7 @@ export default function CulturalHumilityPage() {
               ? "No se trata de marcar una casilla — es una forma de practicar. Marcos, métricas y escenarios del mundo real para que líderes de FQHCs aprovechen su fuerza laboral multicultural como una fortaleza."
               : "Not a box to check \u2014 a way of practicing. Frameworks, metrics, and real-world scenarios for FQHC leaders to leverage their multicultural workforce as a strength."}
           </p>
-          <p className="mt-4 text-sm text-stone-400">
+          <p className="mt-4 text-sm text-stone-500">
             {isEs ? "Datos actualizados:" : "Data updated:"}{" "}
             {CULTURAL_HUMILITY_LAST_UPDATED}
           </p>
@@ -510,7 +510,7 @@ export default function CulturalHumilityPage() {
               </>
             )}
           </p>
-          <p className="mt-4 text-stone-400">
+          <p className="mt-4 text-stone-500">
             &mdash; Tervalon & Murray-Garc&iacute;a, 1998
           </p>
         </div>

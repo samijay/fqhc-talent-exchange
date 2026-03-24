@@ -272,7 +272,7 @@ export default function CareerInsightsPage() {
                   </h2>
                   <button
                     onClick={() => { setPlan(null); setShowPlanPrompt(true); }}
-                    className="text-xs text-stone-400 underline hover:text-stone-600"
+                    className="text-xs text-stone-500 underline hover:text-stone-600"
                   >
                     {isEs ? "Cambiar escenario" : "Change scenario"}
                   </button>

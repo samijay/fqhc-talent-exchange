@@ -305,7 +305,7 @@ export default function EducationBarriersPage() {
                     {expandedBarrierId === barrier.id ? (
                       <ChevronUp className="h-6 w-6 text-teal-700" />
                     ) : (
-                      <ChevronDown className="h-6 w-6 text-stone-400" />
+                      <ChevronDown className="h-6 w-6 text-stone-500" />
                     )}
                   </div>
                 </button>

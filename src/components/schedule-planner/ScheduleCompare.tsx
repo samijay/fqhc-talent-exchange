@@ -45,7 +45,7 @@ function DeltaIndicator({ value, isCurrency = false, lowerIsBetter = false }: {
 }) {
   if (value === 0) {
     return (
-      <span className="inline-flex items-center gap-0.5 text-stone-400 text-xs">
+      <span className="inline-flex items-center gap-0.5 text-stone-500 text-xs">
         <Minus className="h-3 w-3" /> 0
       </span>
     );
@@ -174,7 +174,7 @@ export function ScheduleCompare({
             </Button>
             <button
               onClick={onClose}
-              className="text-stone-400 hover:text-stone-600 transition-colors"
+              className="text-stone-500 hover:text-stone-600 transition-colors"
             >
               <X className="h-4 w-4" />
             </button>
@@ -209,10 +209,10 @@ export function ScheduleCompare({
                   <td className="py-1.5 pr-2 text-stone-700 dark:text-stone-300 font-medium">
                     {row.label}
                   </td>
-                  <td className="py-1.5 px-2 text-center text-stone-600 dark:text-stone-400">
+                  <td className="py-1.5 px-2 text-center text-stone-600 dark:text-stone-500">
                     {row.val1}
                   </td>
-                  <td className="py-1.5 px-2 text-center text-stone-600 dark:text-stone-400">
+                  <td className="py-1.5 px-2 text-center text-stone-600 dark:text-stone-500">
                     {row.val2}
                   </td>
                   <td className="py-1.5 pl-2 text-center">

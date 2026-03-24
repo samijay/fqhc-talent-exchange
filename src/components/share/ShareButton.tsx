@@ -124,7 +124,7 @@ export function ShareButton({
       <button
         ref={triggerRef}
         onClick={() => setOpen(!open)}
-        className={`rounded-md ${btnPad} text-stone-400 transition-colors hover:bg-stone-100 hover:text-teal-700`}
+        className={`rounded-md ${btnPad} text-stone-500 transition-colors hover:bg-stone-100 hover:text-teal-700`}
         aria-label={isEs ? LABELS.share.es : LABELS.share.en}
         aria-expanded={open}
         aria-haspopup="menu"
@@ -161,7 +161,7 @@ export function ShareButton({
             {copied ? (
               <Check className="size-4 text-teal-600" />
             ) : (
-              <Copy className="size-4 text-stone-400" />
+              <Copy className="size-4 text-stone-500" />
             )}
             {isEs ? LABELS.copyLink.es : LABELS.copyLink.en}
           </button>

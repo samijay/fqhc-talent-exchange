@@ -339,7 +339,7 @@ export default function FundingImpactPage() {
               <p className="mt-0.5 text-xs font-semibold text-stone-700">
                 {stat.label[locale as "en" | "es"]}
               </p>
-              <p className="mt-1 text-[10px] text-stone-400 leading-tight">
+              <p className="mt-1 text-xs text-stone-500 leading-tight">
                 {stat.context[locale as "en" | "es"]}
               </p>
             </div>
@@ -413,7 +413,7 @@ export default function FundingImpactPage() {
                     }`}
                   >
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span className="text-xs font-mono text-stone-400">
+                      <span className="text-xs font-mono text-stone-500">
                         {formatDate(event.date, locale)}
                       </span>
                       {categoryBadge(event.category, t.isEs)}
@@ -504,7 +504,7 @@ export default function FundingImpactPage() {
               >
                 <div className="flex items-start justify-between mb-3">
                   {statusBadge(prog.status, locale)}
-                  <span className="text-xs text-stone-400 font-mono">
+                  <span className="text-xs text-stone-500 font-mono">
                     {formatDate(prog.effectiveDate, locale)}
                   </span>
                 </div>
@@ -703,7 +703,7 @@ export default function FundingImpactPage() {
                     className="block rounded-lg border border-stone-200 bg-white p-3 hover:shadow-sm transition-shadow"
                   >
                     <div className="flex items-start gap-2">
-                      <ExternalLink className="size-4 mt-0.5 shrink-0 text-stone-400" />
+                      <ExternalLink className="size-4 mt-0.5 shrink-0 text-stone-500" />
                       <div>
                         <p className="text-sm font-medium text-stone-900">
                           {source.title[locale as "en" | "es"]}

@@ -244,7 +244,7 @@ function CertificationsContent() {
               </select>
             </div>
           </div>
-          <div className="mt-3 text-xs text-stone-400">
+          <div className="mt-3 text-xs text-stone-500">
             {isEs
               ? `${filtered.length} de ${CERTIFICATIONS.length} certificaciones`
               : `${filtered.length} of ${CERTIFICATIONS.length} certifications`}
@@ -384,23 +384,23 @@ function CertCard({
           </p>
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-stone-600">
             <span className="flex items-center gap-1">
-              <DollarSign className="size-3.5 text-stone-400" />
+              <DollarSign className="size-3.5 text-stone-500" />
               {isEs ? cert.esCostRange : cert.costRange}
             </span>
             <span className="flex items-center gap-1">
-              <Clock className="size-3.5 text-stone-400" />
+              <Clock className="size-3.5 text-stone-500" />
               {isEs ? cert.esDuration : cert.duration}
             </span>
             <span className="flex items-center gap-1">
-              <TrendingUp className="size-3.5 text-stone-400" />
+              <TrendingUp className="size-3.5 text-stone-500" />
               {isEs ? cert.esSalaryImpact : cert.salaryImpact}
             </span>
           </div>
         </div>
         {isExpanded ? (
-          <ChevronUp className="size-5 shrink-0 text-stone-400" />
+          <ChevronUp className="size-5 shrink-0 text-stone-500" />
         ) : (
-          <ChevronDown className="size-5 shrink-0 text-stone-400" />
+          <ChevronDown className="size-5 shrink-0 text-stone-500" />
         )}
       </button>
 
@@ -445,7 +445,7 @@ function CertCard({
 
             {/* Renewal */}
             <div className="sm:col-span-2">
-              <span className="text-xs text-stone-400">
+              <span className="text-xs text-stone-500">
                 {isEs ? "Renovación" : "Renewal"}: {isEs ? cert.esRenewalPeriod : cert.renewalPeriod}
               </span>
             </div>

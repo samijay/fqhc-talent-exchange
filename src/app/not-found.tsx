@@ -42,7 +42,7 @@ export default function NotFound() {
                 <span className="text-sm font-medium text-stone-900 group-hover:text-teal-700">
                   Strategic Monitor
                 </span>
-                <span className="block text-xs text-stone-400">Homepage</span>
+                <span className="block text-xs text-stone-500">Homepage</span>
               </div>
             </Link>
             <Link
@@ -54,7 +54,7 @@ export default function NotFound() {
                 <span className="text-sm font-medium text-stone-900 group-hover:text-teal-700">
                   FQHC Directory
                 </span>
-                <span className="block text-xs text-stone-400">220 FQHCs</span>
+                <span className="block text-xs text-stone-500">220 FQHCs</span>
               </div>
             </Link>
             <Link
@@ -66,7 +66,7 @@ export default function NotFound() {
                 <span className="text-sm font-medium text-stone-900 group-hover:text-teal-700">
                   Browse Jobs
                 </span>
-                <span className="block text-xs text-stone-400">177+ listings</span>
+                <span className="block text-xs text-stone-500">177+ listings</span>
               </div>
             </Link>
             <Link
@@ -78,7 +78,7 @@ export default function NotFound() {
                 <span className="text-sm font-medium text-stone-900 group-hover:text-teal-700">
                   Intelligence
                 </span>
-                <span className="block text-xs text-stone-400">Dashboard</span>
+                <span className="block text-xs text-stone-500">Dashboard</span>
               </div>
             </Link>
           </div>

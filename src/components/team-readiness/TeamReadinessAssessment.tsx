@@ -412,7 +412,7 @@ export function TeamReadinessAssessment() {
           <button
             onClick={handleBack}
             disabled={currentQuestion === 0}
-            className="flex items-center gap-1 text-sm font-medium text-stone-400 hover:text-stone-600 disabled:invisible"
+            className="flex items-center gap-1 text-sm font-medium text-stone-500 hover:text-stone-600 disabled:invisible"
           >
             <ChevronLeft className="size-4" />
             {t.back}

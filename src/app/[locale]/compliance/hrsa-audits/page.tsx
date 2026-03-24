@@ -146,7 +146,7 @@ export default function HRSAAuditsPage() {
                       <span className="bg-white/60 px-2 py-0.5 rounded text-stone-600">~{item.estimatedHours}h</span>
                     </div>
                   </div>
-                  {expanded ? <ChevronUp className="w-5 h-5 text-stone-400 flex-shrink-0" aria-hidden="true" /> : <ChevronDown className="w-5 h-5 text-stone-400 flex-shrink-0" aria-hidden="true" />}
+                  {expanded ? <ChevronUp className="w-5 h-5 text-stone-500 flex-shrink-0" aria-hidden="true" /> : <ChevronDown className="w-5 h-5 text-stone-500 flex-shrink-0" aria-hidden="true" />}
                 </button>
 
                 {/* Expanded content */}

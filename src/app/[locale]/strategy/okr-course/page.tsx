@@ -41,7 +41,7 @@ export default function OkrCoursePage() {
       <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         <div className="max-w-4xl mx-auto px-4 py-8">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-6">
+          <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-6">
             <Link
               href="/strategy/guides"
               className="hover:text-teal-600 transition-colors"
@@ -71,7 +71,7 @@ export default function OkrCoursePage() {
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-8">
+        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-8">
           <Link
             href="/strategy/guides"
             className="hover:text-teal-600 transition-colors"
@@ -97,13 +97,13 @@ export default function OkrCoursePage() {
               : "Master OKRs for Your FQHC"}
           </h1>
 
-          <p className="text-lg text-stone-500 dark:text-stone-400 max-w-2xl mx-auto mb-6">
+          <p className="text-lg text-stone-500 dark:text-stone-500 max-w-2xl mx-auto mb-6">
             {isEs
               ? "Curso interactivo de 45 minutos con ejercicios prácticos, ejemplos de salud comunitaria y retroalimentación de IA. Sin personas, sin costo — solo aprendizaje que funciona."
               : "45-minute interactive course with hands-on exercises, community health examples, and AI feedback. No humans, no cost — just learning that works."}
           </p>
 
-          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-400 mb-8">
+          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-500 mb-8">
             <span className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
               {totalMinutes} {isEs ? "minutos" : "minutes"}
@@ -169,7 +169,7 @@ export default function OkrCoursePage() {
                   <h3 className="font-semibold text-stone-800 dark:text-stone-200 mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-stone-500 dark:text-stone-400">
+                  <p className="text-sm text-stone-500 dark:text-stone-500">
                     {item.desc}
                   </p>
                 </CardContent>
@@ -190,18 +190,18 @@ export default function OkrCoursePage() {
                 className="border-stone-200 dark:border-stone-700"
               >
                 <CardContent className="p-4 flex items-center gap-4">
-                  <div className="w-8 h-8 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-sm font-bold text-stone-600 dark:text-stone-400 shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center text-sm font-bold text-stone-600 dark:text-stone-500 shrink-0">
                     {module.order}
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="font-medium text-stone-800 dark:text-stone-200 truncate">
                       {t(module.title, locale)}
                     </p>
-                    <p className="text-sm text-stone-500 dark:text-stone-400 truncate">
+                    <p className="text-sm text-stone-500 dark:text-stone-500 truncate">
                       {t(module.subtitle, locale)}
                     </p>
                   </div>
-                  <div className="flex items-center gap-2 shrink-0 text-xs text-stone-400 dark:text-stone-500">
+                  <div className="flex items-center gap-2 shrink-0 text-xs text-stone-500 dark:text-stone-500">
                     <Clock className="h-3 w-3" />
                     {module.estimatedMinutes}m
                   </div>
@@ -220,7 +220,7 @@ export default function OkrCoursePage() {
                 ? "¿Tienes un equipo ejecutivo?"
                 : "Have an executive team?"}
             </h3>
-            <p className="text-sm text-stone-500 dark:text-stone-400 mb-4 max-w-md mx-auto">
+            <p className="text-sm text-stone-500 dark:text-stone-500 mb-4 max-w-md mx-auto">
               {isEs
                 ? "Nuestro Sprint de OKR en Equipo guía a tu equipo a construir sus OKRs reales juntos — asincrónicamente, sin consultor."
                 : "Our Team OKR Sprint guides your team to build their real OKRs together — asynchronously, no consultant needed."}

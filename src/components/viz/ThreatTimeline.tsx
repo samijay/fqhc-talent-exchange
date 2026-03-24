@@ -109,18 +109,18 @@ export function ThreatTimeline({
                 >
                   {/* Urgency dot */}
                   <div className="flex items-center justify-between mb-2">
-                    <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${colors.bg} ${colors.text}`}>
+                    <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-bold uppercase tracking-wider ${colors.bg} ${colors.text}`}>
                       <span className={`size-1.5 rounded-full ${colors.dot}`} />
                       {getUrgencyLabel(event.daysUntil, event.isPast, isEs)}
                     </span>
-                    <span className="text-[10px] font-medium text-stone-400 uppercase">
+                    <span className="text-xs font-medium text-stone-500 uppercase">
                       {t(categoryLabels[event.category], locale)}
                     </span>
                   </div>
 
                   {/* Date */}
                   <div className="flex items-center gap-1 mb-1.5">
-                    <Calendar className="size-3 text-stone-400" />
+                    <Calendar className="size-3 text-stone-500" />
                     <span className="text-xs text-stone-500">{event.date}</span>
                   </div>
 
@@ -133,13 +133,13 @@ export function ThreatTimeline({
                   <div className="space-y-1">
                     {event.dollarAmount && (
                       <div className="flex items-center gap-1">
-                        <DollarSign className="size-3 text-stone-400" />
+                        <DollarSign className="size-3 text-stone-500" />
                         <span className="text-xs font-medium text-stone-600">{event.dollarAmount}</span>
                       </div>
                     )}
                     {event.peopleAffected && (
                       <div className="flex items-center gap-1">
-                        <Users className="size-3 text-stone-400" />
+                        <Users className="size-3 text-stone-500" />
                         <span className="text-xs font-medium text-stone-600">{event.peopleAffected}</span>
                       </div>
                     )}
@@ -151,7 +151,7 @@ export function ThreatTimeline({
                       <span className={`text-lg font-bold ${colors.text}`}>
                         {event.daysUntil}
                       </span>
-                      <span className="text-[10px] text-stone-500 block">
+                      <span className="text-xs text-stone-500 block">
                         {isEs ? "dias" : "days"}
                       </span>
                     </div>
@@ -191,18 +191,18 @@ export function ThreatTimeline({
 
               <div className="flex flex-wrap gap-4 text-sm">
                 <div className="flex items-center gap-1.5">
-                  <Calendar className="size-3.5 text-stone-400" />
+                  <Calendar className="size-3.5 text-stone-500" />
                   <span className="text-stone-600">{selectedEvent.date}</span>
                 </div>
                 {selectedEvent.dollarAmount && (
                   <div className="flex items-center gap-1.5">
-                    <DollarSign className="size-3.5 text-stone-400" />
+                    <DollarSign className="size-3.5 text-stone-500" />
                     <span className="font-medium text-stone-700">{selectedEvent.dollarAmount}</span>
                   </div>
                 )}
                 {selectedEvent.peopleAffected && (
                   <div className="flex items-center gap-1.5">
-                    <Users className="size-3.5 text-stone-400" />
+                    <Users className="size-3.5 text-stone-500" />
                     <span className="font-medium text-stone-700">{selectedEvent.peopleAffected}</span>
                   </div>
                 )}
@@ -222,7 +222,7 @@ export function ThreatTimeline({
 
             <button
               onClick={() => setSelected(null)}
-              className="rounded-md p-1 text-stone-400 hover:text-stone-600 hover:bg-stone-200/50 transition-colors"
+              className="rounded-md p-1 text-stone-500 hover:text-stone-600 hover:bg-stone-200/50 transition-colors"
             >
               <X className="size-4" />
             </button>

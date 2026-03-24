@@ -51,7 +51,7 @@ export function DeltaBadge({
 
   return (
     <span
-      className={`ml-2 inline-flex items-center gap-0.5 rounded-full px-2 py-0.5 text-[10px] font-bold ${
+      className={`ml-2 inline-flex items-center gap-0.5 rounded-full px-2 py-0.5 text-xs font-bold ${
         isGood
           ? "bg-green-100 text-green-700"
           : "bg-red-100 text-red-700"

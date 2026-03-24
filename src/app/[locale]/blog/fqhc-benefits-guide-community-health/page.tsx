@@ -745,7 +745,7 @@ export default async function FqhcBenefitsGuideArticle() {
               <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
                 {locale === "es" ? "Fuentes" : "Sources"}
               </h2>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-500">
                 <li><a href="https://bphc.hrsa.gov/compliance/compliance-manual/chapter1" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Health Center Program Eligibility (Section 330)</a> — HRSA, Bureau of Primary Health Care</li>
                 <li><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Public Service Loan Forgiveness (PSLF)</a> — Federal Student Aid, U.S. Department of Education</li>
                 <li><a href="https://nhsc.hrsa.gov/loan-repayment/nhsc-loan-repayment-program" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">NHSC Loan Repayment Program</a> — HRSA, National Health Service Corps</li>

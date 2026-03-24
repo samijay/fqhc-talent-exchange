@@ -47,7 +47,7 @@ export default function OSVPrepCoursePage() {
     return (
       <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         <div className="max-w-4xl mx-auto px-4 py-8">
-          <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-6">
+          <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-6">
             <Link href="/academy" className="hover:text-teal-600 transition-colors">
               {isEs ? "Academia" : "Academy"}
             </Link>
@@ -72,7 +72,7 @@ export default function OSVPrepCoursePage() {
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-8">
+        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-8">
           <Link href="/academy" className="hover:text-teal-600 transition-colors">
             {isEs ? "Academia" : "Academy"}
           </Link>
@@ -95,13 +95,13 @@ export default function OSVPrepCoursePage() {
               : "HRSA Operational Site Visit Prep"}
           </h1>
 
-          <p className="text-lg text-stone-500 dark:text-stone-400 max-w-2xl mx-auto mb-6">
+          <p className="text-lg text-stone-500 dark:text-stone-500 max-w-2xl mx-auto mb-6">
             {isEs
               ? "Pasa tu OSV con confianza. Cubre los 19 requisitos del programa, las deficiencias más comunes y un manual de preparación de 90 días."
               : "Pass your OSV with confidence. Covers all 19 program requirements, the most common deficiencies, and a 90-day preparation playbook."}
           </p>
 
-          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-400 mb-8">
+          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-500 mb-8">
             <span className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
               {TOTAL_MINUTES} {isEs ? "minutos" : "minutes"}
@@ -160,7 +160,7 @@ export default function OSVPrepCoursePage() {
                   <h3 className="font-semibold text-stone-800 dark:text-stone-200 mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-stone-500 dark:text-stone-400">
+                  <p className="text-sm text-stone-500 dark:text-stone-500">
                     {item.desc}
                   </p>
                 </CardContent>
@@ -187,11 +187,11 @@ export default function OSVPrepCoursePage() {
                       <p className="font-medium text-stone-800 dark:text-stone-200 truncate">
                         {t(mod.title)}
                       </p>
-                      <p className="text-sm text-stone-500 dark:text-stone-400 truncate">
+                      <p className="text-sm text-stone-500 dark:text-stone-500 truncate">
                         {t(mod.subtitle)}
                       </p>
                     </div>
-                    <div className="flex items-center gap-2 shrink-0 text-xs text-stone-400 dark:text-stone-500">
+                    <div className="flex items-center gap-2 shrink-0 text-xs text-stone-500 dark:text-stone-500">
                       <Clock className="h-3 w-3" />
                       {mod.estimatedMinutes}m
                     </div>
@@ -215,7 +215,7 @@ export default function OSVPrepCoursePage() {
                 isEs ? "Directores clínicos y gerentes de credencialización" : "Clinical directors and credentialing managers",
                 isEs ? "Cualquiera involucrado en la preparación de OSV" : "Anyone involved in OSV preparation",
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-stone-600 dark:text-stone-400">
+                <div key={i} className="flex items-center gap-2 text-sm text-stone-600 dark:text-stone-500">
                   <CheckCircle2 className="h-4 w-4 text-blue-500 shrink-0" />
                   {item}
                 </div>
@@ -232,7 +232,7 @@ export default function OSVPrepCoursePage() {
               <h3 className="font-semibold text-stone-800 dark:text-stone-200 mb-1">
                 {isEs ? "Listas de verificación interactivas de cumplimiento" : "Interactive compliance checklists"}
               </h3>
-              <p className="text-sm text-stone-500 dark:text-stone-400 mb-3">
+              <p className="text-sm text-stone-500 dark:text-stone-500 mb-3">
                 {isEs
                   ? "Usa nuestro Centro de Cumplimiento para rastrear tu progreso contra los requisitos de HRSA con listas de verificación interactivas."
                   : "Use our Compliance Hub to track your progress against HRSA requirements with interactive checklists."}
@@ -256,7 +256,7 @@ export default function OSVPrepCoursePage() {
             {isEs ? "Comenzar Curso Gratis" : "Start Free Course"}
             <ArrowRight className="h-5 w-5 ml-2" />
           </Button>
-          <p className="text-xs text-stone-400 mt-3">
+          <p className="text-xs text-stone-500 mt-3">
             {isEs
               ? "Sin registro requerido • Progreso guardado localmente • Siempre gratis"
               : "No registration required • Progress saved locally • Always free"}

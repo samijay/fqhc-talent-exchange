@@ -186,7 +186,7 @@ export default async function FQHCReportPage({
             </span>
           </div>
 
-          <p className="mt-4 text-sm text-stone-400">
+          <p className="mt-4 text-sm text-stone-500">
             {isEs ? "Generado el" : "Generated"} {reportDate}
           </p>
 
@@ -317,7 +317,7 @@ export default async function FQHCReportPage({
                     />
                   </div>
                   {dim.factors.length > 0 && (
-                    <p className="mt-1 text-xs text-stone-400 line-clamp-1">
+                    <p className="mt-1 text-xs text-stone-500 line-clamp-1">
                       {dim.factors[0]}
                     </p>
                   )}
@@ -402,7 +402,7 @@ export default async function FQHCReportPage({
                       )}
                       <Badge
                         variant="outline"
-                        className={`text-[10px] font-bold ${
+                        className={`text-xs font-bold ${
                           cliff.daysUntil <= 90
                             ? "border-red-300 text-red-700"
                             : cliff.daysUntil <= 180
@@ -478,14 +478,14 @@ export default async function FQHCReportPage({
           {/* Key indicators grid */}
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             <div className="rounded-lg border border-stone-100 bg-stone-50 p-3">
-              <p className="text-[11px] font-medium text-stone-500 mb-1">
+              <p className="text-xs font-medium text-stone-500 mb-1">
                 {isEs ? "Proveedor ECM" : "ECM Provider"}
               </p>
               <div className="flex items-center gap-1.5">
                 {fqhc.ecmProvider ? (
                   <CheckCircle2 className="size-4 text-emerald-600" />
                 ) : (
-                  <span className="text-sm text-stone-400">--</span>
+                  <span className="text-sm text-stone-500">--</span>
                 )}
                 <span className="text-sm font-semibold text-stone-700">
                   {fqhc.ecmProvider
@@ -495,14 +495,14 @@ export default async function FQHCReportPage({
               </div>
             </div>
             <div className="rounded-lg border border-stone-100 bg-stone-50 p-3">
-              <p className="text-[11px] font-medium text-stone-500 mb-1">
+              <p className="text-xs font-medium text-stone-500 mb-1">
                 {isEs ? "Aprobado NHSC" : "NHSC Approved"}
               </p>
               <div className="flex items-center gap-1.5">
                 {fqhc.nhscApproved ? (
                   <CheckCircle2 className="size-4 text-emerald-600" />
                 ) : (
-                  <span className="text-sm text-stone-400">--</span>
+                  <span className="text-sm text-stone-500">--</span>
                 )}
                 <span className="text-sm font-semibold text-stone-700">
                   {fqhc.nhscApproved
@@ -512,7 +512,7 @@ export default async function FQHCReportPage({
               </div>
             </div>
             <div className="rounded-lg border border-stone-100 bg-stone-50 p-3">
-              <p className="text-[11px] font-medium text-stone-500 mb-1">
+              <p className="text-xs font-medium text-stone-500 mb-1">
                 {isEs ? "Sistema EHR" : "EHR System"}
               </p>
               <p className="text-sm font-semibold text-stone-700 truncate">
@@ -520,7 +520,7 @@ export default async function FQHCReportPage({
               </p>
             </div>
             <div className="rounded-lg border border-stone-100 bg-stone-50 p-3">
-              <p className="text-[11px] font-medium text-stone-500 mb-1">
+              <p className="text-xs font-medium text-stone-500 mb-1">
                 {isEs ? "Estado Sindical" : "Union Status"}
               </p>
               <p className="text-sm font-semibold text-stone-700">
@@ -561,13 +561,13 @@ export default async function FQHCReportPage({
                     {fqhc.glassdoorRating}
                   </span>
                   {fqhc.glassdoorReviewCount !== null && (
-                    <span className="text-xs text-stone-400">
+                    <span className="text-xs text-stone-500">
                       ({fqhc.glassdoorReviewCount})
                     </span>
                   )}
                 </div>
               ) : (
-                <p className="text-sm text-stone-400">--</p>
+                <p className="text-sm text-stone-500">--</p>
               )}
             </div>
             {/* Data Source */}
@@ -638,11 +638,11 @@ export default async function FQHCReportPage({
                   <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
                     <Badge
                       variant="outline"
-                      className={`text-[10px] font-semibold ${IMPACT_STYLES[item.impactLevel]}`}
+                      className={`text-xs font-semibold ${IMPACT_STYLES[item.impactLevel]}`}
                     >
                       {t(IMPACT_LABELS[item.impactLevel])}
                     </Badge>
-                    <span className="text-[11px] text-stone-400">
+                    <span className="text-xs text-stone-500">
                       {formatDate(item.date, locale)}
                     </span>
                   </div>
@@ -653,7 +653,7 @@ export default async function FQHCReportPage({
                     {t(item.summary)}
                   </p>
                   <div className="mt-2 flex items-center justify-between">
-                    <span className="text-[11px] text-stone-400">{item.region}</span>
+                    <span className="text-xs text-stone-500">{item.region}</span>
                     <a
                       href={item.sourceUrl}
                       target="_blank"
@@ -705,7 +705,7 @@ export default async function FQHCReportPage({
                         <Badge
                           key={i}
                           variant="outline"
-                          className="text-[10px] border-emerald-200 text-emerald-700 bg-emerald-50"
+                          className="text-xs border-emerald-200 text-emerald-700 bg-emerald-50"
                         >
                           {outcome.metric}: {outcome.value}
                         </Badge>
@@ -753,7 +753,7 @@ export default async function FQHCReportPage({
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             <div className="rounded-lg border border-stone-100 bg-stone-50 p-3 text-center">
-              <p className="text-[11px] font-medium text-stone-500 mb-1">
+              <p className="text-xs font-medium text-stone-500 mb-1">
                 {isEs ? "FQHCs en Region" : "Regional FQHCs"}
               </p>
               <p className="text-xl font-extrabold text-stone-800">
@@ -761,7 +761,7 @@ export default async function FQHCReportPage({
               </p>
             </div>
             <div className="rounded-lg border border-stone-100 bg-stone-50 p-3 text-center">
-              <p className="text-[11px] font-medium text-stone-500 mb-1">
+              <p className="text-xs font-medium text-stone-500 mb-1">
                 {isEs ? "Resiliencia Promedio" : "Avg Resilience"}
               </p>
               <p className="text-xl font-extrabold text-stone-800">
@@ -769,7 +769,7 @@ export default async function FQHCReportPage({
               </p>
             </div>
             <div className="rounded-lg border border-stone-100 bg-stone-50 p-3 text-center">
-              <p className="text-[11px] font-medium text-stone-500 mb-1">
+              <p className="text-xs font-medium text-stone-500 mb-1">
                 {isEs ? "Personal Total" : "Total Staff"}
               </p>
               <p className="text-xl font-extrabold text-stone-800">
@@ -777,7 +777,7 @@ export default async function FQHCReportPage({
               </p>
             </div>
             <div className="rounded-lg border border-stone-100 bg-stone-50 p-3 text-center">
-              <p className="text-[11px] font-medium text-stone-500 mb-1">
+              <p className="text-xs font-medium text-stone-500 mb-1">
                 {isEs ? "Vacantes Regionales" : "Regional Jobs"}
               </p>
               <p className="text-xl font-extrabold text-stone-800">
@@ -889,7 +889,7 @@ export default async function FQHCReportPage({
 
         {/* Footer note */}
         <div className="text-center py-4">
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-stone-500">
             {isEs
               ? "Este informe es generado automaticamente a partir de nuestros datos de inteligencia. Para consultas, contacte a"
               : "This report is auto-generated from our intelligence data assets. For inquiries, contact"}{" "}

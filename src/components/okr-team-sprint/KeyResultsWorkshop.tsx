@@ -86,7 +86,7 @@ export function KeyResultsWorkshop({
             ? "Taller de Resultados Clave"
             : "Key Results Workshop"}
         </h2>
-        <p className="text-sm text-stone-500 dark:text-stone-400">
+        <p className="text-sm text-stone-500 dark:text-stone-500">
           {isEs
             ? "Agrega 2-3 Resultados Clave medibles a cada objetivo. Usa el formato: [Métrica] de [base] a [meta] para [fecha]"
             : "Add 2-3 measurable Key Results to each objective. Use the format: [Metric] from [baseline] to [target] by [date]"}
@@ -128,7 +128,7 @@ export function KeyResultsWorkshop({
                       className="pl-4 border-l-2 border-teal-200 dark:border-teal-700"
                     >
                       <div className="flex items-start gap-2">
-                        <span className="text-xs font-bold text-stone-400 mt-1 shrink-0">
+                        <span className="text-xs font-bold text-stone-500 mt-1 shrink-0">
                           KR{i + 1}
                         </span>
                         <div className="flex-1">
@@ -172,7 +172,7 @@ export function KeyResultsWorkshop({
                                 className={`text-xs px-1.5 py-0.5 rounded ${
                                   check.ok
                                     ? "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300"
-                                    : "bg-stone-100 text-stone-400 dark:bg-stone-800 dark:text-stone-500"
+                                    : "bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-500"
                                 }`}
                               >
                                 {check.ok ? "✓" : "○"} {check.label}
@@ -186,7 +186,7 @@ export function KeyResultsWorkshop({
                           onClick={() =>
                             deleteKeyResult(obj.id, kr.id)
                           }
-                          className="text-stone-400 hover:text-red-500 shrink-0"
+                          className="text-stone-500 hover:text-red-500 shrink-0"
                         >
                           <Trash2 className="h-3.5 w-3.5" />
                         </Button>

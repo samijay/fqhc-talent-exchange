@@ -214,7 +214,7 @@ export default async function WhyFQHCPage() {
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                     {/* Entry */}
                     <div className="flex-1 rounded-lg bg-white p-3 shadow-sm">
-                      <p className="text-xs font-medium uppercase tracking-wide text-stone-400">
+                      <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
                         {t({ en: "Entry", es: "Entrada" }, locale)}
                       </p>
                       <p className="mt-1 font-semibold text-stone-900">{t(ladder.entry, locale)}</p>
@@ -229,7 +229,7 @@ export default async function WhyFQHCPage() {
 
                     {/* Mid */}
                     <div className="flex-1 rounded-lg bg-white p-3 shadow-sm">
-                      <p className="text-xs font-medium uppercase tracking-wide text-stone-400">
+                      <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
                         {t({ en: "Mid-Career", es: "Media Carrera" }, locale)}
                       </p>
                       <p className="mt-1 font-semibold text-stone-900">{t(ladder.mid, locale)}</p>
@@ -382,7 +382,7 @@ export default async function WhyFQHCPage() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-2 text-xs text-stone-400">
+            <p className="mt-2 text-xs text-stone-500">
               {t({
                 en: "Source: FQHC Talent analysis of 156+ California FQHC job listings, 2025–2026.",
                 es: "Fuente: Análisis de FQHC Talent de 156+ ofertas laborales FQHC en California, 2025–2026.",

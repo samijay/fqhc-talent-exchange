@@ -453,7 +453,7 @@ export default async function MediCalFundingCutsArticle() {
               <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
                 {locale === "es" ? "Fuentes" : "Sources"}
               </h2>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-500">
                 <li>
                   <a href="https://www.dhcs.ca.gov/dataandstats/Pages/Medi-Cal-Eligibility-Statistics.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">{locale === "es" ? "Estadísticas de Elegibilidad de Medi-Cal" : "Medi-Cal Eligibility Statistics"}</a> — DHCS, 2025. {locale === "es" ? "Más de 15 millones de residentes cubiertos por Medi-Cal." : "Over 15 million California residents covered by Medi-Cal."}
                 </li>

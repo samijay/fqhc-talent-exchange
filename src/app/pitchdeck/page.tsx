@@ -78,7 +78,7 @@ const slides: Slide[] = [
           <p className="mt-2 text-lg text-stone-500">
             Strategic Intelligence &amp; Free Career Tools for Community Health Centers
           </p>
-          <p className="mt-4 text-sm font-medium text-stone-400">
+          <p className="mt-4 text-sm font-medium text-stone-500">
             MVP Business Plan &middot; February 2026
           </p>
 
@@ -720,19 +720,19 @@ const slides: Slide[] = [
               <div className="absolute left-1/2 top-4 -translate-x-1/2 text-center">
                 <p className="text-xs font-bold text-teal-600">TAM</p>
                 <p className="text-lg font-extrabold text-teal-700">$20.5B</p>
-                <p className="text-[10px] text-teal-600">US Healthcare Staffing</p>
+                <p className="text-xs text-teal-600">US Healthcare Staffing</p>
               </div>
               <div className="flex size-52 items-center justify-center rounded-full bg-teal-300/60 sm:size-56">
                 <div className="absolute left-1/2 -translate-x-1/2 text-center" style={{ top: "32%" }}>
                   <p className="text-xs font-bold text-teal-700">SAM</p>
                   <p className="text-lg font-extrabold text-teal-800">$2.1B</p>
-                  <p className="text-[10px] text-teal-700">FQHC Staffing (National)</p>
+                  <p className="text-xs text-teal-700">FQHC Staffing (National)</p>
                 </div>
                 <div className="flex size-28 items-center justify-center rounded-full bg-teal-700 sm:size-32">
                   <div className="text-center">
                     <p className="text-xs font-bold text-teal-200">SOM</p>
                     <p className="text-lg font-extrabold text-white">$8.5M</p>
-                    <p className="text-[10px] text-teal-200">California Y1-2</p>
+                    <p className="text-xs text-teal-200">California Y1-2</p>
                   </div>
                 </div>
               </div>
@@ -1187,7 +1187,7 @@ const slides: Slide[] = [
           </div>
           <p className="mt-3 text-lg font-bold text-teal-700">fqhctalent.com</p>
           <p className="mt-1 text-sm text-stone-500">info@fqhctalent.com</p>
-          <p className="mt-6 text-xs text-stone-400">
+          <p className="mt-6 text-xs text-stone-500">
             Solo founder &middot; 39 features shipped &middot; Built with Claude Code
           </p>
         </div>
@@ -1236,7 +1236,7 @@ export default function PitchDeckPage() {
             <span className="text-sm font-bold text-stone-900">
               FQHC <span className="text-teal-700">Talent</span>
             </span>
-            <span className="ml-2 text-xs text-stone-400">Pitch Deck</span>
+            <span className="ml-2 text-xs text-stone-500">Pitch Deck</span>
           </div>
 
           <div className="flex items-center gap-4">
@@ -1288,7 +1288,7 @@ export default function PitchDeckPage() {
                   className={`whitespace-nowrap rounded px-2 py-1 text-xs font-medium transition-colors ${
                     i === currentSlide
                       ? "bg-teal-100 text-teal-700"
-                      : "text-stone-400 hover:text-stone-600"
+                      : "text-stone-500 hover:text-stone-600"
                   }`}
                 >
                   {slide.title}

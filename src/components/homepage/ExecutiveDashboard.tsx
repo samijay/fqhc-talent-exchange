@@ -163,7 +163,7 @@ export function ExecutiveDashboard({
                       ? `${cliff.daysUntil} ${t({ en: "days", es: "dias" }, locale)}`
                       : t({ en: "Past", es: "Pasado" }, locale)}
                   </span>
-                  <span className="text-xs text-stone-400">{cliff.date}</span>
+                  <span className="text-xs text-stone-500">{cliff.date}</span>
                 </div>
                 <p className="mt-1 text-sm font-medium text-stone-800">
                   {t(cliff.title, locale)}
@@ -240,7 +240,7 @@ export function ExecutiveDashboard({
             {/* Recent reads */}
             {recentReads.length > 0 && (
               <div className="space-y-1">
-                <p className="text-xs font-medium uppercase tracking-wide text-stone-400">
+                <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
                   {t({ en: "Recently Viewed", es: "Visto Recientemente" }, locale)}
                 </p>
                 {recentReads.slice(0, 3).map((read) => {
@@ -252,7 +252,7 @@ export function ExecutiveDashboard({
                       href={content.href as "/jobs"}
                       className="flex items-center gap-2 rounded px-2 py-1.5 text-sm text-stone-700 transition-colors hover:bg-stone-50"
                     >
-                      <Clock className="size-3 shrink-0 text-stone-400" />
+                      <Clock className="size-3 shrink-0 text-stone-500" />
                       <span className="truncate">{t(content.title, locale)}</span>
                     </Link>
                   );

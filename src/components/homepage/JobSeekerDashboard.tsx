@@ -123,7 +123,7 @@ export function JobSeekerDashboard({
                     {t({ en: "open positions", es: "posiciones abiertas" }, locale)}
                   </span>
                 </div>
-                <p className="mt-1 text-xs text-stone-400">
+                <p className="mt-1 text-xs text-stone-500">
                   {regionJobs.fqhcCount} FQHCs · ${Math.round(regionJobs.avgSalaryMin / 1000)}K-${Math.round(regionJobs.avgSalaryMax / 1000)}K {t({ en: "avg", es: "prom" }, locale)}
                 </p>
                 {regionJobs.topRoles.length > 0 && (
@@ -147,7 +147,7 @@ export function JobSeekerDashboard({
                     {t({ en: "total jobs statewide", es: "empleos en todo el estado" }, locale)}
                   </span>
                 </div>
-                <p className="mt-1 text-xs text-stone-400">
+                <p className="mt-1 text-xs text-stone-500">
                   {data.jobStats.orgs} {t({ en: "organizations", es: "organizaciones" }, locale)}
                 </p>
               </div>
@@ -203,15 +203,15 @@ export function JobSeekerDashboard({
               <div className="flex items-center gap-4 rounded-lg border border-stone-200 bg-stone-50 px-4 py-2">
                 <div className="text-center">
                   <span className="text-lg font-bold text-teal-700">{progress.totalCoursesStarted}</span>
-                  <p className="text-xs text-stone-400">{t({ en: "Courses", es: "Cursos" }, locale)}</p>
+                  <p className="text-xs text-stone-500">{t({ en: "Courses", es: "Cursos" }, locale)}</p>
                 </div>
                 <div className="text-center">
                   <span className="text-lg font-bold text-amber-600">{progress.totalModulesCompleted}</span>
-                  <p className="text-xs text-stone-400">{t({ en: "Modules", es: "Modulos" }, locale)}</p>
+                  <p className="text-xs text-stone-500">{t({ en: "Modules", es: "Modulos" }, locale)}</p>
                 </div>
                 <div className="text-center">
                   <span className="text-lg font-bold text-purple-600">{progress.totalXP}</span>
-                  <p className="text-xs text-stone-400">XP</p>
+                  <p className="text-xs text-stone-500">XP</p>
                 </div>
               </div>
             )}
@@ -226,7 +226,7 @@ export function JobSeekerDashboard({
 
             {recentReads.length > 0 ? (
               <div className="space-y-1">
-                <p className="text-xs font-medium uppercase tracking-wide text-stone-400">
+                <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
                   {t({ en: "Recently Viewed", es: "Visto Recientemente" }, locale)}
                 </p>
                 {recentReads.slice(0, 4).map((read) => {
@@ -238,7 +238,7 @@ export function JobSeekerDashboard({
                       href={content.href as "/jobs"}
                       className="flex items-center gap-2 rounded px-2 py-1.5 text-sm text-stone-700 transition-colors hover:bg-stone-50"
                     >
-                      <Clock className="size-3 shrink-0 text-stone-400" />
+                      <Clock className="size-3 shrink-0 text-stone-500" />
                       <span className="truncate">{t(content.title, locale)}</span>
                     </Link>
                   );
@@ -255,7 +255,7 @@ export function JobSeekerDashboard({
 
             {wantToRead.length > 0 && (
               <div className="space-y-1">
-                <p className="text-xs font-medium uppercase tracking-wide text-stone-400">
+                <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
                   {t({ en: "Saved for Later", es: "Guardado para Despues" }, locale)}
                 </p>
                 {wantToRead.map((item) => {

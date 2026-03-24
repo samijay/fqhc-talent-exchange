@@ -110,7 +110,7 @@ export function OkrCoursePlayer({
               {progress.totalXP} / {COURSE_TOTAL_XP} XP
             </span>
           </div>
-          <span className="text-sm text-stone-500 dark:text-stone-400">
+          <span className="text-sm text-stone-500 dark:text-stone-500">
             {completionPercent}%{" "}
             {locale === "es" ? "completado" : "complete"}
           </span>
@@ -160,7 +160,7 @@ export function OkrCoursePlayer({
                         className={`text-sm font-bold ${
                           isCapstone
                             ? "text-teal-600 dark:text-teal-400"
-                            : "text-stone-600 dark:text-stone-400"
+                            : "text-stone-600 dark:text-stone-500"
                         }`}
                       >
                         {module.order}
@@ -183,10 +183,10 @@ export function OkrCoursePlayer({
                         </Badge>
                       )}
                     </div>
-                    <p className="text-sm text-stone-500 dark:text-stone-400 line-clamp-2">
+                    <p className="text-sm text-stone-500 dark:text-stone-500 line-clamp-2">
                       {t(module.subtitle)}
                     </p>
-                    <div className="flex items-center gap-3 mt-2 text-xs text-stone-400 dark:text-stone-500">
+                    <div className="flex items-center gap-3 mt-2 text-xs text-stone-500 dark:text-stone-500">
                       <span className="flex items-center gap-1">
                         <BookOpen className="h-3 w-3" />
                         {module.estimatedMinutes}{" "}

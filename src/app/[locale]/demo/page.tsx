@@ -170,7 +170,7 @@ export default function DemoPage() {
 
           {/* Mockup card */}
           <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-lg">
-            <div className="mb-3 flex items-center gap-2 text-xs text-stone-400">
+            <div className="mb-3 flex items-center gap-2 text-xs text-stone-500">
               <Search className="size-3.5" /> {t({ en: "Sample directory listing", es: "Ejemplo de listado del directorio" }, locale)}
             </div>
             <div className="space-y-3">
@@ -190,7 +190,7 @@ export default function DemoPage() {
                   </div>
                   <div className="mt-2 flex flex-wrap gap-1.5">
                     {fqhc.programs.map((p) => (
-                      <span key={p} className="rounded-full bg-stone-200 px-2 py-0.5 text-[10px] font-medium text-stone-600">{p}</span>
+                      <span key={p} className="rounded-full bg-stone-200 px-2 py-0.5 text-xs font-medium text-stone-600">{p}</span>
                     ))}
                   </div>
                 </div>
@@ -207,7 +207,7 @@ export default function DemoPage() {
         <div className="grid items-center gap-10 lg:grid-cols-2">
           {/* Mockup card — left on desktop */}
           <div className="order-2 rounded-xl border border-stone-200 bg-white p-5 shadow-lg lg:order-1">
-            <div className="mb-3 flex items-center gap-2 text-xs text-stone-400">
+            <div className="mb-3 flex items-center gap-2 text-xs text-stone-500">
               <Briefcase className="size-3.5" /> {t({ en: "Sample job listings", es: "Ejemplo de ofertas de empleo" }, locale)}
             </div>
             <div className="space-y-3">
@@ -223,7 +223,7 @@ export default function DemoPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     {job.lang && (
-                      <span className="rounded-full bg-blue-100 px-2 py-0.5 text-[10px] font-medium text-blue-700">
+                      <span className="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-700">
                         <Globe className="mr-0.5 inline size-2.5" />{job.lang}
                       </span>
                     )}
@@ -369,7 +369,7 @@ export default function DemoPage() {
                   {t({ en: "Transition Readiness", es: "Preparacion para la Transicion" }, locale)}
                 </span>
               </div>
-              <p className="mt-1 text-[11px] text-purple-600">
+              <p className="mt-1 text-xs text-purple-600">
                 {t({
                   en: "Measures ability to diagnose new situations, build manager alignment, and self-organize onboarding. The #1 predictor of first-year FQHC success.",
                   es: "Mide la capacidad de diagnosticar nuevas situaciones, construir alineamiento con el gerente y auto-organizar la incorporacion. El predictor #1 del exito en el primer ano en FQHCs.",
@@ -445,25 +445,25 @@ export default function DemoPage() {
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-lg bg-red-50 p-3 text-center">
                 <p className="text-2xl font-bold text-red-700">{cliffs.length}</p>
-                <p className="text-[10px] font-medium text-red-600">
+                <p className="text-xs font-medium text-red-600">
                   {t({ en: "Funding Cliffs", es: "Precipicios de Fondos" }, locale)}
                 </p>
               </div>
               <div className="rounded-lg bg-teal-50 p-3 text-center">
                 <p className="text-2xl font-bold text-teal-700">{hotRoles.length}</p>
-                <p className="text-[10px] font-medium text-teal-600">
+                <p className="text-xs font-medium text-teal-600">
                   {t({ en: "Hot Demand Roles", es: "Roles de Alta Demanda" }, locale)}
                 </p>
               </div>
               <div className="rounded-lg bg-amber-50 p-3 text-center">
                 <p className="text-2xl font-bold text-amber-700">{overview.totalRegions}</p>
-                <p className="text-[10px] font-medium text-amber-600">
+                <p className="text-xs font-medium text-amber-600">
                   {t({ en: "Regional Snapshots", es: "Panoramas Regionales" }, locale)}
                 </p>
               </div>
               <div className="rounded-lg bg-blue-50 p-3 text-center">
                 <p className="text-2xl font-bold text-blue-700">30</p>
-                <p className="text-[10px] font-medium text-blue-600">
+                <p className="text-xs font-medium text-blue-600">
                   {t({ en: "Salary Benchmarks", es: "Referencias Salariales" }, locale)}
                 </p>
               </div>
@@ -475,7 +475,7 @@ export default function DemoPage() {
                 {cliffs.slice(0, 2).map((cliff) => (
                   <div key={cliff.id} className="flex items-center justify-between rounded-lg bg-stone-50 p-2">
                     <p className="text-xs font-medium text-stone-700">{t(cliff.title, locale)}</p>
-                    <span className="rounded bg-red-100 px-2 py-0.5 text-[10px] font-bold text-red-700">
+                    <span className="rounded bg-red-100 px-2 py-0.5 text-xs font-bold text-red-700">
                       {cliff.daysUntil}d
                     </span>
                   </div>
@@ -555,7 +555,7 @@ export default function DemoPage() {
 
             {/* Talent Drop visual */}
             <div className="rounded-xl border border-stone-700 bg-stone-800/50 p-6">
-              <p className="mb-4 text-center text-sm font-semibold text-stone-400">
+              <p className="mb-4 text-center text-sm font-semibold text-stone-500">
                 {t({ en: "How Talent Drop Works", es: "Como Funciona Talent Drop" }, locale)}
               </p>
               <div className="space-y-4">

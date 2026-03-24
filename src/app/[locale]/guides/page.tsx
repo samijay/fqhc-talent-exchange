@@ -118,7 +118,7 @@ function GuideCard({
               return (
                 <span
                   key={role}
-                  className="text-[11px] bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full"
+                  className="text-xs bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full"
                 >
                   {roleLabel
                     ? isEs
@@ -129,7 +129,7 @@ function GuideCard({
               );
             })}
             {guide.targetRoles.length > 4 && (
-              <span className="text-[11px] text-stone-400 px-1">
+              <span className="text-xs text-stone-500 px-1">
                 +{guide.targetRoles.length - 4}
               </span>
             )}
@@ -137,7 +137,7 @@ function GuideCard({
         </div>
 
         {/* Expand/collapse icon */}
-        <span className="flex-shrink-0 mt-1 text-stone-400">
+        <span className="flex-shrink-0 mt-1 text-stone-500">
           {expanded ? (
             <ChevronUp className="h-5 w-5" />
           ) : (
@@ -342,7 +342,7 @@ export default function GuidesPage() {
         {/* ───────────────── Filter Bar ───────────────── */}
         <div className="mb-8 rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
           <div className="flex flex-wrap items-center gap-3">
-            <Filter className="h-4 w-4 text-stone-400" />
+            <Filter className="h-4 w-4 text-stone-500" />
 
             {/* Category */}
             <select

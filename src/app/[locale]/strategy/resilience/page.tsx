@@ -146,7 +146,7 @@ function FQHCDetailCard({
         </div>
 
         <ChevronDown
-          className={`size-4 shrink-0 text-stone-400 transition-transform ${isExpanded ? "rotate-180" : ""}`}
+          className={`size-4 shrink-0 text-stone-500 transition-transform ${isExpanded ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -180,7 +180,7 @@ function FQHCDetailCard({
                   <ScoreBar score={dim.score} color={meta?.color || "bg-stone-400"} />
                   <ul className="mt-1 space-y-0.5">
                     {dim.factors.map((f, i) => (
-                      <li key={i} className="text-xs text-stone-400 pl-1">
+                      <li key={i} className="text-xs text-stone-500 pl-1">
                         • {f}
                       </li>
                     ))}
@@ -191,7 +191,7 @@ function FQHCDetailCard({
           </div>
 
           {/* Data completeness */}
-          <div className="flex items-center justify-between text-xs text-stone-400 border-t border-stone-100 pt-3">
+          <div className="flex items-center justify-between text-xs text-stone-500 border-t border-stone-100 pt-3">
             <span>
               {isEs ? "Completitud de datos:" : "Data completeness:"} {score.dataCompleteness}%
             </span>
@@ -319,7 +319,7 @@ export default function ResiliencePage() {
               ? "Cada FQHC de California evaluado en 5 dimensiones de resiliencia. Vea cómo se compara su organización — y dónde concentrar los esfuerzos de fortalecimiento."
               : "Every California FQHC scored across 5 resilience dimensions. See how your organization compares — and where to focus strengthening efforts."}
           </p>
-          <p className="mt-4 text-sm text-stone-400">
+          <p className="mt-4 text-sm text-stone-500">
             {isEs ? "Datos actualizados:" : "Data updated:"}{" "}
             {RESILIENCE_LAST_UPDATED} ·{" "}
             {isEs ? `${stats.total} FQHCs evaluados` : `${stats.total} FQHCs scored`}
@@ -391,7 +391,7 @@ export default function ResiliencePage() {
             >
               <div className="flex items-center gap-2 mb-2">
                 <div className={`size-3 rounded-full ${dim.color}`} />
-                <span className="text-xs text-stone-400 font-medium">
+                <span className="text-xs text-stone-500 font-medium">
                   {Math.round(dim.weight * 100)}%
                 </span>
               </div>
@@ -443,13 +443,13 @@ export default function ResiliencePage() {
         {/* Search & Filters */}
         <div className="flex flex-col sm:flex-row gap-3 mb-6">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-stone-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-stone-500" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={isEs ? "Buscar FQHC por nombre o región..." : "Search FQHC by name or region..."}
-              className="w-full rounded-lg border border-stone-200 bg-white pl-10 pr-4 py-2.5 text-sm text-stone-900 placeholder:text-stone-400 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full rounded-lg border border-stone-200 bg-white pl-10 pr-4 py-2.5 text-sm text-stone-900 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
             />
           </div>
           <select
@@ -550,7 +550,7 @@ export default function ResiliencePage() {
               </Link>
             </Button>
           </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-stone-400">
+          <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-stone-500">
             <Link href="/strategy/offboarding" className="hover:text-white transition-colors">
               {isEs ? "Recursos de Transición" : "Transition Resources"} →
             </Link>

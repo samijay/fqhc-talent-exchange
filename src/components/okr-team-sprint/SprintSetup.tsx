@@ -74,7 +74,7 @@ export function SprintSetup({ onSprintCreated }: SprintSetupProps) {
         <h2 className="text-2xl font-bold text-stone-800 dark:text-stone-100">
           {isEs ? "Crear Sprint de OKR en Equipo" : "Create Team OKR Sprint"}
         </h2>
-        <p className="text-sm text-stone-500 dark:text-stone-400">
+        <p className="text-sm text-stone-500 dark:text-stone-500">
           {isEs
             ? "Configura un sprint de 4 sesiones para tu equipo ejecutivo"
             : "Set up a 4-session sprint for your executive team"}
@@ -162,7 +162,7 @@ export function SprintSetup({ onSprintCreated }: SprintSetupProps) {
                 <span className="flex-1 text-stone-700 dark:text-stone-300">
                   {session.title}
                 </span>
-                <span className="text-stone-400 dark:text-stone-500 text-xs">
+                <span className="text-stone-500 dark:text-stone-500 text-xs">
                   ~{session.time}
                 </span>
               </div>
@@ -178,7 +178,7 @@ export function SprintSetup({ onSprintCreated }: SprintSetupProps) {
         className="bg-teal-600 hover:bg-teal-700 text-white h-12"
       >
         {creating ? (
-          <span className="animate-pulse">
+          <span className="motion-safe:animate-pulse">
             {isEs ? "Creando..." : "Creating..."}
           </span>
         ) : (
@@ -221,7 +221,7 @@ export function InviteCodeDisplay({
         <p className="font-medium text-stone-800 dark:text-stone-200">
           {isEs ? "Sprint creado:" : "Sprint created:"} {sprintName}
         </p>
-        <p className="text-sm text-stone-500 dark:text-stone-400">
+        <p className="text-sm text-stone-500 dark:text-stone-500">
           {isEs
             ? "Comparte este código con tu equipo para que se unan:"
             : "Share this code with your team to join:"}
@@ -234,7 +234,7 @@ export function InviteCodeDisplay({
             {copied ? (
               <CheckCircle2 className="h-5 w-5 text-green-500" />
             ) : (
-              <Copy className="h-5 w-5 text-stone-400" />
+              <Copy className="h-5 w-5 text-stone-500" />
             )}
           </Button>
         </div>

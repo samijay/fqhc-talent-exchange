@@ -74,7 +74,7 @@ export function ConceptCard({ exercise, onComplete }: ConceptCardProps) {
   return (
     <div className="flex flex-col items-center gap-4 w-full max-w-lg mx-auto">
       {/* Progress indicator */}
-      <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400">
+      <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500">
         <span>
           {currentIndex + 1} / {totalCards}
         </span>
@@ -122,7 +122,7 @@ export function ConceptCard({ exercise, onComplete }: ConceptCardProps) {
                 <h3 className="text-2xl font-bold text-stone-800 dark:text-stone-100 mb-3">
                   {t(currentCard.front)}
                 </h3>
-                <p className="text-sm text-stone-400 dark:text-stone-500">
+                <p className="text-sm text-stone-500 dark:text-stone-500">
                   {locale === "es" ? "Toca para ver la respuesta" : "Tap to flip"}
                 </p>
               </>
@@ -197,7 +197,7 @@ export function ConceptCard({ exercise, onComplete }: ConceptCardProps) {
       </div>
 
       {!allViewed && currentIndex === totalCards - 1 && (
-        <p className="text-xs text-stone-400 dark:text-stone-500 text-center">
+        <p className="text-xs text-stone-500 dark:text-stone-500 text-center">
           {locale === "es"
             ? "Voltea todas las tarjetas para completar"
             : "Flip all cards to complete"}

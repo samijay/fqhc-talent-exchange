@@ -68,7 +68,7 @@ export function TeamWorkspace() {
         <h2 className="text-xl font-bold text-stone-800 dark:text-stone-100">
           {isEs ? "Sprint de OKR en Equipo" : "Team OKR Sprint"}
         </h2>
-        <p className="text-sm text-stone-500 dark:text-stone-400">
+        <p className="text-sm text-stone-500 dark:text-stone-500">
           {isEs
             ? `${objectives.length} objetivos redactados por el equipo`
             : `${objectives.length} objectives drafted by team`}
@@ -112,7 +112,7 @@ export function TeamWorkspace() {
                     {isCompleted ? (
                       <CheckCircle2 className="h-5 w-5 text-green-600 dark:text-green-400" />
                     ) : isLocked ? (
-                      <Lock className="h-5 w-5 text-stone-400 dark:text-stone-500" />
+                      <Lock className="h-5 w-5 text-stone-500 dark:text-stone-500" />
                     ) : (
                       <Icon className="h-5 w-5 text-teal-600 dark:text-teal-400" />
                     )}
@@ -128,14 +128,14 @@ export function TeamWorkspace() {
                         {isEs ? "Sesión" : "Session"}{" "}
                         {session.sessionNumber}
                       </Badge>
-                      <span className="text-xs text-stone-400 dark:text-stone-500">
+                      <span className="text-xs text-stone-500 dark:text-stone-500">
                         ~{template?.estimatedMinutes || 25}min
                       </span>
                     </div>
                     <h3 className="text-base font-semibold text-stone-800 dark:text-stone-200">
                       {template ? t(template.title) : `Session ${session.sessionNumber}`}
                     </h3>
-                    <p className="text-sm text-stone-500 dark:text-stone-400 mt-1 line-clamp-2">
+                    <p className="text-sm text-stone-500 dark:text-stone-500 mt-1 line-clamp-2">
                       {template ? t(template.description) : ""}
                     </p>
                   </div>

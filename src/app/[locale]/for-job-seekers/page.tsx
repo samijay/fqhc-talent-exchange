@@ -325,7 +325,7 @@ export default function ForJobSeekers() {
                 : "Free career tools, job postings, and resources for displaced professionals →"}
             </p>
           </div>
-          <ArrowRight className="size-5 shrink-0 text-stone-400 transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="size-5 shrink-0 text-stone-500 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>
 
@@ -359,7 +359,7 @@ export default function ForJobSeekers() {
                 </div>
                 <span
                   className={`hidden text-xs font-medium sm:block ${
-                    isActive ? "text-teal-800" : "text-stone-400"
+                    isActive ? "text-teal-800" : "text-stone-500"
                   }`}
                 >
                   {s.label}
@@ -541,7 +541,7 @@ export default function ForJobSeekers() {
               {/* Skills */}
               <div className="space-y-2">
                 <Label>Skills & Competencies</Label>
-                <p className="text-xs text-stone-400">Select all that apply.</p>
+                <p className="text-xs text-stone-500">Select all that apply.</p>
                 <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                   {SKILLS.map((skill) => {
                     const checked = skills.includes(skill);
@@ -589,7 +589,7 @@ export default function ForJobSeekers() {
               {/* Locations */}
               <div className="space-y-2">
                 <Label>Preferred Locations</Label>
-                <p className="text-xs text-stone-400">
+                <p className="text-xs text-stone-500">
                   Click all cities you&apos;d consider.
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -681,7 +681,7 @@ export default function ForJobSeekers() {
                         value={`${data.yearsExperience} year${data.yearsExperience === "Less than 1" ? "" : "s"}`}
                       />
                       <div className="py-1">
-                        <span className="text-xs font-medium text-stone-400">
+                        <span className="text-xs font-medium text-stone-500">
                           Skills
                         </span>
                         <div className="mt-1 flex flex-wrap gap-1.5">
@@ -701,7 +701,7 @@ export default function ForJobSeekers() {
                     {/* Preferences */}
                     <ReviewSection title="Preferences">
                       <div className="py-1">
-                        <span className="text-xs font-medium text-stone-400">
+                        <span className="text-xs font-medium text-stone-500">
                           Locations
                         </span>
                         <div className="mt-1 flex flex-wrap gap-1.5">
@@ -797,7 +797,7 @@ function ReviewSection({
 function ReviewRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-baseline justify-between py-1">
-      <span className="text-xs font-medium text-stone-400">{label}</span>
+      <span className="text-xs font-medium text-stone-500">{label}</span>
       <span className="text-sm text-stone-800">{value}</span>
     </div>
   );

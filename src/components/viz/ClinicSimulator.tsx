@@ -183,7 +183,7 @@ function NumberField({
           className="w-20 rounded-lg border border-stone-300 bg-white px-2.5 py-1.5 text-right text-sm font-bold text-stone-900 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
         />
         {suffix && (
-          <span className="text-xs text-stone-400 w-6">{suffix}</span>
+          <span className="text-xs text-stone-500 w-6">{suffix}</span>
         )}
       </div>
     </div>
@@ -258,9 +258,9 @@ function Section({
           </div>
         </div>
         {open ? (
-          <ChevronUp className="size-4 text-stone-400" />
+          <ChevronUp className="size-4 text-stone-500" />
         ) : (
-          <ChevronDown className="size-4 text-stone-400" />
+          <ChevronDown className="size-4 text-stone-500" />
         )}
       </button>
       {open && (
@@ -355,12 +355,12 @@ function OptimizationPanel({
         >
           <div className="flex flex-wrap items-center gap-2 mb-2">
             <span
-              className={`inline-flex rounded-full px-2.5 py-0.5 text-[10px] font-bold ${categoryColor(pathway.category)}`}
+              className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-bold ${categoryColor(pathway.category)}`}
             >
               {categoryLabel(pathway.category)}
             </span>
             <span
-              className={`inline-flex rounded-full px-2.5 py-0.5 text-[10px] font-bold ${implColor(pathway.implementation)}`}
+              className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-bold ${implColor(pathway.implementation)}`}
             >
               {implLabel(pathway.implementation)}
             </span>
@@ -374,7 +374,7 @@ function OptimizationPanel({
           <p className="mt-1 text-xs leading-relaxed text-stone-600">
             {t(pathway.description, locale)}
           </p>
-          <p className="mt-2 text-[10px] text-stone-400">
+          <p className="mt-2 text-xs text-stone-500">
             <strong>{isEs ? "Requiere" : "Requires"}:</strong>{" "}
             {t(pathway.requirements, locale)}
           </p>
@@ -521,7 +521,7 @@ function ResultsPanel({
                 />
               ))}
           </div>
-          <div className="mt-1 flex flex-wrap gap-3 text-[10px] text-stone-500">
+          <div className="mt-1 flex flex-wrap gap-3 text-xs text-stone-500">
             {[
               {
                 label: "PPS",
@@ -635,7 +635,7 @@ function ResultsPanel({
             </div>
             {results.bhEncountersPerYear >
               results.bhBillableEncountersPerYear && (
-              <div className="text-[10px] text-amber-600">
+              <div className="text-xs text-amber-600">
                 {isEs
                   ? `⚠️ ${Math.round(results.bhEncountersPerYear - results.bhBillableEncountersPerYear).toLocaleString()} encuentros BH no facturables como 2° PPS (Medi-Cal sin APM)`
                   : `⚠️ ${Math.round(results.bhEncountersPerYear - results.bhBillableEncountersPerYear).toLocaleString()} BH encounters not billable as 2nd PPS (Medi-Cal without APM)`}
@@ -747,7 +747,7 @@ function ResultsPanel({
                   : "text-red-600"
             }`}>
               {results.personnelPctOfCost.toFixed(1)}%
-              <span className="ml-1 text-[10px] text-stone-400">
+              <span className="ml-1 text-xs text-stone-500">
                 ({isEs ? "objetivo" : "target"}: 73-77%)
               </span>
             </span>
@@ -833,7 +833,7 @@ function ResultsPanel({
       </details>
 
       {/* Disclaimer */}
-      <div className="flex items-start gap-2 text-[11px] text-stone-400">
+      <div className="flex items-start gap-2 text-xs text-stone-500">
         <Info className="mt-0.5 size-3.5 shrink-0" />
         <p>
           {isEs
@@ -1024,7 +1024,7 @@ export function ClinicSimulator() {
                   : "Clinic Operations Simulator"}
               </h3>
             </div>
-            <p className="text-sm text-stone-400">
+            <p className="text-sm text-stone-500">
               {isEs
                 ? "Modele dotación de personal, horarios e ingresos para su FQHC — alineado con reglas de facturación de Medi-Cal"
                 : "Model staffing, scheduling, and revenue for your California FQHC — aligned with Medi-Cal billing rules"}
@@ -1181,7 +1181,7 @@ export function ClinicSimulator() {
                   <strong>{isEs ? "Total" : "Total"}:</strong>{" "}
                   {Object.values(nonPersonnel).reduce((a, b) => a + b, 0).toFixed(1)}%{" "}
                   {isEs ? "de ingresos" : "of revenue"}{" "}
-                  <span className="text-stone-400">
+                  <span className="text-stone-500">
                     ({isEs ? "benchmark: 25-28%" : "benchmark: 25-28%"})
                   </span>
                 </div>
@@ -1351,7 +1351,7 @@ export function ClinicSimulator() {
                     step={100_000}
                     onChange={(v) => updateRevenue("grantRevenue", v)}
                   />
-                  <p className="mt-1 text-[10px] text-stone-400">
+                  <p className="mt-1 text-xs text-stone-500">
                     {isEs
                       ? "HRSA §330, suplementos estatales, margen 340B, bonos de calidad"
                       : "HRSA §330, state supplemental, 340B margin, quality bonuses"}

@@ -95,7 +95,7 @@ export function ScoringSimulator({
             ? `Precisión de puntuación: ${accuracy}%`
             : `Scoring accuracy: ${accuracy}%`}
         </p>
-        <div className="flex flex-col gap-1 text-sm text-stone-500 dark:text-stone-400">
+        <div className="flex flex-col gap-1 text-sm text-stone-500 dark:text-stone-500">
           {results.map((r, i) => (
             <p key={i}>
               {locale === "es" ? "Escenario" : "Scenario"} {i + 1}:{" "}
@@ -115,12 +115,12 @@ export function ScoringSimulator({
   return (
     <div className="flex flex-col gap-4 w-full max-w-lg mx-auto">
       {/* Instruction */}
-      <p className="text-sm font-medium text-stone-600 dark:text-stone-400">
+      <p className="text-sm font-medium text-stone-600 dark:text-stone-500">
         {t(exercise.instruction)}
       </p>
 
       {/* Progress */}
-      <div className="text-sm text-stone-500 dark:text-stone-400">
+      <div className="text-sm text-stone-500 dark:text-stone-500">
         {locale === "es" ? "Escenario" : "Scenario"} {currentIndex + 1} /{" "}
         {totalScenarios}
       </div>
@@ -129,7 +129,7 @@ export function ScoringSimulator({
       <Card className="border-stone-200 dark:border-stone-700">
         <CardContent className="p-5 space-y-4">
           <div>
-            <p className="text-sm font-medium text-stone-500 dark:text-stone-400 mb-1">
+            <p className="text-sm font-medium text-stone-500 dark:text-stone-500 mb-1">
               {locale === "es" ? "Resultado Clave:" : "Key Result:"}
             </p>
             <p className="text-base text-stone-800 dark:text-stone-200 font-medium">
@@ -139,7 +139,7 @@ export function ScoringSimulator({
 
           <div className="flex gap-4">
             <div className="flex-1 p-3 rounded-lg bg-stone-50 dark:bg-stone-800">
-              <p className="text-xs text-stone-500 dark:text-stone-400 mb-1">
+              <p className="text-xs text-stone-500 dark:text-stone-500 mb-1">
                 {locale === "es" ? "Meta" : "Target"}
               </p>
               <p className="text-lg font-bold text-stone-800 dark:text-stone-200 flex items-center gap-1">
@@ -148,7 +148,7 @@ export function ScoringSimulator({
               </p>
             </div>
             <div className="flex-1 p-3 rounded-lg bg-stone-50 dark:bg-stone-800">
-              <p className="text-xs text-stone-500 dark:text-stone-400 mb-1">
+              <p className="text-xs text-stone-500 dark:text-stone-500 mb-1">
                 {locale === "es" ? "Resultado Real" : "Actual Result"}
               </p>
               <p className="text-lg font-bold text-stone-800 dark:text-stone-200 flex items-center gap-1">
@@ -199,7 +199,7 @@ export function ScoringSimulator({
           </div>
 
           {/* Quick reference */}
-          <div id="score-range-hint" className="flex gap-2 text-xs text-stone-400 dark:text-stone-500">
+          <div id="score-range-hint" className="flex gap-2 text-xs text-stone-500 dark:text-stone-500">
             <span className="text-green-600">0.7-1.0 Green</span>
             <span aria-hidden="true">•</span>
             <span className="text-amber-600">0.4-0.6 Amber</span>
@@ -214,7 +214,7 @@ export function ScoringSimulator({
             <CardContent className="p-4 space-y-3">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-xs text-stone-500 dark:text-stone-400">
+                  <p className="text-xs text-stone-500 dark:text-stone-500">
                     {locale === "es" ? "Tu puntaje" : "Your score"}
                   </p>
                   <p
@@ -224,7 +224,7 @@ export function ScoringSimulator({
                   </p>
                 </div>
                 <div className="text-right">
-                  <p className="text-xs text-stone-500 dark:text-stone-400">
+                  <p className="text-xs text-stone-500 dark:text-stone-500">
                     {locale === "es" ? "Puntaje correcto" : "Correct score"}
                   </p>
                   <p

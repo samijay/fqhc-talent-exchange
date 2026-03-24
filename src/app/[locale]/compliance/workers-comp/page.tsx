@@ -334,7 +334,7 @@ function HazardCard({
             </Badge>
           </div>
         </div>
-        <div className="shrink-0 text-stone-400">
+        <div className="shrink-0 text-stone-500">
           {expanded ? (
             <ChevronUp className="h-5 w-5" />
           ) : (
@@ -469,7 +469,7 @@ function StrategyCard({
             </Badge>
           </div>
         </div>
-        <div className="shrink-0 text-stone-400">
+        <div className="shrink-0 text-stone-500">
           {expanded ? (
             <ChevronUp className="h-5 w-5" />
           ) : (

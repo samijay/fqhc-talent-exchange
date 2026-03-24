@@ -253,7 +253,7 @@ export default function TransitionResourcesPage() {
               ? "Si ha sido afectado por reducciones de fuerza laboral, estas herramientas gratuitas lo ayudan a prepararse para su próximo rol en un FQHC — a su propio ritmo."
               : "If you\u2019ve been affected by workforce reductions, these free tools help you prepare for your next FQHC role — at your own pace."}
           </p>
-          <p className="mt-4 text-sm text-stone-400">
+          <p className="mt-4 text-sm text-stone-500">
             {isEs ? "Seguimiento actualizado:" : "Tracking updated:"}{" "}
             {LAYOFFS_LAST_UPDATED}
           </p>
@@ -448,7 +448,7 @@ export default function TransitionResourcesPage() {
                     {layoff.city}, {layoff.county}
                   </span>
                 </div>
-                <p className="text-xs text-stone-400 mt-2 line-clamp-2">
+                <p className="text-xs text-stone-500 mt-2 line-clamp-2">
                   {layoff.reason.slice(0, 120)}…
                 </p>
               </div>
@@ -528,7 +528,7 @@ export default function TransitionResourcesPage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-stone-400">
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-stone-500">
             <Link href="/layoffs" className="hover:text-white transition-colors">
               {isEs ? "Seguimiento de Despidos" : "Layoff Tracker"} →
             </Link>
@@ -564,7 +564,7 @@ export default function TransitionResourcesPage() {
             <h2 className="text-3xl font-bold text-white mb-3">
               {isEs ? "Solicitar Servicios de Transición" : "Request Transition Services"}
             </h2>
-            <p className="text-stone-400 text-lg max-w-xl mx-auto">
+            <p className="text-stone-500 text-lg max-w-xl mx-auto">
               {isEs
                 ? "Cuéntenos sobre su situación. Lo contactaremos dentro de 24 horas con un plan de acción."
                 : "Tell us about your situation. We'll contact you within 24 hours with an action plan."}
@@ -770,7 +770,7 @@ export default function TransitionResourcesPage() {
                       }`}
                     >
                       <div className="text-white font-semibold text-sm">{tier.label}</div>
-                      <div className="text-stone-400 text-xs mt-0.5">{tier.sub}</div>
+                      <div className="text-stone-500 text-xs mt-0.5">{tier.sub}</div>
                       <div className="text-amber-400 text-xs font-medium mt-2">{tier.price}</div>
                     </button>
                   ))}
@@ -817,7 +817,7 @@ export default function TransitionResourcesPage() {
               >
                 {submitting ? (
                   <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <Loader2 className="w-5 h-5 motion-safe:animate-spin" />
                     {isEs ? "Enviando..." : "Submitting..."}
                   </>
                 ) : (

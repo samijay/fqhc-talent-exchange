@@ -512,7 +512,7 @@ export default async function FQHCAIScribesArticle() {
               <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
                 {locale === "es" ? "Fuentes" : "Sources"}
               </h2>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-500">
                 <li>
                   <a href="https://www.ama-assn.org/practice-management/digital-health/2-3-physicians-are-using-health-ai-78-2023" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">2 in 3 Physicians Are Using Health AI — Up 78% from 2023</a> — American Medical Association, 2025. {locale === "es" ? "Adopción de IA saltó del 38% (2023) al 66% (2024); encuesta de ~1,200 médicos." : "AI adoption jumped from 38% (2023) to 66% (2024); survey of ~1,200 physicians."}
                 </li>

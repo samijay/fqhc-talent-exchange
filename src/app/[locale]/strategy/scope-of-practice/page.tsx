@@ -130,9 +130,9 @@ function RoleCard({
         </div>
         <div className="flex-shrink-0 mt-1">
           {isExpanded ? (
-            <ChevronUp className="size-5 text-stone-400" />
+            <ChevronUp className="size-5 text-stone-500" />
           ) : (
-            <ChevronDown className="size-5 text-stone-400" />
+            <ChevronDown className="size-5 text-stone-500" />
           )}
         </div>
       </button>
@@ -249,7 +249,7 @@ function RoleCard({
 
           {/* Source link */}
           <div className="flex items-center justify-between pt-2 border-t border-stone-100">
-            <span className="text-xs text-stone-400">
+            <span className="text-xs text-stone-500">
               {role.caRegulation}
             </span>
             <a

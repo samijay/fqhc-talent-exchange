@@ -259,7 +259,7 @@ export default function JoinPage() {
                 : "Free career tools, job postings, and resources for displaced health professionals."}
             </p>
           </div>
-          <ArrowRight className="size-5 shrink-0 text-stone-400 transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="size-5 shrink-0 text-stone-500 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>
 
@@ -487,7 +487,7 @@ export default function JoinPage() {
           <div className="mt-6">
             <Label htmlFor="notes">
               {t("lookingFor")}{" "}
-              <span className="font-normal text-stone-400">({t("optional")})</span>
+              <span className="font-normal text-stone-500">({t("optional")})</span>
             </Label>
             <Textarea
               id="notes"
@@ -502,7 +502,7 @@ export default function JoinPage() {
               className="mt-1.5"
               maxLength={NOTES_MAX}
             />
-            <p className="mt-1 text-right text-xs text-stone-400">
+            <p className="mt-1 text-right text-xs text-stone-500">
               {notes.length}/{NOTES_MAX}
             </p>
           </div>
@@ -515,7 +515,7 @@ export default function JoinPage() {
           >
             {submitting ? (
               <>
-                <Loader2 className="size-4 animate-spin" />
+                <Loader2 className="size-4 motion-safe:animate-spin" />
                 {t("submitting")}
               </>
             ) : (

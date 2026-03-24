@@ -75,7 +75,7 @@ export default function TeamSprintPage() {
     return (
       <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         <div className="max-w-4xl mx-auto px-4 py-8">
-          <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-6">
+          <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-6">
             <Link
               href="/strategy/guides"
               className="hover:text-teal-600 transition-colors"
@@ -130,7 +130,7 @@ export default function TeamSprintPage() {
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-8">
+        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-8">
           <Link
             href="/strategy/guides"
             className="hover:text-teal-600 transition-colors"
@@ -158,13 +158,13 @@ export default function TeamSprintPage() {
               : "Team OKR Sprint"}
           </h1>
 
-          <p className="text-lg text-stone-500 dark:text-stone-400 max-w-2xl mx-auto mb-6">
+          <p className="text-lg text-stone-500 dark:text-stone-500 max-w-2xl mx-auto mb-6">
             {isEs
               ? "Tu equipo ejecutivo construye sus OKRs reales juntos en 4 sesiones guiadas. Sin consultor, sin reuniones largas — solo un proceso estructurado que produce resultados."
               : "Your executive team builds their real OKRs together in 4 guided sessions. No consultant, no long meetings — just a structured process that produces results."}
           </p>
 
-          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-400 mb-8">
+          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-500 mb-8">
             <span className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
               ~2 {isEs ? "horas total" : "hours total"}
@@ -249,10 +249,10 @@ export default function TeamSprintPage() {
                       <h3 className="font-semibold text-stone-800 dark:text-stone-200 mb-1">
                         {session.title}
                       </h3>
-                      <p className="text-sm text-stone-500 dark:text-stone-400">
+                      <p className="text-sm text-stone-500 dark:text-stone-500">
                         {session.desc}
                       </p>
-                      <p className="text-xs text-stone-400 dark:text-stone-500 mt-1">
+                      <p className="text-xs text-stone-500 dark:text-stone-500 mt-1">
                         ~{session.time}
                       </p>
                     </div>
@@ -282,11 +282,11 @@ export default function TeamSprintPage() {
                         <p className="font-medium text-stone-800 dark:text-stone-200 truncate">
                           {sprint.name}
                         </p>
-                        <p className="text-xs text-stone-400 dark:text-stone-500">
+                        <p className="text-xs text-stone-500 dark:text-stone-500">
                           {isEs ? "Código:" : "Code:"} {sprint.inviteCode}
                         </p>
                       </div>
-                      <ArrowRight className="h-4 w-4 text-stone-400 shrink-0" />
+                      <ArrowRight className="h-4 w-4 text-stone-500 shrink-0" />
                     </CardContent>
                   </Card>
                 </Link>
@@ -304,7 +304,7 @@ export default function TeamSprintPage() {
                 ? "¿Nuevo en OKRs?"
                 : "New to OKRs?"}
             </h3>
-            <p className="text-sm text-stone-500 dark:text-stone-400 mb-4 max-w-md mx-auto">
+            <p className="text-sm text-stone-500 dark:text-stone-500 mb-4 max-w-md mx-auto">
               {isEs
                 ? "Toma primero nuestro curso individual de 45 minutos para aprender la metodología antes del sprint de equipo."
                 : "Take our 45-minute individual course first to learn the methodology before the team sprint."}

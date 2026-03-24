@@ -41,7 +41,7 @@ export interface LegislativeBill {
 /* --- Status Metadata ----------------------------------------------- */
 
 export const STATUS_LABELS: Record<LegislativeStatus, { en: string; es: string; color: string }> = {
-  introduced:      { en: "Introduced",        es: "Introducido",         color: "text-stone-400 bg-stone-800" },
+  introduced:      { en: "Introduced",        es: "Introducido",         color: "text-stone-500 bg-stone-800" },
   committee:       { en: "In Committee",       es: "En Comité",           color: "text-amber-400 bg-amber-950" },
   floor_vote:      { en: "Floor Vote Pending", es: "Voto Pendiente",      color: "text-orange-400 bg-orange-950" },
   passed_chamber:  { en: "Passed Chamber",     es: "Pasó Cámara",         color: "text-blue-400 bg-blue-950" },
@@ -55,7 +55,7 @@ export const IMPACT_STYLES: Record<LegislativeImpact, { badge: string; dot: stri
   critical: { badge: "bg-red-900/60 text-red-300 border-red-700",    dot: "bg-red-500",   label: "CRITICAL" },
   high:     { badge: "bg-orange-900/60 text-orange-300 border-orange-700", dot: "bg-orange-500", label: "HIGH IMPACT" },
   moderate: { badge: "bg-amber-900/60 text-amber-300 border-amber-700",    dot: "bg-amber-500",  label: "MODERATE" },
-  watch:    { badge: "bg-stone-800 text-stone-400 border-stone-600",  dot: "bg-stone-400", label: "WATCH" },
+  watch:    { badge: "bg-stone-800 text-stone-500 border-stone-600",  dot: "bg-stone-400", label: "WATCH" },
 };
 
 export const CHAMBER_LABELS: Record<LegislativeChamber, { en: string; es: string; flag: string }> = {

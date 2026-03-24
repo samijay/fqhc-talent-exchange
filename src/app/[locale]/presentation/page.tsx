@@ -80,7 +80,7 @@ function StatCard({
       >
         {value}
       </div>
-      <div className="mt-1 text-sm text-stone-400">{label}</div>
+      <div className="mt-1 text-sm text-stone-500">{label}</div>
     </div>
   );
 }
@@ -183,7 +183,7 @@ const slides: Slide[] = [
               Taught Me
             </span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-stone-400 sm:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-stone-500 sm:text-xl">
             And what I built with AI to give it all back — for free
           </p>
           <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
@@ -217,7 +217,7 @@ const slides: Slide[] = [
           A year at{" "}
           <span className="text-teal-400">Mission Neighborhood Health Center</span>
         </h2>
-        <p className="mt-4 max-w-2xl text-lg text-stone-400">
+        <p className="mt-4 max-w-2xl text-lg text-stone-500">
           Working inside an FQHC in San Francisco&apos;s Mission District, I saw the
           workforce crisis from the inside — and absorbed everything I could about
           how these organizations actually operate.
@@ -226,7 +226,7 @@ const slides: Slide[] = [
           <div className="rounded-xl border border-stone-700/50 bg-stone-800/30 p-6">
             <Users className="mb-3 size-6 text-red-400" />
             <div className="text-lg font-bold text-white">Workforce Crisis</div>
-            <div className="mt-2 text-sm text-stone-400">
+            <div className="mt-2 text-sm text-stone-500">
               Burned-out staff, unfilled positions, constant turnover. 84% of
               FQHCs report shortages.
             </div>
@@ -234,7 +234,7 @@ const slides: Slide[] = [
           <div className="rounded-xl border border-stone-700/50 bg-stone-800/30 p-6">
             <DollarSign className="mb-3 size-6 text-red-400" />
             <div className="text-lg font-bold text-white">Billing Complexity</div>
-            <div className="mt-2 text-sm text-stone-400">
+            <div className="mt-2 text-sm text-stone-500">
               PPS rates, same-day billing rules, APM transition, scope-of-practice
               confusion — revenue left on the table daily.
             </div>
@@ -242,7 +242,7 @@ const slides: Slide[] = [
           <div className="rounded-xl border border-stone-700/50 bg-stone-800/30 p-6">
             <AlertTriangle className="mb-3 size-6 text-red-400" />
             <div className="text-lg font-bold text-white">Policy Whiplash</div>
-            <div className="mt-2 text-sm text-stone-400">
+            <div className="mt-2 text-sm text-stone-500">
               H.R. 1 Medicaid cuts, CalAIM waiver expiration, SB 525 wage
               mandates — all hitting at once.
             </div>
@@ -250,7 +250,7 @@ const slides: Slide[] = [
           <div className="rounded-xl border border-stone-700/50 bg-stone-800/30 p-6">
             <Search className="mb-3 size-6 text-red-400" />
             <div className="text-lg font-bold text-white">Information Desert</div>
-            <div className="mt-2 text-sm text-stone-400">
+            <div className="mt-2 text-sm text-stone-500">
               No centralized salary data, scattered policy updates, zero free
               career tools for frontline workers.
             </div>
@@ -277,7 +277,7 @@ const slides: Slide[] = [
             <br />
             and make it useful
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-stone-400">
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-stone-500">
             Not a recruiting company. Not a staffing agency. A free knowledge and
             intelligence platform — built entirely with AI.
           </p>
@@ -301,7 +301,7 @@ sortable table, visual range bars, career progression...
             <p className="text-lg font-bold text-amber-400">
               &ldquo;I didn&apos;t write a single word.&rdquo;
             </p>
-            <p className="mt-2 text-sm text-stone-400">
+            <p className="mt-2 text-sm text-stone-500">
               Every feature, every article, every data visualization — I designed
               it, prompted it, and iterated on it. Claude Code wrote all the code
               and content.
@@ -327,7 +327,7 @@ sortable table, visual range bars, career progression...
         <h2 className="text-4xl font-black text-white sm:text-5xl">
           Strategic Intelligence
         </h2>
-        <p className="mt-4 max-w-2xl text-lg text-stone-400">
+        <p className="mt-4 max-w-2xl text-lg text-stone-500">
           The intel an FQHC executive wishes they had — curated, sourced, and
           updated daily.
         </p>
@@ -382,7 +382,7 @@ sortable table, visual range bars, career progression...
         <h2 className="text-4xl font-black text-white sm:text-5xl">
           Free Career Tools
         </h2>
-        <p className="mt-4 max-w-2xl text-lg text-stone-400">
+        <p className="mt-4 max-w-2xl text-lg text-stone-500">
           Everything a community health worker needs to advance their career —
           no login, no paywall.
         </p>
@@ -447,7 +447,7 @@ sortable table, visual range bars, career progression...
         <h2 className="text-4xl font-black text-white sm:text-5xl">
           Knowledge &amp; Education
         </h2>
-        <p className="mt-4 max-w-2xl text-lg text-stone-400">
+        <p className="mt-4 max-w-2xl text-lg text-stone-500">
           Deep operational content — the kind of knowledge that takes years to
           accumulate, organized and made accessible.
         </p>
@@ -512,7 +512,7 @@ sortable table, visual range bars, career progression...
         <h2 className="text-4xl font-black text-white sm:text-5xl">
           FQHC Data &amp; Directory
         </h2>
-        <p className="mt-4 max-w-2xl text-lg text-stone-400">
+        <p className="mt-4 max-w-2xl text-lg text-stone-500">
           The most comprehensive open dataset of California&apos;s community health
           centers — profiles, resilience scores, strategic reports, and more.
         </p>
@@ -564,7 +564,7 @@ sortable table, visual range bars, career progression...
           <h2 className="text-4xl font-black text-white sm:text-5xl">
             By the numbers
           </h2>
-          <p className="mt-4 text-lg text-stone-400">
+          <p className="mt-4 text-lg text-stone-500">
             One person. One AI. Zero hand-written words.
           </p>
           <div className="mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -602,7 +602,7 @@ sortable table, visual range bars, career progression...
           The site gets smarter{" "}
           <span className="text-green-400">every morning</span>
         </h2>
-        <p className="mt-4 max-w-2xl text-lg text-stone-400">
+        <p className="mt-4 max-w-2xl text-lg text-stone-500">
           6 automated commands power a daily content pipeline — scanning policy,
           tracking jobs, monitoring layoffs, and curating intelligence.
         </p>
@@ -633,7 +633,7 @@ sortable table, visual range bars, career progression...
             detail="Ambient scribes, RCM AI, EHR integrations → tracker"
           />
           <PipelineStep
-            icon={<CheckCircle2 className="size-5 text-stone-400" />}
+            icon={<CheckCircle2 className="size-5 text-stone-500" />}
             label="Link Quality Control"
             detail="Every new URL verified → broken links caught daily"
           />
@@ -671,7 +671,7 @@ Build: PASS ✓`}
               Every word AI-generated
             </span>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-stone-400">
+          <p className="mx-auto mt-6 max-w-xl text-lg text-stone-500">
             from one person&apos;s year inside an FQHC.
           </p>
           <div className="mt-10">
@@ -741,7 +741,7 @@ export default function PresentationPage() {
       {current > 0 && (
         <button
           onClick={() => goTo(current - 1)}
-          className="fixed left-4 top-1/2 -translate-y-1/2 rounded-full bg-stone-800/80 p-2 text-stone-400 transition hover:bg-stone-700 hover:text-white"
+          className="fixed left-4 top-1/2 -translate-y-1/2 rounded-full bg-stone-800/80 p-2 text-stone-500 transition hover:bg-stone-700 hover:text-white"
           aria-label="Previous slide"
         >
           <ChevronLeft className="size-6" />
@@ -750,7 +750,7 @@ export default function PresentationPage() {
       {current < slides.length - 1 && (
         <button
           onClick={() => goTo(current + 1)}
-          className="fixed right-4 top-1/2 -translate-y-1/2 rounded-full bg-stone-800/80 p-2 text-stone-400 transition hover:bg-stone-700 hover:text-white"
+          className="fixed right-4 top-1/2 -translate-y-1/2 rounded-full bg-stone-800/80 p-2 text-stone-500 transition hover:bg-stone-700 hover:text-white"
           aria-label="Next slide"
         >
           <ChevronRight className="size-6" />

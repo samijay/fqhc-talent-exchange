@@ -118,7 +118,7 @@ function generateSampleJobs(fqhc: CaliforniaFQHC): SampleJob[] {
 }
 
 function StarRating({ rating, noRatingText }: { rating: number | null; noRatingText?: string }) {
-  if (rating === null) return <span className="text-xs text-stone-400">{noRatingText || "No rating"}</span>;
+  if (rating === null) return <span className="text-xs text-stone-500">{noRatingText || "No rating"}</span>;
   const full = Math.floor(rating);
   const half = rating - full >= 0.3;
   return (
@@ -375,7 +375,7 @@ export default function DirectoryPage() {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           {/* Search */}
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
+            <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-500" />
             <Input
               placeholder={t.searchPlaceholder}
               value={search}
@@ -649,7 +649,7 @@ export default function DirectoryPage() {
                         <td className="px-4 py-3">
                           <StarRating rating={fqhc.glassdoorRating} noRatingText={t.noRating} />
                           {fqhc.glassdoorReviewCount && (
-                            <span className="ml-1 text-xs text-stone-400">
+                            <span className="ml-1 text-xs text-stone-500">
                               ({fqhc.glassdoorReviewCount})
                             </span>
                           )}
@@ -658,7 +658,7 @@ export default function DirectoryPage() {
                           {fqhc.ecmProvider ? (
                             <Badge className="bg-teal-50 text-teal-800 text-xs">ECM</Badge>
                           ) : (
-                            <span className="text-xs text-stone-400">—</span>
+                            <span className="text-xs text-stone-500">—</span>
                           )}
                         </td>
                         <td className="px-4 py-3">
@@ -669,7 +669,7 @@ export default function DirectoryPage() {
                               </Badge>
                             ))}
                             {fqhc.programs.length > 2 && (
-                              <span className="text-xs text-stone-400">
+                              <span className="text-xs text-stone-500">
                                 +{fqhc.programs.length - 2}
                               </span>
                             )}
@@ -893,7 +893,7 @@ export default function DirectoryPage() {
                       </p>
                     )}
                     {selectedFqhc.unionInfo.notes && (
-                      <p className="text-xs text-stone-400 italic">{selectedFqhc.unionInfo.notes}</p>
+                      <p className="text-xs text-stone-500 italic">{selectedFqhc.unionInfo.notes}</p>
                     )}
                   </div>
                 )}
@@ -1166,7 +1166,7 @@ function FQHCCard({
         <div className="mt-3">
           <StarRating rating={fqhc.glassdoorRating} noRatingText={isEs ? "Sin calificación" : "No rating"} />
           {fqhc.glassdoorReviewCount && (
-            <span className="ml-1 text-xs text-stone-400">
+            <span className="ml-1 text-xs text-stone-500">
               ({fqhc.glassdoorReviewCount})
             </span>
           )}

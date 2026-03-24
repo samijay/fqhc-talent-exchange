@@ -340,7 +340,7 @@ export default function LayoffsPage() {
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           {/* Search */}
           <div className="relative flex-1 min-w-[200px]">
-            <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
+            <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-500" />
             <Input
               placeholder={t.searchPlaceholder}
               value={search}

@@ -664,7 +664,7 @@ export default async function WhatIsECMArticle() {
               <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
                 {locale === "es" ? "Fuentes" : "Sources"}
               </h2>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-500">
                 <li><a href="https://www.dhcs.ca.gov/CalAIM/Pages/CalAIM.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CalAIM: Transforming Medi-Cal</a> — California Department of Health Care Services (DHCS)</li>
                 <li><a href="https://www.dhcs.ca.gov/CalAIM/ECM/Pages/Home.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Enhanced Care Management & Community Supports</a> — DHCS CalAIM</li>
                 <li><a href="https://www.dhcs.ca.gov/CalAIM/ECM/Documents/CalAIM-ECM-Policy-Guide.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CalAIM Enhanced Care Management Policy Guide</a> — DHCS, Updated January 2026</li>

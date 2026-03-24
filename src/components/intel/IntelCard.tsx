@@ -60,20 +60,20 @@ export function IntelCard({
             <div className="flex flex-wrap items-center gap-1.5 mb-1">
               <Badge
                 variant="outline"
-                className={`text-[10px] font-semibold ${IMPACT_STYLES[item.impactLevel]}`}
+                className={`text-xs font-semibold ${IMPACT_STYLES[item.impactLevel]}`}
               >
                 {t(IMPACT_LABELS[item.impactLevel], locale)}
               </Badge>
-              <span className="text-[11px] text-stone-400">
+              <span className="text-xs text-stone-500">
                 {formatDate(item.date, locale)}
               </span>
               {catMeta && (
-                <span className="text-[10px] bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded-full">
+                <span className="text-xs bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded-full">
                   {isEs ? catMeta.es : catMeta.en}
                 </span>
               )}
               {item.paywalled && (
-                <span className="inline-flex items-center gap-0.5 text-[10px] bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded-full border border-amber-200">
+                <span className="inline-flex items-center gap-0.5 text-xs bg-amber-50 text-amber-700 px-1.5 py-0.5 rounded-full border border-amber-200">
                   <Lock className="size-2.5" />
                   {isEs ? "Exclusivo" : "Paywalled"}
                 </span>
@@ -90,7 +90,7 @@ export function IntelCard({
               </p>
             )}
           </div>
-          <div className="flex-shrink-0 mt-0.5 text-stone-400">
+          <div className="flex-shrink-0 mt-0.5 text-stone-500">
             {isExpanded ? (
               <ChevronUp className="size-4" />
             ) : (
@@ -130,7 +130,7 @@ export function IntelCard({
               {item.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded bg-stone-100 px-1.5 py-0.5 text-[10px] font-medium text-stone-500"
+                  className="rounded bg-stone-100 px-1.5 py-0.5 text-xs font-medium text-stone-500"
                 >
                   {tag}
                 </span>
@@ -177,7 +177,7 @@ export function IntelCard({
 
           {/* Source + Share */}
           <div className="mt-3 flex items-center justify-between border-t border-stone-100 pt-2.5">
-            <span className="text-[11px] text-stone-400">{item.region}</span>
+            <span className="text-xs text-stone-500">{item.region}</span>
             <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
               <ShareButton
                 url={`https://www.fqhctalent.com/#${item.id}`}
@@ -201,7 +201,7 @@ export function IntelCard({
       {/* Collapsed footer — source as hyperlink text */}
       {!isExpanded && (
         <div className="px-4 pb-2.5 flex items-center justify-between">
-          <span className="text-[11px] text-stone-400">{item.region}</span>
+          <span className="text-xs text-stone-500">{item.region}</span>
           <a
             href={item.sourceUrl}
             target="_blank"

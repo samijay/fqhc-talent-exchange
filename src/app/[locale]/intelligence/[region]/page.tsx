@@ -133,7 +133,7 @@ export default async function RegionalIntelligencePage({
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="mb-2 flex items-center gap-2 text-stone-400">
+          <div className="mb-2 flex items-center gap-2 text-stone-500">
             <Link href="/" className="hover:text-white transition-colors text-sm">
               {t({ en: "Intelligence", es: "Inteligencia" })}
             </Link>
@@ -190,7 +190,7 @@ export default async function RegionalIntelligencePage({
               >
                 <stat.icon className="mb-1 size-4 text-teal-400" />
                 <p className="text-2xl font-bold">{stat.value}</p>
-                <p className="text-xs text-stone-400">{stat.label}</p>
+                <p className="text-xs text-stone-500">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -397,7 +397,7 @@ export default async function RegionalIntelligencePage({
                     </td>
                     <td className="hidden px-4 py-3 text-stone-600 sm:table-cell">
                       <div className="flex items-center gap-1">
-                        <MapPin className="size-3 text-stone-400" />
+                        <MapPin className="size-3 text-stone-500" />
                         {fqhc.city}
                       </div>
                     </td>
@@ -420,7 +420,7 @@ export default async function RegionalIntelligencePage({
                           {fqhc.glassdoorRating}
                         </span>
                       ) : (
-                        <span className="text-stone-400">--</span>
+                        <span className="text-stone-500">--</span>
                       )}
                     </td>
                     <td className="hidden px-4 py-3 text-right text-stone-600 lg:table-cell">
@@ -489,7 +489,7 @@ export default async function RegionalIntelligencePage({
                       <div key={ehr.name}>
                         <div className="mb-1 flex items-center justify-between text-sm">
                           <span className="font-medium text-stone-700">
-                            <Monitor className="mr-1 inline size-3 text-stone-400" />
+                            <Monitor className="mr-1 inline size-3 text-stone-500" />
                             {ehr.name}
                           </span>
                           <span className="text-stone-500">
@@ -543,14 +543,14 @@ export default async function RegionalIntelligencePage({
                     >
                       {t(IMPACT_LABELS[item.impactLevel])}
                     </Badge>
-                    <span className="text-xs text-stone-400">
+                    <span className="text-xs text-stone-500">
                       {new Date(item.date).toLocaleDateString(locale === "es" ? "es-US" : "en-US", {
                         month: "short",
                         day: "numeric",
                         year: "numeric",
                       })}
                     </span>
-                    <span className="text-xs text-stone-400">
+                    <span className="text-xs text-stone-500">
                       {item.sourceOrg}
                     </span>
                   </div>

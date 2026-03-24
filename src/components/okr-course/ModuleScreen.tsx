@@ -155,7 +155,7 @@ export function ModuleScreen({
         <div className="flex-1" />
         <Badge
           variant="outline"
-          className="text-stone-500 dark:text-stone-400"
+          className="text-stone-500 dark:text-stone-500"
         >
           <BookOpen className="h-3 w-3 mr-1" />
           {module.estimatedMinutes}{" "}
@@ -182,7 +182,7 @@ export function ModuleScreen({
             <h1 className="text-2xl font-bold text-stone-800 dark:text-stone-100 mb-2">
               {t(module.title)}
             </h1>
-            <p className="text-stone-500 dark:text-stone-400 max-w-md">
+            <p className="text-stone-500 dark:text-stone-500 max-w-md">
               {t(module.description)}
             </p>
           </div>
@@ -190,7 +190,7 @@ export function ModuleScreen({
           {/* Learning objectives */}
           <Card className="w-full max-w-md text-left border-stone-200 dark:border-stone-700">
             <CardContent className="p-4">
-              <p className="text-sm font-medium text-stone-600 dark:text-stone-400 mb-3">
+              <p className="text-sm font-medium text-stone-600 dark:text-stone-500 mb-3">
                 {locale === "es"
                   ? "Lo que aprenderás:"
                   : "What you'll learn:"}
@@ -267,7 +267,7 @@ export function ModuleScreen({
         <div className="py-4">
           <div className="flex items-center gap-2 mb-4">
             <Zap className="h-4 w-4 text-amber-500" />
-            <span className="text-sm font-medium text-stone-600 dark:text-stone-400">
+            <span className="text-sm font-medium text-stone-600 dark:text-stone-500">
               {locale === "es" ? "Ejercicio" : "Exercise"}{" "}
               {exerciseIndex + 1} / {totalExercises}
             </span>
@@ -285,7 +285,7 @@ export function ModuleScreen({
                 ? "¡Módulo Completado!"
                 : "Module Complete!"}
             </h2>
-            <p className="text-stone-500 dark:text-stone-400">
+            <p className="text-stone-500 dark:text-stone-500">
               {t(module.title)}
             </p>
           </div>

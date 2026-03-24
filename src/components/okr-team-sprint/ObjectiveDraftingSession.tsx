@@ -78,7 +78,7 @@ export function ObjectiveDraftingSession({
         <h2 className="text-xl font-bold text-stone-800 dark:text-stone-100">
           {isEs ? "Redacción de Objetivos" : "Objective Drafting"}
         </h2>
-        <p className="text-sm text-stone-500 dark:text-stone-400">
+        <p className="text-sm text-stone-500 dark:text-stone-500">
           {isEs
             ? "Redacta objetivos para tu área de responsabilidad. Tu equipo puede ver y comentar."
             : "Draft objectives for your area of responsibility. Your team can view and comment."}
@@ -121,7 +121,7 @@ export function ObjectiveDraftingSession({
                         {obj.feedback.map((fb, i) => (
                           <div
                             key={i}
-                            className="text-xs text-stone-500 dark:text-stone-400 pl-3 border-l-2 border-teal-200 dark:border-teal-700"
+                            className="text-xs text-stone-500 dark:text-stone-500 pl-3 border-l-2 border-teal-200 dark:border-teal-700"
                           >
                             <span className="font-medium">
                               {fb.authorName}:
@@ -136,7 +136,7 @@ export function ObjectiveDraftingSession({
                     variant="ghost"
                     size="sm"
                     onClick={() => deleteObjective(obj.id)}
-                    className="text-stone-400 hover:text-red-500"
+                    className="text-stone-500 hover:text-red-500"
                     aria-label={isEs ? "Eliminar objetivo" : "Delete objective"}
                   >
                     <Trash2 className="h-4 w-4" aria-hidden="true" />
@@ -152,7 +152,7 @@ export function ObjectiveDraftingSession({
           <Card className="border-teal-200 dark:border-teal-700">
             <CardContent className="p-4 space-y-3">
               <div>
-                <label htmlFor="new-objective-domain" className="text-xs font-medium text-stone-600 dark:text-stone-400 mb-1 block">
+                <label htmlFor="new-objective-domain" className="text-xs font-medium text-stone-600 dark:text-stone-500 mb-1 block">
                   {isEs ? "Dominio" : "Domain"}
                 </label>
                 <select
@@ -174,7 +174,7 @@ export function ObjectiveDraftingSession({
                 </select>
               </div>
               <div>
-                <label htmlFor="new-objective-text" className="text-xs font-medium text-stone-600 dark:text-stone-400 mb-1 block">
+                <label htmlFor="new-objective-text" className="text-xs font-medium text-stone-600 dark:text-stone-500 mb-1 block">
                   {isEs ? "Objetivo" : "Objective"}
                 </label>
                 <Textarea
@@ -244,7 +244,7 @@ export function ObjectiveDraftingSession({
                     <Target className="h-5 w-5 text-blue-500 mt-0.5 shrink-0" />
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-medium text-stone-500 dark:text-stone-400">
+                        <span className="text-xs font-medium text-stone-500 dark:text-stone-500">
                           {obj.ownerName}
                         </span>
                         {domainMeta && (
@@ -266,7 +266,7 @@ export function ObjectiveDraftingSession({
                           {obj.feedback.map((fb, i) => (
                             <div
                               key={i}
-                              className="text-xs text-stone-500 dark:text-stone-400 pl-3 border-l-2 border-blue-200 dark:border-blue-700"
+                              className="text-xs text-stone-500 dark:text-stone-500 pl-3 border-l-2 border-blue-200 dark:border-blue-700"
                             >
                               <span className="font-medium">
                                 {fb.authorName}:

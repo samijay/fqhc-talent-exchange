@@ -71,7 +71,7 @@ export default function RevenueSimulatorPage() {
               >
                 <stat.icon className="mb-2 size-5 text-teal-400" />
                 <p className="text-2xl font-bold text-white">{stat.value}</p>
-                <p className="text-xs text-stone-400">{stat.label}</p>
+                <p className="text-xs text-stone-500">{stat.label}</p>
               </div>
             ))}
           </div>

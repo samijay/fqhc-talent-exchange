@@ -94,7 +94,7 @@ export function SalaryRangeChart({
           </div>
         ))}
       </div>
-      <div className="mt-3 flex items-center gap-4 text-[10px] text-stone-400">
+      <div className="mt-3 flex items-center gap-4 text-xs text-stone-500">
         <span className="flex items-center gap-1">
           <span className="inline-block h-2 w-4 rounded bg-gradient-to-r from-teal-400 to-teal-600" />
           {t({ en: "P25 – P75 Range", es: "Rango P25 – P75" }, locale)}
@@ -104,7 +104,7 @@ export function SalaryRangeChart({
           {t({ en: "Median (P50)", es: "Mediana (P50)" }, locale)}
         </span>
       </div>
-      <p className="mt-2 text-[10px] text-stone-400">
+      <p className="mt-2 text-xs text-stone-500">
         {t({
           en: "Source: FQHC Talent analysis of 156+ CA FQHC job listings, 2025–2026",
           es: "Fuente: Análisis de FQHC Talent de 156+ ofertas FQHC en CA, 2025–2026",
@@ -174,7 +174,7 @@ export function TotalCompVisual({
         </div>
       </div>
       {nhscAnnualized && (
-        <p className="mt-2 text-[10px] text-teal-600">
+        <p className="mt-2 text-xs text-teal-600">
           {t({
             en: "* NHSC loan repayment is tax-free. Not all staff qualify — eligible roles include clinical and behavioral health positions in designated HPSAs.",
             es: "* El pago de préstamos NHSC es libre de impuestos. No todo el personal califica — roles elegibles incluyen posiciones clínicas y de salud conductual en HPSAs designados.",

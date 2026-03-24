@@ -294,7 +294,7 @@ export function ProfileTabs({
                 {isEs ? tab.es : tab.en}
                 {count !== null && count > 0 && (
                   <span
-                    className={`ml-1 rounded-full px-1.5 py-0.5 text-[10px] font-bold ${
+                    className={`ml-1 rounded-full px-1.5 py-0.5 text-xs font-bold ${
                       isActive ? "bg-teal-100 text-teal-800" : "bg-stone-100 text-stone-600"
                     }`}
                   >
@@ -402,7 +402,7 @@ export function ProfileTabs({
                 >
                   <Globe className="size-4" />
                   {isEs ? "Ver Sitio Web" : "View Website"}
-                  <ExternalLink className="ml-auto size-3.5 text-stone-400" />
+                  <ExternalLink className="ml-auto size-3.5 text-stone-500" />
                 </a>
               )}
               {details.careersUrl && (
@@ -414,7 +414,7 @@ export function ProfileTabs({
                 >
                   <Briefcase className="size-4" />
                   {isEs ? "Ver Carreras" : "View Careers"}
-                  <ExternalLink className="ml-auto size-3.5 text-stone-400" />
+                  <ExternalLink className="ml-auto size-3.5 text-stone-500" />
                 </a>
               )}
             </div>
@@ -502,7 +502,7 @@ export function ProfileTabs({
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-medium text-stone-800">{f.name}</span>
-                      <Badge className={`text-[10px] ${
+                      <Badge className={`text-xs ${
                         f.grade === "A" || f.grade === "B"
                           ? "bg-green-100 text-green-800"
                           : f.grade === "C"
@@ -634,7 +634,7 @@ function OverviewTab({
           ))}
         </div>
         <div className="mt-4 flex items-center justify-between">
-          <span className="text-xs text-stone-400">
+          <span className="text-xs text-stone-500">
             {isEs ? "Completitud de datos:" : "Data completeness:"} {resilience.dataCompleteness}%
           </span>
           <div className="flex gap-3">
@@ -722,7 +722,7 @@ function NewsTab({
             ? "No hay noticias relacionadas con esta organización aún."
             : "No news related to this organization yet."}
         </p>
-        <p className="mt-1 text-xs text-stone-400">
+        <p className="mt-1 text-xs text-stone-500">
           {isEs
             ? "Las noticias aparecerán aquí cuando se publiquen."
             : "News will appear here as it's published."}
@@ -746,11 +746,11 @@ function NewsTab({
               className={`rounded-lg border border-stone-200 border-l-4 ${IMPACT_BORDER[d.impactLevel]} p-4`}
             >
               <div className="flex items-center gap-2 mb-1">
-                <Newspaper className="size-3.5 text-stone-400" />
-                <Badge className={`text-[10px] ${IMPACT_BADGE[d.impactLevel]}`}>
+                <Newspaper className="size-3.5 text-stone-500" />
+                <Badge className={`text-xs ${IMPACT_BADGE[d.impactLevel]}`}>
                   {d.impactLevel}
                 </Badge>
-                <span className="text-[11px] text-stone-400">
+                <span className="text-xs text-stone-500">
                   {new Date(d.date + "T00:00:00").toLocaleDateString(
                     isEs ? "es-US" : "en-US",
                     { month: "short", day: "numeric", year: "numeric" }
@@ -780,10 +780,10 @@ function NewsTab({
             <div key={`layoff-${d.id}`} className="rounded-lg border border-red-200 border-l-4 border-l-red-500 bg-red-50/30 p-4">
               <div className="flex items-center gap-2 mb-1">
                 <AlertTriangle className="size-3.5 text-red-500" />
-                <Badge className="text-[10px] bg-red-100 text-red-800">
+                <Badge className="text-xs bg-red-100 text-red-800">
                   {isEs ? "Despidos" : "Layoffs"}
                 </Badge>
-                <span className="text-[11px] text-stone-400">
+                <span className="text-xs text-stone-500">
                   {new Date(d.dateAnnounced + "T00:00:00").toLocaleDateString(
                     isEs ? "es-US" : "en-US",
                     { month: "short", day: "numeric", year: "numeric" }
@@ -803,10 +803,10 @@ function NewsTab({
           <div key={`ai-${d.id}`} className="rounded-lg border border-purple-200 border-l-4 border-l-purple-500 bg-purple-50/30 p-4">
             <div className="flex items-center gap-2 mb-1">
               <Cpu className="size-3.5 text-purple-500" />
-              <Badge className="text-[10px] bg-purple-100 text-purple-800">
+              <Badge className="text-xs bg-purple-100 text-purple-800">
                 {isEs ? "IA" : "AI"} {d.vendor ? `· ${d.vendor}` : ""}
               </Badge>
-              <span className="text-[11px] text-stone-400">
+              <span className="text-xs text-stone-500">
                 {new Date(d.date + "T00:00:00").toLocaleDateString(
                   isEs ? "es-US" : "en-US",
                   { month: "short", day: "numeric", year: "numeric" }
@@ -1074,7 +1074,7 @@ function StrategyTab({
                   </h3>
                   <div className="mt-1 flex flex-wrap gap-1">
                     {event.organizations.map((org) => (
-                      <span key={org} className="text-[11px] text-stone-500">{org}</span>
+                      <span key={org} className="text-xs text-stone-500">{org}</span>
                     ))}
                   </div>
                 </div>
@@ -1154,7 +1154,7 @@ function CareerTab({
                   <span className="text-sm font-semibold text-stone-800">
                     {isEs ? cert.esName : cert.name}
                   </span>
-                  <Badge variant="secondary" className="text-[10px]">{cert.abbreviation}</Badge>
+                  <Badge variant="secondary" className="text-xs">{cert.abbreviation}</Badge>
                 </div>
                 <div className="mt-2 flex items-center gap-3 text-xs text-stone-500">
                   <span>{cert.costRange}</span>
@@ -1195,7 +1195,7 @@ function CareerTab({
                   <span className="text-sm font-semibold text-stone-800">
                     {isEs ? r.name.es : r.name.en}
                   </span>
-                  <Badge variant="secondary" className={`text-[10px] ${
+                  <Badge variant="secondary" className={`text-xs ${
                     r.cost === "free" ? "bg-green-100 text-green-800" : "bg-stone-100"
                   }`}>
                     {r.cost === "free" ? (isEs ? "Gratis" : "Free") : r.cost}

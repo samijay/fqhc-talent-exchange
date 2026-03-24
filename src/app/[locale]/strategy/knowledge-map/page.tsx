@@ -270,7 +270,7 @@ function ThemeCard({
             )}
           </div>
           <ChevronDown
-            className={`size-5 text-stone-400 flex-shrink-0 mt-1 transition-transform ${
+            className={`size-5 text-stone-500 flex-shrink-0 mt-1 transition-transform ${
               isExpanded ? "rotate-180" : ""
             }`}
           />
@@ -304,7 +304,7 @@ function ThemeCard({
 
           {/* Content Links */}
           <div>
-            <h4 className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-3">
+            <h4 className="text-xs font-semibold text-stone-500 uppercase tracking-wider mb-3">
               {locale === "es"
                 ? "Contenido Relacionado"
                 : "Related Content"}
@@ -349,11 +349,11 @@ function LearningPathCard({
               <Badge variant="outline" className={`text-xs border ${diff.color}`}>
                 {t(diff, locale)}
               </Badge>
-              <span className="flex items-center gap-1 text-xs text-stone-400">
+              <span className="flex items-center gap-1 text-xs text-stone-500">
                 <Clock className="size-3" />
                 {path.estimatedTime}
               </span>
-              <span className="text-xs text-stone-400">
+              <span className="text-xs text-stone-500">
                 {path.steps.length} {locale === "es" ? "pasos" : "steps"}
               </span>
             </div>
@@ -363,12 +363,12 @@ function LearningPathCard({
             <p className="text-sm text-stone-500 line-clamp-2">
               {t(path.description, locale)}
             </p>
-            <p className="text-xs text-stone-400 mt-2 italic">
+            <p className="text-xs text-stone-500 mt-2 italic">
               {t(path.targetAudience, locale)}
             </p>
           </div>
           <ChevronDown
-            className={`size-5 text-stone-400 flex-shrink-0 mt-1 transition-transform ${
+            className={`size-5 text-stone-500 flex-shrink-0 mt-1 transition-transform ${
               isExpanded ? "rotate-180" : ""
             }`}
           />
@@ -497,7 +497,7 @@ function HubNodeRow({
         <p className="text-sm font-medium text-stone-900 truncate">
           {displayTitle}
         </p>
-        <p className="text-xs text-stone-400">
+        <p className="text-xs text-stone-500">
           {t(typeLabel, locale)}
         </p>
       </div>
@@ -505,7 +505,7 @@ function HubNodeRow({
         <span className="text-sm font-bold text-teal-700">
           {connectionCount}
         </span>
-        <span className="text-xs text-stone-400 ml-1">
+        <span className="text-xs text-stone-500 ml-1">
           {locale === "es" ? "conexiones" : "connections"}
         </span>
       </div>
@@ -588,7 +588,7 @@ export default function KnowledgeMapPage() {
                 <p className="text-2xl font-bold text-amber-400">
                   {strategicThemes.length}
                 </p>
-                <p className="text-xs text-stone-400 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   {isEs ? "Temas Estratégicos" : "Strategic Themes"}
                 </p>
               </div>
@@ -596,7 +596,7 @@ export default function KnowledgeMapPage() {
                 <p className="text-2xl font-bold text-amber-400">
                   {learningPaths.length}
                 </p>
-                <p className="text-xs text-stone-400 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   {isEs ? "Caminos de Aprendizaje" : "Learning Paths"}
                 </p>
               </div>
@@ -604,7 +604,7 @@ export default function KnowledgeMapPage() {
                 <p className="text-2xl font-bold text-amber-400">
                   {stats.totalEdges}+
                 </p>
-                <p className="text-xs text-stone-400 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   {isEs ? "Conexiones" : "Connections"}
                 </p>
               </div>
@@ -612,7 +612,7 @@ export default function KnowledgeMapPage() {
                 <p className="text-2xl font-bold text-amber-400">
                   {totalCaseStudies}
                 </p>
-                <p className="text-xs text-stone-400 mt-1">
+                <p className="text-xs text-stone-500 mt-1">
                   {isEs ? "Casos de Estudio" : "Case Studies"}
                 </p>
               </div>
@@ -736,7 +736,7 @@ export default function KnowledgeMapPage() {
                 ? "Explore el Conocimiento Estratégico"
                 : "Explore Strategic Knowledge"}
             </h2>
-            <p className="text-stone-400 max-w-xl mx-auto text-sm">
+            <p className="text-stone-500 max-w-xl mx-auto text-sm">
               {isEs
                 ? "Profundice en cada componente del mapa de conocimiento."
                 : "Dive deeper into each component of the knowledge map."}

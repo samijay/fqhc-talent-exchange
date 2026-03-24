@@ -218,7 +218,7 @@ export function TeamReadinessResults({ results, onStartOver }: TeamReadinessResu
 
           {/* Domain Scores */}
           <div className="mt-8 space-y-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-stone-400">{t.domainScores}</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-stone-500">{t.domainScores}</h3>
             {domainIds.map((domainId) => {
               const score = results.domainScores[domainId];
               const colors = DOMAIN_COLORS[domainId];
@@ -536,7 +536,7 @@ export function TeamReadinessResults({ results, onStartOver }: TeamReadinessResu
                   <ol className="mt-1.5 space-y-1">
                     {(isEs ? ls.esHowTo : ls.howTo).map((step, j) => (
                       <li key={j} className="flex items-start gap-2 text-xs leading-relaxed text-stone-500">
-                        <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-purple-100 text-[10px] font-bold text-purple-700">
+                        <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-purple-100 text-xs font-bold text-purple-700">
                           {j + 1}
                         </span>
                         {step}
@@ -561,7 +561,7 @@ export function TeamReadinessResults({ results, onStartOver }: TeamReadinessResu
             <div className="mt-5 grid gap-4 sm:grid-cols-3">
               {/* Qualifications */}
               <div className="rounded-xl border border-stone-100 bg-stone-50 p-4">
-                <p className="text-xs font-bold uppercase tracking-wider text-stone-400">{t.qualifications}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-stone-500">{t.qualifications}</p>
                 <ul className="mt-2 space-y-1.5">
                   {(isEs ? roleInsight.employerWants.esTopQualifications : roleInsight.employerWants.topQualifications).map((q, i) => (
                     <li key={i} className="flex items-start gap-1.5 text-xs leading-relaxed text-stone-600">
@@ -573,7 +573,7 @@ export function TeamReadinessResults({ results, onStartOver }: TeamReadinessResu
               </div>
               {/* Skills */}
               <div className="rounded-xl border border-stone-100 bg-stone-50 p-4">
-                <p className="text-xs font-bold uppercase tracking-wider text-stone-400">{t.skills}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-stone-500">{t.skills}</p>
                 <ul className="mt-2 space-y-1.5">
                   {(isEs ? roleInsight.employerWants.esTopSkills : roleInsight.employerWants.topSkills).map((s, i) => (
                     <li key={i} className="flex items-start gap-1.5 text-xs leading-relaxed text-stone-600">
@@ -585,7 +585,7 @@ export function TeamReadinessResults({ results, onStartOver }: TeamReadinessResu
               </div>
               {/* Certifications */}
               <div className="rounded-xl border border-stone-100 bg-stone-50 p-4">
-                <p className="text-xs font-bold uppercase tracking-wider text-stone-400">{t.certifications}</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-stone-500">{t.certifications}</p>
                 <ul className="mt-2 space-y-1.5">
                   {(isEs ? roleInsight.employerWants.esCertifications : roleInsight.employerWants.certifications).map((c, i) => (
                     <li key={i} className="flex items-start gap-1.5 text-xs leading-relaxed text-stone-600">

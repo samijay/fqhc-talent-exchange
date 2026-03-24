@@ -155,8 +155,8 @@ export function NewsletterSignup({
   };
 
   const inputBorder: Record<SignupVariant, string> = {
-    inline: "border-stone-300 bg-white text-stone-900 placeholder:text-stone-400",
-    card: "border-stone-300 bg-white text-stone-900 placeholder:text-stone-400",
+    inline: "border-stone-300 bg-white text-stone-900 placeholder:text-stone-500",
+    card: "border-stone-300 bg-white text-stone-900 placeholder:text-stone-500",
     banner: "border-teal-500 bg-teal-900/50 text-white placeholder:text-teal-300",
   };
 
@@ -229,7 +229,7 @@ export function NewsletterSignup({
             className={`shrink-0 ${btnClasses[variant]}`}
           >
             {status === "loading" ? (
-              <Loader2 className="size-4 animate-spin" />
+              <Loader2 className="size-4 motion-safe:animate-spin" />
             ) : (
               <>
                 <Mail className="size-4 mr-1.5" />
@@ -253,7 +253,7 @@ export function NewsletterSignup({
       </form>
 
       {/* Consent + privacy */}
-      <p className={`mt-2 text-xs ${variant === "banner" ? "text-teal-200" : "text-stone-400"}`}>
+      <p className={`mt-2 text-xs ${variant === "banner" ? "text-teal-200" : "text-stone-500"}`}>
         {isEs
           ? "Al suscribirte, aceptas recibir correos semanales. Sin spam. Cancela en un clic. "
           : "By subscribing, you agree to receive weekly emails. No spam. Unsubscribe anytime. "}

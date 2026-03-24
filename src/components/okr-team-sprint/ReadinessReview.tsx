@@ -104,7 +104,7 @@ export function ReadinessReview({ onComplete }: ReadinessReviewProps) {
         <h2 className="text-xl font-bold text-stone-800 dark:text-stone-100">
           {isEs ? "Revisión de Preparación" : "Readiness Review"}
         </h2>
-        <p className="text-sm text-stone-500 dark:text-stone-400">
+        <p className="text-sm text-stone-500 dark:text-stone-500">
           {isEs
             ? "Revisa el conjunto completo de OKRs de tu equipo y obtén una evaluación de IA"
             : "Review your team's full OKR set and get an AI assessment"}
@@ -137,7 +137,7 @@ export function ReadinessReview({ onComplete }: ReadinessReviewProps) {
                   <Target className="h-5 w-5 text-teal-500 mt-0.5 shrink-0" />
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <span className="text-xs text-stone-500 dark:text-stone-400">
+                      <span className="text-xs text-stone-500 dark:text-stone-500">
                         {obj.ownerName}
                       </span>
                       {domainMeta && (
@@ -157,7 +157,7 @@ export function ReadinessReview({ onComplete }: ReadinessReviewProps) {
                     {obj.keyResults.map((kr, i) => (
                       <p
                         key={kr.id}
-                        className="text-xs text-stone-600 dark:text-stone-400 ml-4 mb-1"
+                        className="text-xs text-stone-600 dark:text-stone-500 ml-4 mb-1"
                       >
                         KR{i + 1}: {kr.text}
                       </p>
@@ -187,7 +187,7 @@ export function ReadinessReview({ onComplete }: ReadinessReviewProps) {
       <Card className="border-stone-200 dark:border-stone-700">
         <CardContent className="p-4">
           <div className="flex items-center justify-between">
-            <span className="text-sm text-stone-600 dark:text-stone-400">
+            <span className="text-sm text-stone-600 dark:text-stone-500">
               {isEs ? "Puntaje de Alineación del Equipo" : "Team Alignment Score"}
             </span>
             <span
@@ -208,7 +208,7 @@ export function ReadinessReview({ onComplete }: ReadinessReviewProps) {
         >
           {loading ? (
             <>
-              <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+              <Loader2 className="h-4 w-4 mr-2 motion-safe:animate-spin" />
               {isEs ? "Evaluando..." : "Assessing..."}
             </>
           ) : (
@@ -248,7 +248,7 @@ export function ReadinessReview({ onComplete }: ReadinessReviewProps) {
                   >
                     {item.score}
                   </p>
-                  <p className="text-xs text-stone-500 dark:text-stone-400">
+                  <p className="text-xs text-stone-500 dark:text-stone-500">
                     {item.label}
                   </p>
                 </CardContent>
@@ -299,7 +299,7 @@ export function ReadinessReview({ onComplete }: ReadinessReviewProps) {
                 {assessment.gaps.map((gap, i) => (
                   <p
                     key={i}
-                    className="text-sm text-stone-600 dark:text-stone-400 flex items-start gap-2 mb-1"
+                    className="text-sm text-stone-600 dark:text-stone-500 flex items-start gap-2 mb-1"
                   >
                     <AlertTriangle className="h-4 w-4 text-amber-500 mt-0.5 shrink-0" />
                     {gap}
@@ -319,7 +319,7 @@ export function ReadinessReview({ onComplete }: ReadinessReviewProps) {
                 {assessment.recommendations.map((rec, i) => (
                   <p
                     key={i}
-                    className="text-sm text-stone-600 dark:text-stone-400 flex items-start gap-2 mb-1"
+                    className="text-sm text-stone-600 dark:text-stone-500 flex items-start gap-2 mb-1"
                   >
                     <Sparkles className="h-4 w-4 text-teal-500 mt-0.5 shrink-0" />
                     {rec}

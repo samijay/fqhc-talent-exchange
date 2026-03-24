@@ -72,7 +72,7 @@ export function FavoriteButton({
       className={`${padding} rounded-md transition-colors ${
         isFavorited
           ? "text-amber-500 hover:text-amber-600"
-          : "text-stone-400 hover:text-stone-600"
+          : "text-stone-500 hover:text-stone-600"
       }`}
       title={
         isFavorited

@@ -186,7 +186,7 @@ export function AcademyModuleScreen({
               </h3>
               <ul className="space-y-2">
                 {module.learningObjectives.map((obj, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-400">
+                  <li key={i} className="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-500">
                     <CheckCircle2 className="h-4 w-4 text-teal-500 mt-0.5 shrink-0" />
                     {t(obj)}
                   </li>
@@ -195,7 +195,7 @@ export function AcademyModuleScreen({
             </div>
 
             {/* Meta */}
-            <div className="flex items-center gap-4 text-xs text-stone-400 mb-6">
+            <div className="flex items-center gap-4 text-xs text-stone-500 mb-6">
               <span className="flex items-center gap-1">
                 <BookOpen className="h-3.5 w-3.5" />
                 {module.estimatedMinutes} min
@@ -240,7 +240,7 @@ export function AcademyModuleScreen({
               style={{ width: `${progressPercent}%` }}
             />
           </div>
-          <div className="flex justify-between mt-1 text-xs text-stone-400">
+          <div className="flex justify-between mt-1 text-xs text-stone-500">
             <span>{t(module.title)}</span>
             <span>
               {currentStep}/{totalSteps}
@@ -351,7 +351,7 @@ export function AcademyModuleScreen({
               style={{ width: `${progressPercent}%` }}
             />
           </div>
-          <div className="flex justify-between mt-1 text-xs text-stone-400">
+          <div className="flex justify-between mt-1 text-xs text-stone-500">
             <span>
               {isEs ? "Ejercicio" : "Exercise"} {exerciseIndex + 1}/
               {totalExercises}

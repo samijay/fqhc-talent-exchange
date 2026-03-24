@@ -92,7 +92,7 @@ export function TeamAlignmentSession({
             ? "Alineación del Equipo: Prioridades Estratégicas"
             : "Team Alignment: Strategic Priorities"}
         </h2>
-        <p className="text-sm text-stone-500 dark:text-stone-400">
+        <p className="text-sm text-stone-500 dark:text-stone-500">
           {isEs
             ? `Selecciona hasta ${MAX_VOTES} prioridades que tu FQHC debería enfocarse este trimestre`
             : `Select up to ${MAX_VOTES} priorities your FQHC should focus on this quarter`}
@@ -102,7 +102,7 @@ export function TeamAlignmentSession({
       {!submitted && (
         <Badge
           variant="outline"
-          className="mx-auto text-stone-500 dark:text-stone-400"
+          className="mx-auto text-stone-500 dark:text-stone-500"
         >
           {selectedPriorities.size} / {MAX_VOTES}{" "}
           {isEs ? "seleccionadas" : "selected"}
@@ -112,7 +112,7 @@ export function TeamAlignmentSession({
       {/* Priorities by domain */}
       {prioritiesByDomain.map(({ domain, priorities }) => (
         <div key={domain.id}>
-          <h3 className="text-sm font-semibold text-stone-600 dark:text-stone-400 mb-2 flex items-center gap-2">
+          <h3 className="text-sm font-semibold text-stone-600 dark:text-stone-500 mb-2 flex items-center gap-2">
             <Target className="h-4 w-4 text-teal-500" />
             {isEs ? domain.es : domain.en}
           </h3>
@@ -152,7 +152,7 @@ export function TeamAlignmentSession({
                       <p className="text-sm font-medium text-stone-800 dark:text-stone-200">
                         {t(priority.title)}
                       </p>
-                      <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
+                      <p className="text-xs text-stone-500 dark:text-stone-500 mt-0.5">
                         {t(priority.description)}
                       </p>
                     </div>

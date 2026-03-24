@@ -55,7 +55,7 @@ function RatioGauge({ ratio, target = 1.5 }: { ratio: number; target?: number })
           style={{ width: `${percentage}%` }}
         />
       </div>
-      <div className="flex justify-between text-[10px] text-stone-400">
+      <div className="flex justify-between text-xs text-stone-500">
         <span>0</span>
         <span>{target}:1 target</span>
         <span>{(target * 1.5).toFixed(1)}</span>
@@ -97,7 +97,7 @@ export function ScheduleMetricsPanel({
 
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <p className="text-[10px] uppercase tracking-wide text-stone-400 mb-0.5">
+              <p className="text-xs uppercase tracking-wide text-stone-500 mb-0.5">
                 {isEs ? "Semanal" : "Weekly"}
               </p>
               <p className="text-lg font-bold text-teal-700 dark:text-teal-400">
@@ -105,7 +105,7 @@ export function ScheduleMetricsPanel({
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wide text-stone-400 mb-0.5">
+              <p className="text-xs uppercase tracking-wide text-stone-500 mb-0.5">
                 {isEs ? "Anual" : "Annual"}
               </p>
               <p className="text-lg font-bold text-stone-800 dark:text-stone-200">
@@ -113,15 +113,15 @@ export function ScheduleMetricsPanel({
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wide text-stone-400 mb-0.5">
+              <p className="text-xs uppercase tracking-wide text-stone-500 mb-0.5">
                 {isEs ? "Costo Laboral" : "Labor Cost"}
               </p>
-              <p className="text-sm font-medium text-stone-600 dark:text-stone-400">
+              <p className="text-sm font-medium text-stone-600 dark:text-stone-500">
                 {formatCurrency(metrics.annualizedLaborCost)}/yr
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wide text-stone-400 mb-0.5">
+              <p className="text-xs uppercase tracking-wide text-stone-500 mb-0.5">
                 {isEs ? "Margen" : "Margin"}
               </p>
               <p className={`text-sm font-bold ${
@@ -148,7 +148,7 @@ export function ScheduleMetricsPanel({
 
           <div className="grid grid-cols-2 gap-3 mb-4">
             <div>
-              <p className="text-[10px] uppercase tracking-wide text-stone-400 mb-0.5">
+              <p className="text-xs uppercase tracking-wide text-stone-500 mb-0.5">
                 {isEs ? "Personal Total" : "Total Staff"}
               </p>
               <p className="text-lg font-bold text-stone-800 dark:text-stone-200">
@@ -156,7 +156,7 @@ export function ScheduleMetricsPanel({
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wide text-stone-400 mb-0.5">
+              <p className="text-xs uppercase tracking-wide text-stone-500 mb-0.5">
                 {isEs ? "Proveedores" : "Providers"}
               </p>
               <p className="text-lg font-bold text-stone-800 dark:text-stone-200">
@@ -164,7 +164,7 @@ export function ScheduleMetricsPanel({
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wide text-stone-400 mb-0.5">
+              <p className="text-xs uppercase tracking-wide text-stone-500 mb-0.5">
                 {isEs ? "Encuentros/Sem" : "Encounters/Wk"}
               </p>
               <p className="text-lg font-bold text-indigo-600 dark:text-indigo-400">
@@ -172,7 +172,7 @@ export function ScheduleMetricsPanel({
               </p>
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wide text-stone-400 mb-0.5">
+              <p className="text-xs uppercase tracking-wide text-stone-500 mb-0.5">
                 {isEs ? "Promedio/Día" : "Avg/Day"}
               </p>
               <p className="text-lg font-bold text-stone-800 dark:text-stone-200">
@@ -183,7 +183,7 @@ export function ScheduleMetricsPanel({
 
           {/* MA:Provider Ratio Gauge */}
           <div>
-            <p className="text-[10px] uppercase tracking-wide text-stone-400 mb-1">
+            <p className="text-xs uppercase tracking-wide text-stone-500 mb-1">
               {isEs ? "Ratio MA:Proveedor" : "MA:Provider Ratio"}
             </p>
             <div className="flex items-center gap-2 mb-1">
@@ -221,7 +221,7 @@ export function ScheduleMetricsPanel({
               }`} />
               <span className="text-sm font-semibold text-stone-700 dark:text-stone-300">
                 {isEs ? "Alertas" : "Warnings"}
-                <span className="ml-1 text-xs font-normal text-stone-400">
+                <span className="ml-1 text-xs font-normal text-stone-500">
                   ({metrics.allWarnings.length})
                 </span>
               </span>
@@ -234,7 +234,7 @@ export function ScheduleMetricsPanel({
                   className="flex items-start gap-2 text-xs"
                 >
                   <WarningIcon severity={warning.severity} />
-                  <p className="text-stone-600 dark:text-stone-400 leading-tight">
+                  <p className="text-stone-600 dark:text-stone-500 leading-tight">
                     {isEs ? warning.message.es : warning.message.en}
                   </p>
                 </div>
@@ -245,7 +245,7 @@ export function ScheduleMetricsPanel({
       )}
 
       {/* PPS Info */}
-      <div className="text-[10px] text-stone-400 dark:text-stone-500 text-center">
+      <div className="text-xs text-stone-500 dark:text-stone-500 text-center">
         PPS Rate: ${ppsRate} · {isEs ? "50 semanas/año" : "50 weeks/year"}
       </div>
     </div>

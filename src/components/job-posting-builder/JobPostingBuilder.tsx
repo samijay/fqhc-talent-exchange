@@ -1230,7 +1230,7 @@ export default function JobPostingBuilder() {
               <div>
                 <Label htmlFor="orgNotes">
                   {t.orgNotes}{" "}
-                  <span className="font-normal text-stone-400">({t.optional})</span>
+                  <span className="font-normal text-stone-500">({t.optional})</span>
                 </Label>
                 <Textarea
                   id="orgNotes"
@@ -1374,7 +1374,7 @@ export default function JobPostingBuilder() {
               <div>
                 <Label htmlFor="additionalBenefits">
                   {t.additionalBenefits}{" "}
-                  <span className="font-normal text-stone-400">({t.optional})</span>
+                  <span className="font-normal text-stone-500">({t.optional})</span>
                 </Label>
                 <Input
                   id="additionalBenefits"
@@ -1665,7 +1665,7 @@ export default function JobPostingBuilder() {
               >
                 {submitting ? (
                   <>
-                    <Loader2 className="size-4 animate-spin" />
+                    <Loader2 className="size-4 motion-safe:animate-spin" />
                     {locale === "es" ? "Guardando..." : "Saving..."}
                   </>
                 ) : (

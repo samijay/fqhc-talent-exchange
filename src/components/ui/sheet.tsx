@@ -106,7 +106,7 @@ const SheetContent = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "fixed right-0 top-0 z-50 h-full w-full max-w-2xl overflow-y-auto border-l border-stone-200 bg-white shadow-lg animate-in slide-in-from-right",
+          "fixed right-0 top-0 z-50 h-full w-full max-w-2xl overflow-y-auto border-l border-stone-200 bg-white shadow-lg motion-safe:animate-in motion-safe:slide-in-from-right",
           className
         )}
         {...props}

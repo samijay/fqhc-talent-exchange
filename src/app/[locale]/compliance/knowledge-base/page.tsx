@@ -42,7 +42,7 @@ export default function KnowledgeBasePage() {
     <div className="min-h-screen bg-white">
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-14 px-4">
         <div className="max-w-5xl mx-auto">
-          <Link href="/compliance" className="text-stone-400 text-sm hover:underline mb-4 inline-block">&larr; {locale === "es" ? "Cumplimiento" : "Compliance"}</Link>
+          <Link href="/compliance" className="text-stone-500 text-sm hover:underline mb-4 inline-block">&larr; {locale === "es" ? "Cumplimiento" : "Compliance"}</Link>
           <h1 className="text-3xl md:text-4xl font-bold mb-3">{locale === "es" ? "Base de Conocimiento Regulatorio" : "Regulatory Knowledge Base"}</h1>
           <p className="text-stone-300 text-lg max-w-3xl">{locale === "es" ? "Regulaciones FQHC con citas CFR, implicaciones prácticas y fuentes primarias." : "FQHC regulations with CFR citations, practical implications, and primary sources."}</p>
         </div>
@@ -52,7 +52,7 @@ export default function KnowledgeBasePage() {
       <section className="max-w-5xl mx-auto px-4 py-6">
         <div className="flex flex-col md:flex-row gap-4 mb-4">
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" aria-hidden="true" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-500" aria-hidden="true" />
             <label htmlFor="regulation-search" className="sr-only">{locale === "es" ? "Buscar regulaciones" : "Search regulations"}</label>
             <input
               id="regulation-search"
@@ -92,7 +92,7 @@ export default function KnowledgeBasePage() {
                   {reg.citations.map((c) => (
                     <span key={c} className={`text-xs font-mono px-2 py-0.5 rounded ${colors.bg} ${colors.text}`}>{c}</span>
                   ))}
-                  <span className="text-xs text-stone-400">{reg.primarySourceOrg}</span>
+                  <span className="text-xs text-stone-500">{reg.primarySourceOrg}</span>
                 </div>
                 <h3 className="font-bold text-stone-900 mb-1">{t(reg.title, locale)}</h3>
                 <p className="text-sm text-stone-700 mb-3">{t(reg.summary, locale)}</p>

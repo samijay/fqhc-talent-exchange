@@ -115,7 +115,7 @@ export default function ComplianceHubPage() {
               <h1 className="text-2xl font-bold text-stone-800 dark:text-stone-100">
                 {t(selectedDomain.title)}
               </h1>
-              <p className="text-sm text-stone-500 dark:text-stone-400">
+              <p className="text-sm text-stone-500 dark:text-stone-500">
                 {t(selectedDomain.description)}
               </p>
             </div>
@@ -167,7 +167,7 @@ export default function ComplianceHubPage() {
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       <div className="max-w-6xl mx-auto px-4 py-8 md:py-12">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-8">
+        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-8">
           <Link href="/strategy/guides" className="hover:text-teal-600 transition-colors">
             {isEs ? "Estrategia" : "Strategy"}
           </Link>
@@ -189,7 +189,7 @@ export default function ComplianceHubPage() {
               ? "Centro de Cumplimiento FQHC"
               : "FQHC Compliance Hub"}
           </h1>
-          <p className="text-lg text-stone-500 dark:text-stone-400 max-w-2xl mx-auto">
+          <p className="text-lg text-stone-500 dark:text-stone-500 max-w-2xl mx-auto">
             {isEs
               ? "Listas de verificación interactivas, plantillas de políticas y calendario regulatorio para mantener tu centro de salud en cumplimiento."
               : "Interactive checklists, policy templates, and regulatory calendar to keep your health center compliant."}
@@ -208,7 +208,7 @@ export default function ComplianceHubPage() {
               }`}>
                 {overallScore}%
               </div>
-              <p className="text-sm text-stone-500 dark:text-stone-400">
+              <p className="text-sm text-stone-500 dark:text-stone-500">
                 {isEs ? "Puntuación General" : "Overall Score"}
               </p>
               <div className="h-1.5 w-full bg-stone-100 dark:bg-stone-800 rounded-full overflow-hidden mt-3">
@@ -230,10 +230,10 @@ export default function ComplianceHubPage() {
               <div className="text-4xl font-bold text-stone-800 dark:text-stone-200 mb-1">
                 {Object.keys(progress.completedItems).length}
               </div>
-              <p className="text-sm text-stone-500 dark:text-stone-400">
+              <p className="text-sm text-stone-500 dark:text-stone-500">
                 {isEs ? "Elementos Completados" : "Items Completed"}
               </p>
-              <p className="text-xs text-stone-400 mt-2">
+              <p className="text-xs text-stone-500 mt-2">
                 {isEs ? "de" : "of"} {COMPLIANCE_DOMAINS.reduce((sum, d) => sum + d.checklistItems.length, 0)} {isEs ? "total" : "total"}
               </p>
             </CardContent>
@@ -263,7 +263,7 @@ export default function ComplianceHubPage() {
                   </Badge>
                 </>
               ) : (
-                <p className="text-sm text-stone-400">
+                <p className="text-sm text-stone-500">
                   {isEs ? "Sin fechas límite próximas" : "No upcoming deadlines"}
                 </p>
               )}
@@ -309,11 +309,11 @@ export default function ComplianceHubPage() {
                     <h3 className="font-semibold text-stone-800 dark:text-stone-200 text-sm mb-1">
                       {t(domain.title)}
                     </h3>
-                    <p className="text-xs text-stone-500 dark:text-stone-400 mb-3 line-clamp-2">
+                    <p className="text-xs text-stone-500 dark:text-stone-500 mb-3 line-clamp-2">
                       {t(domain.description)}
                     </p>
 
-                    <div className="flex items-center justify-between text-xs text-stone-400">
+                    <div className="flex items-center justify-between text-xs text-stone-500">
                       <span>
                         {completedCount}/{domain.checklistItems.length} {isEs ? "items" : "items"}
                       </span>
@@ -401,16 +401,16 @@ export default function ComplianceHubPage() {
               <Link key={course.title.en} href={course.href}>
                 <Card className="border-stone-200 dark:border-stone-700 hover:border-teal-300 dark:hover:border-teal-700 transition-all h-full">
                   <CardContent className="p-5">
-                    <Badge className={`mb-3 bg-${course.color}-100 text-${course.color}-700 dark:bg-${course.color}-900/30 dark:text-${course.color}-300 text-[10px]`}>
+                    <Badge className={`mb-3 bg-${course.color}-100 text-${course.color}-700 dark:bg-${course.color}-900/30 dark:text-${course.color}-300 text-xs`}>
                       {isEs ? "Gratis" : "Free"}
                     </Badge>
                     <h3 className="font-semibold text-stone-800 dark:text-stone-200 text-sm mb-1">
                       {t(course.title)}
                     </h3>
-                    <p className="text-xs text-stone-500 dark:text-stone-400 mb-3">
+                    <p className="text-xs text-stone-500 dark:text-stone-500 mb-3">
                       {t(course.desc)}
                     </p>
-                    <div className="flex items-center gap-3 text-xs text-stone-400">
+                    <div className="flex items-center gap-3 text-xs text-stone-500">
                       <span>{course.duration}</span>
                       <span>{course.modules} {isEs ? "módulos" : "modules"}</span>
                     </div>
@@ -437,7 +437,7 @@ export default function ComplianceHubPage() {
                       : "8-module clinic operations course including compliance"}
                   </p>
                 </div>
-                <ArrowRight className="h-4 w-4 text-stone-400 shrink-0" />
+                <ArrowRight className="h-4 w-4 text-stone-500 shrink-0" />
               </CardContent>
             </Card>
           </Link>
@@ -455,7 +455,7 @@ export default function ComplianceHubPage() {
                       : "Model financial impact of your staffing configuration"}
                   </p>
                 </div>
-                <ArrowRight className="h-4 w-4 text-stone-400 shrink-0" />
+                <ArrowRight className="h-4 w-4 text-stone-500 shrink-0" />
               </CardContent>
             </Card>
           </Link>

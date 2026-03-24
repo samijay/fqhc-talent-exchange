@@ -612,7 +612,7 @@ export default async function TopFqhcInterviewQuestionsArticle() {
               <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4">
                 {locale === "es" ? "Fuentes" : "Sources"}
               </h2>
-              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-400">
+              <ol className="list-decimal list-inside space-y-2 text-sm text-stone-600 dark:text-stone-500">
                 <li>
                   <a href="https://www.dhcs.ca.gov/CalAIM/ECM/Pages/Home.aspx" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">
                     {locale === "es" ? "Gestión de Atención Mejorada (ECM) y Servicios Comunitarios" : "Enhanced Care Management (ECM) & Community Supports"}

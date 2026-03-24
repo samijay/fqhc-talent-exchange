@@ -110,7 +110,7 @@ function TrackCard({
       </ul>
 
       <div className="flex items-center justify-between pt-3 border-t border-stone-100">
-        <span className="text-xs text-stone-400">
+        <span className="text-xs text-stone-500">
           {t(frequency, locale)}
         </span>
         <div
@@ -173,7 +173,7 @@ export default function NewsletterPage() {
               ? "Analisis semanal de politicas, financiamiento, fuerza laboral y tecnologia para el sector de salud comunitaria de California. Cada dato respaldado por fuentes primarias."
               : "Weekly analysis of policy, funding, workforce, and technology for California's community health sector. Every insight backed by primary sources."}
           </p>
-          <div className="mt-6 flex items-center gap-4 text-sm text-stone-400">
+          <div className="mt-6 flex items-center gap-4 text-sm text-stone-500">
             <span>
               {isEs ? "2 informes semanales" : "2 weekly briefings"}
             </span>

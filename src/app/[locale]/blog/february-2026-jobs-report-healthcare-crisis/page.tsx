@@ -536,7 +536,7 @@ export default async function FebruaryJobsReportArticle() {
                   </div>
                 </div>
               </div>
-              <p className="mt-4 text-xs text-stone-400">
+              <p className="mt-4 text-xs text-stone-500">
                 {locale === "es"
                   ? "Nota: La caída de febrero refleja la huelga de 31,000 trabajadores de Kaiser Permanente (26 ene - 24 feb). Fuente: BLS"
                   : "Note: February decline reflects 31,000-worker Kaiser Permanente strike (Jan 26 - Feb 24). Source: BLS"}

@@ -99,7 +99,7 @@ function MasterclassCard({
                 </Badge>
               )}
               {audMeta && (
-                <span className="inline-flex items-center gap-1 text-xs text-stone-400">
+                <span className="inline-flex items-center gap-1 text-xs text-stone-500">
                   <Users className="size-3" />
                   {isEs ? audMeta.es : audMeta.en}
                 </span>
@@ -115,7 +115,7 @@ function MasterclassCard({
               {t(mc.subtitle, locale)}
             </p>
           </div>
-          <span className="flex-shrink-0 mt-1 text-stone-400">
+          <span className="flex-shrink-0 mt-1 text-stone-500">
             {isExpanded ? (
               <ChevronUp className="size-5" />
             ) : (
@@ -163,7 +163,7 @@ function MasterclassCard({
                   key={i}
                   className="flex items-start gap-2 text-sm text-stone-600"
                 >
-                  <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-teal-100 text-[10px] font-bold text-teal-700">
+                  <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-teal-700">
                     {i + 1}
                   </span>
                   {t(obj, locale)}
@@ -290,7 +290,7 @@ export default function MasterclassPage() {
               ? "Mini módulos de estrategia profunda para el momento de crisis de 2026 — recortes de financiamiento, aplicación migratoria, erosión de fuerza laboral, y adopción de IA, todo a la vez."
               : "Mini deep-dive strategy modules for the 2026 crisis moment — funding cliffs, immigration enforcement, workforce erosion, and AI adoption, all at once."}
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-stone-400">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-stone-500">
             <span>
               {counts.total} {isEs ? "módulos" : "modules"}
             </span>
@@ -305,6 +305,35 @@ export default function MasterclassPage() {
               <Calendar className="size-3" />
               {isEs ? "Actualizado:" : "Updated:"} {MASTERCLASSES_LAST_UPDATED}
             </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Course CTA */}
+      <section className="border-b border-teal-200 bg-gradient-to-r from-teal-50 to-emerald-50 py-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="flex size-10 items-center justify-center rounded-full bg-teal-100">
+                <Zap className="size-5 text-teal-700" />
+              </div>
+              <div>
+                <h2 className="text-base font-bold text-stone-900">
+                  {isEs ? "¡Nuevo! Curso Interactivo" : "New! Interactive Course"}
+                </h2>
+                <p className="text-sm text-stone-600">
+                  {isEs
+                    ? "30 módulos con ejercicios, cuestionarios y seguimiento de progreso — aprenda haciendo."
+                    : "30 modules with exercises, quizzes, and progress tracking — learn by doing."}
+                </p>
+              </div>
+            </div>
+            <Button asChild className="bg-teal-700 hover:bg-teal-800 text-white">
+              <Link href="/strategy/masterclass/course">
+                {isEs ? "Iniciar Curso" : "Start Course"}{" "}
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -370,7 +399,7 @@ export default function MasterclassPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Category filter */}
           <div className="flex items-center gap-2 mb-6">
-            <Filter className="size-4 text-stone-400" />
+            <Filter className="size-4 text-stone-500" />
             <div className="flex flex-wrap gap-1.5">
               <button
                 onClick={() => setActiveCategory("all")}
@@ -423,6 +452,12 @@ export default function MasterclassPage() {
 
           {/* Cross-navigation */}
           <div className="mt-10 flex flex-wrap items-center gap-3">
+            <Button asChild className="bg-teal-700 hover:bg-teal-800 text-white">
+              <Link href="/strategy/masterclass/course">
+                {isEs ? "Iniciar Curso Interactivo" : "Start Interactive Course"}{" "}
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
             <Button variant="outline" asChild>
               <Link href="/strategy/guides">
                 {isEs ? "Guías Ejecutivas" : "Executive Guides"}{" "}

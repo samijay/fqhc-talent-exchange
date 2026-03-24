@@ -190,7 +190,7 @@ function ResourceCard({
 
       {/* Eligibility */}
       <div className="mt-3">
-        <p className="text-xs font-medium uppercase tracking-wide text-stone-400">
+        <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
           {isEs ? "Elegibilidad" : "Eligibility"}
         </p>
         <p className="mt-1 text-sm text-stone-500">

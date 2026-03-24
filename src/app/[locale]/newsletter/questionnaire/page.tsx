@@ -355,7 +355,7 @@ export default function NewsletterQuestionnairePage() {
         <div className="rounded-2xl bg-white border border-stone-200 shadow-sm p-6 sm:p-8">
           {/* Progress */}
           <div className="flex items-center justify-between mb-2">
-            <span className="text-xs text-stone-400 font-medium">
+            <span className="text-xs text-stone-500 font-medium">
               {t(T.step, locale)} {step + 1} {t(T.of, locale)} {TOTAL_STEPS}
             </span>
           </div>
@@ -490,7 +490,7 @@ export default function NewsletterQuestionnairePage() {
                 {/* Email */}
                 <div>
                   <label className="block text-sm font-medium text-stone-700 mb-1.5">
-                    <Mail className="inline size-4 mr-1 text-stone-400" />
+                    <Mail className="inline size-4 mr-1 text-stone-500" />
                     {t(T.emailLabel, locale)}
                   </label>
                   <input
@@ -500,13 +500,13 @@ export default function NewsletterQuestionnairePage() {
                     placeholder={t(T.emailPlaceholder, locale)}
                     className="w-full rounded-xl border border-stone-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                   />
-                  <p className="mt-1 text-xs text-stone-400">{t(T.emailNote, locale)}</p>
+                  <p className="mt-1 text-xs text-stone-500">{t(T.emailNote, locale)}</p>
                 </div>
 
                 {/* Region */}
                 <div>
                   <label className="block text-sm font-medium text-stone-700 mb-1.5">
-                    <MapPin className="inline size-4 mr-1 text-stone-400" />
+                    <MapPin className="inline size-4 mr-1 text-stone-500" />
                     {t(T.regionLabel, locale)}
                   </label>
                   <select
@@ -543,7 +543,7 @@ export default function NewsletterQuestionnairePage() {
                 >
                   {submitting ? (
                     <>
-                      <Loader2 className="size-4 animate-spin" />
+                      <Loader2 className="size-4 motion-safe:animate-spin" />
                       {t(T.submitting, locale)}
                     </>
                   ) : (
@@ -559,7 +559,7 @@ export default function NewsletterQuestionnairePage() {
         </div>
 
         {/* Skip link */}
-        <p className="mt-4 text-center text-xs text-stone-400">
+        <p className="mt-4 text-center text-xs text-stone-500">
           <Link href="/newsletter" className="hover:text-stone-600 transition-colors">
             {isEs ? "Volver a la página del boletín" : "Back to newsletter page"}
           </Link>

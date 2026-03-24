@@ -105,13 +105,13 @@ function EntryCard({
           </h3>
 
           {/* Authors + year */}
-          <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
+          <p className="text-xs text-stone-500 dark:text-stone-500 mt-1">
             {entry.authors} ({entry.year})
             {entry.journal && <> &middot; <em>{entry.journal}</em></>}
           </p>
         </div>
 
-        <span className="shrink-0 mt-1 text-stone-400">
+        <span className="shrink-0 mt-1 text-stone-500">
           {isExpanded ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
         </span>
       </button>
@@ -155,7 +155,7 @@ function EntryCard({
             {entry.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[10px] px-1.5 py-0.5 rounded bg-stone-100 text-stone-500 dark:bg-stone-700 dark:text-stone-400"
+                className="text-xs px-1.5 py-0.5 rounded bg-stone-100 text-stone-500 dark:bg-stone-700 dark:text-stone-500"
               >
                 {tag}
               </span>
@@ -262,7 +262,7 @@ export default function ResearchArchivePage() {
               ? "Fundamentos y evolución de la investigación en atención primaria, salud comunitaria y salud pública — curada para clínicos, no clínicos y líderes de FQHCs."
               : "Foundations and evolution of primary care, community health, and public health research — curated for clinicians, non-clinicians, and FQHC leaders."}
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-stone-400">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-stone-500">
             <span className="flex items-center gap-1">
               <BookOpen className="h-4 w-4" />
               {RESEARCH_ENTRIES.length} {isEs ? "recursos" : "resources"}
@@ -299,7 +299,7 @@ export default function ResearchArchivePage() {
               className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === tab.id
                   ? "border-teal-600 text-teal-700 dark:text-teal-400 dark:border-teal-400"
-                  : "border-transparent text-stone-500 hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-300"
+                  : "border-transparent text-stone-500 hover:text-stone-700 dark:text-stone-500 dark:hover:text-stone-300"
               }`}
             >
               <tab.icon className="h-4 w-4" />
@@ -317,13 +317,13 @@ export default function ResearchArchivePage() {
             <div className="space-y-4 mb-6">
               {/* Search */}
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-500" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder={isEs ? "Buscar por título, autor o tema..." : "Search by title, author, or topic..."}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-stone-200 bg-white text-sm text-stone-700 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-stone-800 dark:border-stone-700 dark:text-stone-200"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-stone-200 bg-white text-sm text-stone-700 placeholder:text-stone-500 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:bg-stone-800 dark:border-stone-700 dark:text-stone-200"
                 />
               </div>
 
@@ -373,7 +373,7 @@ export default function ResearchArchivePage() {
               </div>
 
               {/* Results count */}
-              <p className="text-sm text-stone-500 dark:text-stone-400">
+              <p className="text-sm text-stone-500 dark:text-stone-500">
                 {filteredEntries.length} of {RESEARCH_ENTRIES.length}{" "}
                 {isEs ? "recursos" : "resources"}
                 {(domainFilter !== "all" || audienceFilter !== "all" || levelFilter !== "all" || searchQuery) && (
@@ -455,7 +455,7 @@ export default function ResearchArchivePage() {
                       {r.name}
                     </h3>
                     <p className="text-xs text-teal-600 dark:text-teal-400 mt-0.5">{r.institution}</p>
-                    <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
+                    <p className="text-xs text-stone-500 dark:text-stone-500 mt-1">
                       {t(r.focus, locale)}
                     </p>
                   </a>
@@ -481,7 +481,7 @@ export default function ResearchArchivePage() {
                     <h3 className="font-semibold text-stone-900 dark:text-stone-100 text-sm">
                       {j.name}
                     </h3>
-                    <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
+                    <p className="text-xs text-stone-500 dark:text-stone-500 mt-1">
                       {t(j.focus, locale)}
                     </p>
                   </a>
@@ -508,7 +508,7 @@ export default function ResearchArchivePage() {
                       {inst.name}
                     </h3>
                     <p className="text-xs text-teal-600 dark:text-teal-400 mt-0.5">{inst.type}</p>
-                    <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
+                    <p className="text-xs text-stone-500 dark:text-stone-500 mt-1">
                       {t(inst.focus, locale)}
                     </p>
                   </a>
@@ -528,7 +528,7 @@ export default function ResearchArchivePage() {
             <p className="font-semibold text-stone-900 dark:text-stone-100 text-sm">
               {isEs ? "Masterclass Ejecutiva" : "Executive Masterclass"}
             </p>
-            <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
+            <p className="text-xs text-stone-500 dark:text-stone-500 mt-1">
               {isEs ? "15 módulos estratégicos" : "15 strategy modules"}
             </p>
           </Link>
@@ -540,7 +540,7 @@ export default function ResearchArchivePage() {
             <p className="font-semibold text-stone-900 dark:text-stone-100 text-sm">
               {isEs ? "Guías Ejecutivas" : "Executive Guides"}
             </p>
-            <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
+            <p className="text-xs text-stone-500 dark:text-stone-500 mt-1">
               {isEs ? "Estudios de caso reales" : "Real case studies"}
             </p>
           </Link>
@@ -552,7 +552,7 @@ export default function ResearchArchivePage() {
             <p className="font-semibold text-stone-900 dark:text-stone-100 text-sm">
               {isEs ? "Recursos de Carrera" : "Career Resources"}
             </p>
-            <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
+            <p className="text-xs text-stone-500 dark:text-stone-500 mt-1">
               {isEs ? "Programas y becas" : "Programs & scholarships"}
             </p>
           </Link>

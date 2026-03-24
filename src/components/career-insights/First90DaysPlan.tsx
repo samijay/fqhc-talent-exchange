@@ -124,7 +124,7 @@ function PriorityItem({ item, locale }: { item: PlanItem; locale: string }) {
         <p className="text-sm leading-relaxed text-stone-700">
           {isEs ? item.esText : item.text}
         </p>
-        <span className={`mt-1 inline-block rounded-full border px-2 py-0.5 text-[10px] font-medium ${colors.bg} ${colors.text} ${colors.border}`}>
+        <span className={`mt-1 inline-block rounded-full border px-2 py-0.5 text-xs font-medium ${colors.bg} ${colors.text} ${colors.border}`}>
           {t.domainLabel(item.domain)}
         </span>
       </div>
@@ -192,7 +192,7 @@ export default function First90DaysPlan({ plan, className = "" }: First90DaysPla
           {/* Role + STARS context */}
           <div className="mt-5 flex flex-wrap gap-3">
             <div className="rounded-lg border border-teal-200 bg-white px-4 py-2">
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-stone-400">
+              <p className="text-xs font-semibold uppercase tracking-wide text-stone-500">
                 {isEs ? "Rol" : "Role"}
               </p>
               <p className="text-sm font-bold text-teal-700">
@@ -200,7 +200,7 @@ export default function First90DaysPlan({ plan, className = "" }: First90DaysPla
               </p>
             </div>
             <div className="rounded-lg border border-amber-200 bg-white px-4 py-2">
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-stone-400">
+              <p className="text-xs font-semibold uppercase tracking-wide text-stone-500">
                 {t.starsLabel}
               </p>
               <p className="text-sm font-bold text-amber-700">
@@ -236,7 +236,7 @@ export default function First90DaysPlan({ plan, className = "" }: First90DaysPla
           ].map((marker) => (
             <div key={marker.label} className="relative z-10 flex flex-col items-center">
               <div className={`size-4 rounded-full border-2 border-white ${marker.color} shadow-sm`} />
-              <span className="mt-1 text-[10px] font-semibold text-stone-500">{marker.label}</span>
+              <span className="mt-1 text-xs font-semibold text-stone-500">{marker.label}</span>
             </div>
           ))}
         </div>
@@ -327,9 +327,9 @@ export default function First90DaysPlan({ plan, className = "" }: First90DaysPla
                       </span>
                     </div>
                     {isExpanded ? (
-                      <ChevronUp className="size-4 text-stone-400" />
+                      <ChevronUp className="size-4 text-stone-500" />
                     ) : (
-                      <ChevronDown className="size-4 text-stone-400" />
+                      <ChevronDown className="size-4 text-stone-500" />
                     )}
                   </div>
                   {isExpanded && (
@@ -338,7 +338,7 @@ export default function First90DaysPlan({ plan, className = "" }: First90DaysPla
                         {isEs ? convo.esDescription : convo.description}
                       </p>
                       <div className="rounded-lg bg-teal-50 p-3">
-                        <p className="text-[10px] font-semibold uppercase tracking-wide text-teal-600">
+                        <p className="text-xs font-semibold uppercase tracking-wide text-teal-600">
                           {t.sampleQuestion}
                         </p>
                         <p className="mt-1 text-sm italic text-teal-800">

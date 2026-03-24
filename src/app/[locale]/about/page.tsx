@@ -171,7 +171,7 @@ export default async function AboutPage({
           <h2 className="text-3xl font-bold text-white">
             {t("ctaTitle")}
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-stone-400">
+          <p className="mx-auto mt-4 max-w-xl text-lg text-stone-500">
             {t("ctaSubtitle")}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

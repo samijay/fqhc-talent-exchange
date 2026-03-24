@@ -31,7 +31,7 @@ export default function SprintWorkspacePage() {
                 ? "Inicia sesión para acceder al sprint"
                 : "Sign in to access the sprint"}
             </h2>
-            <p className="text-sm text-stone-500 dark:text-stone-400 mb-6">
+            <p className="text-sm text-stone-500 dark:text-stone-500 mb-6">
               {isEs
                 ? "Los sprints de equipo requieren una cuenta para rastrear la participación."
                 : "Team sprints require an account to track participation."}
@@ -52,7 +52,7 @@ export default function SprintWorkspacePage() {
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-6">
+        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-6">
           <Link
             href="/strategy/guides"
             className="hover:text-teal-600 transition-colors"

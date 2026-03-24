@@ -12,7 +12,7 @@ export default function LocaleNotFound() {
         <h1 className="text-2xl font-bold text-stone-900 dark:text-stone-100 sm:text-3xl">
           Page Not Found
         </h1>
-        <p className="mx-auto mt-3 max-w-md text-stone-500 dark:text-stone-400">
+        <p className="mx-auto mt-3 max-w-md text-stone-500 dark:text-stone-500">
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
           Here are some helpful links to get you back on track.
         </p>
@@ -27,7 +27,7 @@ export default function LocaleNotFound() {
               <span className="text-sm font-medium text-stone-900 group-hover:text-teal-700 dark:text-stone-100">
                 Strategic Monitor
               </span>
-              <span className="block text-xs text-stone-400">Homepage</span>
+              <span className="block text-xs text-stone-500">Homepage</span>
             </div>
           </Link>
           <Link
@@ -39,7 +39,7 @@ export default function LocaleNotFound() {
               <span className="text-sm font-medium text-stone-900 group-hover:text-teal-700 dark:text-stone-100">
                 FQHC Directory
               </span>
-              <span className="block text-xs text-stone-400">220 FQHCs</span>
+              <span className="block text-xs text-stone-500">220 FQHCs</span>
             </div>
           </Link>
           <Link
@@ -51,7 +51,7 @@ export default function LocaleNotFound() {
               <span className="text-sm font-medium text-stone-900 group-hover:text-teal-700 dark:text-stone-100">
                 Browse Jobs
               </span>
-              <span className="block text-xs text-stone-400">1,700+ listings</span>
+              <span className="block text-xs text-stone-500">1,700+ listings</span>
             </div>
           </Link>
           <Link
@@ -63,7 +63,7 @@ export default function LocaleNotFound() {
               <span className="text-sm font-medium text-stone-900 group-hover:text-teal-700 dark:text-stone-100">
                 Salary Data
               </span>
-              <span className="block text-xs text-stone-400">30 roles × 9 regions</span>
+              <span className="block text-xs text-stone-500">30 roles × 9 regions</span>
             </div>
           </Link>
         </div>

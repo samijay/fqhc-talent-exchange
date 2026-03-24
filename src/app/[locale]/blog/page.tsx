@@ -76,7 +76,7 @@ export default function BlogPage() {
               <span className="text-xs font-bold uppercase tracking-wide text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full">
                 {isEs ? "Más Reciente" : "Latest"}
               </span>
-              <span className="text-xs text-stone-400">
+              <span className="text-xs text-stone-500">
                 {isEs ? featuredPost.esCategory : featuredPost.category}
               </span>
             </div>
@@ -109,7 +109,7 @@ export default function BlogPage() {
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
             {/* Search */}
             <div className="relative w-full sm:w-72">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-500" />
               <input
                 type="text"
                 placeholder={

@@ -517,7 +517,7 @@ function TimelineEvent({
         >
           <div className="flex items-center gap-2">
             <span className="text-sm font-bold text-amber-600">{event.year}</span>
-            <Badge variant="outline" className={`text-[10px] ${categoryColors[event.category]}`}>
+            <Badge variant="outline" className={`text-xs ${categoryColors[event.category]}`}>
               {t(categoryLabels[event.category], locale)}
             </Badge>
           </div>
@@ -616,7 +616,7 @@ function LegislationCard({
             {locale === "es" ? law.esOfficialName : law.officialName}
           </p>
           {law.dateEnacted && (
-            <p className="mt-1 text-xs text-stone-400">
+            <p className="mt-1 text-xs text-stone-500">
               {locale === "es" ? "Promulgada:" : "Enacted:"}{" "}
               {new Date(law.dateEnacted + "T00:00:00").toLocaleDateString(
                 locale === "es" ? "es-US" : "en-US",
@@ -627,9 +627,9 @@ function LegislationCard({
         </div>
         <div className="mt-1 flex-shrink-0">
           {expanded ? (
-            <ChevronUp className="h-5 w-5 text-stone-400" />
+            <ChevronUp className="h-5 w-5 text-stone-500" />
           ) : (
-            <ChevronDown className="h-5 w-5 text-stone-400" />
+            <ChevronDown className="h-5 w-5 text-stone-500" />
           )}
         </div>
       </button>
@@ -640,7 +640,7 @@ function LegislationCard({
           {law.keyProvisions.map((prov, i) => (
             <div key={i} className="rounded-lg bg-stone-50 p-4">
               <div className="flex items-center gap-2">
-                <Badge variant="outline" className="text-[10px] bg-white">
+                <Badge variant="outline" className="text-xs bg-white">
                   {prov.sectionRef}
                 </Badge>
               </div>
@@ -932,7 +932,7 @@ export default function HealthcareTimelinePage() {
                     <div className="flex flex-col items-center">
                       <span
                         className={`text-xs font-bold ${
-                          isPast ? "text-stone-400" : "text-amber-600"
+                          isPast ? "text-stone-500" : "text-amber-600"
                         }`}
                       >
                         {new Date(milestone.date + "T00:00:00").toLocaleDateString(
@@ -942,14 +942,14 @@ export default function HealthcareTimelinePage() {
                       </span>
                       <span
                         className={`text-lg font-extrabold ${
-                          isPast ? "text-stone-400" : "text-stone-800"
+                          isPast ? "text-stone-500" : "text-stone-800"
                         }`}
                       >
                         {new Date(milestone.date + "T00:00:00").getDate()}
                       </span>
                       <span
                         className={`text-xs ${
-                          isPast ? "text-stone-400" : "text-stone-500"
+                          isPast ? "text-stone-500" : "text-stone-500"
                         }`}
                       >
                         {new Date(milestone.date + "T00:00:00").getFullYear()}
@@ -961,14 +961,14 @@ export default function HealthcareTimelinePage() {
                           variant="outline"
                           className={
                             milestone.category === "federal"
-                              ? "bg-blue-50 text-blue-700 text-[10px]"
-                              : "bg-amber-50 text-amber-700 text-[10px]"
+                              ? "bg-blue-50 text-blue-700 text-xs"
+                              : "bg-amber-50 text-amber-700 text-xs"
                           }
                         >
                           {milestone.category === "federal" ? "Federal" : locale === "es" ? "Estatal" : "State"}
                         </Badge>
                         {isPast && (
-                          <Badge variant="outline" className="text-[10px] bg-stone-100 text-stone-500">
+                          <Badge variant="outline" className="text-xs bg-stone-100 text-stone-500">
                             {locale === "es" ? "Pasado" : "Past"}
                           </Badge>
                         )}

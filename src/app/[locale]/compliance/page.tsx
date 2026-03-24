@@ -130,7 +130,7 @@ export default function ComplianceLandingPage() {
             ].map((stat) => (
               <div key={stat.label} className="bg-white/5 border border-white/10 rounded-lg p-4">
                 <div className="text-2xl font-bold text-amber-400">{stat.value}</div>
-                <div className="text-sm text-stone-400">{stat.label}</div>
+                <div className="text-sm text-stone-500">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -336,7 +336,7 @@ export default function ComplianceLandingPage() {
               href={link.href}
               className="flex items-center gap-3 bg-stone-50 border border-stone-200 rounded-lg p-4 hover:bg-teal-50 hover:border-teal-200 transition-colors group"
             >
-              <link.icon className="w-5 h-5 text-stone-400 group-hover:text-teal-600" />
+              <link.icon className="w-5 h-5 text-stone-500 group-hover:text-teal-600" />
               <div>
                 <div className="font-semibold text-stone-900 text-sm">{link.label}</div>
                 <div className="text-xs text-stone-500">{link.desc}</div>

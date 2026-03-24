@@ -90,12 +90,12 @@ function BillCard({ bill, locale }: { bill: LegislativeBill; locale: string }) {
         </div>
 
         <h3 className="text-white font-semibold text-base mb-1">{t(bill.title, locale)}</h3>
-        <p className="text-stone-400 text-sm leading-relaxed line-clamp-2">{t(bill.summary, locale)}</p>
+        <p className="text-stone-500 text-sm leading-relaxed line-clamp-2">{t(bill.summary, locale)}</p>
 
         {/* Next action deadline */}
         {bill.nextActionDate && bill.nextActionLabel && (
           <div className={`mt-3 flex items-center gap-2 text-xs rounded-lg px-3 py-2 ${
-            urgent ? "bg-red-950/50 border border-red-800/50 text-red-300" : "bg-stone-800 text-stone-400"
+            urgent ? "bg-red-950/50 border border-red-800/50 text-red-300" : "bg-stone-800 text-stone-500"
           }`}>
             <Clock className="w-3.5 h-3.5 shrink-0" />
             <span className="font-medium">{t(bill.nextActionLabel, locale)}</span>
@@ -112,13 +112,13 @@ function BillCard({ bill, locale }: { bill: LegislativeBill; locale: string }) {
           <p className="text-xs text-stone-300 font-medium mb-0.5">
             {isEs ? "Impacto en FQHCs:" : "FQHC Impact:"}
           </p>
-          <p className="text-xs text-stone-400 leading-relaxed">{t(bill.fqhcImpact, locale)}</p>
+          <p className="text-xs text-stone-500 leading-relaxed">{t(bill.fqhcImpact, locale)}</p>
         </div>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mt-3">
           {bill.tracks.map((track) => (
-            <span key={track} className="text-xs bg-stone-800 text-stone-400 px-2 py-0.5 rounded">
+            <span key={track} className="text-xs bg-stone-800 text-stone-500 px-2 py-0.5 rounded">
               {t(TRACK_LABELS[track], locale)}
             </span>
           ))}
@@ -155,7 +155,7 @@ function BillCard({ bill, locale }: { bill: LegislativeBill; locale: string }) {
       <div className="border-t border-stone-800 px-5 py-3 flex items-center justify-between">
         <button
           onClick={() => setExpanded(!expanded)}
-          className="text-xs text-stone-400 hover:text-white flex items-center gap-1 transition-colors"
+          className="text-xs text-stone-500 hover:text-white flex items-center gap-1 transition-colors"
         >
           {expanded
             ? (isEs ? "Mostrar menos" : "Show less")
@@ -227,7 +227,7 @@ export default function LegislativeTrackerPage() {
               <h1 className="text-4xl font-bold text-white mb-3">
                 {isEs ? "Rastreador Legislativo FQHC" : "FQHC Legislative Tracker"}
               </h1>
-              <p className="text-stone-400 text-lg max-w-2xl">
+              <p className="text-stone-500 text-lg max-w-2xl">
                 {isEs
                   ? "Monitoreo de leyes federales y estatales que afectan el financiamiento, la fuerza laboral y el acceso de pacientes de los FQHCs de California."
                   : "Monitor federal and California legislation affecting FQHC funding, workforce, and patient access. Updated with every legislative development."}
@@ -274,7 +274,7 @@ export default function LegislativeTrackerPage() {
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                   filterImpact === v
                     ? "bg-teal-700 text-white"
-                    : "bg-stone-800 text-stone-400 hover:text-white"
+                    : "bg-stone-800 text-stone-500 hover:text-white"
                 }`}
               >
                 {v === "all" ? (isEs ? "Todos" : "All") : IMPACT_STYLES[v].label}
@@ -289,7 +289,7 @@ export default function LegislativeTrackerPage() {
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                   filterChamber === v
                     ? "bg-stone-600 text-white"
-                    : "bg-stone-800 text-stone-400 hover:text-white"
+                    : "bg-stone-800 text-stone-500 hover:text-white"
                 }`}
               >
                 {v === "all" ? (isEs ? "Todos" : "All Levels") : `${CHAMBER_LABELS[v].flag} ${t(CHAMBER_LABELS[v], locale)}`}
@@ -332,7 +332,7 @@ export default function LegislativeTrackerPage() {
                       {days > 0 ? `${days}d` : isEs ? "Hoy" : "Today"} — {formatDate(bill.nextActionDate!, locale)}
                     </div>
                     <div className="text-white text-xs font-medium">{bill.billNumber}</div>
-                    <div className="text-stone-400 text-xs">
+                    <div className="text-stone-500 text-xs">
                       {bill.nextActionLabel ? t(bill.nextActionLabel, locale) : ""}
                     </div>
                   </div>
@@ -374,7 +374,7 @@ export default function LegislativeTrackerPage() {
                 <Link
                   key={r.href}
                   href={r.href}
-                  className="flex items-center gap-2 text-xs text-stone-400 hover:text-teal-400 transition-colors"
+                  className="flex items-center gap-2 text-xs text-stone-500 hover:text-teal-400 transition-colors"
                 >
                   <ArrowRight className="w-3 h-3" />
                   {r.label}

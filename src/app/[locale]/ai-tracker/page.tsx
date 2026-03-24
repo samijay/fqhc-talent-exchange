@@ -165,19 +165,19 @@ function VendorCard({
             {vendor.name}
           </h3>
           <span
-            className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${fitColors[vendor.fqhcFit]}`}
+            className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-semibold ${fitColors[vendor.fqhcFit]}`}
           >
             {isEs ? fitLabels[vendor.fqhcFit].es : fitLabels[vendor.fqhcFit].en}
           </span>
         </div>
-        <p className="text-[11px] text-stone-500 leading-snug">
+        <p className="text-xs text-stone-500 leading-snug">
           {isEs ? vendor.tagline.es : vendor.tagline.en}
         </p>
       </div>
 
       {/* EHR compatibility */}
       <div>
-        <p className="text-[10px] font-semibold text-stone-400 uppercase mb-1.5">
+        <p className="text-xs font-semibold text-stone-500 uppercase mb-1.5">
           {isEs ? "Compatibilidad EHR" : "EHR Compatibility"}
         </p>
         <div className="grid grid-cols-2 gap-y-1 gap-x-2">
@@ -186,7 +186,7 @@ function VendorCard({
             return (
               <div key={ehr} className="flex items-center gap-1.5">
                 <EHRDot level={level} />
-                <span className="text-[10px] text-stone-600">{ehrShort[ehr]}</span>
+                <span className="text-xs text-stone-600">{ehrShort[ehr]}</span>
               </div>
             );
           })}
@@ -194,29 +194,29 @@ function VendorCard({
         <div className="mt-1.5 flex items-center gap-3">
           <div className="flex items-center gap-1">
             <span className="inline-block size-2 rounded-full bg-teal-500" />
-            <span className="text-[9px] text-stone-400">{isEs ? "Nativo" : "Native"}</span>
+            <span className="text-xs text-stone-500">{isEs ? "Nativo" : "Native"}</span>
           </div>
           <div className="flex items-center gap-1">
             <span className="inline-block size-2 rounded-full bg-amber-400" />
-            <span className="text-[9px] text-stone-400">API</span>
+            <span className="text-xs text-stone-500">API</span>
           </div>
           <div className="flex items-center gap-1">
             <span className="inline-block size-2 rounded-full border border-stone-300 bg-white" />
-            <span className="text-[9px] text-stone-400">{isEs ? "Ninguno" : "None"}</span>
+            <span className="text-xs text-stone-500">{isEs ? "Ninguno" : "None"}</span>
           </div>
         </div>
       </div>
 
       {/* Key features */}
       <div>
-        <p className="text-[10px] font-semibold text-stone-400 uppercase mb-1">
+        <p className="text-xs font-semibold text-stone-500 uppercase mb-1">
           {isEs ? "Características Clave" : "Key Features"}
         </p>
         <ul className="space-y-0.5">
           {vendor.keyFeatures.slice(0, 2).map((f, i) => (
             <li
               key={i}
-              className="text-[11px] text-stone-600 leading-snug flex gap-1"
+              className="text-xs text-stone-600 leading-snug flex gap-1"
             >
               <span className="text-teal-500 shrink-0">•</span>
               <span>{isEs ? f.es : f.en}</span>
@@ -228,13 +228,13 @@ function VendorCard({
       {/* FQHC customers (if any) */}
       {vendor.fqhcCustomers.length > 0 && (
         <div>
-          <p className="text-[10px] font-semibold text-stone-400 uppercase mb-1">
+          <p className="text-xs font-semibold text-stone-500 uppercase mb-1">
             {isEs ? "Clientes FQHC" : "FQHC Customers"}
           </p>
-          <p className="text-[10px] text-stone-600 leading-snug">
+          <p className="text-xs text-stone-600 leading-snug">
             {vendor.fqhcCustomers.slice(0, 2).join(" · ")}
             {vendor.fqhcCustomers.length > 2 && (
-              <span className="text-stone-400">
+              <span className="text-stone-500">
                 {" "}+{vendor.fqhcCustomers.length - 2} {isEs ? "más" : "more"}
               </span>
             )}
@@ -245,18 +245,18 @@ function VendorCard({
       {/* Footer: pricing + badges */}
       <div className="mt-auto pt-2 border-t border-stone-100 flex items-center justify-between gap-2 flex-wrap">
         <div className="flex items-center gap-1.5 flex-wrap">
-          <span className="text-[10px] px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 font-medium">
+          <span className="text-xs px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 font-medium">
             {isEs
               ? pricingLabels[vendor.pricingModel]?.es
               : pricingLabels[vendor.pricingModel]?.en}
           </span>
           {vendor.nachcEndorsed && (
-            <span className="text-[10px] px-1.5 py-0.5 rounded bg-teal-50 text-teal-700 font-medium border border-teal-200">
+            <span className="text-xs px-1.5 py-0.5 rounded bg-teal-50 text-teal-700 font-medium border border-teal-200">
               NACHC ✓
             </span>
           )}
           {vendor.chaiCertified && (
-            <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium border border-blue-200">
+            <span className="text-xs px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-medium border border-blue-200">
               CHAI ✓
             </span>
           )}
@@ -265,7 +265,7 @@ function VendorCard({
           href={vendor.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[10px] text-teal-600 hover:text-teal-800 hover:underline transition-colors"
+          className="text-xs text-teal-600 hover:text-teal-800 hover:underline transition-colors"
         >
           {isEs ? "Fuente →" : "Source →"}
         </a>
@@ -306,17 +306,17 @@ function AIItemCard({
               {stageMeta && (
                 <Badge
                   variant="secondary"
-                  className={`text-[10px] ${stageMeta.color}`}
+                  className={`text-xs ${stageMeta.color}`}
                 >
                   {isEs ? stageMeta.es : stageMeta.en}
                 </Badge>
               )}
               {catMeta && (
-                <span className="text-[10px] bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded-full">
+                <span className="text-xs bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded-full">
                   {isEs ? catMeta.es : catMeta.en}
                 </span>
               )}
-              <span className="text-[11px] text-stone-400 flex items-center gap-1">
+              <span className="text-xs text-stone-500 flex items-center gap-1">
                 <Calendar className="size-3" />
                 {formatShortDate(item.date, locale)}
               </span>
@@ -333,7 +333,7 @@ function AIItemCard({
               </p>
             )}
           </div>
-          <div className="flex-shrink-0 mt-1 text-stone-400">
+          <div className="flex-shrink-0 mt-1 text-stone-500">
             {isExpanded ? (
               <ChevronUp className="size-4" />
             ) : (
@@ -348,7 +348,7 @@ function AIItemCard({
             {item.metrics.slice(0, 3).map((m) => (
               <span
                 key={m.label}
-                className="inline-flex items-center gap-1 rounded-full bg-teal-50 px-2 py-0.5 text-[11px] font-medium text-teal-800"
+                className="inline-flex items-center gap-1 rounded-full bg-teal-50 px-2 py-0.5 text-xs font-medium text-teal-800"
               >
                 <BarChart3 className="size-2.5" />
                 {m.value}
@@ -405,7 +405,7 @@ function AIItemCard({
               {item.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[10px] bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded"
+                  className="text-xs bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded"
                 >
                   {tag}
                 </span>
@@ -510,7 +510,7 @@ export default function AITrackerPage() {
               ? "Monitoreando la adopcion de inteligencia artificial en centros de salud comunitarios a nivel nacional."
               : "Monitoring artificial intelligence adoption at community health centers nationwide."}
           </p>
-          <div className="mt-3 flex items-center gap-1.5 text-xs text-stone-400">
+          <div className="mt-3 flex items-center gap-1.5 text-xs text-stone-500">
             <Calendar className="size-3" />
             <span>{isEs ? "Última actualización:" : "Last updated:"} {AI_TRACKER_LAST_UPDATED}</span>
           </div>
@@ -521,7 +521,7 @@ export default function AITrackerPage() {
               <div className="text-2xl font-bold text-teal-400">
                 {counts.total}
               </div>
-              <div className="text-xs text-stone-400">
+              <div className="text-xs text-stone-500">
                 {isEs ? "Implementaciones" : "Deployments"}
               </div>
             </div>
@@ -529,7 +529,7 @@ export default function AITrackerPage() {
               <div className="text-2xl font-bold text-amber-400">
                 {Object.keys(counts).length - 1}
               </div>
-              <div className="text-xs text-stone-400">
+              <div className="text-xs text-stone-500">
                 {isEs ? "Categorias" : "Categories"}
               </div>
             </div>
@@ -537,7 +537,7 @@ export default function AITrackerPage() {
               <div className="text-2xl font-bold text-green-400">
                 {stageCounts["widely-adopted"] || 0}
               </div>
-              <div className="text-xs text-stone-400">
+              <div className="text-xs text-stone-500">
                 {isEs ? "Ampliamente Adoptados" : "Widely Adopted"}
               </div>
             </div>
@@ -545,7 +545,7 @@ export default function AITrackerPage() {
               <div className="text-2xl font-bold text-blue-400">
                 {stageCounts.pilot || 0}
               </div>
-              <div className="text-xs text-stone-400">
+              <div className="text-xs text-stone-500">
                 {isEs ? "En Piloto" : "In Pilot"}
               </div>
             </div>
@@ -557,7 +557,7 @@ export default function AITrackerPage() {
       <div className="bg-stone-800 border-b border-stone-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center gap-3 overflow-x-auto">
-            <Badge className="bg-amber-500 text-white text-[10px] font-bold shrink-0 hover:bg-amber-600">
+            <Badge className="bg-amber-500 text-white text-xs font-bold shrink-0 hover:bg-amber-600">
               <TrendingUp className="size-3 mr-1" />
               {isEs ? "TENDENCIA" : "TRENDING"}
             </Badge>
@@ -598,7 +598,7 @@ export default function AITrackerPage() {
               {/* KTVU branding bar */}
               <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-3 bg-gradient-to-b from-black/70 to-transparent">
                 <span className="text-xs font-bold tracking-widest text-white uppercase">KTVU Fox 2</span>
-                <span className="rounded bg-red-600 px-2 py-0.5 text-[10px] font-bold text-white uppercase">
+                <span className="rounded bg-red-600 px-2 py-0.5 text-xs font-bold text-white uppercase">
                   {isEs ? "Noticias" : "News Segment"}
                 </span>
               </div>
@@ -619,7 +619,7 @@ export default function AITrackerPage() {
                     ? "IA Expande Atención para Personas Sin Hogar"
                     : "AI Expanding Care for the Unhoused"}
                 </p>
-                <p className="mt-0.5 text-[11px] text-stone-300">
+                <p className="mt-0.5 text-xs text-stone-300">
                   {isEs
                     ? "Con Emma Mayerson (Future Communities Institute) · KTVU Fox 2 · Ene 2026"
                     : "Feat. Emma Mayerson (Future Communities Institute) · KTVU Fox 2 · Jan 2026"}
@@ -628,7 +628,7 @@ export default function AITrackerPage() {
             </a>
             {/* Description */}
             <div className="lg:col-span-2 text-white">
-              <Badge className="bg-red-600/80 text-white text-[10px] font-bold mb-3 hover:bg-red-600">
+              <Badge className="bg-red-600/80 text-white text-xs font-bold mb-3 hover:bg-red-600">
                 📺 {isEs ? "VIDEO DESTACADO" : "FEATURED VIDEO"}
               </Badge>
               <h3 className="text-lg font-bold leading-snug sm:text-xl">
@@ -638,7 +638,7 @@ export default function AITrackerPage() {
               </h3>
               {/* Emma Mayerson credit */}
               <div className="mt-2 flex items-center gap-2">
-                <span className="flex size-7 items-center justify-center rounded-full bg-teal-700 text-[10px] font-bold text-white shrink-0">EM</span>
+                <span className="flex size-7 items-center justify-center rounded-full bg-teal-700 text-xs font-bold text-white shrink-0">EM</span>
                 <span className="text-xs text-teal-300">
                   {isEs
                     ? "Emma Mayerson · Co-Fundadora, Future Communities Institute"
@@ -651,10 +651,10 @@ export default function AITrackerPage() {
                   : "Akido Labs' ScopeAI guides CHWs through comprehensive street medicine visits — 92% diagnostic accuracy, MAT within 4 hours, 40% ED reduction. Funded entirely by Medi-Cal CalAIM ECM."}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
-                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-[10px] text-teal-300">KTVU Fox 2</span>
-                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-[10px] text-teal-300">CalAIM ECM</span>
-                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-[10px] text-teal-300">Street Medicine</span>
-                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-[10px] text-teal-300">Jan 2026</span>
+                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-xs text-teal-300">KTVU Fox 2</span>
+                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-xs text-teal-300">CalAIM ECM</span>
+                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-xs text-teal-300">Street Medicine</span>
+                <span className="inline-block rounded-full bg-teal-800/50 border border-teal-600/30 px-2.5 py-0.5 text-xs text-teal-300">Jan 2026</span>
               </div>
               <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                 <a
@@ -682,7 +682,7 @@ export default function AITrackerPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Category filter */}
           <div className="flex items-center gap-2 mb-3">
-            <Filter className="size-4 text-stone-400" />
+            <Filter className="size-4 text-stone-500" />
             <span className="text-xs font-medium text-stone-500 uppercase">
               {isEs ? "Categoria" : "Category"}:
             </span>
@@ -715,7 +715,7 @@ export default function AITrackerPage() {
 
           {/* Stage filter */}
           <div className="flex items-center gap-2 mb-8">
-            <Zap className="size-4 text-stone-400" />
+            <Zap className="size-4 text-stone-500" />
             <span className="text-xs font-medium text-stone-500 uppercase">
               {isEs ? "Etapa" : "Stage"}:
             </span>
@@ -767,7 +767,7 @@ export default function AITrackerPage() {
                       {monthLabel(key, locale)}
                     </h2>
                     <div className="flex-1 border-t border-stone-200" />
-                    <span className="text-xs text-stone-400">
+                    <span className="text-xs text-stone-500">
                       {items.length} {items.length === 1 ? (isEs ? "item" : "item") : (isEs ? "items" : "items")}
                     </span>
                   </div>
@@ -818,12 +818,12 @@ export default function AITrackerPage() {
                             </h4>
                             <div className="flex items-center gap-1.5 mt-1">
                               {stageMeta && (
-                                <span className={`text-[9px] px-1 py-0.5 rounded ${stageMeta.color}`}>
+                                <span className={`text-xs px-1 py-0.5 rounded ${stageMeta.color}`}>
                                   {isEs ? stageMeta.es : stageMeta.en}
                                 </span>
                               )}
                               {item.metrics[0] && (
-                                <span className="text-[10px] text-stone-500">
+                                <span className="text-xs text-stone-500">
                                   {item.metrics[0].value}
                                 </span>
                               )}
@@ -856,11 +856,11 @@ export default function AITrackerPage() {
                             {t(cliff.title, locale)}
                           </h4>
                           <div className="flex items-center gap-2 mt-0.5">
-                            <span className={`text-[10px] font-bold ${cliff.daysUntil <= 90 ? "text-red-600" : cliff.daysUntil <= 180 ? "text-amber-600" : "text-stone-500"}`}>
+                            <span className={`text-xs font-bold ${cliff.daysUntil <= 90 ? "text-red-600" : cliff.daysUntil <= 180 ? "text-amber-600" : "text-stone-500"}`}>
                               {cliff.daysUntil} {isEs ? "días" : "days"}
                             </span>
                             {cliff.dollarAmount && (
-                              <span className="text-[10px] text-stone-500">
+                              <span className="text-xs text-stone-500">
                                 {cliff.dollarAmount}
                               </span>
                             )}
@@ -870,7 +870,7 @@ export default function AITrackerPage() {
                     ))}
                     <Link
                       href="/funding-impact"
-                      className="block text-[11px] font-medium text-amber-700 hover:text-amber-900 hover:underline transition-colors mt-1"
+                      className="block text-xs font-medium text-amber-700 hover:text-amber-900 hover:underline transition-colors mt-1"
                     >
                       {isEs ? "Ver todas las fechas →" : "View all deadlines →"}
                     </Link>
@@ -902,7 +902,7 @@ export default function AITrackerPage() {
                   ))}
                   <Link
                     href="/"
-                    className="block text-[11px] font-medium text-blue-700 hover:text-blue-900 hover:underline transition-colors mt-1"
+                    className="block text-xs font-medium text-blue-700 hover:text-blue-900 hover:underline transition-colors mt-1"
                   >
                     {isEs ? "Ver dashboard completo →" : "View full dashboard →"}
                   </Link>
@@ -932,7 +932,7 @@ export default function AITrackerPage() {
               </p>
             </div>
             <div className="shrink-0 text-right">
-              <div className="flex items-center gap-3 text-[11px] text-stone-500">
+              <div className="flex items-center gap-3 text-xs text-stone-500">
                 <div className="flex items-center gap-1">
                   <span className="inline-block size-2.5 rounded-full bg-teal-500" />
                   <span>{isEs ? "Nativo" : "Native"}</span>
@@ -1023,7 +1023,7 @@ export default function AITrackerPage() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <Sparkles className="size-4 text-teal-600" />
-                  <Badge variant="secondary" className="text-[10px] bg-teal-100 text-teal-700">
+                  <Badge variant="secondary" className="text-xs bg-teal-100 text-teal-700">
                     {isEs ? "Masterclass" : "Masterclass"}
                   </Badge>
                 </div>
@@ -1047,7 +1047,7 @@ export default function AITrackerPage() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <BookOpen className="size-4 text-blue-600" />
-                  <Badge variant="secondary" className="text-[10px] bg-blue-100 text-blue-700">
+                  <Badge variant="secondary" className="text-xs bg-blue-100 text-blue-700">
                     {isEs ? "Guía" : "Guide"}
                   </Badge>
                 </div>
@@ -1068,7 +1068,7 @@ export default function AITrackerPage() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <BarChart3 className="size-4 text-amber-600" />
-                  <Badge variant="secondary" className="text-[10px] bg-amber-100 text-amber-700">
+                  <Badge variant="secondary" className="text-xs bg-amber-100 text-amber-700">
                     {isEs ? "Guía" : "Guide"}
                   </Badge>
                 </div>

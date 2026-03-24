@@ -80,7 +80,7 @@ export default function ModulePage() {
         <h2 className="text-xl font-bold text-stone-800 dark:text-stone-100">
           {isEs ? "Módulo no encontrado" : "Module not found"}
         </h2>
-        <p className="text-sm text-stone-500 dark:text-stone-400">
+        <p className="text-sm text-stone-500 dark:text-stone-500">
           {isEs
             ? "Este módulo no existe. Revisa el curso completo."
             : "This module doesn't exist. Check out the full course."}
@@ -103,7 +103,7 @@ export default function ModulePage() {
         <h2 className="text-xl font-bold text-stone-800 dark:text-stone-100">
           {isEs ? "Módulo Bloqueado" : "Module Locked"}
         </h2>
-        <p className="text-sm text-stone-500 dark:text-stone-400 max-w-md">
+        <p className="text-sm text-stone-500 dark:text-stone-500 max-w-md">
           {isEs
             ? `Completa "${t(OKR_COURSE_MODULES[moduleIndex - 1].title, locale)}" primero para desbloquear este módulo.`
             : `Complete "${t(OKR_COURSE_MODULES[moduleIndex - 1].title, locale)}" first to unlock this module.`}
@@ -130,7 +130,7 @@ export default function ModulePage() {
           <h2 className="text-2xl font-bold text-stone-800 dark:text-stone-100">
             {isEs ? "¡Módulo Completado!" : "Module Complete!"}
           </h2>
-          <p className="text-stone-600 dark:text-stone-400">
+          <p className="text-stone-600 dark:text-stone-500">
             {t(courseModule.title, locale)}
           </p>
 
@@ -190,7 +190,7 @@ export default function ModulePage() {
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-6" aria-label="Breadcrumb">
+      <nav className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-6" aria-label="Breadcrumb">
         <Link
           href="/strategy/okr-course"
           className="hover:text-teal-600 transition-colors"
@@ -217,7 +217,7 @@ export default function ModulePage() {
               <h1 className="text-lg font-bold text-stone-800 dark:text-stone-100">
                 {t(courseModule.title, locale)}
               </h1>
-              <p className="text-sm text-stone-500 dark:text-stone-400 mt-1">
+              <p className="text-sm text-stone-500 dark:text-stone-500 mt-1">
                 {t(courseModule.subtitle, locale)}
               </p>
             </div>

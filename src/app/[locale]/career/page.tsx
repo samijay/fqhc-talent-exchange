@@ -182,7 +182,7 @@ export default function CareerHubPage() {
               >
                 <stat.icon className="mx-auto size-5 text-teal-400 mb-2" />
                 <div className="text-2xl font-bold text-white">{stat.value}</div>
-                <div className="text-xs text-stone-400">{stat.label}</div>
+                <div className="text-xs text-stone-500">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -199,7 +199,7 @@ export default function CareerHubPage() {
           <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 sm:text-3xl">
             {isEs ? "Tu Viaje en 6 Pasos" : "Your 6-Step Journey"}
           </h2>
-          <p className="mt-2 text-stone-500 dark:text-stone-400 max-w-xl mx-auto">
+          <p className="mt-2 text-stone-500 dark:text-stone-500 max-w-xl mx-auto">
             {isEs
               ? "Cada herramienta funciona de forma independiente, pero siguen un flujo natural."
               : "Each tool works standalone, but they follow a natural flow."}
@@ -234,12 +234,12 @@ export default function CareerHubPage() {
                             <h3 className="font-bold text-stone-900 dark:text-stone-100">
                               {t(step.title, locale)}
                             </h3>
-                            <span className="text-xs text-stone-400 flex items-center gap-1">
+                            <span className="text-xs text-stone-500 flex items-center gap-1">
                               <Clock className="size-3" />
                               {step.time}
                             </span>
                           </div>
-                          <p className="text-sm text-stone-500 dark:text-stone-400 line-clamp-2">
+                          <p className="text-sm text-stone-500 dark:text-stone-500 line-clamp-2">
                             {t(step.description, locale)}
                           </p>
                         </div>
@@ -279,7 +279,7 @@ export default function CareerHubPage() {
             <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
               {isEs ? "Acceso Rápido" : "Quick Access"}
             </h2>
-            <p className="mt-2 text-sm text-stone-500 dark:text-stone-400">
+            <p className="mt-2 text-sm text-stone-500 dark:text-stone-500">
               {isEs
                 ? "¿Sabes lo que necesitas? Salta directo."
                 : "Know what you need? Jump straight in."}
@@ -301,9 +301,9 @@ export default function CareerHubPage() {
                       <h3 className="font-semibold text-sm text-stone-900 dark:text-stone-100 group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
                         {t(step.title, locale)}
                       </h3>
-                      <span className="text-xs text-stone-400">{step.time}</span>
+                      <span className="text-xs text-stone-500">{step.time}</span>
                     </div>
-                    <ChevronRight className="size-4 text-stone-400 group-hover:text-teal-600 transition-colors" />
+                    <ChevronRight className="size-4 text-stone-500 group-hover:text-teal-600 transition-colors" />
                   </div>
                 </Link>
               );
@@ -353,7 +353,7 @@ export default function CareerHubPage() {
                 <h3 className="font-semibold text-stone-900 dark:text-stone-100">
                   {item.title}
                 </h3>
-                <p className="text-sm text-stone-500 dark:text-stone-400 mt-1">
+                <p className="text-sm text-stone-500 dark:text-stone-500 mt-1">
                   {item.desc}
                 </p>
               </div>

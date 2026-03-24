@@ -16,7 +16,7 @@ export default function OkrCourseError({
       <h2 className="text-xl font-bold text-stone-800 dark:text-stone-100">
         Something went wrong
       </h2>
-      <p className="text-sm text-stone-500 dark:text-stone-400 max-w-md">
+      <p className="text-sm text-stone-500 dark:text-stone-500 max-w-md">
         The OKR course encountered an unexpected error. Your progress is saved
         locally and won&apos;t be lost.
       </p>

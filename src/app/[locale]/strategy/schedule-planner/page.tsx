@@ -308,7 +308,7 @@ export default function SchedulePlannerPage() {
       <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-8">
+          <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-8">
             <Link href="/strategy/guides" className="hover:text-teal-600 transition-colors">
               {isEs ? "Estrategia" : "Strategy"}
             </Link>
@@ -330,12 +330,12 @@ export default function SchedulePlannerPage() {
                 ? "Planificador de Horarios FQHC"
                 : "FQHC Schedule Planner"}
             </h1>
-            <p className="text-lg text-stone-500 dark:text-stone-400 max-w-2xl mx-auto mb-4">
+            <p className="text-lg text-stone-500 dark:text-stone-500 max-w-2xl mx-auto mb-4">
               {isEs
                 ? "Construye el horario semanal óptimo de tu clínica. Visualiza la cobertura de personal, ratios MA:proveedor, impacto en ingresos y alertas de dotación — todo en tiempo real."
                 : "Build your clinic's optimal weekly schedule. Visualize staff coverage, MA:provider ratios, revenue impact, and staffing warnings — all in real time."}
             </p>
-            <div className="flex items-center justify-center gap-4 text-sm text-stone-400 mb-8">
+            <div className="flex items-center justify-center gap-4 text-sm text-stone-500 mb-8">
               <span className="flex items-center gap-1">
                 <Users className="h-4 w-4" /> {isEs ? "Todas las posiciones" : "All roles"}
               </span>
@@ -394,7 +394,7 @@ export default function SchedulePlannerPage() {
                           <span>{m.totalStaff} {isEs ? "personal" : "staff"}</span>
                           <span>{m.totalWeeklyEncounters} enc/wk</span>
                         </div>
-                        <p className="text-[10px] text-stone-400 mt-1">
+                        <p className="text-xs text-stone-500 mt-1">
                           {isEs ? "Modificado" : "Modified"}: {new Date(s.updatedAt).toLocaleDateString()}
                         </p>
                       </CardContent>
@@ -408,7 +408,7 @@ export default function SchedulePlannerPage() {
                   <div className="w-full border-t border-stone-200 dark:border-stone-700" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-white dark:bg-stone-900 px-3 text-stone-400">
+                  <span className="bg-white dark:bg-stone-900 px-3 text-stone-500">
                     {isEs ? "o crea uno nuevo" : "or create new"}
                   </span>
                 </div>
@@ -446,7 +446,7 @@ export default function SchedulePlannerPage() {
                         <span>{providers} {isEs ? "proveedores" : "providers"}</span>
                         <span>{mas} MAs</span>
                       </div>
-                      <p className="text-xs text-stone-400 mb-3">
+                      <p className="text-xs text-stone-500 mb-3">
                         ${preset.ppsRate} PPS · {(preset.noShowRate * 100).toFixed(0)}% {isEs ? "citas perdidas" : "no-show"}
                       </p>
                       <Button
@@ -494,7 +494,7 @@ export default function SchedulePlannerPage() {
                         : "Model revenue and costs for your staffing configuration"}
                     </p>
                   </div>
-                  <ArrowRight className="h-4 w-4 text-stone-400 shrink-0" />
+                  <ArrowRight className="h-4 w-4 text-stone-500 shrink-0" />
                 </CardContent>
               </Card>
             </Link>
@@ -512,7 +512,7 @@ export default function SchedulePlannerPage() {
                         : "Learn scheduling best practices"}
                     </p>
                   </div>
-                  <ArrowRight className="h-4 w-4 text-stone-400 shrink-0" />
+                  <ArrowRight className="h-4 w-4 text-stone-500 shrink-0" />
                 </CardContent>
               </Card>
             </Link>
@@ -549,7 +549,7 @@ export default function SchedulePlannerPage() {
                   <button onClick={handleSaveName} className="text-green-600 hover:text-green-700">
                     <Check className="h-3.5 w-3.5" />
                   </button>
-                  <button onClick={() => setIsEditingName(false)} className="text-stone-400 hover:text-stone-600">
+                  <button onClick={() => setIsEditingName(false)} className="text-stone-500 hover:text-stone-600">
                     <X className="h-3.5 w-3.5" />
                   </button>
                 </div>
@@ -566,7 +566,7 @@ export default function SchedulePlannerPage() {
                   </button>
                 </div>
               )}
-              <p className="text-[10px] text-stone-400">
+              <p className="text-xs text-stone-500">
                 {metrics.totalStaff} {isEs ? "personal" : "staff"} · {metrics.totalWeeklyEncounters} {isEs ? "encuentros/sem" : "encounters/wk"}
               </p>
             </div>
@@ -661,7 +661,7 @@ export default function SchedulePlannerPage() {
                     className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
                       s.id === compareScheduleId
                         ? "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300"
-                        : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400 hover:bg-stone-200"
+                        : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-500 hover:bg-stone-200"
                     }`}
                   >
                     {s.name}
@@ -670,7 +670,7 @@ export default function SchedulePlannerPage() {
               {compareScheduleId && (
                 <button
                   onClick={() => { setCompareScheduleId(null); setShowCompareSelect(false); }}
-                  className="text-xs text-stone-400 hover:text-red-500"
+                  className="text-xs text-stone-500 hover:text-red-500"
                 >
                   {isEs ? "Cancelar" : "Clear"}
                 </button>
@@ -693,7 +693,7 @@ export default function SchedulePlannerPage() {
                   className={`rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
                     s.id === schedule.id
                       ? "bg-indigo-600 text-white"
-                      : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400 hover:bg-stone-200"
+                      : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-500 hover:bg-stone-200"
                   }`}
                 >
                   {s.name}
@@ -710,7 +710,7 @@ export default function SchedulePlannerPage() {
           <div className="flex-1 min-w-0">
             {/* Operating hours toggles */}
             <div className="mb-4 flex items-center gap-2 flex-wrap">
-              <span className="text-xs font-semibold text-stone-500 dark:text-stone-400">
+              <span className="text-xs font-semibold text-stone-500 dark:text-stone-500">
                 {isEs ? "Días activos:" : "Active days:"}
               </span>
               {DAYS_OF_WEEK.map((day) => {
@@ -722,7 +722,7 @@ export default function SchedulePlannerPage() {
                     className={`rounded-md px-2 py-1 text-xs font-medium transition-all ${
                       active
                         ? "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300"
-                        : "bg-stone-100 text-stone-400 dark:bg-stone-800 dark:text-stone-600"
+                        : "bg-stone-100 text-stone-500 dark:bg-stone-800 dark:text-stone-600"
                     }`}
                   >
                     {DAY_LABELS[day].short}
@@ -735,7 +735,7 @@ export default function SchedulePlannerPage() {
             <Card>
               <CardContent className="p-2 sm:p-4">
                 {schedule.staff.length === 0 ? (
-                  <div className="py-12 text-center text-stone-400">
+                  <div className="py-12 text-center text-stone-500">
                     <Users className="h-10 w-10 mx-auto mb-3 text-stone-300" />
                     <p className="text-sm font-medium mb-2">
                       {isEs ? "Sin personal agregado" : "No staff added yet"}
@@ -763,7 +763,7 @@ export default function SchedulePlannerPage() {
             {schedule.staff.length > 0 && (
               <div className="mt-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold text-stone-500 dark:text-stone-400">
+                  <span className="text-xs font-semibold text-stone-500 dark:text-stone-500">
                     {isEs ? "Lista de Personal" : "Staff Roster"} ({schedule.staff.length})
                   </span>
                   <Button
@@ -834,7 +834,7 @@ export default function SchedulePlannerPage() {
               </div>
 
               {/* Saved count */}
-              <div className="mt-3 text-center text-[10px] text-stone-400">
+              <div className="mt-3 text-center text-xs text-stone-500">
                 {savedSchedules.length}/5 {isEs ? "horarios guardados" : "schedules saved"}
                 {savedSchedules.length >= 5 && (
                   <span className="text-amber-500 ml-1">

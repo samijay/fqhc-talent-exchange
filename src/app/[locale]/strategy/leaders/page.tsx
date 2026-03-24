@@ -164,7 +164,7 @@ function LeaderCard({
             <p className="text-sm text-stone-500 mt-0.5">
               {t(leader.title, locale)}
             </p>
-            <p className="text-xs text-stone-400 mt-0.5">
+            <p className="text-xs text-stone-500 mt-0.5">
               {leader.organization}
             </p>
 
@@ -173,7 +173,7 @@ function LeaderCard({
               {leader.relevantTopics.map((topic) => (
                 <span
                   key={topic}
-                  className="inline-flex items-center rounded-full bg-stone-100 px-2 py-0.5 text-[10px] font-medium text-stone-500"
+                  className="inline-flex items-center rounded-full bg-stone-100 px-2 py-0.5 text-xs font-medium text-stone-500"
                 >
                   {formatTopic(topic)}
                 </span>
@@ -182,7 +182,7 @@ function LeaderCard({
           </div>
 
           {/* Expand icon */}
-          <div className="flex-shrink-0 mt-1 text-stone-400">
+          <div className="flex-shrink-0 mt-1 text-stone-500">
             {isExpanded ? (
               <ChevronUp className="size-5" />
             ) : (
@@ -197,7 +197,7 @@ function LeaderCard({
         <div className="border-t border-stone-100 px-5 sm:px-6 pb-6 pt-4 space-y-5">
           {/* Bio */}
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-2">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">
               {isEs ? "Biografia" : "Biography"}
             </h4>
             <p className="text-sm text-stone-600 leading-relaxed">
@@ -221,7 +221,7 @@ function LeaderCard({
           {/* Connected Content */}
           {hasConnectedContent && (
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-stone-400 mb-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">
                 {isEs ? "Contenido Conectado" : "Connected Content"}
               </h4>
               <div className="flex flex-wrap gap-1.5">
@@ -400,7 +400,7 @@ export default function ThoughtLeadersPage() {
               ? "Las personas que estan dando forma al futuro de los centros de salud comunitarios. Siga a estos lideres para inteligencia temprana sobre politicas, financiamiento, tecnologia y operaciones."
               : "The people shaping the future of community health centers. Follow these leaders for early signals on policy, funding, technology, and operations."}
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-stone-400">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-stone-500">
             <span className="flex items-center gap-1">
               <Users className="size-3.5" />
               {totalLeaders} {isEs ? "lideres" : "leaders"}
@@ -423,7 +423,7 @@ export default function ThoughtLeadersPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Category filter */}
           <div className="flex items-center gap-2 mb-4">
-            <Filter className="size-4 text-stone-400" />
+            <Filter className="size-4 text-stone-500" />
             <div className="flex flex-wrap gap-1.5">
               <button
                 onClick={() => {
@@ -469,7 +469,7 @@ export default function ThoughtLeadersPage() {
 
           {/* Topic filter */}
           <div className="flex items-center gap-2 mb-8">
-            <Tag className="size-4 text-stone-400" />
+            <Tag className="size-4 text-stone-500" />
             <div className="flex flex-wrap gap-1">
               {topTopics.map((topic) => (
                 <button
@@ -477,10 +477,10 @@ export default function ThoughtLeadersPage() {
                   onClick={() =>
                     setActiveTopic(activeTopic === topic ? null : topic)
                   }
-                  className={`rounded-full px-2.5 py-0.5 text-[11px] font-medium transition-colors ${
+                  className={`rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors ${
                     activeTopic === topic
                       ? "bg-teal-700 text-white"
-                      : "bg-stone-100 text-stone-400 hover:bg-stone-200 hover:text-stone-600"
+                      : "bg-stone-100 text-stone-500 hover:bg-stone-200 hover:text-stone-600"
                   }`}
                 >
                   {formatTopic(topic)}
@@ -489,7 +489,7 @@ export default function ThoughtLeadersPage() {
               {activeTopic && (
                 <button
                   onClick={() => setActiveTopic(null)}
-                  className="rounded-full px-2.5 py-0.5 text-[11px] font-medium text-red-500 hover:text-red-700 transition-colors"
+                  className="rounded-full px-2.5 py-0.5 text-xs font-medium text-red-500 hover:text-red-700 transition-colors"
                 >
                   {isEs ? "Limpiar" : "Clear"}
                 </button>
@@ -530,7 +530,7 @@ export default function ThoughtLeadersPage() {
                 ? "Como Usar Esta Pagina"
                 : "How to Use This Page"}
             </h2>
-            <p className="text-sm text-stone-400 text-center mb-8">
+            <p className="text-sm text-stone-500 text-center mb-8">
               {isEs
                 ? "Acciones concretas para convertir esta inteligencia en ventaja estrategica."
                 : "Concrete actions to turn this intelligence into strategic advantage."}
@@ -545,7 +545,7 @@ export default function ThoughtLeadersPage() {
                     {isEs ? "Siga en LinkedIn" : "Follow on LinkedIn"}
                   </h3>
                 </div>
-                <p className="text-xs text-stone-400 leading-relaxed">
+                <p className="text-xs text-stone-500 leading-relaxed">
                   {isEs
                     ? "Siga a estos lideres en LinkedIn para inteligencia temprana. Sus publicaciones a menudo previsualizan cambios de politica semanas antes de los anuncios oficiales."
                     : "Follow these leaders on LinkedIn for early signals. Their posts often preview policy changes weeks before official announcements."}
@@ -562,7 +562,7 @@ export default function ThoughtLeadersPage() {
                       : "Subscribe to NACHC & CPCA"}
                   </h3>
                 </div>
-                <p className="text-xs text-stone-400 leading-relaxed">
+                <p className="text-xs text-stone-500 leading-relaxed">
                   {isEs
                     ? "Las alertas de NACHC y los informes de CPCA son los canales de inteligencia mas directos para lideres de FQHCs en California."
                     : "NACHC alerts and CPCA briefs are the most direct intelligence channels for California FQHC leaders."}
@@ -577,7 +577,7 @@ export default function ThoughtLeadersPage() {
                     {isEs ? "Asista a Conferencias" : "Attend Conferences"}
                   </h3>
                 </div>
-                <p className="text-xs text-stone-400 leading-relaxed">
+                <p className="text-xs text-stone-500 leading-relaxed">
                   {isEs
                     ? "El Foro P&I de NACHC y la conferencia anual de CPCA son donde estas voces comparten inteligencia no publicada. Envie a su equipo de liderazgo."
                     : "NACHC's P&I Forum and CPCA's annual conference are where these voices share unpublished intelligence. Send your leadership team."}
@@ -594,7 +594,7 @@ export default function ThoughtLeadersPage() {
                       : "Read the Research"}
                   </h3>
                 </div>
-                <p className="text-xs text-stone-400 leading-relaxed">
+                <p className="text-xs text-stone-500 leading-relaxed">
                   {isEs
                     ? "Los informes Geiger Gibson (GWU), datos de IHI y estudios del Centro de Fuerza Laboral de Salud (UW) son la base de evidencia para presentaciones de junta y solicitudes de subvenciones."
                     : "Geiger Gibson briefs (GWU), IHI data, and Health Workforce Studies (UW) are the evidence base for board presentations and grant applications."}

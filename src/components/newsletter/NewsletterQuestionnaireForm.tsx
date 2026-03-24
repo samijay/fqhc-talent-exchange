@@ -110,7 +110,7 @@ function ProgressDots({ step, total }: { step: number; total: number }) {
           }`}
         />
       ))}
-      <span className="ml-2 text-xs text-stone-400">
+      <span className="ml-2 text-xs text-stone-500">
         {step + 1} / {total}
       </span>
     </div>
@@ -297,7 +297,7 @@ export function NewsletterQuestionnaireForm() {
                 className="inline-flex items-center gap-1.5 rounded-lg bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-800 disabled:opacity-60 transition-colors"
               >
                 {isSubmitting ? (
-                  <Loader2 className="size-4 animate-spin" />
+                  <Loader2 className="size-4 motion-safe:animate-spin" />
                 ) : (
                   <>
                     {isEs ? "Personalizar" : "Personalize"}
@@ -310,7 +310,7 @@ export function NewsletterQuestionnaireForm() {
             {subscribeError && <p className="mt-1 text-xs text-red-600">{subscribeError}</p>}
           </div>
 
-          <p className="text-xs text-stone-400">
+          <p className="text-xs text-stone-500">
             {isEs
               ? "Fuentes primarias. Sin spam. Cancela cuando quieras."
               : "Primary sources. No spam. Unsubscribe anytime."}
@@ -370,7 +370,7 @@ export function NewsletterQuestionnaireForm() {
               {topicLabels.map((topic) => (
                 <span
                   key={topic.id}
-                  className="inline-flex items-center gap-1 rounded-full bg-white border border-teal-200 px-2 py-0.5 text-[11px] font-medium text-teal-800"
+                  className="inline-flex items-center gap-1 rounded-full bg-white border border-teal-200 px-2 py-0.5 text-xs font-medium text-teal-800"
                 >
                   <Tag className="size-2.5" />
                   {isEs ? topic.es : topic.en}
@@ -430,7 +430,7 @@ export function NewsletterQuestionnaireForm() {
           <button
             type="button"
             onClick={() => setStep(2)}
-            className="text-sm text-stone-400 hover:text-stone-600 px-3"
+            className="text-sm text-stone-500 hover:text-stone-600 px-3"
           >
             {isEs ? "Omitir" : "Skip"}
           </button>
@@ -477,7 +477,7 @@ export function NewsletterQuestionnaireForm() {
           <button
             type="button"
             onClick={() => setStep(3)}
-            className="text-sm text-stone-400 hover:text-stone-600 px-3"
+            className="text-sm text-stone-500 hover:text-stone-600 px-3"
           >
             {isEs ? "Omitir" : "Skip"}
           </button>
@@ -501,7 +501,7 @@ export function NewsletterQuestionnaireForm() {
             {isEs ? "¿Qué temas te interesan?" : "Which topics matter most to you?"}
           </p>
         </div>
-        <p className="text-xs text-stone-400 mb-4">
+        <p className="text-xs text-stone-500 mb-4">
           {isEs ? "Selecciona todos los que apliquen." : "Select all that apply."}
         </p>
         <div className="flex flex-wrap gap-2 mb-5">
@@ -541,7 +541,7 @@ export function NewsletterQuestionnaireForm() {
                 setStep(nextStep);
               }
             }}
-            className="text-sm text-stone-400 hover:text-stone-600 px-3"
+            className="text-sm text-stone-500 hover:text-stone-600 px-3"
           >
             {isEs ? "Omitir" : "Skip"}
           </button>
@@ -588,7 +588,7 @@ export function NewsletterQuestionnaireForm() {
           <button
             type="button"
             onClick={() => goToConfirmation(prefs)}
-            className="text-sm text-stone-400 hover:text-stone-600 px-3"
+            className="text-sm text-stone-500 hover:text-stone-600 px-3"
           >
             {isEs ? "Omitir" : "Skip"}
           </button>

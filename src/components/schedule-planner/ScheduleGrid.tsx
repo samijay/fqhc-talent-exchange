@@ -104,7 +104,7 @@ export function ScheduleGrid({
         {/* Header row: Day names + operating hours */}
         <thead>
           <tr>
-            <th className="sticky left-0 z-10 bg-white dark:bg-stone-900 border-b border-r border-stone-200 dark:border-stone-700 p-2 text-left text-xs font-semibold text-stone-500 dark:text-stone-400 w-48">
+            <th className="sticky left-0 z-10 bg-white dark:bg-stone-900 border-b border-r border-stone-200 dark:border-stone-700 p-2 text-left text-xs font-semibold text-stone-500 dark:text-stone-500 w-48">
               {isEs ? "Personal" : "Staff"}
             </th>
             {activeDays.map((day) => {
@@ -117,7 +117,7 @@ export function ScheduleGrid({
                   <div className="text-xs font-semibold text-stone-700 dark:text-stone-300">
                     {isEs ? DAY_LABELS[day].es : DAY_LABELS[day].short}
                   </div>
-                  <div className="text-[10px] text-stone-400 flex items-center justify-center gap-1">
+                  <div className="text-xs text-stone-500 flex items-center justify-center gap-1">
                     <Clock className="h-2.5 w-2.5" />
                     {formatHour(hours.open)}-{formatHour(hours.close)}
                   </div>
@@ -136,7 +136,7 @@ export function ScheduleGrid({
                   colSpan={activeDays.length + 1}
                   className="bg-stone-50 dark:bg-stone-800/50 border-b border-stone-200 dark:border-stone-700 px-2 py-1"
                 >
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-500">
                     {isEs
                       ? groupLabels[group]?.es || group
                       : groupLabels[group]?.en || group}
@@ -158,7 +158,7 @@ export function ScheduleGrid({
                     <td className="sticky left-0 z-10 bg-white dark:bg-stone-900 border-b border-r border-stone-200 dark:border-stone-700 p-2">
                       <div className="flex items-center gap-2">
                         <span
-                          className={`inline-flex items-center justify-center w-7 h-5 rounded text-[10px] font-bold ${config.color} ${config.textColor}`}
+                          className={`inline-flex items-center justify-center w-7 h-5 rounded text-xs font-bold ${config.color} ${config.textColor}`}
                         >
                           {config.shortLabel}
                         </span>
@@ -167,7 +167,7 @@ export function ScheduleGrid({
                             {member.name}
                           </p>
                           {member.fte < 1 && (
-                            <p className="text-[10px] text-stone-400">
+                            <p className="text-xs text-stone-500">
                               {member.fte} FTE
                             </p>
                           )}
@@ -196,18 +196,18 @@ export function ScheduleGrid({
                               onClick={() => onEditShift?.(assignment.id)}
                               title={`${formatHour(assignment.startHour)}-${formatHour(assignment.endHour)} (${shiftHours}h)`}
                             >
-                              <div className="text-[10px] font-medium leading-tight">
+                              <div className="text-xs font-medium leading-tight">
                                 {compact
                                   ? `${shiftHours}h`
                                   : `${formatHour(assignment.startHour)}-${formatHour(assignment.endHour)}`}
                               </div>
                               {assignment.isOvertime && (
-                                <div className="text-[9px] text-amber-600 dark:text-amber-400 font-medium">
+                                <div className="text-xs text-amber-600 dark:text-amber-400 font-medium">
                                   OT
                                 </div>
                               )}
                               {assignment.isOnCall && (
-                                <div className="text-[9px] opacity-60">
+                                <div className="text-xs opacity-60">
                                   📞
                                 </div>
                               )}

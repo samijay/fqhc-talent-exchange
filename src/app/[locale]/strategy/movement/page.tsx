@@ -69,7 +69,7 @@ function communityChip(community: string) {
   return (
     <span
       key={community}
-      className={`inline-block rounded-full border px-2.5 py-0.5 text-[11px] font-medium ${color}`}
+      className={`inline-block rounded-full border px-2.5 py-0.5 text-xs font-medium ${color}`}
     >
       {community}
     </span>
@@ -252,7 +252,7 @@ function AllianceCard({
             </div>
           </div>
           <ChevronDown
-            className={`size-5 text-stone-400 flex-shrink-0 mt-1 transition-transform ${
+            className={`size-5 text-stone-500 flex-shrink-0 mt-1 transition-transform ${
               isExpanded ? "rotate-180" : ""
             }`}
           />
@@ -287,7 +287,7 @@ function AllianceCard({
                     className="rounded-lg bg-stone-50 border border-stone-100 p-3"
                   >
                     <div className="flex items-center gap-2 mb-1">
-                      <div className="flex items-center justify-center w-7 h-7 rounded-full bg-teal-100 text-[10px] font-bold text-teal-700">
+                      <div className="flex items-center justify-center w-7 h-7 rounded-full bg-teal-100 text-xs font-bold text-teal-700">
                         {person.name
                           .split(" ")
                           .map((n) => n[0])
@@ -481,7 +481,7 @@ export default function MovementPage() {
                 }`}
               >
                 {isEs ? "Todos" : "All"}
-                <span className="text-[10px] opacity-70">({MOVEMENT_EVENTS.length})</span>
+                <span className="text-xs opacity-70">({MOVEMENT_EVENTS.length})</span>
               </button>
 
               {/* Category pills */}
@@ -499,7 +499,7 @@ export default function MovementPage() {
                     }`}
                   >
                     {t({ en: cat.en, es: cat.es }, locale)}
-                    <span className="text-[10px] opacity-70">({count})</span>
+                    <span className="text-xs opacity-70">({count})</span>
                   </button>
                 );
               })}
@@ -521,7 +521,7 @@ export default function MovementPage() {
                   : reverseChronology ? "Newest first" : "Oldest first"}
               </button>
               {selectedCategory !== "all" && (
-                <span className="text-xs text-stone-400">
+                <span className="text-xs text-stone-500">
                   {isEs
                     ? `${filteredEvents.length} evento${filteredEvents.length !== 1 ? "s" : ""}`
                     : `${filteredEvents.length} event${filteredEvents.length !== 1 ? "s" : ""}`}
@@ -551,7 +551,7 @@ export default function MovementPage() {
                 ? "Documentales y Videos Esenciales"
                 : "Essential Documentaries & Videos"}
             </h2>
-            <p className="mt-3 text-stone-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-3 text-stone-500 max-w-2xl mx-auto leading-relaxed">
               {isEs
                 ? "Peliculas, documentales y videos que capturan la historia del movimiento FQHC. Desde las huelgas de Delano hasta las clinicas de los Panteras Negras -- estas son las historias que definen nuestro trabajo."
                 : "Films, documentaries, and videos that capture the story of the FQHC movement. From the Delano grape strikes to the Black Panther clinics -- these are the stories that define our work."}
@@ -587,7 +587,7 @@ export default function MovementPage() {
                       <div className="flex items-center justify-center w-14 h-14 rounded-full bg-teal-600/20 border border-teal-500/30 mb-3 mx-auto group-hover:bg-teal-600/30 transition-colors">
                         <Play className="size-6 text-teal-400" />
                       </div>
-                      <p className="text-xs text-stone-400 group-hover:text-teal-400 transition-colors">
+                      <p className="text-xs text-stone-500 group-hover:text-teal-400 transition-colors">
                         {isEs ? "Ver en" : "Watch on"} {video.source}
                         <ExternalLink className="inline size-3 ml-1" />
                       </p>
@@ -613,12 +613,12 @@ export default function MovementPage() {
                     )}
                   </div>
 
-                  <p className="mt-3 text-sm text-stone-400 leading-relaxed">
+                  <p className="mt-3 text-sm text-stone-500 leading-relaxed">
                     {t(video.description, locale)}
                   </p>
 
                   <div className="mt-3">
-                    <span className="inline-flex items-center gap-1 rounded-full bg-teal-900/40 border border-teal-700/30 px-2.5 py-0.5 text-[11px] font-medium text-teal-400">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-teal-900/40 border border-teal-700/30 px-2.5 py-0.5 text-xs font-medium text-teal-400">
                       {video.relevance}
                     </span>
                   </div>

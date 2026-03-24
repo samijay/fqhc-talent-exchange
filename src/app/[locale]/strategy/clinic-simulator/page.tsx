@@ -97,7 +97,7 @@ export default function ClinicSimulatorPage() {
               >
                 <stat.icon className="mb-2 size-5 text-teal-400" />
                 <p className="text-2xl font-bold text-white">{stat.value}</p>
-                <p className="text-xs text-stone-400">{stat.label}</p>
+                <p className="text-xs text-stone-500">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -134,7 +134,7 @@ export default function ClinicSimulatorPage() {
             <div className="rounded-xl border-2 border-green-200 bg-green-50/30 p-5">
               <div className="flex items-center gap-2 mb-2">
                 <CheckCircle2 className="size-5 text-green-600" />
-                <Badge className="bg-green-100 text-green-700 text-[10px]">
+                <Badge className="bg-green-100 text-green-700 text-xs">
                   {isEs ? "2 PPS AMBOS PAGADORES" : "2 PPS BOTH PAYERS"}
                 </Badge>
               </div>
@@ -152,7 +152,7 @@ export default function ClinicSimulatorPage() {
             <div className="rounded-xl border-2 border-amber-200 bg-amber-50/30 p-5">
               <div className="flex items-center gap-2 mb-2">
                 <AlertTriangle className="size-5 text-amber-600" />
-                <Badge className="bg-amber-100 text-amber-700 text-[10px]">
+                <Badge className="bg-amber-100 text-amber-700 text-xs">
                   {isEs ? "DEPENDE DEL PAGADOR" : "PAYER-DEPENDENT"}
                 </Badge>
               </div>
@@ -170,7 +170,7 @@ export default function ClinicSimulatorPage() {
             <div className="rounded-xl border-2 border-red-200 bg-red-50/30 p-5">
               <div className="flex items-center gap-2 mb-2">
                 <AlertTriangle className="size-5 text-red-600" />
-                <Badge className="bg-red-100 text-red-700 text-[10px]">
+                <Badge className="bg-red-100 text-red-700 text-xs">
                   {isEs ? "NO FACTURABLE" : "NOT BILLABLE"}
                 </Badge>
               </div>
@@ -216,7 +216,7 @@ export default function ClinicSimulatorPage() {
                   {protocol.ccmEligible && (
                     <Badge
                       variant="secondary"
-                      className="bg-blue-100 text-blue-700 text-[10px]"
+                      className="bg-blue-100 text-blue-700 text-xs"
                     >
                       CCM {isEs ? "elegible" : "eligible"}
                     </Badge>
@@ -249,7 +249,7 @@ export default function ClinicSimulatorPage() {
                       >
                         <Badge
                           variant="outline"
-                          className="mt-0.5 shrink-0 text-[10px]"
+                          className="mt-0.5 shrink-0 text-xs"
                         >
                           {member.role}
                         </Badge>
@@ -281,7 +281,7 @@ export default function ClinicSimulatorPage() {
                       <Badge
                         key={i}
                         variant="secondary"
-                        className="text-[10px]"
+                        className="text-xs"
                       >
                         {t(metric, locale)}
                       </Badge>
@@ -325,7 +325,7 @@ export default function ClinicSimulatorPage() {
                 <h3 className="text-lg font-bold text-stone-900">
                   {t(tier.name, locale)}
                 </h3>
-                <Badge variant="outline" className="mt-1 text-[10px]">
+                <Badge variant="outline" className="mt-1 text-xs">
                   {t(tier.percentOfPanel, locale)}
                 </Badge>
                 <p className="mt-3 text-sm leading-relaxed text-stone-600">
@@ -508,7 +508,7 @@ export default function ClinicSimulatorPage() {
           </div>
 
           {/* Source + Last Updated */}
-          <div className="mt-6 flex items-center justify-between text-xs text-stone-400">
+          <div className="mt-6 flex items-center justify-between text-xs text-stone-500">
             <p>
               {isEs ? "Fuentes" : "Sources"}: CMS FQHC PPS · CA DHCS WIC
               §14132.100 · NACHC · HRSA BPHC · DHCS FQHC APM Guide

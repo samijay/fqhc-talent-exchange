@@ -64,6 +64,8 @@ function NavDropdown({
     <div ref={ref} className="relative">
       <button
         onClick={onToggle}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
         className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
           isOpen
             ? "bg-stone-900 text-white"
@@ -76,11 +78,12 @@ function NavDropdown({
         />
       </button>
       {isOpen && (
-        <div className="absolute left-0 top-full z-50 mt-1 min-w-[260px] max-h-[calc(100vh-5rem)] overflow-y-auto rounded-lg border border-stone-700 bg-stone-900 py-2 shadow-xl">
+        <div role="menu" className="absolute left-0 top-full z-50 mt-1 min-w-[260px] max-h-[calc(100vh-5rem)] overflow-y-auto rounded-lg border border-stone-700 bg-stone-900 py-2 shadow-xl">
           {items.map((item) => (
             <Link
               key={item.href}
               href={item.href as "/jobs"}
+              role="menuitem"
               className="block px-4 py-2.5 transition-colors hover:bg-stone-800"
               onClick={() => {
                 onToggle();
@@ -91,7 +94,7 @@ function NavDropdown({
                 {item.label}
               </span>
               {item.desc && (
-                <span className="block text-xs text-stone-400 mt-0.5">
+                <span className="block text-xs text-stone-500 mt-0.5">
                   {item.desc}
                 </span>
               )}
@@ -136,6 +139,8 @@ function MegaMenu({
     <div ref={ref} className="relative">
       <button
         onClick={onToggle}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
         className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
           isOpen
             ? "bg-stone-900 text-white"
@@ -148,11 +153,11 @@ function MegaMenu({
         />
       </button>
       {isOpen && (
-        <div className="absolute left-0 top-full z-50 mt-1 rounded-lg border border-stone-700 bg-stone-900 py-3 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto">
+        <div role="menu" className="absolute left-0 top-full z-50 mt-1 rounded-lg border border-stone-700 bg-stone-900 py-3 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto">
           <div className="grid grid-cols-3 gap-0 min-w-[660px]">
             {groups.map((group) => (
               <div key={group.heading} className="px-3">
-                <p className="px-2 pb-2 text-[11px] font-semibold uppercase tracking-wider text-stone-500">
+                <p className="px-2 pb-2 text-xs font-semibold uppercase tracking-wider text-stone-500">
                   {group.heading}
                 </p>
                 <div className="space-y-0.5">
@@ -258,6 +263,8 @@ export default function Header() {
             { href: "/strategy/clinic-simulator", label: t("clinicSimulator") },
             { href: "/strategy/revenue-simulator", label: isEs ? "Simulador de Ingresos" : "Revenue Simulator" },
             { href: "/strategy/scope-of-practice", label: t("scopeOfPractice") },
+            { href: "/strategy/tech-stack", label: t("techStack") },
+            { href: "/ai-tracker", label: t("aiTracker") },
           ],
         },
         {
@@ -281,13 +288,6 @@ export default function Header() {
         { href: "/salary-data", label: t("salaryData"), desc: t("salaryDataDesc") },
         { href: "/intelligence/los-angeles", label: t("regionalIntel"), desc: t("regionalIntelDesc") },
         { href: "/blog", label: t("blog"), desc: t("blogDesc") },
-      ],
-    },
-    {
-      label: t("technology"),
-      children: [
-        { href: "/strategy/tech-stack", label: t("techStack"), desc: t("techStackDesc") },
-        { href: "/ai-tracker", label: t("aiTracker"), desc: t("aiTrackerDesc") },
       ],
     },
     {
@@ -323,8 +323,15 @@ export default function Header() {
         },
       ],
     },
-    { href: "/jobs", label: t("jobs") },
-    { href: "/directory", label: t("directory") },
+    {
+      label: isEs ? "Carreras" : "Careers",
+      children: [
+        { href: "/jobs", label: t("jobs"), desc: isEs ? "Empleos abiertos en FQHCs" : "Open positions at FQHCs" },
+        { href: "/directory", label: t("directory"), desc: isEs ? "220+ FQHCs de California" : "220+ California FQHCs" },
+        { href: "/salary-data", label: isEs ? "Datos Salariales" : "Salary Data", desc: isEs ? "30 roles x 9 regiones" : "30 roles x 9 regions" },
+        { href: "/compare", label: isEs ? "Comparar FQHCs" : "Compare FQHCs", desc: isEs ? "Comparar salarios y beneficios" : "Compare salaries & benefits" },
+      ],
+    },
   ];
 
   // Flatten groups into a single children list for mobile
@@ -417,6 +424,9 @@ export default function Header() {
             <div ref={avatarRef} className="relative">
               <button
                 onClick={() => setAvatarOpen(!avatarOpen)}
+                aria-expanded={avatarOpen}
+                aria-haspopup="true"
+                aria-label={profile?.display_name || user.email || "Account menu"}
                 className="flex size-8 items-center justify-center rounded-full bg-teal-700 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                 title={profile?.display_name || user.email || "Account"}
               >
@@ -429,7 +439,7 @@ export default function Header() {
                       {profile?.display_name || user.email}
                     </p>
                     {profile?.organization && (
-                      <p className="text-xs text-stone-400 truncate">{profile.organization}</p>
+                      <p className="text-xs text-stone-500 truncate">{profile.organization}</p>
                     )}
                   </div>
                   <Link
@@ -437,7 +447,7 @@ export default function Header() {
                     className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-white transition-colors hover:bg-stone-800"
                     onClick={() => setAvatarOpen(false)}
                   >
-                    <LayoutDashboard className="size-4 text-stone-400" />
+                    <LayoutDashboard className="size-4 text-stone-500" />
                     {t("myDashboard")}
                   </Link>
                   <Link
@@ -445,7 +455,7 @@ export default function Header() {
                     className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-white transition-colors hover:bg-stone-800"
                     onClick={() => setAvatarOpen(false)}
                   >
-                    <Bookmark className="size-4 text-stone-400" />
+                    <Bookmark className="size-4 text-stone-500" />
                     {t("favorites")}
                   </Link>
                   <button
@@ -470,6 +480,8 @@ export default function Header() {
           className="inline-flex items-center justify-center rounded-md p-2 text-stone-600 hover:bg-stone-100 hover:text-stone-900 lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
           {mobileOpen ? <X className="size-6" /> : <Menu className="size-6" />}
         </button>
@@ -477,7 +489,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-stone-200 bg-white lg:hidden max-h-[calc(100vh-4rem)] overflow-y-auto">
+        <div id="mobile-menu" role="navigation" aria-label="Mobile navigation" className="border-t border-stone-200 bg-white lg:hidden max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="space-y-1 px-4 pb-4 pt-2">
             {navItems.map((item) => {
               const flatItems = flattenNav(item);
@@ -489,6 +501,7 @@ export default function Header() {
                         mobileExpanded === item.label ? null : item.label
                       )
                     }
+                    aria-expanded={mobileExpanded === item.label}
                     className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
                   >
                     {item.label}
@@ -504,7 +517,7 @@ export default function Header() {
                       {item.groups
                         ? item.groups.map((group) => (
                             <div key={group.heading}>
-                              <p className="px-3 pt-3 pb-1 text-[11px] font-semibold uppercase tracking-wider text-stone-400">
+                              <p className="px-3 pt-3 pb-1 text-xs font-semibold uppercase tracking-wider text-stone-500">
                                 {group.heading}
                               </p>
                               {group.items.map((child) => (
@@ -528,7 +541,7 @@ export default function Header() {
                             >
                               {child.label}
                               {child.desc && (
-                                <span className="block text-xs text-stone-400 mt-0.5">
+                                <span className="block text-xs text-stone-500 mt-0.5">
                                   {child.desc}
                                 </span>
                               )}

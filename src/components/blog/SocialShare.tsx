@@ -51,7 +51,7 @@ export function SocialShare() {
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2">
       {/* Share menu */}
       {isOpen && (
-        <div className="flex flex-col gap-2 mb-2 animate-in fade-in slide-in-from-bottom-2 duration-200">
+        <div className="flex flex-col gap-2 mb-2 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-2 duration-200">
           <button
             onClick={handleCopyLink}
             className="flex items-center gap-2 rounded-full bg-white border border-stone-200 shadow-lg px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50 transition-colors"

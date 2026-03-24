@@ -87,13 +87,13 @@ function CaseStudyCard({
                   {isEs ? diffMeta.es : diffMeta.en}
                 </Badge>
               )}
-              <span className="text-xs text-stone-400">{cs.location}</span>
+              <span className="text-xs text-stone-500">{cs.location}</span>
             </div>
             <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
               <ReadStatusBadge read={read} />
               {cs.fqhcName}
             </h3>
-            <div className="flex items-center gap-1.5 mt-1 text-xs text-stone-400">
+            <div className="flex items-center gap-1.5 mt-1 text-xs text-stone-500">
               <Calendar className="size-3" />
               <span>{cs.timeframe}</span>
             </div>
@@ -101,7 +101,7 @@ function CaseStudyCard({
               {t(cs.headline, locale)}
             </p>
           </div>
-          <div className="flex-shrink-0 mt-1 text-stone-400">
+          <div className="flex-shrink-0 mt-1 text-stone-500">
             {isExpanded ? (
               <ChevronUp className="size-5" />
             ) : (
@@ -167,7 +167,7 @@ function CaseStudyCard({
                   key={i}
                   className="flex items-start gap-2 text-sm text-stone-600"
                 >
-                  <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-100 text-[10px] font-bold text-amber-700">
+                  <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-700">
                     {i + 1}
                   </span>
                   {t(action, locale)}
@@ -223,7 +223,7 @@ function CaseStudyCard({
                   href={src.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-stone-400 hover:text-stone-600 hover:underline transition-colors"
+                  className="text-xs text-stone-500 hover:text-stone-600 hover:underline transition-colors"
                 >
                   {src.label}
                 </a>
@@ -291,7 +291,7 @@ export default function ExecutiveGuidesPage() {
               ? "Estudios de caso reales de FQHCs, estructurados con el marco de 'Buena Estrategia' de Rumelt: Diagnosticar → Politica Guia → Acciones Coherentes."
               : "Real FQHC case studies, structured with Rumelt's 'Good Strategy' framework: Diagnose → Guiding Policy → Coherent Actions."}
           </p>
-          <div className="mt-6 flex items-center gap-4 text-sm text-stone-400">
+          <div className="mt-6 flex items-center gap-4 text-sm text-stone-500">
             <span>
               {counts.total} {isEs ? "estudios de caso" : "case studies"}
             </span>
@@ -391,7 +391,7 @@ export default function ExecutiveGuidesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Category filter */}
           <div className="flex items-center gap-2 mb-6">
-            <Filter className="size-4 text-stone-400" />
+            <Filter className="size-4 text-stone-500" />
             <div className="flex flex-wrap gap-1.5">
               <button
                 onClick={() => setActiveCategory("all")}

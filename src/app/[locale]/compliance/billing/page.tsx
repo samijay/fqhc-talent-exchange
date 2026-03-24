@@ -60,7 +60,7 @@ export default function BillingCompliancePage() {
                 >
                   <Icon className="w-5 h-5 text-amber-600 flex-shrink-0" aria-hidden="true" />
                   <h3 className="font-bold text-stone-900 flex-1">{t({ en: topic.en, es: topic.es }, locale)}</h3>
-                  {expanded ? <ChevronUp className="w-5 h-5 text-stone-400" aria-hidden="true" /> : <ChevronDown className="w-5 h-5 text-stone-400" aria-hidden="true" />}
+                  {expanded ? <ChevronUp className="w-5 h-5 text-stone-500" aria-hidden="true" /> : <ChevronDown className="w-5 h-5 text-stone-500" aria-hidden="true" />}
                 </button>
                 {expanded && (
                   <div id={`topic-content-${topic.id}`} className="p-4 bg-white" role="region" aria-label={t({ en: topic.en, es: topic.es }, locale)}>

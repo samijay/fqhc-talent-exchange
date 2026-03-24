@@ -85,9 +85,9 @@ function UnionCard({ union, locale }: { union: UnionProfile; locale: string }) {
         </div>
         <div className="mt-1 flex-shrink-0">
           {expanded ? (
-            <ChevronUp className="h-5 w-5 text-stone-400" />
+            <ChevronUp className="h-5 w-5 text-stone-500" />
           ) : (
-            <ChevronDown className="h-5 w-5 text-stone-400" />
+            <ChevronDown className="h-5 w-5 text-stone-500" />
           )}
         </div>
       </button>
@@ -153,7 +153,7 @@ function UnionCard({ union, locale }: { union: UnionProfile; locale: string }) {
                     <p className="mt-1 text-xs text-stone-500">
                       {t(news.summary, locale)}
                     </p>
-                    <div className="mt-1 flex items-center gap-2 text-xs text-stone-400">
+                    <div className="mt-1 flex items-center gap-2 text-xs text-stone-500">
                       <Calendar className="h-3 w-3" />
                       {new Date(news.date + "T00:00:00").toLocaleDateString(
                         locale === "es" ? "es-US" : "en-US",
@@ -278,12 +278,12 @@ function TimelineEvent({
             </span>
             <Badge
               variant="outline"
-              className={`text-[10px] ${categoryColors[event.category]}`}
+              className={`text-xs ${categoryColors[event.category]}`}
             >
               {event.category.replace("_", " ")}
             </Badge>
             {event.region !== "national" && (
-              <Badge variant="outline" className="text-[10px]">
+              <Badge variant="outline" className="text-xs">
                 {event.region === "california" ? "CA" : "FQHC"}
               </Badge>
             )}
@@ -312,7 +312,7 @@ function TimelineEvent({
                     href={src.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-[10px] text-teal-600 hover:text-teal-800"
+                    className="inline-flex items-center gap-1 text-xs text-teal-600 hover:text-teal-800"
                   >
                     <ExternalLink className="h-2.5 w-2.5" />
                     {src.title}
@@ -372,12 +372,12 @@ function ResourceCard({
           <div className="mt-2 flex flex-wrap gap-1">
             <Badge
               variant="outline"
-              className="text-[10px] capitalize"
+              className="text-xs capitalize"
             >
               {resource.type}
             </Badge>
             {resource.featured && (
-              <Badge className="bg-amber-100 text-amber-800 text-[10px]">
+              <Badge className="bg-amber-100 text-amber-800 text-xs">
                 {locale === "es" ? "Destacado" : "Featured"}
               </Badge>
             )}
@@ -551,7 +551,7 @@ export default function UnionsPage() {
             {/* Search */}
             <div className="mb-6">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" />
+                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-500" />
                 <input
                   type="text"
                   placeholder={

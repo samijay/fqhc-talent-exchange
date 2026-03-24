@@ -132,7 +132,7 @@ export function Capstone({ onComplete }: CapstoneProps) {
               : "Write Your First OKR"}
           </h2>
         </div>
-        <p className="text-sm text-stone-500 dark:text-stone-400 max-w-md mx-auto">
+        <p className="text-sm text-stone-500 dark:text-stone-500 max-w-md mx-auto">
           {locale === "es"
             ? "Elige un dominio FQHC, escribe un Objetivo y 2-3 Resultados Clave. Nuestro coach de IA te dará retroalimentación."
             : "Pick an FQHC domain, write an Objective and 2-3 Key Results. Our AI coach will give you feedback."}
@@ -158,7 +158,7 @@ export function Capstone({ onComplete }: CapstoneProps) {
               <p className="text-sm font-medium text-stone-800 dark:text-stone-200">
                 {t(d.label)}
               </p>
-              <p className="text-xs text-stone-400 dark:text-stone-500 mt-1">
+              <p className="text-xs text-stone-500 dark:text-stone-500 mt-1">
                 {t(d.hint)}
               </p>
             </button>
@@ -182,7 +182,7 @@ export function Capstone({ onComplete }: CapstoneProps) {
           className="min-h-[80px] resize-none"
           disabled={submitted}
         />
-        <p className="text-xs text-stone-400 dark:text-stone-500 mt-1">
+        <p className="text-xs text-stone-500 dark:text-stone-500 mt-1">
           {locale === "es"
             ? "Aspiracional, cualitativo, sin números — ¿qué quieres lograr?"
             : "Aspirational, qualitative, no numbers — what do you want to achieve?"}
@@ -227,7 +227,7 @@ export function Capstone({ onComplete }: CapstoneProps) {
         >
           {loading ? (
             <>
-              <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+              <Loader2 className="h-4 w-4 mr-2 motion-safe:animate-spin" />
               {locale === "es" ? "Analizando..." : "Analyzing..."}
             </>
           ) : (
@@ -281,7 +281,7 @@ export function Capstone({ onComplete }: CapstoneProps) {
                   >
                     {critique.overallScore}
                   </span>
-                  <span className="text-sm text-stone-400">/100</span>
+                  <span className="text-sm text-stone-500">/100</span>
                 </div>
               </div>
 
@@ -293,7 +293,7 @@ export function Capstone({ onComplete }: CapstoneProps) {
                     className={`p-3 rounded-lg ${getScoreBg(score.score)}`}
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs font-medium text-stone-600 dark:text-stone-400">
+                      <span className="text-xs font-medium text-stone-600 dark:text-stone-500">
                         {score.category}
                       </span>
                       <span
@@ -302,7 +302,7 @@ export function Capstone({ onComplete }: CapstoneProps) {
                         {score.score}
                       </span>
                     </div>
-                    <p className="text-xs text-stone-500 dark:text-stone-400">
+                    <p className="text-xs text-stone-500 dark:text-stone-500">
                       {score.feedback}
                     </p>
                   </div>
@@ -318,7 +318,7 @@ export function Capstone({ onComplete }: CapstoneProps) {
                   {critique.suggestions.map((suggestion, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-400"
+                      className="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-500"
                     >
                       <Zap className="h-4 w-4 text-amber-500 mt-0.5 shrink-0" />
                       <span>{suggestion}</span>
@@ -341,7 +341,7 @@ export function Capstone({ onComplete }: CapstoneProps) {
                   {critique.rewriteSuggestion.keyResults.map((kr, i) => (
                     <p
                       key={i}
-                      className="text-sm text-stone-600 dark:text-stone-400 ml-4"
+                      className="text-sm text-stone-600 dark:text-stone-500 ml-4"
                     >
                       KR{i + 1}: {kr}
                     </p>

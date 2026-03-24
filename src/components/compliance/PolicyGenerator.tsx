@@ -92,7 +92,7 @@ export function PolicyGenerator({ domain }: PolicyGeneratorProps) {
   if (!selectedTemplate) {
     if (templates.length === 0) {
       return (
-        <div className="py-8 text-center text-stone-400">
+        <div className="py-8 text-center text-stone-500">
           <FileText className="h-8 w-8 mx-auto mb-2" />
           <p className="text-sm">
             {isEs
@@ -128,12 +128,12 @@ export function PolicyGenerator({ domain }: PolicyGeneratorProps) {
                     {t(tmpl.description)}
                   </p>
                   {tmpl.sourceRegulation && (
-                    <p className="text-[10px] text-stone-400 mt-1">
+                    <p className="text-xs text-stone-500 mt-1">
                       {tmpl.sourceRegulation}
                     </p>
                   )}
                 </div>
-                <ChevronRight className="h-4 w-4 text-stone-400 shrink-0" />
+                <ChevronRight className="h-4 w-4 text-stone-500 shrink-0" />
               </div>
             </button>
           ))}
@@ -159,7 +159,7 @@ export function PolicyGenerator({ domain }: PolicyGeneratorProps) {
             {t(selectedTemplate.title)}
           </h3>
           {selectedTemplate.sourceRegulation && (
-            <p className="text-xs text-stone-400 mt-0.5">
+            <p className="text-xs text-stone-500 mt-0.5">
               {selectedTemplate.sourceRegulation}
             </p>
           )}
@@ -188,7 +188,7 @@ export function PolicyGenerator({ domain }: PolicyGeneratorProps) {
             <div className="grid gap-3 sm:grid-cols-2">
               {placeholders.map((placeholder) => (
                 <div key={placeholder}>
-                  <label className="block text-xs font-medium text-stone-600 dark:text-stone-400 mb-1">
+                  <label className="block text-xs font-medium text-stone-600 dark:text-stone-500 mb-1">
                     {placeholder.replace(/[\[\]]/g, "")}
                   </label>
                   <input
@@ -219,12 +219,12 @@ export function PolicyGenerator({ domain }: PolicyGeneratorProps) {
                 <h4 className="text-sm font-bold text-stone-800 dark:text-stone-200 mb-2 flex items-center gap-2">
                   {heading}
                   {section.isEditable && (
-                    <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 text-[9px]">
+                    <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 text-xs">
                       {isEs ? "Editable" : "Editable"}
                     </Badge>
                   )}
                 </h4>
-                <div className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed whitespace-pre-line">
+                <div className="text-sm text-stone-600 dark:text-stone-500 leading-relaxed whitespace-pre-line">
                   {content}
                 </div>
               </CardContent>
@@ -234,7 +234,7 @@ export function PolicyGenerator({ domain }: PolicyGeneratorProps) {
       </div>
 
       {/* Footer */}
-      <div className="mt-4 text-center text-[10px] text-stone-400">
+      <div className="mt-4 text-center text-xs text-stone-500">
         {isEs
           ? "Esta plantilla es un punto de partida. Consulte con un abogado antes de implementar."
           : "This template is a starting point. Consult with legal counsel before implementing."}

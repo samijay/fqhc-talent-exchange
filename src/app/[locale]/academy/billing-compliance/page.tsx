@@ -49,7 +49,7 @@ export default function BillingComplianceCoursePage() {
     return (
       <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         <div className="max-w-4xl mx-auto px-4 py-8">
-          <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-6">
+          <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-6">
             <Link href="/academy" className="hover:text-teal-600 transition-colors">
               {isEs ? "Academia" : "Academy"}
             </Link>
@@ -74,7 +74,7 @@ export default function BillingComplianceCoursePage() {
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       <div className="max-w-4xl mx-auto px-4 py-8 md:py-12">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 mb-8">
+        <div className="flex items-center gap-2 text-sm text-stone-500 dark:text-stone-500 mb-8">
           <Link href="/academy" className="hover:text-teal-600 transition-colors">
             {isEs ? "Academia" : "Academy"}
           </Link>
@@ -97,13 +97,13 @@ export default function BillingComplianceCoursePage() {
               : "Billing Compliance 101"}
           </h1>
 
-          <p className="text-lg text-stone-500 dark:text-stone-400 max-w-2xl mx-auto mb-6">
+          <p className="text-lg text-stone-500 dark:text-stone-500 max-w-2xl mx-auto mb-6">
             {isEs
               ? "Domina las reglas de facturación PPS para FQHCs, requisitos de documentación y la Ley de Reclamaciones Falsas. Prevén fugas de ingresos y protege tu organización."
               : "Master FQHC PPS billing rules, documentation requirements, and the False Claims Act. Prevent revenue leaks and protect your organization."}
           </p>
 
-          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-400 mb-8">
+          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-500 mb-8">
             <span className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
               {TOTAL_MINUTES} {isEs ? "minutos" : "minutes"}
@@ -162,7 +162,7 @@ export default function BillingComplianceCoursePage() {
                   <h3 className="font-semibold text-stone-800 dark:text-stone-200 mb-1">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-stone-500 dark:text-stone-400">
+                  <p className="text-sm text-stone-500 dark:text-stone-500">
                     {item.desc}
                   </p>
                 </CardContent>
@@ -189,11 +189,11 @@ export default function BillingComplianceCoursePage() {
                       <p className="font-medium text-stone-800 dark:text-stone-200 truncate">
                         {t(mod.title)}
                       </p>
-                      <p className="text-sm text-stone-500 dark:text-stone-400 truncate">
+                      <p className="text-sm text-stone-500 dark:text-stone-500 truncate">
                         {t(mod.subtitle)}
                       </p>
                     </div>
-                    <div className="flex items-center gap-2 shrink-0 text-xs text-stone-400 dark:text-stone-500">
+                    <div className="flex items-center gap-2 shrink-0 text-xs text-stone-500 dark:text-stone-500">
                       <Clock className="h-3 w-3" />
                       {mod.estimatedMinutes}m
                     </div>
@@ -217,7 +217,7 @@ export default function BillingComplianceCoursePage() {
                 isEs ? "Directores financieros (CFO)" : "Chief Financial Officers (CFO)",
                 isEs ? "Oficiales de cumplimiento y auditores internos" : "Compliance officers and internal auditors",
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-stone-600 dark:text-stone-400">
+                <div key={i} className="flex items-center gap-2 text-sm text-stone-600 dark:text-stone-500">
                   <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0" />
                   {item}
                 </div>
@@ -234,7 +234,7 @@ export default function BillingComplianceCoursePage() {
               <h3 className="font-semibold text-stone-800 dark:text-stone-200 mb-1 text-sm">
                 {isEs ? "Centro de Cumplimiento" : "Compliance Hub"}
               </h3>
-              <p className="text-xs text-stone-500 dark:text-stone-400 mb-3">
+              <p className="text-xs text-stone-500 dark:text-stone-500 mb-3">
                 {isEs
                   ? "Listas de verificación, plantillas de políticas y calendario regulatorio"
                   : "Checklists, policy templates, and regulatory calendar"}
@@ -253,7 +253,7 @@ export default function BillingComplianceCoursePage() {
               <h3 className="font-semibold text-stone-800 dark:text-stone-200 mb-1 text-sm">
                 {isEs ? "Simulador de Clínica" : "Clinic Simulator"}
               </h3>
-              <p className="text-xs text-stone-500 dark:text-stone-400 mb-3">
+              <p className="text-xs text-stone-500 dark:text-stone-500 mb-3">
                 {isEs
                   ? "Modela ingresos PPS con escenarios reales de facturación"
                   : "Model PPS revenue with real billing scenarios"}
@@ -277,7 +277,7 @@ export default function BillingComplianceCoursePage() {
             {isEs ? "Comenzar Curso Gratis" : "Start Free Course"}
             <ArrowRight className="h-5 w-5 ml-2" />
           </Button>
-          <p className="text-xs text-stone-400 mt-3">
+          <p className="text-xs text-stone-500 mt-3">
             {isEs
               ? "Sin registro requerido • Progreso guardado localmente • Siempre gratis"
               : "No registration required • Progress saved locally • Always free"}

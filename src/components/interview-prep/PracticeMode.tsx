@@ -215,7 +215,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
                 <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
                   {isEs ? "Modo Práctica" : "Practice Mode"}
                 </h2>
-                <p className="text-sm text-stone-500 dark:text-stone-400">
+                <p className="text-sm text-stone-500 dark:text-stone-500">
                   {isEs
                     ? "Simula una entrevista real con tiempo y autoevaluación"
                     : "Simulate a real interview with timing and self-assessment"}
@@ -335,7 +335,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
               }}
             />
           </div>
-          <div className="flex justify-between mt-1 text-xs text-stone-400">
+          <div className="flex justify-between mt-1 text-xs text-stone-500">
             <span>
               {isEs ? "Pregunta" : "Question"} {currentIndex + 1}/{questions.length}
             </span>
@@ -377,7 +377,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
 
             {/* Answer textarea */}
             <div className="mb-4">
-              <label className="block text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400 mb-2">
+              <label className="block text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-500 mb-2">
                 {isEs ? "Tu respuesta" : "Your answer"}
               </label>
               <textarea
@@ -390,10 +390,10 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
                     ? "Escribe tu respuesta usando la estructura STAR (Situación, Tarea, Acción, Resultado)..."
                     : "Write your answer using the STAR framework (Situation, Task, Action, Result)..."
                 }
-                className="w-full h-40 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 p-4 text-sm text-stone-800 dark:text-stone-200 placeholder:text-stone-400 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 resize-none disabled:opacity-60"
+                className="w-full h-40 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 p-4 text-sm text-stone-800 dark:text-stone-200 placeholder:text-stone-500 focus:ring-2 focus:ring-teal-500 focus:border-teal-500 resize-none disabled:opacity-60"
               />
               {userAnswer.length > 0 && (
-                <p className="text-xs text-stone-400 mt-1 text-right">
+                <p className="text-xs text-stone-500 mt-1 text-right">
                   {userAnswer.split(/\s+/).filter(Boolean).length} {isEs ? "palabras" : "words"}
                 </p>
               )}
@@ -474,7 +474,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
                   </div>
                   <ul className="space-y-1">
                     {(isEs ? currentQuestion.esRedFlags : currentQuestion.redFlags).map((flag, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-400">
+                      <li key={i} className="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-500">
                         <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-red-400" />
                         {flag}
                       </li>
@@ -509,7 +509,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
                           className={`flex-1 rounded-lg py-2 px-1 text-center transition-all ${colors[score - 1]}`}
                         >
                           <div className="text-lg font-bold">{score}</div>
-                          <div className="text-[10px] font-medium leading-tight">
+                          <div className="text-xs font-medium leading-tight">
                             {labels[score - 1]}
                           </div>
                         </button>
@@ -565,7 +565,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
             <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-1">
               {isEs ? "Resultados de Práctica" : "Practice Results"}
             </h2>
-            <p className="text-stone-500 dark:text-stone-400 mb-4">
+            <p className="text-stone-500 dark:text-stone-500 mb-4">
               {isEs
                 ? `${answers.length} preguntas completadas en ${formatTime(totalTime)}`
                 : `${answers.length} questions completed in ${formatTime(totalTime)}`}
@@ -608,7 +608,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
                 return (
                   <div
                     key={i}
-                    className={`${colors[i]} flex items-center justify-center text-[10px] font-bold text-white`}
+                    className={`${colors[i]} flex items-center justify-center text-xs font-bold text-white`}
                     style={{ width: `${width}%` }}
                   >
                     {count > 0 ? count : ""}
@@ -616,7 +616,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
                 );
               })}
             </div>
-            <div className="flex justify-between text-[10px] text-stone-400 mt-1">
+            <div className="flex justify-between text-xs text-stone-500 mt-1">
               <span>1</span>
               <span>2</span>
               <span>3</span>
@@ -709,7 +709,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
                     key={answer.questionId}
                     className="flex items-center gap-3 rounded-lg bg-stone-50 dark:bg-stone-800/50 p-3"
                   >
-                    <span className="text-xs font-bold text-stone-400 w-5 shrink-0">
+                    <span className="text-xs font-bold text-stone-500 w-5 shrink-0">
                       {i + 1}
                     </span>
                     <div className="flex-1 min-w-0">
@@ -717,10 +717,10 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
                         {isEs ? q.esQuestion : q.question}
                       </p>
                       <div className="flex items-center gap-2 mt-0.5">
-                        <span className={`text-[10px] font-medium rounded-full px-1.5 py-0.5 ${cat.color}`}>
+                        <span className={`text-xs font-medium rounded-full px-1.5 py-0.5 ${cat.color}`}>
                           {isEs ? cat.es : cat.en}
                         </span>
-                        <span className="text-[10px] text-stone-400">
+                        <span className="text-xs text-stone-500">
                           {formatTime(answer.timeSpent)}
                         </span>
                       </div>
@@ -777,7 +777,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
                       : "Prepare your negotiation with real data"}
                   </p>
                 </div>
-                <ArrowRight className="h-4 w-4 text-stone-400" />
+                <ArrowRight className="h-4 w-4 text-stone-500" />
               </Link>
               <Link
                 href="/resume-builder"
@@ -794,7 +794,7 @@ export function PracticeMode({ onExit }: PracticeModeProps) {
                       : "Your resume should reflect what you practiced here"}
                   </p>
                 </div>
-                <ArrowRight className="h-4 w-4 text-stone-400" />
+                <ArrowRight className="h-4 w-4 text-stone-500" />
               </Link>
             </div>
           </CardContent>

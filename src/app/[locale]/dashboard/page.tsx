@@ -442,7 +442,7 @@ export default function DashboardPage() {
 
                 return (
                   <div key={status}>
-                    <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-stone-400">
+                    <h3 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-stone-500">
                       <StatusIcon className="size-4" />
                       {t(statusLabel[status], locale)} ({items.length})
                     </h3>
@@ -479,10 +479,10 @@ export default function DashboardPage() {
                                         style={{ width: `${item.progress}%` }}
                                       />
                                     </div>
-                                    <span className="text-xs text-stone-400">{item.progress}%</span>
+                                    <span className="text-xs text-stone-500">{item.progress}%</span>
                                   </div>
                                 )}
-                                <span className="text-xs text-stone-400">
+                                <span className="text-xs text-stone-500">
                                   {new Date(item.last_read_at).toLocaleDateString()}
                                 </span>
                               </div>
@@ -500,7 +500,7 @@ export default function DashboardPage() {
           {/* My Creations */}
           {!creationsLoading && creations.length > 0 && (
             <div className="mt-8 border-t border-stone-200 pt-6">
-              <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-stone-400">
+              <h3 className="mb-4 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-stone-500">
                 <Award className="size-4" />
                 {t({ en: "My Creations", es: "Mis Creaciones" }, locale)} ({creations.length})
               </h3>
@@ -542,13 +542,13 @@ export default function DashboardPage() {
                             <span className="text-stone-600">
                               {item.item_id || item.tool_name}
                             </span>
-                            <span className="text-xs text-stone-400">
+                            <span className="text-xs text-stone-500">
                               {new Date(item.created_at).toLocaleDateString()}
                             </span>
                           </div>
                         ))}
                         {items.length > 5 && (
-                          <p className="text-xs text-stone-400">
+                          <p className="text-xs text-stone-500">
                             +{items.length - 5} {t({ en: "more", es: "más" }, locale)}
                           </p>
                         )}
@@ -585,7 +585,7 @@ export default function DashboardPage() {
           ) : (
             Object.entries(groupedFavorites).map(([type, items]) => (
               <div key={type}>
-                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-stone-400">
+                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wide text-stone-500">
                   {t(CONTENT_TYPE_LABELS[type] ?? { en: type, es: type }, locale)} ({items.length})
                 </h3>
                 <div className="space-y-2">
@@ -610,7 +610,7 @@ export default function DashboardPage() {
                             </span>
                           )}
                           {content?.subtitle && (
-                            <p className="mt-0.5 truncate text-xs text-stone-400">
+                            <p className="mt-0.5 truncate text-xs text-stone-500">
                               {t(content.subtitle, locale)}
                             </p>
                           )}
@@ -639,7 +639,7 @@ export default function DashboardPage() {
               {t({ en: "Watched FQHCs", es: "FQHCs Seguidos" }, locale)}
             </h3>
             <div className="relative mb-3">
-              <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
+              <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-500" />
               <input
                 type="text"
                 value={fqhcSearch}
@@ -663,7 +663,7 @@ export default function DashboardPage() {
                     >
                       <div>
                         <span className="font-medium text-stone-900">{fqhc.name}</span>
-                        <span className="ml-2 text-stone-400">{fqhc.city}</span>
+                        <span className="ml-2 text-stone-500">{fqhc.city}</span>
                       </div>
                       <Plus className="size-4 text-teal-600" />
                     </button>
@@ -689,7 +689,7 @@ export default function DashboardPage() {
                       </Link>
                       <button
                         onClick={() => removeFromWatchlist("fqhc", w.watch_value)}
-                        className="rounded p-1 text-stone-400 hover:bg-stone-100 hover:text-red-500"
+                        className="rounded p-1 text-stone-500 hover:bg-stone-100 hover:text-red-500"
                       >
                         <X className="size-4" />
                       </button>

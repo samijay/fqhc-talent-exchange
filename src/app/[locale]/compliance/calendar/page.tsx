@@ -36,7 +36,7 @@ export default function ComplianceCalendarPage() {
     <div className="min-h-screen bg-white">
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-14 px-4">
         <div className="max-w-5xl mx-auto">
-          <Link href="/compliance" className="text-stone-400 text-sm hover:underline mb-4 inline-block">&larr; {locale === "es" ? "Cumplimiento" : "Compliance"}</Link>
+          <Link href="/compliance" className="text-stone-500 text-sm hover:underline mb-4 inline-block">&larr; {locale === "es" ? "Cumplimiento" : "Compliance"}</Link>
           <h1 className="text-3xl md:text-4xl font-bold mb-3">{locale === "es" ? "Calendario de Cumplimiento 2026" : "2026 Compliance Calendar"}</h1>
           <p className="text-stone-300 text-lg max-w-3xl mb-6">{locale === "es" ? "Todas las fechas límite de HRSA, HIPAA y facturación en un solo lugar." : "Every HRSA, HIPAA, and billing deadline in one place."}</p>
           <button onClick={() => downloadComplianceCalendarAsExcel(locale)} className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold px-5 py-2.5 rounded-lg transition-colors">

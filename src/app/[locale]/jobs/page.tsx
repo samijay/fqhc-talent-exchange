@@ -266,7 +266,7 @@ function SalaryBar({ min, max, roleType }: {
           title={`P50: ${formatSalaryCompact(p50)}`}
         />
       </div>
-      <div className="mt-0.5 flex justify-between text-[10px] text-stone-400">
+      <div className="mt-0.5 flex justify-between text-xs text-stone-500">
         <span>{formatSalaryCompact(min)}</span>
         <span className="font-medium text-stone-600">P50: {formatSalaryCompact(p50)}</span>
         <span>{formatSalaryCompact(max)}</span>
@@ -299,7 +299,7 @@ function NegotiationTips({ ctx, locale }: { ctx: NegotiationContext; locale: str
       <ul className="space-y-1">
         {ctx.tips.map((tip, i) => (
           <li key={i} className="flex items-start gap-1.5 text-xs text-stone-600">
-            <span className="mt-0.5 text-stone-400">•</span>
+            <span className="mt-0.5 text-stone-500">•</span>
             {t(tip, locale)}
           </li>
         ))}
@@ -354,7 +354,7 @@ function ComparePanel({
                     onClick={() => onRemove(job.id)}
                     className="rounded p-0.5 hover:bg-stone-100"
                   >
-                    <X className="size-3.5 text-stone-400" />
+                    <X className="size-3.5 text-stone-500" />
                   </button>
                 </div>
 
@@ -374,7 +374,7 @@ function ComparePanel({
                     return (
                       <div className="flex justify-between">
                         <span className="text-stone-500">{isEs ? "vs Mercado" : "vs Market"}</span>
-                        <Badge className={`text-[10px] ${bl.color}`}>{bl.label}</Badge>
+                        <Badge className={`text-xs ${bl.color}`}>{bl.label}</Badge>
                       </div>
                     );
                   })()}
@@ -383,7 +383,7 @@ function ComparePanel({
                   <div className="flex justify-between">
                     <span className="text-stone-500">Union</span>
                     {job.negotiation.isUnion ? (
-                      <Badge className="bg-purple-100 text-purple-700 text-[10px]">
+                      <Badge className="bg-purple-100 text-purple-700 text-xs">
                         {job.negotiation.unionName || "Union"}
                       </Badge>
                     ) : (
@@ -420,7 +420,7 @@ function ComparePanel({
                     <span className="text-stone-500 block mb-1">{isEs ? "Programas" : "Programs"}</span>
                     <div className="flex flex-wrap gap-1">
                       {job.programs.map((p) => (
-                        <Badge key={p} className="bg-teal-50 text-teal-800 text-[10px]">{p}</Badge>
+                        <Badge key={p} className="bg-teal-50 text-teal-800 text-xs">{p}</Badge>
                       ))}
                     </div>
                   </div>
@@ -771,7 +771,7 @@ export default function JobsPage() {
           {/* Row 1: Search + View Toggle + Sort */}
           <div className="flex items-center gap-3">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
+              <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-500" />
               <Input
                 placeholder={isEs ? "Buscar por título, organización o programa..." : "Search by title, org, or program..."}
                 value={search}
@@ -790,7 +790,7 @@ export default function JobsPage() {
               }}
             >
               <SelectTrigger className="h-10 w-32 sm:w-44 text-xs flex">
-                <ArrowUpDown className="size-3.5 mr-1 text-stone-400 shrink-0" />
+                <ArrowUpDown className="size-3.5 mr-1 text-stone-500 shrink-0" />
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -809,7 +809,7 @@ export default function JobsPage() {
               <button
                 onClick={() => setViewMode("list")}
                 className={`rounded-md p-1.5 transition-colors ${
-                  viewMode === "list" ? "bg-teal-700 text-white" : "text-stone-400 hover:text-stone-700"
+                  viewMode === "list" ? "bg-teal-700 text-white" : "text-stone-500 hover:text-stone-700"
                 }`}
               >
                 <LayoutList className="size-4" />
@@ -817,7 +817,7 @@ export default function JobsPage() {
               <button
                 onClick={() => setViewMode("grid")}
                 className={`rounded-md p-1.5 transition-colors ${
-                  viewMode === "grid" ? "bg-teal-700 text-white" : "text-stone-400 hover:text-stone-700"
+                  viewMode === "grid" ? "bg-teal-700 text-white" : "text-stone-500 hover:text-stone-700"
                 }`}
               >
                 <LayoutGrid className="size-4" />
@@ -830,14 +830,14 @@ export default function JobsPage() {
             {/* Role */}
             <Select value={roleFilter} onValueChange={setRoleFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[120px] text-xs">
-                <Briefcase className="size-3 mr-1 text-stone-400" />
+                <Briefcase className="size-3 mr-1 text-stone-500" />
                 <SelectValue placeholder={isEs ? "Rol" : "Role"} />
               </SelectTrigger>
               <SelectContent className="max-h-80">
                 <SelectItem value="all">{isEs ? "Todos los roles" : "All Roles"}</SelectItem>
                 {ROLE_TYPE_GROUPS.map((group) => (
                   <SelectGroup key={group.label}>
-                    <SelectLabel className="text-[10px] font-semibold text-stone-500 uppercase tracking-wider">
+                    <SelectLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
                       {isEs ? group.esLabel : group.label}
                     </SelectLabel>
                     {group.options.map((role) => (
@@ -851,7 +851,7 @@ export default function JobsPage() {
             {/* Region */}
             <Select value={regionFilter} onValueChange={setRegionFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[110px] text-xs">
-                <MapPin className="size-3 mr-1 text-stone-400" />
+                <MapPin className="size-3 mr-1 text-stone-500" />
                 <SelectValue placeholder={isEs ? "Región" : "Region"} />
               </SelectTrigger>
               <SelectContent>
@@ -865,7 +865,7 @@ export default function JobsPage() {
             {/* Salary */}
             <Select value={salaryFilter} onValueChange={setSalaryFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[110px] text-xs">
-                <DollarSign className="size-3 mr-1 text-stone-400" />
+                <DollarSign className="size-3 mr-1 text-stone-500" />
                 <SelectValue placeholder={isEs ? "Salario" : "Salary"} />
               </SelectTrigger>
               <SelectContent>
@@ -880,7 +880,7 @@ export default function JobsPage() {
             {/* Union */}
             <Select value={unionFilter} onValueChange={setUnionFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[100px] text-xs">
-                <Shield className="size-3 mr-1 text-stone-400" />
+                <Shield className="size-3 mr-1 text-stone-500" />
                 <SelectValue placeholder="Union" />
               </SelectTrigger>
               <SelectContent>
@@ -893,7 +893,7 @@ export default function JobsPage() {
             {/* Organization */}
             <Select value={orgFilter} onValueChange={setOrgFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[130px] text-xs">
-                <Building2 className="size-3 mr-1 text-stone-400" />
+                <Building2 className="size-3 mr-1 text-stone-500" />
                 <SelectValue placeholder={isEs ? "Organización" : "Organization"} />
               </SelectTrigger>
               <SelectContent className="max-h-80">
@@ -907,7 +907,7 @@ export default function JobsPage() {
             {/* Language */}
             <Select value={languageFilter} onValueChange={setLanguageFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[100px] text-xs">
-                <Globe className="size-3 mr-1 text-stone-400" />
+                <Globe className="size-3 mr-1 text-stone-500" />
                 <SelectValue placeholder={isEs ? "Idioma" : "Language"} />
               </SelectTrigger>
               <SelectContent>
@@ -931,7 +931,7 @@ export default function JobsPage() {
               <Heart className={`size-3 ${showFavoritesOnly ? "fill-amber-500 text-amber-500" : ""}`} />
               {isEs ? "Guardados" : "Saved"}
               {favorites.size > 0 && (
-                <span className={`rounded-full px-1 text-[10px] font-semibold ${showFavoritesOnly ? "bg-amber-200 text-amber-800" : "bg-stone-200 text-stone-600"}`}>
+                <span className={`rounded-full px-1 text-xs font-semibold ${showFavoritesOnly ? "bg-amber-200 text-amber-800" : "bg-stone-200 text-stone-600"}`}>
                   {favorites.size}
                 </span>
               )}
@@ -1049,7 +1049,7 @@ export default function JobsPage() {
             <h2 className="text-sm font-semibold text-stone-900">
               {isEs ? "Roles en Tendencia" : "Trending Roles"}
             </h2>
-            <span className="text-xs text-stone-400">
+            <span className="text-xs text-stone-500">
               {isEs ? "— click para filtrar" : "— click to filter"}
             </span>
           </div>
@@ -1065,7 +1065,7 @@ export default function JobsPage() {
                 }`}
               >
                 {role}
-                <span className={`rounded-full px-1.5 py-0.5 text-[10px] font-semibold ${
+                <span className={`rounded-full px-1.5 py-0.5 text-xs font-semibold ${
                   roleFilter === role
                     ? "bg-teal-200 text-teal-800"
                     : "bg-stone-200 text-stone-500"
@@ -1082,7 +1082,7 @@ export default function JobsPage() {
       <div className="mx-auto max-w-7xl px-4 pb-20 pt-3 sm:px-6 lg:px-8">
         {loading && (
           <div className="flex items-center justify-center py-20">
-            <Loader2 className="size-8 animate-spin text-teal-700" />
+            <Loader2 className="size-8 motion-safe:animate-spin text-teal-700" />
           </div>
         )}
 
@@ -1138,9 +1138,9 @@ export default function JobsPage() {
                   {job.featured && (
                     <div className="flex items-center gap-2 border-b border-amber-100 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-1.5">
                       <span className="text-sm">🔥</span>
-                      <span className="text-[11px] font-semibold text-amber-800">Hot Job</span>
-                      <span className="text-[11px] text-amber-700">·</span>
-                      <span className="text-[11px] text-amber-700">
+                      <span className="text-xs font-semibold text-amber-800">Hot Job</span>
+                      <span className="text-xs text-amber-700">·</span>
+                      <span className="text-xs text-amber-700">
                         {job.featuredNote ?? "Great employer — don't miss this one"}
                       </span>
                     </div>
@@ -1176,9 +1176,9 @@ export default function JobsPage() {
                           {/* Mobile-only expand indicator */}
                           <div className="sm:hidden shrink-0">
                             {isExpanded ? (
-                              <ChevronUp className="size-4 text-stone-400" />
+                              <ChevronUp className="size-4 text-stone-500" />
                             ) : (
-                              <ChevronDown className="size-4 text-stone-400" />
+                              <ChevronDown className="size-4 text-stone-500" />
                             )}
                           </div>
                         </div>
@@ -1197,9 +1197,9 @@ export default function JobsPage() {
                           <span className="text-xs font-medium text-teal-800">
                             {formatSalary(job.salaryMin, job.salaryMax)}
                           </span>
-                          <Badge className="bg-stone-100 text-stone-500 text-[10px]">{job.type}</Badge>
+                          <Badge className="bg-stone-100 text-stone-500 text-xs">{job.type}</Badge>
                           {job.negotiation.isUnion && (
-                            <Badge className="bg-purple-100 text-purple-700 text-[10px]">
+                            <Badge className="bg-purple-100 text-purple-700 text-xs">
                               {job.negotiation.unionName || "Union"}
                             </Badge>
                           )}
@@ -1212,7 +1212,7 @@ export default function JobsPage() {
                       <p className="text-sm font-medium text-teal-800">
                         {formatSalary(job.salaryMin, job.salaryMax)}
                       </p>
-                      <p className="text-[10px] text-stone-400">
+                      <p className="text-xs text-stone-500">
                         {job.negotiation.salaryType === "fixed-scale"
                           ? (isEs ? "Escala fija" : "Fixed Scale")
                           : (isEs ? "Negociable" : "Negotiable")}
@@ -1221,9 +1221,9 @@ export default function JobsPage() {
 
                     {/* Benchmark */}
                     <div className="hidden sm:block">
-                      <Badge className={`text-[10px] ${bl.color}`}>{bl.label}</Badge>
+                      <Badge className={`text-xs ${bl.color}`}>{bl.label}</Badge>
                       {job.negotiation.benchmarkP50 && (
-                        <p className="text-[10px] text-stone-400 mt-0.5">
+                        <p className="text-xs text-stone-500 mt-0.5">
                           P50: {formatSalaryCompact(job.negotiation.benchmarkP50)}
                         </p>
                       )}
@@ -1232,11 +1232,11 @@ export default function JobsPage() {
                     {/* Union */}
                     <div className="hidden sm:block">
                       {job.negotiation.isUnion ? (
-                        <Badge className="bg-purple-100 text-purple-700 text-[10px]">
+                        <Badge className="bg-purple-100 text-purple-700 text-xs">
                           {job.negotiation.unionName || "Union"}
                         </Badge>
                       ) : (
-                        <span className="text-xs text-stone-400">{isEs ? "No" : "Non-Union"}</span>
+                        <span className="text-xs text-stone-500">{isEs ? "No" : "Non-Union"}</span>
                       )}
                     </div>
 
@@ -1248,9 +1248,9 @@ export default function JobsPage() {
                     {/* Expand arrow (desktop) */}
                     <div className="hidden sm:flex justify-end">
                       {isExpanded ? (
-                        <ChevronUp className="size-4 text-stone-400" />
+                        <ChevronUp className="size-4 text-stone-500" />
                       ) : (
-                        <ChevronDown className="size-4 text-stone-400" />
+                        <ChevronDown className="size-4 text-stone-500" />
                       )}
                     </div>
                   </div>
@@ -1366,12 +1366,12 @@ export default function JobsPage() {
                                 >
                                   <div className="min-w-0 flex-1">
                                     <p className="text-xs font-semibold text-stone-900 truncate">{sj.title}</p>
-                                    <p className="text-[10px] text-stone-500 truncate">{sj.orgName} · {sj.location}</p>
-                                    <p className="text-[10px] font-medium text-teal-700 mt-0.5">
+                                    <p className="text-xs text-stone-500 truncate">{sj.orgName} · {sj.location}</p>
+                                    <p className="text-xs font-medium text-teal-700 mt-0.5">
                                       {formatSalary(sj.salaryMin, sj.salaryMax)}
                                     </p>
                                   </div>
-                                  <ArrowRight className="size-3 text-stone-400 shrink-0 mt-1" />
+                                  <ArrowRight className="size-3 text-stone-500 shrink-0 mt-1" />
                                 </button>
                               ))}
                             </div>
@@ -1405,8 +1405,8 @@ export default function JobsPage() {
                   {job.featured && (
                     <div className="-mx-5 -mt-5 mb-4 flex items-center gap-1.5 rounded-t-2xl border-b border-amber-100 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-2">
                       <span className="text-xs">🔥</span>
-                      <span className="text-[11px] font-semibold text-amber-800">Hot Job</span>
-                      <span className="text-[11px] text-amber-600">· Great SF Employer</span>
+                      <span className="text-xs font-semibold text-amber-800">Hot Job</span>
+                      <span className="text-xs text-amber-600">· Great SF Employer</span>
                     </div>
                   )}
                   <div>
@@ -1414,11 +1414,11 @@ export default function JobsPage() {
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex gap-1.5 flex-wrap">
                         {job.negotiation.isUnion && (
-                          <Badge className="bg-purple-100 text-purple-700 text-[10px]">
+                          <Badge className="bg-purple-100 text-purple-700 text-xs">
                             <Shield className="size-2.5 mr-0.5" />{job.negotiation.unionName || "Union"}
                           </Badge>
                         )}
-                        <Badge className={`text-[10px] ${bl.color}`}>{bl.label}</Badge>
+                        <Badge className={`text-xs ${bl.color}`}>{bl.label}</Badge>
                       </div>
                       <div className="flex items-center gap-2">
                         {/* Favorite */}
@@ -1451,7 +1451,7 @@ export default function JobsPage() {
                     <div className="mt-2 text-sm font-semibold text-teal-800">
                       {formatSalary(job.salaryMin, job.salaryMax)}
                     </div>
-                    <p className="text-[10px] text-stone-400">
+                    <p className="text-xs text-stone-500">
                       {job.negotiation.salaryType === "fixed-scale"
                         ? (isEs ? "Escala fija" : "Fixed Scale")
                         : (isEs ? "Negociable" : "Negotiable")}
@@ -1460,16 +1460,16 @@ export default function JobsPage() {
 
                     {/* Tags */}
                     <div className="mt-2 flex flex-wrap gap-1">
-                      <Badge className="bg-stone-100 text-stone-600 text-[10px]">
+                      <Badge className="bg-stone-100 text-stone-600 text-xs">
                         <Monitor className="mr-0.5 size-2.5" />{job.ehrSystem}
                       </Badge>
                       {job.bilingual && (
-                        <Badge className="bg-amber-50 text-amber-700 text-[10px]">
+                        <Badge className="bg-amber-50 text-amber-700 text-xs">
                           {isEs ? "Bilingüe" : "Bilingual"}
                         </Badge>
                       )}
                       {job.programs.slice(0, 2).map((p) => (
-                        <Badge key={p} className="bg-teal-50 text-teal-800 text-[10px]">{p}</Badge>
+                        <Badge key={p} className="bg-teal-50 text-teal-800 text-xs">{p}</Badge>
                       ))}
                     </div>
                   </div>
@@ -1542,7 +1542,7 @@ export default function JobsPage() {
                     <p className="text-xs font-semibold text-stone-900">
                       {isEs ? "Constructor de Currículum" : "Resume Builder"}
                     </p>
-                    <p className="text-[10px] text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 mt-0.5">
                       {isEs ? "Currículum optimizado para FQHC en minutos" : "FQHC-optimized resume in minutes"}
                     </p>
                   </div>
@@ -1556,7 +1556,7 @@ export default function JobsPage() {
                     <p className="text-xs font-semibold text-stone-900">
                       {isEs ? "Preparación de Entrevistas" : "Interview Prep"}
                     </p>
-                    <p className="text-[10px] text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 mt-0.5">
                       {isEs ? "Preguntas reales de entrevistas FQHC" : "Real FQHC interview questions & answers"}
                     </p>
                   </div>
@@ -1570,7 +1570,7 @@ export default function JobsPage() {
                     <p className="text-xs font-semibold text-stone-900">
                       {isEs ? "Inteligencia Salarial" : "Salary Intelligence"}
                     </p>
-                    <p className="text-[10px] text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 mt-0.5">
                       {isEs ? "Benchmarks por rol, región y sindicato" : "Benchmarks by role, region & union status"}
                     </p>
                   </div>
@@ -1584,7 +1584,7 @@ export default function JobsPage() {
                     <p className="text-xs font-semibold text-stone-900">
                       {isEs ? "Evaluación de Carrera" : "Career Assessment"}
                     </p>
-                    <p className="text-[10px] text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 mt-0.5">
                       {isEs ? "Encuentra tu rol ideal en FQHCs" : "Find your ideal FQHC role in 5 minutes"}
                     </p>
                   </div>
@@ -1598,7 +1598,7 @@ export default function JobsPage() {
                     <p className="text-xs font-semibold text-stone-900">
                       {isEs ? "Ruta de Aprendizaje" : "Learning Pathway"}
                     </p>
-                    <p className="text-[10px] text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 mt-0.5">
                       {isEs ? "Habilidades para avanzar en tu carrera FQHC" : "Skills to advance your FQHC career"}
                     </p>
                   </div>
@@ -1612,7 +1612,7 @@ export default function JobsPage() {
                     <p className="text-xs font-semibold text-stone-900">
                       {isEs ? "Certificaciones" : "Certifications"}
                     </p>
-                    <p className="text-[10px] text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 mt-0.5">
                       {isEs ? "Certificaciones relevantes para roles FQHC" : "Relevant certifications for FQHC roles"}
                     </p>
                   </div>
