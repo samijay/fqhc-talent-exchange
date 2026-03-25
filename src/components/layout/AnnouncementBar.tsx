@@ -15,14 +15,14 @@ export default function AnnouncementBar() {
   return (
     <div className="relative bg-gradient-to-r from-amber-500 to-amber-400 text-stone-900">
       <Link
-        href="/strategy/masterclass"
+        href="/"
         className="flex items-center justify-center gap-2 px-8 py-2 text-center text-xs font-semibold sm:text-sm"
       >
         <Zap className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "Márgenes de FQHC cayeron a -2.1% — 18 módulos de crisis para sobrevivir 2026 →"
-            : "FQHC margins collapsed to -2.1% — 18 crisis modules to survive 2026 →"}
+            ? "Medi-Cal: emergencia de $200B — 3,400+ despidos en hospitales de CA desde mediados de marzo →"
+            : "Medi-Cal $200B funding emergency — 3,400+ CA hospital layoffs since mid-March →"}
         </span>
       </Link>
       <button

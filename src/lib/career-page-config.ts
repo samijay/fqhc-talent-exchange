@@ -4,7 +4,7 @@
 // Last updated: 2026-03-07 (daily update #14, expanded with 20+ FQHCs)
 
 /** Exported for display on pages — updated by /daily-update and /scrape-jobs pipelines */
-export const CAREER_CONFIG_LAST_UPDATED = "2026-03-18";
+export const CAREER_CONFIG_LAST_UPDATED = "2026-03-25";
 
 export interface CareerPageConfig {
   fqhcSlug: string;
@@ -41,40 +41,40 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     fqhcSlug: "altamed-health-services",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-03-20",
+    lastChecked: "2026-03-25",
     atsApiUrl:
       "https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs",
     notes:
-      "Largest FQHC in CA. 270 jobs found 2026-03-20 (prev 248, +22 — significant hiring surge). AltaMed generated $15.1B economic impact (2019-2024), supports 12,000 jobs, serves 465,000 Medi-Cal patients. Abridge AI scribe deployment confirmed. Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
+      "Largest FQHC in CA. 254 jobs found 2026-03-25 (prev 270, -16 — notable decline after hiring surge). AltaMed generated $15.1B economic impact (2019-2024), supports 12,000 jobs, serves 465,000 Medi-Cal patients. Abridge AI scribe deployment confirmed. Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
   },
   {
     fqhcSlug: "family-health-centers-of-san-diego",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-03-20",
+    lastChecked: "2026-03-25",
     atsApiUrl:
       "https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs",
     notes:
-      "145 jobs found 2026-03-20 (prev 157, -12 — notable decline). DOC (physician) portal currently shows 0 jobs. Blue Shield invested $80K in MA training scholarships at FHCSD Laura Rodriguez MA Institute. Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
+      "138 jobs found 2026-03-25 (prev 145, -7 — continued decline). DOC (physician) portal currently shows 0 jobs. Blue Shield invested $80K in MA training scholarships at FHCSD Laura Rodriguez MA Institute. Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
   },
   {
     fqhcSlug: "asian-health-services",
     scrapeable: true,
     atsType: "lever",
-    lastChecked: "2026-03-20",
+    lastChecked: "2026-03-25",
     atsApiUrl: "https://api.lever.co/v0/postings/ahschc?mode=json",
     notes:
-      "19 jobs found 2026-03-20 (prev 20, -1 — stable). Lever slug is 'ahschc'.",
+      "20 jobs found 2026-03-25 (prev 19, +1 — stable). Lever slug is 'ahschc'.",
   },
   {
     fqhcSlug: "la-clinica-de-la-raza",
     scrapeable: true,
     atsType: "direct",
-    lastChecked: "2026-03-20",
+    lastChecked: "2026-03-25",
     atsApiUrl:
       "http://laclinica.hrmdirect.com/employment/job-openings.php?search=true&dept=-1&city=-1&state=-1",
     notes:
-      "187 jobs found 2026-03-20 (prev 190, -3 — stable). WebFetch returned 187 via location filter counts (Oakland 106, Vallejo 40, Pittsburg 13, Concord 15, Oakley 5, San Leandro 1, Union City 7). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
+      "~173 jobs found 2026-03-25 (prev 187, -14 — notable decline). HRMDirect page parsed via department counts (Dental 104, Volunteer 76, Medical 71, BH 23, IT 4). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
   },
 
   // ── ADP Workforce Now (JS-only, not scrapeable) ── ❌

@@ -5,7 +5,7 @@
 // Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-03-10";
+export const AI_TRACKER_LAST_UPDATED = "2026-03-25";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -102,6 +102,55 @@ export const ADOPTION_STAGES: {
 /* ------------------------------------------------------------------ */
 
 export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
+  {
+    id: "moses-weitzman-ai-governance-program",
+    title: {
+      en: "Moses-Weitzman Health System Builds AI Governance Framework for FQHCs",
+      es: "Moses-Weitzman Health System Construye Marco de Gobernanza de IA para FQHCs",
+    },
+    description: {
+      en: "Moses-Weitzman Health System (MWHS) published their experience building an AI governance program in the Journal of Ambulatory Care Management (Jan/March 2026). They established two workgroups — senior leadership and cross-departmental — to create AI policies emphasizing transparency, privacy, and security. With limited existing templates for FQHCs, they developed criteria for evaluating AI tools that interact with patient data. Key lessons: tech-savvy leadership is essential, cross-functional collaboration prevents siloed adoption, and careful differentiation between automation types (rules-based vs. ML vs. generative) helps organizations set appropriate guardrails. This is the first published FQHC-specific AI governance framework.",
+      es: "Moses-Weitzman Health System publicó su experiencia construyendo un programa de gobernanza de IA en el Journal of Ambulatory Care Management (ene/mar 2026). Establecieron dos grupos de trabajo para crear políticas de IA enfatizando transparencia, privacidad y seguridad. Es el primer marco de gobernanza de IA publicado específicamente para FQHCs.",
+    },
+    category: "policy-framework",
+    vendor: null,
+    partnership: null,
+    metrics: [
+      { label: "Workgroups", value: "2 (leadership + cross-departmental)" },
+      { label: "Focus", value: "Governance, privacy, security criteria" },
+      { label: "Publication", value: "JACM Jan/March 2026" },
+    ],
+    adoptionStage: "framework",
+    sourceUrl: "https://journals.lww.com/ambulatorycaremanagement/abstract/2026/01000/lessons_from_one_fqhc_s_experience_with_artificial.5.aspx",
+    sourceOrg: "Journal of Ambulatory Care Management",
+    date: "2026-03-01",
+    tags: ["governance", "policy", "fqhc-ai-program", "moses-weitzman", "privacy", "security"],
+  },
+  {
+    id: "haip-practice-network-5-fqhcs-duke",
+    title: {
+      en: "HAIP Practice Network: 5 FQHCs Join Duke-Led 12-Month AI Peer Learning Initiative",
+      es: "Red de Práctica HAIP: 5 FQHCs se Unen a Iniciativa de Aprendizaje de IA de 12 Meses Liderada por Duke",
+    },
+    description: {
+      en: "Five under-resourced healthcare providers — four FQHCs and one community hospital — are collaborating through the Health AI Partnership (HAIP) Practice Network, a 12-month peer learning initiative supported by Duke University's Institute for Health Innovation. Participating organizations have deployed ambient scribes, no-show prediction algorithms, sepsis early warnings, and retinal scanning for diabetic retinopathy. HAIP's director notes that '90-95% of the 1,600+ community health centers and 6,000+ hospitals do not have expertise, infrastructure, or access to best-in-class AI solutions,' highlighting the massive adoption gap. North Country Healthcare (13 rural AZ clinics) is struggling with weak broadband and outdated tech even with HAIP support.",
+      es: "Cinco proveedores de salud con recursos limitados — cuatro FQHCs y un hospital comunitario — colaboran a través de la Red de Práctica HAIP, una iniciativa de aprendizaje de 12 meses apoyada por Duke University. Han desplegado escribas ambientales, predicción de inasistencias, alertas tempranas de sepsis y escaneo retinal. El 90-95% de los 1,600+ centros de salud comunitarios no tienen experiencia ni infraestructura para IA.",
+    },
+    category: "policy-framework",
+    vendor: null,
+    partnership: "HAIP-Duke University",
+    metrics: [
+      { label: "Participants", value: "5 organizations (4 FQHCs + 1 hospital)" },
+      { label: "Duration", value: "12 months" },
+      { label: "AI Tools Deployed", value: "Ambient scribes, no-show prediction, sepsis alerts, retinal scanning" },
+      { label: "Adoption Gap", value: "90-95% of CHCs lack AI expertise/infrastructure" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://hipaatimes.com/5-underserved-health-centers-join-forces-to-tackle-ai-challenges",
+    sourceOrg: "HIPAA Times / HAIP",
+    date: "2026-03-15",
+    tags: ["haip", "duke-university", "peer-learning", "rural-fqhc", "ambient-scribe", "adoption-gap", "north-country-healthcare"],
+  },
   {
     id: "imperial-beach-eclinicalworks-sunoh",
     title: {

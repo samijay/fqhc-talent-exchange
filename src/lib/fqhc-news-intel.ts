@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-20";
+export const INTEL_LAST_UPDATED = "2026-03-25";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -94,6 +94,131 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 /* ------------------------------------------------------------------ */
 
 export const INTEL_ITEMS: IntelItem[] = [
+  /* ============================================================== */
+  /*  MARCH 25, 2026 — DAILY UPDATE #25                             */
+  /* ============================================================== */
+  {
+    id: "calmatters-medi-cal-funding-emergency-march-2026",
+    date: "2026-03-24",
+    headline: {
+      en: "CalMatters: Medi-Cal Faces Funding Emergency from State Miscalculations and Federal Cuts",
+      es: "CalMatters: Medi-Cal Enfrenta Emergencia de Financiamiento por Errores Estatales y Recortes Federales",
+    },
+    summary: {
+      en: "Dan Walters' widely syndicated CalMatters commentary warns Medi-Cal has become a $200B+/year 'funding emergency.' Governor Newsom is retracting coverage for immigrants after wrongly projecting a state surplus, while H.R. 1 federal cuts compound the crisis. The prophecy of Medi-Cal overwhelming state finances — warned about two decades ago — is now reality. Medi-Cal covers over a third of California's population (14.5M+), making it by far the budget's largest single item. FQHCs face a dual squeeze: state enrollment freezes AND federal reimbursement cuts.",
+      es: "La columna de Dan Walters en CalMatters advierte que Medi-Cal se ha convertido en una 'emergencia de financiamiento' de más de $200B/año. El gobernador Newsom está retirando cobertura para inmigrantes después de proyectar incorrectamente un superávit estatal, mientras los recortes federales de H.R. 1 agravan la crisis. Medi-Cal cubre más de un tercio de la población de California (14.5M+).",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "critical" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://calmatters.org/commentary/2026/03/medi-cal-emergency-federal-cuts/",
+    sourceOrg: "CalMatters",
+    region: "California",
+    tags: ["medi-cal", "state-budget", "funding-crisis", "hr1", "undocumented", "federal-cuts"],
+    keyTakeaways: [
+      { en: "Medi-Cal now exceeds $200B/year — by far the state's largest budget item", es: "Medi-Cal ahora supera $200B/año — el mayor rubro del presupuesto estatal" },
+      { en: "Dual crisis: state miscalculated surplus (led to immigrant coverage expansion) + federal H.R. 1 cuts", es: "Crisis dual: el estado calculó mal el superávit (llevó a expandir cobertura inmigrante) + recortes federales H.R. 1" },
+      { en: "Newsom retracting immigrant coverage and freezing enrollments to close budget gap", es: "Newsom retirando cobertura inmigrante y congelando inscripciones para cerrar brecha presupuestaria" },
+    ],
+  },
+  {
+    id: "ca-hospitals-3400-layoffs-second-wave-march-2026",
+    date: "2026-03-22",
+    headline: {
+      en: "3,400+ California Healthcare Workers Laid Off Since Mid-March — Second Wave of Hospital Cuts",
+      es: "3,400+ Trabajadores de Salud de California Despedidos Desde Mediados de Marzo — Segunda Ola de Recortes",
+    },
+    summary: {
+      en: "California hospitals have laid off more than 3,400 healthcare workers since mid-March 2026, with 1,600 coming from Santa Barbara to Orange County and the Inland Empire. Hospital executives warn of a second wave of layoffs as H.R. 1 continues to phase in Medicaid funding reductions over the next several years. The cuts affect Medi-Cal coverage for 15M+ residents including 1.6M undocumented immigrants. An estimated 289,000 Medi-Cal members may lose coverage by June 2026, rising to 400,000 by 2029-2030. St. John's Community Health (28 clinics, 144K patients across LA/Riverside/SB) warns of extreme state and federal cuts impacting services.",
+      es: "Los hospitales de California han despedido a más de 3,400 trabajadores de salud desde mediados de marzo de 2026. Los ejecutivos advierten sobre una segunda ola de despidos mientras H.R. 1 continúa reduciendo el financiamiento de Medicaid. Se estima que 289,000 miembros de Medi-Cal podrían perder cobertura para junio de 2026.",
+    },
+    category: "workforce" as IntelCategory,
+    impactLevel: "critical" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.ocregister.com/2026/03/22/california-hospitals-laying-off-thousands-as-funding-cuts-trickle-down/",
+    sourceOrg: "Orange County Register",
+    region: "California",
+    affectedOrgSlugs: ["st-johns-community-health"],
+    tags: ["layoffs", "hospital-cuts", "hr1", "medi-cal", "second-wave", "inland-empire", "workforce-crisis"],
+    keyTakeaways: [
+      { en: "3,400+ healthcare workers laid off since mid-March — second wave of H.R. 1 impacts", es: "3,400+ trabajadores despedidos desde mediados de marzo — segunda ola de impactos de H.R. 1" },
+      { en: "1,600 layoffs from SB to OC and Inland Empire alone", es: "1,600 despidos solo de SB a OC y el Inland Empire" },
+      { en: "St. John's CHC (28 clinics, 144K patients in LA/Riverside/SB) warns of 'extreme cuts'", es: "St. John's CHC (28 clínicas, 144K pacientes en LA/Riverside/SB) advierte sobre 'recortes extremos'" },
+      { en: "289,000 Medi-Cal members may lose coverage by June 2026", es: "289,000 miembros de Medi-Cal podrían perder cobertura para junio de 2026" },
+    ],
+  },
+  {
+    id: "iehp-300k-member-loss-projection-2026",
+    date: "2026-03-25",
+    headline: {
+      en: "IEHP Projects Loss of 300,000 Members — Largest Medi-Cal Plan Faces Unprecedented Decline",
+      es: "IEHP Proyecta Pérdida de 300,000 Miembros — El Plan de Medi-Cal Más Grande Enfrenta Declive Sin Precedentes",
+    },
+    summary: {
+      en: "Inland Empire Health Plan (IEHP), one of the nation's top 10 largest Medicaid health plans serving 1.5M+ enrollees, projects losing 300,000 members over the next two years. Half (150,000) will be lost due to California's freeze on Medi-Cal for undocumented adults; the other 150,000 from work requirements and semi-annual redeterminations affecting 450,000 members. Over 40% of San Bernardino and Riverside county residents are enrolled in Medi-Cal. IEHP CEO Jarrod McNaughton warns cuts could cause closures of critical health facilities across the Inland Empire, where IEHP's network includes 9,000+ providers, 855 clinics, and 36 hospitals.",
+      es: "IEHP, uno de los 10 planes de Medicaid más grandes del país con 1.5M+ inscritos, proyecta perder 300,000 miembros en los próximos dos años. La mitad por la congelación de Medi-Cal para adultos indocumentados; la otra mitad por requisitos de trabajo y redeterminaciones semestrales. Más del 40% de los residentes de SB y Riverside están inscritos en Medi-Cal.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://theievoice.com/healthcare-infrastructure-collapse-warning/",
+    sourceOrg: "IE Voice",
+    region: "San Bernardino County",
+    tags: ["iehp", "inland-empire", "medi-cal", "enrollment-loss", "undocumented", "work-requirements", "managed-care"],
+    keyTakeaways: [
+      { en: "IEHP projects 300K member loss: 150K from undocumented freeze + 150K from work requirements/redeterminations", es: "IEHP proyecta pérdida de 300K miembros: 150K por congelación de indocumentados + 150K por requisitos de trabajo" },
+      { en: "40%+ of San Bernardino & Riverside residents on Medi-Cal — IEHP network: 9,000 providers, 855 clinics, 36 hospitals", es: "40%+ de residentes de SB y Riverside en Medi-Cal — red IEHP: 9,000 proveedores, 855 clínicas, 36 hospitales" },
+      { en: "Semi-annual redetermination now affects 450,000 IEHP members (was annual)", es: "Redeterminación semestral ahora afecta a 450,000 miembros de IEHP (antes era anual)" },
+    ],
+  },
+  {
+    id: "nhcare-7-8m-lakeside-facility-expansion",
+    date: "2026-03-20",
+    headline: {
+      en: "Neighborhood Healthcare Secures $7.8M for New Lakeside Facility Despite Federal Funding Crisis",
+      es: "Neighborhood Healthcare Asegura $7.8M para Nueva Instalación en Lakeside a Pesar de Crisis Federal",
+    },
+    summary: {
+      en: "Neighborhood Healthcare, a San Diego County FQHC, secured funding for a $7.8M facility in Lakeside, acknowledging that community need has long outgrown the organization's capacity. This expansion comes amid the FQHC's public warnings that 'hundreds of FQHCs throughout the state will shut down in a year' due to H.R. 1 cuts. The new facility signals Neighborhood Healthcare's dual strategy: expanding access while sounding the alarm on federal defunding.",
+      es: "Neighborhood Healthcare, un FQHC del condado de San Diego, aseguró financiamiento para una instalación de $7.8M en Lakeside. Esta expansión llega mientras la organización advierte que 'cientos de FQHCs en todo el estado cerrarán en un año' debido a los recortes de H.R. 1.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.sdbj.com/healthcare-2/neighborhood-healthcare-secures-funding-for-7-8m-lakeside-facility/",
+    sourceOrg: "San Diego Business Journal",
+    region: "San Diego County",
+    affectedOrgSlugs: ["neighborhood-healthcare"],
+    tags: ["san-diego", "expansion", "fqhc-investment", "neighborhood-healthcare", "lakeside"],
+    keyTakeaways: [
+      { en: "Neighborhood Healthcare secures $7.8M for Lakeside expansion — community need has outgrown capacity", es: "Neighborhood Healthcare asegura $7.8M para expansión en Lakeside — la necesidad de la comunidad ha superado la capacidad" },
+      { en: "Same FQHC warning 'hundreds will shut down' is simultaneously expanding — dual strategy", es: "El mismo FQHC que advierte 'cientos cerrarán' está expandiéndose simultáneamente — estrategia dual" },
+    ],
+  },
+  {
+    id: "sy-health-3-new-centers-expansion-2026",
+    date: "2026-03-15",
+    headline: {
+      en: "San Ysidro Health Opening 3 New Centers in 2026: Julian, Joe & Vi Jacobs, Chula Vista",
+      es: "San Ysidro Health Abre 3 Nuevos Centros en 2026: Julian, Joe & Vi Jacobs, Chula Vista",
+    },
+    summary: {
+      en: "San Ysidro Health, one of San Diego County's largest FQHCs, is scheduled to open three new health centers in 2026 — Julian Family Medicine (March), Joe & Vi Jacobs Center (fall), and Chula Vista Specialty Care (winter). This follows the recent opening of a $55M National City center expected to serve 20,000 people annually and create 200-250 permanent jobs. CEO Kevin Mattson noted 25-30% of National City's community lacks access to medical and behavioral health care, and the expansion comes as 'families are losing healthcare coverage and federal funding is increasingly limited.'",
+      es: "San Ysidro Health abrirá tres nuevos centros en 2026 — Julian Family Medicine (marzo), Joe & Vi Jacobs Center (otoño) y Chula Vista Specialty Care (invierno). Esto sigue a la apertura de un centro de $55M en National City que espera atender 20,000 personas anualmente y crear 200-250 empleos permanentes.",
+    },
+    category: "change-management" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.sdbj.com/healthcare-2/hospitals-healthcare-2/san-ysidro-health-opens-55m-national-city-center/",
+    sourceOrg: "San Diego Business Journal",
+    region: "San Diego County",
+    affectedOrgSlugs: ["san-ysidro-health"],
+    tags: ["san-diego", "expansion", "san-ysidro-health", "national-city", "chula-vista", "julian"],
+    keyTakeaways: [
+      { en: "3 new SYH centers in 2026: Julian (March), Joe & Vi Jacobs (fall), Chula Vista Specialty (winter)", es: "3 nuevos centros SYH en 2026: Julian (marzo), Joe & Vi Jacobs (otoño), Chula Vista Specialty (invierno)" },
+      { en: "$55M National City center: 20,000 patients/year, 200-250 jobs, 25-30% of community lacked access", es: "Centro de $55M en National City: 20,000 pacientes/año, 200-250 empleos, 25-30% sin acceso" },
+    ],
+  },
   /* ============================================================== */
   /*  MARCH 20, 2026 — DAILY UPDATE #24                             */
   /* ============================================================== */
