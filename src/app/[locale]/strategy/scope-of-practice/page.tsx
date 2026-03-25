@@ -4,6 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import {
   ArrowRight,
   ChevronDown,
@@ -295,6 +296,11 @@ export default function ScopeOfPracticePage() {
 
   return (
     <div className="bg-stone-50">
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Strategy", href: "/strategy/scope-of-practice" },
+        { label: "Top-of-Scope" },
+      ]} />
       {/* ---- 1. Dark Hero ---- */}
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

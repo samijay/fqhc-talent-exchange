@@ -197,7 +197,7 @@ export function NewsletterSignup({
                 key={opt.value}
                 type="button"
                 onClick={() => setAudience(opt.value)}
-                className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                   audience === opt.value
                     ? variant === "banner"
                       ? "bg-white text-teal-800"
@@ -214,14 +214,14 @@ export function NewsletterSignup({
         )}
 
         {/* Email + Submit row */}
-        <div className="flex gap-2">
+        <div className="flex flex-col gap-2 sm:flex-row">
           <input
             type="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder={isEs ? "tu@correo.com" : "you@example.com"}
-            className={`flex-1 rounded-lg border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/30 transition-colors ${inputBorder[variant]}`}
+            className={`flex-1 rounded-lg border px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/30 transition-colors ${inputBorder[variant]}`}
           />
           <Button
             type="submit"

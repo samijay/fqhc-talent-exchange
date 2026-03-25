@@ -4,6 +4,7 @@
 import { useLocale } from "next-intl";
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import {
   AlertTriangle,
   ArrowRight,
@@ -229,6 +230,11 @@ export default function TransitionResourcesPage() {
 
   return (
     <main className="min-h-screen bg-stone-50">
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Strategy", href: "/strategy/offboarding" },
+        { label: "Transition Toolkit" },
+      ]} />
       {/* ============================================================ */}
       {/*  Hero                                                        */}
       {/* ============================================================ */}

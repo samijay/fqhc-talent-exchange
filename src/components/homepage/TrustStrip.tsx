@@ -25,7 +25,7 @@ export function TrustStrip({ totalFQHCs, totalJobs, totalIntel }: TrustStripProp
         {stats.map((stat) => (
           <div key={stat.label} className="text-center">
             <p className="text-lg font-extrabold text-stone-900 sm:text-xl">{stat.value}</p>
-            <p className="text-xs font-medium uppercase tracking-wider text-stone-500">{stat.label}</p>
+            <p className="text-xs font-medium uppercase tracking-wider text-stone-600">{stat.label}</p>
           </div>
         ))}
       </div>

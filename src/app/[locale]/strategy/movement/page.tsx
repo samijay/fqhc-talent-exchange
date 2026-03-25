@@ -4,6 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import {
   ArrowRight,
   ArrowUpDown,
@@ -375,6 +376,11 @@ export default function MovementPage() {
 
   return (
     <div className="bg-stone-50">
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Strategy", href: "/strategy/movement" },
+        { label: "The Movement" },
+      ]} />
       {/* ============================================================ */}
       {/*  Hero                                                         */}
       {/* ============================================================ */}

@@ -34,11 +34,11 @@ export function LeaderPathSection({
           </h2>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-3 sm:gap-6">
+        <div className="grid gap-4 sm:grid-cols-3 sm:gap-6 stagger-children">
           {/* Card 1: Next Funding Cliff */}
           <Link
             href="/funding-impact"
-            className="group rounded-xl border-2 border-amber-200 bg-white p-6 transition-all hover:border-amber-400 hover:shadow-lg"
+            className="group rounded-xl border-2 border-amber-200 bg-white p-6 transition-all duration-200 hover:border-amber-400 hover:shadow-lg hover:-translate-y-0.5"
           >
             <AlertTriangle className="mb-3 size-6 text-amber-500" />
             <p className="text-xs font-bold uppercase tracking-wider text-amber-600">
@@ -61,7 +61,7 @@ export function LeaderPathSection({
                 {isEs ? "Sin riesgos inminentes" : "No imminent cliffs"}
               </p>
             )}
-            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-amber-600 opacity-0 transition-opacity group-hover:opacity-100">
+            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-amber-600 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
               {isEs ? "Ver todos" : "View all"} <ArrowRight className="size-3" />
             </span>
           </Link>
@@ -69,7 +69,7 @@ export function LeaderPathSection({
           {/* Card 2: Latest Intel */}
           <Link
             href="/strategy/guides"
-            className="group rounded-xl border-2 border-teal-200 bg-white p-6 transition-all hover:border-teal-400 hover:shadow-lg"
+            className="group rounded-xl border-2 border-teal-200 bg-white p-6 transition-all duration-200 hover:border-teal-400 hover:shadow-lg hover:-translate-y-0.5"
           >
             <Newspaper className="mb-3 size-6 text-teal-600" />
             <p className="text-xs font-bold uppercase tracking-wider text-teal-600">
@@ -79,7 +79,7 @@ export function LeaderPathSection({
               {t(topIntelHeadline, locale)}
             </p>
             <p className="mt-2 text-xs text-stone-500">{topIntelSource}</p>
-            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-teal-600 opacity-0 transition-opacity group-hover:opacity-100">
+            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-teal-600 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
               {isEs ? "Leer mas" : "Read more"} <ArrowRight className="size-3" />
             </span>
           </Link>
@@ -87,7 +87,7 @@ export function LeaderPathSection({
           {/* Card 3: Resilience Scorecard */}
           <Link
             href="/strategy/resilience"
-            className="group rounded-xl border-2 border-stone-200 bg-white p-6 transition-all hover:border-teal-400 hover:shadow-lg"
+            className="group rounded-xl border-2 border-stone-200 bg-white p-6 transition-all duration-200 hover:border-teal-400 hover:shadow-lg hover:-translate-y-0.5"
           >
             <ShieldCheck className="mb-3 size-6 text-teal-600" />
             <p className="text-xs font-bold uppercase tracking-wider text-teal-600">
@@ -101,7 +101,7 @@ export function LeaderPathSection({
                 ? "FQHCs evaluados en 5 dimensiones"
                 : "FQHCs scored across 5 dimensions"}
             </p>
-            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-teal-600 opacity-0 transition-opacity group-hover:opacity-100">
+            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-teal-600 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
               {isEs ? "Ver calificaciones" : "See grades"} <ArrowRight className="size-3" />
             </span>
           </Link>
@@ -119,7 +119,7 @@ export function LeaderPathSection({
             <Link
               key={link.href}
               href={link.href}
-              className="inline-flex items-center gap-1 text-sm font-medium text-teal-700 transition-colors hover:text-teal-900"
+              className="inline-flex items-center gap-1 text-sm font-medium text-teal-700 underline underline-offset-2 decoration-teal-300 transition-colors hover:text-teal-900 hover:decoration-teal-600"
             >
               {t(link, locale)} <ArrowRight className="size-3" />
             </Link>

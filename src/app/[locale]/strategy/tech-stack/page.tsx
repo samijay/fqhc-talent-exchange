@@ -4,6 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import {
   Stethoscope, DollarSign, Users, Clock, CalendarClock, KanbanSquare,
   MessageSquare, Cloud, Shield, Calculator, ClipboardCheck, Heart,
@@ -422,6 +423,11 @@ export default function TechStackPage() {
 
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950">
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Strategy", href: "/strategy/tech-stack" },
+        { label: "Tech Stack Guide" },
+      ]} />
       {/* Hero */}
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 px-4 py-12 text-white">
         <div className="mx-auto max-w-6xl">

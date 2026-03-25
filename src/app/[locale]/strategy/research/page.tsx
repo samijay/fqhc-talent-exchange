@@ -4,6 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
   BookOpen,
@@ -246,6 +247,11 @@ export default function ResearchArchivePage() {
 
   return (
     <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Strategy", href: "/strategy/research" },
+        { label: "Research Archive" },
+      ]} />
       {/* ── Hero ────────────────────────────────── */}
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 px-4">
         <div className="max-w-5xl mx-auto text-center">

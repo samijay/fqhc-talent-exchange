@@ -35,7 +35,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
   const isExecutive = profile?.role === "executive" || profile?.role === "manager";
 
   return (
-    <main id="main-content" className="min-h-screen">
+    <div className="min-h-screen">
       {/* Personalized dashboards for logged-in users */}
       {user && isExecutive && <ExecutiveDashboard />}
       {user && !isExecutive && <JobSeekerDashboard />}
@@ -75,6 +75,6 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
       <div className="bg-stone-50 px-4 py-4 text-center text-xs text-stone-400">
         Data aggregated from HRSA, BLS, CA EDD WARN Act, DHCS, and FQHC job postings. Updated March 2026.
       </div>
-    </main>
+    </div>
   );
 }

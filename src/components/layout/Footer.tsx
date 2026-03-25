@@ -1,65 +1,43 @@
 "use client";
 
 import { Heart } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
+  const isEs = locale === "es";
 
   const footerLinks = {
-    [t("academy")]: [
-      { href: "/strategy/okr-course" as const, label: t("okrCourse") },
-      { href: "/strategy/clinic-simulator" as const, label: t("clinicSimulator") },
-      { href: "/strategy/revenue-simulator" as const, label: t("revenueSimulator") },
-      { href: "/career-insights" as const, label: t("careerAssessment") },
-      { href: "/interview-prep" as const, label: t("interviewPrep") },
-      { href: "/resume-builder" as const, label: t("resumeBuilder") },
-      { href: "/pathway" as const, label: t("learningPathway") },
-      { href: "/career-roadmap" as const, label: t("careerRoadmap") },
-      { href: "/certifications" as const, label: t("certifications") },
-    ],
-    [t("strategy")]: [
-      { href: "/strategy/guides" as const, label: t("executiveGuides") },
-      { href: "/strategy/okrs" as const, label: t("okrTemplates") },
-      { href: "/strategy/masterclass" as const, label: t("masterclass") },
-      { href: "/strategy/economics" as const, label: t("healthcareEconomics") },
-      { href: "/funding-impact" as const, label: t("fundingImpact") },
-      { href: "/strategy/resilience" as const, label: t("resilience") },
-      { href: "/strategy/scope-of-practice" as const, label: t("scopeOfPractice") },
-      { href: "/strategy/workforce-resilience" as const, label: t("workforceResilience") },
-      { href: "/strategy/research" as const, label: t("researchArchive") },
-      { href: "/strategy/tech-stack" as const, label: t("techStack") },
-      { href: "/ai-tracker" as const, label: t("aiTracker") },
-    ],
     [t("intelligence")]: [
       { href: "/" as const, label: t("dashboard") },
       { href: "/intelligence/legislation" as const, label: t("legislativeTracker") },
       { href: "/layoffs" as const, label: t("layoffTracker") },
       { href: "/salary-data" as const, label: t("salaryIntel") },
       { href: "/blog" as const, label: t("blog") },
-      { href: "/jobs" as const, label: t("browseJobs") },
-      { href: "/directory" as const, label: t("fqhcDirectory") },
     ],
-    [t("compliance")]: [
+    [t("strategy")]: [
+      { href: "/strategy/guides" as const, label: t("executiveGuides") },
+      { href: "/strategy/okrs" as const, label: t("okrTemplates") },
+      { href: "/strategy/masterclass" as const, label: t("masterclass") },
+      { href: "/strategy/resilience" as const, label: t("resilience") },
       { href: "/compliance" as const, label: t("complianceHub") },
-      { href: "/compliance/hrsa-audits" as const, label: t("hrsaAudits") },
-      { href: "/compliance/hipaa" as const, label: t("hipaa") },
-      { href: "/compliance/billing" as const, label: t("billing") },
-      { href: "/compliance/workers-comp" as const, label: t("workersComp") },
-      { href: "/compliance/education-barriers" as const, label: t("educationBarriers") },
-      { href: "/compliance/calendar" as const, label: t("complianceCalendarFooter") },
-      { href: "/compliance/knowledge-base" as const, label: t("knowledgeBase") },
+    ],
+    [t("academy")]: [
+      { href: "/academy" as const, label: isEs ? "Centro de Aprendizaje" : "Learning Hub" },
+      { href: "/resume-builder" as const, label: t("resumeBuilder") },
+      { href: "/interview-prep" as const, label: t("interviewPrep") },
+      { href: "/career-roadmap" as const, label: t("careerRoadmap") },
+      { href: "/certifications" as const, label: t("certifications") },
     ],
     [t("company")]: [
       { href: "/newsletter" as const, label: t("newsletter") },
+      { href: "/jobs" as const, label: isEs ? "Empleos" : "Browse Jobs" },
+      { href: "/directory" as const, label: isEs ? "Directorio" : "FQHC Directory" },
       { href: "/about" as const, label: t("aboutUs") },
       { href: "/compare" as const, label: t("compareFqhcs") },
-      { href: "/resources" as const, label: t("careerResources") },
-      { href: "/guides" as const, label: t("guides") },
-      { href: "/bibliography" as const, label: t("bibliography") },
-      { href: "/downloads" as const, label: t("downloads") },
     ],
   };
 
@@ -96,7 +74,7 @@ export default function Footer() {
                   <li key={link.href + link.label + i}>
                     <Link
                       href={link.href}
-                      className="text-sm text-stone-500 transition-colors hover:text-teal-700"
+                      className="text-sm text-stone-500 transition-colors hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500"
                     >
                       {link.label}
                     </Link>
@@ -119,13 +97,13 @@ export default function Footer() {
             <div className="flex items-center gap-4">
               <Link
                 href="/privacy"
-                className="text-sm text-stone-500 transition-colors hover:text-teal-700"
+                className="text-sm text-stone-500 transition-colors hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500"
               >
                 {t("privacy")}
               </Link>
               <Link
                 href="/terms"
-                className="text-sm text-stone-500 transition-colors hover:text-teal-700"
+                className="text-sm text-stone-500 transition-colors hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500"
               >
                 {t("terms")}
               </Link>

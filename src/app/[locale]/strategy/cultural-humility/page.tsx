@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import {
   ArrowRight,
   Brain,
@@ -296,6 +297,11 @@ export default function CulturalHumilityPage() {
 
   return (
     <main className="min-h-screen bg-stone-50">
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Strategy", href: "/strategy/cultural-humility" },
+        { label: "Cultural Humility" },
+      ]} />
       {/* ============================================================ */}
       {/*  Hero                                                        */}
       {/* ============================================================ */}

@@ -23,11 +23,11 @@ export function JobSeekerPathSection({ totalJobs, totalOrgs }: JobSeekerPathSect
           </h2>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-3 sm:gap-6">
+        <div className="grid gap-4 sm:grid-cols-3 sm:gap-6 stagger-children">
           {/* Card 1: Open Positions */}
           <Link
             href="/jobs"
-            className="group rounded-xl border-2 border-emerald-200 bg-stone-50 p-6 transition-all hover:border-emerald-400 hover:shadow-lg"
+            className="group rounded-xl border-2 border-emerald-200 bg-stone-50 p-6 transition-all duration-200 hover:border-emerald-400 hover:shadow-lg hover:-translate-y-0.5"
           >
             <Briefcase className="mb-3 size-6 text-emerald-600" />
             <p className="text-xs font-bold uppercase tracking-wider text-emerald-600">
@@ -41,7 +41,7 @@ export function JobSeekerPathSection({ totalJobs, totalOrgs }: JobSeekerPathSect
                 ? `En ${totalOrgs}+ FQHCs en 9 regiones de CA`
                 : `Across ${totalOrgs}+ FQHCs in 9 CA regions`}
             </p>
-            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 opacity-0 transition-opacity group-hover:opacity-100">
+            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
               {isEs ? "Buscar empleos" : "Browse jobs"} <ArrowRight className="size-3" />
             </span>
           </Link>
@@ -49,7 +49,7 @@ export function JobSeekerPathSection({ totalJobs, totalOrgs }: JobSeekerPathSect
           {/* Card 2: Salary Intelligence */}
           <Link
             href="/salary-data"
-            className="group rounded-xl border-2 border-teal-200 bg-stone-50 p-6 transition-all hover:border-teal-400 hover:shadow-lg"
+            className="group rounded-xl border-2 border-teal-200 bg-stone-50 p-6 transition-all duration-200 hover:border-teal-400 hover:shadow-lg hover:-translate-y-0.5"
           >
             <BarChart3 className="mb-3 size-6 text-teal-600" />
             <p className="text-xs font-bold uppercase tracking-wider text-teal-600">
@@ -63,7 +63,7 @@ export function JobSeekerPathSection({ totalJobs, totalOrgs }: JobSeekerPathSect
                 ? "Benchmarks P25/P50/P75 de listados reales"
                 : "P25/P50/P75 benchmarks from real postings"}
             </p>
-            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-teal-600 opacity-0 transition-opacity group-hover:opacity-100">
+            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-teal-600 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
               {isEs ? "Ver datos" : "See data"} <ArrowRight className="size-3" />
             </span>
           </Link>
@@ -71,7 +71,7 @@ export function JobSeekerPathSection({ totalJobs, totalOrgs }: JobSeekerPathSect
           {/* Card 3: Free Career Tools */}
           <Link
             href="/resume-builder"
-            className="group rounded-xl border-2 border-amber-200 bg-stone-50 p-6 transition-all hover:border-amber-400 hover:shadow-lg"
+            className="group rounded-xl border-2 border-amber-200 bg-stone-50 p-6 transition-all duration-200 hover:border-amber-400 hover:shadow-lg hover:-translate-y-0.5"
           >
             <Wrench className="mb-3 size-6 text-amber-600" />
             <p className="text-xs font-bold uppercase tracking-wider text-amber-600">
@@ -85,7 +85,7 @@ export function JobSeekerPathSection({ totalJobs, totalOrgs }: JobSeekerPathSect
             <p className="mt-2 text-sm text-stone-600">
               {isEs ? "Sin registro requerido" : "No login required"}
             </p>
-            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-amber-600 opacity-0 transition-opacity group-hover:opacity-100">
+            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-amber-600 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
               {isEs ? "Comenzar" : "Start building"} <ArrowRight className="size-3" />
             </span>
           </Link>
@@ -103,7 +103,7 @@ export function JobSeekerPathSection({ totalJobs, totalOrgs }: JobSeekerPathSect
             <Link
               key={link.href}
               href={link.href}
-              className="inline-flex items-center gap-1 text-sm font-medium text-amber-700 transition-colors hover:text-amber-900"
+              className="inline-flex items-center gap-1 text-sm font-medium text-amber-700 underline underline-offset-2 decoration-amber-300 transition-colors hover:text-amber-900 hover:decoration-amber-600"
             >
               {isEs ? link.es : link.en} <ArrowRight className="size-3" />
             </Link>

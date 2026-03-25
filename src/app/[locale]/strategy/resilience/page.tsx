@@ -4,6 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import {
   ArrowRight,
   ArrowUpDown,
@@ -295,6 +296,11 @@ export default function ResiliencePage() {
 
   return (
     <main className="min-h-screen bg-stone-50">
+      <Breadcrumb items={[
+        { label: "Home", href: "/" },
+        { label: "Strategy", href: "/strategy/resilience" },
+        { label: "Resilience Scorecard" },
+      ]} />
       {/* ============================================================ */}
       {/*  Hero                                                        */}
       {/* ============================================================ */}

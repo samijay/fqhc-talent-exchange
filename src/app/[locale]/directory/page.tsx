@@ -564,7 +564,7 @@ export default function DirectoryPage() {
             {filtered.length === 0 ? (
               <EmptyState isEs={isEs} />
             ) : (
-              <div className="overflow-x-auto rounded-xl border border-stone-200 bg-white shadow-sm">
+              <div className="scroll-hint overflow-x-auto rounded-xl border border-stone-200 bg-white shadow-sm">
                 <table className="w-full text-left text-sm">
                   <thead>
                     <tr className="border-b border-stone-100 bg-stone-50/50">

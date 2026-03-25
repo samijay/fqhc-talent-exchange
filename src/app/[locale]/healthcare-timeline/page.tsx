@@ -744,7 +744,7 @@ export default function HealthcareTimelinePage() {
     <main className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-teal-900 via-teal-800 to-stone-900 py-16 md:py-20">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+        <div className="absolute inset-0 opacity-10" style={{backgroundImage:"url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E\")"}} />
         <div className="relative mx-auto max-w-5xl px-4 text-center">
           <Badge className="mb-4 bg-amber-500/20 text-amber-300">
             <Stethoscope className="mr-1 h-3 w-3" />

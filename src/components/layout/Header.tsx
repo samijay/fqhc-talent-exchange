@@ -153,7 +153,7 @@ function MegaMenu({
         />
       </button>
       {isOpen && (
-        <div role="menu" className="absolute left-0 top-full z-50 mt-1 rounded-lg border border-stone-700 bg-stone-900 py-3 shadow-xl max-h-[calc(100vh-5rem)] overflow-y-auto">
+        <div role="menu" className="absolute left-0 top-full z-50 mt-1 rounded-lg border border-stone-700 bg-stone-900 py-3 shadow-xl max-h-[calc(100vh-5rem)] max-w-[calc(100vw-2rem)] overflow-y-auto">
           <div className="grid grid-cols-3 gap-0 min-w-[660px]">
             {groups.map((group) => (
               <div key={group.heading} className="px-3">
@@ -229,57 +229,6 @@ export default function Header() {
 
   const navItems: NavItem[] = [
     {
-      label: isEs ? "Academia" : "Academy",
-      children: [
-        { href: "/academy", label: isEs ? "Centro de Aprendizaje" : "Learning Hub", desc: isEs ? "Todos los cursos y herramientas" : "All courses & tools" },
-        { href: "/career", label: isEs ? "Centro de Carrera" : "Career Hub", desc: isEs ? "6 herramientas de carrera" : "6 career tools in one place" },
-        { href: "/strategy/okr-course", label: isEs ? "Curso de OKRs" : "OKR Course", desc: isEs ? "45 min interactivo con IA" : "45-min interactive with AI feedback" },
-        { href: "/strategy/clinic-simulator", label: t("clinicSimulator"), desc: isEs ? "Modele personal y ingresos" : "Model staffing & revenue" },
-        { href: "/interview-prep", label: t("interviewPrep"), desc: isEs ? "Preguntas con marco STAR" : "Practice with STAR framework" },
-        { href: "/resume-builder", label: t("resumeBuilder"), desc: isEs ? "Optimizado para FQHCs" : "Optimized for FQHC roles" },
-        { href: "/pathway", label: t("learningPathway"), desc: isEs ? "Ruta personalizada" : "Your personalized path" },
-      ],
-    },
-    {
-      label: t("strategy"),
-      groups: [
-        {
-          heading: isEs ? "Marcos y Aprendizaje" : "Frameworks & Learning",
-          items: [
-            { href: "/strategy/guides", label: t("executiveGuides") },
-            { href: "/strategy/okrs", label: t("okrTemplates") },
-            { href: "/strategy/frameworks", label: t("executionFrameworks") },
-            { href: "/strategy/masterclass", label: t("masterclass") },
-            { href: "/strategy/leaders", label: t("thoughtLeaders") },
-            { href: "/strategy/research", label: t("researchArchive") },
-          ],
-        },
-        {
-          heading: isEs ? "Datos y Análisis" : "Data & Analysis",
-          items: [
-            { href: "/strategy/economics", label: t("healthcareEconomics") },
-            { href: "/funding-impact", label: t("fundingImpact") },
-            { href: "/strategy/resilience", label: t("resilience") },
-            { href: "/strategy/clinic-simulator", label: t("clinicSimulator") },
-            { href: "/strategy/revenue-simulator", label: isEs ? "Simulador de Ingresos" : "Revenue Simulator" },
-            { href: "/strategy/scope-of-practice", label: t("scopeOfPractice") },
-            { href: "/strategy/tech-stack", label: t("techStack") },
-            { href: "/ai-tracker", label: t("aiTracker") },
-          ],
-        },
-        {
-          heading: isEs ? "Fuerza Laboral y Cultura" : "Workforce & Culture",
-          items: [
-            { href: "/strategy/workforce-resilience", label: t("workforceResilience") },
-            { href: "/locum-tenens", label: t("locumCoverage") },
-            { href: "/strategy/offboarding", label: t("transitionResources") },
-            { href: "/strategy/cultural-humility", label: t("culturalHumility") },
-            { href: "/strategy/movement", label: t("theMovement") },
-          ],
-        },
-      ],
-    },
-    {
       label: t("intelligence"),
       children: [
         { href: "/", label: t("dashboard"), desc: t("dashboardDesc") },
@@ -291,47 +240,54 @@ export default function Header() {
       ],
     },
     {
-      label: t("compliance"),
+      label: t("strategy"),
       groups: [
         {
-          heading: t("hrsaAudits"),
+          heading: isEs ? "Marcos y Herramientas" : "Frameworks & Tools",
           items: [
-            { href: "/compliance/hrsa-audits", label: t("osvPrepGuide"), desc: t("osvPrepGuideDesc") },
-            { href: "/compliance/calendar", label: t("complianceCalendar"), desc: t("complianceCalendarDesc") },
+            { href: "/strategy/guides", label: t("executiveGuides") },
+            { href: "/strategy/okrs", label: t("okrTemplates") },
+            { href: "/strategy/frameworks", label: t("executionFrameworks") },
+            { href: "/strategy/masterclass", label: t("masterclass") },
+            { href: "/strategy/clinic-simulator", label: t("clinicSimulator") },
+            { href: "/strategy/revenue-simulator", label: isEs ? "Simulador de Ingresos" : "Revenue Simulator" },
           ],
         },
         {
-          heading: t("hipaaPrivacy"),
+          heading: isEs ? "Datos y Análisis" : "Data & Analysis",
           items: [
-            { href: "/compliance/hipaa", label: t("hipaaCompliance"), desc: t("hipaaComplianceDesc") },
-            { href: "/compliance/knowledge-base", label: t("knowledgeBase"), desc: t("knowledgeBaseDesc") },
+            { href: "/strategy/economics", label: t("healthcareEconomics") },
+            { href: "/funding-impact", label: t("fundingImpact") },
+            { href: "/strategy/resilience", label: t("resilience") },
+            { href: "/strategy/scope-of-practice", label: t("scopeOfPractice") },
+            { href: "/strategy/tech-stack", label: t("techStack") },
+            { href: "/ai-tracker", label: t("aiTracker") },
           ],
         },
         {
-          heading: t("billingFraud"),
+          heading: isEs ? "Fuerza Laboral" : "Workforce",
           items: [
-            { href: "/compliance/billing", label: t("billingRules"), desc: t("billingRulesDesc") },
-            { href: "/compliance", label: t("complianceHub"), desc: t("complianceHubDesc") },
-          ],
-        },
-        {
-          heading: isEs ? "Operaciones y Cumplimiento" : "Operations & Compliance",
-          items: [
-            { href: "/compliance/workers-comp", label: isEs ? "Compensación de Trabajadores" : "Workers' Compensation", desc: isEs ? "Gestión de lesiones laborales y riesgos" : "Manage workplace injuries & risks" },
-            { href: "/compliance/education-barriers", label: isEs ? "Barreras Educativas" : "Education Barriers", desc: isEs ? "Requisitos de credenciales y licencias" : "Credential & licensing requirements" },
+            { href: "/strategy/workforce-resilience", label: t("workforceResilience") },
+            { href: "/strategy/offboarding", label: t("transitionResources") },
+            { href: "/strategy/cultural-humility", label: t("culturalHumility") },
+            { href: "/compliance", label: isEs ? "Cumplimiento" : "Compliance" },
           ],
         },
       ],
     },
     {
-      label: isEs ? "Carreras" : "Careers",
+      label: isEs ? "Academia" : "Academy",
       children: [
-        { href: "/jobs", label: t("jobs"), desc: isEs ? "Empleos abiertos en FQHCs" : "Open positions at FQHCs" },
-        { href: "/directory", label: t("directory"), desc: isEs ? "220+ FQHCs de California" : "220+ California FQHCs" },
-        { href: "/salary-data", label: isEs ? "Datos Salariales" : "Salary Data", desc: isEs ? "30 roles x 9 regiones" : "30 roles x 9 regions" },
-        { href: "/compare", label: isEs ? "Comparar FQHCs" : "Compare FQHCs", desc: isEs ? "Comparar salarios y beneficios" : "Compare salaries & benefits" },
+        { href: "/academy", label: isEs ? "Centro de Aprendizaje" : "Learning Hub", desc: isEs ? "Todos los cursos y herramientas" : "All courses & tools" },
+        { href: "/career", label: isEs ? "Centro de Carrera" : "Career Hub", desc: isEs ? "6 herramientas de carrera" : "6 career tools in one place" },
+        { href: "/strategy/okr-course", label: isEs ? "Curso de OKRs" : "OKR Course", desc: isEs ? "45 min interactivo con IA" : "45-min interactive with AI feedback" },
+        { href: "/interview-prep", label: t("interviewPrep"), desc: isEs ? "Preguntas con marco STAR" : "Practice with STAR framework" },
+        { href: "/resume-builder", label: t("resumeBuilder"), desc: isEs ? "Optimizado para FQHCs" : "Optimized for FQHC roles" },
+        { href: "/pathway", label: t("learningPathway"), desc: isEs ? "Ruta personalizada" : "Your personalized path" },
       ],
     },
+    { href: "/jobs", label: isEs ? "Empleos" : "Jobs" },
+    { href: "/directory", label: isEs ? "Directorio" : "Directory" },
   ];
 
   // Flatten groups into a single children list for mobile
@@ -384,7 +340,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href as "/jobs"}
-                className="rounded-md px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+                className="rounded-md px-3 py-2 text-sm font-medium text-stone-600 transition-all duration-150 hover:bg-stone-100 hover:text-stone-900"
               >
                 {item.label}
               </Link>
