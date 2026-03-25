@@ -276,14 +276,36 @@ export default function Header() {
       ],
     },
     {
-      label: isEs ? "Academia" : "Academy",
-      children: [
-        { href: "/academy", label: isEs ? "Centro de Aprendizaje" : "Learning Hub", desc: isEs ? "Todos los cursos y herramientas" : "All courses & tools" },
-        { href: "/career", label: isEs ? "Centro de Carrera" : "Career Hub", desc: isEs ? "6 herramientas de carrera" : "6 career tools in one place" },
-        { href: "/strategy/okr-course", label: isEs ? "Curso de OKRs" : "OKR Course", desc: isEs ? "45 min interactivo con IA" : "45-min interactive with AI feedback" },
-        { href: "/interview-prep", label: t("interviewPrep"), desc: isEs ? "Preguntas con marco STAR" : "Practice with STAR framework" },
-        { href: "/resume-builder", label: t("resumeBuilder"), desc: isEs ? "Optimizado para FQHCs" : "Optimized for FQHC roles" },
-        { href: "/pathway", label: t("learningPathway"), desc: isEs ? "Ruta personalizada" : "Your personalized path" },
+      label: isEs ? "Aprender" : "Learn",
+      groups: [
+        {
+          heading: isEs ? "Para Líderes" : "For Leaders",
+          items: [
+            { href: "/strategy/masterclass", label: t("masterclass") },
+            { href: "/strategy/okr-course", label: isEs ? "Curso de OKRs" : "OKR Course" },
+            { href: "/strategy/research", label: isEs ? "Archivo Académico" : "Research Archive" },
+            { href: "/strategy/guides", label: t("executiveGuides") },
+          ],
+        },
+        {
+          heading: isEs ? "Para Tu Carrera" : "For Your Career",
+          items: [
+            { href: "/career-insights", label: isEs ? "Evaluación de Carrera" : "Career Assessment" },
+            { href: "/career-roadmap", label: t("careerRoadmap") },
+            { href: "/certifications", label: t("certifications") },
+            { href: "/interview-prep", label: t("interviewPrep") },
+            { href: "/resume-builder", label: t("resumeBuilder") },
+            { href: "/resources", label: isEs ? "Recursos de Carrera" : "Career Resources" },
+          ],
+        },
+        {
+          heading: isEs ? "Para Tu Práctica" : "For Your Practice",
+          items: [
+            { href: "/guides", label: isEs ? "Guías del Trabajo" : "Workplace Guides" },
+            { href: "/glossary", label: isEs ? "Glosario FQHC" : "FQHC Glossary" },
+            { href: "/pathway", label: isEs ? "Mi Ruta de Aprendizaje" : "My Learning Path" },
+          ],
+        },
       ],
     },
     { href: "/jobs", label: isEs ? "Empleos" : "Jobs" },

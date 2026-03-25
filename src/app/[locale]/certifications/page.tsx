@@ -21,6 +21,7 @@ import {
 import { useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
+import { CareerFunnelStep } from "@/components/ui/CareerFunnelStep";
 import {
   CERTIFICATIONS,
   type Certification,
@@ -30,6 +31,7 @@ import {
 import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
 import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
 import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
+import { ReadingLevelBadge } from "@/components/ui/ReadingLevelBadge";
 
 const ROLE_OPTIONS = [
   { id: "all", en: "All Roles", es: "Todos los roles" },
@@ -186,6 +188,11 @@ function CertificationsContent() {
           </button>
         </div>
       </section>
+
+      {/* Career Funnel */}
+      <div className="mx-auto max-w-5xl px-4 pt-8 sm:px-6 lg:px-8">
+        <CareerFunnelStep currentStep={3} locale={locale} />
+      </div>
 
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
         {/* Filters */}
@@ -378,6 +385,7 @@ function CertCard({
               {badge.icon}
               {isEs ? badge.es : badge.en}
             </span>
+            <ReadingLevelBadge level={cert.impactType === "required" ? "foundational" : cert.impactType === "salary_boost" ? "intermediate" : "advanced"} size="sm" />
           </div>
           <p className="mt-1 text-sm text-stone-500">
             {isEs ? cert.esIssuer : cert.issuer}

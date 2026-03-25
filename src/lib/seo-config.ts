@@ -254,6 +254,18 @@ export const pageMetadata = {
     },
     alternates: { canonical: `${SITE_URL}/certifications` },
   },
+  glossary: {
+    title: "FQHC Glossary | Healthcare Acronyms & Terms Explained in Plain Language",
+    description:
+      "49 FQHC terms defined in plain English and Spanish — PPS, CalAIM, ECM, 340B, PCMH, and more. Searchable glossary for community health workers, administrators, and anyone navigating the FQHC world.",
+    openGraph: {
+      title: "FQHC Glossary — FQHC Talent",
+      description:
+        "49 healthcare terms and acronyms explained in plain language. Bilingual English/Spanish.",
+      url: `${SITE_URL}/glossary`,
+    },
+    alternates: { canonical: `${SITE_URL}/glossary` },
+  },
   careerInsights: {
     title: "FQHC Career Assessment | Discover Your Strengths in Community Health",
     description:

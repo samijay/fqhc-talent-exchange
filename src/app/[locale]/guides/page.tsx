@@ -35,6 +35,7 @@ import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
 import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
 import { ShareButton } from "@/components/share/ShareButton";
 import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
+import { ReadingLevelBadge } from "@/components/ui/ReadingLevelBadge";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -102,6 +103,7 @@ function GuideCard({
             <Badge variant="outline" className="text-xs text-stone-500">
               {guide.primarySourceOrg}
             </Badge>
+            <ReadingLevelBadge level={guide.difficulty === "beginner" ? "foundational" : guide.difficulty === "intermediate" ? "intermediate" : "advanced"} size="sm" />
           </div>
 
           {/* Summary */}

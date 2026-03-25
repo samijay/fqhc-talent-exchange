@@ -11,6 +11,21 @@ export default function Footer() {
   const isEs = locale === "es";
 
   const footerLinks = {
+    [isEs ? "Para Líderes" : "For Leaders"]: [
+      { href: "/strategy/masterclass" as const, label: t("masterclass") },
+      { href: "/strategy/okr-course" as const, label: t("okrCourse") },
+      { href: "/strategy/guides" as const, label: t("executiveGuides") },
+      { href: "/strategy/research" as const, label: t("researchArchive") },
+      { href: "/strategy/resilience" as const, label: t("resilience") },
+    ],
+    [isEs ? "Para Tu Carrera" : "For Your Career"]: [
+      { href: "/career-insights" as const, label: isEs ? "Evaluación" : "Career Assessment" },
+      { href: "/career-roadmap" as const, label: t("careerRoadmap") },
+      { href: "/certifications" as const, label: t("certifications") },
+      { href: "/interview-prep" as const, label: t("interviewPrep") },
+      { href: "/resume-builder" as const, label: t("resumeBuilder") },
+      { href: "/resources" as const, label: isEs ? "Recursos" : "Career Resources" },
+    ],
     [t("intelligence")]: [
       { href: "/" as const, label: t("dashboard") },
       { href: "/intelligence/legislation" as const, label: t("legislativeTracker") },
@@ -18,26 +33,13 @@ export default function Footer() {
       { href: "/salary-data" as const, label: t("salaryIntel") },
       { href: "/blog" as const, label: t("blog") },
     ],
-    [t("strategy")]: [
-      { href: "/strategy/guides" as const, label: t("executiveGuides") },
-      { href: "/strategy/okrs" as const, label: t("okrTemplates") },
-      { href: "/strategy/masterclass" as const, label: t("masterclass") },
-      { href: "/strategy/resilience" as const, label: t("resilience") },
-      { href: "/compliance" as const, label: t("complianceHub") },
-    ],
-    [t("academy")]: [
-      { href: "/academy" as const, label: isEs ? "Centro de Aprendizaje" : "Learning Hub" },
-      { href: "/resume-builder" as const, label: t("resumeBuilder") },
-      { href: "/interview-prep" as const, label: t("interviewPrep") },
-      { href: "/career-roadmap" as const, label: t("careerRoadmap") },
-      { href: "/certifications" as const, label: t("certifications") },
-    ],
     [t("company")]: [
-      { href: "/newsletter" as const, label: t("newsletter") },
+      { href: "/glossary" as const, label: isEs ? "Glosario FQHC" : "FQHC Glossary" },
+      { href: "/guides" as const, label: t("guides") },
       { href: "/jobs" as const, label: isEs ? "Empleos" : "Browse Jobs" },
       { href: "/directory" as const, label: isEs ? "Directorio" : "FQHC Directory" },
+      { href: "/newsletter" as const, label: t("newsletter") },
       { href: "/about" as const, label: t("aboutUs") },
-      { href: "/compare" as const, label: t("compareFqhcs") },
     ],
   };
 

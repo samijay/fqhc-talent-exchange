@@ -23,6 +23,7 @@ import { Link } from "@/i18n/navigation";
 import CareerInsights from "@/components/resume-builder/CareerInsights";
 import First90DaysPlan from "@/components/career-insights/First90DaysPlan";
 import { ShareableAchievement } from "@/components/share/ShareableAchievement";
+import { CareerFunnelStep } from "@/components/ui/CareerFunnelStep";
 import { generateFirst90DaysPlan } from "@/lib/first-90-days";
 import type { AssessmentResults } from "@/lib/career-assessment-engine";
 import type { First90DaysPlan as First90DaysPlanType } from "@/lib/first-90-days";
@@ -108,6 +109,11 @@ export default function CareerInsightsPage() {
           </p>
         </div>
       </section>
+
+      {/* Career Funnel */}
+      <div className="mx-auto max-w-5xl px-4 pt-8 sm:px-6 lg:px-8">
+        <CareerFunnelStep currentStep={1} locale={locale} />
+      </div>
 
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
         {/* Also available row */}

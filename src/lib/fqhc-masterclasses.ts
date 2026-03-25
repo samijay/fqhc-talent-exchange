@@ -31,6 +31,8 @@ export interface MasterclassModule {
   category: MasterclassCategory
   audience: MasterclassAudience
   difficulty: Difficulty
+  estimatedMinutes: number
+  recommendedOrder: number
   urgencyStat: { en: string; es: string }
   whyNow: { en: string; es: string }
   learningObjectives: { en: string; es: string }[]
@@ -99,6 +101,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "survival",
     audience: "ceo-coo",
     difficulty: "advanced",
+    estimatedMinutes: 28,
+    recommendedOrder: 1,
     urgencyStat: {
       en: "50% of CHCs had negative margins in 2023",
       es: "El 50% de los CHC tuvieron márgenes negativos en 2023",
@@ -143,6 +147,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "survival",
     audience: "ceo-coo",
     difficulty: "advanced",
+    estimatedMinutes: 32,
+    recommendedOrder: 2,
     urgencyStat: {
       en: "7 major policy deadlines between Jul 2026 – Jan 2028",
       es: "7 plazos de políticas importantes entre julio 2026 – enero 2028",
@@ -188,6 +194,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "survival",
     audience: "cfo",
     difficulty: "intermediate",
+    estimatedMinutes: 22,
+    recommendedOrder: 3,
     urgencyStat: {
       en: "38% of CHCs expect 340B revenue to decline",
       es: "El 38% de los CHC espera que los ingresos del 340B disminuyan",
@@ -233,6 +241,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "revenue",
     audience: "cfo",
     difficulty: "foundational",
+    estimatedMinutes: 15,
+    recommendedOrder: 1,
     urgencyStat: {
       en: "$202.65 base PPS rate × missed encounters = millions left on the table",
       es: "$202.65 tarifa base PPS × encuentros perdidos = millones dejados sobre la mesa",
@@ -276,6 +286,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "revenue",
     audience: "ceo-coo",
     difficulty: "advanced",
+    estimatedMinutes: 28,
+    recommendedOrder: 2,
     urgencyStat: {
       en: "62% of CHCs are in ACOs — but most small FQHCs negotiate alone",
       es: "El 62% de los CHC están en ACO — pero la mayoría de los FQHCs pequeños negocian solos",
@@ -320,6 +332,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "revenue",
     audience: "cfo",
     difficulty: "foundational",
+    estimatedMinutes: 12,
+    recommendedOrder: 3,
     urgencyStat: {
       en: "Section 330 funding doubled from $2.2B to $5.6B (2010-2019) — are you getting your share?",
       es: "El financiamiento de la Sección 330 se duplicó de $2.2B a $5.6B (2010-2019) — ¿está obteniendo su parte?",
@@ -366,6 +380,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "undocumented-care",
     audience: "all-leaders",
     difficulty: "intermediate",
+    estimatedMinutes: 18,
+    recommendedOrder: 1,
     urgencyStat: {
       en: "84% of healthcare workers report significant patient visit declines",
       es: "El 84% de los trabajadores de salud reportan disminuciones significativas de visitas",
@@ -412,6 +428,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "undocumented-care",
     audience: "clinical",
     difficulty: "foundational",
+    estimatedMinutes: 14,
+    recommendedOrder: 2,
     urgencyStat: {
       en: "29% of immigrants skipped or postponed healthcare in 2025",
       es: "El 29% de los inmigrantes omitió o pospuso atención médica en 2025",
@@ -458,6 +476,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "fundraising",
     audience: "ceo-coo",
     difficulty: "foundational",
+    estimatedMinutes: 16,
+    recommendedOrder: 1,
     urgencyStat: {
       en: "Most FQHCs have never had a development department",
       es: "La mayoría de los FQHC nunca han tenido un departamento de desarrollo",
@@ -501,6 +521,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "fundraising",
     audience: "cfo",
     difficulty: "intermediate",
+    estimatedMinutes: 20,
+    recommendedOrder: 2,
     urgencyStat: {
       en: "500 donors × $25/month = $150K/year — achievable in year 1",
       es: "500 donantes × $25/mes = $150K/año — alcanzable en el año 1",
@@ -545,6 +567,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "economics",
     audience: "ceo-coo",
     difficulty: "foundational",
+    estimatedMinutes: 12,
+    recommendedOrder: 1,
     urgencyStat: {
       en: "14% of US population served for 1% of healthcare spending",
       es: "14% de la población de EE.UU. atendida por el 1% del gasto en salud",
@@ -589,6 +613,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "economics",
     audience: "board",
     difficulty: "advanced",
+    estimatedMinutes: 30,
+    recommendedOrder: 2,
     urgencyStat: {
       en: "70% of FQHC acquisitions succeed — 30% fail on cultural fit",
       es: "El 70% de las adquisiciones de FQHC tienen éxito — el 30% falla por compatibilidad cultural",
@@ -633,6 +659,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "economics",
     audience: "clinical",
     difficulty: "intermediate",
+    estimatedMinutes: 18,
+    recommendedOrder: 3,
     urgencyStat: {
       en: "Abridge reduced provider burnout from 51.9% to 38.8%",
       es: "Abridge redujo el agotamiento de proveedores del 51.9% al 38.8%",
@@ -678,6 +706,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "leadership",
     audience: "board",
     difficulty: "advanced",
+    estimatedMinutes: 26,
+    recommendedOrder: 1,
     urgencyStat: {
       en: "36% of FQHC boards lack adequate succession plans",
       es: "El 36% de las juntas de FQHC carecen de planes de sucesión adecuados",
@@ -721,6 +751,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "leadership",
     audience: "board",
     difficulty: "foundational",
+    estimatedMinutes: 16,
+    recommendedOrder: 2,
     urgencyStat: {
       en: "51% patient board majority is federal law — make it a strategic asset",
       es: "La mayoría de 51% de pacientes en la junta es ley federal — conviértala en un activo estratégico",
@@ -766,6 +798,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "leadership",
     audience: "ceo-coo",
     difficulty: "intermediate",
+    estimatedMinutes: 20,
+    recommendedOrder: 3,
     urgencyStat: {
       en: "70% of FQHCs report losing 5-25% of staff annually",
       es: "70% de los FQHCs reportan perder 5-25% del personal anualmente",
@@ -813,6 +847,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "leadership",
     audience: "hr-workforce",
     difficulty: "intermediate",
+    estimatedMinutes: 24,
+    recommendedOrder: 4,
     urgencyStat: {
       en: "32% average FQHC turnover — 2x the healthcare industry average",
       es: "32% rotación promedio en FQHCs — 2x el promedio de la industria de salud",
@@ -861,6 +897,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "survival",
     audience: "cfo",
     difficulty: "advanced",
+    estimatedMinutes: 26,
+    recommendedOrder: 4,
     urgencyStat: {
       en: "$4.6B in CHCF funding expires December 2026",
       es: "$4.6B en financiamiento CHCF expira en diciembre de 2026",
@@ -909,6 +947,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     },
     category: "leadership",
     audience: "hr-workforce",
+    estimatedMinutes: 19,
+    recommendedOrder: 5,
     difficulty: "intermediate",
     urgencyStat: {
       en: "SB 525 requires $25/hr minimum for FQHC healthcare workers by Jan 2027 — most FQHCs are not on track",
@@ -1003,6 +1043,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "compliance",
     audience: "ceo-coo",
     difficulty: "advanced",
+    estimatedMinutes: 22,
+    recommendedOrder: 1,
     urgencyStat: { en: "$890K: Average FQHC ransomware incident cost (2025)", es: "$890K: Costo promedio de incidente de ransomware en FQHC (2025)" },
     whyNow: { en: "Healthcare ransomware attacks increased 256% from 2022 to 2025. FQHCs are prime targets: underfunded IT, legacy systems, and rich patient data. The HIPAA Security Rule update (proposed 2026) will mandate encryption, MFA, and annual penetration testing — significantly raising compliance costs. FQHCs that prepare now will avoid scrambling when the final rule drops.", es: "Los ataques de ransomware en salud aumentaron 256% de 2022 a 2025. Los FQHC son objetivos principales: TI subfinanciada, sistemas legados y datos ricos de pacientes." },
     learningObjectives: [
@@ -1035,6 +1077,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "compliance",
     audience: "ceo-coo",
     difficulty: "intermediate",
+    estimatedMinutes: 19,
+    recommendedOrder: 2,
     urgencyStat: { en: "3-4 gaps are normal; corrective action is not a shutdown", es: "3-4 brechas son normales; la acción correctiva no es un cierre" },
     whyNow: { en: "HRSA has accelerated OSV schedules for crisis-impacted FQHCs. With H.R. 1 Medicaid cuts and California's PPS elimination for uninsured patients, HRSA is paying closer attention to financial viability and governance. FQHCs that haven't been visited in 4+ years should expect a visit soon. The OSV checklist is your blueprint.", es: "HRSA ha acelerado los calendarios de OSV para FQHCs impactados por la crisis. Con los recortes de Medicaid de H.R. 1, HRSA está prestando más atención a la viabilidad financiera y gobernanza." },
     learningObjectives: [
@@ -1066,6 +1110,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "compliance",
     audience: "cfo",
     difficulty: "advanced",
+    estimatedMinutes: 25,
+    recommendedOrder: 3,
     urgencyStat: { en: "$27,894: Maximum penalty per false claim (2026 inflation adjustment)", es: "$27,894: Sanción máxima por reclamo falso (ajuste por inflación 2026)" },
     whyNow: { en: "CMS Recovery Audit Contractors are actively auditing FQHC claims. With revenue pressure from H.R. 1 and California's UIS PPS elimination, FQHCs face a dangerous temptation to optimize billing aggressively. One billing error can cascade: a single false claim triggers $27,894 in penalties plus treble damages. Self-disclosure to OIG can reduce exposure by 90%+.", es: "Los Auditores de Recuperación de CMS están auditando activamente los reclamos de FQHC. Con la presión de ingresos, los FQHC enfrentan una tentación peligrosa de optimizar facturación agresivamente." },
     learningObjectives: [
@@ -1098,6 +1144,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "compliance",
     audience: "cfo",
     difficulty: "intermediate",
+    estimatedMinutes: 17,
+    recommendedOrder: 4,
     urgencyStat: { en: "25-50% drug cost savings at risk if 340B eligibility is lost", es: "25-50% de ahorro en costos de medicamentos en riesgo si se pierde la elegibilidad 340B" },
     whyNow: { en: "HRSA proposed new 340B integrity rules in 2026. Manufacturer audits are increasing — pharmaceutical companies are challenging 340B eligibility and contract pharmacy arrangements. A duplicate discount violation (receiving 340B price AND Medicaid rebate) can result in repayment, program removal, and False Claims Act liability. FQHCs generating $200K-$2M+ annually from 340B cannot afford to lose this revenue.", es: "HRSA propuso nuevas reglas de integridad 340B en 2026. Las auditorías de fabricantes están aumentando. Una violación de descuento duplicado puede resultar en reembolso, remoción del programa y responsabilidad FCA." },
     learningObjectives: [
@@ -1137,6 +1185,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "compliance",
     audience: "cfo",
     difficulty: "intermediate",
+    estimatedMinutes: 16,
+    recommendedOrder: 5,
     urgencyStat: {
       en: "Healthcare workers comp claims cost CA FQHCs $180K-$350K/year on average",
       es: "Las reclamaciones de compensación de trabajadores en salud cuestan a los FQHCs de CA un promedio de $180K-$350K/año",
@@ -1181,6 +1231,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "compliance",
     audience: "all-leaders",
     difficulty: "foundational",
+    estimatedMinutes: 14,
+    recommendedOrder: 6,
     urgencyStat: {
       en: "Healthcare workers are 5x more likely to experience workplace violence than workers in other industries",
       es: "Los trabajadores de salud tienen 5 veces más probabilidad de experimentar violencia en el lugar de trabajo que otros trabajadores",
@@ -1225,6 +1277,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "leadership",
     audience: "ceo-coo",
     difficulty: "advanced",
+    estimatedMinutes: 21,
+    recommendedOrder: 6,
     urgencyStat: {
       en: "FQHCs with safety committees report 35% fewer lost-time injuries than those without",
       es: "Los FQHCs con comités de seguridad reportan 35% menos lesiones con pérdida de tiempo que los que no los tienen",
@@ -1269,6 +1323,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "compliance",
     audience: "cfo",
     difficulty: "intermediate",
+    estimatedMinutes: 20,
+    recommendedOrder: 7,
     urgencyStat: {
       en: "SB 525 raises FQHC minimum wage to $25/hr by June 2026 — affecting 60% of support staff",
       es: "SB 525 aumenta el salario mínimo FQHC a $25/hora para junio de 2026 — afectando a 60% del personal de apoyo",
@@ -1314,6 +1370,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "compliance",
     audience: "ceo-coo",
     difficulty: "advanced",
+    estimatedMinutes: 24,
+    recommendedOrder: 8,
     urgencyStat: {
       en: "NLRB healthcare cases in CA increased 34% since 2022",
       es: "Los casos de salud del NLRB en CA aumentaron 34% desde 2022",
@@ -1359,6 +1417,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "leadership",
     audience: "hr-workforce",
     difficulty: "intermediate",
+    estimatedMinutes: 18,
+    recommendedOrder: 8,
     urgencyStat: {
       en: "42% of FQHC job postings require degrees beyond legal minimums",
       es: "42% de los anuncios de trabajo FQHC requieren títulos más allá de los mínimos legales",
@@ -1404,6 +1464,8 @@ export const MASTERCLASSES: MasterclassModule[] = [
     category: "leadership",
     audience: "hr-workforce",
     difficulty: "foundational",
+    estimatedMinutes: 13,
+    recommendedOrder: 7,
     urgencyStat: {
       en: "FQHCs that communicate total comp value (NHSC loans, FTCA, mission) reduce turnover by 18%",
       es: "Los FQHCs que comunican valor de compensación total reducen rotación en 18%",

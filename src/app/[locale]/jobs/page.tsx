@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo, useCallback, type ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
+import { CareerFunnelStep } from "@/components/ui/CareerFunnelStep";
 import {
   Search,
   Briefcase,
@@ -764,6 +765,11 @@ export default function JobsPage() {
           </Badge>
         </div>
       </section>
+
+      {/* Career Funnel */}
+      <div className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
+        <CareerFunnelStep currentStep={5} locale={locale} />
+      </div>
 
       {/* ---------- Filter Bar ---------- */}
       <div className="sticky top-16 z-30 border-b border-stone-200 bg-white/95 backdrop-blur">

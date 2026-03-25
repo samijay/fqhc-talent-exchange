@@ -20,6 +20,7 @@ import {
   Users,
   Zap,
   Calendar,
+  Clock,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -38,6 +39,7 @@ import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
 import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
 import { ShareButton } from "@/components/share/ShareButton";
 import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
+import { ReadingLevelBadge } from "@/components/ui/ReadingLevelBadge";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -105,11 +107,23 @@ function MasterclassCard({
                   {isEs ? audMeta.es : audMeta.en}
                 </span>
               )}
+              <ReadingLevelBadge level={mc.difficulty} size="sm" />
+              {mc.estimatedMinutes && (
+                <span className="inline-flex items-center gap-1 text-xs text-stone-400">
+                  <Clock className="size-3" />
+                  {mc.estimatedMinutes} min
+                </span>
+              )}
             </div>
 
             {/* Title + subtitle */}
             <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
               <ReadStatusBadge read={read} />
+              {mc.recommendedOrder && (
+                <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-teal-700">
+                  {mc.recommendedOrder}
+                </span>
+              )}
               {t(mc.title, locale)}
             </h3>
             <p className="mt-1 text-sm text-stone-500">
