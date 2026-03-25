@@ -1,3 +1,6 @@
+// Executive Dashboard — shown above homepage for authenticated executive users
+// Auth is not yet functional, so this component effectively never renders.
+// When auth is wired up, this will fetch its own data from the client.
 "use client";
 
 import { useState, useEffect } from "react";
@@ -23,41 +26,32 @@ import {
   type WatchlistItem,
 } from "@/lib/user-preferences";
 import { getLearningProgressSummary } from "@/lib/learning-progress";
-import type { HomepageData } from "./HomepageDashboard";
-
-/* ------------------------------------------------------------------ */
-/*  Bilingual helper                                                    */
-/* ------------------------------------------------------------------ */
+import { getIntelItems } from "@/lib/fqhc-news-intel";
+import { getFundingCliffs } from "@/lib/market-intelligence";
 
 const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
 
-/* ------------------------------------------------------------------ */
-/*  Component                                                          */
-/* ------------------------------------------------------------------ */
-
-export function ExecutiveDashboard({
-  data,
-  locale,
-}: {
-  data: HomepageData;
-  locale: string;
-}) {
-  const isEs = locale === "es";
+export function ExecutiveDashboard() {
   const { user, profile } = useAuth();
+  const locale = "en";
+  const isEs = false;
 
-  // Fetch watchlist + recent reads on mount
   const [watchlist, setWatchlist] = useState<WatchlistItem[]>([]);
   const [recentReads, setRecentReads] = useState<
     { content_type: string; content_id: string; status: string; last_read_at: string }[]
   >([]);
   const [expandedIntel, setExpandedIntel] = useState<string | null>(null);
 
+  // Compute data locally (auth users only — tiny population)
+  const newsFeed = getIntelItems()
+    .filter((i) => i.type === "news" && i.category !== "change-management")
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const upcomingCliffs = getFundingCliffs().filter((c) => !c.isPast).slice(0, 4);
+
   useEffect(() => {
     if (!user) return;
     const supabase = createAuthClient();
-
-    // Fetch watchlist
     void supabase
       .from("user_watchlist")
       .select("watch_type, watch_value")
@@ -65,8 +59,6 @@ export function ExecutiveDashboard({
       .then(({ data: wl, error }) => {
         if (!error && wl) setWatchlist(wl as WatchlistItem[]);
       });
-
-    // Fetch recent reads
     void supabase
       .from("content_reads")
       .select("content_type, content_id, status, last_read_at")
@@ -78,15 +70,12 @@ export function ExecutiveDashboard({
       });
   }, [user]);
 
-  // Filter intel by watchlist
   const personalIntel = watchlist.length > 0
-    ? filterIntelByWatchlist(data.newsFeed, watchlist).slice(0, 5)
-    : data.newsFeed.slice(0, 5);
+    ? filterIntelByWatchlist(newsFeed, watchlist).slice(0, 5)
+    : newsFeed.slice(0, 5);
 
-  // Learning progress
   const progress = typeof window !== "undefined" ? getLearningProgressSummary() : null;
 
-  // Greeting
   const hour = new Date().getHours();
   const greeting = hour < 12
     ? t({ en: "Good morning", es: "Buenos dias" }, locale)
@@ -99,7 +88,6 @@ export function ExecutiveDashboard({
   return (
     <section className="border-b border-stone-200 bg-white px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        {/* Welcome */}
         <div className="mb-6">
           <h2 className="text-xl font-bold text-stone-900">
             {greeting}, {name}
@@ -109,7 +97,6 @@ export function ExecutiveDashboard({
           )}
         </div>
 
-        {/* 3-column grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Column 1: Your Intel Feed */}
           <div className="space-y-3">
@@ -152,11 +139,8 @@ export function ExecutiveDashboard({
               <Calendar className="size-4 text-red-500" />
               {t({ en: "Key Dates", es: "Fechas Clave" }, locale)}
             </h3>
-            {data.upcomingCliffs.slice(0, 3).map((cliff) => (
-              <div
-                key={cliff.id}
-                className="rounded-lg border border-stone-200 bg-stone-50 p-3"
-              >
+            {upcomingCliffs.slice(0, 3).map((cliff) => (
+              <div key={cliff.id} className="rounded-lg border border-stone-200 bg-stone-50 p-3">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-medium text-red-600">
                     {cliff.daysUntil > 0
@@ -176,34 +160,14 @@ export function ExecutiveDashboard({
                 )}
               </div>
             ))}
-            {data.complianceDeadlines.slice(0, 2).map((dl) => (
-              <div
-                key={dl.id}
-                className="rounded-lg border border-stone-200 bg-stone-50 p-3"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-medium text-amber-600">
-                    {dl.deadline}
-                  </span>
-                  <span className="rounded bg-stone-200 px-1.5 py-0.5 text-xs text-stone-600">
-                    {dl.domain}
-                  </span>
-                </div>
-                <p className="mt-1 text-sm font-medium text-stone-800">
-                  {t(dl.requirement, locale)}
-                </p>
-              </div>
-            ))}
           </div>
 
-          {/* Column 3: Your Progress + Recent Reads */}
+          {/* Column 3: Your Progress */}
           <div className="space-y-3">
             <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-stone-500">
               <BookOpen className="size-4 text-teal-600" />
               {t({ en: "Your Progress", es: "Tu Progreso" }, locale)}
             </h3>
-
-            {/* Learning progress */}
             {progress?.mostRecent ? (
               <Link
                 href={progress.mostRecent.href as "/jobs"}
@@ -236,8 +200,6 @@ export function ExecutiveDashboard({
                 {t({ en: "Start a masterclass →", es: "Iniciar un masterclass →" }, locale)}
               </Link>
             )}
-
-            {/* Recent reads */}
             {recentReads.length > 0 && (
               <div className="space-y-1">
                 <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
@@ -262,7 +224,6 @@ export function ExecutiveDashboard({
           </div>
         </div>
 
-        {/* Quick links row */}
         <div className="mt-6 flex flex-wrap gap-2">
           {[
             { href: "/strategy/okrs", icon: Target, label: { en: "OKR Templates", es: "Plantillas OKR" } },

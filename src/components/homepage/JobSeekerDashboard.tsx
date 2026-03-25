@@ -20,27 +20,22 @@ import { createAuthClient } from "@/lib/supabase";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { getContentById } from "@/lib/user-preferences";
 import { getLearningProgressSummary } from "@/lib/learning-progress";
-import type { HomepageData } from "./HomepageDashboard";
-
-/* ------------------------------------------------------------------ */
-/*  Bilingual helper                                                    */
-/* ------------------------------------------------------------------ */
+import { fqhcJobListings } from "@/lib/fqhc-job-listings";
+import { getRegionalSnapshots } from "@/lib/market-intelligence";
 
 const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
 
-/* ------------------------------------------------------------------ */
-/*  Component                                                          */
-/* ------------------------------------------------------------------ */
-
-export function JobSeekerDashboard({
-  data,
-  locale,
-}: {
-  data: HomepageData;
-  locale: string;
-}) {
+export function JobSeekerDashboard() {
   const { user, profile } = useAuth();
+  const locale = "en";
+
+  // Compute data locally (auth users only)
+  const jobStats = {
+    total: fqhcJobListings.length,
+    orgs: new Set(fqhcJobListings.map((j) => j.fqhcSlug)).size,
+  };
+  const regionalSnapshots = getRegionalSnapshots();
 
   const [recentReads, setRecentReads] = useState<
     { content_type: string; content_id: string; status: string; last_read_at: string }[]
@@ -83,7 +78,7 @@ export function JobSeekerDashboard({
   // Filter jobs by region
   const userRegion = profile?.region;
   const regionJobs = userRegion
-    ? data.regionalSnapshots?.find((r) => r.region === userRegion)
+    ? regionalSnapshots?.find((r) => r.region === userRegion)
     : null;
 
   const name = profile?.display_name || user?.email?.split("@")[0] || "";
@@ -142,13 +137,13 @@ export function JobSeekerDashboard({
             ) : (
               <div className="rounded-lg border border-stone-200 bg-stone-50 p-4">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-bold text-teal-700">{data.jobStats.total}</span>
+                  <span className="text-3xl font-bold text-teal-700">{jobStats.total}</span>
                   <span className="text-sm text-stone-500">
                     {t({ en: "total jobs statewide", es: "empleos en todo el estado" }, locale)}
                   </span>
                 </div>
                 <p className="mt-1 text-xs text-stone-500">
-                  {data.jobStats.orgs} {t({ en: "organizations", es: "organizaciones" }, locale)}
+                  {jobStats.orgs} {t({ en: "organizations", es: "organizaciones" }, locale)}
                 </p>
               </div>
             )}
