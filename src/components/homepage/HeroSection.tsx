@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Building2, Briefcase, ArrowRight } from "lucide-react";
 
 interface HeroSectionProps {
@@ -29,10 +30,35 @@ export function HeroSection({ totalFQHCs, totalJobs, totalIntel }: HeroSectionPr
               : "California's FQHC Intelligence Platform"}
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-stone-300 sm:text-xl">
+          {/* Clickable stat pills */}
+          <div className="mx-auto mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <Link
+              href="/directory"
+              className="inline-flex items-center gap-1.5 rounded-full border border-teal-500/30 bg-teal-900/30 px-4 py-1.5 text-sm font-semibold text-teal-300 transition-colors hover:border-teal-400 hover:bg-teal-800/40 hover:text-teal-200"
+            >
+              <span className="text-white">{totalFQHCs}+</span>{" "}
+              {isEs ? "FQHCs" : "FQHCs Tracked"}
+            </Link>
+            <Link
+              href="/jobs"
+              className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-900/30 px-4 py-1.5 text-sm font-semibold text-amber-300 transition-colors hover:border-amber-400 hover:bg-amber-800/40 hover:text-amber-200"
+            >
+              <span className="text-white">{totalJobs.toLocaleString()}+</span>{" "}
+              {isEs ? "Empleos" : "Jobs"}
+            </Link>
+            <Link
+              href="/layoffs"
+              className="inline-flex items-center gap-1.5 rounded-full border border-stone-500/30 bg-stone-700/30 px-4 py-1.5 text-sm font-semibold text-stone-300 transition-colors hover:border-stone-400 hover:bg-stone-600/40 hover:text-stone-200"
+            >
+              <span className="text-white">{totalIntel}</span>{" "}
+              {isEs ? "Items de Intel" : "Intel Items"}
+            </Link>
+          </div>
+
+          <p className="mx-auto mt-4 max-w-xl text-sm text-stone-400">
             {isEs
-              ? `${totalFQHCs}+ FQHCs rastreados. ${totalJobs.toLocaleString()}+ empleos. ${totalIntel} items de inteligencia. Actualizado semanalmente con fuentes primarias.`
-              : `${totalFQHCs}+ FQHCs tracked. ${totalJobs.toLocaleString()}+ jobs. ${totalIntel} intel items. Updated weekly from primary sources.`}
+              ? "Actualizado semanalmente con fuentes primarias."
+              : "Updated weekly from primary sources."}
           </p>
         </div>
 

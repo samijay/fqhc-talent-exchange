@@ -7,9 +7,10 @@ import { Briefcase, BarChart3, Wrench, ArrowRight } from "lucide-react";
 interface JobSeekerPathSectionProps {
   totalJobs: number;
   totalOrgs: number;
+  totalSalaryRoles: number;
 }
 
-export function JobSeekerPathSection({ totalJobs, totalOrgs }: JobSeekerPathSectionProps) {
+export function JobSeekerPathSection({ totalJobs, totalOrgs, totalSalaryRoles }: JobSeekerPathSectionProps) {
   const locale = useLocale();
   const isEs = locale === "es";
 
@@ -56,7 +57,7 @@ export function JobSeekerPathSection({ totalJobs, totalOrgs }: JobSeekerPathSect
               {isEs ? "Inteligencia Salarial" : "Salary Intelligence"}
             </p>
             <p className="mt-2 text-lg font-extrabold text-stone-900">
-              30 {isEs ? "roles" : "Roles"} x 9 {isEs ? "Regiones" : "Regions"}
+              {totalSalaryRoles} {isEs ? "roles" : "Roles"} × 9 {isEs ? "Regiones" : "Regions"}
             </p>
             <p className="mt-1 text-sm text-stone-600">
               {isEs

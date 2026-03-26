@@ -21,6 +21,7 @@ export interface HomepageData {
   totalJobs: number;
   totalOrgs: number;
   totalIntel: number;
+  totalSalaryRoles: number;
   nextCliff: FundingCliff | null;
   topIntelHeadline: { en: string; es: string };
   topIntelSource: string;
@@ -59,6 +60,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
       <JobSeekerPathSection
         totalJobs={data.totalJobs}
         totalOrgs={data.totalOrgs}
+        totalSalaryRoles={data.totalSalaryRoles}
       />
 
       {/* 4. Trust strip */}

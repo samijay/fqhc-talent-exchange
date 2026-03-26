@@ -4,10 +4,21 @@
 import type { Metadata } from "next";
 import { SITE_URL, SITE_NAME } from "@/lib/seo-config";
 import { fqhcJobListings } from "@/lib/fqhc-job-listings";
+import { californiaFQHCs } from "@/lib/california-fqhcs";
 import { getMarketOverview, getFundingCliffs } from "@/lib/market-intelligence";
 import { getIntelItems } from "@/lib/fqhc-news-intel";
+import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 import { HomepageDashboard } from "@/components/homepage/HomepageDashboard";
 import type { HomepageData } from "@/components/homepage/HomepageDashboard";
+
+/* ------------------------------------------------------------------ */
+/*  Module-level counts (evaluated at build time for SEO metadata)     */
+/* ------------------------------------------------------------------ */
+const _totalFQHCs = californiaFQHCs.length;
+const _totalJobs = fqhcJobListings.length;
+const _totalIntel = getIntelItems().length;
+const _totalSalaryRoles = SALARY_BENCHMARKS.length;
+const _totalJobOrgs = new Set(fqhcJobListings.map((j) => j.fqhcSlug)).size;
 
 /* ------------------------------------------------------------------ */
 /*  SEO Metadata                                                       */
@@ -15,7 +26,7 @@ import type { HomepageData } from "@/components/homepage/HomepageDashboard";
 export const metadata: Metadata = {
   title: "FQHC Talent | California's Strategic Intelligence Platform for Community Health Centers",
   description:
-    "Real-time intelligence for FQHC executives: 220+ California FQHCs tracked, 1,700+ job listings, AI adoption monitoring, resilience scores, salary benchmarks across 9 regions, policy tracking, and free career tools. Updated weekly from primary sources.",
+    `Real-time intelligence for FQHC executives: ${_totalFQHCs}+ California FQHCs tracked, ${_totalJobs.toLocaleString()}+ job listings, AI adoption monitoring, resilience scores, salary benchmarks across 9 regions, policy tracking, and free career tools. Updated weekly from primary sources.`,
   keywords: [
     "FQHC intelligence platform",
     "California FQHC data",
@@ -43,7 +54,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "FQHC Talent — Strategic Intelligence for California's 220+ Community Health Centers",
+    title: `FQHC Talent — Strategic Intelligence for California's ${_totalFQHCs}+ Community Health Centers`,
     description:
       "Executive dashboards, workforce data, AI adoption tracking, resilience scores, salary intelligence, and free career tools. Built for the leaders navigating the biggest crisis in community health history.",
     images: [
@@ -51,7 +62,7 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/opengraph-image`,
         width: 1200,
         height: 630,
-        alt: "FQHC Talent — Strategic intelligence and free career tools for 220+ California FQHCs",
+        alt: `FQHC Talent — Strategic intelligence and free career tools for ${_totalFQHCs}+ California FQHCs`,
       },
     ],
   },
@@ -59,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FQHC Talent — California's FQHC Intelligence Platform",
     description:
-      "220+ FQHCs tracked. 1,700+ jobs. AI adoption monitoring. Salary benchmarks. Policy tracking. Free career tools. All from primary sources.",
+      `${_totalFQHCs}+ FQHCs tracked. ${_totalJobs.toLocaleString()}+ jobs. AI adoption monitoring. Salary benchmarks. Policy tracking. Free career tools. All from primary sources.`,
   },
   alternates: {
     canonical: SITE_URL,
@@ -78,7 +89,6 @@ export default function Home() {
   const overview = getMarketOverview();
   const fundingCliffs = getFundingCliffs();
   const allIntelItems = getIntelItems();
-  const jobOrgs = new Set(fqhcJobListings.map((j) => j.fqhcSlug)).size;
 
   const nextCliff = fundingCliffs.find((c) => !c.isPast) ?? null;
 
@@ -90,8 +100,9 @@ export default function Home() {
   const homepageData: HomepageData = {
     totalFQHCs: overview.totalFQHCs,
     totalJobs: overview.totalJobs,
-    totalOrgs: jobOrgs,
+    totalOrgs: _totalJobOrgs,
     totalIntel: allIntelItems.length,
+    totalSalaryRoles: _totalSalaryRoles,
     nextCliff,
     topIntelHeadline: topIntel
       ? topIntel.headline
@@ -105,7 +116,7 @@ export default function Home() {
     "@type": "WebPage",
     name: "FQHC Talent — California's FQHC Strategic Intelligence Platform",
     description:
-      "Real-time intelligence for FQHC executives: 220+ California FQHCs tracked, 1,700+ job listings, AI adoption monitoring, resilience scores, salary benchmarks, and free career tools.",
+      `Real-time intelligence for FQHC executives: ${_totalFQHCs}+ California FQHCs tracked, ${_totalJobs.toLocaleString()}+ job listings, AI adoption monitoring, resilience scores, salary benchmarks, and free career tools.`,
     url: SITE_URL,
     isPartOf: { "@type": "WebSite", name: "FQHC Talent", url: SITE_URL },
     about: [
@@ -119,30 +130,30 @@ export default function Home() {
       "@type": "DataCatalog",
       name: "FQHC Talent Intelligence Data",
       description:
-        "Strategic intelligence covering 220+ California FQHCs including resilience scores, salary benchmarks, AI adoption tracking, workforce data, and policy monitoring.",
+        `Strategic intelligence covering ${_totalFQHCs}+ California FQHCs including resilience scores, salary benchmarks, AI adoption tracking, workforce data, and policy monitoring.`,
       dataset: [
         {
           "@type": "Dataset",
           name: "California FQHC Directory",
-          description: "220+ FQHCs with programs, EHR systems, Glassdoor ratings, resilience scores, and locations",
+          description: `${_totalFQHCs}+ FQHCs with programs, EHR systems, Glassdoor ratings, resilience scores, and locations`,
           url: `${SITE_URL}/directory`,
         },
         {
           "@type": "Dataset",
           name: "FQHC Job Listings",
-          description: `${homepageData.totalJobs}+ open positions across 30+ roles at ${jobOrgs} California FQHCs`,
+          description: `${_totalJobs.toLocaleString()}+ open positions across ${_totalSalaryRoles}+ roles at ${_totalJobOrgs} California FQHCs`,
           url: `${SITE_URL}/jobs`,
         },
         {
           "@type": "Dataset",
           name: "FQHC Salary Intelligence",
-          description: "P25/P50/P75 salary benchmarks for 30 FQHC roles across 9 California regions",
+          description: `P25/P50/P75 salary benchmarks for ${_totalSalaryRoles} FQHC roles across 9 California regions`,
           url: `${SITE_URL}/salary-data`,
         },
         {
           "@type": "Dataset",
           name: "FQHC Resilience Scorecard",
-          description: "220 FQHCs scored across 5 dimensions: program diversity, workforce stability, data maturity, quality, financial positioning",
+          description: `${_totalFQHCs} FQHCs scored across 5 dimensions: program diversity, workforce stability, data maturity, quality, financial positioning`,
           url: `${SITE_URL}/strategy/resilience`,
         },
       ],
@@ -163,7 +174,7 @@ export default function Home() {
         name: "What is an FQHC?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "A Federally Qualified Health Center (FQHC) is a community-based healthcare provider that receives federal funding under Section 330 of the Public Health Service Act. FQHCs provide primary care to underserved populations regardless of ability to pay. California has 220+ FQHCs serving millions of patients.",
+          text: `A Federally Qualified Health Center (FQHC) is a community-based healthcare provider that receives federal funding under Section 330 of the Public Health Service Act. FQHCs provide primary care to underserved populations regardless of ability to pay. California has ${_totalFQHCs}+ FQHCs serving millions of patients.`,
         },
       },
       {
@@ -171,7 +182,7 @@ export default function Home() {
         name: "How many FQHCs are in California?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "California has over 220 Federally Qualified Health Centers across 9 regions: Los Angeles, San Diego, Bay Area, Sacramento, Central Valley, Inland Empire, Central Coast, North State, and North Coast. FQHC Talent tracks all of them with resilience scores, programs, EHR systems, and workforce data.",
+          text: `California has over ${_totalFQHCs} Federally Qualified Health Centers across 9 regions: Los Angeles, San Diego, Bay Area, Sacramento, Central Valley, Inland Empire, Central Coast, North State, and North Coast. FQHC Talent tracks all of them with resilience scores, programs, EHR systems, and workforce data.`,
         },
       },
       {
@@ -187,7 +198,7 @@ export default function Home() {
         name: "What FQHC career tools are available for free?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "FQHC Talent offers free career tools including: a resume builder with 8 FQHC-specific templates, a 5-domain career assessment with 90-day onboarding plans, career roadmaps with CA salary data, 20 certification guides, interview prep for 6+ roles, salary benchmarks for 30 roles across 9 regions, and a FQHC comparison tool. No login required.",
+          text: `FQHC Talent offers free career tools including: a resume builder with 8 FQHC-specific templates, a 5-domain career assessment with 90-day onboarding plans, career roadmaps with CA salary data, 20 certification guides, interview prep for 6+ roles, salary benchmarks for ${_totalSalaryRoles} roles across 9 regions, and a FQHC comparison tool. No login required.`,
         },
       },
       {
@@ -195,7 +206,7 @@ export default function Home() {
         name: "How is AI being adopted at FQHCs?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "FQHC Talent tracks 19 AI implementations across California FQHCs. Ambient documentation (AI scribes) is the leading category with 6 vendors including Abridge, Sunoh.ai, and Nabla. Key results: Abridge reduced provider burnout from 52% to 39%, Sun River Health documents 7,000 visits/month with AI, and athenahealth offers free ambient AI to all clients.",
+          text: "FQHC Talent tracks AI implementations across California FQHCs. Ambient documentation (AI scribes) is the leading category with vendors including Abridge, Sunoh.ai, and Nabla. Key results: Abridge reduced provider burnout from 52% to 39%, Sun River Health documents 7,000 visits/month with AI, and athenahealth offers free ambient AI to all clients.",
         },
       },
     ],
