@@ -94,14 +94,42 @@ export function checkRateLimit(
 }
 
 /**
- * Extract client IP from request headers (works with Vercel, Cloudflare, etc.)
+ * Extract client IP from request headers.
+ *
+ * Prefers x-real-ip (set by Vercel from the actual connection and cannot be
+ * spoofed) over x-forwarded-for (which CAN be spoofed by adding extra IPs).
  */
 export function getClientIp(request: Request): string {
+  // x-real-ip is set by Vercel/Nginx from the TCP connection — trustworthy
+  const realIp = request.headers.get("x-real-ip");
+  if (realIp) return realIp.trim();
+
+  // x-forwarded-for can be spoofed, but is a reasonable fallback
   const forwarded = request.headers.get("x-forwarded-for");
   if (forwarded) {
     return forwarded.split(",")[0].trim();
   }
-  const realIp = request.headers.get("x-real-ip");
-  if (realIp) return realIp.trim();
   return "unknown";
+}
+
+/**
+ * Validate that a request's Origin header matches an allowed domain.
+ * Use on public POST endpoints to prevent cross-site form submissions (CSRF).
+ *
+ * Returns true if the origin is allowed, false otherwise.
+ */
+const ALLOWED_ORIGINS = [
+  "https://www.fqhctalent.com",
+  "https://fqhctalent.com",
+  // Allow localhost in development
+  ...(process.env.NODE_ENV === "development"
+    ? ["http://localhost:3000", "http://localhost:3001"]
+    : []),
+];
+
+export function validateOrigin(request: Request): boolean {
+  const origin = request.headers.get("origin");
+  // If no Origin header (e.g. server-to-server), allow it — rate limiting covers abuse
+  if (!origin) return true;
+  return ALLOWED_ORIGINS.includes(origin);
 }

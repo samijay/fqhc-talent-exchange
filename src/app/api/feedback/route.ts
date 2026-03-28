@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
-import { checkRateLimit, getClientIp } from "@/lib/security";
+import { checkRateLimit, getClientIp, validateOrigin } from "@/lib/security";
 
 const feedbackSchema = z.object({
   page_url: z.string().min(1).max(500),
@@ -12,6 +12,10 @@ const feedbackSchema = z.object({
 
 export async function POST(request: Request) {
   try {
+    if (!validateOrigin(request)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
     // Rate limit: 5 feedback submissions per minute per IP
     const ip = getClientIp(request);
     const { allowed } = checkRateLimit(`feedback:${ip}`, {

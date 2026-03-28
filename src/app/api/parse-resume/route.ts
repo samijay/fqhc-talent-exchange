@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { parseResumeText } from "@/lib/resume-parser";
-import { checkRateLimit, getClientIp } from "@/lib/security";
+import { checkRateLimit, getClientIp, validateOrigin } from "@/lib/security";
 
 // Max file size: 5MB
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
@@ -22,6 +22,10 @@ const EXTENSION_TYPE_MAP: Record<string, string> = {
 
 export async function POST(request: Request) {
   try {
+    if (!validateOrigin(request)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
     // Rate limit: 3 uploads per minute per IP (CPU-intensive)
     const ip = getClientIp(request);
     const { allowed } = checkRateLimit(`parse-resume:${ip}`, { limit: 3, windowMs: 60_000 });

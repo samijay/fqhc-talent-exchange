@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
-import { checkRateLimit, getClientIp } from "@/lib/security";
+import { checkRateLimit, getClientIp, validateOrigin } from "@/lib/security";
 
 const eventSchema = z.object({
   event_type: z.enum([
@@ -24,6 +24,10 @@ const eventSchema = z.object({
 
 export async function POST(request: Request) {
   try {
+    if (!validateOrigin(request)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
     // Rate limit: 20 events per minute per IP (generous — tools fire multiple events)
     const ip = getClientIp(request);
     const { allowed } = checkRateLimit(`track:${ip}`, {

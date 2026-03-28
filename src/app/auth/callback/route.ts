@@ -17,11 +17,30 @@ import { NextResponse } from "next/server";
  * The middleware matcher also excludes /auth so i18n doesn't interfere.
  */
 
-/** Sanitize redirect path — must be a relative path, not an external URL */
+/**
+ * Sanitize redirect path — must be a safe relative path, not an external URL.
+ *
+ * Blocks:
+ *  - Protocol-relative URLs (//evil.com)
+ *  - Backslash tricks (\/evil.com, \\evil.com)
+ *  - Absolute URLs with schemes (http://, javascript:, etc.)
+ *  - Paths with encoded characters that could bypass checks
+ */
 function sanitizeRedirectPath(path: string | null): string {
   if (!path) return "/dashboard";
-  // Must start with / and must NOT start with // (protocol-relative URL)
-  if (path.startsWith("/") && !path.startsWith("//")) return path;
+  // Decode to catch %2F and other encoded bypass attempts
+  const decoded = decodeURIComponent(path);
+  // Must start with exactly one forward slash, not //, not \
+  if (
+    decoded.startsWith("/") &&
+    !decoded.startsWith("//") &&
+    !decoded.startsWith("/\\") &&
+    !decoded.includes("://") &&
+    !decoded.startsWith("/\\")
+  ) {
+    // Use the original (not decoded) to preserve intended encoding
+    return path;
+  }
   return "/dashboard";
 }
 

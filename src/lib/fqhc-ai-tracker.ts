@@ -5,7 +5,7 @@
 // Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-03-25";
+export const AI_TRACKER_LAST_UPDATED = "2026-03-27";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -740,6 +740,80 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceOrg: "HTWorld",
     date: "2026-03-10",
     tags: ["himss", "vive", "ai-governance", "implementation", "ambient-ai", "conference"],
+    featured: false,
+  },
+  // --- Added 2026-03-26 ---
+  {
+    id: "soundhound-ai-voice-agent-fqhc-scheduling",
+    title: {
+      en: "SoundHound AI Voice Agent Deployed at FQHC for Patient Scheduling",
+      es: "Agente de Voz AI de SoundHound Implementado en FQHC para Programación de Pacientes",
+    },
+    description: {
+      en: "Primary Health Solutions, an Ohio-based FQHC, deployed SoundHound's AI voice agent to handle inbound patient scheduling calls. The system triages and routes calls to optimize finite staff resources, addressing a common bottleneck at FQHCs where phone wait times deter patients from scheduling appointments. This represents the emerging 'AI front door' category — using voice AI for patient access rather than clinical documentation.",
+      es: "Primary Health Solutions, un FQHC con sede en Ohio, implementó el agente de voz AI de SoundHound para manejar llamadas entrantes de programación de pacientes. El sistema clasifica y enruta llamadas para optimizar recursos limitados del personal.",
+    },
+    category: "scheduling",
+    vendor: "SoundHound AI",
+    partnership: null,
+    metrics: [
+      { label: "Use case", value: "Inbound patient scheduling & call routing" },
+      { label: "Setting", value: "FQHC (Primary Health Solutions, Ohio)" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.emergingglobal.com/blog/how-ai-will-redefine-fqhc-access-scheduling-and-patient-experience-in-2026",
+    sourceOrg: "Emerging Global",
+    date: "2026-03-01",
+    tags: ["voice-ai", "patient-access", "scheduling", "call-routing"],
+  },
+  {
+    id: "nachc-scalehealth-accelerator-2026-cohort",
+    title: {
+      en: "NACHC-ScaleHealth 2026 Accelerator: 3 AI Companies Selected for CHC Innovation",
+      es: "Acelerador NACHC-ScaleHealth 2026: 3 Empresas de IA Seleccionadas para Innovación en CHCs",
+    },
+    description: {
+      en: "NACHC partnered with ScaleHealth for an inaugural 9-month accelerator featuring six health-tech companies targeting critical CHC challenges. Three of the six selections are AI-focused: No Barrier (AI medical interpretation for LEP patients), Cair Health (agentic AI for revenue cycle/billing automation), and Delfina Care (AI-powered pregnancy complication prediction). This is a curated NACHC pipeline of vetted technology entering the FQHC market — significant because NACHC endorsement often opens procurement doors at member CHCs.",
+      es: "NACHC se asoció con ScaleHealth para un acelerador inaugural de 9 meses con seis empresas de tecnología de salud. Tres selecciones son enfocadas en IA: No Barrier (interpretación médica con IA), Cair Health (IA agéntica para automatización de facturación), y Delfina Care (predicción de complicaciones del embarazo con IA).",
+    },
+    category: "care-coordination",
+    vendor: "No Barrier / Cair Health / Delfina Care",
+    partnership: "NACHC-ScaleHealth",
+    metrics: [
+      { label: "Cohort size", value: "6 companies (3 AI-focused)" },
+      { label: "Program duration", value: "9 months" },
+      { label: "AI focus areas", value: "Medical interpretation, revenue cycle, maternal health" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.nachc.org/nachc-and-scalehealth-announce-2026-accelerator-cohort-to-drive-innovation-in-community-health-centers/",
+    sourceOrg: "NACHC",
+    date: "2026-03-01",
+    tags: ["nachc-accelerator", "scalehealth", "medical-interpretation", "revenue-cycle", "maternal-health"],
+    featured: true,
+  },
+  {
+    id: "vision-enabled-ai-scribe-smart-glasses-gemini",
+    title: {
+      en: "Vision-Enabled AI Scribes: Smart Glasses + Gemini Reduce Clinical Documentation Omissions to 2%",
+      es: "Escribas de IA con Visión: Lentes Inteligentes + Gemini Reducen Omisiones de Documentación Clínica al 2%",
+    },
+    description: {
+      en: "Researchers developed a vision-enabled AI scribe using Google's Gemini model and Ray-Ban Meta smart glasses for clinical documentation. The vision-enabled system achieved 98% overall accuracy versus 81% for audio-only processing, significantly reducing omissions in medication history capture. While still a research prototype, the multilingual and visual-context capabilities could be transformative for safety-net settings where encounters involve interpreters, physical demonstrations, and medication packaging. Published in npj Digital Medicine.",
+      es: "Investigadores desarrollaron un escriba de IA con visión usando el modelo Gemini de Google y lentes inteligentes Ray-Ban Meta para documentación clínica. El sistema logró 98% de precisión general versus 81% para procesamiento solo de audio, reduciendo significativamente las omisiones en la captura del historial de medicamentos. Las capacidades multilingües y de contexto visual podrían ser transformadoras para entornos de red de seguridad.",
+    },
+    category: "clinical-documentation",
+    vendor: "Google Gemini / Ray-Ban Meta (research prototype)",
+    partnership: null,
+    metrics: [
+      { label: "Overall accuracy (vision)", value: "98%" },
+      { label: "Overall accuracy (audio-only)", value: "81%" },
+      { label: "Technology", value: "Gemini + Ray-Ban Meta smart glasses" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.nature.com/articles/s41746-026-02494-9",
+    sourceOrg: "npj Digital Medicine",
+    date: "2026-03-01",
+    tags: ["smart-glasses", "gemini", "vision-ai", "medication-history", "research-prototype"],
     featured: false,
   },
 ];

@@ -21,8 +21,8 @@ export default function AnnouncementBar() {
         <Zap className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "Medi-Cal: emergencia de $200B — 3,400+ despidos en hospitales de CA desde mediados de marzo →"
-            : "Medi-Cal $200B funding emergency — 3,400+ CA hospital layoffs since mid-March →"}
+            ? "Tribunal federal anula requisito de sitios 340B de HRSA — más flexibilidad para FQHCs con ubicaciones satélite →"
+            : "Federal court overturns HRSA 340B child site requirement — more flexibility for FQHCs with satellite locations →"}
         </span>
       </Link>
       <button

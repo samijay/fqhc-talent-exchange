@@ -405,7 +405,7 @@ export default function DemoPage() {
           {[
             { step: "1", time: { en: "Day 0", es: "Dia 0" }, title: { en: "Intake", es: "Registro" }, desc: { en: "Fast-track form captures role, EHR, programs, language, and region.", es: "El formulario rapido captura rol, EHR, programas, idioma y region." } },
             { step: "2", time: { en: "Day 1", es: "Dia 1" }, title: { en: "Assessment + Resume", es: "Evaluacion + Curriculum" }, desc: { en: "Career assessment and FQHC-optimized resume generated automatically.", es: "Evaluacion profesional y curriculum optimizado para FQHCs generado automaticamente." } },
-            { step: "3", time: { en: "Day 2–5", es: "Dia 2–5" }, title: { en: "Explore Opportunities", es: "Explorar Oportunidades" }, desc: { en: "Browse aggregated job postings from 220+ FQHCs with salary data and FQHC profiles.", es: "Explore ofertas de empleo agregadas de 220+ FQHCs con datos salariales y perfiles." } },
+            { step: "3", time: { en: "Day 2–5", es: "Dia 2–5" }, title: { en: "Explore Opportunities", es: "Explorar Oportunidades" }, desc: { en: "Browse aggregated job postings from 214+ FQHCs with salary data and FQHC profiles.", es: "Explore ofertas de empleo agregadas de 214+ FQHCs con datos salariales y perfiles." } },
             { step: "4", time: { en: "Ongoing", es: "Continuo" }, title: { en: "Strategic Resources", es: "Recursos Estrategicos" }, desc: { en: "Salary intelligence, career roadmaps, certification guides, and workforce insights.", es: "Inteligencia salarial, hojas de ruta profesional, guias de certificacion y perspectivas laborales." } },
           ].map((item) => (
             <div key={item.step} className="flex-1 rounded-xl border border-stone-200 bg-white p-5">
@@ -534,7 +534,7 @@ export default function DemoPage() {
                 {[
                   { en: "5-domain behavioral assessment (not generic personality tests)", es: "Evaluacion conductual de 5 dominios (no pruebas de personalidad genericas)" },
                   { en: "Role-specific insights: what this candidate excels at", es: "Perspectivas por rol: en que sobresale este candidato" },
-                  { en: "Aggregated job postings from 220+ FQHCs with salary data", es: "Ofertas de empleo agregadas de 220+ FQHCs con datos salariales" },
+                  { en: "Aggregated job postings from 214+ FQHCs with salary data", es: "Ofertas de empleo agregadas de 214+ FQHCs con datos salariales" },
                   { en: "Free for candidates — always", es: "Gratis para candidatos — siempre" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-2">

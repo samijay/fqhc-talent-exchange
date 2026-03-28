@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
-import { checkRateLimit, getClientIp } from "@/lib/security";
+import { checkRateLimit, getClientIp, validateOrigin } from "@/lib/security";
 
 const questionnaireSchema = z.object({
   email: z.string().email().max(255),
@@ -10,11 +10,15 @@ const questionnaireSchema = z.object({
   primaryChallenge: z.string().max(100),
   region: z.string().max(100).optional(),
   orgSize: z.string().max(50).optional(),
-  preferences: z.record(z.string(), z.unknown()).optional(),
+  preferences: z.record(z.string().max(50), z.string().max(200)).optional(),
 });
 
 export async function POST(request: Request) {
   try {
+    if (!validateOrigin(request)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
     const ip = getClientIp(request);
     const { allowed } = checkRateLimit(`newsletter-questionnaire:${ip}`, {
       limit: 3,

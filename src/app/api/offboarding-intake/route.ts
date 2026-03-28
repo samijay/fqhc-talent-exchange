@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
 import { resend, ADMIN_EMAIL, FROM_EMAIL } from "@/lib/resend";
-import { checkRateLimit, getClientIp, escapeHtml, EMAIL_FOOTER_HTML } from "@/lib/security";
+import { checkRateLimit, getClientIp, escapeHtml, EMAIL_FOOTER_HTML, validateOrigin } from "@/lib/security";
 
 /* ------------------------------------------------------------------ */
 /*  POST /api/offboarding-intake — Employer transition intake form      */
@@ -31,6 +31,10 @@ const SERVICE_TIER_LABELS: Record<string, string> = {
 
 export async function POST(request: Request) {
   try {
+    if (!validateOrigin(request)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
     const ip = getClientIp(request);
     const { allowed } = checkRateLimit(`offboarding-intake:${ip}`, {
       limit: 3,

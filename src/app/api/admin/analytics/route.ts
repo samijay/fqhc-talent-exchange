@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
 import { supabaseAdmin } from "@/lib/supabase";
-import { checkRateLimit, getClientIp } from "@/lib/security";
+import { checkRateLimit, getClientIp, verifySecret } from "@/lib/security";
 
 const ADMIN_EMAILS = (process.env.ADMIN_EMAIL ?? "")
   .split(",")
@@ -34,13 +34,13 @@ export async function GET(request: Request) {
   }
 
   // Auth check — accept either:
-  // (a) Secret key via ?key= query param (uses NEWSLETTER_SECRET)
+  // (a) Secret key via Authorization header (uses ADMIN_API_SECRET, falls back to NEWSLETTER_SECRET)
   // (b) Logged-in Supabase user with admin email
-  const url = new URL(request.url);
-  const keyParam = url.searchParams.get("key");
-  const adminSecret = process.env.NEWSLETTER_SECRET;
+  const adminSecret = process.env.ADMIN_API_SECRET || process.env.NEWSLETTER_SECRET;
+  const authHeader = request.headers.get("authorization") ?? "";
+  const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
 
-  const hasValidKey = adminSecret && keyParam === adminSecret;
+  const hasValidKey = !!(adminSecret && token && verifySecret(token, adminSecret));
 
   if (!hasValidKey) {
     const supabase = await createServerSupabaseClient();

@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-25";
+export const INTEL_LAST_UPDATED = "2026-03-27";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -95,8 +95,90 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 
 export const INTEL_ITEMS: IntelItem[] = [
   /* ============================================================== */
+  /*  MARCH 27, 2026 — DAILY UPDATE #26                             */
+  /* ============================================================== */
+  {
+    id: "340b-child-site-registration-requirement-overturned",
+    date: "2026-03-03",
+    headline: {
+      en: "Federal Court Overturns HRSA 340B Child Site Registration Requirement — Expands Satellite Location Purchasing",
+      es: "Tribunal Federal Anula Requisito de Registro de Sitios Secundarios 340B de HRSA — Amplía Compras en Ubicaciones Satélite",
+    },
+    summary: {
+      en: "A federal district court vacated HRSA's requirement that off-site facilities (child sites) must appear on a hospital's Medicare cost report and be registered in OPAIS before purchasing drugs at 340B prices. This effectively restores flexibilities that existed during the pandemic era, potentially expanding 340B purchasing eligibility for FQHCs with satellite locations or off-site services. The ruling is part of a broader wave of judicial pushback against HRSA 340B program administration in early 2026.",
+      es: "Un tribunal federal anuló el requisito de HRSA de que las instalaciones fuera del sitio (sitios secundarios) debían aparecer en el informe de costos de Medicare y estar registradas en OPAIS antes de comprar medicamentos a precios 340B. Esto restaura flexibilidades de la era pandémica, potencialmente expandiendo la elegibilidad de compra 340B para FQHCs con ubicaciones satélite.",
+    },
+    category: "compliance" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.forvismazars.us/forsights/2026/03/340b-program-major-developments-through-early-2026",
+    sourceOrg: "Forvis Mazars",
+    region: "National",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["340b", "child-site", "court-ruling", "satellite-locations", "drug-pricing"],
+    keyTakeaways: [
+      { en: "HRSA child site registration requirement vacated — satellite locations may now purchase at 340B prices without prior OPAIS registration", es: "Requisito de registro de sitios secundarios de HRSA anulado — ubicaciones satélite pueden comprar a precios 340B sin registro previo en OPAIS" },
+      { en: "Restores pandemic-era flexibilities for off-site 340B purchasing", es: "Restaura flexibilidades de la era pandémica para compras 340B fuera del sitio" },
+      { en: "FQHCs with satellite clinics or mobile units should review whether this expands their 340B eligibility", es: "FQHCs con clínicas satélite o unidades móviles deben revisar si esto amplía su elegibilidad 340B" },
+    ],
+  },
+  {
+    id: "hrsa-fy2026-340b-audit-scope-expanded",
+    date: "2026-03-01",
+    headline: {
+      en: "HRSA Expands FY2026 340B Audit Scope — New 'Furnished' Language Signals Broader Scrutiny of Drug Transactions",
+      es: "HRSA Amplía Alcance de Auditoría 340B para FY2026 — Nuevo Lenguaje 'Proporcionado' Señala Mayor Escrutinio de Transacciones de Medicamentos",
+    },
+    summary: {
+      en: "HRSA's updated Data Request List (DRL) for FY2026 340B audits now includes the word 'furnished' alongside 'administered or dispensed,' broadening the scope of how covered entities must document drug transactions. Additional changes indicate increased scrutiny on locations receiving 340B-priced drugs and demonstration of covered entity ownership for applicable locations (e.g., CE-owned pharmacies). FQHCs participating in the 340B program should update internal documentation and audit preparation procedures to reflect the expanded language.",
+      es: "La Lista de Solicitud de Datos (DRL) actualizada de HRSA para auditorías 340B de FY2026 ahora incluye la palabra 'proporcionado' junto con 'administrado o dispensado,' ampliando el alcance de cómo las entidades cubiertas deben documentar transacciones de medicamentos. FQHCs participantes en el programa 340B deben actualizar sus procedimientos de documentación interna.",
+    },
+    category: "compliance" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://perspectives.cps.com/article-hrsa-changes-340b-data-request-list-fy26",
+    sourceOrg: "CPS (Cardinal Health)",
+    region: "National",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["340b", "hrsa-audit", "compliance", "data-request-list", "documentation"],
+    keyTakeaways: [
+      { en: "HRSA added 'furnished' to audit language — broader than 'administered or dispensed,' covering more drug transaction types", es: "HRSA agregó 'proporcionado' al lenguaje de auditoría — más amplio que 'administrado o dispensado'" },
+      { en: "Increased scrutiny on CE-owned pharmacy locations and 340B drug distribution chains", es: "Mayor escrutinio en farmacias propiedad de entidades cubiertas y cadenas de distribución de medicamentos 340B" },
+      { en: "FQHCs should update 340B audit preparation procedures now for FY2026 compliance", es: "FQHCs deben actualizar procedimientos de preparación de auditoría 340B ahora para cumplimiento de FY2026" },
+    ],
+  },
+  /* ============================================================== */
   /*  MARCH 25, 2026 — DAILY UPDATE #25                             */
   /* ============================================================== */
+  {
+    id: "altamed-great-place-to-work-certification-2026",
+    date: "2026-03-11",
+    headline: {
+      en: "AltaMed Health Services Certified as Great Place to Work® — 85% Employee Approval, 28 Points Above National Average",
+      es: "AltaMed Health Services Certificado como Great Place to Work® — 85% de Aprobación de Empleados, 28 Puntos Sobre el Promedio Nacional",
+    },
+    summary: {
+      en: "AltaMed Health Services, the nation's largest FQHC, earned Great Place to Work® certification based on its Trust Index Survey. 85% of AltaMed's 5,700+ employees say it's a great place to work — 28 points higher than the 57% national average. 94% feel good about AltaMed's community contributions, and 89% are proud to tell others they work there. CEO Cástulo de la Rocha said the certification 'reflects the culture we have built together, one rooted in trust, respect and a shared commitment.' CHRO Natasha Milatovich emphasized AltaMed's philosophy of 'work-life integration' over traditional work-life balance. AltaMed operates 60+ accredited health centers serving 700,000+ patients across LA and Orange counties. The certification stands out as a rare bright spot for FQHC workforce morale amid the sector's funding crisis and widespread layoffs.",
+      es: "AltaMed Health Services, el FQHC más grande del país, obtuvo la certificación Great Place to Work® con base en su Encuesta de Índice de Confianza. El 85% de los 5,700+ empleados dicen que es un gran lugar para trabajar — 28 puntos por encima del promedio nacional del 57%. El 94% se siente bien por las contribuciones comunitarias de AltaMed. El CEO Cástulo de la Rocha dijo que la certificación 'refleja la cultura que hemos construido juntos, basada en la confianza, el respeto y un compromiso compartido.' AltaMed opera más de 60 centros de salud acreditados atendiendo a más de 700,000 pacientes en los condados de LA y Orange.",
+    },
+    category: "workforce" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.prnewswire.com/news-releases/altamed-health-services-named-great-place-to-work-among-leading-health-care-organizations-302710501.html",
+    sourceOrg: "PR Newswire",
+    region: "Los Angeles",
+    affectedOrgs: ["AltaMed Health Services"],
+    affectedOrgSlugs: ["altamed-health-services"],
+    tags: ["great-place-to-work", "employee-satisfaction", "workforce-morale", "altamed", "workplace-culture", "employer-brand"],
+    keyTakeaways: [
+      { en: "85% employee approval rate — 28 points above the 57% US average for typical companies", es: "85% de tasa de aprobación — 28 puntos sobre el promedio del 57% en EE.UU." },
+      { en: "94% feel good about AltaMed's community contributions; 89% are proud to tell others they work there", es: "94% se siente bien por las contribuciones comunitarias; 89% está orgulloso de decir que trabaja allí" },
+      { en: "Rare FQHC workforce win amid sector-wide layoffs and funding uncertainty — signals strong employer brand", es: "Logro laboral poco común para un FQHC en medio de despidos y incertidumbre de financiamiento — señala una marca empleadora fuerte" },
+      { en: "AltaMed's 5,700+ employees make it a bellwether for FQHC workplace culture nationally", es: "Los más de 5,700 empleados de AltaMed lo convierten en un referente de cultura laboral FQHC a nivel nacional" },
+    ],
+  },
   {
     id: "calmatters-medi-cal-funding-emergency-march-2026",
     date: "2026-03-24",
@@ -3119,7 +3201,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     category: "compliance",
     type: "news",
     impactLevel: "critical",
-    sourceUrl: "https://oig.hhs.gov/reports-and-publications/featured-topics/fraud/",
+    sourceUrl: "https://oig.hhs.gov/fraud/enforcement/",
     sourceOrg: "HHS Office of Inspector General",
     region: "Federal",
     tags: ["oig", "false-claims", "billing-fraud", "pps", "ecm", "documentation", "enforcement"],
@@ -3282,6 +3364,184 @@ export const INTEL_ITEMS: IntelItem[] = [
       { en: "LAO warns: FMAP sunsetting + enrollment verification + UIS restrictions = multi-billion gap by 2028", es: "LAO advierte: expiración de FMAP + verificación de inscripción + restricciones UIS = brecha de miles de millones para 2028" },
       { en: "Budget negotiations will determine survival of FQHC supplemental payments, ECM funding, and CHW billing", es: "Negociaciones presupuestarias determinarán supervivencia de pagos suplementarios de FQHC, financiamiento ECM y facturación CHW" },
     ],
+  },
+  // --- Added 2026-03-26 ---
+  {
+    id: "ocr-sud-records-enforcement-feb-2026",
+    date: "2026-02-16",
+    headline: {
+      en: "OCR Launches Civil Enforcement for Substance Use Disorder Patient Records — FQHCs with BH Programs Now in Scope",
+      es: "OCR Lanza Cumplimiento Civil para Registros de Pacientes con Trastornos por Uso de Sustancias — FQHCs con Programas de Salud Conductual Ahora en Alcance",
+    },
+    summary: {
+      en: "HHS Office for Civil Rights began enforcing confidentiality protections for substance use disorder (SUD) patient records under 42 CFR Part 2, now aligned with HIPAA penalty tiers. FQHCs operating behavioral health or SUD treatment programs must ensure their consent forms, EHR configurations, and staff training comply with the new enforcement framework. Noncompliance can trigger monetary settlements, corrective action plans, or civil money penalties.",
+      es: "La Oficina de Derechos Civiles de HHS comenzó a hacer cumplir las protecciones de confidencialidad para registros de pacientes con trastornos por uso de sustancias (SUD) bajo 42 CFR Parte 2, ahora alineado con los niveles de penalización de HIPAA. Los FQHCs con programas de salud conductual o tratamiento de SUD deben asegurar que sus formularios de consentimiento, configuraciones de EHR y capacitación del personal cumplan con el nuevo marco de cumplimiento.",
+    },
+    category: "compliance",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://www.hhs.gov/press-room/hhs-announce-civil-enforcement-program-sud-patient-records.html",
+    sourceOrg: "HHS Office for Civil Rights",
+    region: "Federal",
+    tags: ["hipaa-privacy", "behavioral-health", "sud-compliance", "42-cfr-part-2"],
+    keyTakeaways: [
+      { en: "42 CFR Part 2 enforcement now aligned with HIPAA penalty tiers — real financial risk for noncompliance", es: "Cumplimiento de 42 CFR Parte 2 ahora alineado con niveles de penalización HIPAA — riesgo financiero real por incumplimiento" },
+      { en: "FQHCs with SUD/BH programs must audit consent forms, EHR access controls, and staff training immediately", es: "FQHCs con programas SUD/BH deben auditar formularios de consentimiento, controles de acceso EHR y capacitación del personal de inmediato" },
+      { en: "OCR can now investigate complaints and impose monetary penalties for SUD record mishandling", es: "OCR ahora puede investigar quejas e imponer penalidades monetarias por mal manejo de registros SUD" },
+    ],
+  },
+  {
+    id: "340b-child-site-registration-overturned-mar-2026",
+    date: "2026-03-03",
+    headline: {
+      en: "Federal Court Overturns HRSA 340B Child Site Registration Requirement",
+      es: "Tribunal federal anula requisito de registro de sitios secundarios 340B de HRSA",
+    },
+    summary: {
+      en: "A federal district court vacated HRSA's requirement that off-site facilities (child sites) must appear on a hospital's Medicare cost report and be registered in OPAIS before purchasing drugs at 340B prices. This effectively returns pandemic-era flexibilities and may expand 340B purchasing eligibility for FQHCs with satellite locations.",
+      es: "Un tribunal federal anuló el requisito de HRSA de que las instalaciones fuera del sitio (sitios secundarios) deben aparecer en el informe de costos de Medicare y estar registradas en OPAIS antes de comprar medicamentos a precios 340B. Esto devuelve las flexibilidades de la era pandémica y puede expandir la elegibilidad de compra 340B para FQHCs con ubicaciones satélite.",
+    },
+    category: "compliance",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://www.forvismazars.us/forsights/2026/03/340b-program-major-developments-through-early-2026",
+    sourceOrg: "Forvis Mazars",
+    region: "Federal",
+    tags: ["340b", "child-site", "court-ruling", "pharmacy", "compliance"],
+  },
+  {
+    id: "hrsa-340b-audit-scope-expanded-fy2026",
+    date: "2026-03-15",
+    headline: {
+      en: "HRSA Expands FY2026 340B Audit Scope with 'Furnished' Language Change",
+      es: "HRSA amplía alcance de auditoría 340B para AF2026 con cambio de lenguaje 'suministrado'",
+    },
+    summary: {
+      en: "HRSA's updated Data Request List for FY2026 340B audits now includes 'furnished' alongside 'administered or dispensed,' broadening how covered entities must document drug transactions. Additional changes indicate increased scrutiny on locations receiving 340B-priced drugs and demonstration of covered entity ownership. FQHCs should update internal documentation and audit preparation procedures.",
+      es: "La lista actualizada de solicitud de datos de HRSA para auditorías 340B del AF2026 ahora incluye 'suministrado' junto con 'administrado o dispensado,' ampliando cómo las entidades cubiertas deben documentar transacciones de medicamentos. Los cambios adicionales indican mayor escrutinio sobre las ubicaciones que reciben medicamentos a precios 340B.",
+    },
+    category: "compliance",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://perspectives.cps.com/article-hrsa-changes-340b-data-request-list-fy26",
+    sourceOrg: "CPS",
+    region: "Federal",
+    tags: ["340b", "hrsa-audit", "compliance", "documentation", "pharmacy"],
+  },
+  {
+    id: "340b-rebate-model-pilot-vacated-feb-2026",
+    date: "2026-02-10",
+    headline: {
+      en: "Federal Court Vacates 340B Rebate Model Pilot — Preserves Upfront Discount for FQHCs (For Now)",
+      es: "Tribunal Federal Anula Piloto de Modelo de Reembolso 340B — Preserva Descuento Anticipado para FQHCs (Por Ahora)",
+    },
+    summary: {
+      en: "In AHA v. Kennedy, the U.S. District Court for the District of Maine vacated HRSA's 340B Rebate Model Pilot Program, finding the agency's administrative record 'threadbare' and that it failed to consider the financial burden on providers of paying full price upfront and waiting for rebates. HRSA published a Request for Information (comments due April 20, 2026) as it reconsiders. NACHC plans to submit comments on detrimental impact to community health centers. The ruling preserves the current upfront 340B discount model — critical for FQHC pharmacy revenue.",
+      es: "En AHA v. Kennedy, el Tribunal del Distrito de Maine anuló el Programa Piloto de Modelo de Reembolso 340B de HRSA, encontrando el registro administrativo 'escaso' y que no consideró la carga financiera sobre los proveedores. HRSA publicó una Solicitud de Información (comentarios hasta el 20 de abril de 2026). NACHC planea presentar comentarios sobre el impacto perjudicial para los centros de salud comunitarios.",
+    },
+    category: "compliance",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://www.feldesman.com/hrsa-pauses-340b-rebate-model-pilot-program-following-federal-court-order/",
+    sourceOrg: "Feldesman Tucker Leifer Fidell LLP",
+    region: "Federal",
+    tags: ["340b-compliance", "pharmacy-revenue", "aha-v-kennedy", "hrsa-rfi"],
+    keyTakeaways: [
+      { en: "Court found HRSA's 340B rebate model record 'threadbare' — vacated the pilot program", es: "Tribunal encontró el registro del modelo de reembolso 340B de HRSA 'escaso' — anuló el programa piloto" },
+      { en: "HRSA RFI open until April 20, 2026 — FQHCs should submit comments via NACHC", es: "RFI de HRSA abierta hasta el 20 de abril de 2026 — FQHCs deben enviar comentarios a través de NACHC" },
+      { en: "Current upfront 340B discount preserved for now — critical pharmacy revenue protection", es: "Descuento anticipado 340B actual preservado por ahora — protección crítica de ingresos de farmacia" },
+    ],
+  },
+  {
+    id: "kff-la-safety-net-clinics-sales-tax-march-2026",
+    date: "2026-03-25",
+    headline: {
+      en: "KFF Health News: LA Safety-Net Clinics Push Half-Cent Sales Tax as Federal and State Cuts Converge",
+      es: "KFF Health News: Clínicas de Red de Seguridad de LA Impulsan Impuesto de Medio Centavo mientras Convergen Recortes Federales y Estatales",
+    },
+    summary: {
+      en: "A KFF Health News investigation details how LA County community clinics face simultaneous federal (H.R. 1 Medicaid cuts), state (enrollment freeze, PPS elimination for undocumented), and county funding reductions. Venice Family Clinic reports 80% of its 45,000 patients rely on Medi-Cal. Community health leaders warn of 'closing several health centers' and 'laying off hundreds of staff' without new revenue. The proposed five-year, half-cent county sales tax is the coalition's primary strategy to backfill an estimated $750M/year DHS shortfall by 2028.",
+      es: "Una investigación de KFF Health News detalla cómo las clínicas comunitarias del Condado de LA enfrentan recortes simultáneos federales (H.R. 1), estatales (congelamiento de inscripciones, eliminación de PPS para indocumentados) y del condado. Venice Family Clinic reporta que el 80% de sus 45,000 pacientes dependen de Medi-Cal. Líderes de salud comunitaria advierten sobre el 'cierre de varios centros de salud' sin nuevos ingresos.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://kffhealthnews.org/news/article/federal-cuts-state-tax-increases-budget-shortfalls-health-clinics-los-angeles-california/",
+    sourceOrg: "KFF Health News",
+    region: "Los Angeles County",
+    tags: ["los-angeles", "sales-tax", "venice-family-clinic", "funding-convergence", "safety-net"],
+    keyTakeaways: [
+      { en: "Venice Family Clinic: 80% of 45,000 patients on Medi-Cal — existential funding risk from triple convergence", es: "Venice Family Clinic: 80% de 45,000 pacientes en Medi-Cal — riesgo existencial de financiamiento por triple convergencia" },
+      { en: "LA County DHS faces $750M/year shortfall by 2028 — half-cent sales tax is primary backfill strategy", es: "DHS del Condado de LA enfrenta déficit de $750M/año para 2028 — impuesto de medio centavo es estrategia principal" },
+      { en: "KFF investigation confirms federal + state + county cuts hitting simultaneously — unprecedented for LA safety net", es: "Investigación de KFF confirma recortes federales + estatales + del condado golpeando simultáneamente — sin precedentes para red de seguridad de LA" },
+    ],
+  },
+  {
+    id: "caloptima-8pct-membership-drop-hr1-march-2026",
+    date: "2026-03-22",
+    headline: {
+      en: "CalOptima Loses 8% of Membership Since H.R. 1 — OC FQHCs Face Revenue Decline",
+      es: "CalOptima Pierde 8% de Membresía Desde H.R. 1 — FQHCs de OC Enfrentan Disminución de Ingresos",
+    },
+    summary: {
+      en: "CalOptima, Orange County's Medi-Cal managed care plan, has lost approximately 67,000 members (8% decline, from 886K to 819K) since H.R. 1 was signed into law. The enrollment drop directly reduces revenue flowing to OC-based FQHCs like Share Our Selves, AltaMed's OC sites, and CHOC Community Clinic. OC Health Care Agency is simultaneously closing several public health clinics, pushing more uninsured patients to FQHCs without corresponding reimbursement.",
+      es: "CalOptima, el plan de atención administrada de Medi-Cal del Condado de Orange, ha perdido aproximadamente 67,000 miembros (8% de disminución, de 886K a 819K) desde que se firmó H.R. 1. La caída de inscripciones reduce directamente los ingresos de FQHCs en OC como Share Our Selves y sitios de AltaMed en OC.",
+    },
+    category: "funding",
+    type: "news",
+    impactLevel: "high",
+    sourceUrl: "https://jrreport.wordandbrown.com/2026/03/24/california-hospitals-laying-off-thousands-as-funding-cuts-trickle-down/",
+    sourceOrg: "JR Report / Word & Brown",
+    region: "Orange County",
+    affectedOrgSlugs: ["share-our-selves", "altamed"],
+    tags: ["orange-county", "caloptima", "enrollment-loss", "managed-care", "hr-1"],
+    keyTakeaways: [
+      { en: "CalOptima membership: 886K → 819K (-67K, -8%) since H.R. 1 — direct FQHC revenue impact in OC", es: "Membresía de CalOptima: 886K → 819K (-67K, -8%) desde H.R. 1 — impacto directo en ingresos de FQHC en OC" },
+      { en: "OC HCA closing public clinics simultaneously — more uninsured patients flowing to FQHCs", es: "OC HCA cerrando clínicas públicas simultáneamente — más pacientes sin seguro fluyendo a FQHCs" },
+    ],
+  },
+  {
+    id: "uc-berkeley-72k-145k-healthcare-job-loss-projection",
+    date: "2026-03-24",
+    headline: {
+      en: "UC Berkeley Projects 72,000-145,000 California Healthcare Job Losses from Medicaid Cuts",
+      es: "UC Berkeley Proyecta 72,000-145,000 Pérdidas de Empleos de Salud en California por Recortes de Medicaid",
+    },
+    summary: {
+      en: "The UC Berkeley Labor Center estimates that H.R. 1 Medicaid cuts will eliminate 72,000 to 145,000 healthcare jobs statewide — 3-5% of California's 2.65 million healthcare workforce. The projection encompasses hospitals, clinics, and home care. L.A. Care CEO Martha Santana-Chin projects losing 650,000 members (30% drop) by end of 2028. Combined with the JR Report tally of 3,400+ hospital workers already laid off as of mid-March, the second wave is expected as funding cuts phase in through 2028.",
+      es: "El Centro Laboral de UC Berkeley estima que los recortes de Medicaid de H.R. 1 eliminarán 72,000 a 145,000 empleos de salud en todo el estado — 3-5% de los 2.65 millones de trabajadores de salud de California. La CEO de L.A. Care proyecta perder 650,000 miembros (30% de caída) para finales de 2028.",
+    },
+    category: "workforce",
+    type: "news",
+    impactLevel: "critical",
+    sourceUrl: "https://jrreport.wordandbrown.com/2026/03/24/california-hospitals-laying-off-thousands-as-funding-cuts-trickle-down/",
+    sourceOrg: "JR Report / Word & Brown (citing UC Berkeley Labor Center)",
+    region: "California",
+    tags: ["uc-berkeley", "job-loss-projection", "medicaid-cuts", "workforce-crisis", "la-care"],
+    keyTakeaways: [
+      { en: "UC Berkeley: 72K-145K healthcare jobs at risk statewide (3-5% of 2.65M workforce)", es: "UC Berkeley: 72K-145K empleos de salud en riesgo en todo el estado (3-5% de 2.65M fuerza laboral)" },
+      { en: "L.A. Care CEO: projects 650K member loss (30% drop) by 2028 — largest public health plan in LA", es: "CEO de L.A. Care: proyecta pérdida de 650K miembros (30% de caída) para 2028 — mayor plan de salud público en LA" },
+      { en: "Second wave of layoffs expected as H.R. 1 funding cuts phase in through 2028", es: "Segunda ola de despidos esperada mientras recortes de H.R. 1 se implementan hasta 2028" },
+    ],
+  },
+  {
+    id: "nachc-select-pointcare-coverage-management-2026",
+    date: "2026-03-01",
+    headline: {
+      en: "NACHC Select Partners with Pointcare for Medicaid Coverage Loss Prevention at CHCs",
+      es: "NACHC Select se Asocia con Pointcare para Prevención de Pérdida de Cobertura Medicaid en CHCs",
+    },
+    summary: {
+      en: "NACHC's wholly owned subsidiary NACHC Select announced a strategic partnership with Pointcare, which already serves 80+ community health centers managing coverage for 1.8 million patients. The platform proactively identifies patients at risk of losing Medicaid coverage and automates re-enrollment workflows. With CalOptima and L.A. Care both reporting significant enrollment drops since H.R. 1, this kind of coverage retention tool is increasingly critical for FQHC revenue protection.",
+      es: "NACHC Select anunció una asociación estratégica con Pointcare, que ya sirve a más de 80 centros de salud comunitarios gestionando cobertura para 1.8 millones de pacientes. La plataforma identifica proactivamente pacientes en riesgo de perder cobertura de Medicaid y automatiza flujos de re-inscripción.",
+    },
+    category: "change-management",
+    type: "news",
+    impactLevel: "medium",
+    sourceUrl: "https://www.nachc.org/category/press-releases/",
+    sourceOrg: "NACHC",
+    region: "Federal",
+    tags: ["nachc-select", "pointcare", "coverage-management", "enrollment-retention", "revenue-protection"],
   },
 ];
 

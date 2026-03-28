@@ -6,16 +6,16 @@ FQHC Talent (https://www.fqhctalent.com) is a strategic intelligence platform fo
 
 The site covers: H.R. 1 Medicaid cuts, CalAIM programs (ECM, Community Supports), FQHC funding policy, the California workforce crisis, AI adoption in community health, FQHC compliance (HRSA, HIPAA, billing), and salary benchmarks across 9 CA regions. All insights cite primary sources (government, NACHC, CPCA, CHCF, KFF).
 
-Key data assets: 220 California FQHCs with resilience scores, 1,700+ job listings across 30+ FQHCs, 116+ intelligence items across 8 categories, 19 AI adoption tracker items with 8 vendor comparisons, 25 OKR templates with Excel trackers, 22 case studies, 18 masterclass modules, 20 certifications, 13 operational guides, 20 layoff events tracking 3,477+ displaced workers, 30 salary benchmarks across 9 regions, 9 regional intelligence dashboards, 220 per-FQHC strategic reports, and 15 bilingual blog articles. Updated daily via automated intelligence pipeline.
+Key data assets: 214 California FQHCs with resilience scores, 1,634+ job listings across 30+ FQHCs, 139+ intelligence items across 9 categories, 28 AI adoption tracker items with 8 vendor comparisons, 25 OKR templates with Excel trackers, 22 case studies, 18 masterclass modules, 20 certifications, 13 operational guides, 20 layoff events tracking 3,477+ displaced workers, 62 salary benchmarks across 9 regions, 9 regional intelligence dashboards, 214 per-FQHC strategic reports, and 15 bilingual blog articles. Updated daily via automated intelligence pipeline.
 
 ## Intelligence & Monitoring
 
 - [Intelligence Dashboard](https://www.fqhctalent.com/) — Breaking intel feed, funding cliff countdowns, workforce displacement data, compliance calendar, and undocumented access policy watch. Homepage serves as the executive intelligence dashboard.
-- [AI Tracker](https://www.fqhctalent.com/ai-tracker) — 19 AI implementations tracked across FQHC sector: ambient documentation (Abridge, Sunoh, Nabla, Suki, DAX, athenaOne), RCM automation, clinical decision support. 8 vendor comparisons with EHR compatibility matrix and FQHC fit scores.
-- [Layoff Tracker](https://www.fqhctalent.com/layoffs) — 20 layoff events, 3,477+ displaced workers, WARN Act data for California FQHCs and health systems
+- [AI Tracker](https://www.fqhctalent.com/ai-tracker) — 28 AI implementations tracked across FQHC sector: ambient documentation (Abridge, Sunoh, Nabla, Suki, DAX, athenaOne), RCM automation, clinical decision support, scheduling AI. 8 vendor comparisons with EHR compatibility matrix and FQHC fit scores.
+- [Layoff Tracker](https://www.fqhctalent.com/layoffs) — 20 layoff events, 3,477+ displaced workers, WARN Act data for California FQHCs and health systems. UC Berkeley projects 72K-145K CA healthcare job losses from Medicaid cuts.
 - [Blog](https://www.fqhctalent.com/blog) — 15 bilingual articles on FQHC careers, Medi-Cal policy, salary data, and ECM programs with primary source citations
 - [Regional Intelligence](https://www.fqhctalent.com/intelligence/los-angeles) — 9 per-region dashboards: LA, San Diego, Bay Area, Sacramento, Central Valley, Inland Empire, Central Coast, North State, North Coast. Per-region FQHC tables, resilience distribution, top programs, EHR landscape, layoff impact, job counts.
-- [Salary Intelligence](https://www.fqhctalent.com/salary-data) — P25/P50/P75 benchmarks for 30 FQHC roles across 9 California regions with regional cost-of-living adjustments and career progression charts
+- [Salary Intelligence](https://www.fqhctalent.com/salary-data) — P25/P50/P75 benchmarks for 62 FQHC roles across 9 California regions with regional cost-of-living adjustments and career progression charts
 
 ## Compliance Hub
 
@@ -45,19 +45,19 @@ Key data assets: 220 California FQHCs with resilience scores, 1,700+ job listing
 - [Cultural Humility](https://www.fqhctalent.com/strategy/cultural-humility) — CLAS Standards, Tervalon & Murray-Garcia framework, 5 workforce diversity scenarios, 20 competencies across 6 domains
 - [The Movement](https://www.fqhctalent.com/strategy/movement) — FQHC movement history 1960-2026: 30 events, 5 eras, 8 cross-cultural alliances (Cesar Chavez, Black Panthers, Dr. Geiger, Asian Health Services)
 - [Transition Toolkit](https://www.fqhctalent.com/strategy/offboarding) — 3-tier workforce transition service for FQHCs facing layoffs (free tools, managed transition, placement partnership)
-- [Resilience Scorecard](https://www.fqhctalent.com/strategy/resilience) — 220 FQHCs scored across 5 weighted dimensions (program diversity 25%, workforce stability 20%, data maturity 15%, quality indicators 20%, financial positioning 20%). Grades A-F. Searchable, sortable, filterable.
+- [Resilience Scorecard](https://www.fqhctalent.com/strategy/resilience) — 214 FQHCs scored across 5 weighted dimensions (program diversity 25%, workforce stability 20%, data maturity 15%, quality indicators 20%, financial positioning 20%). Grades A-F. Searchable, sortable, filterable.
 - [Clinic Simulator](https://www.fqhctalent.com/strategy/clinic-simulator) — Model staffing, scheduling, and revenue scenarios for your FQHC with 3 size presets (small/mid/large)
 - [Revenue Simulator](https://www.fqhctalent.com/strategy/revenue-simulator) — What-if modeling for revenue optimization: payer mix, team composition, visit volume
 
 ## FQHC Directory & Profiles
 
-- [California FQHC Directory](https://www.fqhctalent.com/directory) — 220 FQHCs with programs, EHR systems, Glassdoor ratings, resilience scores, salary data, and interactive map
+- [California FQHC Directory](https://www.fqhctalent.com/directory) — 214 FQHCs with programs, EHR systems, Glassdoor ratings, resilience scores, salary data, and interactive map
 - [FQHC Strategic Reports](https://www.fqhctalent.com/report/altamed) — 220 individual per-FQHC strategic intelligence reports with executive summary, resilience assessment, threat landscape, workforce intel, and action items
 - [Compare FQHCs](https://www.fqhctalent.com/compare) — Side-by-side comparison of 2-3 FQHCs across resilience, Glassdoor ratings, programs, funding, union status, and workforce data
 
 ## Career Tools (100% Free, No Login Required)
 
-- [Jobs](https://www.fqhctalent.com/jobs) — 1,700+ job listings across 30+ roles and 9 California regions, updated weekly
+- [Jobs](https://www.fqhctalent.com/jobs) — 1,634+ job listings across 30+ roles and 9 California regions, updated weekly
 - [Resume Builder](https://www.fqhctalent.com/resume-builder) — Template-based resume builder with 8 FQHC-specific role templates (CHW, care coordinator, MA, RN, NP, PA, physician, dentist)
 - [Career Assessment](https://www.fqhctalent.com/career-insights) — 5-domain behavioral assessment with role-specific questions, STARS type selector, and personalized 90-day onboarding plan
 - [Interview Prep](https://www.fqhctalent.com/interview-prep) — Role-specific FQHC interview questions with STAR framework tips, red flags, and follow-ups for 10+ roles
@@ -84,10 +84,10 @@ Key data assets: 220 California FQHCs with resilience scores, 1,700+ job listing
 ## Frequently Asked Questions
 
 Q: What is an FQHC?
-A: A Federally Qualified Health Center (FQHC) is a community-based healthcare provider that receives federal funding under Section 330 of the Public Health Service Act. FQHCs provide primary care to underserved populations regardless of ability to pay. California has 220+ FQHCs serving millions of patients.
+A: A Federally Qualified Health Center (FQHC) is a community-based healthcare provider that receives federal funding under Section 330 of the Public Health Service Act. FQHCs provide primary care to underserved populations regardless of ability to pay. California has 214+ FQHCs serving millions of patients.
 
 Q: How many FQHCs are in California?
-A: California has over 220 Federally Qualified Health Centers across 9 regions: Los Angeles, San Diego, Bay Area, Sacramento, Central Valley, Inland Empire, Central Coast, North State, and North Coast. FQHC Talent tracks all of them with resilience scores, programs, EHR systems, and workforce data.
+A: California has over 214 Federally Qualified Health Centers across 9 regions: Los Angeles, San Diego, Bay Area, Sacramento, Central Valley, Inland Empire, Central Coast, North State, and North Coast. FQHC Talent tracks all of them with resilience scores, programs, EHR systems, and workforce data.
 
 Q: What is the FQHC funding crisis in 2026?
 A: The Community Health Center Fund (CHCF) authorization expires in December 2026, putting $4.6 billion in annual federal funding at risk. Combined with H.R. 1 Medicaid cuts and California's elimination of PPS for undocumented patients (July 2026), FQHCs face the most severe financial crisis in the program's history.
@@ -105,13 +105,13 @@ Q: What is CalAIM ECM?
 A: Enhanced Care Management (ECM) is California's statewide benefit under CalAIM (California Advancing and Innovating Medi-Cal) that provides intensive care coordination for high-need Medi-Cal members. FQHCs are key ECM providers, managing complex patients across housing, behavioral health, and medical needs.
 
 Q: How is AI being adopted at FQHCs?
-A: FQHC Talent tracks 19 AI implementations across California FQHCs. Ambient documentation (AI scribes) is the leading category with 6 vendors including Abridge, Sunoh.ai, and Nabla. Key results: Abridge reduced provider burnout from 52% to 39%, Sun River Health documents 7,000 visits/month with AI, and athenahealth offers free ambient AI to all clients.
+A: FQHC Talent tracks 27 AI implementations across California FQHCs. Ambient documentation (AI scribes) is the leading category with 6 vendors including Abridge, Sunoh.ai, and Nabla. Key results: Abridge reduced provider burnout from 52% to 39%, Sun River Health documents 7,000 visits/month with AI, and athenahealth offers free ambient AI to all clients.
 
 Q: What FQHC career tools are available for free?
-A: FQHC Talent offers free career tools including a resume builder with 8 role templates, a 5-domain career assessment with 90-day plans, career roadmaps with CA salary data, 20 certification guides, interview prep, salary benchmarks for 30 roles across 9 regions, and an FQHC comparison tool. No login required.
+A: FQHC Talent offers free career tools including a resume builder with 8 role templates, a 5-domain career assessment with 90-day plans, career roadmaps with CA salary data, 20 certification guides, interview prep, salary benchmarks for 62 roles across 9 regions, and an FQHC comparison tool. No login required.
 
 Q: What is the FQHC Resilience Scorecard?
-A: The Resilience Scorecard evaluates all 220 California FQHCs across 5 weighted dimensions: program diversity (25%), workforce stability (20%), data maturity (15%), quality indicators (20%), and financial positioning (20%). Each FQHC receives a composite score and letter grade (A-F) to help executives benchmark against peers.
+A: The Resilience Scorecard evaluates all 214 California FQHCs across 5 weighted dimensions: program diversity (25%), workforce stability (20%), data maturity (15%), quality indicators (20%), and financial positioning (20%). Each FQHC receives a composite score and letter grade (A-F) to help executives benchmark against peers.
 
 ## Audiences
 
@@ -128,7 +128,7 @@ A: The Resilience Scorecard evaluates all 220 California FQHCs across 5 weighted
 ## Technical Details
 
 - Platform: Next.js 16, React 19, TypeScript, Tailwind CSS 4, Supabase
-- Hosting: Vercel (edge-optimized, SSG for 1,700+ static pages)
+- Hosting: Vercel (edge-optimized, SSG for 1,634+ static pages)
 - Languages: English and Spanish (bilingual throughout)
 - Data sources: HRSA, CMS, NACHC, CPCA, CHCF, KFF, BLS, CA OSHPD, WARN Act, Glassdoor
 - Structured data: schema.org (Organization, WebSite, WebPage, DataCatalog, Dataset, Course, FAQPage, JobPosting, Article, HowTo, BreadcrumbList)

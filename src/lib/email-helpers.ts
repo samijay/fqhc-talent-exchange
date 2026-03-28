@@ -55,7 +55,7 @@ export function emailFooter(
   unsubscribeToken?: string,
 ): string {
   const unsubUrl = unsubscribeToken
-    ? `${SITE}/api/newsletter/unsubscribe?token=${unsubscribeToken}`
+    ? `${SITE}/api/newsletter/unsubscribe?token=${encodeURIComponent(unsubscribeToken)}`
     : null;
 
   return `

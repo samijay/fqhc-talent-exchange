@@ -48,11 +48,34 @@ export function createAuthClient() {
   );
 }
 
-export const supabaseAdmin = supabaseServiceRoleKey
-  ? createClient(supabaseUrl || "", supabaseServiceRoleKey, {
+/**
+ * Server-side Supabase client using the service role key.
+ * This bypasses RLS and should ONLY be used in API routes (server-side).
+ *
+ * WARNING: Will throw at import time in production if SUPABASE_SERVICE_ROLE_KEY
+ * is missing. In development it logs a loud warning and falls back to the
+ * anon client (some admin queries will silently fail or return partial data).
+ */
+export const supabaseAdmin = (() => {
+  if (supabaseServiceRoleKey) {
+    return createClient(supabaseUrl || "", supabaseServiceRoleKey, {
       auth: {
         autoRefreshToken: false,
         persistSession: false,
       },
-    })
-  : supabase; // Dev fallback — in production this will log an error above
+    });
+  }
+
+  if (process.env.NODE_ENV === "production") {
+    throw new Error(
+      "SUPABASE_SERVICE_ROLE_KEY is required in production. " +
+      "All API routes using supabaseAdmin will fail without it."
+    );
+  }
+
+  console.warn(
+    "⚠️  SUPABASE_SERVICE_ROLE_KEY is not set — supabaseAdmin is using the anon client.\n" +
+    "   Admin queries will be limited by RLS. Set this key for full functionality."
+  );
+  return supabase;
+})();

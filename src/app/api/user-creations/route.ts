@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
+import { checkRateLimit, getClientIp } from "@/lib/security";
 
 const CREATION_EVENT_TYPES = [
   "resume_create",
@@ -12,8 +13,15 @@ const CREATION_EVENT_TYPES = [
   "pathway_complete",
 ];
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    // Rate limit: 20 per minute per IP
+    const ip = getClientIp(request);
+    const { allowed } = checkRateLimit(`user-creations:${ip}`, { limit: 20, windowMs: 60_000 });
+    if (!allowed) {
+      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+    }
+
     const supabase = await createServerSupabaseClient();
     const {
       data: { user },

@@ -32,9 +32,9 @@ export default function SponsorPage() {
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Users, label: "FQHC Organizations", value: "215+", sub: "All California FQHCs covered" },
-              { icon: BarChart3, label: "Intel Items Tracked", value: "121+", sub: "Primary sources for every claim" },
-              { icon: Target, label: "FQHC Jobs Monitored", value: "1,674", sub: "Across 30+ organizations" },
+              { icon: Users, label: "FQHC Organizations", value: "214+", sub: "All California FQHCs covered" },
+              { icon: BarChart3, label: "Intel Items Tracked", value: "139+", sub: "Primary sources for every claim" },
+              { icon: Target, label: "FQHC Jobs Monitored", value: "1,634", sub: "Across 30+ organizations" },
               { icon: Mail, label: "Weekly Intel Brief", value: "Every Tuesday", sub: "Executive-level policy intelligence" },
             ].map((stat) => (
               <div key={stat.label} className="rounded-lg border border-stone-800 bg-stone-900 p-6 text-center">

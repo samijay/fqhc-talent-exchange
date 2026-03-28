@@ -9,7 +9,7 @@ import {
   type OKRCritiqueRequest,
   type OKRCritiqueResponse,
 } from "@/lib/okr-ai-critique";
-import { checkRateLimit, getClientIp } from "@/lib/security";
+import { checkRateLimit, getClientIp, validateOrigin } from "@/lib/security";
 
 // Input size limits to prevent abuse
 const MAX_OBJECTIVE_LENGTH = 500;
@@ -18,6 +18,10 @@ const MAX_KEY_RESULTS = 5;
 
 export async function POST(request: NextRequest) {
   try {
+    if (!validateOrigin(request)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
     // Rate limit: 5 per minute per IP (AI-backed endpoint)
     const ip = getClientIp(request);
     const rl = checkRateLimit(`okr-critique:${ip}`, { limit: 5, windowMs: 60_000 });

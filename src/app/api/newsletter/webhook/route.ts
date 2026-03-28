@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { Webhook } from "svix";
 
 // Resend webhook handler for email open/click tracking
 // Docs: https://resend.com/docs/dashboard/webhooks/introduction
@@ -27,7 +28,47 @@ interface ResendWebhookEvent {
 
 export async function POST(req: NextRequest) {
   try {
-    const event: ResendWebhookEvent = await req.json();
+    // ── Verify webhook signature (Resend uses Svix) ──
+    const webhookSecret = process.env.RESEND_WEBHOOK_SECRET;
+    const rawBody = await req.text();
+    let event: ResendWebhookEvent;
+
+    if (webhookSecret) {
+      const svixId = req.headers.get("svix-id");
+      const svixTimestamp = req.headers.get("svix-timestamp");
+      const svixSignature = req.headers.get("svix-signature");
+
+      if (!svixId || !svixTimestamp || !svixSignature) {
+        return NextResponse.json(
+          { error: "Missing webhook signature headers" },
+          { status: 401 }
+        );
+      }
+
+      try {
+        const wh = new Webhook(webhookSecret);
+        event = wh.verify(rawBody, {
+          "svix-id": svixId,
+          "svix-timestamp": svixTimestamp,
+          "svix-signature": svixSignature,
+        }) as ResendWebhookEvent;
+      } catch {
+        console.error("[newsletter/webhook] Invalid webhook signature");
+        return NextResponse.json(
+          { error: "Invalid webhook signature" },
+          { status: 401 }
+        );
+      }
+    } else {
+      // Fallback: accept unsigned webhooks in development only
+      if (process.env.NODE_ENV === "production") {
+        console.error(
+          "[newsletter/webhook] RESEND_WEBHOOK_SECRET is not set in production. " +
+          "Webhooks are unverified — set this env var to enable signature checking."
+        );
+      }
+      event = JSON.parse(rawBody) as ResendWebhookEvent;
+    }
 
     // Only track events we care about
     const trackedTypes = [

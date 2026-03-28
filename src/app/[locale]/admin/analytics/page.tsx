@@ -109,10 +109,11 @@ function AdminAnalyticsInner() {
 
   const fetchData = useCallback(async () => {
     try {
-      const apiUrl = secretKey
-        ? `/api/admin/analytics?key=${encodeURIComponent(secretKey)}`
-        : "/api/admin/analytics";
-      const res = await fetch(apiUrl);
+      const headers: Record<string, string> = {};
+      if (secretKey) {
+        headers["Authorization"] = `Bearer ${secretKey}`;
+      }
+      const res = await fetch("/api/admin/analytics", { headers });
       if (res.status === 401) {
         setError("sign-in");
         return;

@@ -22,8 +22,8 @@ function sleep(ms: number) {
 }
 
 export async function GET(request: Request) {
-  // Auth — same pattern as /api/newsletter/send
-  const secret = process.env.NEWSLETTER_SECRET;
+  // Auth — uses CRON_SECRET (preferred) or falls back to NEWSLETTER_SECRET
+  const secret = process.env.CRON_SECRET || process.env.NEWSLETTER_SECRET;
   if (!secret) {
     return NextResponse.json(
       { error: "Newsletter sending not configured. Set NEWSLETTER_SECRET env var." },

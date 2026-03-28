@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
 import { resend, FROM_EMAIL } from "@/lib/resend";
-import { checkRateLimit, getClientIp } from "@/lib/security";
+import { checkRateLimit, getClientIp, validateOrigin } from "@/lib/security";
 import { emailHeader, emailFooter, missionBanner, ctaButton, BRAND } from "@/lib/email-helpers";
 
 const subscribeSchema = z.object({
@@ -22,6 +22,10 @@ const subscribeSchema = z.object({
 
 export async function POST(request: Request) {
   try {
+    if (!validateOrigin(request)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
     const ip = getClientIp(request);
     const { allowed } = checkRateLimit(`newsletter-subscribe:${ip}`, {
       limit: 1,

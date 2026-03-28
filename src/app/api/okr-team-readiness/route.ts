@@ -8,7 +8,7 @@ import {
   type TeamReadinessRequest,
   type TeamReadinessResponse,
 } from "@/lib/okr-ai-critique";
-import { checkRateLimit, getClientIp } from "@/lib/security";
+import { checkRateLimit, getClientIp, validateOrigin } from "@/lib/security";
 
 // Input limits
 const MAX_OBJECTIVES = 10;
@@ -17,6 +17,10 @@ const MAX_TEXT_LENGTH = 500;
 
 export async function POST(request: NextRequest) {
   try {
+    if (!validateOrigin(request)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
+
     // Rate limit: 5 per minute per IP (AI-backed endpoint)
     const ip = getClientIp(request);
     const rl = checkRateLimit(`okr-team-readiness:${ip}`, { limit: 5, windowMs: 60_000 });

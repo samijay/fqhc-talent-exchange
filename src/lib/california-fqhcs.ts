@@ -60,6 +60,17 @@ export interface CaliforniaFQHC {
   }[] | null;                  // null = no known labor history
   hrsaGrantNumber: string | null; // e.g., "H80CS00142"
   dataSource: "curated" | "hrsa-import" | "hrsa-enriched"; // "curated" = manually enriched, "hrsa-import" = auto-imported, "hrsa-enriched" = HRSA then enriched
+  // Workplace recognition data
+  greatPlaceToWork: {
+    certified: boolean;
+    year: number;                     // Year of most recent certification
+    employeeApprovalPct: number;      // % of employees who say it's a great place to work (vs 57% national avg)
+    consecutiveYears: number | null;  // Number of consecutive certification years (null = first year or unknown)
+    certificationUrl: string | null;  // URL to GPTW profile page
+    highlights: string[];             // Key survey highlights, e.g., "94% feel good about community contributions"
+    fortuneList: boolean;             // Whether they made the Fortune Best Workplaces in Health Care list
+    source: string;                   // e.g., "Great Place to Work 2026", "PR Newswire"
+  } | null; // null = not certified or unknown
 }
 
 export const regions = [
@@ -157,14 +168,14 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     region: "Los Angeles",
     lat: 34.0244,
     lng: -118.1728,
-    siteCount: 50,
-    patientCount: "300,000+",
-    staffCount: "3,500+",
+    siteCount: 60,
+    patientCount: "700,000+",
+    staffCount: "5,700+",
     programs: ["ECM", "CCM", "Community Supports", "BH Integration", "TCM", "340B", "Dental", "Pharmacy", "PACE", "HIV/AIDS Specialty", "WIC", "Health Education", "Telehealth", "Mobile Health", "Senior Services", "Youth Services"],
     ehrSystem: "OCHIN Epic",
     website: "https://www.altamed.org",
     description:
-      "Largest independent FQHC in the nation. AltaMed serves 300,000+ patients across 50 sites in LA and Orange counties with primary care, dental, behavioral health, senior services (PACE), pharmacy, HIV specialty, and youth programs. Founded in 1969 from the East LA Chicano Movement. Revenue ~$600M. 3,500+ employees. HRSA-designated Health Center Quality Leader. One of only a handful of FQHCs with PACE (Program of All-Inclusive Care for the Elderly) — managing full Medicare/Medicaid risk for seniors.",
+      "Largest independent FQHC in the nation. AltaMed serves 700,000+ patients across 60+ accredited sites in LA and Orange counties with primary care, dental, behavioral health, senior services (PACE), pharmacy, HIV specialty, and youth programs. Founded in 1969 from the East LA Chicano Movement. Revenue ~$600M. 5,700+ employees. HRSA-designated Health Center Quality Leader. One of only a handful of FQHCs with PACE (Program of All-Inclusive Care for the Elderly) — managing full Medicare/Medicaid risk for seniors. Certified Great Place to Work® in 2026 — 85% of employees say it's a great place to work (28 points above national average).",
     glassdoorRating: 3.3,
     glassdoorReviewCount: 391,
     ecmProvider: true,
@@ -180,6 +191,23 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00142",
     dataSource: "curated",
+    greatPlaceToWork: {
+      certified: true,
+      year: 2026,
+      employeeApprovalPct: 85,
+      consecutiveYears: null,
+      certificationUrl: "https://www.greatplacetowork.com/certified-company/1243858",
+      highlights: [
+        "85% of employees say it's a great place to work (28 points above 57% national average)",
+        "94% feel good about how AltaMed contributes to the community",
+        "90% feel welcomed upon joining",
+        "89% are proud to tell others they work there",
+        "89% experience pride in accomplishments",
+        "88% can take necessary time off",
+      ],
+      fortuneList: false,
+      source: "Great Place to Work / PR Newswire, March 11 2026",
+    },
   },
   {
     name: "APLA Health",
@@ -212,6 +240,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "ChapCare",
@@ -244,6 +273,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Eisner Health",
@@ -276,6 +306,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "JWCH Institute",
@@ -308,6 +339,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Los Angeles Christian Health Centers",
@@ -340,6 +372,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Northeast Valley Health Corporation",
@@ -372,6 +405,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "South Central Family Health Center",
@@ -404,6 +438,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "St. John's Community Health",
@@ -436,6 +471,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "T.H.E. Health and Wellness Centers",
@@ -468,6 +504,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Venice Family Clinic",
@@ -500,6 +537,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Watts Healthcare Corporation",
@@ -532,6 +570,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Herald Christian Health Center",
@@ -564,6 +603,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Community Health Alliance of Pasadena",
@@ -596,6 +636,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "UMMA Community Clinic",
@@ -628,6 +669,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Comprehensive Community Health Centers",
@@ -660,6 +702,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Central Neighborhood Health Foundation",
@@ -692,6 +735,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Kheir Clinic",
@@ -724,6 +768,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "South Bay Family Health Care",
@@ -756,6 +801,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "QueensCare Health Centers",
@@ -788,6 +834,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Kedren Community Health Center",
@@ -820,6 +867,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Westside Family Health Center",
@@ -852,6 +900,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
 
   // ─────────────────────────────────────────────
@@ -888,6 +937,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "La Maestra Community Health Centers",
@@ -920,6 +970,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00812",
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "San Ysidro Health",
@@ -952,6 +1003,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: [{ type: "nlrb-complaint", description: "SEIU-UHW filed NLRB representation petition (Case 21-RC-290131); case dismissed.", date: "2023-06-01", status: "resolved", union: "SEIU-UHW", source: null }],
     hrsaGrantNumber: "H80CS10748",
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Neighborhood Healthcare",
@@ -984,6 +1036,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Vista Community Clinic",
@@ -1016,6 +1069,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Mountain Health and Community Services",
@@ -1048,6 +1102,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Borrego Health - San Diego",
@@ -1080,6 +1135,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Imperial Beach Health Center",
@@ -1112,6 +1168,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "TrueCare",
@@ -1144,6 +1201,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00228",
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Planned Parenthood of the Pacific Southwest",
@@ -1176,6 +1234,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
 
   // ─────────────────────────────────────────────
@@ -1212,6 +1271,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "LifeLong Medical Care",
@@ -1244,6 +1304,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Asian Health Services",
@@ -1276,6 +1337,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "La Clinica de La Raza",
@@ -1308,6 +1370,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "North East Medical Services",
@@ -1340,6 +1403,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Ravenswood Family Health Network",
@@ -1372,6 +1436,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Gardner Health Services",
@@ -1404,6 +1469,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "San Francisco Community Health Center",
@@ -1436,6 +1502,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Native American Health Center",
@@ -1468,6 +1535,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Tiburcio Vasquez Health Center",
@@ -1500,6 +1568,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Axis Community Health",
@@ -1532,6 +1601,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Bay Area Community Health (BACH)",
@@ -1564,6 +1634,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Marin Community Clinics",
@@ -1596,6 +1667,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "West Oakland Health Council",
@@ -1628,6 +1700,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Tri-City Health Center",
@@ -1660,6 +1733,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "HealthRIGHT 360",
@@ -1692,6 +1766,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Planned Parenthood Mar Monte",
@@ -1724,6 +1799,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Sausal Creek Health Center",
@@ -1756,6 +1832,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Salud Para La Gente",
@@ -1788,6 +1865,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
 
   // ─────────────────────────────────────────────
@@ -1824,6 +1902,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Sacramento Native American Health Center",
@@ -1856,6 +1935,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Elica Health Centers",
@@ -1888,6 +1968,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS24113",
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "CommuniCare Health Centers",
@@ -1920,6 +2001,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "One Community Health",
@@ -1952,6 +2034,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Sierra Vista Community Health",
@@ -1984,6 +2067,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Ampla Health - Sacramento",
@@ -2016,6 +2100,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
 
   // ─────────────────────────────────────────────
@@ -2052,6 +2137,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "United Health Centers",
@@ -2084,6 +2170,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Family HealthCare Network",
@@ -2116,6 +2203,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Camarena Health",
@@ -2148,6 +2236,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Golden Valley Health Centers",
@@ -2180,6 +2269,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Omni Family Health",
@@ -2212,6 +2302,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Livingston Community Health",
@@ -2244,6 +2335,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Adventist Health - Central Valley",
@@ -2276,6 +2368,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Salud Para La Gente - Central Valley",
@@ -2308,6 +2401,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
 
   // ─────────────────────────────────────────────
@@ -2344,6 +2438,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "SAC Health",
@@ -2376,6 +2471,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Desert Healthcare District & Foundation",
@@ -2408,6 +2504,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Riverside University Health System - Community Health Centers",
@@ -2439,6 +2536,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28990",
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Loma Linda University Health - SAC Health",
@@ -2471,6 +2569,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Community Health Systems, Inc.",
@@ -2503,6 +2602,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Inland Faculty Medical Group",
@@ -2535,6 +2635,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Clinicas de Salud del Pueblo",
@@ -2567,6 +2668,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Desert AIDS Project/DAP Health",
@@ -2599,6 +2701,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
 
   // ─────────────────────────────────────────────
@@ -2635,6 +2738,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Dignity Health Community Clinics - Ventura",
@@ -2667,6 +2771,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Clinicas del Camino Real",
@@ -2699,6 +2804,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Santa Barbara Neighborhood Clinics",
@@ -2731,6 +2837,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
 
   // ─────────────────────────────────────────────
@@ -2767,6 +2874,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Peach Tree Health",
@@ -2799,6 +2907,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Health Alliance of Northern California",
@@ -2831,6 +2940,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Hill Country Community Clinic",
@@ -2863,6 +2973,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Shingletown Medical Center",
@@ -2895,6 +3006,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
 
   // ─────────────────────────────────────────────
@@ -2931,6 +3043,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "MCHC Health Centers",
@@ -2963,6 +3076,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00628",
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "Redwood Community Health Coalition",
@@ -2995,6 +3109,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
   {
     name: "San Luis Obispo Community Health Centers",
@@ -3027,6 +3142,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: null,
     dataSource: "curated",
+    greatPlaceToWork: null,
   },
 
   // ─────────────────────────────────────────────
@@ -3062,6 +3178,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS48993",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "AIDS Services Foundation Orange County",
@@ -3093,6 +3210,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS53696",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Aaa Comprehensive Healthcare",
@@ -3105,15 +3223,15 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     siteCount: 2,
     patientCount: "N/A",
     staffCount: "N/A",
-    programs: ["Primary Care", "Dental", "Behavioral Health", "Women's Health", "OB/GYN", "Pediatrics"],
+    programs: ["Primary Care", "Dental", "Behavioral Health", "Women's Health", "OB/GYN", "Pediatrics", "Prenatal Care", "Lab Services", "Immunizations", "Family Planning", "HIV/AIDS Services", "Homeless Outreach", "Insurance Enrollment"],
     ehrSystem: "NextGen",
     website: "https://aaachc.org",
-    description: "AAA Comprehensive Healthcare is a Federally Qualified Health Center founded in 2009 by CEO Anna Nshanyan, serving medically underserved and uninsured patients in North Hollywood and Santa Ana. The clinic offers comprehensive primary care, OB/GYN, pediatrics, dental, and behavioral health services on a sliding fee scale, welcoming patients regardless of immigration or insurance status.",
+    description: "AAA Comprehensive Healthcare is a Federally Qualified Health Center founded in 2009 by CEO Anna Nshanyan, serving medically underserved and uninsured patients in North Hollywood and Santa Ana. The clinic offers comprehensive primary care, OB/GYN, pediatrics, dental, and behavioral health services on a sliding fee scale, welcoming patients regardless of immigration or insurance status. Has residency partnerships with Cedars-Sinai, UCLA Medical Center, and Kaiser Permanente. CCALAC member. Federal PHS deemed status under FTCA since August 2015.",
     glassdoorRating: null,
-    glassdoorReviewCount: null,
+    glassdoorReviewCount: 0,
     ecmProvider: false,
     nhscApproved: true,
-    careersUrl: null,
+    careersUrl: "https://www.glassdoor.com/Jobs/AAA-Comprehensive-Healthcare-Jobs-E10213678.htm",
     servesUndocumented: true,
     coverageVulnerabilityPercent: null,
     fundingImpactLevel: "low",
@@ -3124,6 +3242,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28982",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "All for Health, Health for All",
@@ -3155,6 +3274,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS12851",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "Amh Comprehensive Medical Centers",
@@ -3162,15 +3282,15 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     city: "Los Angeles",
     county: "Los Angeles",
     region: "Los Angeles",
-    lat: 34.0522,
-    lng: -118.2437,
-    siteCount: 2,
+    lat: 34.066,
+    lng: -118.268,
+    siteCount: 3,
     patientCount: "N/A",
     staffCount: "N/A",
-    programs: ["Primary Care", "Behavioral Health", "Women's Health", "Pediatrics"],
+    programs: ["Primary Care", "Behavioral Health", "Women's Health", "Pediatrics", "Dental", "Prenatal Care", "Immunizations", "Chronic Disease Management", "Preventive Care"],
     ehrSystem: "Other",
     website: "https://www.caremedchc.org",
-    description: "AMH Comprehensive Medical Centers is a Federally Qualified Health Center located in the Angelino Heights and Alvarado corridor of Los Angeles, serving low-income residents with primary medical care, preventive services, and chronic disease management.",
+    description: "AMH Comprehensive Medical Centers is a Federally Qualified Health Center operating 3 sites in the Alvarado corridor and Maywood areas of Los Angeles, serving disadvantaged communities with primary care, dental, prenatal, behavioral health, and pediatric services. Founded circa 2012. Charity Navigator 95% rating (Four Stars). CEO Jennelyn Argame. Sliding fee scale for all patients.",
     glassdoorRating: null,
     glassdoorReviewCount: null,
     ecmProvider: false,
@@ -3186,6 +3306,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS33896",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Anphon",
@@ -3198,25 +3319,26 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     siteCount: 1,
     patientCount: "N/A",
     staffCount: "N/A",
-    programs: ["Primary Care", "Women's Health", "Pediatrics"],
+    programs: ["Primary Care", "Women's Health", "Pediatrics", "Urgent Care", "Immunizations", "STD Screening", "Health Education"],
     ehrSystem: "Other",
     website: "https://www.amchealthcare.org",
-    description: "Anphon Medical Center (operating as AMC Healthcare) is a community clinic in Inglewood serving underserved populations in the South Bay and Greater Los Angeles area with family medicine, urgent care, and preventive health services.",
+    description: "Anphon Medical Center (operating as AMC Healthcare) is a community clinic in Inglewood serving underserved populations in the South Bay and Greater Los Angeles area with family medicine, urgent care, and preventive health services. Uses Electronic Health Records with bilingual provider staff. Open Mon-Fri 9-6, Sat 9-2. Small practice with ~3 providers.",
     glassdoorRating: null,
-    glassdoorReviewCount: null,
+    glassdoorReviewCount: 0,
     ecmProvider: false,
     nhscApproved: true,
     careersUrl: "https://www.amchealthcare.org/careers.php",
     servesUndocumented: true,
     coverageVulnerabilityPercent: null,
     fundingImpactLevel: "low",
-    missionStatement: "A family of dedicated healthcare professionals committed to exceeding the expectations of every patient, every day.",
+    missionStatement: "To enhance the health status of the greater Los Angeles diverse communities.",
     unionInfo: null,
     qualityScore: null,
     violations: null,
     laborHistory: null,
     hrsaGrantNumber: "LALCS49540",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Arroyo Vista Family Health Foundation",
@@ -3248,6 +3370,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00374",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Asian Pacific Health Care Venture",
@@ -3279,6 +3402,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00787",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Behavioral Health Services",
@@ -3310,19 +3434,20 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS29048",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Benevolence Industries",
     slug: "benevolence-industries",
-    city: "Los Angeles",
+    city: "Torrance",
     county: "Los Angeles",
     region: "Los Angeles",
-    lat: 34.0522,
-    lng: -118.2437,
+    lat: 33.8358,
+    lng: -118.3406,
     siteCount: 11,
     patientCount: "5,000+ families per year",
-    staffCount: "N/A",
-    programs: ["Primary Care", "Dental", "Behavioral Health", "HIV/AIDS", "Women's Health", "Pediatrics", "Mobile Unit"],
+    staffCount: "~75",
+    programs: ["Primary Care", "Dental", "Behavioral Health", "HIV/AIDS", "Women's Health", "Pediatrics", "Mobile Unit", "Adult Day Health Care", "Case Management", "Youth Programs", "Health Education", "Immunizations"],
     ehrSystem: "Other",
     website: "https://www.bhchealth.org",
     description: "Benevolence Health Centers (BHC) is a Federally Qualified Health Center operating since 2005 with multiple clinic locations across Los Angeles and Orange counties, serving more than 5,000 families per year with medical, dental, mental health, HIV/AIDS, and senior services. BHC operates a mobile unit to reach harder-to-serve populations.",
@@ -3341,6 +3466,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26616",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Beverly Community Clinic",
@@ -3348,15 +3474,15 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     city: "Los Angeles",
     county: "Los Angeles",
     region: "Los Angeles",
-    lat: 34.0522,
-    lng: -118.2437,
+    lat: 34.067,
+    lng: -118.270,
     siteCount: 1,
-    patientCount: "N/A",
-    staffCount: "N/A",
-    programs: ["Primary Care", "Pediatrics"],
+    patientCount: "6,384 patients / 37,386 visits (parent org CCCHC)",
+    staffCount: "200+ (parent org, 15 sites)",
+    programs: ["Primary Care", "Pediatrics", "OB/GYN", "Family Planning", "Behavioral Health", "Chiropractic", "Podiatry", "HIV/AIDS Case Management", "STD Testing", "Drug Testing", "Medi-Cal Enrollment", "Chronic Disease Management", "School-Based Mobile Health"],
     ehrSystem: "Other",
     website: "https://beverlycommunityclinic.com",
-    description: "Beverly Community Clinic is a Federally Qualified Health Center located in Historic Filipinotown / Westlake area of Los Angeles, providing primary care and preventive services to low-income and underinsured residents.",
+    description: "Beverly Community Clinic is 1 of 15 FQHC sites (plus 5 mobile units) operated by Central City Community Health Center (CCCHC), Inc., founded in 1994 by community advocates in South Los Angeles. Located in the Westlake/Historic Filipinotown area, it serves low-income and medically underserved residents below 200% FPL across LA, Orange, Riverside, and San Bernardino counties. Parent org provides comprehensive primary care, OB/GYN, behavioral health, HIV/AIDS services, and school-based mobile health.",
     glassdoorRating: null,
     glassdoorReviewCount: null,
     ecmProvider: false,
@@ -3372,6 +3498,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS52964",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Beverlycare",
@@ -3403,6 +3530,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS35349",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Buddhist Tzu Chi Medical Foundation",
@@ -3415,12 +3543,12 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     siteCount: 15,
     patientCount: "N/A",
     staffCount: "N/A",
-    programs: ["Dental", "Vision Care", "Traditional/Integrative Medicine"],
+    programs: ["Primary Care", "Dental", "Vision Care", "Traditional/Integrative Medicine", "Acupuncture", "Mobile Clinics", "Community Outreach", "Bone Marrow Donation"],
     ehrSystem: "Other",
     website: "https://tzuchimedical.us",
-    description: "Buddhist Tzu Chi Medical Foundation (FQHC Look-Alike since Nov 2020) operates 3 permanent clinics in Alhambra, South El Monte, and Wilmington plus 12 mobile clinics serving LA, Orange County, Fresno, San Jose, and beyond. Provides free medical, dental, vision, and acupuncture care in 60+ languages to the uninsured and underserved. Supported by the international Buddhist Tzu Chi Foundation humanitarian network.",
-    glassdoorRating: null,
-    glassdoorReviewCount: null,
+    description: "Buddhist Tzu Chi Medical Foundation (FQHC Look-Alike since Nov 2020) operates 3 permanent clinics in Alhambra, South El Monte, and Wilmington plus 12 mobile clinics serving LA, Orange County, Fresno, San Jose, and beyond. Provides free medical, dental, vision, and acupuncture care in 60+ languages to the uninsured and underserved. Mobile clinic events serve 4,200-4,500 individuals per day. Supported by the international Buddhist Tzu Chi Foundation humanitarian network (10M+ members, 68 countries). Partners with Molina Healthcare, Kaiser Permanente, and City of LA. Operates world's 5th largest bone marrow bank.",
+    glassdoorRating: 3.9,
+    glassdoorReviewCount: 50,
     ecmProvider: false,
     nhscApproved: true,
     careersUrl: "https://tzuchimedical.us/volunteer/",
@@ -3434,6 +3562,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS40173",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Cali Med",
@@ -3449,9 +3578,9 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     programs: ["Primary Care"],
     ehrSystem: "Other",
     website: "https://www.ca-med.org",
-    description: "CaliMed Health Center is a nonprofit community clinic in South Gate serving the working-class, predominantly Latino population of southeast Los Angeles County with primary care and preventive health services.",
+    description: "CaliMed Health Center is a nonprofit community clinic in South Gate serving the working-class, predominantly Latino population of southeast Los Angeles County with primary care and preventive health services. Small practice with multilingual providers (English, Hebrew, Farsi). Open Mon-Fri 8:30-5:00.",
     glassdoorRating: null,
-    glassdoorReviewCount: null,
+    glassdoorReviewCount: 0,
     ecmProvider: false,
     nhscApproved: true,
     careersUrl: null,
@@ -3465,6 +3594,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS49537",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Camino Health Center",
@@ -3480,8 +3610,8 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     programs: ["Primary Care", "Dental", "Behavioral Health", "Vision", "WIC", "Telehealth", "Optometry", "Lab Services", "Chronic Disease Management", "Care Coordination"],
     ehrSystem: "Other",
     website: "https://caminohealthcenter.org",
-    description: "Camino Health Center is a nonprofit FQHC founded in 1982 serving the underinsured and uninsured residents of south Orange County through three locations in Lake Forest, San Clemente, and San Juan Capistrano. The center provides over 100,600 patient visits annually through primary medical care, family dentistry, behavioral health, optometry, WIC, and lab services. PCMH designation. 60%+ employees work 10+ years. 100% employee coverage, 80% dependent, tuition reimbursement.",
-    glassdoorRating: null,
+    description: "Camino Health Center is a nonprofit FQHC founded in 1982 serving the underinsured and uninsured residents of south Orange County through three locations in Lake Forest, San Clemente, and San Juan Capistrano. The center provides over 100,600 patient visits annually through primary medical care, family dentistry, behavioral health, optometry, WIC, and lab services. NCQA Patient Centered Medical Home designated. 60%+ employees work 10+ years. 100% employee coverage, 80% dependent, tuition reimbursement. Affiliated with Providence network.",
+    glassdoorRating: 5.0,
     glassdoorReviewCount: 11,
     ecmProvider: false,
     nhscApproved: true,
@@ -3496,6 +3626,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS24195",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Chinatown Service Center",
@@ -3527,6 +3658,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS08735",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Clinica Msr. Oscar A Romero",
@@ -3558,6 +3690,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00844",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Community Medical Wellness Centers, USA",
@@ -3589,6 +3722,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28986",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Community Medicine",
@@ -3620,6 +3754,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS31618",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "De Novo Health Care",
@@ -3651,6 +3786,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS32749",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "El Proyecto del Barrio",
@@ -3682,6 +3818,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS06647",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Families Together of Orange County",
@@ -3713,6 +3850,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS00186",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Garfield Health Center",
@@ -3744,6 +3882,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS00124",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Gracelight Community Health",
@@ -3775,6 +3914,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00871",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Harbor Community Clinic",
@@ -3806,6 +3946,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28366",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Health Access for All",
@@ -3837,6 +3978,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS33794",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Hurtt Family Health Clinic",
@@ -3868,6 +4010,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS12875",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "Korean Community Services",
@@ -3899,6 +4042,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS33646",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Korean Health, Education, Information and Research Center",
@@ -3930,6 +4074,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26620",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Kwang He Won Health CTR",
@@ -3961,6 +4106,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS47458",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Laguna Beach Community Clinic",
@@ -3992,6 +4138,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS32582",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Livingstone Community Development",
@@ -4023,6 +4170,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS31259",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Los Angeles Free Clinic., the",
@@ -4054,6 +4202,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS24115",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Los Angeles LGBT Center",
@@ -4085,6 +4234,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26621",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Mission City Community Network",
@@ -4116,6 +4266,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS08241",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Nhan Hoa Comprehensive Health Care Clinic",
@@ -4147,6 +4298,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26622",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Noalab Clinic",
@@ -4178,6 +4330,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS54729",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "North Orange County Regional Health Foundation",
@@ -4209,6 +4362,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS33647",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Northeast Community Clinic",
@@ -4240,6 +4394,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS12869",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Pediatric and Family Medical Foundation",
@@ -4271,6 +4426,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS04223",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Precision Health Center",
@@ -4302,6 +4458,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS47395",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Saint Youstina",
@@ -4333,6 +4490,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS45697",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "San Fernando Community Hospital",
@@ -4364,6 +4522,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28994",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Santo Nino Health Center",
@@ -4395,6 +4554,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS54730",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Serenity Care Health Group",
@@ -4426,6 +4586,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS32103",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Serve the People Community Health Center",
@@ -4457,6 +4618,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26627",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "Sfv Health Center",
@@ -4488,6 +4650,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS49538",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Share Our Selves",
@@ -4519,6 +4682,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS24199",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Southern California Medical Center",
@@ -4550,6 +4714,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28368",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Southland Integrated Services",
@@ -4581,6 +4746,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28371",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "St. Anthony Medical Centers, A Nonprofit",
@@ -4612,6 +4778,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28369",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "St. Jude Neighborhood Health Centers",
@@ -4644,6 +4811,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26628",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Tarzana Treatment Centers",
@@ -4675,6 +4843,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS40177",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Tender Care Community Clinic",
@@ -4706,6 +4875,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS33879",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "The Achievable Foundation",
@@ -4737,6 +4907,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26611",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "The Children's Clinic, Serving Children and Their Families",
@@ -4768,6 +4939,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00264",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "The Clinic",
@@ -4799,6 +4971,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00755",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "The R.o.a.d.s. Foundation",
@@ -4830,6 +5003,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28991",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Tl Health Care Foundation",
@@ -4861,6 +5035,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS54782",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Tri-state Community Healthcare Center",
@@ -4892,6 +5067,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28370",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "University Muslim Medical Association",
@@ -4923,6 +5099,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS10609",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "University of California Irvine",
@@ -4954,6 +5131,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00461",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Valley Community Healthcare",
@@ -4985,6 +5163,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS04222",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "White Memorial Community Health Center",
@@ -5016,6 +5195,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS31625",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Wilmington Community Clinic",
@@ -5047,6 +5227,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS24202",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Yehowa Medical Services",
@@ -5078,6 +5259,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS33648",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   // ─────────────────────────────────────────────
   // BAY AREA — HRSA IMPORT (21)
@@ -5113,6 +5295,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: [{ type: "labor-dispute" as const, description: "270 layoffs planned then deferred March 4, 2026 after Board of Supervisors intervention. $91.7M projected deficit FY2026.", date: "2026-03-04", status: "ongoing" as const, union: "SEIU 1021", source: "https://oaklandside.org/2026/03/04/alameda-health-system-layoffs-deferred-county-supervisors/" }],
     hrsaGrantNumber: "H80CS00047",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Alliance Medical Center",
@@ -5144,6 +5327,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00249",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Asian and Pacific Islander Wellness Center",
@@ -5175,6 +5359,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28978",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Brighter Beginnings",
@@ -5206,6 +5391,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS00176",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Children's Hospital & Research Center at Oakland",
@@ -5237,6 +5423,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00052",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Coppertower Family Medical Center",
@@ -5268,6 +5455,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26608",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Contra Costa Health",
@@ -5299,6 +5487,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: [{ type: "labor-dispute", description: "46 nursing positions eliminated due to county budget cuts; ECM programs being dismantled.", date: "2026-02-01", status: "ongoing", union: "CNA", source: null }],
     hrsaGrantNumber: "H80CS00050",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "Santa Clara Valley Health",
@@ -5330,6 +5519,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: [{ type: "labor-dispute", description: "365 FTE cuts announced due to $250M county budget shortfall.", date: "2026-02-01", status: "ongoing", union: "SEIU 521", source: null }],
     hrsaGrantNumber: "H80CS01442",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "Equity Health",
@@ -5361,6 +5551,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00381",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Indian Health Center of Santa Clara Valley",
@@ -5392,6 +5583,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS02325",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Mission Area Health Associates",
@@ -5423,6 +5615,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00590",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Ole Health",
@@ -5455,6 +5648,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS04219",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Peninsula Healthcare Connection",
@@ -5486,6 +5680,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS33816",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Petaluma Health Center",
@@ -5518,6 +5713,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00587",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Ritter Center",
@@ -5549,6 +5745,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26609",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "San Mateo Medical Center",
@@ -5581,6 +5778,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00051",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "School Health Clinics of Santa Clara County",
@@ -5612,6 +5810,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00885",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Solano County Health & Social Services Department",
@@ -5643,6 +5842,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS04218",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Asian Americans for Community Involvement (AACI)",
@@ -5674,6 +5874,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26615",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "The Davis Street Community Center",
@@ -5705,6 +5906,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28979",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "West County Health Centers",
@@ -5736,6 +5938,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00242",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   // ─────────────────────────────────────────────
   // SAN DIEGO — HRSA IMPORT (6)
@@ -5771,6 +5974,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS06648",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   // La Maestra Family Clinic — merged into curated "La Maestra Community Health Centers" entry (slug: la-maestra-community-health-centers)
   // North County Health Project (H80CS00228) — merged into curated "TrueCare" entry (slug: truecare)
@@ -5804,6 +6008,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26623",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "St. Vincent de Paul Village",
@@ -5835,6 +6040,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS10606",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   // ─────────────────────────────────────────────
   // CENTRAL VALLEY — HRSA IMPORT (7)
@@ -5869,6 +6075,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00338",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Community Medical Centers",
@@ -5900,6 +6107,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00224",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "County of Stanislaus",
@@ -5931,6 +6139,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS00076",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Greater Fresno Health Organization",
@@ -5962,6 +6171,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS00041",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "San Joaquin County Health Services Employees Guild",
@@ -5993,6 +6203,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS00158",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Tulare, County of",
@@ -6024,6 +6235,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS00070",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Valley Health Team",
@@ -6056,6 +6268,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00525",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   // ─────────────────────────────────────────────
   // INLAND EMPIRE — HRSA IMPORT (6)
@@ -6090,6 +6303,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS00062",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "Dap Health",
@@ -6122,6 +6336,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28988",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Health Service Alliance",
@@ -6153,6 +6368,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS33333",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Hi-desert Memorial Health Care District",
@@ -6184,6 +6400,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26610",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   // Riverside, County of (H80CS28990) — merged into curated "Riverside University Health System - Community Health Centers" entry (slug: riverside-university-health-system-chc)
   {
@@ -6216,6 +6433,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00657",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   // ─────────────────────────────────────────────
   // SACRAMENTO — HRSA IMPORT (5)
@@ -6250,6 +6468,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28364",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   // Elica Health CTR (H80CS24113) — merged into curated "Elica Health Centers" entry (slug: elica-health-centers)
   {
@@ -6282,6 +6501,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "LALCS00018",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Sacramento County Health Center",
@@ -6314,6 +6534,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00045",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Winters Healthcare Foundation",
@@ -6345,6 +6566,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS04430",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   // ─────────────────────────────────────────────
   // CENTRAL COAST — HRSA IMPORT (6)
@@ -6379,6 +6601,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28983",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "County of Monterey",
@@ -6410,6 +6633,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS33795",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Santa Barbara County Public Health Department",
@@ -6441,6 +6665,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00046",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "Santa Cruz County Health Services Agency",
@@ -6472,6 +6697,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00048",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "Ventura County Health Care Agency",
@@ -6503,6 +6729,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00247",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "San Benito Health Foundation",
@@ -6534,6 +6761,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS08223",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   // ─────────────────────────────────────────────
   // NORTH STATE — HRSA IMPORT (7)
@@ -6568,6 +6796,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS26607",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Harmony Health Medical Clinic and Family Resource Center",
@@ -6599,6 +6828,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS28980",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Karuk Tribe of California",
@@ -6630,6 +6860,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS04224",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Mccloud Healthcare Clinic",
@@ -6661,6 +6892,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS24112",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Mountain Valleys Health Centers",
@@ -6692,6 +6924,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00260",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   {
     name: "Northeastern Rural Health Clinics",
@@ -6723,6 +6956,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00709",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Western Sierra Medical Clinic",
@@ -6754,6 +6988,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS08234",
     dataSource: "hrsa-enriched" as const,
+    greatPlaceToWork: null,
   },
   // ─────────────────────────────────────────────
   // NORTH COAST — HRSA IMPORT (7)
@@ -6788,6 +7023,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS22682",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Long Valley Health Center",
@@ -6819,6 +7055,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00524",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Mendocino Coast Clinics",
@@ -6850,6 +7087,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00876",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   // MCHC Health Centers (H80CS00628) — merged into curated "MCHC Health Centers" entry (slug: mchc-health-centers)
   {
@@ -6882,6 +7120,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00575",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "Redwoods Rural Health Center",
@@ -6913,6 +7152,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS00251",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
   {
     name: "The Wecare Group",
@@ -6944,5 +7184,6 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     laborHistory: null,
     hrsaGrantNumber: "H80CS04431",
     dataSource: "hrsa-enriched",
+    greatPlaceToWork: null,
   },
 ];
