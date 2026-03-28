@@ -2,7 +2,7 @@
 
 Run the comprehensive daily update pipeline. **Target time: under 30 minutes.**
 
-This command replaces both the old `/daily-update` (intelligence only) and the `daily-deep-dive-update` scheduled task (platform vitals only). It does three things every day:
+Three phases every day:
 1. **Intelligence** (Steps 1–5) — Scan for news, policy, jobs, compliance, AI, regional developments
 2. **Enrichment** (Step 6) — Improve the platform's data quality on a daily rotation
 3. **Quality + Signal** (Steps 7–9) — TypeScript check, stats drift, newsletter prep, shareable insight
@@ -11,326 +11,142 @@ This command replaces both the old `/daily-update` (intelligence only) and the `
 
 ## PHASE 1: INTELLIGENCE
 
-### Step 1: WARN Act Check (FQHC-only)
+### Step 1: WARN Act Check + Job Scan (single bash block)
 
-1. Download CA EDD WARN XLSX: `curl -sL "https://edd.ca.gov/siteassets/files/jobs_and_training/warn/warn_report1.xlsx" -o /tmp/warn-report.xlsx`
-2. Parse with Python/openpyxl — the detailed report is on the sheet named "Detailed WARN Report " (note trailing space). Headers in row 2, data starts row 3. Columns: County/Parish, Notice Date, Processed Date, Effective Date, Company, Layoff/Closure, No. Of Employees, Address, Related Industry.
-3. Filter for healthcare entries (industry contains "62 health care" or healthcare keywords in company name)
-4. **Only flag entries that are actual FQHCs** — cross-reference against our FQHC directory in `california-fqhcs.ts`
-5. Skip hospitals, health plans, dental plans, medical device companies, etc.
-6. If no FQHC WARN filings found: "No new FQHC WARN filings today" and move on
-7. Also do a quick web search for "California FQHC layoffs [current month] [year]" to catch non-WARN layoff news
-
-**Only pause for review if new FQHC entries found.**
-
----
-
-### Step 2: Job Scan (API FQHCs only)
-
-Run all 4 scrapeable FQHCs in parallel via Bash (no WebFetch needed):
+Run WARN check and all 4 job APIs in a single bash call:
 
 ```bash
-# AltaMed (Workday)
-curl -s -X POST 'https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs' \
-  -H 'Content-Type: application/json' \
-  -d '{"appliedFacets":{},"limit":20,"offset":0,"searchText":""}' | python3 -c "import sys,json; d=json.load(sys.stdin); print('AltaMed:', d.get('total'))"
+# WARN Act check
+curl -sL "https://edd.ca.gov/siteassets/files/jobs_and_training/warn/warn_report1.xlsx" -o /tmp/warn-report.xlsx && python3 -c "
+import openpyxl
+wb = openpyxl.load_workbook('/tmp/warn-report.xlsx')
+ws = wb['Detailed WARN Report ']
+rows = list(ws.iter_rows(min_row=3, values_only=True))
+hc = [r for r in rows if r[8] and '62' in str(r[8]).lower()]
+print(f'WARN: {len(rows)} total, {len(hc)} healthcare')
+for r in hc[-10:]:
+    print(f'  {r[4]} | {r[6]} employees | {r[0]} | {r[8]}')
+"
 
-# FHCSD (Workday)
-curl -s -X POST 'https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs' \
-  -H 'Content-Type: application/json' \
-  -d '{"appliedFacets":{},"limit":20,"offset":0,"searchText":""}' | python3 -c "import sys,json; d=json.load(sys.stdin); print('FHCSD:', d.get('total'))"
-
-# Asian Health Services (Lever)
-curl -s 'https://api.lever.co/v0/postings/ahschc?mode=json' | python3 -c "import sys,json; d=json.load(sys.stdin); print('AHS:', len(d))"
-
-# La Clinica (HRMDirect) — use WebFetch
+# Job counts (all 4 in parallel)
+curl -s -X POST 'https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs' -H 'Content-Type: application/json' -d '{"appliedFacets":{},"limit":1,"offset":0,"searchText":""}' | python3 -c "import sys,json; print('AltaMed:', json.load(sys.stdin).get('total'))" &
+curl -s -X POST 'https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs' -H 'Content-Type: application/json' -d '{"appliedFacets":{},"limit":1,"offset":0,"searchText":""}' | python3 -c "import sys,json; print('FHCSD:', json.load(sys.stdin).get('total'))" &
+curl -s 'https://api.lever.co/v0/postings/ahschc?mode=json' | python3 -c "import sys,json; print('AHS:', len(json.load(sys.stdin)))" &
+wait
 ```
 
-Report counts and compare to previous (check `career-page-config.ts` notes for last counts). Only pause if significant changes (>10 net new).
+For La Clinica, use WebFetch on `laclinica.hrmdirect.com/employment/job-openings.php` and count job listings.
+
+Cross-reference WARN healthcare entries against `california-fqhcs.ts` slugs. **Only flag actual FQHC filings.**
 
 ---
 
-### Step 3: Legislative & Policy Scan
+### Step 2: Launch 7 Intelligence Scan Agents (all in parallel)
 
-Run 4 web searches in parallel to scan for FQHC-relevant policy, funding, and legislative developments:
+Launch ALL of these as background agents simultaneously. Each agent does web searches and returns findings — no file editing.
 
-#### Search Queries (run all 4):
+**Agent 1 — Legislative & Policy Scan** (4 searches):
+- `"FQHC" OR "community health center" funding legislation [month] [year]`
+- `California Medi-Cal FQHC reimbursement OR funding [month] [year]`
+- `Medicaid cuts FQHC impact [year] community health centers`
+- `California county health department FQHC layoffs OR cuts OR funding [month] [year]`
 
-1. **Federal FQHC policy:** `"FQHC" OR "community health center" funding legislation [current month] [year]`
-2. **California Medi-Cal:** `California Medi-Cal FQHC reimbursement OR funding [current month] [year]`
-3. **H.R. 1 / Medicaid impact:** `Medicaid cuts FQHC impact [year] community health centers`
-4. **CA county/local responses:** `California county health department FQHC layoffs OR cuts OR funding [current month] [year]`
+**Agent 2 — News & Intelligence Scan** (5 searches):
+- `California FQHC news community health center [month] [year]`
+- `"health center" OR "FQHC" merger acquisition California [year]`
+- `undocumented immigrant healthcare California FQHC [month] [year]`
+- `FQHC patient story community health center California [year]`
+- `NACHC CPCA advocacy FQHC coalition California [month] [year]`
 
-#### Sources to Prioritize (highest signal):
+**Agent 3 — AI & Innovation Scan** (3 searches):
+- `FQHC "artificial intelligence" OR "AI" implementation community health center [month] [year]`
+- `NACHC technology AI EHR community health center [year]`
+- `"ambient documentation" OR "AI scribe" OR "clinical documentation" FQHC OR "community health center" [month] [year]`
 
-| Source | Type | What to Look For |
-|--------|------|-----------------|
-| **NACHC** (nachc.org) | Federal | Funding alerts, legislative updates, CHCF reauthorization, advocacy days |
-| **CPCA** (cpca.org) | State | CA-specific policy, managed care changes, CalAIM updates |
-| **CHCF** (chcf.org) | State | Medi-Cal analysis, funding cliff projections, provider payment data |
-| **CA LAO** (lao.ca.gov) | State | Budget analyses, Medi-Cal fiscal outlook, spending projections |
-| **DHCS** (dhcs.ca.gov) | State | Medi-Cal rate changes, managed care procurement, FQHC/RHC bulletins |
-| **KFF** (kff.org) | Federal | Medicaid data, enrollment trends, policy explainers |
-| **Fierce Healthcare** | Industry | Layoff tracker, financial news, system consolidations |
-| **Becker's Hospital Review** | Industry | Layoffs, closures, financial distress, executive moves |
-| **Modern Healthcare** | Industry | Live layoff/closure updates, policy analysis |
-| **CalMatters** | State | Budget coverage, Medi-Cal policy, human impact stories |
+**Agent 4 — Cultural & Movement Scan** (2 searches):
+- `FQHC "cultural competency" OR "cultural humility" OR "CLAS standards" community health [month] [year]`
+- `California "community health" equity CHW promotora workforce diversity [month] [year]`
 
-#### What to Capture:
-
-For each significant finding, record:
-
-```
-- **What:** [One-line headline]
-- **Source:** [URL]
-- **Date:** [Published date]
-- **Impact on FQHCs:** [1-2 sentences: workforce, funding, operations, or patient access impact]
-- **Actionable for us:** [Newsletter content? Layoff tracker update? Blog topic? Data update to funding-impact-data.ts?]
-```
-
-#### Decision Rules:
-
-- **Update `funding-impact-data.ts`** if: New policy with a date, dollar amount, and people affected (add to `policyTimeline[]`)
-- **Update `california-fqhc-layoffs.ts`** if: Named FQHC announces layoffs or closures
-- **Flag for blog topic** if: Major policy shift, new data report, or trend worth explaining
-- **Flag for newsletter content** if: Any insight useful for candidates (job market implications) or employers (funding/operational impact)
-- **No code changes needed** if: General industry news without specific actionable data
-
-#### Key Policy Dates to Track (2026):
-
-| Date | Event | Status |
-|------|-------|--------|
-| 2026-02-03 | Consolidated Appropriations Act signed — $4.6B CHCF | Happened |
-| 2026-01-01 | Enhanced FMAP sunsets (Medicaid expansion) | Happened |
-| 2026-01-01 | Medi-Cal enrollment freeze for undocumented adults | Happened |
-| 2026-07-01 | Dental coverage eliminated for undocumented adults | Upcoming |
-| 2026-07-01 | MCO tax adjustment deadline (federal guidance) | Upcoming |
-| 2026-10-01 | Immigrant eligibility restrictions take effect | Upcoming |
-| 2026-12-31 | CHCF authorization expires (needs reauthorization!) | Upcoming |
-| 2026-12-31 | Semi-annual redetermination requirement begins | Upcoming |
-| 2027-01-01 | Medicaid work requirements take effect (80 hrs/mo) | Upcoming |
-| 2028-01-01 | Provider tax rate phase-down begins (6% → 3.5% by 2032) | Upcoming |
-| 2028-07-01 | PPS elimination for UIS services | Upcoming |
-
-**Only pause for review if significant new developments found that need immediate code updates.**
-
----
-
-### Step 3.5: News & Intelligence Scan
-
-Run 5 additional searches to populate the intelligence feed in `fqhc-news-intel.ts`:
-
-#### Search Queries (run all 5):
-
-1. **FQHC news:** `California FQHC news community health center [current month] [year]`
-2. **Mergers & acquisitions:** `"health center" OR "FQHC" merger acquisition California [year]`
-3. **Undocumented patient access:** `undocumented immigrant healthcare California FQHC [current month] [year]`
-4. **Patient stories:** `FQHC patient story community health center California [year]`
-5. **Lobbying & advocacy:** `NACHC CPCA advocacy FQHC coalition California [current month] [year]`
-
-#### What to Capture:
-
-For each significant finding, create an IntelItem entry:
-
-```typescript
-{
-  id: "kebab-case-id",
-  date: "YYYY-MM-DD",
-  headline: { en: "...", es: "..." },
-  summary: { en: "...", es: "..." },
-  category: "legislation" | "lobbying" | "patient-story" | "merger-acquisition" | "funding" | "workforce" | "undocumented-access" | "change-management",
-  impactLevel: "critical" | "high" | "medium" | "low",
-  type: "news",
-  sourceUrl: "https://...",
-  sourceOrg: "Source Name",
-  region: "California" | "Federal" | "County Name",
-  affectedOrgs: ["Org Name"], // optional
-  affectedOrgSlugs: ["slug"], // optional — from california-fqhcs.ts
-  tags: ["tag1", "tag2"],
-}
-```
-
-#### Decision Rules for Impact Level:
-
-- **Critical:** Direct revenue impact >$10M, >200 workers displaced, legislative passage
-- **High:** Named FQHC affected, significant policy change, >50 workers
-- **Medium:** Industry trend, no specific FQHC named, emerging issue
-- **Low:** Background context, general industry news
-
-#### How to Update:
-
-1. Add new IntelItem entries to `INTEL_ITEMS[]` in `src/lib/fqhc-news-intel.ts`
-2. Keep items sorted newest-first within each category section
-3. Maintain last 90 days of items (remove entries older than 90 days)
-4. Every item MUST have a primary source URL
-5. Always include bilingual headline/summary (EN + ES)
-
-**Only pause for review if new intel items found.**
-
----
-
-### Step 3.6: AI & Innovation Scan
-
-Run 3 web searches to track AI adoption at FQHCs for the AI Tracker (`fqhc-ai-tracker.ts`):
-
-#### Search Queries (run all 3):
-
-1. **FQHC AI implementation:** `FQHC "artificial intelligence" OR "AI" implementation community health center [current month] [year]`
-2. **NACHC technology:** `NACHC technology AI EHR community health center [year]`
-3. **EHR AI documentation:** `"ambient documentation" OR "AI scribe" OR "clinical documentation" FQHC OR "community health center" [current month] [year]`
-
-#### Decision Rules:
-
-- **Add to `fqhc-ai-tracker.ts` `AI_ADOPTION_ITEMS[]`** if: Named FQHC or FQHC vendor announces AI implementation, partnership, or results
-- **IMPORTANT:** New AI items go in `AI_ADOPTION_ITEMS[]` (ends around line 745), NOT in `FQHC_AI_VENDORS[]` (starts around line 788). The vendor array uses a different `AIVendor` interface.
-- **Link to existing intel items** if: AI adoption connects to a broader policy or workforce story
-- **Populate `affectedOrgSlugs`** on related IntelItems when an AI item references a specific FQHC in our directory
-- **Skip** if: Generic AI-in-healthcare news without FQHC relevance
-
-**Only pause for review if new AI adoption items found.**
-
----
-
-### Step 3.7: Cultural & Movement Content Scan
-
-Run 2 web searches to track cultural competency and FQHC movement developments:
-
-#### Search Queries (run both):
-
-1. **FQHC cultural competency:** `FQHC "cultural competency" OR "cultural humility" OR "CLAS standards" community health [current month] [year]`
-2. **Community health equity:** `California "community health" equity CHW promotora workforce diversity [current month] [year]`
-
-#### Decision Rules:
-
-- **Update `cultural-humility.ts`** if: New regulatory requirement, CLAS standard update, or significant program launch
-- **Update `fqhc-movement-history.ts`** if: Major milestone in the movement (new legislation, significant alliance, crisis event)
-- **Flag for blog** if: Compelling story about cultural humility in practice, CHW success stories, or community-centered care innovations
-- **Skip** if: Generic DEI news without FQHC relevance
-
-**Only pause for review if significant cultural competency or movement developments found.**
-
----
-
-### Step 3.8: Regional News Scan (Rotation)
-
-Scan 2 regions per day on a 5-day rotation. LA and Bay Area get 2x/week coverage; all others 1x/week. Regional news sources are configured in `src/lib/regional-news-sources.ts`.
-
-#### Today's Rotation
+**Agent 5 — Regional News Scan** (6 searches, 2 regions per rotation):
 
 | Day | Region A | Region B |
 |-----|----------|----------|
-| **Monday** | Los Angeles (89 FQHCs) | Sacramento (12) |
-| **Tuesday** | Bay Area (40 FQHCs) | Central Valley (16) |
-| **Wednesday** | San Diego (14) | Inland Empire (15) |
-| **Thursday** | Los Angeles | Central Coast (10) |
-| **Friday** | Bay Area | North State (12) + North Coast (11) |
+| Monday | Los Angeles | Sacramento |
+| Tuesday | Bay Area | Central Valley |
+| Wednesday | San Diego | Inland Empire |
+| Thursday | Los Angeles | Central Coast |
+| Friday | Bay Area | North State + North Coast |
 
-Check today's day of week and run searches for the corresponding regions.
+3 queries per region using data from `src/lib/regional-news-sources.ts`:
+- Local government & budget cuts
+- FQHC/clinic-specific news
+- Health system disruption
 
-#### Search Queries (3 per region, run all in parallel)
+**Agent 6 — Compliance & Enforcement Scan** (5 searches):
+- `HRSA FQHC "operational site visit" OR "conditions of award" OR "progressive action" enforcement [month] [year]`
+- `OCR HIPAA breach settlement "community health center" OR FQHC [month] [year]`
+- `OIG "false claims act" OR "civil monetary penalty" FQHC OR "health center" billing fraud [month] [year]`
+- `DHCS California FQHC audit OR "billing compliance" OR "Medi-Cal fraud" [month] [year]`
+- `340B HRSA audit OR "contract pharmacy" violation OR "manufacturer restriction" FQHC [month] [year]`
 
-**Query A — Local Government & Budget:**
-`"{county1}" OR "{county2}" county health department budget cuts OR layoffs OR clinic closure [current month] [year]`
+**Agent 7 — Tech Stack Vendor Scan** (3 searches):
+- `FQHC healthcare technology vendor [year]`
+- `community health center EHR implementation [year]`
+- `NACHC technology partnership discount [year]`
 
-**Query B — FQHC/Clinic-Specific News:**
-`"{keyFQHC1}" OR "{keyFQHC2}" OR "community health center" "{region name}" layoffs OR funding OR closure [current month] [year]`
+#### Agent Instructions (include in every agent prompt):
 
-**Query C — Health System Disruption:**
-`"{majorSystem1}" OR "{majorSystem2}" layoffs OR cuts OR restructuring "{key city}" [current month] [year]`
-
-Use the region's data from `src/lib/regional-news-sources.ts` for counties, key FQHCs, major health systems, and news outlets.
-
-#### Decision Rules for Regional News:
-
-- **Critical:** City/county budget cuts >$10M, >100 workers displaced, clinic closure affecting >5,000 patients
-- **High:** Named FQHC or DPH directly affected, county board vote on health funding, hospital system layoffs >50
-- **Medium:** Regional health coalition news, advocacy updates, workforce trends
-- **Low:** General regional health industry news without direct FQHC impact
-
-**Only pause for review if critical regional findings discovered.**
-
----
-
-### Step 3.9: Compliance & Enforcement Scan
-
-Run 5 compliance-focused web searches:
-
-1. **HRSA Enforcement:** `HRSA FQHC "operational site visit" OR "conditions of award" OR "progressive action" enforcement [current month] [year]`
-2. **HIPAA Breaches:** `OCR HIPAA breach settlement "community health center" OR FQHC [current month] [year]`
-3. **OIG / False Claims:** `OIG "false claims act" OR "civil monetary penalty" FQHC OR "health center" billing fraud [current month] [year]`
-4. **DHCS Audits:** `DHCS California FQHC audit OR "billing compliance" OR "Medi-Cal fraud" [current month] [year]`
-5. **340B Violations:** `340B HRSA audit OR "contract pharmacy" violation OR "manufacturer restriction" FQHC [current month] [year]`
-
-#### Decision Rules:
-
-- **Update `fqhc-compliance.ts`** if: new enforcement action creates a new risk item, HRSA updates OSV requirements, new compliance deadline announced
-- **Update `COMPLIANCE_CALENDAR`** if: new filing deadline, audit cycle change, regulatory effective date announced
-- **Add IntelItem only** if: general compliance news, settlement without new requirements, industry trend
-- **Skip if**: story is about non-FQHC healthcare providers, story is >30 days old, or finding already captured
-
-**Only pause for review if critical enforcement action discovered affecting CA FQHCs.**
+Tell each agent:
+- Use WebSearch for all queries
+- Filter for genuinely new findings from the current month
+- For each significant finding, report: headline, source URL, date, impact on FQHCs, category, impact level (critical/high/medium/low)
+- Do NOT edit any files — research only
+- Do NOT report items already tracked (check against the current data by reading the relevant .ts file first)
 
 ---
 
-### Step 3.10: FQHC Tech Stack Scan (3 searches)
+### Step 3: Process Agent Results & Apply Changes
 
-1. `FQHC healthcare technology vendor [year]` — new partnerships, product launches, pricing changes
-2. `community health center EHR implementation [year]` — EHR migrations, go-lives, integration updates
-3. `NACHC technology partnership discount [year]` — consortium deals, nonprofit pricing, FQHC-specific programs
+As each agent reports back, process findings:
 
-#### Decision Rules:
+#### Decision Rules for New Intel Items:
 
-- **Update `fqhc-tech-stack.ts`** if: vendor launches FQHC-specific product, pricing change confirmed, new NACHC/CPCA partnership, EHR integration change, security breach at FQHC vendor, vendor acquired or merged
-- **Add IntelItem** if: major vendor announcement affects FQHC operations
-- **Skip if**: general enterprise software news without FQHC relevance
+| Impact Level | Criteria |
+|---|---|
+| **Critical** | Direct revenue impact >$10M, >200 workers displaced, legislative passage |
+| **High** | Named FQHC affected, significant policy change, >50 workers |
+| **Medium** | Industry trend, no specific FQHC named, emerging issue |
+| **Low** | Background context, general industry news |
 
-**Only pause for review if a vendor used by multiple FQHCs has a critical issue.**
+#### Where to Add Findings:
 
----
+- **`fqhc-news-intel.ts` INTEL_ITEMS[]** — policy, funding, workforce, M&A, undocumented access, lobbying items
+- **`fqhc-ai-tracker.ts` AI_ADOPTION_ITEMS[]** — AI implementation news (NOT FQHC_AI_VENDORS[])
+- **`california-fqhc-layoffs.ts`** — named FQHC layoff/closure announcements
+- **`funding-impact-data.ts`** — policy with a date, dollar amount, and people affected
+- **`fqhc-compliance.ts`** — new enforcement actions or compliance deadlines
 
-### Step 4: Blog (Mondays only)
-
-Skip unless today is Monday or specifically requested.
-
----
-
-### Step 4.5: Link Quality Check (QC)
-
-After adding any new IntelItem entries, verify all source URLs are valid:
-
-1. For each **new** IntelItem added in this session, use `WebFetch` to verify the `sourceUrl` loads correctly
-2. If a URL returns 404 or redirects to a generic page:
-   - Search for the correct URL using WebSearch
-   - Replace with a verified, working primary source URL
-3. **Common broken URL patterns to avoid:**
-   - **NEVER use generic hub pages** as sourceUrls — always find the specific article/press release
-   - NACHC restructured their site in 2025 — use specific article/blog/resource paths
-   - CHCF changed from `/publication/` to `/resource/` paths — verify before using
-   - DHCS pages use SharePoint/JS — may render blank to WebFetch but are valid; verify via search results
-4. For existing items: spot-check 5 random source URLs each session to catch link rot
-5. **Quality rules:**
-   - Every sourceUrl must be a specific, reachable page — NOT a homepage or section landing page
-   - Source hierarchy: govt (.gov) > policy orgs (nachc.org, kff.org) > industry pubs > news
-
-**Only pause if >3 broken links found in existing items.**
+Every item MUST have a verified primary source URL. Include bilingual headline/summary (EN + ES).
 
 ---
 
-### Step 4.5b: Announcement Banner Check
+### Step 4: Link QC + Banner Check
 
-Review `src/components/layout/AnnouncementBar.tsx`. Update if:
-- The current headline is >7 days old
-- A new blog post, critical intel item, or major event is more compelling
-
-Keep copy short and punchy (under 100 chars). Update both EN and ES text.
+1. For each new item added, verify `sourceUrl` loads (use curl or WebFetch)
+2. Spot-check 5 random existing source URLs
+3. Review `AnnouncementBar.tsx` — update if current headline is >7 days old or a more compelling item exists
+4. Keep banner copy under 100 chars, update both EN and ES
 
 ---
 
-### Step 5: Apply Intelligence Changes
+### Step 5: Apply Stats Updates
 
 1. Update `career-page-config.ts` notes with new job counts and date
-2. Update `INTEL_LAST_UPDATED` and `AI_TRACKER_LAST_UPDATED` constants if items were added
-3. If legislative scan found actionable items: update `funding-impact-data.ts` or `california-fqhc-layoffs.ts`
+2. Update `INTEL_LAST_UPDATED` and `AI_TRACKER_LAST_UPDATED` if items were added
+3. Check hardcoded stats in:
+   - `src/app/[locale]/demo/page.tsx` — FQHC count
+   - `src/app/[locale]/sponsor/page.tsx` — intel count, job count, FQHC count
+   - `public/llms.txt` — all stat references
 
 ---
 
@@ -338,100 +154,51 @@ Keep copy short and punchy (under 100 chars). Update both EN and ES text.
 
 ### Step 6: Daily Enrichment Rotation
 
-Pick today's enrichment task based on the day of the week:
+| Day | Task |
+|-----|------|
+| **Monday** | Enrich 3-5 thin FQHC profiles (hrsa-import → hrsa-enriched) |
+| **Tuesday** | Test 2 new career page scrapers (expand from 4 → 14+ scrapeable FQHCs) |
+| **Wednesday** | Refresh 5 stale Glassdoor ratings |
+| **Thursday** | Enrich 3-5 thin FQHC profiles (different batch from Monday) |
+| **Friday** | Spot-check 10 source URLs + 5 FQHC websites for link rot |
 
-| Day | Task | Target | Time |
-|-----|------|--------|------|
-| **Monday** | Enrich 3-5 thin FQHC profiles | Work through `hrsa-import` profiles | ~10 min |
-| **Tuesday** | Test 2 new career page scrapers | Expand scrapeable FQHCs from 4 → 14+ | ~10 min |
-| **Wednesday** | Refresh 5 stale Glassdoor ratings | Oldest `lastVerified` dates first | ~8 min |
-| **Thursday** | Enrich 3-5 thin FQHC profiles | Different batch from Monday | ~10 min |
-| **Friday** | Spot-check 10 source URLs + 5 FQHC websites | Data quality maintenance | ~8 min |
+Launch an enrichment agent for Mon/Thu FQHC profile work. The agent should:
+1. Read `california-fqhcs.ts` and find entries with `dataSource: "hrsa-import"` or missing key fields
+2. Research each FQHC via web search (official site, Glassdoor, HRSA, Charity Navigator)
+3. Return structured data for each FQHC (don't edit files — just report findings)
 
-#### Monday/Thursday: FQHC Profile Enrichment
+Then apply the enrichment data to `california-fqhcs.ts` after review.
 
-1. Find thin profiles: search `california-fqhcs.ts` for entries with `dataSource: "hrsa-import"` or missing `glassdoorRating`, `programs`, `mission`, or `staffCount`
-2. For each FQHC to enrich, search for:
-   - `"[Org Name]" community health center California` — official site, news, mission
-   - `"[Org Name]" Glassdoor reviews` — current rating and review count
-   - `"[Org Name]" HRSA` — grant data, patient count, service area
-   - Check Charity Navigator, LinkedIn, Indeed for additional data
-3. Update the FQHC entry in `california-fqhcs.ts`:
-   - Add/update: `glassdoorRating`, `glassdoorReviews`, `mission`, `staffCount`, `programs[]`, `ehr`, `website`
-   - Change `dataSource` from `"hrsa-import"` to `"hrsa-enriched"` when profile is 80%+ complete
-4. A profile is "80% complete" when it has at least: slug, name, location, website, mission OR about, staffCount OR patientCount, 3+ programs, ehr, and either glassdoorRating or qualityScore
-
-#### Tuesday: Career Page Scraper Expansion
-
-1. Check `career-page-config.ts` for FQHCs marked `scrapeable: false` or with `atsType: "unknown"`
-2. Priority targets (known to have scrapeable ATS):
-   - Open Door Community Health Centers (Workday wd503)
-   - Valley Health Team (Workday wd5)
-   - Marin Community Clinics (iCIMS)
-   - Petaluma Health Center (JobVite)
-   - Davis Street Community Center (SmartRecruiters)
-   - United Health Centers (iCIMS)
-3. For each target, use WebFetch on their careers URL to test if job listings are extractable
-4. If successful: update `career-page-config.ts` with `scrapeable: true`, correct `atsType`, `atsApiUrl`, and initial job count in `notes`
-5. If the ATS returns JSON (Workday, Lever, some iCIMS), document the API endpoint
-
-#### Wednesday: Glassdoor Rating Refresh
-
-1. Find FQHCs with oldest Glassdoor data (check for low `glassdoorReviews` counts or data from 2024 or earlier)
-2. Search `"[Org Name]" Glassdoor [year]` for current ratings
-3. Update `glassdoorRating` and `glassdoorReviews` in `california-fqhcs.ts`
-4. This keeps the resilience scorecard's "workforce stability" dimension credible
-
-#### Friday: Link Rot + Website Verification
-
-1. Randomly select 10 `sourceUrl` values from `fqhc-news-intel.ts` — verify via curl/WebFetch
-2. Randomly select 5 `website` values from `california-fqhcs.ts` — verify they still resolve
-3. Fix any broken URLs found
-4. Report: "X/10 source URLs OK, Y/5 FQHC websites OK, Z fixed"
+A profile is "80% complete" when it has: slug, name, location, website, mission OR about, staffCount OR patientCount, 3+ programs, ehr, and either glassdoorRating or qualityScore.
 
 ---
 
 ## PHASE 3: QUALITY + SIGNAL
 
-### Step 7: Platform Quality Check
+### Step 7: TypeScript Check + Stats Count
 
-1. Run `npx tsc --noEmit` — verify TypeScript passes clean
-2. Count current data totals:
-   ```bash
-   echo "Intel items: $(grep -c 'id: "' src/lib/fqhc-news-intel.ts)"
-   echo "AI adoption items: $(grep -c 'id: "' src/lib/fqhc-ai-tracker.ts | head -1)"
-   echo "FQHCs: $(grep -c 'slug: "' src/lib/california-fqhcs.ts)"
-   echo "Layoff entries: $(grep -c 'id: "' src/lib/california-fqhc-layoffs.ts)"
-   ```
-3. Check hardcoded references in these files and update if drifted:
-   - `src/app/[locale]/demo/page.tsx` — FQHC count
-   - `src/app/[locale]/sponsor/page.tsx` — intel count, job count, FQHC count
-   - `public/llms.txt` — all stat references
-4. Verify `INTEL_LAST_UPDATED`, `AI_TRACKER_LAST_UPDATED`, `LAYOFFS_LAST_UPDATED` match today's date (if items were added)
+```bash
+cd /Users/jmw/Documents/Claude\ Projects/fqhc-talent-exchange && npx tsc --noEmit && echo "TypeScript: PASS" || echo "TypeScript: FAIL"
+grep -c 'id: "' src/lib/fqhc-news-intel.ts
+grep -c 'id: "' src/lib/fqhc-ai-tracker.ts | head -1
+grep -c 'slug: "' src/lib/california-fqhcs.ts
+grep -c 'id: "' src/lib/california-fqhc-layoffs.ts
+```
 
 ---
 
 ### Step 8: Today's Signal + Newsletter Queue
 
-1. **Today's Signal:** Review all findings from Steps 1–6. Identify the single most important story. Write a 2-sentence shareable insight that could be:
-   - A LinkedIn post hook
-   - A newsletter subject line
-   - An email to an FQHC executive contact
+1. **Today's Signal:** From all findings, write the single most important 2-sentence insight:
+   `📰 TODAY'S SIGNAL: [Insight]. [Why it matters for FQHCs.]`
 
-   Format: `📰 TODAY'S SIGNAL: [Insight]. [Why it matters for FQHCs.]`
+2. **Newsletter tagging:** Tag new items as `intel-brief` (executives), `pulse` (job seekers), or `both`
 
-2. **Newsletter tagging:** For each new intel item added today, mentally tag it:
-   - `intel-brief` — useful for FQHC executives (policy, funding, compliance, strategy)
-   - `pulse` — useful for job seekers (layoffs, hiring trends, career tips, salary data)
-   - `both` — relevant to both audiences
-
-3. **Blog suggestion:** If 3+ related intel items have accumulated this week around a theme, suggest a blog topic with a working title and angle.
+3. **Blog suggestion:** If 3+ related items accumulated this week, suggest a topic
 
 ---
 
 ### Step 9: Summary
-
-Print the full summary in this format:
 
 ```
 === DAILY UPDATE [YYYY-MM-DD] ===
@@ -447,7 +214,7 @@ Compliance: [summary]
 Tech Stack: [summary]
 
 🔧 ENRICHMENT ([day]'s rotation)
-[What was done — e.g., "Enriched 4 FQHCs: Org A (added Glassdoor 3.2, 12 programs), Org B..."]
+[What was done]
 Progress: [X]/214 FQHCs at 80%+ completeness
 
 ✅ QUALITY
@@ -457,7 +224,7 @@ Stats drift: [any hardcoded values updated, or "None"]
 Banner: [current/updated]
 
 📰 TODAY'S SIGNAL
-[2-sentence shareable insight from today's most important finding]
+[2-sentence shareable insight]
 
 📬 NEWSLETTER QUEUE (this week)
 Intel Brief: [n] items queued
@@ -469,10 +236,8 @@ Blog suggestion: [topic or "None"]
 
 ## Notes
 
-- **Run all intelligence search steps (3–3.10) in parallel** using background agents for speed.
-- Layoff tracker page date is auto-derived from data — no manual update needed.
-- Never remove existing entries — only append.
-- If any step fails, report and continue with the next step.
-- The legislative scan is the most judgment-heavy step. When in doubt, capture the finding and flag it for review rather than making code changes.
-- Policy findings that aren't immediately actionable still have value — they become newsletter content, blog topics, or context for outreach emails.
-- **Analytics**: Run `/feedback-session` weekly (or when new GA4 CSV exports are dropped in `.feedback/reports/`) to analyze traffic, search queries, feature usage, and generate optimization strategies.
+- **Run all 7 intelligence agents in parallel** (single message with 7 Agent tool calls) for speed
+- Agents do research only — all file edits happen in the main thread after review
+- Never remove existing entries — only append
+- If any step fails, report and continue
+- Policy findings that aren't immediately actionable become newsletter/blog content
