@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-27";
+export const INTEL_LAST_UPDATED = "2026-03-28";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -94,6 +94,136 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 /* ------------------------------------------------------------------ */
 
 export const INTEL_ITEMS: IntelItem[] = [
+  /* ============================================================== */
+  /*  MARCH 28, 2026 — DAILY UPDATE #27                             */
+  /* ============================================================== */
+  {
+    id: "lilly-novo-340b-claims-data-mandate-2026",
+    date: "2026-02-01",
+    headline: {
+      en: "Eli Lilly & Novo Nordisk Impose Universal 340B Claims Data Requirements — FQHCs Must Submit Data or Lose Pricing",
+      es: "Eli Lilly y Novo Nordisk Imponen Requisitos Universales de Datos de Reclamos 340B — FQHCs Deben Enviar Datos o Perder Precios",
+    },
+    summary: {
+      en: "For the first time, Eli Lilly (effective Feb 1, 2026) and Novo Nordisk (effective Apr 1, 2026) require all 340B covered entities — including FQHCs — to submit claims-level data for every in-house pharmacy and medical dispense, not just contract pharmacies. Lilly explicitly threatens to 'cancel 340B pricing' for non-compliant entities. AHA has urged HRSA to intervene, calling compliance costs unprecedented. HRSA has not responded. FQHCs dispensing Lilly or Novo products must build new data submission workflows immediately.",
+      es: "Por primera vez, Eli Lilly (efectivo 1 feb 2026) y Novo Nordisk (efectivo 1 abr 2026) requieren que todas las entidades cubiertas 340B — incluyendo FQHCs — envíen datos a nivel de reclamo para cada dispensación. Lilly amenaza explícitamente con 'cancelar los precios 340B' para entidades que no cumplan.",
+    },
+    category: "compliance" as IntelCategory,
+    impactLevel: "critical" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.aha.org/news/headline/2026-03-03-aha-urges-hrsa-stop-novo-nordisks-new-claims-data-submission-policy-340b-hospitals-going-effect",
+    sourceOrg: "AHA / Healthcare Dive",
+    region: "National",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["340b", "Eli-Lilly", "Novo-Nordisk", "claims-data", "manufacturer-restriction", "HRSA"],
+  },
+  {
+    id: "ice-fear-patient-no-shows-march-2026",
+    date: "2026-03-10",
+    headline: {
+      en: "Fear of ICE Drives Patient No-Shows at California FQHCs — Providers Report Surging Missed Appointments",
+      es: "Temor a ICE Causa Ausencias de Pacientes en FQHCs de California — Proveedores Reportan Aumento de Citas Perdidas",
+    },
+    summary: {
+      en: "Beyond the Medi-Cal enrollment freeze and PPS elimination, a behavioral crisis is compounding FQHC revenue losses: patients — even those still eligible for coverage — are skipping appointments out of fear that ICE or federal authorities may be present near health facilities. This self-exclusion from care directly reduces visit volumes and revenue, layered on top of policy-driven losses. FQHCs need operational responses including trusted messenger campaigns, know-your-rights signage, and sensitive location policies.",
+      es: "Más allá del congelamiento de inscripción en Medi-Cal y la eliminación de PPS, una crisis conductual está agravando las pérdidas de ingresos de los FQHC: los pacientes — incluso los que aún son elegibles — están faltando a sus citas por temor a que ICE o autoridades federales estén presentes cerca de las instalaciones de salud. Esta autoexclusión reduce directamente los volúmenes de visitas e ingresos.",
+    },
+    category: "undocumented-access" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://calmatters.org/health/2026/03/durazo-reverse-medical-undocumented-immigrants/",
+    sourceOrg: "CalMatters",
+    region: "California",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["ICE", "immigration-enforcement", "no-shows", "patient-fear", "visit-volume", "undocumented"],
+  },
+  {
+    id: "dhcs-hr1-implementation-plan-senate-filing",
+    date: "2026-02-28",
+    headline: {
+      en: "DHCS Files Formal H.R. 1 Implementation Plan with California Senate — Authoritative Timeline for All Medi-Cal Changes",
+      es: "DHCS Presenta Plan Formal de Implementación de H.R. 1 al Senado de California — Cronograma Oficial para Todos los Cambios de Medi-Cal",
+    },
+    summary: {
+      en: "DHCS filed a formal implementation plan with the California Senate Budget and Fiscal Review Committee detailing how California will implement H.R. 1's Medicaid provisions. The document lays out the exact timeline: asset test reinstatement (Jan 2026), enrollment freeze (Jan 2026), dental benefit elimination for undocumented adults (July 2026), 6-month redetermination cycles (Dec 2026), work requirements (Jan 2027), and copayment implementation (Oct 2028). This is the authoritative state-level planning document FQHCs need for operational preparation.",
+      es: "DHCS presentó un plan formal de implementación al Comité de Presupuesto del Senado de California detallando cómo California implementará las disposiciones de Medicaid de H.R. 1. El documento establece el cronograma exacto para todas las fechas críticas de cambios en Medi-Cal.",
+    },
+    category: "compliance" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://sbud.senate.ca.gov/system/files/2026-02/dhcs-hr1-implementation-plan_0.pdf",
+    sourceOrg: "CA Senate Budget Committee / DHCS",
+    region: "California",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["HR1", "implementation", "DHCS", "timeline", "Medi-Cal", "redetermination", "work-requirements"],
+  },
+  {
+    id: "ochin-medicare-readiness-gaps-chcs-march-2026",
+    date: "2026-03-16",
+    headline: {
+      en: "OCHIN Brief: Critical Medicare Readiness Gaps at California Community Health Centers",
+      es: "Informe OCHIN: Brechas Críticas de Preparación para Medicare en Centros de Salud Comunitarios de California",
+    },
+    summary: {
+      en: "An OCHIN brief identifies critical Medicare readiness gaps at California community health centers as the population they serve ages. Many FQHCs lack billing infrastructure, credentialing processes, and clinical workflows optimized for Medicare patients. As Medi-Cal populations age into Medicare and FQHCs diversify payer mix away from Medi-Cal dependency, Medicare readiness becomes a financial survival strategy.",
+      es: "Un informe de OCHIN identifica brechas críticas de preparación para Medicare en los centros de salud comunitarios de California. Muchos FQHCs carecen de infraestructura de facturación y flujos de trabajo clínicos optimizados para pacientes de Medicare.",
+    },
+    category: "change-management" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.chcf.org/resources/",
+    sourceOrg: "OCHIN / CHCF",
+    region: "California",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["Medicare", "readiness", "payer-mix", "aging-population", "OCHIN", "billing"],
+  },
+  {
+    id: "chcf-ai-language-services-brief-march-2026",
+    date: "2026-03-24",
+    headline: {
+      en: "CHCF Examines How AI Can Responsibly Expand Language Access for LEP Patients in Safety-Net Settings",
+      es: "CHCF Examina Cómo la IA Puede Expandir Responsablemente el Acceso Lingüístico para Pacientes con Dominio Limitado del Inglés",
+    },
+    summary: {
+      en: "The California Health Care Foundation published a brief examining how AI-powered interpretation and translation tools could reduce the cost of language services while expanding access for limited English proficiency (LEP) patients. FQHCs serve heavily LEP populations across Spanish, Cantonese, Vietnamese, Tagalog and other languages. The brief examines responsible implementation — critical for FQHCs balancing CLAS Standards compliance with budget constraints.",
+      es: "La Fundación de Atención Médica de California publicó un informe examinando cómo las herramientas de interpretación y traducción con IA podrían reducir costos de servicios lingüísticos mientras expanden el acceso para pacientes con dominio limitado del inglés (LEP).",
+    },
+    category: "change-management" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.chcf.org/",
+    sourceOrg: "CHCF",
+    region: "California",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["AI", "language-access", "LEP", "CLAS-standards", "interpretation", "CHCF"],
+  },
+  {
+    id: "hrsa-4-year-performance-period-extension-fy2026",
+    date: "2026-01-26",
+    headline: {
+      en: "HRSA Extends FQHC Performance Periods to 4 Years — $828M in Non-Competitive Awards for 194 Health Centers",
+      es: "HRSA Extiende Períodos de Desempeño de FQHCs a 4 Años — $828M en Premios No Competitivos para 194 Centros de Salud",
+    },
+    summary: {
+      en: "HRSA is moving from 3-year to 4-year performance periods for health center grantees starting in FY2026, with 192 non-competitive awards totaling approximately $828 million. Longer grant cycles mean less time spent on competitive applications and more operational stability — a meaningful administrative relief during the current financial crisis.",
+      es: "HRSA está pasando de períodos de desempeño de 3 años a 4 años para los beneficiarios de centros de salud a partir del AF2026, con 192 premios no competitivos que totalizan aproximadamente $828 millones.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.federalregister.gov/documents/2025/08/07/2025-15036/health-center-program-performance-period-extensions",
+    sourceOrg: "Federal Register / HRSA",
+    region: "National",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["HRSA", "performance-period", "grant-cycle", "Section-330", "administrative-relief"],
+  },
+
   /* ============================================================== */
   /*  MARCH 27, 2026 — DAILY UPDATE #26                             */
   /* ============================================================== */

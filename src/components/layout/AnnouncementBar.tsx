@@ -21,8 +21,8 @@ export default function AnnouncementBar() {
         <Zap className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "Tribunal federal anula requisito de sitios 340B de HRSA — más flexibilidad para FQHCs con ubicaciones satélite →"
-            : "Federal court overturns HRSA 340B child site requirement — more flexibility for FQHCs with satellite locations →"}
+            ? "Temor a ICE causa ausencias en FQHCs de CA — pacientes faltan a citas por miedo a operativos de inmigración →"
+            : "ICE fear driving patient no-shows at CA FQHCs — visit volumes dropping beyond policy-driven losses →"}
         </span>
       </Link>
       <button
