@@ -231,7 +231,7 @@ export default function Header() {
     {
       label: t("intelligence"),
       children: [
-        { href: "/", label: t("dashboard"), desc: t("dashboardDesc") },
+        { href: "/demo", label: t("dashboard"), desc: t("dashboardDesc") },
         { href: "/intelligence/legislation", label: t("legislativeTracker"), desc: t("legislativeTrackerDesc") },
         { href: "/layoffs", label: t("layoffs"), desc: t("layoffsDesc") },
         { href: "/salary-data", label: t("salaryData"), desc: t("salaryDataDesc") },

@@ -27,7 +27,7 @@ export default function Footer() {
       { href: "/resources" as const, label: isEs ? "Recursos" : "Career Resources" },
     ],
     [t("intelligence")]: [
-      { href: "/" as const, label: t("dashboard") },
+      { href: "/demo" as const, label: t("dashboard") },
       { href: "/intelligence/legislation" as const, label: t("legislativeTracker") },
       { href: "/layoffs" as const, label: t("layoffTracker") },
       { href: "/salary-data" as const, label: t("salaryIntel") },
