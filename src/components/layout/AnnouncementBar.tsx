@@ -21,8 +21,8 @@ export default function AnnouncementBar() {
         <Zap className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "Temor a ICE causa ausencias en FQHCs de CA — pacientes faltan a citas por miedo a operativos de inmigración →"
-            : "ICE fear driving patient no-shows at CA FQHCs — visit volumes dropping beyond policy-driven losses →"}
+            ? "CalOptima e IEHP proyectan perder 1.3M miembros para 2028 — precipicio de ingresos para FQHCs →"
+            : "CalOptima & IEHP project losing 1.3M members by 2028 — managed care revenue cliff for FQHCs →"}
         </span>
       </Link>
       <button

@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-28";
+export const INTEL_LAST_UPDATED = "2026-03-29";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -138,6 +138,69 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: [],
     affectedOrgSlugs: [],
     tags: ["ICE", "immigration-enforcement", "no-shows", "patient-fear", "visit-volume", "undocumented"],
+  },
+  {
+    id: "medi-cal-managed-care-enrollment-collapse-2028",
+    date: "2026-03-24",
+    headline: {
+      en: "CalOptima & IEHP Project 30% Membership Drops by 2028 — Managed Care Revenue Cliff for FQHCs",
+      es: "CalOptima e IEHP Proyectan Caídas del 30% en Membresía para 2028 — Precipicio de Ingresos de Atención Administrada para FQHCs",
+    },
+    summary: {
+      en: "California's two largest county-organized Medi-Cal plans are projecting catastrophic enrollment losses. CalOptima (Orange County) forecasts losing 650,000 of its 2.2M members by 2028 — a 30% drop. IEHP (Inland Empire) projects a similar 650,000-member loss from its 2.5M membership. Combined, 1.3 million managed care members could lose coverage across just two plans. This is orders of magnitude beyond the initial 8% drops reported in early March. FQHCs dependent on managed care reimbursement face a compounding revenue crisis as their largest payers shrink.",
+      es: "Los dos planes Medi-Cal más grandes del condado de California proyectan pérdidas catastróficas de inscripción. CalOptima pronostica perder 650,000 miembros para 2028 (30%), e IEHP proyecta una pérdida similar. 1.3 millones de miembros podrían perder cobertura solo en estos dos planes.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "critical" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://theievoice.com/healthcare-infrastructure-collapse-warning/",
+    sourceOrg: "IE Voice / JR Report",
+    region: "Orange County / Inland Empire",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["CalOptima", "IEHP", "managed-care", "enrollment-loss", "Medi-Cal", "revenue-cliff"],
+  },
+  {
+    id: "fresno-county-241m-medi-cal-gap-chw-layoffs",
+    date: "2026-03-24",
+    headline: {
+      en: "Fresno County Faces $241M Medi-Cal Gap — West Fresno Health Disparities Program Cut, 7 CHWs Laid Off",
+      es: "Condado de Fresno Enfrenta Brecha de $241M en Medi-Cal — Programa de Disparidades de Salud Eliminado, 7 Trabajadores Comunitarios Despedidos",
+    },
+    summary: {
+      en: "Fresno County faces an estimated $241 million in uncovered healthcare costs as patients lose Medi-Cal coverage. A $300K federal grant cancellation ended the West Fresno Family Resource Center's Health Disparities Program, forcing the layoff of 7 community health workers who served hundreds in southwest Fresno and Selma. Over 50% of residents in Fresno, Tulare, Kern, Merced, and Madera counties depend on Medi-Cal. The county is calling on Gov. Newsom to release $1.9B to counties for social service programs.",
+      es: "El condado de Fresno enfrenta un estimado de $241 millones en costos de atención médica sin cubrir. La cancelación de una subvención federal de $300K eliminó el Programa de Disparidades de Salud, despidiendo a 7 trabajadores comunitarios de salud.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://gvwire.com/2026/03/26/fresno-county-we-need-state-relief-from-big-beautiful-bill-cuts/",
+    sourceOrg: "GV Wire",
+    region: "Central Valley",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["Fresno", "Central-Valley", "CHW-layoffs", "Medi-Cal", "grant-cancellation", "health-disparities"],
+  },
+  {
+    id: "hr1-directed-payment-cap-medicare-rates-2028",
+    date: "2026-03-15",
+    headline: {
+      en: "H.R. 1 Caps Medi-Cal Directed Payments — Provider Rates Will Edge Toward Medicare Levels by 2028",
+      es: "H.R. 1 Limita Pagos Dirigidos de Medi-Cal — Tarifas de Proveedores Se Acercarán a Niveles de Medicare para 2028",
+    },
+    summary: {
+      en: "A distinct revenue threat beyond PPS elimination: H.R. 1 caps state-directed payments, ending California's ability to direct managed care plans to pay providers at commercial insurance rates. Provider rates will edge toward Medicare levels starting 2028. While FQHCs have PPS protection for base rates, supplemental/wrap payments through managed care plans will be affected. CHCF analysis details how the provider tax crackdown and directed payment restrictions will reduce overall Medi-Cal funding flowing to FQHCs through managed care.",
+      es: "Una amenaza de ingresos distinta más allá de la eliminación de PPS: H.R. 1 limita los pagos dirigidos por el estado, terminando la capacidad de California de dirigir planes de atención administrada a pagar tarifas comerciales. Las tarifas se acercarán a niveles de Medicare para 2028.",
+    },
+    category: "legislation" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.chcf.org/resource/how-massive-federal-cuts-will-create-unprecedented-challenges-medi-cal-patients-providers/",
+    sourceOrg: "CHCF",
+    region: "California",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["H.R.-1", "directed-payments", "Medicare-rates", "managed-care", "provider-tax", "CHCF"],
   },
   {
     id: "dhcs-hr1-implementation-plan-senate-filing",
