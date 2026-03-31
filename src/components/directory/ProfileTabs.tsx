@@ -385,6 +385,7 @@ export function ProfileTabs({
               caseStudies={caseStudies}
               movementEvents={movementEvents}
               locale={locale}
+              slug={slug}
             />
           )}
           {activeTab === "career" && (
@@ -506,35 +507,12 @@ export function ProfileTabs({
             </div>
           )}
 
-          {/* Profile Completeness */}
-          <div className="rounded-xl border border-stone-200 bg-white p-6">
-            <h3 className="text-sm font-semibold text-stone-900">
-              {isEs ? "Completitud del Perfil" : "Profile Completeness"}
-            </h3>
-            <div className="mt-3 flex items-center gap-3">
-              <div className="relative size-14">
-                <svg className="size-14 -rotate-90" viewBox="0 0 56 56">
-                  <circle cx="28" cy="28" r="24" fill="none" stroke="#e7e5e4" strokeWidth="4" />
-                  <circle
-                    cx="28" cy="28" r="24"
-                    fill="none"
-                    stroke={profileCompleteness >= 70 ? "#0f766e" : profileCompleteness >= 40 ? "#d97706" : "#dc2626"}
-                    strokeWidth="4"
-                    strokeDasharray={`${profileCompleteness * 1.508} 150.8`}
-                    strokeLinecap="round"
-                  />
-                </svg>
-                <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-stone-800">
-                  {profileCompleteness}%
-                </span>
-              </div>
-              <p className="text-xs text-stone-500">
-                {isEs
-                  ? "Basado en datos disponibles para esta organización"
-                  : "Based on available data for this organization"}
-              </p>
-            </div>
-          </div>
+          {/* Profile Completeness with Breakdown */}
+          <ProfileCompletenessCard
+            profileCompleteness={profileCompleteness}
+            details={details}
+            locale={locale}
+          />
 
           {/* Similar FQHCs */}
           {similarFQHCs.length > 0 && (
@@ -596,6 +574,231 @@ export function ProfileTabs({
               </Link>
             </Button>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ================================================================== */
+/*  Profile Completeness Card                                          */
+/* ================================================================== */
+
+const COMPLETENESS_FIELDS = [
+  { key: "mission", en: "Mission Statement", es: "Declaración de Misión", check: (d: QuickDetails) => !!d.missionStatement },
+  { key: "rating", en: "Glassdoor Rating", es: "Calificación Glassdoor", check: () => false },
+  { key: "staff", en: "Staff Count", es: "Conteo de Personal", check: (d: QuickDetails) => !!(d as unknown as Record<string, string>).staffCount },
+  { key: "patients", en: "Patient Count", es: "Conteo de Pacientes", check: () => true },
+  { key: "ehr", en: "EHR System", es: "Sistema EHR", check: (d: QuickDetails) => d.ehrSystem !== "Unknown" },
+  { key: "website", en: "Website", es: "Sitio Web", check: (d: QuickDetails) => !!d.website },
+  { key: "careers", en: "Careers Page", es: "Página de Empleos", check: (d: QuickDetails) => !!d.careersUrl },
+  { key: "programs", en: "Programs", es: "Programas", check: (d: QuickDetails) => d.programs.length > 0 },
+  { key: "union", en: "Union Info", es: "Info Sindical", check: (d: QuickDetails) => !!d.unionInfo },
+  { key: "funding", en: "Funding Impact", es: "Impacto de Financiamiento", check: (d: QuickDetails) => !!d.fundingImpactLevel },
+  { key: "vulnerability", en: "Coverage Vulnerability", es: "Vulnerabilidad de Cobertura", check: (d: QuickDetails) => d.coverageVulnerabilityPercent !== null },
+  { key: "description", en: "Description", es: "Descripción", check: (d: QuickDetails) => d.description.length > 50 },
+];
+
+function ProfileCompletenessCard({ profileCompleteness, details, locale }: {
+  profileCompleteness: number;
+  details: QuickDetails;
+  locale: string;
+}) {
+  const isEs = locale === "es";
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div className="rounded-xl border border-stone-200 bg-white p-6">
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="flex w-full items-center justify-between"
+      >
+        <h3 className="text-sm font-semibold text-stone-900">
+          {isEs ? "Completitud del Perfil" : "Profile Completeness"}
+        </h3>
+        <div className="flex items-center gap-2">
+          <div className="relative size-10">
+            <svg className="size-10 -rotate-90" viewBox="0 0 56 56">
+              <circle cx="28" cy="28" r="24" fill="none" stroke="#e7e5e4" strokeWidth="4" />
+              <circle
+                cx="28" cy="28" r="24"
+                fill="none"
+                stroke={profileCompleteness >= 70 ? "#0f766e" : profileCompleteness >= 40 ? "#d97706" : "#dc2626"}
+                strokeWidth="4"
+                strokeDasharray={`${profileCompleteness * 1.508} 150.8`}
+                strokeLinecap="round"
+              />
+            </svg>
+            <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-stone-800">
+              {profileCompleteness}%
+            </span>
+          </div>
+          <ArrowRight className={`size-3.5 text-stone-400 transition-transform ${expanded ? "rotate-90" : ""}`} />
+        </div>
+      </button>
+      {expanded && (
+        <div className="mt-3 space-y-1.5 border-t border-stone-100 pt-3">
+          {COMPLETENESS_FIELDS.map((f) => {
+            const present = f.check(details);
+            return (
+              <div key={f.key} className="flex items-center gap-2 text-xs">
+                {present ? (
+                  <CheckCircle2 className="size-3.5 text-green-600 shrink-0" />
+                ) : (
+                  <span className="size-3.5 rounded-full border-2 border-stone-300 shrink-0" />
+                )}
+                <span className={present ? "text-stone-700" : "text-stone-400"}>
+                  {isEs ? f.es : f.en}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ================================================================== */
+/*  Resilience Explainer Component                                     */
+/* ================================================================== */
+
+const DIMENSION_WEIGHTS = [
+  { key: "programDiversity", weight: 25, en: "Program Diversity", es: "Diversidad de Programas" },
+  { key: "workforceStability", weight: 20, en: "Workforce Stability", es: "Estabilidad Laboral" },
+  { key: "dataMuturity", weight: 15, en: "Data Maturity", es: "Madurez de Datos" },
+  { key: "qualityIndicators", weight: 20, en: "Quality Indicators", es: "Indicadores de Calidad" },
+  { key: "financialPositioning", weight: 20, en: "Financial Positioning", es: "Posicionamiento Financiero" },
+];
+
+const GRADE_SCALE = [
+  { grade: "A", min: 80, color: "bg-green-500", label: "Strong" },
+  { grade: "B", min: 65, color: "bg-green-400", label: "Above Average" },
+  { grade: "C", min: 50, color: "bg-amber-500", label: "Average" },
+  { grade: "D", min: 35, color: "bg-red-400", label: "Below Average" },
+  { grade: "F", min: 0, color: "bg-red-600", label: "At Risk" },
+];
+
+function ResilienceSection({ fqhcName, resilience, slug, isEs }: {
+  fqhcName: string;
+  resilience: ResilienceData;
+  slug: string;
+  isEs: boolean;
+}) {
+  const [showExplainer, setShowExplainer] = useState(false);
+
+  // Auto-generate strengths/weaknesses
+  const strengths = resilience.dimensions.filter((d) => d.score >= 70).map((d) => isEs ? d.label.es : d.label.en);
+  const weaknesses = resilience.dimensions.filter((d) => d.score < 40).map((d) => isEs ? d.label.es : d.label.en);
+
+  return (
+    <div className="rounded-xl border border-stone-200 bg-white p-6">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+          <Shield className="size-5" />
+          {isEs ? "Puntuación de Resiliencia" : "Resilience Score"}
+          <button
+            onClick={() => setShowExplainer(!showExplainer)}
+            className="ml-1 rounded-full p-0.5 text-stone-400 hover:text-teal-700 hover:bg-teal-50 transition-colors"
+            title={isEs ? "¿Cómo se calcula?" : "How is this calculated?"}
+          >
+            <AlertTriangle className="size-4" />
+          </button>
+        </h2>
+        <div className="flex items-center gap-2">
+          <span className={`text-3xl font-extrabold ${
+            resilience.overall >= 70 ? "text-green-700" :
+            resilience.overall >= 50 ? "text-amber-700" : "text-red-700"
+          }`}>{resilience.overall}</span>
+          <Badge className={`text-xs ${
+            resilience.grade === "A" || resilience.grade === "B"
+              ? "bg-green-100 text-green-800 border-green-200"
+              : resilience.grade === "C"
+                ? "bg-amber-100 text-amber-800 border-amber-200"
+                : "bg-red-100 text-red-800 border-red-200"
+          }`}>
+            {isEs ? "Grado" : "Grade"} {resilience.grade}
+          </Badge>
+        </div>
+      </div>
+
+      {/* Explainer panel (toggleable) */}
+      {showExplainer && (
+        <div className="mb-4 rounded-lg bg-stone-50 border border-stone-200 p-4 text-sm space-y-3">
+          <h3 className="font-semibold text-stone-800">{isEs ? "¿Cómo se calcula?" : "How is this calculated?"}</h3>
+          <p className="text-stone-600">
+            {isEs
+              ? "La puntuación de resiliencia evalúa la capacidad de un FQHC para resistir los recortes de H.R. 1 y las crisis del sector, basándose en 5 dimensiones ponderadas:"
+              : "The resilience score evaluates an FQHC's ability to withstand H.R. 1 cuts and sector crises, based on 5 weighted dimensions:"}
+          </p>
+          <div className="space-y-1.5">
+            {DIMENSION_WEIGHTS.map((dw) => (
+              <div key={dw.key} className="flex items-center gap-2">
+                <span className="w-6 text-right text-xs font-bold text-teal-700">{dw.weight}%</span>
+                <span className="text-xs text-stone-700">{isEs ? dw.es : dw.en}</span>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-1.5 pt-2 border-t border-stone-200">
+            {GRADE_SCALE.map((gs) => (
+              <span key={gs.grade} className="flex items-center gap-1 text-[10px] text-stone-600">
+                <span className={`inline-block size-2 rounded-full ${gs.color}`} />
+                {gs.grade} ≥{gs.min}: {gs.label}
+              </span>
+            ))}
+          </div>
+
+          {/* Auto-generated insights */}
+          {(strengths.length > 0 || weaknesses.length > 0) && (
+            <div className="pt-2 border-t border-stone-200">
+              <p className="font-semibold text-stone-700">{isEs ? `Para ${fqhcName}:` : `For ${fqhcName}:`}</p>
+              {strengths.length > 0 && (
+                <p className="text-stone-600 mt-1">
+                  ✅ {isEs ? "Fortalezas:" : "Strengths:"} {strengths.join(", ")}
+                </p>
+              )}
+              {weaknesses.length > 0 && (
+                <p className="text-stone-600 mt-1">
+                  ⚠️ {isEs ? "Áreas de mejora:" : "Areas to improve:"} {weaknesses.join(", ")}
+                </p>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
+      <div className="space-y-3">
+        {resilience.dimensions.map((dim) => (
+          <div key={dim.dimension}>
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-xs font-medium text-stone-600">
+                {isEs ? dim.label.es : dim.label.en}
+              </span>
+              <span className="text-xs font-bold text-stone-800">{dim.score}</span>
+            </div>
+            <div className="h-2 rounded-full bg-stone-100 overflow-hidden">
+              <div className="h-full rounded-full bg-teal-600" style={{ width: `${dim.score}%` }} />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 flex items-center justify-between">
+        <span className="text-xs text-stone-500">
+          {isEs ? "Completitud de datos:" : "Data completeness:"} {resilience.dataCompleteness}%
+        </span>
+        <div className="flex gap-3">
+          <Link
+            href={`/report/${slug}` as "/report"}
+            className="text-xs font-medium text-amber-700 hover:text-amber-900"
+          >
+            {isEs ? "Reporte Estratégico" : "Strategic Report"} →
+          </Link>
+          <Link
+            href="/strategy/resilience"
+            className="text-xs font-medium text-teal-700 hover:text-teal-900"
+          >
+            {isEs ? "Todas las puntuaciones" : "All scores"} →
+          </Link>
         </div>
       </div>
     </div>
@@ -673,63 +876,7 @@ function OverviewTab({
       </div>
 
       {/* Resilience Score */}
-      <div className="rounded-xl border border-stone-200 bg-white p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
-            <Shield className="size-5" />
-            {isEs ? "Puntuación de Resiliencia" : "Resilience Score"}
-          </h2>
-          <div className="flex items-center gap-2">
-            <span className={`text-3xl font-extrabold ${
-              resilience.overall >= 70 ? "text-green-700" :
-              resilience.overall >= 50 ? "text-amber-700" : "text-red-700"
-            }`}>{resilience.overall}</span>
-            <Badge className={`text-xs ${
-              resilience.grade === "A" || resilience.grade === "B"
-                ? "bg-green-100 text-green-800 border-green-200"
-                : resilience.grade === "C"
-                  ? "bg-amber-100 text-amber-800 border-amber-200"
-                  : "bg-red-100 text-red-800 border-red-200"
-            }`}>
-              {isEs ? "Grado" : "Grade"} {resilience.grade}
-            </Badge>
-          </div>
-        </div>
-        <div className="space-y-3">
-          {resilience.dimensions.map((dim) => (
-            <div key={dim.dimension}>
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-xs font-medium text-stone-600">
-                  {isEs ? dim.label.es : dim.label.en}
-                </span>
-                <span className="text-xs font-bold text-stone-800">{dim.score}</span>
-              </div>
-              <div className="h-2 rounded-full bg-stone-100 overflow-hidden">
-                <div className="h-full rounded-full bg-teal-600" style={{ width: `${dim.score}%` }} />
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="mt-4 flex items-center justify-between">
-          <span className="text-xs text-stone-500">
-            {isEs ? "Completitud de datos:" : "Data completeness:"} {resilience.dataCompleteness}%
-          </span>
-          <div className="flex gap-3">
-            <Link
-              href={`/report/${slug}` as "/report"}
-              className="text-xs font-medium text-amber-700 hover:text-amber-900"
-            >
-              {isEs ? "Reporte Estratégico" : "Strategic Report"} →
-            </Link>
-            <Link
-              href="/strategy/resilience"
-              className="text-xs font-medium text-teal-700 hover:text-teal-900"
-            >
-              {isEs ? "Todas las puntuaciones" : "All scores"} →
-            </Link>
-          </div>
-        </div>
-      </div>
+      <ResilienceSection fqhcName={fqhcName} resilience={resilience} slug={slug} isEs={isEs} />
 
       {/* Programs */}
       {details.programs.length > 0 && (
@@ -737,9 +884,11 @@ function OverviewTab({
           <h2 className="text-lg font-bold text-stone-900">{isEs ? "Programas" : "Programs"}</h2>
           <div className="mt-3 flex flex-wrap gap-2">
             {details.programs.map((program) => (
-              <Badge key={program} variant="secondary" className="bg-teal-50 text-teal-800">
-                {program}
-              </Badge>
+              <Link key={program} href={`/directory?program=${encodeURIComponent(program)}` as "/directory"}>
+                <Badge variant="secondary" className="bg-teal-50 text-teal-800 hover:bg-teal-100 cursor-pointer transition-colors">
+                  {program}
+                </Badge>
+              </Link>
             ))}
           </div>
         </div>
@@ -926,12 +1075,20 @@ function OverviewTab({
               <p className="text-xs text-stone-500">{isEs ? "Empleos" : "Open jobs"}</p>
             </div>
           </div>
-          <Link
-            href={`/intelligence/${regionSlug}` as "/intelligence"}
-            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-900"
-          >
-            {isEs ? "Ver Panel Regional" : "View Regional Dashboard"} <ArrowRight className="size-3" />
-          </Link>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link
+              href={`/intelligence/${regionSlug}` as "/intelligence"}
+              className="inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-900"
+            >
+              {isEs ? "Panel Regional" : "Regional Dashboard"} <ArrowRight className="size-3" />
+            </Link>
+            <Link
+              href={`/directory?region=${encodeURIComponent(regionSlug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" "))}` as "/directory"}
+              className="inline-flex items-center gap-1 text-sm font-medium text-stone-600 hover:text-stone-800"
+            >
+              {isEs ? "Todos los FQHCs" : "All FQHCs in region"} <ArrowRight className="size-3" />
+            </Link>
+          </div>
         </div>
       )}
     </>
@@ -983,13 +1140,39 @@ function NewsTab({
     );
   }
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [newsFilter, setNewsFilter] = useState<"all" | "intel" | "layoff" | "ai">("all");
+  const filteredFeed = newsFilter === "all" ? feed : feed.filter((f) => f.type === newsFilter);
+
   return (
     <div className="space-y-4">
-      <h2 className="text-lg font-bold text-stone-900">
-        {isEs ? "Actividad Reciente" : "Recent Activity"}
-        <span className="ml-2 text-sm font-normal text-stone-500">({feed.length})</span>
-      </h2>
-      {feed.map((item) => {
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h2 className="text-lg font-bold text-stone-900">
+          {isEs ? "Actividad Reciente" : "Recent Activity"}
+          <span className="ml-2 text-sm font-normal text-stone-500">({filteredFeed.length})</span>
+        </h2>
+        <div className="flex items-center gap-1">
+          {([
+            { key: "all" as const, label: isEs ? "Todo" : "All", count: feed.length },
+            { key: "intel" as const, label: "Intel", count: intel.length },
+            { key: "layoff" as const, label: isEs ? "Recortes" : "Layoffs", count: layoffs.length },
+            { key: "ai" as const, label: "AI", count: aiAdoption.length },
+          ]).filter((f) => f.key === "all" || f.count > 0).map(({ key, label, count }) => (
+            <button
+              key={key}
+              onClick={() => setNewsFilter(key)}
+              className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                newsFilter === key
+                  ? "bg-teal-700 text-white"
+                  : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+              }`}
+            >
+              {label} ({count})
+            </button>
+          ))}
+        </div>
+      </div>
+      {filteredFeed.map((item) => {
         if (item.type === "intel") {
           const d = item.data;
           return (
@@ -1298,36 +1481,57 @@ function StrategyTab({
   caseStudies,
   movementEvents,
   locale,
+  slug,
 }: {
   caseStudies: SerializedCaseStudy[];
   movementEvents: SerializedMovementEvent[];
   locale: string;
+  slug: string;
 }) {
   const isEs = locale === "es";
 
-  const hasContent = caseStudies.length > 0 || movementEvents.length > 0;
-
-  if (!hasContent) {
-    return (
-      <div className="rounded-xl border border-stone-200 bg-white p-8 text-center">
-        <BookOpen className="mx-auto size-8 text-stone-300" />
-        <p className="mt-3 text-stone-500">
-          {isEs
-            ? "No hay contenido estratégico vinculado a esta organización aún."
-            : "No strategy content linked to this organization yet."}
-        </p>
-        <Link
-          href="/strategy/guides"
-          className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
-        >
-          {isEs ? "Ver todas las guías" : "Browse all guides"} <ArrowRight className="size-3" />
-        </Link>
-      </div>
-    );
-  }
-
   return (
     <div className="space-y-8">
+      {/* Strategic Report + Compare CTAs */}
+      <div className="grid gap-3 sm:grid-cols-2">
+        <Link
+          href={`/report/${slug}` as "/report"}
+          className="flex items-center gap-3 rounded-xl border border-teal-200 bg-teal-50 p-4 transition-colors hover:bg-teal-100"
+        >
+          <Shield className="size-8 text-teal-700 shrink-0" />
+          <div>
+            <p className="text-sm font-bold text-teal-900">{isEs ? "Reporte Estratégico Completo" : "Full Strategic Report"}</p>
+            <p className="text-xs text-teal-700">{isEs ? "10 secciones de análisis profundo" : "10-section deep analysis"}</p>
+          </div>
+        </Link>
+        <Link
+          href="/compare"
+          className="flex items-center gap-3 rounded-xl border border-stone-200 bg-white p-4 transition-colors hover:bg-stone-50"
+        >
+          <Users className="size-8 text-stone-500 shrink-0" />
+          <div>
+            <p className="text-sm font-bold text-stone-900">{isEs ? "Comparar con Pares" : "Compare with Peers"}</p>
+            <p className="text-xs text-stone-500">{isEs ? "Análisis lado a lado de 2-3 FQHCs" : "Side-by-side analysis of 2-3 FQHCs"}</p>
+          </div>
+        </Link>
+      </div>
+
+      {caseStudies.length === 0 && movementEvents.length === 0 && (
+        <div className="rounded-xl border border-stone-200 bg-white p-8 text-center">
+          <BookOpen className="mx-auto size-8 text-stone-300" />
+          <p className="mt-3 text-stone-500">
+            {isEs
+              ? "No hay contenido estratégico vinculado a esta organización aún."
+              : "No strategy content linked to this organization yet."}
+          </p>
+          <Link
+            href="/strategy/guides"
+            className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
+          >
+            {isEs ? "Ver todas las guías" : "Browse all guides"} <ArrowRight className="size-3" />
+          </Link>
+        </div>
+      )}
       {/* Case Studies */}
       {caseStudies.length > 0 && (
         <div>

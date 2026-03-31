@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -22,7 +22,6 @@ import {
   ChevronDown,
   ChevronUp,
   GraduationCap,
-  Briefcase,
   Globe,
   MapPin as MapPinIcon,
   TrendingUp,
@@ -247,11 +246,29 @@ export function DirectoryClient({
   const [highImpactOnly, setHighImpactOnly] = useState(searchParams.get("risk") === "true");
   const [unionOnly, setUnionOnly] = useState(searchParams.get("union") === "true");
   const [hiringOnly, setHiringOnly] = useState(searchParams.get("hiring") === "true");
+  const [sizeFilter, setSizeFilter] = useState<string[]>(() => {
+    const s = searchParams.get("size");
+    return s ? s.split(",") : [];
+  });
   const [gradeFilter, setGradeFilter] = useState<GradeFilter[]>(() => {
     const g = searchParams.get("grade");
     return g ? (g.split(",") as GradeFilter[]) : [];
   });
   const [view, setView] = useState<ViewMode>((searchParams.get("view") as ViewMode) || "table");
+
+  // Auto card view on mobile
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    if (mq.matches && view !== "cards") {
+      setView("cards");
+    }
+    const handler = (e: MediaQueryListEvent) => {
+      if (e.matches) setView("cards");
+    };
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [sortKey, setSortKey] = useState<SortKey>((searchParams.get("sortKey") as SortKey) || "name");
   const [sortDir, setSortDir] = useState<SortDir>((searchParams.get("sortDir") as SortDir) || "asc");
   const [selectedFqhc, setSelectedFqhc] = useState<DirectoryFQHC | null>(null);
@@ -287,6 +304,15 @@ export function DirectoryClient({
     if (highImpactOnly) list = list.filter((f) => f.fundingImpactLevel === "high");
     if (unionOnly) list = list.filter((f) => f.unionInfo?.unionized);
     if (hiringOnly) list = list.filter((f) => f.jobCount > 0);
+    if (sizeFilter.length > 0) {
+      list = list.filter((f) => {
+        const staff = parseCount(f.staffCount);
+        if (sizeFilter.includes("small") && staff > 0 && staff < 100) return true;
+        if (sizeFilter.includes("mid") && staff >= 100 && staff <= 500) return true;
+        if (sizeFilter.includes("large") && staff > 500) return true;
+        return false;
+      });
+    }
     if (gradeFilter.length > 0) list = list.filter((f) => gradeFilter.includes(f.resilienceGrade));
 
     if (search.trim()) {
@@ -315,7 +341,7 @@ export function DirectoryClient({
     });
 
     return list;
-  }, [fqhcs, search, regionFilter, ehrFilter, programFilter, ecmOnly, highImpactOnly, unionOnly, hiringOnly, gradeFilter, sortKey, sortDir]);
+  }, [fqhcs, search, regionFilter, ehrFilter, programFilter, ecmOnly, highImpactOnly, unionOnly, hiringOnly, sizeFilter, gradeFilter, sortKey, sortDir]);
 
   /* ---------- Aggregates for filter counts ---------- */
   const regionCounts = useMemo(() => {
@@ -328,6 +354,26 @@ export function DirectoryClient({
   const gradeCounts = useMemo(() => {
     const c: Record<string, number> = {};
     fqhcs.forEach((f) => { c[f.resilienceGrade] = (c[f.resilienceGrade] || 0) + 1; });
+    return c;
+  }, [fqhcs]);
+  const sizeCounts = useMemo(() => {
+    const c = { small: 0, mid: 0, large: 0 };
+    fqhcs.forEach((f) => {
+      const s = parseCount(f.staffCount);
+      if (s > 500) c.large++;
+      else if (s >= 100) c.mid++;
+      else if (s > 0) c.small++;
+    });
+    return c;
+  }, [fqhcs]);
+  const ehrCounts = useMemo(() => {
+    const c: Record<string, number> = {};
+    fqhcs.forEach((f) => { if (f.ehrSystem && f.ehrSystem !== "Unknown") c[f.ehrSystem] = (c[f.ehrSystem] || 0) + 1; });
+    return c;
+  }, [fqhcs]);
+  const programCounts = useMemo(() => {
+    const c: Record<string, number> = {};
+    fqhcs.forEach((f) => f.programs.forEach((p) => { c[p] = (c[p] || 0) + 1; }));
     return c;
   }, [fqhcs]);
 
@@ -461,7 +507,7 @@ export function DirectoryClient({
             <SelectContent>
               <SelectItem value="All EHR Systems">{t.allEhrSystems}</SelectItem>
               {allEhrSystems.map((e) => (
-                <SelectItem key={e} value={e}>{e}</SelectItem>
+                <SelectItem key={e} value={e}>{e} ({ehrCounts[e] || 0})</SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -474,7 +520,7 @@ export function DirectoryClient({
             <SelectContent>
               <SelectItem value="All Programs">{t.allPrograms}</SelectItem>
               {allPrograms.map((p) => (
-                <SelectItem key={p} value={p}>{p}</SelectItem>
+                <SelectItem key={p} value={p}>{p} ({programCounts[p] || 0})</SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -502,6 +548,29 @@ export function DirectoryClient({
               {pill.label}
             </button>
           ))}
+
+          {/* Size pills */}
+          <div className="flex items-center gap-1">
+            {([
+              { key: "small", label: `<100 (${sizeCounts.small})` },
+              { key: "mid", label: `100-500 (${sizeCounts.mid})` },
+              { key: "large", label: `500+ (${sizeCounts.large})` },
+            ]).map(({ key, label }) => (
+              <button
+                key={key}
+                onClick={() => {
+                  const next = sizeFilter.includes(key) ? sizeFilter.filter((s) => s !== key) : [...sizeFilter, key];
+                  setSizeFilter(next);
+                  syncURL({ size: next.length > 0 ? next.join(",") : null });
+                }}
+                className={`rounded-full border px-2.5 py-1 text-xs font-medium transition-colors ${
+                  sizeFilter.includes(key) ? "border-stone-700 bg-stone-100 text-stone-800" : "border-stone-200 bg-white text-stone-500 hover:border-stone-300"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
 
           {/* Resilience grade pills */}
           <div className="flex items-center gap-1">
@@ -551,8 +620,8 @@ export function DirectoryClient({
             {t.exportCSV}
           </button>
 
-          {/* View toggle */}
-          <div className="flex items-center justify-center gap-1 rounded-lg border border-stone-200 bg-white p-0.5 sm:ml-auto">
+          {/* View toggle (hidden on mobile — auto card view) */}
+          <div className="hidden items-center justify-center gap-1 rounded-lg border border-stone-200 bg-white p-0.5 sm:ml-auto md:flex">
             {([
               { mode: "cards" as ViewMode, icon: <LayoutGrid className="size-4" />, title: "Card view" },
               { mode: "table" as ViewMode, icon: <List className="size-4" />, title: "Table view" },
