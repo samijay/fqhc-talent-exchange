@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, useCallback } from "react";
 import { createAuthClient } from "@/lib/supabase";
-import type { User } from "@supabase/supabase-js";
+import type { User, SupabaseClient } from "@supabase/supabase-js";
 
 // ── Types ──
 
@@ -41,19 +41,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   // Create a stable Supabase client instance
-  const [supabase] = useState(() => createAuthClient());
+  // Wrapped in try/catch so the app renders even if Supabase client init fails
+  const [supabase] = useState<SupabaseClient | null>(() => {
+    try {
+      return createAuthClient();
+    } catch {
+      return null;
+    }
+  });
 
   // Fetch user profile from user_profiles table
   const fetchProfile = useCallback(
     async (userId: string) => {
-      const { data, error } = await supabase
-        .from("user_profiles")
-        .select("display_name, role, organization, organization_slug, region, onboarding_completed")
-        .eq("id", userId)
-        .single();
+      if (!supabase) return;
+      try {
+        const { data, error } = await supabase
+          .from("user_profiles")
+          .select("display_name, role, organization, organization_slug, region, onboarding_completed")
+          .eq("id", userId)
+          .single();
 
-      if (!error && data) {
-        setProfile(data as UserProfile);
+        if (!error && data) {
+          setProfile(data as UserProfile);
+        }
+      } catch {
+        // Profile fetch failed — continue without profile
       }
     },
     [supabase]
@@ -67,37 +79,60 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [user, fetchProfile]);
 
   useEffect(() => {
-    // Get the initial session
-    supabase.auth.getUser().then(({ data: { user: currentUser } }) => {
-      setUser(currentUser);
-      if (currentUser) {
-        fetchProfile(currentUser.id);
-      }
+    if (!supabase) {
+      // No Supabase client — skip auth entirely, render as unauthenticated
       setLoading(false);
-    });
+      return;
+    }
+
+    // Get the initial session
+    supabase.auth
+      .getUser()
+      .then(({ data: { user: currentUser } }) => {
+        setUser(currentUser);
+        if (currentUser) {
+          fetchProfile(currentUser.id);
+        }
+        setLoading(false);
+      })
+      .catch(() => {
+        // Supabase unreachable — continue as unauthenticated
+        setLoading(false);
+      });
 
     // Listen for auth state changes (login, logout, token refresh)
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      const sessionUser = session?.user ?? null;
-      setUser(sessionUser);
+    let subscription: { unsubscribe: () => void } | null = null;
+    try {
+      const result = supabase.auth.onAuthStateChange((_event, session) => {
+        const sessionUser = session?.user ?? null;
+        setUser(sessionUser);
 
-      if (sessionUser) {
-        fetchProfile(sessionUser.id);
-      } else {
-        setProfile(null);
-      }
+        if (sessionUser) {
+          fetchProfile(sessionUser.id);
+        } else {
+          setProfile(null);
+        }
 
+        setLoading(false);
+      });
+      subscription = result.data.subscription;
+    } catch {
+      // Auth listener failed — continue without it
       setLoading(false);
-    });
+    }
 
-    return () => subscription.unsubscribe();
+    return () => subscription?.unsubscribe();
   }, [supabase, fetchProfile]);
 
   // Sign out and redirect to homepage
   const signOut = useCallback(async () => {
-    await supabase.auth.signOut();
+    if (supabase) {
+      try {
+        await supabase.auth.signOut();
+      } catch {
+        // Sign out failed — clear local state anyway
+      }
+    }
     setUser(null);
     setProfile(null);
     window.location.href = "/";

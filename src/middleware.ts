@@ -36,8 +36,13 @@ export async function middleware(request: NextRequest) {
 
   // Step 3: Refresh the auth session
   // getUser() validates the JWT and refreshes it if expired.
-  // This is critical — without it, users get randomly logged out.
-  await supabase.auth.getUser();
+  // Wrapped in try/catch so the site still works if Supabase is
+  // unreachable (paused project, network issue, missing env vars).
+  try {
+    await supabase.auth.getUser();
+  } catch {
+    // Supabase unreachable — continue without auth refresh
+  }
 
   return intlResponse;
 }
