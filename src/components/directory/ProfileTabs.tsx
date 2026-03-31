@@ -164,6 +164,37 @@ interface QuickDetails {
   dataSource: string;
 }
 
+/** At-a-glance executive summary bullets */
+interface AtAGlance {
+  bullets: string[];
+}
+
+/** Salary summary for this FQHC's jobs */
+interface SalarySummary {
+  role: string;
+  min: number;
+  max: number;
+  avg: number;
+  count: number;
+}
+
+/** Peer comparison data */
+interface PeerComparison {
+  metric: string;
+  label: { en: string; es: string };
+  thisValue: number;
+  peerMedian: number;
+  unit: string;
+}
+
+/** Quality & compliance data */
+interface QualityData {
+  qualityScore: { overall: number; clinicalQuality?: number; patientSatisfaction?: number; access?: number; financialHealth?: number } | null;
+  violations: { date: string; type: string; description: string; status: string }[] | null;
+  laborHistory: { date: string; event: string; outcome: string }[] | null;
+  greatPlaceToWork: { certified: boolean; year?: number; approvalPercent?: number; highlights?: string[] } | null;
+}
+
 export interface ProfileTabsProps {
   slug: string;
   fqhcName: string;
@@ -181,6 +212,13 @@ export interface ProfileTabsProps {
   resilience: ResilienceData;
   details: QuickDetails;
   profileCompleteness: number;
+  // Phase 2 enrichments
+  atAGlance?: AtAGlance;
+  salarySummary?: SalarySummary[];
+  peerComparison?: PeerComparison[];
+  qualityData?: QualityData;
+  regionSlug?: string;
+  regionalStats?: { totalFQHCs: number; avgResilience: number; totalJobs: number };
 }
 
 /* ------------------------------------------------------------------ */
@@ -239,6 +277,12 @@ export function ProfileTabs({
   resilience,
   details,
   profileCompleteness,
+  atAGlance,
+  salarySummary,
+  peerComparison,
+  qualityData,
+  regionSlug,
+  regionalStats,
 }: ProfileTabsProps) {
   const locale = useLocale();
   const isEs = locale === "es";
@@ -318,6 +362,11 @@ export function ProfileTabs({
               resilience={resilience}
               profileCompleteness={profileCompleteness}
               locale={locale}
+              atAGlance={atAGlance}
+              peerComparison={peerComparison}
+              qualityData={qualityData}
+              regionSlug={regionSlug}
+              regionalStats={regionalStats}
             />
           )}
           {activeTab === "news" && (
@@ -329,7 +378,7 @@ export function ProfileTabs({
             />
           )}
           {activeTab === "jobs" && (
-            <JobsTab jobs={jobs} similarJobs={similarJobs} fqhcName={fqhcName} locale={locale} />
+            <JobsTab jobs={jobs} similarJobs={similarJobs} fqhcName={fqhcName} locale={locale} salarySummary={salarySummary} />
           )}
           {activeTab === "strategy" && (
             <StrategyTab
@@ -563,6 +612,11 @@ function OverviewTab({
   details,
   resilience,
   locale,
+  atAGlance,
+  peerComparison,
+  qualityData,
+  regionSlug,
+  regionalStats,
 }: {
   fqhcName: string;
   slug: string;
@@ -570,11 +624,34 @@ function OverviewTab({
   resilience: ResilienceData;
   profileCompleteness: number;
   locale: string;
+  atAGlance?: AtAGlance;
+  peerComparison?: PeerComparison[];
+  qualityData?: QualityData;
+  regionSlug?: string;
+  regionalStats?: { totalFQHCs: number; avgResilience: number; totalJobs: number };
 }) {
   const isEs = locale === "es";
 
   return (
     <>
+      {/* At a Glance — executive summary */}
+      {atAGlance && atAGlance.bullets.length > 0 && (
+        <div className="rounded-xl border border-teal-200 bg-gradient-to-br from-teal-50 to-amber-50/30 p-6">
+          <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+            <BarChart3 className="size-5 text-teal-700" />
+            {isEs ? "De un Vistazo" : "At a Glance"}
+          </h2>
+          <ul className="mt-3 space-y-2">
+            {atAGlance.bullets.map((bullet, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-stone-700 leading-relaxed">
+                <span className="mt-1 size-1.5 shrink-0 rounded-full bg-teal-600" />
+                {bullet}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {/* Mission Statement */}
       {details.missionStatement && (
         <div className="rounded-xl border border-teal-200 bg-gradient-to-br from-teal-50 to-white p-6">
@@ -682,6 +759,181 @@ function OverviewTab({
           ))}
         </ul>
       </div>
+
+      {/* Quality & Compliance */}
+      {qualityData && (qualityData.qualityScore || qualityData.violations?.length || qualityData.laborHistory?.length || qualityData.greatPlaceToWork?.certified) && (
+        <div className="rounded-xl border border-stone-200 bg-white p-6">
+          <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+            <Shield className="size-5 text-teal-700" />
+            {isEs ? "Calidad y Cumplimiento" : "Quality & Compliance"}
+          </h2>
+
+          {/* Great Place to Work */}
+          {qualityData.greatPlaceToWork?.certified && (
+            <div className="mt-4 rounded-lg bg-purple-50 border border-purple-200 p-4">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">🏆</span>
+                <span className="font-semibold text-purple-900">Great Place to Work Certified</span>
+                {qualityData.greatPlaceToWork.year && (
+                  <Badge className="bg-purple-100 text-purple-700 text-xs">{qualityData.greatPlaceToWork.year}</Badge>
+                )}
+              </div>
+              {qualityData.greatPlaceToWork.approvalPercent && (
+                <p className="mt-1 text-sm text-purple-800">
+                  {qualityData.greatPlaceToWork.approvalPercent}% {isEs ? "aprobación de empleados" : "employee approval"}
+                </p>
+              )}
+              {qualityData.greatPlaceToWork.highlights && qualityData.greatPlaceToWork.highlights.length > 0 && (
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  {qualityData.greatPlaceToWork.highlights.map((h) => (
+                    <Badge key={h} className="bg-purple-100 text-purple-700 text-xs">{h}</Badge>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Quality Score bars */}
+          {qualityData.qualityScore && (
+            <div className="mt-4 space-y-3">
+              <h3 className="text-sm font-semibold text-stone-700">{isEs ? "Puntajes de Calidad" : "Quality Scores"}</h3>
+              {([
+                { key: "clinicalQuality", en: "Clinical Quality", es: "Calidad Clínica" },
+                { key: "patientSatisfaction", en: "Patient Satisfaction", es: "Satisfacción del Paciente" },
+                { key: "access", en: "Access", es: "Acceso" },
+                { key: "financialHealth", en: "Financial Health", es: "Salud Financiera" },
+              ] as const).map(({ key, en, es }) => {
+                const val = qualityData.qualityScore?.[key];
+                if (val === undefined) return null;
+                return (
+                  <div key={key}>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-stone-600">{isEs ? es : en}</span>
+                      <span className="font-medium text-stone-800">{val}/100</span>
+                    </div>
+                    <div className="mt-1 h-2 rounded-full bg-stone-100 overflow-hidden">
+                      <div className="h-full rounded-full bg-teal-600" style={{ width: `${val}%` }} />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Violations timeline */}
+          {qualityData.violations && qualityData.violations.length > 0 && (
+            <div className="mt-4">
+              <h3 className="text-sm font-semibold text-stone-700">{isEs ? "Historial de Cumplimiento" : "Compliance History"}</h3>
+              <div className="mt-2 space-y-2">
+                {qualityData.violations.map((v, i) => (
+                  <div key={i} className="flex items-start gap-3 rounded-lg bg-stone-50 p-3 text-sm">
+                    <span className="text-xs text-stone-500 whitespace-nowrap">{v.date}</span>
+                    <div className="flex-1">
+                      <span className="font-medium text-stone-800">{v.type}</span>
+                      <p className="text-stone-600">{v.description}</p>
+                    </div>
+                    <Badge className={`text-xs shrink-0 ${
+                      v.status === "resolved" ? "bg-green-50 text-green-700" : "bg-amber-50 text-amber-700"
+                    }`}>{v.status}</Badge>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Labor history */}
+          {qualityData.laborHistory && qualityData.laborHistory.length > 0 && (
+            <div className="mt-4">
+              <h3 className="text-sm font-semibold text-stone-700">{isEs ? "Historial Laboral" : "Labor History"}</h3>
+              <div className="mt-2 space-y-2">
+                {qualityData.laborHistory.map((l, i) => (
+                  <div key={i} className="flex items-start gap-3 text-sm">
+                    <span className="text-xs text-stone-500 whitespace-nowrap">{l.date}</span>
+                    <div>
+                      <span className="font-medium text-stone-800">{l.event}</span>
+                      <span className="text-stone-500"> — {l.outcome}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Peer Comparison */}
+      {peerComparison && peerComparison.length > 0 && (
+        <div className="rounded-xl border border-stone-200 bg-white p-6">
+          <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+            <Users className="size-5 text-teal-700" />
+            {isEs ? "Comparación Regional" : "Peer Comparison"}
+          </h2>
+          <p className="mt-1 text-xs text-stone-500">
+            {isEs ? "vs. mediana de la región" : "vs. regional median"}
+          </p>
+          <div className="mt-4 space-y-4">
+            {peerComparison.map((pc) => {
+              const maxVal = Math.max(pc.thisValue, pc.peerMedian) * 1.2 || 1;
+              const thisWidth = (pc.thisValue / maxVal) * 100;
+              const peerWidth = (pc.peerMedian / maxVal) * 100;
+              return (
+                <div key={pc.metric}>
+                  <div className="flex justify-between text-xs mb-1">
+                    <span className="font-medium text-stone-700">{isEs ? pc.label.es : pc.label.en}</span>
+                    <span className="text-stone-500">
+                      {pc.thisValue.toLocaleString()}{pc.unit} vs {pc.peerMedian.toLocaleString()}{pc.unit}
+                    </span>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] text-teal-700 w-16 shrink-0">{fqhcName.split(" ")[0]}</span>
+                      <div className="flex-1 h-3 bg-stone-100 rounded-full overflow-hidden">
+                        <div className="h-full bg-teal-600 rounded-full" style={{ width: `${thisWidth}%` }} />
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] text-stone-500 w-16 shrink-0">{isEs ? "Mediana" : "Median"}</span>
+                      <div className="flex-1 h-3 bg-stone-100 rounded-full overflow-hidden">
+                        <div className="h-full bg-stone-400 rounded-full" style={{ width: `${peerWidth}%` }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Regional Intelligence Link */}
+      {regionSlug && regionalStats && (
+        <div className="rounded-xl border border-teal-200 bg-teal-50/50 p-6">
+          <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+            <Globe className="size-5 text-teal-700" />
+            {isEs ? "Inteligencia Regional" : "Regional Intelligence"}
+          </h2>
+          <div className="mt-3 grid grid-cols-3 gap-3">
+            <div className="text-center">
+              <span className="text-xl font-bold text-teal-800">{regionalStats.totalFQHCs}</span>
+              <p className="text-xs text-stone-500">{isEs ? "FQHCs en región" : "FQHCs in region"}</p>
+            </div>
+            <div className="text-center">
+              <span className="text-xl font-bold text-teal-800">{regionalStats.avgResilience.toFixed(0)}</span>
+              <p className="text-xs text-stone-500">{isEs ? "Resiliencia prom." : "Avg resilience"}</p>
+            </div>
+            <div className="text-center">
+              <span className="text-xl font-bold text-teal-800">{regionalStats.totalJobs}</span>
+              <p className="text-xs text-stone-500">{isEs ? "Empleos" : "Open jobs"}</p>
+            </div>
+          </div>
+          <Link
+            href={`/intelligence/${regionSlug}` as "/intelligence"}
+            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-900"
+          >
+            {isEs ? "Ver Panel Regional" : "View Regional Dashboard"} <ArrowRight className="size-3" />
+          </Link>
+        </div>
+      )}
     </>
   );
 }
@@ -841,11 +1093,13 @@ function JobsTab({
   similarJobs,
   fqhcName,
   locale,
+  salarySummary,
 }: {
   jobs: SerializedJob[];
   similarJobs: SerializedSimilarJob[];
   fqhcName: string;
   locale: string;
+  salarySummary?: SalarySummary[];
 }) {
   const isEs = locale === "es";
   const [showAllSimilar, setShowAllSimilar] = useState(false);
@@ -853,6 +1107,58 @@ function JobsTab({
 
   return (
     <div className="space-y-6">
+      {/* Salary Ranges */}
+      {salarySummary && salarySummary.length > 0 && (
+        <div className="rounded-xl border border-stone-200 bg-white p-6">
+          <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+            <BarChart3 className="size-5 text-teal-700" />
+            {isEs ? `Rangos Salariales en ${fqhcName}` : `Salary Ranges at ${fqhcName}`}
+          </h2>
+          <p className="mt-1 text-xs text-stone-500">
+            {isEs ? "Basado en posiciones actuales" : "Based on current open positions"}
+          </p>
+          <div className="mt-4 space-y-3">
+            {salarySummary.slice(0, 8).map((s) => {
+              const maxSalary = Math.max(...salarySummary.map((x) => x.max)) * 1.05 || 200000;
+              const leftPct = (s.min / maxSalary) * 100;
+              const widthPct = ((s.max - s.min) / maxSalary) * 100;
+              return (
+                <div key={s.role}>
+                  <div className="flex justify-between text-xs mb-1">
+                    <span className="font-medium text-stone-700 truncate max-w-[60%]">{s.role}</span>
+                    <span className="text-stone-500 shrink-0">
+                      {formatSalary(s.min)}–{formatSalary(s.max)}
+                      <span className="text-[10px] text-stone-400 ml-1">({s.count})</span>
+                    </span>
+                  </div>
+                  <div className="h-3 bg-stone-100 rounded-full overflow-hidden relative">
+                    <div
+                      className="absolute h-full bg-gradient-to-r from-teal-500 to-teal-600 rounded-full"
+                      style={{ left: `${leftPct}%`, width: `${Math.max(widthPct, 2)}%` }}
+                    />
+                    {/* Avg marker */}
+                    <div
+                      className="absolute top-0 h-full w-0.5 bg-amber-500"
+                      style={{ left: `${(s.avg / maxSalary) * 100}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="mt-3 flex items-center gap-4 text-[10px] text-stone-400">
+            <span className="flex items-center gap-1"><span className="inline-block h-2 w-6 rounded-full bg-gradient-to-r from-teal-500 to-teal-600" /> {isEs ? "Rango" : "Range"}</span>
+            <span className="flex items-center gap-1"><span className="inline-block h-2 w-0.5 bg-amber-500" /> {isEs ? "Promedio" : "Average"}</span>
+          </div>
+          <Link
+            href="/salary-data"
+            className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-teal-700 hover:text-teal-900"
+          >
+            {isEs ? "Ver todos los datos salariales" : "View full salary intelligence"} <ArrowRight className="size-3" />
+          </Link>
+        </div>
+      )}
+
       {/* Current FQHC Open Positions */}
       {jobs.length === 0 ? (
         <div className="rounded-xl border border-stone-200 bg-white p-8 text-center">

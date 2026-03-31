@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import type { CaliforniaFQHC } from "@/lib/california-fqhcs";
 
 const FQHCMap = dynamic(() => import("./FQHCMap"), {
   ssr: false,
@@ -12,6 +11,25 @@ const FQHCMap = dynamic(() => import("./FQHCMap"), {
   ),
 });
 
-export default function DynamicMap({ fqhcs, locale }: { fqhcs: CaliforniaFQHC[]; locale?: string }) {
+/** Minimal FQHC shape accepted by both CaliforniaFQHC and DirectoryFQHC */
+interface MapFQHC {
+  name: string;
+  slug: string;
+  city: string;
+  county: string;
+  region: string;
+  lat: number;
+  lng: number;
+  patientCount: string;
+  staffCount: string;
+  glassdoorRating: number | null;
+  glassdoorReviewCount: number | null;
+  ecmProvider: boolean;
+  website: string;
+  resilienceGrade?: string;
+  jobCount?: number;
+}
+
+export default function DynamicMap({ fqhcs, locale }: { fqhcs: MapFQHC[]; locale?: string }) {
   return <FQHCMap fqhcs={fqhcs} locale={locale} />;
 }

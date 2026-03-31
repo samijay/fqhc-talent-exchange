@@ -12,15 +12,17 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { californiaFQHCs, typicalFqhcBenefits } from "@/lib/california-fqhcs";
+import type { CaliforniaFQHC } from "@/lib/california-fqhcs";
 import { fqhcJobListings, getSimilarJobsForFQHC } from "@/lib/fqhc-job-listings";
 import { getIntelForFQHC } from "@/lib/fqhc-news-intel";
 import { getCaseStudiesForFQHC } from "@/lib/fqhc-case-studies";
-import { calculateResilienceScore, getSimilarFQHCs } from "@/lib/fqhc-resilience";
+import { calculateResilienceScore, getSimilarFQHCs, getAllResilienceScores } from "@/lib/fqhc-resilience";
 import { getLayoffsForFQHC } from "@/lib/california-fqhc-layoffs";
 import { getAIAdoptionForFQHC } from "@/lib/fqhc-ai-tracker";
 import { getMovementEventsForFQHC } from "@/lib/fqhc-movement-history";
 import { getResourcesForFQHC } from "@/lib/career-resources";
 import { getCertificationsForFQHC } from "@/lib/certification-data";
+import { getRegionSlug } from "@/lib/regional-intelligence";
 import { ProfileTabs } from "@/components/directory/ProfileTabs";
 import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 import { MedicalOrganizationJsonLd } from "@/components/seo/JsonLd";
@@ -94,6 +96,155 @@ function calcProfileCompleteness(fqhc: (typeof californiaFQHCs)[0]): number {
 }
 
 /* ------------------------------------------------------------------ */
+/*  Phase 2: Enrichment helpers                                        */
+/* ------------------------------------------------------------------ */
+
+function parseCount(str: string): number {
+  return parseInt(str.replace(/[^0-9]/g, ""), 10) || 0;
+}
+
+/** Build 3-5 executive summary bullets */
+function buildAtAGlance(
+  fqhc: CaliforniaFQHC,
+  jobCount: number,
+  layoffs: { employeesAffected: number }[],
+  resilience: { grade: string; overall: number },
+  isEs: boolean,
+): string[] {
+  const bullets: string[] = [];
+  const size = parseCount(fqhc.staffCount) > 500 ? (isEs ? "grande" : "large") : parseCount(fqhc.staffCount) > 100 ? (isEs ? "mediana" : "mid-size") : (isEs ? "pequeña" : "small");
+  bullets.push(
+    isEs
+      ? `${fqhc.name} es una organización ${size} que atiende a ${fqhc.patientCount} pacientes en ${fqhc.siteCount} sitios en la región de ${fqhc.region}.`
+      : `${fqhc.name} is a ${size} health center serving ${fqhc.patientCount} patients across ${fqhc.siteCount} sites in the ${fqhc.region} region.`
+  );
+  if (fqhc.fundingImpactLevel === "high" && fqhc.coverageVulnerabilityPercent) {
+    bullets.push(
+      isEs
+        ? `Actualmente enfrenta alta vulnerabilidad de financiamiento con ~${fqhc.coverageVulnerabilityPercent}% de pacientes en riesgo de cobertura.`
+        : `Currently facing high funding vulnerability with ~${fqhc.coverageVulnerabilityPercent}% of patients at coverage risk.`
+    );
+  }
+  if (jobCount > 0) {
+    bullets.push(isEs ? `Contratando activamente con ${jobCount} posiciones abiertas.` : `Actively hiring with ${jobCount} open positions.`);
+  }
+  if (layoffs.length > 0) {
+    const totalAffected = layoffs.reduce((s, l) => s + l.employeesAffected, 0);
+    bullets.push(isEs ? `Recientemente afectado por recortes (${totalAffected} empleados).` : `Recently affected by layoffs (${totalAffected} employees).`);
+  }
+  if (resilience.grade === "A" || resilience.grade === "B") {
+    bullets.push(isEs ? `Calificación de resiliencia ${resilience.grade} (${resilience.overall}/100) — fuerte posición operativa.` : `Resilience grade ${resilience.grade} (${resilience.overall}/100) — strong operational position.`);
+  } else if (resilience.grade === "D" || resilience.grade === "F") {
+    bullets.push(isEs ? `Calificación de resiliencia ${resilience.grade} (${resilience.overall}/100) — requiere monitoreo cercano.` : `Resilience grade ${resilience.grade} (${resilience.overall}/100) — requires close monitoring.`);
+  }
+  return bullets;
+}
+
+/** Aggregate salary data by role from job listings */
+function buildSalarySummary(jobs: { title: string; salaryMin: number; salaryMax: number }[]) {
+  const byRole: Record<string, { mins: number[]; maxes: number[] }> = {};
+  jobs.forEach((j) => {
+    // Normalize role name (take first meaningful part)
+    const role = j.title.split(" - ")[0].split(" – ")[0].trim();
+    if (!byRole[role]) byRole[role] = { mins: [], maxes: [] };
+    byRole[role].mins.push(j.salaryMin);
+    byRole[role].maxes.push(j.salaryMax);
+  });
+  return Object.entries(byRole)
+    .map(([role, data]) => ({
+      role,
+      min: Math.min(...data.mins),
+      max: Math.max(...data.maxes),
+      avg: Math.round((data.mins.reduce((s, v) => s + v, 0) + data.maxes.reduce((s, v) => s + v, 0)) / (data.mins.length + data.maxes.length)),
+      count: data.mins.length,
+    }))
+    .sort((a, b) => b.avg - a.avg)
+    .slice(0, 10);
+}
+
+/** Build peer comparison vs regional median */
+function buildPeerComparison(fqhc: CaliforniaFQHC, resilience: { overall: number }) {
+  const peers = californiaFQHCs.filter((f) => f.region === fqhc.region && f.slug !== fqhc.slug);
+  if (peers.length < 3) return []; // not enough peers
+
+  const median = (arr: number[]) => {
+    const sorted = [...arr].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+  };
+
+  const peerPatients = peers.map((p) => parseCount(p.patientCount)).filter((n) => n > 0);
+  const peerStaff = peers.map((p) => parseCount(p.staffCount)).filter((n) => n > 0);
+  const peerRatings = peers.map((p) => p.glassdoorRating).filter((r): r is number => r !== null);
+  const peerPrograms = peers.map((p) => p.programs.length);
+  const allScores = getAllResilienceScores();
+  const peerResilience = allScores.filter((s) => s.region === fqhc.region && s.slug !== fqhc.slug).map((s) => s.overall);
+
+  const comparisons = [];
+
+  if (peerPatients.length > 3) {
+    comparisons.push({
+      metric: "patients",
+      label: { en: "Patients Served", es: "Pacientes Atendidos" },
+      thisValue: parseCount(fqhc.patientCount),
+      peerMedian: Math.round(median(peerPatients)),
+      unit: "",
+    });
+  }
+
+  if (peerStaff.length > 3) {
+    comparisons.push({
+      metric: "staff",
+      label: { en: "Staff", es: "Personal" },
+      thisValue: parseCount(fqhc.staffCount),
+      peerMedian: Math.round(median(peerStaff)),
+      unit: "",
+    });
+  }
+
+  if (peerRatings.length > 3) {
+    comparisons.push({
+      metric: "rating",
+      label: { en: "Glassdoor Rating", es: "Calificación Glassdoor" },
+      thisValue: fqhc.glassdoorRating ?? 0,
+      peerMedian: Math.round(median(peerRatings) * 10) / 10,
+      unit: "/5",
+    });
+  }
+
+  comparisons.push({
+    metric: "programs",
+    label: { en: "Programs", es: "Programas" },
+    thisValue: fqhc.programs.length,
+    peerMedian: Math.round(median(peerPrograms)),
+    unit: "",
+  });
+
+  if (peerResilience.length > 3) {
+    comparisons.push({
+      metric: "resilience",
+      label: { en: "Resilience Score", es: "Puntuación de Resiliencia" },
+      thisValue: resilience.overall,
+      peerMedian: Math.round(median(peerResilience)),
+      unit: "/100",
+    });
+  }
+
+  return comparisons;
+}
+
+/** Build quality/compliance data from FQHC fields */
+function buildQualityData(fqhc: CaliforniaFQHC) {
+  const raw = fqhc as unknown as Record<string, unknown>;
+  return {
+    qualityScore: (raw.qualityScore as { overall: number; clinicalQuality?: number; patientSatisfaction?: number; access?: number; financialHealth?: number } | undefined) ?? null,
+    violations: (raw.violations as { date: string; type: string; description: string; status: string }[] | undefined) ?? null,
+    laborHistory: (raw.laborHistory as { date: string; event: string; outcome: string }[] | undefined) ?? null,
+    greatPlaceToWork: (raw.greatPlaceToWork as { certified: boolean; year?: number; approvalPercent?: number; highlights?: string[] } | undefined) ?? null,
+  };
+}
+
+/* ------------------------------------------------------------------ */
 /*  Page Component                                                     */
 /* ------------------------------------------------------------------ */
 
@@ -123,6 +274,22 @@ export default async function FQHCProfilePage({
   const similar = getSimilarFQHCs(slug, 3);
   const similarJobs = getSimilarJobsForFQHC(slug, 8);
   const profileCompleteness = calcProfileCompleteness(fqhc);
+
+  // Phase 2: Compute enrichment data server-side
+  const atAGlanceBullets = buildAtAGlance(fqhc, jobs.length, layoffs, resilience, isEs);
+  const salarySummary = buildSalarySummary(jobs);
+  const peerComparison = buildPeerComparison(fqhc, resilience);
+  const qualityData = buildQualityData(fqhc);
+  const regionSlug = getRegionSlug(fqhc.region);
+  const regionalFQHCs = californiaFQHCs.filter((f) => f.region === fqhc.region);
+  const allScores = getAllResilienceScores();
+  const regionalScores = allScores.filter((s) => s.region === fqhc.region);
+  const regionalJobs = fqhcJobListings.filter((j) => regionalFQHCs.some((f) => f.slug === j.fqhcSlug));
+  const regionalStats = {
+    totalFQHCs: regionalFQHCs.length,
+    avgResilience: regionalScores.length > 0 ? regionalScores.reduce((s, r) => s + r.overall, 0) / regionalScores.length : 0,
+    totalJobs: regionalJobs.length,
+  };
 
   // Serialize for client component (only fields the UI needs)
   const serializedJobs = jobs.map((j) => ({
@@ -338,22 +505,33 @@ export default async function FQHCProfilePage({
 
       {/* ==================== STATS BAR ==================== */}
       <section className="border-b border-stone-200 bg-white">
-        <div className="mx-auto grid max-w-5xl grid-cols-2 divide-x divide-stone-200 sm:grid-cols-4">
-          <div className="flex flex-col items-center py-6">
-            <span className="text-2xl font-bold text-stone-900">{fqhc.siteCount}</span>
-            <span className="text-sm text-stone-500">{isEs ? "Sitios" : "Sites"}</span>
+        <div className="mx-auto grid max-w-5xl grid-cols-3 divide-x divide-stone-200 sm:grid-cols-6">
+          <div className="flex flex-col items-center py-5">
+            <span className="text-xl font-bold text-stone-900 sm:text-2xl">{fqhc.siteCount}</span>
+            <span className="text-xs text-stone-500 sm:text-sm">{isEs ? "Sitios" : "Sites"}</span>
           </div>
-          <div className="flex flex-col items-center py-6">
-            <span className="text-2xl font-bold text-stone-900">{formatCount(fqhc.patientCount)}</span>
-            <span className="text-sm text-stone-500">{isEs ? "Pacientes" : "Patients"}</span>
+          <div className="flex flex-col items-center py-5">
+            <span className="text-xl font-bold text-stone-900 sm:text-2xl">{formatCount(fqhc.patientCount)}</span>
+            <span className="text-xs text-stone-500 sm:text-sm">{isEs ? "Pacientes" : "Patients"}</span>
           </div>
-          <div className="flex flex-col items-center py-6">
-            <span className="text-2xl font-bold text-stone-900">{formatCount(fqhc.staffCount)}</span>
-            <span className="text-sm text-stone-500">{isEs ? "Personal" : "Staff"}</span>
+          <div className="flex flex-col items-center py-5">
+            <span className="text-xl font-bold text-stone-900 sm:text-2xl">{formatCount(fqhc.staffCount)}</span>
+            <span className="text-xs text-stone-500 sm:text-sm">{isEs ? "Personal" : "Staff"}</span>
           </div>
-          <div className="flex flex-col items-center py-6">
-            <span className="text-2xl font-bold text-stone-900">{jobs.length}</span>
-            <span className="text-sm text-stone-500">{isEs ? "Posiciones" : "Open Positions"}</span>
+          <div className="flex flex-col items-center py-5">
+            <span className="text-xl font-bold text-stone-900 sm:text-2xl">{jobs.length}</span>
+            <span className="text-xs text-stone-500 sm:text-sm">{isEs ? "Posiciones" : "Positions"}</span>
+          </div>
+          <div className="flex flex-col items-center py-5">
+            <span className="text-xl font-bold text-stone-900 sm:text-2xl">{relatedIntel.length}</span>
+            <span className="text-xs text-stone-500 sm:text-sm">{isEs ? "Intel" : "Intel Items"}</span>
+          </div>
+          <div className="flex flex-col items-center py-5">
+            <span className={`text-xl font-bold sm:text-2xl ${
+              resilience.grade === "A" || resilience.grade === "B" ? "text-green-700" :
+              resilience.grade === "C" ? "text-amber-700" : "text-red-700"
+            }`}>{resilience.grade}</span>
+            <span className="text-xs text-stone-500 sm:text-sm">{isEs ? "Resiliencia" : "Resilience"}</span>
           </div>
         </div>
       </section>
@@ -389,6 +567,12 @@ export default async function FQHCProfilePage({
           benefits: [...typicalFqhcBenefits],
           dataSource: fqhc.dataSource,
         }}
+        atAGlance={{ bullets: atAGlanceBullets }}
+        salarySummary={salarySummary}
+        peerComparison={peerComparison}
+        qualityData={qualityData}
+        regionSlug={regionSlug}
+        regionalStats={regionalStats}
       />
     </div>
   );

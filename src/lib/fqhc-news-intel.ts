@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-29";
+export const INTEL_LAST_UPDATED = "2026-03-31";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -94,6 +94,115 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 /* ------------------------------------------------------------------ */
 
 export const INTEL_ITEMS: IntelItem[] = [
+  /* ============================================================== */
+  /*  MARCH 31, 2026 — DAILY UPDATE #28                             */
+  /* ============================================================== */
+  {
+    id: "nachc-7b-uncompensated-care-hr1-estimate",
+    date: "2026-03-28",
+    headline: {
+      en: "NACHC: H.R. 1 Will Generate $7 Billion/Year in Uncompensated Care for Community Health Centers",
+      es: "NACHC: H.R. 1 Generará $7 Mil Millones/Año en Atención No Compensada para Centros de Salud Comunitarios",
+    },
+    summary: {
+      en: "NACHC estimates the reconciliation law will lead to approximately $7 billion per year in higher costs from uncompensated care and increased operational burdens for CHCs. Commonwealth Fund estimates 5.6 million CHC Medicaid patients in expansion states could lose coverage, with revenue losses approaching $32 billion over five years. 2 in 5 CHCs have 90 days or less cash on hand. More than half already operate with negative margins. This is the most authoritative national cost estimate from the sector's own trade association.",
+      es: "NACHC estima que la ley de reconciliación generará aproximadamente $7 mil millones por año en costos más altos por atención no compensada. El Commonwealth Fund estima que 5.6 millones de pacientes de Medicaid en CHCs podrían perder cobertura, con pérdidas de ingresos de $32 mil millones en cinco años.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "critical" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.nachc.org/looming-medicaid-changes-threaten-to-deepen-the-community-health-center-workforce-crisis/",
+    sourceOrg: "NACHC / Commonwealth Fund",
+    region: "National",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["NACHC", "H.R.-1", "uncompensated-care", "$7B", "revenue-loss", "negative-margins"],
+  },
+  {
+    id: "uci-health-150-layoffs-pediatric-closure-march-2026",
+    date: "2026-03-23",
+    headline: {
+      en: "UCI Health Lays Off 150 Workers, Abruptly Closes Pediatric Units at Fountain Valley — 85% of Patients on Medi-Cal",
+      es: "UCI Health Despide a 150 Trabajadores, Cierra Abruptamente Unidades Pediátricas en Fountain Valley — 85% de Pacientes en Medi-Cal",
+    },
+    summary: {
+      en: "UCI Health laid off 150 workers and abruptly closed the pediatrics department and PICU at Fountain Valley Regional Hospital on March 23 — patients had to be transported to other hospitals mid-care. 35 nurses received layoff notices. CNA/NNU rallied April 1. UCI Health cited H.R. 1 and insurance reimbursement shifts. 85% of the roughly 500 annual pediatric patients are on Medi-Cal. The closure disrupts referral networks for Orange County FQHCs that depend on Fountain Valley for pediatric specialty care.",
+      es: "UCI Health despidió a 150 trabajadores y cerró abruptamente el departamento de pediatría y UCIP en el Hospital Regional de Fountain Valley el 23 de marzo. El 85% de los pacientes pediátricos están en Medi-Cal. El cierre afecta las redes de referencia para los FQHCs del condado de Orange.",
+    },
+    category: "workforce" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.nbclosangeles.com/news/local/uci-health-nurses-distraught-after-layoffs-closure-pediatric-units/3867906/",
+    sourceOrg: "NBC Los Angeles / NNU",
+    region: "Los Angeles",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["UCI-Health", "layoffs", "pediatric-closure", "Orange-County", "Medi-Cal", "CNA-NNU"],
+  },
+  {
+    id: "kaufman-hall-1-in-5-ca-hospitals-closure-risk",
+    date: "2026-03-25",
+    headline: {
+      en: "1 in 5 California Hospitals at Risk of Closure — Kaufman Hall Analysis Warns of Rural Care Deserts",
+      es: "1 de Cada 5 Hospitales de California en Riesgo de Cierre — Análisis de Kaufman Hall Advierte Sobre Desiertos de Atención Rural",
+    },
+    summary: {
+      en: "A Kaufman Hall analysis finds 1 in 5 California hospitals at risk of closure. Nearly half of rural hospitals operate at a loss. Southern Inyo Health District asked the governor for $3M emergency lifeline. CHA President Carmela Coyle warns of 'care deserts' for maternity and behavioral health. Hospital closures in rural areas will push more patients to FQHCs — the same FQHCs facing their own financial crisis from H.R. 1 cuts.",
+      es: "Un análisis de Kaufman Hall encuentra que 1 de cada 5 hospitales de California está en riesgo de cierre. Casi la mitad de los hospitales rurales operan con pérdidas. Los cierres de hospitales en áreas rurales empujarán más pacientes a los FQHCs.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://calhospital.org/new-report-shows-patients-served-by-one-in-five-california-hospitals-are-at-risk-of-losing-their-hospital-due-to-closure/",
+    sourceOrg: "CHA / Kaufman Hall",
+    region: "California",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["hospital-closure", "rural", "Kaufman-Hall", "CHA", "care-deserts", "maternity", "behavioral-health"],
+  },
+  {
+    id: "nachc-work-requirements-volunteer-site-strategy",
+    date: "2026-03-20",
+    headline: {
+      en: "NACHC Recommends CHCs as Volunteer Sites to Fulfill Medicaid Work Requirements — CMS Rule Expected June 2026",
+      es: "NACHC Recomienda CHCs como Sitios de Voluntariado para Cumplir Requisitos Laborales de Medicaid — Regla de CMS Esperada en Junio 2026",
+    },
+    summary: {
+      en: "NACHC issued updated guidance on Medicaid work requirements (80 hrs/month, effective Dec 31, 2026). Key recommendation: states should permit patients to volunteer at health centers to fulfill work requirements — preserving patient volumes AND satisfying the mandate. CBO estimates 10.9M patients will lose coverage. Arkansas precedent: 18,000 lost coverage (28% of target population). Georgia: only 20% of work requirement program funding went to health services. Implementation costs projected at hundreds of millions per state. CMS interim final rule expected by June 2026.",
+      es: "NACHC emitió orientación actualizada sobre requisitos laborales de Medicaid (80 hrs/mes). Recomendación clave: los estados deben permitir que los pacientes hagan voluntariado en centros de salud para cumplir los requisitos — preservando volúmenes de pacientes. Regla provisional de CMS esperada en junio 2026.",
+    },
+    category: "legislation" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.nachc.org/harmful-impacts-of-medicaid-work-requirements/",
+    sourceOrg: "NACHC",
+    region: "National",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["work-requirements", "volunteer-site", "NACHC", "CMS", "Medicaid", "patient-volume"],
+  },
+  {
+    id: "ccalac-first-workforce-summit-june-2026",
+    date: "2026-03-28",
+    headline: {
+      en: "CCALAC Announces First-Ever Workforce Summit — June 17, 2026 in Los Angeles",
+      es: "CCALAC Anuncia Primera Cumbre de Fuerza Laboral — 17 de Junio de 2026 en Los Ángeles",
+    },
+    summary: {
+      en: "The Community Clinic Association of LA County (largest regional CHC association in California — 2.02M patients at 450+ sites) is hosting its inaugural workforce summit focused on community health center recruitment and retention. Sponsorship applications due May 15. CCALAC is also hosting a joint event with the Coalition of OC Community Health Centers on April 10 and a Health IT Summit on October 8. The workforce summit signals that LA County FQHCs are now treating the staffing crisis as an existential strategic priority.",
+      es: "La Asociación de Clínicas Comunitarias del Condado de LA (la mayor asociación regional de CHC en California — 2.02M pacientes en 450+ sitios) realizará su primera cumbre de fuerza laboral enfocada en reclutamiento y retención el 17 de junio de 2026.",
+    },
+    category: "workforce" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://ccalac.org/workforce-summit/",
+    sourceOrg: "CCALAC",
+    region: "Los Angeles",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["CCALAC", "workforce-summit", "recruitment", "retention", "LA-County", "June-2026"],
+  },
+
   /* ============================================================== */
   /*  MARCH 28, 2026 — DAILY UPDATE #27                             */
   /* ============================================================== */
