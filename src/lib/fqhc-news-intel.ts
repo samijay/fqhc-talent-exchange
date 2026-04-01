@@ -98,6 +98,27 @@ export const INTEL_ITEMS: IntelItem[] = [
   /*  APRIL 1, 2026 — DAILY UPDATE #29                              */
   /* ============================================================== */
   {
+    id: "lao-county-staffing-gap-hr1-administrative-churn",
+    date: "2026-03-05",
+    headline: {
+      en: "LAO: Counties Need 2,400+ New Eligibility Workers for H.R. 1 — Zero Funded, Creating Second Disenrollment Pathway",
+      es: "LAO: Condados Necesitan 2,400+ Nuevos Trabajadores de Elegibilidad para H.R. 1 — Sin Financiamiento, Creando Segunda Vía de Desinscripción",
+    },
+    summary: {
+      en: "The CA Legislative Analyst's Office details the massive staffing gap counties face implementing H.R. 1. Counties estimate needing 2,000+ additional Medi-Cal eligibility workers and 400+ CalFresh workers statewide. The Governor's budget proposes $2.4B for Medi-Cal county administration but includes zero funding for new positions. Starting October 2026, H.R. 1 also cuts federal CalFresh administrative cost share from 50% to 25%. The CWDA warns of 'longer application processing times' and heightened churn where eligible people temporarily lose benefits due to processing backlogs. For FQHCs: patients will lose coverage through administrative delays — not just work requirements — a second disenrollment vector driving uncompensated care.",
+      es: "La LAO detalla la brecha masiva de personal que enfrentan los condados para implementar H.R. 1. Se necesitan 2,000+ nuevos trabajadores de elegibilidad de Medi-Cal pero no hay financiamiento. Pacientes perderán cobertura por retrasos administrativos — no solo por requisitos laborales — creando más atención no compensada para FQHCs.",
+    },
+    category: "legislation" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://lao.ca.gov/Publications/Report/5149",
+    sourceOrg: "CA Legislative Analyst's Office / CWDA",
+    region: "California",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["LAO", "eligibility-workers", "administrative-churn", "H.R.-1", "county-administration", "disenrollment"],
+  },
+  {
     id: "fresno-county-69-295m-deficit-ground-zero-hr1",
     date: "2026-03-31",
     headline: {
