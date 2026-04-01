@@ -535,6 +535,237 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     category: "reimbursement",
     relatedTerms: ["FQHC", "FPL"],
   },
+  // ─── Additional requested terms ──────────────────────────────────────
+  {
+    term: "HPSA",
+    fullName: { en: "Health Professional Shortage Area", es: "Área de Escasez de Profesionales de Salud" },
+    definition: {
+      en: "A federal designation for areas with too few primary care, dental, or mental health providers relative to the population. FQHCs located in HPSAs qualify for NHSC loan repayment and bonus Medicare payments.",
+      es: "Una designación federal para áreas con muy pocos proveedores de atención primaria. Los FQHC en HPSA califican para el pago de préstamos NHSC y pagos adicionales de Medicare.",
+    },
+    category: "policy",
+    relatedTerms: ["MUA", "NHSC", "HRSA"],
+    learnMoreUrl: "/salary-data",
+  },
+  {
+    term: "MUA",
+    fullName: { en: "Medically Underserved Area", es: "Área Médicamente Desatendida" },
+    definition: {
+      en: "A geographic area with a shortage of healthcare services based on the ratio of providers to population, poverty rate, infant mortality, and elderly population. FQHCs must be located in or serve an MUA or MUP.",
+      es: "Un área geográfica con escasez de servicios de salud basada en la proporción de proveedores a población, pobreza y mortalidad infantil.",
+    },
+    category: "policy",
+    relatedTerms: ["HPSA", "FQHC", "Section 330"],
+  },
+  {
+    term: "Wrap-Around Payment",
+    fullName: { en: "Wrap-Around Payment (Medicaid)", es: "Pago Complementario (Medicaid)" },
+    definition: {
+      en: "The additional payment FQHCs receive from Medicaid to make up the difference between the managed care plan's payment and the FQHC's PPS rate. Ensures FQHCs are reimbursed at their full cost-based rate.",
+      es: "El pago adicional que los FQHC reciben de Medicaid para compensar la diferencia entre el pago del plan de salud y la tarifa PPS del FQHC.",
+    },
+    category: "reimbursement",
+    relatedTerms: ["PPS", "Medicaid", "FQHC"],
+  },
+  {
+    term: "VBP",
+    fullName: { en: "Value-Based Payment", es: "Pago Basado en Valor" },
+    definition: {
+      en: "A reimbursement model that rewards providers for quality outcomes rather than volume of services. FQHCs are increasingly moving toward VBP through quality bonuses, shared savings, and capitation arrangements.",
+      es: "Un modelo de reembolso que recompensa a los proveedores por resultados de calidad en lugar del volumen de servicios.",
+    },
+    category: "reimbursement",
+    relatedTerms: ["APM", "ACO", "PPS"],
+    learnMoreUrl: "/strategy/economics",
+  },
+  {
+    term: "Scope of Practice",
+    fullName: { en: "Scope of Practice", es: "Alcance de la Práctica" },
+    definition: {
+      en: "The legal boundaries defining what services a healthcare professional can provide based on their license, training, and state regulations. In FQHCs, working at 'top of scope' maximizes team productivity and revenue.",
+      es: "Los límites legales que definen qué servicios puede proporcionar un profesional de salud según su licencia, capacitación y regulaciones estatales.",
+    },
+    category: "workforce",
+    relatedTerms: ["CHW", "NP", "PA"],
+    learnMoreUrl: "/strategy/scope-of-practice",
+  },
+  {
+    term: "Health Equity",
+    fullName: { en: "Health Equity", es: "Equidad en Salud" },
+    definition: {
+      en: "The principle that everyone should have a fair opportunity to achieve their full health potential regardless of race, income, geography, or social position. FQHCs are central to health equity because they serve communities facing the greatest barriers to care.",
+      es: "El principio de que todos deben tener una oportunidad justa de alcanzar su máximo potencial de salud sin importar raza, ingresos o posición social.",
+    },
+    category: "clinical",
+    relatedTerms: ["SDOH", "CLAS", "FQHC"],
+    learnMoreUrl: "/strategy/cultural-humility",
+  },
+  {
+    term: "SDOH",
+    fullName: { en: "Social Determinants of Health", es: "Determinantes Sociales de la Salud" },
+    definition: {
+      en: "The non-medical factors that shape health outcomes—housing, food security, education, employment, and transportation. FQHCs screen for and address SDOH through CalAIM Community Supports and care coordination.",
+      es: "Los factores no médicos que influyen en los resultados de salud—vivienda, seguridad alimentaria, educación, empleo y transporte.",
+    },
+    category: "clinical",
+    relatedTerms: ["CalAIM Community Supports", "Health Equity", "ECM"],
+    learnMoreUrl: "/strategy/cultural-humility",
+  },
+  {
+    term: "Promotora",
+    fullName: { en: "Promotora / Promotor de Salud", es: "Promotor/a de Salud" },
+    definition: {
+      en: "A Spanish-language term for Community Health Worker, especially common in Latino communities. Promotoras bridge cultural and language gaps between patients and clinics through health education, outreach, and advocacy.",
+      es: "Un trabajador de salud comunitaria que conecta a las comunidades latinas con servicios de salud mediante educación, alcance comunitario y apoyo cultural.",
+    },
+    category: "workforce",
+    relatedTerms: ["CHW", "CLAS", "Health Equity"],
+    learnMoreUrl: "/career-roadmap",
+  },
+  {
+    term: "Care Coordination",
+    fullName: { en: "Care Coordination", es: "Coordinación de la Atención" },
+    definition: {
+      en: "The organized process of managing a patient's care across multiple providers, settings, and services. In FQHCs, care coordinators connect patients to specialists, social services, and follow-up appointments.",
+      es: "El proceso organizado de gestionar la atención de un paciente entre múltiples proveedores, entornos y servicios.",
+    },
+    category: "clinical",
+    relatedTerms: ["ECM", "CCM", "PCMH"],
+    learnMoreUrl: "/guides",
+  },
+  {
+    term: "Population Health",
+    fullName: { en: "Population Health Management", es: "Gestión de Salud Poblacional" },
+    definition: {
+      en: "An approach that uses data to improve health outcomes for a defined group of patients. FQHCs use population health to identify high-risk patients, track chronic disease metrics, and allocate resources where they'll have the most impact.",
+      es: "Un enfoque que usa datos para mejorar los resultados de salud de un grupo definido de pacientes.",
+    },
+    category: "clinical",
+    relatedTerms: ["HEDIS", "UDS", "VBP"],
+  },
+  {
+    term: "TIC",
+    fullName: { en: "Trauma-Informed Care", es: "Atención Informada sobre Trauma" },
+    definition: {
+      en: "A clinical approach that recognizes the impact of trauma on patient health and behavior. FQHCs implement TIC by training staff to recognize trauma signs, avoid re-traumatization, and create safe healing environments.",
+      es: "Un enfoque clínico que reconoce el impacto del trauma en la salud y el comportamiento del paciente.",
+    },
+    category: "clinical",
+    relatedTerms: ["BH", "Health Equity"],
+    learnMoreUrl: "/strategy/research",
+  },
+  {
+    term: "MI",
+    fullName: { en: "Motivational Interviewing", es: "Entrevista Motivacional" },
+    definition: {
+      en: "A collaborative counseling technique that helps patients find their own motivation for behavior change. Widely used in FQHCs for smoking cessation, diabetes management, substance use treatment, and chronic disease self-management.",
+      es: "Una técnica de consejería colaborativa que ayuda a los pacientes a encontrar su propia motivación para cambiar comportamientos.",
+    },
+    category: "clinical",
+    relatedTerms: ["BH", "SUD"],
+  },
+  {
+    term: "SBIRT",
+    fullName: { en: "Screening, Brief Intervention, and Referral to Treatment", es: "Cribado, Intervención Breve y Derivación a Tratamiento" },
+    definition: {
+      en: "A public health approach for screening patients for substance use disorders during routine visits. FQHCs use SBIRT to identify at-risk patients early and connect them with treatment before problems escalate.",
+      es: "Un enfoque de salud pública para detectar trastornos por uso de sustancias durante visitas de rutina.",
+    },
+    category: "clinical",
+    relatedTerms: ["SUD", "MAT/MOUD", "BH"],
+  },
+  {
+    term: "Telehealth",
+    fullName: { en: "Telehealth / Telemedicine", es: "Telesalud / Telemedicina" },
+    definition: {
+      en: "The delivery of healthcare services via video, phone, or messaging platforms. FQHCs expanded telehealth dramatically during COVID-19 and continue to use it for behavioral health, chronic disease follow-ups, and serving rural patients.",
+      es: "La prestación de servicios de salud a través de video, teléfono o plataformas de mensajería.",
+    },
+    category: "technology",
+    relatedTerms: ["EHR", "RPM"],
+    learnMoreUrl: "/strategy/tech-stack",
+  },
+  {
+    term: "RPM",
+    fullName: { en: "Remote Patient Monitoring", es: "Monitoreo Remoto de Pacientes" },
+    definition: {
+      en: "Technology that allows FQHCs to track patient health data (blood pressure, glucose, weight) outside the clinic using connected devices. RPM generates billable visits and improves chronic disease management outcomes.",
+      es: "Tecnología que permite a los FQHC rastrear datos de salud del paciente fuera de la clínica usando dispositivos conectados.",
+    },
+    category: "technology",
+    relatedTerms: ["Telehealth", "CCM", "BHI"],
+  },
+  {
+    term: "BHI",
+    fullName: { en: "Behavioral Health Integration", es: "Integración de Salud Conductual" },
+    definition: {
+      en: "A Medicare billing code set (99484, 99492-99494) that reimburses FQHCs for integrating behavioral health services into primary care. Also refers to the broader clinical model of co-locating mental health within FQHC settings.",
+      es: "Un conjunto de códigos de facturación de Medicare que reembolsa a los FQHC por integrar servicios de salud mental en la atención primaria.",
+    },
+    category: "reimbursement",
+    relatedTerms: ["BH", "CCM", "Medicare"],
+    learnMoreUrl: "/guides",
+  },
+  {
+    term: "CCM Billing",
+    fullName: { en: "Chronic Care Management (Billing)", es: "Gestión de Atención Crónica (Facturación)" },
+    definition: {
+      en: "A Medicare billing program (CPT 99490, 99491) that reimburses FQHCs for non-face-to-face care coordination for patients with two or more chronic conditions. Requires 20+ minutes of staff time per month. Distinct from CalAIM's Complex Care Management.",
+      es: "Un programa de facturación de Medicare que reembolsa a los FQHC por la coordinación de atención para pacientes con dos o más condiciones crónicas.",
+    },
+    category: "reimbursement",
+    relatedTerms: ["CCM", "RPM", "Medicare"],
+  },
+  {
+    term: "AWV",
+    fullName: { en: "Annual Wellness Visit", es: "Visita Anual de Bienestar" },
+    definition: {
+      en: "A yearly preventive visit covered by Medicare that includes health risk assessment, personalized prevention plan, and screening referrals. FQHCs use AWVs to improve quality metrics and identify care gaps proactively.",
+      es: "Una visita preventiva anual cubierta por Medicare que incluye evaluación de riesgo de salud y plan de prevención personalizado.",
+    },
+    category: "reimbursement",
+    relatedTerms: ["Medicare", "HEDIS", "Quality Improvement"],
+  },
+  {
+    term: "Risk Adjustment",
+    fullName: { en: "Risk Adjustment / Risk Stratification", es: "Ajuste de Riesgo / Estratificación de Riesgo" },
+    definition: {
+      en: "A payment methodology that adjusts reimbursement based on the health complexity of a patient population. FQHCs serving sicker patients receive higher payments. Accurate documentation and HCC coding drive risk-adjusted revenue.",
+      es: "Una metodología de pago que ajusta el reembolso según la complejidad de salud de la población de pacientes.",
+    },
+    category: "reimbursement",
+    relatedTerms: ["HCC", "VBP", "Medicare"],
+  },
+  {
+    term: "HCC",
+    fullName: { en: "Hierarchical Condition Category", es: "Categoría de Condición Jerárquica" },
+    definition: {
+      en: "A coding system used by Medicare and managed care plans to classify patient diagnoses for risk adjustment. Accurate HCC coding at FQHCs ensures appropriate reimbursement for the complexity of patients served.",
+      es: "Un sistema de codificación utilizado por Medicare para clasificar diagnósticos de pacientes para el ajuste de riesgo.",
+    },
+    category: "reimbursement",
+    relatedTerms: ["Risk Adjustment", "RVU", "Medicare"],
+  },
+  {
+    term: "QI",
+    fullName: { en: "Quality Improvement", es: "Mejora de Calidad" },
+    definition: {
+      en: "A systematic approach to continuously improving patient care, safety, and operational efficiency. FQHCs use QI methodologies like PDSA cycles and Lean to improve UDS metrics, HEDIS scores, and patient satisfaction.",
+      es: "Un enfoque sistemático para mejorar continuamente la atención al paciente, la seguridad y la eficiencia operacional.",
+    },
+    category: "compliance",
+    relatedTerms: ["UDS", "HEDIS", "PCMH"],
+  },
+  {
+    term: "UDS Clinical Measures",
+    fullName: { en: "UDS Clinical Quality Measures", es: "Medidas Clínicas de Calidad UDS" },
+    definition: {
+      en: "Specific quality metrics FQHCs report annually to HRSA—including diabetes control (HbA1c <9%), hypertension control (<140/90), cervical cancer screening, and depression screening. Performance affects grant funding.",
+      es: "Métricas específicas de calidad que los FQHC reportan anualmente a HRSA, incluyendo control de diabetes, hipertensión y cribado de cáncer cervical.",
+    },
+    category: "compliance",
+    relatedTerms: ["UDS", "HEDIS", "QI"],
+  },
 ];
 
 /* ------------------------------------------------------------------ */

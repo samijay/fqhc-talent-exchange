@@ -36,6 +36,7 @@ import {
 import { THOUGHT_LEADERS } from "@/lib/fqhc-thought-leaders";
 import { MovementTimeline } from "@/components/viz/MovementTimeline";
 import type { MovementCategory } from "@/components/viz/MovementTimeline";
+import { TableOfContents } from "@/components/layout/TableOfContents";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -374,6 +375,14 @@ export default function MovementPage() {
     return THOUGHT_LEADERS.filter((leader) => relevantCategories.has(leader.category));
   }, []);
 
+  const tocItems = [
+    { id: "movement-timeline", label: isEs ? "Linea del Tiempo" : "Movement Timeline" },
+    { id: "multimedia-resources", label: isEs ? "Recursos Multimedia" : "Multimedia Resources" },
+    { id: "cross-cultural-alliances", label: isEs ? "Coaliciones" : "Powerful Coalitions" },
+    { id: "movement-leaders", label: isEs ? "Lideres" : "Movement Leaders" },
+    { id: "we-are-the-continuation", label: isEs ? "Somos la Continuacion" : "We Are the Continuation" },
+  ];
+
   return (
     <div className="bg-stone-50">
       <Breadcrumb items={[
@@ -452,10 +461,17 @@ export default function MovementPage() {
         </div>
       </section>
 
+      {/* ---- TOC ---- */}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="absolute right-4 top-10 sm:right-6 lg:right-8">
+          <TableOfContents items={tocItems} title={isEs ? "En esta pagina" : "On this page"} />
+        </div>
+      </div>
+
       {/* ============================================================ */}
       {/*  Interactive Timeline (with category filter + reverse toggle) */}
       {/* ============================================================ */}
-      <section className="py-12 sm:py-16">
+      <section id="movement-timeline" className="py-12 sm:py-16 scroll-mt-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl">
@@ -543,7 +559,7 @@ export default function MovementPage() {
       {/* ============================================================ */}
       {/*  Multimedia & Documentary Resources                           */}
       {/* ============================================================ */}
-      <section className="py-12 sm:py-16 bg-stone-900">
+      <section id="multimedia-resources" className="py-12 sm:py-16 bg-stone-900 scroll-mt-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -651,7 +667,7 @@ export default function MovementPage() {
       {/* ============================================================ */}
       {/*  Cross-Cultural Alliances                                     */}
       {/* ============================================================ */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section id="cross-cultural-alliances" className="py-12 sm:py-16 bg-white scroll-mt-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -691,7 +707,7 @@ export default function MovementPage() {
       {/* ============================================================ */}
       {/*  Leaders to Watch                                             */}
       {/* ============================================================ */}
-      <section className="py-12 sm:py-16 bg-teal-50">
+      <section id="movement-leaders" className="py-12 sm:py-16 bg-teal-50 scroll-mt-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -789,7 +805,7 @@ export default function MovementPage() {
       {/* ============================================================ */}
       {/*  "We Are the Continuation" — Emotional Closing                */}
       {/* ============================================================ */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
+      <section id="we-are-the-continuation" className="py-16 sm:py-20 bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white scroll-mt-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <Sparkles className="size-8 text-teal-400 mx-auto mb-4" />
           <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">

@@ -24,6 +24,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DelegationMatrix } from "@/components/viz/DelegationMatrix";
+import { TableOfContents } from "@/components/layout/TableOfContents";
 import type { MatrixRole, MatrixTask } from "@/components/viz/DelegationMatrix";
 import {
   SCOPE_OF_PRACTICE_ROLES,
@@ -294,6 +295,14 @@ export default function ScopeOfPracticePage() {
     0
   );
 
+  const tocItems = [
+    { id: "delegation-matrix", label: isEs ? "Matriz de Delegacion" : "Delegation Matrix" },
+    { id: "role-guide", label: isEs ? "Guia por Rol" : "Role-by-Role Guide" },
+    { id: "top-of-license-barriers", label: isEs ? "Barreras al Tope de Licencia" : "Top-of-License Barriers" },
+    { id: "revenue-impact", label: isEs ? "Impacto en Ingresos" : "Revenue Impact" },
+    { id: "strategic-plan-cta", label: isEs ? "Plan Estrategico" : "Strategic Plan" },
+  ];
+
   return (
     <div className="bg-stone-50">
       <Breadcrumb items={[
@@ -375,8 +384,15 @@ export default function ScopeOfPracticePage() {
         </div>
       </section>
 
+      {/* ---- TOC ---- */}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="absolute right-4 top-10 sm:right-6 lg:right-8">
+          <TableOfContents items={tocItems} title={isEs ? "En esta pagina" : "On this page"} />
+        </div>
+      </div>
+
       {/* ---- 3. Delegation Matrix ---- */}
-      <section className="py-10 sm:py-14">
+      <section id="delegation-matrix" className="py-10 sm:py-14 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
             <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl">
@@ -401,7 +417,7 @@ export default function ScopeOfPracticePage() {
       </section>
 
       {/* ---- 4. Role Cards Grid ---- */}
-      <section className="py-10 sm:py-14 bg-white">
+      <section id="role-guide" className="py-10 sm:py-14 bg-white scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl mb-2">
             {isEs ? "Guia por Rol" : "Role-by-Role Guide"}
@@ -443,7 +459,7 @@ export default function ScopeOfPracticePage() {
       </section>
 
       {/* ---- 5. Top-of-License Barriers ---- */}
-      <section className="py-10 sm:py-14">
+      <section id="top-of-license-barriers" className="py-10 sm:py-14 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl mb-2">
             {isEs
@@ -498,7 +514,7 @@ export default function ScopeOfPracticePage() {
       </section>
 
       {/* ---- 6. Revenue Impact Summary ---- */}
-      <section className="py-10 sm:py-14 bg-white">
+      <section id="revenue-impact" className="py-10 sm:py-14 bg-white scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl mb-2">
             {isEs
@@ -540,7 +556,7 @@ export default function ScopeOfPracticePage() {
       </section>
 
       {/* ---- 7. CTA ---- */}
-      <section className="py-10 sm:py-14">
+      <section id="strategic-plan-cta" className="py-10 sm:py-14 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl bg-gradient-to-r from-teal-700 to-teal-800 p-8 text-center text-white">
             <h2 className="text-xl font-bold sm:text-2xl">

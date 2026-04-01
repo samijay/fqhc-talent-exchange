@@ -133,6 +133,13 @@
   }
 }
 
+/* Global focus-visible ring for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid #0d9488;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 /* Defensive text overflow utilities */
 .safe-text {
   overflow-wrap: break-word;
@@ -192,13 +199,22 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Print styles for compare page and blog */
+/* Dark mode: scroll hint gradient */
+.dark .scroll-hint::after {
+  background: linear-gradient(to left, #0c0a09, transparent);
+}
+
+/* Print styles for compare page, blog, and profiles */
 @media print {
-  header, footer, nav {
+  header, footer, nav, .no-print, [data-no-print] {
     display: none !important;
+  }
+  .print-only {
+    display: block !important;
   }
   body {
     background: white !important;
+    font-size: 12px;
   }
   table {
     font-size: 11px;

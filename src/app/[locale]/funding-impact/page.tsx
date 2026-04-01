@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { TableOfContents } from "@/components/layout/TableOfContents";
 import {
   policyTimeline,
   impactStats,
@@ -289,6 +290,16 @@ export default function FundingImpactPage() {
   const t = useText();
   const locale = t.locale;
 
+  const tocItems = [
+    { id: "policy-timeline", label: t.isEs ? "Cronologia de Politicas" : "Policy Timeline" },
+    { id: "programs-affected", label: t.isEs ? "Programas Afectados" : "Programs Affected" },
+    { id: "revenue-model", label: t.isEs ? "Modelo de Ingresos" : "Revenue Impact Model" },
+    { id: "why-happening", label: t.isEs ? "Por Que Pasa Esto" : "Why Is This Happening" },
+    { id: "city-safety-net", label: t.isEs ? "Red de Seguridad Local" : "City Safety Net" },
+    { id: "sources", label: t.isEs ? "Fuentes" : "Sources" },
+    { id: "how-to-help", label: t.isEs ? "Como Ayudar" : "How to Help" },
+  ];
+
   const [timelineFilter, setTimelineFilter] = useState<"all" | "federal" | "state">("all");
   const [undocOnly, setUndocOnly] = useState(false);
   const [expandedTimeline, setExpandedTimeline] = useState<string | null>(null);
@@ -383,8 +394,15 @@ export default function FundingImpactPage() {
         </div>
       </div>
 
+      {/* ---- TOC ---- */}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="absolute right-4 top-4 sm:right-6 lg:right-8">
+          <TableOfContents items={tocItems} title={t.isEs ? "En esta pagina" : "On this page"} />
+        </div>
+      </div>
+
       {/* ─── Timeline ─── */}
-      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
+      <div id="policy-timeline" className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8 scroll-mt-20">
         <h2 className="text-2xl font-bold text-stone-900">{t.timelineTitle}</h2>
         <p className="mt-1 text-sm text-stone-500">{t.timelineSubtitle}</p>
 
@@ -491,7 +509,7 @@ export default function FundingImpactPage() {
       </div>
 
       {/* ─── Programs Affected ─── */}
-      <div className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8">
+      <div id="programs-affected" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8 scroll-mt-20">
         <h2 className="text-2xl font-bold text-stone-900">{t.programsTitle}</h2>
         <p className="mt-1 text-sm text-stone-500">{t.programsSubtitle}</p>
 
@@ -542,7 +560,7 @@ export default function FundingImpactPage() {
       </div>
 
       {/* ─── FQHC Revenue Impact Model ─── */}
-      <div className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8">
+      <div id="revenue-model" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8 scroll-mt-20">
         <h2 className="text-2xl font-bold text-stone-900">{t.revenueTitle}</h2>
         <p className="mt-1 text-sm text-stone-500">{t.revenueSubtitle}</p>
 
@@ -588,7 +606,7 @@ export default function FundingImpactPage() {
       </div>
 
       {/* ─── Why Is This Happening ─── */}
-      <div className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8">
+      <div id="why-happening" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8 scroll-mt-20">
         <h2 className="text-2xl font-bold text-stone-900">{t.whyTitle}</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           <div className="rounded-xl border border-red-200 bg-red-50/50 p-5">
@@ -616,7 +634,7 @@ export default function FundingImpactPage() {
       </div>
 
       {/* ─── City-Level Safety Net Levers ─── */}
-      <div className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8">
+      <div id="city-safety-net" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8 scroll-mt-20">
         <h2 className="text-2xl font-bold text-stone-900">{t.cityTitle}</h2>
         <p className="mt-1 text-sm text-stone-500">{t.citySubtitle}</p>
 
@@ -654,7 +672,7 @@ export default function FundingImpactPage() {
       </div>
 
       {/* ─── Sources ─── */}
-      <div className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8">
+      <div id="sources" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8 scroll-mt-20">
         <h2 className="text-2xl font-bold text-stone-900">{t.sourcesTitle}</h2>
         <p className="mt-1 text-sm text-stone-500">{t.sourcesSubtitle}</p>
 
@@ -721,7 +739,7 @@ export default function FundingImpactPage() {
       </div>
 
       {/* ─── CTA ─── */}
-      <div className="mx-auto max-w-7xl px-4 pt-14 pb-20 sm:px-6 lg:px-8">
+      <div id="how-to-help" className="mx-auto max-w-7xl px-4 pt-14 pb-20 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="rounded-2xl bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 p-8 text-white sm:p-12">
           <h2 className="text-2xl font-bold text-center sm:text-3xl">{t.ctaTitle}</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">

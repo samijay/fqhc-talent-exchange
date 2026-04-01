@@ -31,6 +31,7 @@ export default function Footer() {
       { href: "/intelligence/legislation" as const, label: t("legislativeTracker") },
       { href: "/layoffs" as const, label: t("layoffTracker") },
       { href: "/salary-data" as const, label: t("salaryIntel") },
+      { href: "/salary-calculator" as const, label: isEs ? "Calculadora Salarial" : "Salary Calculator" },
       { href: "/salary-report" as const, label: isEs ? "Informe Salarial PDF" : "Salary Report PDF" },
       { href: "/blog" as const, label: t("blog") },
     ],
@@ -40,20 +41,21 @@ export default function Footer() {
       { href: "/jobs" as const, label: isEs ? "Empleos" : "Browse Jobs" },
       { href: "/directory" as const, label: isEs ? "Directorio" : "FQHC Directory" },
       { href: "/newsletter" as const, label: t("newsletter") },
+      { href: "/whats-new" as const, label: isEs ? "Novedades" : "What's New" },
       { href: "/about" as const, label: t("aboutUs") },
     ],
   };
 
   return (
-    <footer className="border-t border-stone-200 bg-white pb-16">
+    <footer className="border-t border-stone-200 bg-white pb-16 dark:border-stone-800 dark:bg-stone-950">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4">
           {/* Logo & description */}
           <div className="col-span-2 md:col-span-3 lg:col-span-4 space-y-4">
             <Link href="/" className="flex items-center gap-2">
               <Heart className="size-6 fill-teal-700 text-teal-700" />
-              <span className="text-lg font-bold tracking-tight text-stone-900">
-                FQHC <span className="text-teal-700">Talent</span>
+              <span className="text-lg font-bold tracking-tight text-stone-900 dark:text-white">
+                FQHC <span className="text-teal-700 dark:text-teal-400">Talent</span>
               </span>
             </Link>
             <p className="text-sm leading-relaxed text-stone-500">
@@ -71,7 +73,7 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([heading, links]) => (
             <div key={heading}>
-              <h3 className="text-sm font-semibold text-stone-900">{heading}</h3>
+              <h3 className="text-sm font-semibold text-stone-900 dark:text-white">{heading}</h3>
               <ul className="mt-4 space-y-2">
                 {links.map((link, i) => (
                   <li key={link.href + link.label + i}>
@@ -89,7 +91,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 border-t border-stone-200 pt-6">
+        <div className="mt-10 border-t border-stone-200 pt-6 dark:border-stone-800">
           <p className="text-xs text-stone-500 text-center mb-4">
             {t("disclaimer")}
           </p>

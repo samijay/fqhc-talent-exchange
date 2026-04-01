@@ -7,16 +7,46 @@ import { Link } from "@/i18n/navigation";
 import {
   GLOSSARY_TERMS,
   searchGlossary,
-  getTermsByCategory,
   getAllCategories,
   CATEGORY_LABELS,
   CATEGORY_COLORS,
   type GlossaryCategory,
 } from "@/lib/fqhc-glossary";
 
+/* ------------------------------------------------------------------ */
+/*  JSON-LD DefinedTermSet schema for SEO                              */
+/* ------------------------------------------------------------------ */
+
+function GlossaryJsonLd() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    name: "FQHC Glossary — Healthcare Terms & Acronyms",
+    description:
+      "Comprehensive glossary of FQHC and healthcare terms, acronyms, and definitions for community health center professionals.",
+    url: "https://www.fqhctalent.com/glossary",
+    inLanguage: ["en", "es"],
+    hasDefinedTerm: GLOSSARY_TERMS.map((t) => ({
+      "@type": "DefinedTerm",
+      name: t.term,
+      description: t.definition.en,
+      termCode: t.term,
+      inDefinedTermSet: "https://www.fqhctalent.com/glossary",
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 export default function GlossaryPage() {
   return (
     <Suspense>
+      <GlossaryJsonLd />
       <GlossaryContent />
     </Suspense>
   );
@@ -42,6 +72,31 @@ function GlossaryContent() {
     // Sort alphabetically by term
     return results.sort((a, b) => a.term.localeCompare(b.term));
   }, [searchQuery, selectedCategory]);
+
+  // Compute available alphabet letters from filtered terms
+  const availableLetters = useMemo(() => {
+    const letters = new Set<string>();
+    filteredTerms.forEach((t) => {
+      const first = t.term.charAt(0).toUpperCase();
+      // Group numbers and special chars under "#"
+      letters.add(/[A-Z]/.test(first) ? first : "#");
+    });
+    return letters;
+  }, [filteredTerms]);
+
+  // Group filtered terms by first letter
+  const groupedTerms = useMemo(() => {
+    const groups: Record<string, typeof filteredTerms> = {};
+    filteredTerms.forEach((t) => {
+      const first = t.term.charAt(0).toUpperCase();
+      const key = /[A-Z]/.test(first) ? first : "#";
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(t);
+    });
+    return groups;
+  }, [filteredTerms]);
+
+  const allLetters = ["#", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
 
   const handleClearSearch = () => {
     setSearchQuery("");
@@ -78,6 +133,36 @@ function GlossaryContent() {
           </div>
         </div>
       </section>
+
+      {/* A-Z Jump Links */}
+      <nav
+        aria-label={isEs ? "Saltar a letra" : "Jump to letter"}
+        className="sticky top-16 z-40 bg-white/95 backdrop-blur border-b border-stone-200"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+          <div className="flex flex-wrap gap-1 justify-center">
+            {allLetters.map((letter) => {
+              const isAvailable = availableLetters.has(letter);
+              return isAvailable ? (
+                <a
+                  key={letter}
+                  href={`#letter-${letter}`}
+                  className="inline-flex items-center justify-center size-8 rounded text-sm font-semibold text-teal-700 hover:bg-teal-50 transition-colors"
+                >
+                  {letter}
+                </a>
+              ) : (
+                <span
+                  key={letter}
+                  className="inline-flex items-center justify-center size-8 rounded text-sm font-medium text-stone-300"
+                >
+                  {letter}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+      </nav>
 
       {/* Search & Filter Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -136,12 +221,23 @@ function GlossaryContent() {
           </div>
         </div>
 
-        {/* Terms List */}
+        {/* Terms List — grouped by letter */}
         {filteredTerms.length > 0 ? (
-          <div className="space-y-6">
-            {filteredTerms.map((term) => (
-              <TermCard key={term.term} term={term} isEs={isEs} />
-            ))}
+          <div className="space-y-10">
+            {allLetters
+              .filter((letter) => groupedTerms[letter])
+              .map((letter) => (
+                <div key={letter} id={`letter-${letter}`} className="scroll-mt-32">
+                  <h2 className="text-2xl font-bold text-teal-800 border-b-2 border-teal-200 pb-2 mb-6">
+                    {letter}
+                  </h2>
+                  <div className="space-y-6">
+                    {groupedTerms[letter].map((term) => (
+                      <TermCard key={term.term} term={term} isEs={isEs} />
+                    ))}
+                  </div>
+                </div>
+              ))}
           </div>
         ) : (
           <div className="text-center py-16">

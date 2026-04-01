@@ -46,6 +46,7 @@ const TOOL_PAGES: SearchItem[] = [
   { type: "tool", title: "My Learning Path", href: "/pathway", keywords: "learning pathway course progress" },
   { type: "tool", title: "FQHC Glossary", href: "/glossary", keywords: "glossary terms definitions acronyms" },
   { type: "tool", title: "Salary Intelligence", href: "/salary-data", keywords: "salary pay compensation wages benchmark" },
+  { type: "tool", title: "Salary Calculator", href: "/salary-calculator", keywords: "salary calculator competitive offer negotiation percentile" },
   { type: "tool", title: "Jobs", href: "/jobs", keywords: "job listings openings positions careers employment" },
   { type: "tool", title: "FQHC Directory", href: "/directory", keywords: "directory organizations health centers map" },
   { type: "tool", title: "Newsletter", href: "/newsletter", keywords: "newsletter subscribe email intel brief" },

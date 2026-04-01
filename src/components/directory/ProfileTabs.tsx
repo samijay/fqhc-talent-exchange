@@ -18,6 +18,7 @@ import {
   Heart,
   ExternalLink,
   Globe,
+  Printer,
   Users,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -572,6 +573,14 @@ export function ProfileTabs({
               <Link href={`/report/${slug}` as "/report"}>
                 {isEs ? "Ver Reporte Estratégico" : "View Strategic Report"} <ArrowRight className="size-4" />
               </Link>
+            </Button>
+            <Button
+              variant="outline"
+              className="w-full mt-2 border-stone-300 text-stone-700 hover:bg-stone-100"
+              onClick={() => window.print()}
+            >
+              <Printer className="size-4 mr-2" />
+              {isEs ? "Imprimir Perfil" : "Print Profile"}
             </Button>
           </div>
         </div>

@@ -8,6 +8,7 @@ import { useLocale } from "next-intl";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { trackLanguageToggle } from "@/lib/analytics";
 import { GlobalSearch } from "@/components/layout/GlobalSearch";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -69,8 +70,8 @@ function NavDropdown({
         aria-haspopup="true"
         className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
           isOpen
-            ? "bg-stone-900 text-white"
-            : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
+            ? "bg-stone-900 text-white dark:bg-stone-800"
+            : "text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
         }`}
       >
         {label}
@@ -144,8 +145,8 @@ function MegaMenu({
         aria-haspopup="true"
         className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
           isOpen
-            ? "bg-stone-900 text-white"
-            : "text-stone-600 hover:bg-stone-100 hover:text-stone-900"
+            ? "bg-stone-900 text-white dark:bg-stone-800"
+            : "text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
         }`}
       >
         {label}
@@ -240,6 +241,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
         { href: "/intelligence/legislation", label: t("legislativeTracker"), desc: t("legislativeTrackerDesc") },
         { href: "/layoffs", label: t("layoffs"), desc: t("layoffsDesc") },
         { href: "/salary-data", label: t("salaryData"), desc: t("salaryDataDesc") },
+        { href: "/salary-calculator", label: isEs ? "Calculadora Salarial" : "Salary Calculator", desc: isEs ? "Verifique si su oferta es competitiva" : "Check if your offer is competitive" },
         { href: "/intelligence/los-angeles", label: t("regionalIntel"), desc: t("regionalIntelDesc") },
         { href: "/blog", label: t("blog"), desc: t("blogDesc") },
         { href: "/intel-brief", label: "Intel Brief PDF", desc: isEs ? "Descargar informe semanal" : "Download weekly brief" },
@@ -332,7 +334,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-stone-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+    <header className="sticky top-0 z-50 w-full border-b border-stone-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:border-stone-800 dark:bg-stone-950/95 dark:supports-[backdrop-filter]:bg-stone-950/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
@@ -340,8 +342,8 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
           className="flex items-center gap-2 transition-opacity hover:opacity-80"
         >
           <Heart className="size-7 fill-teal-700 text-teal-700" />
-          <span className="text-xl font-bold tracking-tight text-stone-900">
-            FQHC <span className="text-teal-700">Talent</span>
+          <span className="text-xl font-bold tracking-tight text-stone-900 dark:text-white">
+            FQHC <span className="text-teal-700 dark:text-teal-400">Talent</span>
           </span>
         </Link>
 
@@ -368,7 +370,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
               <Link
                 key={item.href}
                 href={item.href as "/jobs"}
-                className="rounded-md px-3 py-2 text-sm font-medium text-stone-600 transition-all duration-150 hover:bg-stone-100 hover:text-stone-900"
+                className="rounded-md px-3 py-2 text-sm font-medium text-stone-600 transition-all duration-150 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
               >
                 {item.label}
               </Link>
@@ -388,9 +390,11 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
             {isEs ? "Boletín" : "Newsletter"}
           </Link>
 
+          <ThemeToggle />
+
           <button
             onClick={switchLocale}
-            className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-900"
+            className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-900 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-white"
             title={t("languageToggle")}
           >
             <Globe className="size-4" />
@@ -463,7 +467,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-stone-600 hover:bg-stone-100 hover:text-stone-900 lg:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-stone-600 hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
@@ -475,7 +479,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div id="mobile-menu" role="navigation" aria-label="Mobile navigation" className="border-t border-stone-200 bg-white lg:hidden max-h-[calc(100vh-4rem)] overflow-y-auto">
+        <div id="mobile-menu" role="navigation" aria-label="Mobile navigation" className="border-t border-stone-200 bg-white lg:hidden max-h-[calc(100vh-4rem)] overflow-y-auto dark:border-stone-800 dark:bg-stone-950">
           <div className="space-y-1 px-4 pb-4 pt-2">
             {navItems.map((item) => {
               const flatItems = flattenNav(item);

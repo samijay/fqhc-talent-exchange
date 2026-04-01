@@ -20,6 +20,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { TableOfContents } from "@/components/layout/TableOfContents";
 import {
   CULTURAL_HUMILITY_LAST_UPDATED,
   CULTURAL_DOMAINS,
@@ -295,6 +296,14 @@ export default function CulturalHumilityPage() {
       ? CULTURAL_COMPETENCIES
       : getCompetenciesByDomain(activeDomain);
 
+  const tocItems = [
+    { id: "domain-overview", label: isEs ? "Dominios de Competencia" : "Competency Domains" },
+    { id: "competencies", label: isEs ? "Competencias" : "Competencies" },
+    { id: "diversity-scenarios", label: isEs ? "Escenarios de Diversidad" : "Diversity Scenarios" },
+    { id: "key-insight", label: isEs ? "Reflexion Clave" : "Key Insight" },
+    { id: "cultural-cta", label: isEs ? "Estrategia Organizacional" : "Organizational Strategy" },
+  ];
+
   return (
     <main className="min-h-screen bg-stone-50">
       <Breadcrumb items={[
@@ -367,10 +376,17 @@ export default function CulturalHumilityPage() {
         </div>
       </section>
 
+      {/* ---- TOC ---- */}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="absolute right-4 top-10 sm:right-6 lg:right-8">
+          <TableOfContents items={tocItems} title={isEs ? "En esta pagina" : "On this page"} />
+        </div>
+      </div>
+
       {/* ============================================================ */}
       {/*  Domain Overview                                             */}
       {/* ============================================================ */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section id="domain-overview" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
             {isEs ? "Seis Dominios de Competencia Cultural" : "Six Domains of Cultural Competency"}
@@ -418,7 +434,7 @@ export default function CulturalHumilityPage() {
       {/* ============================================================ */}
       {/*  Competency Cards                                            */}
       {/* ============================================================ */}
-      <section className="bg-white border-y border-stone-200">
+      <section id="competencies" className="bg-white border-y border-stone-200 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
             <div>
@@ -465,7 +481,7 @@ export default function CulturalHumilityPage() {
       {/* ============================================================ */}
       {/*  Workforce Diversity Scenarios                               */}
       {/* ============================================================ */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section id="diversity-scenarios" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
             {isEs
@@ -499,7 +515,7 @@ export default function CulturalHumilityPage() {
       {/* ============================================================ */}
       {/*  Key Insight                                                 */}
       {/* ============================================================ */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
+      <section id="key-insight" className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white scroll-mt-20">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 text-center">
           <p className="text-2xl sm:text-3xl font-semibold leading-relaxed">
             {isEs ? (
@@ -525,7 +541,7 @@ export default function CulturalHumilityPage() {
       {/* ============================================================ */}
       {/*  CTA                                                         */}
       {/* ============================================================ */}
-      <section className="bg-gradient-to-r from-teal-700 to-teal-800 text-white">
+      <section id="cultural-cta" className="bg-gradient-to-r from-teal-700 to-teal-800 text-white scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold sm:text-3xl">
             {isEs

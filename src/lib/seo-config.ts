@@ -257,11 +257,11 @@ export const pageMetadata = {
   glossary: {
     title: "FQHC Glossary | Healthcare Acronyms & Terms Explained in Plain Language",
     description:
-      "49 FQHC terms defined in plain English and Spanish — PPS, CalAIM, ECM, 340B, PCMH, and more. Searchable glossary for community health workers, administrators, and anyone navigating the FQHC world.",
+      "70+ FQHC terms defined in plain English and Spanish — PPS, CalAIM, ECM, 340B, PCMH, SDOH, and more. Searchable glossary for community health workers, administrators, and anyone navigating the FQHC world.",
     openGraph: {
       title: "FQHC Glossary — FQHC Talent",
       description:
-        "49 healthcare terms and acronyms explained in plain language. Bilingual English/Spanish.",
+        "70+ healthcare terms and acronyms explained in plain language. Bilingual English/Spanish.",
       url: `${SITE_URL}/glossary`,
     },
     alternates: { canonical: `${SITE_URL}/glossary` },
@@ -912,6 +912,27 @@ export const pageMetadata = {
       url: `${SITE_URL}/strategy/okr-team-sprint`,
     },
     alternates: { canonical: `${SITE_URL}/strategy/okr-team-sprint` },
+  },
+  salaryCalculator: {
+    title: "FQHC Salary Calculator | Is Your Offer Competitive? Free Benchmarking Tool",
+    description:
+      "Check if your FQHC salary offer is competitive. Compare your compensation against P25/P50/P75 benchmarks for 46 roles across 9 California regions. Free, instant results with negotiation tips.",
+    keywords: [
+      "FQHC salary calculator",
+      "community health center salary",
+      "FQHC compensation",
+      "healthcare salary California",
+      "FQHC salary negotiation",
+      "is my salary competitive",
+      "FQHC pay scale",
+    ],
+    openGraph: {
+      title: "FQHC Salary Calculator — FQHC Talent",
+      description:
+        "Free salary benchmarking for 46 FQHC roles across 9 California regions. Instant percentile ranking and negotiation tips.",
+      url: `${SITE_URL}/salary-calculator`,
+    },
+    alternates: { canonical: `${SITE_URL}/salary-calculator` },
   },
 };
 

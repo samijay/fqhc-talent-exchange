@@ -17,6 +17,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { rootMetadata } from "@/lib/seo-config";
 import { AuthProvider } from "@/components/auth/AuthProvider";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
 
 export const metadata: Metadata = rootMetadata;
@@ -52,27 +53,29 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+      <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased bg-white text-stone-900 dark:bg-stone-950 dark:text-stone-100`}>
         <NextIntlClientProvider messages={messages}>
-          <AuthProvider>
-            {/* Skip-to-content link for keyboard/screen reader users */}
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-md focus:bg-teal-700 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg"
-            >
-              {locale === "es" ? "Saltar al contenido" : "Skip to content"}
-            </a>
-            <OrganizationJsonLd />
-            <WebSiteJsonLd />
-            <AnnouncementBar />
-            <Header fqhcIndex={fqhcIndex} />
-            <main id="main-content" className="min-h-screen">{children}</main>
-            <Footer />
-            <GoogleAnalytics />
-            <FeedbackButton />
-            <BackToTop />
-            <Toaster />
-          </AuthProvider>
+          <ThemeProvider>
+            <AuthProvider>
+              {/* Skip-to-content link for keyboard/screen reader users */}
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-md focus:bg-teal-700 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg"
+              >
+                {locale === "es" ? "Saltar al contenido" : "Skip to content"}
+              </a>
+              <OrganizationJsonLd />
+              <WebSiteJsonLd />
+              <AnnouncementBar />
+              <Header fqhcIndex={fqhcIndex} />
+              <main id="main-content" className="min-h-screen">{children}</main>
+              <Footer />
+              <GoogleAnalytics />
+              <FeedbackButton />
+              <BackToTop />
+              <Toaster />
+            </AuthProvider>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>
