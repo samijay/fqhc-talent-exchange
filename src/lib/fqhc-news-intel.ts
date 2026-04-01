@@ -95,6 +95,52 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 
 export const INTEL_ITEMS: IntelItem[] = [
   /* ============================================================== */
+  /*  APRIL 1, 2026 — DAILY UPDATE #29                              */
+  /* ============================================================== */
+  {
+    id: "fresno-county-69-295m-deficit-ground-zero-hr1",
+    date: "2026-03-31",
+    headline: {
+      en: "Fresno County Projects $69M-$295M Deficit from H.R. 1 — 'Ground Zero' for Medicaid Cuts",
+      es: "Condado de Fresno Proyecta Déficit de $69M-$295M por H.R. 1 — 'Epicentro' de los Recortes de Medicaid",
+    },
+    summary: {
+      en: "Fresno County projects a $69M-$295M budget deficit from H.R. 1 cuts. Public Health Director Joe Prado estimates 11,000-30,000 residents will be forced to seek county indigent care at a cost of $41M-$241M — a line item that has never existed in the county budget. CalFresh loses $7.5M. Department heads ordered to cut 5%. County CAO Paul Nerland called Fresno County 'ground zero for the impacts of H.R. 1.' The county is joining CSAC in requesting $1.9B in state relief. The West Fresno Family Resource Center's Health Disparities Program ended due to a canceled $300K federal grant — 7 CHWs laid off.",
+      es: "El condado de Fresno proyecta un déficit presupuestario de $69M-$295M por los recortes de H.R. 1. Se estima que 11,000-30,000 residentes necesitarán atención de indigencia del condado a un costo de $41M-$241M. Fresno es el 'epicentro' de los impactos de H.R. 1.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "critical" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://fresnoland.org/2026/03/31/fresno-countys-budget-deficit/",
+    sourceOrg: "Fresnoland / GV Wire",
+    region: "Central Valley",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["Fresno", "Central-Valley", "deficit", "H.R.-1", "indigent-care", "ground-zero", "CSAC"],
+  },
+  {
+    id: "ab-2161-block-work-requirements-undocumented-state-funded",
+    date: "2026-03-09",
+    headline: {
+      en: "AB 2161: Bill to Block Work Requirements for State-Funded Undocumented Medi-Cal Coverage",
+      es: "AB 2161: Proyecto de Ley para Bloquear Requisitos Laborales en Cobertura Medi-Cal Estatal para Indocumentados",
+    },
+    summary: {
+      en: "Oakland Democrat Mia Bonta introduced AB 2161, which would prohibit California from imposing federal work requirements on individuals whose Medi-Cal coverage is entirely state-funded — including undocumented immigrants. This is separate from SB 1422 (Durazo's bill to restore full Medi-Cal eligibility). Both face uncertain prospects given the state's budget deficit. If passed, AB 2161 would protect ~1.5M undocumented Californians whose coverage comes from state general funds, not federal Medicaid matching.",
+      es: "La demócrata de Oakland Mia Bonta presentó AB 2161, que prohibiría a California imponer requisitos laborales federales a personas cuya cobertura Medi-Cal es enteramente estatal — incluyendo inmigrantes indocumentados. Protegería a ~1.5M californianos indocumentados.",
+    },
+    category: "legislation" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://calmatters.org/health/2026/03/durazo-reverse-medical-undocumented-immigrants/",
+    sourceOrg: "CalMatters",
+    region: "California",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["AB-2161", "work-requirements", "undocumented", "state-funded", "Mia-Bonta", "Medi-Cal"],
+  },
+
+  /* ============================================================== */
   /*  MARCH 31, 2026 — DAILY UPDATE #28                             */
   /* ============================================================== */
   {
