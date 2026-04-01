@@ -108,6 +108,17 @@ export default function Home() {
       ? topIntel.headline
       : { en: "FQHC intelligence updated weekly", es: "Inteligencia FQHC actualizada semanalmente" },
     topIntelSource: topIntel?.sourceOrg ?? "FQHC Talent",
+    intelBriefItems: allIntelItems
+      .filter((i) => i.type === "news")
+      .map((i) => ({
+        id: i.id,
+        headline: i.headline,
+        summary: i.summary,
+        impactLevel: i.impactLevel,
+        date: i.date,
+        sourceUrl: i.sourceUrl,
+        sourceOrg: i.sourceOrg,
+      })),
   };
 
   /* ---- JSON-LD: WebPage + FAQPage for homepage rich results ---- */

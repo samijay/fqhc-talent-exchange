@@ -20,6 +20,7 @@ import {
 import { createAuthClient } from "@/lib/supabase";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { IntelCard } from "@/components/intel/IntelCard";
+import { IntelBriefPDF } from "@/components/intel/IntelBriefPDF";
 import {
   filterIntelByWatchlist,
   getContentById,
@@ -100,14 +101,28 @@ export function ExecutiveDashboard() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Column 1: Your Intel Feed */}
           <div className="space-y-3">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-stone-500">
                 <AlertTriangle className="size-4 text-amber-500" />
                 {t({ en: "Your Intel Feed", es: "Tu Feed de Inteligencia" }, locale)}
               </h3>
-              <Link href="/dashboard" className="text-xs font-medium text-teal-600 hover:text-teal-700">
-                {t({ en: "Customize", es: "Personalizar" }, locale)} →
-              </Link>
+              <div className="flex items-center gap-3">
+                <IntelBriefPDF
+                  compact
+                  items={newsFeed.map((i) => ({
+                    id: i.id,
+                    headline: i.headline,
+                    summary: i.summary,
+                    impactLevel: i.impactLevel,
+                    date: i.date,
+                    sourceUrl: i.sourceUrl,
+                    sourceOrg: i.sourceOrg,
+                  }))}
+                />
+                <Link href="/dashboard" className="text-xs font-medium text-teal-600 hover:text-teal-700">
+                  {t({ en: "Customize", es: "Personalizar" }, locale)} →
+                </Link>
+              </div>
             </div>
             {personalIntel.length === 0 ? (
               <p className="rounded-lg border border-stone-200 bg-stone-50 p-4 text-center text-sm text-stone-500">

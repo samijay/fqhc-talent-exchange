@@ -36,6 +36,7 @@ import {
   LAYOFFS_LAST_UPDATED,
   type LayoffEntry,
 } from "@/lib/california-fqhc-layoffs";
+import { LayoffTimeline } from "@/components/viz/LayoffTimeline";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                             */
@@ -326,6 +327,11 @@ export default function LayoffsPage() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* ─── Timeline Visualization ─── */}
+      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
+        <LayoffTimeline entries={californiaFQHCLayoffs} />
       </div>
 
       {/* ─── Filters ─── */}

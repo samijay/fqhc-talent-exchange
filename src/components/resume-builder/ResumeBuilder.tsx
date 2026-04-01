@@ -33,7 +33,9 @@ import {
   Pill,
   Syringe,
   BarChart2,
+  MessageSquare,
 } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -1746,6 +1748,34 @@ export default function ResumeBuilder() {
                 ? (locale === "es" ? "Generando PDF..." : "Generating PDF...")
                 : (locale === "es" ? "Descargar PDF" : "Download PDF")}
             </Button>
+          </div>
+        </div>
+
+        {/* Interview Prep CTA */}
+        <div className="mt-8 rounded-xl border border-teal-200 bg-gradient-to-r from-teal-50 to-amber-50 p-5">
+          <div className="flex items-center gap-4">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-teal-100">
+              <MessageSquare className="size-5 text-teal-700" />
+            </div>
+            <div className="flex-1">
+              <p className="font-semibold text-stone-900">
+                {locale === "es"
+                  ? "Siguiente: Practica preguntas de entrevista"
+                  : "Next: Practice Interview Questions"}
+              </p>
+              <p className="mt-0.5 text-sm text-stone-500">
+                {locale === "es"
+                  ? "Prepárate con preguntas específicas para FQHCs y tips del framework STAR."
+                  : "Prepare with FQHC-specific questions and STAR framework tips."}
+              </p>
+            </div>
+            <Link
+              href="/interview-prep"
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-teal-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-800"
+            >
+              {locale === "es" ? "Ir" : "Go"}
+              <ArrowRight className="size-3.5" />
+            </Link>
           </div>
         </div>
 

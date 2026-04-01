@@ -765,6 +765,25 @@ export default function JobsPage() {
         </div>
       </section>
 
+      {/* ---------- Interview Prep Banner ---------- */}
+      <div className="bg-gradient-to-r from-amber-50 to-teal-50 border-b border-amber-100">
+        <div className="mx-auto max-w-7xl px-4 py-2.5 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center gap-2 text-sm">
+            <MessageSquare className="size-4 text-amber-600" />
+            <span className="text-stone-600">
+              {isEs ? "¿Conseguiste una entrevista?" : "Got an interview?"}
+            </span>
+            <Link
+              href="/interview-prep"
+              className="inline-flex items-center gap-1 font-semibold text-teal-700 hover:text-teal-800"
+            >
+              {isEs ? "Practica preguntas FQHC" : "Practice FQHC interview questions"}
+              <ArrowRight className="size-3.5" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* ---------- Filter Bar ---------- */}
       <div className="sticky top-16 z-30 border-b border-stone-200 bg-white/95 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">

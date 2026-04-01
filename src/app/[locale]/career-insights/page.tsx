@@ -17,6 +17,7 @@ import {
   Briefcase,
   ArrowRight,
   MapPin,
+  MessageSquare,
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -384,6 +385,32 @@ export default function CareerInsightsPage() {
                 </Link>
               </div>
             )}
+
+            {/* Interview Prep CTA */}
+            <div className="rounded-xl border border-amber-200 bg-gradient-to-r from-amber-50 to-teal-50 p-5">
+              <div className="flex items-start gap-4">
+                <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-amber-100">
+                  <MessageSquare className="size-5 text-amber-700" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-stone-900">
+                    {isEs ? "Prepara tu entrevista" : "Prepare for Your Interview"}
+                  </h3>
+                  <p className="mt-1 text-sm text-stone-600">
+                    {isEs
+                      ? "Practica preguntas de entrevista específicas para FQHCs con el framework STAR, señales de alerta y guías por rol."
+                      : "Practice FQHC-specific interview questions with STAR framework tips, red flags to avoid, and role-specific guides."}
+                  </p>
+                  <Link
+                    href="/interview-prep"
+                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-amber-700 hover:text-amber-800"
+                  >
+                    {isEs ? "Ir a preparación de entrevista" : "Go to Interview Prep"}
+                    <ArrowRight className="size-3.5" />
+                  </Link>
+                </div>
+              </div>
+            </div>
 
             {/* CTAs */}
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

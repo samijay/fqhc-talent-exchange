@@ -10,6 +10,7 @@ import { JobSeekerPathSection } from "./JobSeekerPathSection";
 import { TrustStrip } from "./TrustStrip";
 import { NewsletterCTASection } from "./NewsletterCTASection";
 import type { FundingCliff } from "@/lib/market-intelligence";
+import type { IntelBriefItem } from "@/components/intel/IntelBriefPDF";
 
 /* ================================================================== */
 /*  Types                                                              */
@@ -25,6 +26,8 @@ export interface HomepageData {
   nextCliff: FundingCliff | null;
   topIntelHeadline: { en: string; es: string };
   topIntelSource: string;
+  /** Serialized intel items for PDF export */
+  intelBriefItems: IntelBriefItem[];
 }
 
 /* ================================================================== */
@@ -54,6 +57,7 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
         topIntelHeadline={data.topIntelHeadline}
         topIntelSource={data.topIntelSource}
         totalFQHCs={data.totalFQHCs}
+        intelBriefItems={data.intelBriefItems}
       />
 
       {/* 3. For Job Seekers */}

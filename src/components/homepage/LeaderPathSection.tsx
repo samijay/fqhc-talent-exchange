@@ -4,12 +4,14 @@ import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { AlertTriangle, Newspaper, ShieldCheck, ArrowRight } from "lucide-react";
 import type { FundingCliff } from "@/lib/market-intelligence";
+import { IntelBriefPDF, type IntelBriefItem } from "@/components/intel/IntelBriefPDF";
 
 interface LeaderPathSectionProps {
   nextCliff: FundingCliff | null;
   topIntelHeadline: { en: string; es: string };
   topIntelSource: string;
   totalFQHCs: number;
+  intelBriefItems: IntelBriefItem[];
 }
 
 const t = (obj: { en: string; es: string }, locale: string) =>
@@ -20,6 +22,7 @@ export function LeaderPathSection({
   topIntelHeadline,
   topIntelSource,
   totalFQHCs,
+  intelBriefItems,
 }: LeaderPathSectionProps) {
   const locale = useLocale();
   const isEs = locale === "es";
@@ -27,11 +30,14 @@ export function LeaderPathSection({
   return (
     <section id="for-leaders" className="scroll-mt-16 bg-stone-50 px-4 py-16 sm:py-20">
       <div className="mx-auto max-w-5xl">
-        <div className="mb-10 flex items-center gap-3">
-          <div className="h-8 w-1 rounded-full bg-teal-600" />
-          <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
-            {isEs ? "Para Lideres de FQHCs" : "For FQHC Leaders"}
-          </h2>
+        <div className="mb-10 flex flex-wrap items-center gap-3 sm:justify-between">
+          <div className="flex items-center gap-3">
+            <div className="h-8 w-1 rounded-full bg-teal-600" />
+            <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
+              {isEs ? "Para Lideres de FQHCs" : "For FQHC Leaders"}
+            </h2>
+          </div>
+          <IntelBriefPDF items={intelBriefItems} />
         </div>
 
         <div className="grid gap-4 sm:grid-cols-3 sm:gap-6 stagger-children">
