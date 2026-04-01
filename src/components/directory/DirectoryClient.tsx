@@ -284,6 +284,8 @@ export function DirectoryClient({
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [showAssessment, setShowAssessment] = useState(false);
   const [compareList, setCompareList] = useState<string[]>([]);
+  const PAGE_SIZE = 30;
+  const [page, setPage] = useState(1);
 
   /* ---------- URL sync ---------- */
   const syncURL = useCallback(
@@ -351,6 +353,14 @@ export function DirectoryClient({
 
     return list;
   }, [fqhcs, search, regionFilter, ehrFilter, programFilter, ecmOnly, highImpactOnly, unionOnly, hiringOnly, sizeFilter, gradeFilter, sortKey, sortDir]);
+
+  // Reset page when filters change
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { setPage(1); }, [search, regionFilter, ehrFilter, programFilter, ecmOnly, highImpactOnly, unionOnly, hiringOnly, sizeFilter, gradeFilter]);
+
+  // Paginated results (cards + table only, map shows all)
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+  const paginated = view === "map" ? filtered : filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   /* ---------- Aggregates for filter counts ---------- */
   const regionCounts = useMemo(() => {
@@ -723,16 +733,19 @@ export function DirectoryClient({
             {filtered.length === 0 ? (
               <EmptyState isEs={isEs} />
             ) : (
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {filtered.map((fqhc) => (
-                  <FQHCCard
-                    key={fqhc.slug}
-                    fqhc={fqhc}
-                    isEs={isEs}
-                    onViewDetails={() => { setSelectedFqhc(fqhc); setDetailsOpen(true); }}
-                  />
-                ))}
-              </div>
+              <>
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {paginated.map((fqhc) => (
+                    <FQHCCard
+                      key={fqhc.slug}
+                      fqhc={fqhc}
+                      isEs={isEs}
+                      onViewDetails={() => { setSelectedFqhc(fqhc); setDetailsOpen(true); }}
+                    />
+                  ))}
+                </div>
+                {totalPages > 1 && <PaginationControls page={page} totalPages={totalPages} setPage={setPage} isEs={isEs} total={filtered.length} pageSize={PAGE_SIZE} />}
+              </>
             )}
           </>
         )}
@@ -743,10 +756,11 @@ export function DirectoryClient({
             {filtered.length === 0 ? (
               <EmptyState isEs={isEs} />
             ) : (
+              <>
               <div className="scroll-hint overflow-x-auto rounded-xl border border-stone-200 bg-white shadow-sm">
                 <table className="w-full text-left text-sm">
                   <thead>
-                    <tr className="border-b border-stone-100 bg-stone-50/50">
+                    <tr className="border-b border-stone-100 bg-stone-50 sticky top-0 z-10">
                       {/* Compare checkbox header */}
                       <th className="w-10 px-2 py-3"></th>
                       {sortTh(t.organization, "name")}
@@ -762,7 +776,7 @@ export function DirectoryClient({
                     </tr>
                   </thead>
                   <tbody>
-                    {filtered.map((fqhc, i) => (
+                    {paginated.map((fqhc, i) => (
                       <tr
                         key={fqhc.slug}
                         className={`border-b border-stone-50 transition-colors hover:bg-stone-50/80 ${i % 2 === 0 ? "" : "bg-stone-50/30"}`}
@@ -835,6 +849,8 @@ export function DirectoryClient({
                   </tbody>
                 </table>
               </div>
+              {totalPages > 1 && <PaginationControls page={page} totalPages={totalPages} setPage={setPage} isEs={isEs} total={filtered.length} pageSize={PAGE_SIZE} />}
+              </>
             )}
           </>
         )}
@@ -1091,15 +1107,26 @@ function FQHCCard({
           )}
         </div>
 
+        {/* Mission preview */}
+        {fqhc.missionStatement && (
+          <p className="mt-2 text-xs text-stone-500 italic line-clamp-2 leading-relaxed">
+            &ldquo;{fqhc.missionStatement.slice(0, 120)}{fqhc.missionStatement.length > 120 ? "..." : ""}&rdquo;
+          </p>
+        )}
+
         {/* Stats Grid */}
-        <div className="mt-3 grid grid-cols-2 gap-2">
+        <div className="mt-3 grid grid-cols-3 gap-2">
           <div className="rounded-lg bg-teal-50 px-2 py-1.5">
-            <p className="text-xs font-medium text-stone-500">{isEs ? "Pacientes" : "Patients"}</p>
+            <p className="text-[10px] font-medium text-stone-500">{isEs ? "Pacientes" : "Patients"}</p>
             <p className="text-sm font-semibold text-stone-900">{fqhc.patientCount}</p>
           </div>
           <div className="rounded-lg bg-amber-50 px-2 py-1.5">
-            <p className="text-xs font-medium text-stone-500">{isEs ? "Personal" : "Staff"}</p>
+            <p className="text-[10px] font-medium text-stone-500">{isEs ? "Personal" : "Staff"}</p>
             <p className="text-sm font-semibold text-stone-900">{fqhc.staffCount}</p>
+          </div>
+          <div className="rounded-lg bg-stone-50 px-2 py-1.5">
+            <p className="text-[10px] font-medium text-stone-500">EHR</p>
+            <p className="text-xs font-semibold text-stone-700 truncate">{fqhc.ehrSystem === "Unknown" ? "—" : fqhc.ehrSystem.replace("OCHIN ", "")}</p>
           </div>
         </div>
 
@@ -1168,6 +1195,70 @@ function FQHCCard({
         >
           {isEs ? "Reporte" : "Report"}
         </Link>
+      </div>
+    </div>
+  );
+}
+
+function PaginationControls({ page, totalPages, setPage, isEs, total, pageSize }: {
+  page: number;
+  totalPages: number;
+  setPage: (p: number) => void;
+  isEs: boolean;
+  total: number;
+  pageSize: number;
+}) {
+  const start = (page - 1) * pageSize + 1;
+  const end = Math.min(page * pageSize, total);
+  return (
+    <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
+      <p className="text-sm text-stone-500">
+        {isEs ? `${start}-${end} de ${total}` : `${start}-${end} of ${total}`}
+      </p>
+      <div className="flex items-center gap-1">
+        <button
+          onClick={() => { setPage(1); window.scrollTo({ top: 400, behavior: "smooth" }); }}
+          disabled={page === 1}
+          className="rounded-lg border border-stone-200 px-2.5 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          ««
+        </button>
+        <button
+          onClick={() => { setPage(page - 1); window.scrollTo({ top: 400, behavior: "smooth" }); }}
+          disabled={page === 1}
+          className="rounded-lg border border-stone-200 px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          {isEs ? "Anterior" : "Prev"}
+        </button>
+        {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
+          const p = totalPages <= 5 ? i + 1 : page <= 3 ? i + 1 : page >= totalPages - 2 ? totalPages - 4 + i : page - 2 + i;
+          if (p < 1 || p > totalPages) return null;
+          return (
+            <button
+              key={p}
+              onClick={() => { setPage(p); window.scrollTo({ top: 400, behavior: "smooth" }); }}
+              className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                p === page ? "bg-teal-700 text-white" : "border border-stone-200 text-stone-600 hover:bg-stone-50"
+              }`}
+            >
+              {p}
+            </button>
+          );
+        })}
+        <button
+          onClick={() => { setPage(page + 1); window.scrollTo({ top: 400, behavior: "smooth" }); }}
+          disabled={page === totalPages}
+          className="rounded-lg border border-stone-200 px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          {isEs ? "Siguiente" : "Next"}
+        </button>
+        <button
+          onClick={() => { setPage(totalPages); window.scrollTo({ top: 400, behavior: "smooth" }); }}
+          disabled={page === totalPages}
+          className="rounded-lg border border-stone-200 px-2.5 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          »»
+        </button>
       </div>
     </div>
   );
