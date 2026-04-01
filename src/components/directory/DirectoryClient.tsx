@@ -128,6 +128,15 @@ function gradeColor(grade: string) {
   }
 }
 
+function ehrBadgeColor(ehr: string) {
+  if (ehr.includes("Epic") || ehr.includes("OCHIN")) return "bg-blue-50 text-blue-700 border border-blue-200";
+  if (ehr.includes("eClinicalWorks") || ehr.includes("healow")) return "bg-emerald-50 text-emerald-700 border border-emerald-200";
+  if (ehr.includes("NextGen")) return "bg-purple-50 text-purple-700 border border-purple-200";
+  if (ehr.includes("athena")) return "bg-cyan-50 text-cyan-700 border border-cyan-200";
+  if (ehr.includes("Cerner")) return "bg-orange-50 text-orange-700 border border-orange-200";
+  return "bg-stone-100 text-stone-600";
+}
+
 function StarRating({ rating, noRatingText }: { rating: number | null; noRatingText?: string }) {
   if (rating === null) return <span className="text-xs text-stone-500">{noRatingText || "No rating"}</span>;
   const full = Math.floor(rating);
@@ -644,6 +653,41 @@ export function DirectoryClient({
         <p className="mt-4 text-sm text-stone-500">
           {t.showing(filtered.length, stats.totalOrgs)}
         </p>
+
+        {/* Active filter chips */}
+        {(() => {
+          const chips: { label: string; clear: () => void }[] = [];
+          if (regionFilter !== "All Regions") chips.push({ label: regionFilter, clear: () => { setRegionFilter("All Regions"); syncURL({ region: null }); } });
+          if (ehrFilter !== "All EHR Systems") chips.push({ label: ehrFilter, clear: () => { setEhrFilter("All EHR Systems"); syncURL({ ehr: null }); } });
+          if (programFilter !== "All Programs") chips.push({ label: programFilter, clear: () => { setProgramFilter("All Programs"); syncURL({ program: null }); } });
+          if (ecmOnly) chips.push({ label: "ECM Only", clear: () => { setEcmOnly(false); syncURL({ ecm: null }); } });
+          if (highImpactOnly) chips.push({ label: isEs ? "Alto Riesgo" : "High Risk", clear: () => { setHighImpactOnly(false); syncURL({ risk: null }); } });
+          if (unionOnly) chips.push({ label: isEs ? "Sindicalizados" : "Unionized", clear: () => { setUnionOnly(false); syncURL({ union: null }); } });
+          if (hiringOnly) chips.push({ label: isEs ? "Contratando" : "Hiring Now", clear: () => { setHiringOnly(false); syncURL({ hiring: null }); } });
+          sizeFilter.forEach((s) => chips.push({ label: s === "small" ? "<100 staff" : s === "mid" ? "100-500 staff" : "500+ staff", clear: () => { const next = sizeFilter.filter((x) => x !== s); setSizeFilter(next); syncURL({ size: next.length > 0 ? next.join(",") : null }); } }));
+          gradeFilter.forEach((g) => chips.push({ label: `Grade ${g}`, clear: () => { const next = gradeFilter.filter((x) => x !== g); setGradeFilter(next); syncURL({ grade: next.length > 0 ? next.join(",") : null }); } }));
+          if (search.trim()) chips.push({ label: `"${search}"`, clear: () => { setSearch(""); syncURL({ q: null }); } });
+          if (chips.length === 0) return null;
+          const clearAll = () => {
+            setSearch(""); setRegionFilter("All Regions"); setEhrFilter("All EHR Systems"); setProgramFilter("All Programs");
+            setEcmOnly(false); setHighImpactOnly(false); setUnionOnly(false); setHiringOnly(false);
+            setSizeFilter([]); setGradeFilter([]);
+            router.replace(".", { scroll: false });
+          };
+          return (
+            <div className="mt-2 flex flex-wrap items-center gap-1.5">
+              {chips.map((chip, i) => (
+                <span key={i} className="inline-flex items-center gap-1 rounded-full bg-teal-50 border border-teal-200 px-2.5 py-0.5 text-xs text-teal-800">
+                  {chip.label}
+                  <button onClick={chip.clear} className="ml-0.5 text-teal-500 hover:text-teal-800">&times;</button>
+                </span>
+              ))}
+              <button onClick={clearAll} className="text-xs text-stone-500 hover:text-stone-700 underline ml-1">
+                {isEs ? "Limpiar todo" : "Clear all"}
+              </button>
+            </div>
+          );
+        })()}
       </div>
 
       {/* Content Area */}
@@ -768,7 +812,7 @@ export function DirectoryClient({
                         <td className="px-3 py-3 text-stone-700">{fqhc.patientCount}</td>
                         <td className="px-3 py-3 text-stone-700">{fqhc.staffCount}</td>
                         <td className="px-3 py-3">
-                          <Badge className="bg-stone-100 text-stone-600 text-xs whitespace-nowrap">{fqhc.ehrSystem}</Badge>
+                          <Badge className={`text-xs whitespace-nowrap ${ehrBadgeColor(fqhc.ehrSystem)}`}>{fqhc.ehrSystem}</Badge>
                         </td>
                         <td className="px-3 py-3">
                           <StarRating rating={fqhc.glassdoorRating} noRatingText={t.noRating} />
@@ -1108,14 +1152,22 @@ function FQHCCard({
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="mt-4 flex items-center gap-2">
-        <button
-          onClick={(e) => { e.stopPropagation(); onViewDetails?.(); }}
-          className="flex-1 text-sm font-medium text-teal-700 hover:text-teal-800 transition-colors text-left"
+      {/* Footer — dual CTA */}
+      <div className="mt-4 flex items-center gap-2 border-t border-stone-100 pt-3">
+        <Link
+          href={`/directory/${fqhc.slug}` as "/directory"}
+          onClick={(e) => e.stopPropagation()}
+          className="flex-1 text-sm font-medium text-teal-700 hover:text-teal-800 transition-colors"
         >
-          {isEs ? "Ver Detalles" : "View Details"} <ArrowRight className="ml-1 inline size-3" />
-        </button>
+          {isEs ? "Ver Perfil" : "View Profile"} <ArrowRight className="ml-0.5 inline size-3" />
+        </Link>
+        <Link
+          href={`/report/${fqhc.slug}` as "/report"}
+          onClick={(e) => e.stopPropagation()}
+          className="rounded-lg bg-stone-100 px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-200 transition-colors"
+        >
+          {isEs ? "Reporte" : "Report"}
+        </Link>
       </div>
     </div>
   );

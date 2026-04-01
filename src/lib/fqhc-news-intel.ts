@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-03-31";
+export const INTEL_LAST_UPDATED = "2026-04-01";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
