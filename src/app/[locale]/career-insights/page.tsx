@@ -140,6 +140,13 @@ export default function CareerInsightsPage() {
             <TrendingUp className="size-3" />
             {isEs ? "Trayectoria profesional" : "Career Roadmap"}
           </Link>
+          <Link
+            href="/interview-prep"
+            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700 hover:bg-teal-100"
+          >
+            <Briefcase className="size-3" />
+            {isEs ? "Preparación para entrevista" : "Interview Prep"}
+          </Link>
         </div>
 
         {/* Step 1: Role selection */}

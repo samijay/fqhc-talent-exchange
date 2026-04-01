@@ -237,6 +237,7 @@ export default function Header() {
         { href: "/salary-data", label: t("salaryData"), desc: t("salaryDataDesc") },
         { href: "/intelligence/los-angeles", label: t("regionalIntel"), desc: t("regionalIntelDesc") },
         { href: "/blog", label: t("blog"), desc: t("blogDesc") },
+        { href: "/intel-brief", label: "Intel Brief PDF", desc: isEs ? "Descargar informe semanal" : "Download weekly brief" },
       ],
     },
     {

@@ -1642,6 +1642,11 @@ function CareerTab({
               {isEs ? "Evaluación de Carrera" : "Career Assessment"} <ArrowRight className="size-4" />
             </Link>
           </Button>
+          <Button variant="outline" asChild>
+            <Link href="/interview-prep">
+              {isEs ? "Preparación para Entrevista" : "Interview Prep"} <ArrowRight className="size-4" />
+            </Link>
+          </Button>
         </div>
       </div>
 
