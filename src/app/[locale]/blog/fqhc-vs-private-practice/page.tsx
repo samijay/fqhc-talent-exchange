@@ -5,6 +5,8 @@ import { TLDRCard, ComparisonTable, SalaryRangeChart } from "@/components/blog/B
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface TableRow {
   factor: string;
@@ -787,6 +789,8 @@ export default async function FqhcVsPrivatePracticeArticle() {
               <span>·</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="fqhc-vs-private-practice" title="FQHC Salary Ranges — Key Roles" />
           </header>
 
           {/* Article Body */}
@@ -1081,6 +1085,10 @@ export default async function FqhcVsPrivatePracticeArticle() {
                 </li>
               </ol>
             </div>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="fqhc-vs-private-practice" title="FQHC Salary Ranges — Key Roles" />
           </div>
 
           {/* CTA */}

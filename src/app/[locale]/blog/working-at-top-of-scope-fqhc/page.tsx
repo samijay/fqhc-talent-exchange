@@ -4,6 +4,8 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 export default async function WorkingAtTopOfScopeFqhcArticle() {
   const locale = await getLocale();
@@ -56,6 +58,8 @@ export default async function WorkingAtTopOfScopeFqhcArticle() {
               <span>·</span>
               <span>11 min read</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="working-at-top-of-scope-fqhc" title="Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access" />
           </header>
 
           {/* Article Body */}
@@ -332,6 +336,10 @@ export default async function WorkingAtTopOfScopeFqhcArticle() {
               <li><a href="https://data.hrsa.gov/topics/health-centers/uds" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Health Center Program UDS Data</a> &mdash; HRSA, 2024. {isEs ? "Datos de dotaci\u00f3n de personal, volumen de pacientes e indicadores cl\u00ednicos de centros de salud." : "Health center staffing, patient volume, and clinical quality indicator data."}</li>
               <li><a href="https://ochin.org/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">OCHIN Epic EHR Network</a> &mdash; OCHIN. {isEs ? "Red de EHR basada en Epic que atiende a 6.3+ millones de pacientes en m\u00e1s de 2,000 sitios." : "Epic-based EHR network serving 6.3+ million patients across 2,000+ sites."}</li>
             </ol>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="working-at-top-of-scope-fqhc" title="Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access" />
           </div>
 
           {/* CTA */}

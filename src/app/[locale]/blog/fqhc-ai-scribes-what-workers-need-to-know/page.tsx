@@ -5,6 +5,8 @@ import { TLDRCard, StatCallout } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface ArticleContent {
   category: string;
@@ -397,6 +399,8 @@ export default async function FQHCAIScribesArticle() {
               <span>·</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="fqhc-ai-scribes-what-workers-need-to-know" title="AI Scribes at FQHCs: What Community Health Workers Need to Know in 2026" />
           </header>
 
           {/* Article Body */}
@@ -542,6 +546,10 @@ export default async function FQHCAIScribesArticle() {
                 </li>
               </ol>
             </div>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="fqhc-ai-scribes-what-workers-need-to-know" title="AI Scribes at FQHCs: What Community Health Workers Need to Know in 2026" />
           </div>
 
           {/* CTA */}

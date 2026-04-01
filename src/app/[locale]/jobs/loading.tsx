@@ -1,10 +1,23 @@
+import { SkeletonTable } from "@/components/ui/skeleton-card";
+
 export default function JobsLoading() {
   return (
-    <div className="min-h-[60vh] flex flex-col items-center justify-center px-4 gap-4">
-      <div className="h-10 w-10 rounded-full border-4 border-teal-200 border-t-teal-600 motion-safe:animate-spin" />
-      <p className="text-sm text-stone-500 dark:text-stone-500 motion-safe:animate-pulse">
-        Loading job listings...
-      </p>
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      {/* Header skeleton */}
+      <div className="animate-pulse mb-8">
+        <div className="h-8 bg-stone-200 rounded w-1/4 mb-3" />
+        <div className="h-4 bg-stone-200 rounded w-1/2" />
+      </div>
+
+      {/* Filter bar skeleton */}
+      <div className="animate-pulse mb-6 flex gap-3">
+        <div className="h-10 bg-stone-200 rounded-lg w-48" />
+        <div className="h-10 bg-stone-200 rounded-lg w-36" />
+        <div className="h-10 bg-stone-200 rounded-lg w-36" />
+      </div>
+
+      {/* Table skeleton */}
+      <SkeletonTable />
     </div>
   );
 }

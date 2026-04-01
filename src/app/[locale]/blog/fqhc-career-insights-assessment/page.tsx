@@ -4,6 +4,8 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface ArticleContent {
   category: string;
@@ -493,6 +495,8 @@ export default async function FqhcCareerInsightsAssessmentArticle() {
               <span>·</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="fqhc-career-insights-assessment" title="" />
           </header>
 
           {/* Article Body */}
@@ -594,6 +598,10 @@ export default async function FqhcCareerInsightsAssessmentArticle() {
               <li><a href="https://data.hrsa.gov/topics/health-centers/uds" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Health Center Program Uniform Data System (UDS) Data</a> — HRSA, 2024. {locale === "es" ? "32.4 millones de pacientes atendidos en centros de salud financiados por HRSA." : "32.4 million patients served at HRSA-funded health centers."}</li>
               <li><a href="https://www.bls.gov/ooh/community-and-social-service/community-health-workers.htm" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Community Health Workers: Occupational Outlook Handbook</a> — U.S. Bureau of Labor Statistics, 2024. {locale === "es" ? "Empleo de CHW proyectado a crecer 13% de 2023 a 2033." : "CHW employment projected to grow 13% from 2023 to 2033."}</li>
             </ol>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="fqhc-career-insights-assessment" title="" />
           </div>
 
           {/* CTA */}

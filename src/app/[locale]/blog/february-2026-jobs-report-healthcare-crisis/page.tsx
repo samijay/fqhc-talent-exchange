@@ -5,6 +5,8 @@ import { TLDRCard, StatCallout } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface ArticleContent {
   category: string;
@@ -464,6 +466,8 @@ export default async function FebruaryJobsReportArticle() {
               <span>&middot;</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="february-2026-jobs-report-healthcare-crisis" title="The February 2026 Jobs Report: Healthcare Is Carrying the Entire Economy. Congress Just Cut Its Funding." />
           </header>
 
           {/* Article Body */}
@@ -808,6 +812,10 @@ export default async function FebruaryJobsReportArticle() {
                 </div>
               </div>
             </div>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="february-2026-jobs-report-healthcare-crisis" title="The February 2026 Jobs Report: Healthcare Is Carrying the Entire Economy. Congress Just Cut Its Funding." />
           </div>
 
           {/* CTA */}

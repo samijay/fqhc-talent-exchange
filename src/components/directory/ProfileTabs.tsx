@@ -1505,7 +1505,7 @@ function StrategyTab({
           </div>
         </Link>
         <Link
-          href="/compare"
+          href={`/compare?fqhcs=${slug}`}
           className="flex items-center gap-3 rounded-xl border border-stone-200 bg-white p-4 transition-colors hover:bg-stone-50"
         >
           <Users className="size-8 text-stone-500 shrink-0" />

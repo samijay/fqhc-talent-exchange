@@ -5,6 +5,8 @@ import { TLDRCard } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface ArticleContent {
   category: string;
@@ -458,6 +460,8 @@ export default async function FQHCTechStackArticle() {
               <span>·</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="fqhc-technology-stack-guide-2026" title="Your FQHC Technology Stack in 2026: 12 Categories, 28 Vendors, and the Decisions That Actually Matter" />
           </header>
 
           {/* Article Body */}
@@ -622,6 +626,10 @@ export default async function FQHCTechStackArticle() {
           </div>
         </div>
       </article>
+      {/* Bottom share */}
+      <div className="max-w-3xl mx-auto px-6 mt-8 pt-6 border-t border-stone-200">
+        <InlineShareButtons slug="fqhc-technology-stack-guide-2026" title="Your FQHC Technology Stack in 2026: 12 Categories, 28 Vendors, and the Decisions That Actually Matter" />
+      </div>
 
       {/* CTA Section */}
       <ArticleCTA

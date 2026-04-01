@@ -7,6 +7,8 @@ import { TLDRCard, CareerLadderViz, SalaryRangeChart } from "@/components/blog/B
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 export default async function FqhcCareerLadderArticle() {
   const locale = await getLocale();
@@ -60,6 +62,8 @@ export default async function FqhcCareerLadderArticle() {
               <span>·</span>
               <span>12 min read</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="fqhc-career-ladder-ma-rn-provider" title="The FQHC MA, RN & Provider Career Ladder: How to Advance in Community Health" />
           </header>
 
           {/* Article Body */}
@@ -573,6 +577,10 @@ export default async function FqhcCareerLadderArticle() {
                 <li><a href="https://www.bls.gov/ooh/healthcare/nurse-anesthetists-nurse-midwives-and-nurse-practitioners.htm" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Occupational Outlook Handbook: Nurse Practitioners</a> — U.S. Bureau of Labor Statistics</li>
               </ol>
             </div>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="fqhc-career-ladder-ma-rn-provider" title="The FQHC MA, RN & Provider Career Ladder: How to Advance in Community Health" />
           </div>
 
           {/* CTA */}

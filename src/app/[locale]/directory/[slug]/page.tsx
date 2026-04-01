@@ -9,6 +9,7 @@ import {
   Star,
   Shield,
   Heart,
+  Users,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { californiaFQHCs, typicalFqhcBenefits } from "@/lib/california-fqhcs";
@@ -435,6 +436,15 @@ export default async function FQHCProfilePage({
                 </h1>
                 {/* Favorite button (client island) */}
                 <FavoriteButton contentType="fqhc" contentId={slug} size="md" />
+                {/* Compare button */}
+                <Link
+                  href={`/compare?fqhcs=${slug}`}
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-white/15 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-white/25"
+                  title={isEs ? "Comparar con otros FQHCs" : "Compare with other FQHCs"}
+                >
+                  <Users className="size-4" />
+                  <span className="hidden sm:inline">{isEs ? "Comparar" : "Compare"}</span>
+                </Link>
               </div>
               <div className="mt-2 flex flex-wrap items-center gap-3 text-teal-100">
                 <span className="inline-flex items-center gap-1.5">

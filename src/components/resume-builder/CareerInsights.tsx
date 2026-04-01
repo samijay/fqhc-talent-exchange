@@ -39,6 +39,7 @@ import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 import { FIVE_CONVERSATIONS, FOGLAMP } from "@/lib/first-90-days";
 import { trackAssessmentStart, trackAssessmentComplete } from "@/lib/analytics";
 import { trackEvent } from "@/lib/track";
+import { AssessmentPDF } from "@/components/assessment/AssessmentPDF";
 
 /* ------------------------------------------------------------------ */
 /*  i18n — EN / ES UI strings                                         */
@@ -813,8 +814,9 @@ export default function CareerInsights({ onComplete, onSkip, roleId }: CareerIns
             );
           })()}
 
-          {/* Done button */}
-          <div className="mt-8 text-center">
+          {/* Download + Done buttons */}
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <AssessmentPDF results={results} role={roleId} locale={locale} />
             <Button
               onClick={onSkip}
               className="bg-gradient-to-r from-teal-700 to-amber-600 px-8 py-3 font-semibold text-white hover:shadow-lg"

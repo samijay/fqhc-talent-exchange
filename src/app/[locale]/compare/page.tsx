@@ -1,8 +1,9 @@
 // FQHC Comparison Tool — Side-by-side FQHC analysis
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useLocale } from "next-intl";
+import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import {
   Search,
@@ -355,8 +356,24 @@ function DimensionChart({
 
 export default function ComparePage() {
   const locale = useLocale();
+  const searchParams = useSearchParams();
 
   const [selected, setSelected] = useState<string[]>([]);
+
+  // Pre-fill from URL params (e.g. /compare?fqhcs=altamed,fhcsd)
+  useEffect(() => {
+    const fqhcsParam = searchParams.get("fqhcs");
+    if (fqhcsParam) {
+      const slugs = fqhcsParam
+        .split(",")
+        .map((s) => s.trim())
+        .filter((s) => californiaFQHCs.some((f) => f.slug === s))
+        .slice(0, MAX_COMPARE);
+      if (slugs.length > 0) {
+        setSelected(slugs);
+      }
+    }
+  }, [searchParams]);
 
   const handleAdd = (slug: string) => {
     if (selected.length >= MAX_COMPARE) return;

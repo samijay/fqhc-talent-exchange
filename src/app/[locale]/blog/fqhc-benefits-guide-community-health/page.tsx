@@ -5,6 +5,8 @@ import { TLDRCard, TotalCompVisual } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface ArticleContent {
   category: string;
@@ -628,6 +630,8 @@ export default async function FqhcBenefitsGuideArticle() {
               <span>·</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="fqhc-benefits-guide-community-health" title="" />
           </header>
 
           {/* Article Body */}
@@ -756,6 +760,10 @@ export default async function FqhcBenefitsGuideArticle() {
                 <li><a href="https://bphc.hrsa.gov/compliance/ftca" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Federal Tort Claims Act (FTCA) Program</a> — HRSA, Bureau of Primary Health Care</li>
               </ol>
             </div>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="fqhc-benefits-guide-community-health" title="" />
           </div>
 
           {/* CTA */}

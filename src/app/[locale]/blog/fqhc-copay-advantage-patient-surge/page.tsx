@@ -5,6 +5,8 @@ import { TLDRCard, StatCallout } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface ArticleContent {
   category: string;
@@ -367,6 +369,8 @@ export default async function FQHCCopayAdvantageArticle() {
               <span>·</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="fqhc-copay-advantage-patient-surge" title="The FQHC Copay Advantage: Why Community Health Centers May See a Patient Surge" />
           </header>
 
           {/* Article Body */}
@@ -518,6 +522,10 @@ export default async function FQHCCopayAdvantageArticle() {
                 </li>
               </ol>
             </div>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="fqhc-copay-advantage-patient-surge" title="The FQHC Copay Advantage: Why Community Health Centers May See a Patient Surge" />
           </div>
 
           {/* CTA */}

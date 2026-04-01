@@ -4,6 +4,8 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface RoleCard {
   title: string;
@@ -551,6 +553,8 @@ export default async function WhatIsECMArticle() {
               <span>·</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="what-is-enhanced-care-management-ecm" title="" />
           </header>
 
           {/* Article Body */}
@@ -672,6 +676,10 @@ export default async function WhatIsECMArticle() {
                 <li><a href="https://www.chcf.org/resource/calaim-in-focus/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">CalAIM in Focus</a> — California Health Care Foundation (CHCF)</li>
               </ol>
             </div>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="what-is-enhanced-care-management-ecm" title="" />
           </div>
 
           {/* CTA */}

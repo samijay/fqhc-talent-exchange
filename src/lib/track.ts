@@ -14,7 +14,8 @@ export type TrackEventType =
   | "resume_create"
   | "pathway_start"
   | "pathway_complete"
-  | "assessment_complete";
+  | "assessment_complete"
+  | "assessment_download";
 
 export interface TrackEventPayload {
   event_type: TrackEventType;

@@ -5,6 +5,8 @@ import { TLDRCard, FundingCliffCard, StatCallout } from "@/components/blog/BlogD
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface ArticleContent {
   category: string;
@@ -322,6 +324,8 @@ export default async function MediCalFundingCutsArticle() {
               <span>·</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="medi-cal-funding-cuts-community-health-workers" title="Medi-Cal Funding Cuts: What Community Health Workers Need to Know in 2026" />
           </header>
 
           {/* Article Body */}
@@ -480,6 +484,10 @@ export default async function MediCalFundingCutsArticle() {
                 </li>
               </ol>
             </div>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="medi-cal-funding-cuts-community-health-workers" title="Medi-Cal Funding Cuts: What Community Health Workers Need to Know in 2026" />
           </div>
 
           {/* CTA */}

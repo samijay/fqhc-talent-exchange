@@ -4,6 +4,8 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface ArticleContent {
   category: string;
@@ -492,6 +494,8 @@ export default async function HowToWriteFqhcResumeArticle() {
               <span>·</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="how-to-write-fqhc-resume" title="" />
           </header>
 
           {/* Article Body */}
@@ -624,6 +628,10 @@ export default async function HowToWriteFqhcResumeArticle() {
                 </li>
               </ol>
             </div>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="how-to-write-fqhc-resume" title="" />
           </div>
 
           {/* CTA */}

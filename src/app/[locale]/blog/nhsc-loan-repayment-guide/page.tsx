@@ -4,6 +4,8 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface ArticleContent {
   category: string;
@@ -505,6 +507,8 @@ export default async function NhscLoanRepaymentGuideArticle() {
               <span>·</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="nhsc-loan-repayment-guide" title="" />
           </header>
 
           {/* Article Body */}
@@ -612,6 +616,10 @@ export default async function NhscLoanRepaymentGuideArticle() {
                 <li><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Public Service Loan Forgiveness (PSLF)</a> — Federal Student Aid, U.S. Department of Education</li>
               </ol>
             </div>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="nhsc-loan-repayment-guide" title="" />
           </div>
 
           {/* CTA */}

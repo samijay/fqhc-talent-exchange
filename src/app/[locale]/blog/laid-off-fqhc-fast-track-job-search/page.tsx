@@ -4,6 +4,8 @@ import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
+import { AuthorByline } from "@/components/blog/AuthorByline";
+import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 
 interface ArticleContent {
   category: string;
@@ -481,6 +483,8 @@ export default async function LaidOffFqhcFastTrackArticle() {
               <span>·</span>
               <span>{content.readTime}</span>
             </div>
+            <AuthorByline />
+            <InlineShareButtons slug="laid-off-fqhc-fast-track-job-search" title="" />
           </header>
 
           {/* Article Body */}
@@ -585,6 +589,10 @@ export default async function LaidOffFqhcFastTrackArticle() {
               <li><a href="https://data.hrsa.gov/topics/health-centers/uds" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">Health Center Program UDS Data</a> — HRSA, 2024. {locale === "es" ? "32.4 millones de pacientes atendidos en centros de salud financiados por HRSA." : "32.4 million patients served at HRSA-funded health centers."}</li>
               <li><a href="https://ochin.org/" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700 underline">OCHIN Health IT and EHR Solutions</a> — OCHIN. {locale === "es" ? "Red de EHR Epic para centros de salud comunitarios, 6.3+ millones de pacientes." : "Epic-based EHR network for community health centers, 6.3+ million patients."}</li>
             </ol>
+          </div>
+          {/* Bottom share */}
+          <div className="mt-8 pt-6 border-t border-stone-200">
+            <InlineShareButtons slug="laid-off-fqhc-fast-track-job-search" title="" />
           </div>
 
           {/* CTA */}

@@ -220,6 +220,54 @@ export default function Home() {
           text: "FQHC Talent tracks AI implementations across California FQHCs. Ambient documentation (AI scribes) is the leading category with vendors including Abridge, Sunoh.ai, and Nabla. Key results: Abridge reduced provider burnout from 52% to 39%, Sun River Health documents 7,000 visits/month with AI, and athenahealth offers free ambient AI to all clients.",
         },
       },
+      {
+        "@type": "Question",
+        name: "What is the average FQHC salary in California?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `FQHC Talent tracks salary benchmarks for ${_totalSalaryRoles} roles across 9 California regions at P25, P50 (median), and P75 levels. Examples: Medical Directors earn $250K–$350K, Nurse Practitioners $120K–$175K, Community Health Workers $43K–$55K, and Medical Assistants $43K–$52K. Regional multipliers apply — Bay Area and LA salaries run 5–15% above statewide medians. California's SB 525 sets a healthcare minimum wage reaching $25/hr for FQHCs by 2027.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is NHSC loan repayment for FQHC workers?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The National Health Service Corps (NHSC) offers loan repayment of up to $50,000 for a 2-year commitment at an approved FQHC site, with extensions available. Eligible providers include physicians, NPs, PAs, dentists, mental health professionals, and substance use counselors. Most California FQHCs are NHSC-approved sites. NHSC is a major recruitment advantage for FQHCs competing with private-sector salaries.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What EHR systems do California FQHCs use?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `The most common EHR systems at California FQHCs are OCHIN Epic (used by 50+ FQHCs through a shared community model), eClinicalWorks, NextGen Healthcare, and athenahealth. Larger FQHCs like AltaMed and Riverside University Health System use Epic directly. FQHC Talent tracks EHR systems across all ${_totalFQHCs} California FQHCs to help job seekers find organizations matching their experience.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How are FQHCs funded?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "FQHCs receive funding from multiple sources: HRSA Section 330 grants (base operational funding), Medi-Cal/Medicaid Prospective Payment System (PPS) reimbursement, Medicare, private insurance, 340B drug pricing program savings, and state/local grants. About 84% of FQHC revenue comes from government sources, making them vulnerable to federal policy changes like H.R. 1 Medicaid cuts and the Community Health Center Fund expiration in December 2026.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the FQHC resilience score?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `FQHC Talent's Resilience Scorecard rates all ${_totalFQHCs} California FQHCs on a composite score (A through F) across 5 weighted dimensions: program diversity (25%), workforce stability (20%), data maturity (15%), quality indicators (20%), and financial positioning (20%). The score helps executives benchmark their organization against regional peers and identify operational vulnerabilities.`,
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What programs do California FQHCs offer?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Common FQHC programs in California include Enhanced Care Management (ECM) under CalAIM, Behavioral Health Integration (BHI), Chronic Care Management (CCM), 340B Drug Pricing, Health Care for the Homeless (HCH), Migrant Health, Ryan White HIV/AIDS, school-based health, and dental services. Many FQHCs also participate in PACE (Program of All-inclusive Care for the Elderly) and offer enabling services like translation and transportation.",
+        },
+      },
     ],
   };
 
