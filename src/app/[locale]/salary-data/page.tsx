@@ -15,6 +15,7 @@ import {
   Briefcase,
   Award,
   Lightbulb,
+  FileDown,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -706,6 +707,31 @@ export default function SalaryDataPage() {
                 <Users className="mr-1 size-4" />
                 {isEs ? "Ver Empleos" : "Browse Jobs"}
                 <ArrowRight className="ml-1 size-3" />
+              </Button>
+            </Link>
+          </div>
+        </section>
+
+        {/* Salary Report PDF CTA */}
+        <section className="mt-12 rounded-xl border-2 border-teal-200 bg-gradient-to-r from-teal-50 to-stone-50 p-6 sm:p-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="rounded-full bg-teal-100 p-3 shrink-0">
+              <FileDown className="size-6 text-teal-700" />
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-stone-900">
+                {isEs ? "Descarga el Informe Salarial FQHC 2026" : "Download the 2026 FQHC Salary Report"}
+              </h3>
+              <p className="mt-1 text-sm text-stone-600">
+                {isEs
+                  ? `PDF gratuito con los ${SALARY_BENCHMARKS.length} roles, 9 multiplicadores regionales, analisis del impacto de SB 525 y metodologia completa.`
+                  : `Free PDF with all ${SALARY_BENCHMARKS.length} roles, 9 regional multipliers, SB 525 impact analysis, and full methodology. California-specific data you can share with your team.`}
+              </p>
+            </div>
+            <Link href="/salary-report" className="shrink-0">
+              <Button className="bg-teal-700 hover:bg-teal-800 text-white">
+                <FileDown className="mr-2 size-4" />
+                {isEs ? "Descargar PDF" : "Get Free PDF"}
               </Button>
             </Link>
           </div>

@@ -377,6 +377,25 @@ export default function NewsletterPage() {
             </div>
           </div>
 
+          {/* Salary Report CTA */}
+          <div className="mt-10 rounded-xl border border-teal-200 bg-teal-50/50 p-5 text-center">
+            <p className="text-sm font-semibold text-stone-900 mb-1">
+              {isEs ? "Recurso gratuito para suscriptores" : "Free subscriber resource"}
+            </p>
+            <p className="text-xs text-stone-600 mb-3">
+              {isEs
+                ? "Descarga el Informe Salarial y de Fuerza Laboral FQHC 2026 de California — datos de 46 roles en 9 regiones."
+                : "Download the 2026 California FQHC Salary & Workforce Report — 46 roles across 9 regions with P25/P50/P75 data."}
+            </p>
+            <Button variant="outline" size="sm" asChild className="border-teal-300 text-teal-700 hover:bg-teal-100">
+              <Link href="/salary-report">
+                <FileText className="mr-1 size-3" />
+                {isEs ? "Descargar Informe PDF" : "Download PDF Report"}{" "}
+                <ArrowRight className="size-3" />
+              </Link>
+            </Button>
+          </div>
+
           {/* Related links */}
           <div className="mt-10 flex items-center justify-center gap-4">
             <Button variant="outline" asChild>

@@ -31,6 +31,7 @@ export default function Footer() {
       { href: "/intelligence/legislation" as const, label: t("legislativeTracker") },
       { href: "/layoffs" as const, label: t("layoffTracker") },
       { href: "/salary-data" as const, label: t("salaryIntel") },
+      { href: "/salary-report" as const, label: isEs ? "Informe Salarial PDF" : "Salary Report PDF" },
       { href: "/blog" as const, label: t("blog") },
     ],
     [t("company")]: [
