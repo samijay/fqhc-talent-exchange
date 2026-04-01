@@ -23,6 +23,7 @@ import { useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { CareerFunnelStep } from "@/components/ui/CareerFunnelStep";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
   CAREER_PATHWAYS,
   REGIONAL_MULTIPLIERS,
@@ -312,6 +313,35 @@ export default function CareerRoadmapPage() {
               {isEs ? "Ver empleos" : "Browse Jobs"}
             </Link>
           </div>
+        </div>
+
+        {/* Related Tools */}
+        <div className="mt-12 border-t border-stone-200 pt-8">
+          <h3 className="text-lg font-bold text-stone-900 mb-4">
+            {isEs ? "Explora Mas" : "Explore More"}
+          </h3>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href="/salary-data" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Inteligencia Salarial" : "Salary Intelligence"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "30 roles x 9 regiones de CA" : "30 roles x 9 CA regions"}</p>
+            </Link>
+            <Link href="/certifications" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Certificaciones" : "Certifications"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "15 certificaciones especificas de CA" : "15 CA-specific certifications"}</p>
+            </Link>
+            <Link href="/interview-prep" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Preparacion Entrevista" : "Interview Prep"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "Preguntas STAR y guias por rol" : "STAR questions and role-specific guides"}</p>
+            </Link>
+          </div>
+        </div>
+
+        {/* Newsletter */}
+        <div className="mt-12 mb-8">
+          <NewsletterSignup
+            variant="card"
+            defaultAudience="the-pulse"
+          />
         </div>
       </div>
     </div>

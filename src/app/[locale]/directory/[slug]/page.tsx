@@ -27,6 +27,7 @@ import { getRegionSlug } from "@/lib/regional-intelligence";
 import { ProfileTabs } from "@/components/directory/ProfileTabs";
 import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 import { MedicalOrganizationJsonLd } from "@/components/seo/JsonLd";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 /* ------------------------------------------------------------------ */
 /*  Static Params                                                      */
@@ -416,6 +417,15 @@ export default async function FQHCProfilePage({
         siteCount={fqhc.siteCount}
         nhscApproved={fqhc.nhscApproved}
       />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+        <Breadcrumbs
+          items={[
+            { label: isEs ? "Inicio" : "Home", href: "/" },
+            { label: isEs ? "Directorio" : "Directory", href: "/directory" },
+            { label: fqhc.name },
+          ]}
+        />
+      </div>
       {/* ==================== HERO ==================== */}
       <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-12 text-white sm:py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">

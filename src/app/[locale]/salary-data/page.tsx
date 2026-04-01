@@ -18,6 +18,7 @@ import {
   FileDown,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -196,6 +197,15 @@ export default function SalaryDataPage() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+        <Breadcrumbs
+          items={[
+            { label: isEs ? "Inicio" : "Home", href: "/" },
+            { label: isEs ? "Inteligencia" : "Intelligence", href: "/" },
+            { label: isEs ? "Datos Salariales" : "Salary Data" },
+          ]}
+        />
+      </div>
       {/* ---- Dark Hero ---- */}
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 px-4">
         <div className="mx-auto max-w-5xl text-center">
@@ -736,6 +746,31 @@ export default function SalaryDataPage() {
             </Link>
           </div>
         </section>
+
+        {/* Related Tools */}
+        <div className="mt-12 border-t border-stone-200 pt-8">
+          <h3 className="text-lg font-bold text-stone-900 mb-4">
+            {isEs ? "Herramientas Relacionadas" : "Related Tools"}
+          </h3>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <Link href="/career-roadmap" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Trayectoria Profesional" : "Career Roadmap"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "5 trayectorias, 4 niveles, datos salariales de CA" : "5 tracks, 4 levels, CA salary data"}</p>
+            </Link>
+            <Link href="/resume-builder" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Creador de Curriculum" : "Resume Builder"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "Plantillas gratuitas para roles FQHC" : "Free templates for FQHC roles"}</p>
+            </Link>
+            <Link href="/interview-prep" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Preparacion Entrevista" : "Interview Prep"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "Preguntas STAR y guias por rol" : "STAR questions and role-specific guides"}</p>
+            </Link>
+            <Link href="/certifications" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Certificaciones" : "Certifications"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "15 certificaciones especificas de CA" : "15 CA-specific certifications"}</p>
+            </Link>
+          </div>
+        </div>
 
         {/* Newsletter CTA */}
         <section className="mt-12 mb-8">

@@ -9,6 +9,14 @@ export const metadata: Metadata = {
   description:
     "Strategic intelligence platform for California's Federally Qualified Health Centers. Policy tracking, workforce data, salary benchmarks, and free career tools for FQHC professionals.",
   metadataBase: new URL("https://www.fqhctalent.com"),
+  alternates: {
+    types: {
+      "application/rss+xml": [
+        { url: "/blog-feed.xml", title: "FQHC Talent Exchange — Blog" },
+        { url: "/intel-feed.xml", title: "FQHC Intel Brief" },
+      ],
+    },
+  },
 };
 
 export const viewport: Viewport = {

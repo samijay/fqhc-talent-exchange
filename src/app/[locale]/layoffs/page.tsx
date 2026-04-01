@@ -37,6 +37,8 @@ import {
   type LayoffEntry,
 } from "@/lib/california-fqhc-layoffs";
 import { LayoffTimeline } from "@/components/viz/LayoffTimeline";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                             */
@@ -245,6 +247,15 @@ export default function LayoffsPage() {
 
   return (
     <div className="bg-stone-50 min-h-screen">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+        <Breadcrumbs
+          items={[
+            { label: t.isEs ? "Inicio" : "Home", href: "/" },
+            { label: t.isEs ? "Inteligencia" : "Intelligence", href: "/" },
+            { label: t.isEs ? "Rastreador de Despidos" : "Layoff Tracker" },
+          ]}
+        />
+      </div>
       {/* ─── Hero ─── */}
       <section className="bg-gradient-to-br from-red-800 via-red-900 to-stone-900 py-14 text-center text-white sm:py-20">
         <div className="mx-auto max-w-4xl px-4">
@@ -484,7 +495,7 @@ export default function LayoffsPage() {
       </div>
 
       {/* ─── CTA section ─── */}
-      <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
         <div className="rounded-2xl bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 p-8 text-center text-white sm:p-12">
           <Zap className="mx-auto mb-4 size-10 text-amber-400" />
           <h2 className="text-2xl font-bold sm:text-3xl">{t.affectedTitle}</h2>
@@ -513,6 +524,57 @@ export default function LayoffsPage() {
             </Button>
           </div>
         </div>
+      </div>
+
+      {/* ─── Related Intelligence ─── */}
+      <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
+        <div className="border-t border-stone-200 pt-8">
+          <h3 className="text-lg font-bold text-stone-900 mb-4">
+            {t.isEs ? "Inteligencia Relacionada" : "Related Intelligence"}
+          </h3>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href="/strategy/resilience" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{t.isEs ? "Scorecard de Resiliencia" : "Resilience Scorecard"}</p>
+              <p className="text-xs text-stone-500 mt-1">{t.isEs ? "220 FQHCs evaluadas en 5 dimensiones" : "220 FQHCs scored across 5 dimensions"}</p>
+            </Link>
+            <Link href="/funding-impact" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{t.isEs ? "Impacto de Financiamiento" : "Funding Impact"}</p>
+              <p className="text-xs text-stone-500 mt-1">{t.isEs ? "Cronologia de politicas H.R. 1 y estrategias" : "H.R. 1 policy timeline and revenue strategies"}</p>
+            </Link>
+            <Link href="/intelligence/los-angeles" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{t.isEs ? "Inteligencia Regional" : "Regional Intelligence"}</p>
+              <p className="text-xs text-stone-500 mt-1">{t.isEs ? "Dashboards por region de California" : "Per-region California dashboards"}</p>
+            </Link>
+          </div>
+        </div>
+
+        <div className="border-t border-stone-200 pt-8 mt-8">
+          <h3 className="text-lg font-bold text-stone-900 mb-4">
+            {t.isEs ? "Para Trabajadores Afectados" : "For Affected Workers"}
+          </h3>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href="/fast-track" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{t.isEs ? "Intake Prioritario" : "Priority Intake"}</p>
+              <p className="text-xs text-stone-500 mt-1">{t.isEs ? "Herramientas gratuitas para prepararte" : "Free tools to get job-ready"}</p>
+            </Link>
+            <Link href="/resume-builder" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{t.isEs ? "Creador de Curriculum" : "Resume Builder"}</p>
+              <p className="text-xs text-stone-500 mt-1">{t.isEs ? "Plantillas gratuitas para roles FQHC" : "Free templates for FQHC roles"}</p>
+            </Link>
+            <Link href="/career-insights" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{t.isEs ? "Evaluacion Profesional" : "Career Assessment"}</p>
+              <p className="text-xs text-stone-500 mt-1">{t.isEs ? "Evaluacion de 5 dominios + plan de 90 dias" : "5-domain assessment + 90-day plan"}</p>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* ─── Newsletter ─── */}
+      <div className="mx-auto max-w-3xl px-4 pb-20 sm:px-6 lg:px-8">
+        <NewsletterSignup
+          variant="card"
+          defaultAudience="both"
+        />
       </div>
     </div>
   );

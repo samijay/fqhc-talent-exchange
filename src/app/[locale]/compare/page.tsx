@@ -17,6 +17,8 @@ import {
   BarChart3,
   Plus,
   ArrowLeft,
+  Printer,
+  Sparkles,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -40,6 +42,12 @@ const t = (obj: { en: string; es: string }, locale: string) =>
   locale === "es" ? obj.es : obj.en;
 
 const MAX_COMPARE = 3;
+
+const POPULAR_COMPARISONS = [
+  { label: "AltaMed vs FHCSD", slugs: ["altamed", "family-health-centers-of-san-diego"] },
+  { label: "AHS vs La Clinica vs NEVHC", slugs: ["asian-health-services", "la-clinica-de-la-raza", "northeast-valley-health-corporation"] },
+  { label: "KHEIR vs APLA vs JWCH", slugs: ["kheir-clinic", "apla-health", "jwch-institute"] },
+];
 
 function parseNumber(s: string): number {
   return parseInt(s.replace(/[^0-9]/g, ""), 10) || 0;
@@ -126,6 +134,10 @@ const labels = {
   notUnionized: { en: "Not Unionized", es: "No Sindicalizado" },
   unknown: { en: "Unknown", es: "Desconocido" },
   noneReported: { en: "None reported", es: "Ninguno reportado" },
+  popularComparisons: { en: "Popular Comparisons", es: "Comparaciones Populares" },
+  browseDirectory: { en: "Or browse the directory to find FQHCs", es: "O explore el directorio para encontrar FQHCs" },
+  printComparison: { en: "Print Comparison", es: "Imprimir Comparacion" },
+  addThird: { en: "Add a 3rd FQHC", es: "Agregar un 3er FQHC" },
 };
 
 /* ------------------------------------------------------------------ */
@@ -447,20 +459,90 @@ export default function ComparePage() {
         </Link>
 
         {!canCompare && (
-          <div className="text-center py-16 text-stone-500">
-            <Building2 className="w-12 h-12 mx-auto mb-4 text-stone-300" />
-            <p className="text-lg">{t(labels.needTwo, locale)}</p>
-            <p className="text-sm mt-2">{t(labels.selectUp, locale)}</p>
+          <div className="text-center py-12 space-y-8">
+            <div>
+              <Building2 className="w-12 h-12 mx-auto mb-4 text-stone-300" />
+              <p className="text-lg text-stone-600">{t(labels.needTwo, locale)}</p>
+              <p className="text-sm mt-2 text-stone-500">{t(labels.selectUp, locale)}</p>
+            </div>
+
+            {/* Popular Comparisons */}
+            <div className="max-w-lg mx-auto">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <Sparkles className="w-4 h-4 text-amber-500" />
+                <h3 className="text-sm font-semibold text-stone-600 uppercase tracking-wider">
+                  {t(labels.popularComparisons, locale)}
+                </h3>
+              </div>
+              <div className="flex flex-wrap justify-center gap-3">
+                {POPULAR_COMPARISONS.map((comp) => (
+                  <Button
+                    key={comp.label}
+                    variant="outline"
+                    size="sm"
+                    className="border-teal-200 text-teal-700 hover:bg-teal-50 gap-1.5"
+                    onClick={() => {
+                      setSelected(comp.slugs);
+                      trackCompareUse(comp.slugs.length);
+                    }}
+                  >
+                    <BarChart3 className="w-3.5 h-3.5" />
+                    {comp.label}
+                  </Button>
+                ))}
+              </div>
+            </div>
+
+            {/* Directory link */}
+            <Link
+              href="/directory"
+              className="inline-flex items-center gap-1.5 text-teal-700 hover:text-teal-900 text-sm font-medium transition-colors"
+            >
+              {t(labels.browseDirectory, locale)}
+              <ChevronRight className="w-4 h-4" />
+            </Link>
           </div>
         )}
 
         {canCompare && (
           <>
+            {/* Action Bar: Add 3rd + Print */}
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                {fqhcs.length < MAX_COMPARE && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="border-teal-200 text-teal-700 hover:bg-teal-50 gap-1.5"
+                    onClick={() => {
+                      const heroSearch = document.querySelector<HTMLInputElement>('section input[type="text"]');
+                      if (heroSearch) {
+                        heroSearch.scrollIntoView({ behavior: "smooth", block: "center" });
+                        setTimeout(() => heroSearch.focus(), 400);
+                      }
+                    }}
+                  >
+                    <Plus className="w-4 h-4" />
+                    {t(labels.addThird, locale)}
+                  </Button>
+                )}
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-stone-200 text-stone-600 hover:bg-stone-50 gap-1.5 print:hidden"
+                onClick={() => window.print()}
+              >
+                <Printer className="w-4 h-4" />
+                {t(labels.printComparison, locale)}
+              </Button>
+            </div>
+
             {/* Comparison Table */}
             <div className="bg-white rounded-2xl border border-stone-200 overflow-hidden">
               <div className="scroll-hint overflow-x-auto">
                 <table className="w-full text-left min-w-[600px]">
-                  <thead>
+                  <thead className="sticky top-0 z-10">
                     <tr className="border-b border-stone-200 bg-stone-50">
                       <th className="py-4 px-4 text-sm font-semibold text-stone-500 w-40 md:w-48" />
                       {fqhcs.map((fqhc) => (

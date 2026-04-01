@@ -1,8 +1,4 @@
-import { pageMetadata } from "@/lib/seo-config";
-import { ReadingProgressBar } from "@/components/blog/ReadingProgressBar";
-import { SocialShare } from "@/components/blog/SocialShare";
-
-export const metadata = pageMetadata.blog;
+import { ReadingProgress } from "@/components/blog/ReadingProgress";
 
 export default function BlogLayout({
   children,
@@ -11,9 +7,8 @@ export default function BlogLayout({
 }) {
   return (
     <>
-      <ReadingProgressBar />
+      <ReadingProgress />
       {children}
-      <SocialShare />
     </>
   );
 }

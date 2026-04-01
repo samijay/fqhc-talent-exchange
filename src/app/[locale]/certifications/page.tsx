@@ -32,6 +32,7 @@ import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
 import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
 import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 import { ReadingLevelBadge } from "@/components/ui/ReadingLevelBadge";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 
 const ROLE_OPTIONS = [
   { id: "all", en: "All Roles", es: "Todos los roles" },
@@ -326,7 +327,7 @@ function CertificationsContent() {
             className="flex items-center justify-center gap-2 rounded-xl border border-teal-200 bg-teal-50 px-6 py-4 text-sm font-semibold text-teal-700 transition-colors hover:bg-teal-100"
           >
             <ClipboardCheck className="size-4" />
-            {isEs ? "Tomar evaluación profesional" : "Take Career Assessment"}
+            {isEs ? "Tomar evaluacion profesional" : "Take Career Assessment"}
           </Link>
           <Link
             href="/career-roadmap"
@@ -340,8 +341,37 @@ function CertificationsContent() {
             className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-6 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
           >
             <FileText className="size-4" />
-            {isEs ? "Crear currículum" : "Build Resume"}
+            {isEs ? "Crear curriculum" : "Build Resume"}
           </Link>
+        </div>
+
+        {/* Related Tools */}
+        <div className="mt-12 border-t border-stone-200 pt-8">
+          <h3 className="text-lg font-bold text-stone-900 mb-4">
+            {isEs ? "Explora Mas" : "Explore More"}
+          </h3>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href="/career-roadmap" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Trayectoria Profesional" : "Career Roadmap"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "5 trayectorias, 4 niveles, datos salariales de CA" : "5 tracks, 4 levels, CA salary data"}</p>
+            </Link>
+            <Link href="/resources" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Recursos de Carrera" : "Career Resources"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "18 programas gratuitos y de bajo costo" : "18 free and low-cost programs"}</p>
+            </Link>
+            <Link href="/salary-data" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Inteligencia Salarial" : "Salary Intelligence"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "30 roles x 9 regiones de CA" : "30 roles x 9 CA regions"}</p>
+            </Link>
+          </div>
+        </div>
+
+        {/* Newsletter */}
+        <div className="mt-12 mb-8">
+          <NewsletterSignup
+            variant="card"
+            defaultAudience="the-pulse"
+          />
         </div>
       </div>
     </div>

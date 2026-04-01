@@ -1106,6 +1106,29 @@ export default function AITrackerPage() {
         </div>
       </section>
 
+      {/* Related Strategy */}
+      <section className="border-t border-stone-200 py-10">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <h3 className="text-lg font-bold text-stone-900 mb-4">
+            {isEs ? "Estrategia Relacionada" : "Related Strategy"}
+          </h3>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href="/strategy/tech-stack" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Guia de Tech Stack" : "Tech Stack Guide"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "28 proveedores en 12 categorias FQHC" : "28 vendors across 12 FQHC categories"}</p>
+            </Link>
+            <Link href="/strategy/case-studies" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Casos de Estudio" : "Case Studies"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "Estrategias reales de FQHCs exitosas" : "Real strategies from successful FQHCs"}</p>
+            </Link>
+            <Link href="/strategy/masterclass" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900">{isEs ? "Masterclass" : "Masterclass"}</p>
+              <p className="text-xs text-stone-500 mt-1">{isEs ? "15 modulos de estrategia para la crisis 2026" : "15 strategy modules for the 2026 crisis"}</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter */}
       <section className="border-t border-stone-200 py-10">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">

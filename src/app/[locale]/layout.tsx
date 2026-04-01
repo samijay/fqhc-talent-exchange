@@ -12,10 +12,12 @@ import AnnouncementBar from "@/components/layout/AnnouncementBar";
 // Cookie consent banner removed — CCPA requires opt-out only (not opt-in).
 // GA now loads immediately; users can opt out via privacy policy or GA browser add-on.
 import FeedbackButton from "@/components/layout/FeedbackButton";
+import { BackToTop } from "@/components/layout/BackToTop";
 import { Toaster } from "@/components/ui/sonner";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import { rootMetadata } from "@/lib/seo-config";
 import { AuthProvider } from "@/components/auth/AuthProvider";
+import { californiaFQHCs } from "@/lib/california-fqhcs";
 
 export const metadata: Metadata = rootMetadata;
 
@@ -40,6 +42,14 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const messages = await getMessages();
 
+  // Lightweight FQHC index for global search (only name/slug/city/county)
+  const fqhcIndex = californiaFQHCs.map((f) => ({
+    name: f.name,
+    slug: f.slug,
+    city: f.city,
+    county: f.county,
+  }));
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${GeistSans.variable} ${GeistMono.variable} antialiased`}>
@@ -55,11 +65,12 @@ export default async function LocaleLayout({ children, params }: Props) {
             <OrganizationJsonLd />
             <WebSiteJsonLd />
             <AnnouncementBar />
-            <Header />
+            <Header fqhcIndex={fqhcIndex} />
             <main id="main-content" className="min-h-screen">{children}</main>
             <Footer />
             <GoogleAnalytics />
             <FeedbackButton />
+            <BackToTop />
             <Toaster />
           </AuthProvider>
         </NextIntlClientProvider>

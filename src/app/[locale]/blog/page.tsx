@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { BLOG_POSTS } from "@/lib/blog-posts";
 import { Search, Clock, ArrowRight } from "lucide-react";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 // Extract unique categories from posts
 const EN_CATEGORIES = [
@@ -55,6 +56,9 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen">
+      <div className="max-w-5xl mx-auto px-6 pt-4">
+        <Breadcrumbs items={[{ label: isEs ? "Inicio" : "Home", href: "/" }, { label: "Blog" }]} />
+      </div>
       {/* Hero with featured article */}
       <section className="bg-gradient-to-br from-teal-50 via-teal-50 to-stone-50 py-12 md:py-16 px-6">
         <div className="max-w-5xl mx-auto">

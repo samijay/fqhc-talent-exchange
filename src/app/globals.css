@@ -191,3 +191,16 @@
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
+
+/* Print styles for compare page and blog */
+@media print {
+  header, footer, nav {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+  }
+  table {
+    font-size: 11px;
+  }
+}

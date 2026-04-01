@@ -43,6 +43,7 @@ import {
   type NegotiationContext,
 } from "@/lib/job-negotiation";
 import { JobPostingJsonLd, FAQPageJsonLd } from "@/components/seo/JsonLd";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -742,6 +743,9 @@ export default function JobsPage() {
           },
         ]}
       />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+        <Breadcrumbs items={[{ label: isEs ? "Inicio" : "Home", href: "/" }, { label: isEs ? "Empleos" : "Jobs" }]} />
+      </div>
       {/* ---------- Hero ---------- */}
       <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-12 text-center text-white sm:py-16">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">

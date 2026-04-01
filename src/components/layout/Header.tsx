@@ -7,6 +7,7 @@ import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { trackLanguageToggle } from "@/lib/analytics";
+import { GlobalSearch } from "@/components/layout/GlobalSearch";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -190,7 +191,11 @@ function MegaMenu({
 /*  Header                                                             */
 /* ------------------------------------------------------------------ */
 
-export default function Header() {
+interface HeaderProps {
+  fqhcIndex?: { name: string; slug: string; city: string; county: string }[];
+}
+
+export default function Header({ fqhcIndex = [] }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -371,8 +376,10 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Desktop — Newsletter CTA + Language toggle + Auth */}
+        {/* Desktop — Search + Newsletter CTA + Language toggle + Auth */}
         <div className="hidden items-center gap-2 lg:flex">
+          <GlobalSearch fqhcIndex={fqhcIndex} />
+
           <Link
             href="/newsletter"
             className="flex items-center gap-1.5 rounded-md bg-teal-700 px-3 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-teal-800"
