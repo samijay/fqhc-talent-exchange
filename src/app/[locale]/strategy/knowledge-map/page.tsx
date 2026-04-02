@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { KnowledgeGraph } from "@/components/viz/KnowledgeGraph";
 import {
   strategicThemes,
   learningPaths,
@@ -619,6 +620,13 @@ export default function KnowledgeMapPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/*  SECTION 1.5 — Interactive Knowledge Graph                   */}
+      {/* ============================================================ */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <KnowledgeGraph />
       </section>
 
       {/* ============================================================ */}

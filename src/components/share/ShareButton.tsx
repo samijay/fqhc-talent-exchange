@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Share2, Linkedin, Copy, Check } from "lucide-react";
+import { Share2, Linkedin, Mail, Copy, Check } from "lucide-react";
 import { toast } from "sonner";
 import { useLocale } from "next-intl";
 
@@ -18,6 +18,8 @@ interface ShareButtonProps {
   description?: string;
   /** Size variant */
   size?: "sm" | "md";
+  /** Optional variant for light-on-dark contexts */
+  variant?: "default" | "light";
 }
 
 /* ------------------------------------------------------------------ */
@@ -29,6 +31,7 @@ const LABELS = {
   copyLink: { en: "Copy Link", es: "Copiar enlace" },
   copied: { en: "Link copied!", es: "¡Enlace copiado!" },
   copyFailed: { en: "Could not copy link", es: "No se pudo copiar el enlace" },
+  email: { en: "Email", es: "Correo" },
 };
 
 /* ------------------------------------------------------------------ */
@@ -52,6 +55,7 @@ export function ShareButton({
   title,
   description,
   size = "sm",
+  variant = "default",
 }: ShareButtonProps) {
   const locale = useLocale();
   const isEs = locale === "es";
@@ -86,6 +90,28 @@ export function ShareButton({
     ? `${title} — ${description}`
     : title;
 
+  /* ---- Web Share API (mobile) ---- */
+  const handleNativeShare = useCallback(async () => {
+    try {
+      await navigator.share({
+        title,
+        text: description ?? title,
+        url,
+      });
+    } catch {
+      // User cancelled or API unavailable — fall through to dropdown
+    }
+  }, [title, description, url]);
+
+  const handleTriggerClick = useCallback(() => {
+    // Use native share on supported devices (typically mobile)
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+      handleNativeShare();
+      return;
+    }
+    setOpen(!open);
+  }, [open, handleNativeShare]);
+
   const handleLinkedIn = useCallback(() => {
     window.open(
       `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
@@ -104,6 +130,11 @@ export function ShareButton({
     setOpen(false);
   }, [shareText, url]);
 
+  const handleEmail = useCallback(() => {
+    window.location.href = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`${shareText}\n\n${url}`)}`;
+    setOpen(false);
+  }, [title, shareText, url]);
+
   const handleCopy = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(url);
@@ -118,13 +149,17 @@ export function ShareButton({
 
   const iconSize = size === "sm" ? "size-3.5" : "size-4";
   const btnPad = size === "sm" ? "p-1.5" : "p-2";
+  const triggerClasses =
+    variant === "light"
+      ? `rounded-md ${btnPad} text-white/70 transition-colors hover:bg-white/10 hover:text-white`
+      : `rounded-md ${btnPad} text-stone-500 transition-colors hover:bg-stone-100 hover:text-teal-700`;
 
   return (
     <div ref={ref} className="relative inline-flex">
       <button
         ref={triggerRef}
-        onClick={() => setOpen(!open)}
-        className={`rounded-md ${btnPad} text-stone-500 transition-colors hover:bg-stone-100 hover:text-teal-700`}
+        onClick={handleTriggerClick}
+        className={triggerClasses}
         aria-label={isEs ? LABELS.share.es : LABELS.share.en}
         aria-expanded={open}
         aria-haspopup="menu"
@@ -153,6 +188,15 @@ export function ShareButton({
             <XIcon className="size-4" />
             X (Twitter)
           </button>
+          <button
+            onClick={handleEmail}
+            className="flex w-full items-center gap-2.5 px-3 py-2 text-left text-sm text-stone-700 hover:bg-stone-50"
+            role="menuitem"
+          >
+            <Mail className="size-4 text-stone-500" />
+            {isEs ? LABELS.email.es : LABELS.email.en}
+          </button>
+          <hr className="my-1 border-stone-100" />
           <button
             onClick={handleCopy}
             className="flex w-full items-center gap-2.5 px-3 py-2 text-left text-sm text-stone-700 hover:bg-stone-50"

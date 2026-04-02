@@ -44,6 +44,8 @@ import {
 } from "@/lib/job-negotiation";
 import { JobPostingJsonLd, FAQPageJsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { SaveJobButton } from "@/components/jobs/SaveJobButton";
+import { RecentlyViewed } from "@/components/directory/RecentlyViewed";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -1193,6 +1195,10 @@ export default function JobsPage() {
                       >
                         <Heart className={`size-4 transition-colors ${isFavorited ? "fill-amber-500 text-amber-500" : "text-stone-300 hover:text-amber-400"}`} />
                       </button>
+                      {/* Bookmark / Save button */}
+                      <div className="mt-0.5">
+                        <SaveJobButton jobId={job.id} />
+                      </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-1.5">
                           <p className="text-sm font-semibold text-stone-900 truncate flex-1">{job.title}</p>
@@ -1451,6 +1457,8 @@ export default function JobsPage() {
                         >
                           <Heart className={`size-4 transition-colors ${isFavorited ? "fill-amber-500 text-amber-500" : "text-stone-300 hover:text-amber-400"}`} />
                         </button>
+                        {/* Bookmark / Save */}
+                        <SaveJobButton jobId={job.id} />
                         {/* Compare */}
                         <input
                           type="checkbox"
