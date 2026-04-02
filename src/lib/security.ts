@@ -133,3 +133,16 @@ export function validateOrigin(request: Request): boolean {
   if (!origin) return true;
   return ALLOWED_ORIGINS.includes(origin);
 }
+
+/**
+ * Check Content-Length header to reject oversized payloads early.
+ * Returns true if the payload is within the limit (or no Content-Length header).
+ * Use on POST endpoints to prevent memory exhaustion from giant payloads.
+ */
+export function checkContentLength(request: Request, maxBytes: number): boolean {
+  const contentLength = request.headers.get("content-length");
+  if (!contentLength) return true; // No header — rely on body parsing limits
+  const length = parseInt(contentLength, 10);
+  if (isNaN(length)) return true;
+  return length <= maxBytes;
+}

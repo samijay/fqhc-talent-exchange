@@ -60,13 +60,18 @@ export async function POST(req: NextRequest) {
         );
       }
     } else {
-      // Fallback: accept unsigned webhooks in development only
+      // No webhook secret configured — reject in production
       if (process.env.NODE_ENV === "production") {
         console.error(
           "[newsletter/webhook] RESEND_WEBHOOK_SECRET is not set in production. " +
-          "Webhooks are unverified — set this env var to enable signature checking."
+          "Rejecting unverified webhook request."
+        );
+        return NextResponse.json(
+          { error: "Webhook verification not configured" },
+          { status: 500 }
         );
       }
+      // Development only: accept unsigned webhooks for testing
       event = JSON.parse(rawBody) as ResendWebhookEvent;
     }
 

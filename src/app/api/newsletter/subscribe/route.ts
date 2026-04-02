@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
 import { resend, FROM_EMAIL } from "@/lib/resend";
-import { checkRateLimit, getClientIp, validateOrigin } from "@/lib/security";
+import { checkRateLimit, getClientIp, validateOrigin, checkContentLength } from "@/lib/security";
 import { emailHeader, emailFooter, missionBanner, ctaButton, BRAND } from "@/lib/email-helpers";
 
 const subscribeSchema = z.object({
@@ -36,6 +36,10 @@ export async function POST(request: Request) {
         { error: "Too many requests. Please wait a moment and try again." },
         { status: 429 }
       );
+    }
+
+    if (!checkContentLength(request, 10_000)) {
+      return NextResponse.json({ error: "Payload too large." }, { status: 413 });
     }
 
     const body = await request.json();

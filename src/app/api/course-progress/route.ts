@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
-import { checkRateLimit, getClientIp } from "@/lib/security";
+import { checkRateLimit, getClientIp, checkContentLength } from "@/lib/security";
 
 const progressSchema = z.object({
   email: z.string().email().max(255),
@@ -26,6 +26,10 @@ export async function POST(request: Request) {
         { error: "Too many requests. Please wait a moment." },
         { status: 429 }
       );
+    }
+
+    if (!checkContentLength(request, 100_000)) {
+      return NextResponse.json({ error: "Payload too large." }, { status: 413 });
     }
 
     const body = await request.json();

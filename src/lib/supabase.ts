@@ -66,11 +66,14 @@ export const supabaseAdmin = (() => {
     return supabase;
   }
 
-  // Server-side without the key — warn loudly but don't crash
+  // Server-side without the key
   if (process.env.NODE_ENV === "production") {
+    // In production, this is a critical misconfiguration. API routes using
+    // supabaseAdmin will silently bypass RLS protections with the anon client.
+    // Log loudly so it shows up in Vercel logs.
     console.error(
       "CRITICAL: SUPABASE_SERVICE_ROLE_KEY is missing in production server. " +
-      "All API routes using supabaseAdmin will be limited by RLS. " +
+      "API routes using supabaseAdmin will fail or be limited by RLS. " +
       "Set this variable in your Vercel dashboard."
     );
   } else {
@@ -80,5 +83,6 @@ export const supabaseAdmin = (() => {
     );
   }
 
+  // Return anon client as fallback — API routes should check for errors
   return supabase;
 })();

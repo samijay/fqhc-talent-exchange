@@ -75,6 +75,20 @@ export async function POST(request: Request) {
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
+    // Magic number validation — verify the file content matches its claimed type
+    if (fileType === "application/pdf" && !(buffer[0] === 0x25 && buffer[1] === 0x50 && buffer[2] === 0x44 && buffer[3] === 0x46)) {
+      return NextResponse.json(
+        { error: "File does not appear to be a valid PDF." },
+        { status: 400 },
+      );
+    }
+    if (fileType === "application/vnd.openxmlformats-officedocument.wordprocessingml.document" && !(buffer[0] === 0x50 && buffer[1] === 0x4B)) {
+      return NextResponse.json(
+        { error: "File does not appear to be a valid DOCX." },
+        { status: 400 },
+      );
+    }
+
     // Upload to Supabase Storage (private bucket — use signed URLs)
     const timestamp = Date.now();
     const safeFileName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
