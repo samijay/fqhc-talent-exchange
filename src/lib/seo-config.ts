@@ -10,10 +10,10 @@ export const SITE_DESCRIPTION =
 export const rootMetadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "FQHC Talent | Strategic Intelligence for California's Community Health Centers",
+    default: "FQHC Talent | California Health Center Intelligence",
     template: "%s | FQHC Talent",
   },
-  description: SITE_DESCRIPTION,
+  description: "California's FQHC intelligence platform — 220+ health center profiles, 1,000+ jobs, salary data, policy tracking, and free career tools. Updated daily.",
   keywords: [
     "FQHC intelligence",
     "FQHC strategy",
@@ -84,9 +84,9 @@ export const rootMetadata = {
 // Per-page metadata — use these in individual page files
 export const pageMetadata = {
   jobs: {
-    title: "FQHC Jobs in California | Community Health Center Careers",
+    title: "FQHC Jobs in California — 1,000+ Positions",
     description:
-      "Browse 600+ open positions at Federally Qualified Health Centers across California. Community health workers, care coordinators, behavioral health specialists, nurses, and more. Updated weekly. 100% free for job seekers.",
+      "Browse 1,000+ open positions at California FQHCs. CHWs, nurses, care coordinators, providers, and more. Salary benchmarks included. Updated weekly.",
     openGraph: {
       title: "FQHC Jobs in California — 600+ Open Positions",
       description:
@@ -110,9 +110,9 @@ export const pageMetadata = {
   },
   // forEmployers: archived — page moved to _archive/cta/pages/for-employers/
   blog: {
-    title: "FQHC Strategic Intelligence Blog | Revenue, Compliance & Workforce Data for California",
+    title: "FQHC Blog — Career & Policy Intelligence",
     description:
-      "Data-driven articles for FQHC leaders and professionals: revenue optimization, BLS hiring data, Medi-Cal policy analysis, salary benchmarks, and career guides. Updated weekly with primary source citations.",
+      "Expert articles on FQHC careers, salaries, AI adoption, and Medi-Cal policy. Primary sources cited. Bilingual EN/ES. Updated weekly.",
     openGraph: {
       title: "FQHC Intelligence Blog — FQHC Talent",
       description:
@@ -122,9 +122,9 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/blog` },
   },
   directory: {
-    title: "Every FQHC in California — 220 Health Centers with Ratings, Salaries & Programs",
+    title: "California FQHC Directory — 220 Health Centers",
     description:
-      "The most complete directory of California's 220 FQHCs — Glassdoor ratings, salary ranges, EHR systems, programs, resilience grades, and strategic reports. Search by region, filter by program, compare side-by-side.",
+      "220 California FQHCs with Glassdoor ratings, salary ranges, resilience grades, EHR systems, and programs. Search, filter, compare side-by-side.",
     openGraph: {
       title: "California FQHC Directory — 220 Health Centers with Ratings & Salaries",
       description:
@@ -146,10 +146,9 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/resources` },
   },
   insights: {
-    title:
-      "FQHC Executive Dashboard | Market Intelligence, Policy Tracking & Workforce Data",
+    title: "FQHC Intelligence Dashboard — Policy & Data",
     description:
-      "Real-time intelligence for FQHC executives — legislation tracking, funding cliff countdowns, workforce displacement data, undocumented access policy watch, and change management strategy for California community health centers.",
+      "Real-time FQHC intelligence — legislation tracking, funding cliffs, workforce data, and change management strategy for California health centers.",
     openGraph: {
       title: "FQHC Executive Intelligence Dashboard",
       description:
@@ -159,10 +158,9 @@ export const pageMetadata = {
     alternates: { canonical: SITE_URL },
   },
   guides: {
-    title:
-      "FQHC Workplace Guides | Clinical Workflows, Billing & Revenue for Health Center Workers",
+    title: "FQHC Workplace Guides — ECM, Billing & More",
     description:
-      "Practical how-to guides for FQHC workers — ECM workflows, RN co-visit billing, PPS revenue mechanics, CalAIM programs, and documentation standards. Primary sources from HRSA, CMS, and DHCS.",
+      "Practical guides for FQHC workers — ECM workflows, RN co-visit billing, PPS revenue, CalAIM, and documentation standards. HRSA/CMS sources.",
     openGraph: {
       title: "Workplace Guides — FQHC Talent",
       description:
@@ -194,9 +192,9 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/terms` },
   },
   whyFqhc: {
-    title: "Why Work at an FQHC? | Career Growth, Loan Repayment & Mission-Driven Healthcare",
+    title: "Why Work at an FQHC? Loan Repayment & Growth",
     description:
-      "Discover why mission-driven healthcare professionals choose FQHCs over hospital systems and private practice. Faster career growth, NHSC loan repayment ($50K–$75K tax-free), broader scope of practice, and meaningful impact serving California's underserved communities.",
+      "Why healthcare pros choose FQHCs — faster career growth, NHSC loan repayment ($50K+ tax-free), broader scope, and meaningful impact.",
     openGraph: {
       title: "Why Work at an FQHC? — FQHC Talent",
       description:
@@ -231,9 +229,9 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/about` },
   },
   careerRoadmap: {
-    title: "FQHC Career Roadmap | Career Paths & Salary Progression in California",
+    title: "FQHC Career Roadmap — 5 Paths to Leadership",
     description:
-      "Explore 5 career pathways in California FQHCs — from entry-level to leadership. See salary ranges by region, required certifications, and skills at every level.",
+      "5 career tracks in California FQHCs with salary ranges by region, certifications at every level, and progression from entry to leadership.",
     openGraph: {
       title: "Career Roadmap — FQHC Talent",
       description:
@@ -243,9 +241,9 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/career-roadmap` },
   },
   certifications: {
-    title: "FQHC Certifications | California Certification Guide for Community Health",
+    title: "FQHC Certifications — CA Guide with Costs",
     description:
-      "15 certifications for California FQHC careers — costs, duration, salary impact, and where to get them. CHW Certificate, CCM, CPC, LCSW, BLS, OCHIN Epic, and more.",
+      "20 certifications for California FQHC careers — costs, duration, salary impact, and where to get them. CHW, CCM, CPC, LCSW, and more.",
     openGraph: {
       title: "Certification Catalog — FQHC Talent",
       description:
@@ -255,9 +253,9 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/certifications` },
   },
   glossary: {
-    title: "FQHC Glossary | Healthcare Acronyms & Terms Explained in Plain Language",
+    title: "FQHC Glossary — 70+ Terms Explained Simply",
     description:
-      "70+ FQHC terms defined in plain English and Spanish — PPS, CalAIM, ECM, 340B, PCMH, SDOH, and more. Searchable glossary for community health workers, administrators, and anyone navigating the FQHC world.",
+      "PPS, CalAIM, ECM, 340B, PCMH, SDOH, and 65+ more FQHC terms in plain English and Spanish. Searchable, categorized, bilingual.",
     openGraph: {
       title: "FQHC Glossary — FQHC Talent",
       description:

@@ -9,6 +9,17 @@ import { PUBLISHED_BLOG_SLUGS } from "@/lib/blog-posts";
 
 const SITE_URL = "https://www.fqhctalent.com";
 
+/** Add hreflang alternates for bilingual pages */
+function withLangs(path: string) {
+  const url = path ? `${SITE_URL}/${path}` : SITE_URL;
+  return {
+    languages: {
+      en: url,
+      es: `${SITE_URL}/es/${path}`,
+    },
+  };
+}
+
 // California metro areas for location pages
 const locationSlugs = [
   "los-angeles",
@@ -31,30 +42,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
+      alternates: withLangs(""),
     },
     {
       url: `${SITE_URL}/jobs`,
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.9,
+      alternates: withLangs("jobs"),
     },
     {
       url: `${SITE_URL}/join`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
+      alternates: withLangs("join"),
     },
     {
       url: `${SITE_URL}/hire`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
+      alternates: withLangs("hire"),
     },
     {
       url: `${SITE_URL}/directory`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
+      alternates: withLangs("directory"),
     },
     {
       url: `${SITE_URL}/resume-builder`,
