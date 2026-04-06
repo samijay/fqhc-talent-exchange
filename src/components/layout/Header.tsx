@@ -267,6 +267,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
             { href: "/strategy/economics", label: t("healthcareEconomics") },
             { href: "/funding-impact", label: t("fundingImpact") },
             { href: "/strategy/resilience", label: t("resilience") },
+            { href: "/strategy/advocacy", label: isEs ? "Seguimiento de Abogac\u00eda" : "Advocacy Watch" },
             { href: "/strategy/scope-of-practice", label: t("scopeOfPractice") },
             { href: "/strategy/tech-stack", label: t("techStack") },
             { href: "/ai-tracker", label: t("aiTracker") },

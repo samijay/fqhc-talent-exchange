@@ -17,6 +17,7 @@ export default function Footer() {
       { href: "/strategy/guides" as const, label: t("executiveGuides") },
       { href: "/strategy/research" as const, label: t("researchArchive") },
       { href: "/strategy/resilience" as const, label: t("resilience") },
+      { href: "/strategy/advocacy" as const, label: isEs ? "Seguimiento de Abogac\u00eda" : "Advocacy Watch" },
     ],
     [isEs ? "Para Tu Carrera" : "For Your Career"]: [
       { href: "/career-insights" as const, label: isEs ? "Evaluación" : "Career Assessment" },
