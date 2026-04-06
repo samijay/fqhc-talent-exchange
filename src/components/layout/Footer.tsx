@@ -41,7 +41,6 @@ export default function Footer() {
       { href: "/jobs" as const, label: isEs ? "Empleos" : "Browse Jobs" },
       { href: "/directory" as const, label: isEs ? "Directorio" : "FQHC Directory" },
       { href: "/newsletter" as const, label: t("newsletter") },
-      { href: "/whats-new" as const, label: isEs ? "Novedades" : "What's New" },
       { href: "/about" as const, label: t("aboutUs") },
     ],
   };

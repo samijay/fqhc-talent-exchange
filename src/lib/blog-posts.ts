@@ -41,6 +41,24 @@ export function generateBlogMetadata(slug: string) {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "march-2026-jobs-report-fqhc-hiring-slowdown",
+    title:
+      "The March 2026 Jobs Report Looks Great on Paper. The Real Story Is in What\u2019s Coming Next.",
+    esTitle:
+      "El Informe de Empleos de Marzo 2026 Se Ve Bien en Papel. La Verdadera Historia Est\u00e1 en Lo Que Viene.",
+    description:
+      "Healthcare added 76,000 jobs in March \u2014 but 35,000 were Kaiser strike returns. Our FQHC tracker shows -34 jobs across 4 major CA FQHCs. UC Berkeley projects up to 217,000 CA job losses from Medicaid cuts. The compound crisis hitting July 1.",
+    esDescription:
+      "Salud agreg\u00f3 76,000 empleos en marzo \u2014 pero 35,000 fueron regresos de huelga de Kaiser. Nuestro rastreador de FQHCs muestra -34 empleos en 4 FQHCs principales de CA. UC Berkeley proyecta hasta 217,000 p\u00e9rdidas de empleo.",
+    date: "April 6, 2026",
+    esDate: "6 de abril de 2026",
+    isoDate: "2026-04-06",
+    category: "Data Report",
+    esCategory: "Informe de Datos",
+    readTime: "10 min read",
+    esReadTime: "10 min de lectura",
+  },
+  {
     slug: "fqhc-technology-stack-guide-2026",
     title:
       "Your FQHC Technology Stack in 2026: 12 Categories, 28 Vendors, and the Decisions That Actually Matter",

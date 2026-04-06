@@ -490,8 +490,8 @@ export function WeeklyDigest({
             <div>
               <p className="text-sm font-bold text-stone-900">
                 {isEs
-                  ? "Recibe el FQHC Intel Brief cada lunes"
-                  : "Get the FQHC Intel Brief every Monday"}
+                  ? "Recibe el FQHC Intel Brief cada martes"
+                  : "Get the FQHC Intel Brief every Tuesday"}
               </p>
               <p className="text-xs text-stone-500 mt-0.5">
                 {isEs

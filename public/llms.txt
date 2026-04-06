@@ -6,12 +6,12 @@ FQHC Talent (https://www.fqhctalent.com) is a strategic intelligence platform fo
 
 The site covers: H.R. 1 Medicaid cuts, CalAIM programs (ECM, Community Supports), FQHC funding policy, the California workforce crisis, AI adoption in community health, FQHC compliance (HRSA, HIPAA, billing), and salary benchmarks across 9 CA regions. All insights cite primary sources (government, NACHC, CPCA, CHCF, KFF).
 
-Key data assets: 214 California FQHCs with resilience scores, 1,586+ job listings across 30+ FQHCs, 150+ intelligence items across 9 categories, 28 AI adoption tracker items with 8 vendor comparisons, 25 OKR templates with Excel trackers, 22 case studies, 18 masterclass modules, 20 certifications, 13 operational guides, 20 layoff events tracking 3,477+ displaced workers, 62 salary benchmarks across 9 regions, 9 regional intelligence dashboards, 214 per-FQHC strategic reports, and 15 bilingual blog articles. Updated daily via automated intelligence pipeline.
+Key data assets: 214 California FQHCs with resilience scores, 1,885+ job listings across 30+ FQHCs (1,298 static + 587 live API), 165+ intelligence items across 9 categories, 49 AI adoption tracker items with 8 vendor comparisons, 25 OKR templates with Excel trackers, 22 case studies, 18 masterclass modules, 20 certifications, 13 operational guides, 20 layoff events tracking 3,477+ displaced workers, 62 salary benchmarks across 9 regions, 9 regional intelligence dashboards, 214 per-FQHC strategic reports, and 15 bilingual blog articles. Updated daily via automated intelligence pipeline.
 
 ## Intelligence & Monitoring
 
 - [Intelligence Dashboard](https://www.fqhctalent.com/) — Breaking intel feed, funding cliff countdowns, workforce displacement data, compliance calendar, and undocumented access policy watch. Homepage serves as the executive intelligence dashboard.
-- [AI Tracker](https://www.fqhctalent.com/ai-tracker) — 28 AI implementations tracked across FQHC sector: ambient documentation (Abridge, Sunoh, Nabla, Suki, DAX, athenaOne), RCM automation, clinical decision support, scheduling AI. 8 vendor comparisons with EHR compatibility matrix and FQHC fit scores.
+- [AI Tracker](https://www.fqhctalent.com/ai-tracker) — 49 AI implementations tracked across FQHC sector: ambient documentation (Abridge, Sunoh, Nabla, Suki, DAX, athenaOne), RCM automation, clinical decision support, scheduling AI. 8 vendor comparisons with EHR compatibility matrix and FQHC fit scores.
 - [Layoff Tracker](https://www.fqhctalent.com/layoffs) — 20 layoff events, 3,477+ displaced workers, WARN Act data for California FQHCs and health systems. UC Berkeley projects 72K-145K CA healthcare job losses from Medicaid cuts.
 - [Blog](https://www.fqhctalent.com/blog) — 15 bilingual articles on FQHC careers, Medi-Cal policy, salary data, and ECM programs with primary source citations
 - [Regional Intelligence](https://www.fqhctalent.com/intelligence/los-angeles) — 9 per-region dashboards: LA, San Diego, Bay Area, Sacramento, Central Valley, Inland Empire, Central Coast, North State, North Coast. Per-region FQHC tables, resilience distribution, top programs, EHR landscape, layoff impact, job counts.
@@ -57,7 +57,7 @@ Key data assets: 214 California FQHCs with resilience scores, 1,586+ job listing
 
 ## Career Tools (100% Free, No Login Required)
 
-- [Jobs](https://www.fqhctalent.com/jobs) — 1,634+ job listings across 30+ roles and 9 California regions, updated weekly
+- [Jobs](https://www.fqhctalent.com/jobs) — 1,885+ job listings across 30+ roles and 9 California regions, updated weekly
 - [Resume Builder](https://www.fqhctalent.com/resume-builder) — Template-based resume builder with 8 FQHC-specific role templates (CHW, care coordinator, MA, RN, NP, PA, physician, dentist)
 - [Career Assessment](https://www.fqhctalent.com/career-insights) — 5-domain behavioral assessment with role-specific questions, STARS type selector, and personalized 90-day onboarding plan
 - [Interview Prep](https://www.fqhctalent.com/interview-prep) — Role-specific FQHC interview questions with STAR framework tips, red flags, and follow-ups for 10+ roles
@@ -128,7 +128,7 @@ A: The Resilience Scorecard evaluates all 214 California FQHCs across 5 weighted
 ## Technical Details
 
 - Platform: Next.js 16, React 19, TypeScript, Tailwind CSS 4, Supabase
-- Hosting: Vercel (edge-optimized, SSG for 1,634+ static pages)
+- Hosting: Vercel (edge-optimized, SSG for 1,885+ static pages)
 - Languages: English and Spanish (bilingual throughout)
 - Data sources: HRSA, CMS, NACHC, CPCA, CHCF, KFF, BLS, CA OSHPD, WARN Act, Glassdoor
 - Structured data: schema.org (Organization, WebSite, WebPage, DataCatalog, Dataset, Course, FAQPage, JobPosting, Article, HowTo, BreadcrumbList)

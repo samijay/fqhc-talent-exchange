@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-04-01";
+export const INTEL_LAST_UPDATED = "2026-04-06";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -3911,6 +3911,154 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "NACHC",
     region: "Federal",
     tags: ["nachc-select", "pointcare", "coverage-management", "enrollment-retention", "revenue-protection"],
+  },
+
+  // ── Daily Update #26 (2026-04-06) ──────────────────────────────────
+
+  {
+    id: "medi-cal-dental-1b-cut-coalition-april-2026",
+    date: "2026-04-06",
+    headline: {
+      en: "Governor Proposes $1B Medi-Cal Dental Cut — 49% of Dentists Would Leave Program",
+      es: "Gobernador Propone Recorte de $1B a Dental de Medi-Cal — 49% de Dentistas Abandonarían el Programa",
+    },
+    summary: {
+      en: "Governor Newsom proposed cutting $1 billion from Medi-Cal Dental effective July 1, 2026, reducing reimbursement rates by 40-80%. A 70+ group 'Save Our Dental Care' coalition (CDA, children's advocacy, labor) is fighting back. 49% of Medi-Cal dentists say they would leave the program; another 30% would reduce Medi-Cal patients. The cut forfeits ~$576M in federal matching funds. FQHC dental programs serving 15 million Californians on Medi-Cal Dental face devastating revenue losses — compounding the undocumented dental elimination already in effect.",
+      es: "El Gobernador Newsom propuso recortar $1 mil millones del programa dental de Medi-Cal a partir del 1 de julio de 2026, reduciendo las tasas de reembolso un 40-80%. Una coalición de más de 70 grupos 'Salvemos Nuestro Cuidado Dental' está luchando. El 49% de los dentistas de Medi-Cal abandonarían el programa. El recorte pierde ~$576M en fondos federales correspondientes. Los programas dentales de FQHCs enfrentan pérdidas devastadoras de ingresos.",
+    },
+    category: "funding",
+    impactLevel: "critical",
+    type: "news",
+    sourceUrl: "https://www.cda.org/newsroom/advocacy/cda-convened-coalition-of-70-plus-groups-fights-to-stop-1b-cuts-to-medi-cal-dental/",
+    sourceOrg: "California Dental Association",
+    region: "California",
+    tags: ["medi-cal-dental", "reimbursement-cut", "coalition", "dental-access", "may-revise"],
+    keyTakeaways: [
+      { en: "$1B cut = 40-80% rate reduction for Medi-Cal Dental", es: "Recorte de $1B = reducción del 40-80% en tarifas dentales de Medi-Cal" },
+      { en: "49% of dentists would leave Medi-Cal + 30% would reduce patients", es: "49% de dentistas abandonarían Medi-Cal + 30% reducirían pacientes" },
+      { en: "Forfeits ~$576M in federal matching (9:1 for ACA expansion)", es: "Pierde ~$576M en fondos federales correspondientes (9:1 para expansión ACA)" },
+      { en: "70+ group coalition fighting before May Revise deadline", es: "Coalición de 70+ grupos luchando antes de la fecha límite de Revisión de Mayo" },
+    ],
+  },
+  {
+    id: "health-net-1m-work-requirements-campaign-april-2026",
+    date: "2026-04-01",
+    headline: {
+      en: "Health Net Commits $1M to Prepare 4.7M Medi-Cal Members for Work Requirements",
+      es: "Health Net Compromete $1M para Preparar 4.7M Miembros de Medi-Cal para Requisitos Laborales",
+    },
+    summary: {
+      en: "Health Net (Centene subsidiary) launched 'Get Informed, Stay Covered' — the first managed care plan to begin formal member outreach for H.R. 1 work requirements taking effect January 2027. California will check eligibility every 6 months. DHCS requires outreach June 30 – August 31, 2026. FQHCs must prepare for massive patient documentation burden: helping patients navigate 80-hour/month activity requirements, exemptions, and compliance reporting to avoid procedural disenrollment.",
+      es: "Health Net (subsidiaria de Centene) lanzó 'Infórmate, Mantén tu Cobertura' — el primer plan de salud administrado en iniciar divulgación formal a miembros sobre requisitos laborales de H.R. 1 vigentes desde enero 2027. California verificará elegibilidad cada 6 meses. Los FQHCs deben prepararse para una carga masiva de documentación de pacientes.",
+    },
+    category: "legislation",
+    impactLevel: "high",
+    type: "deadline",
+    sourceUrl: "https://news.healthnet.com/medi-cal-enrollees-prepare-for-new-community-engagement-requirements-health-net-launches-get-informed-stay-covered-to-educate-members/",
+    sourceOrg: "Health Net / Centene",
+    region: "California",
+    tags: ["work-requirements", "medi-cal", "h-r-1", "health-net", "centene", "outreach"],
+    keyTakeaways: [
+      { en: "First managed care plan to begin work requirement outreach", es: "Primer plan de salud administrado en iniciar divulgación sobre requisitos laborales" },
+      { en: "DHCS outreach window: June 30 – August 31, 2026", es: "Ventana de divulgación de DHCS: 30 de junio – 31 de agosto, 2026" },
+      { en: "Jan 2027: 80-hr/month activity requirement + 6-month eligibility checks", es: "Enero 2027: requisito de actividad de 80 hrs/mes + verificaciones de elegibilidad cada 6 meses" },
+    ],
+  },
+  {
+    id: "nebraska-first-state-work-requirements-may-2026",
+    date: "2026-04-06",
+    headline: {
+      en: "Nebraska Becomes First State to Enforce Medicaid Work Requirements May 1",
+      es: "Nebraska Se Convierte en Primer Estado en Aplicar Requisitos Laborales de Medicaid el 1 de Mayo",
+    },
+    summary: {
+      en: "Nebraska will enforce 80-hour/month work requirements starting May 1, 2026 — 8 months ahead of the federal January 2027 mandate. This is the first real-world test of how work requirements affect community health center patient panels and revenue. KFF estimates work requirements nationally will leave 5.3 million newly uninsured. Nebraska CHCs will serve as the early warning system for California FQHCs.",
+      es: "Nebraska aplicará requisitos laborales de 80 horas/mes a partir del 1 de mayo de 2026 — 8 meses antes del mandato federal de enero 2027. Esta es la primera prueba real de cómo los requisitos laborales afectan los paneles de pacientes y los ingresos de los centros de salud comunitarios. KFF estima que los requisitos laborales dejarán 5.3 millones de personas sin seguro.",
+    },
+    category: "legislation",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://www.kff.org/medicaid/a-closer-look-at-nebraska-the-first-state-planning-to-implement-a-medicaid-work-requirement/",
+    sourceOrg: "KFF",
+    region: "Federal",
+    tags: ["work-requirements", "nebraska", "medicaid", "early-warning", "coverage-loss"],
+  },
+  {
+    id: "ninth-circuit-fca-340b-overcharges-march-2026",
+    date: "2026-03-17",
+    headline: {
+      en: "Ninth Circuit Opens Door to FCA Liability for 340B Overcharges — New Legal Pathway for FQHCs",
+      es: "Noveno Circuito Abre Puerta a Responsabilidad bajo FCA por Sobreprecios 340B — Nueva Vía Legal para FQHCs",
+    },
+    summary: {
+      en: "The Ninth Circuit unanimously reversed a dismissal in United States ex rel. Adventist Health System v. AbbVie, ruling that qui tam False Claims Act suits can proceed against pharmaceutical manufacturers that allegedly overcharge 340B covered entities above the statutory ceiling price. This creates a new private enforcement mechanism — previously only HRSA could enforce 340B ceiling price compliance. FQHCs can now pursue treble damages against manufacturers overcharging on 340B drugs.",
+      es: "El Noveno Circuito revirtió unánimemente una desestimación, dictaminando que las demandas qui tam bajo la Ley de Reclamaciones Falsas pueden proceder contra fabricantes farmacéuticos que supuestamente sobrecargan a las entidades cubiertas por 340B. Esto crea un nuevo mecanismo de aplicación privada para que los FQHCs recuperen daños triples.",
+    },
+    category: "compliance",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://fcablog.sidley.com/2026/03/19/ninth-circuit-opens-door-to-fca-liability-for-alleged-340b-overcharges/",
+    sourceOrg: "Sidley Austin LLP",
+    region: "Federal",
+    tags: ["340b", "false-claims-act", "ninth-circuit", "pharmaceutical", "ceiling-price", "enforcement"],
+    paywalled: false,
+  },
+  {
+    id: "hrsa-340b-rebate-rfi-april-20-deadline",
+    date: "2026-04-20",
+    headline: {
+      en: "HRSA 340B Rebate Model RFI: Comment Deadline April 20 — Possible Expansion to All IRA Drugs",
+      es: "RFI del Modelo de Reembolso 340B de HRSA: Fecha Límite de Comentarios 20 de Abril — Posible Expansión a Todos los Medicamentos IRA",
+    },
+    summary: {
+      en: "After a Maine federal court vacated the original 340B rebate pilot program, HRSA is gathering stakeholder input with a 60-day comment window closing April 20. HRSA has signaled it may expand the rebate model to ALL drugs selected for Medicare price negotiation under the IRA through 2027. FQHCs that depend on 340B upfront discounts for cash flow could face a shift to delayed rebate payments — a devastating change for smaller FQHCs without reserves.",
+      es: "Después de que un tribunal federal de Maine anuló el programa piloto de reembolso 340B, HRSA está recopilando comentarios de partes interesadas con una ventana que cierra el 20 de abril. HRSA ha señalado que podría expandir el modelo a TODOS los medicamentos negociados bajo la IRA. Los FQHCs que dependen de descuentos anticipados 340B podrían enfrentar un cambio a pagos diferidos.",
+    },
+    category: "legislation",
+    impactLevel: "high",
+    type: "deadline",
+    sourceUrl: "https://www.federalregister.gov/documents/2026/02/26/2026-03838/request-for-information-340b-rebate-model-pilot-program-extension",
+    sourceOrg: "Federal Register / HRSA",
+    region: "Federal",
+    tags: ["340b", "rebate-model", "rfi", "ira", "deadline", "comment-period"],
+  },
+  {
+    id: "hhs-omh-closure-clas-infrastructure-threat",
+    date: "2026-04-06",
+    headline: {
+      en: "HHS Shuts Down Minority Health Offices — CLAS Training Infrastructure at Risk for FQHCs",
+      es: "HHS Cierra Oficinas de Salud de Minorías — Infraestructura de Capacitación CLAS en Riesgo para FQHCs",
+    },
+    summary: {
+      en: "The CMS Office of Minority Health (~40 employees eliminated) and HHS Office of Minority Health have been restructured under federal cost-cutting. OMH sponsors Think Cultural Health and free CLAS Standards training that FQHCs rely on for staff cultural competency education. CMS funding would drop $674M, explicitly eliminating health equity funding categories. FQHCs may need to self-fund cultural competency training previously available free from HHS. FY2026 budget proposes ~26% cut to HHS discretionary spending.",
+      es: "La Oficina de Salud de Minorías de CMS (~40 empleados eliminados) y la Oficina de Salud de Minorías de HHS han sido reestructuradas. La OMH patrocina Think Cultural Health y capacitación gratuita de Estándares CLAS que los FQHCs utilizan para la educación de competencia cultural del personal. Los FQHCs podrían necesitar autofinanciar la capacitación de competencia cultural.",
+    },
+    category: "legislation",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://www.healthcaredive.com/news/hhs-kennedy-cuts-cms-minority-health-offices/743966/",
+    sourceOrg: "Healthcare Dive",
+    region: "Federal",
+    tags: ["hhs", "omh", "clas-standards", "cultural-competency", "health-equity", "restructuring"],
+  },
+  {
+    id: "cms-maha-elevate-100m-fqhc-eligible",
+    date: "2026-04-06",
+    headline: {
+      en: "CMS Opens $100M MAHA ELEVATE Model for Lifestyle Medicine — FQHCs Eligible",
+      es: "CMS Abre Modelo MAHA ELEVATE de $100M para Medicina de Estilo de Vida — FQHCs Elegibles",
+    },
+    summary: {
+      en: "CMS Innovation Center is funding up to 30 cooperative agreements (~$3.3M each over 3 years) for whole-person lifestyle medicine approaches in Original Medicare. FQHCs are explicitly eligible. This is the first CMS model branded under MAHA priorities. Awards launch October 2026. All proposals must incorporate nutrition or physical activity — signaling policy direction toward 'lifestyle' interventions over traditional SDOH approaches.",
+      es: "El Centro de Innovación de CMS financia hasta 30 acuerdos cooperativos (~$3.3M cada uno en 3 años) para enfoques de medicina de estilo de vida en Medicare Original. Los FQHCs son explícitamente elegibles. Este es el primer modelo de CMS bajo prioridades MAHA. Los premios comienzan en octubre 2026.",
+    },
+    category: "funding",
+    impactLevel: "medium",
+    type: "deadline",
+    sourceUrl: "https://www.cms.gov/priorities/innovation/innovation-models/maha-elevate",
+    sourceOrg: "CMS Innovation Center",
+    region: "Federal",
+    tags: ["cms", "maha", "elevate", "lifestyle-medicine", "grant", "innovation-model"],
   },
 ];
 

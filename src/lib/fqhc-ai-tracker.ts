@@ -5,7 +5,7 @@
 // Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-03-27";
+export const AI_TRACKER_LAST_UPDATED = "2026-04-06";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -814,6 +814,84 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceOrg: "npj Digital Medicine",
     date: "2026-03-01",
     tags: ["smart-glasses", "gemini", "vision-ai", "medication-history", "research-prototype"],
+    featured: false,
+  },
+
+  // ── Daily Update #26 (2026-04-06) ──────────────────────────────────
+
+  {
+    id: "ai-scribe-1800-clinician-study-modest-savings",
+    title: {
+      en: "Largest AI Scribe Study: 1,800 Clinicians Save Just 16 Minutes Per Shift",
+      es: "Estudio Más Grande de Escribas IA: 1,800 Clínicos Ahorran Solo 16 Minutos por Turno",
+    },
+    description: {
+      en: "The largest real-world AI scribe study to date — 1,800 clinicians across 5 academic medical centers (2023-2025) — found AI scribes save only 16 minutes of documentation time and 13 fewer minutes in EHR per 8-hour shift. Primary care physicians and female clinicians benefited most. No significant reduction in after-hours EHR time. For FQHCs with tight budgets, burnout reduction may matter more than productivity gains.",
+      es: "El estudio más grande de escribas IA — 1,800 clínicos en 5 centros médicos académicos — encontró que los escribas IA ahorran solo 16 minutos de tiempo de documentación por turno de 8 horas. La reducción del agotamiento puede importar más que las ganancias de productividad para FQHCs.",
+    },
+    category: "clinical-documentation",
+    vendor: null,
+    partnership: null,
+    metrics: [
+      { label: "Study Size", value: "1,800 clinicians across 5 academic medical centers" },
+      { label: "Time Savings", value: "16 min documentation + 13 min less in EHR per shift" },
+      { label: "Key Finding", value: "Modest productivity gain; burnout reduction may be primary value" },
+    ],
+    adoptionStage: "widely-adopted",
+    sourceUrl: "https://www.statnews.com/2026/04/01/ai-ambient-scribes-modest-time-savings-clinical-documentation/",
+    sourceOrg: "STAT News",
+    date: "2026-04-01",
+    tags: ["ai-scribe", "time-savings", "burnout", "roi-analysis", "primary-care"],
+    featured: true,
+  },
+  {
+    id: "npj-digital-medicine-ai-scribe-scaling-barriers",
+    title: {
+      en: "Study: AI Scribe Scaling Hits Language Barriers — English-Only Defaults Limit Safety-Net Use",
+      es: "Estudio: Escalamiento de Escribas IA Encuentra Barreras de Idioma — Predeterminados en Inglés Limitan Uso en Red de Seguridad",
+    },
+    description: {
+      en: "Peer-reviewed paper (Ohde et al.) in npj Digital Medicine identifies critical barriers to scaling ambient AI scribes beyond low-acuity ambulatory settings. Error rates of 1-3% introduce dangerous failure modes. Major barrier for FQHCs: English-only transcription remains the default despite multilingual claims — directly affects California FQHCs where 40%+ of encounters involve non-English speakers.",
+      es: "Un artículo revisado por pares en npj Digital Medicine identifica barreras críticas para escalar escribas IA ambientales. Barrera principal para FQHCs: la transcripción solo en inglés sigue siendo el predeterminado — afecta directamente a FQHCs de California donde el 40%+ de los encuentros son en otros idiomas.",
+    },
+    category: "clinical-documentation",
+    vendor: null,
+    partnership: null,
+    metrics: [
+      { label: "Error Rate", value: "1-3% with dangerous failure modes" },
+      { label: "Key Barrier", value: "English-only transcription despite multilingual claims" },
+      { label: "FQHC Impact", value: "40%+ non-English encounters in CA FQHCs" },
+    ],
+    adoptionStage: "expanding",
+    sourceUrl: "https://www.nature.com/articles/s41746-026-02554-0",
+    sourceOrg: "npj Digital Medicine",
+    date: "2026-04-06",
+    tags: ["ai-scribe", "language-barriers", "multilingual", "safety", "error-rates"],
+    featured: false,
+  },
+  {
+    id: "oak-orchard-health-full-ai-suite-ecw-sunoh",
+    title: {
+      en: "Oak Orchard Health Deploys Full AI Suite: eClinicalWorks + Sunoh.ai + healow",
+      es: "Oak Orchard Health Despliega Suite Completa de IA: eClinicalWorks + Sunoh.ai + healow",
+    },
+    description: {
+      en: "Oak Orchard Health, an FQHC serving 30,000+ patients in western New York, has deployed a full AI suite: Sunoh.ai ambient scribe for real-time clinical documentation, healow for patient engagement/scheduling/payment, and eClinicalWorks as the EHR backbone. Notable as a full-stack AI FQHC deployment — not just ambient scribes but AI across documentation, engagement, and billing.",
+      es: "Oak Orchard Health, un FQHC que atiende a más de 30,000 pacientes en Nueva York, ha desplegado una suite completa de IA: Sunoh.ai, healow, y eClinicalWorks. Demuestra la estrategia del ecosistema eClinicalWorks para penetración del mercado FQHC.",
+    },
+    category: "clinical-documentation",
+    vendor: "eClinicalWorks + Sunoh.ai",
+    partnership: null,
+    metrics: [
+      { label: "FQHC", value: "Oak Orchard Health (NY, 30K+ patients)" },
+      { label: "Stack", value: "eClinicalWorks + Sunoh.ai + healow" },
+      { label: "Scope", value: "Full-stack: documentation + engagement + billing" },
+    ],
+    adoptionStage: "expanding",
+    sourceUrl: "https://www.medicaleconomics.com/view/fqhc-uses-suite-of-ai-tools-to-improve-documentation-and-engagement",
+    sourceOrg: "Medical Economics",
+    date: "2025-12-01",
+    tags: ["eclinicalworks", "sunoh", "healow", "full-stack-ai", "fqhc-deployment"],
     featured: false,
   },
 ];

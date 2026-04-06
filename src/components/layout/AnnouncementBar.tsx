@@ -5,7 +5,7 @@ import { X, Sparkles } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
-const DISMISS_KEY = "announcement-dismissed-v1";
+const DISMISS_KEY = "announcement-dismissed-v9";
 
 export default function AnnouncementBar() {
   const [dismissed, setDismissed] = useState(true); // start hidden to avoid flash
@@ -41,14 +41,14 @@ export default function AnnouncementBar() {
         <Sparkles className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "Nuevo: Busqueda global (\u2318K), calculadora salarial, y 50+ mejoras publicadas hoy"
-            : "New: Global search (\u2318K), salary calculator, and 50+ enhancements shipped today"}
+            ? "Nuevo: Informe de empleos de marzo — Salud agrega 76K pero nuestro rastreador FQHC muestra -34"
+            : "New: March jobs report \u2014 Healthcare adds 76K but our FQHC tracker shows -34"}
         </span>
         <Link
-          href="/whats-new"
+          href="/blog/march-2026-jobs-report-fqhc-hiring-slowdown"
           className="shrink-0 font-semibold underline underline-offset-2 hover:no-underline"
         >
-          {isEs ? "Ver novedades \u2192" : "See what's new \u2192"}
+          {isEs ? "Leer an\u00e1lisis \u2192" : "Read analysis \u2192"}
         </Link>
       </div>
       <button

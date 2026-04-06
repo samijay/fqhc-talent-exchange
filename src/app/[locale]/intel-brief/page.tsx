@@ -302,7 +302,7 @@ export default function IntelBriefPage() {
             <FileText className="size-6 text-stone-500 shrink-0" />
             <div>
               <p className="text-sm font-bold text-stone-900">{isEs ? "Suscríbete al Intel Brief" : "Subscribe to Intel Brief"}</p>
-              <p className="text-xs text-stone-500">{isEs ? "Recibe esto cada lunes" : "Get this every Monday"}</p>
+              <p className="text-xs text-stone-500">{isEs ? "Recibe esto cada martes" : "Get this every Tuesday"}</p>
             </div>
             <ArrowRight className="size-4 text-stone-400 ml-auto" />
           </Link>
