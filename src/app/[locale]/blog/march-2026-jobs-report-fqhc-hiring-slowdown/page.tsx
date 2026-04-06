@@ -11,7 +11,6 @@ import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
 interface ArticleContent {
   category: string;
   title: string;
-  description: string;
   breadcrumbTitle: string;
   datePublished: string;
   dateDisplay: string;
@@ -25,9 +24,6 @@ interface ArticleContent {
       items?: string[];
     }>;
   }>;
-  ctaTitle: string;
-  ctaDescription: string;
-  ctaButtonText: string;
   relatedArticles: Array<{
     href: string;
     title: string;
@@ -37,124 +33,159 @@ interface ArticleContent {
 const enContent: ArticleContent = {
   category: "Data Report",
   title:
-    "The March 2026 Jobs Report Looks Great on Paper. The Real Story Is in What\u2019s Coming Next.",
-  description:
-    "Healthcare added 76,000 jobs in March \u2014 but 35,000 were Kaiser strike returns, not new hiring. Meanwhile, our data shows a 34-job decline across 4 major California FQHCs. UC Berkeley projects up to 217,000 CA job losses from Medicaid cuts. The March BLS data, what our FQHC job tracker reveals, and the compound revenue crisis hitting July 1.",
+    "March 2026 Jobs Report: Healthcare Added 76,000 Jobs \u2014 But Which Roles, and for How Long?",
   breadcrumbTitle: "March 2026 Jobs Report",
   datePublished: "2026-04-06",
   dateDisplay: "April 6, 2026",
   readTime: "10 min read",
   openingParagraph:
-    "The March 2026 jobs report looks like a recovery story: +178,000 nonfarm jobs, healthcare adding 76,000, unemployment steady at 4.3%. Headlines called it a rebound after February\u2019s -133,000 shock. But look closer and a different picture emerges. Over a third of those healthcare gains were Kaiser strike workers returning to their desks \u2014 not new positions created. Strip that out, and underlying healthcare hiring averaged about 29,000 per month. Meanwhile, our own data tracking 4 major California FQHCs shows the sharpest hiring decline we\u2019ve recorded: -34 jobs in a single scan period. The national jobs report tells you where healthcare has been. Our data tells you where it\u2019s going.",
+    "Healthcare dominated the March 2026 jobs report, adding 76,000 positions and accounting for 43% of all nonfarm job growth. But the sector\u2019s role as the economy\u2019s primary engine raises uncomfortable questions: How much of this growth is real, which roles are actually expanding, and what happens when the Medicaid cuts start hitting revenue? Here\u2019s what the BLS data, NACHC workforce surveys, and labor market research tell us \u2014 broken down by subcategory, role, and region.",
   sections: [
     {
-      heading: "The Headline Numbers: Better Than Expected, but Read the Fine Print",
+      heading: "The March Numbers: Healthcare Carries the Economy \u2014 Again",
       content: [
         {
           type: "paragraph",
-          text: "The U.S. economy added 178,000 nonfarm jobs in March 2026, rebounding from February\u2019s revised -133,000. Economists had expected just 60,000 \u2014 so the beat was significant. The unemployment rate held at 4.3%. Average hourly earnings rose 3.5% year-over-year to $37.38, slightly above inflation.",
+          text: "The U.S. economy added 178,000 nonfarm jobs in March, rebounding from February\u2019s revised loss of 133,000. Unemployment held at 4.3%. Average hourly earnings rose 3.5% year-over-year to $37.38. But the three-month average tells a slower story: just 68,000 jobs per month, well below the 150,000\u2013200,000 pace of 2023\u20132024.",
         },
         {
           type: "paragraph",
-          text: "But the three-month average tells the real story: just 68,000 jobs per month \u2014 well below the 150,000\u2013200,000 pace that characterized 2023\u20132024. The labor force participation rate fell to 61.9%, its lowest since fall 2021. The labor force shrank by nearly 400,000. The U-6 underemployment rate rose to 8%. The federal government has shed 355,000 jobs since October 2024 \u2014 an 11.8% decline that is historically unprecedented.",
+          text: "Healthcare\u2019s dominance is now structural. ADP\u2019s March report found that education and health services added 58,000 of 62,000 total private-sector jobs \u2014 93.5% of all private-sector gains. Indeed\u2019s Hiring Lab reports healthcare accounted for approximately 72% of all net U.S. job growth in 2025. The San Francisco Fed found that education and health services drove \u201Calmost all sustained job growth in 2025.\u201D When one sector carries the entire labor market, any disruption to that sector\u2019s funding becomes a national economic event.",
         },
       ],
     },
     {
-      heading: "Healthcare: Half the Story Is a Strike Bounce",
+      heading: "Where the 76,000 Healthcare Jobs Were: Subcategory Breakdown",
       content: [
         {
           type: "paragraph",
-          text: "Healthcare added 76,000 jobs in March, making it the largest contributor to overall job growth \u2014 nearly half of all gains. But the details matter enormously for anyone trying to understand the actual trajectory of healthcare hiring:",
+          text: "The BLS breaks healthcare employment into three major subcategories. March\u2019s gains were concentrated in ambulatory care \u2014 but with a significant caveat:",
         },
         {
           type: "list",
           items: [
-            "Ambulatory health care services: +54,000 \u2014 but 35,000 were physician office workers returning from the Kaiser Permanente strike.",
-            "Hospitals: +15,000 \u2014 continued steady hiring.",
-            "Other healthcare (nursing, residential, home health): +7,000.",
-            "Adjusted for strike returns, underlying healthcare hiring was ~41,000 in March.",
+            "Ambulatory health care services: +54,000 \u2014 This includes physician offices (+35,000, largely from Kaiser Permanente workers returning after a February strike), outpatient care centers, and home health agencies.",
+            "Hospitals: +15,000 \u2014 Continued steady hiring, consistent with recent months.",
+            "Nursing and residential care facilities: +7,200 \u2014 Modest growth in a subsector that has been shrinking relative to ambulatory care for years.",
           ],
         },
         {
           type: "paragraph",
-          text: "In February 2026, healthcare lost 28,000 jobs \u2014 the first decline in over four years. That was the Kaiser strike. March\u2019s 76,000 includes the same workers coming back. Neither month tells the full story alone. The underlying trend is roughly 29,000\u201341,000 healthcare jobs per month \u2014 solid but nowhere near the 76,000 headline. As one analysis noted: this is \u201Ca one-time recovery rather than organic growth.\u201D",
+          text: "The Kaiser strike return inflates the ambulatory number. In February, healthcare lost 28,000 jobs \u2014 the first decline in over four years, driven by the same 31,000-worker strike. Neither month in isolation tells the full story. The underlying trend, accounting for the strike, is approximately 29,000\u201341,000 healthcare jobs per month \u2014 solid but nowhere near the 76,000 headline.",
+        },
+        {
+          type: "paragraph",
+          text: "The bigger structural shift: ADP Research notes that ambulatory care has grown from 34% to 40% of total healthcare employment since 2000, while hospitals and nursing facilities have declining shares. This matters for FQHCs \u2014 they sit squarely in the ambulatory care category where growth is concentrated.",
         },
       ],
     },
     {
-      heading: "What Our FQHC Job Tracker Shows: A 34-Job Drop Across 4 Major California FQHCs",
+      heading: "Which Healthcare Roles Are Growing Fastest?",
       content: [
         {
           type: "paragraph",
-          text: "While the BLS reports national aggregates, we track real-time hiring at specific California FQHCs through their career page APIs. Our April 6 scan found the sharpest decline since we began tracking in February:",
+          text: "BLS 2024\u20132034 projections identify the healthcare roles with the strongest growth trajectory. These align closely with roles FQHCs are struggling to fill:",
         },
         {
           type: "list",
           items: [
-            "Family Health Centers of San Diego: 128 jobs (\u221217 from 145) \u2014 biggest single-FQHC drop we\u2019ve tracked.",
-            "La Clinica de La Raza: 174 jobs (\u221213 from 187) \u2014 sustained multi-week decline.",
-            "AltaMed Health Services: 266 jobs (\u22124 from 270) \u2014 mild pullback after a hiring surge.",
-            "Asian Health Services: 19 jobs (stable).",
-            "Total API-scrapeable jobs: 587 (previous: 621, \u221234).",
+            "Nurse Practitioners: +35\u201340% projected growth (fastest of any healthcare role, #3 fastest in the entire economy). 382,700 positions in 2024, with 32,700 annual openings. Median wage: $129,210.",
+            "Home Health and Personal Care Aides: +17% growth, with 765,800 annual openings \u2014 the most of any occupation in the country. Median wage: $34,900.",
+            "Medical Assistants: +12% growth, 112,300 annual openings. Critical frontline role at FQHCs.",
+            "Community Health Workers: +11% growth, 7,800 annual openings. California\u2019s CHW certification remains stalled since November 2023, creating a credentialing gap even as demand accelerates.",
+            "Healthcare support occupations overall: +12.4% growth \u2014 faster than healthcare practitioners (+7.2%).",
           ],
         },
         {
           type: "paragraph",
-          text: "This could be seasonal \u2014 Q2 budget recalibration is common. Or it could be an early signal. What makes it worth watching: FHCSD and La Clinica are both large, well-established FQHCs that serve as bellwethers for safety-net hiring in California. A simultaneous decline at both is unusual.",
+          text: "The pattern is clear: the fastest-growing roles are the ones FQHCs depend on most \u2014 NPs, MAs, CHWs, and home health aides. And these are exactly the roles with the highest vacancy and turnover rates.",
         },
       ],
     },
     {
-      heading: "The Compound Crisis: 5 Revenue Threats Converging Before 2027",
+      heading: "The FQHC Workforce Crisis: NACHC\u2019s 2025 Data",
       content: [
         {
           type: "paragraph",
-          text: "The March jobs report captures a snapshot. But the revenue threats accumulating for California FQHCs tell a story the jobs data can\u2019t:",
+          text: "The national jobs report captures the macro picture. NACHC\u2019s workforce surveys reveal what\u2019s happening inside community health centers specifically. The 2025 NACHC staffing survey shows a sector that\u2019s hiring and hemorrhaging at the same time:",
         },
         {
           type: "list",
           items: [
-            "$1B Medi-Cal Dental cut (July 1, 2026): Governor Newsom proposed cutting reimbursement rates by 40\u201380%. 49% of Medi-Cal dentists say they\u2019d leave the program. A 70+ group coalition is fighting it before the May Revise.",
-            "Undocumented patient PPS elimination (July 1, 2026): FQHCs lose per-visit reimbursement for UIS patients \u2014 ~$1B statewide impact.",
-            "Work requirement documentation burden (Dec 31, 2026): 8.2 million California adults subject to 80-hour/month requirements. FQHCs become the front line for patient navigation.",
-            "Work requirement enforcement (Jan 1, 2027): Patient panel shrinkage as procedural disenrollment begins. Nebraska starts May 1 \u2014 the national canary.",
-            "340B rebate model uncertainty (HRSA RFI due April 20): Potential shift from upfront discounts to delayed rebates would devastate small FQHC cash flow.",
+            "310,000+ staff across 16,000+ sites serving 52 million patients (1 in 7 Americans; 1 in 3 in rural areas).",
+            "Behavioral health providers: ~5,300 vacancies (largest absolute shortfall) with ~20% vacancy rate.",
+            "Physicians: ~2,000 vacancies with ~20\u201321% vacancy rate.",
+            "NPs and PAs: ~2,800 vacancies.",
+            "Certified Nurse Midwives: ~26% vacancy rate (~300 unfilled positions).",
+            "Dental hygienists and assistants: ~20\u201321% vacancy rate each.",
+            "Over 70% of FQHCs report critical shortages in physicians, nurses, and mental health providers.",
           ],
         },
         {
           type: "paragraph",
-          text: "Each of these alone would be a major challenge. Together, they represent the most compressed revenue crisis California FQHCs have ever faced. The jobs report shows a healthy-looking healthcare sector. The policy calendar shows a sector about to be structurally reshaped.",
+          text: "Turnover compounds the vacancy problem. Medical assistants turn over at 24% annually \u2014 the highest of any FQHC role. Dental hygienists and assistants at 18%. Administrative staff and RNs at 15% each. FQHCs aren\u2019t just struggling to hire \u2014 they\u2019re struggling to keep the people they have.",
+        },
+        {
+          type: "paragraph",
+          text: "The math behind the crisis: BLS projects healthcare needs 2 million new workers by 2034. FQHCs are competing for those workers against hospital systems and private practices that can offer higher base salaries \u2014 though FQHCs counter with NHSC loan repayment, schedule flexibility, and mission alignment.",
         },
       ],
     },
     {
-      heading: "UC Berkeley: Up to 217,000 California Jobs at Risk from Medicaid Cuts",
+      heading: "Signing Bonuses: Healthcare\u2019s Canary for Labor Market Tightness",
       content: [
         {
           type: "paragraph",
-          text: "The UC Berkeley Labor Center projects California could lose 109,000 to 217,000 jobs from $10\u2013$20 billion in annual Medi-Cal funding cuts. Two-thirds (67%) of those losses would be in healthcare \u2014 hospitals, clinics, nursing homes, home care. The economic impact extends to $18.5\u2013$37 billion in reduced output and $860 million to $1.7 billion in lost state and local tax revenue.",
+          text: "Indeed\u2019s February 2026 analysis of signing bonuses offers a window into which healthcare roles are hardest to fill. While signing bonuses have declined from their 2022 peak (5.6% of postings) to 3% overall, healthcare dominates the practice:",
+        },
+        {
+          type: "list",
+          items: [
+            "Physicians and Surgeons: 10.6% of postings offer signing bonuses.",
+            "Nursing: 8.4% of postings (down from 13.5% a year earlier \u2014 easing but still elevated).",
+            "7 of the top 10 occupations using signing bonuses are healthcare roles.",
+            "7 of Indeed\u2019s 2026 Best Jobs rankings are in medical/therapeutic fields.",
+          ],
         },
         {
           type: "paragraph",
-          text: "Separately, Berkeley estimates 8.2 million California adults (56% of Medi-Cal enrollees, 35% of working-age adults statewide) would be subject to work requirements. Of these, 63% already work \u2014 42% full-time, 21% part-time. Another 29% can\u2019t work due to school, caregiving, illness, or disability. Only 8% are the \u201Ctarget\u201D population \u2014 but the documentation burden falls on everyone, and administrative churn will push coverage losses far beyond that 8%.",
-        },
-        {
-          type: "paragraph",
-          text: "For rural California FQHCs, the math is devastating: 82% of patient visits are paid by Medi-Cal, accounting for 60% of revenue. As one North State FQHC CEO warned: \u201C30% revenue loss means 30% staff cuts.\u201D",
+          text: "For FQHC HR directors: the decline in nursing signing bonuses suggests the acute post-pandemic nursing shortage is easing. But physician and behavioral health bonuses remain elevated \u2014 these are the roles where FQHCs compete most directly with better-funded systems.",
         },
       ],
     },
     {
-      heading: "The Federal Infrastructure Is Eroding Too",
+      heading: "The Funding Collision: 5 Revenue Threats Before January 2027",
       content: [
         {
           type: "paragraph",
-          text: "The federal government has lost 355,000 jobs since October 2024 \u2014 11.8% of the workforce. HRSA alone has lost approximately 25% of its 2,700-person staff. Grant processing is delayed, Project Officer response times have gone from days to weeks, and data modernization efforts have halted. The CMS Office of Minority Health (~40 employees) has been eliminated, threatening the free CLAS Standards training that FQHCs rely on for cultural competency education.",
+          text: "The jobs data shows a healthcare sector that\u2019s still hiring. But the revenue threats converging on FQHCs could reshape that trajectory in the second half of 2026:",
+        },
+        {
+          type: "list",
+          items: [
+            "$1 billion Medi-Cal Dental cut (July 1, 2026): Governor Newsom proposed slashing reimbursement rates by 40\u201380%. A California Dental Association survey found 49% of Medi-Cal dentists would leave the program. A 70+ group coalition is fighting it before the May Revise.",
+            "Undocumented patient PPS elimination (July 1, 2026): FQHCs lose per-visit reimbursement for UIS patients. Estimated statewide impact: ~$1 billion (CHCF).",
+            "Work requirement documentation (December 31, 2026): UC Berkeley estimates 8.2 million California adults (56% of Medi-Cal enrollees) will be subject to 80-hour/month activity requirements. 63% already work. FQHCs become the front line for patient navigation.",
+            "Work requirement enforcement (January 1, 2027): Nebraska begins May 1 \u2014 the first real-world test. KFF projects 5.3 million will lose coverage nationally.",
+            "340B rebate model uncertainty (HRSA RFI due April 20): A potential shift from upfront discounts to delayed rebates would disrupt cash flow at small FQHCs.",
+          ],
         },
         {
           type: "paragraph",
-          text: "The paradox: the same administration cutting HRSA\u2019s capacity is also ramping up 340B audits and compliance enforcement. HRSA is conducting 30% more operational site visits, the OIG just launched a CCM billing audit running through FY2028, and the Ninth Circuit opened the door to False Claims Act liability for 340B overcharges. FQHCs face more compliance scrutiny with less federal support to navigate it.",
+          text: "UC Berkeley Labor Center projects California could lose 109,000 to 217,000 jobs from Medicaid cuts \u2014 67% in healthcare. Economic impact: $18.5 to $37 billion in reduced output. For rural FQHCs where 82% of patient visits are Medi-Cal, one North State CEO warned CHCF: \u201C30% revenue loss means 30% staff cuts.\u201D",
+        },
+      ],
+    },
+    {
+      heading: "The Federal Infrastructure Is Eroding",
+      content: [
+        {
+          type: "paragraph",
+          text: "The federal government has shed 355,000 jobs since October 2024 \u2014 11.8% of the workforce. HRSA alone has lost approximately 25% of its 2,700-person staff (KFF Health News). Grant processing is delayed, Project Officer response times have gone from days to weeks. The CMS Office of Minority Health (~40 employees) has been eliminated, threatening the CLAS Standards training FQHCs use for staff development.",
+        },
+        {
+          type: "paragraph",
+          text: "The paradox: the same administration is ramping up compliance enforcement. HRSA is conducting 30% more operational site visits. The OIG launched a CCM billing audit running through FY2028. The Ninth Circuit opened the door to False Claims Act liability for 340B overcharges. FQHCs face more scrutiny with less federal support to navigate it.",
         },
       ],
     },
@@ -162,17 +193,13 @@ const enContent: ArticleContent = {
       heading: "What This Means for FQHC Workers and Leaders",
       content: [
         {
-          type: "paragraph",
-          text: "The March jobs report paints a picture of healthcare as the economy\u2019s backbone \u2014 and it is. But for people working in or leading FQHCs, the actionable takeaways are more nuanced:",
-        },
-        {
           type: "list",
           items: [
-            "For job seekers: The sector is still hiring \u2014 our tracker shows 1,885+ positions across 30+ FQHCs. But watch for roles funded by programs rather than grants. ECM, CCM, and CalAIM-funded positions have the most durable revenue backing.",
+            "For job seekers: Healthcare is still the only sector creating jobs at scale. BLS projects 2 million new healthcare jobs by 2034. NP is the #1 fastest-growing healthcare role. CalAIM-funded positions (ECM, Community Supports) have the most durable revenue backing.",
             "For FQHC finance teams: Model your July 1 revenue impact now. The dental cut and UIS PPS elimination hit the same day. Run scenarios for 20%, 40%, and 60% dental volume reduction.",
-            "For HR directors: The 587-to-621 swing in our tracker suggests some FQHCs are entering a hiring pause. If your organization is still actively recruiting, you\u2019re competing for a smaller candidate pool against fewer competitors \u2014 that\u2019s an advantage.",
-            "For compliance teams: The HRSA 340B RFI comment period closes April 20. If you haven\u2019t filed comments, coordinate with CPCA and NACHC. The rebate model would fundamentally change cash flow for 340B-dependent FQHCs.",
-            "For everyone: Nebraska\u2019s May 1 work requirement enforcement is the canary in the coal mine. Watch what happens to CHC patient panels and revenue in Nebraska over the next 90 days \u2014 it\u2019s a preview of California\u2019s January 2027.",
+            "For HR directors: MA turnover at 24% is your most expensive workforce problem. The NP pipeline is growing 35\u201340% \u2014 but so is competition for those graduates. NHSC loan repayment and mission alignment remain your strongest differentiators.",
+            "For compliance teams: The HRSA 340B RFI comment period closes April 20. If you haven\u2019t filed, coordinate with CPCA and NACHC.",
+            "For everyone: Watch Nebraska starting May 1. It\u2019s the 8-month preview of how work requirements affect CHC patient panels and revenue before California\u2019s January 2027 deadline.",
           ],
         },
       ],
@@ -182,19 +209,15 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The March 2026 jobs report shows healthcare adding 76,000 jobs \u2014 but strip out the Kaiser strike bounce and the real pace is about 29,000\u201341,000 per month. Our FQHC job tracker recorded its sharpest decline yet: -34 jobs across 4 major California FQHCs. UC Berkeley projects up to 217,000 California jobs at risk from Medicaid cuts. A $1 billion dental reimbursement cut takes effect July 1, the same day FQHCs lose PPS payments for undocumented patients. Work requirements start generating documentation burden this summer and enforcement in January 2027.",
+          text: "Healthcare added 76,000 jobs in March and remains the backbone of the U.S. labor market. ADP says education and health services drove 93.5% of all private-sector job gains. BLS projects 2 million new healthcare jobs by 2034. The demand is structural and growing \u2014 driven by an aging population, behavioral health expansion, and the shift to ambulatory care where FQHCs operate.",
         },
         {
           type: "paragraph",
-          text: "The jobs report tells you where healthcare was. Our data tells you where it\u2019s going. The numbers still look good on paper today. But the compound crisis hitting California\u2019s safety net between July 2026 and January 2027 will reshape FQHC employment in ways the BLS hasn\u2019t captured yet. The question isn\u2019t whether FQHCs will be affected \u2014 it\u2019s whether they prepare now or react later.",
+          text: "But NACHC data shows over 70% of FQHCs already can\u2019t fill critical roles. 24% annual MA turnover. 5,300 behavioral health vacancies. And the funding that supports these positions is about to face the most compressed crisis in FQHC history: a $1 billion dental cut, PPS elimination for undocumented patients, work requirements driving coverage loss, and 340B uncertainty \u2014 all within 7 months. The healthcare sector is creating jobs. The question is whether FQHCs can keep funding them.",
         },
       ],
     },
   ],
-  ctaTitle: "Stay Ahead of the Data",
-  ctaDescription:
-    "Our Intelligence Dashboard tracks funding cliffs, layoffs, policy changes, and job data updated daily \u2014 everything FQHC professionals need to navigate the 2026 crisis.",
-  ctaButtonText: "Build Your Resume",
   relatedArticles: [
     {
       href: "/blog/february-2026-jobs-report-healthcare-crisis",
@@ -217,126 +240,112 @@ const enContent: ArticleContent = {
 const esContent: ArticleContent = {
   category: "Informe de Datos",
   title:
-    "El Informe de Empleos de Marzo 2026 Se Ve Bien en Papel. La Verdadera Historia Est\u00e1 en Lo Que Viene.",
-  description:
-    "Salud agreg\u00f3 76,000 empleos en marzo \u2014 pero 35,000 fueron regresos de la huelga de Kaiser, no nuevas contrataciones. Mientras tanto, nuestros datos muestran una ca\u00edda de 34 empleos en 4 grandes FQHCs de California. UC Berkeley proyecta hasta 217,000 p\u00e9rdidas de empleo en CA por recortes de Medicaid.",
+    "Informe de Empleos Marzo 2026: Salud Agreg\u00f3 76,000 Empleos \u2014 Pero \u00bfQu\u00e9 Roles, y Por Cu\u00e1nto Tiempo?",
   breadcrumbTitle: "Informe de Empleos Marzo 2026",
   datePublished: "2026-04-06",
   dateDisplay: "6 de abril de 2026",
   readTime: "10 min de lectura",
   openingParagraph:
-    "El informe de empleos de marzo 2026 parece una historia de recuperaci\u00f3n: +178,000 empleos no agr\u00edcolas, salud agregando 76,000, desempleo estable en 4.3%. Los titulares lo llamaron un rebote despu\u00e9s del shock de -133,000 en febrero. Pero mire m\u00e1s de cerca y emerge un panorama diferente. M\u00e1s de un tercio de esos empleos de salud fueron trabajadores de Kaiser regresando de la huelga \u2014 no nuevos puestos creados. Elimine eso, y la contrataci\u00f3n subyacente de salud promedi\u00f3 unos 29,000 por mes. Mientras tanto, nuestros propios datos que rastrean 4 FQHCs principales de California muestran la ca\u00edda de contrataci\u00f3n m\u00e1s aguda que hemos registrado: -34 empleos en un solo per\u00edodo de escaneo.",
+    "El sector salud domin\u00f3 el informe de empleos de marzo 2026, agregando 76,000 posiciones y representando el 43% de todo el crecimiento laboral no agr\u00edcola. Pero el papel del sector como motor principal de la econom\u00eda plantea preguntas inc\u00f3modas: \u00bfCu\u00e1nto de este crecimiento es real, qu\u00e9 roles est\u00e1n expandiendo realmente, y qu\u00e9 pasa cuando los recortes de Medicaid comiencen a afectar los ingresos? Aqu\u00ed est\u00e1 lo que los datos del BLS, las encuestas de fuerza laboral de NACHC y la investigaci\u00f3n del mercado laboral nos dicen.",
   sections: [
     {
-      heading: "Los N\u00fameros del Titular: Mejor de lo Esperado, Pero Lea la Letra Peque\u00f1a",
+      heading: "Los N\u00fameros de Marzo: Salud Carga la Econom\u00eda \u2014 Otra Vez",
       content: [
         {
           type: "paragraph",
-          text: "La econom\u00eda de EE.UU. agreg\u00f3 178,000 empleos no agr\u00edcolas en marzo 2026, rebotando del revisado -133,000 de febrero. Los economistas esperaban solo 60,000. La tasa de desempleo se mantuvo en 4.3%. Los ingresos promedio por hora crecieron 3.5% interanual a $37.38.",
+          text: "EE.UU. agreg\u00f3 178,000 empleos no agr\u00edcolas en marzo, rebotando de la p\u00e9rdida revisada de 133,000 en febrero. Desempleo estable en 4.3%. Ingresos promedio por hora: $37.38 (+3.5% interanual). El promedio de tres meses: solo 68,000 empleos/mes, muy por debajo del ritmo de 150,000\u2013200,000 de 2023\u20132024.",
         },
         {
           type: "paragraph",
-          text: "Pero el promedio de tres meses cuenta la verdadera historia: solo 68,000 empleos por mes \u2014 muy por debajo del ritmo de 150,000\u2013200,000 de 2023\u20132024. La tasa de participaci\u00f3n laboral cay\u00f3 a 61.9%. La fuerza laboral se redujo en casi 400,000. El gobierno federal ha perdido 355,000 empleos desde octubre 2024 \u2014 una ca\u00edda del 11.8%.",
+          text: "La dominancia de salud es ahora estructural. ADP encontr\u00f3 que educaci\u00f3n y servicios de salud agregaron 58,000 de 62,000 empleos privados totales \u2014 93.5%. Indeed reporta que salud represent\u00f3 aproximadamente 72% de todo el crecimiento neto de empleo en 2025. Cuando un sector carga todo el mercado laboral, cualquier disrupci\u00f3n a su financiamiento se convierte en un evento econ\u00f3mico nacional.",
         },
       ],
     },
     {
-      heading: "Salud: La Mitad de la Historia Es un Rebote de Huelga",
+      heading: "D\u00f3nde Fueron los 76,000 Empleos de Salud: Desglose por Subcategor\u00eda",
       content: [
-        {
-          type: "paragraph",
-          text: "Salud agreg\u00f3 76,000 empleos en marzo \u2014 casi la mitad de todo el crecimiento laboral. Pero los detalles importan:",
-        },
         {
           type: "list",
           items: [
-            "Servicios de salud ambulatoria: +54,000 \u2014 pero 35,000 fueron trabajadores de consultorios m\u00e9dicos regresando de la huelga de Kaiser.",
-            "Hospitales: +15,000 \u2014 contrataci\u00f3n constante.",
-            "Otros servicios de salud: +7,000.",
-            "Ajustado por regresos de huelga, la contrataci\u00f3n subyacente de salud fue ~41,000.",
+            "Servicios de salud ambulatoria: +54,000 \u2014 Incluye consultorios m\u00e9dicos (+35,000, mayormente regresos de la huelga de Kaiser), centros de atenci\u00f3n ambulatoria y agencias de salud domiciliaria.",
+            "Hospitales: +15,000 \u2014 Contrataci\u00f3n constante.",
+            "Centros de enfermer\u00eda y residenciales: +7,200 \u2014 Crecimiento modesto en un subsector que ha ido disminuyendo respecto a la atenci\u00f3n ambulatoria.",
           ],
         },
         {
           type: "paragraph",
-          text: "En febrero 2026, salud perdi\u00f3 28,000 empleos \u2014 la primera ca\u00edda en m\u00e1s de cuatro a\u00f1os. Eso fue la huelga de Kaiser. Los 76,000 de marzo incluyen a los mismos trabajadores regresando. La tendencia subyacente es aproximadamente 29,000\u201341,000 empleos de salud por mes.",
+          text: "La tendencia subyacente, contabilizando la huelga, es de 29,000\u201341,000 empleos de salud por mes. La atenci\u00f3n ambulatoria ha crecido del 34% al 40% del empleo total de salud desde 2000 (ADP Research) \u2014 los FQHCs est\u00e1n exactamente en este segmento de crecimiento.",
         },
       ],
     },
     {
-      heading: "Lo Que Muestra Nuestro Rastreador de Empleos FQHC: Ca\u00edda de 34 Empleos en 4 FQHCs de California",
+      heading: "\u00bfQu\u00e9 Roles de Salud Crecen M\u00e1s R\u00e1pido?",
       content: [
-        {
-          type: "paragraph",
-          text: "Mientras el BLS reporta agregados nacionales, nosotros rastreamos contrataci\u00f3n en tiempo real en FQHCs espec\u00edficos de California. Nuestro escaneo del 6 de abril encontr\u00f3 la ca\u00edda m\u00e1s aguda desde que comenzamos a rastrear:",
-        },
         {
           type: "list",
           items: [
-            "Family Health Centers of San Diego: 128 empleos (\u221217 desde 145) \u2014 la mayor ca\u00edda por FQHC individual.",
-            "La Cl\u00ednica de La Raza: 174 empleos (\u221213 desde 187) \u2014 declive sostenido.",
-            "AltaMed Health Services: 266 empleos (\u22124 desde 270) \u2014 retroceso leve.",
-            "Asian Health Services: 19 empleos (estable).",
-            "Total de empleos API: 587 (anterior: 621, \u221234).",
+            "Enfermeros Practicantes (NP): +35\u201340% de crecimiento proyectado, el #1 m\u00e1s r\u00e1pido en salud. Salario medio: $129,210.",
+            "Auxiliares de Salud Domiciliaria: +17% de crecimiento, 765,800 aperturas anuales \u2014 m\u00e1s que cualquier otra ocupaci\u00f3n.",
+            "Asistentes M\u00e9dicos (MA): +12% de crecimiento, 112,300 aperturas anuales.",
+            "Trabajadores de Salud Comunitaria (CHW): +11% de crecimiento. La certificaci\u00f3n CHW de California sigue paralizada desde noviembre 2023.",
+            "Ocupaciones de apoyo en salud: +12.4% de crecimiento \u2014 m\u00e1s r\u00e1pido que los profesionales (+7.2%).",
           ],
         },
         {
           type: "paragraph",
-          text: "Esto podr\u00eda ser estacional \u2014 la recalibraci\u00f3n presupuestaria del Q2 es com\u00fan. O podr\u00eda ser una se\u00f1al temprana. FHCSD y La Cl\u00ednica son FQHCs grandes y bien establecidos que sirven como barom\u00e9tros para la contrataci\u00f3n de red de seguridad en California.",
+          text: "Los roles de m\u00e1s r\u00e1pido crecimiento son exactamente los que los FQHCs m\u00e1s necesitan \u2014 y los que tienen las tasas m\u00e1s altas de vacantes y rotaci\u00f3n.",
         },
       ],
     },
     {
-      heading: "La Crisis Compuesta: 5 Amenazas de Ingresos Convergiendo Antes de 2027",
+      heading: "La Crisis de Fuerza Laboral FQHC: Datos NACHC 2025",
       content: [
-        {
-          type: "paragraph",
-          text: "El informe de empleos captura una instant\u00e1nea. Pero las amenazas de ingresos acumul\u00e1ndose cuentan la historia que los datos de empleo no pueden:",
-        },
         {
           type: "list",
           items: [
-            "Recorte de $1B en Dental de Medi-Cal (1 de julio, 2026): Reducci\u00f3n de tasas del 40\u201380%. El 49% de los dentistas abandonar\u00edan el programa.",
-            "Eliminaci\u00f3n de PPS para pacientes indocumentados (1 de julio, 2026): ~$1B de impacto estatal.",
-            "Carga de documentaci\u00f3n de requisitos laborales (31 de dic, 2026): 8.2 millones de adultos de California sujetos a requisitos de 80 horas/mes.",
-            "Aplicaci\u00f3n de requisitos laborales (1 de enero, 2027): Nebraska comienza el 1 de mayo \u2014 el canario nacional.",
-            "Incertidumbre del modelo de reembolso 340B (RFI vence 20 de abril): Posible cambio de descuentos anticipados a reembolsos diferidos.",
+            "310,000+ empleados en 16,000+ sitios atendiendo 52 millones de pacientes.",
+            "Proveedores de salud conductual: ~5,300 vacantes (mayor d\u00e9ficit absoluto), ~20% tasa de vacantes.",
+            "M\u00e9dicos: ~2,000 vacantes, ~20\u201321% tasa de vacantes.",
+            "NPs y PAs: ~2,800 vacantes.",
+            "Parteras Certificadas: ~26% tasa de vacantes.",
+            "El 70%+ de FQHCs reportan escasez cr\u00edtica en m\u00e9dicos, enfermeros y proveedores de salud mental.",
           ],
         },
-      ],
-    },
-    {
-      heading: "UC Berkeley: Hasta 217,000 Empleos de California en Riesgo",
-      content: [
         {
           type: "paragraph",
-          text: "El Centro Laboral de UC Berkeley proyecta que California podr\u00eda perder entre 109,000 y 217,000 empleos por $10\u2013$20 mil millones en recortes anuales de Medi-Cal. Dos tercios (67%) de esas p\u00e9rdidas ser\u00edan en salud. El impacto econ\u00f3mico se extiende a $18.5\u2013$37 mil millones en producci\u00f3n reducida.",
-        },
-        {
-          type: "paragraph",
-          text: "Berkeley estima que 8.2 millones de adultos de California (56% de inscritos en Medi-Cal) estar\u00edan sujetos a requisitos laborales. De estos, el 63% ya trabaja. Solo el 8% es la poblaci\u00f3n \u201Cobjetivo\u201D \u2014 pero la carga administrativa afecta a todos. Para FQHCs rurales, el 82% de las visitas son pagadas por Medi-Cal. Como advirti\u00f3 un CEO de FQHC: \u201C30% de p\u00e9rdida de ingresos significa 30% de recortes de personal.\u201D",
+          text: "La rotaci\u00f3n agrava el problema: Asistentes m\u00e9dicos rotan al 24% anual \u2014 la m\u00e1s alta de cualquier rol FQHC. Higienistas y asistentes dentales al 18%. Personal administrativo y enfermeros registrados al 15%.",
         },
       ],
     },
     {
-      heading: "La Infraestructura Federal Tambi\u00e9n Se Erosiona",
-      content: [
-        {
-          type: "paragraph",
-          text: "El gobierno federal ha perdido 355,000 empleos desde octubre 2024. HRSA ha perdido aproximadamente el 25% de su personal. La Oficina de Salud de Minor\u00edas de CMS (~40 empleados) ha sido eliminada, amenazando la capacitaci\u00f3n gratuita de Est\u00e1ndares CLAS. La paradoja: la misma administraci\u00f3n que recorta la capacidad de HRSA est\u00e1 intensificando auditor\u00edas de 340B y cumplimiento. Los FQHCs enfrentan m\u00e1s escrutinio con menos apoyo federal para navegarlo.",
-        },
-      ],
-    },
-    {
-      heading: "Lo Que Esto Significa para Trabajadores y L\u00edderes de FQHCs",
+      heading: "La Colisi\u00f3n de Financiamiento: 5 Amenazas Antes de Enero 2027",
       content: [
         {
           type: "list",
           items: [
-            "Para buscadores de empleo: El sector sigue contratando \u2014 1,885+ posiciones. Busque roles financiados por programas (ECM, CCM, CalAIM) para mayor estabilidad.",
-            "Para equipos financieros: Modele el impacto de ingresos del 1 de julio ahora. El recorte dental y la eliminaci\u00f3n de PPS golpean el mismo d\u00eda.",
-            "Para directores de RH: La ca\u00edda de 587 a 621 en nuestro rastreador sugiere pausas de contrataci\u00f3n. Si est\u00e1 reclutando activamente, tiene ventaja competitiva.",
-            "Para equipos de cumplimiento: El per\u00edodo de comentarios del RFI 340B cierra el 20 de abril. Coordine con CPCA y NACHC.",
-            "Para todos: La aplicaci\u00f3n de requisitos laborales en Nebraska el 1 de mayo es el canario. Observe qu\u00e9 pasa con los paneles de pacientes de CHCs en Nebraska los pr\u00f3ximos 90 d\u00edas.",
+            "Recorte de $1B en Dental de Medi-Cal (1 de julio, 2026): Reducci\u00f3n de tasas del 40\u201380%. El 49% de dentistas abandonar\u00edan el programa (CDA).",
+            "Eliminaci\u00f3n de PPS para pacientes indocumentados (1 de julio, 2026): ~$1B de impacto estatal (CHCF).",
+            "Documentaci\u00f3n de requisitos laborales (31 dic, 2026): 8.2 millones de adultos de CA sujetos a 80 horas/mes (UC Berkeley).",
+            "Aplicaci\u00f3n de requisitos laborales (1 de enero, 2027): Nebraska comienza mayo 1 \u2014 el canario nacional (KFF).",
+            "Incertidumbre del modelo de reembolso 340B (RFI vence 20 abril): Posible cambio a reembolsos diferidos.",
+          ],
+        },
+        {
+          type: "paragraph",
+          text: "UC Berkeley proyecta 109,000 a 217,000 empleos de California en riesgo \u2014 67% en salud. Para FQHCs rurales: 82% de visitas son Medi-Cal. \u201C30% de p\u00e9rdida de ingresos significa 30% de recortes de personal.\u201D",
+        },
+      ],
+    },
+    {
+      heading: "Lo Que Significa para Trabajadores y L\u00edderes de FQHCs",
+      content: [
+        {
+          type: "list",
+          items: [
+            "Para buscadores de empleo: Salud sigue siendo el \u00fanico sector creando empleos a escala. NP es el rol #1 de mayor crecimiento. Posiciones CalAIM tienen el respaldo de ingresos m\u00e1s duradero.",
+            "Para equipos financieros: Modele el impacto del 1 de julio ahora. El recorte dental y la eliminaci\u00f3n PPS golpean el mismo d\u00eda.",
+            "Para directores de RH: La rotaci\u00f3n de MA al 24% es su problema m\u00e1s costoso. NHSC y la misi\u00f3n siguen siendo sus diferenciadores m\u00e1s fuertes.",
+            "Para todos: Observe Nebraska a partir del 1 de mayo \u2014 vista previa de 8 meses antes de la fecha l\u00edmite de California.",
           ],
         },
       ],
@@ -346,15 +355,11 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "El informe de empleos de marzo muestra salud agregando 76,000 empleos \u2014 pero elimine el rebote de huelga de Kaiser y el ritmo real es de 29,000\u201341,000. Nuestro rastreador de empleos FQHC registr\u00f3 su ca\u00edda m\u00e1s aguda: -34 empleos en 4 FQHCs principales. UC Berkeley proyecta hasta 217,000 empleos de California en riesgo. Un recorte dental de $1 mil millones entra en vigor el 1 de julio, el mismo d\u00eda que los FQHCs pierden pagos PPS para pacientes indocumentados. La crisis compuesta que golpear\u00e1 la red de seguridad de California entre julio 2026 y enero 2027 remodelar\u00e1 el empleo de FQHCs de maneras que el BLS a\u00fan no ha capturado. La pregunta no es si los FQHCs ser\u00e1n afectados \u2014 es si se preparan ahora o reaccionan despu\u00e9s.",
+          text: "Salud agreg\u00f3 76,000 empleos en marzo y sigue siendo el pilar del mercado laboral. ADP dice que salud impuls\u00f3 93.5% de las ganancias privadas. BLS proyecta 2 millones de nuevos empleos de salud para 2034. La demanda es estructural. Pero NACHC muestra que el 70%+ de FQHCs ya no pueden llenar roles cr\u00edticos. Rotaci\u00f3n de MA al 24%. 5,300 vacantes de salud conductual. Y el financiamiento est\u00e1 a punto de enfrentar la crisis m\u00e1s comprimida en la historia de FQHCs. El sector salud est\u00e1 creando empleos. La pregunta es si los FQHCs pueden seguir financi\u00e1ndolos.",
         },
       ],
     },
   ],
-  ctaTitle: "Mantente Adelante de los Datos",
-  ctaDescription:
-    "Nuestro Dashboard de Inteligencia rastrea precipicios de financiamiento, despidos, cambios de pol\u00edtica y datos laborales actualizados diariamente.",
-  ctaButtonText: "Construye Tu CV",
   relatedArticles: [
     {
       href: "/blog/february-2026-jobs-report-healthcare-crisis",
@@ -384,7 +389,7 @@ export default async function MarchJobsReportArticle() {
     <main className="min-h-screen">
       <ArticleJsonLd
         title={enContent.title}
-        description={enContent.description}
+        description="Healthcare added 76,000 jobs in March 2026. BLS subcategory breakdown, NACHC vacancy data, fastest-growing roles, and the 5 revenue threats converging on FQHCs before January 2027."
         datePublished="2026-04-06"
         slug={slug}
       />
@@ -443,30 +448,35 @@ export default async function MarchJobsReportArticle() {
             {/* TL;DR Card */}
             <TLDRCard
               items={[
-                "Healthcare added 76,000 jobs in March, but 35,000 were Kaiser strike workers returning \u2014 not new positions. Underlying healthcare hiring is 29,000\u201341,000/month.",
-                "Our FQHC job tracker shows -34 jobs across 4 major CA FQHCs: FHCSD -17, La Clinica -13, AltaMed -4 \u2014 the sharpest decline we\u2019ve recorded.",
-                "UC Berkeley projects 109,000\u2013217,000 California jobs at risk from Medicaid cuts. 67% would be in healthcare.",
-                "5 revenue threats converge before Jan 2027: $1B dental cut (July 1), UIS PPS elimination (July 1), work requirement documentation (Dec 31), work requirement enforcement (Jan 1), and 340B rebate model uncertainty (RFI April 20).",
+                "Healthcare added 76,000 jobs in March (43% of all nonfarm gains). But 35,000 were Kaiser strike returns \u2014 underlying trend is ~29,000\u201341,000/month.",
+                "ADP: Education and health services drove 93.5% of all private-sector job gains. Indeed: Healthcare = ~72% of all 2025 net job growth. One sector is carrying the entire economy.",
+                "NACHC: 70%+ of FQHCs report critical staffing shortages. 5,300 behavioral health vacancies. 24% annual MA turnover. NPs are the fastest-growing role (+35\u201340%).",
+                "5 revenue threats converge before Jan 2027: $1B dental cut + UIS PPS elimination (July 1), work requirements (Dec 31 \u2192 Jan 1), 340B uncertainty (RFI April 20). UC Berkeley: up to 217,000 CA jobs at risk.",
               ]}
               esItems={[
-                "Salud agreg\u00f3 76,000 empleos en marzo, pero 35,000 fueron regresos de huelga de Kaiser \u2014 no nuevos puestos. Contrataci\u00f3n subyacente: 29,000\u201341,000/mes.",
-                "Nuestro rastreador de empleos FQHC muestra -34 empleos en 4 FQHCs principales de CA: FHCSD -17, La Cl\u00ednica -13, AltaMed -4 \u2014 la ca\u00edda m\u00e1s aguda registrada.",
-                "UC Berkeley proyecta 109,000\u2013217,000 empleos de California en riesgo por recortes de Medicaid. El 67% ser\u00edan en salud.",
-                "5 amenazas de ingresos convergen antes de enero 2027: recorte dental de $1B (1 julio), eliminaci\u00f3n PPS (1 julio), documentaci\u00f3n de requisitos laborales (31 dic), aplicaci\u00f3n (1 enero), e incertidumbre 340B.",
+                "Salud agreg\u00f3 76,000 empleos en marzo (43% del total). Pero 35,000 fueron regresos de huelga de Kaiser \u2014 tendencia subyacente: ~29,000\u201341,000/mes.",
+                "ADP: Educaci\u00f3n y salud impulsaron 93.5% de ganancias del sector privado. Indeed: Salud = ~72% del crecimiento neto de empleo en 2025.",
+                "NACHC: 70%+ de FQHCs reportan escasez cr\u00edtica. 5,300 vacantes de salud conductual. 24% rotaci\u00f3n anual de MA. NPs son el rol de m\u00e1s r\u00e1pido crecimiento (+35\u201340%).",
+                "5 amenazas convergen antes de enero 2027: recorte dental + eliminaci\u00f3n PPS (1 julio), requisitos laborales (31 dic \u2192 1 enero), incertidumbre 340B. UC Berkeley: hasta 217,000 empleos de CA en riesgo.",
               ]}
             />
 
             {/* Stat Callouts */}
-            <div className="my-8 grid gap-4 sm:grid-cols-2">
+            <div className="my-8 grid gap-4 sm:grid-cols-3">
               <StatCallout
-                stat="587"
-                label="FQHC API jobs (prev 621, \u221234)"
-                esLabel="Empleos API de FQHC (prev 621, \u221234)"
+                stat="76K"
+                label="Healthcare jobs added (March)"
+                esLabel="Empleos de salud agregados (marzo)"
               />
               <StatCallout
-                stat="217K"
-                label="CA jobs at risk (UC Berkeley)"
-                esLabel="Empleos de CA en riesgo (UC Berkeley)"
+                stat="5,300"
+                label="FQHC behavioral health vacancies"
+                esLabel="Vacantes de salud conductual FQHC"
+              />
+              <StatCallout
+                stat="24%"
+                label="Annual MA turnover at FQHCs"
+                esLabel="Rotaci\u00f3n anual de MA en FQHCs"
               />
             </div>
 
@@ -500,36 +510,17 @@ export default async function MarchJobsReportArticle() {
                 {isEs ? "Fuentes" : "Sources"}
               </h3>
               <ul className="space-y-1 text-sm text-stone-600">
-                <li>
-                  <a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">
-                    BLS Employment Situation \u2014 March 2026
-                  </a>
-                </li>
-                <li>
-                  <a href="https://laborcenter.berkeley.edu/california-could-lose-up-to-217000-jobs-if-congress-cuts-medicaid/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">
-                    UC Berkeley Labor Center: California Job Loss Projections
-                  </a>
-                </li>
-                <li>
-                  <a href="https://laborcenter.berkeley.edu/eight-million-medi-cal-enrollees-at-risk-of-losing-health-coverage-if-congress-imposes-work-requirements/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">
-                    UC Berkeley: 8 Million Medi-Cal Enrollees at Risk
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.cda.org/newsroom/advocacy/cda-convened-coalition-of-70-plus-groups-fights-to-stop-1b-cuts-to-medi-cal-dental/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">
-                    CDA: Save Our Dental Care Coalition
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.kff.org/medicaid/a-closer-look-at-nebraska-the-first-state-planning-to-implement-a-medicaid-work-requirement/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">
-                    KFF: Nebraska Work Requirements Analysis
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.chcf.org/resource/federal-medicaid-cuts-would-devastate-health-care-systems-californias-vast-rural-north/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">
-                    CHCF: Federal Cuts Would Devastate Rural CA
-                  </a>
-                </li>
+                <li><a href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">BLS Employment Situation \u2014 March 2026</a></li>
+                <li><a href="https://mediacenter.adp.com/2026-04-01-ADP-National-Employment-Report-Private-Sector-Employment-Increased-by-62,000-Jobs-in-March-Annual-Pay-was-Up-4-5" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">ADP National Employment Report \u2014 March 2026</a></li>
+                <li><a href="https://www.adpresearch.com/health-care-is-reshaping-the-labor-market/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">ADP Research: Health Care Is Reshaping the Labor Market</a></li>
+                <li><a href="https://www.hiringlab.org/2026/04/03/march-2026-jobs-report-a-bumpy-road-and-a-moving-finish-line/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">Indeed Hiring Lab: March 2026 Jobs Report</a></li>
+                <li><a href="https://www.hiringlab.org/2026/02/26/healthcare-hiring-keeps-signing-bonuses-alive-in-a-cooling-labor-market/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">Indeed: Healthcare Signing Bonuses \u2014 February 2026</a></li>
+                <li><a href="https://www.nachc.org/looming-medicaid-changes-threaten-to-deepen-the-community-health-center-workforce-crisis/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">NACHC: Medicaid Changes Threaten CHC Workforce</a></li>
+                <li><a href="https://www.nachc.org/investing-in-the-primary-care-front-line-why-chcs-need-workforce-investment-now/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">NACHC: 2025 Staffing Survey \u2014 Primary Care Workforce</a></li>
+                <li><a href="https://www.bls.gov/news.release/pdf/ecopro.pdf" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">BLS Employment Projections 2024\u20132034</a></li>
+                <li><a href="https://laborcenter.berkeley.edu/california-could-lose-up-to-217000-jobs-if-congress-cuts-medicaid/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">UC Berkeley: California Could Lose Up to 217,000 Jobs</a></li>
+                <li><a href="https://www.cda.org/newsroom/advocacy/cda-convened-coalition-of-70-plus-groups-fights-to-stop-1b-cuts-to-medi-cal-dental/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">CDA: Save Our Dental Care Coalition</a></li>
+                <li><a href="https://www.kff.org/medicaid/a-closer-look-at-nebraska-the-first-state-planning-to-implement-a-medicaid-work-requirement/" target="_blank" rel="noopener noreferrer" className="text-teal-700 hover:underline">KFF: Nebraska Work Requirements Analysis</a></li>
               </ul>
             </div>
           </div>

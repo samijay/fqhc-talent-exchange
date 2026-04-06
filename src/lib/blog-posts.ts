@@ -43,13 +43,13 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "march-2026-jobs-report-fqhc-hiring-slowdown",
     title:
-      "The March 2026 Jobs Report Looks Great on Paper. The Real Story Is in What\u2019s Coming Next.",
+      "March 2026 Jobs Report: Healthcare Added 76,000 Jobs \u2014 But Which Roles, and for How Long?",
     esTitle:
-      "El Informe de Empleos de Marzo 2026 Se Ve Bien en Papel. La Verdadera Historia Est\u00e1 en Lo Que Viene.",
+      "Informe de Empleos Marzo 2026: Salud Agreg\u00f3 76,000 Empleos \u2014 Pero \u00bfQu\u00e9 Roles, y Por Cu\u00e1nto Tiempo?",
     description:
-      "Healthcare added 76,000 jobs in March \u2014 but 35,000 were Kaiser strike returns. Our FQHC tracker shows -34 jobs across 4 major CA FQHCs. UC Berkeley projects up to 217,000 CA job losses from Medicaid cuts. The compound crisis hitting July 1.",
+      "Healthcare added 76,000 jobs in March 2026. BLS subcategory breakdown, NACHC vacancy data (5,300 BH vacancies, 24% MA turnover), fastest-growing roles (NP +40%), and the 5 revenue threats converging on FQHCs before January 2027.",
     esDescription:
-      "Salud agreg\u00f3 76,000 empleos en marzo \u2014 pero 35,000 fueron regresos de huelga de Kaiser. Nuestro rastreador de FQHCs muestra -34 empleos en 4 FQHCs principales de CA. UC Berkeley proyecta hasta 217,000 p\u00e9rdidas de empleo.",
+      "Salud agreg\u00f3 76,000 empleos en marzo 2026. Desglose por subcategor\u00eda BLS, datos de vacantes NACHC (5,300 vacantes de salud conductual), roles de mayor crecimiento (NP +40%), y las 5 amenazas de ingresos convergiendo en FQHCs.",
     date: "April 6, 2026",
     esDate: "6 de abril de 2026",
     isoDate: "2026-04-06",
