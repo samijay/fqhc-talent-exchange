@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
-import { TLDRCard, StatCallout } from "@/components/blog/BlogDataViz";
+import { TLDRCard, StatCallout, FundingCliffCard, SalaryRangeChart } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
@@ -500,6 +500,79 @@ export default async function MarchJobsReportArticle() {
                       ))}
                     </ul>
                   ),
+                )}
+
+                {/* Visual: BLS subcategory bar chart after section 1 */}
+                {i === 1 && (
+                  <div className="my-8 space-y-3">
+                    <h4 className="text-sm font-bold uppercase tracking-wider text-stone-500">
+                      {isEs ? "Desglose de Empleos de Salud de Marzo" : "March Healthcare Jobs Breakdown"}
+                    </h4>
+                    {[
+                      { label: isEs ? "Atenci\u00f3n ambulatoria" : "Ambulatory Care", value: 54000, pct: 71, note: isEs ? "35K = regresos de huelga Kaiser" : "35K = Kaiser strike returns" },
+                      { label: isEs ? "Hospitales" : "Hospitals", value: 15000, pct: 20, note: isEs ? "Contrataci\u00f3n constante" : "Steady hiring" },
+                      { label: isEs ? "Enfermer\u00eda/Residencial" : "Nursing/Residential", value: 7200, pct: 9, note: isEs ? "Crecimiento modesto" : "Modest growth" },
+                    ].map((row, idx) => (
+                      <div key={idx} className="rounded-lg border border-stone-200 bg-stone-50 p-3">
+                        <div className="flex items-baseline justify-between">
+                          <span className="text-sm font-semibold text-stone-800">{row.label}</span>
+                          <span className="text-lg font-bold text-teal-700">+{row.value.toLocaleString()}</span>
+                        </div>
+                        <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-stone-200">
+                          <div className="h-full rounded-full bg-teal-600" style={{ width: `${row.pct}%` }} />
+                        </div>
+                        <p className="mt-1 text-xs text-stone-500">{row.note}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* Visual: Role growth cards after section 2 */}
+                {i === 2 && (
+                  <div className="my-8 grid gap-3 sm:grid-cols-2">
+                    {[
+                      { role: isEs ? "Enfermeros Practicantes" : "Nurse Practitioners", growth: "+35\u201340%", wage: "$129,210", openings: "32,700/yr", color: "bg-teal-50 border-teal-200" },
+                      { role: isEs ? "Auxiliares de Salud" : "Home Health Aides", growth: "+17%", wage: "$34,900", openings: "765,800/yr", color: "bg-amber-50 border-amber-200" },
+                      { role: isEs ? "Asistentes M\u00e9dicos" : "Medical Assistants", growth: "+12%", wage: isEs ? "Entrada a RN/NP" : "Entry to RN/NP", openings: "112,300/yr", color: "bg-stone-50 border-stone-200" },
+                      { role: isEs ? "Trabajadores de Salud Comunitaria" : "Community Health Workers", growth: "+11%", wage: isEs ? "Cert. CA paralizada" : "CA cert stalled", openings: "7,800/yr", color: "bg-stone-50 border-stone-200" },
+                    ].map((r, idx) => (
+                      <div key={idx} className={`rounded-xl border-2 p-4 ${r.color}`}>
+                        <p className="text-2xl font-extrabold text-teal-800">{r.growth}</p>
+                        <p className="mt-1 font-semibold text-stone-800">{r.role}</p>
+                        <div className="mt-2 flex items-center gap-3 text-xs text-stone-600">
+                          <span>{r.wage}</span>
+                          <span className="text-stone-300">|</span>
+                          <span>{r.openings} {isEs ? "aperturas" : "openings"}</span>
+                        </div>
+                      </div>
+                    ))}
+                    <p className="col-span-full mt-1 text-xs text-stone-400">{isEs ? "Fuente: Proyecciones de Empleo BLS 2024\u20132034" : "Source: BLS Employment Projections 2024\u20132034"}</p>
+                  </div>
+                )}
+
+                {/* Visual: Funding cliff countdown after section 5 (revenue threats) */}
+                {i === 5 && (
+                  <FundingCliffCard
+                    cliffs={[
+                      { title: { en: "$1B Medi-Cal Dental Cut", es: "Recorte de $1B en Dental Medi-Cal" }, date: "2026-07-01", impact: { en: "40\u201380% rate reduction \u2014 49% of dentists would leave (CDA)", es: "Reducci\u00f3n del 40\u201380% \u2014 49% de dentistas abandonar\u00edan (CDA)" }, urgency: "critical" },
+                      { title: { en: "UIS Patient PPS Elimination", es: "Eliminaci\u00f3n de PPS para Pacientes UIS" }, date: "2026-07-01", impact: { en: "~$1B statewide revenue impact (CHCF)", es: "~$1B de impacto estatal (CHCF)" }, urgency: "critical" },
+                      { title: { en: "Work Requirement Documentation", es: "Documentaci\u00f3n de Requisitos Laborales" }, date: "2026-12-31", impact: { en: "8.2M CA adults in scope; 63% already work (UC Berkeley)", es: "8.2M adultos de CA; 63% ya trabajan (UC Berkeley)" }, urgency: "high" },
+                      { title: { en: "Work Requirement Enforcement", es: "Aplicaci\u00f3n de Requisitos Laborales" }, date: "2027-01-01", impact: { en: "Nebraska starts May 1 \u2014 national canary (KFF)", es: "Nebraska comienza 1 de mayo \u2014 canario nacional (KFF)" }, urgency: "high" },
+                      { title: { en: "340B RFI Comment Deadline", es: "Fecha L\u00edmite de Comentarios RFI 340B" }, date: "2026-04-20", impact: { en: "Potential shift to delayed rebates (Federal Register)", es: "Posible cambio a reembolsos diferidos (Federal Register)" }, urgency: "moderate" },
+                    ]}
+                  />
+                )}
+
+                {/* Pull quote after section 3 (NACHC data) */}
+                {i === 3 && (
+                  <blockquote className="my-8 border-l-4 border-amber-500 bg-amber-50 py-4 pl-6 pr-4">
+                    <p className="text-lg font-semibold text-stone-800">
+                      {isEs
+                        ? "Los FQHCs no solo luchan por contratar. Luchan por retener a la gente que ya tienen."
+                        : "FQHCs aren\u2019t just struggling to hire. They\u2019re struggling to keep the people they have."}
+                    </p>
+                    <p className="mt-2 text-sm text-stone-500">\u2014 NACHC 2025 Staffing Survey</p>
+                  </blockquote>
                 )}
               </div>
             ))}
