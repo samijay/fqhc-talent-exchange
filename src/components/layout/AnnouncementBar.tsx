@@ -5,7 +5,7 @@ import { X, Sparkles } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
-const DISMISS_KEY = "announcement-dismissed-v9";
+const DISMISS_KEY = "announcement-dismissed-v10";
 
 export default function AnnouncementBar() {
   const [dismissed, setDismissed] = useState(true); // start hidden to avoid flash
@@ -41,8 +41,8 @@ export default function AnnouncementBar() {
         <Sparkles className="size-3.5 shrink-0 sm:size-4" />
         <span>
           {isEs
-            ? "Nuevo: Informe de empleos de marzo — Salud agrega 76K pero nuestro rastreador FQHC muestra -34"
-            : "New: March jobs report \u2014 Healthcare adds 76K but our FQHC tracker shows -34"}
+            ? "Marzo 2026: Salud agrega 76K empleos \u2014 pero \u00bfqu\u00e9 roles crecen y por cu\u00e1nto tiempo?"
+            : "March 2026: Healthcare adds 76K jobs \u2014 which roles are growing, and for how long?"}
         </span>
         <Link
           href="/blog/march-2026-jobs-report-fqhc-hiring-slowdown"
