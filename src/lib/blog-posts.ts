@@ -43,13 +43,13 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "march-2026-jobs-report-fqhc-hiring-slowdown",
     title:
-      "March 2026 Jobs Report: Healthcare Added 76,000 Jobs \u2014 But Which Roles, and for How Long?",
+      "March 2026 Jobs Report: 76K Healthcare Jobs, FQHC Hiring Crisis",
     esTitle:
-      "Informe de Empleos Marzo 2026: Salud Agreg\u00f3 76,000 Empleos \u2014 Pero \u00bfQu\u00e9 Roles, y Por Cu\u00e1nto Tiempo?",
+      "Empleos Marzo 2026: 76K en Salud, Crisis de Contrataci\u00f3n FQHC",
     description:
-      "Healthcare added 76,000 jobs in March 2026. BLS subcategory breakdown, NACHC vacancy data (5,300 BH vacancies, 24% MA turnover), fastest-growing roles (NP +40%), and the 5 revenue threats converging on FQHCs before January 2027.",
+      "Healthcare added 76K jobs in March 2026 but FQHCs can\u2019t fill roles. BLS data, NACHC vacancies, NP growth +40%, Medicaid cuts threatening California community health centers.",
     esDescription:
-      "Salud agreg\u00f3 76,000 empleos en marzo 2026. Desglose por subcategor\u00eda BLS, datos de vacantes NACHC (5,300 vacantes de salud conductual), roles de mayor crecimiento (NP +40%), y las 5 amenazas de ingresos convergiendo en FQHCs.",
+      "Salud agreg\u00f3 76K empleos en marzo 2026 pero FQHCs no pueden llenar roles. Datos BLS, vacantes NACHC, crecimiento NP +40%, recortes de Medicaid amenazan centros de salud comunitarios de California.",
     date: "April 6, 2026",
     esDate: "6 de abril de 2026",
     isoDate: "2026-04-06",

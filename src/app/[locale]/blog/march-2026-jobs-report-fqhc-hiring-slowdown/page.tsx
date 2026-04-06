@@ -389,7 +389,7 @@ export default async function MarchJobsReportArticle() {
     <main className="min-h-screen">
       <ArticleJsonLd
         title={enContent.title}
-        description="Healthcare added 76,000 jobs in March 2026. BLS subcategory breakdown, NACHC vacancy data, fastest-growing roles, and the 5 revenue threats converging on FQHCs before January 2027."
+        description="Healthcare added 76K jobs in March 2026 but FQHCs can't fill roles. BLS data, NACHC vacancies, NP growth +40%, Medicaid cuts threatening California community health centers."
         datePublished="2026-04-06"
         slug={slug}
       />
