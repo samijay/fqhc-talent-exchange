@@ -7,6 +7,7 @@ import { fqhcJobListings } from "@/lib/fqhc-job-listings";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
 import { getMarketOverview, getFundingCliffs } from "@/lib/market-intelligence";
 import { getIntelItems } from "@/lib/fqhc-news-intel";
+import { getUpcomingFollowUps, getAdvocacyCounts } from "@/lib/fqhc-advocacy-tracker";
 import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 import { HomepageDashboard } from "@/components/homepage/HomepageDashboard";
 import type { HomepageData } from "@/components/homepage/HomepageDashboard";
@@ -119,6 +120,14 @@ export default function Home() {
         sourceUrl: i.sourceUrl,
         sourceOrg: i.sourceOrg,
       })),
+    advocacyItems: getUpcomingFollowUps().slice(0, 5).map((a) => ({
+      id: a.id,
+      headline: a.headline,
+      status: a.status,
+      followUpDate: a.followUpDate,
+      region: a.region,
+    })),
+    advocacyCounts: getAdvocacyCounts(),
   };
 
   /* ---- JSON-LD: WebPage + FAQPage for homepage rich results ---- */

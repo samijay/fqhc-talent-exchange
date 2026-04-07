@@ -94,6 +94,12 @@ Launch ALL of these as background agents simultaneously. Each agent does web sea
 - `community health center EHR implementation [year]`
 - `NACHC technology partnership discount [year]`
 
+**Agent 8 — Advocacy & Positive Momentum Scan** (2 searches):
+- `California FQHC "coalition" OR "advocacy" OR "ballot" OR "initiative" protecting funding [month] [year]`
+- `community health center "lawsuit" OR "legal action" OR "legislation" protecting 340B OR Medicaid [month] [year]`
+
+For each finding, check against existing `ADVOCACY_ACTIONS` in `fqhc-advocacy-tracker.ts`. If new, add with follow-up date and status. If existing item has a known outcome, update its status.
+
 #### Agent Instructions (include in every agent prompt):
 
 Tell each agent:
@@ -125,6 +131,7 @@ As each agent reports back, process findings:
 - **`california-fqhc-layoffs.ts`** — named FQHC layoff/closure announcements
 - **`funding-impact-data.ts`** — policy with a date, dollar amount, and people affected
 - **`fqhc-compliance.ts`** — new enforcement actions or compliance deadlines
+- **`fqhc-advocacy-tracker.ts` ADVOCACY_ACTIONS[]** — coalition actions, ballot initiatives, legislation, legal rulings protecting FQHC funding. Include follow-up dates and status tracking.
 
 Every item MUST have a verified primary source URL. Include bilingual headline/summary (EN + ES).
 
@@ -212,6 +219,7 @@ AI: +[n] new items (total [n] adoption + [n] vendors)
 Regional: [region1] + [region2] — [# findings]
 Compliance: [summary]
 Tech Stack: [summary]
+Advocacy: +[n] new actions (total [n], [n] active, [n] upcoming follow-ups)
 
 🔧 ENRICHMENT ([day]'s rotation)
 [What was done]

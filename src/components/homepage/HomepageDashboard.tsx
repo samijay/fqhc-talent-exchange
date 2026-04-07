@@ -1,6 +1,8 @@
 // FQHC Talent — Homepage (Focused Landing Page)
 "use client";
 
+import { useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { ExecutiveDashboard } from "./ExecutiveDashboard";
 import { JobSeekerDashboard } from "./JobSeekerDashboard";
@@ -28,6 +30,77 @@ export interface HomepageData {
   topIntelSource: string;
   /** Serialized intel items for PDF export */
   intelBriefItems: IntelBriefItem[];
+  /** Advocacy watch — upcoming actions with follow-up dates */
+  advocacyItems?: {
+    id: string;
+    headline: { en: string; es: string };
+    status: string;
+    followUpDate: string | null;
+    region: string;
+  }[];
+  advocacyCounts?: { total: number; active: number; pendingVote: number; upcoming: number };
+}
+
+/* ================================================================== */
+/*  Advocacy Watch Strip                                               */
+/* ================================================================== */
+
+function AdvocacyStrip({ items, counts }: {
+  items: NonNullable<HomepageData["advocacyItems"]>;
+  counts: NonNullable<HomepageData["advocacyCounts"]>;
+}) {
+  const locale = useLocale();
+  const isEs = locale === "es";
+
+  const daysUntil = (d: string) => Math.max(0, Math.ceil((new Date(d).getTime() - Date.now()) / 86400000));
+
+  return (
+    <section className="border-y border-amber-200 bg-amber-50 px-6 py-8">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+            <span className="size-2 animate-pulse rounded-full bg-teal-500" />
+            {isEs ? "Seguimiento de Abogac\u00eda" : "Advocacy Watch"}
+          </h2>
+          <Link href={"/strategy/advocacy" as "/strategy/guides"} className="text-sm font-medium text-teal-700 hover:text-teal-900">
+            {isEs ? "Ver todo" : "View all"} ({counts.total}) &rarr;
+          </Link>
+        </div>
+
+        <div className="mb-3 flex gap-4 text-sm">
+          <span className="rounded-full bg-teal-100 px-3 py-1 text-xs font-semibold text-teal-800">{counts.active} {isEs ? "activas" : "active"}</span>
+          {counts.pendingVote > 0 && <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">{counts.pendingVote} {isEs ? "votos pendientes" : "pending votes"}</span>}
+          <span className="rounded-full bg-stone-100 px-3 py-1 text-xs font-semibold text-stone-700">{counts.upcoming} {isEs ? "seguimientos pr\u00f3ximos" : "upcoming follow-ups"}</span>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((item) => {
+            const days = item.followUpDate ? daysUntil(item.followUpDate) : null;
+            return (
+              <Link
+                key={item.id}
+                href={"/strategy/advocacy" as "/strategy/guides"}
+                className="flex items-center gap-3 rounded-lg border border-amber-200 bg-white p-3 transition-colors hover:border-teal-300"
+              >
+                {days !== null && (
+                  <div className={`shrink-0 text-center ${days <= 14 ? "text-red-600" : "text-amber-600"}`}>
+                    <p className="text-xl font-bold">{days}</p>
+                    <p className="text-xs">{isEs ? "d\u00edas" : "days"}</p>
+                  </div>
+                )}
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-semibold text-stone-800">
+                    {isEs ? item.headline.es : item.headline.en}
+                  </p>
+                  <p className="text-xs text-stone-400">{item.region}</p>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 /* ================================================================== */
@@ -59,6 +132,11 @@ export function HomepageDashboard({ data }: { data: HomepageData }) {
         totalFQHCs={data.totalFQHCs}
         intelBriefItems={data.intelBriefItems}
       />
+
+      {/* 2.5 Advocacy Watch strip */}
+      {data.advocacyItems && data.advocacyItems.length > 0 && data.advocacyCounts && (
+        <AdvocacyStrip items={data.advocacyItems} counts={data.advocacyCounts} />
+      )}
 
       {/* 3. For Job Seekers */}
       <JobSeekerPathSection

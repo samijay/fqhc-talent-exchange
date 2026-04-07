@@ -14,6 +14,7 @@ import {
   Clock,
   ExternalLink,
   Filter,
+  LayoutList,
   Scale,
   ScrollText,
   Search,
@@ -251,6 +252,112 @@ function ActionCard({
   );
 }
 
+function TimelineView({ actions, locale }: { actions: AdvocacyAction[]; locale: string }) {
+  const isEs = locale === "es";
+  const sorted = [...actions].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+  const statusColor: Record<string, string> = {
+    proposed: "bg-stone-400",
+    active: "bg-teal-500",
+    passed: "bg-green-500",
+    failed: "bg-red-500",
+    "pending-vote": "bg-amber-500",
+    "in-court": "bg-purple-500",
+    "signed-into-law": "bg-green-600",
+  };
+
+  const statusBg: Record<string, string> = {
+    proposed: "bg-stone-50 border-stone-200",
+    active: "bg-teal-50 border-teal-200",
+    passed: "bg-green-50 border-green-200",
+    failed: "bg-red-50 border-red-200",
+    "pending-vote": "bg-amber-50 border-amber-200",
+    "in-court": "bg-purple-50 border-purple-200",
+    "signed-into-law": "bg-green-50 border-green-300",
+  };
+
+  return (
+    <div className="relative ml-6 border-l-2 border-stone-200 pl-8">
+      {sorted.map((action, i) => {
+        const followUpDays = action.followUpDate ? daysUntil(action.followUpDate) : null;
+        const isUrgent = followUpDays !== null && followUpDays >= 0 && followUpDays <= 14;
+        const statusMeta = STATUS_META[action.status];
+        const dateStr = new Date(action.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+
+        return (
+          <div key={action.id} className="relative mb-8 last:mb-0">
+            {/* Timeline dot */}
+            <div className={`absolute -left-[41px] top-1 size-4 rounded-full border-2 border-white ${statusColor[action.status] || "bg-stone-400"}`} />
+
+            {/* Date label */}
+            <p className="mb-1 text-xs font-semibold text-stone-400">{dateStr}</p>
+
+            {/* Card */}
+            <div className={`rounded-lg border-2 p-4 ${isUrgent ? "border-amber-300 shadow-sm" : statusBg[action.status] || "border-stone-200 bg-white"}`}>
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0 flex-1">
+                  <div className="mb-1 flex flex-wrap items-center gap-2">
+                    <Badge variant="outline" className={`text-xs ${statusMeta.color}`}>
+                      {t(statusMeta.label, locale)}
+                    </Badge>
+                    <span className="text-xs text-stone-400">{action.region}</span>
+                    {action.impactLevel === "critical" && (
+                      <Badge variant="destructive" className="text-xs">
+                        {isEs ? "Cr\u00edtico" : "Critical"}
+                      </Badge>
+                    )}
+                  </div>
+                  <h3 className="text-sm font-bold leading-snug text-stone-900">
+                    {t(action.headline, locale)}
+                  </h3>
+                  <p className="mt-1 text-xs text-stone-500">
+                    {action.organizations.join(" \u2022 ")}
+                  </p>
+                </div>
+
+                {/* Follow-up countdown */}
+                {followUpDays !== null && followUpDays >= 0 && (
+                  <div className={`shrink-0 rounded-lg px-3 py-1 text-center ${followUpDays <= 14 ? "bg-amber-100 text-amber-800" : "bg-stone-100 text-stone-600"}`}>
+                    <p className="text-lg font-bold">{followUpDays}</p>
+                    <p className="text-xs">{isEs ? "d\u00edas" : "days"}</p>
+                  </div>
+                )}
+              </div>
+
+              {/* Outcome */}
+              {action.outcome && (
+                <div className="mt-2 flex items-center gap-1.5 text-xs text-green-700">
+                  <CheckCircle2 className="size-3" />
+                  {t(action.outcome, locale)}
+                </div>
+              )}
+
+              {/* Source */}
+              <div className="mt-2 flex items-center gap-2 text-xs text-stone-400">
+                <a href={action.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
+                  {action.sourceOrg} <ExternalLink className="ml-0.5 inline size-3" />
+                </a>
+              </div>
+            </div>
+
+            {/* Future follow-up marker */}
+            {action.followUpDate && followUpDays !== null && followUpDays > 0 && (
+              <div className="relative mt-4">
+                <div className={`absolute -left-[41px] top-1 size-3 rounded-full border-2 border-white ${followUpDays <= 14 ? "bg-amber-400" : "bg-stone-300"}`} />
+                <div className={`rounded-md px-3 py-1.5 text-xs ${followUpDays <= 14 ? "bg-amber-50 text-amber-700 font-semibold" : "bg-stone-50 text-stone-500"}`}>
+                  <Calendar className="mr-1 inline size-3" />
+                  {new Date(action.followUpDate).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
+                  {action.followUpNote && ` \u2014 ${t(action.followUpNote, locale)}`}
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function AdvocacyWatchPage() {
   const locale = useLocale();
   const isEs = locale === "es";
@@ -258,6 +365,7 @@ export default function AdvocacyWatchPage() {
   const [categoryFilter, setCategoryFilter] = useState<AdvocacyCategory | "all">("all");
   const [statusFilter, setStatusFilter] = useState<AdvocacyStatus | "all">("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [viewMode, setViewMode] = useState<"cards" | "timeline">("cards");
 
   const counts = getAdvocacyCounts();
   const upcomingFollowUps = getUpcomingFollowUps();
@@ -435,22 +543,44 @@ export default function AdvocacyWatchPage() {
           </select>
         </div>
 
-        {/* Results count */}
-        <p className="mb-4 text-sm text-stone-500">
-          {filteredActions.length} {isEs ? "acciones" : "actions"}
-          {categoryFilter !== "all" || statusFilter !== "all" || searchQuery
-            ? isEs
-              ? " (filtradas)"
-              : " (filtered)"
-            : ""}
-        </p>
-
-        {/* Actions list */}
-        <div className="space-y-4">
-          {filteredActions.map((action) => (
-            <ActionCard key={action.id} action={action} locale={locale} />
-          ))}
+        {/* Results count + view toggle */}
+        <div className="mb-4 flex items-center justify-between">
+          <p className="text-sm text-stone-500">
+            {filteredActions.length} {isEs ? "acciones" : "actions"}
+            {categoryFilter !== "all" || statusFilter !== "all" || searchQuery
+              ? isEs
+                ? " (filtradas)"
+                : " (filtered)"
+              : ""}
+          </p>
+          <div className="flex items-center gap-1 rounded-lg border border-stone-200 bg-white p-0.5">
+            <button
+              onClick={() => setViewMode("cards")}
+              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${viewMode === "cards" ? "bg-teal-700 text-white" : "text-stone-500 hover:bg-stone-100"}`}
+            >
+              <LayoutList className="mr-1 inline size-3.5" />
+              {isEs ? "Tarjetas" : "Cards"}
+            </button>
+            <button
+              onClick={() => setViewMode("timeline")}
+              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${viewMode === "timeline" ? "bg-teal-700 text-white" : "text-stone-500 hover:bg-stone-100"}`}
+            >
+              <Clock className="mr-1 inline size-3.5" />
+              {isEs ? "L\u00ednea de Tiempo" : "Timeline"}
+            </button>
+          </div>
         </div>
+
+        {/* Actions — Cards or Timeline view */}
+        {viewMode === "cards" ? (
+          <div className="space-y-4">
+            {filteredActions.map((action) => (
+              <ActionCard key={action.id} action={action} locale={locale} />
+            ))}
+          </div>
+        ) : (
+          <TimelineView actions={filteredActions} locale={locale} />
+        )}
 
         {filteredActions.length === 0 && (
           <div className="rounded-xl border border-stone-200 bg-white p-8 text-center">
