@@ -5,7 +5,7 @@
 // Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-04-06";
+export const AI_TRACKER_LAST_UPDATED = "2026-04-07";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -893,6 +893,34 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     date: "2025-12-01",
     tags: ["eclinicalworks", "sunoh", "healow", "full-stack-ai", "fqhc-deployment"],
     featured: false,
+  },
+
+  // ── Daily Update #27 (2026-04-07) ──────────────────────────────────
+
+  {
+    id: "amazon-connect-health-agentic-ai-march-2026",
+    title: {
+      en: "AWS Launches Amazon Connect Health \u2014 Agentic AI for Healthcare Operations",
+      es: "AWS Lanza Amazon Connect Health \u2014 IA Ag\u00e9ntica para Operaciones de Salud",
+    },
+    description: {
+      en: "AWS launched Amazon Connect Health (GA March 5, 2026), a HIPAA-eligible agentic AI platform automating scheduling, documentation, patient verification, and medical coding. Integrates with EHRs. Netsmart (1,300+ community-based provider clients) has deployed it. Deployable in days, not months. Relevant for FQHCs seeking affordable AI automation beyond clinical documentation.",
+      es: "AWS lanz\u00f3 Amazon Connect Health (GA 5 de marzo, 2026), una plataforma de IA ag\u00e9ntica compatible con HIPAA que automatiza programaci\u00f3n, documentaci\u00f3n, verificaci\u00f3n de pacientes y codificaci\u00f3n m\u00e9dica. Netsmart (1,300+ clientes) ya lo implementa.",
+    },
+    category: "scheduling",
+    vendor: "Amazon Web Services",
+    partnership: "Netsmart",
+    metrics: [
+      { label: "Launch", value: "GA March 5, 2026" },
+      { label: "Scope", value: "Scheduling, documentation, verification, coding" },
+      { label: "Early Adopter", value: "Netsmart (1,300+ community providers)" },
+    ],
+    adoptionStage: "expanding",
+    sourceUrl: "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-connect-health-agentic-ai-healthcare/",
+    sourceOrg: "AWS",
+    date: "2026-03-05",
+    tags: ["aws", "amazon-connect", "agentic-ai", "scheduling", "netsmart", "hipaa"],
+    featured: true,
   },
 ];
 

@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-04-06";
+export const INTEL_LAST_UPDATED = "2026-04-07";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -4059,6 +4059,91 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "CMS Innovation Center",
     region: "Federal",
     tags: ["cms", "maha", "elevate", "lifestyle-medicine", "grant", "innovation-model"],
+  },
+
+  // ── Daily Update #27 (2026-04-07) ──────────────────────────────────
+
+  {
+    id: "lao-hr1-provider-financing-impact-3-2b-april-2026",
+    date: "2026-04-06",
+    headline: {
+      en: "LAO: H.R. 1 Will Cost California $3.2B Through Provider Tax Restrictions and FMAP Cuts",
+      es: "LAO: H.R. 1 Costar\u00e1 a California $3.2B por Restricciones en Impuestos a Proveedores y Recortes FMAP",
+    },
+    summary: {
+      en: "The California Legislative Analyst\u2019s Office published its April 6 fiscal analysis quantifying H.R. 1\u2019s damage: $5.1B in provider tax revenue eliminated, administrative cost sharing drops to 25% federal / 75% state effective October 2026, and Medi-Cal rates will edge toward Medicare levels via directed payment caps beginning 2028. Net state cost: $3.2B. FQHCs already on negative margins face further reimbursement compression.",
+      es: "La Oficina del Analista Legislativo de California public\u00f3 su an\u00e1lisis fiscal del 6 de abril cuantificando el da\u00f1o de H.R. 1: $5.1B en ingresos de impuestos a proveedores eliminados, costo administrativo compartido baja a 25% federal / 75% estatal desde octubre 2026. Costo neto estatal: $3.2B.",
+    },
+    category: "legislation",
+    impactLevel: "critical",
+    type: "news",
+    sourceUrl: "https://lao.ca.gov/handouts/health/2026/HR1-Financing-Impact-on-Medi-Cal-Providers-040626.pdf",
+    sourceOrg: "California Legislative Analyst\u2019s Office",
+    region: "California",
+    tags: ["lao", "hr-1", "provider-tax", "fmap", "medi-cal", "reimbursement"],
+    keyTakeaways: [
+      { en: "$5.1B in provider tax revenue eliminated by H.R. 1", es: "$5.1B en ingresos de impuestos a proveedores eliminados" },
+      { en: "Admin cost sharing drops to 25% federal / 75% state (Oct 2026)", es: "Costo administrativo compartido baja a 25% federal / 75% estatal (oct 2026)" },
+      { en: "Medi-Cal rates edge toward Medicare levels via directed payment caps (2028)", es: "Tarifas de Medi-Cal se acercan a niveles de Medicare (2028)" },
+    ],
+  },
+  {
+    id: "third-circuit-340b-contract-pharmacy-restrictions-legal",
+    date: "2026-01-30",
+    headline: {
+      en: "Third Circuit Rules Drug Manufacturer 340B Contract Pharmacy Restrictions Are Legal",
+      es: "Tercer Circuito Dictamina que Restricciones de Fabricantes a Farmacias Contratadas 340B Son Legales",
+    },
+    summary: {
+      en: "The U.S. Court of Appeals for the Third Circuit unanimously ruled that manufacturer restrictions on 340B contract pharmacy access are lawful and HRSA\u2019s policy prohibiting them is unlawful. 18 manufacturers now restrict contract pharmacy access. Devastating for FQHCs without in-house pharmacies who rely on contract pharmacy arrangements for 340B savings. Combined with the rebate pilot court-ordered pause and expanded audit requirements, 340B contract pharmacy revenue faces pressure from three directions.",
+      es: "El Tribunal de Apelaciones del Tercer Circuito dictamin\u00f3 un\u00e1nimemente que las restricciones de fabricantes al acceso de farmacias contratadas 340B son legales. 18 fabricantes ahora restringen el acceso. Devastador para FQHCs sin farmacias propias.",
+    },
+    category: "compliance",
+    impactLevel: "critical",
+    type: "news",
+    sourceUrl: "https://www.bassberry.com/news/third-circuit-ruling-allows-restrictions-on-340b-contract-pharmacies/",
+    sourceOrg: "Bass Berry & Sims",
+    region: "Federal",
+    tags: ["340b", "contract-pharmacy", "third-circuit", "manufacturer-restrictions", "compliance"],
+  },
+  {
+    id: "san-joaquin-county-76-9m-hr1-budget-impact",
+    date: "2026-03-19",
+    headline: {
+      en: "San Joaquin County: $76.9M Budget Hole from H.R. 1 \u2014 15% of 314K Medi-Cal Enrollees May Lose Coverage",
+      es: "Condado de San Joaqu\u00edn: D\u00e9ficit de $76.9M por H.R. 1 \u2014 15% de 314K Inscritos en Medi-Cal Podr\u00edan Perder Cobertura",
+    },
+    summary: {
+      en: "San Joaquin County projects a $76.9M budget impact from H.R. 1. County clinics face up to $9M revenue loss since 85% of Medi-Cal recipients use county clinics. 314,058 residents (39% of county population) rely on Medi-Cal. Hospital closures possible \u2014 San Joaquin General could see 32% increase in ambulance calls. Supervisor Rickman called it \u201Cdire.\u201D",
+      es: "El Condado de San Joaqu\u00edn proyecta un impacto presupuestario de $76.9M por H.R. 1. Las cl\u00ednicas del condado enfrentan hasta $9M en p\u00e9rdida de ingresos. 314,058 residentes (39% de la poblaci\u00f3n) dependen de Medi-Cal.",
+    },
+    category: "funding",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://www.lodinews.com/news/article_d4d7ab27-b439-462e-8e00-fdbbfd7368e9.html",
+    sourceOrg: "Lodi News-Sentinel",
+    region: "San Joaquin County",
+    tags: ["san-joaquin", "central-valley", "hr-1", "budget-deficit", "medi-cal"],
+  },
+  {
+    id: "clinica-sierra-vista-15-7m-hq-bakersfield-april-2026",
+    date: "2026-04-01",
+    headline: {
+      en: "Clinica Sierra Vista Invests $15.7M in First Owned Headquarters in Bakersfield",
+      es: "Clinica Sierra Vista Invierte $15.7M en Su Primera Sede Propia en Bakersfield",
+    },
+    summary: {
+      en: "Clinica Sierra Vista, one of California\u2019s largest FQHCs (55 years, Central Valley), purchased a 99,368 sq ft building from Chevron for $15.7M at 9525 Camino Media, Bakersfield. Effective April 1, 2026. First owned corporate office (previously leased). Signals institutional stability despite the funding crisis \u2014 but also raises questions about capital allocation during revenue uncertainty.",
+      es: "Clinica Sierra Vista compr\u00f3 un edificio de 99,368 pies cuadrados de Chevron por $15.7M en Bakersfield. Su primera oficina corporativa propia. Se\u00f1ala estabilidad institucional a pesar de la crisis de financiamiento.",
+    },
+    category: "change-management",
+    impactLevel: "medium",
+    type: "news",
+    sourceUrl: "https://clinicasierravista.org/clinica-sierra-vista-relocates-corporate-headquarters-to-9525-camino-media-bakersfield-effective-april-1-2026/",
+    sourceOrg: "Clinica Sierra Vista",
+    region: "Central Valley",
+    affectedOrgSlugs: ["clinica-sierra-vista"],
+    tags: ["clinica-sierra-vista", "headquarters", "capital-investment", "central-valley"],
   },
 ];
 
