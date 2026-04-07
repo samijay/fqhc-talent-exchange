@@ -4,7 +4,7 @@
 // Last updated: 2026-03-07 (daily update #14, expanded with 20+ FQHCs)
 
 /** Exported for display on pages — updated by /daily-update and /scrape-jobs pipelines */
-export const CAREER_CONFIG_LAST_UPDATED = "2026-04-06";
+export const CAREER_CONFIG_LAST_UPDATED = "2026-04-07";
 
 export interface CareerPageConfig {
   fqhcSlug: string;
@@ -45,7 +45,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs",
     notes:
-      "Largest FQHC in CA. 266 jobs found 2026-04-06 (prev 253, +13 — hiring surge continues). AltaMed generated $15.1B economic impact (2019-2024), supports 12,000 jobs, serves 465,000 Medi-Cal patients. Abridge AI scribe deployment confirmed. Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
+      "Largest FQHC in CA. 259 jobs found 2026-04-07 (prev 266, -7 — pulling back from surge). AltaMed generated $15.1B economic impact (2019-2024), supports 12,000 jobs, serves 465,000 Medi-Cal patients. Abridge AI scribe deployment confirmed. Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
   },
   {
     fqhcSlug: "family-health-centers-of-san-diego",
@@ -55,7 +55,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs",
     notes:
-      "128 jobs found 2026-04-06 (prev 133, -5 — declining). DOC (physician) portal currently shows 0 jobs. Blue Shield invested $80K in MA training scholarships at FHCSD Laura Rodriguez MA Institute. Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
+      "128 jobs found 2026-04-07 (prev 128, = — stable). DOC (physician) portal currently shows 0 jobs. Blue Shield invested $80K in MA training scholarships at FHCSD Laura Rodriguez MA Institute. Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
   },
   {
     fqhcSlug: "asian-health-services",
@@ -64,7 +64,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     lastChecked: "2026-03-28",
     atsApiUrl: "https://api.lever.co/v0/postings/ahschc?mode=json",
     notes:
-      "19 jobs found 2026-04-06 (prev 20, -1 — stable). Lever slug is 'ahschc'.",
+      "19 jobs found 2026-04-07 (prev 19, = — stable). Lever slug is 'ahschc'.",
   },
   {
     fqhcSlug: "la-clinica-de-la-raza",
@@ -74,7 +74,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "http://laclinica.hrmdirect.com/employment/job-openings.php?search=true&dept=-1&city=-1&state=-1",
     notes:
-      "174 jobs found 2026-04-06 (prev 179, -5 — declining). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
+      "172 jobs found 2026-04-07 (prev 174, -2 — gradual decline). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
   },
 
   // ── ADP Workforce Now (JS-only, not scrapeable) ── ❌
@@ -175,11 +175,11 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     fqhcSlug: "open-door-community-health-centers",
     scrapeable: true,
     atsType: "workday",
-    lastChecked: "2026-03-07",
+    lastChecked: "2026-04-07",
     atsApiUrl:
       "https://opendoorhealth.wd503.myworkdayjobs.com/wday/cxs/opendoorhealth/ODCHC/jobs",
     notes:
-      "46 jobs found 2026-03-15 (prev 46, = — stable). Workday wd503 tenant confirmed. User-Agent header required. Limit max 20 per request. Categories: Clinical Operations (4), Dental (1), Finance (2), IT (1), Medical Clinical (15), Patient Services (2), Provider (20). Locations: Eureka (19), Crescent City (7), Fortuna (6), Arcata (5), McKinleyville (3), Willow Creek (3), Ferndale (2), ECHC (1). Rural North Coast FQHC (Humboldt, Del Norte, Trinity counties).",
+      "42 jobs found 2026-04-07 (prev 46, -4 — slight decline). Workday wd503 tenant confirmed. User-Agent header required. Limit max 20 per request. Categories: Clinical Operations (4), Dental (1), Finance (2), IT (1), Medical Clinical (15), Patient Services (2), Provider (20). Locations: Eureka (19), Crescent City (7), Fortuna (6), Arcata (5), McKinleyville (3), Willow Creek (3), Ferndale (2), ECHC (1). Rural North Coast FQHC (Humboldt, Del Norte, Trinity counties).",
   },
   {
     fqhcSlug: "valley-health-team",
@@ -207,10 +207,10 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     fqhcSlug: "petaluma-health-center",
     scrapeable: true,
     atsType: "jobvite",
-    lastChecked: "2026-03-15",
+    lastChecked: "2026-04-07",
     atsApiUrl: "https://jobs.jobvite.com/phc/jobs",
     notes:
-      "JobVite portal at jobs.jobvite.com/phc/jobs — WebFetch can extract full job list. 24 jobs found 2026-03-15 (prev 24, = — stable). 27 listings in static data (phc-001 to phc-027). Departments: Billing, Dental, Dental Providers, Finance, Medical Assistants, Mental Health Providers, Nurse Practitioner, OB, Primary Care Providers, Urgent Care, Vision. New: Medical Director Rural Health, Urgent Care Physician, Staff Dentist, Internal Medicine Physician. Petaluma/Sonoma County FQHC. 3.9★ Glassdoor, 20 sites, 41K+ patients, OCHIN Epic.",
+      "JobVite portal at jobs.jobvite.com/phc/jobs — WebFetch can extract full job list. 30 jobs found 2026-04-07 (prev 24, +6 — hiring uptick). 27 listings in static data (phc-001 to phc-027). Departments: Billing, Dental, Dental Providers, Finance, Medical Assistants, Mental Health Providers, Nurse Practitioner, OB, Primary Care Providers, Urgent Care, Vision. New: Medical Director Rural Health, Urgent Care Physician, Staff Dentist, Internal Medicine Physician. Petaluma/Sonoma County FQHC. 3.9★ Glassdoor, 20 sites, 41K+ patients, OCHIN Epic.",
   },
 
   // ── SmartRecruiters (API available) ── ✅
