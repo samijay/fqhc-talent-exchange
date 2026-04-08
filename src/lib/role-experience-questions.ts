@@ -1764,6 +1764,33 @@ const DENTAL_ASSISTANT_QUESTIONS: RoleExperienceQuestion[] = [
       { id: "da_set_specialty", text: "Specialty dental (oral surgery, ortho, pediatric)", esText: "Dental de especialidad (cirugía oral, ortodoncia, pediátrica)", recommendsBullets: ["da-7"] },
     ],
   },
+  {
+    id: "da_ehr",
+    roleId: "dental_assistant",
+    question: "Which dental EHR systems have you used?",
+    esQuestion: "¿Qué sistemas EHR dentales ha utilizado?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "da_ehr_dentrix", text: "Dentrix", esText: "Dentrix", recommendsBullets: ["da-3"] },
+      { id: "da_ehr_eaglesoft", text: "Eaglesoft", esText: "Eaglesoft", recommendsBullets: ["da-3"] },
+      { id: "da_ehr_curve", text: "Curve Dental", esText: "Curve Dental", recommendsBullets: ["da-3"] },
+      { id: "da_ehr_opendental", text: "Open Dental", esText: "Open Dental", recommendsBullets: ["da-3"] },
+    ],
+  },
+  {
+    id: "da_denti_cal",
+    roleId: "dental_assistant",
+    question: "Do you have experience with Denti-Cal documentation?",
+    esQuestion: "¿Tiene experiencia con documentación de Denti-Cal?",
+    answerType: "single",
+    options: [
+      { id: "da_dc_yes", text: "Yes — I've documented Denti-Cal procedures and prior authorizations", esText: "Sí — He documentado procedimientos Denti-Cal y autorizaciones previas", recommendsBullets: ["da-6"] },
+      { id: "da_dc_some", text: "Some exposure but limited experience", esText: "Algo de exposición pero experiencia limitada", recommendsBullets: ["da-4"] },
+      { id: "da_dc_no", text: "No Denti-Cal experience — private practice or other insurance", esText: "Sin experiencia Denti-Cal — práctica privada u otro seguro", recommendsBullets: ["da-1"] },
+    ],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -1798,6 +1825,83 @@ const DENTAL_HYGIENIST_QUESTIONS: RoleExperienceQuestion[] = [
       { id: "dh_pop_peds", text: "Pediatric patients", esText: "Pacientes pediátricos", recommendsBullets: ["dh-4"] },
       { id: "dh_pop_prenatal", text: "Prenatal / expectant mothers", esText: "Pacientes prenatales / madres embarazadas", recommendsBullets: ["dh-5"] },
       { id: "dh_pop_uninsured", text: "Uninsured / underinsured", esText: "Sin seguro / con seguro insuficiente", recommendsBullets: ["dh-3"] },
+    ],
+  },
+  {
+    id: "dh_billing",
+    roleId: "dental_hygienist",
+    question: "How familiar are you with Denti-Cal billing for hygiene services?",
+    esQuestion: "¿Qué tan familiarizado/a está con la facturación Denti-Cal para servicios de higiene?",
+    answerType: "single",
+    options: [
+      { id: "dh_bill_expert", text: "Very familiar — I code D1110/D4341/D4342 and handle prior authorizations", esText: "Muy familiarizado/a — Codifico D1110/D4341/D4342 y manejo autorizaciones previas", recommendsBullets: ["dh-3"] },
+      { id: "dh_bill_some", text: "Some exposure to Denti-Cal coding but not my primary responsibility", esText: "Algo de exposición a codificación Denti-Cal pero no mi responsabilidad principal", recommendsBullets: ["dh-2"] },
+      { id: "dh_bill_none", text: "No Denti-Cal billing experience — private practice insurance only", esText: "Sin experiencia de facturación Denti-Cal — solo seguro de práctica privada", recommendsBullets: ["dh-1"] },
+    ],
+  },
+  {
+    id: "dh_credentials",
+    roleId: "dental_hygienist",
+    question: "Which credentials and permits do you hold?",
+    esQuestion: "¿Qué credenciales y permisos posee?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "dh_cred_rdh", text: "California RDH license", esText: "Licencia RDH de California", recommendsBullets: ["dh-1"] },
+      { id: "dh_cred_la", text: "Local anesthesia permit", esText: "Permiso de anestesia local", recommendsBullets: ["dh-1"] },
+      { id: "dh_cred_nitrous", text: "Nitrous oxide permit", esText: "Permiso de óxido nitroso", recommendsBullets: ["dh-1"] },
+      { id: "dh_cred_tobacco", text: "Tobacco cessation counselor certification", esText: "Certificación de consejero de cesación tabáquica", recommendsBullets: ["dh-5"] },
+    ],
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  DENTIST                                                              */
+/* ------------------------------------------------------------------ */
+
+const DENTIST_QUESTIONS: RoleExperienceQuestion[] = [
+  {
+    id: "dds_scope",
+    roleId: "dentist",
+    question: "What clinical services have you provided?",
+    esQuestion: "¿Qué servicios clínicos ha proporcionado?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "dds_scope_restorative", text: "Restorative dentistry (fillings, crowns, bridges)", esText: "Odontología restaurativa (empastes, coronas, puentes)", recommendsBullets: ["dentist-1"] },
+      { id: "dds_scope_extraction", text: "Surgical and non-surgical extractions", esText: "Extracciones quirúrgicas y no quirúrgicas", recommendsBullets: ["dentist-2"] },
+      { id: "dds_scope_endo", text: "Root canal therapy (endodontics)", esText: "Terapia de conducto radicular (endodoncia)", recommendsBullets: ["dentist-3"] },
+      { id: "dds_scope_peds", text: "Pediatric dentistry", esText: "Odontología pediátrica", recommendsBullets: ["dentist-4"] },
+      { id: "dds_scope_emergency", text: "Emergency dental care / walk-ins", esText: "Atención dental de emergencia / sin cita", recommendsBullets: ["dentist-2"] },
+    ],
+  },
+  {
+    id: "dds_denti_cal",
+    roleId: "dentist",
+    question: "What is your experience with Denti-Cal / FQHC dental billing?",
+    esQuestion: "¿Cuál es su experiencia con facturación dental Denti-Cal / FQHC?",
+    answerType: "single",
+    options: [
+      { id: "dds_dc_expert", text: "Extensive — I've managed treatment plans within Denti-Cal coverage limits, handled prior authorizations, and billed PPS encounters", esText: "Extensa — He gestionado planes de tratamiento dentro de límites de cobertura Denti-Cal, manejado autorizaciones previas y facturado encuentros PPS", recommendsBullets: ["dentist-5"] },
+      { id: "dds_dc_some", text: "Some experience with Medi-Cal / Denti-Cal patients but not primary focus", esText: "Algo de experiencia con pacientes Medi-Cal / Denti-Cal pero no enfoque principal", recommendsBullets: ["dentist-1"] },
+      { id: "dds_dc_none", text: "No Denti-Cal experience — fee-for-service private practice", esText: "Sin experiencia Denti-Cal — práctica privada de pago por servicio", recommendsBullets: ["dentist-1"] },
+    ],
+  },
+  {
+    id: "dds_leadership",
+    roleId: "dentist",
+    question: "What team leadership experience do you have?",
+    esQuestion: "¿Qué experiencia de liderazgo de equipo tiene?",
+    helpText: "Select all that apply.",
+    esHelpText: "Seleccione todos los que apliquen.",
+    answerType: "multi",
+    options: [
+      { id: "dds_lead_supervision", text: "Supervising dental hygienists and dental assistants", esText: "Supervisando higienistas dentales y asistentes dentales", recommendsBullets: ["dentist-6"] },
+      { id: "dds_lead_program", text: "Dental program development or expansion", esText: "Desarrollo o expansión de programa dental", recommendsBullets: ["dentist-5"] },
+      { id: "dds_lead_residents", text: "Teaching or mentoring dental residents/students", esText: "Enseñando o mentoreando residentes/estudiantes dentales", recommendsBullets: ["dentist-6"] },
+      { id: "dds_lead_quality", text: "Clinical quality review or peer review", esText: "Revisión de calidad clínica o revisión de pares", recommendsBullets: ["dentist-5"] },
     ],
   },
 ];
@@ -2051,6 +2155,7 @@ export const ROLE_EXPERIENCE_QUESTIONS: RoleExperienceQuestion[] = [
   ...FINANCE_MANAGER_QUESTIONS,
   ...DENTAL_ASSISTANT_QUESTIONS,
   ...DENTAL_HYGIENIST_QUESTIONS,
+  ...DENTIST_QUESTIONS,
   ...PHARMACIST_QUESTIONS,
   ...PHARMACY_TECH_QUESTIONS,
   ...ENROLLMENT_NAVIGATOR_QUESTIONS,

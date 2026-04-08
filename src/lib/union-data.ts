@@ -1,7 +1,7 @@
 // union-data.ts
 // Comprehensive union data for California FQHCs, union directory, and healthcare labor history
 // Sources cited inline — all data from public records, union websites, NLRB filings, and news coverage
-// Last updated: 2026-02-16
+// Last updated: 2026-04-08
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -89,8 +89,34 @@ export const UNION_DIRECTORY: UnionProfile[] = [
       "Administrative Staff",
       "Home Health Aides",
     ],
-    fqhcsRepresented: ["altamed-health-services"], // verified from search
+    fqhcsRepresented: ["altamed-health-services", "baywell-health"], // AltaMed: frontline staff unionized, but management funds Protect Patients CA opposing ballot initiatives. Baywell: confirmed LMCC member.
     recentNews: [
+      {
+        date: "2026-04-03",
+        title: {
+          en: "SEIU-UHW Submits Signatures for 90% Mission Spend + $450K Exec Pay Cap Ballot Measures",
+          es: "SEIU-UHW Presenta Firmas para Medidas Electorales de 90% Gasto en Misión + Tope de $450K",
+        },
+        summary: {
+          en: "SEIU-UHW submitted signatures for both California ballot initiatives: #25-0008 (requiring FQHCs to spend 90% of revenue on patient care) and #25-0009 (capping healthcare executive pay at $450K). Signature verification deadline: June 25, 2026. CMA, CPCA, and CCALAC oppose, warning of clinic closures.",
+          es: "SEIU-UHW presentó firmas para ambas iniciativas: #25-0008 (90% de ingresos en atención al paciente) y #25-0009 (tope salarial de $450K). Fecha límite de verificación: 25 de junio. CMA, CPCA y CCALAC se oponen.",
+        },
+        sourceUrl: "https://news.ballotpedia.org/2026/04/03/seiu-uhw-submits-signatures-for-california-ballot-initiatives-capping-executive-pay-and-requiring-clinics-to-spend-90-on-patient-care/",
+        sourceTitle: "Ballotpedia",
+      },
+      {
+        date: "2026-03-17",
+        title: {
+          en: "NLRB ALJ Hearing Begins in Innercare Forced Recognition Case",
+          es: "Audiencia del Juez Administrativo Comienza en Caso de Reconocimiento Forzado de Innercare",
+        },
+        summary: {
+          en: "Administrative law judge hearing began in San Diego for the NLRB case against Innercare (Clinicas de Salud del Pueblo). NLRB seeks forced union recognition based on 30+ ULP charges and 11 terminated workers during the 2024 organizing campaign. Innercare spent $500K+ on anti-union consultants.",
+          es: "Audiencia del juez administrativo comenzó en San Diego para el caso del NLRB contra Innercare. El NLRB busca reconocimiento sindical forzado basado en 30+ cargos de prácticas laborales injustas y 11 trabajadores despedidos.",
+        },
+        sourceUrl: "https://www.thedesertreview.com/business/nlrb-complaint-against-innercare-sets-stage-for-2026-hearing-as-organization-denies-allegations/article_c29d43e5-c7fe-4095-8749-f7f4839010f8.html",
+        sourceTitle: "The Desert Review",
+      },
       {
         date: "2025-11-11",
         title: {
@@ -99,23 +125,10 @@ export const UNION_DIRECTORY: UnionProfile[] = [
         },
         summary: {
           en: "The Clinic Funding Accountability and Transparency Act, backed by SEIU-UHW, would require FQHCs to devote at least 90% of revenue to direct patient care. The initiative is heading toward the November 2026 ballot.",
-          es: "La Ley de Responsabilidad y Transparencia de Financiamiento de Clínicas, respaldada por SEIU-UHW, requeriría que los FQHCs dediquen al menos el 90% de los ingresos a la atención directa al paciente.",
+          es: "La Ley de Responsabilidad y Transparencia de Financiamiento de Clínicas requeriría que los FQHCs dediquen al menos el 90% de los ingresos a la atención directa al paciente.",
         },
         sourceUrl: "https://www.seiu-uhw.org/press/community-clinic-accountability-ballot-measure-reaches-25-of-required-signatures-as-statewide-support-builds/",
         sourceTitle: "SEIU-UHW Press Release",
-      },
-      {
-        date: "2024-07-01",
-        title: {
-          en: "NLRB Complaint Against Innercare for Anti-Union Retaliation",
-          es: "Queja del NLRB Contra Innercare por Represalias Anti-Sindicales",
-        },
-        summary: {
-          en: "The NLRB issued a formal complaint against Innercare (Clinicas de Salud del Pueblo) in Imperial County after finding egregious violations during a 2024 organizing campaign, including firing 11 workers. The NLRB seeks recognition of SEIU-UHW without a new election.",
-          es: "El NLRB emitió una queja formal contra Innercare en el Condado Imperial después de encontrar violaciones graves durante una campaña de organización de 2024, incluyendo el despido de 11 trabajadores.",
-        },
-        sourceUrl: "https://www.thedesertreview.com/business/nlrb-complaint-against-innercare-sets-stage-for-2026-hearing-as-organization-denies-allegations/article_c29d43e5-c7fe-4095-8749-f7f4839010f8.html",
-        sourceTitle: "The Desert Review",
       },
     ],
     contactPhone: "(510) 251-1250",
@@ -151,8 +164,22 @@ export const UNION_DIRECTORY: UnionProfile[] = [
       "la-clinica-de-la-raza",
       "asian-health-services",
       "west-oakland-health-council",
+      "healthright-360", // 850+ workers organized Dec 2023, first contract ratified 2024 (Bay Area portion — also SEIU 721 in LA, SEIU 221 in SD)
     ],
     recentNews: [
+      {
+        date: "2024-06-01",
+        title: {
+          en: "HealthRIGHT 360 Workers Ratify First Union Contract by 98% — 13%+ Raises",
+          es: "Trabajadores de HealthRIGHT 360 Ratifican Primer Contrato Sindical por 98% — Aumentos de 13%+",
+        },
+        summary: {
+          en: "850+ workers at HealthRIGHT 360 (100+ clinics statewide) ratified their first CBA with 98% approval. The contract includes 13%+ raises and a $20/hr minimum rising to $21. Workers joined SEIU 1021 (Bay Area), 721 (LA), and 221 (San Diego).",
+          es: "Más de 850 trabajadores en HealthRIGHT 360 (100+ clínicas) ratificaron su primer contrato con 98% de aprobación. Incluye aumentos de 13%+ y mínimo de $20→$21/hora.",
+        },
+        sourceUrl: "https://www.seiu1021.org/article/healthright-360-members-ratify-strong-statewide-contract",
+        sourceTitle: "SEIU 1021",
+      },
       {
         date: "2023-09-25",
         title: {
@@ -205,8 +232,25 @@ export const UNION_DIRECTORY: UnionProfile[] = [
       "Case Managers",
       "Administrative Staff",
     ],
-    fqhcsRepresented: ["gardner-health-services"],
+    fqhcsRepresented: [
+      "gardner-health-services",
+      "clinica-de-salud-del-valle-de-salinas", // ~150 workers, neutrality agreement, farmworker families
+      "salud-para-la-gente", // Santa Cruz/Watsonville, LMCC member
+    ],
     recentNews: [
+      {
+        date: "2024-01-01",
+        title: {
+          en: "Clinica de Salud del Valle de Salinas Workers Organize via Neutrality Agreement",
+          es: "Trabajadores de Clínica de Salud del Valle de Salinas se Organizan vía Acuerdo de Neutralidad",
+        },
+        summary: {
+          en: "Approximately 150 medical assistants, dental assistants, and medical records clerks at Clinica de Salud del Valle de Salinas (Monterey County) organized with SEIU 521 through a neutrality agreement. The clinic serves farmworker families in the Salinas Valley.",
+          es: "Aproximadamente 150 asistentes médicos, asistentes dentales y archivistas médicos en la Clínica de Salud del Valle de Salinas se organizaron con SEIU 521 a través de un acuerdo de neutralidad.",
+        },
+        sourceUrl: "https://www.seiu521.org/521-news/clinica-de-salud/",
+        sourceTitle: "SEIU Local 521",
+      },
       {
         date: "2023-09-01",
         title: {
@@ -246,8 +290,38 @@ export const UNION_DIRECTORY: UnionProfile[] = [
       "Case Managers",
       "Public Health Workers",
     ],
-    fqhcsRepresented: ["st-johns-community-health"],
-    recentNews: [],
+    fqhcsRepresented: [
+      "st-johns-community-health", // Management invited SEIU in 15+ years ago. 2026 bargaining team elected.
+      "clinica-romero", // Clinica Monseñor Oscar A. Romero — 3-year contract, 10% raises, full healthcare by 2025
+    ],
+    recentNews: [
+      {
+        date: "2025-01-15",
+        title: {
+          en: "St. John's Community Health Elects 2026 Bargaining Team",
+          es: "St. John's Community Health Elige Equipo de Negociación 2026",
+        },
+        summary: {
+          en: "SEIU 721 members at St. John's Community Health (24 sites + 4 mobile clinics in LA) elected their 2026 bargaining team. St. John's has had a cooperative union relationship for over 15 years — management originally invited SEIU in.",
+          es: "Los miembros de SEIU 721 en St. John's Community Health eligieron su equipo de negociación 2026. St. John's ha tenido una relación sindical cooperativa por más de 15 años.",
+        },
+        sourceUrl: "https://www.seiu721.org/presidents-report/january-2025.php",
+        sourceTitle: "SEIU 721 President's Report",
+      },
+      {
+        date: "2019-10-01",
+        title: {
+          en: "Clinica Romero Scores 3-Year Contract Victory with 10% Raises",
+          es: "Clínica Romero Logra Victoria Contractual de 3 Años con Aumentos del 10%",
+        },
+        summary: {
+          en: "SEIU 721 members at Clinica Monseñor Oscar A. Romero in LA's Pico-Union and Boyle Heights won a 3-year contract with 10% base wage increases, improved health benefit reimbursements, and skills training funds. Members will have healthcare fully covered.",
+          es: "Miembros de SEIU 721 en Clínica Romero ganaron contrato de 3 años con aumentos del 10%, mejores reembolsos de beneficios de salud y fondos de capacitación.",
+        },
+        sourceUrl: "https://www.seiu721.org/2019/10/clinica-romero-scores-contract-victory.php",
+        sourceTitle: "SEIU 721",
+      },
+    ],
     contactPhone: "(877) 721-7348",
     contactEmail: null,
     logoColor: "red",
@@ -272,8 +346,24 @@ export const UNION_DIRECTORY: UnionProfile[] = [
       "Administrative Staff",
       "Patient Services Representatives",
     ],
-    fqhcsRepresented: [],
-    recentNews: [],
+    fqhcsRepresented: [
+      "healthright-360", // San Diego portion of statewide organizing (also SEIU 1021 in Bay Area, SEIU 721 in LA)
+    ],
+    recentNews: [
+      {
+        date: "2023-12-01",
+        title: {
+          en: "HealthRIGHT 360 San Diego Workers Join SEIU 221 in Statewide Organizing Win",
+          es: "Trabajadores de HealthRIGHT 360 en San Diego se Unen a SEIU 221 en Victoria de Organización Estatal",
+        },
+        summary: {
+          en: "As part of the statewide organizing win at HealthRIGHT 360 (850+ workers, 100+ clinics), San Diego-based workers joined SEIU Local 221. The statewide effort achieved 73% card check authorization.",
+          es: "Como parte de la victoria de organización estatal en HealthRIGHT 360 (850+ trabajadores, 100+ clínicas), los trabajadores de San Diego se unieron a SEIU Local 221.",
+        },
+        sourceUrl: "https://www.seiu1021.org/post/over-850-behavioral-health-and-clinic-workers-join-seiu",
+        sourceTitle: "SEIU 1021",
+      },
+    ],
     contactPhone: "(619) 640-7200",
     contactEmail: null,
     logoColor: "orange",
@@ -286,10 +376,10 @@ export const UNION_DIRECTORY: UnionProfile[] = [
     website: "https://nuhw.org",
     organizeUrl: "https://nuhw.org/get-involved/",
     description: {
-      en: "Founded in 2009 after a split from SEIU-UHW, NUHW represents approximately 14,000 healthcare workers across California. NUHW organizes at community health centers, hospitals, and clinics, with a particular focus on mental health professionals at Kaiser Permanente.",
-      es: "Fundado en 2009 después de una separación de SEIU-UHW, NUHW representa aproximadamente 14,000 trabajadores de salud en toda California, con enfoque particular en profesionales de salud mental.",
+      en: "Founded in 2009 by Sal Rosselli after a split from SEIU-UHW, NUHW represents approximately 19,000 healthcare workers across California. Led by President Sophia Mendoza (elected 2024, succeeding Rosselli). NUHW organizes at community health centers, hospitals, and clinics, with a particular focus on mental health professionals at Kaiser Permanente. NUHW's FQHC presence is growing — workers at Imperial Beach Community Clinic organized in January 2026.",
+      es: "Fundado en 2009 por Sal Rosselli después de una separación de SEIU-UHW, NUHW representa aproximadamente 19,000 trabajadores de salud en toda California. Liderado por la Presidenta Sophia Mendoza (elegida 2024). La presencia de NUHW en FQHCs está creciendo.",
     },
-    membership: "14,000+",
+    membership: "~18,752 (FY2025)",
     headquartersCity: "Emeryville, CA",
     parentOrg: null, // independent
     rolesRepresented: [
@@ -302,25 +392,49 @@ export const UNION_DIRECTORY: UnionProfile[] = [
       "Service & Technical Workers",
     ],
     fqhcsRepresented: [
-      // NUHW represents workers at these community health centers:
-      // Mission Neighborhood Health Center (SF) — organized 2012
-      // Imperial Beach Community Clinic (San Diego)
-      // Los Angeles LGBT Center (healthcare clinicians)
-      // Lyon-Martin Community Health Services (SF)
+      "mission-neighborhood-health-center", // SF, ~70 workers, organized 2012, contract extension Jan 2024 (10% + 4%/yr through 2028)
+      "imperial-beach-community-clinic", // San Diego, physicians/NPs/therapists/social workers, organized Jan 2026
+      // Also: LA LGBT Center (FQHC Look-Alike, organized 2019), Lyon-Martin Community Health (SF, organized 2022), RAMS (SF mental health, 77-3 vote 2017)
     ],
     recentNews: [
       {
-        date: "2024-12-01",
+        date: "2026-01-27",
         title: {
-          en: "500+ Providence Workers in Torrance Vote to Join NUHW",
-          es: "Más de 500 Trabajadores de Providence en Torrance Votan para Unirse a NUHW",
+          en: "Imperial Beach Community Clinic Workers Vote to Join NUHW",
+          es: "Trabajadores de Imperial Beach Community Clinic Votan para Unirse a NUHW",
         },
         summary: {
-          en: "More than 500 service workers at Providence Little Company of Mary Torrance Medical Center voted to join NUHW, part of a growing wave of organizing at Providence hospitals across California.",
-          es: "Más de 500 trabajadores de servicio en Providence Torrance Medical Center votaron para unirse a NUHW, parte de una ola creciente de organización en hospitales Providence.",
+          en: "Physicians, nurse practitioners, therapists, and social workers at Imperial Beach Community Clinic voted to join NUHW. Workers cited constant CEO turnover, chronic understaffing causing burnout, and management retaliation against providers who published an op-ed in Voice of San Diego.",
+          es: "Médicos, enfermeros practicantes, terapeutas y trabajadores sociales en Imperial Beach Community Clinic votaron para unirse a NUHW. Los trabajadores citaron rotación constante de CEO, falta de personal crónica y represalias contra proveedores.",
         },
-        sourceUrl: "https://nuhw.org/workplace/",
-        sourceTitle: "NUHW Workplaces",
+        sourceUrl: "https://home.nuhw.org/2026/01/27/workers-at-imperial-beach-community-clinic-vote-to-join-nuhw/",
+        sourceTitle: "NUHW",
+      },
+      {
+        date: "2024-07-01",
+        title: {
+          en: "NUHW Leadership Transition: Sophia Mendoza Elected President, Rosselli Steps Down",
+          es: "Transición de Liderazgo NUHW: Sophia Mendoza Elegida Presidenta, Rosselli Se Retira",
+        },
+        summary: {
+          en: "Sal Rosselli, who founded NUHW in 2009 after the split from SEIU-UHW, stepped down as president. Sophia Mendoza was elected as the new president. Rosselli continues as president emeritus focused on political and legislative work.",
+          es: "Sal Rosselli, quien fundó NUHW en 2009, se retiró como presidente. Sophia Mendoza fue elegida como nueva presidenta. Rosselli continúa como presidente emérito enfocado en trabajo político y legislativo.",
+        },
+        sourceUrl: "https://labornotes.org/blogs/2024/07/militant-health-care-union-leader-sal-rosselli-retires",
+        sourceTitle: "Labor Notes",
+      },
+      {
+        date: "2024-01-25",
+        title: {
+          en: "Mission Neighborhood Health Center Workers Win 10% Raise + 4%/Year Through 2028",
+          es: "Trabajadores de Mission Neighborhood Health Center Ganan Aumento de 10% + 4%/Año Hasta 2028",
+        },
+        summary: {
+          en: "~70 medical assistants, pharmacy techs, and support staff at Mission Neighborhood Health Center (SF FQHC) ratified a contract extension with a 10% raise in 2024 plus 4% annual increases through 2028, plus an additional floating holiday.",
+          es: "~70 asistentes médicos, técnicos de farmacia y personal de apoyo ratificaron extensión de contrato con aumento del 10% en 2024 más 4% anual hasta 2028.",
+        },
+        sourceUrl: "https://home.nuhw.org/2024/01/25/mission-neighborhood-health-center-workers-get-big-raises-with-contract-extension/",
+        sourceTitle: "NUHW",
       },
     ],
     contactPhone: "(510) 834-6894",
@@ -397,9 +511,10 @@ export const SEIU_CLINIC_WORKERS_UNITED = {
     "Asian Health Services",
     "Clínica Monseñor Oscar A. Romero",
     "Gardner Health Services",
-    "HealthRight 360",
+    "HealthRIGHT 360",
     "St. John's Community Health",
-    "West Oakland Health Center",
+    "Baywell Health (fka West Oakland Health Center)",
+    "Salud Para La Gente",
   ],
   achievements: [
     {
@@ -424,6 +539,14 @@ export const SEIU_CLINIC_WORKERS_UNITED = {
       description: {
         en: "Won $1,000 retention bonuses for an estimated 70,000 frontline community clinic workers across California.",
         es: "Ganó bonos de retención de $1,000 para aproximadamente 70,000 trabajadores de clínicas comunitarias en California.",
+      },
+    },
+    {
+      year: 2024,
+      title: { en: "HealthRIGHT 360: 850+ Workers Organize & Ratify First Contract", es: "HealthRIGHT 360: 850+ Trabajadores se Organizan y Ratifican Primer Contrato" },
+      description: {
+        en: "850+ workers at HealthRIGHT 360 (100+ clinics statewide) organized via 73% card check across SEIU 1021, 721, and 221, then ratified their first CBA with 98% approval — 13%+ raises and a $20→$21/hr minimum. The largest single FQHC organizing win in California.",
+        es: "Más de 850 trabajadores en HealthRIGHT 360 (100+ clínicas) se organizaron vía verificación de tarjetas y ratificaron su primer contrato con 98% de aprobación — la mayor victoria de organización en un solo FQHC de California.",
       },
     },
   ],
@@ -722,6 +845,74 @@ export const LABOR_TIMELINE: LaborTimelineEvent[] = [
     category: "legislation",
     region: "national",
     sources: [{ title: "CHCF — How Massive Federal Cuts Will Challenge Medi-Cal", url: "https://www.chcf.org/resource/how-massive-federal-cuts-will-create-unprecedented-challenges-medi-cal-patients-providers/" }],
+  },
+  {
+    id: "ahs-296-layoff-notices-christmas-eve-2025",
+    year: 2025,
+    date: "2025-12-24",
+    title: { en: "Alameda Health System Delivers 296 Layoff Notices on Christmas Eve", es: "Sistema de Salud de Alameda Entrega 296 Notificaciones de Despido en Nochebuena" },
+    description: {
+      en: "AHS delivers 296 SEIU 1021 layoff notices, later reduced to 188. SEIU 1021, CNA, and CIR interns begin joint bargaining. A $91.7M deficit and projected August 2026 cash runout threaten the Bay Area's largest public safety-net system. County supervisors defer layoffs March 4 and create a working group.",
+      es: "AHS entrega 296 notificaciones de despido a miembros de SEIU 1021, luego reducidas a 188. SEIU 1021, CNA e internos de CIR comienzan negociación conjunta. Un déficit de $91.7M amenaza el sistema más grande de red de seguridad del Área de la Bahía.",
+    },
+    significance: {
+      en: "The AHS crisis is the most acute union-FQHC confrontation in California, testing whether public safety-net systems can survive simultaneous federal cuts, labor disputes, and financial insolvency.",
+      es: "La crisis de AHS es la confrontación sindicato-FQHC más aguda en California, probando si los sistemas públicos de red de seguridad pueden sobrevivir recortes federales, disputas laborales e insolvencia financiera simultáneamente.",
+    },
+    category: "organizing",
+    region: "california",
+    sources: [{ title: "Oaklandside — AHS Layoffs Deferred", url: "https://oaklandside.org/2026/03/04/alameda-health-system-layoffs-deferred-county-supervisors/" }],
+  },
+  {
+    id: "imperial-beach-nuhw-providers-organize-2026",
+    year: 2026,
+    date: "2026-01-27",
+    title: { en: "Imperial Beach Community Clinic Providers Vote to Join NUHW", es: "Proveedores de Clínica Comunitaria de Imperial Beach Votan para Unirse a NUHW" },
+    description: {
+      en: "Physicians, therapists, and nurse practitioners at Imperial Beach Community Clinic vote to join NUHW — a rare provider-led organizing effort at an FQHC. Driven by 6 CEOs in 4 years, 28 layoffs, and 18 provider departures in 2 years.",
+      es: "Médicos, terapeutas y enfermeros practicantes de la Clínica Comunitaria de Imperial Beach votan para unirse a NUHW — una organización liderada por proveedores rara en un FQHC.",
+    },
+    significance: {
+      en: "Signals that FQHC labor organizing is expanding beyond support staff to clinical providers — a new frontier that could reshape provider retention and governance across the sector.",
+      es: "Señala que la organización laboral en FQHCs se expande más allá del personal de apoyo a proveedores clínicos — una nueva frontera que podría redefinir la retención de proveedores y la gobernanza en todo el sector.",
+    },
+    category: "organizing",
+    region: "california",
+    sources: [{ title: "NUHW — Workers at Imperial Beach Community Clinic Vote to Join", url: "https://home.nuhw.org/2026/01/27/workers-at-imperial-beach-community-clinic-vote-to-join-nuhw/" }],
+  },
+  {
+    id: "innercare-nlrb-forced-recognition-hearing-2026",
+    year: 2026,
+    date: "2026-03-17",
+    title: { en: "NLRB Hearing Begins on Forced Recognition at Innercare", es: "Audiencia del NLRB Comienza sobre Reconocimiento Forzado en Innercare" },
+    description: {
+      en: "NLRB administrative law judge hearing begins in San Diego on 30+ unfair labor practice charges against Innercare (Clinicas de Salud del Pueblo). The NLRB seeks a bargaining order — forced SEIU-UHW recognition without a new election — the most serious enforcement action against a CA FQHC.",
+      es: "La audiencia del juez administrativo del NLRB comienza en San Diego sobre 30+ cargos de prácticas laborales injustas contra Innercare. El NLRB busca un mandato de negociación — reconocimiento forzado del SEIU-UHW sin nueva elección.",
+    },
+    significance: {
+      en: "The outcome will set precedent for FQHC labor relations statewide. A bargaining order would be one of the strongest NLRB remedies ever imposed on a community health center.",
+      es: "El resultado sentará precedente para las relaciones laborales de FQHCs en todo el estado. Un mandato de negociación sería uno de los remedios más fuertes del NLRB jamás impuestos a un centro de salud comunitario.",
+    },
+    category: "organizing",
+    region: "california",
+    sources: [{ title: "Desert Review — NLRB Complaint Against Innercare", url: "https://www.thedesertreview.com/business/nlrb-complaint-against-innercare-sets-stage-for-2026-hearing-as-organization-denies-allegations/article_c29d43e5-c7fe-4095-8749-f7f4839010f8.html" }],
+  },
+  {
+    id: "seiu-uhw-90-percent-ballot-signatures-2026",
+    year: 2026,
+    date: "2026-04-03",
+    title: { en: "SEIU-UHW Submits Signatures for 90% FQHC Spending Mandate", es: "SEIU-UHW Presenta Firmas para Mandato de 90% de Gasto en FQHCs" },
+    description: {
+      en: "SEIU-UHW submits signatures for two ballot measures: one requiring FQHCs to spend 90% of revenue on patient care, another capping executive pay at $450K. CPCA, CCALAC, CMA, AltaMed, and FHCSD form the 'Protect Patients' opposition coalition. A Berkeley Research Group study estimates the measure would redirect $1.7B from FQHCs and push two-thirds into operating deficits.",
+      es: "SEIU-UHW presenta firmas para dos medidas electorales: una requiriendo que FQHCs gasten el 90% de ingresos en atención al paciente, otra limitando salarios ejecutivos a $450K. CPCA, CCALAC, CMA, AltaMed y FHCSD forman la coalición de oposición 'Protect Patients'.",
+    },
+    significance: {
+      en: "The most consequential labor-FQHC fight in California history. If passed, the 90% mandate would fundamentally restructure FQHC budgets during the worst funding crisis since the creation of the program.",
+      es: "La lucha sindicato-FQHC más importante en la historia de California. Si se aprueba, el mandato del 90% reestructuraría fundamentalmente los presupuestos de FQHCs durante la peor crisis de financiamiento desde la creación del programa.",
+    },
+    category: "organizing",
+    region: "california",
+    sources: [{ title: "Ballotpedia — SEIU-UHW Signatures Submitted", url: "https://news.ballotpedia.org/2026/04/03/seiu-uhw-submits-signatures-for-california-ballot-initiatives-capping-executive-pay-and-requiring-clinics-to-spend-90-on-patient-care/" }],
   },
 ];
 

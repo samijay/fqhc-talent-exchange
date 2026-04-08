@@ -125,9 +125,15 @@ function ActionCard({
             )}
             <span className="text-xs text-stone-400">{action.region}</span>
           </div>
-          <h3 className="text-base font-bold leading-snug text-stone-900">
+          <a
+            href={action.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-start gap-1 text-base font-bold leading-snug text-stone-900 hover:text-teal-700"
+          >
             {t(action.headline, locale)}
-          </h3>
+            <ExternalLink className="mt-1 size-3.5 shrink-0 opacity-0 transition-opacity group-hover:opacity-60" />
+          </a>
         </div>
       </div>
 
@@ -141,18 +147,21 @@ function ActionCard({
           }`}
         >
           <Calendar className="size-4 shrink-0" />
-          <span className="font-semibold">
-            {followUpDays === 0
-              ? isEs
-                ? "Hoy"
-                : "Today"
-              : `${followUpDays} ${isEs ? "d\u00edas" : "days"}`}
-          </span>
-          {action.followUpNote && (
-            <span className="text-xs opacity-75">
-              \u2014 {t(action.followUpNote, locale)}
+          <div className="flex-1">
+            <span className="font-semibold">
+              {new Date(action.followUpDate!).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
             </span>
-          )}
+            <span className="ml-1 text-xs opacity-60">
+              ({followUpDays === 0
+                ? isEs ? "hoy" : "today"
+                : `${followUpDays} ${isEs ? "días" : "days"}`})
+            </span>
+            {action.followUpNote && (
+              <span className="ml-1 text-xs">
+                {"\u2014"} {t(action.followUpNote, locale)}
+              </span>
+            )}
+          </div>
         </div>
       )}
 
@@ -307,9 +316,15 @@ function TimelineView({ actions, locale }: { actions: AdvocacyAction[]; locale: 
                       </Badge>
                     )}
                   </div>
-                  <h3 className="text-sm font-bold leading-snug text-stone-900">
+                  <a
+                    href={action.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-1 text-sm font-bold leading-snug text-stone-900 hover:text-teal-700"
+                  >
                     {t(action.headline, locale)}
-                  </h3>
+                    <ExternalLink className="mt-0.5 size-3 shrink-0 opacity-0 transition-opacity group-hover:opacity-60" />
+                  </a>
                   <p className="mt-1 text-xs text-stone-500">
                     {action.organizations.join(" \u2022 ")}
                   </p>
@@ -402,7 +417,7 @@ export default function AdvocacyWatchPage() {
           <Breadcrumb
             items={[
               { label: isEs ? "Inicio" : "Home", href: "/" },
-              { label: isEs ? "Estrategia" : "Strategy", href: "/strategy/guides" },
+              { label: isEs ? "Inteligencia" : "Intelligence", href: "/demo" },
               { label: isEs ? "Seguimiento de Abogac\u00eda" : "Advocacy Watch" },
             ]}
           />
@@ -453,25 +468,61 @@ export default function AdvocacyWatchPage() {
               {upcomingFollowUps.slice(0, 6).map((action) => {
                 const days = daysUntil(action.followUpDate!);
                 return (
-                  <div
+                  <a
                     key={action.id}
-                    className="flex items-center gap-3 rounded-lg bg-white p-3"
+                    href={action.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 rounded-lg bg-white p-3 transition-colors hover:bg-amber-50"
                   >
-                    <div className={`text-center ${days <= 14 ? "text-red-600" : "text-amber-600"}`}>
+                    <div className={`shrink-0 text-center ${days <= 14 ? "text-red-600" : "text-amber-600"}`}>
                       <p className="text-xl font-bold">{days}</p>
-                      <p className="text-xs">{isEs ? "d\u00edas" : "days"}</p>
+                      <p className="text-xs">{isEs ? "días" : "days"}</p>
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="truncate text-sm font-semibold text-stone-800">
-                        {t(action.headline, locale).slice(0, 60)}...
-                      </p>
                       {action.followUpNote && (
-                        <p className="truncate text-xs text-stone-500">
-                          {t(action.followUpNote, locale)}
+                        <p className="text-xs font-bold uppercase tracking-wide text-amber-700">
+                          {t(action.followUpNote, locale).split("—")[0].trim()}
                         </p>
                       )}
+                      <p className="mt-0.5 truncate text-sm text-stone-700">
+                        {t(action.headline, locale).slice(0, 55)}{t(action.headline, locale).length > 55 ? "..." : ""}
+                      </p>
+                      <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
+                        <span className="text-stone-400">
+                          {new Date(action.followUpDate!).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                        </span>
+                        {action.tools && action.tools.length > 0 && (
+                          <>
+                            <span className="text-stone-300">·</span>
+                            {action.tools.slice(0, 2).map((tool, i) => (
+                              <span
+                                key={i}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  window.open(tool.url, "_blank", "noopener,noreferrer");
+                                }}
+                                className="cursor-pointer font-medium text-teal-600 hover:text-teal-800 hover:underline"
+                              >
+                                {t(tool.label, locale).length > 25
+                                  ? t(tool.label, locale).slice(0, 25) + "..."
+                                  : t(tool.label, locale)}
+                              </span>
+                            ))}
+                          </>
+                        )}
+                        {(!action.tools || action.tools.length === 0) && (
+                          <>
+                            <span className="text-stone-300">·</span>
+                            <span className="text-stone-400">
+                              {action.sourceOrg} <ExternalLink className="ml-0.5 inline size-2.5" />
+                            </span>
+                          </>
+                        )}
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 );
               })}
             </div>

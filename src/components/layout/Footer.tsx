@@ -17,7 +17,7 @@ export default function Footer() {
       { href: "/strategy/guides" as const, label: t("executiveGuides") },
       { href: "/strategy/research" as const, label: t("researchArchive") },
       { href: "/strategy/resilience" as const, label: t("resilience") },
-      { href: "/strategy/advocacy" as const, label: isEs ? "Seguimiento de Abogac\u00eda" : "Advocacy Watch" },
+      { href: "/strategy/labor-relations" as const, label: isEs ? "Relaciones Laborales" : "Labor Relations" },
     ],
     [isEs ? "Para Tu Carrera" : "For Your Career"]: [
       { href: "/career-insights" as const, label: isEs ? "Evaluación" : "Career Assessment" },
@@ -35,6 +35,7 @@ export default function Footer() {
       { href: "/salary-calculator" as const, label: isEs ? "Calculadora Salarial" : "Salary Calculator" },
       { href: "/salary-report" as const, label: isEs ? "Informe Salarial PDF" : "Salary Report PDF" },
       { href: "/blog" as const, label: t("blog") },
+      { href: "/strategy/advocacy" as const, label: isEs ? "Seguimiento de Abogacía" : "Advocacy Watch" },
     ],
     [t("company")]: [
       { href: "/glossary" as const, label: isEs ? "Glosario FQHC" : "FQHC Glossary" },

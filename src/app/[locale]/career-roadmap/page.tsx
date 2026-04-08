@@ -7,6 +7,8 @@ import {
   Brain,
   DollarSign,
   Activity,
+  CheckCircle,
+  Smile,
   ChevronDown,
   ArrowRight,
   Award,
@@ -37,6 +39,9 @@ const PATHWAY_ICONS: Record<string, React.ReactNode> = {
   Brain: <Brain className="size-5" />,
   DollarSign: <DollarSign className="size-5" />,
   Activity: <Activity className="size-5" />,
+  Briefcase: <Briefcase className="size-5" />,
+  CheckCircle: <CheckCircle className="size-5" />,
+  Smile: <Smile className="size-5" />,
 };
 
 const PATHWAY_COLORS: Record<string, { bg: string; border: string; text: string; light: string; bar: string }> = {
@@ -45,6 +50,8 @@ const PATHWAY_COLORS: Record<string, { bg: string; border: string; text: string;
   purple: { bg: "bg-purple-50", border: "border-purple-200", text: "text-purple-700", light: "bg-purple-100", bar: "bg-purple-500" },
   amber: { bg: "bg-amber-50", border: "border-amber-200", text: "text-amber-700", light: "bg-amber-100", bar: "bg-amber-500" },
   rose: { bg: "bg-rose-50", border: "border-rose-200", text: "text-rose-700", light: "bg-rose-100", bar: "bg-rose-500" },
+  indigo: { bg: "bg-indigo-50", border: "border-indigo-200", text: "text-indigo-700", light: "bg-indigo-100", bar: "bg-indigo-500" },
+  cyan: { bg: "bg-cyan-50", border: "border-cyan-200", text: "text-cyan-700", light: "bg-cyan-100", bar: "bg-cyan-500" },
 };
 
 function formatSalary(amount: number): string {
@@ -122,8 +129,8 @@ export default function CareerRoadmapPage() {
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-teal-100">
             {isEs
-              ? "Explora 5 trayectorias profesionales en FQHCs de California — con salarios, certificaciones y habilidades en cada nivel."
-              : "Explore 5 career tracks in California FQHCs — with salaries, certifications, and skills at every level."}
+              ? "Explora 8 trayectorias profesionales en FQHCs de California — con salarios, certificaciones y habilidades en cada nivel."
+              : "Explore 8 career tracks in California FQHCs — with salaries, certifications, and skills at every level."}
           </p>
           <button
             onClick={handleShare}

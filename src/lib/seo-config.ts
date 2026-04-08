@@ -229,13 +229,13 @@ export const pageMetadata = {
     alternates: { canonical: `${SITE_URL}/about` },
   },
   careerRoadmap: {
-    title: "FQHC Career Roadmap — 5 Paths to Leadership",
+    title: "FQHC Career Roadmap — 8 Paths to Leadership",
     description:
-      "5 career tracks in California FQHCs with salary ranges by region, certifications at every level, and progression from entry to leadership.",
+      "8 career tracks in California FQHCs with salary ranges by region, certifications at every level, and progression from entry to leadership.",
     openGraph: {
       title: "Career Roadmap — FQHC Talent",
       description:
-        "5 career tracks with California salary data, certifications, and regional adjustments.",
+        "8 career tracks with California salary data, certifications, and regional adjustments.",
       url: `${SITE_URL}/career-roadmap`,
     },
     alternates: { canonical: `${SITE_URL}/career-roadmap` },

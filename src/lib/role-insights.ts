@@ -1172,7 +1172,7 @@ export const ROLE_INSIGHTS: Record<string, {
     esStrengthMessages: {
       mission: "Los higienistas dentales en FQHCs a menudo son el primer profesional de salud en detectar signos de diabetes no controlada, hipertensión y cáncer oral en pacientes que no tienen otro contacto de salud regular.",
       people: "Tu capacidad para construir confianza a largo plazo con pacientes que regresan para citas de seguimiento te convierte en una parte clave del modelo de hogar de salud de FQHC.",
-      execution: "Tu competencia en evaluación periodontal de boca completa, escalonamiento y educación del paciente — entregada en alto volumen con documentación en un EHR dental — es exactamente la columna vertebral operativa de la que dependen los programas dentales de FQHC.",
+      execution: "Tu competencia en evaluación periodontal de boca completa, raspado y educación del paciente — entregada en alto volumen con documentación en un EHR dental — es exactamente la columna vertebral operativa de la que dependen los programas dentales de FQHC.",
       growth: "Tu impulso para expandirse hacia poblaciones especiales — selladores pediátricos, salud oral prenatal, consejería para dejar de fumar — te posiciona para roles de higienista principal y coordinación de programas.",
       transition: "Tu capacidad para adaptar tus protocolos clínicos a una nueva población de pacientes — muchos de los cuales nunca han tenido atención dental regular — demuestra la flexibilidad que los programas dentales de FQHC necesitan.",
     },
@@ -1227,7 +1227,7 @@ export const ROLE_INSIGHTS: Record<string, {
         "Prenatal oral health counseling",
       ],
       esTopSkills: [
-        "Evaluación periodontal de boca completa y escalonamiento/alisado radicular",
+        "Evaluación periodontal de boca completa y raspado/alisado radicular",
         "Documentación Denti-Cal y codificación de procedimientos",
         "Educación de higiene oral del paciente y consejería de cambio de comportamiento",
         "Higiene pediátrica y colocación de selladores",
@@ -1246,6 +1246,98 @@ export const ROLE_INSIGHTS: Record<string, {
         "Permiso de Óxido Nitroso (fuertemente preferido)",
         "Certificación CPR/BLS",
         "Consejero de Cesación Tabáquica (preferido)",
+      ],
+    },
+  },
+
+  /* ================================================================ */
+  /*  DENTIST                                                            */
+  /* ================================================================ */
+  dentist: {
+    strengthMessages: {
+      mission: "FQHC dentists close the most critical gap in community health — dental is the #1 unmet need in underserved populations. Your commitment to providing full-scope dentistry to patients who have deferred care for years means you're preventing ER visits, catching early signs of diabetes and oral cancer, and restoring function that lets people work, eat, and live without pain.",
+      people: "Your ability to lead a dental team — supervising hygienists, mentoring dental assistants, and coordinating with medical providers — determines how many patients your program can serve. FQHC dental directors value dentists who build strong teams, not just treat individual patients.",
+      execution: "Your clinical efficiency in a high-volume FQHC setting — accurate Denti-Cal documentation, appropriate treatment planning within coverage constraints, and minimal claim denials — directly determines whether the dental program is financially sustainable.",
+      growth: "Your interest in program development — expanding services, implementing Virtual Dental Home, pursuing Teaching Health Center status, or adopting AI documentation tools — positions you for Dental Director roles at growing FQHC networks.",
+      transition: "Your ability to adapt from fee-for-service dentistry to FQHC PPS-based care — adjusting treatment planning for Denti-Cal constraints, learning a new dental EHR, and connecting with a mission-driven team — shows the clinical leadership that FQHCs need.",
+    },
+    esStrengthMessages: {
+      mission: "Los dentistas de FQHC cierran la brecha mas critica en salud comunitaria — lo dental es la necesidad #1 no satisfecha en poblaciones desatendidas. Tu compromiso de proporcionar odontologia de alcance completo a pacientes que han postergado atencion por anos significa que estas previniendo visitas a urgencias, detectando signos tempranos de diabetes y cancer oral, y restaurando funcion que permite a las personas trabajar, comer y vivir sin dolor.",
+      people: "Tu capacidad para liderar un equipo dental — supervisando higienistas, mentoreando asistentes dentales, y coordinando con proveedores medicos — determina cuantos pacientes puede atender tu programa.",
+      execution: "Tu eficiencia clinica en un entorno FQHC de alto volumen — documentacion precisa de Denti-Cal, planificacion de tratamiento apropiada dentro de las restricciones de cobertura, y minimas denegaciones de reclamos — determina directamente si el programa dental es financieramente sostenible.",
+      growth: "Tu interes en el desarrollo de programas — expandir servicios, implementar Virtual Dental Home, buscar estatus de Centro de Salud de Ensenanza, o adoptar herramientas de documentacion IA — te posiciona para roles de Director Dental.",
+      transition: "Tu capacidad para adaptarte de la odontologia de pago por servicio al cuidado basado en PPS de FQHC — ajustando la planificacion de tratamiento para las restricciones de Denti-Cal, aprendiendo un nuevo EHR dental, y conectando con un equipo impulsado por la mision — demuestra el liderazgo clinico que los FQHCs necesitan.",
+    },
+    growthMessages: {
+      mission: "Connect your clinical work to population health outcomes — track how many ER dental visits your program prevents, how many patients with diabetes you're screening through oral-systemic integration, and share these numbers with leadership. This is how dental programs justify expansion.",
+      people: "Invest in developing your dental team's skills — support DA-to-RDA certification, mentor hygienists on Denti-Cal billing, and build a culture where the team takes ownership of patient outcomes, not just individual procedures.",
+      execution: "Master Denti-Cal prior authorization workflows and same-day medical-dental billing rules — many FQHCs leave revenue on the table by not billing for both encounters when a dental patient also sees a medical provider. Understanding PPS billing nuances makes you invaluable.",
+      growth: "Pursue dental leadership development — AAPHD fellowship, healthcare management courses, or NACHC conferences. The transition from clinical dentist to dental program leader requires business, regulatory, and team management skills beyond clinical expertise.",
+      transition: "Before starting at a new FQHC, study their dental EHR system, review their Denti-Cal provider manual for covered services and frequency limitations, and research the patient population. The biggest adjustment from private practice is the shift from production-focused to access-focused care.",
+    },
+    esGrowthMessages: {
+      mission: "Conecta tu trabajo clinico con resultados de salud poblacional — rastrea cuantas visitas de emergencia dental previene tu programa, cuantos pacientes con diabetes estas detectando a traves de integracion oral-sistemica, y comparte estos numeros con el liderazgo.",
+      people: "Invierte en desarrollar las habilidades de tu equipo dental — apoya la certificacion DA-a-RDA, mentorea a higienistas en facturacion Denti-Cal, y construye una cultura donde el equipo se apropie de los resultados de los pacientes.",
+      execution: "Domina los flujos de autorizacion previa Denti-Cal y las reglas de facturacion medica-dental del mismo dia — muchos FQHCs dejan ingresos sobre la mesa al no facturar por ambos encuentros.",
+      growth: "Busca desarrollo de liderazgo dental — fellowship AAPHD, cursos de gestion de salud o conferencias NACHC. La transicion de dentista clinico a lider de programa dental requiere habilidades de negocio, regulacion y gestion de equipo.",
+      transition: "Antes de comenzar en un nuevo FQHC, estudia su sistema EHR dental, revisa su manual de proveedor Denti-Cal y investiga la poblacion de pacientes. El ajuste mas grande desde la practica privada es el cambio de atencion enfocada en produccion a enfocada en acceso.",
+    },
+    nextSteps: {
+      mission: "Add oral health integration to your resume — specifically mention how you've connected dental findings to systemic conditions (diabetes screening via periodontal assessment, cardiovascular risk, oral cancer detection) to show FQHC hiring managers you practice whole-person dentistry",
+      people: "Highlight team leadership in your application — FQHCs want dentists who build and develop dental teams, not solo practitioners. Mention supervision of hygienists, DA mentoring, and cross-departmental coordination with medical and behavioral health",
+      execution: "Demonstrate Denti-Cal billing expertise — mention specific knowledge of PPS encounter billing, same-day medical-dental rules, prior authorization workflows, and claim denial reduction. This operational knowledge is as important as clinical skills at FQHCs",
+      growth: "If NHSC-eligible, apply immediately — up to $80K in loan repayment over 2 years at most California FQHC sites. This is the single largest financial benefit of FQHC dentistry and many dentists cite it as their primary reason for entering community health",
+      transition: "In interviews, ask about the dental program's strategic direction: expansion plans, technology adoption (AI documentation, digital impressions), Virtual Dental Home interest, and how dental integrates with medical. These questions signal leadership potential",
+    },
+    esNextSteps: {
+      mission: "Agrega integracion de salud oral a tu curriculum — menciona especificamente como has conectado hallazgos dentales con condiciones sistemicas para mostrar a los gerentes de contratacion de FQHC que practicas odontologia de persona completa",
+      people: "Destaca liderazgo de equipo en tu solicitud — los FQHCs quieren dentistas que construyan y desarrollen equipos dentales, no practicantes solos",
+      execution: "Demuestra experiencia en facturacion Denti-Cal — menciona conocimiento especifico de facturacion de encuentros PPS, reglas medico-dentales del mismo dia, flujos de autorizacion previa y reduccion de denegaciones de reclamos",
+      growth: "Si eres elegible para NHSC, solicita inmediatamente — hasta $80K en pago de prestamos en 2 anos en la mayoria de sitios FQHC de California",
+      transition: "En las entrevistas, pregunta sobre la direccion estrategica del programa dental: planes de expansion, adopcion de tecnologia, interes en Virtual Dental Home, y como dental se integra con medicina",
+    },
+    employerWants: {
+      topQualifications: [
+        "DDS or DMD from CODA-accredited dental school",
+        "Active California dental license in good standing",
+        "DEA registration (required)",
+        "2+ years clinical experience (FQHC or high-volume community setting preferred)",
+        "Bilingual Spanish/English (strongly preferred at most CA FQHCs)",
+      ],
+      esTopQualifications: [
+        "DDS o DMD de escuela dental acreditada por CODA",
+        "Licencia dental activa de California en buen estado",
+        "Registro DEA (requerido)",
+        "2+ anos de experiencia clinica (FQHC o entorno comunitario de alto volumen preferido)",
+        "Bilingue espanol/ingles (fuertemente preferido en la mayoria de FQHCs de CA)",
+      ],
+      topSkills: [
+        "Full-scope general dentistry (restorative, extractions, emergency)",
+        "Denti-Cal billing, documentation, and prior authorization",
+        "FQHC PPS encounter-based reimbursement",
+        "Dental team supervision (hygienists, DAs, EDDAs)",
+        "Oral-systemic health integration and medical-dental coordination",
+      ],
+      esTopSkills: [
+        "Odontologia general de alcance completo (restaurativa, extracciones, emergencia)",
+        "Facturacion Denti-Cal, documentacion y autorizacion previa",
+        "Reembolso basado en encuentros PPS de FQHC",
+        "Supervision de equipo dental (higienistas, DAs, EDDAs)",
+        "Integracion de salud oral-sistemica y coordinacion medica-dental",
+      ],
+      certifications: [
+        "DDS/DMD from CODA-accredited program (required)",
+        "Active California dental license (required)",
+        "DEA registration (required)",
+        "NHSC loan repayment eligible (strongly preferred — up to $80K/2yr)",
+        "CPR/BLS/ACLS certification",
+      ],
+      esCertifications: [
+        "DDS/DMD de programa acreditado por CODA (requerido)",
+        "Licencia dental activa de California (requerida)",
+        "Registro DEA (requerido)",
+        "Elegible para pago de prestamos NHSC (fuertemente preferido — hasta $80K/2 anos)",
+        "Certificacion CPR/BLS/ACLS",
       ],
     },
   },

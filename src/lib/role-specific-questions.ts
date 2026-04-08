@@ -12,6 +12,7 @@ import type { AssessmentQuestion } from "./career-assessment-engine";
 import { ROLE_SPECIFIC_QUESTIONS_A } from "./role-specific-questions-a";
 import { ROLE_SPECIFIC_QUESTIONS_B } from "./role-specific-questions-b";
 import { ROLE_SPECIFIC_QUESTIONS_C } from "./role-specific-questions-c";
+import { ROLE_SPECIFIC_QUESTIONS_D } from "./role-specific-questions-d";
 
 export type RoleId =
   | "chw"
@@ -27,10 +28,14 @@ export type RoleId =
   | "payroll_specialist"
   | "finance_manager"
   | "compliance_officer"
-  | "compliance_analyst";
+  | "compliance_analyst"
+  | "dental_assistant"
+  | "dental_hygienist"
+  | "dentist";
 
 export const ROLE_SPECIFIC_QUESTIONS: (AssessmentQuestion & { roleId: RoleId })[] = [
   ...ROLE_SPECIFIC_QUESTIONS_A,
   ...ROLE_SPECIFIC_QUESTIONS_B,
   ...ROLE_SPECIFIC_QUESTIONS_C,
+  ...ROLE_SPECIFIC_QUESTIONS_D,
 ] as (AssessmentQuestion & { roleId: RoleId })[];
