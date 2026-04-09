@@ -111,7 +111,7 @@ export const UNION_DIRECTORY: UnionProfile[] = [
           es: "Audiencia del Juez Administrativo Comienza en Caso de Reconocimiento Forzado de Innercare",
         },
         summary: {
-          en: "Administrative law judge hearing began in San Diego for the NLRB case against Innercare (Clinicas de Salud del Pueblo). NLRB seeks forced union recognition based on 30+ ULP charges and 11 terminated workers during the 2024 organizing campaign. Innercare spent $500K+ on anti-union consultants.",
+          en: "Administrative law judge hearing began in San Diego for the NLRB case against Innercare (Clinicas de Salud del Pueblo). NLRB seeks forced union recognition based on 30+ ULP charges and 11 terminated workers during the 2024 organizing campaign. SEIU-UHW alleges Innercare spent $500K+ on anti-union consultants (Reliant Labor Consultants).",
           es: "Audiencia del juez administrativo comenzó en San Diego para el caso del NLRB contra Innercare. El NLRB busca reconocimiento sindical forzado basado en 30+ cargos de prácticas laborales injustas y 11 trabajadores despedidos.",
         },
         sourceUrl: "https://www.thedesertreview.com/business/nlrb-complaint-against-innercare-sets-stage-for-2026-hearing-as-organization-denies-allegations/article_c29d43e5-c7fe-4095-8749-f7f4839010f8.html",

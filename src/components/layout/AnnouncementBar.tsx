@@ -27,19 +27,17 @@ const BANNER_ITEMS = [
 ];
 
 export default function AnnouncementBar() {
-  const [dismissed, setDismissed] = useState(true);
+  const [dismissed, setDismissed] = useState(() => {
+    if (typeof window === "undefined") return true; // SSR: hide to avoid flash
+    try {
+      return !!localStorage.getItem(DISMISS_KEY);
+    } catch {
+      return false; // localStorage unavailable — show the banner
+    }
+  });
   const [activeIndex, setActiveIndex] = useState(0);
   const locale = useLocale();
   const isEs = locale === "es";
-
-  useEffect(() => {
-    try {
-      const wasDismissed = localStorage.getItem(DISMISS_KEY);
-      if (!wasDismissed) setDismissed(false);
-    } catch {
-      setDismissed(false);
-    }
-  }, []);
 
   // Rotate between items every 6 seconds
   useEffect(() => {
@@ -67,7 +65,7 @@ export default function AnnouncementBar() {
     <div className="relative bg-gradient-to-r from-teal-700 to-teal-600 text-white">
       <div className="flex items-center justify-center gap-2 py-2 pl-4 pr-10 text-center text-xs sm:pl-8 sm:text-sm">
         <Sparkles className="size-3.5 shrink-0 sm:size-4" />
-        <span className="transition-opacity duration-300">
+        <span className="line-clamp-1 transition-opacity duration-300">
           {isEs ? item.text.es : item.text.en}
         </span>
         <Link

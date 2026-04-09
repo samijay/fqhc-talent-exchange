@@ -34,7 +34,6 @@ import {
   getAdvocacyActions,
   getUpcomingFollowUps,
   getAdvocacyCounts,
-  getAdvocacyRegions,
   type AdvocacyAction,
   type AdvocacyCategory,
   type AdvocacyStatus,
@@ -384,7 +383,7 @@ export default function AdvocacyWatchPage() {
 
   const counts = getAdvocacyCounts();
   const upcomingFollowUps = getUpcomingFollowUps();
-  const regions = getAdvocacyRegions();
+
 
   const filteredActions = useMemo(() => {
     let items = getAdvocacyActions(
@@ -496,19 +495,18 @@ export default function AdvocacyWatchPage() {
                           <>
                             <span className="text-stone-300">·</span>
                             {action.tools.slice(0, 2).map((tool, i) => (
-                              <span
+                              <a
                                 key={i}
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  e.stopPropagation();
-                                  window.open(tool.url, "_blank", "noopener,noreferrer");
-                                }}
-                                className="cursor-pointer font-medium text-teal-600 hover:text-teal-800 hover:underline"
+                                href={tool.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="font-medium text-teal-600 hover:text-teal-800 hover:underline"
                               >
                                 {t(tool.label, locale).length > 25
                                   ? t(tool.label, locale).slice(0, 25) + "..."
                                   : t(tool.label, locale)}
-                              </span>
+                              </a>
                             ))}
                           </>
                         )}

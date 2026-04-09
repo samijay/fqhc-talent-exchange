@@ -4,7 +4,7 @@
 // Each item includes follow-up dates and outcome tracking.
 // Updated via /daily-update pipeline.
 
-export const ADVOCACY_LAST_UPDATED = "2026-04-06";
+export const ADVOCACY_LAST_UPDATED = "2026-04-08";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -316,7 +316,7 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
       es: "Health Net Compromete $1M para Preparar 4.7M Miembros para Requisitos Laborales",
     },
     summary: {
-      en: "Health Net (Centene subsidiary) launched 'Get Informed, Stay Covered' \u2014 the first managed care plan to begin formal member education for the January 2027 work requirements. $1M multilingual campaign. DHCS outreach window: June 30 \u2013 August 31, 2026. FQHCs should coordinate with Health Net on patient education materials and referral workflows.",
+      en: "Health Net (Centene subsidiary) launched 'Get Informed, Stay Covered' \u2014 the first managed care plan to begin formal member education for the January 2027 work requirements. $1M multilingual campaign. DHCS outreach window: June 30 \u2013 August 31, 2026. FQHCs may want to coordinate with Health Net on patient education materials and referral workflows.",
       es: "Health Net (subsidiaria de Centene) lanz\u00f3 'Inf\u00f3rmate, Mant\u00e9n tu Cobertura' \u2014 el primer plan de salud en iniciar educaci\u00f3n formal a miembros sobre requisitos laborales de enero 2027. Campa\u00f1a multiling\u00fce de $1M.",
     },
     category: "public-statement",
@@ -416,7 +416,7 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
       es: "RFI del Modelo de Reembolso 340B de HRSA \u2014 Fecha L\u00edmite de Comentarios 20 de Abril para Partes Interesadas de FQHCs",
     },
     summary: {
-      en: "HRSA is gathering stakeholder input on whether 340B drug pricing should shift from upfront discounts to delayed rebates. The 60-day comment window closes April 20. NACHC and CPCA are coordinating responses. FQHCs that depend on 340B upfront discounts for cash flow should file comments.",
+      en: "HRSA is gathering stakeholder input on whether 340B drug pricing should shift from upfront discounts to delayed rebates. The 60-day comment window closes April 20. NACHC and CPCA are coordinating responses. NACHC recommends that FQHCs dependent on 340B upfront discounts for cash flow file comments.",
       es: "HRSA est\u00e1 recopilando comentarios sobre si los precios de medicamentos 340B deber\u00edan cambiar de descuentos anticipados a reembolsos diferidos. La ventana de 60 d\u00edas cierra el 20 de abril.",
     },
     category: "federal-action",
@@ -462,6 +462,120 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
       { label: { en: "CMS MAHA ELEVATE details", es: "Detalles de CMS MAHA ELEVATE" }, url: "https://www.cms.gov/priorities/innovation/innovation-models/maha-elevate" },
     ],
     tags: ["cms", "maha", "grant", "lifestyle-medicine", "revenue-stream"],
+  },
+
+  // ── APRIL 8, 2026 — DAILY UPDATE #30 ──────────────────────────────
+
+  {
+    id: "seiu-uhw-90-percent-ballot-signatures-submitted",
+    date: "2026-04-03",
+    headline: {
+      en: "SEIU-UHW Submits Signatures for 90% Mission Spend + $450K Exec Pay Cap Ballot Measures",
+      es: "SEIU-UHW Presenta Firmas para Medidas Electorales de 90% Gasto en Misión + Tope de $450K a Salarios Ejecutivos",
+    },
+    summary: {
+      en: "SEIU-UHW submitted signatures for two California ballot initiatives: #25-0008 (requiring FQHCs to spend 90% of revenue on patient care) and #25-0009 (capping healthcare executive pay at $450K). CMA, CPCA, and CCALAC oppose both, calling them 'dangerous' and warning of clinic closures. The 'Protect Patients' coalition has formed in opposition. LAO warns of 'potential clinic closures' as possible outcome. If qualified and passed, these would fundamentally restructure FQHC finances statewide during the H.R. 1 funding crisis.",
+      es: "SEIU-UHW presentó firmas para dos iniciativas: gasto del 90% en atención al paciente y tope de $450K a salarios ejecutivos. CMA, CPCA y CCALAC se oponen, advirtiendo sobre cierres de clínicas.",
+    },
+    category: "ballot-initiative",
+    status: "active",
+    region: "California",
+    organizations: ["SEIU-UHW", "CMA (opposing)", "CPCA (opposing)", "CCALAC (opposing)", "Protect Patients coalition (opposing)"],
+    followUpDate: "2026-06-25",
+    followUpNote: { en: "Signature verification deadline — check if measures qualify for November ballot", es: "Fecha límite de verificación de firmas — verificar si las medidas califican para la boleta de noviembre" },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://news.ballotpedia.org/2026/04/03/seiu-uhw-submits-signatures-for-california-ballot-initiatives-capping-executive-pay-and-requiring-clinics-to-spend-90-on-patient-care/",
+    sourceOrg: "Ballotpedia",
+    impactLevel: "critical",
+    tools: [
+      { label: { en: "Ballotpedia initiative page", es: "Página de iniciativa en Ballotpedia" }, url: "https://ballotpedia.org/California_Require_Transparency_in_Health_Clinic_Funding_and_Regulate_Use_of_Profits_Initiative_(2026)" },
+      { label: { en: "Protect Patients CA", es: "Protect Patients CA" }, url: "https://protectpatientsca.com/faq/" },
+    ],
+    tags: ["seiu-uhw", "ballot-initiative", "90-percent", "exec-pay-cap", "protect-patients", "june-25-deadline"],
+  },
+  {
+    id: "ca-billionaire-tax-act-100b-ballot",
+    date: "2026-04-01",
+    headline: {
+      en: "California Billionaire Tax Act: $100B Healthcare Funding Ballot Measure Gains Momentum",
+      es: "Ley de Impuesto a Multimillonarios de California: Medida Electoral de $100B para Salud Cobra Impulso",
+    },
+    summary: {
+      en: "SEIU-UHW is leading a ballot drive for a one-time 5% wealth tax on California's ~200 billionaires (~$2T combined wealth), projected to generate $100B over 5 years. 90% would fund healthcare programs, directly offsetting H.R. 1 Medicaid cuts. Bernie Sanders endorsed the measure. 25% of required signatures collected as of March 2. A February 2026 Nestpoint survey shows 60% of likely voters support it. If passed, this would be the largest state-level healthcare funding mechanism in US history.",
+      es: "SEIU-UHW lidera una campaña electoral para un impuesto del 5% sobre la riqueza de los ~200 multimillonarios de California, proyectado para generar $100B en 5 años. 90% financiaría programas de salud.",
+    },
+    category: "ballot-initiative",
+    status: "active",
+    region: "California",
+    organizations: ["SEIU-UHW", "Bernie Sanders (endorsement)"],
+    followUpDate: "2026-08-01",
+    followUpNote: { en: "Check if sufficient signatures collected for November ballot", es: "Verificar si se recolectaron suficientes firmas para la boleta de noviembre" },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://www.commondreams.org/news/ca-billionaire-tax",
+    sourceOrg: "Common Dreams / SEIU-UHW",
+    impactLevel: "high",
+    tools: [
+      { label: { en: "SEIU-UHW Billionaire Tax page", es: "Página de Impuesto a Multimillonarios de SEIU-UHW" }, url: "https://www.seiu-uhw.org/ca-billionaire-tax-act/" },
+    ],
+    tags: ["billionaire-tax", "seiu-uhw", "ballot-initiative", "$100B", "november-2026", "medicaid-offset"],
+  },
+  {
+    id: "innercare-nlrb-forced-recognition-hearing",
+    date: "2026-03-17",
+    headline: {
+      en: "NLRB Seeks Forced Union Recognition at Innercare — ALJ Hearing Underway in San Diego",
+      es: "NLRB Busca Reconocimiento Sindical Forzado en Innercare — Audiencia del Juez Administrativo en San Diego",
+    },
+    summary: {
+      en: "NLRB filed a formal complaint against Innercare (Clinicas de Salud del Pueblo) in Imperial County for 30+ unfair labor practices during SEIU-UHW's organizing campaign, including firing 11 workers. Despite a 214-132 vote against the union in July 2024, the NLRB is seeking a bargaining order — forced recognition without a new election — due to the severity of management interference. Administrative law judge hearing began March 17, 2026 in San Diego. This is the most serious NLRB enforcement action against a California FQHC in recent memory.",
+      es: "El NLRB presentó una queja formal contra Innercare por 30+ prácticas laborales injustas, incluyendo el despido de 11 trabajadores. El NLRB busca reconocimiento sindical forzado. La audiencia comenzó el 17 de marzo en San Diego.",
+    },
+    category: "legal-action",
+    status: "in-court",
+    region: "California",
+    organizations: ["NLRB", "SEIU-UHW", "Innercare (Clinicas de Salud del Pueblo)"],
+    affectedOrgSlugs: ["clinicas-de-salud-del-pueblo"],
+    followUpDate: "2026-06-01",
+    followUpNote: { en: "Check for ALJ ruling on forced recognition", es: "Verificar decisión del juez sobre reconocimiento forzado" },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://www.thedesertreview.com/business/nlrb-complaint-against-innercare-sets-stage-for-2026-hearing-as-organization-denies-allegations/article_c29d43e5-c7fe-4095-8749-f7f4839010f8.html",
+    sourceOrg: "Desert Review / NLRB",
+    impactLevel: "high",
+    tools: [
+      { label: { en: "SEIU-UHW Innercare ULP page", es: "Página de ULPs de SEIU-UHW sobre Innercare" }, url: "https://www.seiu-uhw.org/innercareulp/" },
+    ],
+    tags: ["nlrb", "seiu-uhw", "innercare", "forced-recognition", "unfair-labor-practices", "imperial-county"],
+  },
+  {
+    id: "seiu-community-clinics-lmcc-partnership",
+    date: "2026-01-01",
+    headline: {
+      en: "SEIU-Community Clinics Labor Management Partnership: 3,000+ Workers Trained via High-Road Model",
+      es: "Asociación Laboral-Gerencial SEIU-Clínicas Comunitarias: 3,000+ Trabajadores Capacitados vía Modelo de Alto Camino",
+    },
+    summary: {
+      en: "The SEIU-Community Clinics Partnership is a statewide labor-management cooperation committee (LMCC) between FQHC employers and SEIU locals, funded through the California Workforce Development Board. It trains 3,000+ incumbent workers and new entrants for nursing, MA, dental assistant, CHW, and behavioral health roles. Won $13.3M in High-Road Training Partnership funding and $1,000 retention bonuses for 70,000 clinic workers through AB 204/SB 121 in 2023. This represents the productive side of the union-FQHC relationship.",
+      es: "La Asociación SEIU-Clínicas Comunitarias es un comité de cooperación laboral-gerencial que capacita a 3,000+ trabajadores en roles de enfermería, MA, asistente dental, CHW y salud conductual. Representa el lado productivo de la relación sindicato-FQHC.",
+    },
+    category: "coalition",
+    status: "active",
+    region: "California",
+    organizations: ["SEIU Locals 521/721/1021/UHW", "California Workforce Development Board"],
+    followUpDate: null,
+    followUpNote: null,
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://seiuclinicspartnership.org/",
+    sourceOrg: "SEIU Community Clinics Partnership",
+    impactLevel: "medium",
+    tools: [
+      { label: { en: "SEIU Clinics Partnership website", es: "Sitio web de la Asociación SEIU Clínicas" }, url: "https://seiuclinicspartnership.org/" },
+      { label: { en: "CWDB High-Road program", es: "Programa de Alto Camino CWDB" }, url: "https://cwdb.ca.gov/wp-content/uploads/sites/43/2024/11/Shirley-Ware.SEIU-Community-Clinics_ACCESSIBLE.pdf" },
+    ],
+    tags: ["seiu", "lmcc", "workforce-training", "high-road", "partnership", "retention-bonuses"],
   },
 ];
 

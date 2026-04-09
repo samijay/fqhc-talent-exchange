@@ -2662,7 +2662,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     coverageVulnerabilityPercent: 50,
     fundingImpactLevel: "high",
     missionStatement: "Clinicas de Salud del Pueblo provides quality, comprehensive health services to residents of the Imperial and Coachella Valleys, regardless of ability to pay.",
-    unionInfo: { unionized: false, unions: [], representedRoles: [], notes: "SEIU-UHW organizing campaign defeated 214-132 (July 2024). NLRB seeking forced recognition due to 30+ ULP charges including 11 terminations. ALJ hearing began March 2026 in San Diego. Innercare spent $500K+ on anti-union consultants. Status: contested." },
+    unionInfo: { unionized: false, unions: [], representedRoles: [], notes: "SEIU-UHW organizing campaign defeated 214-132 (July 2024). NLRB seeking forced recognition due to 30+ ULP charges including 11 terminations. ALJ hearing began March 2026 in San Diego. SEIU-UHW alleges Innercare spent $500K+ on anti-union consultants. Status: contested." },
     qualityScore: null,
     violations: null,
     laborHistory: [{ type: "nlrb-complaint" as const, description: "NLRB Case 28-RC-304498: 30+ ULP charges including firing 11 workers during SEIU-UHW campaign. July 2024 election (214-132 against), NLRB seeks forced recognition (bargaining order). ALJ hearing began March 17, 2026 in San Diego. CEO Yvonne Bell personally named. Most serious NLRB enforcement action against a CA FQHC.", date: "2026-03-17", status: "ongoing" as const, union: "SEIU-UHW", source: "https://www.thedesertreview.com/business/nlrb-complaint-against-innercare-sets-stage-for-2026-hearing-as-organization-denies-allegations/article_c29d43e5-c7fe-4095-8749-f7f4839010f8.html" }],
