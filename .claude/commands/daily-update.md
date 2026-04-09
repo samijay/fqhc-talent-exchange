@@ -41,9 +41,9 @@ Cross-reference WARN healthcare entries against `california-fqhcs.ts` slugs. **O
 
 ---
 
-### Step 2: Launch 7 Intelligence Scan Agents (all in parallel)
+### Step 2: Launch 9 Intelligence Scan Agents (all in parallel)
 
-Launch ALL of these as background agents simultaneously. Each agent does web searches and returns findings — no file editing.
+Launch ALL 9 of these as background agents simultaneously. Each agent does web searches and returns findings — no file editing.
 
 **Agent 1 — Legislative & Policy Scan** (4 searches):
 - `"FQHC" OR "community health center" funding legislation [month] [year]`
@@ -94,11 +94,24 @@ Launch ALL of these as background agents simultaneously. Each agent does web sea
 - `community health center EHR implementation [year]`
 - `NACHC technology partnership discount [year]`
 
-**Agent 8 — Advocacy & Positive Momentum Scan** (2 searches):
+**Agent 8 — Advocacy & Positive Momentum Scan** (3 searches):
 - `California FQHC "coalition" OR "advocacy" OR "ballot" OR "initiative" protecting funding [month] [year]`
 - `community health center "lawsuit" OR "legal action" OR "legislation" protecting 340B OR Medicaid [month] [year]`
+- `SEIU OR NACHC OR CPCA OR CCALAC FQHC advocacy California [month] [year]`
 
-For each finding, check against existing `ADVOCACY_ACTIONS` in `fqhc-advocacy-tracker.ts`. If new, add with follow-up date and status. If existing item has a known outcome, update its status.
+Tell this agent to read `fqhc-advocacy-tracker.ts` FIRST. For each finding, check against existing `ADVOCACY_ACTIONS`. If new, report with follow-up date and status. If an existing item has a known outcome or status change, flag it for update.
+
+**Agent 9 — Labor Relations & Union Activity Scan** (4 searches):
+- `SEIU FQHC community clinic California union [month] [year]`
+- `NUHW "community health" OR FQHC organizing California [month] [year]`
+- `NLRB "community health center" OR FQHC complaint OR organizing OR election California [month] [year]`
+- `California "community clinic" contract ratification OR strike OR bargaining [month] [year]`
+
+Tell this agent to read `fqhc-labor-relations.ts` AND `union-data.ts` FIRST. For each finding:
+- If it's a new labor case (organizing drive, NLRB complaint, contract negotiation, strike, arbitration), report with: parties, status, posture (adversarial→partnership), next milestone, affected FQHC slugs
+- If an existing labor case has a status change (e.g., hearing date, ruling, contract ratified), flag for update
+- If a union profile needs updating (new FQHC organized, membership count change, leadership change), flag it
+- Report any new SEIU-UHW ballot initiative developments (signature counts, qualification status, opposition actions)
 
 #### Agent Instructions (include in every agent prompt):
 
@@ -132,6 +145,10 @@ As each agent reports back, process findings:
 - **`funding-impact-data.ts`** — policy with a date, dollar amount, and people affected
 - **`fqhc-compliance.ts`** — new enforcement actions or compliance deadlines
 - **`fqhc-advocacy-tracker.ts` ADVOCACY_ACTIONS[]** — coalition actions, ballot initiatives, legislation, legal rulings protecting FQHC funding. Include follow-up dates and status tracking.
+- **`fqhc-labor-relations.ts` LABOR_CASES[]** — union organizing, NLRB complaints, contract negotiations, strikes, arbitration, ballot measures. Include parties, posture, and next milestone.
+- **`union-data.ts` UNION_DIRECTORY[]** — update fqhcsRepresented[], recentNews[], membership counts when new organizing wins, contract ratifications, or leadership changes occur.
+
+**IMPORTANT: Advocacy tracker is a SEPARATE file from the intel feed.** Items can appear in BOTH files — intel feed for the news angle, advocacy tracker for the action/status/follow-up tracking. Always check and update both. Also update `ADVOCACY_LAST_UPDATED` when adding items. Review existing advocacy items for status changes (e.g., pending → active, active → passed).
 
 Every item MUST have a verified primary source URL. Include bilingual headline/summary (EN + ES).
 
@@ -149,7 +166,7 @@ Every item MUST have a verified primary source URL. Include bilingual headline/s
 ### Step 5: Apply Stats Updates
 
 1. Update `career-page-config.ts` notes with new job counts and date
-2. Update `INTEL_LAST_UPDATED` and `AI_TRACKER_LAST_UPDATED` if items were added
+2. Update `INTEL_LAST_UPDATED`, `AI_TRACKER_LAST_UPDATED`, and `ADVOCACY_LAST_UPDATED` if items were added to those files
 3. Check hardcoded stats in:
    - `src/app/[locale]/demo/page.tsx` — FQHC count
    - `src/app/[locale]/sponsor/page.tsx` — intel count, job count, FQHC count
@@ -186,10 +203,11 @@ A profile is "80% complete" when it has: slug, name, location, website, mission 
 
 ```bash
 cd /Users/jmw/Documents/Claude\ Projects/fqhc-talent-exchange && npx tsc --noEmit && echo "TypeScript: PASS" || echo "TypeScript: FAIL"
-grep -c 'id: "' src/lib/fqhc-news-intel.ts
-grep -c 'id: "' src/lib/fqhc-ai-tracker.ts | head -1
-grep -c 'slug: "' src/lib/california-fqhcs.ts
-grep -c 'id: "' src/lib/california-fqhc-layoffs.ts
+echo "Intel items:" && grep -c 'id: "' src/lib/fqhc-news-intel.ts
+echo "AI tracker:" && grep -c 'id: "' src/lib/fqhc-ai-tracker.ts
+echo "FQHCs:" && grep -c 'slug: "' src/lib/california-fqhcs.ts
+echo "Layoffs:" && grep -c 'id: "' src/lib/california-fqhc-layoffs.ts
+echo "Advocacy:" && grep -c 'id: "' src/lib/fqhc-advocacy-tracker.ts
 ```
 
 ---
@@ -220,6 +238,7 @@ Regional: [region1] + [region2] — [# findings]
 Compliance: [summary]
 Tech Stack: [summary]
 Advocacy: +[n] new actions (total [n], [n] active, [n] upcoming follow-ups)
+Labor: [summary of union/NLRB/contract developments, or "No new activity"]
 
 🔧 ENRICHMENT ([day]'s rotation)
 [What was done]
@@ -244,7 +263,7 @@ Blog suggestion: [topic or "None"]
 
 ## Notes
 
-- **Run all 7 intelligence agents in parallel** (single message with 7 Agent tool calls) for speed
+- **Run all 9 intelligence agents in parallel** (single message with 9 Agent tool calls) for speed
 - Agents do research only — all file edits happen in the main thread after review
 - Never remove existing entries — only append
 - If any step fails, report and continue
