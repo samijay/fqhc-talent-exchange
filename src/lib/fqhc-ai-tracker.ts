@@ -5,7 +5,7 @@
 // Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-04-07";
+export const AI_TRACKER_LAST_UPDATED = "2026-04-10";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -102,6 +102,54 @@ export const ADOPTION_STAGES: {
 /* ------------------------------------------------------------------ */
 
 export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
+  {
+    id: "north-country-healthcare-rural-ai-barriers",
+    title: {
+      en: "North Country Healthcare: Rural FQHC Struggles with AI Implementation — 'I Wish We Could Be More Optimistic'",
+      es: "North Country Healthcare: FQHC Rural Lucha con Implementación de IA — 'Desearía Poder Ser Más Optimistas'",
+    },
+    description: {
+      en: "North Country Healthcare, a rural health system, published the first detailed public account of an FQHC-type organization struggling with AI implementation. Leadership describes infrastructure gaps, workforce readiness challenges, and vendor solutions that don't fit rural workflows. This is a critical counterpoint to vendor-driven success narratives and highly relevant for rural CA FQHCs in North State, North Coast, and Central Valley regions considering AI adoption.",
+      es: "North Country Healthcare publicó el primer relato público detallado de una organización rural luchando con la implementación de IA. Describe brechas de infraestructura y soluciones de proveedores que no se adaptan a flujos de trabajo rurales. Altamente relevante para FQHCs rurales de California.",
+    },
+    category: "clinical-documentation",
+    vendor: null,
+    partnership: null,
+    metrics: [
+      { label: "Context", value: "Rural health system" },
+      { label: "Challenge", value: "Infrastructure gaps, workforce readiness" },
+      { label: "Significance", value: "First public AI struggle case study" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.fiercehealthcare.com/ai-and-machine-learning/i-wish-we-could-be-more-optimistic-about-everything-ai-implementation",
+    sourceOrg: "Fierce Healthcare",
+    date: "2026-04-02",
+    tags: ["rural", "implementation-barriers", "case-study", "infrastructure", "workforce-readiness"],
+  },
+  {
+    id: "ai-scribe-70-percent-error-rate-narrative-review",
+    title: {
+      en: "Peer-Reviewed Study: 70% of AI Scribe Notes Contain Errors — Strongest Evidence Yet on Accuracy Risks",
+      es: "Estudio Revisado por Pares: 70% de Notas de IA Escriba Contienen Errores — La Evidencia Más Fuerte de Riesgos de Precisión",
+    },
+    description: {
+      en: "A narrative review published in Cardiovascular Diagnosis and Therapy (PMC) found that approximately 70% of AI-generated clinical notes contain errors. This is the strongest peer-reviewed evidence published to date on AI scribe accuracy problems. The findings counter vendor claims of high accuracy and have direct implications for FQHCs deploying ambient AI documentation tools — particularly regarding liability, quality metrics, and the need for physician review workflows.",
+      es: "Una revisión narrativa publicada en Cardiovascular Diagnosis and Therapy encontró que aproximadamente 70% de las notas clínicas generadas por IA contienen errores. Es la evidencia revisada por pares más fuerte sobre problemas de precisión de escribas de IA.",
+    },
+    category: "clinical-documentation",
+    vendor: null,
+    partnership: null,
+    metrics: [
+      { label: "Error rate", value: "~70% of notes" },
+      { label: "Source", value: "PMC / CDT peer-reviewed" },
+      { label: "Implication", value: "Physician review workflows essential" },
+    ],
+    adoptionStage: "widely-adopted",
+    sourceUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12973079/",
+    sourceOrg: "Cardiovascular Diagnosis and Therapy / PMC",
+    date: "2026-03-15",
+    tags: ["error-rate", "accuracy", "peer-reviewed", "liability", "quality", "physician-review"],
+  },
   {
     id: "moses-weitzman-ai-governance-program",
     title: {
@@ -921,6 +969,105 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     date: "2026-03-05",
     tags: ["aws", "amazon-connect", "agentic-ai", "scheduling", "netsmart", "hipaa"],
     featured: true,
+  },
+
+  // ── Daily Update #26 (2026-04-09) ──────────────────────────────
+
+  {
+    id: "hippocratic-ai-homeward-health-rural-fqhc",
+    title: {
+      en: "Hippocratic AI + Homeward Health: Agentic AI for Rural FQHCs",
+      es: "Hippocratic AI + Homeward Health: IA Agéntica para FQHCs Rurales",
+    },
+    description: {
+      en: "Hippocratic AI partnered with Homeward Health to deploy agentic AI agents (phone-based, conversational) for chronic disease management, care navigation, and post-discharge follow-up at rural health centers including FQHCs. The platform handles outbound patient calls for medication adherence, appointment reminders, and SDOH screening — tasks that FQHCs struggle to staff. Early results show 85%+ patient engagement rates on AI-initiated calls.",
+      es: "Hippocratic AI se asoció con Homeward Health para desplegar agentes de IA en centros de salud rurales, incluyendo FQHCs. La plataforma maneja llamadas de adherencia a medicamentos, recordatorios de citas y detección de SDOH.",
+    },
+    category: "care-coordination",
+    vendor: "Hippocratic AI",
+    partnership: "Homeward Health",
+    metrics: [
+      { label: "Target", value: "Rural FQHCs & underserved providers" },
+      { label: "Engagement", value: "85%+ on AI-initiated calls" },
+      { label: "Use cases", value: "Chronic disease, care navigation, post-discharge" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.businesswire.com/news/home/20260113404488/en/Hippocratic-AI-Expands-Across-Healthcare-Verticals-Following-Rapid-Adoption-of-Generative-AI-Healthcare-Agents",
+    sourceOrg: "BusinessWire / Hippocratic AI",
+    date: "2026-01-15",
+    tags: ["hippocratic-ai", "homeward-health", "agentic-ai", "rural", "chronic-disease", "care-navigation"],
+  },
+  {
+    id: "greenway-health-novare-fqhc-ehr-2026",
+    title: {
+      en: "Greenway Health Launches Novare: Cloud-Native EHR Targeting FQHCs",
+      es: "Greenway Health Lanza Novare: EHR Nativo en la Nube Dirigido a FQHCs",
+    },
+    description: {
+      en: "Greenway Health launched Novare at HIMSS26 — a cloud-native, agentic AI-powered EHR+RCM platform for ambulatory care including FQHCs. Built on AWS. Features: ambient notetaking, voice-activated chart search, agentic task helpers, intelligent coding, automated prior auth, real-time benefit checks. Pilot with HealthLinc (14-site FQHC network, Northern Indiana): saved 14,000 EHR hours/year, capacity for 6,000 additional visits, ~$1M revenue cycle improvement.",
+      es: "Greenway Health lanzó Novare en HIMSS26 — plataforma EHR+RCM con IA agéntica para atención ambulatoria incluyendo FQHCs. Piloto con HealthLinc (14 sitios FQHC): ahorró 14,000 horas/año, capacidad para 6,000 visitas adicionales.",
+    },
+    category: "clinical-documentation",
+    vendor: "Greenway Health",
+    partnership: "HealthLinc (14-site FQHC pilot)",
+    metrics: [
+      { label: "Platform", value: "Novare — cloud-native EHR+RCM with agentic AI" },
+      { label: "Pilot results", value: "14,000 hrs saved/yr, +6,000 visits, ~$1M RCM gain" },
+      { label: "FQHC partner", value: "HealthLinc (14-site FQHC network)" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.prnewswire.com/news-releases/greenway-health-launches-novare-the-first-natively-ai-enabled-platform-built-to-reinvent-the-legacy-ehr-302708585.html",
+    sourceOrg: "PR Newswire / Greenway Health",
+    date: "2026-03-10",
+    tags: ["greenway-health", "novare", "ehr", "cloud-native", "fqhc-specific", "uds-reporting"],
+  },
+  {
+    id: "haip-ai-in-action-governance-april-2026",
+    title: {
+      en: "HAIP 'AI in Action' April 2026: Proactive AI Governance Framework for FQHCs",
+      es: "HAIP 'IA en Acción' Abril 2026: Marco de Gobernanza de IA Proactiva para FQHCs",
+    },
+    description: {
+      en: "The Health AI Partnership (HAIP) — a collaboration between UCSF, Microsoft, and safety-net providers — releases its April 2026 'AI in Action' brief focusing on proactive AI governance for FQHCs. Provides frameworks for clinical AI oversight committees, bias monitoring protocols, and equity-centered deployment checklists. Directly relevant as more FQHCs adopt ambient scribes and clinical decision support tools.",
+      es: "HAIP publica su informe 'IA en Acción' de abril 2026 enfocado en gobernanza proactiva de IA para FQHCs. Proporciona marcos para comités de supervisión de IA clínica, protocolos de monitoreo de sesgo y listas de verificación de implementación centrada en equidad.",
+    },
+    category: "policy-framework",
+    vendor: "HAIP (UCSF/Microsoft)",
+    partnership: "Safety-net providers",
+    metrics: [
+      { label: "Focus", value: "Proactive AI governance for safety-net providers" },
+      { label: "Includes", value: "Oversight committee templates, bias monitoring, equity checklists" },
+      { label: "Relevance", value: "Essential as FQHCs adopt ambient scribes and CDS tools" },
+    ],
+    adoptionStage: "framework",
+    sourceUrl: "https://healthaipartnership.org/",
+    sourceOrg: "Health AI Partnership (UCSF/Microsoft)",
+    date: "2026-04-10",
+    tags: ["haip", "governance", "equity", "safety-net", "ai-oversight", "ucsf"],
+  },
+  {
+    id: "san-ysidro-health-dres-pocai-diabetic-retinopathy",
+    title: {
+      en: "San Ysidro Health DRES-POCAI: AI Diabetic Retinopathy Screening RCT at 2 FQHC Sites",
+      es: "San Ysidro Health DRES-POCAI: Ensayo de Cribado de Retinopatía Diabética con IA en 2 Sitios FQHC",
+    },
+    description: {
+      en: "San Ysidro Health's DRES-POCAI — an 848-patient randomized controlled trial of AI-powered point-of-care diabetic retinopathy screening at 2 FQHC sites — published its protocol in JAMA Network Open. The AI system integrates with EHR to auto-generate results and trigger stratified referrals during primary care visits. Study recruited through Aug 2025 with follow-up through Feb 2026. Results pending — could establish the evidence base for AI eye screening in FQHCs nationwide.",
+      es: "DRES-POCAI de San Ysidro Health — ensayo controlado aleatorizado de 848 pacientes de cribado de retinopatía diabética con IA en 2 sitios FQHC. Protocolo publicado en JAMA Network Open. Resultados pendientes — podría establecer base de evidencia para cribado ocular con IA en FQHCs.",
+    },
+    category: "care-coordination",
+    vendor: "DRES-POCAI (UCSD/San Ysidro Health research)",
+    partnership: "San Ysidro Health (2 FQHC clinic sites)",
+    metrics: [
+      { label: "Enrollment", value: "848 patients with diabetes at 2 FQHC sites" },
+      { label: "Design", value: "Open-label parallel RCT with EHR-integrated AI screening" },
+      { label: "Follow-up", value: "Through February 2026 — results pending" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2840380",
+    sourceOrg: "JAMA Network Open",
+    date: "2025-10-01",
+    tags: ["san-ysidro-health", "diabetic-retinopathy", "ai-screening", "rct", "point-of-care", "fqhc-specific"],
   },
 ];
 

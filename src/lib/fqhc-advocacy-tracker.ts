@@ -4,7 +4,7 @@
 // Each item includes follow-up dates and outcome tracking.
 // Updated via /daily-update pipeline.
 
-export const ADVOCACY_LAST_UPDATED = "2026-04-08";
+export const ADVOCACY_LAST_UPDATED = "2026-04-10";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -576,6 +576,89 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
       { label: { en: "CWDB High-Road program", es: "Programa de Alto Camino CWDB" }, url: "https://cwdb.ca.gov/wp-content/uploads/sites/43/2024/11/Shirley-Ware.SEIU-Community-Clinics_ACCESSIBLE.pdf" },
     ],
     tags: ["seiu", "lmcc", "workforce-training", "high-road", "partnership", "retention-bonuses"],
+  },
+
+  // ── Daily Update #26 (2026-04-09) ──────────────────────────────
+
+  {
+    id: "nachc-in-district-advocacy-april-2026",
+    date: "2026-04-09",
+    headline: {
+      en: "NACHC Launches April 14-25 In-District Advocacy Push — FQHCs Meet Congressional Delegations",
+      es: "NACHC Lanza Campaña de Incidencia en Distritos del 14 al 25 de Abril — FQHCs Se Reúnen con Delegaciones del Congreso",
+    },
+    summary: {
+      en: "NACHC is coordinating a nationwide in-district advocacy push from April 14-25 where FQHC leaders meet with their congressional representatives during the recess period. Focus: preserving CHCF funding ahead of the December 2026 expiration, opposing H.R. 1 Medicaid cuts, and protecting 340B. NACHC providing talking points, data sheets, and constituent story templates. California FQHCs have 52 House districts to cover.",
+      es: "NACHC coordina una campaña nacional de incidencia en distritos del 14 al 25 de abril donde líderes de FQHCs se reúnen con sus representantes del Congreso. Enfoque: preservar CHCF, oponerse a recortes de Medicaid, proteger 340B.",
+    },
+    category: "coalition",
+    status: "active",
+    region: "National",
+    organizations: ["NACHC"],
+    followUpDate: "2026-04-25",
+    followUpNote: { en: "Advocacy period ends April 25 — track congressional responses", es: "Período de incidencia termina el 25 de abril — rastrear respuestas del Congreso" },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://www.nachc.org/ask-your-representatives-to-support-robust-health-center-funding-in-2026/",
+    sourceOrg: "NACHC",
+    impactLevel: "high",
+    tools: [
+      { label: { en: "NACHC Advocacy Toolkit", es: "Kit de Herramientas de Incidencia NACHC" }, url: "https://www.nachc.org/advocacy/" },
+    ],
+    tags: ["nachc", "in-district", "advocacy", "chcf", "340b", "congressional"],
+  },
+  {
+    id: "cha-counter-initiative-union-dues-ballot",
+    date: "2026-04-07",
+    headline: {
+      en: "California Hospital Association Files Counter-Initiative Requiring Union Member Approval for Ballot Spending",
+      es: "Asociación de Hospitales de California Presenta Contra-Iniciativa Requiriendo Aprobación de Miembros del Sindicato para Gastos en Boletas Electorales",
+    },
+    summary: {
+      en: "The California Hospital Association filed a counter-ballot initiative that would require unions to obtain member approval before spending on ballot measures. This directly targets SEIU-UHW's 90% mission-spend initiative and creates a multi-front ballot war in November 2026. FQHCs are caught between their healthcare system allies (CHA) and their labor partners (SEIU). This escalation could divide FQHC advocacy energy during the Medicaid crisis.",
+      es: "La Asociación de Hospitales de California presentó una contra-iniciativa que requeriría que los sindicatos obtengan aprobación de los miembros antes de gastar en medidas electorales. Directamente dirigida contra la iniciativa de SEIU-UHW.",
+    },
+    category: "ballot-initiative",
+    status: "active",
+    region: "California",
+    organizations: ["California Hospital Association"],
+    followUpDate: "2026-06-25",
+    followUpNote: { en: "Signature gathering through June 2026", es: "Recolección de firmas hasta junio 2026" },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://calhospital.org/exec-brief-cha-ballot-initiative/",
+    sourceOrg: "California Hospital Association",
+    impactLevel: "high",
+    tools: [],
+    tags: ["cha", "counter-initiative", "seiu-uhw", "ballot", "union-dues", "november-2026"],
+  },
+  {
+    id: "ccalac-fhcsd-protect-access-counter-initiative",
+    date: "2026-04-03",
+    headline: {
+      en: "CCALAC & FHCSD Lead 'Protect Access to Healthcare' Counter-Initiative — Signatures Submitted for November Ballot",
+      es: "CCALAC y FHCSD Lideran Contra-Iniciativa 'Proteger Acceso a la Salud' — Firmas Presentadas para Boleta de Noviembre",
+    },
+    summary: {
+      en: "The Community Clinic Association of LA County (CCALAC) and Family Health Centers of San Diego (FHCSD) are leading a coalition-backed counter-initiative 'Protect Access to Healthcare' that submitted voter signatures to qualify for the November 2026 ballot. This is a THIRD ballot measure in the SEIU-vs-FQHC industry fight — distinct from both SEIU-UHW's 90% mission-spend initiative and CHA's union-dues counter-initiative. If all three qualify, voters face competing measures that could create chaos for FQHC governance.",
+      es: "CCALAC y FHCSD lideran contra-iniciativa 'Proteger Acceso a la Salud' que presentó firmas de votantes para la boleta de noviembre 2026. Es la TERCERA medida electoral en la lucha SEIU-vs-industria FQHC.",
+    },
+    category: "ballot-initiative",
+    status: "active",
+    region: "California",
+    organizations: ["CCALAC", "Family Health Centers of San Diego", "Coalition to Protect Access to Healthcare"],
+    followUpDate: "2026-06-25",
+    followUpNote: { en: "Signature verification deadline", es: "Fecha límite de verificación de firmas" },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://ccalac.org/protect-access-to-healthcare-coalition-submits-voter-signatures-to-qualify-initiative-for-the-november-ballot/",
+    sourceOrg: "CCALAC",
+    impactLevel: "high",
+    tools: [
+      { label: { en: "FHCSD Campaign Page", es: "Página de Campaña FHCSD" }, url: "https://www.fhcsd.org/protect-access-to-care-initiative/" },
+      { label: { en: "Protect Patients CA", es: "Proteger Pacientes CA" }, url: "https://protectpatientsca.com/" },
+    ],
+    tags: ["ccalac", "fhcsd", "counter-initiative", "seiu-uhw", "ballot", "protect-access", "november-2026"],
   },
 ];
 
