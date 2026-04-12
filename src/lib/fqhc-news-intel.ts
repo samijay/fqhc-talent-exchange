@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-04-10";
+export const INTEL_LAST_UPDATED = "2026-04-11";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -4737,6 +4737,116 @@ export const INTEL_ITEMS: IntelItem[] = [
     sourceOrg: "Annals of Family Medicine",
     region: "National",
     tags: ["interpreter", "bilingual", "workforce", "training", "language-access", "cultural-competency"],
+  },
+  {
+    id: "fy2027-budget-3-5b-health-center-cut",
+    date: "2026-04-03",
+    headline: {
+      en: "Trump FY2027 Budget Proposes $3B for Health Centers — a 54% Cut from $6.5B Enacted in FY2026",
+      es: "Presupuesto FY2027 de Trump Propone $3B para Centros de Salud — Recorte del 54% desde $6.5B Aprobados en FY2026",
+    },
+    summary: {
+      en: "The FY2027 budget proposes only $3 billion for Health Centers ($1.8B discretionary + $1.1B mandatory), down from $6.5B enacted in FY2026 (which included the $4.6B Community Health Center Fund). The budget also proposes eliminating HRSA as a standalone agency by consolidating it into the new 'Administration for a Healthy America' (AHA) with a total AHA budget of $17.5B (down $8.6B from component agencies' FY2026 levels). Health Workforce gets only $1.1B, threatening NHSC loan repayment.",
+      es: "El presupuesto FY2027 propone solo $3 mil millones para centros de salud, una reducción del 54% desde los $6.5B aprobados en FY2026. También propone eliminar HRSA como agencia independiente, consolidándola en la nueva 'Administración para una América Saludable'.",
+    },
+    category: "funding",
+    impactLevel: "critical",
+    type: "news",
+    sourceUrl: "https://www.astho.org/advocacy/federal-government-affairs/leg-alerts/2026/president-trump-releases-fy27-budget-proposal-april-2026/",
+    sourceOrg: "ASTHO",
+    region: "Federal",
+    tags: ["fy2027", "budget", "hrsa", "health-center-program", "aha", "funding-cliff", "nhsc"],
+    keyTakeaways: [
+      { en: "54% proposed cut: $6.5B → $3B for health centers", es: "Recorte propuesto del 54%: $6.5B → $3B para centros de salud" },
+      { en: "HRSA eliminated as standalone agency — merged into 'Administration for a Healthy America'", es: "HRSA eliminada como agencia independiente — fusionada en 'Administración para una América Saludable'" },
+      { en: "NHSC loan repayment threatened by $1.1B Health Workforce budget", es: "Reembolso de préstamos NHSC amenazado por presupuesto de $1.1B para fuerza laboral" },
+    ],
+  },
+  {
+    id: "kff-california-22b-deficit-work-requirements-implementation",
+    date: "2026-04-06",
+    headline: {
+      en: "KFF: California Faces $22B Deficit by FY2028 While Implementing Medicaid Work Requirements — 1.4M Disenrollments Expected",
+      es: "KFF: California Enfrenta Déficit de $22B para FY2028 al Implementar Requisitos de Trabajo de Medicaid — 1.4M Cancelaciones Esperadas",
+    },
+    summary: {
+      en: "KFF's deep-dive shows California must implement Medicaid work requirements (affecting ~5M expansion enrollees) while managing a projected $3B deficit for FY2027 growing to $22B by FY2028. The state faces $1.4B in General Fund costs from H.R. 1, is cutting FQHC/RHC reimbursement for state-funded UIS services (July 2026), and expects 1.4M disenrollments from work requirement implementation. The $5.1B provider tax revenue loss undercuts a major state financing mechanism.",
+      es: "El análisis profundo de KFF muestra que California debe implementar requisitos de trabajo de Medicaid mientras enfrenta un déficit proyectado de $22B para FY2028. Se esperan 1.4M cancelaciones de inscripción y $5.1B en pérdidas de ingresos por impuestos a proveedores.",
+    },
+    category: "legislation",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://www.kff.org/medicaid/a-closer-look-at-californias-plans-to-implement-work-requirements-while-facing-major-budget-shortfalls-amid-cuts-in-federal-medicaid-funding/",
+    sourceOrg: "KFF",
+    region: "California",
+    tags: ["kff", "work-requirements", "deficit", "disenrollment", "uis", "provider-tax", "medi-cal"],
+    keyTakeaways: [
+      { en: "$3B FY2027 deficit growing to $22B by FY2028", es: "Déficit de $3B en FY2027 creciendo a $22B para FY2028" },
+      { en: "1.4M projected disenrollments from work requirements", es: "1.4M cancelaciones proyectadas por requisitos de trabajo" },
+      { en: "$5.1B provider tax revenue loss under H.R. 1 restrictions", es: "Pérdida de $5.1B en ingresos por impuestos a proveedores bajo restricciones de H.R. 1" },
+    ],
+  },
+  {
+    id: "chcf-six-bold-ideas-future-medi-cal",
+    date: "2026-04-10",
+    headline: {
+      en: "CHCF Publishes 'Six Bold Ideas for the Future of Medi-Cal' — Including Unified Primary Care Payment Model",
+      es: "CHCF Publica 'Seis Ideas Audaces para el Futuro de Medi-Cal' — Incluyendo Modelo Unificado de Pago de Atención Primaria",
+    },
+    summary: {
+      en: "CHCF selected 6 transformative proposals from 132 submissions for the Future of Medi-Cal Commission: (1) unified primary care payment across Medi-Cal/CalPERS/Covered CA, (2) IHSS managed care integration, (3) Covered California expansion for coverage continuity, (4) 'Any Card, Any Provider' network unification, (5) AI-first Health Data Utility, and (6) unified financing model. The unified payment proposal could replace FQHC PPS with a standardized multipayer model.",
+      es: "CHCF seleccionó 6 propuestas transformadoras de 132 presentaciones para la Comisión del Futuro de Medi-Cal, incluyendo un modelo unificado de pago de atención primaria que podría reemplazar el PPS de los FQHCs.",
+    },
+    category: "change-management",
+    impactLevel: "medium",
+    type: "strategy",
+    sourceUrl: "https://www.chcf.org/resource/bold-ideas-future-medi-cal-proposals/",
+    sourceOrg: "CHCF",
+    region: "California",
+    tags: ["chcf", "medi-cal", "pps", "unified-payment", "commission", "ai-health-data", "network"],
+  },
+  {
+    id: "ccalac-coalition-oc-25th-symposium-april-2026",
+    date: "2026-04-10",
+    headline: {
+      en: "CCALAC & Coalition OC Unite at 25th Annual SoCal Symposium: 'Dangerous Policies' Threaten Safety Net",
+      es: "CCALAC y Coalition OC Se Unen en 25º Simposio Anual de SoCal: 'Políticas Peligrosas' Amenazan la Red de Seguridad",
+    },
+    summary: {
+      en: "The Community Clinic Association of LA County (CCALAC) and the Coalition of Orange County Community Health Centers co-hosted the 25th Annual Southern California Health Care Symposium on April 10, naming 'dangerous state and federal policies coupled with a worsening workforce crisis' as threats to safety-net capacity. The event represents unified SoCal advocacy across LA + OC (100+ FQHCs) heading into the June 2 sales tax ballot and legislative session.",
+      es: "CCALAC y la Coalición de Centros de Salud Comunitarios del Condado de Orange co-organizaron el 25º Simposio Anual de Salud del Sur de California, nombrando 'políticas peligrosas' y crisis de fuerza laboral como amenazas a la red de seguridad.",
+    },
+    category: "lobbying",
+    impactLevel: "medium",
+    type: "news",
+    sourceUrl: "https://coalitionoc.org/",
+    sourceOrg: "Coalition of OC Community Health Centers / CCALAC",
+    region: "Los Angeles County",
+    tags: ["ccalac", "coalition-oc", "symposium", "advocacy", "socal", "workforce-crisis", "coalition"],
+  },
+  {
+    id: "cms-work-requirements-ifr-june-1-deadline",
+    date: "2026-06-01",
+    headline: {
+      en: "CMS Interim Final Rule on Medicaid Work Requirements Due June 1 — Will Define Exemptions, Reporting, and Enforcement",
+      es: "Regla Final Provisional de CMS sobre Requisitos de Trabajo de Medicaid Vence el 1 de Junio — Definirá Exenciones, Reportes y Cumplimiento",
+    },
+    summary: {
+      en: "CMS must issue an Interim Final Rule by June 1, 2026 defining critical work requirement implementation details: exemption criteria, reporting mechanisms, compliance verification, and non-compliance consequences. The 80-hour/month requirement scope depends entirely on this rule — narrow exemptions could mean millions losing coverage, broad exemptions could limit damage. States must conduct member outreach June 30–August 31, 2026. CMS is distributing $200M in 'Government Efficiency Grants' for state tracking systems, but no direct funding flows to FQHCs despite bearing the patient-facing burden.",
+      es: "CMS debe emitir una Regla Final Provisional antes del 1 de junio de 2026 definiendo detalles de implementación de requisitos de trabajo. Exenciones estrechas podrían significar millones perdiendo cobertura. $200M en subvenciones para sistemas estatales, pero nada directo para FQHCs.",
+    },
+    category: "legislation",
+    impactLevel: "critical",
+    type: "deadline",
+    sourceUrl: "https://www.chcs.org/resource/a-summary-of-national-medicaid-work-requirements/",
+    sourceOrg: "CHCS / CMS",
+    region: "Federal",
+    tags: ["cms", "work-requirements", "ifr", "deadline", "exemptions", "june-2026", "disenrollment"],
+    keyTakeaways: [
+      { en: "June 1 deadline: CMS must publish the Interim Final Rule", es: "Fecha límite 1 de junio: CMS debe publicar la Regla Final Provisional" },
+      { en: "June 30–Aug 31: States must conduct outreach to all affected enrollees", es: "30 jun–31 ago: Estados deben realizar contacto con todos los inscritos afectados" },
+      { en: "$200M for state systems — zero direct FQHC funding for patient navigation", es: "$200M para sistemas estatales — cero fondos directos para FQHCs para navegación de pacientes" },
+    ],
   },
 ];
 

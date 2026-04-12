@@ -5,24 +5,24 @@ import { X, Sparkles } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
-const DISMISS_KEY = "announcement-dismissed-v12";
+const DISMISS_KEY = "announcement-dismissed-v14";
 
 const BANNER_ITEMS = [
   {
     text: {
-      en: "SEIU-UHW submits signatures for 90% mission-spend ballot measure — FQHCs respond",
-      es: "SEIU-UHW presenta firmas para medida electoral de 90% de gasto en misión — FQHCs responden",
+      en: "FY2027 budget proposes 54% cut to Health Center Program: $6.5B \u2192 $3B",
+      es: "Presupuesto FY2027 propone recorte del 54% al Programa de Centros de Salud: $6.5B \u2192 $3B",
     },
-    linkText: { en: "Advocacy Watch →", es: "Seguimiento →" },
-    href: "/strategy/advocacy" as const,
+    linkText: { en: "Intel Dashboard →", es: "Panel de Inteligencia →" },
+    href: "/" as const,
   },
   {
     text: {
-      en: "March 2026 Jobs Report: FQHC hiring slows as Medicaid cuts loom",
-      es: "Informe de Empleos Marzo 2026: Contratación de FQHCs se desacelera ante recortes de Medicaid",
+      en: "KFF: CA faces $22B deficit by FY2028 + 1.4M Medicaid disenrollments from work requirements",
+      es: "KFF: CA enfrenta déficit de $22B para FY2028 + 1.4M cancelaciones de Medicaid por requisitos de trabajo",
     },
-    linkText: { en: "Read report →", es: "Leer informe →" },
-    href: "/blog/march-2026-jobs-report-fqhc-hiring-slowdown" as const,
+    linkText: { en: "Full Analysis →", es: "Análisis Completo →" },
+    href: "/" as const,
   },
 ];
 

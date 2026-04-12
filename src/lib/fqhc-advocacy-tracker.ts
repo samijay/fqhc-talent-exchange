@@ -4,7 +4,7 @@
 // Each item includes follow-up dates and outcome tracking.
 // Updated via /daily-update pipeline.
 
-export const ADVOCACY_LAST_UPDATED = "2026-04-10";
+export const ADVOCACY_LAST_UPDATED = "2026-04-11";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -139,12 +139,12 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
     id: "la-county-health-tax-ballot-june",
     date: "2026-03-01",
     headline: {
-      en: "LA County Half-Cent Health Tax on June 2 Ballot \u2014 $1B/Year for Safety Net",
-      es: "Impuesto de Salud de Medio Centavo del Condado de LA en Boleta del 2 de Junio \u2014 $1B/A\u00f1o para Red de Seguridad",
+      en: "Measure ER (Essential Services Restoration Act): LA County Half-Cent Health Tax on June 2 Ballot \u2014 $1B/Year for Safety Net",
+      es: "Medida ER (Ley de Restauración de Servicios Esenciales): Impuesto de Salud de Medio Centavo del Condado de LA en Boleta del 2 de Junio \u2014 $1B/A\u00f1o para Red de Seguridad",
     },
     summary: {
-      en: "Los Angeles County placed a half-cent sales tax measure on the June 2, 2026 ballot that would generate approximately $1 billion per year for healthcare, mental health, and homeless services. St. John's Community Health CEO leads the 'Restore Healthcare for Angelenos' coalition. If passed, it becomes the largest local health tax in the country and a national template for offsetting federal Medicaid cuts.",
-      es: "El Condado de Los \u00c1ngeles coloc\u00f3 una medida de impuesto de venta de medio centavo en la boleta del 2 de junio de 2026. Generar\u00eda aproximadamente $1 mil millones por a\u00f1o para salud, salud mental y servicios para personas sin hogar.",
+      en: "Los Angeles County's 'Measure ER' (Essential Services Restoration Act) is a half-cent sales tax on the June 2, 2026 ballot that would generate approximately $1 billion per year for healthcare, mental health, and homeless services. St. John's Community Health CEO leads the 'Restore Healthcare for Angelenos' coalition. Early polling (March 10-15) shows 47% opposed vs 45% support among LA city voters \u2014 the measure is currently trailing. If passed, it becomes the largest local health tax in the country.",
+      es: "La 'Medida ER' del Condado de Los \u00c1ngeles es un impuesto de venta de medio centavo en la boleta del 2 de junio de 2026. Encuestas tempranas muestran 47% en contra vs 45% a favor. Generar\u00eda aproximadamente $1 mil millones por a\u00f1o para salud.",
     },
     category: "ballot-initiative",
     status: "pending-vote",
@@ -416,8 +416,8 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
       es: "RFI del Modelo de Reembolso 340B de HRSA \u2014 Fecha L\u00edmite de Comentarios 20 de Abril para Partes Interesadas de FQHCs",
     },
     summary: {
-      en: "HRSA is gathering stakeholder input on whether 340B drug pricing should shift from upfront discounts to delayed rebates. The 60-day comment window closes April 20. NACHC and CPCA are coordinating responses. NACHC recommends that FQHCs dependent on 340B upfront discounts for cash flow file comments.",
-      es: "HRSA est\u00e1 recopilando comentarios sobre si los precios de medicamentos 340B deber\u00edan cambiar de descuentos anticipados a reembolsos diferidos. La ventana de 60 d\u00edas cierra el 20 de abril.",
+      en: "HRSA is gathering stakeholder input on whether 340B drug pricing should shift from upfront discounts to delayed rebates. The 60-day RFI comment window closes April 20. A second Information Collection Request (ICR) on the burden of the rebate model is due April 27. Meanwhile, the 1st Circuit upheld a district court halt of the rebate pilot program (Jan 7, 2026) and HRSA has paused the pilot. NACHC's ASAP 340B Alliance is coordinating data-driven responses from member FQHCs.",
+      es: "HRSA recopila comentarios sobre si los precios 340B deber\u00edan cambiar de descuentos anticipados a reembolsos diferidos. RFI cierra el 20 de abril, segunda ICR el 27 de abril. El 1er Circuito bloque\u00f3 el programa piloto; HRSA lo paus\u00f3.",
     },
     category: "federal-action",
     status: "active",
@@ -502,8 +502,8 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
       es: "Ley de Impuesto a Multimillonarios de California: Medida Electoral de $100B para Salud Cobra Impulso",
     },
     summary: {
-      en: "SEIU-UHW is leading a ballot drive for a one-time 5% wealth tax on California's ~200 billionaires (~$2T combined wealth), projected to generate $100B over 5 years. 90% would fund healthcare programs, directly offsetting H.R. 1 Medicaid cuts. Bernie Sanders endorsed the measure. 25% of required signatures collected as of March 2. A February 2026 Nestpoint survey shows 60% of likely voters support it. If passed, this would be the largest state-level healthcare funding mechanism in US history.",
-      es: "SEIU-UHW lidera una campaña electoral para un impuesto del 5% sobre la riqueza de los ~200 multimillonarios de California, proyectado para generar $100B en 5 años. 90% financiaría programas de salud.",
+      en: "SEIU-UHW is leading a ballot drive for a one-time 5% wealth tax on California's ~200 billionaires (~$2T combined wealth), projected to generate $100B over 5 years. 90% would fund healthcare programs, directly offsetting H.R. 1 Medicaid cuts. As of April 2026, the measure is dividing progressive Democrats \u2014 Governor Newsom opposes it, and CalMatters reports three unnamed union leaders and five Legislative Progressive Caucus members are privately critical. Key criticism: the tax disproportionately benefits SEIU-UHW members rather than the general fund. SEIU-UHW president Dave Regan says he is 'confident' enough signatures will be collected before end of April.",
+      es: "SEIU-UHW lidera una campaña electoral para un impuesto del 5% sobre la riqueza de los ~200 multimillonarios de California, proyectado para generar $100B en 5 años. A partir de abril 2026, la medida está dividiendo a los demócratas progresistas \u2014 el Gobernador Newsom se opone.",
     },
     category: "ballot-initiative",
     status: "active",
@@ -659,6 +659,30 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
       { label: { en: "Protect Patients CA", es: "Proteger Pacientes CA" }, url: "https://protectpatientsca.com/" },
     ],
     tags: ["ccalac", "fhcsd", "counter-initiative", "seiu-uhw", "ballot", "protect-access", "november-2026"],
+  },
+  {
+    id: "first-circuit-340b-rebate-pilot-blocked",
+    date: "2026-02-10",
+    headline: {
+      en: "Federal Courts Block 340B Rebate Pilot \u2014 1st Circuit Upholds Halt, HRSA Pauses Program",
+      es: "Tribunales Federales Bloquean Piloto de Reembolso 340B \u2014 1er Circuito Confirma Suspensión, HRSA Pausa Programa",
+    },
+    summary: {
+      en: "The 1st Circuit Court denied the government's stay request (Jan 7, 2026), upholding a Maine district court ruling that vacated the 340B rebate model pilot program. The court found hospitals were 'likely to succeed on the merits' due to HRSA's failure to provide a reasonable explanation for the pricing change. HRSA has officially paused the pilot and is using an RFI (deadline April 20) and ICR (deadline April 27) to gather input on next steps. This is a significant victory for safety-net providers including FQHCs that depend on 340B upfront discounts for cash flow.",
+      es: "El 1er Circuito negó la suspensión del gobierno, confirmando el fallo que anuló el programa piloto de reembolso 340B. HRSA pausó oficialmente el piloto. Victoria significativa para proveedores de red de seguridad.",
+    },
+    category: "legal-action",
+    status: "passed",
+    region: "Federal",
+    organizations: ["AHA", "Maine Hospital Association", "1st Circuit Court", "HRSA"],
+    followUpDate: "2026-04-20",
+    followUpNote: { en: "340B RFI comment deadline \u2014 next steps from HRSA", es: "Fecha límite de comentarios del RFI 340B \u2014 próximos pasos de HRSA" },
+    outcomeDate: "2026-02-10",
+    outcome: { en: "340B rebate pilot vacated by federal court; HRSA paused program", es: "Piloto de reembolso 340B anulado por tribunal federal; HRSA pausó programa" },
+    sourceUrl: "https://www.aha.org/news/headline/2026-01-08-1st-circuit-denies-stay-upholds-district-courts-halt-340b-rebate-program",
+    sourceOrg: "AHA",
+    impactLevel: "high",
+    tags: ["340b", "court-ruling", "rebate-pilot", "1st-circuit", "aha", "safety-net"],
   },
 ];
 

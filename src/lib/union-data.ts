@@ -296,6 +296,19 @@ export const UNION_DIRECTORY: UnionProfile[] = [
     ],
     recentNews: [
       {
+        date: "2025-04-02",
+        title: {
+          en: "St. John's Community Health Workers Vote on New 3-Year Contract with $30/hr Minimum",
+          es: "Trabajadores de St. John's Community Health Votan Nuevo Contrato de 3 Años con Mínimo de $30/hr",
+        },
+        summary: {
+          en: "SEIU 721 members at St. John's Community Health voted on a new 3-year tentative agreement featuring an industry-leading $30/hr minimum wage (up from $25 — a 20% increase), a new longevity tier, Juneteenth recognition, and increased vacation flexibility. The bargaining team unanimously recommended ratification.",
+          es: "Miembros de SEIU 721 en St. John's votaron un nuevo acuerdo tentativo de 3 años con salario mínimo de $30/hr (aumento del 20% desde $25), nuevo nivel de antigüedad y mayor flexibilidad de vacaciones.",
+        },
+        sourceUrl: "https://www.seiu721.org/2026/03/2026-st-johns-community-health-contract-vote.php",
+        sourceTitle: "SEIU 721",
+      },
+      {
         date: "2025-01-15",
         title: {
           en: "St. John's Community Health Elects 2026 Bargaining Team",
@@ -397,6 +410,19 @@ export const UNION_DIRECTORY: UnionProfile[] = [
       // Also: LA LGBT Center (FQHC Look-Alike, organized 2019), Lyon-Martin Community Health (SF, organized 2022), RAMS (SF mental health, 77-3 vote 2017)
     ],
     recentNews: [
+      {
+        date: "2026-03-18",
+        title: {
+          en: "2,400 NUHW Mental Health Clinicians Strike Kaiser Permanente Over AI Triage Changes",
+          es: "2,400 Clínicos de Salud Mental de NUHW Hacen Huelga en Kaiser Permanente por Cambios de Triaje con IA",
+        },
+        summary: {
+          en: "One-day ULP strike across 5 CA cities (Sacramento, Fresno, Santa Rosa, Santa Clara, Oakland), joined by 23,000 CNA/NNU nurses and IFPTE engineers in solidarity. Workers oppose Kaiser replacing licensed clinicians with AI questionnaires and telephone operators for mental health triage. Contract expired Sept 2025; sides remain far apart. Followed by 5-day hunger strike in LA (April 7-11).",
+          es: "Huelga de un día en 5 ciudades de CA, unida por 23,000 enfermeras CNA/NNU e ingenieros IFPTE. Trabajadores se oponen a que Kaiser reemplace clínicos con cuestionarios de IA para triaje de salud mental. Seguida por huelga de hambre de 5 días en LA (abril 7-11).",
+        },
+        sourceUrl: "https://home.nuhw.org/2026/03/23/mental-health-clinicians-hold-major-strike-with-support-from-kaiser-permanente-nurses-engineers/",
+        sourceTitle: "NUHW",
+      },
       {
         date: "2026-01-27",
         title: {
