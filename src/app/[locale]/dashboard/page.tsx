@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useLocale } from "next-intl";
+import { t } from "@/lib/i18n-helpers";
 import {
   Rss,
   BookmarkCheck,
@@ -45,8 +46,7 @@ import { toast } from "sonner";
 /*  Bilingual helper                                                    */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+// t() imported from @/lib/i18n-helpers
 
 /* ------------------------------------------------------------------ */
 /*  Tab config                                                          */

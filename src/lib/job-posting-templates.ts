@@ -615,13 +615,7 @@ export function getSalaryBenchmark(roleId: string): SalaryBenchmark | undefined 
   return SALARY_BENCHMARKS.find((b) => b.roleId === roleId);
 }
 
-export function formatSalary(amount: number): string {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  }).format(amount);
-}
+// formatSalary moved to @/lib/i18n-helpers
 
 export function getSalaryCompetitiveness(
   offered: number,

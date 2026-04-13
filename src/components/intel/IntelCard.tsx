@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDown, ChevronUp, Lock } from "lucide-react";
+import { t, formatDate } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
 import { Badge } from "@/components/ui/badge";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
@@ -18,16 +19,7 @@ import { ShareButton } from "@/components/share/ShareButton";
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
-
-function formatDate(dateStr: string, locale: string): string {
-  const d = new Date(dateStr + "T00:00:00");
-  return d.toLocaleDateString(locale === "es" ? "es-US" : "en-US", {
-    month: "short",
-    day: "numeric",
-  });
-}
+// t() and formatDate imported from @/lib/i18n-helpers
 
 /* ------------------------------------------------------------------ */
 /*  IntelCard — shared expandable intelligence card                    */
@@ -65,7 +57,7 @@ export function IntelCard({
                 {t(IMPACT_LABELS[item.impactLevel], locale)}
               </Badge>
               <span className="text-xs text-stone-500">
-                {formatDate(item.date, locale)}
+                {formatDate(item.date, locale, { includeYear: false })}
               </span>
               {catMeta && (
                 <span className="text-xs bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded-full">

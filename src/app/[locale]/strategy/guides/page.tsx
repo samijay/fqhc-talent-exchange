@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
+import { t } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumb } from "@/components/ui/design-system";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -37,8 +38,7 @@ import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+// t() imported from @/lib/i18n-helpers
 
 /* ------------------------------------------------------------------ */
 /*  Case Study Card                                                    */

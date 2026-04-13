@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useLocale } from "next-intl";
+import { formatSalary } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
 import {
   Briefcase,
@@ -244,9 +245,7 @@ const IMPACT_BADGE: Record<string, string> = {
 /*  Formatters                                                         */
 /* ------------------------------------------------------------------ */
 
-function formatSalary(n: number): string {
-  return `$${(n / 1000).toFixed(0)}k`;
-}
+// formatSalary imported from @/lib/i18n-helpers
 
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */

@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo, useCallback, type ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
+import { t } from "@/lib/i18n-helpers";
 import {
   Search,
   Briefcase,
@@ -212,8 +213,7 @@ const SALARY_RANGES = [
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+// t() imported from @/lib/i18n-helpers
 
 function formatSalary(min: number | null, max: number | null) {
   if (!min && !max) return null;

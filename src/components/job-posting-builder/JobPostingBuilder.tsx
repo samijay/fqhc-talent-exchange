@@ -39,8 +39,11 @@ import {
   SCREENING_CATEGORIES,
   getSalaryBenchmark,
   getSalaryCompetitiveness,
-  formatSalary,
 } from "@/lib/job-posting-templates";
+import { formatSalary as _formatSalary } from "@/lib/i18n-helpers";
+
+/** Full salary format for job postings (e.g. $85,000) */
+const formatSalary = (amount: number) => _formatSalary(amount, false);
 import { generateJobPostingDocx } from "@/lib/docx-generator";
 
 /* ------------------------------------------------------------------ */

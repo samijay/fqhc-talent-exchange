@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
+import { formatDate } from "@/lib/i18n-helpers";
 import {
   AlertTriangle,
   ArrowRight,
@@ -44,14 +45,7 @@ import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcr
 /*  Helpers                                                             */
 /* ------------------------------------------------------------------ */
 
-function formatDate(iso: string, locale: string) {
-  const d = new Date(iso + "T00:00:00");
-  return d.toLocaleDateString(locale === "es" ? "es-US" : "en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-}
+// formatDate imported from @/lib/i18n-helpers
 
 function statusColor(status: string) {
   if (status === "announced") return "bg-amber-100 text-amber-800 border-amber-200";

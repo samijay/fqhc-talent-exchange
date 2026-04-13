@@ -22,6 +22,7 @@ import {
   Check,
 } from "lucide-react";
 import { useLocale } from "next-intl";
+import { formatSalary } from "@/lib/i18n-helpers";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumb } from "@/components/ui/design-system";
@@ -55,9 +56,7 @@ const PATHWAY_COLORS: Record<string, { bg: string; border: string; text: string;
   cyan: { bg: "bg-cyan-50", border: "border-cyan-200", text: "text-cyan-700", light: "bg-cyan-100", bar: "bg-cyan-500" },
 };
 
-function formatSalary(amount: number): string {
-  return `$${Math.round(amount / 1000)}K`;
-}
+// formatSalary imported from @/lib/i18n-helpers
 
 export default function CareerRoadmapPage() {
   const locale = useLocale();

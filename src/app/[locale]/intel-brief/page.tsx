@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { useLocale } from "next-intl";
+import { formatDate } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
 import {
   Download,
@@ -53,12 +54,7 @@ function getCategoryCounts() {
   return counts;
 }
 
-function formatDate(iso: string, locale: string) {
-  return new Date(iso + "T00:00:00").toLocaleDateString(
-    locale === "es" ? "es-US" : "en-US",
-    { month: "short", day: "numeric", year: "numeric" }
-  );
-}
+// formatDate imported from @/lib/i18n-helpers
 
 /* ------------------------------------------------------------------ */
 /*  PDF Generation                                                     */

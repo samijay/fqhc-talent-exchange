@@ -4,6 +4,7 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
+import { t } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
 import {
   Cpu,
@@ -54,8 +55,7 @@ import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+// t() imported from @/lib/i18n-helpers
 
 function formatShortDate(dateStr: string, locale: string): string {
   const d = new Date(dateStr + "T00:00:00");

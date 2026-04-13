@@ -19,6 +19,7 @@ import {
   Star,
 } from "lucide-react";
 import { useLocale } from "next-intl";
+import { t } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumb } from "@/components/ui/design-system";
 import { Badge } from "@/components/ui/badge";
@@ -40,8 +41,7 @@ import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+// t() imported from @/lib/i18n-helpers
 
 const CATEGORY_ICONS: Record<ResourceCategory, typeof DollarSign> = {
   "loan-repayment": DollarSign,

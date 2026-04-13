@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
+import { formatSalary } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
 import {
   ChevronRight,
@@ -557,9 +558,7 @@ function calculateMatches(answers: Record<string, string>): RoleMatch[] {
 /*  Formatting Helpers                                                 */
 /* ------------------------------------------------------------------ */
 
-function formatSalary(n: number): string {
-  return `$${(n / 1000).toFixed(0)}K`;
-}
+// formatSalary imported from @/lib/i18n-helpers
 
 /* ------------------------------------------------------------------ */
 /*  Page Component                                                     */

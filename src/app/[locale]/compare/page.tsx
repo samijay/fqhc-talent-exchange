@@ -3,6 +3,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { useLocale } from "next-intl";
+import { t } from "@/lib/i18n-helpers";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import {
@@ -40,8 +41,7 @@ import { trackCompareUse } from "@/lib/analytics";
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+// t() imported from @/lib/i18n-helpers
 
 const MAX_COMPARE = 3;
 

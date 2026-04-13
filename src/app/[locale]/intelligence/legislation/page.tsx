@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
+import { t, formatDate } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
 import {
   AlertTriangle,
@@ -37,8 +38,7 @@ import {
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+// t() and formatDate imported from @/lib/i18n-helpers
 
 function daysUntil(dateStr: string): number {
   const now = new Date();
@@ -46,12 +46,7 @@ function daysUntil(dateStr: string): number {
   return Math.ceil((target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 }
 
-function formatDate(dateStr: string, locale: string): string {
-  const d = new Date(dateStr + "T00:00:00");
-  return d.toLocaleDateString(locale === "es" ? "es-US" : "en-US", {
-    month: "short", day: "numeric", year: "numeric",
-  });
-}
+// formatDate removed — see import above
 
 /* ------------------------------------------------------------------ */
 /*  Bill Card                                                          */
