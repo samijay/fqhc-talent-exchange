@@ -4896,6 +4896,27 @@ export const INTEL_ITEMS: IntelItem[] = [
       { en: "Violations can trigger debarment, contract termination, and FCA liability", es: "Violaciones pueden provocar inhabilitación, terminación de contrato y responsabilidad FCA" },
     ],
   },
+  {
+    id: "la-lgbt-center-hhs-oig-investigation",
+    date: "2026-02-12",
+    headline: {
+      en: "Trump Administration Refers LA LGBT Center to HHS Inspector General — One of Four LGBTQ+ FQHCs Targeted Nationally",
+      es: "Administración Trump Refiere al Centro LGBT de LA al Inspector General de HHS — Uno de Cuatro FQHCs LGBTQ+ Atacados Nacionalmente",
+    },
+    summary: {
+      en: "HHS General Counsel Mike Stuart referred the Los Angeles LGBT Center (along with Whitman-Walker Health DC, Callen-Lorde NYC, and Institute for Family Health NYC) to the HHS OIG for investigation, stemming from HHS Secretary Kennedy's December 2025 declaration targeting organizations providing gender-affirming care for minors. A 22-state lawsuit (Oregon v. Kennedy) challenged the actions; HHS agreed to pause exclusion notices but investigations continue. If exclusion proceeds, the LA LGBT Center would lose all federal Medicare/Medicaid reimbursement.",
+      es: "El Consejero General de HHS refirió al Centro LGBT de Los Ángeles al Inspector General de HHS para investigación. Si la exclusión procede, el centro perdería todo reembolso federal de Medicare/Medicaid.",
+    },
+    category: "compliance",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://www.erininthemorning.com/p/trump-administration-targets-major",
+    sourceOrg: "Erin in the Morning",
+    region: "Los Angeles County",
+    affectedOrgs: ["Los Angeles LGBT Center"],
+    affectedOrgSlugs: ["los-angeles-lgbt-center"],
+    tags: ["oig", "hhs", "lgbtq", "gender-affirming-care", "exclusion", "investigation", "la-lgbt-center"],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
