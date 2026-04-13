@@ -139,6 +139,8 @@ export const INTEL_BRIEF_001: IntelBriefContent = {
     },
   ],
 
+  laborUpdates: [],
+
   aiUpdates: [
     {
       headline:
@@ -382,6 +384,8 @@ export const INTEL_BRIEF_002: IntelBriefContent = {
       sourceOrg: "Santa Barbara Independent",
     },
   ],
+
+  laborUpdates: [],
 
   aiUpdates: [
     {
@@ -635,6 +639,7 @@ export const INTEL_BRIEF_003: IntelBriefContent = {
   policyUpdates: [],
   fundingAlerts: [],
   workforceUpdates: [],
+  laborUpdates: [],
   aiUpdates: [],
 
   keyDates: [
