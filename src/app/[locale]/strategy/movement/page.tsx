@@ -234,7 +234,7 @@ function AllianceCard({
   const isEs = locale === "es";
 
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white transition-all hover:shadow-sm">
+    <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 transition-all hover:shadow-sm">
       {/* Header — always visible */}
       <button
         onClick={onToggle}
@@ -242,7 +242,7 @@ function AllianceCard({
       >
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1">
-            <h3 className="text-base font-bold text-stone-900 leading-snug sm:text-lg">
+            <h3 className="text-base font-bold text-stone-900 dark:text-stone-100 leading-snug sm:text-lg">
               {t(alliance.title, locale)}
             </h3>
             <div className="flex flex-wrap items-center gap-2 mt-2">
@@ -262,7 +262,7 @@ function AllianceCard({
 
         {/* Preview when collapsed */}
         {!isExpanded && (
-          <p className="mt-3 text-sm text-stone-500 line-clamp-2">
+          <p className="mt-3 text-sm text-stone-500 dark:text-stone-400 line-clamp-2">
             {t(alliance.description, locale)}
           </p>
         )}
@@ -270,9 +270,9 @@ function AllianceCard({
 
       {/* Expanded body */}
       {isExpanded && (
-        <div className="px-5 pb-5 sm:px-6 sm:pb-6 space-y-4 border-t border-stone-100 pt-4">
+        <div className="px-5 pb-5 sm:px-6 sm:pb-6 space-y-4 border-t border-stone-100 dark:border-stone-700 pt-4">
           {/* Full description */}
-          <p className="text-sm text-stone-600 leading-relaxed">
+          <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
             {t(alliance.description, locale)}
           </p>
 
@@ -286,10 +286,10 @@ function AllianceCard({
                 {alliance.keyFigures.map((person) => (
                   <div
                     key={person.name}
-                    className="rounded-lg bg-stone-50 border border-stone-100 p-3"
+                    className="rounded-lg bg-stone-50 dark:bg-stone-800 border border-stone-100 dark:border-stone-700 p-3"
                   >
                     <div className="flex items-center gap-2 mb-1">
-                      <div className="flex items-center justify-center w-7 h-7 rounded-full bg-teal-100 text-xs font-bold text-teal-700">
+                      <div className="flex items-center justify-center w-7 h-7 rounded-full bg-teal-100 dark:bg-teal-900 text-xs font-bold text-teal-700 dark:text-teal-400">
                         {person.name
                           .split(" ")
                           .map((n) => n[0])
@@ -297,7 +297,7 @@ function AllianceCard({
                           .join("")}
                       </div>
                       <div>
-                        <span className="text-sm font-semibold text-stone-900">
+                        <span className="text-sm font-semibold text-stone-900 dark:text-stone-100">
                           {person.name}
                         </span>
                         <span className="text-xs text-stone-500 ml-1.5">
@@ -305,7 +305,7 @@ function AllianceCard({
                         </span>
                       </div>
                     </div>
-                    <p className="text-sm text-stone-600 leading-relaxed">
+                    <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
                       {t(person.contribution, locale)}
                     </p>
                   </div>
@@ -315,7 +315,7 @@ function AllianceCard({
           )}
 
           {/* Relevance to modern FQHCs */}
-          <div className="rounded-lg bg-teal-50 border border-teal-200 p-4">
+          <div className="rounded-lg bg-teal-50 dark:bg-teal-950 border border-teal-200 dark:border-teal-800 p-4">
             <p className="text-xs font-bold text-teal-700 uppercase tracking-wider mb-1.5">
               {isEs ? "Relevancia para los FQHCs Hoy" : "Relevance to FQHCs Today"}
             </p>
@@ -384,7 +384,7 @@ export default function MovementPage() {
   ];
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: "Home", href: "/" },
         { label: "Strategy", href: "/strategy/movement" },
@@ -474,7 +474,7 @@ export default function MovementPage() {
       <section id="movement-timeline" className="py-12 sm:py-16 scroll-mt-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl">
+            <h2 className="text-2xl font-extrabold text-stone-900 dark:text-stone-100 sm:text-3xl">
               {isEs ? "Linea del Tiempo del Movimiento" : "Movement Timeline"}
             </h2>
             <p className="mt-2 text-stone-500 max-w-2xl mx-auto">
@@ -499,7 +499,7 @@ export default function MovementPage() {
                 className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
                   selectedCategory === "all"
                     ? "bg-stone-800 text-white border-stone-800"
-                    : "bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100"
+                    : "bg-stone-50 text-stone-700 border-stone-200 hover:bg-stone-100 dark:bg-stone-800 dark:text-stone-300 dark:border-stone-600 dark:hover:bg-stone-700"
                 }`}
               >
                 {isEs ? "Todos" : "All"}
@@ -533,8 +533,8 @@ export default function MovementPage() {
                 onClick={() => setReverseChronology(!reverseChronology)}
                 className={`inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors ${
                   reverseChronology
-                    ? "bg-teal-50 text-teal-700 border-teal-200"
-                    : "bg-white text-stone-500 border-stone-200 hover:bg-stone-50"
+                    ? "bg-teal-50 text-teal-700 border-teal-200 dark:bg-teal-950 dark:text-teal-400 dark:border-teal-700"
+                    : "bg-white text-stone-500 border-stone-200 hover:bg-stone-50 dark:bg-stone-800 dark:text-stone-400 dark:border-stone-600 dark:hover:bg-stone-700"
                 }`}
               >
                 <ArrowUpDown className="size-3" />
@@ -667,7 +667,7 @@ export default function MovementPage() {
       {/* ============================================================ */}
       {/*  Cross-Cultural Alliances                                     */}
       {/* ============================================================ */}
-      <section id="cross-cultural-alliances" className="py-12 sm:py-16 bg-white scroll-mt-20">
+      <section id="cross-cultural-alliances" className="py-12 sm:py-16 bg-white dark:bg-stone-900 scroll-mt-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -676,7 +676,7 @@ export default function MovementPage() {
                 {isEs ? "Alianzas" : "Alliances"}
               </span>
             </div>
-            <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl">
+            <h2 className="text-2xl font-extrabold text-stone-900 dark:text-stone-100 sm:text-3xl">
               {isEs ? "Poderosas Coaliciones" : "Powerful Coalitions"}
             </h2>
             <p className="mt-3 text-stone-500 max-w-2xl mx-auto leading-relaxed">
@@ -707,7 +707,7 @@ export default function MovementPage() {
       {/* ============================================================ */}
       {/*  Leaders to Watch                                             */}
       {/* ============================================================ */}
-      <section id="movement-leaders" className="py-12 sm:py-16 bg-teal-50 scroll-mt-20">
+      <section id="movement-leaders" className="py-12 sm:py-16 bg-teal-50 dark:bg-teal-950 scroll-mt-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -716,7 +716,7 @@ export default function MovementPage() {
                 {isEs ? "Lideres del Movimiento" : "Movement Leaders"}
               </span>
             </div>
-            <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl">
+            <h2 className="text-2xl font-extrabold text-stone-900 dark:text-stone-100 sm:text-3xl">
               {isEs
                 ? "Lideres que Estan Dando Forma al Futuro"
                 : "Leaders Shaping the Future"}
@@ -733,11 +733,11 @@ export default function MovementPage() {
             {movementLeaders.map((leader) => (
               <div
                 key={leader.id}
-                className="rounded-xl border border-teal-100 bg-white p-4 transition-all hover:shadow-sm hover:border-teal-200"
+                className="rounded-xl border border-teal-100 dark:border-teal-800 bg-white dark:bg-stone-900 p-4 transition-all hover:shadow-sm hover:border-teal-200 dark:hover:border-teal-700"
               >
                 <div className="flex items-start gap-3">
                   {/* Avatar initial */}
-                  <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-teal-100 text-sm font-bold text-teal-700">
+                  <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-900 text-sm font-bold text-teal-700 dark:text-teal-400">
                     {leader.name
                       .split(" ")
                       .map((n) => n[0])
@@ -746,7 +746,7 @@ export default function MovementPage() {
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold text-stone-900 truncate">
+                    <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100 truncate">
                       {leader.name}
                     </h3>
                     <p className="text-xs text-stone-500 line-clamp-1">
@@ -765,7 +765,7 @@ export default function MovementPage() {
                       href={leader.linkedinUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-2.5 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 hover:text-stone-900 transition-colors"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 dark:border-stone-600 bg-white dark:bg-stone-800 px-2.5 py-1.5 text-xs font-medium text-stone-600 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-700 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                     >
                       <Linkedin className="size-3" />
                       LinkedIn

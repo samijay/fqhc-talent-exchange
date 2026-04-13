@@ -67,10 +67,11 @@ function CompetencyCard({
   const domainMeta = CULTURAL_DOMAINS.find((d) => d.id === comp.domain);
 
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white transition-all hover:shadow-md">
+    <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 transition-all hover:shadow-md">
       <button
         onClick={onToggle}
         className="flex w-full items-start gap-4 p-5 text-left"
+        aria-expanded={isExpanded}
       >
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2 mb-1">
@@ -80,7 +81,7 @@ function CompetencyCard({
               </Badge>
             )}
           </div>
-          <h3 className="text-lg font-bold text-stone-900">
+          <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
             {t(comp.title, locale)}
           </h3>
           <p className="text-sm text-stone-500 mt-1 line-clamp-2">
@@ -93,9 +94,9 @@ function CompetencyCard({
       </button>
 
       {isExpanded && (
-        <div className="border-t border-stone-100 px-5 pb-5 pt-4 space-y-5">
+        <div className="border-t border-stone-100 dark:border-stone-700 px-5 pb-5 pt-4 space-y-5">
           {/* Full Description */}
-          <div className="rounded-xl bg-teal-50 p-4 border border-teal-200">
+          <div className="rounded-xl bg-teal-50 dark:bg-teal-950 p-4 border border-teal-200 dark:border-teal-800">
             <p className="text-xs font-semibold uppercase tracking-wider text-teal-700 mb-1">
               {locale === "es" ? "Por Qué Importa" : "Why It Matters"}
             </p>
@@ -113,12 +114,12 @@ function CompetencyCard({
               {comp.practicalSteps.map((step, i) => (
                 <div
                   key={i}
-                  className="flex gap-3 rounded-lg border border-stone-100 bg-stone-50 p-3"
+                  className="flex gap-3 rounded-lg border border-stone-100 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 p-3"
                 >
                   <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-teal-700">
                     {i + 1}
                   </div>
-                  <p className="text-sm text-stone-700">
+                  <p className="text-sm text-stone-700 dark:text-stone-300">
                     {t(step, locale)}
                   </p>
                 </div>
@@ -134,7 +135,7 @@ function CompetencyCard({
               </p>
               <ul className="space-y-1.5">
                 {comp.fqhcExamples.map((ex, i) => (
-                  <li key={i} className="flex gap-2 text-sm text-stone-700">
+                  <li key={i} className="flex gap-2 text-sm text-stone-700 dark:text-stone-300">
                     <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-green-600" />
                     {t(ex, locale)}
                   </li>
@@ -205,13 +206,14 @@ function ScenarioCard({
   onToggle: () => void;
 }) {
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white transition-all hover:shadow-md">
+    <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 transition-all hover:shadow-md">
       <button
         onClick={onToggle}
         className="flex w-full items-start gap-4 p-5 text-left"
+        aria-expanded={isExpanded}
       >
         <div className="flex-1 min-w-0">
-          <h3 className="text-lg font-bold text-stone-900">
+          <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
             {t(scenario.title, locale)}
           </h3>
           <p className="text-sm text-stone-500 mt-1 line-clamp-2">
@@ -231,16 +233,16 @@ function ScenarioCard({
       </button>
 
       {isExpanded && (
-        <div className="border-t border-stone-100 px-5 pb-5 pt-4 space-y-5">
+        <div className="border-t border-stone-100 dark:border-stone-700 px-5 pb-5 pt-4 space-y-5">
           {/* Full Description */}
-          <div className="rounded-xl bg-stone-50 p-4 border border-stone-200">
-            <p className="text-sm text-stone-700 leading-relaxed">
+          <div className="rounded-xl bg-stone-50 dark:bg-stone-800 p-4 border border-stone-200 dark:border-stone-700">
+            <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
               {t(scenario.description, locale)}
             </p>
           </div>
 
           {/* Challenge */}
-          <div className="rounded-xl bg-amber-50 p-4 border border-amber-200">
+          <div className="rounded-xl bg-amber-50 dark:bg-amber-950 p-4 border border-amber-200 dark:border-amber-800">
             <p className="text-xs font-semibold uppercase tracking-wider text-amber-700 mb-2">
               {locale === "es" ? "Desafío" : "Challenge"}
             </p>
@@ -250,8 +252,8 @@ function ScenarioCard({
           </div>
 
           {/* Strategy */}
-          <div className="rounded-xl bg-teal-50 p-4 border border-teal-200">
-            <p className="text-xs font-semibold uppercase tracking-wider text-teal-700 mb-2">
+          <div className="rounded-xl bg-teal-50 dark:bg-teal-950 p-4 border border-teal-200 dark:border-teal-800">
+            <p className="text-xs font-semibold uppercase tracking-wider text-teal-700 dark:text-teal-400 mb-2">
               {locale === "es" ? "Estrategia" : "Strategy"}
             </p>
             <p className="text-sm text-teal-900 leading-relaxed">
@@ -267,7 +269,7 @@ function ScenarioCard({
               </p>
               <ul className="space-y-1.5">
                 {scenario.outcomes.map((outcome, i) => (
-                  <li key={i} className="flex gap-2 text-sm text-stone-700">
+                  <li key={i} className="flex gap-2 text-sm text-stone-700 dark:text-stone-300">
                     <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-green-600" />
                     {t(outcome, locale)}
                   </li>
@@ -306,7 +308,7 @@ export default function CulturalHumilityPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-stone-50">
+    <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: "Home", href: "/" },
         { label: "Strategy", href: "/strategy/cultural-humility" },
@@ -346,7 +348,7 @@ export default function CulturalHumilityPage() {
       {/* ============================================================ */}
       {/*  EO 14398 Alert                                              */}
       {/* ============================================================ */}
-      <section className="bg-amber-50 border-b border-amber-200">
+      <section className="bg-amber-50 dark:bg-amber-950 border-b border-amber-200 dark:border-amber-800">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-3">
             <ShieldAlert className="mt-0.5 size-5 shrink-0 text-amber-600" />
@@ -418,10 +420,10 @@ export default function CulturalHumilityPage() {
       {/* ============================================================ */}
       <section id="domain-overview" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 sm:text-3xl">
             {isEs ? "Seis Dominios de Competencia Cultural" : "Six Domains of Cultural Competency"}
           </h2>
-          <p className="mt-2 text-stone-600 max-w-2xl mx-auto">
+          <p className="mt-2 text-stone-600 dark:text-stone-400 max-w-2xl mx-auto">
             {isEs
               ? "Fundamentado en los Estándares Nacionales CLAS, el marco de Tervalon & Murray-García, y requisitos HRSA."
               : "Grounded in National CLAS Standards, the Tervalon & Murray-Garc\u00eda framework, and HRSA requirements."}
@@ -441,7 +443,7 @@ export default function CulturalHumilityPage() {
                 className={`rounded-2xl border p-5 text-left transition-all hover:shadow-md ${
                   activeDomain === domain.id
                     ? "border-teal-500 bg-teal-50 ring-2 ring-teal-200"
-                    : "border-stone-200 bg-white"
+                    : "border-stone-200 bg-white dark:border-stone-700 dark:bg-stone-900"
                 }`}
               >
                 <div className="flex items-center gap-3 mb-2">
@@ -452,7 +454,7 @@ export default function CulturalHumilityPage() {
                     {count} {isEs ? "competencias" : "competencies"}
                   </Badge>
                 </div>
-                <h3 className="text-lg font-bold text-stone-900">
+                <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                   {locale === "es" ? domain.es : domain.en}
                 </h3>
               </button>
@@ -464,11 +466,11 @@ export default function CulturalHumilityPage() {
       {/* ============================================================ */}
       {/*  Competency Cards                                            */}
       {/* ============================================================ */}
-      <section id="competencies" className="bg-white border-y border-stone-200 scroll-mt-20">
+      <section id="competencies" className="bg-white dark:bg-stone-900 border-y border-stone-200 dark:border-stone-700 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
+              <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 sm:text-3xl">
                 {isEs ? "Competencias" : "Competencies"}
               </h2>
               <p className="text-sm text-stone-500 mt-1">
@@ -513,12 +515,12 @@ export default function CulturalHumilityPage() {
       {/* ============================================================ */}
       <section id="diversity-scenarios" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 sm:text-3xl">
             {isEs
               ? "Escenarios de Diversidad del Mundo Real"
               : "Real-World Diversity Scenarios"}
           </h2>
-          <p className="mt-2 text-stone-600 max-w-2xl mx-auto">
+          <p className="mt-2 text-stone-600 dark:text-stone-400 max-w-2xl mx-auto">
             {isEs
               ? "Situaciones que enfrentan los líderes de FQHCs todos los días \u2014 con fortalezas, desafíos y acciones concretas."
               : "Situations FQHC leaders face every day \u2014 with strengths, challenges, and concrete actions."}

@@ -38,7 +38,7 @@ import {
 } from "@/lib/california-fqhc-layoffs";
 import { LayoffTimeline } from "@/components/viz/LayoffTimeline";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                             */
@@ -246,7 +246,7 @@ export default function LayoffsPage() {
   }, [t.isEs]);
 
   return (
-    <div className="bg-stone-50 min-h-screen">
+    <div className="bg-stone-50 min-h-screen dark:bg-stone-950">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <Breadcrumbs
           items={[
@@ -349,7 +349,7 @@ export default function LayoffsPage() {
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2 mb-3">
           <Filter className="size-4 text-stone-500" />
-          <span className="text-sm font-medium text-stone-700">
+          <span className="text-sm font-medium text-stone-700 dark:text-stone-300">
             {filtered.length} {t.isEs ? "resultados" : "results"} &middot;{" "}
             {totalFilteredAffected.toLocaleString()} {t.employeesAffected}
           </span>
@@ -460,9 +460,9 @@ export default function LayoffsPage() {
 
       {/* ─── Context section ─── */}
       <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8">
-          <h2 className="text-xl font-bold text-stone-900">{t.contextTitle}</h2>
-          <p className="mt-4 text-sm leading-relaxed text-stone-600 sm:text-base">
+        <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8 dark:border-stone-700 dark:bg-stone-900">
+          <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">{t.contextTitle}</h2>
+          <p className="mt-4 text-sm leading-relaxed text-stone-600 sm:text-base dark:text-stone-400">
             {t.contextBody}
           </p>
         </div>
@@ -597,13 +597,13 @@ function StatCard({
 }) {
   return (
     <div
-      className={`flex flex-col items-center rounded-xl border border-stone-200 bg-white p-4 shadow-sm ${className}`}
+      className={`flex flex-col items-center rounded-xl border border-stone-200 bg-white p-4 shadow-sm dark:border-stone-700 dark:bg-stone-800 ${className}`}
     >
       {icon}
-      <p className="mt-2 text-base font-extrabold text-stone-900 sm:text-2xl leading-tight break-words text-center">
+      <p className="mt-2 text-base font-extrabold text-stone-900 sm:text-2xl leading-tight break-words text-center dark:text-stone-100">
         {value}
       </p>
-      <p className="mt-0.5 text-xs text-stone-500 text-center">{label}</p>
+      <p className="mt-0.5 text-xs text-stone-500 text-center dark:text-stone-400">{label}</p>
     </div>
   );
 }
@@ -622,7 +622,7 @@ function LayoffCard({
   onToggle: () => void;
 }) {
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white shadow-sm transition-all hover:shadow-md overflow-hidden">
+    <div className="rounded-2xl border border-stone-200 bg-white shadow-sm transition-all hover:shadow-md overflow-hidden dark:border-stone-700 dark:bg-stone-900">
       {/* Main row */}
       <div className="p-5 sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -648,7 +648,7 @@ function LayoffCard({
               )}
             </div>
 
-            <h3 className="text-lg font-bold text-stone-900 truncate">
+            <h3 className="text-lg font-bold text-stone-900 truncate dark:text-stone-100">
               {entry.organization}
             </h3>
 

@@ -17,7 +17,7 @@ import { Badge } from "@/components/ui/badge";
 import { useSavedJobs } from "@/components/jobs/SaveJobButton";
 import { fqhcJobListings } from "@/lib/fqhc-job-listings";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
 
 const fqhcMap = new Map(californiaFQHCs.map((f) => [f.slug, f]));
 

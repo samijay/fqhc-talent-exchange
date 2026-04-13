@@ -149,7 +149,7 @@ const difficultyMeta: Record<PathDifficulty, { en: string; es: string; color: st
   "new-to-fqhc": {
     en: "New to FQHC",
     es: "Nuevo en FQHC",
-    color: "bg-teal-100 text-teal-700 border-teal-200",
+    color: "bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-400 border-teal-200",
   },
   "experienced-leader": {
     en: "Experienced Leader",
@@ -196,11 +196,11 @@ function ContentLinkGrid({
           <Link
             key={link.type}
             href={link.route}
-            className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white p-2.5 text-sm hover:border-teal-300 hover:bg-teal-50 transition-colors"
+            className="flex items-center gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-2.5 text-sm hover:border-teal-300 hover:bg-teal-50 transition-colors"
           >
             <Icon className="size-4 text-stone-500 flex-shrink-0" />
             <div className="min-w-0">
-              <span className="font-semibold text-stone-900">{link.count}</span>
+              <span className="font-semibold text-stone-900 dark:text-stone-100">{link.count}</span>
               <span className="ml-1 text-stone-500 text-xs">
                 {isEs
                   ? contentTypeLabel[link.type].es
@@ -238,7 +238,7 @@ function ThemeCard({
       className={`rounded-2xl border ${colors.border} bg-white overflow-hidden transition-shadow hover:shadow-md`}
     >
       {/* Collapsed Header */}
-      <button onClick={onToggle} className="w-full text-left p-6">
+      <button onClick={onToggle} className="w-full text-left p-6" aria-expanded={isExpanded}>
         <div className="flex items-start gap-4">
           <div
             className={`flex-shrink-0 size-12 rounded-xl ${colors.accent} flex items-center justify-center`}
@@ -247,7 +247,7 @@ function ThemeCard({
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap mb-1">
-              <h3 className="text-lg font-bold text-stone-900">
+              <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                 {t(theme.title, locale)}
               </h3>
               <Badge
@@ -282,7 +282,7 @@ function ThemeCard({
       {isExpanded && (
         <div className="px-6 pb-6 space-y-5 border-t border-stone-100 pt-5">
           {/* Description */}
-          <p className="text-sm text-stone-600 leading-relaxed">
+          <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
             {t(theme.description, locale)}
           </p>
 
@@ -338,11 +338,12 @@ function LearningPathCard({
     : "/strategy/guides";
 
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white overflow-hidden transition-shadow hover:shadow-md">
+    <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 overflow-hidden transition-shadow hover:shadow-md">
       {/* Header */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full text-left p-6"
+        aria-expanded={isExpanded}
       >
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
@@ -364,7 +365,7 @@ function LearningPathCard({
             <p className="text-sm text-stone-500 line-clamp-2">
               {t(path.description, locale)}
             </p>
-            <p className="text-xs text-stone-500 mt-2 italic">
+            <p className="text-xs text-stone-500 dark:text-stone-400 mt-2 italic">
               {t(path.targetAudience, locale)}
             </p>
           </div>
@@ -424,20 +425,20 @@ function LearningStepRow({
   return (
     <div className="flex gap-4">
       {/* Step number */}
-      <div className="flex-shrink-0 size-8 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-sm font-bold">
+      <div className="flex-shrink-0 size-8 rounded-full bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-400 flex items-center justify-center text-sm font-bold">
         {step.order}
       </div>
 
       {/* Step content */}
       <div className="flex-1 min-w-0 space-y-1.5">
         <div className="flex items-center gap-2 flex-wrap">
-          <h4 className="text-sm font-semibold text-stone-900">
+          <h4 className="text-sm font-semibold text-stone-900 dark:text-stone-100">
             {t(step.title, locale)}
           </h4>
           <Link href={route}>
             <Badge
               variant="secondary"
-              className="text-xs bg-stone-100 text-stone-600 hover:bg-teal-100 hover:text-teal-700 transition-colors gap-1"
+              className="text-xs bg-stone-100 dark:bg-stone-800 text-stone-600 hover:bg-teal-100 hover:text-teal-700 transition-colors gap-1"
             >
               <Icon className="size-3" />
               {t(typeLabel, locale)}
@@ -488,7 +489,7 @@ function HubNodeRow({
       href={route}
       className="flex items-center gap-3 p-3 rounded-xl hover:bg-stone-50 border border-transparent hover:border-stone-200 transition-colors"
     >
-      <span className="flex-shrink-0 size-7 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center text-xs font-bold">
+      <span className="flex-shrink-0 size-7 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-500 flex items-center justify-center text-xs font-bold">
         {rank}
       </span>
       <div className="flex-shrink-0 size-8 rounded-lg bg-teal-50 flex items-center justify-center">
@@ -547,7 +548,7 @@ export default function KnowledgeMapPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-stone-50">
+    <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
       {/* ============================================================ */}
       {/*  SECTION 1 — Hero                                            */}
       {/* ============================================================ */}
@@ -589,7 +590,7 @@ export default function KnowledgeMapPage() {
                 <p className="text-2xl font-bold text-amber-400">
                   {strategicThemes.length}
                 </p>
-                <p className="text-xs text-stone-500 mt-1">
+                <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
                   {isEs ? "Temas Estratégicos" : "Strategic Themes"}
                 </p>
               </div>
@@ -597,7 +598,7 @@ export default function KnowledgeMapPage() {
                 <p className="text-2xl font-bold text-amber-400">
                   {learningPaths.length}
                 </p>
-                <p className="text-xs text-stone-500 mt-1">
+                <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
                   {isEs ? "Caminos de Aprendizaje" : "Learning Paths"}
                 </p>
               </div>
@@ -605,7 +606,7 @@ export default function KnowledgeMapPage() {
                 <p className="text-2xl font-bold text-amber-400">
                   {stats.totalEdges}+
                 </p>
-                <p className="text-xs text-stone-500 mt-1">
+                <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
                   {isEs ? "Conexiones" : "Connections"}
                 </p>
               </div>
@@ -613,7 +614,7 @@ export default function KnowledgeMapPage() {
                 <p className="text-2xl font-bold text-amber-400">
                   {totalCaseStudies}
                 </p>
-                <p className="text-xs text-stone-500 mt-1">
+                <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
                   {isEs ? "Casos de Estudio" : "Case Studies"}
                 </p>
               </div>
@@ -660,7 +661,7 @@ export default function KnowledgeMapPage() {
       {/* ============================================================ */}
       {/*  SECTION 3 — Learning Paths                                  */}
       {/* ============================================================ */}
-      <section className="bg-white border-y border-stone-200">
+      <section className="bg-white dark:bg-stone-900 border-y border-stone-200 dark:border-stone-700">
         <div className="max-w-6xl mx-auto px-4 py-16">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-1.5 text-sm text-teal-700 mb-4">
@@ -694,7 +695,7 @@ export default function KnowledgeMapPage() {
       {/* ============================================================ */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 rounded-full bg-stone-100 px-4 py-1.5 text-sm text-stone-600 mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full bg-stone-100 px-4 py-1.5 text-sm text-stone-600 dark:text-stone-400 mb-4">
             <Network className="size-4" />
             {isEs ? "Nodos Centrales" : "Hub Nodes"}
           </div>
@@ -709,7 +710,7 @@ export default function KnowledgeMapPage() {
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <div className="rounded-2xl border border-stone-200 bg-white overflow-hidden">
+          <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 overflow-hidden">
             <div className="px-5 py-3.5 border-b border-stone-100 bg-stone-50">
               <h3 className="text-sm font-semibold text-stone-600">
                 {isEs
@@ -798,7 +799,7 @@ export default function KnowledgeMapPage() {
           </div>
 
           {/* Last updated */}
-          <p className="text-center text-xs text-stone-500 mt-10">
+          <p className="text-center text-xs text-stone-500 dark:text-stone-400 mt-10">
             {isEs ? "Última actualización:" : "Last updated:"}{" "}
             {KNOWLEDGE_GRAPH_LAST_UPDATED}
           </p>

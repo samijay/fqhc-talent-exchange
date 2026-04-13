@@ -46,10 +46,10 @@ const PATHWAY_ICONS: Record<string, React.ReactNode> = {
 };
 
 const PATHWAY_COLORS: Record<string, { bg: string; border: string; text: string; light: string; bar: string }> = {
-  teal: { bg: "bg-teal-50", border: "border-teal-200", text: "text-teal-700", light: "bg-teal-100", bar: "bg-teal-500" },
+  teal: { bg: "bg-teal-50 dark:bg-teal-950", border: "border-teal-200", text: "text-teal-700 dark:text-teal-400", light: "bg-teal-100 dark:bg-teal-900", bar: "bg-teal-500" },
   blue: { bg: "bg-blue-50", border: "border-blue-200", text: "text-blue-700", light: "bg-blue-100", bar: "bg-blue-500" },
   purple: { bg: "bg-purple-50", border: "border-purple-200", text: "text-purple-700", light: "bg-purple-100", bar: "bg-purple-500" },
-  amber: { bg: "bg-amber-50", border: "border-amber-200", text: "text-amber-700", light: "bg-amber-100", bar: "bg-amber-500" },
+  amber: { bg: "bg-amber-50 dark:bg-amber-950", border: "border-amber-200", text: "text-amber-700", light: "bg-amber-100", bar: "bg-amber-500" },
   rose: { bg: "bg-rose-50", border: "border-rose-200", text: "text-rose-700", light: "bg-rose-100", bar: "bg-rose-500" },
   indigo: { bg: "bg-indigo-50", border: "border-indigo-200", text: "text-indigo-700", light: "bg-indigo-100", bar: "bg-indigo-500" },
   cyan: { bg: "bg-cyan-50", border: "border-cyan-200", text: "text-cyan-700", light: "bg-cyan-100", bar: "bg-cyan-500" },
@@ -115,7 +115,7 @@ export default function CareerRoadmapPage() {
   const colors = PATHWAY_COLORS[pathway.color];
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: isEs ? "Inicio" : "Home", href: "/" },
         { label: isEs ? "Herramientas" : "Tools", href: "/career-roadmap" },
@@ -173,13 +173,13 @@ export default function CareerRoadmapPage() {
                 className={`rounded-xl border-2 p-4 text-left transition-all ${
                   isActive
                     ? `${c.border} ${c.bg} ring-2 ring-offset-1 ${c.text.replace("text", "ring")}`
-                    : "border-stone-200 bg-white hover:border-stone-300"
+                    : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 hover:border-stone-300 dark:border-stone-600"
                 }`}
               >
-                <div className={`mb-2 ${isActive ? c.text : "text-stone-500"}`}>
+                <div className={`mb-2 ${isActive ? c.text : "text-stone-500 dark:text-stone-400"}`}>
                   {PATHWAY_ICONS[p.icon]}
                 </div>
-                <div className={`text-sm font-semibold ${isActive ? c.text : "text-stone-700"}`}>
+                <div className={`text-sm font-semibold ${isActive ? c.text : "text-stone-700 dark:text-stone-300"}`}>
                   {isEs ? p.esName : p.name}
                 </div>
               </button>
@@ -188,20 +188,20 @@ export default function CareerRoadmapPage() {
         </div>
 
         {/* Pathway description */}
-        <div className="mt-8 rounded-xl border border-stone-200 bg-white p-6">
+        <div className="mt-8 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h2 className="text-xl font-bold text-stone-900">
+              <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
                 {isEs ? pathway.esName : pathway.name}
               </h2>
-              <p className="mt-1 text-stone-600">
+              <p className="mt-1 text-stone-600 dark:text-stone-400">
                 {isEs ? pathway.esDescription : pathway.description}
               </p>
             </div>
 
             {/* Regional salary selector */}
             <div className="shrink-0">
-              <label className="mb-1 block text-xs font-medium text-stone-500">
+              <label className="mb-1 block text-xs font-medium text-stone-500 dark:text-stone-400">
                 <MapPin className="mb-0.5 mr-1 inline size-3" />
                 {isEs ? "Región" : "Region"}
               </label>
@@ -212,7 +212,7 @@ export default function CareerRoadmapPage() {
                   setSelectedRegion(idx);
                   syncUrl(selectedPathway, idx);
                 }}
-                className="rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-700 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-1.5 text-sm text-stone-700 dark:text-stone-300 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
               >
                 {REGIONAL_MULTIPLIERS.map((r, i) => (
                   <option key={r.region} value={i}>
@@ -224,7 +224,7 @@ export default function CareerRoadmapPage() {
           </div>
 
           {/* Regional context */}
-          <div className="mt-3 rounded-lg bg-stone-50 px-4 py-2 text-xs text-stone-500">
+          <div className="mt-3 rounded-lg bg-stone-50 dark:bg-stone-950 px-4 py-2 text-xs text-stone-500 dark:text-stone-400">
             <MapPin className="mr-1 inline size-3" />
             {isEs ? region.esDescription : region.description}
           </div>
@@ -248,11 +248,11 @@ export default function CareerRoadmapPage() {
         </div>
 
         {/* Salary range overview */}
-        <div className="mt-10 rounded-xl border border-stone-200 bg-white p-6">
-          <h3 className="text-lg font-bold text-stone-900">
+        <div className="mt-10 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6">
+          <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
             {isEs ? "Resumen salarial de la trayectoria" : "Pathway Salary Overview"}
           </h3>
-          <p className="mt-1 text-sm text-stone-500">
+          <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
             {isEs
               ? `Rangos ajustados para ${region.esRegion}`
               : `Ranges adjusted for ${region.region}`}
@@ -270,10 +270,10 @@ export default function CareerRoadmapPage() {
 
               return (
                 <div key={level.roleId} className="flex items-center gap-3">
-                  <div className="w-40 shrink-0 text-sm font-medium text-stone-700 sm:w-56">
+                  <div className="w-40 shrink-0 text-sm font-medium text-stone-700 dark:text-stone-300 sm:w-56">
                     {isEs ? level.esTitle : level.title}
                   </div>
-                  <div className="relative h-6 flex-1 rounded-full bg-stone-100">
+                  <div className="relative h-6 flex-1 rounded-full bg-stone-100 dark:bg-stone-800">
                     <div
                       className={`absolute top-0 h-6 rounded-full ${colors.bar} opacity-80`}
                       style={{
@@ -282,7 +282,7 @@ export default function CareerRoadmapPage() {
                       }}
                     />
                   </div>
-                  <div className="w-28 shrink-0 text-right text-sm font-semibold text-stone-700">
+                  <div className="w-28 shrink-0 text-right text-sm font-semibold text-stone-700 dark:text-stone-300">
                     {formatSalary(adjP25)}–{formatSalary(adjP75)}
                   </div>
                 </div>
@@ -293,34 +293,34 @@ export default function CareerRoadmapPage() {
 
         {/* Take the next step */}
         <div className="mt-10">
-          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-stone-500">
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400">
             {isEs ? "Toma el siguiente paso" : "Take the next step"}
           </h3>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <Link
               href="/resume-builder"
-              className="flex items-center justify-center gap-2 rounded-xl border border-teal-200 bg-teal-50 px-6 py-4 text-sm font-semibold text-teal-700 transition-colors hover:bg-teal-100"
+              className="flex items-center justify-center gap-2 rounded-xl border border-teal-200 bg-teal-50 dark:bg-teal-950 px-6 py-4 text-sm font-semibold text-teal-700 dark:text-teal-400 transition-colors hover:bg-teal-100 dark:hover:bg-teal-900"
             >
               <FileText className="size-4" />
               {isEs ? "Crear currículum" : "Build Resume"}
             </Link>
             <Link
               href="/career-insights"
-              className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-6 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
+              className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-6 py-4 text-sm font-semibold text-stone-700 dark:text-stone-300 transition-colors hover:bg-stone-50 dark:hover:bg-stone-800"
             >
               <ClipboardCheck className="size-4" />
               {isEs ? "Evaluación profesional" : "Career Assessment"}
             </Link>
             <Link
               href="/interview-prep"
-              className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-6 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
+              className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-6 py-4 text-sm font-semibold text-stone-700 dark:text-stone-300 transition-colors hover:bg-stone-50 dark:hover:bg-stone-800"
             >
               <Award className="size-4" />
               {isEs ? "Preparación entrevista" : "Interview Prep"}
             </Link>
             <Link
               href="/jobs"
-              className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-6 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
+              className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-6 py-4 text-sm font-semibold text-stone-700 dark:text-stone-300 transition-colors hover:bg-stone-50 dark:hover:bg-stone-800"
             >
               <Briefcase className="size-4" />
               {isEs ? "Ver empleos" : "Browse Jobs"}
@@ -329,22 +329,22 @@ export default function CareerRoadmapPage() {
         </div>
 
         {/* Related Tools */}
-        <div className="mt-12 border-t border-stone-200 pt-8">
-          <h3 className="text-lg font-bold text-stone-900 mb-4">
+        <div className="mt-12 border-t border-stone-200 dark:border-stone-700 pt-8">
+          <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100 mb-4">
             {isEs ? "Explora Mas" : "Explore More"}
           </h3>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <Link href="/salary-data" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
-              <p className="text-sm font-semibold text-stone-900">{isEs ? "Inteligencia Salarial" : "Salary Intelligence"}</p>
-              <p className="text-xs text-stone-500 mt-1">{isEs ? "30 roles x 9 regiones de CA" : "30 roles x 9 CA regions"}</p>
+            <Link href="/salary-data" className="rounded-lg border border-stone-200 dark:border-stone-700 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{isEs ? "Inteligencia Salarial" : "Salary Intelligence"}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">{isEs ? "30 roles x 9 regiones de CA" : "30 roles x 9 CA regions"}</p>
             </Link>
-            <Link href="/certifications" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
-              <p className="text-sm font-semibold text-stone-900">{isEs ? "Certificaciones" : "Certifications"}</p>
-              <p className="text-xs text-stone-500 mt-1">{isEs ? "15 certificaciones especificas de CA" : "15 CA-specific certifications"}</p>
+            <Link href="/certifications" className="rounded-lg border border-stone-200 dark:border-stone-700 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{isEs ? "Certificaciones" : "Certifications"}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">{isEs ? "15 certificaciones especificas de CA" : "15 CA-specific certifications"}</p>
             </Link>
-            <Link href="/interview-prep" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
-              <p className="text-sm font-semibold text-stone-900">{isEs ? "Preparacion Entrevista" : "Interview Prep"}</p>
-              <p className="text-xs text-stone-500 mt-1">{isEs ? "Preguntas STAR y guias por rol" : "STAR questions and role-specific guides"}</p>
+            <Link href="/interview-prep" className="rounded-lg border border-stone-200 dark:border-stone-700 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{isEs ? "Preparacion Entrevista" : "Interview Prep"}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">{isEs ? "Preguntas STAR y guias por rol" : "STAR questions and role-specific guides"}</p>
             </Link>
           </div>
         </div>
@@ -397,7 +397,7 @@ function CareerLevelCard({
       <button
         onClick={onToggle}
         className={`w-full rounded-xl border-2 p-5 text-left transition-all ${
-          isExpanded ? `${colors.border} ${colors.bg}` : "border-stone-200 bg-white hover:border-stone-300"
+          isExpanded ? `${colors.border} ${colors.bg}` : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 hover:border-stone-300 dark:border-stone-600"
         }`}
       >
         <div className="flex items-start justify-between gap-4">
@@ -408,10 +408,10 @@ function CareerLevelCard({
             </div>
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <h3 className="text-base font-bold text-stone-900">
+                <h3 className="text-base font-bold text-stone-900 dark:text-stone-100">
                   {isEs ? level.esTitle : level.title}
                 </h3>
-                <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs font-medium text-stone-500">
+                <span className="rounded-full bg-stone-100 dark:bg-stone-800 px-2 py-0.5 text-xs font-medium text-stone-500 dark:text-stone-400">
                   {isEs ? level.esYearsExperience : level.yearsExperience}
                 </span>
               </div>
@@ -419,14 +419,14 @@ function CareerLevelCard({
                 <span className={`font-semibold ${colors.text}`}>
                   {formatSalary(adjP25)}–{formatSalary(adjP75)}
                 </span>
-                <span className="text-stone-500">
+                <span className="text-stone-500 dark:text-stone-400">
                   {isEs ? "mediana" : "median"}: {formatSalary(adjP50)}
                 </span>
               </div>
             </div>
           </div>
           <ChevronDown
-            className={`size-5 shrink-0 text-stone-500 transition-transform ${
+            className={`size-5 shrink-0 text-stone-500 dark:text-stone-400 transition-transform ${
               isExpanded ? "rotate-180" : ""
             }`}
           />
@@ -434,23 +434,23 @@ function CareerLevelCard({
 
         {/* Expanded details */}
         {isExpanded && (
-          <div className="mt-4 grid gap-4 border-t border-stone-200/60 pt-4 sm:grid-cols-3">
+          <div className="mt-4 grid gap-4 border-t border-stone-200 dark:border-stone-700/60 pt-4 sm:grid-cols-3">
             {/* Certifications */}
             <div>
-              <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-stone-500">
+              <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400">
                 <Award className="size-3.5" />
                 {isEs ? "Certificaciones" : "Certifications"}
               </div>
               <ul className="space-y-1">
                 {(isEs ? level.esCertifications : level.certifications).map((cert) => (
-                  <li key={cert} className="text-sm text-stone-700">
+                  <li key={cert} className="text-sm text-stone-700 dark:text-stone-300">
                     {cert}
                   </li>
                 ))}
               </ul>
               <Link
                 href={`/certifications?role=${level.roleId}`}
-                className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-teal-700 hover:text-teal-800"
+                className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-teal-700 dark:text-teal-400 hover:text-teal-800"
               >
                 {isEs ? "Ver detalles →" : "View details →"}
               </Link>
@@ -458,13 +458,13 @@ function CareerLevelCard({
 
             {/* Key skills */}
             <div>
-              <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-stone-500">
+              <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400">
                 <BookOpen className="size-3.5" />
                 {isEs ? "Habilidades clave" : "Key Skills"}
               </div>
               <ul className="space-y-1">
                 {(isEs ? level.esKeySkills : level.keySkills).map((skill) => (
-                  <li key={skill} className="text-sm text-stone-700">
+                  <li key={skill} className="text-sm text-stone-700 dark:text-stone-300">
                     {skill}
                   </li>
                 ))}
@@ -473,13 +473,13 @@ function CareerLevelCard({
 
             {/* Programs */}
             <div>
-              <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-stone-500">
+              <div className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400">
                 <Briefcase className="size-3.5" />
                 {isEs ? "Programas" : "Programs to Know"}
               </div>
               <ul className="space-y-1">
                 {level.programs.map((prog) => (
-                  <li key={prog} className="text-sm text-stone-700">
+                  <li key={prog} className="text-sm text-stone-700 dark:text-stone-300">
                     {prog}
                   </li>
                 ))}

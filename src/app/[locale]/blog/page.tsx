@@ -6,7 +6,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { BLOG_POSTS } from "@/lib/blog-posts";
 import { Search, Clock, ArrowRight } from "lucide-react";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
 
 // Extract unique categories from posts
 const EN_CATEGORIES = [
@@ -60,13 +60,13 @@ export default function BlogPage() {
         <Breadcrumbs items={[{ label: isEs ? "Inicio" : "Home", href: "/" }, { label: "Blog" }]} />
       </div>
       {/* Hero with featured article */}
-      <section className="bg-gradient-to-br from-teal-50 via-teal-50 to-stone-50 py-12 md:py-16 px-6">
+      <section className="bg-gradient-to-br from-teal-50 via-teal-50 to-stone-50 py-12 md:py-16 px-6 dark:from-stone-900 dark:via-stone-900 dark:to-stone-950">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4 dark:text-stone-100">
               {t("title")}
             </h1>
-            <p className="text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed dark:text-stone-300">
               {t("subtitle")}
             </p>
           </div>
@@ -74,20 +74,20 @@ export default function BlogPage() {
           {/* Featured latest article */}
           <Link
             href={`/blog/${featuredPost.slug}`}
-            className="block bg-white rounded-2xl border border-stone-200 p-6 md:p-8 hover:shadow-lg transition-all hover:-translate-y-1 group"
+            className="block bg-white rounded-2xl border border-stone-200 p-6 md:p-8 hover:shadow-lg transition-all hover:-translate-y-1 group dark:bg-stone-800 dark:border-stone-700"
           >
             <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-bold uppercase tracking-wide text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full">
+              <span className="text-xs font-bold uppercase tracking-wide text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full dark:bg-teal-950 dark:text-teal-400">
                 {isEs ? "Más Reciente" : "Latest"}
               </span>
               <span className="text-xs text-stone-500">
                 {isEs ? featuredPost.esCategory : featuredPost.category}
               </span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-stone-900 mb-3 group-hover:text-teal-700 transition-colors">
+            <h2 className="text-2xl md:text-3xl font-bold text-stone-900 mb-3 group-hover:text-teal-700 transition-colors dark:text-stone-100 dark:group-hover:text-teal-400">
               {isEs ? featuredPost.esTitle : featuredPost.title}
             </h2>
-            <p className="text-stone-600 leading-relaxed mb-4 text-lg">
+            <p className="text-stone-600 leading-relaxed mb-4 text-lg dark:text-stone-300">
               {isEs ? featuredPost.esDescription : featuredPost.description}
             </p>
             <div className="flex items-center justify-between">
@@ -108,7 +108,7 @@ export default function BlogPage() {
       </section>
 
       {/* Search and category filter */}
-      <section className="py-8 px-6 border-b border-stone-100 sticky top-0 bg-white/95 backdrop-blur-sm z-30">
+      <section className="py-8 px-6 border-b border-stone-100 sticky top-0 bg-white/95 backdrop-blur-sm z-30 dark:border-stone-800 dark:bg-stone-950/95">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
             {/* Search */}
@@ -121,7 +121,7 @@ export default function BlogPage() {
                 }
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-stone-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-400 transition-colors"
+                className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-stone-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-400 transition-colors dark:border-stone-700 dark:bg-stone-800 dark:text-stone-100"
               />
             </div>
 
@@ -134,7 +134,7 @@ export default function BlogPage() {
                   className={`shrink-0 px-3 py-1.5 text-sm rounded-full border transition-colors ${
                     selectedCategory === cat
                       ? "bg-teal-600 text-white border-teal-600"
-                      : "bg-white text-stone-600 border-stone-200 hover:border-teal-300 hover:text-teal-700"
+                      : "bg-white text-stone-600 border-stone-200 hover:border-teal-300 hover:text-teal-700 dark:bg-stone-800 dark:text-stone-300 dark:border-stone-700 dark:hover:border-teal-600 dark:hover:text-teal-400"
                   }`}
                 >
                   {cat}
@@ -192,15 +192,15 @@ export default function BlogPage() {
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}`}
-                  className="group block bg-white rounded-xl border border-stone-200 p-6 hover:shadow-md transition-all hover:-translate-y-0.5"
+                  className="group block bg-white rounded-xl border border-stone-200 p-6 hover:shadow-md transition-all hover:-translate-y-0.5 dark:bg-stone-800 dark:border-stone-700"
                 >
-                  <p className="text-xs font-semibold text-teal-700 mb-2 uppercase tracking-wide">
+                  <p className="text-xs font-semibold text-teal-700 mb-2 uppercase tracking-wide dark:text-teal-400">
                     {isEs ? post.esCategory : post.category}
                   </p>
-                  <h2 className="text-lg font-bold text-stone-900 mb-2 group-hover:text-teal-700 transition-colors line-clamp-2">
+                  <h2 className="text-lg font-bold text-stone-900 mb-2 group-hover:text-teal-700 transition-colors line-clamp-2 dark:text-stone-100 dark:group-hover:text-teal-400">
                     {isEs ? post.esTitle : post.title}
                   </h2>
-                  <p className="text-sm text-stone-600 leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-sm text-stone-600 leading-relaxed mb-4 line-clamp-3 dark:text-stone-400">
                     {isEs ? post.esDescription : post.description}
                   </p>
                   <div className="flex items-center justify-between text-xs text-stone-500">

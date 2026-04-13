@@ -537,7 +537,7 @@ export function ProfileTabs({
                             ? "bg-amber-100 text-amber-800"
                             : "bg-red-100 text-red-800"
                       }`}>
-                        {f.grade}
+                        <span className="sr-only">Resilience grade: </span>{f.grade}
                       </Badge>
                     </div>
                     <div className="mt-1 flex items-center gap-2 text-xs text-stone-500">

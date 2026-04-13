@@ -101,7 +101,7 @@ export default function FastTrackPage() {
   const t = locale === "es" ? content.es : content.en;
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 dark:bg-stone-950">
       {/* ---------- Hero ---------- */}
       <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
         <div className="mx-auto max-w-3xl px-4">
@@ -134,7 +134,7 @@ export default function FastTrackPage() {
       {/* ---------- Everything You Need — Free ---------- */}
       <section className="py-12 px-4 sm:px-6">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-8 text-center text-2xl font-bold text-stone-900">
+          <h2 className="mb-8 text-center text-2xl font-bold text-stone-900 dark:text-stone-100">
             {t.whyTitle}
           </h2>
           <div className="grid gap-6 sm:grid-cols-3">
@@ -146,14 +146,14 @@ export default function FastTrackPage() {
               <Link
                 key={card.title}
                 href={card.href}
-                className="group rounded-xl border border-stone-200 bg-white p-6 text-center shadow-sm hover:border-teal-300 hover:shadow-md transition-all"
+                className="group rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6 text-center shadow-sm hover:border-teal-300 hover:shadow-md transition-all"
               >
-                <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-teal-100 group-hover:bg-teal-200 transition-colors">
-                  <card.icon className="size-6 text-teal-700" />
+                <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-teal-100 dark:bg-teal-900 group-hover:bg-teal-200 transition-colors">
+                  <card.icon className="size-6 text-teal-700 dark:text-teal-400" />
                 </div>
-                <h3 className="font-bold text-stone-900">{card.title}</h3>
-                <p className="mt-2 text-sm text-stone-600">{card.desc}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-teal-700">
+                <h3 className="font-bold text-stone-900 dark:text-stone-100">{card.title}</h3>
+                <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">{card.desc}</p>
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-teal-700 dark:text-teal-400">
                   {locale === "es" ? "Comenzar" : "Get started"} <ArrowRight className="size-3.5" />
                 </span>
               </Link>
@@ -166,10 +166,10 @@ export default function FastTrackPage() {
       <section className="pb-12 px-4 sm:px-6">
         <div className="mx-auto max-w-4xl">
           <div className="mb-8 text-center">
-            <h2 className="text-2xl font-bold text-stone-900">
+            <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100">
               {t.moreResourcesTitle}
             </h2>
-            <p className="mt-2 text-stone-600">
+            <p className="mt-2 text-stone-600 dark:text-stone-400">
               {t.moreResourcesSubtitle}
             </p>
           </div>
@@ -183,15 +183,15 @@ export default function FastTrackPage() {
               <Link
                 key={card.title}
                 href={card.href}
-                className="group flex items-start gap-4 rounded-xl border border-stone-200 bg-white p-5 shadow-sm hover:border-teal-300 hover:shadow-md transition-all"
+                className="group flex items-start gap-4 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5 shadow-sm hover:border-teal-300 hover:shadow-md transition-all"
               >
-                <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-teal-100 group-hover:bg-teal-200 transition-colors">
-                  <card.icon className="size-5 text-teal-700" />
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-teal-100 dark:bg-teal-900 group-hover:bg-teal-200 transition-colors">
+                  <card.icon className="size-5 text-teal-700 dark:text-teal-400" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-stone-900">{card.title}</h3>
-                  <p className="mt-1 text-sm text-stone-600">{card.desc}</p>
-                  <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-teal-700">
+                  <h3 className="font-bold text-stone-900 dark:text-stone-100">{card.title}</h3>
+                  <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">{card.desc}</p>
+                  <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-teal-700 dark:text-teal-400">
                     {locale === "es" ? "Explorar" : "Explore"} <ArrowRight className="size-3.5" />
                   </span>
                 </div>
@@ -204,8 +204,8 @@ export default function FastTrackPage() {
       {/* ---------- Bottom cross-link ---------- */}
       <section className="pb-16 px-4 sm:px-6">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="rounded-xl border border-teal-200 bg-teal-50 p-8">
-            <h3 className="text-lg font-bold text-stone-900">
+          <div className="rounded-xl border border-teal-200 bg-teal-50 dark:bg-teal-950 p-8">
+            <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
               {t.bottomText}
             </h3>
             <Link

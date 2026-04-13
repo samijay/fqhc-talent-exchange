@@ -609,10 +609,10 @@ export default function ResumeBuilder() {
   const progressBar = (
     <div className="mb-8">
       <div className="mb-2 flex items-center justify-between">
-        <span className="text-sm font-semibold text-stone-700">
+        <span className="text-sm font-semibold text-stone-700 dark:text-stone-300">
           {locale === "es" ? `Paso ${step} de ${TOTAL_STEPS}` : `Step ${step} of ${TOTAL_STEPS}`}
         </span>
-        <span className="text-sm text-stone-500">
+        <span className="text-sm text-stone-500 dark:text-stone-400">
           {Math.round(progress)}% {locale === "es" ? "completo" : "complete"}
         </span>
       </div>
@@ -632,7 +632,7 @@ export default function ResumeBuilder() {
       {step > 1 ? (
         <button
           onClick={handleBack}
-          className="flex items-center gap-2 px-6 py-2 font-medium text-stone-700 hover:text-stone-900"
+          className="flex items-center gap-2 px-6 py-2 font-medium text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:text-stone-100"
         >
           <ChevronLeft className="size-5" /> {locale === "es" ? "Atrás" : "Back"}
         </button>
@@ -657,7 +657,7 @@ export default function ResumeBuilder() {
 
   if (mode === "choose") {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         {/* Hero */}
         <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
           <div className="mx-auto flex items-center justify-center gap-2 mb-4">
@@ -674,11 +674,11 @@ export default function ResumeBuilder() {
         </section>
 
         <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
-            <h2 className="mb-2 text-xl font-bold text-stone-900 text-center">
+          <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6 shadow sm:p-10">
+            <h2 className="mb-2 text-xl font-bold text-stone-900 dark:text-stone-100 text-center">
               {locale === "es" ? "¿Cómo te gustaría comenzar?" : "How would you like to get started?"}
             </h2>
-            <p className="mb-8 text-sm text-stone-500 text-center">
+            <p className="mb-8 text-sm text-stone-500 dark:text-stone-400 text-center">
               {locale === "es"
                 ? "Sube un currículum existente para completar tu información automáticamente, o comienza desde cero con nuestro constructor guiado."
                 : "Upload an existing resume to pre-fill your information, or start fresh with our guided builder."}
@@ -688,15 +688,15 @@ export default function ResumeBuilder() {
               {/* Upload Option */}
               <button
                 onClick={() => setMode("upload")}
-                className="group rounded-xl border-2 border-stone-200 p-6 text-left transition-all duration-200 hover:border-teal-500 hover:shadow-lg"
+                className="group rounded-xl border-2 border-stone-200 dark:border-stone-700 p-6 text-left transition-all duration-200 hover:border-teal-500 hover:shadow-lg"
               >
-                <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-teal-50 text-teal-700 group-hover:bg-teal-100">
+                <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 group-hover:bg-teal-100 dark:hover:bg-teal-900">
                   <Upload className="size-6" />
                 </div>
-                <h3 className="text-lg font-bold text-stone-900">
+                <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                   {locale === "es" ? "Subir Tu Currículum" : "Upload Your Resume"}
                 </h3>
-                <p className="mt-1 text-sm text-stone-500">
+                <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
                   {locale === "es"
                     ? "Sube un archivo PDF, DOCX o de texto y completaremos tu información automáticamente."
                     : "Upload a PDF, DOCX, or text file and we\u0027ll pre-fill your information automatically."}
@@ -710,15 +710,15 @@ export default function ResumeBuilder() {
                   setStep(1);
                   trackResumeStart();
                 }}
-                className="group rounded-xl border-2 border-stone-200 p-6 text-left transition-all duration-200 hover:border-amber-500 hover:shadow-lg"
+                className="group rounded-xl border-2 border-stone-200 dark:border-stone-700 p-6 text-left transition-all duration-200 hover:border-amber-500 hover:shadow-lg"
               >
-                <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-amber-50 text-amber-600 group-hover:bg-amber-100">
+                <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-950 text-amber-600 group-hover:bg-amber-100">
                   <Pencil className="size-6" />
                 </div>
-                <h3 className="text-lg font-bold text-stone-900">
+                <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                   {locale === "es" ? "Crear Desde Cero" : "Build From Scratch"}
                 </h3>
-                <p className="mt-1 text-sm text-stone-500">
+                <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
                   {locale === "es"
                     ? "Comienza desde cero con nuestro constructor guiado y plantillas optimizadas para FQHC."
                     : "Start fresh with our guided builder and FQHC-optimized templates."}
@@ -737,7 +737,7 @@ export default function ResumeBuilder() {
 
   if (mode === "upload") {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
           <div className="mx-auto flex items-center justify-center gap-2 mb-4">
             <Upload className="size-8" />
@@ -753,7 +753,7 @@ export default function ResumeBuilder() {
         </section>
 
         <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
+          <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6 shadow sm:p-10">
             {/* Drag & Drop Zone */}
             <div
               onDrop={handleDrop}
@@ -761,8 +761,8 @@ export default function ResumeBuilder() {
               onDragLeave={handleDragLeave}
               className={`relative flex min-h-[200px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed p-8 transition-all duration-200 ${
                 isDragOver
-                  ? "border-teal-500 bg-teal-50"
-                  : "border-stone-300 bg-stone-50 hover:border-teal-400 hover:bg-stone-100"
+                  ? "border-teal-500 bg-teal-50 dark:bg-teal-950"
+                  : "border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-950 hover:border-teal-400 hover:bg-stone-100 dark:hover:bg-stone-800"
               }`}
             >
               <input
@@ -775,35 +775,35 @@ export default function ResumeBuilder() {
 
               {isUploading ? (
                 <div className="flex flex-col items-center gap-3">
-                  <Loader2 className="size-10 motion-safe:animate-spin text-teal-700" />
-                  <p className="text-sm font-medium text-stone-700">
+                  <Loader2 className="size-10 motion-safe:animate-spin text-teal-700 dark:text-teal-400" />
+                  <p className="text-sm font-medium text-stone-700 dark:text-stone-300">
                     {locale === "es" ? "Procesando tu currículum..." : "Processing your resume..."}
                   </p>
-                  <p className="text-xs text-stone-500">
+                  <p className="text-xs text-stone-500 dark:text-stone-400">
                     {locale === "es" ? "Extrayendo texto y analizando tu información" : "Extracting text and parsing your information"}
                   </p>
                 </div>
               ) : (
                 <div className="flex flex-col items-center gap-3">
-                  <div className="flex size-14 items-center justify-center rounded-full bg-teal-100 text-teal-700">
+                  <div className="flex size-14 items-center justify-center rounded-full bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-400">
                     <Upload className="size-7" />
                   </div>
                   <div className="text-center">
-                    <p className="text-sm font-medium text-stone-700">
+                    <p className="text-sm font-medium text-stone-700 dark:text-stone-300">
                       {locale === "es" ? (
                         <>Arrastra y suelta tu currículum aquí, o{" "}
-                        <span className="text-teal-700 underline">haz clic para buscar</span></>
+                        <span className="text-teal-700 dark:text-teal-400 underline">haz clic para buscar</span></>
                       ) : (
                         <>Drag and drop your resume here, or{" "}
-                        <span className="text-teal-700 underline">click to browse</span></>
+                        <span className="text-teal-700 dark:text-teal-400 underline">click to browse</span></>
                       )}
                     </p>
-                    <p className="mt-1 text-xs text-stone-500">
+                    <p className="mt-1 text-xs text-stone-500 dark:text-stone-400">
                       {locale === "es"
                         ? "Soporta archivos PDF, DOCX y TXT (máx. 5MB)"
                         : "Supports PDF, DOCX, and TXT files (max 5MB)"}
                     </p>
-                    <p className="mt-2 text-xs text-stone-500 leading-relaxed max-w-sm">
+                    <p className="mt-2 text-xs text-stone-500 dark:text-stone-400 leading-relaxed max-w-sm">
                       {locale === "es"
                         ? "Al subir tu archivo, aceptas que su contenido será procesado para extraer texto y pre-llenar el formulario. Los archivos se almacenan de forma segura con URLs firmadas de acceso limitado. No compartimos tu archivo con terceros."
                         : "By uploading, you agree that your file will be processed to extract text and pre-fill the form. Files are stored securely with time-limited signed URLs. We do not share your file with third parties."}
@@ -828,7 +828,7 @@ export default function ResumeBuilder() {
                   setMode("choose");
                   setUploadError("");
                 }}
-                className="text-sm font-medium text-stone-600 hover:text-stone-900"
+                className="text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:text-stone-100"
               >
                 &larr; {locale === "es" ? "Volver a opciones" : "Back to options"}
               </button>
@@ -838,7 +838,7 @@ export default function ResumeBuilder() {
                   setMode("build");
                   setStep(1);
                 }}
-                className="text-sm font-medium text-teal-700 hover:text-teal-800"
+                className="text-sm font-medium text-teal-700 dark:text-teal-400 hover:text-teal-800"
               >
                 {locale === "es" ? "Crear desde cero" : "Build from scratch instead"}
               </button>
@@ -855,7 +855,7 @@ export default function ResumeBuilder() {
 
   if (step === 1) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         {/* Hero */}
         <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
           <div className="mx-auto flex items-center justify-center gap-2 mb-4">
@@ -873,7 +873,7 @@ export default function ResumeBuilder() {
 
         <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
           {uploadedFileUrl && (
-            <div className="mb-4 rounded-lg border border-teal-200 bg-teal-50 px-4 py-3 text-sm text-teal-700">
+            <div className="mb-4 rounded-lg border border-teal-200 bg-teal-50 dark:bg-teal-950 px-4 py-3 text-sm text-teal-700 dark:text-teal-400">
               <CheckCircle className="mr-1.5 inline-block size-4" />
               {locale === "es"
                 ? "¡Currículum subido! Revisa y edita tu información completada a continuación."
@@ -882,8 +882,8 @@ export default function ResumeBuilder() {
           )}
           {progressBar}
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
-            <h2 className="mb-6 text-xl font-bold text-stone-900">
+          <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6 shadow sm:p-10">
+            <h2 className="mb-6 text-xl font-bold text-stone-900 dark:text-stone-100">
               {locale === "es" ? "Información Personal" : "Personal Information"}
             </h2>
 
@@ -1012,12 +1012,12 @@ export default function ResumeBuilder() {
 
   if (step === 2) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
           {progressBar}
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
-            <h2 className="mb-6 text-xl font-bold text-stone-900">
+          <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6 shadow sm:p-10">
+            <h2 className="mb-6 text-xl font-bold text-stone-900 dark:text-stone-100">
               {locale === "es" ? "Puesto y Experiencia" : "Role & Experience"}
             </h2>
 
@@ -1037,18 +1037,18 @@ export default function ResumeBuilder() {
                       onClick={() => handleSelectRole(role.id)}
                       className={`rounded-xl border-2 p-4 transition-all duration-200 ${
                         isSelected
-                          ? "border-teal-500 bg-teal-50 shadow-lg"
-                          : "border-stone-200 bg-white hover:border-stone-300 hover:shadow-md"
+                          ? "border-teal-500 bg-teal-50 dark:bg-teal-950 shadow-lg"
+                          : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 hover:border-stone-300 dark:border-stone-600 hover:shadow-md"
                       }`}
                     >
                       <Icon
                         className={`mx-auto mb-2 size-7 ${
-                          isSelected ? "text-teal-700" : "text-stone-500"
+                          isSelected ? "text-teal-700 dark:text-teal-400" : "text-stone-500 dark:text-stone-400"
                         }`}
                       />
                       <p
                         className={`text-center text-xs font-medium ${
-                          isSelected ? "text-teal-950" : "text-stone-700"
+                          isSelected ? "text-teal-950" : "text-stone-700 dark:text-stone-300"
                         }`}
                       >
                         {locale === "es" ? role.esLabel : role.label}
@@ -1087,7 +1087,7 @@ export default function ResumeBuilder() {
             {/* Professional objective */}
             <div>
               <Label htmlFor="objective">{locale === "es" ? "Resumen Profesional" : "Professional Summary"}</Label>
-              <p className="mt-1 text-xs text-stone-500">
+              <p className="mt-1 text-xs text-stone-500 dark:text-stone-400">
                 {locale === "es"
                   ? "Pre-completado según tu puesto. Siéntete libre de personalizarlo."
                   : "Pre-filled based on your role. Feel free to customize it."}
@@ -1111,10 +1111,10 @@ export default function ResumeBuilder() {
               return (
                 <div className="mt-8 rounded-xl border border-teal-200 bg-teal-50/30 p-5">
                   <div className="mb-4">
-                    <h3 className="text-base font-bold text-stone-900">
+                    <h3 className="text-base font-bold text-stone-900 dark:text-stone-100">
                       {locale === "es" ? "Cuéntanos sobre tu experiencia" : "Tell us about your experience"}
                     </h3>
-                    <p className="mt-1 text-xs text-stone-500">
+                    <p className="mt-1 text-xs text-stone-500 dark:text-stone-400">
                       {locale === "es"
                         ? "Tus respuestas nos ayudan a recomendar los mejores puntos para tu currículum."
                         : "Your answers help us recommend the best bullet points for your resume."}
@@ -1126,11 +1126,11 @@ export default function ResumeBuilder() {
                       const selectedIds = Array.isArray(currentAnswer) ? currentAnswer : (currentAnswer ? [currentAnswer] : []);
                       return (
                         <div key={q.id}>
-                          <p className="mb-2 text-sm font-semibold text-stone-800">
+                          <p className="mb-2 text-sm font-semibold text-stone-800 dark:text-stone-200">
                             {locale === "es" ? q.esQuestion : q.question}
                           </p>
                           {q.helpText && (
-                            <p className="mb-2 text-xs text-stone-500">
+                            <p className="mb-2 text-xs text-stone-500 dark:text-stone-400">
                               {locale === "es" ? q.esHelpText : q.helpText}
                             </p>
                           )}
@@ -1149,8 +1149,8 @@ export default function ResumeBuilder() {
                                   }
                                   className={`w-full rounded-lg border-2 px-3 py-2.5 text-left text-sm transition-all duration-150 ${
                                     isSelected
-                                      ? "border-teal-500 bg-teal-50 text-teal-900 font-medium"
-                                      : "border-stone-200 bg-white text-stone-700 hover:border-stone-300"
+                                      ? "border-teal-500 bg-teal-50 dark:bg-teal-950 text-teal-900 font-medium"
+                                      : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 hover:border-stone-300 dark:border-stone-600"
                                   }`}
                                 >
                                   <div className="flex items-center gap-2.5">
@@ -1160,7 +1160,7 @@ export default function ResumeBuilder() {
                                       } border-2 ${
                                         isSelected
                                           ? "border-teal-500 bg-teal-500"
-                                          : "border-stone-300"
+                                          : "border-stone-300 dark:border-stone-600"
                                       }`}
                                     >
                                       {isSelected && (
@@ -1194,25 +1194,25 @@ export default function ResumeBuilder() {
 
   if (step === 3) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
           {progressBar}
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
-            <h2 className="mb-6 text-xl font-bold text-stone-900">
+          <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6 shadow sm:p-10">
+            <h2 className="mb-6 text-xl font-bold text-stone-900 dark:text-stone-100">
               {locale === "es" ? "Habilidades y Calificaciones" : "Skills & Qualifications"}
             </h2>
 
             {/* EHR Systems */}
             <fieldset className="mb-6">
-              <legend className="text-sm font-medium text-stone-900">
+              <legend className="text-sm font-medium text-stone-900 dark:text-stone-100">
                 {locale === "es" ? "Sistemas EHR" : "EHR Systems"}
               </legend>
               <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-3">
                 {EHR_SYSTEMS.map((system) => (
                   <label
                     key={system}
-                    className="flex cursor-pointer items-center gap-2 text-sm text-stone-700"
+                    className="flex cursor-pointer items-center gap-2 text-sm text-stone-700 dark:text-stone-300"
                   >
                     <input
                       type="checkbox"
@@ -1220,7 +1220,7 @@ export default function ResumeBuilder() {
                       onChange={() =>
                         toggleCheckbox(system, formData.ehrSystems, "ehrSystems")
                       }
-                      className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
+                      className="size-4 rounded border-stone-300 dark:border-stone-600 text-teal-700 dark:text-teal-400 focus:ring-teal-500"
                     />
                     {system}
                   </label>
@@ -1230,14 +1230,14 @@ export default function ResumeBuilder() {
 
             {/* Programs */}
             <fieldset className="mb-6">
-              <legend className="text-sm font-medium text-stone-900">
+              <legend className="text-sm font-medium text-stone-900 dark:text-stone-100">
                 {locale === "es" ? "Programas" : "Programs"}
               </legend>
               <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-3">
                 {PROGRAMS.map((program) => (
                   <label
                     key={program}
-                    className="flex cursor-pointer items-center gap-2 text-sm text-stone-700"
+                    className="flex cursor-pointer items-center gap-2 text-sm text-stone-700 dark:text-stone-300"
                   >
                     <input
                       type="checkbox"
@@ -1245,7 +1245,7 @@ export default function ResumeBuilder() {
                       onChange={() =>
                         toggleCheckbox(program, formData.programs, "programs")
                       }
-                      className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
+                      className="size-4 rounded border-stone-300 dark:border-stone-600 text-teal-700 dark:text-teal-400 focus:ring-teal-500"
                     />
                     {program}
                   </label>
@@ -1255,14 +1255,14 @@ export default function ResumeBuilder() {
 
             {/* Certifications */}
             <fieldset className="mb-6">
-              <legend className="text-sm font-medium text-stone-900">
+              <legend className="text-sm font-medium text-stone-900 dark:text-stone-100">
                 {locale === "es" ? "Certificaciones" : "Certifications"}
               </legend>
               <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-3">
                 {COMMON_CERTIFICATIONS.map((cert) => (
                   <label
                     key={cert}
-                    className="flex cursor-pointer items-center gap-2 text-sm text-stone-700"
+                    className="flex cursor-pointer items-center gap-2 text-sm text-stone-700 dark:text-stone-300"
                   >
                     <input
                       type="checkbox"
@@ -1274,7 +1274,7 @@ export default function ResumeBuilder() {
                           "certifications",
                         )
                       }
-                      className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
+                      className="size-4 rounded border-stone-300 dark:border-stone-600 text-teal-700 dark:text-teal-400 focus:ring-teal-500"
                     />
                     {cert}
                   </label>
@@ -1284,14 +1284,14 @@ export default function ResumeBuilder() {
 
             {/* Languages */}
             <fieldset>
-              <legend className="text-sm font-medium text-stone-900">
+              <legend className="text-sm font-medium text-stone-900 dark:text-stone-100">
                 {locale === "es" ? "Idiomas" : "Languages"}
               </legend>
               <div className="mt-2 grid grid-cols-2 gap-x-6 gap-y-2.5 sm:grid-cols-4">
                 {LANGUAGE_OPTIONS.map((lang) => (
                   <label
                     key={lang}
-                    className="flex cursor-pointer items-center gap-2 text-sm text-stone-700"
+                    className="flex cursor-pointer items-center gap-2 text-sm text-stone-700 dark:text-stone-300"
                   >
                     <input
                       type="checkbox"
@@ -1310,7 +1310,7 @@ export default function ResumeBuilder() {
                           languageProficiencies: updatedProfs,
                         }));
                       }}
-                      className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
+                      className="size-4 rounded border-stone-300 dark:border-stone-600 text-teal-700 dark:text-teal-400 focus:ring-teal-500"
                     />
                     {lang}
                   </label>
@@ -1320,7 +1320,7 @@ export default function ResumeBuilder() {
               {/* Proficiency selectors for selected languages */}
               {formData.languages.length > 0 && (
                 <div className="mt-4 space-y-2">
-                  <p className="text-xs font-medium text-stone-500">
+                  <p className="text-xs font-medium text-stone-500 dark:text-stone-400">
                     {locale === "es" ? "Nivel de competencia" : "Proficiency level"}
                   </p>
                   <div className="grid gap-2 sm:grid-cols-2">
@@ -1331,9 +1331,9 @@ export default function ResumeBuilder() {
                       return (
                         <div
                           key={lang}
-                          className="flex items-center gap-2 rounded-lg border border-stone-200 bg-stone-50 px-3 py-2"
+                          className="flex items-center gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 px-3 py-2"
                         >
-                          <span className="min-w-[80px] text-sm font-medium text-stone-700">
+                          <span className="min-w-[80px] text-sm font-medium text-stone-700 dark:text-stone-300">
                             {lang}
                           </span>
                           <select
@@ -1349,7 +1349,7 @@ export default function ResumeBuilder() {
                                 ),
                               }));
                             }}
-                            className="flex-1 rounded-md border border-stone-300 bg-white px-2 py-1 text-sm text-stone-700 focus:border-teal-500 focus:ring-teal-500"
+                            className="flex-1 rounded-md border border-stone-300 dark:border-stone-600 bg-white dark:bg-stone-900 px-2 py-1 text-sm text-stone-700 dark:text-stone-300 focus:border-teal-500 focus:ring-teal-500"
                           >
                             {PROFICIENCY_LEVELS.map((level) => (
                               <option key={level.value} value={level.value}>
@@ -1382,18 +1382,18 @@ export default function ResumeBuilder() {
     );
 
     return (
-      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
           {progressBar}
 
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow sm:p-10">
+          <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6 shadow sm:p-10">
             {/* Guided Bullets */}
             {roleTemplate && (
               <div className="mb-8">
-                <h2 className="mb-2 text-xl font-bold text-stone-900">
+                <h2 className="mb-2 text-xl font-bold text-stone-900 dark:text-stone-100">
                   {locale === "es" ? "Describe Tu Experiencia" : "Describe Your Experience"}
                 </h2>
-                <p className="mb-4 text-sm text-stone-500">
+                <p className="mb-4 text-sm text-stone-500 dark:text-stone-400">
                   {locale === "es"
                     ? "Selecciona los puntos que describen tu experiencia. Estos aparecerán en tu currículum."
                     : "Select the bullet points that describe your experience. These will appear on your resume."}
@@ -1401,7 +1401,7 @@ export default function ResumeBuilder() {
 
                 {/* Show recommended hint if any experience answers exist */}
                 {recommendedBulletIds.length > 0 && (
-                  <div className="mb-3 flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700">
+                  <div className="mb-3 flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 dark:bg-amber-950 px-3 py-2 text-xs text-amber-700">
                     <Star className="size-3.5 shrink-0" />
                     <span>
                       {locale === "es"
@@ -1428,10 +1428,10 @@ export default function ResumeBuilder() {
                         }
                         className={`w-full rounded-lg border-2 p-3 text-left transition-all duration-200 ${
                           isSelected
-                            ? "border-amber-500 bg-amber-50"
+                            ? "border-amber-500 bg-amber-50 dark:bg-amber-950"
                             : isRecommended
                               ? "border-teal-300 bg-teal-50/30 hover:border-teal-400"
-                              : "border-stone-200 bg-white hover:border-stone-300"
+                              : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 hover:border-stone-300 dark:border-stone-600"
                         }`}
                       >
                         <div className="flex items-start gap-3">
@@ -1439,7 +1439,7 @@ export default function ResumeBuilder() {
                             className={`mt-0.5 flex size-5 shrink-0 items-center justify-center rounded border-2 ${
                               isSelected
                                 ? "border-amber-500 bg-amber-500"
-                                : "border-stone-300"
+                                : "border-stone-300 dark:border-stone-600"
                             }`}
                           >
                             {isSelected && (
@@ -1449,7 +1449,7 @@ export default function ResumeBuilder() {
                           <div className="flex-1">
                             <span
                               className={`text-sm ${
-                                isSelected ? "text-amber-900" : "text-stone-700"
+                                isSelected ? "text-amber-900" : "text-stone-700 dark:text-stone-300"
                               }`}
                             >
                               {locale === "es" ? bullet.esText : bullet.text}
@@ -1472,12 +1472,12 @@ export default function ResumeBuilder() {
             {/* Work History */}
             <div className="mb-8">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-stone-900">
+                <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                   {locale === "es" ? "Historial Laboral" : "Work History"}
                 </h3>
                 <button
                   onClick={addWorkEntry}
-                  className="flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
+                  className="flex items-center gap-1 text-sm font-medium text-teal-700 dark:text-teal-400 hover:text-teal-800"
                 >
                   <Plus className="size-4" /> {locale === "es" ? "Agregar Puesto" : "Add Position"}
                 </button>
@@ -1487,10 +1487,10 @@ export default function ResumeBuilder() {
                 {formData.workHistory.map((entry, i) => (
                   <div
                     key={i}
-                    className="rounded-lg border border-stone-200 bg-stone-50 p-4"
+                    className="rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 p-4"
                   >
                     <div className="mb-3 flex items-center justify-between">
-                      <span className="text-sm font-semibold text-stone-600">
+                      <span className="text-sm font-semibold text-stone-600 dark:text-stone-400">
                         {locale === "es" ? `Puesto ${i + 1}` : `Position ${i + 1}`}
                       </span>
                       {formData.workHistory.length > 1 && (
@@ -1548,7 +1548,7 @@ export default function ResumeBuilder() {
                           className="mt-1"
                           disabled={entry.current}
                         />
-                        <label className="mt-1.5 flex items-center gap-2 text-xs text-stone-600">
+                        <label className="mt-1.5 flex items-center gap-2 text-xs text-stone-600 dark:text-stone-400">
                           <input
                             type="checkbox"
                             checked={entry.current}
@@ -1558,7 +1558,7 @@ export default function ResumeBuilder() {
                                 endDate: e.target.checked ? "" : entry.endDate,
                               })
                             }
-                            className="size-3.5 rounded border-stone-300 text-teal-700"
+                            className="size-3.5 rounded border-stone-300 dark:border-stone-600 text-teal-700 dark:text-teal-400"
                           />
                           {locale === "es" ? "Trabajo aquí actualmente" : "I currently work here"}
                         </label>
@@ -1572,10 +1572,10 @@ export default function ResumeBuilder() {
             {/* Education */}
             <div>
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-stone-900">{locale === "es" ? "Educación" : "Education"}</h3>
+                <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">{locale === "es" ? "Educación" : "Education"}</h3>
                 <button
                   onClick={addEducation}
-                  className="flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
+                  className="flex items-center gap-1 text-sm font-medium text-teal-700 dark:text-teal-400 hover:text-teal-800"
                 >
                   <Plus className="size-4" /> {locale === "es" ? "Agregar Educación" : "Add Education"}
                 </button>
@@ -1585,10 +1585,10 @@ export default function ResumeBuilder() {
                 {formData.education.map((entry, i) => (
                   <div
                     key={i}
-                    className="rounded-lg border border-stone-200 bg-stone-50 p-4"
+                    className="rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 p-4"
                   >
                     <div className="mb-3 flex items-center justify-between">
-                      <span className="text-sm font-semibold text-stone-600">
+                      <span className="text-sm font-semibold text-stone-600 dark:text-stone-400">
                         {locale === "es" ? `Educación ${i + 1}` : `Education ${i + 1}`}
                       </span>
                       {formData.education.length > 1 && (
@@ -1656,7 +1656,7 @@ export default function ResumeBuilder() {
 
   if (showAssessment) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
         <CareerInsights
           roleId={formData.roleType}
           onComplete={(results) => {
@@ -1675,17 +1675,17 @@ export default function ResumeBuilder() {
   /* ================================================================ */
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
         {/* Actions */}
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-2xl font-bold text-stone-900">
+          <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100">
             {locale === "es" ? "Vista Previa de Tu Currículum" : "Your Resume Preview"}
           </h2>
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
             <button
               onClick={() => setStep(1)}
-              className="flex items-center justify-center gap-1.5 text-sm font-medium text-stone-600 hover:text-stone-900"
+              className="flex items-center justify-center gap-1.5 text-sm font-medium text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:text-stone-100"
             >
               <Pencil className="size-4" /> {locale === "es" ? "Editar" : "Edit"}
             </button>
@@ -1693,7 +1693,7 @@ export default function ResumeBuilder() {
               onClick={handleSaveProfile}
               disabled={isSaving}
               variant="outline"
-              className="flex w-full items-center justify-center gap-1.5 border-teal-700 text-teal-700 hover:bg-teal-50 sm:w-auto"
+              className="flex w-full items-center justify-center gap-1.5 border-teal-700 text-teal-700 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-950 sm:w-auto"
             >
               <Save className="size-4" />
               {isSaving
@@ -1714,7 +1714,7 @@ export default function ResumeBuilder() {
               onClick={handleDownloadDocx}
               disabled={isDownloading}
               variant="outline"
-              className="flex w-full items-center justify-center gap-1.5 border-stone-300 text-stone-700 hover:bg-stone-50 sm:w-auto"
+              className="flex w-full items-center justify-center gap-1.5 border-stone-300 dark:border-stone-600 text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 sm:w-auto"
             >
               <FileText className="size-4" />
               {isDownloading
@@ -1725,8 +1725,8 @@ export default function ResumeBuilder() {
         </div>
 
         {/* Resume Language Selector */}
-        <div className="mb-6 rounded-xl border border-stone-200 bg-white p-4">
-          <p className="mb-3 text-sm font-semibold text-stone-700">
+        <div className="mb-6 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4">
+          <p className="mb-3 text-sm font-semibold text-stone-700 dark:text-stone-300">
             {locale === "es" ? "Idioma del Currículum:" : "Resume Language:"}
           </p>
           <div className="flex flex-wrap gap-2">
@@ -1740,8 +1740,8 @@ export default function ResumeBuilder() {
                 onClick={() => setResumeLanguage(option.value)}
                 className={`rounded-lg border-2 px-4 py-2 text-sm font-medium transition-all ${
                   resumeLanguage === option.value
-                    ? "border-teal-500 bg-teal-50 text-teal-800"
-                    : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
+                    ? "border-teal-500 bg-teal-50 dark:bg-teal-950 text-teal-800"
+                    : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-400 hover:border-stone-300 dark:border-stone-600"
                 }`}
               >
                 {option.label}
@@ -1749,7 +1749,7 @@ export default function ResumeBuilder() {
             ))}
           </div>
           {resumeLanguage !== "auto" && (
-            <p className="mt-2 text-xs text-stone-500">
+            <p className="mt-2 text-xs text-stone-500 dark:text-stone-400">
               {locale === "es"
                 ? `Tu currículum se generará en ${resumeLanguage === "en" ? "inglés" : "español"}. Los encabezados de sección y los puntos de la plantilla se traducirán automáticamente.`
                 : `Your resume will be generated in ${resumeLanguage === "en" ? "English" : "Spanish"}. Section headers and template bullet points will be translated automatically.`}
@@ -1758,7 +1758,7 @@ export default function ResumeBuilder() {
         </div>
 
         {saveSuccess && (
-          <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
+          <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 dark:bg-amber-950 px-4 py-3 text-sm text-amber-700">
             {locale === "es"
               ? "¡Perfil guardado! Puedes regresar en cualquier momento para actualizar tu currículum."
               : "Profile saved! You can return anytime to update your resume."}
@@ -1766,7 +1766,7 @@ export default function ResumeBuilder() {
         )}
 
         {/* Resume Preview */}
-        <div className="overflow-hidden rounded-xl border border-stone-200 shadow-lg">
+        <div className="overflow-hidden rounded-xl border border-stone-200 dark:border-stone-700 shadow-lg">
           <ResumePreview data={formData} languageOverride={getResumeLanguageOverride()} />
         </div>
 
@@ -1774,7 +1774,7 @@ export default function ResumeBuilder() {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <button
             onClick={() => setStep(4)}
-            className="flex items-center gap-2 px-6 py-2 font-medium text-stone-700 hover:text-stone-900"
+            className="flex items-center gap-2 px-6 py-2 font-medium text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:text-stone-100"
           >
             <ChevronLeft className="size-5" />{" "}
             {locale === "es" ? "Volver a Editar" : "Back to Editing"}
@@ -1784,7 +1784,7 @@ export default function ResumeBuilder() {
               onClick={handleDownloadDocx}
               disabled={isDownloading}
               variant="outline"
-              className="flex items-center gap-2 border-stone-300 px-6 py-3 font-semibold text-stone-700 hover:bg-stone-50"
+              className="flex items-center gap-2 border-stone-300 dark:border-stone-600 px-6 py-3 font-semibold text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800"
             >
               <FileText className="size-5" />
               {isDownloading
@@ -1807,16 +1807,16 @@ export default function ResumeBuilder() {
         {/* Interview Prep CTA */}
         <div className="mt-8 rounded-xl border border-teal-200 bg-gradient-to-r from-teal-50 to-amber-50 p-5">
           <div className="flex items-center gap-4">
-            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-teal-100">
-              <MessageSquare className="size-5 text-teal-700" />
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-teal-100 dark:bg-teal-900">
+              <MessageSquare className="size-5 text-teal-700 dark:text-teal-400" />
             </div>
             <div className="flex-1">
-              <p className="font-semibold text-stone-900">
+              <p className="font-semibold text-stone-900 dark:text-stone-100">
                 {locale === "es"
                   ? "Siguiente: Practica preguntas de entrevista"
                   : "Next: Practice Interview Questions"}
               </p>
-              <p className="mt-0.5 text-sm text-stone-500">
+              <p className="mt-0.5 text-sm text-stone-500 dark:text-stone-400">
                 {locale === "es"
                   ? "Prepárate con preguntas específicas para FQHCs y tips del framework STAR."
                   : "Prepare with FQHC-specific questions and STAR framework tips."}
@@ -1837,15 +1837,15 @@ export default function ResumeBuilder() {
           <div className="mt-10 rounded-2xl border-2 border-dashed border-teal-200 bg-gradient-to-br from-teal-50/50 to-amber-50/50 p-6 sm:p-8">
             <div className="flex flex-col items-center text-center sm:flex-row sm:text-left sm:gap-6">
               <div className="mb-4 flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-100 to-amber-100 sm:mb-0">
-                <BarChart3 className="size-7 text-teal-700" />
+                <BarChart3 className="size-7 text-teal-700 dark:text-teal-400" />
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-bold text-stone-900">
+                <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                   {locale === "es"
                     ? "Obtén Tus Perspectivas Profesionales"
                     : "Get Your Career Insights"}
                 </h3>
-                <p className="mt-1 text-sm text-stone-500">
+                <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
                   {locale === "es"
                     ? "Realiza una evaluación de comportamiento de 3 minutos para descubrir tus fortalezas y el camino más rápido hacia el crecimiento profesional en salud comunitaria."
                     : "Take a 3-minute behavioral assessment to discover your strengths and fastest path to career growth in community health."}
@@ -1864,7 +1864,7 @@ export default function ResumeBuilder() {
 
         {/* Assessment completed badge */}
         {assessmentResults && (
-          <div className="mt-10 rounded-2xl border border-teal-200 bg-teal-50 p-6">
+          <div className="mt-10 rounded-2xl border border-teal-200 bg-teal-50 dark:bg-teal-950 p-6">
             <div className="flex items-center gap-3">
               <CheckCircle className="size-6 text-teal-600" />
               <div>

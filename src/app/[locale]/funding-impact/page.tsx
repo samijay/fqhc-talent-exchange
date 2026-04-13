@@ -317,7 +317,7 @@ export default function FundingImpactPage() {
   });
 
   return (
-    <div className="bg-stone-50 min-h-screen">
+    <div className="bg-stone-50 min-h-screen dark:bg-stone-950">
       {/* ─── Hero ─── */}
       <section className="bg-gradient-to-br from-red-900 via-red-800 to-stone-900 py-14 text-center text-white sm:py-20 relative overflow-hidden">
         {/* subtle pattern overlay */}
@@ -341,13 +341,13 @@ export default function FundingImpactPage() {
           {impactStats.map((stat) => (
             <div
               key={stat.id}
-              className="flex flex-col items-center rounded-xl border border-stone-200 bg-white p-4 shadow-sm text-center"
+              className="flex flex-col items-center rounded-xl border border-stone-200 bg-white p-4 shadow-sm text-center dark:border-stone-700 dark:bg-stone-900"
             >
               {statIcons[stat.icon]}
-              <p className="mt-2 text-2xl font-extrabold text-stone-900 sm:text-3xl">
+              <p className="mt-2 text-2xl font-extrabold text-stone-900 sm:text-3xl dark:text-stone-100">
                 {stat.value}
               </p>
-              <p className="mt-0.5 text-xs font-semibold text-stone-700">
+              <p className="mt-0.5 text-xs font-semibold text-stone-700 dark:text-stone-300">
                 {stat.label[locale as "en" | "es"]}
               </p>
               <p className="mt-1 text-xs text-stone-500 leading-tight">
@@ -403,7 +403,7 @@ export default function FundingImpactPage() {
 
       {/* ─── Timeline ─── */}
       <div id="policy-timeline" className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8 scroll-mt-20">
-        <h2 className="text-2xl font-bold text-stone-900">{t.timelineTitle}</h2>
+        <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100">{t.timelineTitle}</h2>
         <p className="mt-1 text-sm text-stone-500">{t.timelineSubtitle}</p>
 
         <div className="mt-6 relative">
@@ -426,8 +426,8 @@ export default function FundingImpactPage() {
                   />
 
                   <div
-                    className={`rounded-xl border bg-white p-4 shadow-sm transition-all sm:p-5 ${
-                      isPast ? "border-stone-200" : "border-amber-200 bg-amber-50/30"
+                    className={`rounded-xl border bg-white p-4 shadow-sm transition-all sm:p-5 dark:bg-stone-900 ${
+                      isPast ? "border-stone-200 dark:border-stone-700" : "border-amber-200 bg-amber-50/30 dark:border-amber-700 dark:bg-amber-950/20"
                     }`}
                   >
                     <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -479,6 +479,7 @@ export default function FundingImpactPage() {
                     <button
                       onClick={() => setExpandedTimeline(isExpanded ? null : event.id)}
                       className="mt-2 flex items-center gap-1 text-xs font-medium text-teal-700 hover:text-teal-800"
+                      aria-expanded={isExpanded}
                     >
                       {isExpanded ? t.hideDetails : t.viewDetails}
                       {isExpanded ? <ChevronUp className="size-3" /> : <ChevronDown className="size-3" />}
@@ -510,7 +511,7 @@ export default function FundingImpactPage() {
 
       {/* ─── Programs Affected ─── */}
       <div id="programs-affected" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8 scroll-mt-20">
-        <h2 className="text-2xl font-bold text-stone-900">{t.programsTitle}</h2>
+        <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100">{t.programsTitle}</h2>
         <p className="mt-1 text-sm text-stone-500">{t.programsSubtitle}</p>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -518,7 +519,7 @@ export default function FundingImpactPage() {
             return (
               <div
                 key={prog.id}
-                className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
+                className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm hover:shadow-md transition-shadow dark:border-stone-700 dark:bg-stone-900"
               >
                 <div className="flex items-start justify-between mb-3">
                   {statusBadge(prog.status, locale)}
@@ -561,14 +562,14 @@ export default function FundingImpactPage() {
 
       {/* ─── FQHC Revenue Impact Model ─── */}
       <div id="revenue-model" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8 scroll-mt-20">
-        <h2 className="text-2xl font-bold text-stone-900">{t.revenueTitle}</h2>
+        <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100">{t.revenueTitle}</h2>
         <p className="mt-1 text-sm text-stone-500">{t.revenueSubtitle}</p>
 
         <div className="mt-6 space-y-4">
           {fqhcRevenueModel.map((item) => (
             <div
               key={item.category}
-              className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm"
+              className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-700 dark:bg-stone-900"
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div className="flex-1">
@@ -607,7 +608,7 @@ export default function FundingImpactPage() {
 
       {/* ─── Why Is This Happening ─── */}
       <div id="why-happening" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8 scroll-mt-20">
-        <h2 className="text-2xl font-bold text-stone-900">{t.whyTitle}</h2>
+        <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100">{t.whyTitle}</h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           <div className="rounded-xl border border-red-200 bg-red-50/50 p-5">
             <div className="flex items-center gap-2 mb-3">
@@ -635,14 +636,14 @@ export default function FundingImpactPage() {
 
       {/* ─── City-Level Safety Net Levers ─── */}
       <div id="city-safety-net" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8 scroll-mt-20">
-        <h2 className="text-2xl font-bold text-stone-900">{t.cityTitle}</h2>
+        <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100">{t.cityTitle}</h2>
         <p className="mt-1 text-sm text-stone-500">{t.citySubtitle}</p>
 
         <div className="mt-6 space-y-4">
           {cityLevers.map((lever, i) => (
             <div
               key={i}
-              className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm"
+              className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-700 dark:bg-stone-900"
             >
               <div className="flex items-start gap-4">
                 <div className="shrink-0 rounded-lg bg-stone-50 p-2.5">
@@ -673,7 +674,7 @@ export default function FundingImpactPage() {
 
       {/* ─── Sources ─── */}
       <div id="sources" className="mx-auto max-w-7xl px-4 pt-14 sm:px-6 lg:px-8 scroll-mt-20">
-        <h2 className="text-2xl font-bold text-stone-900">{t.sourcesTitle}</h2>
+        <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100">{t.sourcesTitle}</h2>
         <p className="mt-1 text-sm text-stone-500">{t.sourcesSubtitle}</p>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -689,7 +690,7 @@ export default function FundingImpactPage() {
                     href={source.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block rounded-lg border border-stone-200 bg-white p-3 hover:shadow-sm transition-shadow"
+                    className="block rounded-lg border border-stone-200 bg-white p-3 hover:shadow-sm transition-shadow dark:border-stone-700 dark:bg-stone-900"
                   >
                     <div className="flex items-start gap-2">
                       <BookOpen className="size-4 mt-0.5 shrink-0 text-teal-600" />
@@ -718,7 +719,7 @@ export default function FundingImpactPage() {
                     href={source.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block rounded-lg border border-stone-200 bg-white p-3 hover:shadow-sm transition-shadow"
+                    className="block rounded-lg border border-stone-200 bg-white p-3 hover:shadow-sm transition-shadow dark:border-stone-700 dark:bg-stone-900"
                   >
                     <div className="flex items-start gap-2">
                       <ExternalLink className="size-4 mt-0.5 shrink-0 text-stone-500" />

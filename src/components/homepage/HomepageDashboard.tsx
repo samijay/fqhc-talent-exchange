@@ -55,14 +55,14 @@ function AdvocacyStrip({ items, counts }: {
   const daysUntil = (d: string) => Math.max(0, Math.ceil((new Date(d).getTime() - Date.now()) / 86400000));
 
   return (
-    <section className="border-y border-amber-200 bg-amber-50 px-6 py-8">
+    <section className="border-y border-amber-200 bg-amber-50 px-6 py-8 dark:border-amber-800 dark:bg-amber-950/30">
       <div className="mx-auto max-w-6xl">
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900">
+          <h2 className="flex items-center gap-2 text-lg font-bold text-stone-900 dark:text-stone-100">
             <span className="size-2 animate-pulse rounded-full bg-teal-500" />
             {isEs ? "Seguimiento de Abogac\u00eda" : "Advocacy Watch"}
           </h2>
-          <Link href={"/strategy/advocacy" as "/strategy/guides"} className="text-sm font-medium text-teal-700 hover:text-teal-900">
+          <Link href={"/strategy/advocacy" as "/strategy/guides"} className="text-sm font-medium text-teal-700 hover:text-teal-900 dark:text-teal-400 dark:hover:text-teal-300">
             {isEs ? "Ver todo" : "View all"} ({counts.total}) &rarr;
           </Link>
         </div>
@@ -80,7 +80,7 @@ function AdvocacyStrip({ items, counts }: {
               <Link
                 key={item.id}
                 href={"/strategy/advocacy" as "/strategy/guides"}
-                className="flex items-center gap-3 rounded-lg border border-amber-200 bg-white p-3 transition-colors hover:border-teal-300"
+                className="flex items-center gap-3 rounded-lg border border-amber-200 bg-white p-3 transition-colors hover:border-teal-300 dark:border-amber-800 dark:bg-stone-800 dark:hover:border-teal-600"
               >
                 {days !== null && (
                   <div className={`shrink-0 text-center ${days <= 14 ? "text-red-600" : "text-amber-600"}`}>
@@ -89,7 +89,7 @@ function AdvocacyStrip({ items, counts }: {
                   </div>
                 )}
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-semibold text-stone-800">
+                  <p className="truncate text-sm font-semibold text-stone-800 dark:text-stone-200">
                     {isEs ? item.headline.es : item.headline.en}
                   </p>
                   <p className="text-xs text-stone-400">{item.region}</p>

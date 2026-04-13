@@ -40,7 +40,7 @@ export default function ClinicSimulatorPage() {
   const isEs = locale === "es";
 
   return (
-    <main className="min-h-screen bg-stone-50">
+    <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
       {/* ============================================================ */}
       {/*  HERO                                                         */}
       {/* ============================================================ */}
@@ -123,7 +123,7 @@ export default function ClinicSimulatorPage() {
               ? "Reglas de Facturación: Lo Que Realmente es Facturable"
               : "Billing Rules: What's Actually Billable"}
           </h2>
-          <p className="mt-2 max-w-3xl text-sm text-stone-600">
+          <p className="mt-2 max-w-3xl text-sm text-stone-600 dark:text-stone-400">
             {isEs
               ? "La diferencia entre Medi-Cal y Medicare en facturación el mismo día es crítica. Muchos FQHCs pierden ingresos por no entender estas reglas."
               : "The difference between Medi-Cal and Medicare same-day billing is critical. Many FQHCs leave revenue on the table by misunderstanding these rules."}
@@ -138,7 +138,7 @@ export default function ClinicSimulatorPage() {
                   {isEs ? "2 PPS AMBOS PAGADORES" : "2 PPS BOTH PAYERS"}
                 </Badge>
               </div>
-              <h3 className="text-sm font-bold text-stone-900">
+              <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100">
                 {isEs ? "Médico + Dental Mismo Día" : "Medical + Dental Same-Day"}
               </h3>
               <p className="mt-2 text-xs leading-relaxed text-stone-600">
@@ -156,7 +156,7 @@ export default function ClinicSimulatorPage() {
                   {isEs ? "DEPENDE DEL PAGADOR" : "PAYER-DEPENDENT"}
                 </Badge>
               </div>
-              <h3 className="text-sm font-bold text-stone-900">
+              <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100">
                 {isEs ? "Médico + BH Mismo Día" : "Medical + BH Same-Day"}
               </h3>
               <p className="mt-2 text-xs leading-relaxed text-stone-600">
@@ -174,7 +174,7 @@ export default function ClinicSimulatorPage() {
                   {isEs ? "NO FACTURABLE" : "NOT BILLABLE"}
                 </Badge>
               </div>
-              <h3 className="text-sm font-bold text-stone-900">
+              <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100">
                 {isEs ? "Visitas de RN" : "RN Visits"}
               </h3>
               <p className="mt-2 text-xs leading-relaxed text-stone-600">
@@ -207,10 +207,10 @@ export default function ClinicSimulatorPage() {
             {DISEASE_PROTOCOLS.map((protocol) => (
               <div
                 key={protocol.id}
-                className="rounded-xl border border-stone-200 bg-stone-50 p-6"
+                className="rounded-xl border border-stone-200 bg-stone-50 dark:bg-stone-800 p-6"
               >
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-bold text-stone-900">
+                  <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                     {t(protocol.name, locale)}
                   </h3>
                   {protocol.ccmEligible && (
@@ -322,7 +322,7 @@ export default function ClinicSimulatorPage() {
                       : "border-green-200 bg-green-50/30"
                 }`}
               >
-                <h3 className="text-lg font-bold text-stone-900">
+                <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                   {t(tier.name, locale)}
                 </h3>
                 <Badge variant="outline" className="mt-1 text-xs">
@@ -387,7 +387,7 @@ export default function ClinicSimulatorPage() {
             <table className="w-full min-w-[600px] text-sm">
               <thead>
                 <tr className="border-b-2 border-stone-200">
-                  <th className="py-3 text-left font-bold text-stone-900">
+                  <th className="py-3 text-left font-bold text-stone-900 dark:text-stone-100">
                     {isEs ? "Categoría" : "Category"}
                   </th>
                   <th className="py-3 text-left font-bold text-teal-700">
@@ -429,7 +429,7 @@ export default function ClinicSimulatorPage() {
       {/* ============================================================ */}
       <section className="px-4 py-12">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-6 text-2xl font-bold text-stone-900">
+          <h2 className="mb-6 text-2xl font-bold text-stone-900 dark:text-stone-100">
             {isEs ? "Recursos Relacionados" : "Related Resources"}
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -487,7 +487,7 @@ export default function ClinicSimulatorPage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group flex items-start gap-3 rounded-xl border border-stone-200 bg-white p-4 transition-colors hover:border-teal-300 hover:bg-teal-50"
+                className="group flex items-start gap-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4 transition-colors hover:border-teal-300 hover:bg-teal-50"
               >
                 <BookOpen className="mt-0.5 size-5 shrink-0 text-teal-600" />
                 <div>

@@ -83,13 +83,14 @@ function ConceptCard({
       <button
         onClick={() => setExpanded(!expanded)}
         className="flex w-full items-start gap-3 p-5 text-left"
+        aria-expanded={expanded}
       >
-        <div className="mt-0.5 rounded-lg bg-white p-2 shadow-sm">
+        <div className="mt-0.5 rounded-lg bg-white dark:bg-stone-800 p-2 shadow-sm">
           <Icon className="size-5 text-stone-700" />
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
-            <h3 className="text-base font-semibold text-stone-900">
+            <h3 className="text-base font-semibold text-stone-900 dark:text-stone-100">
               {t(concept.title, locale)}
             </h3>
             <span className={`text-xs font-medium px-2 py-0.5 rounded-full bg-${domain.color}-100 text-${domain.color}-700`}>
@@ -99,7 +100,7 @@ function ConceptCard({
           {concept.keyMetric && (
             <div className="mt-1 flex items-center gap-1.5">
               <span className="text-xs text-stone-500">{concept.keyMetric.label}:</span>
-              <span className="text-xs font-semibold text-stone-900">{concept.keyMetric.value}</span>
+              <span className="text-xs font-semibold text-stone-900 dark:text-stone-100">{concept.keyMetric.value}</span>
             </div>
           )}
         </div>
@@ -110,20 +111,20 @@ function ConceptCard({
 
       {/* Expanded content */}
       {expanded && (
-        <div className="border-t border-stone-200/60 px-5 pb-5">
+        <div className="border-t border-stone-200/60 dark:border-stone-700 px-5 pb-5">
           {/* Level content */}
           <div className="mt-4">
-            <p className="text-sm leading-relaxed text-stone-700 whitespace-pre-line">
+            <p className="text-sm leading-relaxed text-stone-700 dark:text-stone-300 whitespace-pre-line">
               {t(concept.levels[activeLevel], locale)}
             </p>
           </div>
 
           {/* FQHC Context */}
-          <div className="mt-4 rounded-lg bg-white/80 border border-stone-200/60 p-3">
+          <div className="mt-4 rounded-lg bg-white/80 dark:bg-stone-800/80 border border-stone-200/60 dark:border-stone-700 p-3">
             <p className="text-xs font-semibold text-teal-700 mb-1">
               {isEs ? "Contexto FQHC" : "FQHC Context"}
             </p>
-            <p className="text-xs text-stone-600 leading-relaxed">
+            <p className="text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
               {t(concept.fqhcContext, locale)}
             </p>
           </div>
@@ -233,12 +234,12 @@ export default function HealthcareEconomicsPage() {
                           : level === "practitioner"
                           ? "border-amber-500 bg-amber-50 ring-1 ring-amber-500/20"
                           : "border-rose-500 bg-rose-50 ring-1 ring-rose-500/20"
-                        : "border-stone-200 bg-white hover:border-stone-300"
+                        : "border-stone-200 bg-white hover:border-stone-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-stone-600"
                     }`}
                   >
-                    <LevelIcon className={`size-5 ${active ? "text-stone-900" : "text-stone-500"}`} />
+                    <LevelIcon className={`size-5 ${active ? "text-stone-900 dark:text-stone-100" : "text-stone-500 dark:text-stone-400"}`} />
                     <div>
-                      <p className={`text-sm font-semibold ${active ? "text-stone-900" : "text-stone-600"}`}>
+                      <p className={`text-sm font-semibold ${active ? "text-stone-900 dark:text-stone-100" : "text-stone-600 dark:text-stone-400"}`}>
                         {t(meta.label, locale)}
                       </p>
                       <p className="text-xs text-stone-500">{t(meta.subtitle, locale)}</p>
@@ -257,7 +258,7 @@ export default function HealthcareEconomicsPage() {
             className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
               activeDomain === "all"
                 ? "bg-stone-900 text-white"
-                : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                : "bg-stone-100 dark:bg-stone-800 text-stone-600 hover:bg-stone-200"
             }`}
           >
             {isEs ? "Todos" : "All"}
@@ -269,7 +270,7 @@ export default function HealthcareEconomicsPage() {
               className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
                 activeDomain === domain
                   ? "bg-stone-900 text-white"
-                  : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                  : "bg-stone-100 dark:bg-stone-800 text-stone-600 hover:bg-stone-200"
               }`}
             >
               {t(meta.label, locale)}
@@ -341,13 +342,13 @@ export default function HealthcareEconomicsPage() {
           </Link>
           <Link
             href="/strategy/frameworks"
-            className="rounded-lg border border-stone-300 px-5 py-2.5 text-sm font-medium text-stone-700 hover:bg-stone-50 transition-colors"
+            className="rounded-lg border border-stone-300 dark:border-stone-600 px-5 py-2.5 text-sm font-medium text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
           >
             {isEs ? "Marcos de Ejecución →" : "Execution Frameworks →"}
           </Link>
           <Link
             href="/strategy/okrs"
-            className="rounded-lg border border-stone-300 px-5 py-2.5 text-sm font-medium text-stone-700 hover:bg-stone-50 transition-colors"
+            className="rounded-lg border border-stone-300 dark:border-stone-600 px-5 py-2.5 text-sm font-medium text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
           >
             {isEs ? "Plantillas OKR →" : "OKR Templates →"}
           </Link>

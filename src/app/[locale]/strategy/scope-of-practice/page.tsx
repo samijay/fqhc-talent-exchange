@@ -103,18 +103,19 @@ function RoleCard({
   const Icon = CATEGORY_ICONS[role.category] || Users;
 
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white transition-all hover:shadow-md overflow-hidden">
+    <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 transition-all hover:shadow-md overflow-hidden">
       {/* Card header — always visible */}
       <button
         onClick={onToggle}
         className="w-full text-left px-6 py-5 flex items-start gap-4"
+        aria-expanded={isExpanded}
       >
         <div className={`rounded-xl p-2.5 ${catMeta?.color ?? "bg-stone-100 text-stone-600"}`}>
           <Icon className="size-5" />
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-1">
-            <span className="text-xs font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full">
+            <span className="text-xs font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-900 px-2 py-0.5 rounded-full">
               {role.abbreviation}
             </span>
             {catMeta && (
@@ -123,7 +124,7 @@ function RoleCard({
               </Badge>
             )}
           </div>
-          <h3 className="text-base font-bold text-stone-900 sm:text-lg">
+          <h3 className="text-base font-bold text-stone-900 dark:text-stone-100 sm:text-lg">
             {t(role.title, locale)}
           </h3>
           <p className="text-xs text-stone-500 mt-0.5">
@@ -141,16 +142,16 @@ function RoleCard({
 
       {/* Expanded detail */}
       {isExpanded && (
-        <div className="px-6 pb-6 space-y-5 border-t border-stone-100 pt-5">
+        <div className="px-6 pb-6 space-y-5 border-t border-stone-100 dark:border-stone-700 pt-5">
           {/* Core Scope */}
           <div>
-            <h4 className="text-sm font-bold text-stone-800 mb-2 flex items-center gap-1.5">
+            <h4 className="text-sm font-bold text-stone-800 dark:text-stone-200 mb-2 flex items-center gap-1.5">
               <Shield className="size-3.5 text-green-600" />
               {isEs ? "Alcance Central" : "Core Scope"}
             </h4>
             <ul className="space-y-1.5">
               {role.coreScope.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-stone-600">
+                <li key={i} className="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-400">
                   <span className="text-green-600 mt-0.5 flex-shrink-0">&#10003;</span>
                   {t(item, locale)}
                 </li>
@@ -160,13 +161,13 @@ function RoleCard({
 
           {/* Cannot Do */}
           <div>
-            <h4 className="text-sm font-bold text-stone-800 mb-2 flex items-center gap-1.5">
+            <h4 className="text-sm font-bold text-stone-800 dark:text-stone-200 mb-2 flex items-center gap-1.5">
               <AlertTriangle className="size-3.5 text-red-500" />
               {isEs ? "Fuera de Alcance" : "Out of Scope"}
             </h4>
             <ul className="space-y-1.5">
               {role.cannotDo.map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-stone-600">
+                <li key={i} className="flex items-start gap-2 text-sm text-stone-600 dark:text-stone-400">
                   <span className="text-red-500 mt-0.5 flex-shrink-0">&#10007;</span>
                   {t(item, locale)}
                 </li>
@@ -176,13 +177,13 @@ function RoleCard({
 
           {/* Supervision Chain */}
           <div>
-            <h4 className="text-sm font-bold text-stone-800 mb-2 flex items-center gap-1.5">
+            <h4 className="text-sm font-bold text-stone-800 dark:text-stone-200 mb-2 flex items-center gap-1.5">
               <Users className="size-3.5 text-blue-600" />
               {isEs ? "Cadena de Supervision" : "Supervision Chain"}
             </h4>
-            <div className="text-sm text-stone-600 space-y-1">
+            <div className="text-sm text-stone-600 dark:text-stone-400 space-y-1">
               <p>
-                <span className="font-medium text-stone-700">
+                <span className="font-medium text-stone-700 dark:text-stone-300">
                   {isEs ? "Supervisado por:" : "Supervised by:"}
                 </span>{" "}
                 {role.supervisedBy
@@ -190,7 +191,7 @@ function RoleCard({
                   : (isEs ? "Ninguno (practica independiente)" : "None (independent practice)")}
               </p>
               <p>
-                <span className="font-medium text-stone-700">
+                <span className="font-medium text-stone-700 dark:text-stone-300">
                   {isEs ? "Puede supervisar:" : "Can supervise:"}
                 </span>{" "}
                 {role.canSupervise.length > 0
@@ -203,11 +204,11 @@ function RoleCard({
           </div>
 
           {/* FQHC Context */}
-          <div className="rounded-xl bg-teal-50 border border-teal-100 p-4">
-            <h4 className="text-sm font-bold text-teal-800 mb-2">
+          <div className="rounded-xl bg-teal-50 dark:bg-teal-950 border border-teal-100 dark:border-teal-800 p-4">
+            <h4 className="text-sm font-bold text-teal-800 dark:text-teal-300 mb-2">
               {isEs ? "Contexto FQHC" : "FQHC Context"}
             </h4>
-            <p className="text-sm text-teal-900 leading-relaxed">
+            <p className="text-sm text-teal-900 dark:text-teal-200 leading-relaxed">
               {t(role.fqhcContext, locale)}
             </p>
           </div>
@@ -230,27 +231,27 @@ function RoleCard({
 
           {/* Change Management */}
           <div>
-            <h4 className="text-sm font-bold text-stone-800 mb-2">
+            <h4 className="text-sm font-bold text-stone-800 dark:text-stone-200 mb-2">
               {isEs ? "Gestion del Cambio" : "Change Management"}
             </h4>
-            <p className="text-sm text-stone-600 leading-relaxed">
+            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
               {t(role.changeManagement, locale)}
             </p>
           </div>
 
           {/* Revenue Impact */}
-          <div className="rounded-xl bg-green-50 border border-green-100 p-4">
-            <h4 className="text-sm font-bold text-green-800 mb-2 flex items-center gap-1.5">
+          <div className="rounded-xl bg-green-50 dark:bg-green-950 border border-green-100 dark:border-green-800 p-4">
+            <h4 className="text-sm font-bold text-green-800 dark:text-green-300 mb-2 flex items-center gap-1.5">
               <DollarSign className="size-3.5" />
               {isEs ? "Impacto en Ingresos" : "Revenue Impact"}
             </h4>
-            <p className="text-sm text-green-900 leading-relaxed">
+            <p className="text-sm text-green-900 dark:text-green-200 leading-relaxed">
               {t(role.revenueImpact, locale)}
             </p>
           </div>
 
           {/* Source link */}
-          <div className="flex items-center justify-between pt-2 border-t border-stone-100">
+          <div className="flex items-center justify-between pt-2 border-t border-stone-100 dark:border-stone-700">
             <span className="text-xs text-stone-500">
               {role.caRegulation}
             </span>
@@ -304,7 +305,7 @@ export default function ScopeOfPracticePage() {
   ];
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: "Home", href: "/" },
         { label: "Strategy", href: "/strategy/scope-of-practice" },
@@ -336,7 +337,7 @@ export default function ScopeOfPracticePage() {
       </section>
 
       {/* ---- Legal Disclaimer ---- */}
-      <div className="bg-amber-50 border-b border-amber-200">
+      <div className="bg-amber-50 dark:bg-amber-950 border-b border-amber-200 dark:border-amber-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
           <p className="text-xs text-amber-800 text-center leading-relaxed">
             <AlertTriangle className="inline size-3 mr-1 -mt-0.5" />
@@ -395,10 +396,10 @@ export default function ScopeOfPracticePage() {
       <section id="delegation-matrix" className="py-10 sm:py-14 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-6">
-            <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl">
+            <h2 className="text-2xl font-extrabold text-stone-900 dark:text-stone-100 sm:text-3xl">
               {isEs ? "Matriz de Delegacion Interactiva" : "Interactive Delegation Matrix"}
             </h2>
-            <p className="mt-2 text-stone-600 max-w-2xl">
+            <p className="mt-2 text-stone-600 dark:text-stone-400 max-w-2xl">
               {isEs
                 ? "Haga clic en cualquier celda para ver la cita regulatoria de California. Filtre por departamento para enfocar el analisis."
                 : "Click any cell to see the California regulatory citation. Filter by department to focus your analysis."}
@@ -417,12 +418,12 @@ export default function ScopeOfPracticePage() {
       </section>
 
       {/* ---- 4. Role Cards Grid ---- */}
-      <section id="role-guide" className="py-10 sm:py-14 bg-white scroll-mt-20">
+      <section id="role-guide" className="py-10 sm:py-14 bg-white dark:bg-stone-900 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl mb-2">
+          <h2 className="text-2xl font-extrabold text-stone-900 dark:text-stone-100 sm:text-3xl mb-2">
             {isEs ? "Guia por Rol" : "Role-by-Role Guide"}
           </h2>
-          <p className="text-stone-600 mb-8 max-w-2xl">
+          <p className="text-stone-600 dark:text-stone-400 mb-8 max-w-2xl">
             {isEs
               ? "Toque cualquier rol para ver el alcance completo, barreras al tope de licencia, estrategias de cambio y el impacto en ingresos."
               : "Tap any role to see the full scope, top-of-license barriers, change management strategies, and revenue impact."}
@@ -461,12 +462,12 @@ export default function ScopeOfPracticePage() {
       {/* ---- 5. Top-of-License Barriers ---- */}
       <section id="top-of-license-barriers" className="py-10 sm:py-14 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl mb-2">
+          <h2 className="text-2xl font-extrabold text-stone-900 dark:text-stone-100 sm:text-3xl mb-2">
             {isEs
               ? "Barreras al Tope de Licencia en FQHCs"
               : "Top-of-License Barriers Across FQHCs"}
           </h2>
-          <p className="text-stone-600 mb-8 max-w-2xl">
+          <p className="text-stone-600 dark:text-stone-400 mb-8 max-w-2xl">
             {isEs
               ? `${totalBarriers} barreras identificadas en ${SCOPE_OF_PRACTICE_ROLES.length} roles. La mayoria se reducen a: ordenes permanentes faltantes, acuerdos de supervision desactualizados y tareas asignadas por debajo del nivel de entrenamiento.`
               : `${totalBarriers} barriers identified across ${SCOPE_OF_PRACTICE_ROLES.length} roles. Most come down to: missing standing orders, outdated supervision agreements, and tasks assigned below training level.`}
@@ -481,10 +482,10 @@ export default function ScopeOfPracticePage() {
                   className="rounded-xl border border-stone-200 bg-white p-5"
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full">
+                    <span className="text-xs font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-900 px-2 py-0.5 rounded-full">
                       {role.abbreviation}
                     </span>
-                    <span className="text-sm font-bold text-stone-800">
+                    <span className="text-sm font-bold text-stone-800 dark:text-stone-200">
                       {t(role.title, locale)}
                     </span>
                     {catMeta && (
@@ -514,14 +515,14 @@ export default function ScopeOfPracticePage() {
       </section>
 
       {/* ---- 6. Revenue Impact Summary ---- */}
-      <section id="revenue-impact" className="py-10 sm:py-14 bg-white scroll-mt-20">
+      <section id="revenue-impact" className="py-10 sm:py-14 bg-white dark:bg-stone-900 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-extrabold text-stone-900 sm:text-3xl mb-2">
+          <h2 className="text-2xl font-extrabold text-stone-900 dark:text-stone-100 sm:text-3xl mb-2">
             {isEs
               ? "El Caso Financiero: Ingresos por Rol"
               : "The Financial Case: Revenue Impact by Role"}
           </h2>
-          <p className="text-stone-600 mb-8 max-w-2xl">
+          <p className="text-stone-600 dark:text-stone-400 mb-8 max-w-2xl">
             {isEs
               ? "Cada rol que no trabaja al tope de su licencia es ingresos perdidos. Aqui esta el impacto financiero de una delegacion correcta."
               : "Every role not working at the top of their license is lost revenue. Here is the financial impact of getting delegation right."}
@@ -535,16 +536,16 @@ export default function ScopeOfPracticePage() {
                   className="rounded-xl border border-stone-200 bg-stone-50 p-5"
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full">
+                    <span className="text-xs font-bold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-900 px-2 py-0.5 rounded-full">
                       {role.abbreviation}
                     </span>
-                    <span className="text-sm font-bold text-stone-800">
+                    <span className="text-sm font-bold text-stone-800 dark:text-stone-200">
                       {t(role.title, locale)}
                     </span>
                   </div>
                   <div className="flex items-start gap-2">
                     <DollarSign className="size-4 text-green-600 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-stone-600 leading-relaxed">
+                    <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
                       {t(role.revenueImpact, locale)}
                     </p>
                   </div>

@@ -37,7 +37,7 @@ export function TrustStrip({ totalFQHCs, totalJobs, totalIntel }: TrustStripProp
   ];
 
   return (
-    <section className="border-y border-stone-200 bg-stone-100 px-4 py-8">
+    <section className="border-y border-stone-200 bg-stone-100 px-4 py-8 dark:border-stone-700 dark:bg-stone-900">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-8 sm:gap-12">
         {stats.map((stat) => (
           <Link
@@ -45,10 +45,10 @@ export function TrustStrip({ totalFQHCs, totalJobs, totalIntel }: TrustStripProp
             href={stat.href}
             className="group text-center transition-colors"
           >
-            <p className="text-lg font-extrabold text-stone-900 group-hover:text-teal-700 sm:text-xl">
+            <p className="text-lg font-extrabold text-stone-900 group-hover:text-teal-700 sm:text-xl dark:text-stone-100 dark:group-hover:text-teal-400">
               {stat.value}
             </p>
-            <p className="text-xs font-medium uppercase tracking-wider text-stone-600 group-hover:text-teal-600">
+            <p className="text-xs font-medium uppercase tracking-wider text-stone-600 group-hover:text-teal-600 dark:text-stone-400 dark:group-hover:text-teal-400">
               {stat.label}
             </p>
           </Link>

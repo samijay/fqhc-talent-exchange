@@ -89,10 +89,10 @@ function OKRCard({
 
   return (
     <div
-      className={`rounded-2xl border bg-white transition-shadow hover:shadow-md overflow-hidden ${
+      className={`rounded-2xl border bg-white dark:bg-stone-900 transition-shadow hover:shadow-md overflow-hidden ${
         okr.featured
-          ? "border-teal-300 ring-2 ring-teal-100"
-          : "border-stone-200"
+          ? "border-teal-300 ring-2 ring-teal-100 dark:border-teal-600 dark:ring-teal-900"
+          : "border-stone-200 dark:border-stone-700"
       }`}
     >
       <button onClick={onToggle} className="w-full text-left p-6 pb-4">
@@ -100,7 +100,7 @@ function OKRCard({
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2 mb-2">
               {okr.featured && (
-                <span className="flex items-center gap-1 text-xs font-semibold text-teal-700 bg-teal-50 px-2 py-0.5 rounded-full">
+                <span className="flex items-center gap-1 text-xs font-semibold text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-900 px-2 py-0.5 rounded-full">
                   <Star className="size-3 fill-teal-600" />
                   {isEs ? "Plantilla Insignia" : "Flagship Template"}
                 </span>
@@ -130,7 +130,7 @@ function OKRCard({
                     : "Annual"}
               </span>
             </div>
-            <h3 className="text-lg font-bold text-stone-900 leading-snug">
+            <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100 leading-snug">
               <span className="text-teal-700 mr-1.5">O:</span>
               {t(okr.objective, locale)}
             </h3>
@@ -169,7 +169,7 @@ function OKRCard({
       {isExpanded && (
         <div className="border-t border-stone-100 px-6 pb-6 pt-4 space-y-4">
           {/* Context */}
-          <p className="text-sm text-stone-600 leading-relaxed">
+          <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
             {t(okr.context, locale)}
           </p>
 
@@ -178,22 +178,22 @@ function OKRCard({
             {okr.keyResults.map((kr, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-stone-100 bg-stone-50 p-4"
+                className="rounded-xl border border-stone-100 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 p-4"
               >
                 <div className="flex items-start gap-2">
                   <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-teal-700">
                     {i + 1}
                   </span>
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-stone-800">
+                    <p className="text-sm font-medium text-stone-800 dark:text-stone-200">
                       <span className="text-teal-700 mr-1">KR{i + 1}:</span>
                       {t(kr.kr, locale)}
                     </p>
                     <div className="mt-2 flex flex-wrap gap-2">
-                      <span className="text-xs bg-white border border-stone-200 text-stone-600 px-2 py-0.5 rounded-full">
+                      <span className="text-xs bg-white dark:bg-stone-700 border border-stone-200 dark:border-stone-600 text-stone-600 dark:text-stone-300 px-2 py-0.5 rounded-full">
                         {isEs ? "Metrica" : "Metric"}: {kr.metric}
                       </span>
-                      <span className="text-xs bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full font-medium">
+                      <span className="text-xs bg-teal-50 dark:bg-teal-900 text-teal-700 dark:text-teal-400 px-2 py-0.5 rounded-full font-medium">
                         {isEs ? "Meta" : "Target"}: {kr.target}
                       </span>
                     </div>
@@ -204,7 +204,7 @@ function OKRCard({
                         {kr.departmentsInvolved.map((dept) => (
                           <span
                             key={dept}
-                            className="text-xs bg-stone-200 text-stone-600 px-1.5 py-0.5 rounded"
+                            className="text-xs bg-stone-200 dark:bg-stone-700 text-stone-600 dark:text-stone-400 px-1.5 py-0.5 rounded"
                           >
                             {dept}
                           </span>
@@ -218,7 +218,7 @@ function OKRCard({
           </div>
 
           {/* Footer: links + individual download */}
-          <div className="flex flex-wrap items-center gap-3 border-t border-stone-100 pt-3">
+          <div className="flex flex-wrap items-center gap-3 border-t border-stone-100 dark:border-stone-700 pt-3">
             {okr.relatedCaseStudyId && (
               <Link
                 href="/strategy/guides"
@@ -251,7 +251,7 @@ function OKRCard({
                 {okr.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs bg-stone-100 text-stone-500 px-1.5 py-0.5 rounded"
+                    className="text-xs bg-stone-100 dark:bg-stone-700 text-stone-500 dark:text-stone-400 px-1.5 py-0.5 rounded"
                   >
                     {tag}
                   </span>
@@ -317,7 +317,7 @@ export default function OKRTemplatesPage() {
   };
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: "Home", href: "/" },
         { label: "Strategy", href: "/strategy/okrs" },
@@ -382,9 +382,9 @@ export default function OKRTemplatesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           {/* Company-wide callout */}
-          <div className="mb-6 rounded-xl border border-teal-200 bg-teal-50 px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
+          <div className="mb-6 rounded-xl border border-teal-200 dark:border-teal-700 bg-teal-50 dark:bg-teal-950 px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
             <Star className="size-5 text-teal-600 shrink-0" />
-            <p className="text-sm text-teal-800 flex-1">
+            <p className="text-sm text-teal-800 dark:text-teal-300 flex-1">
               <span className="font-semibold">
                 {isEs
                   ? "¿Nuevo en OKRs? Empieza con la Plantilla Insignia de Toda la Empresa."
@@ -408,9 +408,9 @@ export default function OKRTemplatesPage() {
           </div>
 
           {/* OKR Learning callout */}
-          <div className="mb-6 rounded-xl border border-purple-200 bg-purple-50 px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
+          <div className="mb-6 rounded-xl border border-purple-200 dark:border-purple-700 bg-purple-50 dark:bg-purple-950 px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-3">
             <Target className="size-5 text-purple-600 shrink-0" />
-            <p className="text-sm text-purple-800 flex-1">
+            <p className="text-sm text-purple-800 dark:text-purple-300 flex-1">
               <span className="font-semibold">
                 {isEs
                   ? "¿Quieres aprender a escribir OKRs?"
@@ -448,7 +448,7 @@ export default function OKRTemplatesPage() {
                 className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                   activeDomain === "all"
                     ? "bg-stone-800 text-white"
-                    : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                    : "bg-stone-100 text-stone-500 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                 }`}
               >
                 {isEs ? "Todos" : "All"} ({counts.total})
@@ -460,7 +460,7 @@ export default function OKRTemplatesPage() {
                   className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                     activeDomain === dom.id
                       ? "bg-stone-800 text-white"
-                      : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                      : "bg-stone-100 text-stone-500 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                   }`}
                 >
                   {isEs ? dom.es : dom.en}
@@ -485,7 +485,7 @@ export default function OKRTemplatesPage() {
                   className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                     activeDifficulty === diff
                       ? "bg-stone-800 text-white"
-                      : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                      : "bg-stone-100 text-stone-500 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                   }`}
                 >
                   {diff === "all"
@@ -579,23 +579,23 @@ export default function OKRTemplatesPage() {
       </section>
 
       {/* ==================== COURSE & SPRINT CTA ==================== */}
-      <section className="py-8 border-t border-stone-200">
+      <section className="py-8 border-t border-stone-200 dark:border-stone-700">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-stone-900 text-center mb-6">
+          <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 text-center mb-6">
             {isEs
               ? "Lleva tus OKRs al siguiente nivel"
               : "Take your OKRs to the next level"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Link href="/strategy/okr-course">
-              <div className="rounded-2xl border border-teal-200 bg-teal-50/50 p-6 hover:shadow-md transition-shadow cursor-pointer h-full">
+              <div className="rounded-2xl border border-teal-200 dark:border-teal-700 bg-teal-50/50 dark:bg-teal-950/50 p-6 hover:shadow-md transition-shadow cursor-pointer h-full">
                 <div className="flex items-center gap-2 mb-2">
                   <Target className="size-5 text-teal-600" />
                   <Badge className="bg-teal-100 text-teal-800 text-xs">
                     {isEs ? "Gratis • 45 min" : "Free • 45 min"}
                   </Badge>
                 </div>
-                <h3 className="font-bold text-stone-800 mb-1">
+                <h3 className="font-bold text-stone-800 dark:text-stone-200 mb-1">
                   {isEs ? "Curso Individual de OKR" : "Individual OKR Course"}
                 </h3>
                 <p className="text-sm text-stone-500">
@@ -606,14 +606,14 @@ export default function OKRTemplatesPage() {
               </div>
             </Link>
             <Link href="/strategy/okr-team-sprint">
-              <div className="rounded-2xl border border-blue-200 bg-blue-50/50 p-6 hover:shadow-md transition-shadow cursor-pointer h-full">
+              <div className="rounded-2xl border border-blue-200 dark:border-blue-700 bg-blue-50/50 dark:bg-blue-950/50 p-6 hover:shadow-md transition-shadow cursor-pointer h-full">
                 <div className="flex items-center gap-2 mb-2">
                   <Users className="size-5 text-blue-600" />
                   <Badge className="bg-blue-100 text-blue-800 text-xs">
                     {isEs ? "Gratis • Equipos" : "Free • Teams"}
                   </Badge>
                 </div>
-                <h3 className="font-bold text-stone-800 mb-1">
+                <h3 className="font-bold text-stone-800 dark:text-stone-200 mb-1">
                   {isEs ? "Sprint de OKR en Equipo" : "Team OKR Sprint"}
                 </h3>
                 <p className="text-sm text-stone-500">

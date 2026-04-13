@@ -27,7 +27,7 @@ import { getRegionSlug } from "@/lib/regional-intelligence";
 import { ProfileTabs } from "@/components/directory/ProfileTabs";
 import { FavoriteButton } from "@/components/dashboard/FavoriteButton";
 import { MedicalOrganizationJsonLd } from "@/components/seo/JsonLd";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
 
 /* ------------------------------------------------------------------ */
 /*  Static Params                                                      */
@@ -508,8 +508,8 @@ export default async function FQHCProfilePage({
             {fqhc.glassdoorRating && (
               <div className="rounded-xl bg-white/10 px-5 py-3 text-center backdrop-blur">
                 <div className="flex items-center gap-1.5">
-                  <Star className="size-5 fill-amber-400 text-amber-400" />
-                  <span className="text-2xl font-bold">{fqhc.glassdoorRating.toFixed(1)}</span>
+                  <Star className="size-5 fill-amber-400 text-amber-400" aria-hidden="true" />
+                  <span className="text-2xl font-bold" aria-label={`${fqhc.glassdoorRating.toFixed(1)} out of 5 stars`}>{fqhc.glassdoorRating.toFixed(1)}</span>
                 </div>
                 <p className="mt-0.5 text-xs text-teal-200">
                   Glassdoor

@@ -129,7 +129,7 @@ export default async function RegionalIntelligencePage({
     .map(([name, s]) => ({ name, slug: s }));
 
   return (
-    <main className="min-h-screen bg-stone-50">
+    <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
@@ -200,20 +200,20 @@ export default async function RegionalIntelligencePage({
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         {/* ── Overview Cards ──────────────────────────────────────── */}
         <section className="mb-12">
-          <h2 className="mb-6 text-2xl font-bold text-stone-900">
+          <h2 className="mb-6 text-2xl font-bold text-stone-900 dark:text-stone-100">
             {t({ en: "Regional Overview", es: "Resumen Regional" })}
           </h2>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {/* FQHCs & Sites */}
-            <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-700 dark:bg-stone-900">
               <div className="mb-3 flex items-center gap-2 text-stone-500">
                 <Building2 className="size-4" />
                 <span className="text-sm font-medium">
                   {t({ en: "Health Centers", es: "Centros de Salud" })}
                 </span>
               </div>
-              <p className="text-3xl font-bold text-stone-900">{stats.fqhcCount}</p>
+              <p className="text-3xl font-bold text-stone-900 dark:text-stone-100">{stats.fqhcCount}</p>
               <p className="text-sm text-stone-500">
                 {t({
                   en: `across ${stats.totalSites} sites`,
@@ -223,14 +223,14 @@ export default async function RegionalIntelligencePage({
             </div>
 
             {/* Workforce */}
-            <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-700 dark:bg-stone-900">
               <div className="mb-3 flex items-center gap-2 text-stone-500">
                 <Users className="size-4" />
                 <span className="text-sm font-medium">
                   {t({ en: "Workforce", es: "Fuerza Laboral" })}
                 </span>
               </div>
-              <p className="text-3xl font-bold text-stone-900">
+              <p className="text-3xl font-bold text-stone-900 dark:text-stone-100">
                 {stats.totalStaff.toLocaleString()}
               </p>
               <p className="text-sm text-stone-500">
@@ -242,14 +242,14 @@ export default async function RegionalIntelligencePage({
             </div>
 
             {/* Layoff Impact */}
-            <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-700 dark:bg-stone-900">
               <div className="mb-3 flex items-center gap-2 text-stone-500">
                 <AlertTriangle className="size-4" />
                 <span className="text-sm font-medium">
                   {t({ en: "Layoff Impact", es: "Impacto de Despidos" })}
                 </span>
               </div>
-              <p className="text-3xl font-bold text-stone-900">
+              <p className="text-3xl font-bold text-stone-900 dark:text-stone-100">
                 {stats.workersAffected > 0
                   ? stats.workersAffected.toLocaleString()
                   : t({ en: "None", es: "Ninguno" })}
@@ -265,14 +265,14 @@ export default async function RegionalIntelligencePage({
             </div>
 
             {/* Glassdoor */}
-            <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm">
+            <div className="rounded-xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-700 dark:bg-stone-900">
               <div className="mb-3 flex items-center gap-2 text-stone-500">
                 <Star className="size-4" />
                 <span className="text-sm font-medium">
                   {t({ en: "Avg Glassdoor", es: "Glassdoor Prom." })}
                 </span>
               </div>
-              <p className="text-3xl font-bold text-stone-900">
+              <p className="text-3xl font-bold text-stone-900 dark:text-stone-100">
                 {stats.avgGlassdoor !== null
                   ? `${stats.avgGlassdoor}/5`
                   : t({ en: "N/A", es: "N/D" })}
@@ -289,7 +289,7 @@ export default async function RegionalIntelligencePage({
 
         {/* ── Resilience Distribution ─────────────────────────────── */}
         <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold text-stone-900">
+          <h2 className="mb-4 text-2xl font-bold text-stone-900 dark:text-stone-100">
             {t({ en: "Resilience Distribution", es: "Distribucion de Resiliencia" })}
           </h2>
           <p className="mb-6 text-sm text-stone-500">
@@ -300,7 +300,7 @@ export default async function RegionalIntelligencePage({
           </p>
 
           {/* Grade distribution bar */}
-          <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm">
+          <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-700 dark:bg-stone-900">
             <div className="mb-4 flex gap-1 overflow-hidden rounded-lg">
               {(["A", "B", "C", "D", "F"] as const).map((grade) => {
                 const count = stats.gradeDistribution[grade] || 0;
@@ -342,7 +342,7 @@ export default async function RegionalIntelligencePage({
 
         {/* ── FQHC Table ──────────────────────────────────────────── */}
         <section className="mb-12">
-          <h2 className="mb-4 text-2xl font-bold text-stone-900">
+          <h2 className="mb-4 text-2xl font-bold text-stone-900 dark:text-stone-100">
             {t({
               en: `All ${stats.fqhcCount} FQHCs in ${regionName}`,
               es: `Los ${stats.fqhcCount} FQHCs en ${regionName}`,
@@ -355,26 +355,26 @@ export default async function RegionalIntelligencePage({
             })}
           </p>
 
-          <div className="overflow-x-auto rounded-xl border border-stone-200 bg-white shadow-sm">
+          <div className="overflow-x-auto rounded-xl border border-stone-200 bg-white shadow-sm dark:border-stone-700 dark:bg-stone-900">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-stone-200 bg-stone-50 text-left">
-                  <th className="px-4 py-3 font-semibold text-stone-700">
+                <tr className="border-b border-stone-200 bg-stone-50 text-left dark:border-stone-700 dark:bg-stone-800">
+                  <th className="px-4 py-3 font-semibold text-stone-700 dark:text-stone-300">
                     {t({ en: "Organization", es: "Organizacion" })}
                   </th>
-                  <th className="hidden px-4 py-3 font-semibold text-stone-700 sm:table-cell">
+                  <th className="hidden px-4 py-3 font-semibold text-stone-700 dark:text-stone-300 sm:table-cell">
                     {t({ en: "City", es: "Ciudad" })}
                   </th>
-                  <th className="px-4 py-3 text-right font-semibold text-stone-700">
+                  <th className="px-4 py-3 text-right font-semibold text-stone-700 dark:text-stone-300">
                     {t({ en: "Staff", es: "Personal" })}
                   </th>
-                  <th className="px-4 py-3 text-center font-semibold text-stone-700">
+                  <th className="px-4 py-3 text-center font-semibold text-stone-700 dark:text-stone-300">
                     {t({ en: "Grade", es: "Grado" })}
                   </th>
-                  <th className="hidden px-4 py-3 text-center font-semibold text-stone-700 md:table-cell">
+                  <th className="hidden px-4 py-3 text-center font-semibold text-stone-700 dark:text-stone-300 md:table-cell">
                     {t({ en: "Glassdoor", es: "Glassdoor" })}
                   </th>
-                  <th className="hidden px-4 py-3 text-right font-semibold text-stone-700 lg:table-cell">
+                  <th className="hidden px-4 py-3 text-right font-semibold text-stone-700 dark:text-stone-300 lg:table-cell">
                     {t({ en: "Programs", es: "Programas" })}
                   </th>
                 </tr>
@@ -383,8 +383,8 @@ export default async function RegionalIntelligencePage({
                 {scoredFqhcs.map(({ fqhc, score }, i) => (
                   <tr
                     key={fqhc.slug}
-                    className={`border-b border-stone-100 transition-colors hover:bg-stone-50 ${
-                      i % 2 === 0 ? "bg-white" : "bg-stone-50/30"
+                    className={`border-b border-stone-100 transition-colors hover:bg-stone-50 dark:border-stone-800 dark:hover:bg-stone-800 ${
+                      i % 2 === 0 ? "bg-white dark:bg-stone-900" : "bg-stone-50/30 dark:bg-stone-800/30"
                     }`}
                   >
                     <td className="px-4 py-3">
@@ -409,15 +409,16 @@ export default async function RegionalIntelligencePage({
                         <span
                           className={`inline-flex size-7 items-center justify-center rounded text-xs font-bold ${gradeColor(score.grade)}`}
                         >
-                          {score.grade}
+                          <span className="sr-only">Resilience grade: </span>{score.grade}
                         </span>
                       )}
                     </td>
                     <td className="hidden px-4 py-3 text-center md:table-cell">
                       {fqhc.glassdoorRating !== null ? (
                         <span className="flex items-center justify-center gap-1 text-stone-700">
-                          <Star className="size-3 fill-amber-400 text-amber-400" />
-                          {fqhc.glassdoorRating}
+                          <Star className="size-3 fill-amber-400 text-amber-400" aria-hidden="true" />
+                          <span className="sr-only">{fqhc.glassdoorRating} out of 5 stars</span>
+                          <span aria-hidden="true">{fqhc.glassdoorRating}</span>
                         </span>
                       ) : (
                         <span className="text-stone-500">--</span>
@@ -437,10 +438,10 @@ export default async function RegionalIntelligencePage({
         <div className="mb-12 grid gap-8 lg:grid-cols-2">
           {/* Top Programs */}
           <section>
-            <h2 className="mb-4 text-xl font-bold text-stone-900">
+            <h2 className="mb-4 text-xl font-bold text-stone-900 dark:text-stone-100">
               {t({ en: "Top Programs", es: "Programas Principales" })}
             </h2>
-            <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-700 dark:bg-stone-900">
               {stats.topPrograms.length === 0 ? (
                 <p className="text-sm text-stone-500">
                   {t({ en: "No program data available.", es: "Sin datos de programas disponibles." })}
@@ -473,10 +474,10 @@ export default async function RegionalIntelligencePage({
 
           {/* EHR Landscape */}
           <section>
-            <h2 className="mb-4 text-xl font-bold text-stone-900">
+            <h2 className="mb-4 text-xl font-bold text-stone-900 dark:text-stone-100">
               {t({ en: "EHR Landscape", es: "Panorama de EHR" })}
             </h2>
-            <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm">
+            <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-700 dark:bg-stone-900">
               {stats.ehrSystems.length === 0 ? (
                 <p className="text-sm text-stone-500">
                   {t({ en: "No EHR data available.", es: "Sin datos de EHR disponibles." })}
@@ -514,7 +515,7 @@ export default async function RegionalIntelligencePage({
         {/* ── Regional Intel Feed ─────────────────────────────────── */}
         {intel.length > 0 && (
           <section className="mb-12">
-            <h2 className="mb-4 text-2xl font-bold text-stone-900">
+            <h2 className="mb-4 text-2xl font-bold text-stone-900 dark:text-stone-100">
               {t({
                 en: `${regionName} Intelligence Feed`,
                 es: `Feed de Inteligencia de ${regionName}`,
@@ -583,7 +584,7 @@ export default async function RegionalIntelligencePage({
         {/* ── Links Section ───────────────────────────────────────── */}
         <section className="mb-12">
           <div className="rounded-xl border border-stone-200 bg-gradient-to-r from-teal-50 to-white p-6 shadow-sm">
-            <h2 className="mb-4 text-xl font-bold text-stone-900">
+            <h2 className="mb-4 text-xl font-bold text-stone-900 dark:text-stone-100">
               {t({ en: "Explore More", es: "Explorar Mas" })}
             </h2>
             <div className="flex flex-wrap gap-3">

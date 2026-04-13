@@ -5,7 +5,7 @@ import { getJobsForFqhc } from "@/lib/fqhc-job-listings";
 import { DirectoryClient } from "@/components/directory/DirectoryClient";
 import type { DirectoryFQHC, DirectoryStats } from "@/components/directory/DirectoryClient";
 import { FAQPageJsonLd } from "@/components/seo/JsonLd";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
 
 /* ------------------------------------------------------------------ */
 /*  Profile completeness (matches ProfileTabs logic)                   */
@@ -116,7 +116,7 @@ export default function DirectoryPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Directory" }]} />
       </div>
-      <Suspense fallback={<div className="min-h-screen bg-stone-50" />}>
+      <Suspense fallback={<div className="min-h-screen bg-stone-50 dark:bg-stone-950" />}>
         <DirectoryClient fqhcs={enrichedFQHCs} stats={stats} />
       </Suspense>
     </>

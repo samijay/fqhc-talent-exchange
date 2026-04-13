@@ -151,7 +151,7 @@ export default async function WhyFQHCPage() {
   const locale = await getLocale();
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white dark:bg-stone-950">
       {/* ============================================================ */}
       {/*  Hero                                                         */}
       {/* ============================================================ */}
@@ -184,17 +184,17 @@ export default async function WhyFQHCPage() {
       {/* ============================================================ */}
       {/*  Section 1: Lead Sooner                                       */}
       {/* ============================================================ */}
-      <section className="border-b border-stone-100 py-16 sm:py-20">
+      <section className="border-b border-stone-100 py-16 sm:py-20 dark:border-stone-800">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-4">
             <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-700">
               <Rocket className="size-6" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
+              <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl dark:text-stone-100">
                 {t({ en: "Lead Sooner", es: "Lidera Más Pronto" }, locale)}
               </h2>
-              <p className="mt-3 max-w-3xl text-lg leading-relaxed text-stone-600">
+              <p className="mt-3 max-w-3xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
                 {t({
                   en: "FQHCs typically have 50–500 staff — not 5,000. That means you can reach a supervisor or manager role in 2–3 years instead of 5–10 at a large hospital system. The career ladders are shorter and the opportunities to take on leadership are everywhere.",
                   es: "Los FQHCs típicamente tienen 50–500 empleados — no 5,000. Eso significa que puedes alcanzar un puesto de supervisor o gerente en 2–3 años en lugar de 5–10 en un gran sistema hospitalario. Las escaleras profesionales son más cortas y las oportunidades de liderazgo están en todas partes.",
@@ -210,14 +210,14 @@ export default async function WhyFQHCPage() {
             </h3>
             <div className="space-y-4">
               {CAREER_LADDERS.map((ladder, i) => (
-                <div key={i} className="rounded-xl border border-stone-200 bg-stone-50 p-4 sm:p-6">
+                <div key={i} className="rounded-xl border border-stone-200 bg-stone-50 p-4 sm:p-6 dark:border-stone-700 dark:bg-stone-800">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
                     {/* Entry */}
-                    <div className="flex-1 rounded-lg bg-white p-3 shadow-sm">
+                    <div className="flex-1 rounded-lg bg-white p-3 shadow-sm dark:bg-stone-900">
                       <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
                         {t({ en: "Entry", es: "Entrada" }, locale)}
                       </p>
-                      <p className="mt-1 font-semibold text-stone-900">{t(ladder.entry, locale)}</p>
+                      <p className="mt-1 font-semibold text-stone-900 dark:text-stone-100">{t(ladder.entry, locale)}</p>
                       <p className="text-sm font-medium text-teal-700">{ladder.entrySalary}</p>
                     </div>
 
@@ -228,11 +228,11 @@ export default async function WhyFQHCPage() {
                     </div>
 
                     {/* Mid */}
-                    <div className="flex-1 rounded-lg bg-white p-3 shadow-sm">
+                    <div className="flex-1 rounded-lg bg-white p-3 shadow-sm dark:bg-stone-900">
                       <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
                         {t({ en: "Mid-Career", es: "Media Carrera" }, locale)}
                       </p>
-                      <p className="mt-1 font-semibold text-stone-900">{t(ladder.mid, locale)}</p>
+                      <p className="mt-1 font-semibold text-stone-900 dark:text-stone-100">{t(ladder.mid, locale)}</p>
                       <p className="text-sm font-medium text-teal-700">{ladder.midSalary}</p>
                     </div>
 
@@ -247,7 +247,7 @@ export default async function WhyFQHCPage() {
                       <p className="text-xs font-medium uppercase tracking-wide text-teal-600">
                         {t({ en: "Leadership", es: "Liderazgo" }, locale)}
                       </p>
-                      <p className="mt-1 font-semibold text-stone-900">{t(ladder.senior, locale)}</p>
+                      <p className="mt-1 font-semibold text-stone-900 dark:text-stone-100">{t(ladder.senior, locale)}</p>
                       <p className="text-sm font-bold text-teal-700">{ladder.seniorSalary}</p>
                     </div>
                   </div>
@@ -261,17 +261,17 @@ export default async function WhyFQHCPage() {
       {/* ============================================================ */}
       {/*  Section 2: Higher Impact Per Person                          */}
       {/* ============================================================ */}
-      <section className="border-b border-stone-100 bg-stone-50 py-16 sm:py-20">
+      <section className="border-b border-stone-100 bg-stone-50 py-16 sm:py-20 dark:border-stone-800 dark:bg-stone-900">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-4">
             <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-amber-700">
               <Users className="size-6" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
+              <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl dark:text-stone-100">
                 {t({ en: "Higher Impact Per Person", es: "Mayor Impacto Por Persona" }, locale)}
               </h2>
-              <p className="mt-3 max-w-3xl text-lg leading-relaxed text-stone-600">
+              <p className="mt-3 max-w-3xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
                 {t({
                   en: "At an FQHC, your patient panel is 150–300 people. You know their names, their families, their stories. You're not a cog in a machine — you're the safety net.",
                   es: "En un FQHC, tu panel de pacientes es de 150–300 personas. Conoces sus nombres, sus familias, sus historias. No eres un engranaje en una máquina — tú eres la red de seguridad.",
@@ -298,7 +298,7 @@ export default async function WhyFQHCPage() {
                 detail: { en: "You're serving people who have nowhere else to go. That's meaningful work that changes lives — including yours.", es: "Atiendes a personas que no tienen otro lugar a dónde ir. Es un trabajo significativo que cambia vidas — incluyendo la tuya." },
               },
             ].map((item, i) => (
-              <div key={i} className="rounded-xl border border-stone-200 bg-white p-6 text-center">
+              <div key={i} className="rounded-xl border border-stone-200 bg-white p-6 text-center dark:border-stone-700 dark:bg-stone-800">
                 <p className="text-3xl font-extrabold text-teal-700">{item.stat}</p>
                 <p className="mt-1 text-sm font-semibold text-stone-700">{t(item.label, locale)}</p>
                 <p className="mt-3 text-sm leading-relaxed text-stone-500">{t(item.detail, locale)}</p>
@@ -311,17 +311,17 @@ export default async function WhyFQHCPage() {
       {/* ============================================================ */}
       {/*  Section 3: Financial Upside                                  */}
       {/* ============================================================ */}
-      <section className="border-b border-stone-100 py-16 sm:py-20">
+      <section className="border-b border-stone-100 py-16 sm:py-20 dark:border-stone-800">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-4">
             <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-green-100 text-green-700">
               <DollarSign className="size-6" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
+              <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl dark:text-stone-100">
                 {t({ en: "The Financial Upside", es: "La Ventaja Financiera" }, locale)}
               </h2>
-              <p className="mt-3 max-w-3xl text-lg leading-relaxed text-stone-600">
+              <p className="mt-3 max-w-3xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
                 {t({
                   en: "FQHC compensation is more competitive than most people think — especially when you factor in loan repayment, benefits, and California's SB 525 healthcare worker minimum wage.",
                   es: "La compensación en FQHCs es más competitiva de lo que la mayoría piensa — especialmente cuando consideras el pago de préstamos, beneficios, y el salario mínimo de trabajadores de salud de California (SB 525).",
@@ -333,7 +333,7 @@ export default async function WhyFQHCPage() {
           {/* Benefits grid */}
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {KEY_BENEFITS.map((benefit, i) => (
-              <div key={i} className="flex items-start gap-3 rounded-xl border border-stone-200 bg-white p-4">
+              <div key={i} className="flex items-start gap-3 rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-700 dark:bg-stone-800">
                 <benefit.icon className="mt-0.5 size-5 shrink-0 text-teal-600" />
                 <div>
                   <p className="font-semibold text-stone-900">{t(benefit.title, locale)}</p>
@@ -348,7 +348,7 @@ export default async function WhyFQHCPage() {
             <h3 className="mb-4 text-lg font-semibold text-stone-800">
               {t({ en: "California FQHC Salary Ranges", es: "Rangos Salariales FQHC en California" }, locale)}
             </h3>
-            <div className="overflow-hidden rounded-xl border border-stone-200">
+            <div className="overflow-hidden rounded-xl border border-stone-200 dark:border-stone-700">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-stone-50">
@@ -432,17 +432,17 @@ export default async function WhyFQHCPage() {
       {/* ============================================================ */}
       {/*  Section 4: Day-to-Day Autonomy                               */}
       {/* ============================================================ */}
-      <section className="border-b border-stone-100 bg-stone-50 py-16 sm:py-20">
+      <section className="border-b border-stone-100 bg-stone-50 py-16 sm:py-20 dark:border-stone-800 dark:bg-stone-900">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-4">
             <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-purple-100 text-purple-700">
               <Stethoscope className="size-6" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
+              <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl dark:text-stone-100">
                 {t({ en: "Day-to-Day Autonomy", es: "Autonomía Día a Día" }, locale)}
               </h2>
-              <p className="mt-3 max-w-3xl text-lg leading-relaxed text-stone-600">
+              <p className="mt-3 max-w-3xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
                 {t({
                   en: "At an FQHC, you practice at the top of your scope. Cross-functional teams mean you're involved in the full patient experience — not just one narrow slice.",
                   es: "En un FQHC, practicas al máximo de tu alcance. Los equipos multifuncionales significan que estás involucrado en toda la experiencia del paciente — no solo en una parte estrecha.",
@@ -474,7 +474,7 @@ export default async function WhyFQHCPage() {
                 ],
               },
             ].map((card, i) => (
-              <div key={i} className="rounded-xl border border-stone-200 bg-white p-6">
+              <div key={i} className="rounded-xl border border-stone-200 bg-white p-6 dark:border-stone-700 dark:bg-stone-800">
                 <div className="flex items-center gap-2">
                   <card.icon className="size-5 text-teal-600" />
                   <h3 className="text-lg font-semibold text-stone-900">{t(card.title, locale)}</h3>
@@ -496,9 +496,9 @@ export default async function WhyFQHCPage() {
       {/* ============================================================ */}
       {/*  Section 5: Comparison Table                                  */}
       {/* ============================================================ */}
-      <section className="border-b border-stone-100 py-16 sm:py-20">
+      <section className="border-b border-stone-100 py-16 sm:py-20 dark:border-stone-800">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-2xl font-bold text-stone-900 sm:text-3xl">
+          <h2 className="text-center text-2xl font-bold text-stone-900 sm:text-3xl dark:text-stone-100">
             {t({
               en: "FQHC vs. Hospital vs. Private Practice",
               es: "FQHC vs. Hospital vs. Práctica Privada",
@@ -514,8 +514,8 @@ export default async function WhyFQHCPage() {
           <div className="mt-10 overflow-x-auto">
             <table className="w-full min-w-[600px] text-sm">
               <thead>
-                <tr className="border-b-2 border-stone-200">
-                  <th className="px-4 py-3 text-left font-semibold text-stone-700">
+                <tr className="border-b-2 border-stone-200 dark:border-stone-700">
+                  <th className="px-4 py-3 text-left font-semibold text-stone-700 dark:text-stone-300">
                     {t({ en: "Dimension", es: "Dimensión" }, locale)}
                   </th>
                   <th className="px-4 py-3 text-left font-semibold text-teal-700">
@@ -531,17 +531,17 @@ export default async function WhyFQHCPage() {
               </thead>
               <tbody>
                 {COMPARISON_ROWS.map((row, i) => (
-                  <tr key={i} className="border-b border-stone-100">
-                    <td className="px-4 py-3 font-medium text-stone-900">
+                  <tr key={i} className="border-b border-stone-100 dark:border-stone-800">
+                    <td className="px-4 py-3 font-medium text-stone-900 dark:text-stone-100">
                       {t(row.dimension, locale)}
                     </td>
-                    <td className="px-4 py-3 font-medium text-teal-700">
+                    <td className="px-4 py-3 font-medium text-teal-700 dark:text-teal-400">
                       {t(row.fqhc, locale)}
                     </td>
-                    <td className="px-4 py-3 text-stone-500">
+                    <td className="px-4 py-3 text-stone-500 dark:text-stone-400">
                       {t(row.hospital, locale)}
                     </td>
-                    <td className="px-4 py-3 text-stone-500">
+                    <td className="px-4 py-3 text-stone-500 dark:text-stone-400">
                       {t(row.private, locale)}
                     </td>
                   </tr>
@@ -555,9 +555,9 @@ export default async function WhyFQHCPage() {
       {/* ============================================================ */}
       {/*  CTA Section                                                  */}
       {/* ============================================================ */}
-      <section className="bg-gradient-to-b from-teal-50 to-white py-16 sm:py-20">
+      <section className="bg-gradient-to-b from-teal-50 to-white py-16 sm:py-20 dark:from-teal-950 dark:to-stone-950">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl dark:text-stone-100">
             {t({
               en: "Ready to Make the Move?",
               es: "¿Listo/a Para Dar el Paso?",

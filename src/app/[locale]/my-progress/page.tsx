@@ -244,7 +244,7 @@ export default function MyProgressPage() {
   if (!progress) {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
-        <div className="text-stone-500">
+        <div className="text-stone-500 dark:text-stone-400">
           {isEs ? "Cargando..." : "Loading..."}
         </div>
       </div>
@@ -295,12 +295,12 @@ export default function MyProgressPage() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-b from-teal-50 to-white px-4 pb-10 pt-8 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-b from-teal-50 to-white dark:from-teal-950 dark:to-stone-950 px-4 pb-10 pt-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl text-center">
-          <h1 className="text-3xl font-extrabold tracking-tight text-stone-900 sm:text-4xl">
+          <h1 className="text-3xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100 sm:text-4xl">
             {isEs ? "Tu Progreso" : "Your Progress"}
           </h1>
-          <p className="mt-3 text-base text-stone-600 sm:text-lg">
+          <p className="mt-3 text-base text-stone-600 dark:text-stone-400 sm:text-lg">
             {isEs
               ? "Rastrea tu recorrido a trav\u00e9s de las herramientas de carrera FQHC. Todos los datos se almacenan localmente en tu navegador."
               : "Track your journey across FQHC career tools. All data stored locally in your browser."}
@@ -341,14 +341,14 @@ export default function MyProgressPage() {
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         {/* ── Empty state ──────────────────────────────────────────── */}
         {!hasAnyActivity && (
-          <div className="rounded-xl border border-stone-200 bg-white p-10 text-center">
+          <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-10 text-center">
             <Circle className="mx-auto size-12 text-stone-300" />
-            <h2 className="mt-4 text-xl font-bold text-stone-900">
+            <h2 className="mt-4 text-xl font-bold text-stone-900 dark:text-stone-100">
               {isEs
                 ? "Nada aqu\u00ed todav\u00eda"
                 : "Nothing here yet"}
             </h2>
-            <p className="mt-2 text-stone-600">
+            <p className="mt-2 text-stone-600 dark:text-stone-400">
               {isEs
                 ? "Comienza a usar las herramientas de carrera para ver tu progreso aqu\u00ed."
                 : "Start using the career tools below to see your progress here."}
@@ -359,7 +359,7 @@ export default function MyProgressPage() {
         {/* ── Section 1: Career Tools Progress ─────────────────────── */}
         {hasAnyActivity && (
           <section className="space-y-6">
-            <h2 className="text-xl font-bold text-stone-900">
+            <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
               {isEs ? "Progreso de Herramientas" : "Career Tools Progress"}
             </h2>
 
@@ -455,7 +455,7 @@ export default function MyProgressPage() {
         {/* ── Section 2: Academy Courses ───────────────────────────── */}
         {progress.academyCourses.length > 0 && (
           <section className="mt-12 space-y-6">
-            <h2 className="text-xl font-bold text-stone-900">
+            <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
               {isEs ? "Cursos de la Academia" : "Academy Courses"}
             </h2>
 
@@ -481,11 +481,11 @@ export default function MyProgressPage() {
                     <Link
                       key={course.courseId}
                       href={(meta?.href ?? `/academy/${course.courseId}`) as "/"}
-                      className="flex items-center gap-4 rounded-lg border border-stone-200 bg-white p-4 transition-colors hover:border-teal-300 hover:bg-teal-50/50"
+                      className="flex items-center gap-4 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4 transition-colors hover:border-teal-300 hover:bg-teal-50/50"
                     >
                       {courseIcon(course.courseId)}
                       <div className="min-w-0 flex-1">
-                        <p className="font-semibold text-stone-900">
+                        <p className="font-semibold text-stone-900 dark:text-stone-100">
                           {meta
                             ? t(meta.title, locale)
                             : course.courseId.replace(/-/g, " ")}
@@ -494,7 +494,7 @@ export default function MyProgressPage() {
                           <div className="flex-1">
                             <ProgressBar percent={pct} />
                           </div>
-                          <span className="shrink-0 text-xs font-medium text-stone-600">
+                          <span className="shrink-0 text-xs font-medium text-stone-600 dark:text-stone-400">
                             {course.modulesCompleted.length}/{totalModules}{" "}
                             {isEs ? "m\u00f3dulos" : "modules"}
                           </span>
@@ -516,7 +516,7 @@ export default function MyProgressPage() {
         {/* ── Section 3: Research Syllabus ─────────────────────────── */}
         {syllabusLessonsCompleted > 0 && (
           <section className="mt-12 space-y-6">
-            <h2 className="text-xl font-bold text-stone-900">
+            <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
               {isEs ? "Archivo de Investigaci\u00f3n" : "Research Archive"}
             </h2>
 
@@ -527,14 +527,14 @@ export default function MyProgressPage() {
                   <Link
                     key={trackId}
                     href={"/strategy/research" as "/"}
-                    className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-4 transition-colors hover:border-teal-300 hover:bg-teal-50/50"
+                    className="flex items-start gap-3 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4 transition-colors hover:border-teal-300 hover:bg-teal-50/50"
                   >
                     <GraduationCap className="mt-0.5 size-5 shrink-0 text-violet-600" />
                     <div>
-                      <p className="font-semibold capitalize text-stone-900">
+                      <p className="font-semibold capitalize text-stone-900 dark:text-stone-100">
                         {trackId.replace(/-/g, " ")}
                       </p>
-                      <p className="mt-1 text-sm text-stone-600">
+                      <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
                         <CheckCircle2 className="mr-1 inline size-3.5 text-teal-600" />
                         {track.completedLessons.length}{" "}
                         {isEs ? "lecciones completadas" : "lessons completed"}
@@ -549,7 +549,7 @@ export default function MyProgressPage() {
         {/* ── Section 4: Saved Jobs & Recently Viewed ──────────────── */}
         {(totalFavorites > 0 || progress.recentFQHCs.length > 0) && (
           <section className="mt-12 space-y-6">
-            <h2 className="text-xl font-bold text-stone-900">
+            <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
               {isEs ? "Guardados y Vistos Recientemente" : "Saved & Recently Viewed"}
             </h2>
 
@@ -558,15 +558,15 @@ export default function MyProgressPage() {
               {totalFavorites > 0 && (
                 <Link
                   href={"/jobs" as "/"}
-                  className="flex items-center gap-4 rounded-lg border border-stone-200 bg-white p-5 transition-colors hover:border-teal-300 hover:bg-teal-50/50"
+                  className="flex items-center gap-4 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5 transition-colors hover:border-teal-300 hover:bg-teal-50/50"
                 >
                   <Bookmark className="size-6 text-amber-500" />
                   <div>
-                    <p className="font-semibold text-stone-900">
+                    <p className="font-semibold text-stone-900 dark:text-stone-100">
                       {totalFavorites}{" "}
                       {isEs ? "empleos guardados" : "saved jobs"}
                     </p>
-                    <p className="text-sm text-stone-500">
+                    <p className="text-sm text-stone-500 dark:text-stone-400">
                       {isEs
                         ? "Ver en la p\u00e1gina de empleos"
                         : "View on the jobs page"}
@@ -578,9 +578,9 @@ export default function MyProgressPage() {
 
               {/* Recently viewed FQHCs */}
               {progress.recentFQHCs.length > 0 && (
-                <div className="rounded-lg border border-stone-200 bg-white p-5">
-                  <p className="mb-3 font-semibold text-stone-900">
-                    <Clock className="mr-1.5 inline size-4 text-stone-500" />
+                <div className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5">
+                  <p className="mb-3 font-semibold text-stone-900 dark:text-stone-100">
+                    <Clock className="mr-1.5 inline size-4 text-stone-500 dark:text-stone-400" />
                     {isEs
                       ? "FQHCs vistos recientemente"
                       : "Recently viewed FQHCs"}
@@ -590,7 +590,7 @@ export default function MyProgressPage() {
                       <li key={fqhc.slug}>
                         <Link
                           href={`/directory/${fqhc.slug}` as "/"}
-                          className="flex items-center gap-2 text-sm text-stone-700 transition-colors hover:text-teal-700"
+                          className="flex items-center gap-2 text-sm text-stone-700 dark:text-stone-300 transition-colors hover:text-teal-700 dark:text-teal-400"
                         >
                           <MapPin className="size-3.5 shrink-0 text-stone-400" />
                           <span className="truncate font-medium">{fqhc.name}</span>
@@ -616,7 +616,7 @@ export default function MyProgressPage() {
 
         {/* ── Section 5: Quick Actions ─────────────────────────────── */}
         <section className="mt-12 space-y-6">
-          <h2 className="text-xl font-bold text-stone-900">
+          <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
             {isEs ? "Acciones R\u00e1pidas" : "Quick Actions"}
           </h2>
 
@@ -677,7 +677,7 @@ export default function MyProgressPage() {
         </section>
 
         {/* ── Reset & Privacy Note ─────────────────────────────────── */}
-        <div className="mt-12 flex items-start gap-2 rounded-lg border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-500">
+        <div className="mt-12 flex items-start gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 px-4 py-3 text-sm text-stone-500 dark:text-stone-400">
           <Info className="mt-0.5 size-4 shrink-0" />
           <p>
             {isEs
@@ -697,7 +697,7 @@ export default function MyProgressPage() {
 function gradeColor(grade: string): string {
   switch (grade) {
     case "A":
-      return "bg-teal-100 text-teal-800";
+      return "bg-teal-100 dark:bg-teal-900 text-teal-800";
     case "B":
       return "bg-blue-100 text-blue-800";
     case "C":
@@ -707,7 +707,7 @@ function gradeColor(grade: string): string {
     case "F":
       return "bg-red-100 text-red-800";
     default:
-      return "bg-stone-100 text-stone-600";
+      return "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400";
   }
 }
 
@@ -731,14 +731,14 @@ function ToolCard({
   return (
     <Link
       href={href as "/"}
-      className="flex items-start gap-4 rounded-lg border border-stone-200 bg-white p-5 transition-colors hover:border-teal-300 hover:bg-teal-50/50"
+      className="flex items-start gap-4 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5 transition-colors hover:border-teal-300 hover:bg-teal-50/50"
     >
       <div className="mt-0.5">{icon}</div>
       <div className="min-w-0 flex-1">
-        <p className="font-semibold text-stone-900">{title}</p>
+        <p className="font-semibold text-stone-900 dark:text-stone-100">{title}</p>
         {status.type === "in-progress" ? (
           <>
-            <p className="mt-1 flex items-center gap-1.5 text-sm text-teal-700">
+            <p className="mt-1 flex items-center gap-1.5 text-sm text-teal-700 dark:text-teal-400">
               <CheckCircle2 className="size-3.5" />
               {status.detail}
             </p>
@@ -777,13 +777,13 @@ function QuickAction({
   return (
     <Link
       href={href as "/"}
-      className="flex items-center gap-3 rounded-lg border border-stone-200 bg-white p-4 transition-colors hover:border-teal-300 hover:bg-teal-50/50"
+      className="flex items-center gap-3 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4 transition-colors hover:border-teal-300 hover:bg-teal-50/50"
     >
       {icon}
       <div className="min-w-0 flex-1">
-        <p className="text-sm font-semibold text-stone-900">{label}</p>
+        <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{label}</p>
       </div>
-      <span className="shrink-0 text-xs font-semibold text-teal-700">
+      <span className="shrink-0 text-xs font-semibold text-teal-700 dark:text-teal-400">
         {cta} <ArrowRight className="inline size-3" />
       </span>
     </Link>

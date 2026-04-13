@@ -221,7 +221,7 @@ export default async function FQHCReportPage({
               <span
                 className={`inline-flex items-center justify-center rounded-lg border px-4 py-2 text-2xl font-extrabold ${GRADE_COLORS[resilience.grade]}`}
               >
-                {resilience.grade}
+                <span className="sr-only">Resilience grade: </span>{resilience.grade}
               </span>
             </div>
             {/* Sites */}
@@ -284,7 +284,7 @@ export default async function FQHCReportPage({
             <div
               className={`flex size-16 items-center justify-center rounded-xl border-2 text-3xl font-extrabold ${GRADE_COLORS[resilience.grade]}`}
             >
-              {resilience.grade}
+              <span className="sr-only">Resilience grade: </span>{resilience.grade}
             </div>
             <div>
               <p className="text-sm font-semibold text-stone-700">
@@ -556,8 +556,8 @@ export default async function FQHCReportPage({
               </p>
               {fqhc.glassdoorRating !== null ? (
                 <div className="flex items-center justify-center gap-1.5">
-                  <Star className="size-4 text-amber-500 fill-amber-500" />
-                  <span className="text-2xl font-extrabold text-stone-800">
+                  <Star className="size-4 text-amber-500 fill-amber-500" aria-hidden="true" />
+                  <span className="text-2xl font-extrabold text-stone-800" aria-label={`${fqhc.glassdoorRating} out of 5 stars`}>
                     {fqhc.glassdoorRating}
                   </span>
                   {fqhc.glassdoorReviewCount !== null && (

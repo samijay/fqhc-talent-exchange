@@ -43,7 +43,7 @@ import {
   type NegotiationContext,
 } from "@/lib/job-negotiation";
 import { JobPostingJsonLd, FAQPageJsonLd } from "@/components/seo/JsonLd";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
 import { SaveJobButton } from "@/components/jobs/SaveJobButton";
 import { RecentlyViewed } from "@/components/directory/RecentlyViewed";
 import { Button } from "@/components/ui/button";
@@ -256,7 +256,7 @@ function SalaryBar({ min, max, roleType }: {
 
   return (
     <div className="mt-1">
-      <div className="relative h-2.5 w-full rounded-full bg-stone-100">
+      <div className="relative h-2.5 w-full rounded-full bg-stone-100 dark:bg-stone-800">
         {/* Posted range bar */}
         <div
           className="absolute top-0 h-full rounded-full bg-teal-200"
@@ -269,9 +269,9 @@ function SalaryBar({ min, max, roleType }: {
           title={`P50: ${formatSalaryCompact(p50)}`}
         />
       </div>
-      <div className="mt-0.5 flex justify-between text-xs text-stone-500">
+      <div className="mt-0.5 flex justify-between text-xs text-stone-500 dark:text-stone-400">
         <span>{formatSalaryCompact(min)}</span>
-        <span className="font-medium text-stone-600">P50: {formatSalaryCompact(p50)}</span>
+        <span className="font-medium text-stone-600 dark:text-stone-400">P50: {formatSalaryCompact(p50)}</span>
         <span>{formatSalaryCompact(max)}</span>
       </div>
     </div>
@@ -288,11 +288,11 @@ function NegotiationTips({ ctx, locale }: { ctx: NegotiationContext; locale: str
     <div className={`rounded-lg border p-3 text-sm ${
       ctx.isUnion
         ? "border-purple-200 bg-purple-50"
-        : "border-teal-200 bg-teal-50"
+        : "border-teal-200 bg-teal-50 dark:bg-teal-950"
     }`}>
       <div className="flex items-center gap-2 mb-2">
         <Lightbulb className={`size-4 ${ctx.isUnion ? "text-purple-600" : "text-teal-600"}`} />
-        <span className="font-semibold text-stone-900">
+        <span className="font-semibold text-stone-900 dark:text-stone-100">
           {isEs ? "Estrategia de Negociación" : "Negotiation Strategy"}
         </span>
         {ctx.isUnion && ctx.unionName && (
@@ -301,8 +301,8 @@ function NegotiationTips({ ctx, locale }: { ctx: NegotiationContext; locale: str
       </div>
       <ul className="space-y-1">
         {ctx.tips.map((tip, i) => (
-          <li key={i} className="flex items-start gap-1.5 text-xs text-stone-600">
-            <span className="mt-0.5 text-stone-500">•</span>
+          <li key={i} className="flex items-start gap-1.5 text-xs text-stone-600 dark:text-stone-400">
+            <span className="mt-0.5 text-stone-500 dark:text-stone-400">•</span>
             {t(tip, locale)}
           </li>
         ))}
@@ -331,40 +331,40 @@ function ComparePanel({
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 p-4">
-      <div className="relative max-h-[85vh] w-full max-w-5xl overflow-auto rounded-2xl bg-white p-6 shadow-2xl">
+      <div className="relative max-h-[85vh] w-full max-w-5xl overflow-auto rounded-2xl bg-white dark:bg-stone-900 p-6 shadow-2xl">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-1 hover:bg-stone-100"
+          className="absolute right-4 top-4 rounded-full p-1 hover:bg-stone-100 dark:hover:bg-stone-800"
         >
-          <X className="size-5 text-stone-500" />
+          <X className="size-5 text-stone-500 dark:text-stone-400" />
         </button>
 
-        <h2 className="text-lg font-bold text-stone-900 mb-4">
-          <GitCompareArrows className="inline size-5 mr-2 text-teal-700" />
+        <h2 className="text-lg font-bold text-stone-900 dark:text-stone-100 mb-4">
+          <GitCompareArrows className="inline size-5 mr-2 text-teal-700 dark:text-teal-400" />
           {isEs ? "Comparar Posiciones" : "Compare Positions"}
         </h2>
 
         <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${jobs.length}, 1fr)` }}>
           {jobs.map((job) => {
             return (
-              <div key={job.id} className="rounded-xl border border-stone-200 p-4">
+              <div key={job.id} className="rounded-xl border border-stone-200 dark:border-stone-700 p-4">
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h3 className="font-semibold text-stone-900 text-sm">{job.title}</h3>
-                    <p className="text-xs text-stone-500">{job.orgName}</p>
+                    <h3 className="font-semibold text-stone-900 dark:text-stone-100 text-sm">{job.title}</h3>
+                    <p className="text-xs text-stone-500 dark:text-stone-400">{job.orgName}</p>
                   </div>
                   <button
                     onClick={() => onRemove(job.id)}
-                    className="rounded p-0.5 hover:bg-stone-100"
+                    className="rounded p-0.5 hover:bg-stone-100 dark:hover:bg-stone-800"
                   >
-                    <X className="size-3.5 text-stone-500" />
+                    <X className="size-3.5 text-stone-500 dark:text-stone-400" />
                   </button>
                 </div>
 
                 {/* Salary */}
                 <div className="space-y-2 text-xs">
                   <div className="flex justify-between">
-                    <span className="text-stone-500">{isEs ? "Salario" : "Salary"}</span>
+                    <span className="text-stone-500 dark:text-stone-400">{isEs ? "Salario" : "Salary"}</span>
                     <span className="font-semibold text-teal-800">
                       {formatSalary(job.salaryMin, job.salaryMax)}
                     </span>
@@ -376,7 +376,7 @@ function ComparePanel({
                     const bl = getBenchmarkLabel(job.negotiation.benchmarkPosition, locale);
                     return (
                       <div className="flex justify-between">
-                        <span className="text-stone-500">{isEs ? "vs Mercado" : "vs Market"}</span>
+                        <span className="text-stone-500 dark:text-stone-400">{isEs ? "vs Mercado" : "vs Market"}</span>
                         <Badge className={`text-xs ${bl.color}`}>{bl.label}</Badge>
                       </div>
                     );
@@ -384,20 +384,20 @@ function ComparePanel({
 
                   {/* Union */}
                   <div className="flex justify-between">
-                    <span className="text-stone-500">Union</span>
+                    <span className="text-stone-500 dark:text-stone-400">Union</span>
                     {job.negotiation.isUnion ? (
                       <Badge className="bg-purple-100 text-purple-700 text-xs">
                         {job.negotiation.unionName || "Union"}
                       </Badge>
                     ) : (
-                      <span className="text-stone-600">{isEs ? "No sindicalizado" : "Non-Union"}</span>
+                      <span className="text-stone-600 dark:text-stone-400">{isEs ? "No sindicalizado" : "Non-Union"}</span>
                     )}
                   </div>
 
                   {/* Negotiability */}
                   <div className="flex justify-between">
-                    <span className="text-stone-500">{isEs ? "Negociación" : "Negotiation"}</span>
-                    <span className="text-stone-600">
+                    <span className="text-stone-500 dark:text-stone-400">{isEs ? "Negociación" : "Negotiation"}</span>
+                    <span className="text-stone-600 dark:text-stone-400">
                       {job.negotiation.salaryType === "fixed-scale"
                         ? (isEs ? "Escala fija" : "Fixed Scale")
                         : (isEs ? "Negociable" : "Negotiable")}
@@ -406,32 +406,32 @@ function ComparePanel({
 
                   {/* Location */}
                   <div className="flex justify-between">
-                    <span className="text-stone-500">{isEs ? "Ubicación" : "Location"}</span>
-                    <span className="text-stone-600">{job.location}, CA</span>
+                    <span className="text-stone-500 dark:text-stone-400">{isEs ? "Ubicación" : "Location"}</span>
+                    <span className="text-stone-600 dark:text-stone-400">{job.location}, CA</span>
                   </div>
 
                   {/* Glassdoor */}
                   {job.glassdoorRating && (
                     <div className="flex justify-between">
-                      <span className="text-stone-500">Glassdoor</span>
-                      <span className="text-stone-600">{job.glassdoorRating}/5</span>
+                      <span className="text-stone-500 dark:text-stone-400">Glassdoor</span>
+                      <span className="text-stone-600 dark:text-stone-400">{job.glassdoorRating}/5</span>
                     </div>
                   )}
 
                   {/* Programs */}
                   <div>
-                    <span className="text-stone-500 block mb-1">{isEs ? "Programas" : "Programs"}</span>
+                    <span className="text-stone-500 dark:text-stone-400 block mb-1">{isEs ? "Programas" : "Programs"}</span>
                     <div className="flex flex-wrap gap-1">
                       {job.programs.map((p) => (
-                        <Badge key={p} className="bg-teal-50 text-teal-800 text-xs">{p}</Badge>
+                        <Badge key={p} className="bg-teal-50 dark:bg-teal-950 text-teal-800 text-xs">{p}</Badge>
                       ))}
                     </div>
                   </div>
 
                   {/* EHR */}
                   <div className="flex justify-between">
-                    <span className="text-stone-500">EHR</span>
-                    <span className="text-stone-600">{job.ehrSystem}</span>
+                    <span className="text-stone-500 dark:text-stone-400">EHR</span>
+                    <span className="text-stone-600 dark:text-stone-400">{job.ehrSystem}</span>
                   </div>
                 </div>
               </div>
@@ -466,8 +466,8 @@ function SortColHeader({
   return (
     <button
       onClick={() => onClick(field)}
-      className={`flex items-center gap-0.5 hover:text-teal-700 transition-colors ${
-        isActive ? "text-teal-700" : ""
+      className={`flex items-center gap-0.5 hover:text-teal-700 dark:text-teal-400 transition-colors ${
+        isActive ? "text-teal-700 dark:text-teal-400" : ""
       } ${className ?? ""}`}
     >
       {children}
@@ -720,7 +720,7 @@ export default function JobsPage() {
   /*  Render                                                           */
   /* ================================================================ */
   return (
-    <div className="bg-stone-50 min-h-screen">
+    <div className="bg-stone-50 dark:bg-stone-950 min-h-screen">
       <FAQPageJsonLd
         faqs={[
           {
@@ -776,12 +776,12 @@ export default function JobsPage() {
         <div className="mx-auto max-w-7xl px-4 py-2.5 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center gap-2 text-sm">
             <MessageSquare className="size-4 text-amber-600" />
-            <span className="text-stone-600">
+            <span className="text-stone-600 dark:text-stone-400">
               {isEs ? "¿Conseguiste una entrevista?" : "Got an interview?"}
             </span>
             <Link
               href="/interview-prep"
-              className="inline-flex items-center gap-1 font-semibold text-teal-700 hover:text-teal-800"
+              className="inline-flex items-center gap-1 font-semibold text-teal-700 dark:text-teal-400 hover:text-teal-800"
             >
               {isEs ? "Practica preguntas FQHC" : "Practice FQHC interview questions"}
               <ArrowRight className="size-3.5" />
@@ -791,12 +791,12 @@ export default function JobsPage() {
       </div>
 
       {/* ---------- Filter Bar ---------- */}
-      <div className="sticky top-16 z-30 border-b border-stone-200 bg-white/95 backdrop-blur">
+      <div className="sticky top-16 z-30 border-b border-stone-200 dark:border-stone-700 bg-white/95 backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
           {/* Row 1: Search + View Toggle + Sort */}
           <div className="flex items-center gap-3">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-500" />
+              <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-500 dark:text-stone-400" />
               <Input
                 placeholder={isEs ? "Buscar por título, organización o programa..." : "Search by title, org, or program..."}
                 value={search}
@@ -815,7 +815,7 @@ export default function JobsPage() {
               }}
             >
               <SelectTrigger className="h-10 w-32 sm:w-44 text-xs flex">
-                <ArrowUpDown className="size-3.5 mr-1 text-stone-500 shrink-0" />
+                <ArrowUpDown className="size-3.5 mr-1 text-stone-500 dark:text-stone-400 shrink-0" />
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -830,11 +830,11 @@ export default function JobsPage() {
             </Select>
 
             {/* View toggle */}
-            <div className="hidden sm:flex items-center rounded-lg border border-stone-200 p-0.5">
+            <div className="hidden sm:flex items-center rounded-lg border border-stone-200 dark:border-stone-700 p-0.5">
               <button
                 onClick={() => setViewMode("list")}
                 className={`rounded-md p-1.5 transition-colors ${
-                  viewMode === "list" ? "bg-teal-700 text-white" : "text-stone-500 hover:text-stone-700"
+                  viewMode === "list" ? "bg-teal-700 text-white" : "text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300"
                 }`}
               >
                 <LayoutList className="size-4" />
@@ -842,7 +842,7 @@ export default function JobsPage() {
               <button
                 onClick={() => setViewMode("grid")}
                 className={`rounded-md p-1.5 transition-colors ${
-                  viewMode === "grid" ? "bg-teal-700 text-white" : "text-stone-500 hover:text-stone-700"
+                  viewMode === "grid" ? "bg-teal-700 text-white" : "text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300"
                 }`}
               >
                 <LayoutGrid className="size-4" />
@@ -855,14 +855,14 @@ export default function JobsPage() {
             {/* Role */}
             <Select value={roleFilter} onValueChange={setRoleFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[120px] text-xs">
-                <Briefcase className="size-3 mr-1 text-stone-500" />
+                <Briefcase className="size-3 mr-1 text-stone-500 dark:text-stone-400" />
                 <SelectValue placeholder={isEs ? "Rol" : "Role"} />
               </SelectTrigger>
               <SelectContent className="max-h-80">
                 <SelectItem value="all">{isEs ? "Todos los roles" : "All Roles"}</SelectItem>
                 {ROLE_TYPE_GROUPS.map((group) => (
                   <SelectGroup key={group.label}>
-                    <SelectLabel className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+                    <SelectLabel className="text-xs font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-wider">
                       {isEs ? group.esLabel : group.label}
                     </SelectLabel>
                     {group.options.map((role) => (
@@ -876,7 +876,7 @@ export default function JobsPage() {
             {/* Region */}
             <Select value={regionFilter} onValueChange={setRegionFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[110px] text-xs">
-                <MapPin className="size-3 mr-1 text-stone-500" />
+                <MapPin className="size-3 mr-1 text-stone-500 dark:text-stone-400" />
                 <SelectValue placeholder={isEs ? "Región" : "Region"} />
               </SelectTrigger>
               <SelectContent>
@@ -890,7 +890,7 @@ export default function JobsPage() {
             {/* Salary */}
             <Select value={salaryFilter} onValueChange={setSalaryFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[110px] text-xs">
-                <DollarSign className="size-3 mr-1 text-stone-500" />
+                <DollarSign className="size-3 mr-1 text-stone-500 dark:text-stone-400" />
                 <SelectValue placeholder={isEs ? "Salario" : "Salary"} />
               </SelectTrigger>
               <SelectContent>
@@ -905,7 +905,7 @@ export default function JobsPage() {
             {/* Union */}
             <Select value={unionFilter} onValueChange={setUnionFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[100px] text-xs">
-                <Shield className="size-3 mr-1 text-stone-500" />
+                <Shield className="size-3 mr-1 text-stone-500 dark:text-stone-400" />
                 <SelectValue placeholder="Union" />
               </SelectTrigger>
               <SelectContent>
@@ -918,7 +918,7 @@ export default function JobsPage() {
             {/* Organization */}
             <Select value={orgFilter} onValueChange={setOrgFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[130px] text-xs">
-                <Building2 className="size-3 mr-1 text-stone-500" />
+                <Building2 className="size-3 mr-1 text-stone-500 dark:text-stone-400" />
                 <SelectValue placeholder={isEs ? "Organización" : "Organization"} />
               </SelectTrigger>
               <SelectContent className="max-h-80">
@@ -932,7 +932,7 @@ export default function JobsPage() {
             {/* Language */}
             <Select value={languageFilter} onValueChange={setLanguageFilter}>
               <SelectTrigger className="h-8 w-auto min-w-[100px] text-xs">
-                <Globe className="size-3 mr-1 text-stone-500" />
+                <Globe className="size-3 mr-1 text-stone-500 dark:text-stone-400" />
                 <SelectValue placeholder={isEs ? "Idioma" : "Language"} />
               </SelectTrigger>
               <SelectContent>
@@ -949,14 +949,14 @@ export default function JobsPage() {
               onClick={() => setShowFavoritesOnly((v) => !v)}
               className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs transition-colors ${
                 showFavoritesOnly
-                  ? "border-amber-400 bg-amber-50 text-amber-700"
-                  : "border-stone-200 bg-white text-stone-500 hover:bg-stone-50"
+                  ? "border-amber-400 bg-amber-50 dark:bg-amber-950 text-amber-700"
+                  : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-500 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800"
               }`}
             >
               <Heart className={`size-3 ${showFavoritesOnly ? "fill-amber-500 text-amber-500" : ""}`} />
               {isEs ? "Guardados" : "Saved"}
               {favorites.size > 0 && (
-                <span className={`rounded-full px-1 text-xs font-semibold ${showFavoritesOnly ? "bg-amber-200 text-amber-800" : "bg-stone-200 text-stone-600"}`}>
+                <span className={`rounded-full px-1 text-xs font-semibold ${showFavoritesOnly ? "bg-amber-200 text-amber-800" : "bg-stone-200 text-stone-600 dark:text-stone-400"}`}>
                   {favorites.size}
                 </span>
               )}
@@ -966,7 +966,7 @@ export default function JobsPage() {
             {activeFilterCount > 0 && (
               <button
                 onClick={clearFilters}
-                className="flex items-center gap-1 rounded-full bg-stone-100 px-2.5 py-1 text-xs text-stone-600 hover:bg-stone-200"
+                className="flex items-center gap-1 rounded-full bg-stone-100 dark:bg-stone-800 px-2.5 py-1 text-xs text-stone-600 dark:text-stone-400 hover:bg-stone-200"
               >
                 <X className="size-3" />
                 {isEs ? "Limpiar" : "Clear"} ({activeFilterCount})
@@ -978,7 +978,7 @@ export default function JobsPage() {
 
       {/* ---------- Compare bar ---------- */}
       {compareIds.size > 0 && (
-        <div className="sticky top-[132px] z-20 border-b border-teal-200 bg-teal-50 px-4 py-2">
+        <div className="sticky top-[132px] z-20 border-b border-teal-200 bg-teal-50 dark:bg-teal-950 px-4 py-2">
           <div className="mx-auto flex max-w-7xl items-center justify-between">
             <span className="text-sm text-teal-800">
               <GitCompareArrows className="inline size-4 mr-1" />
@@ -1013,7 +1013,7 @@ export default function JobsPage() {
 
       {/* ---------- Assessment CTA Banner ---------- */}
       <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-2 rounded-lg border border-teal-200 bg-teal-50 px-4 py-3 text-sm text-teal-800 sm:flex-row sm:items-center sm:py-2.5">
+        <div className="flex flex-col gap-2 rounded-lg border border-teal-200 bg-teal-50 dark:bg-teal-950 px-4 py-3 text-sm text-teal-800 sm:flex-row sm:items-center sm:py-2.5">
           <div className="flex items-center gap-2">
             <Lightbulb className="size-4 shrink-0 text-teal-600" />
             <span>
@@ -1024,7 +1024,7 @@ export default function JobsPage() {
           </div>
           <Link
             href="/career-insights"
-            className="flex items-center gap-1 font-semibold text-teal-700 hover:text-teal-900 sm:ml-auto"
+            className="flex items-center gap-1 font-semibold text-teal-700 dark:text-teal-400 hover:text-teal-900 sm:ml-auto"
           >
             {isEs ? "Evaluación profesional gratuita" : "Free Career Assessment"}
             <ArrowRight className="size-3.5" />
@@ -1037,28 +1037,28 @@ export default function JobsPage() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           <Link
             href="/resume-builder"
-            className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2.5 text-xs text-stone-700 hover:border-teal-300 hover:bg-teal-50 transition-colors"
+            className="flex items-center gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-2.5 text-xs text-stone-700 dark:text-stone-300 hover:border-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950 transition-colors"
           >
             <FileText className="size-4 text-teal-600 shrink-0" />
             <span className="font-medium">{isEs ? "Crear Currículum" : "Build Resume"}</span>
           </Link>
           <Link
             href="/salary-data"
-            className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2.5 text-xs text-stone-700 hover:border-teal-300 hover:bg-teal-50 transition-colors"
+            className="flex items-center gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-2.5 text-xs text-stone-700 dark:text-stone-300 hover:border-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950 transition-colors"
           >
             <BarChart3 className="size-4 text-teal-600 shrink-0" />
             <span className="font-medium">{isEs ? "Datos Salariales" : "Salary Data"}</span>
           </Link>
           <Link
             href="/interview-prep"
-            className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2.5 text-xs text-stone-700 hover:border-teal-300 hover:bg-teal-50 transition-colors"
+            className="flex items-center gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-2.5 text-xs text-stone-700 dark:text-stone-300 hover:border-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950 transition-colors"
           >
             <MessageSquare className="size-4 text-teal-600 shrink-0" />
             <span className="font-medium">{isEs ? "Prep Entrevista" : "Interview Prep"}</span>
           </Link>
           <Link
             href="/pathway"
-            className="flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-3 py-2.5 text-xs text-stone-700 hover:border-teal-300 hover:bg-teal-50 transition-colors"
+            className="flex items-center gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-2.5 text-xs text-stone-700 dark:text-stone-300 hover:border-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950 transition-colors"
           >
             <GraduationCap className="size-4 text-teal-600 shrink-0" />
             <span className="font-medium">{isEs ? "Ruta de Carrera" : "Career Pathway"}</span>
@@ -1068,13 +1068,13 @@ export default function JobsPage() {
 
       {/* ---------- Trending Roles ---------- */}
       <div className="mx-auto max-w-7xl px-4 pt-3 sm:px-6 lg:px-8">
-        <div className="rounded-xl border border-stone-200 bg-white p-4">
+        <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4">
           <div className="flex items-center gap-2 mb-3">
             <Sparkles className="size-4 text-teal-600" />
-            <h2 className="text-sm font-semibold text-stone-900">
+            <h2 className="text-sm font-semibold text-stone-900 dark:text-stone-100">
               {isEs ? "Roles en Tendencia" : "Trending Roles"}
             </h2>
-            <span className="text-xs text-stone-500">
+            <span className="text-xs text-stone-500 dark:text-stone-400">
               {isEs ? "— click para filtrar" : "— click to filter"}
             </span>
           </div>
@@ -1085,15 +1085,15 @@ export default function JobsPage() {
                 onClick={() => setRoleFilter(roleFilter === role ? "all" : role)}
                 className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition-colors ${
                   roleFilter === role
-                    ? "border-teal-500 bg-teal-50 text-teal-800 font-medium"
-                    : "border-stone-200 bg-stone-50 text-stone-600 hover:border-teal-300 hover:bg-teal-50"
+                    ? "border-teal-500 bg-teal-50 dark:bg-teal-950 text-teal-800 font-medium"
+                    : "border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 text-stone-600 dark:text-stone-400 hover:border-teal-300 hover:bg-teal-50 dark:hover:bg-teal-950"
                 }`}
               >
                 {role}
                 <span className={`rounded-full px-1.5 py-0.5 text-xs font-semibold ${
                   roleFilter === role
                     ? "bg-teal-200 text-teal-800"
-                    : "bg-stone-200 text-stone-500"
+                    : "bg-stone-200 text-stone-500 dark:text-stone-400"
                 }`}>
                   {count}
                 </span>
@@ -1107,12 +1107,12 @@ export default function JobsPage() {
       <div className="mx-auto max-w-7xl px-4 pb-20 pt-3 sm:px-6 lg:px-8">
         {loading && (
           <div className="flex items-center justify-center py-20">
-            <Loader2 className="size-8 motion-safe:animate-spin text-teal-700" />
+            <Loader2 className="size-8 motion-safe:animate-spin text-teal-700 dark:text-teal-400" />
           </div>
         )}
 
         {error && (
-          <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-center text-sm text-amber-700">
+          <div className="mb-4 rounded-lg border border-amber-200 bg-amber-50 dark:bg-amber-950 px-4 py-3 text-center text-sm text-amber-700">
             {error}
           </div>
         )}
@@ -1120,10 +1120,10 @@ export default function JobsPage() {
         {!loading && filteredJobs.length === 0 && (
           <div className="mx-auto max-w-md py-20 text-center">
             <Briefcase className="mx-auto mb-4 size-12 text-stone-300" />
-            <h2 className="text-lg font-semibold text-stone-700">
+            <h2 className="text-lg font-semibold text-stone-700 dark:text-stone-300">
               {isEs ? "No se encontraron posiciones" : "No positions found"}
             </h2>
-            <p className="mt-2 text-sm text-stone-500">
+            <p className="mt-2 text-sm text-stone-500 dark:text-stone-400">
               {isEs ? "Ajusta tu búsqueda o filtros." : "Try adjusting your search or filters."}
             </p>
           </div>
@@ -1131,9 +1131,9 @@ export default function JobsPage() {
 
         {/* ===== LIST VIEW ===== */}
         {!loading && filteredJobs.length > 0 && viewMode === "list" && (
-          <div className="rounded-xl border border-stone-200 bg-white overflow-hidden">
+          <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 overflow-hidden">
             {/* Table header */}
-            <div className="hidden sm:grid grid-cols-[1fr_180px_130px_100px_80px_90px] gap-2 border-b border-stone-200 bg-stone-50 px-4 py-2.5 text-xs font-semibold text-stone-500 uppercase tracking-wider">
+            <div className="hidden sm:grid grid-cols-[1fr_180px_130px_100px_80px_90px] gap-2 border-b border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 px-4 py-2.5 text-xs font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-wider">
               <SortColHeader field="title" activeField={sortField} dir={sortDir} onClick={handleColumnSort}>
                 {isEs ? "Posición" : "Position"}
               </SortColHeader>
@@ -1158,7 +1158,7 @@ export default function JobsPage() {
               const bl = getBenchmarkLabel(job.negotiation.benchmarkPosition, locale);
 
               return (
-                <div key={job.id} data-job-id={job.id} className={`border-b border-stone-100 last:border-b-0 ${isSelected ? "bg-teal-50/50" : ""}`}>
+                <div key={job.id} data-job-id={job.id} className={`border-b border-stone-100 dark:border-stone-800 last:border-b-0 ${isSelected ? "bg-teal-50/50" : ""}`}>
                   {/* Hot Job banner */}
                   {job.featured && (
                     <div className="flex items-center gap-2 border-b border-amber-100 bg-gradient-to-r from-amber-50 to-orange-50 px-4 py-1.5">
@@ -1172,7 +1172,7 @@ export default function JobsPage() {
                   )}
                   {/* Main row */}
                   <div
-                    className="grid grid-cols-1 sm:grid-cols-[1fr_180px_130px_100px_80px_90px] gap-2 px-4 py-3 items-center cursor-pointer hover:bg-stone-50 transition-colors"
+                    className="grid grid-cols-1 sm:grid-cols-[1fr_180px_130px_100px_80px_90px] gap-2 px-4 py-3 items-center cursor-pointer hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
                     onClick={() => setExpandedId(isExpanded ? null : job.id)}
                   >
                     {/* Position */}
@@ -1201,17 +1201,17 @@ export default function JobsPage() {
                       </div>
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-1.5">
-                          <p className="text-sm font-semibold text-stone-900 truncate flex-1">{job.title}</p>
+                          <p className="text-sm font-semibold text-stone-900 dark:text-stone-100 truncate flex-1">{job.title}</p>
                           {/* Mobile-only expand indicator */}
                           <div className="sm:hidden shrink-0">
                             {isExpanded ? (
-                              <ChevronUp className="size-4 text-stone-500" />
+                              <ChevronUp className="size-4 text-stone-500 dark:text-stone-400" />
                             ) : (
-                              <ChevronDown className="size-4 text-stone-500" />
+                              <ChevronDown className="size-4 text-stone-500 dark:text-stone-400" />
                             )}
                           </div>
                         </div>
-                        <div className="flex items-center gap-2 text-xs text-stone-500 flex-wrap">
+                        <div className="flex items-center gap-2 text-xs text-stone-500 dark:text-stone-400 flex-wrap">
                           <span className="flex items-center gap-1">
                             <Building2 className="size-3" />
                             {job.orgName}
@@ -1226,7 +1226,7 @@ export default function JobsPage() {
                           <span className="text-xs font-medium text-teal-800">
                             {formatSalary(job.salaryMin, job.salaryMax)}
                           </span>
-                          <Badge className="bg-stone-100 text-stone-500 text-xs">{job.type}</Badge>
+                          <Badge className="bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 text-xs">{job.type}</Badge>
                           {job.negotiation.isUnion && (
                             <Badge className="bg-purple-100 text-purple-700 text-xs">
                               {job.negotiation.unionName || "Union"}
@@ -1241,7 +1241,7 @@ export default function JobsPage() {
                       <p className="text-sm font-medium text-teal-800">
                         {formatSalary(job.salaryMin, job.salaryMax)}
                       </p>
-                      <p className="text-xs text-stone-500">
+                      <p className="text-xs text-stone-500 dark:text-stone-400">
                         {job.negotiation.salaryType === "fixed-scale"
                           ? (isEs ? "Escala fija" : "Fixed Scale")
                           : (isEs ? "Negociable" : "Negotiable")}
@@ -1252,7 +1252,7 @@ export default function JobsPage() {
                     <div className="hidden sm:block">
                       <Badge className={`text-xs ${bl.color}`}>{bl.label}</Badge>
                       {job.negotiation.benchmarkP50 && (
-                        <p className="text-xs text-stone-500 mt-0.5">
+                        <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
                           P50: {formatSalaryCompact(job.negotiation.benchmarkP50)}
                         </p>
                       )}
@@ -1265,42 +1265,42 @@ export default function JobsPage() {
                           {job.negotiation.unionName || "Union"}
                         </Badge>
                       ) : (
-                        <span className="text-xs text-stone-500">{isEs ? "No" : "Non-Union"}</span>
+                        <span className="text-xs text-stone-500 dark:text-stone-400">{isEs ? "No" : "Non-Union"}</span>
                       )}
                     </div>
 
                     {/* Type */}
                     <div className="hidden sm:block">
-                      <span className="text-xs text-stone-600">{job.type}</span>
+                      <span className="text-xs text-stone-600 dark:text-stone-400">{job.type}</span>
                     </div>
 
                     {/* Expand arrow (desktop) */}
                     <div className="hidden sm:flex justify-end">
                       {isExpanded ? (
-                        <ChevronUp className="size-4 text-stone-500" />
+                        <ChevronUp className="size-4 text-stone-500 dark:text-stone-400" />
                       ) : (
-                        <ChevronDown className="size-4 text-stone-500" />
+                        <ChevronDown className="size-4 text-stone-500 dark:text-stone-400" />
                       )}
                     </div>
                   </div>
 
                   {/* Expanded detail */}
                   {isExpanded && (
-                    <div className="border-t border-stone-100 bg-stone-50/50 px-4 py-4 sm:pl-14">
+                    <div className="border-t border-stone-100 dark:border-stone-800 bg-stone-50/50 px-4 py-4 sm:pl-14">
                       <div className="grid gap-4 sm:grid-cols-2">
                         {/* Left: Job details */}
                         <div className="space-y-3">
-                          <p className="text-sm text-stone-600">{job.description}</p>
+                          <p className="text-sm text-stone-600 dark:text-stone-400">{job.description}</p>
 
                           {/* Requirements */}
                           {job.requirements.length > 0 && (
                             <div>
-                              <p className="text-xs font-semibold text-stone-700 mb-1">
+                              <p className="text-xs font-semibold text-stone-700 dark:text-stone-300 mb-1">
                                 {isEs ? "Requisitos" : "Requirements"}
                               </p>
                               <ul className="space-y-0.5">
                                 {job.requirements.map((req, i) => (
-                                  <li key={i} className="text-xs text-stone-500 flex items-start gap-1.5">
+                                  <li key={i} className="text-xs text-stone-500 dark:text-stone-400 flex items-start gap-1.5">
                                     <span className="mt-0.5 text-stone-300">•</span>
                                     {req}
                                   </li>
@@ -1311,16 +1311,16 @@ export default function JobsPage() {
 
                           {/* Tags */}
                           <div className="flex flex-wrap gap-1.5">
-                            <Badge className="bg-stone-100 text-stone-600 text-xs">
+                            <Badge className="bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 text-xs">
                               <Monitor className="mr-1 size-3" />{job.ehrSystem}
                             </Badge>
                             {job.bilingual && (
-                              <Badge className="bg-amber-50 text-amber-700 text-xs">
+                              <Badge className="bg-amber-50 dark:bg-amber-950 text-amber-700 text-xs">
                                 {job.languageRequired ? `Bilingual: ${job.languageRequired}` : "Bilingual"}
                               </Badge>
                             )}
                             {job.programs.map((p) => (
-                              <Badge key={p} className="bg-teal-50 text-teal-800 text-xs">{p}</Badge>
+                              <Badge key={p} className="bg-teal-50 dark:bg-teal-950 text-teal-800 text-xs">{p}</Badge>
                             ))}
                           </div>
 
@@ -1350,13 +1350,13 @@ export default function JobsPage() {
                         {/* Right: Salary intel + Negotiation */}
                         <div className="space-y-3">
                           {/* Salary benchmark visual */}
-                          <div className="rounded-lg border border-stone-200 bg-white p-3">
-                            <p className="text-xs font-semibold text-stone-700 mb-2">
+                          <div className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-3">
+                            <p className="text-xs font-semibold text-stone-700 dark:text-stone-300 mb-2">
                               <TrendingUp className="inline size-3.5 mr-1 text-teal-600" />
                               {isEs ? "Inteligencia Salarial" : "Salary Intelligence"}
                             </p>
                             <div className="flex justify-between text-sm mb-1">
-                              <span className="text-stone-500">{isEs ? "Rango publicado" : "Posted Range"}</span>
+                              <span className="text-stone-500 dark:text-stone-400">{isEs ? "Rango publicado" : "Posted Range"}</span>
                               <span className="font-semibold text-teal-800">
                                 {formatSalary(job.salaryMin, job.salaryMax)}
                               </span>
@@ -1374,8 +1374,8 @@ export default function JobsPage() {
                         const similar = getSimilarJobs(job, 4);
                         if (similar.length === 0) return null;
                         return (
-                          <div className="mt-4 pt-4 border-t border-stone-200">
-                            <h4 className="text-xs font-semibold text-stone-700 mb-2 flex items-center gap-1.5">
+                          <div className="mt-4 pt-4 border-t border-stone-200 dark:border-stone-700">
+                            <h4 className="text-xs font-semibold text-stone-700 dark:text-stone-300 mb-2 flex items-center gap-1.5">
                               <Users className="size-3.5 text-teal-600" />
                               {isEs ? "Posiciones Similares" : "Similar Positions"}
                             </h4>
@@ -1391,16 +1391,16 @@ export default function JobsPage() {
                                       document.querySelector(`[data-job-id="${sj.id}"]`)?.scrollIntoView({ behavior: "smooth", block: "center" });
                                     }, 100);
                                   }}
-                                  className="flex items-start gap-2 rounded-lg border border-stone-200 bg-white p-2.5 text-left hover:border-teal-300 hover:bg-teal-50/50 transition-colors"
+                                  className="flex items-start gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-2.5 text-left hover:border-teal-300 hover:bg-teal-50/50 transition-colors"
                                 >
                                   <div className="min-w-0 flex-1">
-                                    <p className="text-xs font-semibold text-stone-900 truncate">{sj.title}</p>
-                                    <p className="text-xs text-stone-500 truncate">{sj.orgName} · {sj.location}</p>
-                                    <p className="text-xs font-medium text-teal-700 mt-0.5">
+                                    <p className="text-xs font-semibold text-stone-900 dark:text-stone-100 truncate">{sj.title}</p>
+                                    <p className="text-xs text-stone-500 dark:text-stone-400 truncate">{sj.orgName} · {sj.location}</p>
+                                    <p className="text-xs font-medium text-teal-700 dark:text-teal-400 mt-0.5">
                                       {formatSalary(sj.salaryMin, sj.salaryMax)}
                                     </p>
                                   </div>
-                                  <ArrowRight className="size-3 text-stone-500 shrink-0 mt-1" />
+                                  <ArrowRight className="size-3 text-stone-500 dark:text-stone-400 shrink-0 mt-1" />
                                 </button>
                               ))}
                             </div>
@@ -1426,8 +1426,8 @@ export default function JobsPage() {
               return (
                 <div
                   key={job.id}
-                  className={`group flex flex-col justify-between rounded-2xl border bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md ${
-                    isSelected ? "border-teal-400 ring-1 ring-teal-200" : "border-stone-200"
+                  className={`group flex flex-col justify-between rounded-2xl border bg-white dark:bg-stone-900 p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md ${
+                    isSelected ? "border-teal-400 ring-1 ring-teal-200" : "border-stone-200 dark:border-stone-700"
                   }`}
                 >
                   {/* Hot Job banner for grid cards */}
@@ -1470,11 +1470,11 @@ export default function JobsPage() {
                       </div>
                     </div>
 
-                    <h3 className="text-sm font-semibold text-stone-900">{job.title}</h3>
-                    <div className="mt-1 flex items-center gap-1.5 text-xs text-stone-500">
+                    <h3 className="text-sm font-semibold text-stone-900 dark:text-stone-100">{job.title}</h3>
+                    <div className="mt-1 flex items-center gap-1.5 text-xs text-stone-500 dark:text-stone-400">
                       <Building2 className="size-3" />{job.orgName}
                     </div>
-                    <div className="mt-0.5 flex items-center gap-1.5 text-xs text-stone-500">
+                    <div className="mt-0.5 flex items-center gap-1.5 text-xs text-stone-500 dark:text-stone-400">
                       <MapPin className="size-3" />{job.location}, CA
                     </div>
 
@@ -1482,7 +1482,7 @@ export default function JobsPage() {
                     <div className="mt-2 text-sm font-semibold text-teal-800">
                       {formatSalary(job.salaryMin, job.salaryMax)}
                     </div>
-                    <p className="text-xs text-stone-500">
+                    <p className="text-xs text-stone-500 dark:text-stone-400">
                       {job.negotiation.salaryType === "fixed-scale"
                         ? (isEs ? "Escala fija" : "Fixed Scale")
                         : (isEs ? "Negociable" : "Negotiable")}
@@ -1491,16 +1491,16 @@ export default function JobsPage() {
 
                     {/* Tags */}
                     <div className="mt-2 flex flex-wrap gap-1">
-                      <Badge className="bg-stone-100 text-stone-600 text-xs">
+                      <Badge className="bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 text-xs">
                         <Monitor className="mr-0.5 size-2.5" />{job.ehrSystem}
                       </Badge>
                       {job.bilingual && (
-                        <Badge className="bg-amber-50 text-amber-700 text-xs">
+                        <Badge className="bg-amber-50 dark:bg-amber-950 text-amber-700 text-xs">
                           {isEs ? "Bilingüe" : "Bilingual"}
                         </Badge>
                       )}
                       {job.programs.slice(0, 2).map((p) => (
-                        <Badge key={p} className="bg-teal-50 text-teal-800 text-xs">{p}</Badge>
+                        <Badge key={p} className="bg-teal-50 dark:bg-teal-950 text-teal-800 text-xs">{p}</Badge>
                       ))}
                     </div>
                   </div>
@@ -1545,12 +1545,12 @@ export default function JobsPage() {
         {/* Directory + Resources callout */}
         {!loading && filteredJobs.length > 0 && (
           <div className="mt-8 space-y-4">
-            <div className="rounded-xl border border-stone-200 bg-white p-6 text-center">
-              <p className="text-sm text-stone-500">
+            <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6 text-center">
+              <p className="text-sm text-stone-500 dark:text-stone-400">
                 {isEs
                   ? `Mostrando ${filteredJobs.length} posiciones de nuestra red. Busca en el `
                   : `Showing ${filteredJobs.length} positions from our network. Browse the `}
-                <Link href="/directory" className="text-teal-700 font-semibold hover:underline">
+                <Link href="/directory" className="text-teal-700 dark:text-teal-400 font-semibold hover:underline">
                   {isEs ? "Directorio FQHC" : "FQHC Directory"}
                 </Link>
                 {isEs ? " para más oportunidades." : " for more opportunities."}
@@ -1558,92 +1558,92 @@ export default function JobsPage() {
             </div>
 
             {/* Career Resources Grid */}
-            <div className="rounded-xl border border-stone-200 bg-gradient-to-br from-teal-50 to-white p-6">
-              <h3 className="text-sm font-bold text-stone-900 mb-3 flex items-center gap-2">
+            <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-gradient-to-br from-teal-50 to-white p-6">
+              <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100 mb-3 flex items-center gap-2">
                 <GraduationCap className="size-4 text-teal-600" />
                 {isEs ? "Recursos para tu Búsqueda de Empleo" : "Power Your Job Search"}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <Link
                   href="/resume-builder"
-                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-3 hover:border-teal-300 hover:shadow-sm transition-all"
                 >
                   <FileText className="size-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-xs font-semibold text-stone-900">
+                    <p className="text-xs font-semibold text-stone-900 dark:text-stone-100">
                       {isEs ? "Constructor de Currículum" : "Resume Builder"}
                     </p>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
                       {isEs ? "Currículum optimizado para FQHC en minutos" : "FQHC-optimized resume in minutes"}
                     </p>
                   </div>
                 </Link>
                 <Link
                   href="/interview-prep"
-                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-3 hover:border-teal-300 hover:shadow-sm transition-all"
                 >
                   <MessageSquare className="size-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-xs font-semibold text-stone-900">
+                    <p className="text-xs font-semibold text-stone-900 dark:text-stone-100">
                       {isEs ? "Preparación de Entrevistas" : "Interview Prep"}
                     </p>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
                       {isEs ? "Preguntas reales de entrevistas FQHC" : "Real FQHC interview questions & answers"}
                     </p>
                   </div>
                 </Link>
                 <Link
                   href="/salary-data"
-                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-3 hover:border-teal-300 hover:shadow-sm transition-all"
                 >
                   <BarChart3 className="size-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-xs font-semibold text-stone-900">
+                    <p className="text-xs font-semibold text-stone-900 dark:text-stone-100">
                       {isEs ? "Inteligencia Salarial" : "Salary Intelligence"}
                     </p>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
                       {isEs ? "Benchmarks por rol, región y sindicato" : "Benchmarks by role, region & union status"}
                     </p>
                   </div>
                 </Link>
                 <Link
                   href="/career-insights"
-                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-3 hover:border-teal-300 hover:shadow-sm transition-all"
                 >
                   <Sparkles className="size-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-xs font-semibold text-stone-900">
+                    <p className="text-xs font-semibold text-stone-900 dark:text-stone-100">
                       {isEs ? "Evaluación de Carrera" : "Career Assessment"}
                     </p>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
                       {isEs ? "Encuentra tu rol ideal en FQHCs" : "Find your ideal FQHC role in 5 minutes"}
                     </p>
                   </div>
                 </Link>
                 <Link
                   href="/pathway"
-                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-3 hover:border-teal-300 hover:shadow-sm transition-all"
                 >
                   <TrendingUp className="size-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-xs font-semibold text-stone-900">
+                    <p className="text-xs font-semibold text-stone-900 dark:text-stone-100">
                       {isEs ? "Ruta de Aprendizaje" : "Learning Pathway"}
                     </p>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
                       {isEs ? "Habilidades para avanzar en tu carrera FQHC" : "Skills to advance your FQHC career"}
                     </p>
                   </div>
                 </Link>
                 <Link
                   href="/certifications"
-                  className="flex items-start gap-3 rounded-lg border border-stone-200 bg-white p-3 hover:border-teal-300 hover:shadow-sm transition-all"
+                  className="flex items-start gap-3 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-3 hover:border-teal-300 hover:shadow-sm transition-all"
                 >
                   <GraduationCap className="size-5 text-teal-600 shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-xs font-semibold text-stone-900">
+                    <p className="text-xs font-semibold text-stone-900 dark:text-stone-100">
                       {isEs ? "Certificaciones" : "Certifications"}
                     </p>
-                    <p className="text-xs text-stone-500 mt-0.5">
+                    <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
                       {isEs ? "Certificaciones relevantes para roles FQHC" : "Relevant certifications for FQHC roles"}
                     </p>
                   </div>

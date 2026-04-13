@@ -54,7 +54,7 @@ const CATEGORY_ICONS: Record<ResourceCategory, typeof DollarSign> = {
 const COST_BADGE_STYLES: Record<CostTier, string> = {
   free: "bg-green-100 text-green-700 border-green-200",
   low: "bg-amber-100 text-amber-700 border-amber-200",
-  varies: "bg-stone-100 text-stone-600 border-stone-200",
+  varies: "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 border-stone-200 dark:border-stone-700",
 };
 
 const COST_LABELS: Record<CostTier, { en: string; es: string }> = {
@@ -144,10 +144,10 @@ function ResourceCard({
 
   return (
     <div
-      className={`rounded-xl border bg-white p-5 shadow-sm transition-all hover:shadow-md ${
+      className={`rounded-xl border bg-white dark:bg-stone-900 p-5 shadow-sm transition-all hover:shadow-md ${
         resource.isFeatured
           ? "border-teal-200 ring-1 ring-teal-100"
-          : "border-stone-200"
+          : "border-stone-200 dark:border-stone-700"
       }`}
     >
       {/* Header row */}
@@ -155,7 +155,7 @@ function ResourceCard({
         <div className="flex-1">
           <div className="flex items-center gap-2 flex-wrap">
             <ReadStatusBadge read={read} />
-            <h3 className="font-semibold text-stone-900">
+            <h3 className="font-semibold text-stone-900 dark:text-stone-100">
               {t(resource.name, locale)}
             </h3>
             {resource.isFeatured && (
@@ -163,7 +163,7 @@ function ResourceCard({
             )}
             <FavoriteButton contentType="resource" contentId={resource.id} size="sm" />
           </div>
-          <p className="mt-0.5 text-sm text-stone-500">{resource.sourceOrg}</p>
+          <p className="mt-0.5 text-sm text-stone-500 dark:text-stone-400">{resource.sourceOrg}</p>
         </div>
         <span
           className={`shrink-0 rounded-full border px-2.5 py-0.5 text-xs font-medium ${
@@ -185,23 +185,23 @@ function ResourceCard({
       )}
 
       {/* Description */}
-      <p className="mt-3 text-sm leading-relaxed text-stone-600">
+      <p className="mt-3 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
         {t(resource.description, locale)}
       </p>
 
       {/* Eligibility */}
       <div className="mt-3">
-        <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
+        <p className="text-xs font-medium uppercase tracking-wide text-stone-500 dark:text-stone-400">
           {isEs ? "Elegibilidad" : "Eligibility"}
         </p>
-        <p className="mt-1 text-sm text-stone-500">
+        <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
           {t(resource.eligibility, locale)}
         </p>
       </div>
 
       {/* Deadline alert */}
       {hasDeadline && resource.deadlineNote && (
-        <div className="mt-3 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2">
+        <div className="mt-3 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 dark:bg-amber-950 px-3 py-2">
           <Clock className="mt-0.5 size-4 shrink-0 text-amber-600" />
           <div>
             <span className="text-sm font-medium text-amber-700">
@@ -220,7 +220,7 @@ function ResourceCard({
         target="_blank"
         rel="noopener noreferrer"
         onClick={onVisit}
-        className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-teal-50 px-4 py-2 text-sm font-medium text-teal-700 transition-colors hover:bg-teal-100"
+        className="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-teal-50 dark:bg-teal-950 px-4 py-2 text-sm font-medium text-teal-700 dark:text-teal-400 transition-colors hover:bg-teal-100 dark:hover:bg-teal-900"
       >
         {isEs ? "Visitar Programa" : "Visit Program"}
         <ExternalLink className="size-3.5" />
@@ -273,7 +273,7 @@ export default function ResourcesPage() {
   const freeCount = CAREER_RESOURCES.filter((r) => r.cost === "free").length;
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: isEs ? "Inicio" : "Home", href: "/" },
         { label: isEs ? "Herramientas" : "Tools", href: "/resources" },
@@ -306,7 +306,7 @@ export default function ResourcesPage() {
 
       {/* ==================== DEADLINE BANNER ==================== */}
       {upcomingDeadlines.length > 0 && (
-        <section className="border-b border-amber-200 bg-amber-50 px-4 py-4 sm:px-6">
+        <section className="border-b border-amber-200 bg-amber-50 dark:bg-amber-950 px-4 py-4 sm:px-6">
           <div className="mx-auto flex max-w-5xl items-start gap-3">
             <AlertTriangle className="mt-0.5 size-5 shrink-0 text-amber-600" />
             <div>
@@ -340,8 +340,8 @@ export default function ResourcesPage() {
       {/* ==================== FILTERS ==================== */}
       <section className="px-4 pt-10 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
-          <div className="flex flex-col gap-4 rounded-xl border border-stone-200 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:gap-6">
-            <div className="flex items-center gap-2 text-stone-500">
+          <div className="flex flex-col gap-4 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4 shadow-sm sm:flex-row sm:items-center sm:gap-6">
+            <div className="flex items-center gap-2 text-stone-500 dark:text-stone-400">
               <Filter className="size-4" />
               <span className="text-sm font-medium">
                 {isEs ? "Filtrar" : "Filter"}
@@ -356,7 +356,7 @@ export default function ResourcesPage() {
                     e.target.value as ResourceCategory | "all"
                   )
                 }
-                className="rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-sm text-stone-700 focus:border-teal-300 focus:ring-1 focus:ring-teal-300"
+                className="rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 px-3 py-2 text-sm text-stone-700 dark:text-stone-300 focus:border-teal-300 focus:ring-1 focus:ring-teal-300"
               >
                 <option value="all">
                   {isEs ? "Todas las categorías" : "All Categories"}
@@ -373,7 +373,7 @@ export default function ResourcesPage() {
                 onChange={(e) =>
                   setCostFilter(e.target.value as CostTier | "all")
                 }
-                className="rounded-lg border border-stone-200 bg-stone-50 px-3 py-2 text-sm text-stone-700 focus:border-teal-300 focus:ring-1 focus:ring-teal-300"
+                className="rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 px-3 py-2 text-sm text-stone-700 dark:text-stone-300 focus:border-teal-300 focus:ring-1 focus:ring-teal-300"
               >
                 <option value="all">
                   {isEs ? "Todos los costos" : "All Costs"}
@@ -386,7 +386,7 @@ export default function ResourcesPage() {
               </select>
             </div>
 
-            <p className="text-sm text-stone-500">
+            <p className="text-sm text-stone-500 dark:text-stone-400">
               {filtered.length} {isEs ? "de" : "of"} {CAREER_RESOURCES.length}{" "}
               {isEs ? "resultados" : "results"}
             </p>
@@ -402,14 +402,14 @@ export default function ResourcesPage() {
             return (
               <div key={group.id}>
                 <div className="mb-5 flex items-center gap-3">
-                  <div className="flex size-10 items-center justify-center rounded-lg bg-teal-50 text-teal-700">
+                  <div className="flex size-10 items-center justify-center rounded-lg bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400">
                     <Icon className="size-5" />
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold text-stone-900">
+                    <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
                       {isEs ? group.es : group.en}
                     </h2>
-                    <p className="text-sm text-stone-500">
+                    <p className="text-sm text-stone-500 dark:text-stone-400">
                       {group.resources.length}{" "}
                       {isEs ? "programas" : "programs"}
                     </p>
@@ -432,8 +432,8 @@ export default function ResourcesPage() {
           })}
 
           {filtered.length === 0 && (
-            <div className="rounded-xl border border-stone-200 bg-white p-10 text-center">
-              <p className="text-stone-500">
+            <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-10 text-center">
+              <p className="text-stone-500 dark:text-stone-400">
                 {isEs
                   ? "No se encontraron recursos con estos filtros."
                   : "No resources found with these filters."}
@@ -444,15 +444,15 @@ export default function ResourcesPage() {
       </section>
 
       {/* ==================== YOUR EXISTING TOOLS ==================== */}
-      <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+      <section className="bg-white dark:bg-stone-900 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <div className="mb-10 text-center">
-            <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl">
+            <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 sm:text-3xl">
               {isEs
                 ? "Tus Herramientas Gratuitas"
                 : "Your Free Tools"}
             </h2>
-            <p className="mt-3 text-stone-600">
+            <p className="mt-3 text-stone-600 dark:text-stone-400">
               {isEs
                 ? "Herramientas de carrera que ya tienes disponibles en FQHC Talent"
                 : "Career tools already available to you at FQHC Talent"}
@@ -466,19 +466,19 @@ export default function ResourcesPage() {
                 <Link
                   key={tool.href}
                   href={tool.href}
-                  className="group flex items-start gap-4 rounded-xl border border-stone-200 bg-stone-50 p-6 transition-all hover:-translate-y-1 hover:shadow-md hover:bg-white"
+                  className="group flex items-start gap-4 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 p-6 transition-all hover:-translate-y-1 hover:shadow-md hover:bg-white dark:hover:bg-stone-800"
                 >
-                  <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-teal-700 transition-colors group-hover:bg-teal-100">
+                  <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 transition-colors group-hover:bg-teal-100 dark:hover:bg-teal-900">
                     <Icon className="size-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-stone-900">
+                    <h3 className="font-semibold text-stone-900 dark:text-stone-100">
                       {t(tool.title, locale)}
                     </h3>
-                    <p className="mt-1 text-sm text-stone-600">
+                    <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
                       {t(tool.desc, locale)}
                     </p>
-                    <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-teal-700">
+                    <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-teal-700 dark:text-teal-400">
                       {isEs ? "Explorar" : "Explore"}
                       <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                     </span>
@@ -493,19 +493,19 @@ export default function ResourcesPage() {
       {/* ==================== SOURCES INDEX ==================== */}
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
-          <div className="rounded-xl border border-stone-200 bg-white p-6 sm:p-8">
-            <h2 className="mb-4 text-lg font-bold text-stone-900">
+          <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6 sm:p-8">
+            <h2 className="mb-4 text-lg font-bold text-stone-900 dark:text-stone-100">
               {isEs ? "Índice de Fuentes" : "Sources Index"}
             </h2>
-            <p className="mb-4 text-sm text-stone-500">
+            <p className="mb-4 text-sm text-stone-500 dark:text-stone-400">
               {isEs
                 ? "Cada recurso enlaza directamente a su fuente primaria. Sin contenido de terceros, sin intermediarios."
                 : "Every resource links directly to its primary source. No third-party content, no intermediaries."}
             </p>
             <ol className="list-decimal space-y-1.5 pl-5">
               {sources.map((s, i) => (
-                <li key={i} className="text-sm text-stone-600">
-                  <span className="font-medium text-stone-700">{s.org}</span>
+                <li key={i} className="text-sm text-stone-600 dark:text-stone-400">
+                  <span className="font-medium text-stone-700 dark:text-stone-300">{s.org}</span>
                   {" — "}
                   <a
                     href={s.url}
@@ -540,7 +540,7 @@ export default function ResourcesPage() {
               <Link href="/join">
                 <Button
                   size="lg"
-                  className="bg-amber-500 font-semibold text-stone-900 shadow-md hover:bg-amber-400"
+                  className="bg-amber-500 font-semibold text-stone-900 dark:text-stone-100 shadow-md hover:bg-amber-400"
                 >
                   {isEs ? "Únete Ahora" : "Join Now"}
                   <ArrowRight className="ml-2 size-5" />

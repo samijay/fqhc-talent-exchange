@@ -62,10 +62,10 @@ function TrackCard({
     <button
       type="button"
       onClick={onSelect}
-      className={`w-full text-left rounded-2xl border-2 bg-white p-6 transition-all hover:shadow-md ${
+      className={`w-full text-left rounded-2xl border-2 bg-white p-6 transition-all hover:shadow-md dark:bg-stone-900 ${
         isSelected
           ? "border-teal-600 shadow-md ring-1 ring-teal-600/20"
-          : "border-stone-200 hover:border-stone-300"
+          : "border-stone-200 hover:border-stone-300 dark:border-stone-700 dark:hover:border-stone-600"
       }`}
     >
       <div className="flex items-start justify-between mb-3">
@@ -82,7 +82,7 @@ function TrackCard({
             />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-stone-900">{title}</h3>
+            <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">{title}</h3>
           </div>
         </div>
         <Badge
@@ -153,7 +153,7 @@ export default function NewsletterPage() {
   };
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 dark:bg-stone-950">
       {/* Hero */}
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -194,7 +194,7 @@ export default function NewsletterPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           {/* Section header */}
           <div className="text-center mb-8">
-            <h2 className="text-xl font-bold text-stone-900 sm:text-2xl">
+            <h2 className="text-xl font-bold text-stone-900 sm:text-2xl dark:text-stone-100">
               {isEs
                 ? "Elige tu informe"
                 : "Choose Your Briefing"}
@@ -306,9 +306,9 @@ export default function NewsletterPage() {
           </div>
 
           {/* Personalized Signup Questionnaire */}
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8">
+          <div className="rounded-2xl border border-stone-200 bg-white p-6 sm:p-8 dark:border-stone-700 dark:bg-stone-900">
             <div className="mb-5">
-              <h3 className="text-lg font-bold text-stone-900">
+              <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                 {isEs ? "Personaliza tu informe" : "Personalize your briefing"}
               </h3>
               <p className="text-sm text-stone-500 mt-1">

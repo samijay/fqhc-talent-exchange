@@ -37,22 +37,22 @@ const t = (obj: { en: string; es: string }, locale: string) =>
 
 function gradeColor(grade: string): string {
   switch (grade) {
-    case "A": return "bg-green-100 text-green-800 border-green-200";
-    case "B": return "bg-teal-100 text-teal-800 border-teal-200";
-    case "C": return "bg-amber-100 text-amber-800 border-amber-200";
-    case "D": return "bg-orange-100 text-orange-800 border-orange-200";
-    case "F": return "bg-red-100 text-red-800 border-red-200";
-    default: return "bg-stone-100 text-stone-800 border-stone-200";
+    case "A": return "bg-green-100 text-green-800 border-green-200 dark:bg-green-900 dark:text-green-300 dark:border-green-700";
+    case "B": return "bg-teal-100 text-teal-800 border-teal-200 dark:bg-teal-900 dark:text-teal-300 dark:border-teal-700";
+    case "C": return "bg-amber-100 text-amber-800 border-amber-200 dark:bg-amber-900 dark:text-amber-300 dark:border-amber-700";
+    case "D": return "bg-orange-100 text-orange-800 border-orange-200 dark:bg-orange-900 dark:text-orange-300 dark:border-orange-700";
+    case "F": return "bg-red-100 text-red-800 border-red-200 dark:bg-red-900 dark:text-red-300 dark:border-red-700";
+    default: return "bg-stone-100 text-stone-800 border-stone-200 dark:bg-stone-800 dark:text-stone-300 dark:border-stone-600";
   }
 }
 
 function riskColor(risk: string): string {
   switch (risk) {
-    case "low": return "text-green-700";
-    case "moderate": return "text-amber-700";
-    case "high": return "text-orange-700";
-    case "critical": return "text-red-700";
-    default: return "text-stone-700";
+    case "low": return "text-green-700 dark:text-green-400";
+    case "moderate": return "text-amber-700 dark:text-amber-400";
+    case "high": return "text-orange-700 dark:text-orange-400";
+    case "critical": return "text-red-700 dark:text-red-400";
+    default: return "text-stone-700 dark:text-stone-400";
   }
 }
 
@@ -73,13 +73,13 @@ function riskLabel(risk: string, isEs: boolean): string {
 function ScoreBar({ score, color }: { score: number; color: string }) {
   return (
     <div className="flex items-center gap-2">
-      <div className="h-2 flex-1 rounded-full bg-stone-100 overflow-hidden">
+      <div className="h-2 flex-1 rounded-full bg-stone-100 dark:bg-stone-700 overflow-hidden">
         <div
           className={`h-full rounded-full ${color} transition-all`}
           style={{ width: `${score}%` }}
         />
       </div>
-      <span className="text-xs font-medium text-stone-500 w-8 text-right">{score}</span>
+      <span className="text-xs font-medium text-stone-500 dark:text-stone-400 w-8 text-right">{score}</span>
     </div>
   );
 }
@@ -102,27 +102,29 @@ function FQHCDetailCard({
   const isEs = locale === "es";
 
   return (
-    <div className="rounded-xl border border-stone-200 bg-white transition-all hover:shadow-sm">
+    <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 transition-all hover:shadow-sm">
       <button
         onClick={onToggle}
         className="flex w-full items-center gap-3 p-4 text-left"
+        aria-expanded={isExpanded}
       >
         {/* Grade Badge */}
         <div className={`flex size-10 shrink-0 items-center justify-center rounded-lg border text-lg font-extrabold ${gradeColor(score.grade)}`}>
           {score.grade}
+          <span className="sr-only">Resilience grade: {score.grade}</span>
         </div>
 
         {/* Name + Region */}
         <div className="flex-1 min-w-0">
-          <h3 className="text-sm font-bold text-stone-900 truncate">
+          <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100 truncate">
             {score.name}
           </h3>
-          <p className="text-xs text-stone-500">{score.region}</p>
+          <p className="text-xs text-stone-500 dark:text-stone-400">{score.region}</p>
         </div>
 
         {/* Overall Score */}
         <div className="hidden sm:flex flex-col items-end shrink-0">
-          <span className="text-lg font-bold text-stone-900">{score.overall}</span>
+          <span className="text-lg font-bold text-stone-900 dark:text-stone-100">{score.overall}</span>
           <span className={`text-xs font-medium ${riskColor(score.riskLevel)}`}>
             {riskLabel(score.riskLevel, isEs)}
           </span>
@@ -135,7 +137,7 @@ function FQHCDetailCard({
             return (
               <div
                 key={dim.dimension}
-                className="w-1.5 rounded-full bg-stone-100 overflow-hidden"
+                className="w-1.5 rounded-full bg-stone-100 dark:bg-stone-700 overflow-hidden"
                 style={{ height: "32px" }}
                 title={`${t(dim.label, locale)}: ${dim.score}`}
               >
@@ -154,14 +156,14 @@ function FQHCDetailCard({
       </button>
 
       {isExpanded && (
-        <div className="border-t border-stone-100 px-4 pb-4 pt-3 space-y-4">
+        <div className="border-t border-stone-100 dark:border-stone-700 px-4 pb-4 pt-3 space-y-4">
           {/* Mobile overall score */}
           <div className="flex items-center justify-between sm:hidden">
-            <span className="text-sm font-medium text-stone-600">
+            <span className="text-sm font-medium text-stone-600 dark:text-stone-400">
               {isEs ? "Puntuación General" : "Overall Score"}
             </span>
             <div className="flex items-center gap-2">
-              <span className="text-xl font-bold text-stone-900">{score.overall}/100</span>
+              <span className="text-xl font-bold text-stone-900 dark:text-stone-100">{score.overall}/100</span>
               <span className={`text-xs font-medium ${riskColor(score.riskLevel)}`}>
                 {riskLabel(score.riskLevel, isEs)}
               </span>
@@ -175,15 +177,15 @@ function FQHCDetailCard({
               return (
                 <div key={dim.dimension}>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-medium text-stone-700">
+                    <span className="text-xs font-medium text-stone-700 dark:text-stone-300">
                       {t(dim.label, locale)}
                     </span>
-                    <span className="text-xs font-bold text-stone-900">{dim.score}/100</span>
+                    <span className="text-xs font-bold text-stone-900 dark:text-stone-100">{dim.score}/100</span>
                   </div>
                   <ScoreBar score={dim.score} color={meta?.color || "bg-stone-400"} />
                   <ul className="mt-1 space-y-0.5">
                     {dim.factors.map((f, i) => (
-                      <li key={i} className="text-xs text-stone-500 pl-1">
+                      <li key={i} className="text-xs text-stone-500 dark:text-stone-400 pl-1">
                         • {f}
                       </li>
                     ))}
@@ -194,13 +196,13 @@ function FQHCDetailCard({
           </div>
 
           {/* Data completeness */}
-          <div className="flex items-center justify-between text-xs text-stone-500 border-t border-stone-100 pt-3">
+          <div className="flex items-center justify-between text-xs text-stone-500 dark:text-stone-400 border-t border-stone-100 dark:border-stone-700 pt-3">
             <span>
               {isEs ? "Completitud de datos:" : "Data completeness:"} {score.dataCompleteness}%
             </span>
             <Link
               href={`/directory/${score.slug}`}
-              className="inline-flex items-center gap-1 text-teal-700 hover:text-teal-900 font-medium"
+              className="inline-flex items-center gap-1 text-teal-700 dark:text-teal-400 hover:text-teal-900 dark:hover:text-teal-300 font-medium"
             >
               {isEs ? "Ver perfil" : "View profile"}
               <ExternalLink className="size-3" />
@@ -318,7 +320,7 @@ export default function ResiliencePage() {
   }
 
   return (
-    <main className="min-h-screen bg-stone-50">
+    <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: "Home", href: "/" },
         { label: "Strategy", href: "/strategy/resilience" },
@@ -401,10 +403,10 @@ export default function ResiliencePage() {
       {/* ============================================================ */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className="text-xl font-bold text-stone-900 sm:text-2xl">
+          <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 sm:text-2xl">
             {isEs ? "Cinco Dimensiones de Resiliencia" : "Five Resilience Dimensions"}
           </h2>
-          <p className="mt-2 text-sm text-stone-600 max-w-xl mx-auto">
+          <p className="mt-2 text-sm text-stone-600 dark:text-stone-400 max-w-xl mx-auto">
             {isEs
               ? "Cada FQHC es evaluado usando datos de HRSA, Glassdoor, WARN Act, y nuestro directorio de 220 organizaciones."
               : "Each FQHC is scored using data from HRSA, Glassdoor, WARN Act, and our directory of 220 organizations."}
@@ -416,7 +418,7 @@ export default function ResiliencePage() {
             <button
               key={dim.id}
               onClick={() => handleSort(dim.id)}
-              className="rounded-xl border border-stone-200 bg-white p-4 text-left hover:border-teal-300 transition-colors"
+              className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4 text-left hover:border-teal-300 dark:hover:border-teal-600 transition-colors"
             >
               <div className="flex items-center gap-2 mb-2">
                 <div className={`size-3 rounded-full ${dim.color}`} />
@@ -424,7 +426,7 @@ export default function ResiliencePage() {
                   {Math.round(dim.weight * 100)}%
                 </span>
               </div>
-              <h3 className="text-sm font-bold text-stone-900">
+              <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100">
                 {isEs ? dim.es : dim.en}
               </h3>
               <p className="text-xs text-stone-500 mt-1 line-clamp-2">
@@ -438,9 +440,9 @@ export default function ResiliencePage() {
       {/* ============================================================ */}
       {/*  Grade Distribution                                          */}
       {/* ============================================================ */}
-      <section className="bg-white border-y border-stone-200">
+      <section className="bg-white dark:bg-stone-900 border-y border-stone-200 dark:border-stone-700">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <h3 className="text-sm font-semibold text-stone-500 uppercase tracking-wider mb-4">
+          <h3 className="text-sm font-semibold text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-4">
             {isEs ? "Distribución de Grados" : "Grade Distribution"}
           </h3>
           <div className="flex gap-2 h-8">
@@ -478,13 +480,13 @@ export default function ResiliencePage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder={isEs ? "Buscar FQHC por nombre o región..." : "Search FQHC by name or region..."}
-              className="w-full rounded-lg border border-stone-200 bg-white pl-10 pr-4 py-2.5 text-sm text-stone-900 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 pl-10 pr-4 py-2.5 text-sm text-stone-900 dark:text-stone-100 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
             />
           </div>
           <select
             value={regionFilter}
             onChange={(e) => setRegionFilter(e.target.value)}
-            className="rounded-lg border border-stone-200 bg-white px-3 py-2.5 text-sm text-stone-700 focus:border-teal-500 focus:outline-none"
+            className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 px-3 py-2.5 text-sm text-stone-700 dark:text-stone-200 focus:border-teal-500 focus:outline-none"
           >
             <option value="all">{isEs ? "Todas las regiones" : "All regions"}</option>
             {regions.map((r) => (
@@ -493,7 +495,7 @@ export default function ResiliencePage() {
           </select>
           <button
             onClick={() => handleSort("overall")}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-2.5 text-sm text-stone-700 hover:bg-stone-50"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 px-3 py-2.5 text-sm text-stone-700 dark:text-stone-200 hover:bg-stone-50 dark:hover:bg-stone-700"
           >
             <ArrowUpDown className="size-3.5" />
             {isEs ? "Ordenar" : "Sort"}
@@ -505,14 +507,14 @@ export default function ResiliencePage() {
         </div>
 
         {/* Results count */}
-        <p className="text-sm text-stone-500 mb-4">
+        <p className="text-sm text-stone-500 dark:text-stone-400 mb-4">
           {isEs
             ? `Mostrando ${displayed.length} de ${filtered.length} FQHCs`
             : `Showing ${displayed.length} of ${filtered.length} FQHCs`}
           {gradeFilter !== "all" && (
             <button
               onClick={() => setGradeFilter("all")}
-              className="ml-2 text-teal-700 hover:text-teal-900"
+              className="ml-2 text-teal-700 dark:text-teal-400 hover:text-teal-900 dark:hover:text-teal-300"
             >
               {isEs ? "(limpiar filtro)" : "(clear filter)"}
             </button>

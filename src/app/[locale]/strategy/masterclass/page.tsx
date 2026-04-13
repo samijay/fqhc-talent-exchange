@@ -79,7 +79,7 @@ function MasterclassCard({
   const diffMeta = getDifficultyMeta(mc.difficulty);
 
   return (
-    <div className="relative rounded-2xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden">
+    <div className="relative rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 transition-shadow hover:shadow-md overflow-hidden">
       <div className="absolute right-12 top-6 z-10 flex items-center gap-1">
         <FavoriteButton contentType="masterclass" contentId={mc.id} size="sm" />
       </div>
@@ -87,6 +87,7 @@ function MasterclassCard({
       <button
         onClick={onToggle}
         className="w-full text-left p-6 pb-4"
+        aria-expanded={isExpanded}
       >
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
@@ -124,7 +125,7 @@ function MasterclassCard({
             </div>
 
             {/* Title + subtitle */}
-            <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+            <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
               <ReadStatusBadge read={read} />
               {mc.recommendedOrder && (
                 <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-teal-700">
@@ -133,7 +134,7 @@ function MasterclassCard({
               )}
               {t(mc.title, locale)}
             </h3>
-            <p className="mt-1 text-sm text-stone-500">
+            <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
               {t(mc.subtitle, locale)}
             </p>
           </div>
@@ -148,7 +149,7 @@ function MasterclassCard({
 
         {/* Urgency stat — always visible */}
         <div className="mt-3">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 border border-red-100 px-3 py-1 text-xs font-medium text-red-700">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 dark:bg-red-950 border border-red-100 dark:border-red-800 px-3 py-1 text-xs font-medium text-red-700 dark:text-red-400">
             <AlertTriangle className="size-3" />
             {t(mc.urgencyStat, locale)}
           </span>
@@ -157,7 +158,7 @@ function MasterclassCard({
 
       {/* Expanded content */}
       {isExpanded && (
-        <div className="border-t border-stone-100 px-6 pb-6 pt-4 space-y-5">
+        <div className="border-t border-stone-100 dark:border-stone-700 px-6 pb-6 pt-4 space-y-5">
           {/* Why Now */}
           <div>
             <div className="flex items-center gap-2 mb-2">
@@ -166,7 +167,7 @@ function MasterclassCard({
                 {isEs ? "¿Por Qué Ahora?" : "Why Now?"}
               </h4>
             </div>
-            <p className="text-sm text-stone-600 leading-relaxed">
+            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
               {t(mc.whyNow, locale)}
             </p>
           </div>
@@ -216,7 +217,7 @@ function MasterclassCard({
           </div>
 
           {/* Source Materials + Site Links + Share */}
-          <div className="border-t border-stone-100 pt-4">
+          <div className="border-t border-stone-100 dark:border-stone-700 pt-4">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <BookOpen className="size-4 text-stone-500" />
@@ -228,7 +229,7 @@ function MasterclassCard({
                 <button
                   onClick={() => onDownload(mc)}
                   disabled={downloadingId === mc.id}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-50"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 dark:border-stone-600 bg-white dark:bg-stone-800 px-3 py-1.5 text-xs font-medium text-stone-600 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-700 disabled:opacity-50"
                 >
                   {downloadingId === mc.id ? <Loader2 className="size-3.5 animate-spin" /> : <Download className="size-3.5" />}
                   {isEs ? "Descargar PDF" : "Download PDF"}
@@ -248,7 +249,7 @@ function MasterclassCard({
                   href={src.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 rounded-lg bg-stone-50 border border-stone-200 px-2.5 py-1.5 text-xs text-stone-600 hover:bg-stone-100 hover:text-stone-800 transition-colors"
+                  className="inline-flex items-center gap-1 rounded-lg bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-600 px-2.5 py-1.5 text-xs text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-700 hover:text-stone-800 dark:hover:text-stone-200 transition-colors"
                 >
                   <ExternalLink className="size-3" />
                   {src.label}
@@ -258,7 +259,7 @@ function MasterclassCard({
                 <Link
                   key={link.href}
                   href={link.href as "/strategy/guides"}
-                  className="inline-flex items-center gap-1 rounded-lg bg-teal-50 border border-teal-200 px-2.5 py-1.5 text-xs text-teal-700 hover:bg-teal-100 transition-colors"
+                  className="inline-flex items-center gap-1 rounded-lg bg-teal-50 dark:bg-teal-900 border border-teal-200 dark:border-teal-700 px-2.5 py-1.5 text-xs text-teal-700 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-teal-800 transition-colors"
                 >
                   <ArrowRight className="size-3" />
                   {link.label}
@@ -447,7 +448,7 @@ export default function MasterclassPage() {
   ];
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: "Home", href: "/" },
         { label: "Strategy", href: "/strategy/masterclass" },
@@ -497,18 +498,18 @@ export default function MasterclassPage() {
       </div>
 
       {/* Interactive Course CTA */}
-      <section id="interactive-course" className="border-b border-teal-200 bg-gradient-to-r from-teal-50 to-emerald-50 py-6 scroll-mt-20">
+      <section id="interactive-course" className="border-b border-teal-200 dark:border-teal-800 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-950 dark:to-emerald-950 py-6 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="flex size-10 items-center justify-center rounded-full bg-teal-100">
+              <div className="flex size-10 items-center justify-center rounded-full bg-teal-100 dark:bg-teal-900">
                 <Zap className="size-5 text-teal-700" />
               </div>
               <div>
-                <h2 className="text-base font-bold text-stone-900">
+                <h2 className="text-base font-bold text-stone-900 dark:text-stone-100">
                   {isEs ? "¡Nuevo! Curso Interactivo" : "New! Interactive Course"}
                 </h2>
-                <p className="text-sm text-stone-600">
+                <p className="text-sm text-stone-600 dark:text-stone-400">
                   {isEs
                     ? "30 módulos con ejercicios, cuestionarios y seguimiento de progreso — aprenda haciendo."
                     : "30 modules with exercises, quizzes, and progress tracking — learn by doing."}
@@ -526,10 +527,10 @@ export default function MasterclassPage() {
       </section>
 
       {/* Why These Masterclasses, Why Now */}
-      <section id="why-now" className="border-b border-stone-200 bg-white py-10 sm:py-14 scroll-mt-20">
+      <section id="why-now" className="border-b border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 py-10 sm:py-14 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-10">
-            <h2 className="text-xl font-bold text-stone-900 sm:text-2xl">
+            <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 sm:text-2xl">
               {isEs
                 ? "¿Por Qué Estos Masterclasses, Por Qué Ahora?"
                 : "Why These Masterclasses, Why Now?"}
@@ -543,14 +544,14 @@ export default function MasterclassPage() {
 
           {/* Crisis convergence cards */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-xl border border-red-200 bg-red-50/50 p-4 text-center">
+            <div className="rounded-xl border border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-950/50 p-4 text-center">
               <div className="text-2xl font-extrabold text-red-800">$4.6B</div>
               <div className="text-xs font-medium text-red-700 mt-1">
                 {isEs ? "Financiamiento de Medicaid en riesgo" : "Medicaid funding at risk"}
               </div>
               <div className="text-xs text-stone-500 mt-0.5">H.R. 1</div>
             </div>
-            <div className="rounded-xl border border-purple-200 bg-purple-50/50 p-4 text-center">
+            <div className="rounded-xl border border-purple-200 dark:border-purple-800 bg-purple-50/50 dark:bg-purple-950/50 p-4 text-center">
               <div className="text-2xl font-extrabold text-purple-800">84%</div>
               <div className="text-xs font-medium text-purple-700 mt-1">
                 {isEs ? "Reportan caídas en visitas" : "Report patient visit declines"}
@@ -559,7 +560,7 @@ export default function MasterclassPage() {
                 {isEs ? "Efecto de aplicación migratoria" : "Immigration enforcement effect"}
               </div>
             </div>
-            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-4 text-center">
+            <div className="rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/50 p-4 text-center">
               <div className="text-2xl font-extrabold text-amber-800">50%</div>
               <div className="text-xs font-medium text-amber-700 mt-1">
                 {isEs ? "Márgenes negativos" : "Negative margins"}
@@ -568,7 +569,7 @@ export default function MasterclassPage() {
                 {isEs ? "CHCs en 2023" : "CHCs in 2023"}
               </div>
             </div>
-            <div className="rounded-xl border border-teal-200 bg-teal-50/50 p-4 text-center">
+            <div className="rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50/50 dark:bg-teal-950/50 p-4 text-center">
               <div className="text-2xl font-extrabold text-teal-800">70%</div>
               <div className="text-xs font-medium text-teal-700 mt-1">
                 {isEs ? "Documentación automatizable" : "Documentation automatable"}
@@ -593,7 +594,7 @@ export default function MasterclassPage() {
                 className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                   activeCategory === "all"
                     ? "bg-stone-800 text-white"
-                    : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                    : "bg-stone-100 text-stone-500 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                 }`}
               >
                 {isEs ? "Todos" : "All"} ({counts.total})
@@ -605,7 +606,7 @@ export default function MasterclassPage() {
                   className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                     activeCategory === cat.id
                       ? "bg-stone-800 text-white"
-                      : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                      : "bg-stone-100 text-stone-500 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                   }`}
                 >
                   {isEs ? cat.es : cat.en} ({counts[cat.id] ?? 0})

@@ -136,9 +136,9 @@ function LeaderCard({
     hasCaseStudies || hasEconomics || hasFrameworks || relatedContent.length > 0;
 
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden">
+    <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 transition-shadow hover:shadow-md overflow-hidden">
       {/* Header — clickable to expand */}
-      <button onClick={onToggle} className="w-full text-left p-5 sm:p-6">
+      <button onClick={onToggle} className="w-full text-left p-5 sm:p-6" aria-expanded={isExpanded}>
         <div className="flex items-start gap-4">
           {/* Avatar */}
           <div
@@ -164,7 +164,7 @@ function LeaderCard({
             <p className="text-sm text-stone-500 mt-0.5">
               {t(leader.title, locale)}
             </p>
-            <p className="text-xs text-stone-500 mt-0.5">
+            <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
               {leader.organization}
             </p>
 
@@ -200,7 +200,7 @@ function LeaderCard({
             <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">
               {isEs ? "Biografia" : "Biography"}
             </h4>
-            <p className="text-sm text-stone-600 leading-relaxed">
+            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
               {t(leader.bio, locale)}
             </p>
           </div>
@@ -230,7 +230,7 @@ function LeaderCard({
                     <Link
                       key={id}
                       href={"/strategy/guides" as const}
-                      className="inline-flex items-center gap-1 rounded-full bg-amber-50 border border-amber-200 px-2.5 py-1 text-xs font-medium text-amber-700 hover:bg-amber-100 transition-colors"
+                      className="inline-flex items-center gap-1 rounded-full bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 px-2.5 py-1 text-xs font-medium text-amber-700 hover:bg-amber-100 transition-colors"
                     >
                       <BookOpen className="size-3" />
                       {isEs ? "Estudio de Caso" : "Case Study"}
@@ -318,7 +318,7 @@ function LeaderCard({
               href={leader.orgUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-medium text-teal-700 hover:text-teal-900 hover:underline transition-colors flex items-center gap-1"
+              className="text-xs font-medium text-teal-700 dark:text-teal-400 hover:text-teal-900 dark:hover:text-teal-300 hover:underline transition-colors flex items-center gap-1"
             >
               {leader.organization.length > 30
                 ? leader.organization.slice(0, 30) + "..."
@@ -380,7 +380,7 @@ export default function ThoughtLeadersPage() {
   const totalLeaders = THOUGHT_LEADERS.length;
   const categoryCount = Object.keys(leaderCategoryMeta).length;
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 dark:bg-stone-950">
       {/* ── Hero ── */}
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -433,7 +433,7 @@ export default function ThoughtLeadersPage() {
                 className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                   activeCategory === "all"
                     ? "bg-stone-800 text-white"
-                    : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                    : "bg-stone-100 dark:bg-stone-800 text-stone-500 hover:bg-stone-200"
                 }`}
               >
                 {isEs ? "Todos" : "All"} ({totalLeaders})
@@ -456,7 +456,7 @@ export default function ThoughtLeadersPage() {
                     className={`inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                       activeCategory === catKey
                         ? "bg-stone-800 text-white"
-                        : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                        : "bg-stone-100 dark:bg-stone-800 text-stone-500 hover:bg-stone-200"
                     }`}
                   >
                     <CatIcon className="size-3" />
@@ -480,7 +480,7 @@ export default function ThoughtLeadersPage() {
                   className={`rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors ${
                     activeTopic === topic
                       ? "bg-teal-700 text-white"
-                      : "bg-stone-100 text-stone-500 hover:bg-stone-200 hover:text-stone-600"
+                      : "bg-stone-100 dark:bg-stone-800 text-stone-500 hover:bg-stone-200 hover:text-stone-600"
                   }`}
                 >
                   {formatTopic(topic)}
@@ -606,7 +606,7 @@ export default function ThoughtLeadersPage() {
       </section>
 
       {/* ── Related Content Links ── */}
-      <section className="py-10 sm:py-14 border-t border-stone-200">
+      <section className="py-10 sm:py-14 border-t border-stone-200 dark:border-stone-700">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-lg font-bold text-stone-900 mb-6 text-center sm:text-xl">
             {isEs ? "Explorar Mas Estrategia" : "Explore More Strategy"}

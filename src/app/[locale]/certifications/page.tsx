@@ -160,7 +160,7 @@ function CertificationsContent() {
   const other = filtered.filter((c) => c.impactType === "resume_boost");
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: isEs ? "Inicio" : "Home", href: "/" },
         { label: isEs ? "Herramientas" : "Tools", href: "/certifications" },
@@ -203,20 +203,20 @@ function CertificationsContent() {
 
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
         {/* Filters */}
-        <div className="rounded-xl border border-stone-200 bg-white p-4">
-          <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-stone-700">
+        <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4">
+          <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-stone-700 dark:text-stone-300">
             <Filter className="size-4" />
             {isEs ? "Filtrar certificaciones" : "Filter certifications"}
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
             <div>
-              <label className="mb-1 block text-xs font-medium text-stone-500">
+              <label className="mb-1 block text-xs font-medium text-stone-500 dark:text-stone-400">
                 {isEs ? "Rol" : "Role"}
               </label>
               <select
                 value={roleFilter}
                 onChange={(e) => { setRoleFilter(e.target.value); syncUrl(e.target.value, costFilter, typeFilter); }}
-                className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-700 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                className="w-full rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-2 text-sm text-stone-700 dark:text-stone-300 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
               >
                 {ROLE_OPTIONS.map((opt) => (
                   <option key={opt.id} value={opt.id}>
@@ -226,13 +226,13 @@ function CertificationsContent() {
               </select>
             </div>
             <div>
-              <label className="mb-1 block text-xs font-medium text-stone-500">
+              <label className="mb-1 block text-xs font-medium text-stone-500 dark:text-stone-400">
                 {isEs ? "Costo" : "Cost"}
               </label>
               <select
                 value={costFilter}
                 onChange={(e) => { const v = e.target.value as CostTier | "all"; setCostFilter(v); syncUrl(roleFilter, v, typeFilter); }}
-                className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-700 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                className="w-full rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-2 text-sm text-stone-700 dark:text-stone-300 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
               >
                 {COST_OPTIONS.map((opt) => (
                   <option key={opt.id} value={opt.id}>
@@ -242,13 +242,13 @@ function CertificationsContent() {
               </select>
             </div>
             <div>
-              <label className="mb-1 block text-xs font-medium text-stone-500">
+              <label className="mb-1 block text-xs font-medium text-stone-500 dark:text-stone-400">
                 {isEs ? "Tipo" : "Type"}
               </label>
               <select
                 value={typeFilter}
                 onChange={(e) => { const v = e.target.value as CertImpactType | "all"; setTypeFilter(v); syncUrl(roleFilter, costFilter, v); }}
-                className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-700 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                className="w-full rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-2 text-sm text-stone-700 dark:text-stone-300 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
               >
                 {TYPE_OPTIONS.map((opt) => (
                   <option key={opt.id} value={opt.id}>
@@ -258,7 +258,7 @@ function CertificationsContent() {
               </select>
             </div>
           </div>
-          <div className="mt-3 text-xs text-stone-500">
+          <div className="mt-3 text-xs text-stone-500 dark:text-stone-400">
             {isEs
               ? `${filtered.length} de ${CERTIFICATIONS.length} certificaciones`
               : `${filtered.length} of ${CERTIFICATIONS.length} certifications`}
@@ -267,7 +267,7 @@ function CertificationsContent() {
 
         {/* Results */}
         {filtered.length === 0 ? (
-          <div className="mt-8 rounded-xl border border-stone-200 bg-white p-8 text-center text-stone-500">
+          <div className="mt-8 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-8 text-center text-stone-500 dark:text-stone-400">
             {isEs
               ? "No se encontraron certificaciones con estos filtros."
               : "No certifications match these filters."}
@@ -277,7 +277,7 @@ function CertificationsContent() {
             {/* Required & Salary Boost */}
             {recommended.length > 0 && (
               <div className="mt-8">
-                <h2 className="mb-4 text-lg font-bold text-stone-900">
+                <h2 className="mb-4 text-lg font-bold text-stone-900 dark:text-stone-100">
                   {isEs ? "Requeridas y con aumento salarial" : "Required & Salary Boosters"}
                 </h2>
                 <div className="space-y-3">
@@ -302,7 +302,7 @@ function CertificationsContent() {
             {/* Resume Boost */}
             {other.length > 0 && (
               <div className="mt-8">
-                <h2 className="mb-4 text-lg font-bold text-stone-900">
+                <h2 className="mb-4 text-lg font-bold text-stone-900 dark:text-stone-100">
                   {isEs ? "Mejoras para el currículum" : "Resume Differentiators"}
                 </h2>
                 <div className="space-y-3">
@@ -330,21 +330,21 @@ function CertificationsContent() {
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           <Link
             href="/career-insights"
-            className="flex items-center justify-center gap-2 rounded-xl border border-teal-200 bg-teal-50 px-6 py-4 text-sm font-semibold text-teal-700 transition-colors hover:bg-teal-100"
+            className="flex items-center justify-center gap-2 rounded-xl border border-teal-200 bg-teal-50 dark:bg-teal-950 px-6 py-4 text-sm font-semibold text-teal-700 dark:text-teal-400 transition-colors hover:bg-teal-100 dark:hover:bg-teal-900"
           >
             <ClipboardCheck className="size-4" />
             {isEs ? "Tomar evaluacion profesional" : "Take Career Assessment"}
           </Link>
           <Link
             href="/career-roadmap"
-            className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-6 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
+            className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-6 py-4 text-sm font-semibold text-stone-700 dark:text-stone-300 transition-colors hover:bg-stone-50 dark:hover:bg-stone-800"
           >
             <TrendingUp className="size-4" />
             {isEs ? "Ver trayectorias profesionales" : "Career Roadmap"}
           </Link>
           <Link
             href="/resume-builder"
-            className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-6 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
+            className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-6 py-4 text-sm font-semibold text-stone-700 dark:text-stone-300 transition-colors hover:bg-stone-50 dark:hover:bg-stone-800"
           >
             <FileText className="size-4" />
             {isEs ? "Crear curriculum" : "Build Resume"}
@@ -352,22 +352,22 @@ function CertificationsContent() {
         </div>
 
         {/* Related Tools */}
-        <div className="mt-12 border-t border-stone-200 pt-8">
-          <h3 className="text-lg font-bold text-stone-900 mb-4">
+        <div className="mt-12 border-t border-stone-200 dark:border-stone-700 pt-8">
+          <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100 mb-4">
             {isEs ? "Explora Mas" : "Explore More"}
           </h3>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <Link href="/career-roadmap" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
-              <p className="text-sm font-semibold text-stone-900">{isEs ? "Trayectoria Profesional" : "Career Roadmap"}</p>
-              <p className="text-xs text-stone-500 mt-1">{isEs ? "5 trayectorias, 4 niveles, datos salariales de CA" : "5 tracks, 4 levels, CA salary data"}</p>
+            <Link href="/career-roadmap" className="rounded-lg border border-stone-200 dark:border-stone-700 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{isEs ? "Trayectoria Profesional" : "Career Roadmap"}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">{isEs ? "5 trayectorias, 4 niveles, datos salariales de CA" : "5 tracks, 4 levels, CA salary data"}</p>
             </Link>
-            <Link href="/resources" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
-              <p className="text-sm font-semibold text-stone-900">{isEs ? "Recursos de Carrera" : "Career Resources"}</p>
-              <p className="text-xs text-stone-500 mt-1">{isEs ? "18 programas gratuitos y de bajo costo" : "18 free and low-cost programs"}</p>
+            <Link href="/resources" className="rounded-lg border border-stone-200 dark:border-stone-700 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{isEs ? "Recursos de Carrera" : "Career Resources"}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">{isEs ? "18 programas gratuitos y de bajo costo" : "18 free and low-cost programs"}</p>
             </Link>
-            <Link href="/salary-data" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
-              <p className="text-sm font-semibold text-stone-900">{isEs ? "Inteligencia Salarial" : "Salary Intelligence"}</p>
-              <p className="text-xs text-stone-500 mt-1">{isEs ? "30 roles x 9 regiones de CA" : "30 roles x 9 CA regions"}</p>
+            <Link href="/salary-data" className="rounded-lg border border-stone-200 dark:border-stone-700 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{isEs ? "Inteligencia Salarial" : "Salary Intelligence"}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">{isEs ? "30 roles x 9 regiones de CA" : "30 roles x 9 CA regions"}</p>
             </Link>
           </div>
         </div>
@@ -400,21 +400,22 @@ function CertCard({
   const badge = IMPACT_BADGES[cert.impactType];
 
   return (
-    <div className="relative rounded-xl border border-stone-200 bg-white transition-shadow hover:shadow-sm">
+    <div className="relative rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 transition-shadow hover:shadow-sm">
       <div className="absolute right-12 top-5 z-10 flex items-center gap-1">
         <FavoriteButton contentType="certification" contentId={cert.id} size="sm" />
       </div>
       <button
         onClick={onToggle}
         className="flex w-full items-start justify-between gap-4 p-5 text-left"
+        aria-expanded={isExpanded}
       >
         <div className="flex-1">
           <div className="flex flex-wrap items-center gap-2">
             <ReadStatusBadge read={read} />
-            <h3 className="text-base font-bold text-stone-900">
+            <h3 className="text-base font-bold text-stone-900 dark:text-stone-100">
               {isEs ? cert.esName : cert.name}
             </h3>
-            <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs font-semibold text-stone-600">
+            <span className="rounded-full bg-stone-100 dark:bg-stone-800 px-2 py-0.5 text-xs font-semibold text-stone-600 dark:text-stone-400">
               {cert.abbreviation}
             </span>
             <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium ${badge.color}`}>
@@ -423,64 +424,64 @@ function CertCard({
             </span>
             <ReadingLevelBadge level={cert.impactType === "required" ? "foundational" : cert.impactType === "salary_boost" ? "intermediate" : "advanced"} size="sm" />
           </div>
-          <p className="mt-1 text-sm text-stone-500">
+          <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
             {isEs ? cert.esIssuer : cert.issuer}
           </p>
-          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-stone-600">
+          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-sm text-stone-600 dark:text-stone-400">
             <span className="flex items-center gap-1">
-              <DollarSign className="size-3.5 text-stone-500" />
+              <DollarSign className="size-3.5 text-stone-500 dark:text-stone-400" />
               {isEs ? cert.esCostRange : cert.costRange}
             </span>
             <span className="flex items-center gap-1">
-              <Clock className="size-3.5 text-stone-500" />
+              <Clock className="size-3.5 text-stone-500 dark:text-stone-400" />
               {isEs ? cert.esDuration : cert.duration}
             </span>
             <span className="flex items-center gap-1">
-              <TrendingUp className="size-3.5 text-stone-500" />
+              <TrendingUp className="size-3.5 text-stone-500 dark:text-stone-400" />
               {isEs ? cert.esSalaryImpact : cert.salaryImpact}
             </span>
           </div>
         </div>
         {isExpanded ? (
-          <ChevronUp className="size-5 shrink-0 text-stone-500" />
+          <ChevronUp className="size-5 shrink-0 text-stone-500 dark:text-stone-400" />
         ) : (
-          <ChevronDown className="size-5 shrink-0 text-stone-500" />
+          <ChevronDown className="size-5 shrink-0 text-stone-500 dark:text-stone-400" />
         )}
       </button>
 
       {isExpanded && (
-        <div className="border-t border-stone-100 px-5 pb-5 pt-4">
+        <div className="border-t border-stone-100 dark:border-stone-800 px-5 pb-5 pt-4">
           <div className="grid gap-4 sm:grid-cols-2">
             {/* Description */}
             <div>
-              <h4 className="mb-1 text-xs font-semibold uppercase tracking-wide text-stone-500">
+              <h4 className="mb-1 text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400">
                 {isEs ? "Descripción" : "Description"}
               </h4>
-              <p className="text-sm leading-relaxed text-stone-700">
+              <p className="text-sm leading-relaxed text-stone-700 dark:text-stone-300">
                 {isEs ? cert.esDescription : cert.description}
               </p>
             </div>
 
             {/* California Note */}
             <div>
-              <h4 className="mb-1 flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-stone-500">
+              <h4 className="mb-1 flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400">
                 <MapPin className="size-3" />
                 {isEs ? "Nota de California" : "California Note"}
               </h4>
-              <p className="text-sm leading-relaxed text-stone-700">
+              <p className="text-sm leading-relaxed text-stone-700 dark:text-stone-300">
                 {isEs ? cert.esCaliforniaNote : cert.californiaNote}
               </p>
             </div>
 
             {/* Where to get it */}
             <div className="sm:col-span-2">
-              <h4 className="mb-1 flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-stone-500">
+              <h4 className="mb-1 flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400">
                 <Briefcase className="size-3" />
                 {isEs ? "Dónde obtenerlo en California" : "Where to Get It in California"}
               </h4>
               <ul className="mt-1 space-y-0.5">
                 {(isEs ? cert.esWhereToGet : cert.whereToGet).map((place) => (
-                  <li key={place} className="text-sm text-stone-600">
+                  <li key={place} className="text-sm text-stone-600 dark:text-stone-400">
                     &bull; {place}
                   </li>
                 ))}
@@ -489,7 +490,7 @@ function CertCard({
 
             {/* Renewal */}
             <div className="sm:col-span-2">
-              <span className="text-xs text-stone-500">
+              <span className="text-xs text-stone-500 dark:text-stone-400">
                 {isEs ? "Renovación" : "Renewal"}: {isEs ? cert.esRenewalPeriod : cert.renewalPeriod}
               </span>
             </div>

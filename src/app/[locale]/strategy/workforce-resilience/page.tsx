@@ -110,7 +110,7 @@ function TurnoverCostCalculator({ locale, isEs }: { locale: string; isEs: boolea
   }, [roleDistribution, turnoverRate, targetRate]);
 
   return (
-    <div className="rounded-2xl border border-stone-200 bg-white overflow-hidden">
+    <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-stone-900 to-stone-800 px-6 py-5 text-white">
         <div className="flex items-center gap-2 mb-1">
@@ -135,7 +135,7 @@ function TurnoverCostCalculator({ locale, isEs }: { locale: string; isEs: boolea
               <label className="text-sm font-medium text-stone-700">
                 {isEs ? "Tamaño de la organización" : "Organization Size"}
               </label>
-              <span className="text-sm font-bold text-stone-800">{orgSize} {isEs ? "empleados" : "staff"}</span>
+              <span className="text-sm font-bold text-stone-800 dark:text-stone-200">{orgSize} {isEs ? "empleados" : "staff"}</span>
             </div>
             <input
               type="range"
@@ -146,7 +146,7 @@ function TurnoverCostCalculator({ locale, isEs }: { locale: string; isEs: boolea
               onChange={(e) => setOrgSize(Number(e.target.value))}
               className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-r from-stone-200 to-teal-200 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-stone-800 [&::-webkit-slider-thumb]:shadow-md"
             />
-            <div className="flex justify-between text-xs text-stone-500 mt-1">
+            <div className="flex justify-between text-xs text-stone-500 dark:text-stone-400 mt-1">
               <span>20</span>
               <span>{isEs ? "FQHC mediano" : "Mid-size FQHC"}</span>
               <span>500</span>
@@ -172,7 +172,7 @@ function TurnoverCostCalculator({ locale, isEs }: { locale: string; isEs: boolea
               onChange={(e) => setTurnoverRate(Number(e.target.value))}
               className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-r from-teal-200 via-amber-200 to-red-300 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-stone-800 [&::-webkit-slider-thumb]:shadow-md"
             />
-            <div className="flex justify-between text-xs text-stone-500 mt-1">
+            <div className="flex justify-between text-xs text-stone-500 dark:text-stone-400 mt-1">
               <span>5% ({isEs ? "excelente" : "excellent"})</span>
               <span>{isEs ? "Promedio FQHC: 32%" : "FQHC avg: 32%"}</span>
               <span>50%</span>
@@ -196,7 +196,7 @@ function TurnoverCostCalculator({ locale, isEs }: { locale: string; isEs: boolea
               onChange={(e) => setTargetRate(Number(e.target.value))}
               className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-r from-teal-300 to-teal-100 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-stone-800 [&::-webkit-slider-thumb]:shadow-md"
             />
-            <div className="flex justify-between text-xs text-stone-500 mt-1">
+            <div className="flex justify-between text-xs text-stone-500 dark:text-stone-400 mt-1">
               <span>5%</span>
               <span>{isEs ? "Mejores: 12-15%" : "Top performers: 12-15%"}</span>
               <span>{turnoverRate}%</span>
@@ -290,7 +290,7 @@ function StrategyCard({
   const diffMeta = getDifficultyMeta(strategy.difficulty);
 
   return (
-    <div className="rounded-xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden">
+    <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 transition-shadow hover:shadow-md overflow-hidden">
       {/* Header — always visible */}
       <button onClick={onToggle} className="w-full text-left p-5 pb-3">
         <div className="flex items-start justify-between gap-3">
@@ -307,7 +307,7 @@ function StrategyCard({
                 {strategy.timeToImpact}
               </span>
             </div>
-            <h4 className="text-base font-bold text-stone-900">
+            <h4 className="text-base font-bold text-stone-900 dark:text-stone-100">
               {t(strategy.title, locale)}
             </h4>
           </div>
@@ -329,7 +329,7 @@ function StrategyCard({
       {isExpanded && (
         <div className="border-t border-stone-100 px-5 pb-5 pt-4 space-y-4">
           {/* Description */}
-          <p className="text-sm text-stone-600 leading-relaxed">
+          <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
             {t(strategy.description, locale)}
           </p>
 
@@ -345,7 +345,7 @@ function StrategyCard({
               href={strategy.primarySource.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-md border border-stone-200 bg-stone-50 px-3 py-1.5 text-xs font-medium text-stone-700 transition-colors hover:bg-stone-100"
+              className="inline-flex items-center gap-1.5 rounded-md border border-stone-200 bg-stone-50 px-3 py-1.5 text-xs font-medium text-stone-700 transition-colors hover:bg-stone-100 dark:hover:bg-stone-800"
             >
               <ExternalLink className="size-3" />
               {strategy.primarySource.label}
@@ -363,7 +363,7 @@ function StrategyCard({
                   <Link
                     key={link.href}
                     href={link.href as "/jobs"}
-                    className="inline-flex items-center gap-1 rounded-md bg-teal-50 border border-teal-100 px-3 py-1.5 text-xs font-medium text-teal-700 transition-colors hover:bg-teal-100"
+                    className="inline-flex items-center gap-1 rounded-md bg-teal-50 dark:bg-teal-950 border border-teal-100 px-3 py-1.5 text-xs font-medium text-teal-700 transition-colors hover:bg-teal-100"
                   >
                     <ArrowRight className="size-3" />
                     {link.label}
@@ -473,7 +473,7 @@ export default function WorkforceResiliencePage() {
               const strategies = getStrategiesByPillar(pillar.id);
 
               return (
-                <div key={pillar.id} className="rounded-2xl border border-stone-200 bg-white overflow-hidden">
+                <div key={pillar.id} className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 overflow-hidden">
                   {/* Pillar Header */}
                   <button
                     onClick={() => setExpandedPillar(isOpen ? null : pillar.id)}
@@ -484,7 +484,7 @@ export default function WorkforceResiliencePage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <h3 className="text-lg font-bold text-stone-900">
+                        <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                           {isEs ? pillar.es : pillar.en}
                         </h3>
                         <Badge variant="outline" className="text-xs">
@@ -567,7 +567,7 @@ export default function WorkforceResiliencePage() {
                     key={benchmark.id}
                     className={`border-t border-stone-100 ${idx % 2 === 0 ? "bg-white" : "bg-stone-50"}`}
                   >
-                    <td className="px-4 py-3 font-medium text-stone-900">
+                    <td className="px-4 py-3 font-medium text-stone-900 dark:text-stone-100">
                       {t(benchmark.metric, locale)}
                     </td>
                     <td className="px-4 py-3 text-center">
@@ -627,10 +627,10 @@ export default function WorkforceResiliencePage() {
               <Link
                 key={item.href}
                 href={item.href as "/jobs"}
-                className="group rounded-xl border border-stone-200 bg-white p-5 transition-all hover:border-teal-300 hover:shadow-md"
+                className="group rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5 transition-all hover:border-teal-300 hover:shadow-md"
               >
                 <div className="flex items-start gap-3">
-                  <div className="flex size-8 items-center justify-center rounded-lg bg-teal-50 text-teal-700 group-hover:bg-teal-100">
+                  <div className="flex size-8 items-center justify-center rounded-lg bg-teal-50 dark:bg-teal-950 text-teal-700 group-hover:bg-teal-100">
                     <ArrowRight className="size-4" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -691,11 +691,11 @@ export default function WorkforceResiliencePage() {
               <Link
                 key={link.href}
                 href={link.href as "/jobs"}
-                className="flex items-center gap-3 rounded-lg border border-stone-200 bg-white px-4 py-3 transition-all hover:border-teal-300 hover:shadow-sm"
+                className="flex items-center gap-3 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-4 py-3 transition-all hover:border-teal-300 hover:shadow-sm"
               >
                 <ArrowRight className="size-4 text-teal-600 flex-shrink-0" />
                 <div>
-                  <span className="text-sm font-semibold text-stone-900">{link.label}</span>
+                  <span className="text-sm font-semibold text-stone-900 dark:text-stone-100">{link.label}</span>
                   <span className="block text-xs text-stone-500">{link.desc}</span>
                 </div>
               </Link>

@@ -63,7 +63,7 @@ function CaseStudyCard({
   const diffMeta = DIFFICULTY_META.find((d) => d.id === cs.difficulty);
 
   return (
-    <div className="relative rounded-2xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden">
+    <div className="relative rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 transition-shadow hover:shadow-md overflow-hidden">
       <div className="absolute right-12 top-6 z-10 flex items-center gap-1">
         <FavoriteButton contentType="case-study" contentId={cs.id} size="sm" />
       </div>
@@ -71,6 +71,7 @@ function CaseStudyCard({
       <button
         onClick={onToggle}
         className="w-full text-left p-6 pb-4"
+        aria-expanded={isExpanded}
       >
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
@@ -90,7 +91,7 @@ function CaseStudyCard({
               )}
               <span className="text-xs text-stone-500">{cs.location}</span>
             </div>
-            <h3 className="text-lg font-bold text-stone-900 flex items-center gap-2">
+            <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
               <ReadStatusBadge read={read} />
               {cs.fqhcName}
             </h3>
@@ -98,7 +99,7 @@ function CaseStudyCard({
               <Calendar className="size-3" />
               <span>{cs.timeframe}</span>
             </div>
-            <p className="mt-2 text-sm text-stone-500">
+            <p className="mt-2 text-sm text-stone-500 dark:text-stone-400">
               {t(cs.headline, locale)}
             </p>
           </div>
@@ -116,7 +117,7 @@ function CaseStudyCard({
           {cs.outcomes.slice(0, 3).map((o) => (
             <span
               key={o.metric}
-              className="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2.5 py-1 text-xs font-medium text-stone-700"
+              className="inline-flex items-center gap-1 rounded-full bg-stone-100 dark:bg-stone-800 px-2.5 py-1 text-xs font-medium text-stone-700 dark:text-stone-300"
             >
               <BarChart3 className="size-3 text-teal-600" />
               {o.value}
@@ -127,7 +128,7 @@ function CaseStudyCard({
 
       {/* Expanded — Rumelt framework */}
       {isExpanded && (
-        <div className="border-t border-stone-100 px-6 pb-6 pt-4 space-y-5">
+        <div className="border-t border-stone-100 dark:border-stone-700 px-6 pb-6 pt-4 space-y-5">
           {/* Diagnose the Problem */}
           <div>
             <div className="flex items-center gap-2 mb-2">
@@ -136,7 +137,7 @@ function CaseStudyCard({
                 {isEs ? "Diagnosticar el Problema" : "Diagnose the Problem"}
               </h4>
             </div>
-            <p className="text-sm text-stone-600 leading-relaxed">
+            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
               {t(cs.challenge, locale)}
             </p>
           </div>
@@ -149,7 +150,7 @@ function CaseStudyCard({
                 {isEs ? "Politica Guia" : "Guiding Policy"}
               </h4>
             </div>
-            <p className="text-sm text-stone-600 leading-relaxed">
+            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
               {t(cs.guidingPolicy, locale)}
             </p>
           </div>
@@ -189,7 +190,7 @@ function CaseStudyCard({
               {cs.outcomes.map((o) => (
                 <div
                   key={o.metric}
-                  className="rounded-lg border border-green-100 bg-green-50 p-3"
+                  className="rounded-lg border border-green-100 dark:border-green-800 bg-green-50 dark:bg-green-950 p-3"
                 >
                   <div className="text-lg font-bold text-green-800">
                     {o.value}
@@ -206,7 +207,7 @@ function CaseStudyCard({
           </div>
 
           {/* Sources */}
-          <div className="flex items-center justify-between border-t border-stone-100 pt-3">
+          <div className="flex items-center justify-between border-t border-stone-100 dark:border-stone-700 pt-3">
             <div className="flex items-center gap-2">
               {cs.fqhcSlug && (
                 <Link
@@ -274,7 +275,7 @@ export default function ExecutiveGuidesPage() {
   const counts = getCaseStudyCounts();
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: "Home", href: "/" },
         { label: "Strategy", href: "/strategy/guides" },
@@ -317,10 +318,10 @@ export default function ExecutiveGuidesPage() {
       </section>
 
       {/* ── Rumelt Framework Explainer ── */}
-      <section className="border-b border-stone-200 bg-white py-10 sm:py-14">
+      <section className="border-b border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-10">
-            <h2 className="text-xl font-bold text-stone-900 sm:text-2xl">
+            <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 sm:text-2xl">
               {isEs ? "El Marco Estratégico" : "The Strategic Framework"}
             </h2>
             <p className="mt-3 text-sm text-stone-500 leading-relaxed">
@@ -332,14 +333,14 @@ export default function ExecutiveGuidesPage() {
 
           <div className="grid gap-6 sm:grid-cols-3">
             {/* Step 1: Diagnose */}
-            <div className="rounded-xl border border-red-200 bg-red-50/50 p-5">
+            <div className="rounded-xl border border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-950/50 p-5">
               <div className="flex items-center gap-2 mb-3">
                 <Target className="size-5 text-red-600" />
                 <h3 className="font-bold text-red-800 text-sm uppercase tracking-wider">
                   {isEs ? "1. Diagnosticar" : "1. Diagnose"}
                 </h3>
               </div>
-              <p className="text-sm text-stone-600 leading-relaxed">
+              <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
                 {isEs
                   ? "Identificar el problema real — no los síntomas. Rumelt dice que la mayoría de las 'estrategias' fracasan porque nunca diagnostican correctamente. Cada estudio de caso comienza con el diagnóstico específico."
                   : "Identify the real problem — not the symptoms. Rumelt says most 'strategies' fail because they never diagnose correctly. Each case study starts with the specific structural diagnosis."}
@@ -347,14 +348,14 @@ export default function ExecutiveGuidesPage() {
             </div>
 
             {/* Step 2: Guiding Policy */}
-            <div className="rounded-xl border border-teal-200 bg-teal-50/50 p-5">
+            <div className="rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50/50 dark:bg-teal-950/50 p-5">
               <div className="flex items-center gap-2 mb-3">
                 <Lightbulb className="size-5 text-teal-600" />
                 <h3 className="font-bold text-teal-800 text-sm uppercase tracking-wider">
                   {isEs ? "2. Política Guía" : "2. Guiding Policy"}
                 </h3>
               </div>
-              <p className="text-sm text-stone-600 leading-relaxed">
+              <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
                 {isEs
                   ? "El enfoque general — no una lista de deseos ni objetivos vagos. Una política guía es una decisión sobre qué hacer y qué no hacer. Canaliza la energía hacia una dirección clara."
                   : "The overall approach — not a wish list or vague goals. A guiding policy is a decision about what to do and what not to do. It channels energy toward a clear direction."}
@@ -362,14 +363,14 @@ export default function ExecutiveGuidesPage() {
             </div>
 
             {/* Step 3: Coherent Actions */}
-            <div className="rounded-xl border border-amber-200 bg-amber-50/50 p-5">
+            <div className="rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-950/50 p-5">
               <div className="flex items-center gap-2 mb-3">
                 <CheckCircle2 className="size-5 text-amber-600" />
                 <h3 className="font-bold text-amber-800 text-sm uppercase tracking-wider">
                   {isEs ? "3. Acciones Coherentes" : "3. Coherent Actions"}
                 </h3>
               </div>
-              <p className="text-sm text-stone-600 leading-relaxed">
+              <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
                 {isEs
                   ? "Pasos específicos que se refuerzan mutuamente. 'Coherentes' significa que trabajan juntos — no son iniciativas aisladas. Los resultados medidos validan el enfoque."
                   : "Specific steps that reinforce each other. 'Coherent' means they work together — not isolated initiatives. Measured outcomes validate the approach."}
@@ -378,9 +379,9 @@ export default function ExecutiveGuidesPage() {
           </div>
 
           <div className="mt-8 mx-auto max-w-3xl">
-            <div className="rounded-xl bg-stone-100 border border-stone-200 p-4">
+            <div className="rounded-xl bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 p-4">
               <p className="text-xs text-stone-500 leading-relaxed text-center">
-                <span className="font-semibold text-stone-700">
+                <span className="font-semibold text-stone-700 dark:text-stone-300">
                   {isEs ? "¿Por qué Rumelt?" : "Why Rumelt?"}
                 </span>{" "}
                 {isEs
@@ -404,7 +405,7 @@ export default function ExecutiveGuidesPage() {
                 className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                   activeCategory === "all"
                     ? "bg-stone-800 text-white"
-                    : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                    : "bg-stone-100 text-stone-500 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                 }`}
               >
                 {isEs ? "Todos" : "All"} ({counts.total})
@@ -416,7 +417,7 @@ export default function ExecutiveGuidesPage() {
                   className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                     activeCategory === cat.id
                       ? "bg-stone-800 text-white"
-                      : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                      : "bg-stone-100 text-stone-500 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                   }`}
                 >
                   {isEs ? cat.es : cat.en}

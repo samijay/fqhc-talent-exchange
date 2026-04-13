@@ -79,6 +79,7 @@ function EntryCard({
       <button
         onClick={onToggle}
         className="w-full text-left p-5 flex items-start justify-between gap-3"
+        aria-expanded={isExpanded}
       >
         <div className="flex-1 min-w-0">
           {/* Badges row */}

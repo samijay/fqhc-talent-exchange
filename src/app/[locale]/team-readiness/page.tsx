@@ -6,7 +6,7 @@ export const metadata: Metadata = pageMetadata.teamReadiness;
 
 export default function TeamReadinessPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+    <main className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       <TeamReadinessAssessment />
     </main>
   );

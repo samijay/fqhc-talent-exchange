@@ -406,7 +406,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
           {!loading && !user && (
             <Link
               href="/login"
-              className="rounded-md px-3 py-1.5 text-sm font-medium text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-900"
+              className="rounded-md px-3 py-1.5 text-sm font-medium text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-900 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-white"
             >
               {t("signIn")}
             </Link>
@@ -494,7 +494,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
                       )
                     }
                     aria-expanded={mobileExpanded === item.label}
-                    className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+                    className="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
                   >
                     {item.label}
                     <ChevronDown
@@ -509,14 +509,14 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
                       {item.groups
                         ? item.groups.map((group) => (
                             <div key={group.heading}>
-                              <p className="px-3 pt-3 pb-1 text-xs font-semibold uppercase tracking-wider text-stone-500">
+                              <p className="px-3 pt-3 pb-1 text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400">
                                 {group.heading}
                               </p>
                               {group.items.map((child) => (
                                 <Link
                                   key={child.href}
                                   href={child.href as "/jobs"}
-                                  className="block rounded-md px-3 py-2 text-sm text-stone-500 transition-colors hover:bg-stone-50 hover:text-stone-900"
+                                  className="block rounded-md px-3 py-2 text-sm text-stone-500 transition-colors hover:bg-stone-50 hover:text-stone-900 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-white"
                                   onClick={() => setMobileOpen(false)}
                                 >
                                   {child.label}
@@ -528,7 +528,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
                             <Link
                               key={child.href}
                               href={child.href as "/jobs"}
-                              className="block rounded-md px-3 py-2 text-sm text-stone-500 transition-colors hover:bg-stone-50 hover:text-stone-900"
+                              className="block rounded-md px-3 py-2 text-sm text-stone-500 transition-colors hover:bg-stone-50 hover:text-stone-900 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-white"
                               onClick={() => setMobileOpen(false)}
                             >
                               {child.label}
@@ -546,7 +546,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
                 <Link
                   key={item.href}
                   href={item.href as "/jobs"}
-                  className="block rounded-md px-3 py-2 text-base font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+                  className="block rounded-md px-3 py-2 text-base font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -557,7 +557,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
             {/* Mobile newsletter CTA */}
             <Link
               href="/newsletter"
-              className="flex w-full items-center gap-2 rounded-md bg-teal-50 px-3 py-2.5 text-base font-semibold text-teal-700 transition-colors hover:bg-teal-100"
+              className="flex w-full items-center gap-2 rounded-md bg-teal-50 px-3 py-2.5 text-base font-semibold text-teal-700 transition-colors hover:bg-teal-100 dark:bg-teal-950 dark:text-teal-400 dark:hover:bg-teal-900"
               onClick={() => setMobileOpen(false)}
             >
               <Mail className="size-4" />
@@ -570,18 +570,18 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
                 switchLocale();
                 setMobileOpen(false);
               }}
-              className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+              className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
             >
               <Globe className="size-4" />
               {t("languageToggle")}
             </button>
 
             {/* Mobile auth section */}
-            <div className="border-t border-stone-200 pt-2 mt-2">
+            <div className="border-t border-stone-200 pt-2 mt-2 dark:border-stone-700">
               {!loading && !user && (
                 <Link
                   href="/login"
-                  className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-teal-700 transition-colors hover:bg-teal-50"
+                  className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-teal-700 transition-colors hover:bg-teal-50 dark:text-teal-400 dark:hover:bg-teal-950"
                   onClick={() => setMobileOpen(false)}
                 >
                   <User className="size-4" />
@@ -591,16 +591,16 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
               {!loading && user && (
                 <>
                   <div className="px-3 py-2">
-                    <p className="text-sm font-medium text-stone-900 truncate">
+                    <p className="text-sm font-medium text-stone-900 truncate dark:text-stone-100">
                       {profile?.display_name || user.email}
                     </p>
                     {profile?.organization && (
-                      <p className="text-xs text-stone-500 truncate">{profile.organization}</p>
+                      <p className="text-xs text-stone-500 truncate dark:text-stone-400">{profile.organization}</p>
                     )}
                   </div>
                   <Link
                     href="/dashboard"
-                    className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+                    className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900 dark:text-stone-300 dark:hover:bg-stone-800 dark:hover:text-white"
                     onClick={() => setMobileOpen(false)}
                   >
                     <LayoutDashboard className="size-4" />
@@ -611,7 +611,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
                       setMobileOpen(false);
                       signOut();
                     }}
-                    className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-red-600 transition-colors hover:bg-red-50"
+                    className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-red-600 transition-colors hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-950"
                   >
                     <LogOut className="size-4" />
                     {t("signOutLabel")}

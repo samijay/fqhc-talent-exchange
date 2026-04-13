@@ -59,7 +59,7 @@ export default function Footer() {
                 FQHC <span className="text-teal-700 dark:text-teal-400">Talent</span>
               </span>
             </Link>
-            <p className="text-sm leading-relaxed text-stone-500">
+            <p className="text-sm leading-relaxed text-stone-500 dark:text-stone-400">
               {t("description")}
             </p>
             <div className="mt-4">
@@ -80,7 +80,7 @@ export default function Footer() {
                   <li key={link.href + link.label + i}>
                     <Link
                       href={link.href}
-                      className="text-sm text-stone-500 transition-colors hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500"
+                      className="text-sm text-stone-500 transition-colors hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 dark:text-stone-400 dark:hover:text-teal-400"
                     >
                       {link.label}
                     </Link>
@@ -93,23 +93,23 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 border-t border-stone-200 pt-6 dark:border-stone-800">
-          <p className="text-xs text-stone-500 text-center mb-4">
+          <p className="text-xs text-stone-500 text-center mb-4 dark:text-stone-400">
             {t("disclaimer")}
           </p>
           <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
-            <p className="text-sm text-stone-500">
+            <p className="text-sm text-stone-500 dark:text-stone-400">
               {t("copyright", { year: new Date().getFullYear() })}
             </p>
             <div className="flex items-center gap-4">
               <Link
                 href="/privacy"
-                className="text-sm text-stone-500 transition-colors hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500"
+                className="text-sm text-stone-500 transition-colors hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 dark:text-stone-400 dark:hover:text-teal-400"
               >
                 {t("privacy")}
               </Link>
               <Link
                 href="/terms"
-                className="text-sm text-stone-500 transition-colors hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500"
+                className="text-sm text-stone-500 transition-colors hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 dark:text-stone-400 dark:hover:text-teal-400"
               >
                 {t("terms")}
               </Link>

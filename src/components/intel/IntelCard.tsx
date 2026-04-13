@@ -54,7 +54,7 @@ export function IntelCard({
     <div
       className={`rounded-xl border border-stone-200 bg-white border-l-4 ${IMPACT_BORDER[item.impactLevel]} transition-shadow hover:shadow-md`}
     >
-      <button onClick={() => { if (!isExpanded) trackIntelExpand(item.id, item.category); onToggle(); }} className="w-full text-left p-4 pb-2">
+      <button onClick={() => { if (!isExpanded) trackIntelExpand(item.id, item.category); onToggle(); }} className="w-full text-left p-4 pb-2" aria-expanded={isExpanded}>
         <div className="flex items-start justify-between gap-2">
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-1.5 mb-1">

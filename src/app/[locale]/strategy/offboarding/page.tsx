@@ -229,7 +229,7 @@ export default function TransitionResourcesPage() {
   };
 
   return (
-    <main className="min-h-screen bg-stone-50">
+    <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: "Home", href: "/" },
         { label: "Strategy", href: "/strategy/offboarding" },
@@ -310,7 +310,7 @@ export default function TransitionResourcesPage() {
               ? "El Problema: Trabajadores de Salud Desplazados Sin Apoyo"
               : "The Problem: Displaced Health Workers Without Support"}
           </h2>
-          <p className="mt-3 text-stone-600 max-w-2xl mx-auto">
+          <p className="mt-3 text-stone-600 dark:text-stone-400 max-w-2xl mx-auto">
             {isEs
               ? "Cuando los FQHCs reducen personal, trabajadores experimentados desaparecen de la red de seguridad. Sin intervención, el 40% nunca regresa al trabajo en salud comunitaria."
               : "When FQHCs downsize, experienced workers vanish from the safety net. Without intervention, 40% never return to community health work."}
@@ -336,7 +336,7 @@ export default function TransitionResourcesPage() {
                 : "Largest Medicaid cuts in history threaten every FQHC"}
             </p>
           </div>
-          <div className="rounded-2xl border border-stone-200 bg-white p-6 text-center">
+          <div className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6 text-center">
             <Clock className="mx-auto size-8 text-stone-500 mb-3" />
             <p className="text-3xl font-bold text-stone-700">6–12</p>
             <p className="text-sm font-medium text-stone-600 mt-1">
@@ -351,7 +351,7 @@ export default function TransitionResourcesPage() {
       {/* ============================================================ */}
       {/*  Free Tools & Resources                                      */}
       {/* ============================================================ */}
-      <section className="bg-white border-y border-stone-200">
+      <section className="bg-white dark:bg-stone-900 border-y border-stone-200 dark:border-stone-700">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <Badge className="bg-green-100 text-green-800 border-green-300 mb-3">
@@ -362,7 +362,7 @@ export default function TransitionResourcesPage() {
                 ? "Herramientas de Carrera Gratuitas para Trabajadores Desplazados"
                 : "Free Career Tools for Displaced Workers"}
             </h2>
-            <p className="mt-3 text-stone-600 max-w-2xl mx-auto">
+            <p className="mt-3 text-stone-600 dark:text-stone-400 max-w-2xl mx-auto">
               {isEs
                 ? "Todo lo que necesita para prepararse para su próximo rol en un FQHC — sin costo, sin cuenta requerida, sin ataduras."
                 : "Everything you need to prepare for your next FQHC role — no cost, no account required, no strings attached."}
@@ -376,7 +376,7 @@ export default function TransitionResourcesPage() {
                 <Link
                   key={resource.href}
                   href={resource.href as "/resume-builder" | "/career-insights" | "/career-roadmap" | "/certifications" | "/jobs" | "/resources" | "/directory" | "/salary-data"}
-                  className="group rounded-2xl border border-stone-200 bg-white p-5 hover:border-teal-300 hover:shadow-md transition-all"
+                  className="group rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5 hover:border-teal-300 hover:shadow-md transition-all"
                 >
                   <div className={`inline-flex rounded-xl p-2.5 ${resource.bgColor} mb-3`}>
                     <Icon className={`size-5 ${resource.color}`} />
@@ -384,7 +384,7 @@ export default function TransitionResourcesPage() {
                   <h3 className="text-base font-bold text-stone-900 mb-2 group-hover:text-teal-700 transition-colors">
                     {t(resource.title, locale)}
                   </h3>
-                  <p className="text-sm text-stone-600 leading-relaxed">
+                  <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
                     {t(resource.description, locale)}
                   </p>
                   <span className="mt-3 inline-flex items-center text-sm font-medium text-teal-700 group-hover:text-teal-900">
@@ -401,7 +401,7 @@ export default function TransitionResourcesPage() {
       {/* ============================================================ */}
       {/*  Recent Layoffs Preview                                      */}
       {/* ============================================================ */}
-      <section className="bg-stone-100 border-y border-stone-200">
+      <section className="bg-stone-100 border-y border-stone-200 dark:border-stone-700">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
             <div>
@@ -428,7 +428,7 @@ export default function TransitionResourcesPage() {
             {californiaFQHCLayoffs.slice(0, 6).map((layoff) => (
               <div
                 key={layoff.id}
-                className="rounded-xl border border-stone-200 bg-white p-4"
+                className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4"
               >
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <h3 className="text-sm font-bold text-stone-900 line-clamp-1">
@@ -438,7 +438,7 @@ export default function TransitionResourcesPage() {
                     className={`shrink-0 text-xs ${
                       layoff.isFQHC
                         ? "bg-red-100 text-red-700 border-red-200"
-                        : "bg-stone-100 text-stone-600 border-stone-200"
+                        : "bg-stone-100 dark:bg-stone-800 text-stone-600 border-stone-200"
                     }`}
                   >
                     {layoff.isFQHC ? "FQHC" : isEs ? "Sistema de Salud" : "Health System"}
@@ -454,7 +454,7 @@ export default function TransitionResourcesPage() {
                     {layoff.city}, {layoff.county}
                   </span>
                 </div>
-                <p className="text-xs text-stone-500 mt-2 line-clamp-2">
+                <p className="text-xs text-stone-500 dark:text-stone-400 mt-2 line-clamp-2">
                   {layoff.reason.slice(0, 120)}…
                 </p>
               </div>
@@ -504,12 +504,12 @@ export default function TransitionResourcesPage() {
           ].map((item) => {
             const Icon = item.icon;
             return (
-              <div key={t(item.title, locale)} className="rounded-2xl border border-stone-200 bg-white p-6">
+              <div key={t(item.title, locale)} className="rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6">
                 <Icon className="size-6 text-teal-700 mb-3" />
                 <h3 className="text-base font-bold text-stone-900 mb-2">
                   {t(item.title, locale)}
                 </h3>
-                <p className="text-sm text-stone-600 leading-relaxed">
+                <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
                   {t(item.desc, locale)}
                 </p>
               </div>

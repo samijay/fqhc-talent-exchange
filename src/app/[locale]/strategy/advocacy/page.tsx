@@ -87,12 +87,12 @@ function ActionCard({
 
   return (
     <div
-      className={`rounded-xl border-2 bg-white p-5 transition-all ${
+      className={`rounded-xl border-2 bg-white dark:bg-stone-900 p-5 transition-all ${
         isUrgent
-          ? "border-amber-300 shadow-amber-100 shadow-md"
+          ? "border-amber-300 shadow-amber-100 shadow-md dark:border-amber-600 dark:shadow-amber-900/50"
           : action.impactLevel === "critical"
-            ? "border-red-200"
-            : "border-stone-200"
+            ? "border-red-200 dark:border-red-800"
+            : "border-stone-200 dark:border-stone-700"
       }`}
     >
       {/* Header */}
@@ -100,10 +100,10 @@ function ActionCard({
         <div
           className={`mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg ${
             action.impactLevel === "critical"
-              ? "bg-red-100 text-red-700"
+              ? "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-400"
               : action.impactLevel === "high"
-                ? "bg-amber-100 text-amber-700"
-                : "bg-teal-100 text-teal-700"
+                ? "bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-400"
+                : "bg-teal-100 text-teal-700 dark:bg-teal-900 dark:text-teal-400"
           }`}
         >
           <CategoryIcon className="size-5" />
@@ -128,7 +128,7 @@ function ActionCard({
             href={action.sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-start gap-1 text-base font-bold leading-snug text-stone-900 hover:text-teal-700"
+            className="group flex items-start gap-1 text-base font-bold leading-snug text-stone-900 dark:text-stone-100 hover:text-teal-700 dark:hover:text-teal-400"
           >
             {t(action.headline, locale)}
             <ExternalLink className="mt-1 size-3.5 shrink-0 opacity-0 transition-opacity group-hover:opacity-60" />
@@ -141,8 +141,8 @@ function ActionCard({
         <div
           className={`mt-3 flex items-center gap-2 rounded-lg px-3 py-2 text-sm ${
             followUpDays <= 14
-              ? "bg-amber-50 text-amber-800"
-              : "bg-stone-50 text-stone-600"
+              ? "bg-amber-50 text-amber-800 dark:bg-amber-950 dark:text-amber-300"
+              : "bg-stone-50 text-stone-600 dark:bg-stone-800 dark:text-stone-400"
           }`}
         >
           <Calendar className="size-4 shrink-0" />
@@ -166,7 +166,7 @@ function ActionCard({
 
       {/* Outcome badge */}
       {action.outcome && (
-        <div className="mt-3 flex items-start gap-2 rounded-lg bg-green-50 px-3 py-2 text-sm text-green-800">
+        <div className="mt-3 flex items-start gap-2 rounded-lg bg-green-50 dark:bg-green-950 px-3 py-2 text-sm text-green-800 dark:text-green-300">
           <CheckCircle2 className="mt-0.5 size-4 shrink-0" />
           <span>{t(action.outcome, locale)}</span>
         </div>
@@ -175,7 +175,7 @@ function ActionCard({
       {/* Expand/collapse */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="mt-3 flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-900"
+        className="mt-3 flex items-center gap-1 text-sm font-medium text-teal-700 dark:text-teal-400 hover:text-teal-900 dark:hover:text-teal-300"
       >
         {expanded
           ? isEs
@@ -192,8 +192,8 @@ function ActionCard({
       </button>
 
       {expanded && (
-        <div className="mt-3 space-y-3 border-t border-stone-100 pt-3">
-          <p className="text-sm text-stone-600">{t(action.summary, locale)}</p>
+        <div className="mt-3 space-y-3 border-t border-stone-100 dark:border-stone-700 pt-3">
+          <p className="text-sm text-stone-600 dark:text-stone-400">{t(action.summary, locale)}</p>
 
           {/* Organizations */}
           <div className="flex flex-wrap gap-1">
@@ -226,7 +226,7 @@ function ActionCard({
           )}
 
           {/* Source */}
-          <div className="flex items-center gap-2 text-xs text-stone-400">
+          <div className="flex items-center gap-2 text-xs text-stone-400 dark:text-stone-500">
             <span>{action.sourceOrg}</span>
             <span>\u2022</span>
             <a
@@ -247,7 +247,7 @@ function ActionCard({
                 <Link
                   key={slug}
                   href={`/directory/${slug}` as "/directory"}
-                  className="rounded bg-teal-50 px-2 py-0.5 text-xs font-medium text-teal-700 hover:bg-teal-100"
+                  className="rounded bg-teal-50 dark:bg-teal-900 px-2 py-0.5 text-xs font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-teal-800"
                 >
                   {slug.replace(/-/g, " ")}
                 </Link>
@@ -275,17 +275,17 @@ function TimelineView({ actions, locale }: { actions: AdvocacyAction[]; locale: 
   };
 
   const statusBg: Record<string, string> = {
-    proposed: "bg-stone-50 border-stone-200",
-    active: "bg-teal-50 border-teal-200",
-    passed: "bg-green-50 border-green-200",
-    failed: "bg-red-50 border-red-200",
-    "pending-vote": "bg-amber-50 border-amber-200",
-    "in-court": "bg-purple-50 border-purple-200",
-    "signed-into-law": "bg-green-50 border-green-300",
+    proposed: "bg-stone-50 border-stone-200 dark:bg-stone-800 dark:border-stone-600",
+    active: "bg-teal-50 border-teal-200 dark:bg-teal-950 dark:border-teal-700",
+    passed: "bg-green-50 border-green-200 dark:bg-green-950 dark:border-green-700",
+    failed: "bg-red-50 border-red-200 dark:bg-red-950 dark:border-red-700",
+    "pending-vote": "bg-amber-50 border-amber-200 dark:bg-amber-950 dark:border-amber-700",
+    "in-court": "bg-purple-50 border-purple-200 dark:bg-purple-950 dark:border-purple-700",
+    "signed-into-law": "bg-green-50 border-green-300 dark:bg-green-950 dark:border-green-700",
   };
 
   return (
-    <div className="relative ml-6 border-l-2 border-stone-200 pl-8">
+    <div className="relative ml-6 border-l-2 border-stone-200 dark:border-stone-700 pl-8">
       {sorted.map((action, i) => {
         const followUpDays = action.followUpDate ? daysUntil(action.followUpDate) : null;
         const isUrgent = followUpDays !== null && followUpDays >= 0 && followUpDays <= 14;
@@ -319,19 +319,19 @@ function TimelineView({ actions, locale }: { actions: AdvocacyAction[]; locale: 
                     href={action.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-start gap-1 text-sm font-bold leading-snug text-stone-900 hover:text-teal-700"
+                    className="group flex items-start gap-1 text-sm font-bold leading-snug text-stone-900 dark:text-stone-100 hover:text-teal-700 dark:hover:text-teal-400"
                   >
                     {t(action.headline, locale)}
                     <ExternalLink className="mt-0.5 size-3 shrink-0 opacity-0 transition-opacity group-hover:opacity-60" />
                   </a>
-                  <p className="mt-1 text-xs text-stone-500">
+                  <p className="mt-1 text-xs text-stone-500 dark:text-stone-400">
                     {action.organizations.join(" \u2022 ")}
                   </p>
                 </div>
 
                 {/* Follow-up countdown */}
                 {followUpDays !== null && followUpDays >= 0 && (
-                  <div className={`shrink-0 rounded-lg px-3 py-1 text-center ${followUpDays <= 14 ? "bg-amber-100 text-amber-800" : "bg-stone-100 text-stone-600"}`}>
+                  <div className={`shrink-0 rounded-lg px-3 py-1 text-center ${followUpDays <= 14 ? "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300" : "bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400"}`}>
                     <p className="text-lg font-bold">{followUpDays}</p>
                     <p className="text-xs">{isEs ? "d\u00edas" : "days"}</p>
                   </div>
@@ -409,7 +409,7 @@ export default function AdvocacyWatchPage() {
   }, [categoryFilter, statusFilter, searchQuery, locale]);
 
   return (
-    <main className="min-h-screen bg-stone-50">
+    <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
       {/* Hero */}
       <section className="bg-gradient-to-b from-teal-900 to-teal-800 px-6 py-16 text-white">
         <div className="mx-auto max-w-6xl">
@@ -458,8 +458,8 @@ export default function AdvocacyWatchPage() {
       <div className="mx-auto max-w-6xl px-6 py-8">
         {/* Upcoming follow-ups strip */}
         {upcomingFollowUps.length > 0 && (
-          <div className="mb-8 rounded-xl border-2 border-amber-200 bg-amber-50 p-4">
-            <h2 className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-amber-800">
+          <div className="mb-8 rounded-xl border-2 border-amber-200 dark:border-amber-700 bg-amber-50 dark:bg-amber-950 p-4">
+            <h2 className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300">
               <Calendar className="size-4" />
               {isEs ? "Pr\u00f3ximas fechas de seguimiento" : "Upcoming follow-up dates"}
             </h2>
@@ -472,7 +472,7 @@ export default function AdvocacyWatchPage() {
                     href={action.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 rounded-lg bg-white p-3 transition-colors hover:bg-amber-50"
+                    className="flex items-center gap-3 rounded-lg bg-white dark:bg-stone-900 p-3 transition-colors hover:bg-amber-50 dark:hover:bg-stone-800"
                   >
                     <div className={`shrink-0 text-center ${days <= 14 ? "text-red-600" : "text-amber-600"}`}>
                       <p className="text-xl font-bold">{days}</p>
@@ -480,11 +480,11 @@ export default function AdvocacyWatchPage() {
                     </div>
                     <div className="min-w-0 flex-1">
                       {action.followUpNote && (
-                        <p className="text-xs font-bold uppercase tracking-wide text-amber-700">
+                        <p className="text-xs font-bold uppercase tracking-wide text-amber-700 dark:text-amber-400">
                           {t(action.followUpNote, locale).split("—")[0].trim()}
                         </p>
                       )}
-                      <p className="mt-0.5 truncate text-sm text-stone-700">
+                      <p className="mt-0.5 truncate text-sm text-stone-700 dark:text-stone-300">
                         {t(action.headline, locale).slice(0, 55)}{t(action.headline, locale).length > 55 ? "..." : ""}
                       </p>
                       <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
@@ -536,7 +536,7 @@ export default function AdvocacyWatchPage() {
               placeholder={isEs ? "Buscar acciones..." : "Search actions..."}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-lg border border-stone-300 bg-white py-2 pl-10 pr-3 text-sm focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full rounded-lg border border-stone-300 dark:border-stone-600 bg-white dark:bg-stone-800 py-2 pl-10 pr-3 text-sm text-stone-900 dark:text-stone-100 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
             />
           </div>
 
@@ -547,7 +547,7 @@ export default function AdvocacyWatchPage() {
               className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                 categoryFilter === "all"
                   ? "bg-teal-700 text-white"
-                  : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                  : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
               }`}
             >
               {isEs ? "Todas" : "All"} ({counts.total})
@@ -566,7 +566,7 @@ export default function AdvocacyWatchPage() {
                   className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                     categoryFilter === cat.id
                       ? "bg-teal-700 text-white"
-                      : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                      : "bg-stone-100 text-stone-600 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                   }`}
                 >
                   {t(cat.label, locale)} ({count})
@@ -581,7 +581,7 @@ export default function AdvocacyWatchPage() {
             onChange={(e) =>
               setStatusFilter(e.target.value as AdvocacyStatus | "all")
             }
-            className="rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm"
+            className="rounded-lg border border-stone-300 dark:border-stone-600 bg-white dark:bg-stone-800 px-3 py-2 text-sm text-stone-900 dark:text-stone-100"
           >
             <option value="all">{isEs ? "Todos los estados" : "All statuses"}</option>
             {Object.entries(STATUS_META).map(([key, meta]) => (
@@ -594,7 +594,7 @@ export default function AdvocacyWatchPage() {
 
         {/* Results count + view toggle */}
         <div className="mb-4 flex items-center justify-between">
-          <p className="text-sm text-stone-500">
+          <p className="text-sm text-stone-500 dark:text-stone-400">
             {filteredActions.length} {isEs ? "acciones" : "actions"}
             {categoryFilter !== "all" || statusFilter !== "all" || searchQuery
               ? isEs
@@ -602,17 +602,17 @@ export default function AdvocacyWatchPage() {
                 : " (filtered)"
               : ""}
           </p>
-          <div className="flex items-center gap-1 rounded-lg border border-stone-200 bg-white p-0.5">
+          <div className="flex items-center gap-1 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-0.5">
             <button
               onClick={() => setViewMode("cards")}
-              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${viewMode === "cards" ? "bg-teal-700 text-white" : "text-stone-500 hover:bg-stone-100"}`}
+              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${viewMode === "cards" ? "bg-teal-700 text-white" : "text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800"}`}
             >
               <LayoutList className="mr-1 inline size-3.5" />
               {isEs ? "Tarjetas" : "Cards"}
             </button>
             <button
               onClick={() => setViewMode("timeline")}
-              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${viewMode === "timeline" ? "bg-teal-700 text-white" : "text-stone-500 hover:bg-stone-100"}`}
+              className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${viewMode === "timeline" ? "bg-teal-700 text-white" : "text-stone-500 hover:bg-stone-100 dark:hover:bg-stone-800"}`}
             >
               <Clock className="mr-1 inline size-3.5" />
               {isEs ? "L\u00ednea de Tiempo" : "Timeline"}
@@ -632,7 +632,7 @@ export default function AdvocacyWatchPage() {
         )}
 
         {filteredActions.length === 0 && (
-          <div className="rounded-xl border border-stone-200 bg-white p-8 text-center">
+          <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-8 text-center">
             <Filter className="mx-auto mb-3 size-8 text-stone-300" />
             <p className="text-stone-500">
               {isEs
@@ -646,49 +646,49 @@ export default function AdvocacyWatchPage() {
         <div className="mt-12 grid gap-4 sm:grid-cols-3">
           <Link
             href="/funding-impact"
-            className="rounded-xl border border-stone-200 bg-white p-5 transition-colors hover:border-teal-300"
+            className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5 transition-colors hover:border-teal-300 dark:hover:border-teal-600"
           >
-            <h3 className="font-bold text-stone-900">
+            <h3 className="font-bold text-stone-900 dark:text-stone-100">
               {isEs ? "Impacto de Financiamiento" : "Funding Impact"}
             </h3>
-            <p className="mt-1 text-sm text-stone-500">
+            <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
               {isEs
                 ? "L\u00ednea de tiempo de pol\u00edticas y estrategias de ingresos"
                 : "Policy timeline and revenue strategies"}
             </p>
-            <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-teal-700">
+            <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-teal-700 dark:text-teal-400">
               {isEs ? "Ver" : "View"} <ArrowRight className="size-4" />
             </span>
           </Link>
           <Link
             href="/layoffs"
-            className="rounded-xl border border-stone-200 bg-white p-5 transition-colors hover:border-teal-300"
+            className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5 transition-colors hover:border-teal-300 dark:hover:border-teal-600"
           >
-            <h3 className="font-bold text-stone-900">
+            <h3 className="font-bold text-stone-900 dark:text-stone-100">
               {isEs ? "Rastreador de Despidos" : "Layoff Tracker"}
             </h3>
-            <p className="mt-1 text-sm text-stone-500">
+            <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
               {isEs
                 ? "Eventos de despido y trabajadores afectados"
                 : "Layoff events and displaced workers"}
             </p>
-            <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-teal-700">
+            <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-teal-700 dark:text-teal-400">
               {isEs ? "Ver" : "View"} <ArrowRight className="size-4" />
             </span>
           </Link>
           <Link
             href="/strategy/guides"
-            className="rounded-xl border border-stone-200 bg-white p-5 transition-colors hover:border-teal-300"
+            className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5 transition-colors hover:border-teal-300 dark:hover:border-teal-600"
           >
-            <h3 className="font-bold text-stone-900">
+            <h3 className="font-bold text-stone-900 dark:text-stone-100">
               {isEs ? "Gu\u00edas Ejecutivas" : "Executive Guides"}
             </h3>
-            <p className="mt-1 text-sm text-stone-500">
+            <p className="mt-1 text-sm text-stone-500 dark:text-stone-400">
               {isEs
                 ? "Estudios de caso y marcos estrat\u00e9gicos"
                 : "Case studies and strategic frameworks"}
             </p>
-            <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-teal-700">
+            <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-teal-700 dark:text-teal-400">
               {isEs ? "Ver" : "View"} <ArrowRight className="size-4" />
             </span>
           </Link>

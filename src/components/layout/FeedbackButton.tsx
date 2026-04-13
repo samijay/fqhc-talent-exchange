@@ -108,20 +108,20 @@ export default function FeedbackButton() {
 
       {/* Expanded form */}
       {isOpen && (
-        <div className="fixed bottom-4 right-4 z-40 w-80 rounded-xl border border-stone-200 bg-white shadow-2xl sm:w-96">
+        <div className="fixed bottom-4 right-4 z-40 w-80 rounded-xl border border-stone-200 bg-white shadow-2xl dark:border-stone-700 dark:bg-stone-900 sm:w-96">
           {/* Header */}
-          <div className="flex items-start justify-between border-b border-stone-100 p-4">
+          <div className="flex items-start justify-between border-b border-stone-100 p-4 dark:border-stone-700">
             <div>
-              <h3 className="text-sm font-semibold text-stone-900">
+              <h3 className="text-sm font-semibold text-stone-900 dark:text-stone-100">
                 {t.title}
               </h3>
-              <p className="mt-1 text-xs leading-relaxed text-stone-500">
+              <p className="mt-1 text-xs leading-relaxed text-stone-500 dark:text-stone-400">
                 {t.subtitle}
               </p>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="rounded-md p-1 text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-600"
+              className="rounded-md p-1 text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-600 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-stone-300"
               aria-label="Close"
             >
               <X className="size-4" />
@@ -134,7 +134,7 @@ export default function FeedbackButton() {
               value={feedbackType}
               onChange={(e) => setFeedbackType(e.target.value)}
               required
-              className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-900 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-900 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-100"
             >
               <option value="" disabled>
                 {t.typePlaceholder}
@@ -152,7 +152,7 @@ export default function FeedbackButton() {
               maxLength={2000}
               rows={3}
               placeholder={t.messagePlaceholder}
-              className="w-full resize-none rounded-lg border border-stone-200 px-3 py-2 text-sm text-stone-900 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full resize-none rounded-lg border border-stone-200 px-3 py-2 text-sm text-stone-900 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-100 dark:placeholder:text-stone-400"
             />
 
             <input
@@ -160,7 +160,7 @@ export default function FeedbackButton() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t.emailPlaceholder}
-              className="w-full rounded-lg border border-stone-200 px-3 py-2 text-sm text-stone-900 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="w-full rounded-lg border border-stone-200 px-3 py-2 text-sm text-stone-900 placeholder:text-stone-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500 dark:border-stone-700 dark:bg-stone-800 dark:text-stone-100 dark:placeholder:text-stone-400"
             />
 
             <button

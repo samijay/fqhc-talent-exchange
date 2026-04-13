@@ -20,7 +20,7 @@ import {
   FileDown,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -94,7 +94,7 @@ const DEPARTMENTS = [
 ];
 
 const DEPT_COLORS: Record<string, string> = {
-  "Care Coordination": "bg-teal-100 text-teal-800",
+  "Care Coordination": "bg-teal-100 dark:bg-teal-900 text-teal-800",
   Clinical: "bg-blue-100 text-blue-800",
   "Behavioral Health": "bg-purple-100 text-purple-800",
   Dental: "bg-sky-100 text-sky-800",
@@ -262,7 +262,7 @@ function SalaryDataContent() {
   ];
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-stone-50 dark:bg-stone-950">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <Breadcrumbs
           items={[
@@ -287,7 +287,7 @@ function SalaryDataContent() {
               ? "Datos salariales por percentil para 30 roles en centros de salud de California, con ajustes regionales por costo de vida en 9 regiones."
               : "Percentile-based salary data for 30 community health center roles across California, with cost-of-living adjustments for 9 regions."}
           </p>
-          <p className="mt-3 text-xs text-stone-500 max-w-xl mx-auto">
+          <p className="mt-3 text-xs text-stone-500 dark:text-stone-400 max-w-xl mx-auto">
             {isEs
               ? "Los rangos salariales son estimaciones basadas en datos públicos agregados de ofertas de empleo, encuestas salariales y fuentes gubernamentales. Los salarios reales varían según el empleador, la experiencia y la ubicación."
               : "Salary ranges are estimates based on aggregated public data from job postings, salary surveys, and government sources. Actual compensation varies by employer, experience, and location."}
@@ -296,7 +296,7 @@ function SalaryDataContent() {
       </section>
 
       {/* ---- Stats Bar ---- */}
-      <section className="border-b border-stone-200 bg-white">
+      <section className="border-b border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900">
         <div className="mx-auto max-w-5xl grid grid-cols-3 divide-x divide-stone-200">
           {[
             { value: SALARY_BENCHMARKS.length, label: isEs ? "Roles Analizados" : "Roles Benchmarked" },
@@ -304,8 +304,8 @@ function SalaryDataContent() {
             { value: REGIONAL_MULTIPLIERS.length, label: isEs ? "Regiones de CA" : "CA Regions" },
           ].map((stat) => (
             <div key={stat.label} className="py-4 px-3 text-center">
-              <div className="text-2xl font-bold text-teal-700">{stat.value}</div>
-              <div className="text-xs text-stone-500">{stat.label}</div>
+              <div className="text-2xl font-bold text-teal-700 dark:text-teal-400">{stat.value}</div>
+              <div className="text-xs text-stone-500 dark:text-stone-400">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -321,11 +321,11 @@ function SalaryDataContent() {
       <div className="mx-auto max-w-5xl px-4 py-10 space-y-12">
         {/* ---- Section 1: Salary Table ---- */}
         <section id="salary-table" className="scroll-mt-20">
-          <h2 className="text-2xl font-bold text-stone-900 mb-1">
-            <DollarSign className="inline size-6 text-teal-700 mr-1" />
+          <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-1">
+            <DollarSign className="inline size-6 text-teal-700 dark:text-teal-400 mr-1" />
             {isEs ? "Tabla Salarial por Rol" : "Salary Table by Role"}
           </h2>
-          <p className="text-stone-500 text-sm mb-5">
+          <p className="text-stone-500 dark:text-stone-400 text-sm mb-5">
             {isEs
               ? "Salarios anuales del percentil 25, mediana y percentil 75. Haga clic en los encabezados para ordenar."
               : "Annual salaries at 25th percentile, median, and 75th percentile. Click headers to sort."}
@@ -334,7 +334,7 @@ function SalaryDataContent() {
           {/* Filters */}
           <div className="flex flex-col sm:flex-row gap-3 mb-4">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-stone-500" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-stone-500 dark:text-stone-400" />
               <Input
                 placeholder={isEs ? "Buscar rol..." : "Search role..."}
                 value={search}
@@ -376,7 +376,7 @@ function SalaryDataContent() {
           </div>
 
           {activeRegion && (
-            <div className="mb-4 rounded-lg bg-teal-50 border border-teal-200 px-4 py-2 text-sm text-teal-800 flex items-center gap-2">
+            <div className="mb-4 rounded-lg bg-teal-50 dark:bg-teal-950 border border-teal-200 px-4 py-2 text-sm text-teal-800 flex items-center gap-2">
               <MapPin className="size-4 shrink-0" />
               {isEs ? "Ajuste regional:" : "Regional adjustment:"}{" "}
               <span className="font-semibold">
@@ -388,12 +388,12 @@ function SalaryDataContent() {
           )}
 
           {/* Table */}
-          <div className="overflow-x-auto rounded-lg border border-stone-200 bg-white">
+          <div className="overflow-x-auto rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-stone-200 bg-stone-50 text-left">
+                <tr className="border-b border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 text-left">
                   <th
-                    className="px-4 py-3 font-semibold text-stone-700 cursor-pointer hover:text-teal-700 transition-colors"
+                    className="px-4 py-3 font-semibold text-stone-700 dark:text-stone-300 cursor-pointer hover:text-teal-700 dark:text-teal-400 transition-colors"
                     onClick={() => toggleSort("label")}
                   >
                     <span className="flex items-center gap-1">
@@ -401,11 +401,11 @@ function SalaryDataContent() {
                       <ArrowUpDown className="size-3" />
                     </span>
                   </th>
-                  <th className="px-3 py-3 font-semibold text-stone-700 hidden sm:table-cell">
+                  <th className="px-3 py-3 font-semibold text-stone-700 dark:text-stone-300 hidden sm:table-cell">
                     {isEs ? "Depto" : "Dept"}
                   </th>
                   <th
-                    className="px-3 py-3 font-semibold text-stone-700 cursor-pointer hover:text-teal-700 transition-colors text-right"
+                    className="px-3 py-3 font-semibold text-stone-700 dark:text-stone-300 cursor-pointer hover:text-teal-700 dark:text-teal-400 transition-colors text-right"
                     onClick={() => toggleSort("p25")}
                   >
                     <span className="flex items-center justify-end gap-1">
@@ -414,7 +414,7 @@ function SalaryDataContent() {
                     </span>
                   </th>
                   <th
-                    className="px-3 py-3 font-semibold text-stone-700 cursor-pointer hover:text-teal-700 transition-colors text-right"
+                    className="px-3 py-3 font-semibold text-stone-700 dark:text-stone-300 cursor-pointer hover:text-teal-700 dark:text-teal-400 transition-colors text-right"
                     onClick={() => toggleSort("p50")}
                   >
                     <span className="flex items-center justify-end gap-1">
@@ -423,7 +423,7 @@ function SalaryDataContent() {
                     </span>
                   </th>
                   <th
-                    className="px-3 py-3 font-semibold text-stone-700 cursor-pointer hover:text-teal-700 transition-colors text-right"
+                    className="px-3 py-3 font-semibold text-stone-700 dark:text-stone-300 cursor-pointer hover:text-teal-700 dark:text-teal-400 transition-colors text-right"
                     onClick={() => toggleSort("p75")}
                   >
                     <span className="flex items-center justify-end gap-1">
@@ -431,7 +431,7 @@ function SalaryDataContent() {
                       <ArrowUpDown className="size-3" />
                     </span>
                   </th>
-                  <th className="px-3 py-3 font-semibold text-stone-700 hidden md:table-cell w-48">
+                  <th className="px-3 py-3 font-semibold text-stone-700 dark:text-stone-300 hidden md:table-cell w-48">
                     {isEs ? "Rango" : "Range"}
                   </th>
                 </tr>
@@ -444,12 +444,12 @@ function SalaryDataContent() {
                   return (
                     <tr
                       key={b.roleId}
-                      className={`border-b border-stone-100 hover:bg-stone-50 transition-colors ${
+                      className={`border-b border-stone-100 dark:border-stone-800 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors ${
                         i % 2 === 0 ? "" : "bg-stone-50/50"
                       }`}
                     >
                       <td className="px-4 py-3">
-                        <div className="font-medium text-stone-900">
+                        <div className="font-medium text-stone-900 dark:text-stone-100">
                           {isEs ? b.esLabel : b.label}
                         </div>
                         <div className="sm:hidden mt-1">
@@ -463,17 +463,17 @@ function SalaryDataContent() {
                           {isEs ? ROLE_DEPARTMENTS[b.roleId]?.es : deptEn}
                         </Badge>
                       </td>
-                      <td className="px-3 py-3 text-right text-stone-600 font-mono text-xs">
+                      <td className="px-3 py-3 text-right text-stone-600 dark:text-stone-400 font-mono text-xs">
                         {fmt(b.adjP25)}
                       </td>
-                      <td className="px-3 py-3 text-right font-semibold text-stone-900 font-mono text-sm">
+                      <td className="px-3 py-3 text-right font-semibold text-stone-900 dark:text-stone-100 font-mono text-sm">
                         {fmt(b.adjP50)}
                       </td>
-                      <td className="px-3 py-3 text-right text-stone-600 font-mono text-xs">
+                      <td className="px-3 py-3 text-right text-stone-600 dark:text-stone-400 font-mono text-xs">
                         {fmt(b.adjP75)}
                       </td>
                       <td className="px-3 py-3 hidden md:table-cell">
-                        <div className="relative h-4 rounded-full bg-stone-100">
+                        <div className="relative h-4 rounded-full bg-stone-100 dark:bg-stone-800">
                           <div
                             className="absolute top-0 h-4 rounded-full bg-teal-500/30"
                             style={{
@@ -494,12 +494,12 @@ function SalaryDataContent() {
               </tbody>
             </table>
             {filteredBenchmarks.length === 0 && (
-              <div className="py-8 text-center text-stone-500 text-sm">
+              <div className="py-8 text-center text-stone-500 dark:text-stone-400 text-sm">
                 {isEs ? "No se encontraron roles." : "No roles found."}
               </div>
             )}
           </div>
-          <p className="mt-2 text-xs text-stone-500">
+          <p className="mt-2 text-xs text-stone-500 dark:text-stone-400">
             {isEs
               ? "Fuente: Datos del mercado FQHC de California, 2025-2026. Salarios anuales."
               : "Source: California FQHC market data, 2025-2026. Annual salaries."}
@@ -508,11 +508,11 @@ function SalaryDataContent() {
 
         {/* ---- Section 2: Career Track Salary Progression ---- */}
         <section id="career-progression" className="scroll-mt-20">
-          <h2 className="text-2xl font-bold text-stone-900 mb-1">
-            <TrendingUp className="inline size-6 text-teal-700 mr-1" />
+          <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-1">
+            <TrendingUp className="inline size-6 text-teal-700 dark:text-teal-400 mr-1" />
             {isEs ? "Progresion Salarial por Trayectoria" : "Salary Progression by Career Track"}
           </h2>
-          <p className="text-stone-500 text-sm mb-6">
+          <p className="text-stone-500 dark:text-stone-400 text-sm mb-6">
             {isEs
               ? "Salario mediano (P50) en cada nivel, del puesto de entrada hasta liderazgo."
               : "Median (P50) salary at each level, from entry-level to leadership."}
@@ -524,12 +524,12 @@ function SalaryDataContent() {
               return (
                 <div
                   key={pathway.id}
-                  className="rounded-lg border border-stone-200 bg-white p-5"
+                  className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5"
                 >
-                  <h3 className="font-semibold text-stone-900 mb-1">
+                  <h3 className="font-semibold text-stone-900 dark:text-stone-100 mb-1">
                     {isEs ? pathway.esName : pathway.name}
                   </h3>
-                  <p className="text-xs text-stone-500 mb-4">
+                  <p className="text-xs text-stone-500 dark:text-stone-400 mb-4">
                     {fmt(pathway.levels[0].salaryP50)} → {fmt(pathway.levels[pathway.levels.length - 1].salaryP50)}{" "}
                     {isEs ? "mediana" : "median"}
                   </p>
@@ -539,14 +539,14 @@ function SalaryDataContent() {
                       return (
                         <div key={level.roleId}>
                           <div className="flex items-center justify-between text-xs mb-1">
-                            <span className="text-stone-700 font-medium truncate mr-2">
+                            <span className="text-stone-700 dark:text-stone-300 font-medium truncate mr-2">
                               {isEs ? level.esTitle : level.title}
                             </span>
-                            <span className="font-mono text-stone-900 font-semibold shrink-0">
+                            <span className="font-mono text-stone-900 dark:text-stone-100 font-semibold shrink-0">
                               {fmt(level.salaryP50)}
                             </span>
                           </div>
-                          <div className="h-3 rounded-full bg-stone-100">
+                          <div className="h-3 rounded-full bg-stone-100 dark:bg-stone-800">
                             <div
                               className={`h-3 rounded-full ${TRACK_COLORS[pathway.id] ?? "bg-teal-500"} transition-all`}
                               style={{ width: `${widthPct}%` }}
@@ -559,9 +559,9 @@ function SalaryDataContent() {
                       );
                     })}
                   </div>
-                  <div className="mt-4 pt-3 border-t border-stone-100 text-xs text-stone-500">
+                  <div className="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800 text-xs text-stone-500 dark:text-stone-400">
                     {isEs ? "Crecimiento: " : "Growth: "}
-                    <span className="font-semibold text-teal-700">
+                    <span className="font-semibold text-teal-700 dark:text-teal-400">
                       +{Math.round(
                         ((pathway.levels[pathway.levels.length - 1].salaryP50 - pathway.levels[0].salaryP50) /
                           pathway.levels[0].salaryP50) *
@@ -580,11 +580,11 @@ function SalaryDataContent() {
 
         {/* ---- Section 3: Regional Cost Comparison ---- */}
         <section id="regional-comparison" className="scroll-mt-20">
-          <h2 className="text-2xl font-bold text-stone-900 mb-1">
-            <MapPin className="inline size-6 text-teal-700 mr-1" />
+          <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-1">
+            <MapPin className="inline size-6 text-teal-700 dark:text-teal-400 mr-1" />
             {isEs ? "Comparacion Salarial Regional" : "Regional Salary Comparison"}
           </h2>
-          <p className="text-stone-500 text-sm mb-5">
+          <p className="text-stone-500 dark:text-stone-400 text-sm mb-5">
             {isEs
               ? "El mismo rol se paga diferente en cada region de California segun el costo de vida."
               : "The same role pays differently across California regions based on cost of living."}
@@ -592,7 +592,7 @@ function SalaryDataContent() {
 
           {/* Role selector */}
           <div className="mb-5">
-            <label className="block text-sm font-medium text-stone-700 mb-1">
+            <label className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-1">
               {isEs ? "Seleccionar rol:" : "Select role:"}
             </label>
             <Select value={compareRole} onValueChange={setCompareRole}>
@@ -610,11 +610,11 @@ function SalaryDataContent() {
           </div>
 
           {compareRoleData && (
-            <div className="rounded-lg border border-stone-200 bg-white p-5">
-              <h3 className="font-semibold text-stone-900 mb-1">
+            <div className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5">
+              <h3 className="font-semibold text-stone-900 dark:text-stone-100 mb-1">
                 {isEs ? compareRoleData.esLabel : compareRoleData.label}
               </h3>
-              <p className="text-xs text-stone-500 mb-4">
+              <p className="text-xs text-stone-500 dark:text-stone-400 mb-4">
                 {isEs ? "Salario mediano (P50) ajustado por region" : "Median (P50) salary adjusted by region"}
               </p>
               <div className="space-y-3">
@@ -631,11 +631,11 @@ function SalaryDataContent() {
                     return (
                       <div key={region.region}>
                         <div className="flex items-center justify-between text-sm mb-1">
-                          <span className="text-stone-700 font-medium">
+                          <span className="text-stone-700 dark:text-stone-300 font-medium">
                             {isEs ? region.esRegion : region.region}
                           </span>
                           <div className="flex items-center gap-2">
-                            <span className="font-mono text-stone-900 font-semibold">
+                            <span className="font-mono text-stone-900 dark:text-stone-100 font-semibold">
                               {fmt(adjusted)}
                             </span>
                             <Badge
@@ -645,14 +645,14 @@ function SalaryDataContent() {
                                   ? "bg-green-100 text-green-800 text-xs"
                                   : diffPct < 0
                                     ? "bg-red-100 text-red-800 text-xs"
-                                    : "bg-stone-100 text-stone-600 text-xs"
+                                    : "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 text-xs"
                               }
                             >
                               {diffPct > 0 ? "+" : ""}{diffPct}%
                             </Badge>
                           </div>
                         </div>
-                        <div className="h-4 rounded-full bg-stone-100">
+                        <div className="h-4 rounded-full bg-stone-100 dark:bg-stone-800">
                           <div
                             className={`h-4 rounded-full transition-all ${
                               diffPct > 5
@@ -670,7 +670,7 @@ function SalaryDataContent() {
                     );
                   })}
               </div>
-              <p className="mt-4 text-xs text-stone-500">
+              <p className="mt-4 text-xs text-stone-500 dark:text-stone-400">
                 {isEs
                   ? "Los multiplicadores reflejan diferencias en el costo de vida entre las regiones de California."
                   : "Multipliers reflect cost-of-living differences across California regions."}
@@ -681,28 +681,28 @@ function SalaryDataContent() {
 
         {/* ---- Section 4: Key Insights ---- */}
         <section id="key-insights" className="scroll-mt-20">
-          <h2 className="text-2xl font-bold text-stone-900 mb-1">
+          <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-1">
             <Lightbulb className="inline size-6 text-amber-500 mr-1" />
             {isEs ? "Perspectivas Clave" : "Key Insights"}
           </h2>
-          <p className="text-stone-500 text-sm mb-5">
+          <p className="text-stone-500 dark:text-stone-400 text-sm mb-5">
             {isEs
               ? "Hallazgos basados en datos de nuestro analisis salarial."
               : "Data-driven findings from our salary analysis."}
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-lg border border-stone-200 bg-white p-5">
+            <div className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5">
               <div className="flex items-start gap-3">
-                <div className="rounded-lg bg-teal-100 p-2">
-                  <DollarSign className="size-5 text-teal-700" />
+                <div className="rounded-lg bg-teal-100 dark:bg-teal-900 p-2">
+                  <DollarSign className="size-5 text-teal-700 dark:text-teal-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-stone-900 text-sm">
+                  <h3 className="font-semibold text-stone-900 dark:text-stone-100 text-sm">
                     {isEs ? "Salario Mediano Promedio" : "Average Median Salary"}
                   </h3>
-                  <p className="text-2xl font-bold text-teal-700 mt-1">{fmt(avgP50)}</p>
-                  <p className="text-xs text-stone-500 mt-1">
+                  <p className="text-2xl font-bold text-teal-700 dark:text-teal-400 mt-1">{fmt(avgP50)}</p>
+                  <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
                     {isEs
                       ? "Promedio del P50 en los 30 roles FQHC analizados"
                       : "Average P50 across all 30 benchmarked FQHC roles"}
@@ -711,19 +711,19 @@ function SalaryDataContent() {
               </div>
             </div>
 
-            <div className="rounded-lg border border-stone-200 bg-white p-5">
+            <div className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5">
               <div className="flex items-start gap-3">
                 <div className="rounded-lg bg-blue-100 p-2">
                   <MapPin className="size-5 text-blue-700" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-stone-900 text-sm">
+                  <h3 className="font-semibold text-stone-900 dark:text-stone-100 text-sm">
                     {isEs ? "Prima del Area de la Bahia" : "Bay Area Premium"}
                   </h3>
                   <p className="text-2xl font-bold text-blue-700 mt-1">
                     +{Math.round((bayAreaMult.multiplier - 1) * 100)}%
                   </p>
-                  <p className="text-xs text-stone-500 mt-1">
+                  <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
                     {isEs
                       ? "El Area de la Bahia paga mas que el promedio estatal"
                       : "Bay Area pays above the statewide average"}
@@ -732,17 +732,17 @@ function SalaryDataContent() {
               </div>
             </div>
 
-            <div className="rounded-lg border border-stone-200 bg-white p-5">
+            <div className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5">
               <div className="flex items-start gap-3">
                 <div className="rounded-lg bg-amber-100 p-2">
                   <TrendingUp className="size-5 text-amber-700" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-stone-900 text-sm">
+                  <h3 className="font-semibold text-stone-900 dark:text-stone-100 text-sm">
                     {isEs ? "Multiplicador de Liderazgo" : "Leadership Multiplier"}
                   </h3>
                   <p className="text-2xl font-bold text-amber-700 mt-1">{leadershipMultiple}x</p>
-                  <p className="text-xs text-stone-500 mt-1">
+                  <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
                     {isEs
                       ? "Los roles de liderazgo ganan hasta este multiplo vs roles de entrada"
                       : "Leadership roles earn up to this multiple vs entry-level positions"}
@@ -751,19 +751,19 @@ function SalaryDataContent() {
               </div>
             </div>
 
-            <div className="rounded-lg border border-stone-200 bg-white p-5">
+            <div className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5">
               <div className="flex items-start gap-3">
                 <div className="rounded-lg bg-purple-100 p-2">
                   <Award className="size-5 text-purple-700" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-stone-900 text-sm">
+                  <h3 className="font-semibold text-stone-900 dark:text-stone-100 text-sm">
                     {isEs ? "Roles Mejor Pagados" : "Highest-Paying Roles"}
                   </h3>
-                  <p className="text-sm text-stone-700 mt-1 font-medium">
+                  <p className="text-sm text-stone-700 dark:text-stone-300 mt-1 font-medium">
                     {isEs ? "Director Medico, Medico, Dentista" : "Medical Director, Physician, Dentist"}
                   </p>
-                  <p className="text-xs text-stone-500 mt-1">
+                  <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
                     {isEs
                       ? "Los 3 roles principales superan los $150k de mediana"
                       : "Top 3 roles all exceed $150k median salary"}
@@ -802,14 +802,14 @@ function SalaryDataContent() {
         {/* Salary Report PDF CTA */}
         <section id="salary-report" className="mt-12 rounded-xl border-2 border-teal-200 bg-gradient-to-r from-teal-50 to-stone-50 p-6 sm:p-8 scroll-mt-20">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="rounded-full bg-teal-100 p-3 shrink-0">
-              <FileDown className="size-6 text-teal-700" />
+            <div className="rounded-full bg-teal-100 dark:bg-teal-900 p-3 shrink-0">
+              <FileDown className="size-6 text-teal-700 dark:text-teal-400" />
             </div>
             <div className="flex-1">
-              <h3 className="text-lg font-bold text-stone-900">
+              <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                 {isEs ? "Descarga el Informe Salarial FQHC 2026" : "Download the 2026 FQHC Salary Report"}
               </h3>
-              <p className="mt-1 text-sm text-stone-600">
+              <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
                 {isEs
                   ? `PDF gratuito con los ${SALARY_BENCHMARKS.length} roles, 9 multiplicadores regionales, analisis del impacto de SB 525 y metodologia completa.`
                   : `Free PDF with all ${SALARY_BENCHMARKS.length} roles, 9 regional multipliers, SB 525 impact analysis, and full methodology. California-specific data you can share with your team.`}
@@ -825,26 +825,26 @@ function SalaryDataContent() {
         </section>
 
         {/* Related Tools */}
-        <div className="mt-12 border-t border-stone-200 pt-8">
-          <h3 className="text-lg font-bold text-stone-900 mb-4">
+        <div className="mt-12 border-t border-stone-200 dark:border-stone-700 pt-8">
+          <h3 className="text-lg font-bold text-stone-900 dark:text-stone-100 mb-4">
             {isEs ? "Herramientas Relacionadas" : "Related Tools"}
           </h3>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <Link href="/career-roadmap" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
-              <p className="text-sm font-semibold text-stone-900">{isEs ? "Trayectoria Profesional" : "Career Roadmap"}</p>
-              <p className="text-xs text-stone-500 mt-1">{isEs ? "5 trayectorias, 4 niveles, datos salariales de CA" : "5 tracks, 4 levels, CA salary data"}</p>
+            <Link href="/career-roadmap" className="rounded-lg border border-stone-200 dark:border-stone-700 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{isEs ? "Trayectoria Profesional" : "Career Roadmap"}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">{isEs ? "5 trayectorias, 4 niveles, datos salariales de CA" : "5 tracks, 4 levels, CA salary data"}</p>
             </Link>
-            <Link href="/resume-builder" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
-              <p className="text-sm font-semibold text-stone-900">{isEs ? "Creador de Curriculum" : "Resume Builder"}</p>
-              <p className="text-xs text-stone-500 mt-1">{isEs ? "Plantillas gratuitas para roles FQHC" : "Free templates for FQHC roles"}</p>
+            <Link href="/resume-builder" className="rounded-lg border border-stone-200 dark:border-stone-700 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{isEs ? "Creador de Curriculum" : "Resume Builder"}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">{isEs ? "Plantillas gratuitas para roles FQHC" : "Free templates for FQHC roles"}</p>
             </Link>
-            <Link href="/interview-prep" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
-              <p className="text-sm font-semibold text-stone-900">{isEs ? "Preparacion Entrevista" : "Interview Prep"}</p>
-              <p className="text-xs text-stone-500 mt-1">{isEs ? "Preguntas STAR y guias por rol" : "STAR questions and role-specific guides"}</p>
+            <Link href="/interview-prep" className="rounded-lg border border-stone-200 dark:border-stone-700 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{isEs ? "Preparacion Entrevista" : "Interview Prep"}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">{isEs ? "Preguntas STAR y guias por rol" : "STAR questions and role-specific guides"}</p>
             </Link>
-            <Link href="/certifications" className="rounded-lg border border-stone-200 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
-              <p className="text-sm font-semibold text-stone-900">{isEs ? "Certificaciones" : "Certifications"}</p>
-              <p className="text-xs text-stone-500 mt-1">{isEs ? "15 certificaciones especificas de CA" : "15 CA-specific certifications"}</p>
+            <Link href="/certifications" className="rounded-lg border border-stone-200 dark:border-stone-700 p-4 hover:border-teal-200 hover:bg-teal-50/30 transition-colors">
+              <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{isEs ? "Certificaciones" : "Certifications"}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">{isEs ? "15 certificaciones especificas de CA" : "15 CA-specific certifications"}</p>
             </Link>
           </div>
         </div>

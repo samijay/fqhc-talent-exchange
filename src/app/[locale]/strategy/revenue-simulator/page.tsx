@@ -21,7 +21,7 @@ export default function RevenueSimulatorPage() {
   const isEs = locale === "es";
 
   return (
-    <main className="min-h-screen bg-stone-50">
+    <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
       {/* Hero */}
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-teal-900 px-4 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl">
@@ -88,7 +88,7 @@ export default function RevenueSimulatorPage() {
       {/* Context: How to read these numbers */}
       <section className="bg-white px-4 py-12">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold text-stone-900">
+          <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100">
             {isEs
               ? "Cómo leer estos números"
               : "How to Read These Numbers"}
@@ -96,10 +96,10 @@ export default function RevenueSimulatorPage() {
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
             <div className="rounded-xl border border-stone-200 p-5">
               <DollarSign className="size-6 text-teal-600 mb-2" />
-              <h3 className="font-bold text-stone-900">
+              <h3 className="font-bold text-stone-900 dark:text-stone-100">
                 {isEs ? "Fondos Federales" : "Federal Funding"}
               </h3>
-              <p className="mt-2 text-sm text-stone-600">
+              <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">
                 {isEs
                   ? "H.R. 1 propone recortes de hasta $880B en Medicaid durante 10 años. Para un FQHC mediano con 35% de ingresos federales, un recorte del 20% = $700K menos por año."
                   : "H.R. 1 proposes up to $880B in Medicaid cuts over 10 years. For a mid-size FQHC with 35% federal revenue, a 20% cut = $700K less per year."}
@@ -107,10 +107,10 @@ export default function RevenueSimulatorPage() {
             </div>
             <div className="rounded-xl border border-stone-200 p-5">
               <Pill className="size-6 text-teal-600 mb-2" />
-              <h3 className="font-bold text-stone-900">
+              <h3 className="font-bold text-stone-900 dark:text-stone-100">
                 {isEs ? "Farmacia 340B" : "340B Pharmacy"}
               </h3>
-              <p className="mt-2 text-sm text-stone-600">
+              <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">
                 {isEs
                   ? "340B permite a FQHCs comprar medicamentos a precios con descuento. Un programa básico (contrato con farmacia) genera ~$800K/año. Optimizado (farmacia propia) puede alcanzar $2.1M+ — como Highland Health Center."
                   : "340B lets FQHCs purchase drugs at deeply discounted prices. A basic program (contract pharmacy) generates ~$800K/year. Optimized (entity-owned) can reach $2.1M+ — like Highland Health Center."}
@@ -118,10 +118,10 @@ export default function RevenueSimulatorPage() {
             </div>
             <div className="rounded-xl border border-stone-200 p-5">
               <TrendingUp className="size-6 text-teal-600 mb-2" />
-              <h3 className="font-bold text-stone-900">
+              <h3 className="font-bold text-stone-900 dark:text-stone-100">
                 {isEs ? "Alcance Máximo" : "Top-of-Scope Staffing"}
               </h3>
-              <p className="mt-2 text-sm text-stone-600">
+              <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">
                 {isEs
                   ? "Cuando NPs, PAs y RNs trabajan al máximo de su licencia, los proveedores ven 25% más pacientes. Cada visita adicional genera un encuentro PPS facturado al pagador."
                   : "When NPs, PAs, and RNs work at the top of their license, providers see 25% more patients. Each additional visit generates a PPS encounter billed to the payer."}
@@ -129,10 +129,10 @@ export default function RevenueSimulatorPage() {
             </div>
             <div className="rounded-xl border border-stone-200 p-5">
               <Building2 className="size-6 text-teal-600 mb-2" />
-              <h3 className="font-bold text-stone-900">
+              <h3 className="font-bold text-stone-900 dark:text-stone-100">
                 {isEs ? "Retención de Personal" : "Turnover Reduction"}
               </h3>
-              <p className="mt-2 text-sm text-stone-600">
+              <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">
                 {isEs
                   ? "La rotación promedio en FQHCs es 22%. Cada reemplazo cuesta $12-18K en reclutamiento, capacitación y productividad perdida. Reducir la rotación un 25% ahorra $70K+ para un FQHC mediano."
                   : "Average FQHC turnover is 22%. Each replacement costs $12-18K in recruiting, training, and lost productivity. Cutting turnover by 25% saves $70K+ for a mid-size FQHC."}
@@ -145,7 +145,7 @@ export default function RevenueSimulatorPage() {
       {/* Cross-nav */}
       <section className="px-4 py-12">
         <div className="mx-auto max-w-4xl">
-          <h2 className="mb-6 text-2xl font-bold text-stone-900">
+          <h2 className="mb-6 text-2xl font-bold text-stone-900 dark:text-stone-100">
             {isEs ? "Recursos Relacionados" : "Related Resources"}
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -184,7 +184,7 @@ export default function RevenueSimulatorPage() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group flex items-start gap-3 rounded-xl border border-stone-200 bg-white p-4 transition-colors hover:border-teal-300 hover:bg-teal-50"
+                className="group flex items-start gap-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4 transition-colors hover:border-teal-300 hover:bg-teal-50"
               >
                 <BookOpen className="mt-0.5 size-5 shrink-0 text-teal-600" />
                 <div>

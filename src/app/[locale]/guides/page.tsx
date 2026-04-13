@@ -70,7 +70,7 @@ function GuideCard({
   const isEs = locale === "es";
 
   return (
-    <div className="relative rounded-xl border border-stone-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+    <div className="relative rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 shadow-sm transition-shadow hover:shadow-md">
       <div className="absolute right-12 top-5 z-10 flex items-center gap-1">
         <FavoriteButton contentType="guide" contentId={guide.id} size="sm" />
       </div>
@@ -81,10 +81,11 @@ function GuideCard({
           setExpanded(!expanded);
         }}
         className="w-full text-left p-5 flex items-start gap-4"
+        aria-expanded={expanded}
       >
         <div className="flex-1 min-w-0">
           {/* Title row */}
-          <h3 className="text-lg font-semibold text-stone-800 leading-snug flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-stone-800 dark:text-stone-200 leading-snug flex items-center gap-2">
             <ReadStatusBadge read={read} />
             {t(guide.title, locale)}
           </h3>
@@ -97,18 +98,18 @@ function GuideCard({
             >
               {t(DIFFICULTY_LABELS[guide.difficulty], locale)}
             </Badge>
-            <span className="flex items-center gap-1 text-xs text-stone-500">
+            <span className="flex items-center gap-1 text-xs text-stone-500 dark:text-stone-400">
               <Clock className="h-3 w-3" />
               {guide.readTime}
             </span>
-            <Badge variant="outline" className="text-xs text-stone-500">
+            <Badge variant="outline" className="text-xs text-stone-500 dark:text-stone-400">
               {guide.primarySourceOrg}
             </Badge>
             <ReadingLevelBadge level={guide.difficulty === "beginner" ? "foundational" : guide.difficulty === "intermediate" ? "intermediate" : "advanced"} size="sm" />
           </div>
 
           {/* Summary */}
-          <p className="mt-2 text-sm text-stone-600 leading-relaxed">
+          <p className="mt-2 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
             {t(guide.summary, locale)}
           </p>
 
@@ -121,7 +122,7 @@ function GuideCard({
               return (
                 <span
                   key={role}
-                  className="text-xs bg-teal-50 text-teal-700 px-2 py-0.5 rounded-full"
+                  className="text-xs bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 px-2 py-0.5 rounded-full"
                 >
                   {roleLabel
                     ? isEs
@@ -132,7 +133,7 @@ function GuideCard({
               );
             })}
             {guide.targetRoles.length > 4 && (
-              <span className="text-xs text-stone-500 px-1">
+              <span className="text-xs text-stone-500 dark:text-stone-400 px-1">
                 +{guide.targetRoles.length - 4}
               </span>
             )}
@@ -140,7 +141,7 @@ function GuideCard({
         </div>
 
         {/* Expand/collapse icon */}
-        <span className="flex-shrink-0 mt-1 text-stone-500">
+        <span className="flex-shrink-0 mt-1 text-stone-500 dark:text-stone-400">
           {expanded ? (
             <ChevronUp className="h-5 w-5" />
           ) : (
@@ -151,17 +152,17 @@ function GuideCard({
 
       {/* Expanded content */}
       {expanded && (
-        <div className="px-5 pb-5 border-t border-stone-100">
+        <div className="px-5 pb-5 border-t border-stone-100 dark:border-stone-800">
           {guide.sections.map((section, i) => (
             <div key={i} className="mt-4">
-              <h4 className="font-semibold text-stone-800 text-sm">
+              <h4 className="font-semibold text-stone-800 dark:text-stone-200 text-sm">
                 {t(section.heading, locale)}
               </h4>
               <ul className="mt-2 space-y-1.5">
                 {section.keyPoints.map((point, j) => (
                   <li
                     key={j}
-                    className="text-sm text-stone-600 leading-relaxed flex gap-2"
+                    className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed flex gap-2"
                   >
                     <span className="text-teal-600 mt-1 flex-shrink-0">
                       •
@@ -171,7 +172,7 @@ function GuideCard({
                 ))}
               </ul>
               {section.detail && (
-                <p className="mt-2 text-xs text-stone-500 italic leading-relaxed pl-4">
+                <p className="mt-2 text-xs text-stone-500 dark:text-stone-400 italic leading-relaxed pl-4">
                   {t(section.detail, locale)}
                 </p>
               )}
@@ -179,14 +180,14 @@ function GuideCard({
           ))}
 
           {/* Sources + Share */}
-          <div className="mt-5 pt-4 border-t border-stone-100">
+          <div className="mt-5 pt-4 border-t border-stone-100 dark:border-stone-800">
             <div className="flex items-center justify-between mb-3">
               <div className="flex flex-wrap gap-2">
                 <a
                   href={guide.primarySourceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-teal-50 px-3 py-2 text-sm font-medium text-teal-700 hover:bg-teal-100 transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-teal-50 dark:bg-teal-950 px-3 py-2 text-sm font-medium text-teal-700 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-teal-900 transition-colors"
                 >
                   <ExternalLink className="h-3.5 w-3.5" />
                   {isEs ? "Ver Fuente Primaria" : "View Primary Source"} (
@@ -198,7 +199,7 @@ function GuideCard({
                     href={src.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 rounded-lg border border-stone-200 px-2.5 py-1.5 text-xs text-stone-600 hover:bg-stone-50 transition-colors"
+                    className="inline-flex items-center gap-1 rounded-lg border border-stone-200 dark:border-stone-700 px-2.5 py-1.5 text-xs text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
                   >
                     <ExternalLink className="h-3 w-3" />
                     {src.label}
@@ -303,7 +304,7 @@ export default function GuidesPage() {
   const allSources = useMemo(() => getAllGuideSources(), []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+    <main className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       <Breadcrumb items={[
         { label: isEs ? "Inicio" : "Home", href: "/" },
         { label: isEs ? "Herramientas" : "Tools", href: "/guides" },
@@ -335,7 +336,7 @@ export default function GuidesPage() {
       </section>
 
       {/* ── Legal Disclaimer ── */}
-      <div className="bg-amber-50 border-b border-amber-200">
+      <div className="bg-amber-50 dark:bg-amber-950 border-b border-amber-200">
         <div className="mx-auto max-w-6xl px-4 py-3">
           <p className="text-xs text-amber-800 text-center leading-relaxed">
             ⚠️{" "}
@@ -348,9 +349,9 @@ export default function GuidesPage() {
 
       <div className="mx-auto max-w-6xl px-4 py-10">
         {/* ───────────────── Filter Bar ───────────────── */}
-        <div className="mb-8 rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
+        <div className="mb-8 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4 shadow-sm">
           <div className="flex flex-wrap items-center gap-3">
-            <Filter className="h-4 w-4 text-stone-500" />
+            <Filter className="h-4 w-4 text-stone-500 dark:text-stone-400" />
 
             {/* Category */}
             <select
@@ -360,7 +361,7 @@ export default function GuidesPage() {
                   e.target.value as GuideCategory | "all"
                 )
               }
-              className="rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-700 focus:border-teal-500 focus:outline-none"
+              className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-2 text-sm text-stone-700 dark:text-stone-300 focus:border-teal-500 focus:outline-none"
             >
               <option value="all">
                 {isEs ? "Todas las categorías" : "All Categories"}
@@ -376,7 +377,7 @@ export default function GuidesPage() {
             <select
               value={roleFilter}
               onChange={(e) => setRoleFilter(e.target.value)}
-              className="rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-700 focus:border-teal-500 focus:outline-none"
+              className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-2 text-sm text-stone-700 dark:text-stone-300 focus:border-teal-500 focus:outline-none"
             >
               {GUIDE_ROLE_OPTIONS.map((role) => (
                 <option key={role.id} value={role.id}>
@@ -393,7 +394,7 @@ export default function GuidesPage() {
                   e.target.value as DifficultyLevel | "all"
                 )
               }
-              className="rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm text-stone-700 focus:border-teal-500 focus:outline-none"
+              className="rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-2 text-sm text-stone-700 dark:text-stone-300 focus:border-teal-500 focus:outline-none"
             >
               <option value="all">
                 {isEs ? "Todos los niveles" : "All Levels"}
@@ -408,7 +409,7 @@ export default function GuidesPage() {
             </select>
 
             {/* Count */}
-            <span className="ml-auto text-sm text-stone-500">
+            <span className="ml-auto text-sm text-stone-500 dark:text-stone-400">
               {filtered.length}{" "}
               {isEs
                 ? filtered.length === 1
@@ -423,7 +424,7 @@ export default function GuidesPage() {
 
         {/* ───────────────── Guide Cards by Category ───────────────── */}
         {filtered.length === 0 ? (
-          <div className="text-center py-12 text-stone-500">
+          <div className="text-center py-12 text-stone-500 dark:text-stone-400">
             <BookOpen className="h-10 w-10 mx-auto mb-3 text-stone-300" />
             <p className="text-lg font-medium">
               {isEs
@@ -444,14 +445,14 @@ export default function GuidesPage() {
               return (
                 <section key={cat.id} className="mb-10">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-50">
-                      <CatIcon className="h-5 w-5 text-teal-700" />
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-50 dark:bg-teal-950">
+                      <CatIcon className="h-5 w-5 text-teal-700 dark:text-teal-400" />
                     </div>
                     <div>
-                      <h2 className="text-xl font-bold text-stone-800">
+                      <h2 className="text-xl font-bold text-stone-800 dark:text-stone-200">
                         {isEs ? cat.es : cat.en}
                       </h2>
-                      <p className="text-sm text-stone-500">
+                      <p className="text-sm text-stone-500 dark:text-stone-400">
                         {t(cat.description, locale)}
                       </p>
                     </div>
@@ -475,7 +476,7 @@ export default function GuidesPage() {
 
         {/* ───────────────── Cross-links ───────────────── */}
         <section className="mt-12 mb-10">
-          <h2 className="text-xl font-bold text-stone-800 mb-4">
+          <h2 className="text-xl font-bold text-stone-800 dark:text-stone-200 mb-4">
             {isEs ? "Más Herramientas de Carrera" : "More Career Tools"}
           </h2>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -485,13 +486,13 @@ export default function GuidesPage() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="group rounded-xl border border-stone-200 bg-white p-5 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
+                  className="group rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-5 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
                 >
                   <Icon className="h-6 w-6 text-teal-600 mb-2" />
-                  <h3 className="font-semibold text-stone-800 group-hover:text-teal-700 transition-colors">
+                  <h3 className="font-semibold text-stone-800 dark:text-stone-200 group-hover:text-teal-700 dark:text-teal-400 transition-colors">
                     {isEs ? link.es : link.en}
                   </h3>
-                  <p className="text-sm text-stone-500 mt-1">
+                  <p className="text-sm text-stone-500 dark:text-stone-400 mt-1">
                     {isEs ? link.descEs : link.descEn}
                   </p>
                 </Link>
@@ -501,11 +502,11 @@ export default function GuidesPage() {
         </section>
 
         {/* ───────────────── Sources Index ───────────────── */}
-        <section className="mt-8 rounded-xl border border-stone-200 bg-stone-50 p-6">
-          <h2 className="text-lg font-bold text-stone-800 mb-3">
+        <section className="mt-8 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950 p-6">
+          <h2 className="text-lg font-bold text-stone-800 dark:text-stone-200 mb-3">
             {isEs ? "Índice de Fuentes" : "Sources Index"}
           </h2>
-          <p className="text-sm text-stone-500 mb-4">
+          <p className="text-sm text-stone-500 dark:text-stone-400 mb-4">
             {isEs
               ? "Cada guía cita fuentes primarias. Aquí están todas las fuentes referenciadas."
               : "Every guide cites primary sources. Here are all referenced sources."}
@@ -517,7 +518,7 @@ export default function GuidesPage() {
                   href={src.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-teal-700 hover:text-teal-900 hover:underline inline-flex items-center gap-1"
+                  className="text-teal-700 dark:text-teal-400 hover:text-teal-900 hover:underline inline-flex items-center gap-1"
                 >
                   <ExternalLink className="h-3 w-3 flex-shrink-0" />
                   <span className="font-medium">{src.org}</span>
@@ -544,7 +545,7 @@ export default function GuidesPage() {
               <Link href="/join">
                 <Button
                   size="lg"
-                  className="bg-white text-teal-800 hover:bg-teal-50 font-semibold"
+                  className="bg-white dark:bg-stone-900 text-teal-800 hover:bg-teal-50 dark:hover:bg-teal-950 font-semibold"
                 >
                   {isEs ? "Unirse a la Red" : "Join the Network"}
                   <ArrowRight className="ml-2 h-4 w-4" />

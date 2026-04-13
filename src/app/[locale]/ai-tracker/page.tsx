@@ -157,11 +157,11 @@ function VendorCard({
   };
 
   return (
-    <div className="rounded-xl border border-stone-200 bg-white p-4 flex flex-col gap-3 hover:shadow-sm transition-shadow">
+    <div className="rounded-xl border border-stone-200 bg-white p-4 flex flex-col gap-3 hover:shadow-sm transition-shadow dark:border-stone-700 dark:bg-stone-900">
       {/* Header */}
       <div>
         <div className="flex items-start justify-between gap-2 mb-1">
-          <h3 className="text-sm font-bold text-stone-900 leading-snug">
+          <h3 className="text-sm font-bold text-stone-900 leading-snug dark:text-stone-100">
             {vendor.name}
           </h3>
           <span
@@ -297,7 +297,7 @@ function AIItemCard({
   return (
     <div
       id={item.id}
-      className="scroll-mt-20 rounded-xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden"
+      className="scroll-mt-20 rounded-xl border border-stone-200 bg-white transition-shadow hover:shadow-md overflow-hidden dark:border-stone-700 dark:bg-stone-900"
     >
       <button onClick={onToggle} className="w-full text-left p-5 pb-3">
         <div className="flex items-start justify-between gap-3">
@@ -324,7 +324,7 @@ function AIItemCard({
                 <Star className="size-3 text-amber-500 fill-amber-500" />
               )}
             </div>
-            <h3 className="font-semibold text-stone-900 leading-snug">
+            <h3 className="font-semibold text-stone-900 leading-snug dark:text-stone-100">
               {t(item.title, locale)}
             </h3>
             {!isExpanded && (
@@ -360,7 +360,7 @@ function AIItemCard({
 
       {isExpanded && (
         <div className="border-t border-stone-100 px-5 pb-5 pt-4 space-y-4">
-          <p className="text-sm text-stone-600 leading-relaxed">
+          <p className="text-sm text-stone-600 leading-relaxed dark:text-stone-400">
             {t(item.description, locale)}
           </p>
 
@@ -388,7 +388,7 @@ function AIItemCard({
               {item.metrics.map((m) => (
                 <div
                   key={m.label}
-                  className="rounded-lg border border-stone-100 bg-stone-50 p-3"
+                  className="rounded-lg border border-stone-100 bg-stone-50 p-3 dark:border-stone-700 dark:bg-stone-800"
                 >
                   <div className="text-base font-bold text-teal-800">
                     {m.value}
@@ -490,7 +490,7 @@ export default function AITrackerPage() {
   const revenueGuide = FQHC_GUIDES.find((g) => g.id.includes("revenue") && !g.id.includes("bilingual"));
 
   return (
-    <div className="bg-stone-50">
+    <div className="bg-stone-50 dark:bg-stone-950">
       {/* Hero */}
       <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -692,7 +692,7 @@ export default function AITrackerPage() {
                 className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                   activeCategory === "all"
                     ? "bg-stone-800 text-white"
-                    : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                    : "bg-stone-100 text-stone-500 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                 }`}
               >
                 {isEs ? "Todas" : "All"} ({counts.total})
@@ -704,7 +704,7 @@ export default function AITrackerPage() {
                   className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                     activeCategory === cat.id
                       ? "bg-stone-800 text-white"
-                      : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                      : "bg-stone-100 text-stone-500 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                   }`}
                 >
                   {isEs ? cat.es : cat.en}
@@ -725,7 +725,7 @@ export default function AITrackerPage() {
                 className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                   activeStage === "all"
                     ? "bg-stone-800 text-white"
-                    : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                    : "bg-stone-100 text-stone-500 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                 }`}
               >
                 {isEs ? "Todas" : "All"}
@@ -737,7 +737,7 @@ export default function AITrackerPage() {
                   className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
                     activeStage === stage.id
                       ? "bg-stone-800 text-white"
-                      : "bg-stone-100 text-stone-500 hover:bg-stone-200"
+                      : "bg-stone-100 text-stone-500 hover:bg-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700"
                   }`}
                 >
                   {isEs ? stage.es : stage.en}

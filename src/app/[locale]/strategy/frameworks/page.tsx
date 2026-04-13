@@ -86,33 +86,34 @@ function FrameworkCard({
   const audienceMeta = shareableLevelMeta[framework.shareableLevel];
 
   return (
-    <div className="rounded-xl border border-stone-200 bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+    <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       {/* Header */}
       <button
         onClick={() => setExpanded(!expanded)}
         className="flex w-full items-start gap-3 p-5 text-left"
+        aria-expanded={expanded}
       >
         <div className="mt-0.5 rounded-lg bg-stone-100 p-2.5">
           <Icon className="size-5 text-stone-700" />
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
-            <h3 className="text-base font-semibold text-stone-900">
+            <h3 className="text-base font-semibold text-stone-900 dark:text-stone-100">
               {t(framework.name, locale)}
             </h3>
           </div>
           <p className="mt-0.5 text-xs text-stone-500">{framework.author}</p>
-          <p className="mt-1.5 text-sm text-stone-600 leading-relaxed">
+          <p className="mt-1.5 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
             {t(framework.tagline, locale)}
           </p>
           <div className="mt-2 flex flex-wrap gap-1.5">
-            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-stone-100 text-stone-600">
+            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600">
               {t(catMeta.label, locale)}
             </span>
             <span
               className={`text-xs font-medium px-2 py-0.5 rounded-full ${
                 framework.shareableLevel === "all-staff"
-                  ? "bg-teal-100 text-teal-700"
+                  ? "bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-400"
                   : framework.shareableLevel === "managers"
                   ? "bg-amber-100 text-amber-700"
                   : "bg-rose-100 text-rose-700"
@@ -132,7 +133,7 @@ function FrameworkCard({
       {expanded && (
         <div className="border-t border-stone-100 px-5 pb-5">
           {/* Description */}
-          <p className="mt-4 text-sm text-stone-600 leading-relaxed">
+          <p className="mt-4 text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
             {t(framework.description, locale)}
           </p>
 
@@ -142,16 +143,16 @@ function FrameworkCard({
               {isEs ? "Pasos" : "Steps"}
             </p>
             {framework.steps.map((step, i) => (
-              <div key={i} className="rounded-lg bg-stone-50 p-3">
+              <div key={i} className="rounded-lg bg-stone-50 dark:bg-stone-800 p-3">
                 <div className="flex items-start gap-2">
                   <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-stone-200 text-xs font-bold text-stone-600">
                     {i + 1}
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-stone-900">
+                    <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">
                       {t(step.name, locale)}
                     </p>
-                    <p className="mt-0.5 text-xs text-stone-600 leading-relaxed">
+                    <p className="mt-0.5 text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
                       {t(step.description, locale)}
                     </p>
                   </div>
@@ -161,7 +162,7 @@ function FrameworkCard({
           </div>
 
           {/* FQHC Application */}
-          <div className="mt-4 rounded-lg bg-teal-50 border border-teal-200/60 p-3">
+          <div className="mt-4 rounded-lg bg-teal-50 dark:bg-teal-950 border border-teal-200/60 p-3">
             <p className="text-xs font-semibold text-teal-700 mb-1">
               {isEs ? "Aplicación en FQHCs" : "FQHC Application"}
             </p>
@@ -171,7 +172,7 @@ function FrameworkCard({
           </div>
 
           {/* When to Use */}
-          <div className="mt-3 rounded-lg bg-amber-50 border border-amber-200/60 p-3">
+          <div className="mt-3 rounded-lg bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800/60 p-3">
             <p className="text-xs font-semibold text-amber-700 mb-1">
               {isEs ? "Cuándo usar" : "When to use"}
             </p>
@@ -287,7 +288,7 @@ export default function ExecutionFrameworksPage() {
                 className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
                   activeAudience === opt.key
                     ? "bg-stone-900 text-white"
-                    : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                    : "bg-stone-100 dark:bg-stone-800 text-stone-600 hover:bg-stone-200"
                 }`}
               >
                 {opt.label}
@@ -303,7 +304,7 @@ export default function ExecutionFrameworksPage() {
             className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
               activeCategory === "all"
                 ? "bg-teal-700 text-white"
-                : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                : "bg-stone-100 dark:bg-stone-800 text-stone-600 hover:bg-stone-200"
             }`}
           >
             {isEs ? "Todas las categorías" : "All categories"}
@@ -317,7 +318,7 @@ export default function ExecutionFrameworksPage() {
                 className={`flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
                   activeCategory === cat
                     ? "bg-teal-700 text-white"
-                    : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+                    : "bg-stone-100 dark:bg-stone-800 text-stone-600 hover:bg-stone-200"
                 }`}
               >
                 <CatIcon className="size-3" />

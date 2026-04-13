@@ -124,7 +124,7 @@ function gradeColor(grade: string) {
     case "C": return "bg-amber-100 text-amber-800 border-amber-300";
     case "D": return "bg-orange-100 text-orange-800 border-orange-300";
     case "F": return "bg-red-100 text-red-800 border-red-300";
-    default: return "bg-stone-100 text-stone-600";
+    default: return "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400";
   }
 }
 
@@ -134,20 +134,20 @@ function ehrBadgeColor(ehr: string) {
   if (ehr.includes("NextGen")) return "bg-purple-50 text-purple-700 border border-purple-200";
   if (ehr.includes("athena")) return "bg-cyan-50 text-cyan-700 border border-cyan-200";
   if (ehr.includes("Cerner")) return "bg-orange-50 text-orange-700 border border-orange-200";
-  return "bg-stone-100 text-stone-600";
+  return "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400";
 }
 
 function StarRating({ rating, noRatingText }: { rating: number | null; noRatingText?: string }) {
-  if (rating === null) return <span className="text-xs text-stone-500">{noRatingText || "No rating"}</span>;
+  if (rating === null) return <span className="text-xs text-stone-500 dark:text-stone-400">{noRatingText || "No rating"}</span>;
   const full = Math.floor(rating);
   const half = rating - full >= 0.3;
   return (
-    <span className="inline-flex items-center gap-0.5">
+    <span className="inline-flex items-center gap-0.5" role="img" aria-label={`${rating.toFixed(1)} out of 5 stars`}>
       {Array.from({ length: full }).map((_, i) => (
-        <Star key={`f${i}`} className="size-3.5 fill-amber-400 text-amber-400" />
+        <Star key={`f${i}`} className="size-3.5 fill-amber-400 text-amber-400" aria-hidden="true" />
       ))}
-      {half && <Star className="size-3.5 fill-amber-400/50 text-amber-400" />}
-      <span className="ml-1 text-sm font-medium text-stone-700">{rating.toFixed(1)}</span>
+      {half && <Star className="size-3.5 fill-amber-400/50 text-amber-400" aria-hidden="true" />}
+      <span className="ml-1 text-sm font-medium text-stone-700 dark:text-stone-300">{rating.toFixed(1)}</span>
     </span>
   );
 }
@@ -446,7 +446,7 @@ export function DirectoryClient({
     return (
       <th
         key={key}
-        className={`cursor-pointer px-3 py-3 font-semibold text-stone-700 hover:text-teal-800 whitespace-nowrap ${active ? "text-teal-800" : ""}`}
+        className={`cursor-pointer px-3 py-3 font-semibold text-stone-700 dark:text-stone-300 hover:text-teal-800 whitespace-nowrap ${active ? "text-teal-800" : ""}`}
         onClick={() => toggleSort(key)}
       >
         <span className="flex items-center gap-1">
@@ -458,7 +458,7 @@ export function DirectoryClient({
   }
 
   return (
-    <div className="bg-stone-50 min-h-screen">
+    <div className="bg-stone-50 dark:bg-stone-950 min-h-screen">
       {/* Hero */}
       <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
         <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
@@ -493,7 +493,7 @@ export function DirectoryClient({
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
           {/* Search */}
           <div className="relative flex-1">
-            <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-500" />
+            <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-500 dark:text-stone-400" />
             <Input
               placeholder={t.searchPlaceholder}
               value={search}
@@ -560,7 +560,7 @@ export function DirectoryClient({
               className={`flex items-center justify-center gap-1.5 rounded-full border px-3 py-1.5 text-sm font-medium transition-colors ${
                 pill.active
                   ? `border-${pill.color}-700 bg-${pill.color}-50 text-${pill.color}-800`
-                  : "border-stone-200 bg-white text-stone-600 hover:border-stone-300"
+                  : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-600 dark:text-stone-400 hover:border-stone-300 dark:border-stone-600"
               }`}
             >
               {pill.icon}
@@ -583,7 +583,7 @@ export function DirectoryClient({
                   syncURL({ size: next.length > 0 ? next.join(",") : null });
                 }}
                 className={`rounded-full border px-2.5 py-1 text-xs font-medium transition-colors ${
-                  sizeFilter.includes(key) ? "border-stone-700 bg-stone-100 text-stone-800" : "border-stone-200 bg-white text-stone-500 hover:border-stone-300"
+                  sizeFilter.includes(key) ? "border-stone-700 bg-stone-100 dark:bg-stone-800 text-stone-800 dark:text-stone-200" : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-500 dark:text-stone-400 hover:border-stone-300 dark:border-stone-600"
                 }`}
               >
                 {label}
@@ -598,7 +598,7 @@ export function DirectoryClient({
                 key={g}
                 onClick={() => toggleGrade(g)}
                 className={`flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-bold transition-colors ${
-                  gradeFilter.includes(g) ? gradeColor(g) : "border-stone-200 bg-white text-stone-500 hover:border-stone-300"
+                  gradeFilter.includes(g) ? gradeColor(g) : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-500 dark:text-stone-400 hover:border-stone-300 dark:border-stone-600"
                 }`}
               >
                 {g}
@@ -633,14 +633,14 @@ export function DirectoryClient({
           {/* Export CSV */}
           <button
             onClick={exportCSV}
-            className="flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3 py-1.5 text-sm font-medium text-stone-600 hover:border-stone-300 transition-colors"
+            className="flex items-center gap-1.5 rounded-full border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-3 py-1.5 text-sm font-medium text-stone-600 dark:text-stone-400 hover:border-stone-300 dark:border-stone-600 transition-colors"
           >
             <Download className="size-3.5" />
             {t.exportCSV}
           </button>
 
           {/* View toggle (hidden on mobile — auto card view) */}
-          <div className="hidden items-center justify-center gap-1 rounded-lg border border-stone-200 bg-white p-0.5 sm:ml-auto md:flex">
+          <div className="hidden items-center justify-center gap-1 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-0.5 sm:ml-auto md:flex">
             {([
               { mode: "cards" as ViewMode, icon: <LayoutGrid className="size-4" />, title: "Card view" },
               { mode: "table" as ViewMode, icon: <List className="size-4" />, title: "Table view" },
@@ -650,7 +650,7 @@ export function DirectoryClient({
                 key={mode}
                 onClick={() => { setView(mode); syncURL({ view: mode }); }}
                 className={`rounded-md px-2.5 py-1.5 text-sm transition-colors ${
-                  view === mode ? "bg-teal-700 text-white" : "text-stone-500 hover:text-stone-700"
+                  view === mode ? "bg-teal-700 text-white" : "text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300"
                 }`}
                 title={title}
               >
@@ -660,7 +660,7 @@ export function DirectoryClient({
           </div>
         </div>
 
-        <p className="mt-4 text-sm text-stone-500">
+        <p className="mt-4 text-sm text-stone-500 dark:text-stone-400">
           {t.showing(filtered.length, stats.totalOrgs)}
         </p>
 
@@ -687,12 +687,12 @@ export function DirectoryClient({
           return (
             <div className="mt-2 flex flex-wrap items-center gap-1.5">
               {chips.map((chip, i) => (
-                <span key={i} className="inline-flex items-center gap-1 rounded-full bg-teal-50 border border-teal-200 px-2.5 py-0.5 text-xs text-teal-800">
+                <span key={i} className="inline-flex items-center gap-1 rounded-full bg-teal-50 dark:bg-teal-950 border border-teal-200 px-2.5 py-0.5 text-xs text-teal-800">
                   {chip.label}
                   <button onClick={chip.clear} className="ml-0.5 text-teal-500 hover:text-teal-800">&times;</button>
                 </span>
               ))}
-              <button onClick={clearAll} className="text-xs text-stone-500 hover:text-stone-700 underline ml-1">
+              <button onClick={clearAll} className="text-xs text-stone-500 dark:text-stone-400 hover:text-stone-700 dark:hover:text-stone-300 underline ml-1">
                 {isEs ? "Limpiar todo" : "Clear all"}
               </button>
             </div>
@@ -709,7 +709,7 @@ export function DirectoryClient({
             <span className="text-sm font-medium">{compareList.length} {isEs ? "seleccionados" : "selected"}</span>
             <Button
               size="sm"
-              className="bg-amber-500 text-stone-900 hover:bg-amber-400"
+              className="bg-amber-500 text-stone-900 dark:text-stone-100 hover:bg-amber-400"
               onClick={() => router.push(`/compare?fqhcs=${compareList.join(",")}`)}
             >
               {t.compareSelected}
@@ -722,7 +722,7 @@ export function DirectoryClient({
 
         {/* Map View */}
         {view === "map" && (
-          <div className="mb-8 overflow-hidden rounded-xl border border-stone-200 shadow-sm">
+          <div className="mb-8 overflow-hidden rounded-xl border border-stone-200 dark:border-stone-700 shadow-sm">
             <DynamicMap fqhcs={filtered} locale={locale} />
           </div>
         )}
@@ -757,29 +757,29 @@ export function DirectoryClient({
               <EmptyState isEs={isEs} />
             ) : (
               <>
-              <div className="scroll-hint overflow-x-auto rounded-xl border border-stone-200 bg-white shadow-sm">
+              <div className="scroll-hint overflow-x-auto rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 shadow-sm">
                 <table className="w-full text-left text-sm">
                   <thead>
-                    <tr className="border-b border-stone-100 bg-stone-50 sticky top-0 z-10">
+                    <tr className="border-b border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-950 sticky top-0 z-10">
                       {/* Compare checkbox header */}
                       <th className="w-10 px-2 py-3"></th>
                       {sortTh(t.organization, "name")}
-                      <th className="px-3 py-3 font-semibold text-stone-700">{t.location}</th>
+                      <th className="px-3 py-3 font-semibold text-stone-700 dark:text-stone-300">{t.location}</th>
                       {sortTh(t.grade, "resilienceGrade")}
                       {sortTh(t.jobs, "jobCount")}
                       {sortTh(t.sites, "siteCount")}
                       {sortTh(t.patients, "patientCount")}
                       {sortTh(t.staff, "staffCount")}
-                      <th className="px-3 py-3 font-semibold text-stone-700">EHR</th>
+                      <th className="px-3 py-3 font-semibold text-stone-700 dark:text-stone-300">EHR</th>
                       {sortTh(t.rating, "glassdoorRating")}
-                      <th className="px-3 py-3 font-semibold text-stone-700">{t.programsOffered}</th>
+                      <th className="px-3 py-3 font-semibold text-stone-700 dark:text-stone-300">{t.programsOffered}</th>
                     </tr>
                   </thead>
                   <tbody>
                     {paginated.map((fqhc, i) => (
                       <tr
                         key={fqhc.slug}
-                        className={`border-b border-stone-50 transition-colors hover:bg-stone-50/80 ${i % 2 === 0 ? "" : "bg-stone-50/30"}`}
+                        className={`border-b border-stone-50 transition-colors hover:bg-stone-50 dark:hover:bg-stone-800/80 ${i % 2 === 0 ? "" : "bg-stone-50/30"}`}
                       >
                         {/* Compare checkbox */}
                         <td className="px-2 py-3">
@@ -787,7 +787,7 @@ export function DirectoryClient({
                             type="checkbox"
                             checked={compareList.includes(fqhc.slug)}
                             onChange={() => toggleCompare(fqhc.slug)}
-                            className="size-4 rounded border-stone-300 text-teal-700 focus:ring-teal-500"
+                            className="size-4 rounded border-stone-300 dark:border-stone-600 text-teal-700 dark:text-teal-400 focus:ring-teal-500"
                             disabled={!compareList.includes(fqhc.slug) && compareList.length >= 3}
                           />
                         </td>
@@ -804,7 +804,7 @@ export function DirectoryClient({
                             </Badge>
                           )}
                         </td>
-                        <td className="px-3 py-3 text-stone-600 whitespace-nowrap">{fqhc.city}, {fqhc.county}</td>
+                        <td className="px-3 py-3 text-stone-600 dark:text-stone-400 whitespace-nowrap">{fqhc.city}, {fqhc.county}</td>
                         {/* Resilience grade */}
                         <td className="px-3 py-3">
                           <span className={`inline-flex size-7 items-center justify-center rounded-full text-xs font-bold border ${gradeColor(fqhc.resilienceGrade)}`}>
@@ -822,25 +822,25 @@ export function DirectoryClient({
                             <span className="text-stone-400">—</span>
                           )}
                         </td>
-                        <td className="px-3 py-3 text-stone-700 font-medium">{fqhc.siteCount}</td>
-                        <td className="px-3 py-3 text-stone-700">{fqhc.patientCount}</td>
-                        <td className="px-3 py-3 text-stone-700">{fqhc.staffCount}</td>
+                        <td className="px-3 py-3 text-stone-700 dark:text-stone-300 font-medium">{fqhc.siteCount}</td>
+                        <td className="px-3 py-3 text-stone-700 dark:text-stone-300">{fqhc.patientCount}</td>
+                        <td className="px-3 py-3 text-stone-700 dark:text-stone-300">{fqhc.staffCount}</td>
                         <td className="px-3 py-3">
                           <Badge className={`text-xs whitespace-nowrap ${ehrBadgeColor(fqhc.ehrSystem)}`}>{fqhc.ehrSystem}</Badge>
                         </td>
                         <td className="px-3 py-3">
                           <StarRating rating={fqhc.glassdoorRating} noRatingText={t.noRating} />
                           {fqhc.glassdoorReviewCount && (
-                            <span className="ml-1 text-xs text-stone-500">({fqhc.glassdoorReviewCount})</span>
+                            <span className="ml-1 text-xs text-stone-500 dark:text-stone-400">({fqhc.glassdoorReviewCount})</span>
                           )}
                         </td>
                         <td className="px-3 py-3">
                           <div className="flex flex-wrap gap-1">
                             {fqhc.programs.slice(0, 2).map((p) => (
-                              <Badge key={p} className="bg-stone-50 text-stone-500 text-xs">{p}</Badge>
+                              <Badge key={p} className="bg-stone-50 dark:bg-stone-950 text-stone-500 dark:text-stone-400 text-xs">{p}</Badge>
                             ))}
                             {fqhc.programs.length > 2 && (
-                              <span className="text-xs text-stone-500">+{fqhc.programs.length - 2}</span>
+                              <span className="text-xs text-stone-500 dark:text-stone-400">+{fqhc.programs.length - 2}</span>
                             )}
                           </div>
                         </td>
@@ -863,7 +863,7 @@ export function DirectoryClient({
                 <div className="flex-1">
                   <SheetTitle className="text-2xl">{selectedFqhc.name}</SheetTitle>
                   <div className="mt-1 flex items-center gap-2">
-                    <span className="text-sm text-stone-500">{selectedFqhc.region}</span>
+                    <span className="text-sm text-stone-500 dark:text-stone-400">{selectedFqhc.region}</span>
                     <span className={`inline-flex size-6 items-center justify-center rounded-full text-xs font-bold border ${gradeColor(selectedFqhc.resilienceGrade)}`}>
                       {selectedFqhc.resilienceGrade}
                     </span>
@@ -880,19 +880,19 @@ export function DirectoryClient({
               <div className="space-y-6 px-6 py-4">
                 {/* Org Details */}
                 <div className="space-y-3">
-                  <h3 className="font-semibold text-stone-900">{t.orgDetails}</h3>
+                  <h3 className="font-semibold text-stone-900 dark:text-stone-100">{t.orgDetails}</h3>
                   <div className="space-y-2">
                     {selectedFqhc.website && (
                       <div className="flex items-start gap-3">
-                        <Globe className="mt-0.5 size-4 text-teal-700 shrink-0" />
-                        <a href={selectedFqhc.website} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-700 hover:text-teal-800 break-all">
+                        <Globe className="mt-0.5 size-4 text-teal-700 dark:text-teal-400 shrink-0" />
+                        <a href={selectedFqhc.website} target="_blank" rel="noopener noreferrer" className="text-sm text-teal-700 dark:text-teal-400 hover:text-teal-800 break-all">
                           {selectedFqhc.website}
                         </a>
                       </div>
                     )}
                     <div className="flex items-start gap-3">
-                      <MapPinIcon className="mt-0.5 size-4 text-teal-700 shrink-0" />
-                      <div className="text-sm text-stone-600">
+                      <MapPinIcon className="mt-0.5 size-4 text-teal-700 dark:text-teal-400 shrink-0" />
+                      <div className="text-sm text-stone-600 dark:text-stone-400">
                         {selectedFqhc.city}, {isEs ? `Condado de ${selectedFqhc.county}` : `${selectedFqhc.county} County`}
                       </div>
                     </div>
@@ -901,17 +901,17 @@ export function DirectoryClient({
 
                 {/* Key Stats */}
                 <div className="space-y-3">
-                  <h3 className="font-semibold text-stone-900">{t.keyStats}</h3>
+                  <h3 className="font-semibold text-stone-900 dark:text-stone-100">{t.keyStats}</h3>
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      { label: t.patientCount, value: selectedFqhc.patientCount, bg: "bg-teal-50" },
-                      { label: t.staffCount, value: selectedFqhc.staffCount, bg: "bg-amber-50" },
-                      { label: t.healthSites, value: selectedFqhc.siteCount.toString(), bg: "bg-teal-50" },
-                      { label: t.grade, value: selectedFqhc.resilienceGrade, bg: "bg-amber-50" },
+                      { label: t.patientCount, value: selectedFqhc.patientCount, bg: "bg-teal-50 dark:bg-teal-950" },
+                      { label: t.staffCount, value: selectedFqhc.staffCount, bg: "bg-amber-50 dark:bg-amber-950" },
+                      { label: t.healthSites, value: selectedFqhc.siteCount.toString(), bg: "bg-teal-50 dark:bg-teal-950" },
+                      { label: t.grade, value: selectedFqhc.resilienceGrade, bg: "bg-amber-50 dark:bg-amber-950" },
                     ].map((s) => (
                       <div key={s.label} className={`rounded-lg ${s.bg} p-3`}>
-                        <p className="text-xs font-medium text-stone-500">{s.label}</p>
-                        <p className="mt-1 text-sm font-semibold text-stone-900">{s.value}</p>
+                        <p className="text-xs font-medium text-stone-500 dark:text-stone-400">{s.label}</p>
+                        <p className="mt-1 text-sm font-semibold text-stone-900 dark:text-stone-100">{s.value}</p>
                       </div>
                     ))}
                   </div>
@@ -920,33 +920,33 @@ export function DirectoryClient({
                 {/* Mission */}
                 {selectedFqhc.missionStatement && (
                   <div className="space-y-2">
-                    <h3 className="font-semibold text-stone-900">{t.missionLabel}</h3>
+                    <h3 className="font-semibold text-stone-900 dark:text-stone-100">{t.missionLabel}</h3>
                     <div className="rounded-lg border-l-4 border-teal-600 bg-teal-50/50 px-4 py-3">
-                      <p className="text-sm text-stone-700 italic leading-relaxed">&ldquo;{selectedFqhc.missionStatement}&rdquo;</p>
+                      <p className="text-sm text-stone-700 dark:text-stone-300 italic leading-relaxed">&ldquo;{selectedFqhc.missionStatement}&rdquo;</p>
                     </div>
                   </div>
                 )}
 
                 {/* About */}
                 <div className="space-y-2">
-                  <h3 className="font-semibold text-stone-900">{t.about}</h3>
-                  <p className="text-sm text-stone-600 leading-relaxed">{selectedFqhc.description}</p>
+                  <h3 className="font-semibold text-stone-900 dark:text-stone-100">{t.about}</h3>
+                  <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{selectedFqhc.description}</p>
                 </div>
 
                 {/* Coverage Vulnerability */}
                 {selectedFqhc.coverageVulnerabilityPercent !== null && (
                   <div className="space-y-3">
-                    <h3 className="font-semibold text-stone-900">{t.fundingImpact}</h3>
+                    <h3 className="font-semibold text-stone-900 dark:text-stone-100">{t.fundingImpact}</h3>
                     <div className={`rounded-lg border p-4 ${
                       selectedFqhc.fundingImpactLevel === "high" ? "border-rose-200 bg-rose-50"
-                        : selectedFqhc.fundingImpactLevel === "moderate" ? "border-amber-200 bg-amber-50"
-                          : "border-stone-200 bg-stone-50"
+                        : selectedFqhc.fundingImpactLevel === "moderate" ? "border-amber-200 bg-amber-50 dark:bg-amber-950"
+                          : "border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-950"
                     }`}>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-stone-900">{t.coverageRisk}</span>
+                        <span className="text-sm font-medium text-stone-900 dark:text-stone-100">{t.coverageRisk}</span>
                         <span className={`text-lg font-bold ${
                           selectedFqhc.fundingImpactLevel === "high" ? "text-rose-700"
-                            : selectedFqhc.fundingImpactLevel === "moderate" ? "text-amber-700" : "text-stone-600"
+                            : selectedFqhc.fundingImpactLevel === "moderate" ? "text-amber-700" : "text-stone-600 dark:text-stone-400"
                         }`}>~{selectedFqhc.coverageVulnerabilityPercent}%</span>
                       </div>
                       <div className="mt-2 h-2 rounded-full bg-stone-200 overflow-hidden">
@@ -964,11 +964,11 @@ export function DirectoryClient({
 
                 {/* Tech & Certs */}
                 <div className="space-y-3">
-                  <h3 className="font-semibold text-stone-900">{t.techCerts}</h3>
+                  <h3 className="font-semibold text-stone-900 dark:text-stone-100">{t.techCerts}</h3>
                   <div className="flex flex-wrap gap-2">
-                    <Badge className="bg-stone-100 text-stone-700"><Monitor className="mr-1 size-3" />{selectedFqhc.ehrSystem}</Badge>
-                    {selectedFqhc.ecmProvider && <Badge className="bg-teal-50 text-teal-800"><Shield className="mr-0.5 size-3" />{t.ecmProvider}</Badge>}
-                    {selectedFqhc.nhscApproved && <Badge className="bg-amber-50 text-amber-700"><GraduationCap className="mr-0.5 size-3" />{t.nhscApproved}</Badge>}
+                    <Badge className="bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300"><Monitor className="mr-1 size-3" />{selectedFqhc.ehrSystem}</Badge>
+                    {selectedFqhc.ecmProvider && <Badge className="bg-teal-50 dark:bg-teal-950 text-teal-800"><Shield className="mr-0.5 size-3" />{t.ecmProvider}</Badge>}
+                    {selectedFqhc.nhscApproved && <Badge className="bg-amber-50 dark:bg-amber-950 text-amber-700"><GraduationCap className="mr-0.5 size-3" />{t.nhscApproved}</Badge>}
                     {selectedFqhc.unionInfo?.unionized && <Badge className="bg-blue-50 text-blue-700">{t.unionized}</Badge>}
                     {selectedFqhc.hasGPTW && <Badge className="bg-purple-50 text-purple-700"><Award className="mr-0.5 size-3" />Great Place to Work</Badge>}
                   </div>
@@ -976,17 +976,17 @@ export function DirectoryClient({
 
                 {/* Programs */}
                 <div className="space-y-3">
-                  <h3 className="font-semibold text-stone-900">{t.programsOffered}</h3>
+                  <h3 className="font-semibold text-stone-900 dark:text-stone-100">{t.programsOffered}</h3>
                   <div className="flex flex-wrap gap-2">
                     {selectedFqhc.programs.map((prog) => (
-                      <Badge key={prog} className="bg-teal-50 text-teal-800">{prog}</Badge>
+                      <Badge key={prog} className="bg-teal-50 dark:bg-teal-950 text-teal-800">{prog}</Badge>
                     ))}
                   </div>
                 </div>
 
                 {/* View Full Profile */}
-                <div className="border-t border-stone-100 pt-4">
-                  <Button className="w-full border border-teal-300 bg-teal-50 text-teal-700 hover:bg-teal-100" asChild>
+                <div className="border-t border-stone-100 dark:border-stone-800 pt-4">
+                  <Button className="w-full border border-teal-300 bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-teal-900" asChild>
                     <Link href={`/directory/${selectedFqhc.slug}` as "/directory"}>
                       {t.viewFullProfile} <ArrowRight className="ml-2 size-4" />
                     </Link>
@@ -996,13 +996,13 @@ export function DirectoryClient({
                 {/* External links */}
                 <div className="space-y-3">
                   {selectedFqhc.careersUrl && (
-                    <Button className="w-full border border-teal-300 bg-teal-50 text-teal-800 hover:bg-teal-100" asChild>
+                    <Button className="w-full border border-teal-300 bg-teal-50 dark:bg-teal-950 text-teal-800 hover:bg-teal-100 dark:hover:bg-teal-900" asChild>
                       <a href={selectedFqhc.careersUrl} target="_blank" rel="noopener noreferrer">
                         {t.viewCareers} <ExternalLink className="ml-2 size-4" />
                       </a>
                     </Button>
                   )}
-                  <Button className="w-full border border-stone-300 bg-stone-50 text-stone-700 hover:bg-stone-100" asChild>
+                  <Button className="w-full border border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-stone-950 text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800" asChild>
                     <a href={selectedFqhc.website} target="_blank" rel="noopener noreferrer">
                       {t.visitWebsite} <ExternalLink className="ml-2 size-4" />
                     </a>
@@ -1015,7 +1015,7 @@ export function DirectoryClient({
 
         {/* Career Assessment Overlay */}
         {showAssessment && selectedFqhc && (
-          <div className="fixed inset-0 z-[60] overflow-y-auto bg-white">
+          <div className="fixed inset-0 z-[60] overflow-y-auto bg-white dark:bg-stone-900">
             <CareerAssessment
               fqhcName={selectedFqhc.name}
               fqhcSlug={selectedFqhc.slug}
@@ -1037,7 +1037,7 @@ export function DirectoryClient({
               : "View resilience scores, strategic reports, and regional data for every FQHC."}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" className="bg-amber-500 text-stone-900 shadow-lg hover:bg-amber-400" asChild>
+            <Button size="lg" className="bg-amber-500 text-stone-900 dark:text-stone-100 shadow-lg hover:bg-amber-400" asChild>
               <Link href="/strategy/resilience">
                 {isEs ? "Scorecard de Resiliencia" : "Resilience Scorecard"} <ArrowRight className="size-4" />
               </Link>
@@ -1067,13 +1067,13 @@ function FQHCCard({
 }) {
   return (
     <div
-      className="flex flex-col justify-between rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-teal-300 cursor-pointer group"
+      className="flex flex-col justify-between rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-teal-300 cursor-pointer group"
       onClick={onViewDetails}
     >
       <div>
         {/* Header */}
         <div className="flex items-start justify-between gap-2">
-          <h3 className="text-lg font-semibold text-stone-900 leading-tight group-hover:text-teal-800 transition-colors">
+          <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-100 leading-tight group-hover:text-teal-800 transition-colors">
             {fqhc.name}
           </h3>
           <div className="flex shrink-0 flex-col items-end gap-1">
@@ -1082,19 +1082,19 @@ function FQHCCard({
               {fqhc.resilienceGrade}
             </span>
             {fqhc.ecmProvider && (
-              <Badge className="bg-teal-50 text-teal-800 text-xs"><Shield className="mr-0.5 size-3" /> ECM</Badge>
+              <Badge className="bg-teal-50 dark:bg-teal-950 text-teal-800 text-xs"><Shield className="mr-0.5 size-3" /> ECM</Badge>
             )}
           </div>
         </div>
 
         {/* Location */}
-        <div className="mt-2 flex items-center gap-1.5 text-sm text-stone-500">
+        <div className="mt-2 flex items-center gap-1.5 text-sm text-stone-500 dark:text-stone-400">
           <MapPin className="size-3.5" /> {fqhc.city}, {fqhc.county}
         </div>
 
         {/* Region + Hiring badge */}
         <div className="mt-2 flex items-center gap-2">
-          <Badge className="bg-stone-100 text-stone-600 text-xs">{fqhc.region}</Badge>
+          <Badge className="bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 text-xs">{fqhc.region}</Badge>
           {fqhc.jobCount > 0 && (
             <Badge className="bg-emerald-50 text-emerald-700 text-xs">
               <TrendingUp className="mr-0.5 size-3" /> {fqhc.jobCount} {isEs ? "empleos" : "jobs"}
@@ -1109,24 +1109,24 @@ function FQHCCard({
 
         {/* Mission preview */}
         {fqhc.missionStatement && (
-          <p className="mt-2 text-xs text-stone-500 italic line-clamp-2 leading-relaxed">
+          <p className="mt-2 text-xs text-stone-500 dark:text-stone-400 italic line-clamp-2 leading-relaxed">
             &ldquo;{fqhc.missionStatement.slice(0, 120)}{fqhc.missionStatement.length > 120 ? "..." : ""}&rdquo;
           </p>
         )}
 
         {/* Stats Grid */}
         <div className="mt-3 grid grid-cols-3 gap-2">
-          <div className="rounded-lg bg-teal-50 px-2 py-1.5">
-            <p className="text-[10px] font-medium text-stone-500">{isEs ? "Pacientes" : "Patients"}</p>
-            <p className="text-sm font-semibold text-stone-900">{fqhc.patientCount}</p>
+          <div className="rounded-lg bg-teal-50 dark:bg-teal-950 px-2 py-1.5">
+            <p className="text-[10px] font-medium text-stone-500 dark:text-stone-400">{isEs ? "Pacientes" : "Patients"}</p>
+            <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{fqhc.patientCount}</p>
           </div>
-          <div className="rounded-lg bg-amber-50 px-2 py-1.5">
-            <p className="text-[10px] font-medium text-stone-500">{isEs ? "Personal" : "Staff"}</p>
-            <p className="text-sm font-semibold text-stone-900">{fqhc.staffCount}</p>
+          <div className="rounded-lg bg-amber-50 dark:bg-amber-950 px-2 py-1.5">
+            <p className="text-[10px] font-medium text-stone-500 dark:text-stone-400">{isEs ? "Personal" : "Staff"}</p>
+            <p className="text-sm font-semibold text-stone-900 dark:text-stone-100">{fqhc.staffCount}</p>
           </div>
-          <div className="rounded-lg bg-stone-50 px-2 py-1.5">
-            <p className="text-[10px] font-medium text-stone-500">EHR</p>
-            <p className="text-xs font-semibold text-stone-700 truncate">{fqhc.ehrSystem === "Unknown" ? "—" : fqhc.ehrSystem.replace("OCHIN ", "")}</p>
+          <div className="rounded-lg bg-stone-50 dark:bg-stone-950 px-2 py-1.5">
+            <p className="text-[10px] font-medium text-stone-500 dark:text-stone-400">EHR</p>
+            <p className="text-xs font-semibold text-stone-700 dark:text-stone-300 truncate">{fqhc.ehrSystem === "Unknown" ? "—" : fqhc.ehrSystem.replace("OCHIN ", "")}</p>
           </div>
         </div>
 
@@ -1145,17 +1145,17 @@ function FQHCCard({
         <div className="mt-3">
           <StarRating rating={fqhc.glassdoorRating} noRatingText={isEs ? "Sin calificación" : "No rating"} />
           {fqhc.glassdoorReviewCount && (
-            <span className="ml-1 text-xs text-stone-500">({fqhc.glassdoorReviewCount})</span>
+            <span className="ml-1 text-xs text-stone-500 dark:text-stone-400">({fqhc.glassdoorReviewCount})</span>
           )}
         </div>
 
         {/* Programs */}
         <div className="mt-3 flex flex-wrap gap-1.5">
           {fqhc.programs.slice(0, 2).map((prog) => (
-            <Badge key={prog} className="bg-teal-50 text-teal-800 text-xs">{prog}</Badge>
+            <Badge key={prog} className="bg-teal-50 dark:bg-teal-950 text-teal-800 text-xs">{prog}</Badge>
           ))}
           {fqhc.programs.length > 2 && (
-            <Badge className="bg-stone-50 text-stone-500 text-xs">+{fqhc.programs.length - 2}</Badge>
+            <Badge className="bg-stone-50 dark:bg-stone-950 text-stone-500 dark:text-stone-400 text-xs">+{fqhc.programs.length - 2}</Badge>
           )}
         </div>
 
@@ -1180,18 +1180,18 @@ function FQHCCard({
       </div>
 
       {/* Footer — dual CTA */}
-      <div className="mt-4 flex items-center gap-2 border-t border-stone-100 pt-3">
+      <div className="mt-4 flex items-center gap-2 border-t border-stone-100 dark:border-stone-800 pt-3">
         <Link
           href={`/directory/${fqhc.slug}` as "/directory"}
           onClick={(e) => e.stopPropagation()}
-          className="flex-1 text-sm font-medium text-teal-700 hover:text-teal-800 transition-colors"
+          className="flex-1 text-sm font-medium text-teal-700 dark:text-teal-400 hover:text-teal-800 transition-colors"
         >
           {isEs ? "Ver Perfil" : "View Profile"} <ArrowRight className="ml-0.5 inline size-3" />
         </Link>
         <Link
           href={`/report/${fqhc.slug}` as "/report"}
           onClick={(e) => e.stopPropagation()}
-          className="rounded-lg bg-stone-100 px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-200 transition-colors"
+          className="rounded-lg bg-stone-100 dark:bg-stone-800 px-3 py-1.5 text-xs font-medium text-stone-600 dark:text-stone-400 hover:bg-stone-200 transition-colors"
         >
           {isEs ? "Reporte" : "Report"}
         </Link>
@@ -1212,21 +1212,21 @@ function PaginationControls({ page, totalPages, setPage, isEs, total, pageSize }
   const end = Math.min(page * pageSize, total);
   return (
     <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
-      <p className="text-sm text-stone-500">
+      <p className="text-sm text-stone-500 dark:text-stone-400">
         {isEs ? `${start}-${end} de ${total}` : `${start}-${end} of ${total}`}
       </p>
       <div className="flex items-center gap-1">
         <button
           onClick={() => { setPage(1); window.scrollTo({ top: 400, behavior: "smooth" }); }}
           disabled={page === 1}
-          className="rounded-lg border border-stone-200 px-2.5 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-30 disabled:cursor-not-allowed"
+          className="rounded-lg border border-stone-200 dark:border-stone-700 px-2.5 py-1.5 text-xs font-medium text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800 disabled:opacity-30 disabled:cursor-not-allowed"
         >
           ««
         </button>
         <button
           onClick={() => { setPage(page - 1); window.scrollTo({ top: 400, behavior: "smooth" }); }}
           disabled={page === 1}
-          className="rounded-lg border border-stone-200 px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-30 disabled:cursor-not-allowed"
+          className="rounded-lg border border-stone-200 dark:border-stone-700 px-3 py-1.5 text-xs font-medium text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800 disabled:opacity-30 disabled:cursor-not-allowed"
         >
           {isEs ? "Anterior" : "Prev"}
         </button>
@@ -1238,7 +1238,7 @@ function PaginationControls({ page, totalPages, setPage, isEs, total, pageSize }
               key={p}
               onClick={() => { setPage(p); window.scrollTo({ top: 400, behavior: "smooth" }); }}
               className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
-                p === page ? "bg-teal-700 text-white" : "border border-stone-200 text-stone-600 hover:bg-stone-50"
+                p === page ? "bg-teal-700 text-white" : "border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800"
               }`}
             >
               {p}
@@ -1248,14 +1248,14 @@ function PaginationControls({ page, totalPages, setPage, isEs, total, pageSize }
         <button
           onClick={() => { setPage(page + 1); window.scrollTo({ top: 400, behavior: "smooth" }); }}
           disabled={page === totalPages}
-          className="rounded-lg border border-stone-200 px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-30 disabled:cursor-not-allowed"
+          className="rounded-lg border border-stone-200 dark:border-stone-700 px-3 py-1.5 text-xs font-medium text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800 disabled:opacity-30 disabled:cursor-not-allowed"
         >
           {isEs ? "Siguiente" : "Next"}
         </button>
         <button
           onClick={() => { setPage(totalPages); window.scrollTo({ top: 400, behavior: "smooth" }); }}
           disabled={page === totalPages}
-          className="rounded-lg border border-stone-200 px-2.5 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-30 disabled:cursor-not-allowed"
+          className="rounded-lg border border-stone-200 dark:border-stone-700 px-2.5 py-1.5 text-xs font-medium text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800 disabled:opacity-30 disabled:cursor-not-allowed"
         >
           »»
         </button>
@@ -1268,10 +1268,10 @@ function EmptyState({ isEs }: { isEs: boolean }) {
   return (
     <div className="mx-auto max-w-md py-20 text-center">
       <Building2 className="mx-auto mb-4 size-12 text-stone-300" />
-      <h2 className="text-lg font-semibold text-stone-700">
+      <h2 className="text-lg font-semibold text-stone-700 dark:text-stone-300">
         {isEs ? "No hay organizaciones que coincidan" : "No organizations match your filters"}
       </h2>
-      <p className="mt-2 text-sm text-stone-500">
+      <p className="mt-2 text-sm text-stone-500 dark:text-stone-400">
         {isEs ? "Intente ajustar su búsqueda." : "Try adjusting your search or filter criteria."}
       </p>
     </div>

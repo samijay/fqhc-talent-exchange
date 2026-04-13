@@ -114,7 +114,7 @@ export default function CareerInsightsPage() {
   const certs = selectedRole ? getCertificationsForRole(selectedRole) : null;
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: isEs ? "Inicio" : "Home", href: "/" },
         { label: isEs ? "Herramientas" : "Tools", href: "/career-insights" },
@@ -152,32 +152,32 @@ export default function CareerInsightsPage() {
 
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
         {/* Also available row */}
-        <div className="mb-8 flex flex-wrap items-center gap-2 text-sm text-stone-500">
+        <div className="mb-8 flex flex-wrap items-center gap-2 text-sm text-stone-500 dark:text-stone-400">
           <span className="font-medium">{isEs ? "También disponible:" : "Also available:"}</span>
           <Link
             href="/jobs"
-            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700 hover:bg-teal-100"
+            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 dark:bg-teal-950 px-3 py-1 text-xs font-semibold text-teal-700 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-teal-900"
           >
             <Briefcase className="size-3" />
             {isEs ? "Empleos FQHC" : "Browse FQHC Jobs"}
           </Link>
           <Link
             href="/resume-builder"
-            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700 hover:bg-teal-100"
+            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 dark:bg-teal-950 px-3 py-1 text-xs font-semibold text-teal-700 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-teal-900"
           >
             <FileText className="size-3" />
             {isEs ? "Crear currículum" : "Build Your Resume"}
           </Link>
           <Link
             href="/career-roadmap"
-            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700 hover:bg-teal-100"
+            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 dark:bg-teal-950 px-3 py-1 text-xs font-semibold text-teal-700 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-teal-900"
           >
             <TrendingUp className="size-3" />
             {isEs ? "Trayectoria profesional" : "Career Roadmap"}
           </Link>
           <Link
             href="/interview-prep"
-            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700 hover:bg-teal-100"
+            className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 dark:bg-teal-950 px-3 py-1 text-xs font-semibold text-teal-700 dark:text-teal-400 hover:bg-teal-100 dark:hover:bg-teal-900"
           >
             <Briefcase className="size-3" />
             {isEs ? "Preparación para entrevista" : "Interview Prep"}
@@ -187,10 +187,10 @@ export default function CareerInsightsPage() {
         {/* Step 1: Role selection */}
         {!selectedRole && (
           <div>
-            <h2 className="mb-2 text-xl font-bold text-stone-900">
+            <h2 className="mb-2 text-xl font-bold text-stone-900 dark:text-stone-100">
               {isEs ? "Paso 1: Selecciona tu rol" : "Step 1: Select Your Role"}
             </h2>
-            <p className="mb-6 text-stone-600">
+            <p className="mb-6 text-stone-600 dark:text-stone-400">
               {isEs
                 ? "Elige el rol que mejor describe tu posición actual o deseada."
                 : "Choose the role that best describes your current or desired position."}
@@ -202,10 +202,10 @@ export default function CareerInsightsPage() {
                   <button
                     key={role.id}
                     onClick={() => setSelectedRole(role.id)}
-                    className="rounded-xl border-2 border-stone-200 bg-white p-4 text-left transition-all hover:border-teal-300 hover:shadow-sm"
+                    className="rounded-xl border-2 border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-4 text-left transition-all hover:border-teal-300 hover:shadow-sm"
                   >
                     <Icon className="mb-2 size-5 text-teal-600" />
-                    <div className="text-sm font-semibold text-stone-900">
+                    <div className="text-sm font-semibold text-stone-900 dark:text-stone-100">
                       {isEs ? role.es : role.en}
                     </div>
                   </button>
@@ -220,12 +220,12 @@ export default function CareerInsightsPage() {
           <div>
             <div className="mb-6 flex items-center justify-between">
               <div>
-                <h2 className="text-xl font-bold text-stone-900">
+                <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
                   {isEs ? "Paso 2: Evaluación" : "Step 2: Assessment"}
                 </h2>
-                <p className="text-sm text-stone-500">
+                <p className="text-sm text-stone-500 dark:text-stone-400">
                   {isEs ? "Rol seleccionado" : "Selected role"}:{" "}
-                  <span className="font-medium text-teal-700">
+                  <span className="font-medium text-teal-700 dark:text-teal-400">
                     {isEs
                       ? ROLES.find((r) => r.id === selectedRole)?.es
                       : ROLES.find((r) => r.id === selectedRole)?.en}
@@ -234,7 +234,7 @@ export default function CareerInsightsPage() {
               </div>
               <button
                 onClick={handleReset}
-                className="text-sm text-stone-500 underline hover:text-stone-700"
+                className="text-sm text-stone-500 dark:text-stone-400 underline hover:text-stone-700 dark:hover:text-stone-300"
               >
                 {isEs ? "Cambiar rol" : "Change role"}
               </button>
@@ -255,7 +255,7 @@ export default function CareerInsightsPage() {
               <button
                 onClick={handleDownloadReport}
                 disabled={isDownloadingReport}
-                className="inline-flex items-center gap-2 rounded-lg border border-teal-200 bg-white px-4 py-2 text-sm font-medium text-teal-700 shadow-sm transition-colors hover:bg-teal-50 disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-lg border border-teal-200 bg-white dark:bg-stone-900 px-4 py-2 text-sm font-medium text-teal-700 dark:text-teal-400 shadow-sm transition-colors hover:bg-teal-50 dark:hover:bg-teal-950 disabled:opacity-50"
               >
                 {isDownloadingReport ? (
                   <Loader2 className="size-4 animate-spin" />
@@ -268,21 +268,21 @@ export default function CareerInsightsPage() {
             {/* 90-Day Plan prompt — shown after assessment, before plan is generated */}
             {showPlanPrompt && !plan && (
               <div className="rounded-2xl border-2 border-teal-200 bg-gradient-to-br from-teal-50 to-white p-6">
-                <div className="mb-1 inline-flex items-center gap-2 rounded-full bg-teal-100 px-3 py-1 text-xs font-semibold text-teal-700">
+                <div className="mb-1 inline-flex items-center gap-2 rounded-full bg-teal-100 dark:bg-teal-900 px-3 py-1 text-xs font-semibold text-teal-700 dark:text-teal-400">
                   <ClipboardCheck className="size-3.5" />
                   {isEs ? "Paso opcional" : "Optional next step"}
                 </div>
-                <h2 className="mb-2 mt-3 text-xl font-bold text-stone-900">
+                <h2 className="mb-2 mt-3 text-xl font-bold text-stone-900 dark:text-stone-100">
                   {isEs ? "¿Quieres un plan de 90 días personalizado?" : "Want a personalized 90-day plan?"}
                 </h2>
-                <p className="mb-5 text-sm text-stone-600">
+                <p className="mb-5 text-sm text-stone-600 dark:text-stone-400">
                   {isEs
                     ? "Basado en tus resultados de evaluación, podemos generar un plan de 30/60/90 días con tareas, conversaciones clave y lista de verificación FOGLAMP para tu transición."
                     : "Based on your assessment results, we'll generate a 30/60/90-day plan with tasks, key conversations, and a FOGLAMP checklist tailored to your transition."}
                 </p>
                 {/* STARS type selector */}
                 <div className="mb-5">
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-stone-500 dark:text-stone-400">
                     {isEs ? "¿Cómo describes tu situación actual?" : "Which best describes your situation?"}
                   </p>
                   <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -298,12 +298,12 @@ export default function CareerInsightsPage() {
                         onClick={() => setStarsType(opt.id)}
                         className={`rounded-lg border-2 p-3 text-left text-sm transition-all ${
                           starsType === opt.id
-                            ? "border-teal-500 bg-teal-50 text-teal-900"
-                            : "border-stone-200 bg-white text-stone-700 hover:border-teal-200"
+                            ? "border-teal-500 bg-teal-50 dark:bg-teal-950 text-teal-900"
+                            : "border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 hover:border-teal-200"
                         }`}
                       >
                         <div className="font-semibold">{isEs ? opt.es : opt.en}</div>
-                        <div className="mt-0.5 text-xs text-stone-500">{opt.desc}</div>
+                        <div className="mt-0.5 text-xs text-stone-500 dark:text-stone-400">{opt.desc}</div>
                       </button>
                     ))}
                   </div>
@@ -318,7 +318,7 @@ export default function CareerInsightsPage() {
                   </button>
                   <button
                     onClick={() => setShowPlanPrompt(false)}
-                    className="inline-flex items-center gap-2 rounded-lg border border-stone-200 bg-white px-5 py-2.5 text-sm font-semibold text-stone-600 hover:bg-stone-50"
+                    className="inline-flex items-center gap-2 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-5 py-2.5 text-sm font-semibold text-stone-600 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800"
                   >
                     {isEs ? "No por ahora" : "Skip for now"}
                   </button>
@@ -330,12 +330,12 @@ export default function CareerInsightsPage() {
             {plan && (
               <div id="plan-section">
                 <div className="mb-4 flex items-center justify-between">
-                  <h2 className="text-xl font-bold text-stone-900">
+                  <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">
                     {isEs ? "Tu plan de 90 días" : "Your 90-Day Plan"}
                   </h2>
                   <button
                     onClick={() => { setPlan(null); setShowPlanPrompt(true); }}
-                    className="text-xs text-stone-500 underline hover:text-stone-600"
+                    className="text-xs text-stone-500 dark:text-stone-400 underline hover:text-stone-600 dark:text-stone-400"
                   >
                     {isEs ? "Cambiar escenario" : "Change scenario"}
                   </button>
@@ -346,11 +346,11 @@ export default function CareerInsightsPage() {
 
             {/* Career Pathway */}
             {pathway && (
-              <div className="rounded-xl border border-stone-200 bg-white p-6">
-                <h2 className="mb-2 text-lg font-bold text-stone-900">
+              <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6">
+                <h2 className="mb-2 text-lg font-bold text-stone-900 dark:text-stone-100">
                   {isEs ? "Tu trayectoria profesional" : "Your Career Pathway"}
                 </h2>
-                <p className="mb-4 text-sm text-stone-600">
+                <p className="mb-4 text-sm text-stone-600 dark:text-stone-400">
                   {isEs ? pathway.esDescription : pathway.description}
                 </p>
                 <div className="flex flex-wrap items-center gap-2">
@@ -359,8 +359,8 @@ export default function CareerInsightsPage() {
                       <div
                         className={`rounded-lg px-3 py-1.5 text-sm font-medium ${
                           level.roleId === selectedRole
-                            ? "bg-teal-100 text-teal-800 ring-2 ring-teal-500"
-                            : "bg-stone-100 text-stone-600"
+                            ? "bg-teal-100 dark:bg-teal-900 text-teal-800 ring-2 ring-teal-500"
+                            : "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400"
                         }`}
                       >
                         {isEs ? level.esTitle : level.title}
@@ -373,7 +373,7 @@ export default function CareerInsightsPage() {
                 </div>
                 <Link
                   href="/career-roadmap"
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-700 dark:text-teal-400 hover:text-teal-800"
                 >
                   {isEs ? "Ver trayectoria completa" : "View full career roadmap"}
                   <ArrowRight className="size-3.5" />
@@ -383,8 +383,8 @@ export default function CareerInsightsPage() {
 
             {/* Certifications */}
             {certs && (certs.required.length > 0 || certs.recommended.length > 0) && (
-              <div className="rounded-xl border border-stone-200 bg-white p-6">
-                <h2 className="mb-2 text-lg font-bold text-stone-900">
+              <div className="rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 p-6">
+                <h2 className="mb-2 text-lg font-bold text-stone-900 dark:text-stone-100">
                   {isEs ? "Certificaciones para tu rol" : "Certifications for Your Role"}
                 </h2>
                 {certs.required.length > 0 && (
@@ -425,7 +425,7 @@ export default function CareerInsightsPage() {
                 )}
                 <Link
                   href={`/certifications?role=${selectedRole}`}
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:text-teal-800"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-700 dark:text-teal-400 hover:text-teal-800"
                 >
                   {isEs
                     ? "Ver catálogo completo de certificaciones"
@@ -442,10 +442,10 @@ export default function CareerInsightsPage() {
                   <MessageSquare className="size-5 text-amber-700" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-stone-900">
+                  <h3 className="font-bold text-stone-900 dark:text-stone-100">
                     {isEs ? "Prepara tu entrevista" : "Prepare for Your Interview"}
                   </h3>
-                  <p className="mt-1 text-sm text-stone-600">
+                  <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
                     {isEs
                       ? "Practica preguntas de entrevista específicas para FQHCs con el framework STAR, señales de alerta y guías por rol."
                       : "Practice FQHC-specific interview questions with STAR framework tips, red flags to avoid, and role-specific guides."}
@@ -465,14 +465,14 @@ export default function CareerInsightsPage() {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <Link
                 href="/resume-builder"
-                className="flex items-center justify-center gap-2 rounded-xl border border-teal-200 bg-teal-50 px-4 py-4 text-sm font-semibold text-teal-700 transition-colors hover:bg-teal-100"
+                className="flex items-center justify-center gap-2 rounded-xl border border-teal-200 bg-teal-50 dark:bg-teal-950 px-4 py-4 text-sm font-semibold text-teal-700 dark:text-teal-400 transition-colors hover:bg-teal-100 dark:hover:bg-teal-900"
               >
                 <FileText className="size-4" />
                 {isEs ? "Crear currículum" : "Build Resume"}
               </Link>
               <Link
                 href="/jobs"
-                className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-4 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
+                className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-4 py-4 text-sm font-semibold text-stone-700 dark:text-stone-300 transition-colors hover:bg-stone-50 dark:hover:bg-stone-800"
               >
                 <Briefcase className="size-4" />
                 {isEs ? "Ver empleos" : "Browse Jobs"}
@@ -481,7 +481,7 @@ export default function CareerInsightsPage() {
               {!plan && !showPlanPrompt && (
                 <button
                   onClick={() => setShowPlanPrompt(true)}
-                  className="flex items-center justify-center gap-2 rounded-xl border border-teal-200 bg-white px-4 py-4 text-sm font-semibold text-teal-700 transition-colors hover:bg-teal-50"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-teal-200 bg-white dark:bg-stone-900 px-4 py-4 text-sm font-semibold text-teal-700 dark:text-teal-400 transition-colors hover:bg-teal-50 dark:hover:bg-teal-950"
                 >
                   <MapPin className="size-4" />
                   {isEs ? "Plan de 90 días" : "90-Day Plan"}
@@ -489,7 +489,7 @@ export default function CareerInsightsPage() {
               )}
               <button
                 onClick={handleReset}
-                className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-4 py-4 text-sm font-semibold text-stone-700 transition-colors hover:bg-stone-50"
+                className="flex items-center justify-center gap-2 rounded-xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 px-4 py-4 text-sm font-semibold text-stone-700 dark:text-stone-300 transition-colors hover:bg-stone-50 dark:hover:bg-stone-800"
               >
                 <ClipboardCheck className="size-4" />
                 {isEs ? "Tomar de nuevo" : "Retake Assessment"}
