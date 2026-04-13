@@ -11,8 +11,8 @@ import {
   Users,
   BadgeDollarSign,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/ui/design-system";
 
 export default async function AboutPage({
   params,
@@ -43,24 +43,18 @@ export default async function AboutPage({
   return (
     <div className="bg-stone-50">
       {/* ==================== HERO ==================== */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 text-white">
-        <div className="absolute -left-32 -top-32 size-96 rounded-full bg-teal-500/20 blur-3xl" />
-        <div className="absolute -bottom-40 -right-40 size-[28rem] rounded-full bg-amber-500/10 blur-3xl" />
-
-        <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
-          <Badge className="mb-6 border-teal-400/30 bg-teal-500/20 text-teal-100 hover:bg-teal-500/30">
-            {t("subtitle")}
-          </Badge>
-
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {t("heroTitle")}
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-teal-100/90">
-            {t("heroSubtitle")}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "We Exist Because Community Health Workers Deserve Better",
+          es: "Existimos Porque los Trabajadores de Salud Comunitaria Merecen Algo Mejor",
+        }}
+        subtitle={{
+          en: "When California\u2019s Medi-Cal funding cuts displaced thousands of community health workers, we saw an industry failing the very people who hold it together. FQHC Talent was built to fix that.",
+          es: "Cuando los cortes de financiamiento de Medi-Cal de California desplazaron a miles de trabajadores de salud comunitaria, vimos una industria fall\u00e1ndole a las personas que la sostienen. FQHC Talent fue creado para arreglarlo.",
+        }}
+        meta={t("subtitle")}
+      />
 
       {/* ==================== STATS BAR ==================== */}
       <section className="border-b border-stone-200 bg-white">

@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import {
   INTERVIEW_QUESTIONS,
   CATEGORY_LABELS,
@@ -423,67 +423,61 @@ export default function InterviewPrepPage() {
         { label: isEs ? "Preparaci\u00f3n para Entrevistas" : "Interview Prep" },
       ]} />
       {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 text-white">
-        <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <span className="mb-4 inline-flex items-center rounded-full bg-teal-700 px-3 py-1 text-xs font-semibold text-teal-200">
-              {isEs ? "Gratis · Específico para FQHC · CA" : "Free · FQHC-Specific · CA"}
-            </span>
-            <h1 className="mb-3 text-3xl font-bold tracking-tight sm:text-4xl">
-              {isEs
-                ? "Preparación para Entrevistas FQHC"
-                : "FQHC Interview Prep Tool"}
-            </h1>
-            <p className="mb-6 text-lg leading-relaxed text-teal-200">
-              {isEs
-                ? "10 preguntas reales con la estructura STAR, ejemplos de respuestas fuertes y banderas rojas — diseñado específicamente para roles de FQHCs en California."
-                : "10 real questions with STAR framework, strong answer examples, and red flags — built specifically for California FQHC roles."}
-            </p>
-            <div className="flex flex-wrap gap-4 text-sm text-teal-300 mb-6">
-              <span className="flex items-center gap-1.5">
-                <span className="size-1.5 rounded-full bg-teal-400" />
-                {isEs ? "10 preguntas FQHC" : "10 FQHC-specific questions"}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="size-1.5 rounded-full bg-teal-400" />
-                {isEs
-                  ? "Guías de rol (CHW, RN, Coordinador)"
-                  : "Role guides (CHW, RN, Coordinator)"}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="size-1.5 rounded-full bg-teal-400" />
-                {isEs ? "Tips de negociación salarial" : "Salary negotiation tips"}
-              </span>
-            </div>
-
-            {/* Mode Toggle */}
-            <div className="inline-flex rounded-lg bg-teal-800/50 p-1">
-              <button
-                onClick={() => setMode("reference")}
-                className={`flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all ${
-                  mode === "reference"
-                    ? "bg-white dark:bg-stone-900 text-teal-800 shadow-sm"
-                    : "text-teal-200 hover:text-white"
-                }`}
-              >
-                <BookOpen className="size-4" />
-                {isEs ? "Guía de Referencia" : "Reference Guide"}
-              </button>
-              <button
-                onClick={() => setMode("practice")}
-                className={`flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all ${
-                  mode === "practice"
-                    ? "bg-white dark:bg-stone-900 text-teal-800 shadow-sm"
-                    : "text-teal-200 hover:text-white"
-                }`}
-              >
-                <Play className="size-4" />
-                {isEs ? "Modo Práctica" : "Practice Mode"}
-              </button>
-            </div>
-          </div>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "FQHC Interview Prep Tool",
+          es: "Preparaci\u00f3n para Entrevistas FQHC",
+        }}
+        subtitle={{
+          en: "10 real questions with STAR framework, strong answer examples, and red flags \u2014 built specifically for California FQHC roles.",
+          es: "10 preguntas reales con la estructura STAR, ejemplos de respuestas fuertes y banderas rojas \u2014 dise\u00f1ado espec\u00edficamente para roles de FQHCs en California.",
+        }}
+        meta={isEs ? "Gratis \u00b7 Espec\u00edfico para FQHC \u00b7 CA" : "Free \u00b7 FQHC-Specific \u00b7 CA"}
+      >
+        <div className="flex flex-wrap gap-4 text-sm text-stone-400 mb-6">
+          <span className="flex items-center gap-1.5">
+            <span className="size-1.5 rounded-full bg-teal-400" />
+            {isEs ? "10 preguntas FQHC" : "10 FQHC-specific questions"}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="size-1.5 rounded-full bg-teal-400" />
+            {isEs
+              ? "Gu\u00edas de rol (CHW, RN, Coordinador)"
+              : "Role guides (CHW, RN, Coordinator)"}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="size-1.5 rounded-full bg-teal-400" />
+            {isEs ? "Tips de negociaci\u00f3n salarial" : "Salary negotiation tips"}
+          </span>
         </div>
-      </section>
+
+        {/* Mode Toggle */}
+        <div className="inline-flex rounded-lg bg-stone-800/50 p-1">
+          <button
+            onClick={() => setMode("reference")}
+            className={`flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all ${
+              mode === "reference"
+                ? "bg-white dark:bg-stone-900 text-stone-800 shadow-sm"
+                : "text-stone-300 hover:text-white"
+            }`}
+          >
+            <BookOpen className="size-4" />
+            {isEs ? "Gu\u00eda de Referencia" : "Reference Guide"}
+          </button>
+          <button
+            onClick={() => setMode("practice")}
+            className={`flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all ${
+              mode === "practice"
+                ? "bg-white dark:bg-stone-900 text-stone-800 shadow-sm"
+                : "text-stone-300 hover:text-white"
+            }`}
+          >
+            <Play className="size-4" />
+            {isEs ? "Modo Pr\u00e1ctica" : "Practice Mode"}
+          </button>
+        </div>
+      </PageHero>
 
       {/* TOC */}
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">

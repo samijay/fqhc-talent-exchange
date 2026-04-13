@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import {
   ArrowRight,
   Brain,
@@ -312,36 +312,18 @@ export default function CulturalHumilityPage() {
         { label: "Strategy", href: "/strategy/cultural-humility" },
         { label: "Cultural Humility" },
       ]} />
-      {/* ============================================================ */}
-      {/*  Hero                                                        */}
-      {/* ============================================================ */}
-      <section className="relative bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 right-20 size-72 rounded-full bg-purple-500 blur-3xl" />
-          <div className="absolute bottom-10 left-10 size-56 rounded-full bg-teal-500 blur-3xl" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <Badge className="bg-purple-900/50 text-purple-300 border-purple-700 mb-4">
-            <Heart className="mr-1.5 size-3.5" />
-            {isEs ? "Estrategia de Fuerza Laboral" : "Workforce Strategy"}
-          </Badge>
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            {isEs
-              ? "Humildad Cultural y Atención Centrada en la Comunidad"
-              : "Cultural Humility & Community-Centered Care"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300 leading-relaxed">
-            {isEs
-              ? "No se trata de marcar una casilla — es una forma de practicar. Marcos, métricas y escenarios del mundo real para que líderes de FQHCs aprovechen su fuerza laboral multicultural como una fortaleza."
-              : "Not a box to check \u2014 a way of practicing. Frameworks, metrics, and real-world scenarios for FQHC leaders to leverage their multicultural workforce as a strength."}
-          </p>
-          <p className="mt-4 text-sm text-stone-500">
-            {isEs ? "Datos actualizados:" : "Data updated:"}{" "}
-            {CULTURAL_HUMILITY_LAST_UPDATED}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "Cultural Humility & Community-Centered Care",
+          es: "Humildad Cultural y Atención Centrada en la Comunidad",
+        }}
+        subtitle={{
+          en: "Not a box to check \u2014 a way of practicing. Frameworks, metrics, and real-world scenarios for FQHC leaders to leverage their multicultural workforce as a strength.",
+          es: "No se trata de marcar una casilla — es una forma de practicar. Marcos, métricas y escenarios del mundo real para que líderes de FQHCs aprovechen su fuerza laboral multicultural como una fortaleza.",
+        }}
+        meta={`${isEs ? "Datos actualizados:" : "Data updated:"} ${CULTURAL_HUMILITY_LAST_UPDATED}`}
+      />
 
       {/* ============================================================ */}
       {/*  EO 14398 Alert                                              */}

@@ -4,6 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { PageHero } from "@/components/ui/design-system";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
   ArrowRight,
@@ -390,47 +391,21 @@ export default function WorkforceResiliencePage() {
 
   return (
     <div className="bg-white">
-      {/* ── Dark Hero ──────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-stone-950 via-stone-900 to-stone-800 text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="max-w-3xl">
-            <Badge className="mb-4 border-red-400/30 bg-red-500/10 text-red-300 hover:bg-red-500/20">
-              <AlertTriangle className="mr-1 size-3" />
-              {isEs ? "Crisis de Fuerza Laboral" : "Workforce Crisis"}
-            </Badge>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              {isEs
-                ? "Centro de Resiliencia y Retención de la Fuerza Laboral"
-                : "Workforce Resilience & Retention Hub"}
-            </h1>
-            <p className="mt-4 text-lg text-stone-300 leading-relaxed">
-              {isEs
-                ? "El costo de la rotación está destruyendo los presupuestos de los FQHC. Esta guía unifica 22 estrategias basadas en evidencia, un calculador de costos de rotación y benchmarks de retención — todo en un solo lugar."
-                : "Turnover is destroying FQHC budgets. This hub unifies 22 evidence-based retention strategies, a turnover cost calculator, and retention benchmarks — all in one place."}
-            </p>
-          </div>
-
-          {/* Hero Stats */}
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {HERO_STATS.map((stat) => (
-              <div
-                key={stat.value}
-                className="rounded-xl border border-stone-700/50 bg-stone-800/50 px-4 py-4 backdrop-blur-sm"
-              >
-                <p className="text-2xl font-bold text-red-400 sm:text-3xl">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-xs text-stone-500 leading-relaxed">
-                  {t(stat.label, locale)}
-                </p>
-                <p className="mt-1 text-xs text-stone-500">
-                  {stat.source}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "Workforce Resilience & Retention Hub",
+          es: "Centro de Resiliencia y Retención de la Fuerza Laboral",
+        }}
+        subtitle={{
+          en: "Turnover is destroying FQHC budgets. This hub unifies 22 evidence-based retention strategies, a turnover cost calculator, and retention benchmarks — all in one place.",
+          es: "El costo de la rotación está destruyendo los presupuestos de los FQHC. Esta guía unifica 22 estrategias basadas en evidencia, un calculador de costos de rotación y benchmarks de retención — todo en un solo lugar.",
+        }}
+        stats={HERO_STATS.map((stat) => ({
+          value: stat.value,
+          label: t(stat.label, locale),
+        }))}
+      />
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* ── Turnover Cost Calculator ────────────────────────── */}

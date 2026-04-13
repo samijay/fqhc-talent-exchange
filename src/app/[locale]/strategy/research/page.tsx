@@ -4,7 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
   BookOpen,
@@ -259,42 +259,20 @@ export default function ResearchArchivePage() {
         { label: "Strategy", href: "/strategy/research" },
         { label: "Research Archive" },
       ]} />
-      {/* ── Hero ────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 px-4">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="flex justify-center mb-4">
-            <Library className="h-12 w-12 text-amber-400" />
-          </div>
-          <h1 className="text-3xl sm:text-4xl font-bold mb-3">
-            {isEs
-              ? "Archivo de Investigación Académica"
-              : "Academic Research Archive"}
-          </h1>
-          <p className="text-lg text-stone-300 max-w-3xl mx-auto mb-4">
-            {isEs
-              ? "Fundamentos y evolución de la investigación en atención primaria, salud comunitaria y salud pública — curada para clínicos, no clínicos y líderes de FQHCs."
-              : "Foundations and evolution of primary care, community health, and public health research — curated for clinicians, non-clinicians, and FQHC leaders."}
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-stone-500">
-            <span className="flex items-center gap-1">
-              <BookOpen className="h-4 w-4" />
-              {RESEARCH_ENTRIES.length} {isEs ? "recursos" : "resources"}
-            </span>
-            <span className="flex items-center gap-1">
-              <Filter className="h-4 w-4" />
-              {RESEARCH_DOMAINS.length} {isEs ? "dominios" : "domains"}
-            </span>
-            <span className="flex items-center gap-1">
-              <GraduationCap className="h-4 w-4" />
-              {CURRICULUM_TRACKS.length} {isEs ? "currículos" : "curriculum tracks"}
-            </span>
-            <span className="flex items-center gap-1">
-              <Calendar className="h-4 w-4" />
-              {isEs ? "Actualizado" : "Updated"} {RESEARCH_ARCHIVE_LAST_UPDATED}
-            </span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "Academic Research Archive", es: "Archivo de Investigación Académica" }}
+        subtitle={{
+          en: "Foundations and evolution of primary care, community health, and public health research — curated for clinicians, non-clinicians, and FQHC leaders.",
+          es: "Fundamentos y evolución de la investigación en atención primaria, salud comunitaria y salud pública — curada para clínicos, no clínicos y líderes de FQHCs.",
+        }}
+        stats={[
+          { value: String(RESEARCH_ENTRIES.length), label: isEs ? "Recursos" : "Resources" },
+          { value: String(RESEARCH_DOMAINS.length), label: isEs ? "Dominios" : "Domains" },
+          { value: String(CURRICULUM_TRACKS.length), label: isEs ? "Currículos" : "Curriculum Tracks" },
+        ]}
+        meta={`${isEs ? "Actualizado" : "Updated"}: ${RESEARCH_ARCHIVE_LAST_UPDATED}`}
+      />
 
       {/* TOC */}
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">

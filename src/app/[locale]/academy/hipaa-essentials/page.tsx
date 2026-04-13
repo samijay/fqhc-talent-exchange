@@ -20,6 +20,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { PageHero } from "@/components/ui/design-system";
 import { CoursePlayer } from "@/components/academy/CoursePlayer";
 import {
   HIPAA_MODULES,
@@ -86,39 +87,23 @@ export default function HIPAACoursePage() {
         </div>
 
         {/* Hero */}
-        <div className="text-center mb-12">
-          <Badge className="mb-4 bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200">
-            <Sparkles className="h-3 w-3 mr-1" />
-            {isEs ? "100% Gratis • 4 Módulos • 30 Min" : "100% Free • 4 Modules • 30 Min"}
-          </Badge>
-
-          <h1 className="text-3xl md:text-4xl font-bold text-stone-800 dark:text-stone-100 mb-4">
-            {isEs
-              ? "Fundamentos HIPAA para Personal de FQHC"
-              : "HIPAA Essentials for FQHC Staff"}
-          </h1>
-
-          <p className="text-lg text-stone-500 dark:text-stone-500 max-w-2xl mx-auto mb-6">
-            {isEs
-              ? "Protege la privacidad del paciente y cumple los requisitos HIPAA. Cubre la Regla de Privacidad, Regla de Seguridad, respuesta a violaciones y hábitos diarios — con escenarios reales de FQHC."
-              : "Protect patient privacy and meet HIPAA requirements. Covers the Privacy Rule, Security Rule, breach response, and daily habits — with real FQHC scenarios."}
-          </p>
-
-          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-500 mb-8">
-            <span className="flex items-center gap-1">
-              <Clock className="h-4 w-4" />
-              {TOTAL_MINUTES} {isEs ? "minutos" : "minutes"}
-            </span>
-            <span className="flex items-center gap-1">
-              <BookOpen className="h-4 w-4" />
-              4 {isEs ? "módulos" : "modules"}
-            </span>
-            <span className="flex items-center gap-1">
-              <Zap className="h-4 w-4 text-amber-500" />
-              {HIPAA_TOTAL_XP} XP
-            </span>
-          </div>
-
+        <PageHero
+          variant="minimal"
+          title={{
+            en: "HIPAA Essentials for FQHC Staff",
+            es: "Fundamentos HIPAA para Personal de FQHC",
+          }}
+          subtitle={{
+            en: "Protect patient privacy and meet HIPAA requirements. Covers the Privacy Rule, Security Rule, breach response, and daily habits \u2014 with real FQHC scenarios.",
+            es: "Protege la privacidad del paciente y cumple los requisitos HIPAA. Cubre la Regla de Privacidad, Regla de Seguridad, respuesta a violaciones y h\u00e1bitos diarios \u2014 con escenarios reales de FQHC.",
+          }}
+          meta={isEs ? `100% Gratis \u2022 4 M\u00f3dulos \u2022 ${TOTAL_MINUTES} Min` : `100% Free \u2022 4 Modules \u2022 ${TOTAL_MINUTES} Min`}
+          stats={[
+            { value: `${TOTAL_MINUTES}`, label: isEs ? "minutos" : "minutes" },
+            { value: "4", label: isEs ? "m\u00f3dulos" : "modules" },
+            { value: `${HIPAA_TOTAL_XP}`, label: "XP" },
+          ]}
+        >
           <Button
             onClick={() => setCourseStarted(true)}
             className="bg-teal-600 hover:bg-teal-700 text-white px-8 h-12 text-base"
@@ -126,7 +111,7 @@ export default function HIPAACoursePage() {
             {isEs ? "Comenzar Curso Gratis" : "Start Free Course"}
             <ArrowRight className="h-5 w-5 ml-2" />
           </Button>
-        </div>
+        </PageHero>
 
         {/* What you'll learn */}
         <div className="mb-12">

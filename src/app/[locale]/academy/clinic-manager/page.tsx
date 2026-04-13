@@ -24,6 +24,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { PageHero } from "@/components/ui/design-system";
 import { CoursePlayer } from "@/components/academy/CoursePlayer";
 import {
   CLINIC_MANAGER_MODULES,
@@ -92,39 +93,23 @@ export default function ClinicManagerCoursePage() {
         </div>
 
         {/* Hero */}
-        <div className="text-center mb-12">
-          <Badge className="mb-4 bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">
-            <Sparkles className="h-3 w-3 mr-1" />
-            {isEs ? "100% Gratis • 8 Módulos • Interactivo" : "100% Free • 8 Modules • Interactive"}
-          </Badge>
-
-          <h1 className="text-3xl md:text-4xl font-bold text-stone-800 dark:text-stone-100 mb-4">
-            {isEs
-              ? "Clase Magistral de Gerente de Clínica"
-              : "Clinic Manager Master Class"}
-          </h1>
-
-          <p className="text-lg text-stone-500 dark:text-stone-500 max-w-2xl mx-auto mb-6">
-            {isEs
-              ? "El manual completo de operaciones para gerentes de FQHC. Domina facturación PPS, diseño de equipos, programación, integración de servicios, CalAIM y retención de personal."
-              : "The complete operations playbook for FQHC managers. Master PPS billing, team design, scheduling, service integration, CalAIM, and workforce retention."}
-          </p>
-
-          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-500 mb-8">
-            <span className="flex items-center gap-1">
-              <Clock className="h-4 w-4" />
-              {CLINIC_MANAGER_TOTAL_MINUTES} {isEs ? "minutos" : "minutes"}
-            </span>
-            <span className="flex items-center gap-1">
-              <BookOpen className="h-4 w-4" />
-              8 {isEs ? "módulos" : "modules"}
-            </span>
-            <span className="flex items-center gap-1">
-              <Zap className="h-4 w-4 text-amber-500" />
-              {CLINIC_MANAGER_TOTAL_XP} XP
-            </span>
-          </div>
-
+        <PageHero
+          variant="minimal"
+          title={{
+            en: "Clinic Manager Master Class",
+            es: "Clase Magistral de Gerente de Cl\u00ednica",
+          }}
+          subtitle={{
+            en: "The complete operations playbook for FQHC managers. Master PPS billing, team design, scheduling, service integration, CalAIM, and workforce retention.",
+            es: "El manual completo de operaciones para gerentes de FQHC. Domina facturaci\u00f3n PPS, dise\u00f1o de equipos, programaci\u00f3n, integraci\u00f3n de servicios, CalAIM y retenci\u00f3n de personal.",
+          }}
+          meta={isEs ? "100% Gratis \u2022 8 M\u00f3dulos \u2022 Interactivo" : "100% Free \u2022 8 Modules \u2022 Interactive"}
+          stats={[
+            { value: `${CLINIC_MANAGER_TOTAL_MINUTES}`, label: isEs ? "minutos" : "minutes" },
+            { value: "8", label: isEs ? "m\u00f3dulos" : "modules" },
+            { value: `${CLINIC_MANAGER_TOTAL_XP}`, label: "XP" },
+          ]}
+        >
           <Button
             onClick={() => setCourseStarted(true)}
             className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 h-12 text-base"
@@ -132,7 +117,7 @@ export default function ClinicManagerCoursePage() {
             {isEs ? "Comenzar Curso Gratis" : "Start Free Course"}
             <ArrowRight className="h-5 w-5 ml-2" />
           </Button>
-        </div>
+        </PageHero>
 
         {/* What you'll learn */}
         <div className="mb-12">

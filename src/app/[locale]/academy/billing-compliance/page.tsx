@@ -20,6 +20,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { PageHero } from "@/components/ui/design-system";
 import { CoursePlayer } from "@/components/academy/CoursePlayer";
 import {
   BILLING_MODULES,
@@ -84,39 +85,23 @@ export default function BillingComplianceCoursePage() {
         </div>
 
         {/* Hero */}
-        <div className="text-center mb-12">
-          <Badge className="mb-4 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-            <Sparkles className="h-3 w-3 mr-1" />
-            {isEs ? `100% Gratis • 3 Módulos • ${TOTAL_MINUTES} Min` : `100% Free • 3 Modules • ${TOTAL_MINUTES} Min`}
-          </Badge>
-
-          <h1 className="text-3xl md:text-4xl font-bold text-stone-800 dark:text-stone-100 mb-4">
-            {isEs
-              ? "Cumplimiento de Facturación 101"
-              : "Billing Compliance 101"}
-          </h1>
-
-          <p className="text-lg text-stone-500 dark:text-stone-500 max-w-2xl mx-auto mb-6">
-            {isEs
-              ? "Domina las reglas de facturación PPS para FQHCs, requisitos de documentación y la Ley de Reclamaciones Falsas. Prevén fugas de ingresos y protege tu organización."
-              : "Master FQHC PPS billing rules, documentation requirements, and the False Claims Act. Prevent revenue leaks and protect your organization."}
-          </p>
-
-          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-500 mb-8">
-            <span className="flex items-center gap-1">
-              <Clock className="h-4 w-4" />
-              {TOTAL_MINUTES} {isEs ? "minutos" : "minutes"}
-            </span>
-            <span className="flex items-center gap-1">
-              <BookOpen className="h-4 w-4" />
-              3 {isEs ? "módulos" : "modules"}
-            </span>
-            <span className="flex items-center gap-1">
-              <Zap className="h-4 w-4 text-amber-500" />
-              {BILLING_TOTAL_XP} XP
-            </span>
-          </div>
-
+        <PageHero
+          variant="minimal"
+          title={{
+            en: "Billing Compliance 101",
+            es: "Cumplimiento de Facturaci\u00f3n 101",
+          }}
+          subtitle={{
+            en: "Master FQHC PPS billing rules, documentation requirements, and the False Claims Act. Prevent revenue leaks and protect your organization.",
+            es: "Domina las reglas de facturaci\u00f3n PPS para FQHCs, requisitos de documentaci\u00f3n y la Ley de Reclamaciones Falsas. Prev\u00e9n fugas de ingresos y protege tu organizaci\u00f3n.",
+          }}
+          meta={isEs ? `100% Gratis \u2022 3 M\u00f3dulos \u2022 ${TOTAL_MINUTES} Min` : `100% Free \u2022 3 Modules \u2022 ${TOTAL_MINUTES} Min`}
+          stats={[
+            { value: `${TOTAL_MINUTES}`, label: isEs ? "minutos" : "minutes" },
+            { value: "3", label: isEs ? "m\u00f3dulos" : "modules" },
+            { value: `${BILLING_TOTAL_XP}`, label: "XP" },
+          ]}
+        >
           <Button
             onClick={() => setCourseStarted(true)}
             className="bg-green-600 hover:bg-green-700 text-white px-8 h-12 text-base"
@@ -124,7 +109,7 @@ export default function BillingComplianceCoursePage() {
             {isEs ? "Comenzar Curso Gratis" : "Start Free Course"}
             <ArrowRight className="h-5 w-5 ml-2" />
           </Button>
-        </div>
+        </PageHero>
 
         {/* What you'll learn */}
         <div className="mb-12">

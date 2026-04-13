@@ -4,7 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import {
   ArrowRight,
   ArrowUpDown,
@@ -324,37 +324,18 @@ export default function ResiliencePage() {
         { label: "Strategy", href: "/strategy/resilience" },
         { label: "Resilience Scorecard" },
       ]} />
-      {/* ============================================================ */}
-      {/*  Hero                                                        */}
-      {/* ============================================================ */}
-      <section className="relative bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 right-20 size-72 rounded-full bg-teal-500 blur-3xl" />
-          <div className="absolute bottom-10 left-10 size-56 rounded-full bg-amber-500 blur-3xl" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <Badge className="bg-teal-900/50 text-teal-300 border-teal-700 mb-4">
-            <BarChart3 className="mr-1.5 size-3.5" />
-            {isEs ? "Inteligencia Estratégica" : "Strategic Intelligence"}
-          </Badge>
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            {isEs
-              ? "Tarjeta de Resiliencia de FQHCs"
-              : "FQHC Resilience Scorecard"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300 leading-relaxed">
-            {isEs
-              ? "Cada FQHC de California evaluado en 5 dimensiones de resiliencia. Vea cómo se compara su organización — y dónde concentrar los esfuerzos de fortalecimiento."
-              : "Every California FQHC scored across 5 resilience dimensions. See how your organization compares — and where to focus strengthening efforts."}
-          </p>
-          <p className="mt-4 text-sm text-stone-500">
-            {isEs ? "Datos actualizados:" : "Data updated:"}{" "}
-            {RESILIENCE_LAST_UPDATED} ·{" "}
-            {isEs ? `${stats.total} FQHCs evaluados` : `${stats.total} FQHCs scored`}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "FQHC Resilience Scorecard",
+          es: "Tarjeta de Resiliencia de FQHCs",
+        }}
+        subtitle={{
+          en: "Every California FQHC scored across 5 resilience dimensions. See how your organization compares — and where to focus strengthening efforts.",
+          es: "Cada FQHC de California evaluado en 5 dimensiones de resiliencia. Vea cómo se compara su organización — y dónde concentrar los esfuerzos de fortalecimiento.",
+        }}
+        meta={`${isEs ? "Datos actualizados:" : "Data updated:"} ${RESILIENCE_LAST_UPDATED} · ${isEs ? `${stats.total} FQHCs evaluados` : `${stats.total} FQHCs scored`}`}
+      />
 
       {/* ============================================================ */}
       {/*  Stats Bar                                                   */}

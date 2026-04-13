@@ -42,6 +42,7 @@ import {
   EHR_SYSTEMS,
   LOCUM_LAST_UPDATED,
 } from "@/lib/locum-tenens-data";
+import { PageHero } from "@/components/ui/design-system";
 import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
@@ -163,52 +164,29 @@ export default function LocumTenensPage() {
       {/* ============================================================ */}
       {/*  HERO                                                         */}
       {/* ============================================================ */}
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-stone-900 px-4 py-16 sm:py-20">
-        <div className="mx-auto max-w-5xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-700/50 px-4 py-1.5 text-sm font-medium text-teal-100">
-            <Stethoscope className="size-4" />
-            {isEs ? "Próximamente — Únase a la Red" : "Coming Soon — Join the Network"}
-          </div>
-          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-            {isEs
-              ? "Cobertura de Proveedores a Tarifa FQHC"
-              : "FQHC-Rate Provider Coverage"}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-teal-100">
-            {isEs
-              ? "Proveedores temporales comprometidos con la misión a tarifas que los FQHCs pueden pagar. Sin markup de agencia. Licenciados en California."
-              : "Mission-driven temporary providers at rates FQHCs can afford. No agency markup. California-licensed."}
-          </p>
-
-          {/* Stats */}
-          <div className="mt-8 grid grid-cols-3 gap-4">
-            <div className="rounded-xl bg-white/10 px-4 py-3 backdrop-blur-sm">
-              <div className="text-2xl font-bold text-white">40-60%</div>
-              <div className="text-xs text-teal-200">
-                {isEs ? "Ahorro vs agencia" : "Savings vs agency"}
-              </div>
-            </div>
-            <div className="rounded-xl bg-white/10 px-4 py-3 backdrop-blur-sm">
-              <div className="text-2xl font-bold text-white">$0</div>
-              <div className="text-xs text-teal-200">
-                {isEs ? "Costo de la plataforma" : "Platform cost"}
-              </div>
-            </div>
-            <div className="rounded-xl bg-white/10 px-4 py-3 backdrop-blur-sm">
-              <div className="text-2xl font-bold text-white">CA</div>
-              <div className="text-xs text-teal-200">
-                {isEs ? "Proveedores licenciados" : "Licensed providers"}
-              </div>
-            </div>
-          </div>
-
-          <p className="mx-auto mt-6 max-w-xl text-xs text-teal-300/70">
-            {isEs
-              ? "Plataforma de coincidencia gratuita. No somos una agencia de empleo. Los proveedores contratan directamente con los FQHCs."
-              : "Free matching platform. We are not an employment agency. Providers contract directly with FQHCs."}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "FQHC-Rate Provider Coverage",
+          es: "Cobertura de Proveedores a Tarifa FQHC",
+        }}
+        subtitle={{
+          en: "Mission-driven temporary providers at rates FQHCs can afford. No agency markup. California-licensed.",
+          es: "Proveedores temporales comprometidos con la misi\u00f3n a tarifas que los FQHCs pueden pagar. Sin markup de agencia. Licenciados en California.",
+        }}
+        meta={isEs ? "Pr\u00f3ximamente \u2014 \u00danase a la Red" : "Coming Soon \u2014 Join the Network"}
+        stats={[
+          { value: "40-60%", label: isEs ? "Ahorro vs agencia" : "Savings vs agency" },
+          { value: "$0", label: isEs ? "Costo de la plataforma" : "Platform cost" },
+          { value: "CA", label: isEs ? "Proveedores licenciados" : "Licensed providers" },
+        ]}
+      >
+        <p className="max-w-xl text-xs text-stone-500">
+          {isEs
+            ? "Plataforma de coincidencia gratuita. No somos una agencia de empleo. Los proveedores contratan directamente con los FQHCs."
+            : "Free matching platform. We are not an employment agency. Providers contract directly with FQHCs."}
+        </p>
+      </PageHero>
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         {/* ============================================================ */}

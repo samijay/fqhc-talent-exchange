@@ -4,7 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import {
   ArrowRight,
   Calendar,
@@ -408,50 +408,21 @@ export default function AdvocacyWatchPage() {
 
   return (
     <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-teal-900 to-teal-800 px-6 py-16 text-white">
-        <div className="mx-auto max-w-6xl">
-          <Breadcrumb
-            items={[
-              { label: isEs ? "Inicio" : "Home", href: "/" },
-              { label: isEs ? "Inteligencia" : "Intelligence", href: "/demo" },
-              { label: isEs ? "Seguimiento de Abogac\u00eda" : "Advocacy Watch" },
-            ]}
-          />
-          <h1 className="mt-6 text-4xl font-bold md:text-5xl">
-            {isEs ? "Seguimiento de Abogac\u00eda" : "Advocacy Watch"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-teal-100">
-            {isEs
-              ? "Seguimiento de legislaci\u00f3n, iniciativas electorales, acciones de coalici\u00f3n y fallos legales que protegen el financiamiento de FQHCs. Fechas de seguimiento, resultados y herramientas para tomar acci\u00f3n."
-              : "Tracking legislation, ballot initiatives, coalition actions, and legal rulings protecting FQHC funding. Follow-up dates, outcomes, and tools to take action."}
-          </p>
-
-          {/* Stats bar */}
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            <div className="rounded-lg bg-white/10 px-4 py-3 text-center">
-              <p className="text-2xl font-bold text-amber-400">{counts.total}</p>
-              <p className="text-xs text-teal-200">{isEs ? "Acciones rastreadas" : "Actions tracked"}</p>
-            </div>
-            <div className="rounded-lg bg-white/10 px-4 py-3 text-center">
-              <p className="text-2xl font-bold text-green-400">{counts.active}</p>
-              <p className="text-xs text-teal-200">{isEs ? "Activas ahora" : "Active now"}</p>
-            </div>
-            <div className="rounded-lg bg-white/10 px-4 py-3 text-center">
-              <p className="text-2xl font-bold text-amber-400">{counts.pendingVote}</p>
-              <p className="text-xs text-teal-200">{isEs ? "Votos pendientes" : "Pending votes"}</p>
-            </div>
-            <div className="rounded-lg bg-white/10 px-4 py-3 text-center">
-              <p className="text-2xl font-bold text-white">{counts.upcoming}</p>
-              <p className="text-xs text-teal-200">{isEs ? "Seguimientos pr\u00f3ximos" : "Upcoming follow-ups"}</p>
-            </div>
-          </div>
-
-          <p className="mt-4 text-xs text-teal-300">
-            {isEs ? "Actualizado:" : "Updated:"} {ADVOCACY_LAST_UPDATED}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "Advocacy Watch", es: "Seguimiento de Abogac\u00eda" }}
+        subtitle={{
+          en: "Tracking legislation, ballot initiatives, coalition actions, and legal rulings protecting FQHC funding. Follow-up dates, outcomes, and tools to take action.",
+          es: "Seguimiento de legislaci\u00f3n, iniciativas electorales, acciones de coalici\u00f3n y fallos legales que protegen el financiamiento de FQHCs. Fechas de seguimiento, resultados y herramientas para tomar acci\u00f3n.",
+        }}
+        meta={`${isEs ? "Actualizado:" : "Updated:"} ${ADVOCACY_LAST_UPDATED}`}
+        stats={[
+          { value: String(counts.total), label: isEs ? "Acciones rastreadas" : "Actions tracked" },
+          { value: String(counts.active), label: isEs ? "Activas ahora" : "Active now" },
+          { value: String(counts.pendingVote), label: isEs ? "Votos pendientes" : "Pending votes" },
+          { value: String(counts.upcoming), label: isEs ? "Seguimientos pr\u00f3ximos" : "Upcoming follow-ups" },
+        ]}
+      />
 
       <div className="mx-auto max-w-6xl px-6 py-8">
         {/* Upcoming follow-ups strip */}

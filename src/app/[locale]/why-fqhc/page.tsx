@@ -15,6 +15,7 @@ import {
   Star,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/ui/design-system";
 import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 
 /* ------------------------------------------------------------------ */
@@ -155,31 +156,18 @@ export default async function WhyFQHCPage() {
       {/* ============================================================ */}
       {/*  Hero                                                         */}
       {/* ============================================================ */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-teal-900 via-teal-800 to-teal-700 text-white">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle at 25% 50%, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
-        </div>
-        <div className="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <div className="text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-teal-100 backdrop-blur-sm">
-              <Heart className="size-4" />
-              {t({ en: "Career Guide", es: "Guía de Carrera" }, locale)}
-            </div>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-              {t({
-                en: "Why Work at an FQHC?",
-                es: "¿Por Qué Trabajar en un FQHC?",
-              }, locale)}
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-teal-100 sm:text-xl">
-              {t({
-                en: "Smaller teams. Bigger impact. Faster growth. Here's why mission-driven healthcare professionals choose Federally Qualified Health Centers over large hospital systems and private practice.",
-                es: "Equipos más pequeños. Mayor impacto. Crecimiento más rápido. Descubre por qué los profesionales de salud comprometidos con su misión eligen los Centros de Salud Comunitarios sobre grandes sistemas hospitalarios y práctica privada.",
-              }, locale)}
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "Why Work at an FQHC?",
+          es: "\u00bfPor Qu\u00e9 Trabajar en un FQHC?",
+        }}
+        subtitle={{
+          en: "Smaller teams. Bigger impact. Faster growth. Here\u2019s why mission-driven healthcare professionals choose Federally Qualified Health Centers over large hospital systems and private practice.",
+          es: "Equipos m\u00e1s peque\u00f1os. Mayor impacto. Crecimiento m\u00e1s r\u00e1pido. Descubre por qu\u00e9 los profesionales de salud comprometidos con su misi\u00f3n eligen los Centros de Salud Comunitarios sobre grandes sistemas hospitalarios y pr\u00e1ctica privada.",
+        }}
+        meta={t({ en: "Career Guide", es: "Gu\u00eda de Carrera" }, locale)}
+      />
 
       {/* ============================================================ */}
       {/*  Section 1: Lead Sooner                                       */}

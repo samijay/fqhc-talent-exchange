@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { PageHero } from "@/components/ui/design-system";
 import {
   executionFrameworks,
   categoryMeta,
@@ -224,47 +225,20 @@ export default function ExecutionFrameworksPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-widest text-amber-400">
-              {isEs ? "Herramientas Ejecutivas" : "Executive Tools"}
-            </p>
-            <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              {isEs
-                ? "Marcos de Ejecución para FQHCs"
-                : "Execution Frameworks for FQHCs"}
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-stone-300">
-              {isEs
-                ? "Gestión del cambio, toma de decisiones y excelencia operacional — adaptados para centros de salud comunitarios. Comparta con su equipo."
-                : "Change management, decision-making, and operational excellence — adapted for community health centers. Share with your team."}
-            </p>
-            <p className="mt-2 text-xs text-stone-500">
-              {isEs ? "Actualizado" : "Updated"}: {FRAMEWORKS_LAST_UPDATED}
-            </p>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-10 grid grid-cols-3 gap-4 rounded-xl bg-white/5 p-4">
-            <div className="text-center">
-              <p className="text-2xl font-bold text-amber-400">{executionFrameworks.length}</p>
-              <p className="text-xs text-stone-500">{isEs ? "Marcos" : "Frameworks"}</p>
-            </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold text-amber-400">{categories.length}</p>
-              <p className="text-xs text-stone-500">{isEs ? "Categorías" : "Categories"}</p>
-            </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold text-amber-400">
-                {executionFrameworks.filter((f) => f.shareableLevel === "all-staff").length}
-              </p>
-              <p className="text-xs text-stone-500">{isEs ? "Para Todo el Personal" : "All-Staff Shareable"}</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "Execution Frameworks for FQHCs", es: "Marcos de Ejecución para FQHCs" }}
+        subtitle={{
+          en: "Change management, decision-making, and operational excellence — adapted for community health centers. Share with your team.",
+          es: "Gestión del cambio, toma de decisiones y excelencia operacional — adaptados para centros de salud comunitarios. Comparta con su equipo.",
+        }}
+        meta={`${isEs ? "Actualizado" : "Updated"}: ${FRAMEWORKS_LAST_UPDATED}`}
+        stats={[
+          { value: String(executionFrameworks.length), label: isEs ? "Marcos" : "Frameworks" },
+          { value: String(categories.length), label: isEs ? "Categorías" : "Categories" },
+          { value: String(executionFrameworks.filter((f) => f.shareableLevel === "all-staff").length), label: isEs ? "Para Todo el Personal" : "All-Staff Shareable" },
+        ]}
+      />
 
       {/* Content */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">

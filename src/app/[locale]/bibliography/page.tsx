@@ -18,12 +18,11 @@ import {
   Radio,
   Building2,
   Hash,
-  ChevronDown,
-  ChevronUp,
   Library,
   ArrowLeft,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { ExpandableCard } from "@/components/ui/ExpandableCard";
 import {
   BIBLIOGRAPHY_SECTIONS,
   BIBLIOGRAPHY_ENTRIES,
@@ -83,9 +82,7 @@ export default function BibliographyPage() {
   const [selectedCategory, setSelectedCategory] = useState<
     BibliographyCategory | "all"
   >("all");
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(
-    new Set(BIBLIOGRAPHY_SECTIONS.map((s) => s.id))
-  );
+  // All sections start expanded (defaultExpanded on ExpandableCard)
 
   const filteredEntries = useMemo(() => {
     return BIBLIOGRAPHY_ENTRIES.filter((entry) => {
@@ -102,17 +99,6 @@ export default function BibliographyPage() {
     });
   }, [search, selectedCategory]);
 
-  const toggleSection = (id: string) => {
-    setExpandedSections((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-      return next;
-    });
-  };
 
   // Group filtered entries by category
   const groupedEntries = useMemo(() => {
@@ -238,26 +224,21 @@ export default function BibliographyPage() {
               groupedEntries.has(section.id)
             ).map((section) => {
               const entries = groupedEntries.get(section.id) ?? [];
-              const isExpanded = expandedSections.has(section.id);
               const IconComponent =
                 ICON_MAP[section.icon] ?? BookOpen;
 
               return (
-                <div
+                <ExpandableCard
                   key={section.id}
-                  className="border border-stone-200 rounded-xl overflow-hidden"
-                >
-                  {/* Section header */}
-                  <button
-                    onClick={() => toggleSection(section.id)}
-                    className="w-full flex items-center justify-between p-5 bg-stone-50 hover:bg-stone-100 transition-colors text-left"
-                  >
+                  defaultExpanded
+                  id={section.id}
+                  header={
                     <div className="flex items-center gap-3">
                       <div className="flex items-center justify-center h-9 w-9 rounded-lg bg-teal-50 text-teal-600">
                         <IconComponent className="h-5 w-5" />
                       </div>
                       <div>
-                        <h2 className="text-lg font-bold text-stone-900">
+                        <h2 className="text-lg font-bold text-stone-900 dark:text-stone-100">
                           {isEs ? section.esTitle : section.title}
                         </h2>
                         <p className="text-sm text-stone-500">
@@ -272,16 +253,9 @@ export default function BibliographyPage() {
                         </p>
                       </div>
                     </div>
-                    {isExpanded ? (
-                      <ChevronUp className="h-5 w-5 text-stone-500" />
-                    ) : (
-                      <ChevronDown className="h-5 w-5 text-stone-500" />
-                    )}
-                  </button>
-
-                  {/* Section entries */}
-                  {isExpanded && (
-                    <div className="divide-y divide-stone-100">
+                  }
+                >
+                  <div className="divide-y divide-stone-100 -mx-5 -mb-1">
                       {entries.map((entry) => (
                         <div
                           key={entry.id}
@@ -334,8 +308,7 @@ export default function BibliographyPage() {
                         </div>
                       ))}
                     </div>
-                  )}
-                </div>
+                </ExpandableCard>
               );
             })
           )}

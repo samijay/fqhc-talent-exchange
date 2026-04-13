@@ -4,7 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import {
   ArrowRight,
   ArrowUpDown,
@@ -388,37 +388,21 @@ export default function MovementPage() {
         { label: "Strategy", href: "/strategy/movement" },
         { label: "The Movement" },
       ]} />
-      {/* ============================================================ */}
-      {/*  Hero                                                         */}
-      {/* ============================================================ */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Badge className="bg-teal-900/50 text-teal-300 border-teal-700/50 mb-4">
-            <Heart className="size-3 mr-1" />
-            {isEs ? "Historia del Movimiento" : "Movement History"}
-          </Badge>
-
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl">
-            {isEs ? "El Movimiento FQHC" : "The FQHC Movement"}
-          </h1>
-
-          <p className="mt-4 max-w-3xl text-lg text-stone-300 leading-relaxed sm:text-xl">
-            {isEs
-              ? "Desde las clinicas campesinas hasta hoy -- la historia de los centros de salud comunitarios de California. Sesenta anos de lucha, poderosas coaliciones y la promesa de que la salud es un derecho, no un privilegio."
-              : "From farmworker clinics to today -- the story of California's community health centers. Sixty years of struggle, powerful coalitions, and the promise that healthcare is a right, not a privilege."}
-          </p>
-
-          <p className="mt-6 text-sm text-teal-400 font-medium italic">
-            {isEs
-              ? "\"Somos la continuacion de un movimiento.\""
-              : "\"We are the continuation of a movement.\""}
-          </p>
-
-          <p className="mt-4 text-xs text-stone-500">
-            {isEs ? "Ultima actualizacion" : "Last updated"}: {MOVEMENT_LAST_UPDATED}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "The FQHC Movement", es: "El Movimiento FQHC" }}
+        subtitle={{
+          en: "From farmworker clinics to today -- the story of California's community health centers. Sixty years of struggle, powerful coalitions, and the promise that healthcare is a right, not a privilege.",
+          es: "Desde las clinicas campesinas hasta hoy -- la historia de los centros de salud comunitarios de California. Sesenta anos de lucha, poderosas coaliciones y la promesa de que la salud es un derecho, no un privilegio.",
+        }}
+        meta={`${isEs ? "Ultima actualizacion" : "Last updated"}: ${MOVEMENT_LAST_UPDATED}`}
+      >
+        <p className="text-sm text-teal-400 font-medium italic">
+          {isEs
+            ? "\"Somos la continuacion de un movimiento.\""
+            : "\"We are the continuation of a movement.\""}
+        </p>
+      </PageHero>
 
       {/* ============================================================ */}
       {/*  Stats Bar                                                    */}

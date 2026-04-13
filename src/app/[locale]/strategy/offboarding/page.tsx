@@ -4,7 +4,7 @@
 import { useLocale } from "next-intl";
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import {
   AlertTriangle,
   ArrowRight,
@@ -233,36 +233,18 @@ export default function TransitionResourcesPage() {
         { label: "Strategy", href: "/strategy/offboarding" },
         { label: "Transition Toolkit" },
       ]} />
-      {/* ============================================================ */}
-      {/*  Hero                                                        */}
-      {/* ============================================================ */}
-      <section className="relative bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 right-20 size-72 rounded-full bg-teal-500 blur-3xl" />
-          <div className="absolute bottom-10 left-10 size-56 rounded-full bg-amber-500 blur-3xl" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <Badge className="bg-teal-900/50 text-teal-300 border-teal-700 mb-4">
-            <LifeBuoy className="mr-1.5 size-3.5" />
-            {isEs ? "Todos los Recursos Gratuitos" : "All Resources Free"}
-          </Badge>
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            {isEs
-              ? "Recursos de Transición para Trabajadores de Salud"
-              : "Transition Resources for Health Workers"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300 leading-relaxed">
-            {isEs
-              ? "Si ha sido afectado por reducciones de fuerza laboral, estas herramientas gratuitas lo ayudan a prepararse para su próximo rol en un FQHC — a su propio ritmo."
-              : "If you\u2019ve been affected by workforce reductions, these free tools help you prepare for your next FQHC role — at your own pace."}
-          </p>
-          <p className="mt-4 text-sm text-stone-500">
-            {isEs ? "Seguimiento actualizado:" : "Tracking updated:"}{" "}
-            {LAYOFFS_LAST_UPDATED}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "Transition Resources for Health Workers",
+          es: "Recursos de Transición para Trabajadores de Salud",
+        }}
+        subtitle={{
+          en: "If you\u2019ve been affected by workforce reductions, these free tools help you prepare for your next FQHC role — at your own pace.",
+          es: "Si ha sido afectado por reducciones de fuerza laboral, estas herramientas gratuitas lo ayudan a prepararse para su próximo rol en un FQHC — a su propio ritmo.",
+        }}
+        meta={`${isEs ? "Seguimiento actualizado:" : "Tracking updated:"} ${LAYOFFS_LAST_UPDATED}`}
+      />
 
       {/* ============================================================ */}
       {/*  Crisis Stats Bar                                            */}

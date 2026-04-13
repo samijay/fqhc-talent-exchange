@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { PageHero } from "@/components/ui/design-system";
 import {
   economicsConcepts,
   domainMeta,
@@ -164,45 +165,20 @@ export default function HealthcareEconomicsPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-widest text-amber-400">
-              {isEs ? "Guía Estratégica" : "Strategy Guide"}
-            </p>
-            <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              {isEs
-                ? "Economía de Salud para FQHCs"
-                : "Healthcare Economics for FQHCs"}
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-stone-300">
-              {isEs
-                ? "Cada concepto explicado a 3 niveles — de nuevo empleado a ejecutivo. Comparta con su equipo."
-                : "Every concept explained at 3 levels — from new hire to executive. Share with your team."}
-            </p>
-            <p className="mt-2 text-xs text-stone-500">
-              {isEs ? "Actualizado" : "Updated"}: {ECONOMICS_LAST_UPDATED}
-            </p>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-10 grid grid-cols-3 gap-4 rounded-xl bg-white/5 p-4">
-            <div className="text-center">
-              <p className="text-2xl font-bold text-amber-400">{economicsConcepts.length}</p>
-              <p className="text-xs text-stone-500">{isEs ? "Conceptos" : "Concepts"}</p>
-            </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold text-amber-400">3</p>
-              <p className="text-xs text-stone-500">{isEs ? "Niveles" : "Levels"}</p>
-            </div>
-            <div className="text-center">
-              <p className="text-2xl font-bold text-amber-400">{domains.length}</p>
-              <p className="text-xs text-stone-500">{isEs ? "Dominios" : "Domains"}</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "Healthcare Economics for FQHCs", es: "Economía de Salud para FQHCs" }}
+        subtitle={{
+          en: "Every concept explained at 3 levels — from new hire to executive. Share with your team.",
+          es: "Cada concepto explicado a 3 niveles — de nuevo empleado a ejecutivo. Comparta con su equipo.",
+        }}
+        meta={`${isEs ? "Actualizado" : "Updated"}: ${ECONOMICS_LAST_UPDATED}`}
+        stats={[
+          { value: String(economicsConcepts.length), label: isEs ? "Conceptos" : "Concepts" },
+          { value: "3", label: isEs ? "Niveles" : "Levels" },
+          { value: String(domains.length), label: isEs ? "Dominios" : "Domains" },
+        ]}
+      />
 
       {/* Content */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
