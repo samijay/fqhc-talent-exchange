@@ -21,6 +21,8 @@ import {
   Zap,
   Calendar,
   Clock,
+  Download,
+  Loader2,
 } from "lucide-react";
 import { TableOfContents } from "@/components/layout/TableOfContents";
 import { Badge } from "@/components/ui/badge";
@@ -60,6 +62,8 @@ function MasterclassCard({
   isExpanded,
   onToggle,
   read,
+  downloadingId,
+  onDownload,
 }: {
   mc: MasterclassModule;
   locale: string;
@@ -67,6 +71,8 @@ function MasterclassCard({
   isExpanded: boolean;
   onToggle: () => void;
   read: ContentRead | undefined;
+  downloadingId: string | null;
+  onDownload: (mc: MasterclassModule) => void;
 }) {
   const catMeta = getCategoryMeta(mc.category);
   const audMeta = getAudienceMeta(mc.audience);
@@ -218,12 +224,22 @@ function MasterclassCard({
                   {isEs ? "Materiales de Referencia" : "Source Materials"}
                 </h4>
               </div>
-              <ShareButton
-                url={`https://www.fqhctalent.com/strategy/masterclass#${mc.id}`}
-                title={mc.title.en}
-                description={mc.subtitle.en}
-                size="sm"
-              />
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => onDownload(mc)}
+                  disabled={downloadingId === mc.id}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-xs font-medium text-stone-600 hover:bg-stone-50 disabled:opacity-50"
+                >
+                  {downloadingId === mc.id ? <Loader2 className="size-3.5 animate-spin" /> : <Download className="size-3.5" />}
+                  {isEs ? "Descargar PDF" : "Download PDF"}
+                </button>
+                <ShareButton
+                  url={`https://www.fqhctalent.com/strategy/masterclass#${mc.id}`}
+                  title={mc.title.en}
+                  description={mc.subtitle.en}
+                  size="sm"
+                />
+              </div>
             </div>
             <div className="flex flex-wrap gap-2">
               {mc.sourceMaterials.map((src) => (
@@ -266,6 +282,142 @@ export default function MasterclassPage() {
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
   const [activeCategory, setActiveCategory] = useState<MasterclassCategory | "all">("all");
   const { reads, markAsReading } = useContentReads("masterclass");
+  const [downloadingId, setDownloadingId] = useState<string | null>(null);
+
+  const handleDownloadModule = async (mc: MasterclassModule) => {
+    setDownloadingId(mc.id);
+    try {
+      const catMeta = getCategoryMeta(mc.category);
+      const categoryLabel = catMeta ? (isEs ? catMeta.es : catMeta.en) : mc.category;
+
+      const html = `
+        <div style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #1c1917; max-width: 700px; margin: 0 auto;">
+          <!-- Header bar -->
+          <div style="background: #0F766E; padding: 24px 32px; border-radius: 8px 8px 0 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <h1 style="color: #fff; font-size: 22px; font-weight: 800; margin: 0; line-height: 1.3;">
+                  ${t(mc.title, locale)}
+                </h1>
+                <p style="color: #ccfbf1; font-size: 13px; margin: 6px 0 0;">
+                  ${t(mc.subtitle, locale)}
+                </p>
+              </div>
+              <span style="background: #fff; color: #0F766E; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 9999px; white-space: nowrap;">
+                ${categoryLabel}
+              </span>
+            </div>
+          </div>
+
+          <div style="padding: 28px 32px;">
+            <!-- Urgency stat -->
+            <div style="background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 8px; padding: 12px 16px; margin-bottom: 24px;">
+              <span style="color: #92400E; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                ${isEs ? "Dato Urgente" : "Urgency Stat"}
+              </span>
+              <p style="color: #78350F; font-size: 14px; font-weight: 600; margin: 4px 0 0;">
+                ${t(mc.urgencyStat, locale)}
+              </p>
+            </div>
+
+            <!-- Why Now -->
+            <div style="margin-bottom: 24px;">
+              <h2 style="color: #0F766E; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 8px;">
+                ${isEs ? "¿Por Qué Ahora?" : "Why Now?"}
+              </h2>
+              <p style="color: #44403c; font-size: 14px; line-height: 1.7; margin: 0;">
+                ${t(mc.whyNow, locale)}
+              </p>
+            </div>
+
+            <!-- Learning Objectives -->
+            <div style="margin-bottom: 24px;">
+              <h2 style="color: #0F766E; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 10px;">
+                ${isEs ? "Objetivos de Aprendizaje" : "Learning Objectives"}
+              </h2>
+              <ol style="margin: 0; padding-left: 20px;">
+                ${mc.learningObjectives
+                  .map(
+                    (obj, i) =>
+                      `<li style="color: #44403c; font-size: 14px; line-height: 1.6; margin-bottom: 6px;">
+                        <strong style="color: #0F766E;">${i + 1}.</strong> ${t(obj, locale)}
+                      </li>`
+                  )
+                  .join("")}
+              </ol>
+            </div>
+
+            <!-- Key Takeaways -->
+            <div style="margin-bottom: 24px;">
+              <h2 style="color: #0F766E; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 10px;">
+                ${isEs ? "Conclusiones Clave" : "Key Takeaways"}
+              </h2>
+              <ul style="margin: 0; padding-left: 0; list-style: none;">
+                ${mc.keyTakeaways
+                  .map(
+                    (tk) =>
+                      `<li style="color: #44403c; font-size: 14px; line-height: 1.6; margin-bottom: 6px; padding-left: 16px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #0F766E; font-weight: bold;">&#10003;</span>
+                        ${t(tk, locale)}
+                      </li>`
+                  )
+                  .join("")}
+              </ul>
+            </div>
+
+            <!-- Source Materials -->
+            <div style="margin-bottom: 24px;">
+              <h2 style="color: #0F766E; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 10px;">
+                ${isEs ? "Materiales de Referencia" : "Source Materials"}
+              </h2>
+              <ul style="margin: 0; padding-left: 0; list-style: none;">
+                ${mc.sourceMaterials
+                  .map(
+                    (src) =>
+                      `<li style="margin-bottom: 4px;">
+                        <a href="${src.url}" style="color: #0F766E; font-size: 13px; text-decoration: underline;">
+                          ${src.label}
+                        </a>
+                      </li>`
+                  )
+                  .join("")}
+              </ul>
+            </div>
+
+            <!-- Footer -->
+            <div style="border-top: 1px solid #e7e5e4; padding-top: 16px; margin-top: 8px;">
+              <p style="color: #a8a29e; font-size: 11px; margin: 0; text-align: center;">
+                ${isEs ? "Generado desde" : "Generated from"} fqhctalent.com/strategy/masterclass
+              </p>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const container = document.createElement("div");
+      container.innerHTML = html;
+      container.style.position = "absolute";
+      container.style.left = "-9999px";
+      document.body.appendChild(container);
+
+      const html2pdf = (await import("html2pdf.js")).default;
+      await html2pdf()
+        .set({
+          margin: [10, 10, 10, 10],
+          filename: `FQHC_Masterclass_${mc.id}.pdf`,
+          html2canvas: { scale: 2, useCORS: true },
+          jsPDF: { unit: "mm", format: "letter", orientation: "portrait" },
+        })
+        .from(container)
+        .save();
+
+      document.body.removeChild(container);
+    } catch (err) {
+      console.error("PDF download failed:", err);
+    } finally {
+      setDownloadingId(null);
+    }
+  };
 
   const toggle = (id: string) => {
     setExpandedIds((prev) => {
@@ -473,6 +625,8 @@ export default function MasterclassPage() {
                 isExpanded={expandedIds.has(mc.id)}
                 onToggle={() => toggle(mc.id)}
                 read={reads.get(mc.id)}
+                downloadingId={downloadingId}
+                onDownload={handleDownloadModule}
               />
             ))}
           </div>

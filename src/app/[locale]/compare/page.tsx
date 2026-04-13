@@ -19,6 +19,8 @@ import {
   ArrowLeft,
   Printer,
   Sparkles,
+  Download,
+  Loader2,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -137,6 +139,7 @@ const labels = {
   popularComparisons: { en: "Popular Comparisons", es: "Comparaciones Populares" },
   browseDirectory: { en: "Or browse the directory to find FQHCs", es: "O explore el directorio para encontrar FQHCs" },
   printComparison: { en: "Print Comparison", es: "Imprimir Comparacion" },
+  downloadPdf: { en: "Download Comparison (PDF)", es: "Descargar Comparacion (PDF)" },
   addThird: { en: "Add a 3rd FQHC", es: "Agregar un 3er FQHC" },
 };
 
@@ -251,6 +254,25 @@ function FQHCSelector({
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Mobile Row (stacked label/value)                                   */
+/* ------------------------------------------------------------------ */
+
+function MobileRow({
+  label,
+  value,
+}: {
+  label: string;
+  value: React.ReactNode;
+}) {
+  return (
+    <div className="flex items-start justify-between px-4 py-3">
+      <span className="text-sm font-medium text-stone-600 shrink-0 mr-4">{label}</span>
+      <span className="text-sm text-stone-800 text-right">{value}</span>
     </div>
   );
 }
@@ -371,6 +393,7 @@ export default function ComparePage() {
   const searchParams = useSearchParams();
 
   const [selected, setSelected] = useState<string[]>([]);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   // Pre-fill from URL params (e.g. /compare?fqhcs=altamed,fhcsd)
   useEffect(() => {
@@ -413,6 +436,27 @@ export default function ComparePage() {
   );
 
   const canCompare = fqhcs.length >= 2;
+
+  async function handleDownloadPDF() {
+    const el = document.getElementById("comparison-content");
+    if (!el) return;
+    setIsDownloading(true);
+    try {
+      const html2pdf = (await import("html2pdf.js")).default;
+      await html2pdf()
+        .set({
+          margin: [0.3, 0.3, 0.3, 0.3],
+          filename: `FQHC_Comparison_${fqhcs.map((f) => f.slug).join("_vs_")}.pdf`,
+          image: { type: "jpeg", quality: 0.95 },
+          html2canvas: { scale: 2, useCORS: true },
+          jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
+        })
+        .from(el)
+        .save();
+    } finally {
+      setIsDownloading(false);
+    }
+  }
 
   // Helper to find the best index for a numeric row
   const bestOf = (vals: (number | null)[], higher = true): number | null => {
@@ -527,19 +571,243 @@ export default function ComparePage() {
                   </Button>
                 )}
               </div>
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-stone-200 text-stone-600 hover:bg-stone-50 gap-1.5 print:hidden"
-                onClick={() => window.print()}
-              >
-                <Printer className="w-4 h-4" />
-                {t(labels.printComparison, locale)}
-              </Button>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="border-stone-200 text-stone-600 hover:bg-stone-50 gap-1.5 print:hidden"
+                  onClick={handleDownloadPDF}
+                  disabled={isDownloading}
+                >
+                  {isDownloading ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <Download className="w-4 h-4" />
+                  )}
+                  {t(labels.downloadPdf, locale)}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="border-stone-200 text-stone-600 hover:bg-stone-50 gap-1.5 print:hidden"
+                  onClick={() => window.print()}
+                >
+                  <Printer className="w-4 h-4" />
+                  {t(labels.printComparison, locale)}
+                </Button>
+              </div>
             </div>
 
-            {/* Comparison Table */}
-            <div className="bg-white rounded-2xl border border-stone-200 overflow-hidden">
+            {/* Comparison Content — wraps both mobile cards + desktop table for PDF */}
+            <div id="comparison-content">
+
+            {/* Mobile Cards (< md) */}
+            <div className="md:hidden space-y-6">
+              {fqhcs.map((fqhc, fi) => {
+                const score = scores[fi];
+                return (
+                  <div key={fqhc.slug} className="bg-white rounded-2xl border border-stone-200 overflow-hidden">
+                    {/* Card header */}
+                    <div className="bg-stone-50 border-b border-stone-200 px-4 py-4">
+                      <Link
+                        href={`/directory/${fqhc.slug}`}
+                        className="text-teal-700 font-semibold hover:underline text-base"
+                      >
+                        {fqhc.name}
+                      </Link>
+                      <p className="text-xs text-stone-500 mt-0.5">
+                        {fqhc.city}, {fqhc.county}
+                      </p>
+                    </div>
+
+                    <div className="divide-y divide-stone-100">
+                      {/* Organization */}
+                      <div className="px-4 py-2.5 bg-stone-50/80">
+                        <div className="flex items-center gap-2 text-xs font-bold text-stone-500 uppercase tracking-wider">
+                          <MapPin className="w-3.5 h-3.5" />
+                          {t(labels.orgBasics, locale)}
+                        </div>
+                      </div>
+                      <MobileRow label={t(labels.regionLabel, locale)} value={fqhc.region} />
+                      <MobileRow label={t(labels.sitesLabel, locale)} value={fqhc.siteCount.toLocaleString()} />
+                      <MobileRow label={t(labels.patientsLabel, locale)} value={fqhc.patientCount || t(labels.na, locale)} />
+                      <MobileRow label={t(labels.staffLabel, locale)} value={fqhc.staffCount || t(labels.na, locale)} />
+
+                      {/* Glassdoor */}
+                      <div className="px-4 py-2.5 bg-stone-50/80">
+                        <div className="flex items-center gap-2 text-xs font-bold text-stone-500 uppercase tracking-wider">
+                          <Star className="w-3.5 h-3.5" />
+                          {t(labels.glassdoorLabel, locale)}
+                        </div>
+                      </div>
+                      <MobileRow
+                        label={t(labels.ratingLabel, locale)}
+                        value={
+                          fqhc.glassdoorRating !== null ? (
+                            <span className="flex items-center gap-1">
+                              <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                              {fqhc.glassdoorRating.toFixed(1)}
+                            </span>
+                          ) : t(labels.na, locale)
+                        }
+                      />
+                      <MobileRow
+                        label={t(labels.reviewsLabel, locale)}
+                        value={fqhc.glassdoorReviewCount !== null ? fqhc.glassdoorReviewCount.toLocaleString() : t(labels.na, locale)}
+                      />
+
+                      {/* Programs */}
+                      <div className="px-4 py-2.5 bg-stone-50/80">
+                        <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">
+                          {t(labels.programsLabel, locale)}
+                        </span>
+                      </div>
+                      <div className="px-4 py-3">
+                        {fqhc.programs.length > 0 ? (
+                          <div className="flex flex-wrap gap-1">
+                            {fqhc.programs.map((p) => (
+                              <Badge key={p} variant="secondary" className="text-xs bg-teal-50 text-teal-700">
+                                {p}
+                              </Badge>
+                            ))}
+                          </div>
+                        ) : (
+                          <span className="text-sm text-stone-500">{t(labels.noneReported, locale)}</span>
+                        )}
+                      </div>
+
+                      {/* EHR */}
+                      <MobileRow label={t(labels.ehrLabel, locale)} value={fqhc.ehrSystem || t(labels.unknown, locale)} />
+
+                      {/* Resilience */}
+                      <div className="px-4 py-2.5 bg-stone-50/80">
+                        <div className="flex items-center gap-2 text-xs font-bold text-stone-500 uppercase tracking-wider">
+                          <Shield className="w-3.5 h-3.5" />
+                          {t(labels.resilienceLabel, locale)}
+                        </div>
+                      </div>
+                      <MobileRow
+                        label={t(labels.overallGrade, locale)}
+                        value={<Badge className={`${gradeColor(score.grade)} font-bold text-sm`}>{score.grade}</Badge>}
+                      />
+                      <MobileRow
+                        label={t(labels.overallScore, locale)}
+                        value={<span className="font-semibold">{score.overall}/100</span>}
+                      />
+                      <MobileRow
+                        label={t(labels.riskLevel, locale)}
+                        value={<Badge className={`${riskColor(score.riskLevel)} text-xs capitalize`}>{score.riskLevel}</Badge>}
+                      />
+                      {DIMENSION_META.map((dim) => {
+                        const d = score.dimensions.find((dd) => dd.dimension === dim.id);
+                        return (
+                          <MobileRow
+                            key={dim.id}
+                            label={t({ en: dim.en, es: dim.es }, locale)}
+                            value={d ? `${d.score}/100` : t(labels.na, locale)}
+                          />
+                        );
+                      })}
+
+                      {/* Funding */}
+                      <div className="px-4 py-2.5 bg-stone-50/80">
+                        <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">
+                          {t(labels.fundingLabel, locale)}
+                        </span>
+                      </div>
+                      <MobileRow
+                        label={t(labels.impactLevel, locale)}
+                        value={
+                          <Badge className={`${impactColor(fqhc.fundingImpactLevel)} text-xs capitalize`}>
+                            {fqhc.fundingImpactLevel || t(labels.unknown, locale)}
+                          </Badge>
+                        }
+                      />
+                      <MobileRow
+                        label={t(labels.coverageRisk, locale)}
+                        value={fqhc.coverageVulnerabilityPercent !== null ? `${fqhc.coverageVulnerabilityPercent}%` : t(labels.na, locale)}
+                      />
+
+                      {/* Union */}
+                      <div className="px-4 py-2.5 bg-stone-50/80">
+                        <div className="flex items-center gap-2 text-xs font-bold text-stone-500 uppercase tracking-wider">
+                          <Users className="w-3.5 h-3.5" />
+                          {t(labels.unionLabel, locale)}
+                        </div>
+                      </div>
+                      <div className="px-4 py-3">
+                        {!fqhc.unionInfo ? (
+                          <span className="text-sm text-stone-500">{t(labels.unknown, locale)}</span>
+                        ) : fqhc.unionInfo.unionized ? (
+                          <div className="space-y-1">
+                            <Badge className="bg-blue-100 text-blue-800 text-xs">{t(labels.unionized, locale)}</Badge>
+                            <p className="text-xs text-stone-600">{fqhc.unionInfo.unions.join(", ")}</p>
+                          </div>
+                        ) : (
+                          <span className="text-sm text-stone-500">{t(labels.notUnionized, locale)}</span>
+                        )}
+                      </div>
+
+                      {/* Certifications */}
+                      <div className="px-4 py-2.5 bg-stone-50/80">
+                        <span className="text-xs font-bold text-stone-500 uppercase tracking-wider">
+                          {t(labels.certLabel, locale)}
+                        </span>
+                      </div>
+                      <MobileRow
+                        label={t(labels.ecmLabel, locale)}
+                        value={
+                          <Badge className={fqhc.ecmProvider ? "bg-teal-100 text-teal-800 text-xs" : "bg-stone-100 text-stone-500 text-xs"}>
+                            {fqhc.ecmProvider ? t(labels.yes, locale) : t(labels.no, locale)}
+                          </Badge>
+                        }
+                      />
+                      <MobileRow
+                        label={t(labels.nhscLabel, locale)}
+                        value={
+                          <Badge className={fqhc.nhscApproved ? "bg-teal-100 text-teal-800 text-xs" : "bg-stone-100 text-stone-500 text-xs"}>
+                            {fqhc.nhscApproved ? t(labels.yes, locale) : t(labels.no, locale)}
+                          </Badge>
+                        }
+                      />
+
+                      {/* Data Completeness */}
+                      <MobileRow
+                        label={t(labels.dataComplete, locale)}
+                        value={
+                          <div className="flex items-center gap-2">
+                            <div className="flex-1 bg-stone-100 rounded-full h-2 max-w-24">
+                              <div
+                                className="bg-teal-500 h-full rounded-full transition-all"
+                                style={{ width: `${score.dataCompleteness}%` }}
+                              />
+                            </div>
+                            <span className="text-xs font-medium tabular-nums">{score.dataCompleteness}%</span>
+                          </div>
+                        }
+                      />
+
+                      {/* Profile Link */}
+                      <div className="px-4 py-4 border-t border-stone-200">
+                        <Link href={`/directory/${fqhc.slug}`}>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="text-teal-700 border-teal-200 hover:bg-teal-50 gap-1.5 w-full"
+                          >
+                            {t(labels.viewProfile, locale)}
+                            <ChevronRight className="w-3.5 h-3.5" />
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Desktop Comparison Table (>= md) */}
+            <div className="hidden md:block bg-white rounded-2xl border border-stone-200 overflow-hidden">
               <div className="scroll-hint overflow-x-auto">
                 <table className="w-full text-left min-w-[600px]">
                   <thead className="sticky top-0 z-10">
@@ -847,6 +1115,8 @@ export default function ComparePage() {
 
             {/* Dimension Bar Chart */}
             <DimensionChart fqhcs={fqhcs} scores={scores} locale={locale} />
+
+            </div>{/* end comparison-content */}
           </>
         )}
       </section>
