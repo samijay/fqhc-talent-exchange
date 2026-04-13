@@ -238,7 +238,6 @@ export default function ResumeBuilder() {
     } catch {
       // Silent fail — corrupted data
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Save progress on every change (debounced)

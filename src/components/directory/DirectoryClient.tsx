@@ -355,7 +355,6 @@ export function DirectoryClient({
   }, [fqhcs, search, regionFilter, ehrFilter, programFilter, ecmOnly, highImpactOnly, unionOnly, hiringOnly, sizeFilter, gradeFilter, sortKey, sortDir]);
 
   // Reset page when filters change
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { setPage(1); }, [search, regionFilter, ehrFilter, programFilter, ecmOnly, highImpactOnly, unionOnly, hiringOnly, sizeFilter, gradeFilter]);
 
   // Paginated results (cards + table only, map shows all)

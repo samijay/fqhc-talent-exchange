@@ -32,15 +32,6 @@ export function GlossaryTooltip({
   const tooltipRef = useRef<HTMLDivElement>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // If term not found, render gracefully without tooltip
-  if (!glossaryTerm) {
-    return <span>{term}</span>;
-  }
-
-  const fullName = isEs ? glossaryTerm.fullName.es : glossaryTerm.fullName.en;
-  const definition = isEs ? glossaryTerm.definition.es : glossaryTerm.definition.en;
-  const learnMoreUrl = glossaryTerm.learnMoreUrl;
-
   // Calculate tooltip position
   useEffect(() => {
     if (!isOpen || !triggerRef.current) return;
@@ -121,6 +112,15 @@ export function GlossaryTooltip({
       }
     };
   }, [isOpen]);
+
+  // If term not found, render gracefully without tooltip
+  if (!glossaryTerm) {
+    return <span>{term}</span>;
+  }
+
+  const fullName = isEs ? glossaryTerm.fullName.es : glossaryTerm.fullName.en;
+  const definition = isEs ? glossaryTerm.definition.es : glossaryTerm.definition.en;
+  const learnMoreUrl = glossaryTerm.learnMoreUrl;
 
   // Display text
   const displayText = showFullName ? `${term} (${fullName})` : term;
