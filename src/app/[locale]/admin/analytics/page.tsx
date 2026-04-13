@@ -157,7 +157,7 @@ function AdminAnalyticsInner() {
   if (!secretKey && (error === "sign-in" || (!user && !loading))) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-stone-50 dark:bg-stone-900">
-        <h1 className="text-xl font-bold text-stone-800 dark:text-stone-200">Sign in required</h1>
+        <h2 className="text-xl font-bold text-stone-800 dark:text-stone-200">Sign in required</h2>
         <p className="text-stone-500">You need to sign in with your admin account to view analytics.</p>
         <Link href="/login" className="rounded-lg bg-teal-700 px-4 py-2 text-sm font-medium text-white hover:bg-teal-800">
           Sign In
@@ -170,7 +170,7 @@ function AdminAnalyticsInner() {
   if (error === "forbidden") {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-2 bg-stone-50 dark:bg-stone-900">
-        <h1 className="text-xl font-bold text-stone-800 dark:text-stone-200">Access denied</h1>
+        <h2 className="text-xl font-bold text-stone-800 dark:text-stone-200">Access denied</h2>
         <p className="text-stone-500">Your account does not have admin access.</p>
       </div>
     );
@@ -180,7 +180,7 @@ function AdminAnalyticsInner() {
   if (error === "failed") {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center gap-2 bg-stone-50 dark:bg-stone-900">
-        <h1 className="text-xl font-bold text-stone-800 dark:text-stone-200">Failed to load</h1>
+        <h2 className="text-xl font-bold text-stone-800 dark:text-stone-200">Failed to load</h2>
         <p className="text-stone-500">Could not fetch analytics data. Try refreshing.</p>
         <button onClick={fetchData} className="rounded-lg bg-teal-700 px-4 py-2 text-sm font-medium text-white hover:bg-teal-800">
           Retry

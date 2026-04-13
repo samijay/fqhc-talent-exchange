@@ -282,9 +282,9 @@ export default function NewsletterQuestionnairePage() {
           <div className="mx-auto mb-6 flex size-20 items-center justify-center rounded-full bg-teal-100">
             <CheckCircle className="size-10 text-teal-600" />
           </div>
-          <h1 className="text-2xl font-bold text-stone-900 mb-3">
+          <h2 className="text-2xl font-bold text-stone-900 mb-3">
             {t(T.thankYouTitle, locale)}
-          </h1>
+          </h2>
           <p className="text-stone-600 mb-8 leading-relaxed">
             {t(T.thankYouSub, locale)}
           </p>

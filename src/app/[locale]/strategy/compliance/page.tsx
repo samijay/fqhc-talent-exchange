@@ -112,9 +112,9 @@ export default function ComplianceHubPage() {
               </span>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-stone-800 dark:text-stone-100">
+              <h2 className="text-2xl font-bold text-stone-800 dark:text-stone-100">
                 {t(selectedDomain.title, locale)}
-              </h1>
+              </h2>
               <p className="text-sm text-stone-500 dark:text-stone-500">
                 {t(selectedDomain.description, locale)}
               </p>

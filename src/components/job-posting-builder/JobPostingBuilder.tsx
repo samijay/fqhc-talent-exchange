@@ -809,9 +809,9 @@ export default function JobPostingBuilder() {
         <section className="bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 py-14 text-center text-white sm:py-20">
           <div className="mx-auto max-w-2xl px-4">
             <CheckCircle2 className="mx-auto size-16 text-amber-400" />
-            <h1 className="mt-6 text-3xl font-extrabold tracking-tight sm:text-4xl">
+            <h2 className="mt-6 text-3xl font-extrabold tracking-tight sm:text-4xl">
               {t.successTitle}
-            </h1>
+            </h2>
             <p className="mt-4 text-lg text-stone-300">
               {t.successSubtitle}
             </p>

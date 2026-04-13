@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { DollarSign, Download, ExternalLink, ChevronDown, ChevronUp, FileText, Scale, Pill, ClipboardList, Handshake } from "lucide-react";
+import { PageHero } from "@/components/ui/design-system";
 import { getRegulationsByDomain, getRisksByDomain, getCaseStudiesByDomain, getRiskScore, getRiskLevel } from "@/lib/fqhc-compliance";
 import { downloadComplianceCalendarAsExcel } from "@/lib/compliance-excel-export";
 import { t } from "@/lib/i18n-helpers";
@@ -27,21 +27,16 @@ export default function BillingCompliancePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-amber-900 via-amber-800 to-amber-900 text-white py-14 px-4">
-        <div className="max-w-5xl mx-auto">
-          <Link href="/compliance" className="text-amber-300 text-sm hover:underline mb-4 inline-block">&larr; {locale === "es" ? "Cumplimiento" : "Compliance"}</Link>
-          <h1 className="text-3xl md:text-4xl font-bold mb-3">
-            {locale === "es" ? "Cumplimiento de Facturación y Fraude" : "Billing & Fraud Compliance"}
-          </h1>
-          <p className="text-amber-200 text-lg max-w-3xl mb-6">
-            {locale === "es" ? "Reclamos falsos cuestan $27K+ cada uno. Un error puede escalar a demandas de reembolso." : "False claims cost $27K+ each. One billing error can cascade into payback demands."}
-          </p>
-          <button onClick={() => downloadComplianceCalendarAsExcel(locale)} className="inline-flex items-center gap-2 bg-white hover:bg-stone-100 text-amber-900 font-bold px-5 py-2.5 rounded-lg transition-colors">
-            <Download className="w-5 h-5" />
-            {locale === "es" ? "Descargar Calendario de Facturación (Excel)" : "Download Billing Calendar (Excel)"}
-          </button>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "Billing & Fraud Compliance", es: "Cumplimiento de Facturación y Fraude" }}
+        subtitle={{ en: "False claims cost $27K+ each. One billing error can cascade into payback demands.", es: "Reclamos falsos cuestan $27K+ cada uno. Un error puede escalar a demandas de reembolso." }}
+      >
+        <button onClick={() => downloadComplianceCalendarAsExcel(locale)} className="inline-flex items-center gap-2 bg-white hover:bg-stone-100 text-amber-900 font-bold px-5 py-2.5 rounded-lg transition-colors">
+          <Download className="w-5 h-5" />
+          {locale === "es" ? "Descargar Calendario de Facturación (Excel)" : "Download Billing Calendar (Excel)"}
+        </button>
+      </PageHero>
 
       {/* Topic sections */}
       <section className="max-w-5xl mx-auto px-4 py-8">

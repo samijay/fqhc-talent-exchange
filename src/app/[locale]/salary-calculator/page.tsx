@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 import { REGIONAL_MULTIPLIERS, adjustSalary } from "@/lib/career-pathways";
+import { PageHero } from "@/components/ui/design-system";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -239,35 +240,19 @@ export default function SalaryCalculatorPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-800 via-teal-900 to-stone-900 text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            {isEs
-              ? "Calculadora Salarial FQHC"
-              : "FQHC Salary Calculator"}
-          </h1>
-          <p className="text-lg text-teal-100 max-w-2xl mb-8">
-            {isEs
-              ? "Descubra si su oferta salarial es competitiva. Compare su compensacion con datos de mercado de mas de 1,000 puestos en centros de salud de California."
-              : "Find out if your salary offer is competitive. Compare your compensation against market data from 1,000+ California FQHC positions across 46 roles and 9 regions."}
-          </p>
-          <div className="flex gap-6 md:gap-12">
-            <div>
-              <div className="text-2xl md:text-3xl font-bold">{SALARY_BENCHMARKS.length}</div>
-              <div className="text-sm text-teal-100">{isEs ? "Roles" : "Roles"}</div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold">{REGIONAL_MULTIPLIERS.length}</div>
-              <div className="text-sm text-teal-100">{isEs ? "Regiones" : "Regions"}</div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold">1,000+</div>
-              <div className="text-sm text-teal-100">{isEs ? "Empleos analizados" : "Jobs analyzed"}</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "FQHC Salary Calculator", es: "Calculadora Salarial FQHC" }}
+        subtitle={{
+          en: "Find out if your salary offer is competitive. Compare your compensation against market data from 1,000+ California FQHC positions across 46 roles and 9 regions.",
+          es: "Descubra si su oferta salarial es competitiva. Compare su compensacion con datos de mercado de mas de 1,000 puestos en centros de salud de California.",
+        }}
+        stats={[
+          { value: String(SALARY_BENCHMARKS.length), label: isEs ? "Roles" : "Roles" },
+          { value: String(REGIONAL_MULTIPLIERS.length), label: isEs ? "Regiones" : "Regions" },
+          { value: "1,000+", label: isEs ? "Empleos analizados" : "Jobs analyzed" },
+        ]}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-5 gap-12">

@@ -50,6 +50,7 @@ import { getFundingCliffs } from "@/lib/market-intelligence";
 import { MASTERCLASSES } from "@/lib/fqhc-masterclasses";
 import { FQHC_GUIDES } from "@/lib/fqhc-guides";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { PageHero } from "@/components/ui/design-system";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -491,67 +492,20 @@ export default function AITrackerPage() {
 
   return (
     <div className="bg-stone-50 dark:bg-stone-950">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-4">
-            <Cpu className="size-5 text-teal-400" />
-            <span className="text-sm font-medium uppercase tracking-wider text-teal-400">
-              {isEs ? "Inteligencia" : "Intelligence"}
-            </span>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs
-              ? "Rastreador de IA en FQHCs"
-              : "FQHC AI Implementation Tracker"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300">
-            {isEs
-              ? "Monitoreando la adopcion de inteligencia artificial en centros de salud comunitarios a nivel nacional."
-              : "Monitoring artificial intelligence adoption at community health centers nationwide."}
-          </p>
-          <div className="mt-3 flex items-center gap-1.5 text-xs text-stone-500">
-            <Calendar className="size-3" />
-            <span>{isEs ? "Última actualización:" : "Last updated:"} {AI_TRACKER_LAST_UPDATED}</span>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="rounded-xl border border-white/10 bg-white/5 p-4 text-center">
-              <div className="text-2xl font-bold text-teal-400">
-                {counts.total}
-              </div>
-              <div className="text-xs text-stone-500">
-                {isEs ? "Implementaciones" : "Deployments"}
-              </div>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/5 p-4 text-center">
-              <div className="text-2xl font-bold text-amber-400">
-                {Object.keys(counts).length - 1}
-              </div>
-              <div className="text-xs text-stone-500">
-                {isEs ? "Categorias" : "Categories"}
-              </div>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/5 p-4 text-center">
-              <div className="text-2xl font-bold text-green-400">
-                {stageCounts["widely-adopted"] || 0}
-              </div>
-              <div className="text-xs text-stone-500">
-                {isEs ? "Ampliamente Adoptados" : "Widely Adopted"}
-              </div>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-white/5 p-4 text-center">
-              <div className="text-2xl font-bold text-blue-400">
-                {stageCounts.pilot || 0}
-              </div>
-              <div className="text-xs text-stone-500">
-                {isEs ? "En Piloto" : "In Pilot"}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title={{ en: "FQHC AI Implementation Tracker", es: "Rastreador de IA en FQHCs" }}
+        subtitle={{
+          en: "Monitoring artificial intelligence adoption at community health centers nationwide.",
+          es: "Monitoreando la adopcion de inteligencia artificial en centros de salud comunitarios a nivel nacional.",
+        }}
+        meta={`${isEs ? "Última actualización:" : "Last updated:"} ${AI_TRACKER_LAST_UPDATED}`}
+        stats={[
+          { value: String(counts.total), label: isEs ? "Implementaciones" : "Deployments" },
+          { value: String(Object.keys(counts).length - 1), label: isEs ? "Categorias" : "Categories" },
+          { value: String(stageCounts["widely-adopted"] || 0), label: isEs ? "Ampliamente Adoptados" : "Widely Adopted" },
+          { value: String(stageCounts.pilot || 0), label: isEs ? "En Piloto" : "In Pilot" },
+        ]}
+      />
 
       {/* Trending Ticker */}
       <div className="bg-stone-800 border-b border-stone-700">

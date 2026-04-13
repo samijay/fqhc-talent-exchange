@@ -542,7 +542,7 @@ export function SimulatorWizard({ onComplete, onSkip, locale }: SimulatorWizardP
         {step < 3 ? (
           <Button
             onClick={() => setStep(step + 1)}
-            className="bg-teal-700 hover:bg-teal-800 text-white"
+            variant="brand"
           >
             {isEs ? "Continuar" : "Continue"}
             <ArrowRight className="size-4 ml-1" />
@@ -550,7 +550,7 @@ export function SimulatorWizard({ onComplete, onSkip, locale }: SimulatorWizardP
         ) : (
           <Button
             onClick={handleComplete}
-            className="bg-teal-700 hover:bg-teal-800 text-white"
+            variant="brand"
           >
             <Sparkles className="size-4 mr-1" />
             {isEs ? "Ver mis resultados" : "Show my results"}

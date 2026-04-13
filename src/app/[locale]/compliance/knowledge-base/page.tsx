@@ -2,8 +2,8 @@
 
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { Search, ExternalLink } from "lucide-react";
+import { PageHero } from "@/components/ui/design-system";
 import { REGULATORY_ITEMS, DOMAIN_META, type ComplianceDomain } from "@/lib/fqhc-compliance";
 import { t } from "@/lib/i18n-helpers";
 
@@ -39,13 +39,11 @@ export default function KnowledgeBasePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-14 px-4">
-        <div className="max-w-5xl mx-auto">
-          <Link href="/compliance" className="text-stone-500 text-sm hover:underline mb-4 inline-block">&larr; {locale === "es" ? "Cumplimiento" : "Compliance"}</Link>
-          <h1 className="text-3xl md:text-4xl font-bold mb-3">{locale === "es" ? "Base de Conocimiento Regulatorio" : "Regulatory Knowledge Base"}</h1>
-          <p className="text-stone-300 text-lg max-w-3xl">{locale === "es" ? "Regulaciones FQHC con citas CFR, implicaciones prácticas y fuentes primarias." : "FQHC regulations with CFR citations, practical implications, and primary sources."}</p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "Regulatory Knowledge Base", es: "Base de Conocimiento Regulatorio" }}
+        subtitle={{ en: "FQHC regulations with CFR citations, practical implications, and primary sources.", es: "Regulaciones FQHC con citas CFR, implicaciones prácticas y fuentes primarias." }}
+      />
 
       {/* Search & Filters */}
       <section className="max-w-5xl mx-auto px-4 py-6">

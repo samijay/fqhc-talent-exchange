@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { PageHero } from "@/components/ui/design-system";
 
 /* ------------------------------------------------------------------ */
 /*  Constants                                                          */
@@ -192,12 +193,12 @@ export default function JoinPage() {
   if (success) {
     return (
       <div className="bg-stone-50">
-        {/* Hero (abbreviated) */}
-        <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {t("heroTitle")}
-          </h1>
-        </section>
+        <PageHero
+          title={{
+            en: "Join the FQHC Talent Network",
+            es: "\u00danete a la Red de Talento FQHC",
+          }}
+        />
 
         <div className="mx-auto max-w-lg px-4 py-20 text-center">
           <CheckCircle2 className="mx-auto size-16 text-teal-700" />
@@ -218,25 +219,25 @@ export default function JoinPage() {
 
   return (
     <div className="bg-stone-50">
-      {/* ---------- Hero ---------- */}
-      <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
-        <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-          {t("heroTitle")}
-        </h1>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-teal-100/80 sm:text-lg">
-          {t("heroSubtitle")}
-        </p>
-
-        {/* Live count */}
+      <PageHero
+        title={{
+          en: "Join the FQHC Talent Network",
+          es: "\u00danete a la Red de Talento FQHC",
+        }}
+        subtitle={{
+          en: "Create your profile and get connected with California's top FQHCs. Free tools, job board, and career resources \u2014 always free.",
+          es: "Crea tu perfil y con\u00e9ctate con los mejores FQHCs de California. Herramientas gratuitas, bolsa de empleo y recursos profesionales \u2014 siempre gratis.",
+        }}
+      >
         {waitlistCount !== null && waitlistCount > 0 && (
-          <div className="mx-auto mt-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur">
             <Users className="size-4 text-amber-400" />
             <span>
               {t("liveCount", { count: waitlistCount })}
             </span>
           </div>
         )}
-      </section>
+      </PageHero>
 
       {/* ---------- Fast-Track Banner ---------- */}
       <div className="mx-auto max-w-2xl px-4 pt-8 sm:px-6 lg:px-8">

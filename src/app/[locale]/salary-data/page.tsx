@@ -12,7 +12,6 @@ import {
   ArrowUpDown,
   ArrowRight,
   DollarSign,
-  BarChart3,
   Briefcase,
   Award,
   Download,
@@ -21,6 +20,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
+import { PageHero } from "@/components/ui/design-system";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
@@ -272,44 +272,19 @@ function SalaryDataContent() {
           ]}
         />
       </div>
-      {/* ---- Dark Hero ---- */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 px-4">
-        <div className="mx-auto max-w-5xl text-center">
-          <Badge className="mb-4 bg-teal-800/50 text-teal-300 border-teal-700">
-            <BarChart3 className="mr-1 size-3" />
-            {isEs ? "Datos de Mercado de California" : "California Market Data"}
-          </Badge>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs ? "Inteligencia Salarial FQHC" : "FQHC Salary Intelligence"}
-          </h1>
-          <p className="mt-4 text-lg text-stone-300 max-w-2xl mx-auto">
-            {isEs
-              ? "Datos salariales por percentil para 30 roles en centros de salud de California, con ajustes regionales por costo de vida en 9 regiones."
-              : "Percentile-based salary data for 30 community health center roles across California, with cost-of-living adjustments for 9 regions."}
-          </p>
-          <p className="mt-3 text-xs text-stone-500 dark:text-stone-400 max-w-xl mx-auto">
-            {isEs
-              ? "Los rangos salariales son estimaciones basadas en datos públicos agregados de ofertas de empleo, encuestas salariales y fuentes gubernamentales. Los salarios reales varían según el empleador, la experiencia y la ubicación."
-              : "Salary ranges are estimates based on aggregated public data from job postings, salary surveys, and government sources. Actual compensation varies by employer, experience, and location."}
-          </p>
-        </div>
-      </section>
-
-      {/* ---- Stats Bar ---- */}
-      <section className="border-b border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900">
-        <div className="mx-auto max-w-5xl grid grid-cols-3 divide-x divide-stone-200">
-          {[
-            { value: SALARY_BENCHMARKS.length, label: isEs ? "Roles Analizados" : "Roles Benchmarked" },
-            { value: CAREER_PATHWAYS.length, label: isEs ? "Trayectorias Profesionales" : "Career Tracks" },
-            { value: REGIONAL_MULTIPLIERS.length, label: isEs ? "Regiones de CA" : "CA Regions" },
-          ].map((stat) => (
-            <div key={stat.label} className="py-4 px-3 text-center">
-              <div className="text-2xl font-bold text-teal-700 dark:text-teal-400">{stat.value}</div>
-              <div className="text-xs text-stone-500 dark:text-stone-400">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "FQHC Salary Intelligence", es: "Inteligencia Salarial FQHC" }}
+        subtitle={{
+          en: "Percentile-based salary data for 30 community health center roles across California, with cost-of-living adjustments for 9 regions.",
+          es: "Datos salariales por percentil para 30 roles en centros de salud de California, con ajustes regionales por costo de vida en 9 regiones.",
+        }}
+        stats={[
+          { value: String(SALARY_BENCHMARKS.length), label: isEs ? "Roles Analizados" : "Roles Benchmarked" },
+          { value: String(CAREER_PATHWAYS.length), label: isEs ? "Trayectorias Profesionales" : "Career Tracks" },
+          { value: String(REGIONAL_MULTIPLIERS.length), label: isEs ? "Regiones de CA" : "CA Regions" },
+        ]}
+      />
 
       {/* TOC */}
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">

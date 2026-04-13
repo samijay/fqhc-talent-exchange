@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/ui/design-system";
 import { Input } from "@/components/ui/input";
 import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 import { REGIONAL_MULTIPLIERS } from "@/lib/career-pathways";
@@ -485,47 +486,22 @@ export default function SalaryReportPage() {
 
   return (
     <div className="min-h-screen bg-stone-50">
-      {/* ---- Dark Hero ---- */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 px-4">
-        <div className="mx-auto max-w-5xl text-center">
-          <Badge className="mb-4 bg-teal-800/50 text-teal-300 border-teal-700">
-            <FileDown className="mr-1 size-3" />
-            {isEs ? "Informe Descargable" : "Downloadable Report"}
-          </Badge>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {t(
-              {
-                en: "2026 California FQHC Salary & Workforce Report",
-                es: "Informe Salarial y de Fuerza Laboral FQHC de California 2026",
-              },
-              locale
-            )}
-          </h1>
-          <p className="mt-4 text-lg text-stone-300 max-w-2xl mx-auto">
-            {t(
-              {
-                en: `Percentile-based compensation data for ${SALARY_BENCHMARKS.length} roles across 9 California regions. The most comprehensive FQHC salary guide built specifically for California.`,
-                es: `Datos de compensacion por percentil para ${SALARY_BENCHMARKS.length} roles en 9 regiones de California. La guia salarial FQHC mas completa creada especificamente para California.`,
-              },
-              locale
-            )}
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm text-stone-400">
-            <span className="flex items-center gap-1">
-              <BarChart3 className="size-4 text-teal-400" />
-              {SALARY_BENCHMARKS.length} {isEs ? "roles" : "roles"}
-            </span>
-            <span className="flex items-center gap-1">
-              <MapPin className="size-4 text-teal-400" />
-              9 {isEs ? "regiones" : "regions"}
-            </span>
-            <span className="flex items-center gap-1">
-              <TrendingUp className="size-4 text-teal-400" />
-              P25/P50/P75
-            </span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "2026 California FQHC Salary & Workforce Report",
+          es: "Informe Salarial y de Fuerza Laboral FQHC de California 2026",
+        }}
+        subtitle={{
+          en: `Percentile-based compensation data for ${SALARY_BENCHMARKS.length} roles across 9 California regions. The most comprehensive FQHC salary guide built specifically for California.`,
+          es: `Datos de compensacion por percentil para ${SALARY_BENCHMARKS.length} roles en 9 regiones de California. La guia salarial FQHC mas completa creada especificamente para California.`,
+        }}
+        stats={[
+          { value: String(SALARY_BENCHMARKS.length), label: isEs ? "Roles" : "Roles" },
+          { value: "9", label: isEs ? "Regiones" : "Regions" },
+          { value: "P25/P50/P75", label: isEs ? "Percentiles" : "Percentiles" },
+        ]}
+      />
 
       <div className="mx-auto max-w-5xl px-4 py-12">
         <div className="grid gap-12 lg:grid-cols-5">

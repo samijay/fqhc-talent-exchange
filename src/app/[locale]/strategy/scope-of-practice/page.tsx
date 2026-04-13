@@ -4,14 +4,13 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import {
   ArrowRight,
   ChevronDown,
   ChevronUp,
   DollarSign,
   FileText,
-  Scale,
   Shield,
   Stethoscope,
   Users,
@@ -310,29 +309,18 @@ export default function ScopeOfPracticePage() {
         { label: "Top-of-Scope" },
       ]} />
       {/* ---- 1. Dark Hero ---- */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-4">
-            <Scale className="size-5 text-teal-400" />
-            <Badge className="bg-teal-900/50 text-teal-300 border-teal-700 text-xs uppercase tracking-wider">
-              {isEs ? "Estrategia Laboral" : "Workforce Strategy"}
-            </Badge>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs
-              ? "Trabajando al Maximo de la Licencia"
-              : "Working at the Top of Scope"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300">
-            {isEs
-              ? "Guia de alcance de practica especifica de California para ejecutivos de FQHC. Conozca lo que cada rol puede y no puede hacer bajo la ley de California, las barreras que impiden a su equipo trabajar al maximo de su licencia, y el impacto en ingresos de una delegacion correcta."
-              : "A California-specific scope-of-practice guide for FQHC executives. Understand what each role can and cannot do under California law, the barriers keeping your team from working at the top of their license, and the revenue impact of getting delegation right."}
-          </p>
-          <p className="mt-3 text-xs text-stone-500">
-            {isEs ? "Ultima actualizacion:" : "Last updated:"} {SCOPE_LAST_UPDATED}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "Working at the Top of Scope",
+          es: "Trabajando al Maximo de la Licencia",
+        }}
+        subtitle={{
+          en: "A California-specific scope-of-practice guide for FQHC executives. Understand what each role can and cannot do under California law, the barriers keeping your team from working at the top of their license, and the revenue impact of getting delegation right.",
+          es: "Guia de alcance de practica especifica de California para ejecutivos de FQHC. Conozca lo que cada rol puede y no puede hacer bajo la ley de California, las barreras que impiden a su equipo trabajar al maximo de su licencia, y el impacto en ingresos de una delegacion correcta.",
+        }}
+        meta={`${isEs ? "Ultima actualizacion:" : "Last updated:"} ${SCOPE_LAST_UPDATED}`}
+      />
 
       {/* ---- Legal Disclaimer ---- */}
       <div className="bg-amber-50 dark:bg-amber-950 border-b border-amber-200 dark:border-amber-800">

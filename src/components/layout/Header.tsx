@@ -350,7 +350,7 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden items-center gap-0.5 lg:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-0.5 lg:flex">
           {navItems.map((item) =>
             item.groups ? (
               <MegaMenu

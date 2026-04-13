@@ -25,6 +25,7 @@ import {
   type DownloadFormat,
 } from "@/lib/downloads-catalog";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { PageHero } from "@/components/ui/design-system";
 
 const FORMAT_ICONS: Record<DownloadFormat, typeof FileText> = {
   xlsx: FileSpreadsheet,
@@ -91,31 +92,14 @@ export default function DownloadsPage() {
         ]}
       />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-stone-900 py-16 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <Badge
-            variant="outline"
-            className="mb-4 border-teal-400/30 text-teal-200"
-          >
-            <Download className="h-3 w-3 mr-1" />
-            {isEs ? "100% Gratis" : "100% Free"}
-          </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {isEs ? "Descargas Gratuitas" : "Free Downloads"}
-          </h1>
-          <p className="text-xl text-teal-100/80 max-w-2xl mx-auto leading-relaxed">
-            {isEs
-              ? "Plantillas, informes y herramientas generados por nuestras herramientas interactivas. Excel, PDF, Word y más."
-              : "Templates, reports, and tools generated from our interactive tools. Excel, PDF, Word, and more."}
-          </p>
-          <p className="text-sm text-teal-300/60 mt-4">
-            {isEs
-              ? `${DOWNLOAD_ITEMS.length} descargas disponibles`
-              : `${DOWNLOAD_ITEMS.length} downloads available`}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title={{ en: "Free Downloads", es: "Descargas Gratuitas" }}
+        subtitle={{
+          en: "Templates, reports, and tools generated from our interactive tools. Excel, PDF, Word, and more.",
+          es: "Plantillas, informes y herramientas generados por nuestras herramientas interactivas. Excel, PDF, Word y más.",
+        }}
+        meta={isEs ? `${DOWNLOAD_ITEMS.length} descargas disponibles · 100% Gratis` : `${DOWNLOAD_ITEMS.length} downloads available · 100% Free`}
+      />
 
       {/* Filters */}
       <section className="py-6 px-6 border-b border-stone-100 sticky top-0 bg-white/95 backdrop-blur-sm z-30">

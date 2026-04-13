@@ -23,6 +23,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { TableOfContents } from "@/components/layout/TableOfContents";
+import { PageHero } from "@/components/ui/design-system";
 import {
   policyTimeline,
   impactStats,
@@ -318,22 +319,17 @@ export default function FundingImpactPage() {
 
   return (
     <div className="bg-stone-50 min-h-screen dark:bg-stone-950">
-      {/* ─── Hero ─── */}
-      <section className="bg-gradient-to-br from-red-900 via-red-800 to-stone-900 py-14 text-center text-white sm:py-20 relative overflow-hidden">
-        {/* subtle pattern overlay */}
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
-        <div className="relative mx-auto max-w-4xl px-4">
-          <Badge className="mb-4 border-red-400/30 bg-red-500/20 text-red-100 text-sm">
-            {t.lastUpdated}
-          </Badge>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {t.title}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-red-100/80 sm:text-lg">
-            {t.subtitle}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title={{
+          en: "California Community Health Funding Impact",
+          es: "Impacto del Financiamiento en la Salud Comunitaria de California",
+        }}
+        subtitle={{
+          en: "Interactive tracker of how H.R. 1, state budget cuts, and policy changes are impacting FQHCs, undocumented populations, and community health programs across California.",
+          es: "Seguimiento interactivo de c\u00f3mo H.R. 1, los recortes presupuestarios estatales y los cambios de pol\u00edtica est\u00e1n afectando a los FQHCs, a las poblaciones indocumentadas y a los programas de salud comunitaria en California.",
+        }}
+        meta={t.lastUpdated}
+      />
 
       {/* ─── Key Numbers ─── */}
       <div className="mx-auto max-w-7xl px-4 -mt-8 sm:px-6 lg:px-8">

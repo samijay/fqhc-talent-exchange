@@ -34,6 +34,7 @@ import {
   ClipboardCheck,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { PageHero } from "@/components/ui/design-system";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -395,65 +396,21 @@ export default function AcademyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       {/* ---- Hero ---- */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-teal-900 px-4 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-teal-400">
-            <GraduationCap className="size-5" />
-            <span className="text-sm font-bold uppercase tracking-widest">
-              {isEs ? "Academia FQHC" : "FQHC Academy"}
-            </span>
-          </div>
-
-          <h1 className="mt-3 text-3xl font-extrabold text-white sm:text-5xl">
-            {isEs
-              ? "Tu Centro de Aprendizaje FQHC"
-              : "Your FQHC Learning Hub"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300">
-            {isEs
-              ? "Cursos interactivos, simuladores y herramientas de carrera — todo gratis, todo diseñado para profesionales de centros de salud comunitarios."
-              : "Interactive courses, simulators, and career tools — all free, all built for community health center professionals."}
-          </p>
-
-          {/* Stats */}
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
-              {
-                icon: BookOpen,
-                value: `${ACADEMY_COURSES.length}`,
-                label: isEs ? "Cursos" : "Courses",
-              },
-              {
-                icon: Target,
-                value: `${totalModules}+`,
-                label: isEs ? "Módulos" : "Modules",
-              },
-              {
-                icon: Clock,
-                value: `${totalHours}+`,
-                label: isEs ? "Horas de Contenido" : "Hours of Content",
-              },
-              {
-                icon: Users,
-                value: isEs ? "Gratis" : "Free",
-                label: isEs ? "Para Siempre" : "Forever",
-              },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-xl bg-white/10 backdrop-blur-sm p-4 text-center"
-              >
-                <stat.icon className="mx-auto size-5 text-teal-400 mb-2" />
-                <div className="text-2xl font-bold text-white">
-                  {stat.value}
-                </div>
-                <div className="text-xs text-stone-500">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "Your FQHC Learning Hub", es: "Tu Centro de Aprendizaje FQHC" }}
+        subtitle={{
+          en: "Interactive courses, simulators, and career tools — all free, all built for community health center professionals.",
+          es: "Cursos interactivos, simuladores y herramientas de carrera — todo gratis, todo dise\u00f1ado para profesionales de centros de salud comunitarios.",
+        }}
+        meta={isEs ? "Academia FQHC" : "FQHC Academy"}
+        stats={[
+          { value: `${ACADEMY_COURSES.length}`, label: isEs ? "Cursos" : "Courses" },
+          { value: `${totalModules}+`, label: isEs ? "M\u00f3dulos" : "Modules" },
+          { value: `${totalHours}+`, label: isEs ? "Horas de Contenido" : "Hours of Content" },
+          { value: isEs ? "Gratis" : "Free", label: isEs ? "Para Siempre" : "Forever" },
+        ]}
+      />
 
       {/* ---- Continue Where You Left Off (only shown if user has progress) ---- */}
       {progressSummary?.hasActivity && (

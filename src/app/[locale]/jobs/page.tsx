@@ -44,7 +44,7 @@ import {
   type NegotiationContext,
 } from "@/lib/job-negotiation";
 import { JobPostingJsonLd, FAQPageJsonLd } from "@/components/seo/JsonLd";
-import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
+import { Breadcrumb as Breadcrumbs, PageHero } from "@/components/ui/design-system";
 import { SaveJobButton } from "@/components/jobs/SaveJobButton";
 import { RecentlyViewed } from "@/components/directory/RecentlyViewed";
 import { Button } from "@/components/ui/button";
@@ -748,28 +748,18 @@ export default function JobsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
         <Breadcrumbs items={[{ label: isEs ? "Inicio" : "Home", href: "/" }, { label: isEs ? "Empleos" : "Jobs" }]} />
       </div>
-      {/* ---------- Hero ---------- */}
-      <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-12 text-center text-white sm:py-16">
-        <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-          {isEs ? "Empleos FQHC en California" : "FQHC Jobs in California"}
-        </h1>
-        <p className="mx-auto mt-3 max-w-xl text-sm text-teal-100/80 sm:text-base">
-          {isEs
-            ? "Salarios reales, estado sindical y estrategias de negociación para cada puesto."
-            : "Real salary ranges, union status, and negotiation strategies for every position."}
-        </p>
-        <div className="mx-auto mt-4 flex flex-wrap items-center justify-center gap-3">
-          <Badge className="border-teal-400/30 bg-teal-500/20 text-teal-100">
-            {filteredJobs.length} {isEs ? "posiciones" : "positions"}
-          </Badge>
-          <Badge className="border-teal-400/30 bg-teal-500/20 text-teal-100">
-            {orgsWithJobs.length} {isEs ? "organizaciones" : "organizations"}
-          </Badge>
-          <Badge className="border-teal-400/30 bg-teal-500/20 text-teal-100">
-            {SALARY_BENCHMARKS.length} {isEs ? "benchmarks salariales" : "salary benchmarks"}
-          </Badge>
-        </div>
-      </section>
+      <PageHero
+        title={{ en: "FQHC Jobs in California", es: "Empleos FQHC en California" }}
+        subtitle={{
+          en: "Real salary ranges, union status, and negotiation strategies for every position.",
+          es: "Salarios reales, estado sindical y estrategias de negociaci\u00f3n para cada puesto.",
+        }}
+        stats={[
+          { value: String(filteredJobs.length), label: isEs ? "posiciones" : "positions" },
+          { value: String(orgsWithJobs.length), label: isEs ? "organizaciones" : "organizations" },
+          { value: String(SALARY_BENCHMARKS.length), label: isEs ? "benchmarks salariales" : "salary benchmarks" },
+        ]}
+      />
 
       {/* ---------- Interview Prep Banner ---------- */}
       <div className="bg-gradient-to-r from-amber-50 to-teal-50 border-b border-amber-100">

@@ -229,7 +229,7 @@ export function TeamReadinessAssessment() {
             <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-100 to-purple-100">
               <Users className="size-8 text-indigo-700" />
             </div>
-            <h2 className="text-2xl font-bold text-stone-900">{t.title}</h2>
+            <h1 className="text-2xl font-bold text-stone-900">{t.title}</h1>
             <p className="mt-3 text-sm leading-relaxed text-stone-500">{t.subtitle}</p>
           </div>
 

@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { PageHero } from "@/components/ui/design-system";
 import {
   legislationSources,
   implementationTimeline,
@@ -742,43 +743,21 @@ export default function HealthcareTimelinePage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
-      {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-teal-900 via-teal-800 to-stone-900 py-16 md:py-20">
-        <div className="absolute inset-0 opacity-10" style={{backgroundImage:"url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E\")"}} />
-        <div className="relative mx-auto max-w-5xl px-4 text-center">
-          <Badge className="mb-4 bg-amber-500/20 text-amber-300">
-            <Stethoscope className="mr-1 h-3 w-3" />
-            {locale === "es" ? "Historia y Política" : "History & Policy"}
-          </Badge>
-          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
-            {locale === "es"
-              ? "Historia de la Salud en Estados Unidos"
-              : "US Healthcare History & Policy Timeline"}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-teal-100">
-            {locale === "es"
-              ? "Desde el Servicio de Hospitales Marinos de 1798 hasta H.R. 1 en 2025 — la historia completa de la salud pública, Medicaid, y los centros de salud comunitarios, con fuentes legislativas primarias."
-              : "From the 1798 Marine Hospital Service to H.R. 1 in 2025 — the full story of public health, Medicaid, and community health centers, with primary legislative sources."}
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-sm text-teal-100">
-              <Calendar className="h-3.5 w-3.5" />
-              {HEALTHCARE_ERAS.reduce((sum, era) => sum + era.events.length, 0)}{" "}
-              {locale === "es" ? "eventos" : "events"}
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-sm text-teal-100">
-              <Scale className="h-3.5 w-3.5" />
-              {legislationSources.length}{" "}
-              {locale === "es" ? "leyes documentadas" : "laws documented"}
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-sm text-teal-100">
-              <Landmark className="h-3.5 w-3.5" />
-              {implementationTimeline.length}{" "}
-              {locale === "es" ? "próximos hitos" : "upcoming milestones"}
-            </span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title={{
+          en: "US Healthcare History & Policy Timeline",
+          es: "Historia de la Salud en Estados Unidos",
+        }}
+        subtitle={{
+          en: "From the 1798 Marine Hospital Service to H.R. 1 in 2025 \u2014 the full story of public health, Medicaid, and community health centers, with primary legislative sources.",
+          es: "Desde el Servicio de Hospitales Marinos de 1798 hasta H.R. 1 en 2025 \u2014 la historia completa de la salud p\u00fablica, Medicaid, y los centros de salud comunitarios, con fuentes legislativas primarias.",
+        }}
+        stats={[
+          { value: String(HEALTHCARE_ERAS.reduce((sum, era) => sum + era.events.length, 0)), label: locale === "es" ? "eventos" : "events" },
+          { value: String(legislationSources.length), label: locale === "es" ? "leyes documentadas" : "laws documented" },
+          { value: String(implementationTimeline.length), label: locale === "es" ? "pr\u00f3ximos hitos" : "upcoming milestones" },
+        ]}
+      />
 
       {/* ── Tabs ── */}
       <div className="sticky top-0 z-20 border-b border-stone-200 bg-white/95 backdrop-blur-sm">

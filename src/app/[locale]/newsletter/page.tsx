@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { NewsletterQuestionnaireForm } from "@/components/newsletter/NewsletterQuestionnaireForm";
 import { t } from "@/lib/i18n-helpers";
+import { PageHero } from "@/components/ui/design-system";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -152,40 +153,17 @@ export default function NewsletterPage() {
 
   return (
     <div className="bg-stone-50 dark:bg-stone-950">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-4">
-            <Mail className="size-5 text-teal-400" />
-            <span className="text-sm font-medium uppercase tracking-wider text-teal-400">
-              {isEs ? "Inteligencia" : "Intelligence"}
-            </span>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs
-              ? "Informes de Inteligencia FQHC"
-              : "FQHC Intelligence Briefings"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300">
-            {isEs
-              ? "Analisis semanal de politicas, financiamiento, fuerza laboral y tecnologia para el sector de salud comunitaria de California. Cada dato respaldado por fuentes primarias."
-              : "Weekly analysis of policy, funding, workforce, and technology for California's community health sector. Every insight backed by primary sources."}
-          </p>
-          <div className="mt-6 flex items-center gap-4 text-sm text-stone-500">
-            <span>
-              {isEs ? "2 informes semanales" : "2 weekly briefings"}
-            </span>
-            <span className="text-stone-600">·</span>
-            <span>
-              {isEs ? "Fuentes primarias" : "Primary sources"}
-            </span>
-            <span className="text-stone-600">·</span>
-            <span>
-              {isEs ? "Cancela cuando quieras" : "Unsubscribe anytime"}
-            </span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title={{
+          en: "FQHC Intelligence Briefings",
+          es: "Informes de Inteligencia FQHC",
+        }}
+        subtitle={{
+          en: "Weekly analysis of policy, funding, workforce, and technology for California's community health sector. Every insight backed by primary sources.",
+          es: "Analisis semanal de politicas, financiamiento, fuerza laboral y tecnologia para el sector de salud comunitaria de California. Cada dato respaldado por fuentes primarias.",
+        }}
+        meta={isEs ? "2 informes semanales · Fuentes primarias · Cancela cuando quieras" : "2 weekly briefings · Primary sources · Unsubscribe anytime"}
+      />
 
       {/* Track Cards + Signup Form */}
       <section className="py-10 sm:py-14">

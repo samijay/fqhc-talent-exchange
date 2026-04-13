@@ -21,8 +21,7 @@ import {
 import { useLocale } from "next-intl";
 import { t } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
-import { Badge } from "@/components/ui/badge";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import { Button } from "@/components/ui/button";
 import {
   CAREER_RESOURCES,
@@ -279,30 +278,17 @@ export default function ResourcesPage() {
         { label: isEs ? "Herramientas" : "Tools", href: "/resources" },
         { label: isEs ? "Recursos Profesionales" : "Career Resources" },
       ]} />
-      {/* ==================== HERO ==================== */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 text-white">
-        <div className="absolute -left-32 -top-32 size-96 rounded-full bg-teal-500/20 blur-3xl" />
-        <div className="absolute -bottom-40 -right-40 size-[28rem] rounded-full bg-amber-500/10 blur-3xl" />
-
-        <div className="relative mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:px-8">
-          <Badge className="mb-6 border-teal-400/30 bg-teal-500/20 text-teal-100 hover:bg-teal-500/30">
-            <GraduationCap className="mr-1.5 size-3.5" />
-            {isEs
-              ? `${CAREER_RESOURCES.length} Programas · ${freeCount} Gratuitos`
-              : `${CAREER_RESOURCES.length} Programs · ${freeCount} Free`}
-          </Badge>
-
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs ? "Recursos Profesionales" : "Career Resources"}
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-teal-100/90">
-            {isEs
-              ? "Programas gratuitos y de mejor valor para trabajadores de FQHCs en California — reembolso de préstamos, capacitación, fondos educativos sindicales y más. Cada recurso con enlace a la fuente primaria."
-              : "Free and best-value programs for FQHC workers in California — loan repayment, training, union education funds, and more. Every resource linked to its primary source."}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "Career Resources", es: "Recursos Profesionales" }}
+        subtitle={{
+          en: "Free and best-value programs for FQHC workers in California — loan repayment, training, union education funds, and more. Every resource linked to its primary source.",
+          es: "Programas gratuitos y de mejor valor para trabajadores de FQHCs en California — reembolso de préstamos, capacitación, fondos educativos sindicales y más. Cada recurso con enlace a la fuente primaria.",
+        }}
+        meta={isEs
+          ? `${CAREER_RESOURCES.length} Programas · ${freeCount} Gratuitos`
+          : `${CAREER_RESOURCES.length} Programs · ${freeCount} Free`}
+      />
 
       {/* ==================== DEADLINE BANNER ==================== */}
       {upcomingDeadlines.length > 0 && (

@@ -17,7 +17,7 @@ import { Badge } from "@/components/ui/badge";
 import { useSavedJobs } from "@/components/jobs/SaveJobButton";
 import { fqhcJobListings } from "@/lib/fqhc-job-listings";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
-import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
+import { Breadcrumb as Breadcrumbs, PageHero } from "@/components/ui/design-system";
 
 const fqhcMap = new Map(californiaFQHCs.map((f) => [f.slug, f]));
 
@@ -54,22 +54,12 @@ export default function SavedJobsPage() {
         />
       </div>
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-10 text-center text-white sm:py-12">
-        <div className="mx-auto max-w-4xl px-4">
-          <div className="flex items-center justify-center gap-2 mb-3">
-            <Bookmark className="size-6 fill-white" />
-          </div>
-          <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
-            {isEs ? "Empleos Guardados" : "Saved Jobs"}
-          </h1>
-          <p className="mt-2 text-sm text-teal-100/80">
-            {isEs
-              ? `${savedJobs.length} ${savedJobs.length === 1 ? "posición guardada" : "posiciones guardadas"}`
-              : `${savedJobs.length} saved ${savedJobs.length === 1 ? "position" : "positions"}`}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title={{ en: "Saved Jobs", es: "Empleos Guardados" }}
+        meta={isEs
+          ? `${savedJobs.length} ${savedJobs.length === 1 ? "posición guardada" : "posiciones guardadas"}`
+          : `${savedJobs.length} saved ${savedJobs.length === 1 ? "position" : "positions"}`}
+      />
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8">
         {savedJobs.length === 0 ? (

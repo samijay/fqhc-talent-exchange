@@ -13,7 +13,6 @@ import {
   ArrowRight,
   Award,
   MapPin,
-  TrendingUp,
   BookOpen,
   ClipboardCheck,
   FileText,
@@ -25,7 +24,7 @@ import { useLocale } from "next-intl";
 import { formatSalary } from "@/lib/i18n-helpers";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import { CareerFunnelStep } from "@/components/ui/CareerFunnelStep";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
@@ -120,35 +119,29 @@ export default function CareerRoadmapPage() {
         { label: isEs ? "Herramientas" : "Tools", href: "/career-roadmap" },
         { label: isEs ? "Mapa de Carrera" : "Career Roadmap" },
       ]} />
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 px-4 py-16 text-white sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-700/50 px-4 py-1.5 text-sm font-medium">
-            <TrendingUp className="size-4" />
-            {isEs ? "Carreras en FQHCs de California" : "California FQHC Careers"}
-          </div>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs
-              ? "Tu camino profesional en salud comunitaria"
-              : "Your Career Path in Community Health"}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-teal-100">
-            {isEs
-              ? "Explora 8 trayectorias profesionales en FQHCs de California — con salarios, certificaciones y habilidades en cada nivel."
-              : "Explore 8 career tracks in California FQHCs — with salaries, certifications, and skills at every level."}
-          </p>
-          <button
-            onClick={handleShare}
-            className="mt-4 inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-700/40 px-4 py-2 text-sm font-medium text-teal-200 transition-all hover:bg-teal-700/60"
-          >
-            {shareState === "copied" ? (
-              <><Check className="size-4" />{isEs ? "¡Enlace copiado!" : "Link copied!"}</>
-            ) : (
-              <><Share2 className="size-4" />{isEs ? "Compartir esta vista" : "Share this view"}</>
-            )}
-          </button>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "Your Career Path in Community Health",
+          es: "Tu camino profesional en salud comunitaria",
+        }}
+        subtitle={{
+          en: "Explore 8 career tracks in California FQHCs — with salaries, certifications, and skills at every level.",
+          es: "Explora 8 trayectorias profesionales en FQHCs de California — con salarios, certificaciones y habilidades en cada nivel.",
+        }}
+        meta={isEs ? "Carreras en FQHCs de California" : "California FQHC Careers"}
+      >
+        <button
+          onClick={handleShare}
+          className="inline-flex items-center gap-2 rounded-full border border-stone-600 bg-stone-800/50 px-4 py-2 text-sm font-medium text-stone-300 transition-all hover:bg-stone-700/60"
+        >
+          {shareState === "copied" ? (
+            <><Check className="size-4" />{isEs ? "¡Enlace copiado!" : "Link copied!"}</>
+          ) : (
+            <><Share2 className="size-4" />{isEs ? "Compartir esta vista" : "Share this view"}</>
+          )}
+        </button>
+      </PageHero>
 
       {/* Career Funnel */}
       <div className="mx-auto max-w-5xl px-4 pt-8 sm:px-6 lg:px-8">

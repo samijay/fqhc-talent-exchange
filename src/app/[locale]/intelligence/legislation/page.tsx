@@ -18,6 +18,7 @@ import {
   Clock,
 } from "lucide-react";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { PageHero } from "@/components/ui/design-system";
 import {
   LEGISLATIVE_BILLS,
   STATUS_LABELS,
@@ -198,59 +199,25 @@ export default function LegislativeTrackerPage() {
 
   return (
     <main className="min-h-screen bg-stone-950 text-white">
-      {/* ============================================================ */}
-      {/*  Hero                                                        */}
-      {/* ============================================================ */}
-      <section className="relative bg-gradient-to-br from-stone-950 via-stone-900 to-stone-950 border-b border-stone-800 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-stone-500 text-sm mb-4">
-            <Link href="/" className="hover:text-stone-300 transition-colors">
-              {isEs ? "Inicio" : "Home"}
-            </Link>
-            <span>/</span>
-            <span>{isEs ? "Legislación" : "Legislation"}</span>
-          </div>
-
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-red-900/30 border border-red-700/40 rounded-full px-3 py-1 mb-4">
-                <Bell className="w-3.5 h-3.5 text-red-400" />
-                <span className="text-red-300 text-xs font-medium">
-                  {isEs ? "Monitoreo en Tiempo Real" : "Live Legislative Monitor"}
-                </span>
-              </div>
-              <h1 className="text-4xl font-bold text-white mb-3">
-                {isEs ? "Rastreador Legislativo FQHC" : "FQHC Legislative Tracker"}
-              </h1>
-              <p className="text-stone-500 text-lg max-w-2xl">
-                {isEs
-                  ? "Monitoreo de leyes federales y estatales que afectan el financiamiento, la fuerza laboral y el acceso de pacientes de los FQHCs de California."
-                  : "Monitor federal and California legislation affecting FQHC funding, workforce, and patient access. Updated with every legislative development."}
-              </p>
-            </div>
-            <div className="text-stone-500 text-sm shrink-0">
-              {isEs ? "Actualizado" : "Updated"}: {formatDate(LEGISLATIVE_LAST_UPDATED, locale)}
-            </div>
-          </div>
-
-          {/* Stats bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-8">
-            {[
-              { label: isEs ? "Proyectos Activos" : "Active Bills", value: stats.total, color: "text-white" },
-              { label: isEs ? "Críticos" : "Critical", value: stats.critical, color: "text-red-400" },
-              { label: isEs ? "Alto Impacto" : "High Impact", value: stats.high, color: "text-orange-400" },
-              { label: isEs ? "Con Plazos" : "With Deadlines", value: stats.withDeadline, color: "text-amber-400" },
-              { label: isEs ? "Federal" : "Federal", value: stats.federal, color: "text-blue-400" },
-              { label: isEs ? "California" : "California", value: stats.california, color: "text-teal-400" },
-            ].map((s) => (
-              <div key={s.label} className="bg-stone-900 border border-stone-800 rounded-xl p-3 text-center">
-                <div className={`text-2xl font-bold ${s.color}`}>{s.value}</div>
-                <div className="text-stone-500 text-xs mt-0.5">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title={{
+          en: "FQHC Legislative Tracker",
+          es: "Rastreador Legislativo FQHC",
+        }}
+        subtitle={{
+          en: "Monitor federal and California legislation affecting FQHC funding, workforce, and patient access. Updated with every legislative development.",
+          es: "Monitoreo de leyes federales y estatales que afectan el financiamiento, la fuerza laboral y el acceso de pacientes de los FQHCs de California.",
+        }}
+        meta={`${isEs ? "Actualizado" : "Updated"}: ${formatDate(LEGISLATIVE_LAST_UPDATED, locale)}`}
+        stats={[
+          { value: String(stats.total), label: isEs ? "Proyectos Activos" : "Active Bills" },
+          { value: String(stats.critical), label: isEs ? "Cr\u00edticos" : "Critical" },
+          { value: String(stats.high), label: isEs ? "Alto Impacto" : "High Impact" },
+          { value: String(stats.withDeadline), label: isEs ? "Con Plazos" : "With Deadlines" },
+          { value: String(stats.federal), label: "Federal" },
+          { value: String(stats.california), label: "California" },
+        ]}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* ========================================================= */}

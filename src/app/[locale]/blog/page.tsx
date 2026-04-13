@@ -6,7 +6,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { BLOG_POSTS } from "@/lib/blog-posts";
 import { Search, Clock, ArrowRight } from "lucide-react";
-import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
+import { Breadcrumb as Breadcrumbs, PageHero } from "@/components/ui/design-system";
 
 // Extract unique categories from posts
 const EN_CATEGORIES = [
@@ -59,53 +59,51 @@ export default function BlogPage() {
       <div className="max-w-5xl mx-auto px-6 pt-4">
         <Breadcrumbs items={[{ label: isEs ? "Inicio" : "Home", href: "/" }, { label: "Blog" }]} />
       </div>
-      {/* Hero with featured article */}
-      <section className="bg-gradient-to-br from-teal-50 via-teal-50 to-stone-50 py-12 md:py-16 px-6 dark:from-stone-900 dark:via-stone-900 dark:to-stone-950">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-4 dark:text-stone-100">
-              {t("title")}
-            </h1>
-            <p className="text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed dark:text-stone-300">
-              {t("subtitle")}
-            </p>
+      <PageHero
+        variant="light"
+        title={{
+          en: "FQHC Career Resources",
+          es: "Recursos Profesionales FQHC",
+        }}
+        subtitle={{
+          en: "Expert guides, salary insights, and career tips for community health professionals.",
+          es: "Gu\u00edas de expertos, informaci\u00f3n salarial y consejos profesionales para trabajadores de salud comunitaria.",
+        }}
+      >
+        {/* Featured latest article */}
+        <Link
+          href={`/blog/${featuredPost.slug}`}
+          className="block bg-white rounded-2xl border border-stone-200 p-6 md:p-8 hover:shadow-lg transition-all hover:-translate-y-1 group dark:bg-stone-800 dark:border-stone-700"
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xs font-bold uppercase tracking-wide text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full dark:bg-teal-950 dark:text-teal-400">
+              {isEs ? "M\u00e1s Reciente" : "Latest"}
+            </span>
+            <span className="text-xs text-stone-500">
+              {isEs ? featuredPost.esCategory : featuredPost.category}
+            </span>
           </div>
-
-          {/* Featured latest article */}
-          <Link
-            href={`/blog/${featuredPost.slug}`}
-            className="block bg-white rounded-2xl border border-stone-200 p-6 md:p-8 hover:shadow-lg transition-all hover:-translate-y-1 group dark:bg-stone-800 dark:border-stone-700"
-          >
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-bold uppercase tracking-wide text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full dark:bg-teal-950 dark:text-teal-400">
-                {isEs ? "Más Reciente" : "Latest"}
-              </span>
-              <span className="text-xs text-stone-500">
-                {isEs ? featuredPost.esCategory : featuredPost.category}
-              </span>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-stone-900 mb-3 group-hover:text-teal-700 transition-colors dark:text-stone-100 dark:group-hover:text-teal-400">
-              {isEs ? featuredPost.esTitle : featuredPost.title}
-            </h2>
-            <p className="text-stone-600 leading-relaxed mb-4 text-lg dark:text-stone-300">
-              {isEs ? featuredPost.esDescription : featuredPost.description}
-            </p>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4 text-sm text-stone-500">
-                <time>{isEs ? featuredPost.esDate : featuredPost.date}</time>
-                <span className="flex items-center gap-1">
-                  <Clock className="h-3.5 w-3.5" />
-                  {isEs ? featuredPost.esReadTime : featuredPost.readTime}
-                </span>
-              </div>
-              <span className="flex items-center gap-1 text-sm font-medium text-teal-600 group-hover:translate-x-1 transition-transform">
-                {isEs ? "Leer" : "Read"}
-                <ArrowRight className="h-4 w-4" />
+          <h2 className="text-2xl md:text-3xl font-bold text-stone-900 mb-3 group-hover:text-teal-700 transition-colors dark:text-stone-100 dark:group-hover:text-teal-400">
+            {isEs ? featuredPost.esTitle : featuredPost.title}
+          </h2>
+          <p className="text-stone-600 leading-relaxed mb-4 text-lg dark:text-stone-300">
+            {isEs ? featuredPost.esDescription : featuredPost.description}
+          </p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4 text-sm text-stone-500">
+              <time>{isEs ? featuredPost.esDate : featuredPost.date}</time>
+              <span className="flex items-center gap-1">
+                <Clock className="h-3.5 w-3.5" />
+                {isEs ? featuredPost.esReadTime : featuredPost.readTime}
               </span>
             </div>
-          </Link>
-        </div>
-      </section>
+            <span className="flex items-center gap-1 text-sm font-medium text-teal-600 group-hover:translate-x-1 transition-transform">
+              {isEs ? "Leer" : "Read"}
+              <ArrowRight className="h-4 w-4" />
+            </span>
+          </div>
+        </Link>
+      </PageHero>
 
       {/* Search and category filter */}
       <section className="py-8 px-6 border-b border-stone-100 sticky top-0 bg-white/95 backdrop-blur-sm z-30 dark:border-stone-800 dark:bg-stone-950/95">

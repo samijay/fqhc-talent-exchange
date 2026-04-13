@@ -5,10 +5,9 @@ import { useState } from "react";
 import { useLocale } from "next-intl";
 import { t } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
-  BookOpen,
   ArrowRight,
   Calendar,
   ChevronDown,
@@ -282,40 +281,15 @@ export default function ExecutiveGuidesPage() {
         { label: "Executive Guides" },
       ]} />
       {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-4">
-            <BookOpen className="size-5 text-teal-400" />
-            <span className="text-sm font-medium uppercase tracking-wider text-teal-400">
-              {isEs ? "Estrategia" : "Strategy"}
-            </span>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs ? "Guias Ejecutivas" : "Executive Guides"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300">
-            {isEs
-              ? "Estudios de caso reales de FQHCs, estructurados con el marco de 'Buena Estrategia' de Rumelt: Diagnosticar → Politica Guia → Acciones Coherentes."
-              : "Real FQHC case studies, structured with Rumelt's 'Good Strategy' framework: Diagnose → Guiding Policy → Coherent Actions."}
-          </p>
-          <div className="mt-6 flex items-center gap-4 text-sm text-stone-500">
-            <span>
-              {counts.total} {isEs ? "estudios de caso" : "case studies"}
-            </span>
-            <span className="text-stone-600">·</span>
-            <span>
-              {Object.keys(counts).length - 1} {isEs ? "categorías" : "categories"}
-            </span>
-            <span className="text-stone-600">·</span>
-            <span>{isEs ? "Fuentes primarias verificadas" : "Verified primary sources"}</span>
-            <span className="text-stone-600">·</span>
-            <span className="flex items-center gap-1">
-              <Calendar className="size-3" />
-              {isEs ? "Actualizado:" : "Updated:"} {CASE_STUDIES_LAST_UPDATED}
-            </span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "Executive Guides", es: "Guias Ejecutivas" }}
+        subtitle={{
+          en: "Real FQHC case studies, structured with Rumelt's 'Good Strategy' framework: Diagnose \u2192 Guiding Policy \u2192 Coherent Actions.",
+          es: "Estudios de caso reales de FQHCs, estructurados con el marco de 'Buena Estrategia' de Rumelt: Diagnosticar \u2192 Politica Guia \u2192 Acciones Coherentes.",
+        }}
+        meta={`${counts.total} ${isEs ? "estudios de caso" : "case studies"} · ${Object.keys(counts).length - 1} ${isEs ? "categorías" : "categories"} · ${isEs ? "Fuentes primarias verificadas" : "Verified primary sources"} · ${isEs ? "Actualizado:" : "Updated:"} ${CASE_STUDIES_LAST_UPDATED}`}
+      />
 
       {/* ── Rumelt Framework Explainer ── */}
       <section className="border-b border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-900 py-10 sm:py-14">

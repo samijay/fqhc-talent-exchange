@@ -49,8 +49,7 @@ export default function Error({
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Button
               onClick={reset}
-              variant="default"
-              className="bg-teal-700 hover:bg-teal-800"
+              variant="brand"
             >
               <RefreshCw className="mr-2 size-4" />
               Try Again

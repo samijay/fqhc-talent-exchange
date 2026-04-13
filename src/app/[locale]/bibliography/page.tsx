@@ -31,6 +31,7 @@ import {
   type ResourceType,
 } from "@/lib/bibliography-data";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { PageHero } from "@/components/ui/design-system";
 
 // Map icon strings to Lucide components
 const ICON_MAP: Record<string, typeof BookOpen> = {
@@ -136,31 +137,14 @@ export default function BibliographyPage() {
         ]}
       />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 py-16 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <Badge
-            variant="outline"
-            className="mb-4 border-stone-500 text-stone-300"
-          >
-            <Library className="h-3 w-3 mr-1" />
-            {isEs ? "212+ Recursos" : "212+ Resources"}
-          </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {isEs
-              ? "Bibliografía FQHC"
-              : "FQHC Bibliography"}
-          </h1>
-          <p className="text-xl text-stone-300 max-w-2xl mx-auto leading-relaxed">
-            {isEs
-              ? "Biblioteca de referencia curada para ejecutivos, investigadores y profesionales de centros de salud comunitarios."
-              : "Curated reference library for community health center executives, researchers, and professionals."}
-          </p>
-          <p className="text-sm text-stone-500 mt-4">
-            {isEs ? "Última actualización: 1 de marzo de 2026" : "Last updated: March 1, 2026"}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title={{ en: "FQHC Bibliography", es: "Bibliografía FQHC" }}
+        subtitle={{
+          en: "Curated reference library for community health center executives, researchers, and professionals.",
+          es: "Biblioteca de referencia curada para ejecutivos, investigadores y profesionales de centros de salud comunitarios.",
+        }}
+        meta={isEs ? "212+ Recursos · Última actualización: 1 de marzo de 2026" : "212+ Resources · Last updated: March 1, 2026"}
+      />
 
       {/* Search & Filters */}
       <section className="py-6 px-6 border-b border-stone-100 sticky top-0 bg-white/95 backdrop-blur-sm z-30">

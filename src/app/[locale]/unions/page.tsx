@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { PageHero } from "@/components/ui/design-system";
 import {
   UNION_DIRECTORY,
   SEIU_CLINIC_WORKERS_UNITED,
@@ -449,43 +450,21 @@ export default function UnionsPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
-      {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-teal-800 via-teal-900 to-stone-900 py-16 md:py-20">
-        <div className="absolute inset-0 opacity-10" style={{backgroundImage:"url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E\")"}} />
-        <div className="relative mx-auto max-w-5xl px-4 text-center">
-          <Badge className="mb-4 bg-amber-500/20 text-amber-300">
-            <Shield className="mr-1 h-3 w-3" />
-            {locale === "es" ? "Derechos Laborales" : "Worker Power"}
-          </Badge>
-          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
-            {locale === "es"
-              ? "Sindicatos y Movimiento Laboral en Salud Comunitaria"
-              : "Unions & Labor Movement in Community Health"}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-teal-100">
-            {locale === "es"
-              ? "Directorio de sindicatos que representan a trabajadores de FQHCs en California, historia del movimiento laboral en salud, y recursos curados."
-              : "Directory of unions representing FQHC workers in California, healthcare labor movement history, and curated resources."}
-          </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-            <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-sm text-teal-100">
-              <Building2 className="h-3.5 w-3.5" />
-              {UNION_DIRECTORY.length}{" "}
-              {locale === "es" ? "sindicatos" : "unions"}
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-sm text-teal-100">
-              <Calendar className="h-3.5 w-3.5" />
-              {LABOR_TIMELINE.length}{" "}
-              {locale === "es" ? "eventos históricos" : "historic events"}
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-sm text-teal-100">
-              <BookOpen className="h-3.5 w-3.5" />
-              {CURATED_RESOURCES.length}{" "}
-              {locale === "es" ? "recursos" : "resources"}
-            </span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title={{
+          en: "Unions & Labor Movement in Community Health",
+          es: "Sindicatos y Movimiento Laboral en Salud Comunitaria",
+        }}
+        subtitle={{
+          en: "Directory of unions representing FQHC workers in California, healthcare labor movement history, and curated resources.",
+          es: "Directorio de sindicatos que representan a trabajadores de FQHCs en California, historia del movimiento laboral en salud, y recursos curados.",
+        }}
+        stats={[
+          { value: String(UNION_DIRECTORY.length), label: locale === "es" ? "sindicatos" : "unions" },
+          { value: String(LABOR_TIMELINE.length), label: locale === "es" ? "eventos hist\u00f3ricos" : "historic events" },
+          { value: String(CURATED_RESOURCES.length), label: locale === "es" ? "recursos" : "resources" },
+        ]}
+      />
 
       {/* ── Coalition Banner ── */}
       <section className="border-b border-stone-200 bg-amber-50 py-6">

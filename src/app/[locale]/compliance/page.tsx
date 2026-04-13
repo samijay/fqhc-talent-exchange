@@ -16,6 +16,7 @@ import {
   Shield,
   Briefcase,
 } from "lucide-react";
+import { PageHero } from "@/components/ui/design-system";
 import {
   DOMAIN_META,
   COMPLIANCE_CALENDAR,
@@ -101,39 +102,17 @@ export default function ComplianceLandingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-red-500/20 text-red-300 px-3 py-1 rounded-full text-sm font-medium mb-6">
-            <AlertTriangle className="w-4 h-4" />
-            {locale === "es" ? "Centro de Comando de Cumplimiento" : "Compliance Command Center"}
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {locale === "es"
-              ? "Centro de Comando de Cumplimiento de FQHCs"
-              : "FQHC Compliance Command Center"}
-          </h1>
-          <p className="text-lg text-stone-300 max-w-3xl mx-auto mb-8">
-            {locale === "es"
-              ? "Cada fecha límite, cada regulación, cada herramienta — en un solo lugar"
-              : "Every deadline, every regulation, every tool — in one place"}
-          </p>
-
-          {/* Key stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            {[
-              { value: stats.criticalRisks + stats.highRisks, label: locale === "es" ? "Riesgos Rastreados" : "Risks Tracked" },
-              { value: stats.calendarEntries, label: locale === "es" ? "Fechas Límite" : "Deadlines" },
-              { value: COMPLIANCE_CASE_STUDIES.length, label: locale === "es" ? "Estudios de Caso" : "Case Studies" },
-              { value: "6", label: locale === "es" ? "Dominios de Compliance" : "Compliance Domains" },
-            ].map((stat) => (
-              <div key={stat.label} className="bg-white/5 border border-white/10 rounded-lg p-4">
-                <div className="text-2xl font-bold text-amber-400">{stat.value}</div>
-                <div className="text-sm text-stone-500">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "FQHC Compliance Command Center", es: "Centro de Comando de Cumplimiento de FQHCs" }}
+        subtitle={{ en: "Every deadline, every regulation, every tool — in one place", es: "Cada fecha límite, cada regulación, cada herramienta — en un solo lugar" }}
+        stats={[
+          { value: String(stats.criticalRisks + stats.highRisks), label: locale === "es" ? "Riesgos Rastreados" : "Risks Tracked" },
+          { value: String(stats.calendarEntries), label: locale === "es" ? "Fechas Límite" : "Deadlines" },
+          { value: String(COMPLIANCE_CASE_STUDIES.length), label: locale === "es" ? "Estudios de Caso" : "Case Studies" },
+          { value: "6", label: locale === "es" ? "Dominios de Compliance" : "Compliance Domains" },
+        ]}
+      />
 
       {/* 6 Domain Cards */}
       <section className="max-w-6xl mx-auto px-4 -mt-8 pb-12">

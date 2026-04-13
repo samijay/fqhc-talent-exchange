@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { Download, ExternalLink, ShieldCheck, Lock, DollarSign } from "lucide-react";
+import { PageHero } from "@/components/ui/design-system";
 import { COMPLIANCE_CALENDAR, DOMAIN_META, type ComplianceDomain } from "@/lib/fqhc-compliance";
 import { downloadComplianceCalendarAsExcel } from "@/lib/compliance-excel-export";
 import { t } from "@/lib/i18n-helpers";
@@ -33,17 +33,16 @@ export default function ComplianceCalendarPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-14 px-4">
-        <div className="max-w-5xl mx-auto">
-          <Link href="/compliance" className="text-stone-500 text-sm hover:underline mb-4 inline-block">&larr; {locale === "es" ? "Cumplimiento" : "Compliance"}</Link>
-          <h1 className="text-3xl md:text-4xl font-bold mb-3">{locale === "es" ? "Calendario de Cumplimiento 2026" : "2026 Compliance Calendar"}</h1>
-          <p className="text-stone-300 text-lg max-w-3xl mb-6">{locale === "es" ? "Todas las fechas límite de HRSA, HIPAA y facturación en un solo lugar." : "Every HRSA, HIPAA, and billing deadline in one place."}</p>
-          <button onClick={() => downloadComplianceCalendarAsExcel(locale)} className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold px-5 py-2.5 rounded-lg transition-colors">
-            <Download className="w-5 h-5" />
-            {locale === "es" ? "Descargar Calendario (Excel)" : "Download Calendar (Excel)"}
-          </button>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "2026 Compliance Calendar", es: "Calendario de Cumplimiento 2026" }}
+        subtitle={{ en: "Every HRSA, HIPAA, and billing deadline in one place.", es: "Todas las fechas límite de HRSA, HIPAA y facturación en un solo lugar." }}
+      >
+        <button onClick={() => downloadComplianceCalendarAsExcel(locale)} className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold px-5 py-2.5 rounded-lg transition-colors">
+          <Download className="w-5 h-5" />
+          {locale === "es" ? "Descargar Calendario (Excel)" : "Download Calendar (Excel)"}
+        </button>
+      </PageHero>
 
       {/* Filters */}
       <section className="max-w-5xl mx-auto px-4 py-6">

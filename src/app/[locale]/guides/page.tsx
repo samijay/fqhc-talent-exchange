@@ -19,7 +19,7 @@ import {
 import { useLocale } from "next-intl";
 import { t } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -310,30 +310,15 @@ export default function GuidesPage() {
         { label: isEs ? "Herramientas" : "Tools", href: "/guides" },
         { label: isEs ? "Gu\u00edas del Lugar de Trabajo" : "Workplace Guides" },
       ]} />
-      {/* ───────────────── Hero ───────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-teal-800 via-teal-900 to-teal-950 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-700/30 via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-20 text-center">
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-white/10 backdrop-blur">
-            <BookOpen className="h-7 w-7 text-amber-400" />
-          </div>
-          <Badge
-            variant="outline"
-            className="mb-4 border-white/30 text-white/90 text-sm"
-          >
-            {FQHC_GUIDES.length}{" "}
-            {isEs ? "guías operativas" : "operational guides"}
-          </Badge>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs ? "Guías del Trabajo" : "Workplace Guides"}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-teal-100 leading-relaxed">
-            {isEs
-              ? "Conocimiento práctico para trabajadores de FQHC — flujos de trabajo clínico, mecánica de facturación, y cómo funciona la economía de la salud. Cada guía tiene fuentes primarias."
-              : "Practical knowledge for FQHC workers — clinical workflows, billing mechanics, and how healthcare economics work. Every guide cites primary sources."}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "Workplace Guides", es: "Guías del Trabajo" }}
+        subtitle={{
+          en: "Practical knowledge for FQHC workers — clinical workflows, billing mechanics, and how healthcare economics work. Every guide cites primary sources.",
+          es: "Conocimiento práctico para trabajadores de FQHC — flujos de trabajo clínico, mecánica de facturación, y cómo funciona la economía de la salud. Cada guía tiene fuentes primarias.",
+        }}
+        meta={`${FQHC_GUIDES.length} ${isEs ? "guías operativas" : "operational guides"}`}
+      />
 
       {/* ── Legal Disclaimer ── */}
       <div className="bg-amber-50 dark:bg-amber-950 border-b border-amber-200">

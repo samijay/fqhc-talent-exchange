@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb, StatBar } from "@/components/ui/design-system";
+import { Breadcrumb, StatBar, PageHero } from "@/components/ui/design-system";
 import {
   FileText,
   MessageSquare,
@@ -292,19 +292,14 @@ export default function MyProgressPage() {
         ]}
       />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-teal-50 to-white dark:from-teal-950 dark:to-stone-950 px-4 pb-10 pt-8 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl text-center">
-          <h1 className="text-3xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100 sm:text-4xl">
-            {isEs ? "Tu Progreso" : "Your Progress"}
-          </h1>
-          <p className="mt-3 text-base text-stone-600 dark:text-stone-400 sm:text-lg">
-            {isEs
-              ? "Rastrea tu recorrido a trav\u00e9s de las herramientas de carrera FQHC. Todos los datos se almacenan localmente en tu navegador."
-              : "Track your journey across FQHC career tools. All data stored locally in your browser."}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="light"
+        title={{ en: "Your Progress", es: "Tu Progreso" }}
+        subtitle={{
+          en: "Track your journey across FQHC career tools. All data stored locally in your browser.",
+          es: "Rastrea tu recorrido a trav\u00e9s de las herramientas de carrera FQHC. Todos los datos se almacenan localmente en tu navegador.",
+        }}
+      />
 
       {/* Stats bar */}
       <StatBar

@@ -5,10 +5,9 @@ import { useState } from "react";
 import { useLocale } from "next-intl";
 import { t } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
-  GraduationCap,
   ArrowRight,
   ChevronDown,
   ChevronUp,
@@ -20,7 +19,6 @@ import {
   Filter,
   Users,
   Zap,
-  Calendar,
   Clock,
   Download,
   Loader2,
@@ -455,40 +453,15 @@ export default function MasterclassPage() {
         { label: "Masterclass" },
       ]} />
       {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-4">
-            <GraduationCap className="size-5 text-teal-400" />
-            <span className="text-sm font-medium uppercase tracking-wider text-teal-400">
-              {isEs ? "Estrategia" : "Strategy"}
-            </span>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs ? "Masterclass Ejecutivo FQHC" : "FQHC Executive Masterclass"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300">
-            {isEs
-              ? "Mini módulos de estrategia profunda para el momento de crisis de 2026 — recortes de financiamiento, aplicación migratoria, erosión de fuerza laboral, y adopción de IA, todo a la vez."
-              : "Mini deep-dive strategy modules for the 2026 crisis moment — funding cliffs, immigration enforcement, workforce erosion, and AI adoption, all at once."}
-          </p>
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-stone-500">
-            <span>
-              {counts.total} {isEs ? "módulos" : "modules"}
-            </span>
-            <span className="text-stone-600">·</span>
-            <span>
-              {MASTERCLASS_CATEGORIES.length} {isEs ? "categorías" : "categories"}
-            </span>
-            <span className="text-stone-600">·</span>
-            <span>{isEs ? "200+ fuentes investigadas" : "200+ sources researched"}</span>
-            <span className="text-stone-600">·</span>
-            <span className="flex items-center gap-1">
-              <Calendar className="size-3" />
-              {isEs ? "Actualizado:" : "Updated:"} {MASTERCLASSES_LAST_UPDATED}
-            </span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "FQHC Executive Masterclass", es: "Masterclass Ejecutivo FQHC" }}
+        subtitle={{
+          en: "Mini deep-dive strategy modules for the 2026 crisis moment — funding cliffs, immigration enforcement, workforce erosion, and AI adoption, all at once.",
+          es: "Mini módulos de estrategia profunda para el momento de crisis de 2026 — recortes de financiamiento, aplicación migratoria, erosión de fuerza laboral, y adopción de IA, todo a la vez.",
+        }}
+        meta={`${counts.total} ${isEs ? "módulos" : "modules"} · ${MASTERCLASS_CATEGORIES.length} ${isEs ? "categorías" : "categories"} · ${isEs ? "200+ fuentes investigadas" : "200+ sources researched"} · ${isEs ? "Actualizado:" : "Updated:"} ${MASTERCLASSES_LAST_UPDATED}`}
+      />
 
       {/* TOC */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -4,7 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import {
   Stethoscope, DollarSign, Users, Clock, CalendarClock, KanbanSquare,
   MessageSquare, Cloud, Shield, Calculator, ClipboardCheck, Heart,
@@ -427,40 +427,22 @@ export default function TechStackPage() {
         { label: "Tech Stack Guide" },
       ]} />
       {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 px-4 py-12 text-white">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-xs font-medium uppercase tracking-wider text-teal-400 mb-2">
-            {isEs ? "Inteligencia Tecnologica" : "Technology Intelligence"}
-          </p>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            {isEs ? "Stack Tecnologico de FQHCs" : "FQHC Technology Stack"}
-          </h1>
-          <p className="mt-3 max-w-2xl text-stone-300">
-            {isEs
-              ? "Guia completa de proveedores de software para centros de salud comunitarios — precios, compatibilidad, descuentos y evaluaciones de compatibilidad FQHC."
-              : "The complete guide to software vendors for community health centers — pricing, compatibility, FQHC discounts, and fit assessments across every category."}
-          </p>
-          <p className="mt-2 text-xs text-stone-500">
-            {isEs ? "Actualizado" : "Updated"}: {TECH_STACK_LAST_UPDATED}
-          </p>
-
-          {/* Stat bar */}
-          <div className="mt-6 flex flex-wrap gap-4">
-            {[
-              { label: isEs ? "Proveedores" : "Vendors", value: stats.totalVendors },
-              { label: isEs ? "Categorias" : "Categories", value: stats.totalCategories },
-              { label: isEs ? "Alta Compat." : "High Fit", value: stats.highFitCount },
-              { label: isEs ? "Socios NACHC" : "NACHC Partners", value: stats.nachcPartnerCount },
-              { label: isEs ? "Descuentos FQHC" : "FQHC Discounts", value: stats.discountCount },
-            ].map((s) => (
-              <div key={s.label} className="rounded-lg bg-white/10 px-4 py-2 backdrop-blur">
-                <p className="text-xl font-bold text-white">{s.value}</p>
-                <p className="text-xs text-stone-500">{s.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "FQHC Technology Stack", es: "Stack Tecnologico de FQHCs" }}
+        subtitle={{
+          en: "The complete guide to software vendors for community health centers — pricing, compatibility, FQHC discounts, and fit assessments across every category.",
+          es: "Guia completa de proveedores de software para centros de salud comunitarios — precios, compatibilidad, descuentos y evaluaciones de compatibilidad FQHC.",
+        }}
+        meta={`${isEs ? "Actualizado" : "Updated"}: ${TECH_STACK_LAST_UPDATED}`}
+        stats={[
+          { value: String(stats.totalVendors), label: isEs ? "Proveedores" : "Vendors" },
+          { value: String(stats.totalCategories), label: isEs ? "Categorias" : "Categories" },
+          { value: String(stats.highFitCount), label: isEs ? "Alta Compat." : "High Fit" },
+          { value: String(stats.nachcPartnerCount), label: isEs ? "Socios NACHC" : "NACHC Partners" },
+          { value: String(stats.discountCount), label: isEs ? "Descuentos FQHC" : "FQHC Discounts" },
+        ]}
+      />
 
       {/* Category Navigator + Filters */}
       <section className="sticky top-0 z-30 border-b border-stone-200 bg-white/95 backdrop-blur px-4 py-3 dark:border-stone-700 dark:bg-stone-900/95">

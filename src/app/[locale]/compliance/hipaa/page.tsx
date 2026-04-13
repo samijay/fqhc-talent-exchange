@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { Download, AlertTriangle, ExternalLink, ChevronDown, ChevronUp, FileKey, Users, Eye, Laptop } from "lucide-react";
+import { PageHero } from "@/components/ui/design-system";
 import { getRegulationsByDomain, getRisksByDomain, getCaseStudiesByDomain, getRiskScore, getRiskLevel } from "@/lib/fqhc-compliance";
 import { downloadRiskMatrixAsExcel } from "@/lib/compliance-excel-export";
 import { t } from "@/lib/i18n-helpers";
@@ -26,23 +26,16 @@ export default function HIPAACompliancePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-purple-900 via-purple-800 to-purple-900 text-white py-14 px-4">
-        <div className="max-w-5xl mx-auto">
-          <Link href="/compliance" className="text-purple-300 text-sm hover:underline mb-4 inline-block">&larr; {locale === "es" ? "Cumplimiento" : "Compliance"}</Link>
-          <h1 className="text-3xl md:text-4xl font-bold mb-3">
-            {locale === "es" ? "Cumplimiento HIPAA para FQHCs" : "HIPAA Compliance for FQHCs"}
-          </h1>
-          <p className="text-purple-200 text-lg max-w-3xl mb-6">
-            {locale === "es"
-              ? "Proteja los datos del paciente. Evite multas de $100K+. Conozca las reglas."
-              : "Protect patient data. Avoid $100K+ fines. Know the rules."}
-          </p>
-          <button onClick={() => downloadRiskMatrixAsExcel(locale)} className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold px-5 py-2.5 rounded-lg transition-colors">
-            <Download className="w-5 h-5" />
-            {locale === "es" ? "Descargar Matriz de Riesgos HIPAA (Excel)" : "Download HIPAA Risk Matrix (Excel)"}
-          </button>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "HIPAA Compliance for FQHCs", es: "Cumplimiento HIPAA para FQHCs" }}
+        subtitle={{ en: "Protect patient data. Avoid $100K+ fines. Know the rules.", es: "Proteja los datos del paciente. Evite multas de $100K+. Conozca las reglas." }}
+      >
+        <button onClick={() => downloadRiskMatrixAsExcel(locale)} className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold px-5 py-2.5 rounded-lg transition-colors">
+          <Download className="w-5 h-5" />
+          {locale === "es" ? "Descargar Matriz de Riesgos HIPAA (Excel)" : "Download HIPAA Risk Matrix (Excel)"}
+        </button>
+      </PageHero>
 
       {/* Topic sections */}
       <section className="max-w-5xl mx-auto px-4 py-8">

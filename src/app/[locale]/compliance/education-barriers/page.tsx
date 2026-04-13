@@ -12,7 +12,6 @@ import {
   AlertTriangle,
   BookOpen,
   ExternalLink,
-  GraduationCap,
   CheckCircle2,
   Clock,
   FileText,
@@ -20,6 +19,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PageHero } from "@/components/ui/design-system";
 import {
   getEducationBarriers,
   getEducationBarrierChallengeSteps,
@@ -84,50 +84,19 @@ export default function EducationBarriersPage() {
       </div>
 
       {/* ===== HERO ===== */}
-      <div className="bg-gradient-to-br from-teal-900 via-teal-800 to-stone-900 py-16 sm:py-24 text-white">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-start gap-4 mb-6">
-            <GraduationCap className="h-10 w-10 flex-shrink-0 text-amber-400" />
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 leading-tight">
-            {locale === "es"
-              ? "Impugna Requisitos Educativos Innecesarios"
-              : "Challenge Unnecessary Education Requirements"}
-          </h1>
-
-          <p className="text-lg text-teal-100 mb-8 max-w-2xl leading-relaxed">
-            {locale === "es"
-              ? "Muchas publicaciones de empleo en FQHCs exigen títulos y certificaciones que la ley de California no requiere. Aquí está la data — y cómo defender tus derechos."
-              : "Many FQHC job postings require degrees and certifications beyond what California law mandates. Here's the data — and how to exercise your rights."}
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-amber-400">10</div>
-              <div className="text-sm text-teal-100">
-                {locale === "es" ? "Roles Analizados" : "Roles Analyzed"}
-              </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-amber-400">0</div>
-              <div className="text-sm text-teal-100">
-                {locale === "es"
-                  ? "Roles que requieren legalmente licenciatura"
-                  : "Roles legally requiring bachelor's"}
-              </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-amber-400">4</div>
-              <div className="text-sm text-teal-100">
-                {locale === "es"
-                  ? "Pasos para Impugnar"
-                  : "Steps to Challenge"}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHero
+        variant="dark"
+        title={{ en: "Challenge Unnecessary Education Requirements", es: "Impugna Requisitos Educativos Innecesarios" }}
+        subtitle={{
+          en: "Many FQHC job postings require degrees and certifications beyond what California law mandates. Here's the data — and how to exercise your rights.",
+          es: "Muchas publicaciones de empleo en FQHCs exigen títulos y certificaciones que la ley de California no requiere. Aquí está la data — y cómo defender tus derechos.",
+        }}
+        stats={[
+          { value: "10", label: locale === "es" ? "Roles Analizados" : "Roles Analyzed" },
+          { value: "0", label: locale === "es" ? "Roles que requieren legalmente licenciatura" : "Roles legally requiring bachelor's" },
+          { value: "4", label: locale === "es" ? "Pasos para Impugnar" : "Steps to Challenge" },
+        ]}
+      />
 
       {/* ===== MAIN CONTENT ===== */}
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">

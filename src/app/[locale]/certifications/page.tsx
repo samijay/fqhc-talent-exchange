@@ -2,7 +2,6 @@
 
 import { useState, useMemo, useCallback, Suspense } from "react";
 import {
-  Award,
   DollarSign,
   Clock,
   MapPin,
@@ -21,7 +20,7 @@ import {
 import { useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import { CareerFunnelStep } from "@/components/ui/CareerFunnelStep";
 import {
   CERTIFICATIONS,
@@ -166,35 +165,29 @@ function CertificationsContent() {
         { label: isEs ? "Herramientas" : "Tools", href: "/certifications" },
         { label: isEs ? "Certificaciones" : "Certifications" },
       ]} />
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 px-4 py-16 text-white sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-700/50 px-4 py-1.5 text-sm font-medium">
-            <Award className="size-4" />
-            {isEs ? "Certificaciones de California" : "California Certifications"}
-          </div>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs
-              ? "Certificaciones para carreras en FQHCs"
-              : "Certifications for FQHC Careers"}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-teal-100">
-            {isEs
-              ? "15 certificaciones con costos, duración, impacto salarial y programas de capacitación específicos de California."
-              : "15 certifications with costs, duration, salary impact, and California-specific training programs."}
-          </p>
-          <button
-            onClick={handleShare}
-            className="mt-4 inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-700/40 px-4 py-2 text-sm font-medium text-teal-200 transition-all hover:bg-teal-700/60"
-          >
-            {shareState === "copied" ? (
-              <><Check className="size-4" />{isEs ? "¡Enlace copiado!" : "Link copied!"}</>
-            ) : (
-              <><Share2 className="size-4" />{isEs ? "Compartir" : "Share"}</>
-            )}
-          </button>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "Certifications for FQHC Careers",
+          es: "Certificaciones para carreras en FQHCs",
+        }}
+        subtitle={{
+          en: "15 certifications with costs, duration, salary impact, and California-specific training programs.",
+          es: "15 certificaciones con costos, duración, impacto salarial y programas de capacitación específicos de California.",
+        }}
+        meta={isEs ? "Certificaciones de California" : "California Certifications"}
+      >
+        <button
+          onClick={handleShare}
+          className="inline-flex items-center gap-2 rounded-full border border-stone-600 bg-stone-800/50 px-4 py-2 text-sm font-medium text-stone-300 transition-all hover:bg-stone-700/60"
+        >
+          {shareState === "copied" ? (
+            <><Check className="size-4" />{isEs ? "¡Enlace copiado!" : "Link copied!"}</>
+          ) : (
+            <><Share2 className="size-4" />{isEs ? "Compartir" : "Share"}</>
+          )}
+        </button>
+      </PageHero>
 
       {/* Career Funnel */}
       <div className="mx-auto max-w-5xl px-4 pt-8 sm:px-6 lg:px-8">

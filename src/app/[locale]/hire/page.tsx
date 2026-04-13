@@ -21,6 +21,7 @@ import {
   Users,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { PageHero } from "@/components/ui/design-system";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -252,65 +253,21 @@ export default function HirePage() {
 
   return (
     <div className="bg-stone-50">
-      {/* ---------- Hero ---------- */}
-      <section className="bg-gradient-to-br from-stone-800 via-stone-900 to-stone-950 py-16 text-center text-white sm:py-24">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-5 flex size-14 items-center justify-center rounded-2xl bg-amber-500/20 backdrop-blur">
-            <Building2 className="size-7 text-amber-400" />
-          </div>
-
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {t(
-              {
-                en: "Strategic Resources for FQHC Leaders",
-                es: "Recursos Estrategicos para Lideres de FQHCs",
-              },
-              locale,
-            )}
-          </h1>
-
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-stone-300 sm:text-lg">
-            {t(
-              {
-                en: "Free intelligence tools, workforce data, and strategic frameworks built specifically for California's Federally Qualified Health Centers. No account required.",
-                es: "Herramientas de inteligencia, datos laborales y marcos estrategicos gratuitos, disenados especificamente para los Centros de Salud Calificados Federalmente de California. No se requiere cuenta.",
-              },
-              locale,
-            )}
-          </p>
-
-          {/* Stats bar */}
-          <div className="mx-auto mt-8 flex max-w-xl flex-wrap items-center justify-center gap-6 text-sm text-stone-500">
-            <div className="flex items-center gap-1.5">
-              <Crosshair className="size-4 text-amber-400" />
-              <span>
-                {t(
-                  { en: "220+ FQHC profiles", es: "220+ perfiles FQHC" },
-                  locale,
-                )}
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <BarChart3 className="size-4 text-amber-400" />
-              <span>
-                {t(
-                  { en: "270 salary benchmarks", es: "270 benchmarks salariales" },
-                  locale,
-                )}
-              </span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <MapPin className="size-4 text-amber-400" />
-              <span>
-                {t(
-                  { en: "9 CA regions", es: "9 regiones de CA" },
-                  locale,
-                )}
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        title={{
+          en: "Strategic Resources for FQHC Leaders",
+          es: "Recursos Estrategicos para Lideres de FQHCs",
+        }}
+        subtitle={{
+          en: "Free intelligence tools, workforce data, and strategic frameworks built specifically for California's Federally Qualified Health Centers. No account required.",
+          es: "Herramientas de inteligencia, datos laborales y marcos estrategicos gratuitos, disenados especificamente para los Centros de Salud Calificados Federalmente de California. No se requiere cuenta.",
+        }}
+        stats={[
+          { value: "220+", label: locale === "es" ? "perfiles FQHC" : "FQHC profiles" },
+          { value: "270", label: locale === "es" ? "benchmarks salariales" : "salary benchmarks" },
+          { value: "9", label: locale === "es" ? "regiones de CA" : "CA regions" },
+        ]}
+      />
 
       {/* ---------- Strategy Section ---------- */}
       <ResourceSection

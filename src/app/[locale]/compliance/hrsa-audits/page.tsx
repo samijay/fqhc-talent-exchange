@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import {
   ShieldCheck,
   ChevronDown,
@@ -25,6 +24,7 @@ import {
 } from "@/lib/fqhc-compliance";
 import { downloadOSVChecklistAsExcel } from "@/lib/compliance-excel-export";
 import { t } from "@/lib/i18n-helpers";
+import { PageHero } from "@/components/ui/design-system";
 
 const AREA_ICONS: Record<OSVRequirementArea, typeof Users> = {
   governance: Users,
@@ -61,30 +61,22 @@ export default function HRSAAuditsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 text-white py-14 px-4">
-        <div className="max-w-5xl mx-auto">
-          <Link href="/compliance" className="text-teal-300 text-sm hover:underline mb-4 inline-block">
-            &larr; {locale === "es" ? "Cumplimiento" : "Compliance"}
-          </Link>
-          <h1 className="text-3xl md:text-4xl font-bold mb-3">
-            {locale === "es"
-              ? "Preparación para Visita Operativa de HRSA"
-              : "HRSA Operational Site Visit Preparation"}
-          </h1>
-          <p className="text-teal-200 text-lg max-w-3xl mb-6">
-            {locale === "es"
-              ? `${stats.osvRequirements} requisitos del programa. ~${stats.totalEstimatedOSVHours} horas estimadas de preparación. Cada 3 años, HRSA audita todo.`
-              : `${stats.osvRequirements} program requirements. ~${stats.totalEstimatedOSVHours} estimated preparation hours. Every 3 years, HRSA audits everything.`}
-          </p>
-          <button
-            onClick={() => downloadOSVChecklistAsExcel(locale)}
-            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold px-5 py-2.5 rounded-lg transition-colors"
-          >
-            <Download className="w-5 h-5" />
-            {locale === "es" ? "Descargar Lista de Verificación OSV (Excel)" : "Download OSV Checklist (Excel)"}
-          </button>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "HRSA Operational Site Visit Preparation", es: "Preparación para Visita Operativa de HRSA" }}
+        subtitle={{
+          en: `${stats.osvRequirements} program requirements. ~${stats.totalEstimatedOSVHours} estimated preparation hours. Every 3 years, HRSA audits everything.`,
+          es: `${stats.osvRequirements} requisitos del programa. ~${stats.totalEstimatedOSVHours} horas estimadas de preparación. Cada 3 años, HRSA audita todo.`,
+        }}
+      >
+        <button
+          onClick={() => downloadOSVChecklistAsExcel(locale)}
+          className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold px-5 py-2.5 rounded-lg transition-colors"
+        >
+          <Download className="w-5 h-5" />
+          {locale === "es" ? "Descargar Lista de Verificación OSV (Excel)" : "Download OSV Checklist (Excel)"}
+        </button>
+      </PageHero>
 
       {/* Area filter pills */}
       <section className="max-w-5xl mx-auto px-4 py-6">

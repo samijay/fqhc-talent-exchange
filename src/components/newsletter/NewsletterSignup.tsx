@@ -160,8 +160,8 @@ export function NewsletterSignup({
   };
 
   const btnClasses: Record<SignupVariant, string> = {
-    inline: "bg-teal-700 hover:bg-teal-800 text-white",
-    card: "bg-teal-700 hover:bg-teal-800 text-white",
+    inline: "",
+    card: "",
     banner: "bg-white text-teal-800 hover:bg-stone-100",
   };
 
@@ -225,6 +225,7 @@ export function NewsletterSignup({
           <Button
             type="submit"
             disabled={status === "loading" || !email}
+            variant={variant === "banner" ? "default" : "brand"}
             className={`shrink-0 ${btnClasses[variant]}`}
           >
             {status === "loading" ? (

@@ -14,6 +14,7 @@ import {
   BookOpen,
   FolderOpen,
 } from "lucide-react";
+import { PageHero } from "@/components/ui/design-system";
 
 /* ------------------------------------------------------------------ */
 /*  i18n content                                                       */
@@ -102,34 +103,22 @@ export default function FastTrackPage() {
 
   return (
     <div className="bg-stone-50 dark:bg-stone-950">
-      {/* ---------- Hero ---------- */}
-      <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
-        <div className="mx-auto max-w-3xl px-4">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-amber-500/20 px-4 py-1.5 text-sm font-semibold text-amber-300">
-            <Zap className="size-4" />
-            FAST-TRACK
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {t.heroTitle}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-teal-100/80 sm:text-lg">
-            {t.heroSubtitle}
-          </p>
-
-          {/* Trust badges */}
-          <div className="mx-auto mt-8 flex flex-wrap items-center justify-center gap-3">
-            {[t.badge1, t.badge2, t.badge3].map((badge) => (
-              <span
-                key={badge}
-                className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur"
-              >
-                <CheckCircle2 className="size-4 text-amber-400" />
-                {badge}
-              </span>
-            ))}
-          </div>
+      <PageHero
+        title={{ en: content.en.heroTitle, es: content.es.heroTitle }}
+        subtitle={{ en: content.en.heroSubtitle, es: content.es.heroSubtitle }}
+      >
+        <div className="flex flex-wrap items-center gap-3">
+          {[t.badge1, t.badge2, t.badge3].map((badge) => (
+            <span
+              key={badge}
+              className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur"
+            >
+              <CheckCircle2 className="size-4 text-amber-400" />
+              {badge}
+            </span>
+          ))}
         </div>
-      </section>
+      </PageHero>
 
       {/* ---------- Everything You Need — Free ---------- */}
       <section className="py-12 px-4 sm:px-6">

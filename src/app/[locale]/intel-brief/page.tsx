@@ -16,6 +16,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { PageHero } from "@/components/ui/design-system";
 import {
   INTEL_ITEMS,
   INTEL_LAST_UPDATED,
@@ -113,65 +114,43 @@ export default function IntelBriefPage() {
 
   return (
     <div className="bg-stone-50 min-h-screen">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 py-16 text-white">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-amber-400 text-sm font-medium mb-4">
-            <FileText className="size-4" />
-            {isEs ? "Informe Semanal de Inteligencia" : "Weekly Intelligence Brief"}
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            {isEs ? "FQHC Intel Brief" : "FQHC Intel Brief"}
-          </h1>
-          <p className="mt-3 text-lg text-stone-300">
-            {isEs
-              ? `${INTEL_ITEMS.length} hallazgos de inteligencia curados para líderes de FQHCs. Actualizado ${INTEL_LAST_UPDATED}.`
-              : `${INTEL_ITEMS.length} curated intelligence findings for FQHC leaders. Updated ${INTEL_LAST_UPDATED}.`}
-          </p>
-
-          {/* Stats */}
-          <div className="mt-6 flex flex-wrap gap-4">
-            <div className="rounded-lg bg-red-900/30 border border-red-700/40 px-4 py-2">
-              <span className="text-2xl font-bold text-red-400">{criticalCount}</span>
-              <span className="ml-2 text-sm text-red-300">{isEs ? "Críticos" : "Critical"}</span>
+      <PageHero
+        title={{ en: "FQHC Intel Brief", es: "FQHC Intel Brief" }}
+        subtitle={{
+          en: `${INTEL_ITEMS.length} curated intelligence findings for FQHC leaders. Updated ${INTEL_LAST_UPDATED}.`,
+          es: `${INTEL_ITEMS.length} hallazgos de inteligencia curados para l\u00edderes de FQHCs. Actualizado ${INTEL_LAST_UPDATED}.`,
+        }}
+        stats={[
+          { value: String(criticalCount), label: isEs ? "Cr\u00edticos" : "Critical" },
+          { value: String(highCount), label: isEs ? "Alto Impacto" : "High Impact" },
+          { value: String(INTEL_ITEMS.length), label: isEs ? "Total" : "Total Items" },
+        ]}
+      >
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end">
+          {!captured && (
+            <div className="flex-1 max-w-sm">
+              <label className="text-xs text-stone-400 mb-1 block">{isEs ? "Tu email (opcional)" : "Your email (optional)"}</label>
+              <Input
+                type="email"
+                placeholder="you@fqhc.org"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="h-11 bg-stone-700 border-stone-600 text-white placeholder:text-stone-500"
+              />
             </div>
-            <div className="rounded-lg bg-amber-900/30 border border-amber-700/40 px-4 py-2">
-              <span className="text-2xl font-bold text-amber-400">{highCount}</span>
-              <span className="ml-2 text-sm text-amber-300">{isEs ? "Alto Impacto" : "High Impact"}</span>
-            </div>
-            <div className="rounded-lg bg-stone-700/50 border border-stone-600 px-4 py-2">
-              <span className="text-2xl font-bold text-stone-200">{INTEL_ITEMS.length}</span>
-              <span className="ml-2 text-sm text-stone-400">{isEs ? "Total" : "Total Items"}</span>
-            </div>
-          </div>
-
-          {/* Download CTA */}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-end">
-            {!captured && (
-              <div className="flex-1 max-w-sm">
-                <label className="text-xs text-stone-400 mb-1 block">{isEs ? "Tu email (opcional)" : "Your email (optional)"}</label>
-                <Input
-                  type="email"
-                  placeholder="you@fqhc.org"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="h-11 bg-stone-700 border-stone-600 text-white placeholder:text-stone-500"
-                />
-              </div>
-            )}
-            <Button
-              onClick={handleDownload}
-              disabled={downloading}
-              className="h-11 bg-amber-500 text-stone-900 hover:bg-amber-400 font-bold px-8"
-            >
-              <Download className="mr-2 size-4" />
-              {downloading
-                ? (isEs ? "Generando..." : "Generating...")
-                : (isEs ? "Descargar PDF" : "Download Intel Brief (PDF)")}
-            </Button>
-          </div>
+          )}
+          <Button
+            onClick={handleDownload}
+            disabled={downloading}
+            className="h-11 bg-amber-500 text-stone-900 hover:bg-amber-400 font-bold px-8"
+          >
+            <Download className="mr-2 size-4" />
+            {downloading
+              ? (isEs ? "Generando..." : "Generating...")
+              : (isEs ? "Descargar PDF" : "Download Intel Brief (PDF)")}
+          </Button>
         </div>
-      </section>
+      </PageHero>
 
       {/* Category breakdown */}
       <section className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">

@@ -17,7 +17,6 @@ import {
   ChevronUp,
   ExternalLink,
   Filter,
-  Calendar,
   Linkedin,
   Twitter,
   Globe,
@@ -30,6 +29,7 @@ import {
   Brain,
   Landmark,
 } from "lucide-react";
+import { PageHero } from "@/components/ui/design-system";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -380,41 +380,15 @@ export default function ThoughtLeadersPage() {
   return (
     <div className="bg-stone-50 dark:bg-stone-950">
       {/* ── Hero ── */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-4">
-            <Users className="size-5 text-teal-400" />
-            <span className="text-sm font-medium uppercase tracking-wider text-teal-400">
-              {isEs ? "A Quien Seguir" : "Who To Follow"}
-            </span>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs
-              ? "Lideres de Pensamiento e Influenciadores FQHC"
-              : "FQHC Thought Leaders & Influencers"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300">
-            {isEs
-              ? "Las personas que estan dando forma al futuro de los centros de salud comunitarios. Siga a estos lideres para inteligencia temprana sobre politicas, financiamiento, tecnologia y operaciones."
-              : "The people shaping the future of community health centers. Follow these leaders for early signals on policy, funding, technology, and operations."}
-          </p>
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-stone-500">
-            <span className="flex items-center gap-1">
-              <Users className="size-3.5" />
-              {totalLeaders} {isEs ? "lideres" : "leaders"}
-            </span>
-            <span className="text-stone-600">·</span>
-            <span>
-              {categoryCount} {isEs ? "categorias" : "categories"}
-            </span>
-            <span className="text-stone-600">·</span>
-            <span className="flex items-center gap-1">
-              <Calendar className="size-3" />
-              {isEs ? "Actualizado:" : "Updated:"} {LEADERS_LAST_UPDATED}
-            </span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "FQHC Thought Leaders & Influencers", es: "Lideres de Pensamiento e Influenciadores FQHC" }}
+        subtitle={{
+          en: "The people shaping the future of community health centers. Follow these leaders for early signals on policy, funding, technology, and operations.",
+          es: "Las personas que estan dando forma al futuro de los centros de salud comunitarios. Siga a estos lideres para inteligencia temprana sobre politicas, financiamiento, tecnologia y operaciones.",
+        }}
+        meta={`${totalLeaders} ${isEs ? "lideres" : "leaders"} · ${categoryCount} ${isEs ? "categorias" : "categories"} · ${isEs ? "Actualizado:" : "Updated:"} ${LEADERS_LAST_UPDATED}`}
+      />
 
       {/* ── Filters + Leader Cards ── */}
       <section className="py-10 sm:py-14">

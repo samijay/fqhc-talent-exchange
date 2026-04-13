@@ -555,9 +555,9 @@ export default function SchedulePlannerPage() {
                 </div>
               ) : (
                 <div className="flex items-center gap-1.5">
-                  <h1 className="text-sm font-bold text-stone-800 dark:text-stone-200 truncate">
+                  <span className="text-sm font-bold text-stone-800 dark:text-stone-200 truncate">
                     {schedule.name}
-                  </h1>
+                  </span>
                   <button
                     onClick={() => { setEditName(schedule.name); setIsEditingName(true); }}
                     className="text-stone-300 hover:text-stone-500 transition-colors"

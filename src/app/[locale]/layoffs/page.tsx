@@ -39,7 +39,7 @@ import {
 } from "@/lib/california-fqhc-layoffs";
 import { LayoffTimeline } from "@/components/viz/LayoffTimeline";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
-import { Breadcrumb as Breadcrumbs } from "@/components/ui/design-system/Breadcrumb";
+import { Breadcrumb as Breadcrumbs, PageHero } from "@/components/ui/design-system";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                             */
@@ -250,23 +250,17 @@ export default function LayoffsPage() {
           ]}
         />
       </div>
-      {/* ─── Hero ─── */}
-      <section className="bg-gradient-to-br from-red-800 via-red-900 to-stone-900 py-14 text-center text-white sm:py-20">
-        <div className="mx-auto max-w-4xl px-4">
-          <div className="mb-4 flex items-center justify-center gap-2">
-            <AlertTriangle className="size-6 text-amber-400" />
-            <Badge className="border-red-400/30 bg-red-500/20 text-red-100 text-sm">
-              {t.lastUpdated}: {lastUpdatedDateStr}
-            </Badge>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {t.title}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-red-100/80 sm:text-lg">
-            {t.subtitle}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title={{
+          en: "California Community Health Layoff Tracker",
+          es: "Seguimiento de Despidos en Salud Comunitaria de California",
+        }}
+        subtitle={{
+          en: "Real-time tracking of workforce reductions at FQHCs and community health organizations across California. Updated regularly from WARN Act filings, news reports, and organizational announcements.",
+          es: "Seguimiento en tiempo real de reducciones de personal en FQHCs y organizaciones de salud comunitaria en California. Datos actualizados regularmente de avisos WARN Act, reportes de noticias y anuncios organizacionales.",
+        }}
+        meta={`${t.lastUpdated}: ${lastUpdatedDateStr}`}
+      />
 
       {/* ─── Stats bar ─── */}
       <div className="mx-auto max-w-7xl px-4 -mt-8 sm:px-6 lg:px-8">

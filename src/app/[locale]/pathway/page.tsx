@@ -34,6 +34,7 @@ import {
   type ExperienceLevel,
 } from "@/lib/learning-pathways";
 import { t } from "@/lib/i18n-helpers";
+import { PageHero } from "@/components/ui/design-system";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -318,38 +319,28 @@ export default function PathwayPage() {
 
   return (
     <main className="min-h-screen bg-stone-50">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-teal-900 px-4 py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="flex items-center justify-center gap-2 text-teal-400 mb-4">
-            <GraduationCap className="size-6" />
-            <span className="text-sm font-bold uppercase tracking-widest">
-              {isEs ? "Ruta de Aprendizaje" : "Learning Pathway"}
-            </span>
-          </div>
-          <h1 className="text-3xl font-extrabold text-white sm:text-5xl">
-            {isEs
-              ? "Tu Camino Personalizado en FQHC"
-              : "Your Personalized FQHC Journey"}
-          </h1>
-          <p className="mt-4 text-lg text-stone-300 max-w-2xl mx-auto">
-            {isEs
-              ? "Selecciona tu rol y nivel de experiencia para obtener una ruta de aprendizaje curada a través de guías, evaluaciones, certificaciones y herramientas estratégicas."
-              : "Select your role and experience level to get a curated learning journey through guides, assessments, certifications, and strategic tools."}
-          </p>
-          {pathway && (
-            <button
-              onClick={handleShare}
-              className="mt-4 inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-900/30 px-4 py-2 text-sm font-medium text-teal-300 transition-all hover:bg-teal-900/50"
-            >
-              <Link2 className="size-4" />
-              {shareState === "copied"
-                ? isEs ? "¡Enlace copiado!" : "Link copied!"
-                : isEs ? "Compartir esta ruta" : "Share this pathway"}
-            </button>
-          )}
-        </div>
-      </section>
+      <PageHero
+        title={{
+          en: "Your Personalized FQHC Journey",
+          es: "Tu Camino Personalizado en FQHC",
+        }}
+        subtitle={{
+          en: "Select your role and experience level to get a curated learning journey through guides, assessments, certifications, and strategic tools.",
+          es: "Selecciona tu rol y nivel de experiencia para obtener una ruta de aprendizaje curada a través de guías, evaluaciones, certificaciones y herramientas estratégicas.",
+        }}
+      >
+        {pathway && (
+          <button
+            onClick={handleShare}
+            className="inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-900/30 px-4 py-2 text-sm font-medium text-teal-300 transition-all hover:bg-teal-900/50"
+          >
+            <Link2 className="size-4" />
+            {shareState === "copied"
+              ? isEs ? "\u00a1Enlace copiado!" : "Link copied!"
+              : isEs ? "Compartir esta ruta" : "Share this pathway"}
+          </button>
+        )}
+      </PageHero>
 
       {/* Content */}
       <section className="px-4 py-12">

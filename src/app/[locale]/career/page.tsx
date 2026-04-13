@@ -19,11 +19,11 @@ import {
   Users,
   TrendingUp,
   CheckCircle2,
-  Star,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { PageHero } from "@/components/ui/design-system";
 import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
@@ -145,47 +145,24 @@ export default function CareerHubPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
-      {/* ---- Hero ---- */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-teal-900 px-4 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex items-center gap-2 text-teal-400">
-            <Briefcase className="size-5" />
-            <span className="text-sm font-bold uppercase tracking-widest">
-              {isEs ? "Centro de Carrera" : "Career Hub"}
-            </span>
-          </div>
-
-          <h1 className="mt-3 text-3xl font-extrabold text-white sm:text-5xl">
-            {isEs
-              ? "Tu Carrera FQHC Comienza Aquí"
-              : "Your FQHC Career Starts Here"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300">
-            {isEs
-              ? "6 herramientas gratuitas que te llevan de \"¿qué rol es para mí?\" a \"tengo la oferta\". Sigue el camino o salta directo a lo que necesitas."
-              : "6 free tools that take you from \"what role fits me?\" to \"I got the offer.\" Follow the path or jump straight to what you need."}
-          </p>
-
-          {/* Quick stats */}
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {[
-              { icon: Compass, value: "13", label: isEs ? "Carreras" : "Career Tracks" },
-              { icon: MessageSquare, value: "200+", label: isEs ? "Preguntas" : "Interview Qs" },
-              { icon: Award, value: "50+", label: isEs ? "Certificaciones" : "Certifications" },
-              { icon: Star, value: isEs ? "Gratis" : "Free", label: isEs ? "Para Siempre" : "Forever" },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-xl bg-white/10 backdrop-blur-sm p-4 text-center"
-              >
-                <stat.icon className="mx-auto size-5 text-teal-400 mb-2" />
-                <div className="text-2xl font-bold text-white">{stat.value}</div>
-                <div className="text-xs text-stone-500">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "Your FQHC Career Starts Here",
+          es: "Tu Carrera FQHC Comienza Aquí",
+        }}
+        subtitle={{
+          en: "6 free tools that take you from \"what role fits me?\" to \"I got the offer.\" Follow the path or jump straight to what you need.",
+          es: "6 herramientas gratuitas que te llevan de \"¿qué rol es para mí?\" a \"tengo la oferta\". Sigue el camino o salta directo a lo que necesitas.",
+        }}
+        meta={isEs ? "Centro de Carrera" : "Career Hub"}
+        stats={[
+          { value: "13", label: isEs ? "Carreras" : "Career Tracks" },
+          { value: "200+", label: isEs ? "Preguntas" : "Interview Qs" },
+          { value: "50+", label: isEs ? "Certificaciones" : "Certifications" },
+          { value: isEs ? "Gratis" : "Free", label: isEs ? "Para Siempre" : "Forever" },
+        ]}
+      />
 
       {/* ---- Recommended Flow ---- */}
       <section className="mx-auto max-w-6xl px-4 py-12 sm:py-16">

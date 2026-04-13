@@ -4,6 +4,7 @@ import { useState, useMemo, Suspense } from "react";
 import { useLocale } from "next-intl";
 import { Search, ExternalLink, X } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { PageHero } from "@/components/ui/design-system";
 import {
   GLOSSARY_TERMS,
   searchGlossary,
@@ -104,35 +105,18 @@ function GlossaryContent() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-teal-800 via-teal-900 to-stone-900 text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            {isEs ? "Glosario FQHC" : "FQHC Glossary"}
-          </h1>
-          <p className="text-lg text-teal-100 max-w-2xl mb-8">
-            {isEs
-              ? "Un glosario en lenguaje simple para acrónimos y términos de atención médica. Comprenda la jerga para dirigir con confianza durante la crisis de Medicaid."
-              : "Plain-language glossary for healthcare acronyms and FQHC terminology. Master the jargon to lead with confidence during the Medicaid crisis."}
-          </p>
-
-          {/* Stats Bar */}
-          <div className="flex gap-6 md:gap-12">
-            <div>
-              <div className="text-2xl md:text-3xl font-bold">{GLOSSARY_TERMS.length}+</div>
-              <div className="text-sm text-teal-100">
-                {isEs ? "Términos" : "Terms"}
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl md:text-3xl font-bold">{categories.length}</div>
-              <div className="text-sm text-teal-100">
-                {isEs ? "Categorías" : "Categories"}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{ en: "FQHC Glossary", es: "Glosario FQHC" }}
+        subtitle={{
+          en: "Plain-language glossary for healthcare acronyms and FQHC terminology. Master the jargon to lead with confidence during the Medicaid crisis.",
+          es: "Un glosario en lenguaje simple para acrónimos y términos de atención médica. Comprenda la jerga para dirigir con confianza durante la crisis de Medicaid.",
+        }}
+        stats={[
+          { value: `${GLOSSARY_TERMS.length}+`, label: isEs ? "Términos" : "Terms" },
+          { value: String(categories.length), label: isEs ? "Categorías" : "Categories" },
+        ]}
+      />
 
       {/* A-Z Jump Links */}
       <nav

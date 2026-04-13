@@ -30,6 +30,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { PageHero } from "@/components/ui/design-system";
 
 /* ------------------------------------------------------------------ */
 /*  Constants                                                          */
@@ -290,19 +291,17 @@ export default function ForJobSeekers() {
   /* ================================================================ */
   return (
     <div className="bg-stone-50">
-      {/* ---------- Mini Hero ---------- */}
-      <section className="bg-gradient-to-br from-teal-700 via-teal-800 to-teal-900 py-14 text-center text-white sm:py-20">
-        <Badge className="mb-4 border-teal-400/30 bg-teal-500/20 text-teal-100 hover:bg-teal-500/30">
-          Free for candidates — always
-        </Badge>
-        <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-          Let&apos;s Find Your Next Role
-        </h1>
-        <p className="mx-auto mt-4 max-w-xl text-base text-teal-100/80 sm:text-lg">
-          Free career tools, job listings, and salary data for
-          mission-driven FQHC professionals.
-        </p>
-      </section>
+      <PageHero
+        title={{
+          en: "Let's Find Your Next Role",
+          es: "Encontremos Tu Pr\u00f3ximo Rol",
+        }}
+        subtitle={{
+          en: "Free career tools, job listings, and salary data for mission-driven FQHC professionals.",
+          es: "Herramientas de carrera gratuitas, ofertas de empleo y datos salariales para profesionales de FQHC.",
+        }}
+        meta={locale === "es" ? "Gratis para candidatos \u2014 siempre" : "Free for candidates \u2014 always"}
+      />
 
       {/* ---------- Fast-Track Banner ---------- */}
       <div className="mx-auto max-w-2xl px-4 pt-8 sm:px-6 lg:px-8">

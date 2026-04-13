@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import CareerInsights from "@/components/resume-builder/CareerInsights";
 import First90DaysPlan from "@/components/career-insights/First90DaysPlan";
 import { ShareableAchievement } from "@/components/share/ShareableAchievement";
@@ -120,30 +120,24 @@ export default function CareerInsightsPage() {
         { label: isEs ? "Herramientas" : "Tools", href: "/career-insights" },
         { label: isEs ? "Evaluaci\u00f3n Profesional" : "Career Assessment" },
       ]} />
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 px-4 py-16 text-white sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-5xl text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-700/50 px-4 py-1.5 text-sm font-medium">
-            <Shield className="size-4" />
-            {isEs ? "Evaluación profesional para FQHCs" : "FQHC Career Assessment"}
-          </div>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs
-              ? "Descubre tu fortaleza profesional"
-              : "Discover Your Career Strengths"}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-teal-100">
-            {isEs
-              ? "Toma una evaluación de 4 minutos en 5 dominios conductuales. Obtén ideas personalizadas, un plan de 90 días y recomendaciones de certificaciones."
-              : "Take a 4-minute assessment across 5 behavioral domains. Get personalized insights, a 90-day plan, and certification recommendations."}
-          </p>
-          <p className="mx-auto mt-3 max-w-xl text-xs text-teal-300/70">
-            {isEs
-              ? "Solo con fines informativos. Esta herramienta proporciona orientación general de carrera basada en sus respuestas — no constituye asesoramiento profesional certificado."
-              : "For informational purposes only. This tool provides general career guidance based on your responses — it does not constitute certified professional advice."}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "Discover Your Career Strengths",
+          es: "Descubre tu fortaleza profesional",
+        }}
+        subtitle={{
+          en: "Take a 4-minute assessment across 5 behavioral domains. Get personalized insights, a 90-day plan, and certification recommendations.",
+          es: "Toma una evaluación de 4 minutos en 5 dominios conductuales. Obtén ideas personalizadas, un plan de 90 días y recomendaciones de certificaciones.",
+        }}
+        meta={isEs ? "Evaluación profesional para FQHCs" : "FQHC Career Assessment"}
+      >
+        <p className="max-w-xl text-xs text-stone-400">
+          {isEs
+            ? "Solo con fines informativos. Esta herramienta proporciona orientación general de carrera basada en sus respuestas — no constituye asesoramiento profesional certificado."
+            : "For informational purposes only. This tool provides general career guidance based on your responses — it does not constitute certified professional advice."}
+        </p>
+      </PageHero>
 
       {/* Career Funnel */}
       <div className="mx-auto max-w-5xl px-4 pt-8 sm:px-6 lg:px-8">

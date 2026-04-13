@@ -319,7 +319,7 @@ export function ProfileTabs({
     <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
       {/* ========== TAB BAR ========== */}
       <div className="mb-8 border-b border-stone-200">
-        <nav className="-mb-px flex gap-1 overflow-x-auto" aria-label="Profile tabs">
+        <nav className="-mb-px flex gap-1 overflow-x-auto" role="tablist" aria-label="Profile tabs">
           {TABS.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -327,6 +327,10 @@ export function ProfileTabs({
             return (
               <button
                 key={tab.id}
+                role="tab"
+                aria-selected={isActive}
+                aria-controls={`tabpanel-${tab.id}`}
+                id={`tab-${tab.id}`}
                 onClick={() => changeTab(tab.id)}
                 className={`flex items-center gap-1.5 whitespace-nowrap border-b-2 px-4 py-3 text-sm font-medium transition-colors ${
                   isActive
@@ -352,7 +356,7 @@ export function ProfileTabs({
       </div>
 
       {/* ========== TAB CONTENT ========== */}
-      <div className="grid gap-8 lg:grid-cols-3">
+      <div role="tabpanel" id={`tabpanel-${activeTab}`} aria-labelledby={`tab-${activeTab}`} className="grid gap-8 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">
           {activeTab === "overview" && (
             <OverviewTab

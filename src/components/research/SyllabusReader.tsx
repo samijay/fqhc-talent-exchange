@@ -210,13 +210,13 @@ function LessonView({
         </Button>
 
         <Button
-          variant={isCompleted ? "outline" : "default"}
+          variant={isCompleted ? "outline" : "brand"}
           size="sm"
           onClick={onMarkComplete}
           className={
             isCompleted
               ? "gap-1 text-teal-700 border-teal-200 dark:text-teal-400"
-              : "gap-1 bg-teal-700 hover:bg-teal-800"
+              : "gap-1"
           }
         >
           {isCompleted ? (

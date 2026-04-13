@@ -4,7 +4,6 @@ import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
-  Shield,
   AlertTriangle,
   DollarSign,
   TrendingDown,
@@ -17,6 +16,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { PageHero } from "@/components/ui/design-system";
 import {
   WORKERS_COMP_LAST_UPDATED,
   HAZARDS,
@@ -741,51 +741,44 @@ export default function WorkersCompPage() {
       </div>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-teal-800 via-teal-700 to-teal-900 text-white px-4 sm:px-6 py-12 sm:py-16">
-        <div className="max-w-4xl">
-          <div className="flex items-start gap-3 mb-4">
-            <Shield className="h-8 w-8 shrink-0" />
-          </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-3">
-            {isEs
-              ? "Compensación de Trabajadores: El Playbook de Costos para FQHC"
-              : "Workers' Compensation: The FQHC Cost Playbook"}
-          </h1>
-          <p className="text-teal-100 text-lg leading-relaxed mb-6">
-            {isEs
-              ? "Datos reales, estrategias reales, ahorros reales para centros de salud comunitarios de California"
-              : "Real data, real strategies, real savings for California community health centers"}
-          </p>
-
-          {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatCard
-              icon={<DollarSign className="h-6 w-6" />}
-              label={isEs ? "Costo Anual Promedio" : "Avg Annual Cost"}
-              value="$180K–$350K"
-              subtext={isEs ? "Por FQHC" : "per FQHC"}
-            />
-            <StatCard
-              icon={<AlertTriangle className="h-6 w-6" />}
-              label={isEs ? "Hazard Superior" : "Top Hazard"}
-              value="45/10K"
-              subtext={isEs ? "Lesiones de espalda" : "Back injuries"}
-            />
-            <StatCard
-              icon={<TrendingDown className="h-6 w-6" />}
-              label={isEs ? "Costo Medio de Reclamo" : "Avg Claim Cost"}
-              value="$8,400"
-              subtext={isEs ? "Rango: $2.4K–$18K" : "Range: $2.4K–$18K"}
-            />
-            <StatCard
-              icon={<Zap className="h-6 w-6" />}
-              label={isEs ? "Ahorros Potenciales" : "Potential Savings"}
-              value="35–65%"
-              subtext={isEs ? "Con intervenciones" : "with interventions"}
-            />
-          </div>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "Workers' Compensation: The FQHC Cost Playbook",
+          es: "Compensaci\u00f3n de Trabajadores: El Playbook de Costos para FQHC",
+        }}
+        subtitle={{
+          en: "Real data, real strategies, real savings for California community health centers",
+          es: "Datos reales, estrategias reales, ahorros reales para centros de salud comunitarios de California",
+        }}
+      >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <StatCard
+            icon={<DollarSign className="h-6 w-6" />}
+            label={isEs ? "Costo Anual Promedio" : "Avg Annual Cost"}
+            value="$180K\u2013$350K"
+            subtext={isEs ? "Por FQHC" : "per FQHC"}
+          />
+          <StatCard
+            icon={<AlertTriangle className="h-6 w-6" />}
+            label={isEs ? "Hazard Superior" : "Top Hazard"}
+            value="45/10K"
+            subtext={isEs ? "Lesiones de espalda" : "Back injuries"}
+          />
+          <StatCard
+            icon={<TrendingDown className="h-6 w-6" />}
+            label={isEs ? "Costo Medio de Reclamo" : "Avg Claim Cost"}
+            value="$8,400"
+            subtext={isEs ? "Rango: $2.4K\u2013$18K" : "Range: $2.4K\u2013$18K"}
+          />
+          <StatCard
+            icon={<Zap className="h-6 w-6" />}
+            label={isEs ? "Ahorros Potenciales" : "Potential Savings"}
+            value="35\u201365%"
+            subtext={isEs ? "Con intervenciones" : "with interventions"}
+          />
         </div>
-      </div>
+      </PageHero>
 
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-16">

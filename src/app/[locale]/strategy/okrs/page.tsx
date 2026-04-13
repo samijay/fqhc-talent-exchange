@@ -5,9 +5,8 @@ import { useState } from "react";
 import { useLocale } from "next-intl";
 import { t } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import {
-  Crosshair,
   ArrowRight,
   ChevronDown,
   ChevronUp,
@@ -324,58 +323,38 @@ export default function OKRTemplatesPage() {
         { label: "OKR Templates" },
       ]} />
       {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 text-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-4">
-            <Crosshair className="size-5 text-purple-400" />
-            <span className="text-sm font-medium uppercase tracking-wider text-purple-400">
-              {isEs ? "Gestion del Cambio" : "Change Management"}
-            </span>
-          </div>
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            {isEs ? "Plantillas OKR" : "OKR Templates"}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-stone-300">
-            {isEs
-              ? "Objetivos y Resultados Clave disenados para romper silos entre departamentos y conectar estrategia con resultados medibles."
-              : "Objectives & Key Results designed to break down silos between departments and connect strategy to measurable outcomes."}
-          </p>
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-stone-500">
-            <span>
-              {counts.total} {isEs ? "plantillas" : "templates"}
-            </span>
-            <span className="text-stone-600">·</span>
-            <span>
-              {Object.keys(counts).length - 1} {isEs ? "dominios" : "domains"}
-            </span>
-            <span className="text-stone-600">·</span>
-            <span>
-              3 {isEs ? "niveles de dificultad" : "difficulty levels"}
-            </span>
-            <span className="text-stone-600">·</span>
-            <button
-              onClick={handleDownloadAll}
-              disabled={downloading}
-              className="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 text-white text-xs font-semibold px-3 py-1.5 rounded-full transition-colors"
-            >
-              <FileSpreadsheet className="size-3.5" />
-              {downloading
-                ? isEs ? "Generando…" : "Generating…"
-                : isEs ? "Descargar todo (Excel)" : "Download All (Excel)"}
-            </button>
-            <button
-              onClick={handleDownloadAllDocx}
-              disabled={downloadingDocx}
-              className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 disabled:opacity-60 text-white text-xs font-semibold px-3 py-1.5 rounded-full transition-colors"
-            >
-              <FileText className="size-3.5" />
-              {downloadingDocx
-                ? isEs ? "Generando…" : "Generating…"
-                : isEs ? "Descargar todo (Word)" : "Download All (Word)"}
-            </button>
-          </div>
+      <PageHero
+        variant="dark"
+        title={{ en: "OKR Templates", es: "Plantillas OKR" }}
+        subtitle={{
+          en: "Objectives & Key Results designed to break down silos between departments and connect strategy to measurable outcomes.",
+          es: "Objetivos y Resultados Clave disenados para romper silos entre departamentos y conectar estrategia con resultados medibles.",
+        }}
+        meta={`${counts.total} ${isEs ? "plantillas" : "templates"} · ${Object.keys(counts).length - 1} ${isEs ? "dominios" : "domains"} · 3 ${isEs ? "niveles de dificultad" : "difficulty levels"}`}
+      >
+        <div className="flex flex-wrap items-center gap-4">
+          <button
+            onClick={handleDownloadAll}
+            disabled={downloading}
+            className="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 text-white text-xs font-semibold px-3 py-1.5 rounded-full transition-colors"
+          >
+            <FileSpreadsheet className="size-3.5" />
+            {downloading
+              ? isEs ? "Generando\u2026" : "Generating\u2026"
+              : isEs ? "Descargar todo (Excel)" : "Download All (Excel)"}
+          </button>
+          <button
+            onClick={handleDownloadAllDocx}
+            disabled={downloadingDocx}
+            className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 disabled:opacity-60 text-white text-xs font-semibold px-3 py-1.5 rounded-full transition-colors"
+          >
+            <FileText className="size-3.5" />
+            {downloadingDocx
+              ? isEs ? "Generando\u2026" : "Generating\u2026"
+              : isEs ? "Descargar todo (Word)" : "Download All (Word)"}
+          </button>
         </div>
-      </section>
+      </PageHero>
 
       {/* Filters + OKRs */}
       <section className="py-10 sm:py-14">
