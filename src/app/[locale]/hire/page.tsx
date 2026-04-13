@@ -10,7 +10,6 @@ import {
   BookOpen,
   Brain,
   Building2,
-  Crosshair,
   FileBarChart,
   GitCompareArrows,
   Globe,

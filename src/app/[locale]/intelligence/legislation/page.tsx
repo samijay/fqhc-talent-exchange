@@ -14,7 +14,6 @@ import {
   ChevronUp,
   ExternalLink,
   Filter,
-  Bell,
   Clock,
 } from "lucide-react";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";

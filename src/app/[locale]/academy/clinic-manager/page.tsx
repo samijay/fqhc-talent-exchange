@@ -6,7 +6,6 @@ import { Link } from "@/i18n/navigation";
 import { t } from "@/lib/i18n-helpers";
 import {
   BookOpen,
-  Zap,
   Clock,
   ArrowRight,
   CheckCircle2,
@@ -18,10 +17,8 @@ import {
   Heart,
   Calculator,
   Award,
-  Sparkles,
   BarChart3,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PageHero } from "@/components/ui/design-system";

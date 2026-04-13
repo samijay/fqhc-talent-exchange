@@ -5,16 +5,13 @@ import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   Target,
-  BookOpen,
-  Zap,
   Clock,
   ArrowRight,
   Users,
-  Sparkles,
   Award,
   BarChart3,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { PageHero } from "@/components/ui/design-system";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { OkrCoursePlayer } from "@/components/okr-course/OkrCoursePlayer";
@@ -82,40 +79,18 @@ export default function OkrCoursePage() {
           </span>
         </div>
 
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <Badge className="mb-4 bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200">
-            <Sparkles className="h-3 w-3 mr-1" />
-            {isEs ? "100% Gratis • Interactivo" : "100% Free • Interactive"}
-          </Badge>
-
-          <h1 className="text-3xl md:text-4xl font-bold text-stone-800 dark:text-stone-100 mb-4">
-            {isEs
-              ? "Domina los OKRs para Tu FQHC"
-              : "Master OKRs for Your FQHC"}
-          </h1>
-
-          <p className="text-lg text-stone-500 dark:text-stone-500 max-w-2xl mx-auto mb-6">
-            {isEs
-              ? "Curso interactivo de 45 minutos con ejercicios prácticos, ejemplos de salud comunitaria y retroalimentación de IA. Sin personas, sin costo — solo aprendizaje que funciona."
-              : "45-minute interactive course with hands-on exercises, community health examples, and AI feedback. No humans, no cost — just learning that works."}
-          </p>
-
-          <div className="flex items-center justify-center gap-4 text-sm text-stone-500 dark:text-stone-500 mb-8">
-            <span className="flex items-center gap-1">
-              <Clock className="h-4 w-4" />
-              {totalMinutes} {isEs ? "minutos" : "minutes"}
-            </span>
-            <span className="flex items-center gap-1">
-              <BookOpen className="h-4 w-4" />
-              {OKR_COURSE_MODULES.length} {isEs ? "módulos" : "modules"}
-            </span>
-            <span className="flex items-center gap-1">
-              <Zap className="h-4 w-4 text-amber-500" />
-              {COURSE_TOTAL_XP} XP
-            </span>
-          </div>
-
+        <PageHero
+          variant="minimal"
+          title={{
+            en: "Master OKRs for Your FQHC",
+            es: "Domina los OKRs para Tu FQHC",
+          }}
+          subtitle={{
+            en: "45-minute interactive course with hands-on exercises, community health examples, and AI feedback. No humans, no cost — just learning that works.",
+            es: "Curso interactivo de 45 minutos con ejercicios prácticos, ejemplos de salud comunitaria y retroalimentación de IA. Sin personas, sin costo — solo aprendizaje que funciona.",
+          }}
+          meta={`${totalMinutes} ${isEs ? "minutos" : "minutes"} · ${OKR_COURSE_MODULES.length} ${isEs ? "módulos" : "modules"} · ${COURSE_TOTAL_XP} XP`}
+        >
           <Button
             onClick={() => setCourseStarted(true)}
             className="bg-teal-600 hover:bg-teal-700 text-white px-8 h-12 text-base"
@@ -123,7 +98,7 @@ export default function OkrCoursePage() {
             {isEs ? "Comenzar Curso Gratis" : "Start Free Course"}
             <ArrowRight className="h-5 w-5 ml-2" />
           </Button>
-        </div>
+        </PageHero>
 
         {/* What you'll learn */}
         <div className="mb-12">

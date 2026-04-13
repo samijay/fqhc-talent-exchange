@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { Link } from "@/i18n/navigation";
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale } from "next-intl";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { BLOG_POSTS } from "@/lib/blog-posts";
 import { Search, Clock, ArrowRight } from "lucide-react";
@@ -19,7 +19,6 @@ const ES_CATEGORIES = [
 ];
 
 export default function BlogPage() {
-  const t = useTranslations("blog");
   const locale = useLocale();
   const isEs = locale === "es";
 

@@ -4,7 +4,6 @@ import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import {
   CheckCircle2,
-  Zap,
   ArrowRight,
   FileText,
   Search,

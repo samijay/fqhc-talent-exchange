@@ -42,7 +42,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
               {i > 0 && <ChevronRight className="size-3.5 text-stone-400" />}
               {item.href ? (
                 <Link
-                  href={item.href as any}
+                  href={item.href as "/"}
                   className="underline underline-offset-2 transition-colors hover:text-teal-700"
                 >
                   {item.label}

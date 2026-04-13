@@ -4,7 +4,6 @@ import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
-  Download,
   FileSpreadsheet,
   FileText,
   File,

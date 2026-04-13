@@ -11,13 +11,11 @@ import {
   ChevronDown,
   ChevronUp,
   ExternalLink,
-  Filter,
   GraduationCap,
   Search,
   Users,
   Library,
   Award,
-  Calendar,
 } from "lucide-react";
 import {
   RESEARCH_ENTRIES,
@@ -283,7 +281,7 @@ export default function ResearchArchivePage() {
 
       {/* ── Tabs ────────────────────────────────── */}
       <div className="max-w-5xl mx-auto px-4 pt-6">
-        <div className="flex gap-1 border-b border-stone-200 dark:border-stone-700">
+        <div role="tablist" aria-label="Research sections" className="flex gap-1 border-b border-stone-200 dark:border-stone-700">
           {(
             [
               { id: "archive" as const, en: "Research Archive", es: "Archivo de Investigación", icon: BookOpen },
@@ -293,6 +291,10 @@ export default function ResearchArchivePage() {
           ).map((tab) => (
             <button
               key={tab.id}
+              role="tab"
+              aria-selected={activeTab === tab.id}
+              aria-controls={`tabpanel-${tab.id}`}
+              id={`tab-${tab.id}`}
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === tab.id
@@ -307,7 +309,7 @@ export default function ResearchArchivePage() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 py-8">
+      <div role="tabpanel" id={`tabpanel-${activeTab}`} aria-labelledby={`tab-${activeTab}`} className="max-w-5xl mx-auto px-4 py-8">
         {/* ── Archive Tab ──────────────────────────── */}
         {activeTab === "archive" && (
           <div id="archive-tab" className="scroll-mt-20">

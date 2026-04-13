@@ -46,7 +46,6 @@ import {
 import { JobPostingJsonLd, FAQPageJsonLd } from "@/components/seo/JsonLd";
 import { Breadcrumb as Breadcrumbs, PageHero } from "@/components/ui/design-system";
 import { SaveJobButton } from "@/components/jobs/SaveJobButton";
-import { RecentlyViewed } from "@/components/directory/RecentlyViewed";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";

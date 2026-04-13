@@ -499,12 +499,16 @@ export default function UnionsPage() {
       {/* ── Tabs ── */}
       <div className="sticky top-0 z-20 border-b border-stone-200 bg-white/95 backdrop-blur-sm">
         <div className="mx-auto max-w-5xl px-4">
-          <nav className="flex gap-1 overflow-x-auto py-2">
+          <nav role="tablist" aria-label="Union information" className="flex gap-1 overflow-x-auto py-2">
             {tabs.map((tab) => {
               const TabIcon = tab.icon;
               return (
                 <button
                   key={tab.id}
+                  role="tab"
+                  aria-selected={activeTab === tab.id}
+                  aria-controls={`tabpanel-${tab.id}`}
+                  id={`tab-${tab.id}`}
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-1.5 whitespace-nowrap rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                     activeTab === tab.id
@@ -521,7 +525,7 @@ export default function UnionsPage() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-5xl px-4 py-8">
+      <div role="tabpanel" id={`tabpanel-${activeTab}`} aria-labelledby={`tab-${activeTab}`} className="mx-auto max-w-5xl px-4 py-8">
         {/* ══════════════════════════════════════════════════ */}
         {/*  DIRECTORY TAB                                     */}
         {/* ══════════════════════════════════════════════════ */}

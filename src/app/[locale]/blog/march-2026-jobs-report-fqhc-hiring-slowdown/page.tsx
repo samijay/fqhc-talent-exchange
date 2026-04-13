@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
-import { TLDRCard, StatCallout, FundingCliffCard, SalaryRangeChart } from "@/components/blog/BlogDataViz";
+import { TLDRCard, StatCallout, FundingCliffCard } from "@/components/blog/BlogDataViz";
 import { ArticleCTA } from "@/components/blog/ArticleCTA";
 import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";

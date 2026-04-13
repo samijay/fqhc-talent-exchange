@@ -19,12 +19,12 @@ import {
   ChevronDown,
   Clock,
   Zap,
-  Map,
   Lightbulb,
   ArrowRight,
   Network,
   Compass,
 } from "lucide-react";
+import { PageHero } from "@/components/ui/design-system";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { KnowledgeGraph } from "@/components/viz/KnowledgeGraph";
@@ -547,79 +547,23 @@ export default function KnowledgeMapPage() {
 
   return (
     <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
-      {/* ============================================================ */}
-      {/*  SECTION 1 — Hero                                            */}
-      {/* ============================================================ */}
-      <section className="relative bg-gradient-to-b from-stone-900 via-stone-900 to-stone-800 text-white overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
-              backgroundSize: "40px 40px",
-            }}
-          />
-        </div>
-
-        <div className="relative max-w-6xl mx-auto px-4 py-20 sm:py-28">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm text-stone-300 mb-6">
-              <Map className="size-4" />
-              {isEs ? "Previsión Estratégica" : "Strategic Foresight"}
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-5">
-              {isEs
-                ? "Mapa de Conocimiento Estratégico FQHC"
-                : "FQHC Strategy Knowledge Map"}
-            </h1>
-
-            <p className="text-lg text-stone-300 leading-relaxed mb-10 max-w-2xl mx-auto">
-              {isEs
-                ? "Cómo se conectan los casos de estudio, la economía, los marcos estratégicos, los OKRs y los líderes intelectuales. Este mapa muestra la imagen completa: qué importa, por qué importa y qué hacer al respecto."
-                : "How case studies, economics, frameworks, OKRs, and thought leaders connect. This map shows the full picture: what matters, why it matters, and what to do about it."}
-            </p>
-
-            {/* Stats grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
-              <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-                <p className="text-2xl font-bold text-amber-400">
-                  {strategicThemes.length}
-                </p>
-                <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
-                  {isEs ? "Temas Estratégicos" : "Strategic Themes"}
-                </p>
-              </div>
-              <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-                <p className="text-2xl font-bold text-amber-400">
-                  {learningPaths.length}
-                </p>
-                <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
-                  {isEs ? "Caminos de Aprendizaje" : "Learning Paths"}
-                </p>
-              </div>
-              <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-                <p className="text-2xl font-bold text-amber-400">
-                  {stats.totalEdges}+
-                </p>
-                <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
-                  {isEs ? "Conexiones" : "Connections"}
-                </p>
-              </div>
-              <div className="rounded-xl bg-white/5 border border-white/10 p-4">
-                <p className="text-2xl font-bold text-amber-400">
-                  {totalCaseStudies}
-                </p>
-                <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
-                  {isEs ? "Casos de Estudio" : "Case Studies"}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "FQHC Strategy Knowledge Map",
+          es: "Mapa de Conocimiento Estratégico FQHC",
+        }}
+        subtitle={{
+          en: "How case studies, economics, frameworks, OKRs, and thought leaders connect. This map shows the full picture: what matters, why it matters, and what to do about it.",
+          es: "Cómo se conectan los casos de estudio, la economía, los marcos estratégicos, los OKRs y los líderes intelectuales. Este mapa muestra la imagen completa: qué importa, por qué importa y qué hacer al respecto.",
+        }}
+        stats={[
+          { value: String(strategicThemes.length), label: isEs ? "Temas Estratégicos" : "Strategic Themes" },
+          { value: String(learningPaths.length), label: isEs ? "Caminos de Aprendizaje" : "Learning Paths" },
+          { value: `${stats.totalEdges}+`, label: isEs ? "Conexiones" : "Connections" },
+          { value: String(totalCaseStudies), label: isEs ? "Casos de Estudio" : "Case Studies" },
+        ]}
+      />
 
       {/* ============================================================ */}
       {/*  SECTION 1.5 — Interactive Knowledge Graph                   */}

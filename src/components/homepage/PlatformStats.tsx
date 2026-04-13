@@ -69,7 +69,6 @@ function CounterCell({
   icon: React.ComponentType<{ className?: string }>;
   color: string;
 }) {
-  const count = useCountUp(target);
   const cellRef = useRef<HTMLDivElement>(null);
 
   // Expose the ref for the IntersectionObserver inside useCountUp

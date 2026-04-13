@@ -7,15 +7,12 @@ import { useLocale } from "next-intl";
 import {
   Eye,
   X,
-  AlertCircle,
   TrendingUp,
   Briefcase,
   Users,
-  Cpu,
   Calendar,
   FileText,
 } from "lucide-react";
-import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -99,7 +96,7 @@ function IntelBriefPreview({ locale }: { locale: string }) {
           {isEs ? "Resumen Ejecutivo" : "Executive Summary"}
         </p>
         <p className="text-xs text-stone-700 leading-relaxed line-clamp-2">
-          The structural case against FQHC survival just got louder. STAT News argues the real threat isn't H.R. 1 — it's that FQHCs have been structurally insolvent since 2024...
+          The structural case against FQHC survival just got louder. STAT News argues the real threat isn&apos;t H.R. 1 — it&apos;s that FQHCs have been structurally insolvent since 2024...
         </p>
       </div>
 

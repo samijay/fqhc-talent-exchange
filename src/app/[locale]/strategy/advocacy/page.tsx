@@ -4,7 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb, PageHero } from "@/components/ui/design-system";
+import { PageHero } from "@/components/ui/design-system";
 import {
   ArrowRight,
   Calendar,
@@ -284,7 +284,7 @@ function TimelineView({ actions, locale }: { actions: AdvocacyAction[]; locale: 
 
   return (
     <div className="relative ml-6 border-l-2 border-stone-200 dark:border-stone-700 pl-8">
-      {sorted.map((action, i) => {
+      {sorted.map((action) => {
         const followUpDays = action.followUpDate ? daysUntil(action.followUpDate) : null;
         const isUrgent = followUpDays !== null && followUpDays >= 0 && followUpDays <= 14;
         const statusMeta = STATUS_META[action.status];

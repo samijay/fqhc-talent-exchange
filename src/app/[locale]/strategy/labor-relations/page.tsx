@@ -4,7 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb, PageHero } from "@/components/ui/design-system";
+import { PageHero } from "@/components/ui/design-system";
 import {
   AlertTriangle,
   ArrowRight,
@@ -16,7 +16,6 @@ import {
   Clock,
   ExternalLink,
   FileText,
-  Handshake,
   History,
   Lightbulb,
   Scale,
@@ -46,7 +45,6 @@ import {
   getPostureIndex,
   type LaborCase,
   type LaborCaseType,
-  type LaborCaseStatus,
   type LaborRelationsPosture,
   type LandscapeTheme,
   type PathForward,
@@ -463,48 +461,24 @@ export default function LaborRelationsPage() {
 
   return (
     <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-stone-900 via-stone-800 to-stone-900 px-4 pb-10 pt-6 text-white sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <Breadcrumb
-            items={[
-              { label: isEs ? "Inicio" : "Home", href: "/" },
-              { label: isEs ? "Estrategia" : "Strategy", href: "/strategy/guides" },
-              { label: isEs ? "Relaciones Laborales" : "Labor Relations" },
-            ]}
-          />
-          <div className="mt-4 flex items-center gap-3">
-            <Handshake className="size-8 text-amber-400" />
-            <h1 className="text-2xl font-extrabold sm:text-3xl">
-              {isEs ? "Monitor de Relaciones Laborales FQHC" : "FQHC Labor Relations Monitor"}
-            </h1>
-          </div>
-          <p className="mt-2 max-w-2xl text-sm text-stone-300">
-            {isEs
-              ? "Inteligencia estratégica sobre casos laborales activos, dinámicas sindicales y estrategias que son tanto favorables al trabajador como operativamente posibles."
-              : "Strategic intelligence on active labor cases, union dynamics, and strategies that are both labor-friendly and operationally feasible."}
-          </p>
-
-          {/* Stats bar */}
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {[
-              { label: isEs ? "FQHCs Sindicalizados" : "Unionized FQHCs", value: `${stats.unionizedCount} / ${stats.totalFqhcs}` },
-              { label: isEs ? "Casos Activos" : "Active Cases", value: String(stats.activeCases) },
-              { label: isEs ? "Próximas Fechas" : "Upcoming Deadlines", value: String(stats.upcomingDeadlines) },
-              { label: isEs ? "Asociaciones" : "Partnerships", value: String(stats.partnershipCount) },
-            ].map((stat) => (
-              <div key={stat.label} className="rounded-lg bg-white/10 px-4 py-3 text-center backdrop-blur-sm">
-                <p className="text-xl font-bold text-amber-400">{stat.value}</p>
-                <p className="text-xs text-stone-300">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-4 text-xs text-stone-400">
-            {isEs ? "Última actualización:" : "Last updated:"} {LABOR_LAST_UPDATED}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        variant="dark"
+        title={{
+          en: "FQHC Labor Relations Monitor",
+          es: "Monitor de Relaciones Laborales FQHC",
+        }}
+        subtitle={{
+          en: "Strategic intelligence on active labor cases, union dynamics, and strategies that are both labor-friendly and operationally feasible.",
+          es: "Inteligencia estratégica sobre casos laborales activos, dinámicas sindicales y estrategias que son tanto favorables al trabajador como operativamente posibles.",
+        }}
+        meta={`${isEs ? "Última actualización:" : "Last updated:"} ${LABOR_LAST_UPDATED}`}
+        stats={[
+          { value: `${stats.unionizedCount} / ${stats.totalFqhcs}`, label: isEs ? "FQHCs Sindicalizados" : "Unionized FQHCs" },
+          { value: String(stats.activeCases), label: isEs ? "Casos Activos" : "Active Cases" },
+          { value: String(stats.upcomingDeadlines), label: isEs ? "Próximas Fechas" : "Upcoming Deadlines" },
+          { value: String(stats.partnershipCount), label: isEs ? "Asociaciones" : "Partnerships" },
+        ]}
+      />
 
       {/* Tabs */}
       <div className="sticky top-0 z-20 border-b border-stone-200 bg-white/95 backdrop-blur-sm">

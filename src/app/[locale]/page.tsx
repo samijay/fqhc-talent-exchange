@@ -17,7 +17,6 @@ import type { HomepageData } from "@/components/homepage/HomepageDashboard";
 /* ------------------------------------------------------------------ */
 const _totalFQHCs = californiaFQHCs.length;
 const _totalJobs = fqhcJobListings.length;
-const _totalIntel = getIntelItems().length;
 const _totalSalaryRoles = SALARY_BENCHMARKS.length;
 const _totalJobOrgs = new Set(fqhcJobListings.map((j) => j.fqhcSlug)).size;
 

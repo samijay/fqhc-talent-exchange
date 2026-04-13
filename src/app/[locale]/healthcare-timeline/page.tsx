@@ -17,7 +17,6 @@ import {
   MapPin,
   Megaphone,
   Scale,
-  Stethoscope,
   TrendingUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";

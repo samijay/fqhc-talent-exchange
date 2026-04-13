@@ -38,7 +38,7 @@ export function ContentCard({
 }: ContentCardProps) {
   return (
     <Link
-      href={href as any}
+      href={href as "/"}
       className={`group flex flex-col rounded-xl border-2 bg-white p-6 transition-all duration-200 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500 ${borderColor}`}
     >
       {icon && <div className="mb-3">{icon}</div>}

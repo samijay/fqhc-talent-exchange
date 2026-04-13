@@ -10,7 +10,6 @@ import {
   ArrowRight,
   ChevronDown,
   ChevronUp,
-  AlertTriangle,
   ExternalLink,
   Calculator,
   TrendingUp,

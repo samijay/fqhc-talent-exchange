@@ -8,14 +8,12 @@ import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import {
   ArrowRight,
   ArrowUpDown,
-  BarChart3,
   ChevronDown,
   Download,
   ExternalLink,
   Search,
   TrendingUp,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   RESILIENCE_LAST_UPDATED,
