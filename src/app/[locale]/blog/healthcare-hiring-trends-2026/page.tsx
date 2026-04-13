@@ -7,6 +7,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 interface ArticleContent {
   category: string;
@@ -652,6 +653,8 @@ export default async function HealthcareHiringTrendsArticle() {
           <div className="mt-8 pt-6 border-t border-stone-200">
             <InlineShareButtons slug="healthcare-hiring-trends-2026" title="Healthcare Hiring Trends 2026: What the Jobs Data Tells Us About FQHC Careers" />
           </div>
+
+          <BlogPrevNext slug="healthcare-hiring-trends-2026" locale={locale} />
 
           {/* CTA */}
           <ArticleCTA

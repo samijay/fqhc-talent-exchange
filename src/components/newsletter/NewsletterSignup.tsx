@@ -220,6 +220,7 @@ export function NewsletterSignup({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder={isEs ? "tu@correo.com" : "you@example.com"}
+            aria-label={isEs ? "Correo electrónico" : "Email address"}
             className={`flex-1 rounded-lg border px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/30 transition-colors ${inputBorder[variant]}`}
           />
           <Button
@@ -241,11 +242,15 @@ export function NewsletterSignup({
 
         {/* Error */}
         {status === "error" && (
-          <div className={`mt-2 flex items-start gap-2 rounded-lg p-2 text-sm ${
-            variant === "banner"
-              ? "bg-red-900/30 text-red-200"
-              : "bg-red-50 text-red-700 border border-red-200"
-          }`}>
+          <div
+            role="alert"
+            aria-live="polite"
+            className={`mt-2 flex items-start gap-2 rounded-lg p-2 text-sm ${
+              variant === "banner"
+                ? "bg-red-900/30 text-red-200"
+                : "bg-red-50 text-red-700 border border-red-200"
+            }`}
+          >
             <XCircle className="size-4 shrink-0 mt-0.5" />
             {errorMessage}
           </div>

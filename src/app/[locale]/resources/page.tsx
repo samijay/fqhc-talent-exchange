@@ -275,7 +275,7 @@ export default function ResourcesPage() {
     <div className="bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: isEs ? "Inicio" : "Home", href: "/" },
-        { label: isEs ? "Herramientas" : "Tools", href: "/resources" },
+        { label: isEs ? "Academia" : "Academy", href: "/academy" },
         { label: isEs ? "Recursos Profesionales" : "Career Resources" },
       ]} />
       <PageHero

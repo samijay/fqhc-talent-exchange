@@ -51,6 +51,7 @@ function NavDropdown({
   onClose?: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [focusedIndex, setFocusedIndex] = useState(-1);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -62,8 +63,37 @@ function NavDropdown({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen, onToggle]);
 
+  // Reset focus index when menu opens/closes
+  useEffect(() => {
+    if (!isOpen) setFocusedIndex(-1);
+  }, [isOpen]);
+
+  // Focus the active menu item when focusedIndex changes
+  useEffect(() => {
+    if (isOpen && focusedIndex >= 0) {
+      const menuItems = ref.current?.querySelectorAll<HTMLElement>("[role='menuitem']");
+      menuItems?.[focusedIndex]?.focus();
+    }
+  }, [isOpen, focusedIndex]);
+
+  function handleKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Escape" && isOpen) {
+      e.preventDefault();
+      onToggle();
+      // Return focus to the trigger button
+      ref.current?.querySelector("button")?.focus();
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (!isOpen) { onToggle(); setFocusedIndex(0); }
+      else setFocusedIndex((prev) => (prev + 1) % items.length);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (isOpen) setFocusedIndex((prev) => (prev - 1 + items.length) % items.length);
+    }
+  }
+
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative" onKeyDown={handleKeyDown}>
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
@@ -81,12 +111,13 @@ function NavDropdown({
       </button>
       {isOpen && (
         <div role="menu" className="absolute left-0 top-full z-50 mt-1 min-w-[260px] max-h-[calc(100vh-5rem)] overflow-y-auto rounded-lg border border-stone-700 bg-stone-900 py-2 shadow-xl">
-          {items.map((item) => (
+          {items.map((item, i) => (
             <Link
               key={item.href}
               href={item.href as "/jobs"}
               role="menuitem"
-              className="block px-4 py-2.5 transition-colors hover:bg-stone-800"
+              tabIndex={focusedIndex === i ? 0 : -1}
+              className="block px-4 py-2.5 transition-colors hover:bg-stone-800 focus:bg-stone-800 focus:outline-none"
               onClick={() => {
                 onToggle();
                 onClose?.();
@@ -137,8 +168,28 @@ function MegaMenu({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen, onToggle]);
 
+  function handleKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Escape" && isOpen) {
+      e.preventDefault();
+      onToggle();
+      ref.current?.querySelector("button")?.focus();
+    } else if (e.key === "ArrowDown" && isOpen) {
+      e.preventDefault();
+      const links = ref.current?.querySelectorAll<HTMLElement>("[role='menu'] a");
+      const active = document.activeElement;
+      const idx = links ? Array.from(links).indexOf(active as HTMLElement) : -1;
+      links?.[(idx + 1) % (links?.length || 1)]?.focus();
+    } else if (e.key === "ArrowUp" && isOpen) {
+      e.preventDefault();
+      const links = ref.current?.querySelectorAll<HTMLElement>("[role='menu'] a");
+      const active = document.activeElement;
+      const idx = links ? Array.from(links).indexOf(active as HTMLElement) : -1;
+      links?.[(idx - 1 + (links?.length || 1)) % (links?.length || 1)]?.focus();
+    }
+  }
+
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative" onKeyDown={handleKeyDown}>
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
@@ -167,7 +218,8 @@ function MegaMenu({
                     <Link
                       key={item.href}
                       href={item.href as "/jobs"}
-                      className="block rounded-md px-2 py-1.5 transition-colors hover:bg-stone-800"
+                      tabIndex={-1}
+                      className="block rounded-md px-2 py-1.5 transition-colors hover:bg-stone-800 focus:bg-stone-800 focus:outline-none"
                       onClick={() => {
                         onToggle();
                         onClose?.();
@@ -300,6 +352,8 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
         {
           heading: isEs ? "Para Tu Carrera" : "For Your Career",
           items: [
+            { href: "/academy", label: isEs ? "Academia FQHC" : "FQHC Academy" },
+            { href: "/pathway", label: isEs ? "Ruta de Carrera" : "Career Pathway" },
             { href: "/career-insights", label: isEs ? "Evaluación de Carrera" : "Career Assessment" },
             { href: "/career-roadmap", label: t("careerRoadmap") },
             { href: "/certifications", label: t("certifications") },
@@ -313,7 +367,6 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
           items: [
             { href: "/guides", label: isEs ? "Guías del Trabajo" : "Workplace Guides" },
             { href: "/glossary", label: isEs ? "Glosario FQHC" : "FQHC Glossary" },
-            { href: "/pathway", label: isEs ? "Mi Ruta de Aprendizaje" : "My Learning Path" },
           ],
         },
       ],

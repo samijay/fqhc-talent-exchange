@@ -4,7 +4,8 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb, PageHero } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero, RelatedContent } from "@/components/ui/design-system";
+import { STRATEGY_RELATED } from "@/lib/strategy-related-content";
 import {
   Stethoscope, DollarSign, Users, Clock, CalendarClock, KanbanSquare,
   MessageSquare, Cloud, Shield, Calculator, ClipboardCheck, Heart,
@@ -623,6 +624,11 @@ export default function TechStackPage() {
             <ArrowRight className="ml-auto h-4 w-4 text-stone-500" />
           </Link>
         </section>
+
+        {/* Related Content */}
+        <div className="mt-12">
+          <RelatedContent items={STRATEGY_RELATED["tech-stack"]} />
+        </div>
 
         {/* Newsletter */}
         <div className="mt-12">

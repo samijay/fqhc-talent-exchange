@@ -20,6 +20,8 @@ export default function Footer() {
       { href: "/strategy/labor-relations" as const, label: isEs ? "Relaciones Laborales" : "Labor Relations" },
     ],
     [isEs ? "Para Tu Carrera" : "For Your Career"]: [
+      { href: "/academy" as const, label: isEs ? "Academia FQHC" : "FQHC Academy" },
+      { href: "/pathway" as const, label: isEs ? "Ruta de Carrera" : "Career Pathway" },
       { href: "/career-insights" as const, label: isEs ? "Evaluación" : "Career Assessment" },
       { href: "/career-roadmap" as const, label: t("careerRoadmap") },
       { href: "/certifications" as const, label: t("certifications") },

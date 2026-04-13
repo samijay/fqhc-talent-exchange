@@ -4,7 +4,8 @@
 import { useLocale } from "next-intl";
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb, PageHero } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero, RelatedContent } from "@/components/ui/design-system";
+import { STRATEGY_RELATED } from "@/lib/strategy-related-content";
 import {
   AlertTriangle,
   ArrowRight,
@@ -822,6 +823,11 @@ export default function TransitionResourcesPage() {
             </form>
           )}
         </div>
+      </section>
+
+      {/* Related Content */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
+        <RelatedContent items={STRATEGY_RELATED["offboarding"]} />
       </section>
     </main>
   );

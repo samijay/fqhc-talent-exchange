@@ -4,7 +4,8 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb, PageHero } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero, RelatedContent } from "@/components/ui/design-system";
+import { STRATEGY_RELATED } from "@/lib/strategy-related-content";
 import {
   ArrowRight,
   ArrowUpDown,
@@ -889,6 +890,11 @@ export default function MovementPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Related Content */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
+        <RelatedContent items={STRATEGY_RELATED["movement"]} />
       </section>
     </div>
   );

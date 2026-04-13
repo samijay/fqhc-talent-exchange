@@ -4,7 +4,8 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { PageHero } from "@/components/ui/design-system";
+import { PageHero, RelatedContent } from "@/components/ui/design-system";
+import { STRATEGY_RELATED } from "@/lib/strategy-related-content";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
   ArrowRight,
@@ -673,6 +674,11 @@ export default function WorkforceResiliencePage() {
               </Link>
             ))}
           </div>
+        </section>
+
+        {/* ── Related Content ──────────────────────────── */}
+        <section className="mb-12">
+          <RelatedContent items={STRATEGY_RELATED["workforce-resilience"]} />
         </section>
 
         {/* ── Newsletter + Sources ──────────────────────────── */}

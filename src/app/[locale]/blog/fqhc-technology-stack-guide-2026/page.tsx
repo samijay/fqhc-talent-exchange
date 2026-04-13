@@ -7,6 +7,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 interface ArticleContent {
   category: string;
@@ -629,6 +630,10 @@ export default async function FQHCTechStackArticle() {
       {/* Bottom share */}
       <div className="max-w-3xl mx-auto px-6 mt-8 pt-6 border-t border-stone-200">
         <InlineShareButtons slug="fqhc-technology-stack-guide-2026" title="Your FQHC Technology Stack in 2026: 12 Categories, 28 Vendors, and the Decisions That Actually Matter" />
+      </div>
+
+      <div className="max-w-3xl mx-auto px-6">
+        <BlogPrevNext slug="fqhc-technology-stack-guide-2026" locale={locale} />
       </div>
 
       {/* CTA Section */}

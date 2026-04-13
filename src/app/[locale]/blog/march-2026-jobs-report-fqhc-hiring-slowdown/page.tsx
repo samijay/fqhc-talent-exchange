@@ -7,6 +7,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 interface ArticleContent {
   category: string;
@@ -597,6 +598,8 @@ export default async function MarchJobsReportArticle() {
               </ul>
             </div>
           </div>
+
+          <BlogPrevNext slug="march-2026-jobs-report-fqhc-hiring-slowdown" locale={locale} />
 
           {/* CTA */}
           <ArticleCTA audience="both" />

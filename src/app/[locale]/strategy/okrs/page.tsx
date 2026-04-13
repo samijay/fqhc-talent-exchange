@@ -5,7 +5,8 @@ import { useState } from "react";
 import { useLocale } from "next-intl";
 import { t } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb, PageHero } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero, RelatedContent } from "@/components/ui/design-system";
+import { STRATEGY_RELATED } from "@/lib/strategy-related-content";
 import {
   ArrowRight,
   ChevronDown,
@@ -604,6 +605,11 @@ export default function OKRTemplatesPage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Related Content */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
+        <RelatedContent items={STRATEGY_RELATED["okrs"]} />
       </section>
     </div>
   );

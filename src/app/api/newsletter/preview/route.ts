@@ -52,6 +52,7 @@ const SAMPLE_INTEL: IntelBriefContent = {
       sourceOrg: "Los Angeles Times",
     },
   ],
+  laborUpdates: [],
   aiUpdates: [
     {
       headline: "athenahealth Launches Free Ambient AI for FQHCs",

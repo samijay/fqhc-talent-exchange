@@ -20,7 +20,8 @@ import {
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { PageHero } from "@/components/ui/design-system";
+import { PageHero, RelatedContent } from "@/components/ui/design-system";
+import { STRATEGY_RELATED } from "@/lib/strategy-related-content";
 import {
   economicsConcepts,
   domainMeta,
@@ -306,26 +307,9 @@ export default function HealthcareEconomicsPage() {
           </div>
         </div>
 
-        {/* Related content */}
-        <div className="mt-10 flex flex-wrap gap-4 justify-center">
-          <Link
-            href="/strategy/guides"
-            className="rounded-lg bg-teal-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-teal-800 transition-colors"
-          >
-            {isEs ? "Ver Guías Ejecutivas →" : "View Executive Guides →"}
-          </Link>
-          <Link
-            href="/strategy/frameworks"
-            className="rounded-lg border border-stone-300 dark:border-stone-600 px-5 py-2.5 text-sm font-medium text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
-          >
-            {isEs ? "Marcos de Ejecución →" : "Execution Frameworks →"}
-          </Link>
-          <Link
-            href="/strategy/okrs"
-            className="rounded-lg border border-stone-300 dark:border-stone-600 px-5 py-2.5 text-sm font-medium text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
-          >
-            {isEs ? "Plantillas OKR →" : "OKR Templates →"}
-          </Link>
+        {/* Related Content */}
+        <div className="mt-10">
+          <RelatedContent items={STRATEGY_RELATED["economics"]} />
         </div>
       </section>
     </main>

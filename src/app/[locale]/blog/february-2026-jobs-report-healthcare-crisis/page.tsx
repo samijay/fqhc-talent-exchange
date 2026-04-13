@@ -7,6 +7,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 interface ArticleContent {
   category: string;
@@ -817,6 +818,8 @@ export default async function FebruaryJobsReportArticle() {
           <div className="mt-8 pt-6 border-t border-stone-200">
             <InlineShareButtons slug="february-2026-jobs-report-healthcare-crisis" title="The February 2026 Jobs Report: Healthcare Is Carrying the Entire Economy. Congress Just Cut Its Funding." />
           </div>
+
+          <BlogPrevNext slug="february-2026-jobs-report-healthcare-crisis" locale={locale} />
 
           {/* CTA */}
           <ArticleCTA

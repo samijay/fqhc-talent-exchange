@@ -9,6 +9,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 export default async function FqhcCareerLadderArticle() {
   const locale = await getLocale();
@@ -582,6 +583,8 @@ export default async function FqhcCareerLadderArticle() {
           <div className="mt-8 pt-6 border-t border-stone-200">
             <InlineShareButtons slug="fqhc-career-ladder-ma-rn-provider" title="The FQHC MA, RN & Provider Career Ladder: How to Advance in Community Health" />
           </div>
+
+          <BlogPrevNext slug="fqhc-career-ladder-ma-rn-provider" locale={locale} />
 
           {/* CTA */}
           <ArticleCTA

@@ -162,7 +162,7 @@ function CertificationsContent() {
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: isEs ? "Inicio" : "Home", href: "/" },
-        { label: isEs ? "Herramientas" : "Tools", href: "/certifications" },
+        { label: isEs ? "Academia" : "Academy", href: "/academy" },
         { label: isEs ? "Certificaciones" : "Certifications" },
       ]} />
       <PageHero

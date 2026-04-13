@@ -4,7 +4,8 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { PageHero } from "@/components/ui/design-system";
+import { PageHero, RelatedContent } from "@/components/ui/design-system";
+import { STRATEGY_RELATED } from "@/lib/strategy-related-content";
 import {
   AlertTriangle,
   ArrowRight,
@@ -811,6 +812,11 @@ export default function LaborRelationsPage() {
             </div>
           </div>
         )}
+
+        {/* Related Content */}
+        <div className="mt-12">
+          <RelatedContent items={STRATEGY_RELATED["labor-relations"]} />
+        </div>
 
         {/* Cross-references footer */}
         <div className="mt-12 grid gap-4 border-t border-stone-200 pt-8 sm:grid-cols-3">

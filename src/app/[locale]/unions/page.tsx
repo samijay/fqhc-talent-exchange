@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
+import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
   ArrowRight,
   BookOpen,
@@ -810,6 +811,22 @@ export default function UnionsPage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
+        <NewsletterSignup
+          variant="card"
+          defaultAudience="intel-brief"
+          heading={{
+            en: "Get Labor & Union Updates",
+            es: "Recibe Actualizaciones Laborales",
+          }}
+          subheading={{
+            en: "Contract ratifications, organizing campaigns, and NLRB case tracking — in your weekly Intel Brief.",
+            es: "Ratificaciones de contratos, campañas de organización y seguimiento de casos NLRB — en tu Informe Ejecutivo semanal.",
+          }}
+        />
       </section>
     </main>
   );

@@ -6,6 +6,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 interface RoleCard {
   title: string;
@@ -681,6 +682,8 @@ export default async function WhatIsECMArticle() {
           <div className="mt-8 pt-6 border-t border-stone-200">
             <InlineShareButtons slug="what-is-enhanced-care-management-ecm" title="" />
           </div>
+
+          <BlogPrevNext slug="what-is-enhanced-care-management-ecm" locale={locale} />
 
           {/* CTA */}
           <ArticleCTA

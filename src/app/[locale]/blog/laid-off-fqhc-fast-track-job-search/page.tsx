@@ -6,6 +6,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 interface ArticleContent {
   category: string;
@@ -594,6 +595,8 @@ export default async function LaidOffFqhcFastTrackArticle() {
           <div className="mt-8 pt-6 border-t border-stone-200">
             <InlineShareButtons slug="laid-off-fqhc-fast-track-job-search" title="" />
           </div>
+
+          <BlogPrevNext slug="laid-off-fqhc-fast-track-job-search" locale={locale} />
 
           {/* CTA */}
           <ArticleCTA

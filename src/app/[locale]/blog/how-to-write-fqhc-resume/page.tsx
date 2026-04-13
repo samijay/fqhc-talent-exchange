@@ -6,6 +6,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 interface ArticleContent {
   category: string;
@@ -633,6 +634,8 @@ export default async function HowToWriteFqhcResumeArticle() {
           <div className="mt-8 pt-6 border-t border-stone-200">
             <InlineShareButtons slug="how-to-write-fqhc-resume" title="" />
           </div>
+
+          <BlogPrevNext slug="how-to-write-fqhc-resume" locale={locale} />
 
           {/* CTA */}
           <ArticleCTA

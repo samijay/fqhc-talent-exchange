@@ -6,6 +6,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 export default async function WorkingAtTopOfScopeFqhcArticle() {
   const locale = await getLocale();
@@ -341,6 +342,8 @@ export default async function WorkingAtTopOfScopeFqhcArticle() {
           <div className="mt-8 pt-6 border-t border-stone-200">
             <InlineShareButtons slug="working-at-top-of-scope-fqhc" title="Working at Top of Scope: How FQHCs Are Revolutionizing Patient Access" />
           </div>
+
+          <BlogPrevNext slug="working-at-top-of-scope-fqhc" locale={locale} />
 
           {/* CTA */}
           <ArticleCTA

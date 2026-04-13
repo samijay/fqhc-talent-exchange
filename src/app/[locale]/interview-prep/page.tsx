@@ -32,6 +32,7 @@ import {
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { PracticeMode } from "@/components/interview-prep/PracticeMode";
 import { TableOfContents } from "@/components/layout/TableOfContents";
+import { CareerFunnelStep } from "@/components/ui/CareerFunnelStep";
 
 /* ------------------------------------------------------------------ */
 /*  Role and Category Configs                                          */
@@ -478,6 +479,11 @@ export default function InterviewPrepPage() {
           </button>
         </div>
       </PageHero>
+
+      {/* Career Funnel Progress */}
+      <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6 lg:px-8">
+        <CareerFunnelStep currentStep={4} />
+      </div>
 
       {/* TOC */}
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">

@@ -18,6 +18,7 @@ export type IntelCategory =
   | "merger-acquisition"
   | "funding"
   | "workforce"
+  | "labor"
   | "undocumented-access"
   | "change-management"
   | "compliance";
@@ -63,6 +64,7 @@ export const INTEL_CATEGORIES: {
   { id: "merger-acquisition", en: "Mergers & Acquisitions", es: "Fusiones y Adquisiciones", icon: "Building2" },
   { id: "funding", en: "Funding & Budget", es: "Financiamiento y Presupuesto", icon: "DollarSign" },
   { id: "workforce", en: "Workforce", es: "Fuerza Laboral", icon: "Users" },
+  { id: "labor", en: "Labor & Unions", es: "Trabajo y Sindicatos", icon: "Scale" },
   { id: "undocumented-access", en: "Undocumented Access", es: "Acceso para Indocumentados", icon: "Shield" },
   { id: "change-management", en: "Strategy & Tactics", es: "Estrategia y Tácticas", icon: "Lightbulb" },
   { id: "compliance", en: "Risk & Compliance", es: "Riesgo y Cumplimiento", icon: "ShieldAlert" },

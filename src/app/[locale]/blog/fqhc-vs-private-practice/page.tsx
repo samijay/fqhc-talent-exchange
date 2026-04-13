@@ -7,6 +7,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 interface TableRow {
   factor: string;
@@ -1090,6 +1091,8 @@ export default async function FqhcVsPrivatePracticeArticle() {
           <div className="mt-8 pt-6 border-t border-stone-200">
             <InlineShareButtons slug="fqhc-vs-private-practice" title="FQHC Salary Ranges — Key Roles" />
           </div>
+
+          <BlogPrevNext slug="fqhc-vs-private-practice" locale={locale} />
 
           {/* CTA */}
           <ArticleCTA

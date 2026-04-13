@@ -65,6 +65,12 @@ export interface IntelBriefContent {
     sourceUrl: string;
     sourceOrg: string;
   }[];
+  laborUpdates?: {
+    headline: string;
+    summary: string;
+    sourceUrl: string;
+    sourceOrg: string;
+  }[];
   aiUpdates: {
     headline: string;
     summary: string;
@@ -271,6 +277,18 @@ export function intelBriefHtml(
         <p style="margin: 0 0 4px; font-size: 15px; font-weight: 700; color: ${BRAND.stone900}; line-height: 1.35;">${w.headline}</p>
         <p style="margin: 4px 0 8px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.6;">${w.summary}</p>
         ${sourceLink(w.sourceUrl, w.sourceOrg)}
+      </td>
+    </tr>`).join("")}
+    ` : ""}
+
+    ${(content.laborUpdates ?? []).length > 0 ? `
+    ${sectionDivider(isEs ? "Trabajo y Sindicatos" : "Labor & Union Watch")}
+    ${(content.laborUpdates ?? []).map(l => `
+    <tr>
+      <td style="padding: 10px 0 14px; border-bottom: 1px solid #F5F5F4;">
+        <p style="margin: 0 0 4px; font-size: 15px; font-weight: 700; color: ${BRAND.stone900}; line-height: 1.35;">${l.headline}</p>
+        <p style="margin: 4px 0 8px; font-size: 13px; color: ${BRAND.stone700}; line-height: 1.6;">${l.summary}</p>
+        ${sourceLink(l.sourceUrl, l.sourceOrg)}
       </td>
     </tr>`).join("")}
     ` : ""}

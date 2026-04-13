@@ -4,7 +4,8 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { PageHero } from "@/components/ui/design-system";
+import { PageHero, RelatedContent } from "@/components/ui/design-system";
+import { STRATEGY_RELATED } from "@/lib/strategy-related-content";
 import {
   ArrowRight,
   Calendar,
@@ -661,6 +662,11 @@ export default function AdvocacyWatchPage() {
               {isEs ? "Ver" : "View"} <ArrowRight className="size-4" />
             </span>
           </Link>
+        </div>
+
+        {/* Related Content */}
+        <div className="mt-12">
+          <RelatedContent items={STRATEGY_RELATED["advocacy"]} />
         </div>
       </div>
     </main>

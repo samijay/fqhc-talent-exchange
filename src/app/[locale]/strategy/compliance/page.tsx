@@ -25,6 +25,8 @@ import {
   Zap,
   BarChart3,
 } from "lucide-react";
+import { RelatedContent } from "@/components/ui/design-system";
+import { STRATEGY_RELATED } from "@/lib/strategy-related-content";
 import { ComplianceChecklist } from "@/components/compliance/ComplianceChecklist";
 import { RegulatoryCalendar } from "@/components/compliance/RegulatoryCalendar";
 import { PolicyGenerator } from "@/components/compliance/PolicyGenerator";
@@ -459,6 +461,11 @@ export default function ComplianceHubPage() {
               </CardContent>
             </Card>
           </Link>
+        </div>
+
+        {/* Related Content */}
+        <div className="mt-12">
+          <RelatedContent items={STRATEGY_RELATED["compliance"]} />
         </div>
       </div>
     </div>

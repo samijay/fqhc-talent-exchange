@@ -4,7 +4,8 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Breadcrumb, PageHero } from "@/components/ui/design-system";
+import { Breadcrumb, PageHero, RelatedContent } from "@/components/ui/design-system";
+import { STRATEGY_RELATED } from "@/lib/strategy-related-content";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
   BookOpen,
@@ -254,7 +255,7 @@ export default function ResearchArchivePage() {
     <main className="min-h-screen bg-stone-50 dark:bg-stone-950">
       <Breadcrumb items={[
         { label: "Home", href: "/" },
-        { label: "Strategy", href: "/strategy/research" },
+        { label: "Academy", href: "/academy" },
         { label: "Research Archive" },
       ]} />
       <PageHero
@@ -556,6 +557,11 @@ export default function ResearchArchivePage() {
               {isEs ? "Programas y becas" : "Programs & scholarships"}
             </p>
           </Link>
+        </div>
+
+        {/* Related Content */}
+        <div className="mt-12">
+          <RelatedContent items={STRATEGY_RELATED["research"]} />
         </div>
 
         {/* Newsletter */}

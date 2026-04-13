@@ -29,6 +29,11 @@ export function HeroSection({ totalFQHCs, totalJobs, totalIntel }: HeroSectionPr
               ? "Plataforma de Inteligencia FQHC de California"
               : "California's FQHC Intelligence Platform"}
           </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-stone-300 sm:text-lg">
+            {isEs
+              ? "Inteligencia de mercado + preparación profesional para profesionales de FQHC"
+              : "Market intelligence + career readiness for FQHC professionals"}
+          </p>
 
           {/* Clickable stat pills */}
           <div className="mx-auto mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
@@ -55,11 +60,18 @@ export function HeroSection({ totalFQHCs, totalJobs, totalIntel }: HeroSectionPr
             </Link>
           </div>
 
-          <p className="mx-auto mt-4 max-w-xl text-sm text-stone-400">
-            {isEs
-              ? "Actualizado semanalmente con fuentes primarias."
-              : "Updated weekly from primary sources."}
-          </p>
+          <div className="mx-auto mt-4 flex flex-col items-center gap-2">
+            <p className="max-w-xl text-sm text-stone-400">
+              {isEs
+                ? "Actualizado semanalmente con fuentes primarias."
+                : "Updated weekly from primary sources."}
+            </p>
+            <p className="text-xs font-medium text-teal-400">
+              {isEs
+                ? "Disponible completamente en español"
+                : "Disponible completamente en español"}
+            </p>
+          </div>
         </div>
 
         {/* Two-path CTA cards */}
@@ -90,12 +102,12 @@ export function HeroSection({ totalFQHCs, totalJobs, totalIntel }: HeroSectionPr
           >
             <Briefcase className="mb-4 size-8 text-amber-400" />
             <h2 className="text-xl font-bold text-white sm:text-2xl">
-              {isEs ? "Busco Trabajo" : "I'm Building My Career"}
+              {isEs ? "Trabajo en Salud Comunitaria" : "I Work in Community Health"}
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-stone-400">
               {isEs
-                ? "Empleos, datos salariales, herramientas de carrera gratuitas, constructor de curriculum"
-                : "Jobs, salary data, free career tools, resume builder, certifications"}
+                ? "Herramientas de carrera, certificaciones, datos salariales, preparación para entrevistas"
+                : "Career tools, certifications, salary data, interview prep, guided pathways"}
             </p>
             <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-amber-400 transition-transform group-hover:translate-x-1">
               {isEs ? "Explorar" : "Explore"} <ArrowRight className="size-4" />

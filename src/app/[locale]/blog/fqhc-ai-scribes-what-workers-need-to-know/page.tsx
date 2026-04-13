@@ -7,6 +7,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 interface ArticleContent {
   category: string;
@@ -551,6 +552,8 @@ export default async function FQHCAIScribesArticle() {
           <div className="mt-8 pt-6 border-t border-stone-200">
             <InlineShareButtons slug="fqhc-ai-scribes-what-workers-need-to-know" title="AI Scribes at FQHCs: What Community Health Workers Need to Know in 2026" />
           </div>
+
+          <BlogPrevNext slug="fqhc-ai-scribes-what-workers-need-to-know" locale={locale} />
 
           {/* CTA */}
           <ArticleCTA

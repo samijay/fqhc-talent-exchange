@@ -7,6 +7,7 @@ import { ContentViewTracker } from "@/components/content/ContentViewTracker";
 import { BlogArticleToolbar } from "@/components/blog/BlogArticleToolbar";
 import { AuthorByline } from "@/components/blog/AuthorByline";
 import { InlineShareButtons } from "@/components/blog/InlineShareButtons";
+import { BlogPrevNext } from "@/components/blog/BlogPrevNext";
 
 interface ArticleContent {
   category: string;
@@ -768,6 +769,8 @@ export default async function FqhcSalaryNegotiationGuideArticle() {
           <div className="mt-8 pt-6 border-t border-stone-200">
             <InlineShareButtons slug="fqhc-salary-negotiation-guide" title="California FQHC Salary Ranges by Role (2025–2026)" />
           </div>
+
+          <BlogPrevNext slug="fqhc-salary-negotiation-guide" locale={locale} />
 
           {/* CTA */}
           <ArticleCTA

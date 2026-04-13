@@ -307,7 +307,7 @@ export default function GuidesPage() {
     <main className="min-h-screen bg-gradient-to-b from-stone-50 to-white dark:from-stone-950 dark:to-stone-900">
       <Breadcrumb items={[
         { label: isEs ? "Inicio" : "Home", href: "/" },
-        { label: isEs ? "Herramientas" : "Tools", href: "/guides" },
+        { label: isEs ? "Academia" : "Academy", href: "/academy" },
         { label: isEs ? "Gu\u00edas del Lugar de Trabajo" : "Workplace Guides" },
       ]} />
       <PageHero
