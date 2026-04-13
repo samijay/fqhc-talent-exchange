@@ -14,6 +14,7 @@ import {
   Heart,
   Languages,
   Scale,
+  ShieldAlert,
   Sparkles,
   Users,
 } from "lucide-react";
@@ -339,6 +340,35 @@ export default function CulturalHumilityPage() {
             {isEs ? "Datos actualizados:" : "Data updated:"}{" "}
             {CULTURAL_HUMILITY_LAST_UPDATED}
           </p>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
+      {/*  EO 14398 Alert                                              */}
+      {/* ============================================================ */}
+      <section className="bg-amber-50 border-b border-amber-200">
+        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex items-start gap-3">
+            <ShieldAlert className="mt-0.5 size-5 shrink-0 text-amber-600" />
+            <div>
+              <p className="font-semibold text-amber-900">
+                {isEs
+                  ? "Alerta de Cumplimiento: Orden Ejecutiva 14398 vs. Estándares CLAS"
+                  : "Compliance Alert: Executive Order 14398 vs. CLAS Standards"}
+              </p>
+              <p className="mt-1 text-sm text-amber-800">
+                {isEs
+                  ? "La OE 14398 (firmada el 26 de marzo de 2026) restringe actividades DEI para contratistas federales — incluyendo FQHCs que reciben subvenciones HRSA. Esto crea tensión directa con los Estándares CLAS que requieren reclutamiento de fuerza laboral culturalmente concordante. La guía FAR vence el 25 de mayo. Los FQHCs deben revisar políticas de RRHH ahora — no dejar de hacer el trabajo, sino ajustar la documentación y el lenguaje."
+                  : "EO 14398 (signed March 26, 2026) restricts DEI activities for federal contractors — including FQHCs receiving HRSA grants. This creates direct tension with CLAS Standards requiring culturally concordant workforce recruitment. FAR guidance is due May 25. FQHCs should review HR policies now — not stop the work, but adjust documentation and framing."}
+              </p>
+              <a
+                href={isEs ? "/es/strategy/advocacy" : "/strategy/advocacy"}
+                className="mt-2 inline-flex items-center text-sm font-medium text-amber-700 hover:text-amber-900"
+              >
+                {isEs ? "Seguir plazos de cumplimiento →" : "Track compliance deadlines →"}
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -4,7 +4,7 @@
 // Each item includes follow-up dates and outcome tracking.
 // Updated via /daily-update pipeline.
 
-export const ADVOCACY_LAST_UPDATED = "2026-04-11";
+export const ADVOCACY_LAST_UPDATED = "2026-04-14";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -683,6 +683,54 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
     sourceOrg: "AHA",
     impactLevel: "high",
     tags: ["340b", "court-ruling", "rebate-pilot", "1st-circuit", "aha", "safety-net"],
+  },
+  {
+    id: "eo-14398-far-guidance-dei-deadline",
+    date: "2026-03-26",
+    headline: {
+      en: "EO 14398 FAR Guidance Deadline May 25 \u2014 FQHCs Must Review HR Policies for DEI Compliance",
+      es: "Fecha L\u00edmite de Gu\u00eda FAR de OE 14398 el 25 de Mayo \u2014 FQHCs Deben Revisar Pol\u00edticas de RRHH para Cumplimiento DEI",
+    },
+    summary: {
+      en: "Executive Order 14398 (signed March 26) prohibits 'racially discriminatory DEI activities' by federal contractors and grantees. The FAR Council must issue implementation guidance by May 25. FQHCs receiving HRSA Section 330 grants face a direct tension: CLAS Standards require culturally concordant workforce recruitment, while EO 14398 restricts race/ethnicity-based hiring and training. Agency compliance reports are due July 24. FQHCs should review HR policies, training programs, and recruitment strategies before May 25.",
+      es: "La Orden Ejecutiva 14398 proh\u00edbe actividades DEI por contratistas federales. El Consejo FAR debe emitir gu\u00eda de implementaci\u00f3n antes del 25 de mayo. FQHCs enfrentan tensi\u00f3n entre Est\u00e1ndares CLAS y restricciones DEI.",
+    },
+    category: "federal-action",
+    status: "active",
+    region: "Federal",
+    organizations: ["FAR Council", "HRSA", "HHS"],
+    followUpDate: "2026-05-25",
+    followUpNote: { en: "FAR implementation guidance due \u2014 review for FQHC impact", es: "Gu\u00eda de implementaci\u00f3n FAR vence \u2014 revisar impacto en FQHCs" },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://www.theemployerreport.com/2026/04/why-the-new-dei-executive-order-matters-for-federal-contractors-and-signals-broader-risk-for-all-us-employers/",
+    sourceOrg: "The Employer Report / Sullivan & Cromwell",
+    impactLevel: "high",
+    tags: ["dei", "executive-order", "far-council", "clas-standards", "compliance", "may-2026"],
+  },
+  {
+    id: "cms-work-requirements-ifr-june-1",
+    date: "2026-04-14",
+    headline: {
+      en: "CMS Must Publish Work Requirements Interim Final Rule by June 1 \u2014 Exemption Scope Will Determine FQHC Patient Impact",
+      es: "CMS Debe Publicar Regla Final Provisional de Requisitos de Trabajo antes del 1 de Junio \u2014 Alcance de Exenciones Determinar\u00e1 Impacto en Pacientes de FQHCs",
+    },
+    summary: {
+      en: "CMS is required by H.R. 1 to issue an Interim Final Rule by June 1, 2026 defining work requirement implementation: exemption criteria, reporting mechanisms, compliance verification, and enforcement. The 80-hour/month requirement scope depends on this rule \u2014 narrow exemptions mean millions lose coverage, broad exemptions limit damage. States must conduct member outreach June 30\u2013August 31. $200M in 'Government Efficiency Grants' funds state systems, but no direct funding flows to FQHCs despite bearing the patient-facing burden.",
+      es: "CMS debe emitir una Regla Final Provisional antes del 1 de junio definiendo requisitos de trabajo. Exenciones estrechas significan millones sin cobertura. $200M para estados, nada directo para FQHCs.",
+    },
+    category: "federal-action",
+    status: "active",
+    region: "Federal",
+    organizations: ["CMS", "HHS"],
+    followUpDate: "2026-06-01",
+    followUpNote: { en: "IFR publication deadline \u2014 review exemption criteria immediately", es: "Fecha l\u00edmite de publicaci\u00f3n de IFR \u2014 revisar criterios de exenci\u00f3n inmediatamente" },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://www.chcs.org/resource/a-summary-of-national-medicaid-work-requirements/",
+    sourceOrg: "CHCS / CMS",
+    impactLevel: "critical",
+    tags: ["cms", "work-requirements", "ifr", "exemptions", "june-2026", "disenrollment"],
   },
 ];
 
