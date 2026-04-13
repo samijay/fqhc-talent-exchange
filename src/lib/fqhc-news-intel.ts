@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-04-11";
+export const INTEL_LAST_UPDATED = "2026-04-14";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -4846,6 +4846,54 @@ export const INTEL_ITEMS: IntelItem[] = [
       { en: "June 1 deadline: CMS must publish the Interim Final Rule", es: "Fecha límite 1 de junio: CMS debe publicar la Regla Final Provisional" },
       { en: "June 30–Aug 31: States must conduct outreach to all affected enrollees", es: "30 jun–31 ago: Estados deben realizar contacto con todos los inscritos afectados" },
       { en: "$200M for state systems — zero direct FQHC funding for patient navigation", es: "$200M para sistemas estatales — cero fondos directos para FQHCs para navegación de pacientes" },
+    ],
+  },
+  {
+    id: "abbvie-340b-patient-definition-lawsuit",
+    date: "2026-04-09",
+    headline: {
+      en: "AbbVie Files Landmark Lawsuit to Narrow 340B 'Patient' Definition — Directly Targeting FQHC Contract Pharmacy Arrangements",
+      es: "AbbVie Presenta Demanda Histórica para Restringir Definición de 'Paciente' 340B — Apuntando Directamente a Arreglos de Farmacias Contratadas de FQHCs",
+    },
+    summary: {
+      en: "AbbVie sued HRSA to challenge the 30-year-old 340B patient definition, proposing a four-part test requiring direct care connection, clinical encounter, active care management, and 12-month recency. AbbVie flagged Barrio Comprehensive Family Health Care Center (TX FQHC) — 340B purchases of Humira/Skyrizi/Rinvoq up 119% (2021-2022), 71% dispensed through out-of-state pharmacies. If successful, this would dramatically shrink FQHC 340B eligibility for contract pharmacy and telehealth prescribing. Post-Chevron (Loper Bright) makes this challenge viable for the first time.",
+      es: "AbbVie demandó a HRSA para desafiar la definición de paciente 340B de 30 años, proponiendo una prueba de cuatro partes. Si tiene éxito, reduciría dramáticamente la elegibilidad 340B de FQHCs para farmacias contratadas y prescripción por telesalud.",
+    },
+    category: "compliance",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://www.hfma.org/payment-reimbursement-and-managed-care/340b-patient-definition-lawsuit-abbvie-hrsa/",
+    sourceOrg: "HFMA / Fierce Pharma / 340B Report",
+    region: "Federal",
+    tags: ["340b", "abbvie", "lawsuit", "patient-definition", "contract-pharmacy", "loper-bright", "hrsa"],
+    keyTakeaways: [
+      { en: "First-ever manufacturer lawsuit challenging HRSA's 340B patient definition", es: "Primera demanda de fabricante desafiando la definición de paciente 340B de HRSA" },
+      { en: "Four-part test proposed: direct care, clinical encounter, active management, 12-month recency", es: "Prueba de cuatro partes propuesta: atención directa, encuentro clínico, gestión activa, vigencia de 12 meses" },
+      { en: "Post-Chevron (Loper Bright) makes HRSA guidance vulnerable to legal challenge", es: "Post-Chevron (Loper Bright) hace la guía de HRSA vulnerable a desafío legal" },
+    ],
+  },
+  {
+    id: "eo-14398-dei-restrictions-federal-contractors-fqhc",
+    date: "2026-03-26",
+    headline: {
+      en: "Executive Order 14398 Bans DEI Activities by Federal Contractors — FQHCs as HRSA Grantees Face Compliance Risk",
+      es: "Orden Ejecutiva 14398 Prohíbe Actividades DEI por Contratistas Federales — FQHCs como Beneficiarios de HRSA Enfrentan Riesgo de Cumplimiento",
+    },
+    summary: {
+      en: "Trump signed EO 14398 prohibiting 'racially discriminatory DEI activities' by federal contractors and grantees. FQHCs receiving HRSA Section 330 grants face compliance deadlines: contract clauses (30 days), FAR guidance (May 25), agency reports (July 24). The EO creates direct tension with CLAS Standards requiring culturally concordant workforce recruitment. Violations can trigger contract termination, debarment, and False Claims Act liability. FQHCs with workforce diversity programs, culturally concordant hiring, or race/ethnicity-targeted training need compliance review.",
+      es: "Trump firmó OE 14398 prohibiendo actividades DEI por contratistas federales. FQHCs que reciben subvenciones HRSA enfrentan plazos de cumplimiento. La orden crea tensión directa con Estándares CLAS que requieren reclutamiento de fuerza laboral culturalmente concordante.",
+    },
+    category: "legislation",
+    impactLevel: "high",
+    type: "news",
+    sourceUrl: "https://www.theemployerreport.com/2026/04/why-the-new-dei-executive-order-matters-for-federal-contractors-and-signals-broader-risk-for-all-us-employers/",
+    sourceOrg: "The Employer Report / Sullivan & Cromwell",
+    region: "Federal",
+    tags: ["dei", "executive-order", "federal-contractors", "clas-standards", "workforce-diversity", "hrsa", "compliance"],
+    keyTakeaways: [
+      { en: "FQHC CLAS Standards vs EO 14398: culturally concordant hiring now legally risky", es: "Estándares CLAS de FQHCs vs OE 14398: contratación culturalmente concordante ahora legalmente riesgosa" },
+      { en: "FAR guidance deadline May 25 — FQHCs should review HR policies now", es: "Fecha límite de guía FAR 25 de mayo — FQHCs deben revisar políticas de RRHH ahora" },
+      { en: "Violations can trigger debarment, contract termination, and FCA liability", es: "Violaciones pueden provocar inhabilitación, terminación de contrato y responsabilidad FCA" },
     ],
   },
 ];
