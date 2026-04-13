@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   ChevronDown,
   ChevronUp,
@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import {
   INTERVIEW_QUESTIONS,
   CATEGORY_LABELS,
@@ -30,6 +31,7 @@ import {
 } from "@/lib/interview-prep";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { PracticeMode } from "@/components/interview-prep/PracticeMode";
+import { TableOfContents } from "@/components/layout/TableOfContents";
 
 /* ------------------------------------------------------------------ */
 /*  Role and Category Configs                                          */
@@ -78,10 +80,14 @@ function QuestionCard({
   q,
   isEs,
   isTopQuestion,
+  isReviewed,
+  onToggleReviewed,
 }: {
   q: InterviewQuestion;
   isEs: boolean;
   isTopQuestion: boolean;
+  isReviewed: boolean;
+  onToggleReviewed: () => void;
 }) {
   const [expanded, setExpanded] = useState(false);
   const cat = CATEGORY_LABELS[q.category];
@@ -234,6 +240,23 @@ function QuestionCard({
               ))}
             </ul>
           </div>
+
+          {/* Mark as reviewed */}
+          <div className="flex justify-end pt-2 border-t border-stone-100">
+            <button
+              onClick={(e) => { e.stopPropagation(); onToggleReviewed(); }}
+              className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
+                isReviewed
+                  ? "bg-emerald-100 text-emerald-700 hover:bg-emerald-200"
+                  : "bg-stone-100 text-stone-600 hover:bg-stone-200"
+              }`}
+            >
+              <CheckCircle className={`size-3.5 ${isReviewed ? "fill-emerald-500 text-emerald-500" : ""}`} />
+              {isReviewed
+                ? (isEs ? "Revisado" : "Reviewed")
+                : (isEs ? "Marcar como revisado" : "Mark as reviewed")}
+            </button>
+          </div>
         </div>
       )}
     </div>
@@ -332,6 +355,28 @@ export default function InterviewPrepPage() {
     InterviewCategory | "all"
   >("all");
 
+  // ── Progress tracking ──────────────────────────────────────────────
+  const PROGRESS_KEY = "fqhc-interview-prep-reviewed";
+  const [reviewedIds, setReviewedIds] = useState<Set<string>>(new Set());
+
+  // Restore reviewed questions from localStorage on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(PROGRESS_KEY);
+      if (saved) setReviewedIds(new Set(JSON.parse(saved)));
+    } catch { /* noop */ }
+  }, []);
+
+  // Persist reviewed questions
+  const toggleReviewed = useCallback((id: string) => {
+    setReviewedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      try { localStorage.setItem(PROGRESS_KEY, JSON.stringify([...next])); } catch { /* noop */ }
+      return next;
+    });
+  }, []);
+
   // Filter questions by role
   const roleQuestions =
     selectedRole === "all"
@@ -362,8 +407,20 @@ export default function InterviewPrepPage() {
     return diffOrder[a.difficulty] - diffOrder[b.difficulty];
   });
 
+  const tocItems = [
+    { id: "role-selector", label: isEs ? "Selecciona Tu Rol" : "Select Your Role" },
+    { id: "category-filter", label: isEs ? "Filtrar por Categoría" : "Filter by Category" },
+    { id: "questions", label: isEs ? "Preguntas" : "Questions" },
+    { id: "related-tools", label: isEs ? "Completa Tu Preparación" : "Complete Your Prep" },
+  ];
+
   return (
     <main className="min-h-screen bg-stone-50">
+      <Breadcrumb items={[
+        { label: isEs ? "Inicio" : "Home", href: "/" },
+        { label: isEs ? "Herramientas" : "Tools", href: "/interview-prep" },
+        { label: isEs ? "Preparaci\u00f3n para Entrevistas" : "Interview Prep" },
+      ]} />
       {/* Hero */}
       <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-700 text-white">
         <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
@@ -427,6 +484,13 @@ export default function InterviewPrepPage() {
         </div>
       </section>
 
+      {/* TOC */}
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="absolute right-4 top-10 sm:right-6 lg:right-8">
+          <TableOfContents items={tocItems} title={isEs ? "En esta página" : "On this page"} />
+        </div>
+      </div>
+
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
         {/* Practice Mode */}
         {mode === "practice" && (
@@ -436,7 +500,7 @@ export default function InterviewPrepPage() {
         {/* Reference Mode */}
         {mode === "reference" && <>
         {/* Step 1: Role Selector */}
-        <div className="mb-8">
+        <div id="role-selector" className="mb-8 scroll-mt-20">
           <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-stone-500">
             {isEs ? "1. Selecciona Tu Rol" : "1. Select Your Role"}
           </p>
@@ -468,7 +532,7 @@ export default function InterviewPrepPage() {
         )}
 
         {/* Step 2: Category Filter */}
-        <div className="mb-6">
+        <div id="category-filter" className="mb-6 scroll-mt-20">
           <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-stone-500">
             {isEs ? "2. Filtra por Categoría" : "2. Filter by Category"}
           </p>
@@ -499,12 +563,20 @@ export default function InterviewPrepPage() {
         </div>
 
         {/* Step 3: Questions */}
-        <div className="mb-10">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-stone-500">
-            {isEs
-              ? `3. Practica las Preguntas (${sortedQuestions.length})`
-              : `3. Practice the Questions (${sortedQuestions.length})`}
-          </p>
+        <div id="questions" className="mb-10 scroll-mt-20">
+          <div className="mb-4 flex items-center justify-between">
+            <p className="text-xs font-semibold uppercase tracking-wide text-stone-500">
+              {isEs
+                ? `3. Practica las Preguntas (${sortedQuestions.length})`
+                : `3. Practice the Questions (${sortedQuestions.length})`}
+            </p>
+            {reviewedIds.size > 0 && (
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
+                <CheckCircle className="size-3.5 fill-emerald-500 text-emerald-500" />
+                {reviewedIds.size} {isEs ? "revisadas" : "reviewed"}
+              </span>
+            )}
+          </div>
 
           {sortedQuestions.length === 0 ? (
             <div className="rounded-xl border border-stone-200 bg-white p-8 text-center text-stone-500">
@@ -520,6 +592,8 @@ export default function InterviewPrepPage() {
                   q={q}
                   isEs={isEs}
                   isTopQuestion={topQuestionIds.includes(q.id)}
+                  isReviewed={reviewedIds.has(q.id)}
+                  onToggleReviewed={() => toggleReviewed(q.id)}
                 />
               ))}
             </div>
@@ -527,7 +601,7 @@ export default function InterviewPrepPage() {
         </div>
 
         {/* Related Tools */}
-        <div className="mb-10 border-t border-stone-200 pt-10">
+        <div id="related-tools" className="mb-10 border-t border-stone-200 pt-10 scroll-mt-20">
           <h2 className="mb-4 text-lg font-bold text-stone-900">
             {isEs ? "Completa Tu Preparación" : "Complete Your Interview Prep"}
           </h2>

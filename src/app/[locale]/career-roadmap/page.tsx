@@ -24,6 +24,7 @@ import {
 import { useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import { CareerFunnelStep } from "@/components/ui/CareerFunnelStep";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import {
@@ -115,6 +116,11 @@ export default function CareerRoadmapPage() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <Breadcrumb items={[
+        { label: isEs ? "Inicio" : "Home", href: "/" },
+        { label: isEs ? "Herramientas" : "Tools", href: "/career-roadmap" },
+        { label: isEs ? "Mapa de Carrera" : "Career Roadmap" },
+      ]} />
       {/* Hero */}
       <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 px-4 py-16 text-white sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl text-center">

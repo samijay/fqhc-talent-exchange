@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -303,6 +304,11 @@ export default function GuidesPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-stone-50 to-white">
+      <Breadcrumb items={[
+        { label: isEs ? "Inicio" : "Home", href: "/" },
+        { label: isEs ? "Herramientas" : "Tools", href: "/guides" },
+        { label: isEs ? "Gu\u00edas del Lugar de Trabajo" : "Workplace Guides" },
+      ]} />
       {/* ───────────────── Hero ───────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-teal-800 via-teal-900 to-teal-950 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-700/30 via-transparent to-transparent" />

@@ -37,6 +37,7 @@ import {
 } from "@/lib/fqhc-research-archive";
 import { SYLLABUS_TRACKS } from "@/lib/research-syllabus-content";
 import { SyllabusReader } from "@/components/research/SyllabusReader";
+import { TableOfContents } from "@/components/layout/TableOfContents";
 import { useContentReads, type ContentRead } from "@/hooks/useContentReads";
 import { ReadStatusBadge } from "@/components/content/ReadStatusBadge";
 import { ShareButton } from "@/components/share/ShareButton";
@@ -238,6 +239,13 @@ export default function ResearchArchivePage() {
     return entries;
   }, [domainFilter, audienceFilter, levelFilter, searchQuery]);
 
+  const tocItems = [
+    { id: "archive-tab", label: isEs ? "Archivo de Investigación" : "Research Archive" },
+    { id: "curriculum-tab", label: isEs ? "Currículos" : "Curriculum Tracks" },
+    { id: "researchers-tab", label: isEs ? "Investigadores y Revistas" : "Researchers & Journals" },
+    { id: "cross-nav", label: isEs ? "Recursos Relacionados" : "Related Resources" },
+  ];
+
   // Stats
   const domainCounts = useMemo(() => {
     const counts = new Map<string, number>();
@@ -289,6 +297,13 @@ export default function ResearchArchivePage() {
         </div>
       </section>
 
+      {/* TOC */}
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="absolute right-4 top-10 sm:right-6 lg:right-8">
+          <TableOfContents items={tocItems} title={isEs ? "En esta página" : "On this page"} />
+        </div>
+      </div>
+
       {/* ── Tabs ────────────────────────────────── */}
       <div className="max-w-5xl mx-auto px-4 pt-6">
         <div className="flex gap-1 border-b border-stone-200 dark:border-stone-700">
@@ -318,7 +333,7 @@ export default function ResearchArchivePage() {
       <div className="max-w-5xl mx-auto px-4 py-8">
         {/* ── Archive Tab ──────────────────────────── */}
         {activeTab === "archive" && (
-          <>
+          <div id="archive-tab" className="scroll-mt-20">
             {/* Search + filters */}
             <div className="space-y-4 mb-6">
               {/* Search */}
@@ -418,12 +433,12 @@ export default function ResearchArchivePage() {
                 </p>
               )}
             </div>
-          </>
+          </div>
         )}
 
         {/* ── Curriculum Tab ───────────────────────── */}
         {activeTab === "curriculum" && (
-          <div>
+          <div id="curriculum-tab" className="scroll-mt-20">
             <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-200 dark:border-amber-700 p-5 mb-6">
               <h2 className="text-lg font-bold text-amber-900 dark:text-amber-200 mb-2">
                 {isEs ? "Currículos Guiados con Instructor Experto" : "Expert-Guided Curriculum Tracks"}
@@ -441,7 +456,7 @@ export default function ResearchArchivePage() {
 
         {/* ── Researchers & Journals Tab ────────────── */}
         {activeTab === "researchers" && (
-          <div className="space-y-8">
+          <div id="researchers-tab" className="space-y-8 scroll-mt-20">
             {/* Key Researchers */}
             <section>
               <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-4 flex items-center gap-2">
@@ -525,7 +540,7 @@ export default function ResearchArchivePage() {
         )}
 
         {/* ── Cross-nav ────────────────────────────── */}
-        <div className="mt-12 grid sm:grid-cols-3 gap-4">
+        <div id="cross-nav" className="mt-12 grid sm:grid-cols-3 gap-4 scroll-mt-20">
           <Link
             href="/strategy/masterclass"
             className="rounded-xl border border-stone-200 bg-white p-5 hover:shadow-md transition-shadow text-center dark:border-stone-700 dark:bg-stone-800"

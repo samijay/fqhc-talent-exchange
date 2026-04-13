@@ -10,6 +10,7 @@ import {
   ArrowUpDown,
   BarChart3,
   ChevronDown,
+  Download,
   ExternalLink,
   Search,
   TrendingUp,
@@ -25,6 +26,7 @@ import {
   type ResilienceDimension,
 } from "@/lib/fqhc-resilience";
 import { regions } from "@/lib/california-fqhcs";
+import { downloadCSV } from "@/lib/csv-export";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -294,6 +296,27 @@ export default function ResiliencePage() {
     }
   }
 
+  function handleExportCSV() {
+    const headers = [
+      "Name", "Region", "Grade", "Score",
+      "Program Diversity", "Workforce Stability", "Data Maturity",
+      "Quality Indicators", "Financial Positioning", "Risk Level",
+    ];
+    const rows = filtered.map((s) => [
+      s.name,
+      s.region,
+      s.grade,
+      String(s.overall),
+      String(s.dimensions.find((d) => d.dimension === "program-diversity")?.score ?? ""),
+      String(s.dimensions.find((d) => d.dimension === "workforce-stability")?.score ?? ""),
+      String(s.dimensions.find((d) => d.dimension === "data-maturity")?.score ?? ""),
+      String(s.dimensions.find((d) => d.dimension === "quality-indicators")?.score ?? ""),
+      String(s.dimensions.find((d) => d.dimension === "financial-positioning")?.score ?? ""),
+      s.riskLevel,
+    ]);
+    downloadCSV("fqhc-resilience-scorecard.csv", headers, rows);
+  }
+
   return (
     <main className="min-h-screen bg-stone-50">
       <Breadcrumb items={[
@@ -475,6 +498,10 @@ export default function ResiliencePage() {
             <ArrowUpDown className="size-3.5" />
             {isEs ? "Ordenar" : "Sort"}
           </button>
+          <Button variant="outline" size="sm" onClick={handleExportCSV} className="gap-1.5">
+            <Download className="size-4" />
+            {isEs ? "Descargar CSV" : "Download CSV"}
+          </Button>
         </div>
 
         {/* Results count */}

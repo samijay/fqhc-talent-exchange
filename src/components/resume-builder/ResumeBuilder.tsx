@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useLocale } from "next-intl";
 import {
   ChevronRight,
@@ -216,6 +216,58 @@ export default function ResumeBuilder() {
   // Resume output language
   const [resumeLanguage, setResumeLanguage] = useState<"auto" | "en" | "es">("auto");
 
+  // ── localStorage progress saving ──────────────────────────────────
+  const STORAGE_KEY = "fqhc-resume-builder-progress";
+
+  // Restore saved progress on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return;
+      const { formData: savedForm, step: savedStep, mode: savedMode, experienceAnswers: savedExp, resumeLanguage: savedLang, timestamp } = JSON.parse(saved);
+      // Only restore if saved within the last 7 days
+      if (timestamp && Date.now() - new Date(timestamp).getTime() > 7 * 24 * 60 * 60 * 1000) {
+        localStorage.removeItem(STORAGE_KEY);
+        return;
+      }
+      if (savedForm) setFormData(savedForm);
+      if (savedStep) setStep(savedStep);
+      if (savedMode && savedMode !== "choose") setMode(savedMode);
+      if (savedExp) setExperienceAnswers(savedExp);
+      if (savedLang) setResumeLanguage(savedLang);
+    } catch {
+      // Silent fail — corrupted data
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Save progress on every change (debounced)
+  const saveProgress = useCallback(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        formData,
+        step,
+        mode,
+        experienceAnswers,
+        resumeLanguage,
+        timestamp: new Date().toISOString(),
+      }));
+    } catch {
+      // Silent fail — storage full or unavailable
+    }
+  }, [formData, step, mode, experienceAnswers, resumeLanguage]);
+
+  useEffect(() => {
+    if (mode === "choose") return; // Don't save before user starts
+    const timer = setTimeout(saveProgress, 1000);
+    return () => clearTimeout(timer);
+  }, [saveProgress, mode]);
+
+  // Clear saved progress after successful PDF download
+  const clearSavedProgress = () => {
+    try { localStorage.removeItem(STORAGE_KEY); } catch { /* noop */ }
+  };
+
   /* --- Helpers ---------------------------------------------------- */
 
   function toggleCheckbox(
@@ -356,6 +408,7 @@ export default function ResumeBuilder() {
         .from(element)
         .save();
       trackResumeDownload("pdf");
+      clearSavedProgress();
     } catch (err) {
       console.error("PDF generation error:", err);
     } finally {

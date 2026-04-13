@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback, useEffect, Suspense } from "react";
 import { useLocale } from "next-intl";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import {
   Search,
@@ -14,6 +15,7 @@ import {
   BarChart3,
   Briefcase,
   Award,
+  Download,
   Lightbulb,
   FileDown,
 } from "lucide-react";
@@ -22,6 +24,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { TableOfContents } from "@/components/layout/TableOfContents";
 import {
   Select,
   SelectContent,
@@ -35,6 +38,7 @@ import {
   REGIONAL_MULTIPLIERS,
   adjustSalary,
 } from "@/lib/career-pathways";
+import { downloadCSV } from "@/lib/csv-export";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
@@ -115,15 +119,56 @@ type SortDir = "asc" | "desc";
 /* ------------------------------------------------------------------ */
 
 export default function SalaryDataPage() {
+  return (
+    <Suspense>
+      <SalaryDataContent />
+    </Suspense>
+  );
+}
+
+function SalaryDataContent() {
   const locale = useLocale();
   const isEs = locale === "es";
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
   const [search, setSearch] = useState("");
-  const [deptFilter, setDeptFilter] = useState("all");
-  const [regionFilter, setRegionFilter] = useState("none");
+  const [deptFilter, setDeptFilter] = useState(searchParams.get("dept") || "all");
+  const [regionFilter, setRegionFilter] = useState(searchParams.get("region") || "none");
   const [sortKey, setSortKey] = useState<SortKey>("p50");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [compareRole, setCompareRole] = useState("care_coordinator");
+
+  // Sync filters to URL
+  const updateURL = useCallback(
+    (dept: string, region: string) => {
+      const params = new URLSearchParams();
+      if (dept !== "all") params.set("dept", dept);
+      if (region !== "none") params.set("region", region);
+      const qs = params.toString();
+      router.replace(`?${qs}`, { scroll: false });
+    },
+    [router],
+  );
+
+  function setDeptFilterWithURL(val: string) {
+    setDeptFilter(val);
+    updateURL(val, regionFilter);
+  }
+
+  function setRegionFilterWithURL(val: string) {
+    setRegionFilter(val);
+    updateURL(deptFilter, val);
+  }
+
+  // Sync from URL on initial load (handles back/forward navigation)
+  useEffect(() => {
+    const dept = searchParams.get("dept") || "all";
+    const region = searchParams.get("region") || "none";
+    if (dept !== deptFilter) setDeptFilter(dept);
+    if (region !== regionFilter) setRegionFilter(region);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   // Region multiplier
   const activeRegion = REGIONAL_MULTIPLIERS.find((r) => r.region === regionFilter);
@@ -186,6 +231,19 @@ export default function SalaryDataPage() {
   const entryMin = Math.min(...SALARY_BENCHMARKS.map((b) => b.p25));
   const leadershipMultiple = (leadershipMax / entryMin).toFixed(1);
 
+  function handleExportCSV() {
+    const hasRegion = regionFilter !== "none";
+    const headers = hasRegion
+      ? ["Role", "Department", "P25", "P50 (Median)", "P75", "Adjusted P25", "Adjusted P50", "Adjusted P75"]
+      : ["Role", "Department", "P25", "P50 (Median)", "P75"];
+    const rows = filteredBenchmarks.map((b) =>
+      hasRegion
+        ? [b.label, b.department, String(b.p25), String(b.p50), String(b.p75), String(b.adjP25), String(b.adjP50), String(b.adjP75)]
+        : [b.label, b.department, String(b.p25), String(b.p50), String(b.p75)],
+    );
+    downloadCSV("fqhc-salary-benchmarks.csv", headers, rows);
+  }
+
   function toggleSort(key: SortKey) {
     if (sortKey === key) {
       setSortDir(sortDir === "asc" ? "desc" : "asc");
@@ -194,6 +252,14 @@ export default function SalaryDataPage() {
       setSortDir(key === "label" ? "asc" : "desc");
     }
   }
+
+  const tocItems = [
+    { id: "salary-table", label: isEs ? "Tabla Salarial" : "Salary Table" },
+    { id: "career-progression", label: isEs ? "Progresión Salarial" : "Salary Progression" },
+    { id: "regional-comparison", label: isEs ? "Comparación Regional" : "Regional Comparison" },
+    { id: "key-insights", label: isEs ? "Perspectivas Clave" : "Key Insights" },
+    { id: "salary-report", label: isEs ? "Informe PDF" : "PDF Report" },
+  ];
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -245,9 +311,16 @@ export default function SalaryDataPage() {
         </div>
       </section>
 
+      {/* TOC */}
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="absolute right-4 top-10 sm:right-6 lg:right-8">
+          <TableOfContents items={tocItems} title={isEs ? "En esta página" : "On this page"} />
+        </div>
+      </div>
+
       <div className="mx-auto max-w-5xl px-4 py-10 space-y-12">
         {/* ---- Section 1: Salary Table ---- */}
-        <section>
+        <section id="salary-table" className="scroll-mt-20">
           <h2 className="text-2xl font-bold text-stone-900 mb-1">
             <DollarSign className="inline size-6 text-teal-700 mr-1" />
             {isEs ? "Tabla Salarial por Rol" : "Salary Table by Role"}
@@ -269,7 +342,7 @@ export default function SalaryDataPage() {
                 className="pl-9"
               />
             </div>
-            <Select value={deptFilter} onValueChange={setDeptFilter}>
+            <Select value={deptFilter} onValueChange={setDeptFilterWithURL}>
               <SelectTrigger className="w-full sm:w-48">
                 <SelectValue placeholder={isEs ? "Departamento" : "Department"} />
               </SelectTrigger>
@@ -282,7 +355,7 @@ export default function SalaryDataPage() {
                 ))}
               </SelectContent>
             </Select>
-            <Select value={regionFilter} onValueChange={setRegionFilter}>
+            <Select value={regionFilter} onValueChange={setRegionFilterWithURL}>
               <SelectTrigger className="w-full sm:w-48">
                 <SelectValue placeholder={isEs ? "Region" : "Region"} />
               </SelectTrigger>
@@ -296,6 +369,10 @@ export default function SalaryDataPage() {
                 ))}
               </SelectContent>
             </Select>
+            <Button variant="outline" size="sm" onClick={handleExportCSV} className="gap-1.5">
+              <Download className="size-4" />
+              {isEs ? "Descargar CSV" : "Download CSV"}
+            </Button>
           </div>
 
           {activeRegion && (
@@ -430,7 +507,7 @@ export default function SalaryDataPage() {
         </section>
 
         {/* ---- Section 2: Career Track Salary Progression ---- */}
-        <section>
+        <section id="career-progression" className="scroll-mt-20">
           <h2 className="text-2xl font-bold text-stone-900 mb-1">
             <TrendingUp className="inline size-6 text-teal-700 mr-1" />
             {isEs ? "Progresion Salarial por Trayectoria" : "Salary Progression by Career Track"}
@@ -502,7 +579,7 @@ export default function SalaryDataPage() {
         </section>
 
         {/* ---- Section 3: Regional Cost Comparison ---- */}
-        <section>
+        <section id="regional-comparison" className="scroll-mt-20">
           <h2 className="text-2xl font-bold text-stone-900 mb-1">
             <MapPin className="inline size-6 text-teal-700 mr-1" />
             {isEs ? "Comparacion Salarial Regional" : "Regional Salary Comparison"}
@@ -603,7 +680,7 @@ export default function SalaryDataPage() {
         </section>
 
         {/* ---- Section 4: Key Insights ---- */}
-        <section>
+        <section id="key-insights" className="scroll-mt-20">
           <h2 className="text-2xl font-bold text-stone-900 mb-1">
             <Lightbulb className="inline size-6 text-amber-500 mr-1" />
             {isEs ? "Perspectivas Clave" : "Key Insights"}
@@ -723,7 +800,7 @@ export default function SalaryDataPage() {
         </section>
 
         {/* Salary Report PDF CTA */}
-        <section className="mt-12 rounded-xl border-2 border-teal-200 bg-gradient-to-r from-teal-50 to-stone-50 p-6 sm:p-8">
+        <section id="salary-report" className="mt-12 rounded-xl border-2 border-teal-200 bg-gradient-to-r from-teal-50 to-stone-50 p-6 sm:p-8 scroll-mt-20">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="rounded-full bg-teal-100 p-3 shrink-0">
               <FileDown className="size-6 text-teal-700" />

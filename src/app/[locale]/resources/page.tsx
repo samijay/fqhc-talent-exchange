@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -273,6 +274,11 @@ export default function ResourcesPage() {
 
   return (
     <div className="bg-stone-50">
+      <Breadcrumb items={[
+        { label: isEs ? "Inicio" : "Home", href: "/" },
+        { label: isEs ? "Herramientas" : "Tools", href: "/resources" },
+        { label: isEs ? "Recursos Profesionales" : "Career Resources" },
+      ]} />
       {/* ==================== HERO ==================== */}
       <section className="relative overflow-hidden bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 text-white">
         <div className="absolute -left-32 -top-32 size-96 rounded-full bg-teal-500/20 blur-3xl" />

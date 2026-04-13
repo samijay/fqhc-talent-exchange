@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import {
   Heart,
   Stethoscope,
@@ -18,9 +18,12 @@ import {
   ArrowRight,
   MapPin,
   MessageSquare,
+  Download,
+  Loader2,
 } from "lucide-react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import CareerInsights from "@/components/resume-builder/CareerInsights";
 import First90DaysPlan from "@/components/career-insights/First90DaysPlan";
 import { ShareableAchievement } from "@/components/share/ShareableAchievement";
@@ -72,6 +75,32 @@ export default function CareerInsightsPage() {
     }, 100);
   };
 
+  // Download full report (assessment + 90-day plan) as PDF
+  const [isDownloadingReport, setIsDownloadingReport] = useState(false);
+  const handleDownloadReport = useCallback(async () => {
+    const el = document.getElementById("assessment-results-section");
+    if (!el) return;
+    setIsDownloadingReport(true);
+    try {
+      const html2pdf = (await import("html2pdf.js")).default;
+      const dateSlug = new Date().toISOString().slice(0, 10);
+      await html2pdf()
+        .set({
+          margin: [0.4, 0.5, 0.4, 0.5],
+          filename: `FQHC_Career_Report_${dateSlug}.pdf`,
+          image: { type: "jpeg", quality: 0.95 },
+          html2canvas: { scale: 2, useCORS: true },
+          jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+        })
+        .from(el)
+        .save();
+    } catch (err) {
+      console.error("PDF generation error:", err);
+    } finally {
+      setIsDownloadingReport(false);
+    }
+  }, []);
+
   const handleReset = () => {
     setSelectedRole(null);
     setAssessmentResults(null);
@@ -86,6 +115,11 @@ export default function CareerInsightsPage() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <Breadcrumb items={[
+        { label: isEs ? "Inicio" : "Home", href: "/" },
+        { label: isEs ? "Herramientas" : "Tools", href: "/career-insights" },
+        { label: isEs ? "Evaluaci\u00f3n Profesional" : "Career Assessment" },
+      ]} />
       {/* Hero */}
       <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 px-4 py-16 text-white sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl text-center">
@@ -215,7 +249,22 @@ export default function CareerInsightsPage() {
 
         {/* Step 3: Results + optional 90-Day Plan */}
         {assessmentResults && (
-          <div className="space-y-8">
+          <div id="assessment-results-section" className="space-y-8">
+            {/* Download full report button */}
+            <div className="flex justify-end">
+              <button
+                onClick={handleDownloadReport}
+                disabled={isDownloadingReport}
+                className="inline-flex items-center gap-2 rounded-lg border border-teal-200 bg-white px-4 py-2 text-sm font-medium text-teal-700 shadow-sm transition-colors hover:bg-teal-50 disabled:opacity-50"
+              >
+                {isDownloadingReport ? (
+                  <Loader2 className="size-4 animate-spin" />
+                ) : (
+                  <Download className="size-4" />
+                )}
+                {isEs ? "Descargar reporte completo (PDF)" : "Download full report (PDF)"}
+              </button>
+            </div>
             {/* 90-Day Plan prompt — shown after assessment, before plan is generated */}
             {showPlanPrompt && !plan && (
               <div className="rounded-2xl border-2 border-teal-200 bg-gradient-to-br from-teal-50 to-white p-6">

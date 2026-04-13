@@ -22,6 +22,7 @@ import {
   Calendar,
   Clock,
 } from "lucide-react";
+import { TableOfContents } from "@/components/layout/TableOfContents";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -286,6 +287,13 @@ export default function MasterclassPage() {
 
   const counts = getMasterclassCounts();
 
+  const tocItems = [
+    { id: "interactive-course", label: isEs ? "Curso Interactivo" : "Interactive Course" },
+    { id: "why-now", label: isEs ? "¿Por Qué Ahora?" : "Why Now?" },
+    { id: "modules", label: isEs ? "Módulos" : "Modules" },
+    { id: "newsletter", label: isEs ? "Boletín" : "Newsletter" },
+  ];
+
   return (
     <div className="bg-stone-50">
       <Breadcrumb items={[
@@ -329,8 +337,15 @@ export default function MasterclassPage() {
         </div>
       </section>
 
+      {/* TOC */}
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="absolute right-4 top-10 sm:right-6 lg:right-8">
+          <TableOfContents items={tocItems} title={isEs ? "En esta página" : "On this page"} />
+        </div>
+      </div>
+
       {/* Interactive Course CTA */}
-      <section className="border-b border-teal-200 bg-gradient-to-r from-teal-50 to-emerald-50 py-6">
+      <section id="interactive-course" className="border-b border-teal-200 bg-gradient-to-r from-teal-50 to-emerald-50 py-6 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
@@ -359,7 +374,7 @@ export default function MasterclassPage() {
       </section>
 
       {/* Why These Masterclasses, Why Now */}
-      <section className="border-b border-stone-200 bg-white py-10 sm:py-14">
+      <section id="why-now" className="border-b border-stone-200 bg-white py-10 sm:py-14 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-10">
             <h2 className="text-xl font-bold text-stone-900 sm:text-2xl">
@@ -415,7 +430,7 @@ export default function MasterclassPage() {
       </section>
 
       {/* Filters + Masterclass Cards */}
-      <section className="py-10 sm:py-14">
+      <section id="modules" className="py-10 sm:py-14 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Category filter */}
           <div className="flex items-center gap-2 mb-6">
@@ -501,7 +516,7 @@ export default function MasterclassPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
+      <section id="newsletter" className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8 scroll-mt-20">
         <NewsletterSignup
           variant="card"
           defaultAudience="intel-brief"

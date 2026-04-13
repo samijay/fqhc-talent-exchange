@@ -21,6 +21,7 @@ import {
 import { useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
+import { Breadcrumb } from "@/components/ui/design-system";
 import { CareerFunnelStep } from "@/components/ui/CareerFunnelStep";
 import {
   CERTIFICATIONS,
@@ -160,6 +161,11 @@ function CertificationsContent() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <Breadcrumb items={[
+        { label: isEs ? "Inicio" : "Home", href: "/" },
+        { label: isEs ? "Herramientas" : "Tools", href: "/certifications" },
+        { label: isEs ? "Certificaciones" : "Certifications" },
+      ]} />
       {/* Hero */}
       <section className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 px-4 py-16 text-white sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl text-center">
