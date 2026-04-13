@@ -5,8 +5,7 @@ import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Search, ExternalLink } from "lucide-react";
 import { REGULATORY_ITEMS, DOMAIN_META, type ComplianceDomain } from "@/lib/fqhc-compliance";
-
-const t = (obj: { en: string; es: string }, locale: string) => locale === "es" ? obj.es : obj.en;
+import { t } from "@/lib/i18n-helpers";
 
 const DOMAIN_COLORS: Record<ComplianceDomain, { bg: string; text: string; border: string }> = {
   "hrsa-audits": { bg: "bg-teal-50", text: "text-teal-700", border: "border-teal-200" },

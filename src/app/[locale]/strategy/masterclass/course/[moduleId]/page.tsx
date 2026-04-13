@@ -27,11 +27,7 @@ import {
 } from "@/lib/masterclass-course-progress";
 import { MasterclassModuleScreen } from "@/components/masterclass-course/MasterclassModuleScreen";
 import { useAuth } from "@/components/auth/AuthProvider";
-
-const t = (obj: { en: string; es: string } | string, locale: string) => {
-  if (typeof obj === "string") return obj;
-  return locale === "es" ? obj.es : obj.en;
-};
+import { tSafe as t } from "@/lib/i18n-helpers";
 
 export default function ModulePage() {
   const params = useParams();

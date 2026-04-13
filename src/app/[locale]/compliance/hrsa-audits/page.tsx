@@ -24,9 +24,7 @@ import {
   type OSVRequirementArea,
 } from "@/lib/fqhc-compliance";
 import { downloadOSVChecklistAsExcel } from "@/lib/compliance-excel-export";
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+import { t } from "@/lib/i18n-helpers";
 
 const AREA_ICONS: Record<OSVRequirementArea, typeof Users> = {
   governance: Users,

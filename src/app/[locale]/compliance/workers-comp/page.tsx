@@ -27,13 +27,11 @@ import {
   type WorkersCompCaseStudy,
   type HazardCategory,
 } from "@/lib/workers-comp-data";
+import { t } from "@/lib/i18n-helpers";
 
 /* ================================================================ */
 /*  Helpers                                                           */
 /* ================================================================ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 const HAZARD_CATEGORY_LABELS: Record<HazardCategory, { en: string; es: string }> = {
   "needlestick-sharps": {

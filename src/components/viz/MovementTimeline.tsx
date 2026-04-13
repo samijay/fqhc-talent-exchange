@@ -16,6 +16,7 @@ import {
   Handshake,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -126,8 +127,6 @@ const CATEGORY_META: Record<
   },
 };
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /** Extract YouTube video ID from embed URL → return hqdefault thumbnail URL */
 function getYouTubeThumbnail(embedUrl: string): string | null {

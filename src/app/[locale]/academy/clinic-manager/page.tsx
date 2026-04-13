@@ -3,6 +3,7 @@
 
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { t } from "@/lib/i18n-helpers";
 import {
   BookOpen,
   Zap,
@@ -49,8 +50,6 @@ export default function ClinicManagerCoursePage() {
   const { user } = useAuth();
   const [courseStarted, setCourseStarted] = useState(false);
 
-  const t = (obj: { en: string; es: string }) =>
-    isEs ? obj.es : obj.en;
 
   if (courseStarted) {
     return (
@@ -193,10 +192,10 @@ export default function ClinicManagerCoursePage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-stone-800 dark:text-stone-200 truncate">
-                        {t(mod.title)}
+                        {t(mod.title, locale)}
                       </p>
                       <p className="text-sm text-stone-500 dark:text-stone-500 truncate">
-                        {t(mod.subtitle)}
+                        {t(mod.subtitle, locale)}
                       </p>
                     </div>
                     <div className="flex items-center gap-2 shrink-0 text-xs text-stone-500 dark:text-stone-500">

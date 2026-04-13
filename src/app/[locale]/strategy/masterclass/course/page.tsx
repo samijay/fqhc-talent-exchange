@@ -17,11 +17,7 @@ import { MasterclassPlayer } from "@/components/masterclass-course/MasterclassPl
 import { MASTERCLASS_COURSE_MODULES, MASTERCLASS_TOTAL_XP } from "@/lib/masterclass-course-modules";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useState } from "react";
-
-const t = (obj: { en: string; es: string } | string, locale: string) => {
-  if (typeof obj === "string") return obj;
-  return locale === "es" ? obj.es : obj.en;
-};
+import { tSafe as t } from "@/lib/i18n-helpers";
 
 export default function MasterclassCoursePage() {
   const locale = useLocale();

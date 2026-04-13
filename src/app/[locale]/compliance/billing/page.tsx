@@ -6,8 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { DollarSign, Download, ExternalLink, ChevronDown, ChevronUp, FileText, Scale, Pill, ClipboardList, Handshake } from "lucide-react";
 import { getRegulationsByDomain, getRisksByDomain, getCaseStudiesByDomain, getRiskScore, getRiskLevel } from "@/lib/fqhc-compliance";
 import { downloadComplianceCalendarAsExcel } from "@/lib/compliance-excel-export";
-
-const t = (obj: { en: string; es: string }, locale: string) => locale === "es" ? obj.es : obj.en;
+import { t } from "@/lib/i18n-helpers";
 
 const TOPICS = [
   { id: "pps", icon: DollarSign, en: "PPS Billing Rules: Same-Day Medical + BH", es: "Reglas de Facturación PPS: Médico + Salud Mental el Mismo Día", content: { en: "Key PPS same-day rules:\n\n• Medicare: 2 encounters allowed on the same day if the patient sees two different providers for two different services (e.g., medical + behavioral health). Each encounter must have a qualifying face-to-face visit with a billable provider.\n\n• Medi-Cal: Generally 1 PPS encounter per day. Medical + BH typically counts as 1 visit. Exception: some managed care plans allow 2.\n\n• FQHC APM (Alternative Payment Model): Capitation changes the equation entirely — per-member-per-month, not per-visit.\n\n• Critical: FQHCs CANNOT bill 'incident-to' like private practices. Every encounter must be directly billed under the rendering provider's credentials.\n\n• Documentation: Face-to-face requirement means the billing provider must personally see the patient. Co-signing a note does NOT equal a face-to-face encounter.", es: "Reglas clave de facturación PPS para el mismo día: Medicare permite 2 encuentros con diferentes proveedores. Medi-Cal generalmente permite 1 encuentro por día. Los FQHC NO pueden facturar 'incident-to'." } },

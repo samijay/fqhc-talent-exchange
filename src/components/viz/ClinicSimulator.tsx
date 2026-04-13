@@ -45,13 +45,12 @@ import {
 } from "@/components/simulator/SimulatorWizard";
 import { ModeToggle, type SimMode } from "@/components/simulator/ModeToggle";
 import { DeltaBadge } from "@/components/simulator/StickyResults";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Bilingual helper                                                   */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
 /*  Wizard → inputs mapping                                            */

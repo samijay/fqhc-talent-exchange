@@ -42,13 +42,11 @@ import {
   EHR_SYSTEMS,
   LOCUM_LAST_UPDATED,
 } from "@/lib/locum-tenens-data";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 const fmt = (n: number) =>
   n >= 1_000_000

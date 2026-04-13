@@ -5,13 +5,12 @@ import { useMemo, useState } from "react";
 import { useLocale } from "next-intl";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import type { LayoffEntry } from "@/lib/california-fqhc-layoffs";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 const REASON_COLORS: Record<string, { bar: string; label: { en: string; es: string } }> = {
   "federal-funding-cuts": {

@@ -27,9 +27,7 @@ import {
 } from "@/lib/okr-course-progress";
 import { ModuleScreen } from "@/components/okr-course/ModuleScreen";
 import { useAuth } from "@/components/auth/AuthProvider";
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+import { t } from "@/lib/i18n-helpers";
 
 export default function ModulePage() {
   const params = useParams();

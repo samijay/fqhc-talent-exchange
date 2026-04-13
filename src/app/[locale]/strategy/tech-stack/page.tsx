@@ -21,13 +21,11 @@ import {
   type TechCategory, type TechVendor, type TechCategoryMeta, type TechStackProfile,
 } from "@/lib/fqhc-tech-stack";
 import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Stethoscope, DollarSign, Users, Clock, CalendarClock, KanbanSquare,

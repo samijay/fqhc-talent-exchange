@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useLocale } from "next-intl";
-import { formatSalary } from "@/lib/i18n-helpers";
+import { formatSalary, t } from "@/lib/i18n-helpers";
 import { Link } from "@/i18n/navigation";
 import {
   ChevronRight,
@@ -567,7 +567,6 @@ function calculateMatches(answers: Record<string, string>): RoleMatch[] {
 export default function CareerQuizPage() {
   const locale = useLocale();
   const isEs = locale === "es";
-  const t = (obj: { en: string; es: string }) => (isEs ? obj.es : obj.en);
 
   const [step, setStep] = useState(0); // 0-9 = questions, 10 = results
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -643,7 +642,7 @@ export default function CareerQuizPage() {
         {!showResults && currentQuestion && (
           <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm sm:p-8 dark:border-stone-700 dark:bg-stone-800/50">
             <h2 className="mb-6 text-xl font-semibold text-stone-900 dark:text-white">
-              {t(currentQuestion.question)}
+              {t(currentQuestion.question, locale)}
             </h2>
             <div className="space-y-3">
               {currentQuestion.options.map((opt) => {
@@ -658,7 +657,7 @@ export default function CareerQuizPage() {
                         : "border-stone-200 bg-white text-stone-700 hover:border-teal-300 hover:bg-teal-50/50 dark:border-stone-600 dark:bg-stone-800 dark:text-stone-200 dark:hover:border-teal-600"
                     }`}
                   >
-                    {t(opt.label)}
+                    {t(opt.label, locale)}
                   </button>
                 );
               })}
@@ -713,7 +712,7 @@ export default function CareerQuizPage() {
                       </span>
                       <div>
                         <h3 className="text-lg font-bold text-stone-900 dark:text-white">
-                          {t(role.label)}
+                          {t(role.label, locale)}
                         </h3>
                         <span className="text-sm text-stone-500 dark:text-stone-400">
                           {role.department}
@@ -740,7 +739,7 @@ export default function CareerQuizPage() {
 
                   {/* Description */}
                   <p className="mb-4 text-sm text-stone-600 dark:text-stone-300">
-                    {t(role.description)}
+                    {t(role.description, locale)}
                   </p>
 
                   {/* Stats Grid */}
@@ -814,7 +813,7 @@ export default function CareerQuizPage() {
                     >
                       <div>
                         <span className="font-medium text-stone-900 dark:text-white">
-                          {t(role.label)}
+                          {t(role.label, locale)}
                         </span>
                         <span className="ml-2 text-sm text-stone-500 dark:text-stone-400">
                           {role.department}

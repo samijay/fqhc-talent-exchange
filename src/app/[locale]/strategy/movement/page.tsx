@@ -37,13 +37,11 @@ import { THOUGHT_LEADERS } from "@/lib/fqhc-thought-leaders";
 import { MovementTimeline } from "@/components/viz/MovementTimeline";
 import type { MovementCategory } from "@/components/viz/MovementTimeline";
 import { TableOfContents } from "@/components/layout/TableOfContents";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /** Color chip for community labels */
 const COMMUNITY_COLORS: Record<string, string> = {

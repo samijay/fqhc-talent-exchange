@@ -13,9 +13,7 @@ import {
   BookOpen,
   Pill,
 } from "lucide-react";
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
-
+import { t } from "@/lib/i18n-helpers";
 export default function RevenueSimulatorPage() {
   const locale = useLocale();
   const isEs = locale === "es";

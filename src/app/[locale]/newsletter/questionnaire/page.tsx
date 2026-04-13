@@ -14,6 +14,7 @@ import {
   Loader2,
   Sparkles,
 } from "lucide-react";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  i18n helper                                                         */
@@ -74,9 +75,6 @@ const T = {
   },
   thankYouNext: { en: "Explore the platform while you wait:", es: "Explora la plataforma mientras esperas:" },
 };
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                                */

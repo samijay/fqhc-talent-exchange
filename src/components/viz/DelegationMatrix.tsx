@@ -4,6 +4,7 @@
 import { useState, useMemo } from "react";
 import { useLocale } from "next-intl";
 import { Shield, X, Filter, Info } from "lucide-react";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -67,8 +68,6 @@ const LEVEL_META: Record<
   },
 };
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
 /*  DelegationMatrix Component                                         */

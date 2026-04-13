@@ -22,9 +22,8 @@ import { getContentById } from "@/lib/user-preferences";
 import { getLearningProgressSummary } from "@/lib/learning-progress";
 import { fqhcJobListings } from "@/lib/fqhc-job-listings";
 import { getRegionalSnapshots } from "@/lib/market-intelligence";
+import { t } from "@/lib/i18n-helpers";
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 export function JobSeekerDashboard() {
   const { user, profile } = useAuth();

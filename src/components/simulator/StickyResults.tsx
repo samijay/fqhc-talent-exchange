@@ -3,9 +3,8 @@
 "use client";
 
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { t } from "@/lib/i18n-helpers";
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
 /*  Delta Badge — shows +$240K / -12% next to metrics                  */

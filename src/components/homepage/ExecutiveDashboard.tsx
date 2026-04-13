@@ -29,9 +29,8 @@ import {
 import { getLearningProgressSummary } from "@/lib/learning-progress";
 import { getIntelItems } from "@/lib/fqhc-news-intel";
 import { getFundingCliffs } from "@/lib/market-intelligence";
+import { t } from "@/lib/i18n-helpers";
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 export function ExecutiveDashboard() {
   const { user, profile } = useAuth();

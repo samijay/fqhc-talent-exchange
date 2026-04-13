@@ -25,6 +25,15 @@ export const COMMON_LABELS = {
   downloadPdf: { en: "Download PDF", es: "Descargar PDF" },
 } as const;
 
+/** Pick the right language from a bilingual object, or return a plain string as-is */
+export function tSafe(
+  obj: { en: string; es: string } | string,
+  locale: string
+): string {
+  if (typeof obj === "string") return obj;
+  return locale === "es" ? obj.es : obj.en;
+}
+
 /** Format a date string for display — default includes year, short month */
 export function formatDate(
   dateStr: string,

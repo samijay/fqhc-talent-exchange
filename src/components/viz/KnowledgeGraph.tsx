@@ -36,6 +36,7 @@ import {
   Users,
   ArrowRight,
 } from "lucide-react";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -423,8 +424,6 @@ const RINGS: GraphRing[] = [
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
 /*  Ring Node (desktop visual)                                         */

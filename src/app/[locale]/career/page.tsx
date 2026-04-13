@@ -24,6 +24,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Career Journey Steps                                               */
@@ -124,9 +125,6 @@ const CAREER_JOURNEY: CareerStep[] = [
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 const COLOR_MAP: Record<string, { bg: string; text: string; border: string; light: string }> = {
   teal: { bg: "bg-teal-100 dark:bg-teal-900/30", text: "text-teal-700 dark:text-teal-400", border: "border-teal-200 dark:border-teal-800", light: "bg-teal-50 dark:bg-teal-950/20" },

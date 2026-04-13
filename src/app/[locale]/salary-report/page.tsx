@@ -21,13 +21,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";
 import { REGIONAL_MULTIPLIERS } from "@/lib/career-pathways";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 function fmtK(amount: number): string {
   return `$${Math.round(amount / 1000)}k`;

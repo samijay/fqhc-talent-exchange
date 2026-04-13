@@ -32,13 +32,11 @@ import {
   type CulturalCompetency,
   type WorkforceDiversityScenario,
 } from "@/lib/cultural-humility";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 const DOMAIN_ICONS: Record<string, LucideIcon> = {
   "language-access": Languages,

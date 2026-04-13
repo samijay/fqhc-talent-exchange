@@ -28,6 +28,7 @@ import {
   REGION_SLUGS,
 } from "@/lib/regional-intelligence";
 import { IMPACT_LABELS, IMPACT_STYLES } from "@/lib/fqhc-news-intel";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Static Params                                                      */
@@ -108,7 +109,6 @@ export default async function RegionalIntelligencePage({
   const regionName = getRegionBySlug(slug);
   if (!regionName) notFound();
 
-  const t = (obj: { en: string; es: string }) => (locale === "es" ? obj.es : obj.en);
 
   const stats = getRegionalStats(regionName);
   const fqhcs = getRegionalFQHCs(regionName);
@@ -135,7 +135,7 @@ export default async function RegionalIntelligencePage({
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mb-2 flex items-center gap-2 text-stone-500">
             <Link href="/" className="hover:text-white transition-colors text-sm">
-              {t({ en: "Intelligence", es: "Inteligencia" })}
+              {t({ en: "Intelligence", es: "Inteligencia" }, locale)}
             </Link>
             <ChevronRight className="size-3" />
             <span className="text-sm text-stone-300">{regionName}</span>
@@ -145,14 +145,14 @@ export default async function RegionalIntelligencePage({
             {t({
               en: `${regionName} FQHC Intelligence`,
               es: `Inteligencia FQHC de ${regionName}`,
-            })}
+            }, locale)}
           </h1>
 
           <p className="mb-8 max-w-2xl text-lg text-stone-300">
             {t({
               en: `Regional dashboard covering ${stats.fqhcCount} Federally Qualified Health Centers across ${stats.totalSites} sites in the ${regionName} region.`,
               es: `Panel regional que cubre ${stats.fqhcCount} Centros de Salud Federalmente Calificados en ${stats.totalSites} sitios en la region de ${regionName}.`,
-            })}
+            }, locale)}
           </p>
 
           {/* Stats bar */}
@@ -161,27 +161,27 @@ export default async function RegionalIntelligencePage({
               {
                 icon: Building2,
                 value: stats.fqhcCount.toString(),
-                label: t({ en: "FQHCs", es: "FQHCs" }),
+                label: t({ en: "FQHCs", es: "FQHCs" }, locale),
               },
               {
                 icon: Users,
                 value: formatNumber(stats.totalStaff),
-                label: t({ en: "Staff", es: "Personal" }),
+                label: t({ en: "Staff", es: "Personal" }, locale),
               },
               {
                 icon: Heart,
                 value: formatNumber(stats.totalPatients),
-                label: t({ en: "Patients", es: "Pacientes" }),
+                label: t({ en: "Patients", es: "Pacientes" }, locale),
               },
               {
                 icon: Activity,
                 value: `${stats.avgResilienceScore}/100`,
-                label: t({ en: "Avg Resilience", es: "Resiliencia Prom." }),
+                label: t({ en: "Avg Resilience", es: "Resiliencia Prom." }, locale),
               },
               {
                 icon: Briefcase,
                 value: stats.jobCount.toString(),
-                label: t({ en: "Job Openings", es: "Vacantes" }),
+                label: t({ en: "Job Openings", es: "Vacantes" }, locale),
               },
             ].map((stat) => (
               <div
@@ -201,7 +201,7 @@ export default async function RegionalIntelligencePage({
         {/* ── Overview Cards ──────────────────────────────────────── */}
         <section className="mb-12">
           <h2 className="mb-6 text-2xl font-bold text-stone-900 dark:text-stone-100">
-            {t({ en: "Regional Overview", es: "Resumen Regional" })}
+            {t({ en: "Regional Overview", es: "Resumen Regional" }, locale)}
           </h2>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -210,7 +210,7 @@ export default async function RegionalIntelligencePage({
               <div className="mb-3 flex items-center gap-2 text-stone-500">
                 <Building2 className="size-4" />
                 <span className="text-sm font-medium">
-                  {t({ en: "Health Centers", es: "Centros de Salud" })}
+                  {t({ en: "Health Centers", es: "Centros de Salud" }, locale)}
                 </span>
               </div>
               <p className="text-3xl font-bold text-stone-900 dark:text-stone-100">{stats.fqhcCount}</p>
@@ -218,7 +218,7 @@ export default async function RegionalIntelligencePage({
                 {t({
                   en: `across ${stats.totalSites} sites`,
                   es: `en ${stats.totalSites} sitios`,
-                })}
+                }, locale)}
               </p>
             </div>
 
@@ -227,7 +227,7 @@ export default async function RegionalIntelligencePage({
               <div className="mb-3 flex items-center gap-2 text-stone-500">
                 <Users className="size-4" />
                 <span className="text-sm font-medium">
-                  {t({ en: "Workforce", es: "Fuerza Laboral" })}
+                  {t({ en: "Workforce", es: "Fuerza Laboral" }, locale)}
                 </span>
               </div>
               <p className="text-3xl font-bold text-stone-900 dark:text-stone-100">
@@ -237,7 +237,7 @@ export default async function RegionalIntelligencePage({
                 {t({
                   en: `avg ${stats.fqhcCount > 0 ? Math.round(stats.totalStaff / stats.fqhcCount) : 0} per FQHC`,
                   es: `prom. ${stats.fqhcCount > 0 ? Math.round(stats.totalStaff / stats.fqhcCount) : 0} por FQHC`,
-                })}
+                }, locale)}
               </p>
             </div>
 
@@ -246,21 +246,21 @@ export default async function RegionalIntelligencePage({
               <div className="mb-3 flex items-center gap-2 text-stone-500">
                 <AlertTriangle className="size-4" />
                 <span className="text-sm font-medium">
-                  {t({ en: "Layoff Impact", es: "Impacto de Despidos" })}
+                  {t({ en: "Layoff Impact", es: "Impacto de Despidos" }, locale)}
                 </span>
               </div>
               <p className="text-3xl font-bold text-stone-900 dark:text-stone-100">
                 {stats.workersAffected > 0
                   ? stats.workersAffected.toLocaleString()
-                  : t({ en: "None", es: "Ninguno" })}
+                  : t({ en: "None", es: "Ninguno" }, locale)}
               </p>
               <p className="text-sm text-stone-500">
                 {stats.layoffCount > 0
                   ? t({
                       en: `${stats.layoffCount} event${stats.layoffCount > 1 ? "s" : ""} tracked`,
                       es: `${stats.layoffCount} evento${stats.layoffCount > 1 ? "s" : ""} rastreado${stats.layoffCount > 1 ? "s" : ""}`,
-                    })
-                  : t({ en: "No layoffs tracked", es: "Sin despidos rastreados" })}
+                    }, locale)
+                  : t({ en: "No layoffs tracked", es: "Sin despidos rastreados" }, locale)}
               </p>
             </div>
 
@@ -269,19 +269,19 @@ export default async function RegionalIntelligencePage({
               <div className="mb-3 flex items-center gap-2 text-stone-500">
                 <Star className="size-4" />
                 <span className="text-sm font-medium">
-                  {t({ en: "Avg Glassdoor", es: "Glassdoor Prom." })}
+                  {t({ en: "Avg Glassdoor", es: "Glassdoor Prom." }, locale)}
                 </span>
               </div>
               <p className="text-3xl font-bold text-stone-900 dark:text-stone-100">
                 {stats.avgGlassdoor !== null
                   ? `${stats.avgGlassdoor}/5`
-                  : t({ en: "N/A", es: "N/D" })}
+                  : t({ en: "N/A", es: "N/D" }, locale)}
               </p>
               <p className="text-sm text-stone-500">
                 {t({
                   en: `${stats.ratedCount} of ${stats.fqhcCount} rated`,
                   es: `${stats.ratedCount} de ${stats.fqhcCount} calificados`,
-                })}
+                }, locale)}
               </p>
             </div>
           </div>
@@ -290,13 +290,13 @@ export default async function RegionalIntelligencePage({
         {/* ── Resilience Distribution ─────────────────────────────── */}
         <section className="mb-12">
           <h2 className="mb-4 text-2xl font-bold text-stone-900 dark:text-stone-100">
-            {t({ en: "Resilience Distribution", es: "Distribucion de Resiliencia" })}
+            {t({ en: "Resilience Distribution", es: "Distribucion de Resiliencia" }, locale)}
           </h2>
           <p className="mb-6 text-sm text-stone-500">
             {t({
               en: `Average resilience score: ${stats.avgResilienceScore}/100. Distribution of grades across ${stats.fqhcCount} FQHCs.`,
               es: `Puntuacion promedio de resiliencia: ${stats.avgResilienceScore}/100. Distribucion de calificaciones en ${stats.fqhcCount} FQHCs.`,
-            })}
+            }, locale)}
           </p>
 
           {/* Grade distribution bar */}
@@ -331,7 +331,7 @@ export default async function RegionalIntelligencePage({
                       {grade}
                     </span>
                     <span className="text-sm text-stone-600">
-                      {count} {t({ en: "FQHCs", es: "FQHCs" })}
+                      {count} {t({ en: "FQHCs", es: "FQHCs" }, locale)}
                     </span>
                   </div>
                 );
@@ -346,13 +346,13 @@ export default async function RegionalIntelligencePage({
             {t({
               en: `All ${stats.fqhcCount} FQHCs in ${regionName}`,
               es: `Los ${stats.fqhcCount} FQHCs en ${regionName}`,
-            })}
+            }, locale)}
           </h2>
           <p className="mb-6 text-sm text-stone-500">
             {t({
               en: "Sorted by resilience score (highest first).",
               es: "Ordenados por puntuacion de resiliencia (mayor primero).",
-            })}
+            }, locale)}
           </p>
 
           <div className="overflow-x-auto rounded-xl border border-stone-200 bg-white shadow-sm dark:border-stone-700 dark:bg-stone-900">
@@ -360,22 +360,22 @@ export default async function RegionalIntelligencePage({
               <thead>
                 <tr className="border-b border-stone-200 bg-stone-50 text-left dark:border-stone-700 dark:bg-stone-800">
                   <th className="px-4 py-3 font-semibold text-stone-700 dark:text-stone-300">
-                    {t({ en: "Organization", es: "Organizacion" })}
+                    {t({ en: "Organization", es: "Organizacion" }, locale)}
                   </th>
                   <th className="hidden px-4 py-3 font-semibold text-stone-700 dark:text-stone-300 sm:table-cell">
-                    {t({ en: "City", es: "Ciudad" })}
+                    {t({ en: "City", es: "Ciudad" }, locale)}
                   </th>
                   <th className="px-4 py-3 text-right font-semibold text-stone-700 dark:text-stone-300">
-                    {t({ en: "Staff", es: "Personal" })}
+                    {t({ en: "Staff", es: "Personal" }, locale)}
                   </th>
                   <th className="px-4 py-3 text-center font-semibold text-stone-700 dark:text-stone-300">
-                    {t({ en: "Grade", es: "Grado" })}
+                    {t({ en: "Grade", es: "Grado" }, locale)}
                   </th>
                   <th className="hidden px-4 py-3 text-center font-semibold text-stone-700 dark:text-stone-300 md:table-cell">
-                    {t({ en: "Glassdoor", es: "Glassdoor" })}
+                    {t({ en: "Glassdoor", es: "Glassdoor" }, locale)}
                   </th>
                   <th className="hidden px-4 py-3 text-right font-semibold text-stone-700 dark:text-stone-300 lg:table-cell">
-                    {t({ en: "Programs", es: "Programas" })}
+                    {t({ en: "Programs", es: "Programas" }, locale)}
                   </th>
                 </tr>
               </thead>
@@ -439,12 +439,12 @@ export default async function RegionalIntelligencePage({
           {/* Top Programs */}
           <section>
             <h2 className="mb-4 text-xl font-bold text-stone-900 dark:text-stone-100">
-              {t({ en: "Top Programs", es: "Programas Principales" })}
+              {t({ en: "Top Programs", es: "Programas Principales" }, locale)}
             </h2>
             <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-700 dark:bg-stone-900">
               {stats.topPrograms.length === 0 ? (
                 <p className="text-sm text-stone-500">
-                  {t({ en: "No program data available.", es: "Sin datos de programas disponibles." })}
+                  {t({ en: "No program data available.", es: "Sin datos de programas disponibles." }, locale)}
                 </p>
               ) : (
                 <div className="space-y-3">
@@ -475,12 +475,12 @@ export default async function RegionalIntelligencePage({
           {/* EHR Landscape */}
           <section>
             <h2 className="mb-4 text-xl font-bold text-stone-900 dark:text-stone-100">
-              {t({ en: "EHR Landscape", es: "Panorama de EHR" })}
+              {t({ en: "EHR Landscape", es: "Panorama de EHR" }, locale)}
             </h2>
             <div className="rounded-xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-700 dark:bg-stone-900">
               {stats.ehrSystems.length === 0 ? (
                 <p className="text-sm text-stone-500">
-                  {t({ en: "No EHR data available.", es: "Sin datos de EHR disponibles." })}
+                  {t({ en: "No EHR data available.", es: "Sin datos de EHR disponibles." }, locale)}
                 </p>
               ) : (
                 <div className="space-y-3">
@@ -519,13 +519,13 @@ export default async function RegionalIntelligencePage({
               {t({
                 en: `${regionName} Intelligence Feed`,
                 es: `Feed de Inteligencia de ${regionName}`,
-              })}
+              }, locale)}
             </h2>
             <p className="mb-6 text-sm text-stone-500">
               {t({
                 en: `${intel.length} intelligence item${intel.length > 1 ? "s" : ""} relevant to this region.`,
                 es: `${intel.length} elemento${intel.length > 1 ? "s" : ""} de inteligencia relevante${intel.length > 1 ? "s" : ""} para esta region.`,
-              })}
+              }, locale)}
             </p>
 
             <div className="space-y-3">
@@ -542,7 +542,7 @@ export default async function RegionalIntelligencePage({
                       variant="outline"
                       className={`text-xs ${IMPACT_STYLES[item.impactLevel]}`}
                     >
-                      {t(IMPACT_LABELS[item.impactLevel])}
+                      {t(IMPACT_LABELS[item.impactLevel], locale)}
                     </Badge>
                     <span className="text-xs text-stone-500">
                       {new Date(item.date).toLocaleDateString(locale === "es" ? "es-US" : "en-US", {
@@ -556,10 +556,10 @@ export default async function RegionalIntelligencePage({
                     </span>
                   </div>
                   <h3 className="mb-1 font-semibold text-stone-900">
-                    {t(item.headline)}
+                    {t(item.headline, locale)}
                   </h3>
                   <p className="text-sm text-stone-600 line-clamp-2">
-                    {t(item.summary)}
+                    {t(item.summary, locale)}
                   </p>
                 </a>
               ))}
@@ -572,7 +572,7 @@ export default async function RegionalIntelligencePage({
                     {t({
                       en: `View all ${intel.length} items`,
                       es: `Ver los ${intel.length} elementos`,
-                    })}
+                    }, locale)}
                     <ArrowRight className="ml-2 size-4" />
                   </Button>
                 </Link>
@@ -585,25 +585,25 @@ export default async function RegionalIntelligencePage({
         <section className="mb-12">
           <div className="rounded-xl border border-stone-200 bg-gradient-to-r from-teal-50 to-white p-6 shadow-sm">
             <h2 className="mb-4 text-xl font-bold text-stone-900 dark:text-stone-100">
-              {t({ en: "Explore More", es: "Explorar Mas" })}
+              {t({ en: "Explore More", es: "Explorar Mas" }, locale)}
             </h2>
             <div className="flex flex-wrap gap-3">
               <Link href="/compare">
                 <Button variant="outline" className="border-teal-300 text-teal-700 hover:bg-teal-50">
                   <BarChart3 className="mr-2 size-4" />
-                  {t({ en: "Compare FQHCs", es: "Comparar FQHCs" })}
+                  {t({ en: "Compare FQHCs", es: "Comparar FQHCs" }, locale)}
                 </Button>
               </Link>
               <Link href="/directory">
                 <Button variant="outline" className="border-stone-300 text-stone-700 hover:bg-stone-50">
                   <Building2 className="mr-2 size-4" />
-                  {t({ en: "Full Directory", es: "Directorio Completo" })}
+                  {t({ en: "Full Directory", es: "Directorio Completo" }, locale)}
                 </Button>
               </Link>
               <Link href="/layoffs">
                 <Button variant="outline" className="border-stone-300 text-stone-700 hover:bg-stone-50">
                   <AlertTriangle className="mr-2 size-4" />
-                  {t({ en: "Layoff Tracker", es: "Rastreador de Despidos" })}
+                  {t({ en: "Layoff Tracker", es: "Rastreador de Despidos" }, locale)}
                 </Button>
               </Link>
               <Link href="/jobs">
@@ -612,7 +612,7 @@ export default async function RegionalIntelligencePage({
                   {t({
                     en: `${stats.jobCount} Jobs in ${regionName}`,
                     es: `${stats.jobCount} Empleos en ${regionName}`,
-                  })}
+                  }, locale)}
                 </Button>
               </Link>
             </div>
@@ -622,7 +622,7 @@ export default async function RegionalIntelligencePage({
         {/* ── Other Regions Navigation ─────────────────────────────── */}
         <section className="mb-8">
           <h2 className="mb-4 text-lg font-bold text-stone-900">
-            {t({ en: "Other Regions", es: "Otras Regiones" })}
+            {t({ en: "Other Regions", es: "Otras Regiones" }, locale)}
           </h2>
           <div className="flex flex-wrap gap-2">
             {otherRegions.map((r) => (

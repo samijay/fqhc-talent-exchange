@@ -34,6 +34,7 @@ import {
   FRAMEWORKS_LAST_UPDATED,
   type FrameworkCategory,
 } from "@/lib/execution-frameworks";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Icon map                                                           */
@@ -64,9 +65,6 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 /* ------------------------------------------------------------------ */
 /*  Helper                                                             */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
 /*  Framework Card                                                     */

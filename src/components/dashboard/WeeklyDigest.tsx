@@ -18,6 +18,7 @@ import {
   Calendar,
   Mail,
 } from "lucide-react";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -53,8 +54,6 @@ export interface WeeklyDigestProps {
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 function getWeekRange(): { start: Date; end: Date; label: string } {
   const now = new Date();

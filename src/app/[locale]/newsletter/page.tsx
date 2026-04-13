@@ -21,13 +21,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { NewsletterQuestionnaireForm } from "@/components/newsletter/NewsletterQuestionnaireForm";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 type AudienceChoice = "intel-brief" | "the-pulse" | "both";
 

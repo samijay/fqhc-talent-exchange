@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackNewsletterSignup } from "@/lib/analytics";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -41,8 +42,6 @@ interface NewsletterSignupProps {
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
 /*  Component                                                          */

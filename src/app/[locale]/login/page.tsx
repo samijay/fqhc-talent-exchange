@@ -7,13 +7,11 @@ import { Heart, Mail, Eye, EyeOff } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { createAuthClient } from "@/lib/supabase";
 import { toast } from "sonner";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Bilingual helper                                                    */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
 /*  Login Form (inner component — uses useSearchParams)                */

@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { AlertTriangle, Newspaper, ShieldCheck, ArrowRight } from "lucide-react";
 import type { FundingCliff } from "@/lib/market-intelligence";
 import { IntelBriefPDF, type IntelBriefItem } from "@/components/intel/IntelBriefPDF";
+import { t } from "@/lib/i18n-helpers";
 
 interface LeaderPathSectionProps {
   nextCliff: FundingCliff | null;
@@ -14,8 +15,6 @@ interface LeaderPathSectionProps {
   intelBriefItems: IntelBriefItem[];
 }
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 export function LeaderPathSection({
   nextCliff,

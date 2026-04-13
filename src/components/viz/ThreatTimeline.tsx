@@ -11,6 +11,7 @@ import {
   ChevronRight,
   X,
 } from "lucide-react";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -34,8 +35,6 @@ export interface TimelineEvent {
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
 
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 function getUrgencyColor(daysUntil: number, isPast: boolean) {
   if (isPast) return { bg: "bg-stone-100", border: "border-stone-300", text: "text-stone-500", dot: "bg-stone-400" };

@@ -21,9 +21,7 @@ import { OkrCoursePlayer } from "@/components/okr-course/OkrCoursePlayer";
 import { OKR_COURSE_MODULES, COURSE_TOTAL_XP } from "@/lib/okr-course-modules";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useState } from "react";
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+import { t } from "@/lib/i18n-helpers";
 
 export default function OkrCoursePage() {
   const locale = useLocale();

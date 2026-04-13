@@ -38,9 +38,7 @@ import {
   type AdvocacyCategory,
   type AdvocacyStatus,
 } from "@/lib/fqhc-advocacy-tracker";
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+import { t } from "@/lib/i18n-helpers";
 
 const CATEGORY_ICONS: Record<string, React.ElementType> = {
   legislation: ScrollText,

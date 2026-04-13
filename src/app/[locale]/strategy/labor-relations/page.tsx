@@ -51,9 +51,7 @@ import {
   type LandscapeTheme,
   type PathForward,
 } from "@/lib/fqhc-labor-relations";
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+import { t } from "@/lib/i18n-helpers";
 
 const CASE_ICONS: Record<string, React.ElementType> = {
   "nlrb-complaint": Scale,

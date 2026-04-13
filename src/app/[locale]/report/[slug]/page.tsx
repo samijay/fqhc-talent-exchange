@@ -36,6 +36,7 @@ import {
 import { getCaseStudiesForFQHC } from "@/lib/fqhc-case-studies";
 import { getRegionalStats, getRegionSlug } from "@/lib/regional-intelligence";
 import { getFundingCliffs } from "@/lib/market-intelligence";
+import { t } from "@/lib/i18n-helpers";
 
 
 /* ------------------------------------------------------------------ */
@@ -131,8 +132,6 @@ export default async function FQHCReportPage({
   const fqhc = californiaFQHCs.find((f) => f.slug === slug);
   if (!fqhc) notFound();
 
-  const t = (obj: { en: string; es: string }) =>
-    locale === "es" ? obj.es : obj.en;
   const isEs = locale === "es";
 
   // Data aggregation
@@ -257,7 +256,7 @@ export default async function FQHCReportPage({
           <div className="mt-5 flex items-center gap-2">
             <Shield className={`size-5 ${RISK_COLORS[resilience.riskLevel]}`} />
             <p className={`text-sm font-semibold ${RISK_COLORS[resilience.riskLevel]}`}>
-              {t(RISK_LABELS[resilience.riskLevel])}
+              {t(RISK_LABELS[resilience.riskLevel], locale)}
             </p>
             <span className="text-sm text-stone-500">
               {" "}
@@ -304,7 +303,7 @@ export default async function FQHCReportPage({
                 <div key={dim.dimension}>
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-sm font-medium text-stone-700">
-                      {t(dim.label)}
+                      {t(dim.label, locale)}
                     </span>
                     <span className="text-sm font-semibold text-stone-600">
                       {dim.score}/100
@@ -390,7 +389,7 @@ export default async function FQHCReportPage({
                   >
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-stone-700 truncate">
-                        {t(cliff.title)}
+                        {t(cliff.title, locale)}
                       </p>
                       <p className="text-xs text-stone-500">{cliff.date}</p>
                     </div>
@@ -640,17 +639,17 @@ export default async function FQHCReportPage({
                       variant="outline"
                       className={`text-xs font-semibold ${IMPACT_STYLES[item.impactLevel]}`}
                     >
-                      {t(IMPACT_LABELS[item.impactLevel])}
+                      {t(IMPACT_LABELS[item.impactLevel], locale)}
                     </Badge>
                     <span className="text-xs text-stone-500">
                       {formatDate(item.date, locale)}
                     </span>
                   </div>
                   <h3 className="text-sm font-semibold text-stone-800 leading-snug">
-                    {t(item.headline)}
+                    {t(item.headline, locale)}
                   </h3>
                   <p className="mt-1 text-sm text-stone-500 leading-relaxed line-clamp-2">
-                    {t(item.summary)}
+                    {t(item.summary, locale)}
                   </p>
                   <div className="mt-2 flex items-center justify-between">
                     <span className="text-xs text-stone-500">{item.region}</span>
@@ -697,7 +696,7 @@ export default async function FQHCReportPage({
                     {cs.fqhcName}
                   </h3>
                   <p className="mt-1 text-sm text-stone-600 leading-relaxed">
-                    {t(cs.headline)}
+                    {t(cs.headline, locale)}
                   </p>
                   {cs.outcomes.length > 0 && (
                     <div className="mt-2 flex flex-wrap gap-2">

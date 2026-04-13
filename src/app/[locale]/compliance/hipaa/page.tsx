@@ -6,8 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { Download, AlertTriangle, ExternalLink, ChevronDown, ChevronUp, FileKey, Users, Eye, Laptop } from "lucide-react";
 import { getRegulationsByDomain, getRisksByDomain, getCaseStudiesByDomain, getRiskScore, getRiskLevel } from "@/lib/fqhc-compliance";
 import { downloadRiskMatrixAsExcel } from "@/lib/compliance-excel-export";
-
-const t = (obj: { en: string; es: string }, locale: string) => locale === "es" ? obj.es : obj.en;
+import { t } from "@/lib/i18n-helpers";
 
 const TOPICS = [
   { id: "baa", icon: FileKey, en: "Business Associate Agreements", es: "Acuerdos de Asociado Comercial", content: { en: "Every vendor that creates, receives, maintains, or transmits PHI must sign a BAA before receiving any patient data. This includes EHR vendors (Epic, eClinicalWorks, athenahealth), clearinghouses, cloud storage (AWS, Azure), billing services, and telehealth platforms. Missing BAA = automatic HIPAA violation if that vendor has a breach. Maintain a master BAA tracker with renewal dates. Review annually.", es: "Cada proveedor que cree, reciba, mantenga o transmita PHI debe firmar un BAA antes de recibir datos. Esto incluye proveedores de EHR, almacenamiento en la nube, servicios de facturación y plataformas de telesalud." } },

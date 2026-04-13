@@ -6,8 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { Download, ExternalLink, ShieldCheck, Lock, DollarSign } from "lucide-react";
 import { COMPLIANCE_CALENDAR, DOMAIN_META, type ComplianceDomain } from "@/lib/fqhc-compliance";
 import { downloadComplianceCalendarAsExcel } from "@/lib/compliance-excel-export";
-
-const t = (obj: { en: string; es: string }, locale: string) => locale === "es" ? obj.es : obj.en;
+import { t } from "@/lib/i18n-helpers";
 
 const MONTH_EN = ["Year-Round", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const MONTH_ES = ["Todo el Año", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];

@@ -34,13 +34,11 @@ import {
   type ScopeOfPracticeRole,
   type ScopeCategory,
 } from "@/lib/scope-of-practice";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                            */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 const CATEGORY_ICONS: Record<ScopeCategory, typeof Stethoscope> = {
   physician: Stethoscope,

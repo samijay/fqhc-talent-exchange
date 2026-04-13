@@ -28,9 +28,7 @@ import {
   downloadComplianceCalendarAsExcel,
   downloadRiskMatrixAsExcel,
 } from "@/lib/compliance-excel-export";
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
+import { t } from "@/lib/i18n-helpers";
 
 const DOMAIN_ICONS: Record<ComplianceDomain, typeof ShieldCheck> = {
   "hrsa-audits": ShieldCheck,

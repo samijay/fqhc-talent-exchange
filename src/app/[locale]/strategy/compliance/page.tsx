@@ -4,6 +4,7 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { t } from "@/lib/i18n-helpers";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -60,7 +61,6 @@ type ViewMode = "overview" | "checklist" | "calendar" | "policies";
 export default function ComplianceHubPage() {
   const locale = useLocale();
   const isEs = locale === "es";
-  const t = (obj: { en: string; es: string }) => (isEs ? obj.es : obj.en);
 
   const [progress, setProgress] = useState<ComplianceProgress>({
     completedItems: {},
@@ -113,10 +113,10 @@ export default function ComplianceHubPage() {
             </div>
             <div>
               <h1 className="text-2xl font-bold text-stone-800 dark:text-stone-100">
-                {t(selectedDomain.title)}
+                {t(selectedDomain.title, locale)}
               </h1>
               <p className="text-sm text-stone-500 dark:text-stone-500">
-                {t(selectedDomain.description)}
+                {t(selectedDomain.description, locale)}
               </p>
             </div>
           </div>
@@ -245,7 +245,7 @@ export default function ComplianceHubPage() {
               {upcomingDeadlines[0] ? (
                 <>
                   <div className="text-sm font-bold text-stone-800 dark:text-stone-200 mb-1">
-                    {t(upcomingDeadlines[0].title)}
+                    {t(upcomingDeadlines[0].title, locale)}
                   </div>
                   <p className="text-xs text-stone-500">
                     {new Date(upcomingDeadlines[0].dueDate).toLocaleDateString(
@@ -307,10 +307,10 @@ export default function ComplianceHubPage() {
                     </div>
 
                     <h3 className="font-semibold text-stone-800 dark:text-stone-200 text-sm mb-1">
-                      {t(domain.title)}
+                      {t(domain.title, locale)}
                     </h3>
                     <p className="text-xs text-stone-500 dark:text-stone-500 mb-3 line-clamp-2">
-                      {t(domain.description)}
+                      {t(domain.description, locale)}
                     </p>
 
                     <div className="flex items-center justify-between text-xs text-stone-500">
@@ -405,10 +405,10 @@ export default function ComplianceHubPage() {
                       {isEs ? "Gratis" : "Free"}
                     </Badge>
                     <h3 className="font-semibold text-stone-800 dark:text-stone-200 text-sm mb-1">
-                      {t(course.title)}
+                      {t(course.title, locale)}
                     </h3>
                     <p className="text-xs text-stone-500 dark:text-stone-500 mb-3">
-                      {t(course.desc)}
+                      {t(course.desc, locale)}
                     </p>
                     <div className="flex items-center gap-3 text-xs text-stone-500">
                       <span>{course.duration}</span>

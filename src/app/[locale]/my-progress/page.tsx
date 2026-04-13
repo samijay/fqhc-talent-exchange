@@ -23,13 +23,11 @@ import {
   Info,
 } from "lucide-react";
 import { ACADEMY_COURSES } from "@/lib/academy-catalog";
+import { t } from "@/lib/i18n-helpers";
 
 /* ------------------------------------------------------------------ */
 /*  Bilingual helper                                                   */
 /* ------------------------------------------------------------------ */
-
-const t = (obj: { en: string; es: string }, locale: string) =>
-  locale === "es" ? obj.es : obj.en;
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
