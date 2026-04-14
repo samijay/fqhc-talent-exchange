@@ -289,7 +289,7 @@ const enContent: ArticleContent = {
   ],
   ctaTitle: "Research FQHC Salaries and Start Your Job Search",
   ctaDescription:
-    "Browse our directory of 220 California FQHCs and 620+ job listings. Build a free community health resume that highlights the skills FQHCs value most — and negotiate with confidence.",
+    "Browse our directory of 220 California FQHCs and 1,000+ job listings. Build a free community health resume that highlights the skills FQHCs value most — and negotiate with confidence.",
   ctaButtonText: "Build Your Free Resume",
   relatedArticles: [
     {
@@ -556,7 +556,7 @@ const esContent: ArticleContent = {
   ],
   ctaTitle: "Investiga Salarios de FQHC y Comienza Tu Busqueda de Empleo",
   ctaDescription:
-    "Explora nuestro directorio de 220 FQHCs de California y mas de 620 ofertas de trabajo. Crea un curriculum gratuito de salud comunitaria que destaque las habilidades que los FQHCs mas valoran — y negocia con confianza.",
+    "Explora nuestro directorio de 220 FQHCs de California y mas de 1,000 ofertas de trabajo. Crea un curriculum gratuito de salud comunitaria que destaque las habilidades que los FQHCs mas valoran — y negocia con confianza.",
   ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {

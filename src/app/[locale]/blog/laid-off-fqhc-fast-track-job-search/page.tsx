@@ -114,11 +114,11 @@ const enContent: ArticleContent = {
         },
         {
           type: "box",
-          text: "Step 3: Explore aggregated job postings at /jobs. Browse 620+ open positions across 220 California FQHCs. Filter by role, region, and salary to compare opportunities. Each listing links to the FQHC's career page so you can apply directly.",
+          text: "Step 3: Use Priority Intake for Faster Support at /fast-track. Complete the priority intake form at fqhctalent.com/fast-track. Our career tools help you get job-ready with a guided pathway, resume builder, and interview prep.",
         },
         {
           type: "box",
-          text: "Step 4: Browse 620+ open positions at /jobs. Filter by role, region, and salary to see what is available right now across 220 California FQHCs. Plus explore career roadmaps and certifications that can increase your earning potential.",
+          text: "Step 4: Explore 1,000+ aggregated job postings at /jobs. Filter by role, region, and salary to see what is available right now across 220 California FQHCs. Each listing links to the FQHC's career page so you can apply directly. Plus explore career roadmaps and certifications that can increase your earning potential.",
         },
         {
           type: "paragraph",
@@ -140,7 +140,7 @@ const enContent: ArticleContent = {
             "Take the free Career Assessment at /career-insights. This 15-question behavioral assessment identifies your strengths across five domains including Transition Readiness. Use the results to prepare for interviews, understand your competitive advantages, and get a personalized 90-day plan for your next role.",
             "Explore the FQHC Directory at /directory. Browse 220+ California FQHCs with Glassdoor ratings, programs, salary ranges, and resilience scores. Compare organizations side by side at /compare to find the right fit for your skills and values.",
             "Update your LinkedIn profile with FQHC-specific keywords. Add terms like Enhanced Care Management, CalAIM, OCHIN Epic, Community Health Worker, care coordination, SDOH screening, and panel management. Many FQHC recruiters search LinkedIn for these exact terms, and having them in your profile increases your visibility dramatically.",
-            "Browse open positions at /jobs. Our job board features 620+ active listings across 220 California FQHCs. Filter by region, role type, and program area to see what is available in your area right now. Then check /career-roadmap for salary data and advancement paths.",
+            "Browse open positions at /jobs. Our platform aggregates 1,000+ active listings across 220 California FQHCs. Filter by region, role type, and program area to see what is available in your area right now. Then check /career-roadmap for salary data and advancement paths.",
           ],
         },
       ],
@@ -198,7 +198,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The FQHC Talent was built to connect community health professionals with the FQHCs that need them. But as we watched the wave of layoffs sweep across California in late 2025 and into 2026, we realized that our standard platform — as useful as it is — was not fast enough for workers who were suddenly without income and needed to find their next role immediately.",
+          text: "The FQHC Talent was built to help community health professionals navigate their careers and stay informed. But as we watched the wave of layoffs sweep across California in late 2025 and into 2026, we realized that our standard platform — as useful as it is — was not fast enough for workers who were suddenly without income and needed to find their next role immediately.",
         },
         {
           type: "paragraph",
@@ -315,7 +315,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "box",
-          text: "Paso 4: Explora 620+ posiciones abiertas en /jobs. Filtra por rol, regi\u00f3n y salario para ver lo disponible ahora en 220 FQHCs de California. Adem\u00e1s explora rutas profesionales y certificaciones que pueden aumentar tu potencial de ingreso.",
+          text: "Paso 4: Explora 1,000+ posiciones abiertas en /jobs. Filtra por rol, regi\u00f3n y salario para ver lo disponible ahora en 220 FQHCs de California. Adem\u00e1s explora rutas profesionales y certificaciones que pueden aumentar tu potencial de ingreso.",
         },
         {
           type: "paragraph",
@@ -337,7 +337,7 @@ const esContent: ArticleContent = {
             "Toma la Evaluaci\u00f3n de Carrera gratis en /career-insights. Esta evaluaci\u00f3n conductual de 15 preguntas identifica tus fortalezas en cinco dominios incluyendo Preparaci\u00f3n para la Transici\u00f3n. Usa los resultados para prepararte para entrevistas y obtener un plan personalizado de 90 d\u00edas.",
             "Explora el Directorio de FQHCs en /directory. Navega 220+ FQHCs de California con calificaciones de Glassdoor, programas, rangos salariales y puntuaciones de resiliencia. Compara organizaciones lado a lado en /compare para encontrar la mejor opción para tus habilidades y valores.",
             "Actualiza tu perfil de LinkedIn con palabras clave espec\u00edficas de FQHC. Agrega t\u00e9rminos como Enhanced Care Management, CalAIM, OCHIN Epic, Community Health Worker, coordinaci\u00f3n de atenci\u00f3n, evaluaci\u00f3n de SDOH y gesti\u00f3n de panel.",
-            "Explora posiciones abiertas en /jobs. Nuestra bolsa de trabajo presenta 620+ listados activos en 220 FQHCs de California. Filtra por regi\u00f3n, tipo de rol y \u00e1rea de programa para ver qu\u00e9 est\u00e1 disponible en tu zona ahora mismo. Luego visita /career-roadmap para datos salariales y rutas de avance.",
+            "Explora posiciones abiertas en /jobs. Nuestra plataforma re\u00fane 1,000+ listados activos en 220 FQHCs de California. Filtra por regi\u00f3n, tipo de rol y \u00e1rea de programa para ver qu\u00e9 est\u00e1 disponible en tu zona ahora mismo. Luego visita /career-roadmap para datos salariales y rutas de avance.",
           ],
         },
       ],
@@ -393,7 +393,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "FQHC Talent fue construido para conectar a profesionales de salud comunitaria con los FQHCs que los necesitan. Pero al ver la ola de despidos barrer California a fines de 2025 y en 2026, nos dimos cuenta de que nuestra plataforma estándar — tan útil como es — no era lo suficientemente rápida para trabajadores que de repente estaban sin ingresos y necesitaban encontrar su próximo puesto de inmediato.",
+          text: "FQHC Talent fue construido para ayudar a profesionales de salud comunitaria a navegar sus carreras y mantenerse informados. Pero al ver la ola de despidos barrer California a fines de 2025 y en 2026, nos dimos cuenta de que nuestra plataforma estándar — tan útil como es — no era lo suficientemente rápida para trabajadores que de repente estaban sin ingresos y necesitaban encontrar su próximo puesto de inmediato.",
         },
         {
           type: "paragraph",

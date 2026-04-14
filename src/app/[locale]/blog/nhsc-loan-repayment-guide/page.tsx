@@ -183,7 +183,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Our directory at fqhctalent.com/directory lists all 87 California FQHCs, including information about their locations, programs, and job openings. Use it as a starting point to identify FQHCs in regions where HPSA scores are likely to be high — particularly in the Central Valley, Inland Empire, and rural Northern California.",
+          text: "Our directory at fqhctalent.com/directory lists all 220+ California FQHCs, including information about their locations, programs, and job openings. Use it as a starting point to identify FQHCs in regions where HPSA scores are likely to be high — particularly in the Central Valley, Inland Empire, and rural Northern California.",
         },
       ],
     },

@@ -39,7 +39,7 @@ const enContent: ArticleContent = {
   category: "Assessment Tools",
   title: "Career Insights Assessment: A Behavioral Assessment Built for Community Health",
   description:
-    "Discover the FQHC Talent Career Insights Assessment — a scenario-based behavioral evaluation across 4 domains adapted from the TPB Universal Assessment framework. Understand your strengths, growth areas, and biggest opportunity for rapid improvement in community health careers.",
+    "Discover the FQHC Talent Career Insights Assessment — a scenario-based behavioral evaluation across 5 domains adapted from the TPB Universal Assessment framework. Understand your strengths, growth areas, and biggest opportunity for rapid improvement in community health careers.",
   breadcrumbTitle: "Career Insights Assessment",
   datePublished: "2026-02-15",
   dateDisplay: "February 15, 2026",
@@ -65,11 +65,11 @@ const enContent: ArticleContent = {
       ],
     },
     {
-      heading: "The 4 Domains: What the Assessment Measures",
+      heading: "The 5 Domains: What the Assessment Measures",
       content: [
         {
           type: "paragraph",
-          text: "The Career Insights Assessment evaluates candidates across four behavioral domains. Each domain captures a distinct cluster of traits that are essential for success in community health roles — from frontline Community Health Workers to care coordinators, medical assistants, case managers, and behavioral health professionals.",
+          text: "The Career Insights Assessment evaluates candidates across five behavioral domains. Each domain captures a distinct cluster of traits that are essential for success in community health roles — from frontline Community Health Workers to care coordinators, medical assistants, case managers, and behavioral health professionals.",
         },
         {
           type: "paragraph",
@@ -86,6 +86,10 @@ const enContent: ArticleContent = {
         {
           type: "paragraph",
           text: "Domain 4: Growth Mindset. This domain measures your learning orientation, your resilience in the face of setbacks, and your career ambition. Community health is not a static field. CalAIM is evolving. New programs are launching. EHR systems are updating. The candidates who build long, impactful careers in FQHCs are the ones who treat every challenge as a learning opportunity, who actively seek out new skills and certifications, and who have a clear vision for where they want to go professionally. This domain evaluates whether you approach your career with a growth orientation or a fixed one.",
+        },
+        {
+          type: "paragraph",
+          text: "Domain 5: Transition Readiness. This domain measures your preparedness for navigating job changes, organizational shifts, and career transitions — an especially critical skill in today's FQHC landscape. With funding cuts, program restructuring, and layoffs creating widespread displacement, this domain evaluates whether you can manage the emotional and practical demands of career transitions, whether you have the self-awareness to assess your situation clearly, and whether you take proactive steps to position yourself for your next role rather than waiting for circumstances to dictate your path.",
         },
       ],
     },
@@ -128,7 +132,7 @@ const enContent: ArticleContent = {
         {
           type: "list",
           items: [
-            "Domain Scores: A score for each of the four domains (Mission and Motivation, People and Communication, Execution and Adaptability, Growth Mindset), showing where your behavioral strengths concentrate and where there is room for development. Scores are presented on a clear scale so you can see at a glance which areas are strongest.",
+            "Domain Scores: A score for each of the five domains (Mission and Motivation, People and Communication, Execution and Adaptability, Growth Mindset, and Transition Readiness), showing where your behavioral strengths concentrate and where there is room for development. Scores are presented on a clear scale so you can see at a glance which areas are strongest.",
             "Strengths Summary: A narrative description of your top behavioral strengths, written in language you can use directly in interviews and on your resume. This is not generic praise — it is specific to the patterns your responses revealed. If you scored highest in People and Communication, for example, your strengths summary will describe your instinct for empathy-first engagement, your cultural adaptability, and your collaborative approach to team-based care.",
             "Growth Areas: An honest assessment of the domains where your responses suggest the most room for improvement. This section is designed to be constructive, not discouraging. It identifies specific behavioral patterns you can work on and explains why developing those areas will make you more effective in FQHC roles.",
             "Actionable Next Steps: Concrete recommendations for professional development based on your results. These are not vague suggestions like “work on your communication skills.” They are specific and practical — recommending particular trainings, certifications, or experiences that directly address your growth areas. For example, if your Execution and Adaptability score suggests room for improvement in triaging competing priorities, the next steps might recommend panel stratification techniques or time-blocking strategies used by high-performing care managers.",
@@ -187,7 +191,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The Career Insights Assessment is integrated directly into the FQHC Talent resume builder. When you build your free resume on our platform, the assessment is offered as part of the process — you can complete it in under 10 minutes while you are already focused on your professional profile. Your results are saved alongside your resume, giving you a complete picture of both your qualifications and your behavioral strengths.",
+          text: "The Career Insights Assessment is integrated directly into the FQHC Talent resume builder. When you build your free resume on our platform, the assessment is offered as part of the process — you can complete it in under 10 minutes while you are already focused on your professional profile. Your results are available in your browser and can be downloaded as PDF, giving you a complete picture of both your qualifications and your behavioral strengths.",
         },
         {
           type: "paragraph",
@@ -208,7 +212,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "The Career Insights Assessment was built from the ground up for community health. Every scenario, every response option, and every scoring rubric was calibrated against the behavioral patterns that predict success specifically in FQHC settings. The four domains — Mission and Motivation, People and Communication, Execution and Adaptability, and Growth Mindset — were chosen because they map directly to the challenges that FQHC professionals face every day. This is not a generic tool with an FQHC label. It is an FQHC tool, designed by people who understand what it takes to do this work well.",
+          text: "The Career Insights Assessment was built from the ground up for community health. Every scenario, every response option, and every scoring rubric was calibrated against the behavioral patterns that predict success specifically in FQHC settings. The five domains — Mission and Motivation, People and Communication, Execution and Adaptability, Growth Mindset, and Transition Readiness — were chosen because they map directly to the challenges that FQHC professionals face every day. This is not a generic tool with an FQHC label. It is an FQHC tool, designed by people who understand what it takes to do this work well.",
         },
         {
           type: "list",
@@ -243,7 +247,7 @@ const esContent: ArticleContent = {
   category: "Herramientas de Evaluaci\u00f3n",
   title: "Evaluaci\u00f3n de Perspectivas de Carrera: Una Evaluaci\u00f3n Conductual Dise\u00f1ada para la Salud Comunitaria",
   description:
-    "Descubre la Evaluaci\u00f3n de Perspectivas de Carrera de FQHC Talent — una evaluaci\u00f3n conductual basada en escenarios en 4 dominios adaptados del marco de Evaluaci\u00f3n Universal TPB. Comprende tus fortalezas, \u00e1reas de crecimiento y la mayor oportunidad para una mejora r\u00e1pida en carreras de salud comunitaria.",
+    "Descubre la Evaluaci\u00f3n de Perspectivas de Carrera de FQHC Talent — una evaluaci\u00f3n conductual basada en escenarios en 5 dominios adaptados del marco de Evaluaci\u00f3n Universal TPB. Comprende tus fortalezas, \u00e1reas de crecimiento y la mayor oportunidad para una mejora r\u00e1pida en carreras de salud comunitaria.",
   breadcrumbTitle: "Evaluaci\u00f3n de Perspectivas de Carrera",
   datePublished: "2026-02-15",
   dateDisplay: "15 de Febrero de 2026",
@@ -269,11 +273,11 @@ const esContent: ArticleContent = {
       ],
     },
     {
-      heading: "Los 4 Dominios: Qu\u00e9 Mide la Evaluaci\u00f3n",
+      heading: "Los 5 Dominios: Qu\u00e9 Mide la Evaluaci\u00f3n",
       content: [
         {
           type: "paragraph",
-          text: "La Evaluaci\u00f3n de Perspectivas de Carrera eval\u00faa a los candidatos en cuatro dominios conductuales. Cada dominio captura un grupo distinto de rasgos que son esenciales para el \u00e9xito en roles de salud comunitaria — desde Trabajadores de Salud Comunitaria de primera l\u00ednea hasta coordinadores de atenci\u00f3n, asistentes m\u00e9dicos, gerentes de casos y profesionales de salud conductual.",
+          text: "La Evaluaci\u00f3n de Perspectivas de Carrera eval\u00faa a los candidatos en cinco dominios conductuales. Cada dominio captura un grupo distinto de rasgos que son esenciales para el \u00e9xito en roles de salud comunitaria — desde Trabajadores de Salud Comunitaria de primera l\u00ednea hasta coordinadores de atenci\u00f3n, asistentes m\u00e9dicos, gerentes de casos y profesionales de salud conductual.",
         },
         {
           type: "paragraph",
@@ -290,6 +294,10 @@ const esContent: ArticleContent = {
         {
           type: "paragraph",
           text: "Dominio 4: Mentalidad de Crecimiento. Este dominio mide tu orientaci\u00f3n al aprendizaje, tu resiliencia frente a los contratiempos y tu ambici\u00f3n profesional. La salud comunitaria no es un campo est\u00e1tico. CalAIM est\u00e1 evolucionando. Se est\u00e1n lanzando nuevos programas. Los sistemas de EHR se est\u00e1n actualizando. Los candidatos que construyen carreras largas e impactantes en FQHCs son aquellos que tratan cada desaf\u00edo como una oportunidad de aprendizaje, que buscan activamente nuevas habilidades y certificaciones, y que tienen una visi\u00f3n clara de hacia d\u00f3nde quieren ir profesionalmente. Este dominio eval\u00faa si abordas tu carrera con una orientaci\u00f3n de crecimiento o una fija.",
+        },
+        {
+          type: "paragraph",
+          text: "Dominio 5: Preparaci\u00f3n para la Transici\u00f3n. Este dominio mide tu preparaci\u00f3n para navegar cambios de empleo, reorganizaciones y transiciones profesionales \u2014 una habilidad especialmente cr\u00edtica en el panorama actual de los FQHCs. Con recortes de financiamiento, reestructuraci\u00f3n de programas y despidos creando desplazamiento generalizado, este dominio eval\u00faa si puedes manejar las demandas emocionales y pr\u00e1cticas de las transiciones profesionales, si tienes la autoconciencia para evaluar tu situaci\u00f3n con claridad, y si tomas pasos proactivos para posicionarte para tu pr\u00f3ximo rol en lugar de esperar que las circunstancias dicten tu camino.",
         },
       ],
     },
@@ -332,7 +340,7 @@ const esContent: ArticleContent = {
         {
           type: "list",
           items: [
-            "Puntuaciones por Dominio: Una puntuaci\u00f3n para cada uno de los cuatro dominios (Misi\u00f3n y Motivaci\u00f3n, Personas y Comunicaci\u00f3n, Ejecuci\u00f3n y Adaptabilidad, Mentalidad de Crecimiento), mostrando d\u00f3nde se concentran tus fortalezas conductuales y d\u00f3nde hay espacio para el desarrollo. Las puntuaciones se presentan en una escala clara para que puedas ver de un vistazo qu\u00e9 \u00e1reas son las m\u00e1s fuertes.",
+            "Puntuaciones por Dominio: Una puntuaci\u00f3n para cada uno de los cinco dominios (Misi\u00f3n y Motivaci\u00f3n, Personas y Comunicaci\u00f3n, Ejecuci\u00f3n y Adaptabilidad, Mentalidad de Crecimiento y Preparaci\u00f3n para la Transici\u00f3n), mostrando d\u00f3nde se concentran tus fortalezas conductuales y d\u00f3nde hay espacio para el desarrollo. Las puntuaciones se presentan en una escala clara para que puedas ver de un vistazo qu\u00e9 \u00e1reas son las m\u00e1s fuertes.",
             "Resumen de Fortalezas: Una descripci\u00f3n narrativa de tus principales fortalezas conductuales, escrita en un lenguaje que puedes usar directamente en entrevistas y en tu curr\u00edculum. Esto no es un elogio gen\u00e9rico — es espec\u00edfico a los patrones que revelaron tus respuestas. Si obtuviste la puntuaci\u00f3n m\u00e1s alta en Personas y Comunicaci\u00f3n, por ejemplo, tu resumen de fortalezas describir\u00e1 tu instinto para el compromiso con empat\u00eda primero, tu adaptabilidad cultural y tu enfoque colaborativo para la atenci\u00f3n en equipo.",
             "\u00c1reas de Crecimiento: Una evaluaci\u00f3n honesta de los dominios donde tus respuestas sugieren m\u00e1s espacio para mejorar. Esta secci\u00f3n est\u00e1 dise\u00f1ada para ser constructiva, no desalentadora. Identifica patrones conductuales espec\u00edficos en los que puedes trabajar y explica por qu\u00e9 desarrollar esas \u00e1reas te har\u00e1 m\u00e1s efectivo en roles de FQHC.",
             "Pr\u00f3ximos Pasos Accionables: Recomendaciones concretas de desarrollo profesional basadas en tus resultados. No son sugerencias vagas como “trabaja en tus habilidades de comunicaci\u00f3n.” Son espec\u00edficas y pr\u00e1cticas — recomendando capacitaciones, certificaciones o experiencias particulares que abordan directamente tus \u00e1reas de crecimiento. Por ejemplo, si tu puntuaci\u00f3n en Ejecuci\u00f3n y Adaptabilidad sugiere espacio para mejorar en la clasificaci\u00f3n de prioridades competitivas, los pr\u00f3ximos pasos podr\u00edan recomendar t\u00e9cnicas de estratificaci\u00f3n de panel o estrategias de bloqueo de tiempo utilizadas por gerentes de atenci\u00f3n de alto rendimiento.",
@@ -391,7 +399,7 @@ const esContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "La Evaluaci\u00f3n de Perspectivas de Carrera est\u00e1 integrada directamente en el constructor de curr\u00edculum de FQHC Talent. Cuando construyes tu curr\u00edculum gratuito en nuestra plataforma, la evaluaci\u00f3n se ofrece como parte del proceso — puedes completarla en menos de 10 minutos mientras ya est\u00e1s enfocado en tu perfil profesional. Tus resultados se guardan junto con tu curr\u00edculum, d\u00e1ndote una imagen completa tanto de tus calificaciones como de tus fortalezas conductuales.",
+          text: "La Evaluaci\u00f3n de Perspectivas de Carrera est\u00e1 integrada directamente en el constructor de curr\u00edculum de FQHC Talent. Cuando construyes tu curr\u00edculum gratuito en nuestra plataforma, la evaluaci\u00f3n se ofrece como parte del proceso — puedes completarla en menos de 10 minutos mientras ya est\u00e1s enfocado en tu perfil profesional. Tus resultados est\u00e1n disponibles en tu navegador y se pueden descargar como PDF, d\u00e1ndote una imagen completa tanto de tus calificaciones como de tus fortalezas conductuales.",
         },
         {
           type: "paragraph",
@@ -412,7 +420,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "La Evaluaci\u00f3n de Perspectivas de Carrera fue construida desde cero para la salud comunitaria. Cada escenario, cada opci\u00f3n de respuesta y cada r\u00fabrica de puntuaci\u00f3n fue calibrada contra los patrones conductuales que predicen el \u00e9xito espec\u00edficamente en entornos de FQHC. Los cuatro dominios — Misi\u00f3n y Motivaci\u00f3n, Personas y Comunicaci\u00f3n, Ejecuci\u00f3n y Adaptabilidad, y Mentalidad de Crecimiento — fueron elegidos porque se mapean directamente a los desaf\u00edos que los profesionales de FQHC enfrentan todos los d\u00edas. Esta no es una herramienta gen\u00e9rica con una etiqueta de FQHC. Es una herramienta de FQHC, dise\u00f1ada por personas que entienden lo que se necesita para hacer bien este trabajo.",
+          text: "La Evaluaci\u00f3n de Perspectivas de Carrera fue construida desde cero para la salud comunitaria. Cada escenario, cada opci\u00f3n de respuesta y cada r\u00fabrica de puntuaci\u00f3n fue calibrada contra los patrones conductuales que predicen el \u00e9xito espec\u00edficamente en entornos de FQHC. Los cinco dominios — Misi\u00f3n y Motivaci\u00f3n, Personas y Comunicaci\u00f3n, Ejecuci\u00f3n y Adaptabilidad, Mentalidad de Crecimiento y Preparaci\u00f3n para la Transici\u00f3n — fueron elegidos porque se mapean directamente a los desaf\u00edos que los profesionales de FQHC enfrentan todos los d\u00edas. Esta no es una herramienta gen\u00e9rica con una etiqueta de FQHC. Es una herramienta de FQHC, dise\u00f1ada por personas que entienden lo que se necesita para hacer bien este trabajo.",
         },
         {
           type: "list",
@@ -536,7 +544,7 @@ export default async function FqhcCareerInsightsAssessmentArticle() {
                   return null;
                 })}
 
-                {/* Inline tool callout after "The 4 Domains" section */}
+                {/* Inline tool callout after "The 5 Domains" section */}
                 {idx === 1 && (
                   <div className="my-8 rounded-lg border border-teal-200 bg-teal-50 p-4">
                     <p className="text-sm font-semibold text-teal-800">

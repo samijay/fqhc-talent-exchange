@@ -183,7 +183,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "On your resume and in your FQHC Talent profile, always list every EHR system you've used, including the specific modules you're proficient in. This is one of the first filters hiring managers apply.",
+          text: "On your resume and in our career tools, always list every EHR system you've used, including the specific modules you're proficient in. This is one of the first filters hiring managers apply.",
         },
       ],
     },
@@ -487,7 +487,7 @@ const esContent: ArticleContent = {
   ],
   ctaTitle: "¿Listo para Encontrar Tu Rol en ECM?",
   ctaDescription:
-    "Únete a FQHC Talent y obten coincidencias con FQHCs que están contratando activamente para posiciones de Gestión de Atención Mejorada en toda California.",
+    "Explora empleos en FQHC Talent y encuentra FQHCs que est\u00e1n contratando activamente para posiciones de Gesti\u00f3n de Atenci\u00f3n Mejorada en toda California.",
   ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {

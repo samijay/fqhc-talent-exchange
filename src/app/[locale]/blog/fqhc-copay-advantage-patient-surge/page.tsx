@@ -112,7 +112,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "The numbers in California tell the story. Across just four major FQHCs, there are 620 open positions right now: AltaMed has 259 openings, La Clinica de La Raza has 187, Family Health Centers of San Diego has 154, and Asian Health Services has 20. And these are only the organizations we actively track — the true number of vacancies across all 220 California FQHCs is far higher.",
+          text: "The numbers in California tell the story. Across California's 220 FQHCs, there are 1,000+ open positions tracked on our platform right now. And these are only the organizations we actively track — the true number of vacancies is far higher.",
         },
         {
           type: "paragraph",
@@ -252,7 +252,7 @@ const esContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Los numeros en California cuentan la historia. En solo cuatro FQHCs principales, hay 620 posiciones abiertas ahora mismo: AltaMed tiene 259 vacantes, La Clinica de La Raza tiene 187, Family Health Centers of San Diego tiene 154 y Asian Health Services tiene 20. Y estas son solo las organizaciones que rastreamos activamente — el numero real de vacantes en los 220 FQHCs de California es mucho mayor.",
+          text: "Los numeros en California cuentan la historia. En los 220 FQHCs de California, hay 1,000+ posiciones abiertas rastreadas en nuestra plataforma ahora mismo. Y estas son solo las organizaciones que rastreamos activamente — el numero real de vacantes es mucho mayor.",
         },
         {
           type: "paragraph",
@@ -385,13 +385,13 @@ export default async function FQHCCopayAdvantageArticle() {
               items={[
                 "H.R. 1 allows states to impose up to $35 copays on Medicaid expansion enrollees — but FQHCs, behavioral health centers, and rural health clinics are exempt by statute. Patients pay $0 at community health centers.",
                 "Clinic closures are already driving patients to FQHCs. LA County closed 7 of 13 public health clinics ($50M shortfall), and Sacramento County is losing $26M in health funding.",
-                "The workforce is not ready for a surge. 55% of CHCs can't fill critical positions, and 620 jobs are open across just 4 major California FQHCs — while the program posted a -2% margin in 2025.",
+                "The workforce is not ready for a surge. 55% of CHCs can't fill critical positions, and 1,000+ jobs are open across California FQHCs — while the program posted a -2% margin in 2025.",
                 "FQHCs that act now — quantifying capacity, accelerating hiring, and marketing the copay advantage — will turn this policy moment into lasting growth.",
               ]}
               esItems={[
                 "H.R. 1 permite a los estados imponer copagos de hasta $35 a los afiliados de Medicaid — pero los FQHCs, centros de salud conductual y clinicas rurales estan exentos por ley. Los pacientes pagan $0 en centros de salud comunitarios.",
                 "Los cierres de clinicas ya estan impulsando pacientes a los FQHCs. El condado de LA cerro 7 de 13 clinicas publicas (deficit de $50M), y el condado de Sacramento esta perdiendo $26M en fondos de salud.",
-                "La fuerza laboral no esta lista para un aumento. El 55% de los CHCs no puede cubrir posiciones criticas, y hay 620 empleos abiertos en solo 4 FQHCs principales de California — mientras el programa registro un margen de -2% en 2025.",
+                "La fuerza laboral no esta lista para un aumento. El 55% de los CHCs no puede cubrir posiciones criticas, y hay 1,000+ empleos abiertos en FQHCs de California — mientras el programa registro un margen de -2% en 2025.",
                 "Los FQHCs que actuen ahora — cuantificando capacidad, acelerando contrataciones y comunicando la ventaja de copago — convertiran este momento de politica en crecimiento duradero.",
               ]}
             />

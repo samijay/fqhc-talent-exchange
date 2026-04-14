@@ -427,7 +427,7 @@ const esContent: ArticleContent = {
   ],
   ctaTitle: "¿Listo para Poner Tu Currículum de FQHC a Trabajar?",
   ctaDescription:
-    "Únete a FQHC Talent y obten coincidencias con centros de salud comunitarios que están contratando activamente para tus habilidades y experiencia exactas.",
+    "Explora empleos en FQHC Talent y encuentra centros de salud comunitarios que est\u00e1n contratando activamente para tus habilidades y experiencia exactas.",
   ctaButtonText: "Crea Tu CV Gratis",
   relatedArticles: [
     {

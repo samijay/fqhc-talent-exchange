@@ -127,7 +127,7 @@ const enContent: ArticleContent = {
           type: "list",
           items: [
             "Community Health Workers (SOC 21-1094): BLS projects 11% growth from 2024–2034 — nearly four times the 3% average for all occupations. California has the highest concentration of CHW positions in the country.",
-            "Medical Assistants: Consistently one of the most-posted roles at FQHCs, with 620+ active listings in our database. High turnover (32%+) drives constant hiring demand.",
+            "Medical Assistants: Consistently one of the most-posted roles at FQHCs, with 1,000+ active listings in our database across all roles. High turnover (32%+) drives constant hiring demand.",
             "Care Coordinators / Case Managers: Fueled by ECM, CCM, and CalAIM programs. These roles are revenue-generating for FQHCs and increasingly protected from budget cuts.",
             "Nurse Practitioners & Physician Assistants: FQHCs are aggressively hiring mid-level providers to expand access. NHSC loan repayment makes these roles especially attractive.",
             "Behavioral Health Specialists (LCSWs, LMFTs, Psychologists): HRSA projects a shortage of 136,350 psychologists nationally by 2038. Over 122 million Americans live in a Mental Health HPSA.",
@@ -293,7 +293,7 @@ const esContent: ArticleContent = {
           type: "list",
           items: [
             "Trabajadores de Salud Comunitaria (SOC 21-1094): El BLS proyecta un crecimiento del 11% de 2024 a 2034 — casi cuatro veces el promedio del 3% para todas las ocupaciones. California tiene la mayor concentración de posiciones CHW en el país.",
-            "Asistentes Médicos: Consistentemente uno de los roles más publicados en FQHCs, con 620+ listados activos en nuestra base de datos. Alta rotación (32%+) impulsa la demanda constante.",
+            "Asistentes Médicos: Consistentemente uno de los roles más publicados en FQHCs, con 1,000+ listados activos en nuestra base de datos en todos los roles. Alta rotación (32%+) impulsa la demanda constante.",
             "Coordinadores de Atención / Gestores de Casos: Impulsados por programas ECM, CCM y CalAIM. Estos roles generan ingresos para FQHCs y están cada vez más protegidos de recortes.",
             "Enfermeras Practicantes y Asistentes Médicos (NP/PA): Los FQHCs están contratando agresivamente proveedores de nivel medio. El programa NHSC de pago de préstamos hace estos roles especialmente atractivos.",
             "Especialistas en Salud Conductual (LCSWs, LMFTs, Psicólogos): HRSA proyecta una escasez de 136,350 psicólogos a nivel nacional para 2038. Más de 122 millones de estadounidenses viven en un HPSA de Salud Mental.",

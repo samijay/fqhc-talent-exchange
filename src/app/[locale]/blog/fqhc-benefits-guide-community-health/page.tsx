@@ -276,7 +276,7 @@ const enContent: ArticleContent = {
         {
           type: "list",
           items: [
-            "Browse our FQHC Directory to explore all 87 California FQHCs, including their locations, programs, and current job openings. Use it to identify organizations in your region and learn about their size, services, and EHR systems.",
+            "Browse our FQHC Directory to explore all 220+ California FQHCs, including their locations, programs, and current job openings. Use it to identify organizations in your region and learn about their size, services, and EHR systems.",
             "Build your free resume using our Resume Builder, which is optimized for FQHC hiring managers. Our templates highlight the programs, certifications, and competencies that community health centers prioritize.",
             "Read our NHSC Loan Repayment Guide for a deep dive into eligibility requirements, application timelines, and strategies for maximizing your loan repayment benefit.",
             "When comparing offers, always calculate total compensation — not just base salary. Use the framework in this article to estimate the dollar value of health insurance, retirement contributions, PTO, and other benefits.",
@@ -291,7 +291,7 @@ const enContent: ArticleContent = {
   ],
   ctaTitle: "Ready to Explore FQHC Careers in California?",
   ctaDescription:
-    "Build your free community health resume and browse 87 California FQHCs — complete with benefits information, job openings, and salary data.",
+    "Build your free community health resume and browse 220+ California FQHCs — complete with benefits information, job openings, and salary data.",
   ctaButtonText: "Build Your Free Resume",
   relatedArticles: [
     {

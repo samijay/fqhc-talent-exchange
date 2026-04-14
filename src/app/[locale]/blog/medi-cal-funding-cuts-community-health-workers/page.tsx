@@ -83,7 +83,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "The problem is that these workers and these opportunities aren't finding each other. Generic job boards don't understand the specificity of FQHC roles. They don't filter by EHR system (OCHIN Epic vs. NextGen vs. eClinicalWorks), by program experience (ECM, CCM, Community Supports), or by the cultural and linguistic competencies that are essential in community health.",
+          text: "The problem is that these workers and these opportunities aren't finding each other. Generic career sites don't understand the specificity of FQHC roles. They don't filter by EHR system (OCHIN Epic vs. NextGen vs. eClinicalWorks), by program experience (ECM, CCM, Community Supports), or by the cultural and linguistic competencies that are essential in community health.",
         },
       ],
     },
