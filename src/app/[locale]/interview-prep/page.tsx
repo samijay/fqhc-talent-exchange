@@ -33,6 +33,7 @@ import { NewsletterSignup } from "@/components/newsletter/NewsletterSignup";
 import { PracticeMode } from "@/components/interview-prep/PracticeMode";
 import { TableOfContents } from "@/components/layout/TableOfContents";
 import { CareerFunnelStep } from "@/components/ui/CareerFunnelStep";
+import { useRoleContext } from "@/lib/use-role-context";
 
 /* ------------------------------------------------------------------ */
 /*  Role and Category Configs                                          */
@@ -352,7 +353,8 @@ export default function InterviewPrepPage() {
   const isEs = locale === "es";
 
   const [mode, setMode] = useState<"reference" | "practice">("reference");
-  const [selectedRole, setSelectedRole] = useState<string>("all");
+  const { role: contextRole } = useRoleContext("all");
+  const [selectedRole, setSelectedRole] = useState<string>(contextRole);
   const [selectedCategory, setSelectedCategory] = useState<
     InterviewCategory | "all"
   >("all");

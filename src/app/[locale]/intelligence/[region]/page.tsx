@@ -615,6 +615,30 @@ export default async function RegionalIntelligencePage({
                   }, locale)}
                 </Button>
               </Link>
+              {/* Regional jobs cross-link */}
+              {(() => {
+                const regionJobsMap: Record<string, string> = {
+                  "los-angeles": "/fqhc-jobs-los-angeles",
+                  "san-diego": "/fqhc-jobs-san-diego",
+                  "bay-area": "/fqhc-jobs-san-francisco-bay-area",
+                  "sacramento": "/fqhc-jobs-sacramento",
+                  "central-valley": "/fqhc-jobs-fresno",
+                  "inland-empire": "/fqhc-jobs-riverside-san-bernardino",
+                };
+                const jobsHref = regionJobsMap[slug];
+                if (!jobsHref) return null;
+                return (
+                  <Link href={jobsHref as "/jobs"}>
+                    <Button variant="outline" className="border-amber-300 text-amber-700 hover:bg-amber-50">
+                      <MapPin className="mr-2 size-4" />
+                      {t({
+                        en: `${regionName} Job Guide`,
+                        es: `Guía de Empleos ${regionName}`,
+                      }, locale)}
+                    </Button>
+                  </Link>
+                );
+              })()}
             </div>
           </div>
         </section>

@@ -22,6 +22,7 @@ import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumb, PageHero } from "@/components/ui/design-system";
 import { CareerFunnelStep } from "@/components/ui/CareerFunnelStep";
+import { useRoleContext } from "@/lib/use-role-context";
 import {
   CERTIFICATIONS,
   type Certification,
@@ -97,7 +98,8 @@ function CertificationsContent() {
   const isEs = locale === "es";
   const searchParams = useSearchParams();
 
-  const initialRole = searchParams.get("role") || "all";
+  const { role: contextRole } = useRoleContext("all");
+  const initialRole = searchParams.get("role") || contextRole;
   const initialCost = (searchParams.get("cost") || "all") as CostTier | "all";
   const initialType = (searchParams.get("type") || "all") as CertImpactType | "all";
   const [roleFilter, setRoleFilter] = useState(initialRole);

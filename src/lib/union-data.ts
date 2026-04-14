@@ -32,6 +32,8 @@ export interface UnionNewsItem {
   summary: { en: string; es: string };
   sourceUrl: string;
   sourceTitle: string;
+  /** True for positive outcomes: ratifications, organizing wins, pay raises */
+  isWin?: boolean;
 }
 
 export interface LaborTimelineEvent {
@@ -1693,6 +1695,26 @@ export function getTimelineByRegion(region: LaborTimelineEvent["region"]): Labor
 
 export function getTimelineByCategory(category: LaborTimelineEvent["category"]): LaborTimelineEvent[] {
   return LABOR_TIMELINE.filter((e) => e.category === category);
+}
+
+/** Get all news items marked as wins across all unions, sorted by date desc */
+export function getLaborWins(): (UnionNewsItem & { unionName: string; unionAbbr: string })[] {
+  const wins: (UnionNewsItem & { unionName: string; unionAbbr: string })[] = [];
+  for (const union of UNION_DIRECTORY) {
+    for (const news of union.recentNews) {
+      if (news.isWin) {
+        wins.push({ ...news, unionName: union.name, unionAbbr: union.abbreviation });
+      }
+    }
+  }
+  return wins.sort((a, b) => b.date.localeCompare(a.date));
+}
+
+/** Check if a specific FQHC slug has union representation */
+export function isUnionWorkplace(fqhcSlug: string): boolean {
+  return UNION_DIRECTORY.some((u) =>
+    u.fqhcsRepresented.includes(fqhcSlug)
+  );
 }
 
 /* ------------------------------------------------------------------ */

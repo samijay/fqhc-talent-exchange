@@ -182,6 +182,22 @@ export default function FqhcJobsFresno() {
         </div>
       </section>
 
+      {/* Regional Intelligence */}
+      <section className="py-8 px-6">
+        <div className="max-w-4xl mx-auto">
+          <Link
+            href={"/intelligence/central-valley" as "/jobs"}
+            className="flex items-center justify-between rounded-xl border border-teal-200 bg-teal-50 p-5 transition-colors hover:border-teal-400 hover:bg-teal-100"
+          >
+            <div>
+              <p className="text-sm font-semibold text-teal-800">Central Valley Regional Intelligence</p>
+              <p className="text-xs text-teal-600 mt-0.5">FQHC data, resilience scores, funding alerts, and layoff tracking</p>
+            </div>
+            <span className="text-teal-600 text-sm font-medium">View Dashboard →</span>
+          </Link>
+        </div>
+      </section>
+
       {/* Other Locations */}
       <section className="bg-stone-50 py-16 px-6">
         <div className="max-w-4xl mx-auto">

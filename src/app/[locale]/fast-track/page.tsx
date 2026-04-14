@@ -12,6 +12,7 @@ import {
   Award,
   BookOpen,
   FolderOpen,
+  Compass,
 } from "lucide-react";
 import { PageHero } from "@/components/ui/design-system";
 
@@ -118,6 +119,33 @@ export default function FastTrackPage() {
           ))}
         </div>
       </PageHero>
+
+      {/* ---------- Guided Pathway CTA ---------- */}
+      <section className="py-8 px-4 sm:px-6">
+        <div className="mx-auto max-w-4xl">
+          <Link
+            href="/pathway"
+            className="group flex items-center justify-between rounded-xl border-2 border-teal-300 bg-teal-50 dark:bg-teal-950 dark:border-teal-700 p-6 transition-all hover:border-teal-500 hover:shadow-lg"
+          >
+            <div className="flex items-center gap-4">
+              <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-teal-600 text-white">
+                <Compass className="size-6" />
+              </div>
+              <div>
+                <h2 className="text-lg font-bold text-stone-900 dark:text-stone-100">
+                  {locale === "es" ? "No sabes por dónde empezar?" : "Not sure where to start?"}
+                </h2>
+                <p className="mt-0.5 text-sm text-stone-600 dark:text-stone-400">
+                  {locale === "es"
+                    ? "Toma la ruta guiada — selecciona tu rol y nivel, y te mostramos exactamente qué aprender."
+                    : "Take the guided path — pick your role and level, and we\u2019ll show you exactly what to learn."}
+                </p>
+              </div>
+            </div>
+            <ArrowRight className="size-5 text-teal-600 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+      </section>
 
       {/* ---------- Everything You Need — Free ---------- */}
       <section className="py-12 px-4 sm:px-6">

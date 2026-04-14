@@ -23,6 +23,7 @@ import {
   Search,
   Shield,
   Users,
+  Trophy,
   Video,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -35,6 +36,7 @@ import {
   CURATED_RESOURCES,
   COMMON_INTEREST_FRAMEWORK,
   COMMON_INTEREST_INTRO,
+  getLaborWins,
   type UnionProfile,
   type LaborTimelineEvent,
   type CuratedResource,
@@ -496,6 +498,43 @@ export default function UnionsPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Labor Wins ── */}
+      {(() => {
+        const wins = getLaborWins();
+        if (wins.length === 0) return null;
+        return (
+          <section className="bg-emerald-50 dark:bg-emerald-950/30 py-6 px-4">
+            <div className="mx-auto max-w-5xl">
+              <h2 className="mb-4 flex items-center gap-2 text-lg font-bold text-emerald-800 dark:text-emerald-300">
+                <Trophy className="size-5" />
+                {locale === "es" ? "Victorias Laborales Recientes" : "Recent Labor Wins"}
+              </h2>
+              <div className="flex gap-4 overflow-x-auto pb-2">
+                {wins.slice(0, 6).map((win, i) => (
+                  <a
+                    key={i}
+                    href={win.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex min-w-[280px] shrink-0 flex-col rounded-lg border border-emerald-200 dark:border-emerald-800 bg-white dark:bg-stone-900 p-4 transition-colors hover:border-emerald-400"
+                  >
+                    <div className="flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400">
+                      <Badge variant="outline" className="border-emerald-300 text-emerald-700 text-[10px]">
+                        {win.unionAbbr}
+                      </Badge>
+                      <span>{win.date}</span>
+                    </div>
+                    <p className="mt-2 text-sm font-medium text-stone-900 dark:text-stone-100 line-clamp-2">
+                      {locale === "es" ? win.title.es : win.title.en}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* ── Tabs ── */}
       <div className="sticky top-0 z-20 border-b border-stone-200 bg-white/95 backdrop-blur-sm">
