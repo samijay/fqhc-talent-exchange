@@ -4,7 +4,7 @@
 // Each item includes follow-up dates and outcome tracking.
 // Updated via /daily-update pipeline.
 
-export const ADVOCACY_LAST_UPDATED = "2026-04-14";
+export const ADVOCACY_LAST_UPDATED = "2026-04-15";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -81,6 +81,57 @@ export const STATUS_META: Record<
 /* ------------------------------------------------------------------ */
 
 export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
+  // ── APRIL 15, 2026 — DAILY UPDATE #32 ──────────────────────────────
+
+  {
+    id: "abbvie-340b-lawsuit-april-2026",
+    date: "2026-04-08",
+    headline: {
+      en: "AbbVie Files Landmark 340B Lawsuit — 'Most Consequential Manufacturer Challenge to Date'",
+      es: "AbbVie Presenta Demanda 340B Histórica — 'El Desafío de Fabricante Más Consecuente Hasta la Fecha'",
+    },
+    summary: {
+      en: "AbbVie filed a 72-page federal complaint on April 8, 2026 challenging core 340B program mechanics — analysts describe it as the most consequential manufacturer suit to date. The case threatens the upstream discount structure that FQHC pharmacy revenue depends on. If AbbVie prevails, the ripple effects across California FQHC 340B savings could be severe, especially for centers that subsidize uncompensated care with pharmacy margin. NACHC, AHA, and CPCA are expected to file amicus briefs.",
+      es: "AbbVie presentó una demanda federal de 72 páginas el 8 de abril de 2026 cuestionando los mecanismos centrales del programa 340B. El caso amenaza la estructura de descuentos ascendentes de la que depende el ingreso farmacéutico de los FQHCs. Si AbbVie prevalece, los efectos sobre los ahorros 340B en FQHCs de California podrían ser severos.",
+    },
+    category: "legal-action",
+    status: "in-court",
+    region: "Federal",
+    organizations: ["AbbVie", "HRSA (defendant)", "NACHC (expected amicus)", "AHA (expected amicus)"],
+    followUpDate: "2026-06-01",
+    followUpNote: { en: "Initial motions and amicus brief deadlines", es: "Plazos de mociones iniciales y escritos amicus" },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://www.onhealthcare.tech/p/abbvie-just-filed-the-most-important",
+    sourceOrg: "On Healthcare",
+    impactLevel: "critical",
+    tags: ["340b", "abbvie", "federal-lawsuit", "manufacturer-challenge", "pharmacy-revenue", "nachc"],
+  },
+  {
+    id: "ca-ag-opposes-fqhc-340b-injunction-april-2026",
+    date: "2026-04-10",
+    headline: {
+      en: "California AG Opposes FQHC 340B Preliminary Injunction — State vs. Safety Net Tension",
+      es: "Fiscal General de California Se Opone a Mandato Judicial Preliminar 340B de FQHCs — Tensión Estado vs. Red de Seguridad",
+    },
+    summary: {
+      en: "California's Attorney General asked the court to reject California community health centers' request to halt a Medi-Cal drug payment change affecting 340B economics. The filing is notable because it places a historically FQHC-aligned administration in direct legal opposition to the sector during the H.R. 1 funding crisis. CPCA and CCALAC are expected to respond with public statements. The case will test how much budget pressure can crack state-sector solidarity.",
+      es: "El Fiscal General de California pidió al tribunal rechazar la solicitud de los centros de salud comunitaria de California de detener un cambio de pago de medicamentos de Medi-Cal que afecta la economía 340B. La presentación es notable porque coloca a una administración históricamente aliada con FQHCs en oposición legal directa al sector.",
+    },
+    category: "legal-action",
+    status: "in-court",
+    region: "California",
+    organizations: ["California Attorney General", "CA FQHCs (plaintiffs)", "CPCA", "CCALAC"],
+    followUpDate: "2026-05-15",
+    followUpNote: { en: "Preliminary injunction ruling expected", es: "Se espera el fallo sobre el mandato judicial preliminar" },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://340breport.com/california-asks-judge-to-reject-340b-health-centers-request-to-stop-medicaid-drug-payment-change/",
+    sourceOrg: "340B Report",
+    impactLevel: "high",
+    tags: ["340b", "california-ag", "medi-cal", "preliminary-injunction", "state-vs-fqhc"],
+  },
+
   // ── CRITICAL ───────────────────────────────────────────────────────
 
   {

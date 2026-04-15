@@ -10,7 +10,7 @@ import {
 } from "./fqhc-advocacy-tracker";
 import { californiaFQHCs } from "./california-fqhcs";
 
-export const LABOR_LAST_UPDATED = "2026-04-08";
+export const LABOR_LAST_UPDATED = "2026-04-15";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -235,6 +235,42 @@ const POSTURE_ORDER: LaborRelationsPosture[] = [
 /* ------------------------------------------------------------------ */
 
 export const LABOR_CASES: LaborCase[] = [
+  // ── NEW APRIL 15, 2026 ────────────────────────────────────────────
+
+  {
+    id: "fhcsd-nlrb-case-21-ca-377502",
+    title: {
+      en: "Family Health Centers of San Diego — NLRB Case 21-CA-377502 Filed",
+      es: "Family Health Centers of San Diego — Caso NLRB 21-CA-377502 Presentado",
+    },
+    summary: {
+      en: "An NLRB case (21-CA-377502) has been opened against Family Health Centers of San Diego, the largest FQHC in San Diego County. Details of the alleged unfair labor practices are not yet public — the case is in regional investigation. Given FHCSD's scale (600+ providers, 400K+ patients), any enforcement action here would be a bellwether for San Diego FQHC labor relations.",
+      es: "Se ha abierto un caso NLRB (21-CA-377502) contra Family Health Centers of San Diego, el FQHC más grande del Condado de San Diego. Los detalles de las supuestas prácticas laborales injustas aún no son públicos.",
+    },
+    caseType: "nlrb-complaint",
+    status: "filed",
+    posture: "adversarial",
+    parties: {
+      unions: ["TBD — pending case details"],
+      employers: ["Family Health Centers of San Diego"],
+      agencies: ["NLRB Region 21"],
+    },
+    region: "San Diego",
+    impactLevel: "high",
+    timeline: [
+      { date: "2026-04-01", description: { en: "NLRB case 21-CA-377502 opened against FHCSD", es: "Caso NLRB 21-CA-377502 abierto contra FHCSD" }, sourceUrl: "https://www.nlrb.gov/case/21-CA-377502" },
+    ],
+    nextMilestone: { date: "2026-06-01", description: { en: "NLRB Region 21 investigation outcome expected", es: "Se espera el resultado de la investigación de la Región 21 del NLRB" } },
+    affectedFqhcSlugs: ["family-health-centers-of-san-diego"],
+    relatedUnionIds: [],
+    relatedIntelIds: [],
+    relatedAdvocacyIds: [],
+    sourceUrl: "https://www.nlrb.gov/case/21-CA-377502",
+    sourceOrg: "NLRB",
+    additionalSources: [],
+    tags: ["nlrb", "fhcsd", "san-diego", "unfair-labor-practice", "investigation"],
+  },
+
   // ── CRITICAL ──────────────────────────────────────────────────────
 
   {

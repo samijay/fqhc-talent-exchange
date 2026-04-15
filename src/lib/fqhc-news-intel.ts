@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-04-14";
+export const INTEL_LAST_UPDATED = "2026-04-15";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -96,6 +96,157 @@ export const IMPACT_LABELS: Record<ImpactLevel, { en: string; es: string }> = {
 /* ------------------------------------------------------------------ */
 
 export const INTEL_ITEMS: IntelItem[] = [
+  /* ============================================================== */
+  /*  APRIL 15, 2026 — DAILY UPDATE #32                             */
+  /* ============================================================== */
+  {
+    id: "ca-hospital-layoffs-3400-workers-april-2026",
+    date: "2026-03-24",
+    headline: {
+      en: "CA Hospital Layoffs Surge Past 3,400 Workers Across 400+ Facilities — Safety Net Demand Spillover",
+      es: "Despidos en Hospitales de CA Superan 3,400 Trabajadores en 400+ Instalaciones — Demanda Presiona Red de Seguridad",
+    },
+    summary: {
+      en: "More than 400 California hospitals have laid off 3,400+ healthcare workers as of mid-March 2026, with up to 1,600 concentrated from Santa Barbara through Orange County and the Inland Empire. The hospital contraction is pushing displaced patients into FQHC primary care and ED-alternative settings — adding demand pressure precisely as FQHCs face their own H.R. 1 revenue cliff.",
+      es: "Más de 400 hospitales de California han despedido a más de 3,400 trabajadores sanitarios a mediados de marzo de 2026, con hasta 1,600 concentrados desde Santa Bárbara hasta el Condado de Orange y el Inland Empire. La contracción hospitalaria está empujando a pacientes desplazados hacia la atención primaria de FQHC.",
+    },
+    category: "workforce" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://jrreport.wordandbrown.com/2026/03/24/california-hospitals-laying-off-thousands-as-funding-cuts-trickle-down/",
+    sourceOrg: "Word & Brown JR Report",
+    region: "Statewide",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["hospital-layoffs", "workforce", "safety-net-demand", "H.R.1", "spillover"],
+  },
+  {
+    id: "jama-ambient-scribe-modest-savings-april-2026",
+    date: "2026-04-01",
+    headline: {
+      en: "Large JAMA Ambient Scribe Study Tempers ROI: 13.4 Min/Day EHR Time Savings",
+      es: "Gran Estudio JAMA sobre Escribas Ambientales Modera Expectativas: 13.4 Min/Día de Ahorro en Tiempo EHR",
+    },
+    summary: {
+      en: "A JAMA study across five academic medical centers found AI ambient scribes reduced total EHR time by only 13.4 minutes per day and documentation time by 16 minutes — with inconsistent use across clinicians. For FQHCs evaluating $200-500/provider/month subscriptions, the findings temper the aggressive ROI claims from vendors and suggest pilots should measure burnout and retention impact, not just time savings.",
+      es: "Un estudio de JAMA en cinco centros médicos académicos encontró que los escribas ambientales de IA redujeron el tiempo total en EHR solo 13.4 minutos por día. Para los FQHCs que evalúan suscripciones de $200-500 por proveedor al mes, los hallazgos moderan las afirmaciones agresivas de ROI de los proveedores.",
+    },
+    category: "workforce" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://www.statnews.com/2026/04/01/ai-ambient-scribes-modest-time-savings-clinical-documentation/",
+    sourceOrg: "STAT News / JAMA",
+    region: "National",
+    affectedOrgs: [],
+    affectedOrgSlugs: [],
+    tags: ["AI-scribe", "ambient-documentation", "ROI", "JAMA", "clinician-burnout"],
+  },
+  {
+    id: "central-california-alliance-44m-reinvestment-april-2026",
+    date: "2026-04-01",
+    headline: {
+      en: "Central California Alliance for Health Reinvests $44.9M in 2025 Across 5 Counties — Counter-Signal to Funding Cliffs",
+      es: "Central California Alliance for Health Reinvierte $44.9M en 2025 en 5 Condados — Contrapeso a los Recortes",
+    },
+    summary: {
+      en: "The Central California Alliance for Health reported $44.9M reinvested in 2025 across Santa Cruz, Monterey, San Benito, Merced, and Mariposa counties to expand access and support community partners including FQHCs. The reinvestment is a rare positive counter-signal for Central Coast/Valley FQHCs navigating federal cliffs — local plan surpluses can partially backstop the H.R. 1 gap.",
+      es: "Central California Alliance for Health reinvirtió $44.9M en 2025 en Santa Cruz, Monterey, San Benito, Merced y Mariposa para expandir el acceso y apoyar a socios comunitarios incluyendo FQHCs. Una señal positiva poco común para FQHCs navegando los recortes federales.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://thealliance.health/",
+    sourceOrg: "Central California Alliance for Health",
+    region: "Central Coast",
+    affectedOrgs: ["Central California Alliance for Health"],
+    affectedOrgSlugs: [],
+    tags: ["reinvestment", "managed-care-plan", "Central-Coast", "positive-signal", "backstop"],
+  },
+  {
+    id: "fresno-county-241m-medi-cal-shortfall-april-2026",
+    date: "2026-04-01",
+    headline: {
+      en: "Fresno County Faces $241M Medi-Cal Shortfall — Emergency Summit Convenes Safety Net Partners",
+      es: "Condado de Fresno Enfrenta Déficit de $241M en Medi-Cal — Cumbre de Emergencia Reúne a la Red de Seguridad",
+    },
+    summary: {
+      en: "Fresno County is bracing for a $241M uncovered Medi-Cal cost shortfall as federal H.R. 1 cuts land, triggering an emergency summit with Clinica Sierra Vista, United Health Centers, Golden Valley Health Centers, and CHCCC. County officials warn of hiring freezes, service cancellations, and cascading layoffs across safety-net partners where 80%+ of patients are Medi-Cal enrolled. The Fresno crisis preview what 10+ Central Valley counties face through 2026.",
+      es: "El Condado de Fresno enfrenta un déficit de $241M en Medi-Cal mientras llegan los recortes federales de H.R. 1, provocando una cumbre de emergencia con Clínica Sierra Vista, United Health Centers, Golden Valley Health Centers y CHCCC. Congelamiento de contrataciones, cancelaciones de servicios y despidos en cadena amenazan a socios de la red donde más del 80% de pacientes dependen de Medi-Cal.",
+    },
+    category: "funding" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://fresnoland.org/2026/03/31/fresno-countys-budget-deficit/",
+    sourceOrg: "Fresnoland",
+    region: "Central Valley",
+    affectedOrgs: ["Clinica Sierra Vista", "United Health Centers", "Golden Valley Health Centers", "CHCCC"],
+    affectedOrgSlugs: ["clinica-sierra-vista", "united-health-centers", "golden-valley-health-centers"],
+    tags: ["Fresno", "Medi-Cal", "H.R.1", "Central-Valley", "budget-crisis", "funding-cliff"],
+  },
+  {
+    id: "ccalac-coalition-oc-joint-vision-april-10-2026",
+    date: "2026-04-10",
+    headline: {
+      en: "CCALAC + Coalition of OC Community Health Centers Convene Joint Vision Summit — SoCal FQHC Alliance",
+      es: "CCALAC + Coalición de Centros de Salud Comunitaria de OC Convocan Cumbre de Visión Conjunta — Alianza FQHC del Sur de California",
+    },
+    summary: {
+      en: "The Community Clinic Association of Los Angeles County (CCALAC) and the Coalition of Orange County Community Health Centers held a joint convening April 10, 2026 to align on a shared Southern California FQHC vision centered on dignity-based care and collective policy advocacy amid federal Medicaid cuts. The unprecedented LA+OC coalition signals the sector is consolidating voice to counter H.R. 1, the SEIU-UHW ballot initiative, and state-level budget pressures.",
+      es: "La Asociación de Clínicas Comunitarias del Condado de LA (CCALAC) y la Coalición de Centros de Salud Comunitaria del Condado de OC celebraron una reunión conjunta el 10 de abril de 2026 para alinearse en una visión compartida de FQHC del sur de California centrada en la atención digna ante los recortes federales a Medicaid.",
+    },
+    category: "lobbying" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://coalitionoc.org/",
+    sourceOrg: "Coalition of OC Community Health Centers",
+    region: "Los Angeles / Orange County",
+    affectedOrgs: ["CCALAC", "Coalition of OC Community Health Centers"],
+    affectedOrgSlugs: [],
+    tags: ["CCALAC", "coalition", "advocacy", "Los-Angeles", "Orange-County", "SoCal", "unity"],
+  },
+  {
+    id: "hrsa-340b-rebate-rfi-deadline-april-20-2026",
+    date: "2026-04-20",
+    headline: {
+      en: "HRSA 340B Rebate Model RFI — Comment Deadline April 20",
+      es: "RFI de Modelo de Reembolso 340B de HRSA — Fecha Límite de Comentarios 20 de Abril",
+    },
+    summary: {
+      en: "HRSA's Request for Information on the 340B rebate model closes April 20, 2026. FQHCs have a narrow window to shape how manufacturer rebates, contract pharmacy oversight, and documentation requirements are structured. Combined with 2026 Data Request List changes tightening contract pharmacy scrutiny, this deadline is the single most consequential 340B policy window of the year. NACHC is mobilizing comments.",
+      es: "La Solicitud de Información (RFI) de HRSA sobre el modelo de reembolsos 340B cierra el 20 de abril de 2026. Los FQHCs tienen una ventana corta para influir en cómo se estructuran los reembolsos de fabricantes, la supervisión de farmacias por contrato y los requisitos de documentación. NACHC está movilizando comentarios.",
+    },
+    category: "legislation" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    type: "deadline" as IntelType,
+    sourceUrl: "https://340breport.com/2026-changes-to-the-data-request-list-sponcon-cps/",
+    sourceOrg: "HRSA OPA / 340B Report",
+    region: "Federal",
+    affectedOrgs: ["HRSA", "NACHC"],
+    affectedOrgSlugs: [],
+    tags: ["340B", "HRSA", "rebate", "RFI", "deadline", "policy-window", "NACHC"],
+  },
+  {
+    id: "blue-shield-cmc-fresno-out-of-network-april-2026",
+    date: "2026-04-01",
+    headline: {
+      en: "Blue Shield / Community Medical Centers Out-of-Network Dispute Disrupts Fresno FQHC Referrals",
+      es: "Disputa Fuera de Red entre Blue Shield y Community Medical Centers Interrumpe Referencias FQHC en Fresno",
+    },
+    summary: {
+      en: "Community Medical Centers, Fresno's largest hospital system, remains out-of-network for Blue Shield members as of April 2026 — disrupting specialty referral pathways for FQHCs including Clinica Sierra Vista, United Health Centers, and CHCCC whose Blue Shield patients now face access gaps or must travel to St. Agnes or Valley Children's. FQHC care coordinators report increased administrative burden navigating the disruption.",
+      es: "Community Medical Centers sigue fuera de la red de Blue Shield a partir de abril de 2026, interrumpiendo las vías de referencia a especialistas para FQHCs de Fresno cuyos pacientes de Blue Shield ahora enfrentan brechas de acceso.",
+    },
+    category: "workforce" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    type: "news" as IntelType,
+    sourceUrl: "https://news.blueshieldca.com/2026/04/01/blue-shield-of-california-committed-to-ensuring-members-have-access-to-affordable-high-quality-health-carethroughout-the-san-joaquin-valley",
+    sourceOrg: "Blue Shield of California",
+    region: "Central Valley",
+    affectedOrgs: ["Clinica Sierra Vista", "United Health Centers", "CHCCC", "Community Medical Centers"],
+    affectedOrgSlugs: ["clinica-sierra-vista", "united-health-centers"],
+    tags: ["Blue-Shield", "Fresno", "out-of-network", "referrals", "care-coordination"],
+  },
+
   /* ============================================================== */
   /*  APRIL 8, 2026 — DAILY UPDATE #30 + UNION DEEP DIVE            */
   /* ============================================================== */
