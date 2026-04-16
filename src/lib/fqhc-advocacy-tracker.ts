@@ -525,8 +525,8 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
       es: "SEIU-UHW Presenta Firmas para Medidas Electorales de 90% Gasto en Misión + Tope de $450K a Salarios Ejecutivos",
     },
     summary: {
-      en: "SEIU-UHW submitted signatures for two California ballot initiatives: #25-0008 (requiring FQHCs to spend 90% of revenue on patient care) and #25-0009 (capping healthcare executive pay at $450K). CMA, CPCA, and CCALAC oppose both, calling them 'dangerous' and warning of clinic closures. The 'Protect Patients' coalition has formed in opposition. LAO warns of 'potential clinic closures' as possible outcome. If qualified and passed, these would fundamentally restructure FQHC finances statewide during the H.R. 1 funding crisis.",
-      es: "SEIU-UHW presentó firmas para dos iniciativas: gasto del 90% en atención al paciente y tope de $450K a salarios ejecutivos. CMA, CPCA y CCALAC se oponen, advirtiendo sobre cierres de clínicas.",
+      en: "SEIU-UHW submitted signatures for two California ballot initiatives: #25-0008 (requiring FQHCs to spend 90% of revenue on patient care) and #25-0009 (capping healthcare executive pay at $450K). CMA, CPCA, and CCALAC oppose both, calling them 'dangerous' and warning of clinic closures. The 'Protect Patients' coalition has raised $28.3M in opposition versus SEIU-UHW's $17.8M in support as of April 11 — the most expensive CA healthcare ballot fight of 2026. LAO warns of 'potential clinic closures' as possible outcome. April 17 signature sample check is the next procedural gate; final qualification deadline is June 25.",
+      es: "SEIU-UHW presentó firmas para dos iniciativas: gasto del 90% en atención al paciente y tope de $450K a salarios ejecutivos. La coalición 'Protect Patients' ha recaudado $28.3M en oposición vs. $17.8M de SEIU-UHW. CMA, CPCA y CCALAC se oponen. La verificación de muestra aleatoria el 17 de abril es la próxima puerta procesal.",
     },
     category: "ballot-initiative",
     status: "active",
@@ -854,6 +854,44 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
       },
     ],
     tags: ["nachc", "advocacy", "congress", "medicaid", "reconciliation", "in-district", "cpca", "senate"],
+  },
+  {
+    id: "seiu-uhw-ballot-signature-verification-april-17",
+    date: "2026-04-17",
+    headline: {
+      en: "April 17 Signature Sample Check: SEIU-UHW 90% and Exec Pay Cap Initiatives at Critical Procedural Gate",
+      es: "Verificación de Muestra de Firmas el 17 de Abril: Iniciativas del 90% y Tope Salarial de SEIU-UHW en Puerta Procesal Crítica",
+    },
+    summary: {
+      en: "California Secretary of State set April 17, 2026 as the suggested deadline for a random-sample signature check on SEIU-UHW's two healthcare ballot initiatives (#25-0008 requiring FQHCs to spend 90% of revenue on patient care; #25-0009 capping exec pay at $450K). SEIU-UHW needs 546,651 valid signatures per initiative to qualify for the November ballot. If the sample rate is sufficient, initiatives advance to full verification; if too low, more signatures must be gathered before the June 25 final qualification deadline. As of April 11, the 'Protect Patients' opposition coalition has raised $28.3M versus SEIU-UHW's $17.8M in support — the most expensive CA healthcare ballot fight of 2026.",
+      es: "El Secretario de Estado de California fijó el 17 de abril como fecha sugerida para la verificación aleatoria de firmas de las dos iniciativas de salud de SEIU-UHW. SEIU-UHW necesita 546,651 firmas válidas por iniciativa. La coalición opositora 'Protect Patients' ha recaudado $28.3M vs. $17.8M de SEIU-UHW — la batalla electoral de salud más cara de California en 2026.",
+    },
+    category: "ballot-initiative",
+    status: "active",
+    region: "California",
+    organizations: ["SEIU-UHW", "California Secretary of State", "Protect Patients coalition (opposing)", "CMA", "CPCA", "CCALAC"],
+    followUpDate: "2026-06-25",
+    followUpNote: {
+      en: "June 25 = final ballot qualification deadline. Verification results will determine whether initiatives proceed.",
+      es: "El 25 de junio es la fecha límite final de calificación. Los resultados de verificación determinarán si las iniciativas proceden.",
+    },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://news.ballotpedia.org/2026/04/03/seiu-uhw-submits-signatures-for-california-ballot-initiatives-capping-executive-pay-and-requiring-clinics-to-spend-90-on-patient-care/",
+    sourceOrg: "Ballotpedia",
+    impactLevel: "critical",
+    affectedOrgSlugs: [],
+    tools: [
+      {
+        label: { en: "Ballotpedia — Initiative #25-0008", es: "Ballotpedia — Iniciativa #25-0008" },
+        url: "https://ballotpedia.org/California_Require_Transparency_in_Health_Clinic_Funding_and_Regulate_Use_of_Profits_Initiative_(2026)",
+      },
+      {
+        label: { en: "IVN — CA Ballot Money War", es: "IVN — Guerra de Dinero en Boleta de CA" },
+        url: "https://ivn.us/posts/billionaires-voter-id-uber-and-more-the-2026-california-ballot-is-already-a-money-war-2026-04-13",
+      },
+    ],
+    tags: ["seiu-uhw", "ballot-initiative", "90-percent", "exec-pay-cap", "signature-verification", "protect-patients", "june-25-deadline", "april-17"],
   },
 ];
 
