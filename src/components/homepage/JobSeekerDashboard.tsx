@@ -16,7 +16,7 @@ import {
   Mic,
   GitCompare,
 } from "lucide-react";
-import { createAuthClient } from "@/lib/supabase";
+import { createAuthClient } from "@/lib/supabase-client";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { getContentById } from "@/lib/user-preferences";
 import { getLearningProgressSummary } from "@/lib/learning-progress";

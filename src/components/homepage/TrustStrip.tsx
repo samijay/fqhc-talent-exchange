@@ -13,55 +13,38 @@ export function TrustStrip({ totalFQHCs, totalJobs, totalIntel }: TrustStripProp
   const locale = useLocale();
   const isEs = locale === "es";
 
-  const stats = [
-    {
-      value: `${totalFQHCs}+`,
-      label: isEs ? "FQHCs Rastreados" : "FQHCs Tracked",
-      href: "/directory" as const,
-    },
-    {
-      value: `${totalJobs.toLocaleString()}+`,
-      label: isEs ? "Empleos Indexados" : "Jobs Indexed",
-      href: "/jobs" as const,
-    },
-    {
-      value: `${totalIntel}`,
-      label: isEs ? "Items de Inteligencia" : "Intel Items",
-      href: "/layoffs" as const,
-    },
-    {
-      value: isEs ? "Semanal" : "Weekly",
-      label: isEs ? "De Fuentes Primarias" : "From Primary Sources",
-      href: "/blog" as const,
-    },
-  ];
+  // Suppress unused-var warnings — props kept for future use
+  void totalFQHCs; void totalJobs; void totalIntel;
 
   return (
     <section className="border-y border-stone-200 bg-stone-100 px-4 py-8 dark:border-stone-700 dark:bg-stone-900">
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-8 sm:gap-12">
-        {stats.map((stat) => (
-          <Link
-            key={stat.label}
-            href={stat.href}
-            className="group text-center transition-colors"
-          >
-            <p className="text-lg font-extrabold text-stone-900 group-hover:text-teal-700 sm:text-xl dark:text-stone-100 dark:group-hover:text-teal-400">
-              {stat.value}
-            </p>
-            <p className="text-xs font-medium uppercase tracking-wider text-stone-600 group-hover:text-teal-600 dark:text-stone-400 dark:group-hover:text-teal-400">
-              {stat.label}
-            </p>
-          </Link>
-        ))}
-      </div>
+      <div className="mx-auto max-w-5xl">
+        {/* Differentiating statement */}
+        <p className="mb-5 text-center text-sm font-medium text-stone-600 dark:text-stone-400">
+          {isEs
+            ? "Datos agregados de fuentes primarias — no análisis de terceros, no contenido patrocinado."
+            : "Data aggregated from primary sources — no third-party analysis, no sponsored content."}
+        </p>
 
-      {/* Source logos */}
-      <div className="mx-auto mt-6 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-1">
-        {["HRSA", "BLS", "CA EDD", "DHCS", "NACHC", "KFF"].map((source) => (
-          <span key={source} className="text-xs font-medium text-stone-400">
-            {source}
-          </span>
-        ))}
+        {/* Source badges */}
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {[
+            { name: "HRSA", label: isEs ? "Datos de Centros de Salud" : "Health Center Data" },
+            { name: "BLS", label: isEs ? "Benchmarks Salariales" : "Salary Benchmarks" },
+            { name: "CA EDD", label: isEs ? "Avisos WARN Act" : "WARN Act Notices" },
+            { name: "DHCS", label: isEs ? "Datos de Medi-Cal" : "Medi-Cal Data" },
+            { name: "NACHC", label: isEs ? "Investigación Sectorial" : "Sector Research" },
+            { name: "KFF", label: isEs ? "Análisis de Políticas" : "Policy Analysis" },
+          ].map((source) => (
+            <div
+              key={source.name}
+              className="flex flex-col items-center rounded-lg border border-stone-200 bg-white px-4 py-2 dark:border-stone-700 dark:bg-stone-800"
+            >
+              <span className="text-sm font-bold text-stone-800 dark:text-stone-100">{source.name}</span>
+              <span className="text-xs text-stone-500 dark:text-stone-400">{source.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

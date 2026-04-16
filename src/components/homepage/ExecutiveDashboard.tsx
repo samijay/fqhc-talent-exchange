@@ -17,7 +17,7 @@ import {
   Clock,
   GraduationCap,
 } from "lucide-react";
-import { createAuthClient } from "@/lib/supabase";
+import { createAuthClient } from "@/lib/supabase-client";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { IntelCard } from "@/components/intel/IntelCard";
 import { IntelBriefPDF } from "@/components/intel/IntelBriefPDF";

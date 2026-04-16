@@ -32,7 +32,7 @@ import {
   Sparkles,
   MessageSquare,
 } from "lucide-react";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/lib/supabase-client";
 import { fqhcJobListings } from "@/lib/fqhc-job-listings";
 import { californiaFQHCs, regions } from "@/lib/california-fqhcs";
 import { SALARY_BENCHMARKS } from "@/lib/job-posting-templates";

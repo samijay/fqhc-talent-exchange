@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Heart, Mail, Eye, EyeOff } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { createAuthClient } from "@/lib/supabase";
+import { createAuthClient } from "@/lib/supabase-client";
 import { toast } from "sonner";
 import { t } from "@/lib/i18n-helpers";
 

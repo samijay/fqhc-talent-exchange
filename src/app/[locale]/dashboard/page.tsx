@@ -27,7 +27,7 @@ import {
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useAuth } from "@/components/auth/AuthProvider";
-import { createAuthClient } from "@/lib/supabase";
+import { createAuthClient } from "@/lib/supabase-client";
 import { INTEL_ITEMS, INTEL_CATEGORIES } from "@/lib/fqhc-news-intel";
 import { californiaFQHCs } from "@/lib/california-fqhcs";
 import {

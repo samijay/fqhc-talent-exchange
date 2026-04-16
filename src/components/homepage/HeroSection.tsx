@@ -31,8 +31,8 @@ export function HeroSection({ totalFQHCs, totalJobs, totalIntel }: HeroSectionPr
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-stone-300 sm:text-lg">
             {isEs
-              ? "Inteligencia de mercado + preparación profesional para profesionales de FQHC"
-              : "Market intelligence + career readiness for FQHC professionals"}
+              ? "Para líderes de FQHC que navegan la crisis — y para los profesionales que impulsan la misión."
+              : "For FQHC leaders navigating the crisis — and the professionals who power the mission."}
           </p>
 
           {/* Clickable stat pills */}
