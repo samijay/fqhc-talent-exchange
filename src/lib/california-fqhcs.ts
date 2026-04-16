@@ -1421,8 +1421,8 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     website: "https://www.ravenswoodfhn.org",
     description:
       "Ravenswood Family Health Network provides comprehensive primary care, dental, and behavioral health services to underserved communities on the San Francisco Peninsula, including East Palo Alto and Belle Haven.",
-    glassdoorRating: 2.3,
-    glassdoorReviewCount: 9,
+    glassdoorRating: 3.4,
+    glassdoorReviewCount: 16,
     ecmProvider: true,
     nhscApproved: true,
     careersUrl: "https://ravenswoodfhn.org/get-involved/careers/",
