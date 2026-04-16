@@ -1851,7 +1851,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     description:
       "Salud Para La Gente provides comprehensive primary care, dental, behavioral health, and agricultural worker health services to rural communities in Santa Cruz and Monterey counties.",
     glassdoorRating: 3.7,
-    glassdoorReviewCount: 16,
+    glassdoorReviewCount: 17,
     ecmProvider: true,
     nhscApproved: true,
     careersUrl: "https://www.saludparalaagente.org/careers/",
@@ -3062,7 +3062,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     description:
       "MCHC Health Centers (formerly Mendocino Community Health Clinic) serves rural Mendocino and Lake Counties across 12 sites with ~500 visits/day and 93,000+ medical encounters annually. HRSA Health Center Quality Leader (top 30%). Founded 1992 after county hospital closed outpatient unit. Revenue ~$40M. 75% of patients at or below 200% FPL. 56.5% Medicaid/CHIP.",
     glassdoorRating: null,
-    glassdoorReviewCount: 13,
+    glassdoorReviewCount: null,
     ecmProvider: true,
     nhscApproved: true,
     careersUrl: "https://www.mchcinc.org/careers/",
@@ -4761,7 +4761,7 @@ export const californiaFQHCs: CaliforniaFQHC[] = [
     staffCount: "N/A",
     programs: ["Primary Care", "Dental", "Behavioral Health", "Women's Health", "Pediatrics"],
     ehrSystem: "Other",
-    website: "http://stanthonymedical.org",
+    website: "https://stanthonymedical.org",
     description: "St. Anthony Medical Centers (SAMC) is a nonprofit FQHC operating four clinics in underserved areas of Los Angeles including Pico, Hollywood, Imperial, and a Compton/Downtown LA site. The organization provides comprehensive primary care, dental, and behavioral health (psychology and psychiatry) services with a mission to serve the marginalized and uninsured without discrimination, recording over 34,492 patient visits in FY2022-2023.",
     glassdoorRating: 2.8,
     glassdoorReviewCount: 92,

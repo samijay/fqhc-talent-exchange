@@ -4,7 +4,7 @@
 // Each item includes follow-up dates and outcome tracking.
 // Updated via /daily-update pipeline.
 
-export const ADVOCACY_LAST_UPDATED = "2026-04-15";
+export const ADVOCACY_LAST_UPDATED = "2026-04-16";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -782,6 +782,78 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
     sourceOrg: "CHCS / CMS",
     impactLevel: "critical",
     tags: ["cms", "work-requirements", "ifr", "exemptions", "june-2026", "disenrollment"],
+  },
+  {
+    id: "washington-sb5981-pharma-lawsuit-340b-state-precedent",
+    date: "2026-04-15",
+    headline: {
+      en: "PhRMA Sues Washington State Over 340B Contract Pharmacy Law — National Precedent for CA AB 1460 Hinges on Outcome",
+      es: "PhRMA Demanda a Washington por Ley de Farmacia Contratada 340B — El Resultado Establecerá Precedente Nacional para CA AB 1460",
+    },
+    summary: {
+      en: "PhRMA filed suit April 15 against Washington State's SB 5981, which requires drug manufacturers to reimburse 340B covered entities for contract pharmacy purchases. If courts enjoin the law before its June 10 effective date, it will chill similar CA legislative action (AB 1460); if SB 5981 survives, AB 1460 has a significantly clearer path. This is the most consequential 340B state-law precedent for California FQHCs in 2026 — CA FQHCs should monitor the court timeline closely and engage CPCA/CCALAC for updates.",
+      es: "PhRMA presentó demanda el 15 de abril contra la ley SB 5981 de Washington, que requiere que los fabricantes de medicamentos reembolsen a las entidades cubiertas por 340B en compras de farmacias contratadas. El resultado establecerá un precedente nacional crítico para el AB 1460 de California.",
+    },
+    category: "legal-action",
+    status: "in-court",
+    region: "Federal",
+    organizations: ["PhRMA", "Washington State AG", "CPCA", "340B Health"],
+    followUpDate: "2026-06-10",
+    followUpNote: {
+      en: "June 10 = WA SB 5981 effective date. Court must rule on preliminary injunction before then. If no injunction, law takes effect and CA AB 1460 path clears.",
+      es: "El 10 de junio es la fecha de vigencia de SB 5981 de WA. El tribunal debe fallar sobre la medida cautelar antes de esa fecha. Sin medida cautelar, la ley entra en vigor y aclara el camino para CA AB 1460.",
+    },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://www.spokesman.com/stories/2026/apr/15/big-health-industry-group-sues-wa-over-new-drug-pr/",
+    sourceOrg: "Spokesman-Review / PhRMA",
+    impactLevel: "high",
+    affectedOrgSlugs: [],
+    tools: [
+      {
+        label: { en: "Track CA AB 1460", es: "Seguir CA AB 1460" },
+        url: "https://legiscan.com/CA/bill/AB1460/2025",
+      },
+    ],
+    tags: ["340b", "pharma", "lawsuit", "washington-state", "sb5981", "ab1460", "contract-pharmacy", "state-precedent"],
+  },
+  {
+    id: "nachc-in-district-advocacy-week-april-2026",
+    date: "2026-04-14",
+    headline: {
+      en: "NACHC Activates National In-District Advocacy Week April 14–25 — Most Critical Lobbying Window Before Senate Reconciliation Vote",
+      es: "NACHC Activa Semana Nacional de Cabildeo Local del 14 al 25 de Abril — La Ventana de Cabildeo Más Crítica Antes del Voto de Reconciliación del Senado",
+    },
+    summary: {
+      en: "NACHC identified the congressional recess April 14–25 as the critical advocacy window before the Senate reconciliation vote on Medicaid cuts. FQHCs are hosting members of Congress in their clinics to make the case against work requirements, per-capita caps, and FMAP reductions. CPCA is coordinating California health centers for in-district visits. The window closes April 25.",
+      es: "NACHC identificó el receso del Congreso del 14 al 25 de abril como la ventana crítica de cabildeo antes del voto del Senado sobre los recortes a Medicaid. Los FQHCs reciben a congresistas en sus clínicas para argumentar contra los requisitos de trabajo y los recortes de FMAP.",
+    },
+    category: "coalition",
+    status: "active",
+    region: "Federal",
+    organizations: ["NACHC", "CPCA", "CCALAC"],
+    followUpDate: "2026-04-25",
+    followUpNote: {
+      en: "Window closes April 25. After recess, Senate reconciliation markup begins — track NACHC for next action alert.",
+      es: "La ventana cierra el 25 de abril. Después del receso, comienza el marcado de reconciliación del Senado — seguir NACHC para la próxima alerta de acción.",
+    },
+    outcomeDate: null,
+    outcome: null,
+    sourceUrl: "https://www.nachc.org/take-action-for-medicaid-reach-out-to-congress-today/",
+    sourceOrg: "NACHC",
+    impactLevel: "high",
+    affectedOrgSlugs: [],
+    tools: [
+      {
+        label: { en: "Take Action — NACHC", es: "Tomar Acción — NACHC" },
+        url: "https://www.nachc.org/take-action-for-medicaid-reach-out-to-congress-today/",
+      },
+      {
+        label: { en: "CPCA Advocacy Center", es: "Centro de Cabildeo de CPCA" },
+        url: "https://www.cpca.org/advocacy",
+      },
+    ],
+    tags: ["nachc", "advocacy", "congress", "medicaid", "reconciliation", "in-district", "cpca", "senate"],
   },
 ];
 

@@ -4,7 +4,7 @@
 // Last updated: 2026-03-07 (daily update #14, expanded with 20+ FQHCs)
 
 /** Exported for display on pages — updated by /daily-update and /scrape-jobs pipelines */
-export const CAREER_CONFIG_LAST_UPDATED = "2026-04-10";
+export const CAREER_CONFIG_LAST_UPDATED = "2026-04-16";
 
 export interface CareerPageConfig {
   fqhcSlug: string;
@@ -45,7 +45,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "https://altamed.wd1.myworkdayjobs.com/wday/cxs/altamed/Careers/jobs",
     notes:
-      "Largest FQHC in CA. 267 jobs found 2026-04-14 (prev 266, +1 — stable). AltaMed generated $15.1B economic impact (2019-2024), supports 12,000 jobs, serves 465,000 Medi-Cal patients. Abridge AI scribe deployment confirmed. Workday JSON API works. POST with {appliedFacets:{},limit:20,offset:0,searchText:''}.",
+      "Largest FQHC in CA. 265 jobs found 2026-04-16 (prev 272, -7 — slight decline). AltaMed generated $15.1B economic impact (2019-2024), supports 12,000 jobs, serves 465,000 Medi-Cal patients. Abridge AI scribe deployment confirmed. Workday JSON API works.",
   },
   {
     fqhcSlug: "family-health-centers-of-san-diego",
@@ -55,7 +55,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsApiUrl:
       "https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/MAIN/jobs",
     notes:
-      "114 jobs found 2026-04-14 (prev 114, stable, down from 157 peak). DOC (physician) portal currently shows 0 jobs. Blue Shield invested $80K in MA training scholarships at FHCSD Laura Rodriguez MA Institute. Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
+      "107 jobs found 2026-04-16 (prev 108, -1 — stable). DOC (physician) portal currently shows 0 jobs. Blue Shield invested $80K in MA training scholarships at FHCSD Laura Rodriguez MA Institute. Two Workday sites: MAIN and DOC (physicians). DOC endpoint: https://fhcsd.wd1.myworkdayjobs.com/wday/cxs/fhcsd/DOC/jobs",
   },
   {
     fqhcSlug: "asian-health-services",
@@ -64,7 +64,7 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     lastChecked: "2026-03-28",
     atsApiUrl: "https://api.lever.co/v0/postings/ahschc?mode=json",
     notes:
-      "20 jobs found 2026-04-14 (prev 20, stable). Lever slug is 'ahschc'.",
+      "21 jobs found 2026-04-16 (prev 20, +1). Lever slug is 'ahschc'.",
   },
   {
     fqhcSlug: "la-clinica-de-la-raza",
@@ -72,9 +72,9 @@ export const CAREER_PAGE_CONFIGS: CareerPageConfig[] = [
     atsType: "direct",
     lastChecked: "2026-03-28",
     atsApiUrl:
-      "http://laclinica.hrmdirect.com/employment/job-openings.php?search=true&dept=-1&city=-1&state=-1",
+      "https://laclinica.hrmdirect.com/employment/job-openings.php?search=true&dept=-1&city=-1&state=-1",
     notes:
-      "165 jobs found 2026-04-14 (prev 166, -1 — stable). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
+      "162 jobs found 2026-04-16 (prev 165, -3 — slight decline). Uses HRMDirect — server-rendered HTML, scrapeable via WebFetch. No JSON API but standard HTML parsing works.",
   },
 
   // ── ADP Workforce Now (JS-only, not scrapeable) ── ❌

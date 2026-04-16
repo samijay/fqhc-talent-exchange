@@ -5,7 +5,7 @@
 // Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-04-10";
+export const AI_TRACKER_LAST_UPDATED = "2026-04-16";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -1069,6 +1069,150 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     date: "2025-10-01",
     tags: ["san-ysidro-health", "diabetic-retinopathy", "ai-screening", "rct", "point-of-care", "fqhc-specific"],
   },
+  {
+    id: "nachc-scalehealth-2026-accelerator-cohort",
+    title: {
+      en: "NACHC + ScaleHealth 2026 Accelerator: 6 CHC-Vetted AI Startups — RCM, LEP Interpretation, Maternal Health",
+      es: "Acelerador NACHC + ScaleHealth 2026: 6 Startups de IA Evaluadas para CHCs — RCM, Interpretación LEP, Salud Materna",
+    },
+    description: {
+      en: "NACHC and ScaleHealth announced the 2026 Health Center Innovation Accelerator cohort, selecting 6 startups specifically vetted for CHC deployment. Key cohort members: Cair Health (agentic RCM), No Barrier AI (LEP medical interpretation — highly relevant for CA's bilingual patient base), and Delfina Care (maternal health AI). Accelerator completion typically leads to NACHC Select partnership status — making these the most de-risked AI tools for FQHC evaluation in 2026. FQHCs should request demos from cohort members now, before they scale pricing.",
+      es: "NACHC y ScaleHealth anunciaron el cohorte 2026 del Acelerador de Innovación para Centros de Salud, seleccionando 6 startups evaluadas específicamente para despliegue en CHCs, incluyendo Cair Health (RCM agéntico), No Barrier AI (interpretación médica para LEP) y Delfina Care (IA para salud materna).",
+    },
+    category: "revenue-cycle",
+    vendor: "Multiple (Cair Health, No Barrier AI, Delfina Care, others)",
+    partnership: "NACHC / ScaleHealth",
+    metrics: [
+      { label: "Cohort size", value: "6 startups" },
+      { label: "Vetting", value: "NACHC-reviewed for CHC deployment" },
+      { label: "Path", value: "Accelerator → NACHC Select partnership" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.nachc.org/nachc-and-scalehealth-announce-2026-accelerator-cohort-to-drive-innovation-in-community-health-centers/",
+    sourceOrg: "NACHC / ScaleHealth",
+    date: "2026-03-15",
+    tags: ["nachc-accelerator", "cair-health", "no-barrier-ai", "delfina-care", "rcm", "lep", "maternal-health", "vetting"],
+  },
+  {
+    id: "cair-health-agentic-rcm-fqhcs-2026",
+    title: {
+      en: "Cair Health: Agentic AI Automates FQHC Prior Auths and Denial Management — NACHC Accelerator Cohort 2026",
+      es: "Cair Health: IA Agéntica Automatiza Autorizaciones Previas y Gestión de Denegaciones en FQHCs — Cohorte Acelerador NACHC 2026",
+    },
+    description: {
+      en: "Cair Health, selected for the 2026 NACHC Accelerator, uses agentic AI to autonomously handle complex RCM workflows — prior authorizations, claim corrections, and denial management — without constant human oversight. For FQHCs facing sliding-scale revenue compression, automated denial management could recover 3-8% of revenue currently lost to unchallenged denials. Cair specifically targets FQHC PPS billing complexity (encounter-based vs. fee-for-service), which most commercial RCM tools handle poorly. Early pilot data shows meaningful reduction in days-in-AR.",
+      es: "Cair Health, seleccionada para el Acelerador NACHC 2026, utiliza IA agéntica para manejar autónomamente flujos de trabajo complejos de RCM — autorizaciones previas, correcciones de reclamaciones y gestión de denegaciones — sin supervisión humana constante, recuperando potencialmente el 3-8% de ingresos perdidos por denegaciones no contestadas.",
+    },
+    category: "revenue-cycle",
+    vendor: "Cair Health",
+    partnership: "NACHC Accelerator 2026",
+    metrics: [
+      { label: "Use case", value: "Prior auth + denial management + PPS billing" },
+      { label: "Recovery potential", value: "3-8% of revenue from unchallenged denials" },
+      { label: "Differentiation", value: "Built for FQHC PPS billing complexity" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.hcinnovationgroup.com/clinical-it/digital-health-innovation/news/55363209/six-startups-join-community-health-center-tech-accelerator",
+    sourceOrg: "HCI Innovation Group / NACHC",
+    date: "2026-03-15",
+    tags: ["cair-health", "rcm", "prior-auth", "denial-management", "pps-billing", "agentic-ai", "revenue-recovery"],
+  },
+  {
+    id: "delfina-care-ai-maternal-health-fqhcs-2026",
+    title: {
+      en: "Delfina Care: AI Maternal Health Platform Reports 38% Reduction in Preterm Birth Across FQHC Network",
+      es: "Delfina Care: Plataforma de IA para Salud Materna Reporta Reducción del 38% en Partos Prematuros en Red FQHC",
+    },
+    description: {
+      en: "Delfina Care's 2025 Year in Review reports 38% reduction in preterm birth and 42% reduction in postpartum complications across FQHC network deployments. The platform uses AI-driven risk stratification to identify high-risk pregnancies earlier, enabling targeted interventions during prenatal visits. For California FQHCs — where Medi-Cal covers 50%+ of births and preterm birth rates among Medi-Cal enrollees run higher than commercial populations — Delfina represents a high-ROI clinical AI opportunity with direct HEDIS/quality measure impact and potential pay-for-quality revenue.",
+      es: "Delfina Care reporta reducción del 38% en partos prematuros y 42% en complicaciones posparto en sus despliegues de red FQHC, utilizando estratificación de riesgo con IA para identificar embarazos de alto riesgo más temprano con impacto directo en medidas de calidad HEDIS.",
+    },
+    category: "care-coordination",
+    vendor: "Delfina Care",
+    partnership: "NACHC Accelerator 2026",
+    metrics: [
+      { label: "Preterm birth reduction", value: "38%" },
+      { label: "Postpartum complication reduction", value: "42%" },
+      { label: "FQHC relevance", value: "Medi-Cal covers 50%+ of CA births" },
+    ],
+    adoptionStage: "expanding",
+    sourceUrl: "https://www.delfina.com/resource/2025-at-delfina",
+    sourceOrg: "Delfina Care",
+    date: "2026-01-15",
+    tags: ["delfina-care", "maternal-health", "preterm-birth", "risk-stratification", "hedis", "quality-measures", "medi-cal-births"],
+  },
+  {
+    id: "jama-ai-scribe-large-study-modest-savings-2026",
+    title: {
+      en: "JAMA: Large-Scale AI Scribe Study Shows 16 Min/Day Savings — High-Frequency Users Get 2–3x Benefit",
+      es: "JAMA: Gran Estudio de Escriba de IA Muestra Ahorro de 16 Min/Día — Usuarios de Alta Frecuencia Obtienen 2–3x el Beneficio",
+    },
+    description: {
+      en: "A large JAMA study published April 2026 (covering multiple health systems with thousands of clinicians) found AI ambient scribes save an average of 16 minutes of documentation time per day — modest but consistent. Key finding: clinicians who used AI scribes for 50%+ of encounters realized 2-3x the benefit (32-48 min/day). For FQHCs: 16 min/day × $85/hr = ~$23/day per clinician; a 10-provider FQHC could recover ~$57K/year. Implementation strategy (driving high-frequency adoption) matters more than tool selection. No significant increase in diagnostic errors or billing upcoding at scale was found.",
+      es: "Un gran estudio en JAMA encontró que los escribas de IA ambientales ahorran en promedio 16 minutos de documentación por día, con usuarios de alta frecuencia (50%+ de encuentros) obteniendo 2-3 veces el beneficio — datos de referencia clave para que los FQHCs calculen el ROI de adopción de escribas.",
+    },
+    category: "clinical-documentation",
+    vendor: "Multiple (ambient scribe category)",
+    partnership: null,
+    metrics: [
+      { label: "Average time savings", value: "16 min/day per clinician" },
+      { label: "High-frequency user savings", value: "32–48 min/day (50%+ encounter use)" },
+      { label: "10-provider FQHC ROI", value: "~$57K/year at $85/hr clinical rate" },
+    ],
+    adoptionStage: "widely-adopted",
+    sourceUrl: "https://www.statnews.com/2026/04/01/ai-ambient-scribes-modest-time-savings-clinical-documentation/",
+    sourceOrg: "JAMA / STAT News",
+    date: "2026-04-01",
+    tags: ["ambient-scribe", "roi", "jama", "time-savings", "documentation", "high-frequency-use", "evidence-base"],
+  },
+  {
+    id: "no-barrier-ai-medical-interpretation-150-sites-2026",
+    title: {
+      en: "No Barrier AI: Real-Time Speech-to-Speech Medical Interpretation Deploys at 150+ Sites, Joins NACHC Accelerator",
+      es: "No Barrier AI: Interpretación Médica de Voz a Voz en Tiempo Real en más de 150 Sitios, Ingresa al Acelerador de NACHC",
+    },
+    description: {
+      en: "No Barrier AI provides real-time AI speech-to-speech medical interpretation, replacing in-person and phone interpreters for Limited English Proficient patients. Deployed at 150+ medical sites including Community Clinic NWA (an FQHC network). Selected for NACHC Accelerator 2026. Raised $2.7M seed in Nov 2025. Directly addresses CA FQHCs where 20-25% of patients are LEP — eliminates interpreter scheduling delays, reduces per-encounter cost, and improves documentation accuracy. Particularly relevant for CA FQHCs with Spanish, Vietnamese, Khmer, and Tagalog-speaking patient populations.",
+      es: "No Barrier AI proporciona interpretación médica de voz a voz en tiempo real para pacientes con dominio limitado del inglés. Implementado en 150+ sitios médicos, seleccionado para el Acelerador NACHC 2026. Directamente relevante para FQHCs de CA donde el 20-25% de los pacientes son LEP.",
+    },
+    category: "care-coordination",
+    vendor: "No Barrier AI",
+    partnership: "NACHC Accelerator 2026 (ScaleHealth cohort)",
+    metrics: [
+      { label: "Deployment sites", value: "150+" },
+      { label: "FQHC LEP patient share (national)", value: "20–25%" },
+      { label: "Seed funding raised", value: "$2.7M (Nov 2025)" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.nobarrier.ai/post/nachc-accelerator-2026",
+    sourceOrg: "No Barrier AI / NACHC",
+    date: "2026-03-09",
+    tags: ["language-access", "interpretation", "lep", "nachc-accelerator", "bilingual", "speech-to-speech"],
+  },
+  {
+    id: "aha-dragon-copilot-nursing-2-hours-per-shift-2026",
+    title: {
+      en: "AHA: Dragon Copilot Saves Nurses ~2 Hours Per 12-Hour Shift — 6 Health Systems Quantify Ambient AI Gains",
+      es: "AHA: Dragon Copilot Ahorra ~2 Horas por Turno de 12 Horas a Enfermeros — 6 Sistemas de Salud Cuantifican Ganancias de IA Ambiental",
+    },
+    description: {
+      en: "AHA's April 14, 2026 market scan documents quantified ambient AI scribe results at 6 major health systems. Key FQHC-relevant finding: Mercy Health (Dragon Copilot) reduced nursing documentation by ~2 hours per 12-hour shift — a new data point for FQHCs with large RN/LVN documentation burdens. Other results: Cleveland Clinic (Ambience) 14 min/day cut, Cooper University 4.15 min/patient, Intermountain 27% note time reduction. Dragon Copilot's nursing module is distinct from physician-facing scribes and could offer significant ROI for FQHC care coordination teams.",
+      es: "El análisis de mercado de la AHA del 14 de abril de 2026 documenta resultados cuantificados de escribas de IA en 6 grandes sistemas de salud. Hallazgo clave: Dragon Copilot redujo la documentación de enfermería en ~2 horas por turno de 12 horas — relevante para FQHCs con grandes cargas de documentación de RN/LVN.",
+    },
+    category: "clinical-documentation",
+    vendor: "Dragon Copilot (Microsoft/Nuance)",
+    partnership: null,
+    metrics: [
+      { label: "Nursing documentation reduction (Mercy)", value: "~2 hrs per 12-hr shift" },
+      { label: "Time savings per patient (Cooper)", value: "4.15 min/patient" },
+      { label: "Note time reduction (Intermountain)", value: "27%" },
+    ],
+    adoptionStage: "expanding",
+    sourceUrl: "https://www.aha.org/aha-center-health-innovation-market-scan/2026-04-14-6-health-systems-enhancing-care-delivery-ambient-ai-scribes",
+    sourceOrg: "American Hospital Association",
+    date: "2026-04-14",
+    tags: ["ambient-scribe", "nursing", "dragon-copilot", "documentation", "aha", "rn", "lvn"],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -1468,8 +1612,9 @@ export const FQHC_AI_VENDORS: AIVendor[] = [
       en: "Use this BEFORE selecting any AI vendor. The CHAI-NACHC framework helps FQHCs ask the right questions, evaluate equity implications, and avoid costly vendor lock-in.",
       es: "Úsalo ANTES de seleccionar cualquier proveedor de IA. El marco CHAI-NACHC ayuda a los FQHCs a hacer las preguntas correctas, evaluar las implicaciones de equidad y evitar el bloqueo costoso de proveedores.",
     },
-  },
+  }
 ];
+
 
 export const VENDOR_CATEGORY_LABELS: Record<VendorCategory, { en: string; es: string; icon: string }> = {
   "ambient-documentation": { en: "Ambient Documentation", es: "Documentación Ambiental", icon: "🎙️" },

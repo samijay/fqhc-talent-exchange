@@ -5,21 +5,21 @@ import { X, Sparkles } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
-const DISMISS_KEY = "announcement-dismissed-v14";
+const DISMISS_KEY = "announcement-dismissed-v15";
 
 const BANNER_ITEMS = [
   {
     text: {
-      en: "FY2027 budget proposes 54% cut to Health Center Program: $6.5B \u2192 $3B",
-      es: "Presupuesto FY2027 propone recorte del 54% al Programa de Centros de Salud: $6.5B \u2192 $3B",
+      en: "H.R. 1 passed: federal Medicaid match ends Oct 1 for DACA, asylees & refugees — distinct from undocumented freeze",
+      es: "H.R. 1 aprobada: fondos federales de Medicaid terminan Oct 1 para DACA, asilados y refugiados",
     },
     linkText: { en: "Intel Dashboard →", es: "Panel de Inteligencia →" },
     href: "/" as const,
   },
   {
     text: {
-      en: "KFF: CA faces $22B deficit by FY2028 + 1.4M Medicaid disenrollments from work requirements",
-      es: "KFF: CA enfrenta déficit de $22B para FY2028 + 1.4M cancelaciones de Medicaid por requisitos de trabajo",
+      en: "FY2027 budget proposes 54% cut to Health Center Program: $6.5B \u2192 $3B",
+      es: "Presupuesto FY2027 propone recorte del 54% al Programa de Centros de Salud: $6.5B \u2192 $3B",
     },
     linkText: { en: "Full Analysis →", es: "Análisis Completo →" },
     href: "/" as const,
