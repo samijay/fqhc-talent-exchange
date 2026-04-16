@@ -10,7 +10,7 @@ import {
 } from "./fqhc-advocacy-tracker";
 import { californiaFQHCs } from "./california-fqhcs";
 
-export const LABOR_LAST_UPDATED = "2026-04-15";
+export const LABOR_LAST_UPDATED = "2026-04-16";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -686,6 +686,108 @@ export const LABOR_CASES: LaborCase[] = [
     sourceOrg: "NLRB",
     additionalSources: [],
     tags: ["nlrb", "bad-faith-bargaining", "retaliation", "central-valley", "stockton", "cmc"],
+  },
+  {
+    id: "st-johns-seiu-721-contract-ratification-2026",
+    title: {
+      en: "St. John's Community Health + SEIU 721: $30/hr Minimum Wage — New SoCal FQHC Benchmark",
+      es: "St. John's Community Health + SEIU 721: Salario Mínimo de $30/hr — Nuevo Referente de FQHC en SoCal",
+    },
+    summary: {
+      en: "SEIU 721 and St. John's Community Health reached a tentative 3-year CBA with an industry-leading $30/hr minimum wage (up from $25 — a 20% increase), a new longevity tier, Juneteenth as a paid holiday, and increased vacation flexibility. The bargaining team unanimously recommended ratification; the vote occurred early April 2026. St. John's (24 sites + 4 mobile clinics) has maintained a cooperative union relationship for 15+ years. The $30/hr floor is the first confirmed at any California FQHC, setting a benchmark that will pressure other LA-area FQHCs with SEIU representation — particularly as SB 525 raises the FQHC minimum to $22/hr in July 2026 and $25/hr in July 2027.",
+      es: "SEIU 721 y St. John's Community Health alcanzaron un CBA tentativo de 3 años con salario mínimo de $30/hr (aumento del 20% desde $25), nuevo nivel de antigüedad y Juneteenth como día festivo pagado. Es el primer $30/hr confirmado en un FQHC de California — establece un referente que presionará a otros FQHCs del área de LA con representación de SEIU.",
+    },
+    caseType: "contract-negotiation",
+    status: "resolved",
+    posture: "partnership",
+    parties: {
+      unions: ["SEIU Local 721"],
+      employers: ["St. John's Community Health"],
+      agencies: [],
+    },
+    region: "Los Angeles",
+    impactLevel: "high",
+    timeline: [
+      { date: "2026-03-31", description: { en: "Tentative agreement announced — bargaining team unanimously recommends yes", es: "Acuerdo tentativo anunciado — equipo de negociación recomienda aprobación por unanimidad" }, sourceUrl: "https://www.seiu721.org/2026/03/2026-st-johns-community-health-contract-vote.php" },
+      { date: "2026-04-07", description: { en: "Ratification vote held (estimated early April); contract effective July 2026 (estimated)", es: "Votación de ratificación realizada (estimado inicio de abril); contrato efectivo julio 2026 (estimado)" }, sourceUrl: "https://www.seiu721.org/2026/03/2026-st-johns-community-health-contract-vote.php" },
+    ],
+    nextMilestone: { date: "2026-07-01", description: { en: "Contract implementation — $30/hr minimum wage takes effect (estimated)", es: "Implementación del contrato — salario mínimo de $30/hr entra en vigor (estimado)" } },
+    affectedFqhcSlugs: ["st-johns-community-health"],
+    relatedUnionIds: ["seiu-721"],
+    relatedIntelIds: [],
+    relatedAdvocacyIds: [],
+    sourceUrl: "https://www.seiu721.org/2026/03/2026-st-johns-community-health-contract-vote.php",
+    sourceOrg: "SEIU 721",
+    additionalSources: [],
+    tags: ["seiu-721", "contract-ratification", "30-dollar-minimum-wage", "los-angeles", "st-johns", "partnership", "sb-525", "benchmark"],
+  },
+  {
+    id: "ahs-seiu-1021-contract-expiration-june-2026",
+    title: {
+      en: "Asian Health Services CBA Expires June 30, 2026 — Contract Renewal at Financially Distressed FQHC",
+      es: "Convenio Colectivo de Asian Health Services Vence el 30 de Junio de 2026 — Renovación en FQHC con Crisis Financiera",
+    },
+    summary: {
+      en: "Asian Health Services' General Unit and Specialty Mental Health Unit CBAs with SEIU Local 1021 both expire June 30, 2026. This creates a dangerous compounded crisis: AHS faces a projected August 2026 cash runout (tracked in `ahs-seiu-1021-layoff-crisis`), and its $91.7M deficit makes it nearly impossible to offer meaningful wage increases. SEIU 1021 won an historic 21% average raise in the 2023 contract — management cannot credibly repeat that. If AHS undergoes merger or acquisition, SEIU 1021 successor clause rights become the central legal issue. Bargaining should begin by April–May 2026 if it has not already.",
+      es: "Los convenios colectivos de AHS con SEIU 1021 vencen el 30 de junio de 2026, justo cuando AHS enfrenta agotamiento de efectivo proyectado para agosto. El déficit de $91.7M hace imposible aumentos salariales significativos. Si AHS se fusiona, los derechos de cláusula sucesoria de SEIU 1021 son el problema legal central.",
+    },
+    caseType: "contract-negotiation",
+    status: "negotiating",
+    posture: "neutral",
+    parties: {
+      unions: ["SEIU Local 1021"],
+      employers: ["Asian Health Services"],
+      agencies: [],
+    },
+    region: "Bay Area",
+    impactLevel: "high",
+    timeline: [
+      { date: "2023-01-01", description: { en: "Current 2023–2026 CBA ratified — included 21% average wage increase", es: "CBA 2023-2026 ratificado — incluyó aumento salarial promedio del 21%" }, sourceUrl: "https://www.seiu1021.org/asian-health-services" },
+      { date: "2026-06-30", description: { en: "Contract expiration — bargaining must begin", es: "Vencimiento del contrato — negociaciones deben comenzar" }, sourceUrl: "https://www.seiu1021.org/asian-health-services" },
+    ],
+    nextMilestone: { date: "2026-06-30", description: { en: "Contract expiration — if no new agreement, workers may be on expired contract while FQHC faces August cash runout", es: "Vencimiento del contrato — sin nuevo acuerdo, trabajadores continuarían bajo contrato vencido mientras FQHC enfrenta agotamiento de efectivo en agosto" } },
+    affectedFqhcSlugs: ["asian-health-services"],
+    relatedUnionIds: ["seiu-1021"],
+    relatedIntelIds: [],
+    relatedAdvocacyIds: [],
+    sourceUrl: "https://www.seiu1021.org/asian-health-services",
+    sourceOrg: "SEIU 1021",
+    additionalSources: [],
+    tags: ["seiu-1021", "contract-expiration", "asian-health-services", "bay-area", "financial-distress", "successor-clause", "june-2026"],
+  },
+  {
+    id: "ab-288-perb-private-sector-jurisdiction",
+    title: {
+      en: "AB 288 (CA PERB Private-Sector Backstop) Partially Enjoined — Appeal Determines FQHC Labor Enforcement Fallback",
+      es: "AB 288 (Respaldo del PERB de CA para Sector Privado) Parcialmente Restringido — Apelación Determina Alternativa de Aplicación Laboral para FQHCs",
+    },
+    summary: {
+      en: "Governor Newsom signed AB 288 in September 2025 to allow California's PERB to process unfair labor practice charges and conduct union elections for private-sector employers — including FQHCs — when the NLRB cannot act, lacks a quorum, or faces significant delays. A federal judge issued a partial preliminary injunction on December 26, 2025, blocking PERB from stepping in for cases where the NLRB is merely delayed or lacks a quorum (on federal preemption grounds). The law is on appeal to the 9th Circuit. If AB 288 survives appeal, California can enforce labor law at FQHCs even if the NLRB is defunded or paralyzed under the current federal administration — a critical backstop for organizing drives like Innercare. If struck down, FQHCs facing organizing would have reduced oversight.",
+      es: "AB 288 permite al PERB de California procesar cargos de prácticas laborales injustas y realizar elecciones sindicales para empleadores privados (incluidos FQHCs) cuando el NLRB no pueda actuar. Un juez federal emitió una medida cautelar parcial el 26 de diciembre de 2025; la ley está en apelación ante el 9no Circuito. Si sobrevive, California puede aplicar la ley laboral en FQHCs incluso si el NLRB federal es paralizado.",
+    },
+    caseType: "legislation",
+    status: "appealed",
+    posture: "contested",
+    parties: {
+      unions: ["California Labor Federation", "SEIU"],
+      employers: ["CA Chamber of Commerce (opposing)"],
+      agencies: ["PERB", "NLRB", "9th Circuit Court of Appeals"],
+    },
+    region: "California",
+    impactLevel: "high",
+    timeline: [
+      { date: "2025-09-01", description: { en: "Governor Newsom signs AB 288 — PERB private-sector jurisdiction law", es: "Gobernador Newsom firma AB 288 — ley de jurisdicción del PERB para sector privado" }, sourceUrl: "https://calemploymentlawupdate.proskauer.com/2026/01/halted-federal-judge-blocks-enforcement-of-californias-newly-enacted-labor-law/" },
+      { date: "2025-12-26", description: { en: "Federal court issues partial preliminary injunction blocking PERB from acting when NLRB is merely delayed or lacks quorum", es: "Tribunal federal emite medida cautelar preliminar parcial que impide al PERB actuar cuando el NLRB solo tiene demoras o falta quórum" }, sourceUrl: "https://calemploymentlawupdate.proskauer.com/2026/01/halted-federal-judge-blocks-enforcement-of-californias-newly-enacted-labor-law/" },
+    ],
+    nextMilestone: { date: "2026-12-31", description: { en: "9th Circuit appeal ruling (date TBD) — determines whether CA can enforce labor law at FQHCs if NLRB is weakened", es: "Fallo de apelación del 9no Circuito (fecha por determinar) — determina si CA puede aplicar la ley laboral en FQHCs si el NLRB es debilitado" } },
+    affectedFqhcSlugs: [],
+    relatedUnionIds: [],
+    relatedIntelIds: [],
+    relatedAdvocacyIds: [],
+    sourceUrl: "https://calemploymentlawupdate.proskauer.com/2026/01/halted-federal-judge-blocks-enforcement-of-californias-newly-enacted-labor-law/",
+    sourceOrg: "California Employment Law Update (Proskauer)",
+    additionalSources: [],
+    tags: ["ab-288", "perb", "nlrb", "private-sector", "jurisdiction", "injunction", "9th-circuit", "appeal", "statewide"],
   },
 ];
 
