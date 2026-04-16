@@ -5358,6 +5358,46 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: [],
     tags: ["merger", "acquisition", "consolidation", "hospital", "financial-distress", "referral-network"],
   },
+  {
+    id: "federal-register-work-requirements-flexibility-rule-march-2026",
+    type: "news",
+    category: "legislation",
+    impactLevel: "high",
+    date: "2026-03-02",
+    headline: {
+      en: "Federal Register Rule Grants States Flexibility to Implement Medicaid Work Requirements Before January 2027 Deadline",
+      es: "Regla del Registro Federal Otorga a los Estados Flexibilidad para Implementar Requisitos Laborales de Medicaid Antes del Plazo de Enero 2027",
+    },
+    summary: {
+      en: "An HHS rule published March 2, 2026 in the Federal Register (document 2026-04095) gives any state flexibility to implement Medicaid work requirements before the January 2027 federal statutory deadline — legally enabling Nebraska's May 1 launch and opening the door for Arizona, Nevada, or other states to move early. California FQHCs should monitor whether adjacent states activate, as each early-implementing state becomes the national warning data set for what arrives here in 2027.",
+      es: "Una regla del HHS publicada el 2 de marzo de 2026 en el Registro Federal otorga a los estados flexibilidad para implementar requisitos laborales de Medicaid antes del plazo federal de enero 2027, habilitando el lanzamiento de Nebraska el 1 de mayo y abriendo la puerta a otros estados.",
+    },
+    sourceUrl: "https://www.federalregister.gov/documents/2026/03/02/2026-04095/establishing-flexibility-for-implementation-of-work-requirements-and-term-limits",
+    sourceOrg: "Federal Register / HHS",
+    region: "Federal",
+    affectedOrgs: [],
+    tags: ["work-requirements", "medicaid", "federal-register", "hhs", "states", "early-implementation", "nebraska", "january-2027"],
+  },
+  {
+    id: "sb-1422-committee-hearing-april-20-2026",
+    type: "news",
+    category: "legislation",
+    impactLevel: "high",
+    date: "2026-04-20",
+    headline: {
+      en: "SB 1422 Committee Hearing April 20 — Bill to Restore Full Medi-Cal for Undocumented Adults Faces Critical Gate",
+      es: "Audiencia de Comité del SB 1422 el 20 de Abril — Proyecto para Restaurar Medi-Cal para Adultos Indocumentados Enfrenta Puerta Crítica",
+    },
+    summary: {
+      en: "Sen. Durazo's SB 1422 — which would restore full Medi-Cal eligibility for undocumented adults, reversing the January 2026 enrollment freeze — reaches its first committee hearing April 20, 2026. CPCA and health center advocates are expected to testify. If the bill advances, FQHCs could see UIS patient revenue restored by 2027; if it stalls, the PPS payment elimination for undocumented patients is entrenched through at least the end of the current legislative session.",
+      es: "El SB 1422 de la Senadora Durazo para restaurar la elegibilidad plena de Medi-Cal para adultos indocumentados alcanza su primera audiencia de comité el 20 de abril. CPCA y defensores de centros de salud se espera que testifiquen — la puerta procesal más crítica antes de la posible implementación en 2027.",
+    },
+    sourceUrl: "https://calmatters.digitaldemocracy.org/bills/ca_202520260sb1422",
+    sourceOrg: "CalMatters Digital Democracy",
+    region: "California",
+    affectedOrgs: [],
+    tags: ["sb-1422", "medi-cal", "undocumented", "uis", "durazo", "cpca", "committee-hearing", "pps"],
+  },
 ];
 
 /* ------------------------------------------------------------------ */
