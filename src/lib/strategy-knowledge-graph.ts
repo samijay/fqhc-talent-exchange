@@ -758,8 +758,8 @@ export const strategicThemes: StrategicTheme[] = [
       es: "Acceso al Paciente y Equidad en Salud",
     },
     subtitle: {
-      en: "Serving the underserved in an uncertain political landscape",
-      es: "Sirviendo a los desatendidos en un panorama político incierto",
+      en: "Serving communities that deserve better resources in an uncertain political landscape",
+      es: "Sirviendo a comunidades que merecen mejores recursos en un panorama político incierto",
     },
     description: {
       en: "Undocumented patients gained full-scope Medi-Cal, then face H.R. 1 verification requirements that could reverse coverage. LGBTQ+ health access faces political headwinds. Immigrant communities fear seeking care. FQHCs are the last line of defense — and must adapt access models to serve communities regardless of coverage status.",

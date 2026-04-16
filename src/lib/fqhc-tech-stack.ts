@@ -1383,8 +1383,8 @@ export const TECH_VENDORS: TechVendor[] = [
     },
     category: "patient-engagement",
     description: {
-      en: "CareMessage is a 501(c)(3) nonprofit building the largest patient engagement platform for underserved populations. Serves 400+ safety-net organizations across 45 states, reaching 10 million patients. SMS-based — works for patients without smartphones. 60+ language support.",
-      es: "CareMessage es una organizacion sin fines de lucro 501(c)(3) que construye la plataforma de participacion de pacientes mas grande para poblaciones desatendidas.",
+      en: "CareMessage is a 501(c)(3) nonprofit building the largest patient engagement platform for under-resourced populations. Serves 400+ safety-net organizations across 45 states, reaching 10 million patients. SMS-based — works for patients without smartphones. 60+ language support.",
+      es: "CareMessage es una organizacion sin fines de lucro 501(c)(3) que construye la plataforma de participacion de pacientes mas grande para poblaciones con acceso limitado a la atenci\u00f3n.",
     },
     pricingModel: "custom",
     pricingRange: null,
@@ -1651,7 +1651,7 @@ export const TECH_STACK_PROFILES: TechStackProfile[] = [
       { category: "compliance-audit", vendorId: "medtrainer", note: "Enterprise compliance" },
       { category: "patient-engagement", vendorId: "luma-health", note: "AI-powered access" },
       { category: "patient-engagement", vendorId: "phreesia", note: "Enterprise intake + SDOH" },
-      { category: "patient-engagement", vendorId: "caremessage", note: "SMS for underserved populations" },
+      { category: "patient-engagement", vendorId: "caremessage", note: "SMS for under-resourced populations" },
     ],
   },
 ];

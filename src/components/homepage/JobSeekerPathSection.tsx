@@ -20,30 +20,30 @@ export function JobSeekerPathSection({ totalJobs, totalOrgs, totalSalaryRoles }:
         <div className="mb-10 flex items-center gap-3">
           <div className="h-8 w-1 rounded-full bg-amber-500" />
           <h2 className="text-2xl font-bold text-stone-900 sm:text-3xl dark:text-stone-100">
-            {isEs ? "Para Buscadores de Empleo" : "For Job Seekers"}
+            {isEs ? "Para Profesionales de Salud Comunitaria" : "For Community Health Professionals"}
           </h2>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-3 sm:gap-6 stagger-children">
-          {/* Card 1: Open Positions */}
+          {/* Card 1: Free Career Tools — leads the career readiness positioning */}
           <Link
-            href="/jobs"
-            className="group rounded-xl border-2 border-emerald-200 dark:border-emerald-700 dark:hover:border-emerald-500 bg-stone-50 p-6 transition-all duration-200 dark:bg-stone-800 hover:border-emerald-400 hover:shadow-lg hover:-translate-y-0.5"
+            href="/career-insights"
+            className="group rounded-xl border-2 border-amber-200 dark:border-amber-700 dark:hover:border-amber-500 bg-stone-50 p-6 transition-all duration-200 dark:bg-stone-800 hover:border-amber-400 hover:shadow-lg hover:-translate-y-0.5"
           >
-            <Briefcase className="mb-3 size-6 text-emerald-600" />
-            <p className="text-xs font-bold uppercase tracking-wider text-emerald-600">
-              {isEs ? "Posiciones Abiertas" : "Open Positions"}
+            <Wrench className="mb-3 size-6 text-amber-600" />
+            <p className="text-xs font-bold uppercase tracking-wider text-amber-600">
+              {isEs ? "Herramientas Gratuitas" : "Free Career Tools"}
             </p>
-            <p className="mt-2 text-3xl font-extrabold text-stone-900 dark:text-stone-100">
-              {totalJobs.toLocaleString()}+
-            </p>
-            <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
+            <p className="mt-2 text-sm font-semibold leading-snug text-stone-900 dark:text-stone-100">
               {isEs
-                ? `En ${totalOrgs}+ FQHCs en 9 regiones de CA`
-                : `Across ${totalOrgs}+ FQHCs in 9 CA regions`}
+                ? "Evaluación de Carrera, Constructor de CV, Prep de Entrevistas"
+                : "Career Assessment, Resume Builder, Interview Prep"}
             </p>
-            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
-              {isEs ? "Buscar empleos" : "Browse jobs"} <ArrowRight className="size-3" />
+            <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">
+              {isEs ? "Sin registro requerido" : "No login required"}
+            </p>
+            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-amber-600 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+              {isEs ? "Comenzar" : "Start building"} <ArrowRight className="size-3" />
             </span>
           </Link>
 
@@ -69,25 +69,25 @@ export function JobSeekerPathSection({ totalJobs, totalOrgs, totalSalaryRoles }:
             </span>
           </Link>
 
-          {/* Card 3: Free Career Tools */}
+          {/* Card 3: Open Positions */}
           <Link
-            href="/resume-builder"
-            className="group rounded-xl border-2 border-amber-200 dark:border-amber-700 dark:hover:border-amber-500 bg-stone-50 p-6 transition-all duration-200 dark:bg-stone-800 hover:border-amber-400 hover:shadow-lg hover:-translate-y-0.5"
+            href="/jobs"
+            className="group rounded-xl border-2 border-emerald-200 dark:border-emerald-700 dark:hover:border-emerald-500 bg-stone-50 p-6 transition-all duration-200 dark:bg-stone-800 hover:border-emerald-400 hover:shadow-lg hover:-translate-y-0.5"
           >
-            <Wrench className="mb-3 size-6 text-amber-600" />
-            <p className="text-xs font-bold uppercase tracking-wider text-amber-600">
-              {isEs ? "Herramientas Gratuitas" : "Free Career Tools"}
+            <Briefcase className="mb-3 size-6 text-emerald-600" />
+            <p className="text-xs font-bold uppercase tracking-wider text-emerald-600">
+              {isEs ? "Posiciones Abiertas" : "Open Positions"}
             </p>
-            <p className="mt-2 text-sm font-semibold leading-snug text-stone-900 dark:text-stone-100">
+            <p className="mt-2 text-3xl font-extrabold text-stone-900 dark:text-stone-100">
+              {totalJobs.toLocaleString()}+
+            </p>
+            <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
               {isEs
-                ? "Constructor de CV, Evaluacion de Carrera, Prep de Entrevistas"
-                : "Resume Builder, Career Assessment, Interview Prep"}
+                ? `En ${totalOrgs}+ FQHCs en 9 regiones de CA`
+                : `Across ${totalOrgs}+ FQHCs in 9 CA regions`}
             </p>
-            <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">
-              {isEs ? "Sin registro requerido" : "No login required"}
-            </p>
-            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-amber-600 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
-              {isEs ? "Comenzar" : "Start building"} <ArrowRight className="size-3" />
+            <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+              {isEs ? "Buscar empleos" : "Browse jobs"} <ArrowRight className="size-3" />
             </span>
           </Link>
         </div>
@@ -97,7 +97,7 @@ export function JobSeekerPathSection({ totalJobs, totalOrgs, totalSalaryRoles }:
           {[
             { href: "/career-roadmap" as const, en: "Career Roadmap", es: "Ruta de Carrera" },
             { href: "/certifications" as const, en: "Certifications", es: "Certificaciones" },
-            { href: "/compare" as const, en: "Compare FQHCs", es: "Comparar FQHCs" },
+            { href: "/career-insights" as const, en: "Career Assessment", es: "Evaluación de Carrera" },
             { href: "/pathway" as const, en: "Learning Pathway", es: "Ruta de Aprendizaje" },
             { href: "/interview-prep" as const, en: "Interview Prep", es: "Prep de Entrevista" },
           ].map((link) => (

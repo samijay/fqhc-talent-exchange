@@ -253,6 +253,7 @@ export const THOUGHT_LEADERS: ThoughtLeader[] = [
   },
   {
     id: "lei-chou-thao",
+
     name: "Lei Chou Thao",
     title: {
       en: "President & CEO, AAPCHO",
@@ -261,7 +262,7 @@ export const THOUGHT_LEADERS: ThoughtLeader[] = [
     organization: "Association of Asian Pacific Community Health Organizations",
     category: "state-pca",
     bio: {
-      en: "Lei Chou Thao leads AAPCHO, the national organization representing community health centers serving Asian American, Native Hawaiian, and Pacific Islander communities. AAPCHO provides technical assistance, conducts health disparities research, and advocates for linguistically and culturally appropriate care across the safety net. Thao brings deep expertise in health equity for underserved API populations.",
+      en: "Lei Chou Thao leads AAPCHO, the national organization representing community health centers serving Asian American, Native Hawaiian, and Pacific Islander communities. AAPCHO provides technical assistance, conducts health disparities research, and advocates for linguistically and culturally appropriate care across the safety net. Thao brings deep expertise in health equity for under-resourced API populations.",
       es: "Lei Chou Thao lidera AAPCHO, la organizacion nacional que representa centros de salud comunitarios que atienden a comunidades asiatico-americanas, nativas de Hawai e islenas del Pacifico. AAPCHO proporciona asistencia tecnica, realiza investigaciones sobre disparidades de salud y aboga por atencion linguistica y culturalmente apropiada.",
     },
     whyFollow: {
@@ -508,8 +509,8 @@ export const THOUGHT_LEADERS: ThoughtLeader[] = [
       es: "El Dr. Atul Grover es Vicepresidente Ejecutivo de la Asociacion de Facultades de Medicina Americanas, donde lidera investigacion y politica sobre la linea de produccion de fuerza laboral medica. Su trabajo en financiamiento GME y proyecciones de oferta medica da forma directamente a la disponibilidad de medicos para FQHCs.",
     },
     whyFollow: {
-      en: "FQHCs compete for physicians from the same pipeline that AAMC tracks. Grover's workforce projections tell you how tight the physician market will be in 3-5 years, and his GME policy positions affect whether new residency slots get created in underserved areas. If you are planning workforce strategy or pursuing Teaching Health Center funding, his work is essential context.",
-      es: "Los FQHCs compiten por medicos de la misma linea de produccion que AAMC rastrea. Las proyecciones de Grover indican cuan competitivo sera el mercado medico en 3-5 anos, y sus posiciones sobre GME afectan si se crean nuevas plazas de residencia en areas desatendidas.",
+      en: "FQHCs compete for physicians from the same pipeline that AAMC tracks. Grover's workforce projections tell you how tight the physician market will be in 3-5 years, and his GME policy positions affect whether new residency slots get created in under-resourced areas. If you are planning workforce strategy or pursuing Teaching Health Center funding, his work is essential context.",
+      es: "Los FQHCs compiten por medicos de la misma linea de produccion que AAMC rastrea. Las proyecciones de Grover indican cuan competitivo sera el mercado medico en 3-5 anos, y sus posiciones sobre GME afectan si se crean nuevas plazas de residencia en areas con acceso limitado.",
     },
     orgUrl: "https://www.aamc.org",
     photoPlaceholder: "AG",

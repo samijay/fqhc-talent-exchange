@@ -780,7 +780,7 @@ export const PULSE_003: PulseContent = {
   featuredPost: {
     title: "10 FQHC Interview Questions They Will Ask",
     excerpt:
-      "Mission alignment, cultural humility, underserved community experience. Free prep tool with STAR framework examples and role-specific coaching.",
+      "Mission alignment, cultural humility, under-resourced community experience. Free prep tool with STAR framework examples and role-specific coaching.",
     url: "https://www.fqhctalent.com/interview-prep",
   },
 

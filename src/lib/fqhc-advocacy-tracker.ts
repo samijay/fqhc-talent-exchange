@@ -419,8 +419,8 @@ export const ADVOCACY_ACTIONS: AdvocacyAction[] = [
       es: "Asociaci\u00f3n CPCA-PCDC para Acceso Expandido a Salud en Comunidades Desatendidas",
     },
     summary: {
-      en: "The California Primary Care Association partnered with the Pacific Community Development Corporation to expand healthcare access in underserved rural and urban communities. The partnership focuses on workforce development, telehealth expansion, and community health worker deployment across CalAIM programs.",
-      es: "La Asociaci\u00f3n de Atenci\u00f3n Primaria de California se asoci\u00f3 con PCDC para expandir el acceso a la salud en comunidades rurales y urbanas desatendidas. La asociaci\u00f3n se enfoca en desarrollo de fuerza laboral y telesalud.",
+      en: "The California Primary Care Association partnered with the Pacific Community Development Corporation to expand healthcare access in under-resourced rural and urban communities. The partnership focuses on workforce development, telehealth expansion, and community health worker deployment across CalAIM programs.",
+      es: "La Asociaci\u00f3n de Atenci\u00f3n Primaria de California se asoci\u00f3 con PCDC para expandir el acceso a la salud en comunidades rurales y urbanas con acceso limitado a la atenci\u00f3n. La asociaci\u00f3n se enfoca en desarrollo de fuerza laboral y telesalud.",
     },
     category: "coalition",
     status: "active",

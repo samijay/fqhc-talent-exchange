@@ -61,6 +61,28 @@ We are **positive and upbeat** as a default setting. Even when the news is hard,
 - Frame layoffs as statistics — each number is someone's livelihood
 - Use passive voice to obscure who's responsible for policy decisions
 - Hedge when you can be direct — "It might be worth considering" → "Do this"
+- Take sides on labor disputes, ballot measures, or union actions — present both perspectives fairly
+
+### Labor, Advocacy & Union Content — Balanced Framing
+
+We serve both FQHC executives and frontline workers. Our credibility depends on presenting both sides of labor and advocacy issues with equal weight and respect.
+
+| Instead of... | Try... |
+|--------------|--------|
+| "SEIU's leverage politics" | "SEIU's ballot strategy" or "SEIU's accountability push" |
+| "Three failed dialysis ballot measures" | "Three previous ballot campaigns (2018, 2020, 2022)" |
+| Leading with opposition's $1.7B projection | Leading with what both sides agree on (the facts), then each side's interpretation |
+| "What Smart FQHCs Are Doing" (management-only) | "What Both Sides Are Watching" or separate sections for leaders and workers |
+| Framing unions as adversaries | Acknowledging shared goals: patient care, workforce stability, sustainable operations |
+
+**The principle:** Present each side's stated goals and reasoning with similar positioning. Workers want fair wages, accountability, and a voice in how clinics operate. Management needs operational flexibility, financial stability, and the ability to invest in growth. Both care about patients. Let the reader form their own view.
+
+**Structure labor content as:**
+1. The facts (what happened, what's proposed, timeline)
+2. Why supporters say it matters (in their own framing)
+3. Why opponents say it's a problem (in their own framing)
+4. The data points driving the debate (presented neutrally)
+5. What to watch — for both audiences
 
 ### Framing Patterns
 

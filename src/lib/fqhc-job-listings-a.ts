@@ -315,7 +315,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: [],
     postedDate: "2026-02-18",
-    description: "Provide comprehensive dental care including preventive, restorative, and emergency services at AltaMed dental clinics serving underserved communities.",
+    description: "Provide comprehensive dental care including preventive, restorative, and emergency services at AltaMed dental clinics serving under-resourced communities.",
     requirements: [
       "DDS/DMD from accredited dental school",
       "California dental license required",
@@ -579,7 +579,7 @@ export const fqhcJobListingsA = [
       "CMA or RMA certification",
       "Phlebotomy and EHR experience",
       "Spanish language skills preferred",
-      "Commitment to serving underserved populations"
+      "Commitment to serving under-resourced populations"
     ]
   },
   {
@@ -669,7 +669,7 @@ export const fqhcJobListingsA = [
       "California NP license with prescribing authority",
       "Master's or DNP degree",
       "Minimum 1-2 years primary care experience",
-      "Commitment to serving homeless and underserved populations"
+      "Commitment to serving homeless and under-resourced populations"
     ]
   },
 
@@ -832,7 +832,7 @@ export const fqhcJobListingsA = [
     requirements: [
       "Bachelor's degree in social work or related field",
       "2+ years case management experience",
-      "Experience with homeless or underserved populations preferred",
+      "Experience with homeless or under-resourced populations preferred",
       "Valid CA driver's license required"
     ],
   },
@@ -1290,7 +1290,7 @@ export const fqhcJobListingsA = [
       "Associate's degree or equivalent community health experience",
       "CHW certification or willingness to obtain",
       "Bilingual Spanish/English required",
-      "Experience with health education in underserved communities"
+      "Experience with health education in under-resourced communities"
     ],
     languageRequired: "Spanish",
   },
@@ -1860,7 +1860,7 @@ export const fqhcJobListingsA = [
     requirements: [
       "High school diploma or equivalent",
       "Bilingual Spanish/English required",
-      "Experience with underserved populations preferred",
+      "Experience with under-resourced populations preferred",
       "Valid driver's license"
     ]
   },
@@ -2929,7 +2929,7 @@ export const fqhcJobListingsA = [
       "Current California RN license",
       "BSN or ADN with experience",
       "Cultural humility and competency skills",
-      "Commitment to serving underserved populations"
+      "Commitment to serving under-resourced populations"
     ]
   },
 
@@ -3020,7 +3020,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "NextGen",
     programs: ["ECM", "CCM"],
     postedDate: "2026-02-07",
-    description: "Coordinate care for Ravenswood's underserved Peninsula communities.",
+    description: "Coordinate care for Ravenswood's under-resourced Peninsula communities.",
     requirements: [
       "Bachelor's degree or equivalent experience",
       "Care coordination experience preferred",
@@ -3313,7 +3313,7 @@ export const fqhcJobListingsA = [
       "Bachelor's degree or equivalent experience",
       "Care coordination experience preferred",
       "Bilingual Spanish/English preferred",
-      "Commitment to underserved populations"
+      "Commitment to under-resourced populations"
     ]
   },
 
@@ -3488,7 +3488,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "NextGen",
     programs: ["ECM", "CCM"],
     postedDate: "2026-02-08",
-    description: "Coordinate care for Marin Community Clinics' underserved populations.",
+    description: "Coordinate care for Marin Community Clinics' under-resourced populations.",
     requirements: [
       "Bachelor's degree or equivalent experience",
       "Care coordination experience preferred",
@@ -3953,7 +3953,7 @@ export const fqhcJobListingsA = [
       "MD or DO with active California medical license",
       "Board certified or board eligible in Family Medicine",
       "Bilingual Spanish/English strongly preferred",
-      "Commitment to serving underserved communities; FQHC experience preferred"
+      "Commitment to serving under-resourced communities; FQHC experience preferred"
     ]
   },
   {
@@ -3970,7 +3970,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CCM"],
     postedDate: "2026-01-18",
-    description: "Join WellSpace Health's primary care team providing internal medicine services to Sacramento's underserved populations. Competitive salary with NHSC loan repayment eligibility.",
+    description: "Join WellSpace Health's primary care team providing internal medicine services to Sacramento's under-resourced populations. Competitive salary with NHSC loan repayment eligibility.",
     requirements: [
       "MD or DO with active California medical license",
       "Board certified in Internal Medicine",
@@ -4045,7 +4045,7 @@ export const fqhcJobListingsA = [
       "Active California RDH license in good standing",
       "Current CPR/BLS certification",
       "Experience with Denti-Cal billing and documentation preferred",
-      "Commitment to preventive dental care for underserved populations"
+      "Commitment to preventive dental care for under-resourced populations"
     ]
   },
   {
@@ -4500,7 +4500,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["Denti-Cal", "340B"],
     postedDate: "2026-03-07",
-    description: "Provide comprehensive dental care across multiple AltaMed dental sites as a float dentist, delivering preventive, restorative, and emergency services to underserved communities in LA County.",
+    description: "Provide comprehensive dental care across multiple AltaMed dental sites as a float dentist, delivering preventive, restorative, and emergency services to under-resourced communities in LA County.",
     requirements: [
       "DDS or DMD from accredited dental school; California dental license required",
       "FQHC or safety-net dental experience preferred; comfort in high-volume settings",
@@ -4866,7 +4866,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["Denti-Cal", "340B"],
     postedDate: "2026-03-07",
-    description: "Provide pediatric dental care across AltaMed's East LA and Montebello clinics, delivering preventive and restorative services for children from underserved Latino communities covered predominantly by Denti-Cal.",
+    description: "Provide pediatric dental care across AltaMed's East LA and Montebello clinics, delivering preventive and restorative services for children from under-resourced Latino communities covered predominantly by Denti-Cal.",
     requirements: [
       "DDS/DMD with California license; pediatric dentistry specialty training or board certification required",
       "Experience with Denti-Cal billing, prior authorizations, and child behavioral management",
@@ -5094,7 +5094,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["Ryan White", "CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Provide Ryan White-funded medical case management for AltaMed's HIV-positive patient population, coordinating ADAP enrollment, adherence support, social services linkage, and care plan development for underserved LA communities.",
+    description: "Provide Ryan White-funded medical case management for AltaMed's HIV-positive patient population, coordinating ADAP enrollment, adherence support, social services linkage, and care plan development for under-resourced LA communities.",
     requirements: [
       "BA/BS in social work, health education, or related field; CHW or case manager certification preferred",
       "HIV case management experience, Ryan White services knowledge, and ADAP familiarity required",
@@ -5161,7 +5161,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["Medi-Cal", "CalAIM", "340B"],
     postedDate: "2026-03-07",
-    description: "Provide full-scope obstetrics and gynecology services to AltaMed's predominantly Medi-Cal patient population, including prenatal care, deliveries, and gynecologic procedures for underserved women in East LA and Orange County.",
+    description: "Provide full-scope obstetrics and gynecology services to AltaMed's predominantly Medi-Cal patient population, including prenatal care, deliveries, and gynecologic procedures for under-resourced women in East LA and Orange County.",
     requirements: [
       "MD/DO with California license; OB/GYN board certification or board eligibility required",
       "FQHC or safety-net OB/GYN experience preferred; high-volume prenatal practice comfort",
@@ -5529,7 +5529,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["Medi-Cal", "CalAIM", "Title X"],
     postedDate: "2026-03-07",
-    description: "Provide comprehensive women's health services at FHCSD's Logan Heights clinic, including gynecology, prenatal care, family planning, and STI management for underserved San Diego women.",
+    description: "Provide comprehensive women's health services at FHCSD's Logan Heights clinic, including gynecology, prenatal care, family planning, and STI management for under-resourced San Diego women.",
     requirements: [
       "MSN-NP with California NP license; Women's Health NP certification preferred",
       "2+ years women's health or OB/GYN NP experience in community health setting",
@@ -5809,7 +5809,7 @@ export const fqhcJobListingsA = [
     requirements: [
       "CHW certification preferred; 1+ year experience in HIV prevention, sexual health, or LGBTQ+ services",
       "Knowledge of PrEP/PEP access, HIV testing sites, ADAP enrollment, and harm reduction principles",
-      "Bilingual Spanish/English preferred for San Diego's underserved Latino communities",
+      "Bilingual Spanish/English preferred for San Diego's under-resourced Latino communities",
       "Cultural humility and experience with LGBTQ+, houseless, or substance-using populations"
     ],
   },
@@ -6244,7 +6244,7 @@ export const fqhcJobListingsA = [
       "MD or DO with California medical license; Geriatrics board certification or fellowship",
       "Cross-cultural geriatric care experience; Asian-language skills a strong plus",
       "Familiarity with FQHC PPS billing and NHSC loan repayment programs",
-      "Commitment to health equity in underserved communities"
+      "Commitment to health equity in under-resourced communities"
     ]
   },
   {
@@ -6334,7 +6334,7 @@ export const fqhcJobListingsA = [
       "DDS or DMD with California dental license; 5+ years clinical experience",
       "Dental leadership or supervisory experience in an FQHC or community health setting",
       "Experience with Denti-Cal billing, prior authorization, and FQHC dental PPS",
-      "Cross-cultural care experience with Asian-American and other underserved communities"
+      "Cross-cultural care experience with Asian-American and other under-resourced communities"
     ]
   },
 
@@ -6379,7 +6379,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM"],
     postedDate: "2026-03-07",
-    description: "Support Open Door's primary care team in Del Norte County, performing rooming, vitals, injections, lab draws, and patient education in an underserved rural coastal community.",
+    description: "Support Open Door's primary care team in Del Norte County, performing rooming, vitals, injections, lab draws, and patient education in an under-resourced rural coastal community.",
     requirements: [
       "MA certification preferred; relevant clinical experience in lieu of certification considered",
       "Spanish language skills strongly preferred for Del Norte County patient population",
@@ -6401,7 +6401,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["CCM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Provide clinical nursing support in Open Door's Eureka primary care clinics, assisting physicians and NPs with patient care in one of Northern California's most underserved rural health regions.",
+    description: "Provide clinical nursing support in Open Door's Eureka primary care clinics, assisting physicians and NPs with patient care in one of Northern California's most under-resourced rural health regions.",
     requirements: [
       "Current California LVN license required",
       "1+ years ambulatory or primary care clinical experience preferred",
@@ -6467,7 +6467,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["CCM", "CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Deliver comprehensive family medicine primary care in Open Door's Ferndale rural site, serving Humboldt County's agricultural and tribal communities in one of California's most underserved Health Professional Shortage Areas.",
+    description: "Deliver comprehensive family medicine primary care in Open Door's Ferndale rural site, serving Humboldt County's agricultural and tribal communities in one of California's most under-resourced Health Professional Shortage Areas.",
     requirements: [
       "MD, DO, NP (FNP), or PA-C with current California license; Family Medicine preferred",
       "FQHC or rural health experience valued; new graduates considered with strong community health commitment",
@@ -6489,7 +6489,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["CalAIM", "CCM"],
     postedDate: "2026-03-07",
-    description: "Provide midwifery and women's health primary care services at Open Door's Eureka site, managing prenatal, labor, postpartum, and gynecological care for Humboldt County's rural underserved population.",
+    description: "Provide midwifery and women's health primary care services at Open Door's Eureka site, managing prenatal, labor, postpartum, and gynecological care for Humboldt County's rural under-resourced population.",
     requirements: [
       "CNM credential and current California NP license required",
       "Hospital credentialing or clinical relationship with St. Joseph Hospital Eureka preferred",
@@ -6511,7 +6511,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["340B", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "Provide comprehensive dental care at Open Door's Del Norte County dental clinic, serving a rural underserved population with high need for restorative, preventive, and emergency dental services.",
+    description: "Provide comprehensive dental care at Open Door's Del Norte County dental clinic, serving a rural under-resourced population with high need for restorative, preventive, and emergency dental services.",
     requirements: [
       "DDS or DMD with current California dental license",
       "Denti-Cal provider enrollment and prior authorization experience preferred",
@@ -6626,7 +6626,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM", "CCM"],
     postedDate: "2026-03-07",
-    description: "Manage a caseload of high-utilizer Medi-Cal members enrolled in St. John's Enhanced Care Management program, conducting home visits, coordinating specialty referrals, and addressing social determinants of health for South LA's underserved communities.",
+    description: "Manage a caseload of high-utilizer Medi-Cal members enrolled in St. John's Enhanced Care Management program, conducting home visits, coordinating specialty referrals, and addressing social determinants of health for South LA's under-resourced communities.",
     requirements: [
       "BA/BS in social work, public health, or related field; CHW or care manager certification preferred",
       "Bilingual Spanish/English required for South Central LA patient population",
@@ -7255,7 +7255,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["BH Integration", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "Provide part-time psychiatric consultation and medication management for Clinica Sierra Vista's integrated behavioral health program, supporting primary care providers with complex psychiatric cases in Kern County's underserved communities.",
+    description: "Provide part-time psychiatric consultation and medication management for Clinica Sierra Vista's integrated behavioral health program, supporting primary care providers with complex psychiatric cases in Kern County's under-resourced communities.",
     requirements: [
       "MD/DO with California license; board certification in Psychiatry required",
       "FQHC, CMHC, or collaborative care consultation experience preferred",
@@ -7419,7 +7419,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "Provide bilingual primary care in Spanish and English at La Clinica's Contra Costa County sites, supporting underserved Latino communities in Pittsburg and surrounding East Bay cities through a patient-centered FQHC model.",
+    description: "Provide bilingual primary care in Spanish and English at La Clinica's Contra Costa County sites, supporting under-resourced Latino communities in Pittsburg and surrounding East Bay cities through a patient-centered FQHC model.",
     requirements: [
       "California NP license with prescribing authority or PA-C license",
       "Fluent in Spanish and English — bilingual clinical communication required",
@@ -7465,7 +7465,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["CalAIM"],
     postedDate: "2026-03-07",
-    description: "Provide 0.80 FTE optometry services across La Clinica's Vallejo and Monument (Concord) clinic sites, delivering comprehensive eye exams, low vision care, and diabetic eye screenings to underserved Medi-Cal patients.",
+    description: "Provide 0.80 FTE optometry services across La Clinica's Vallejo and Monument (Concord) clinic sites, delivering comprehensive eye exams, low vision care, and diabetic eye screenings to under-resourced Medi-Cal patients.",
     requirements: [
       "OD degree with current California optometry license",
       "Experience with diabetic retinopathy screenings and Medi-Cal optometry billing preferred",
@@ -8176,7 +8176,7 @@ export const fqhcJobListingsA = [
       "Medical Assistant certification preferred; clinical experience in lieu of certification considered",
       "Basic clinical competencies: vital signs, EKG, phlebotomy, injections",
       "OCHIN Epic experience preferred; on-the-job training provided",
-      "Commitment to serving underserved rural communities in Southern Humboldt County"
+      "Commitment to serving under-resourced rural communities in Southern Humboldt County"
     ],
   },
   {
@@ -8220,7 +8220,7 @@ export const fqhcJobListingsA = [
       "Current California LVN license required",
       "1+ year LVN experience in ambulatory, primary care, or community health setting preferred",
       "OCHIN Epic experience preferred; training provided for qualified candidates",
-      "Commitment to rural community health and serving underserved North Coast populations"
+      "Commitment to rural community health and serving under-resourced North Coast populations"
     ],
   },
   {
@@ -8259,7 +8259,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["CCM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Provide part-time registered nursing care at Open Door's Eureka primary care clinic, supporting complex patient management, care coordination, and chronic disease education for underserved Humboldt County patients.",
+    description: "Provide part-time registered nursing care at Open Door's Eureka primary care clinic, supporting complex patient management, care coordination, and chronic disease education for under-resourced Humboldt County patients.",
     requirements: [
       "Current California RN license required; BSN preferred",
       "Primary care or community health nursing experience preferred",
@@ -8351,7 +8351,7 @@ export const fqhcJobListingsA = [
     requirements: [
       "California NP license with prescribing authority or PA-C license required; new graduates preferred",
       "Commitment to 12-month residency program including rotations across Humboldt, Del Norte, and Trinity county sites",
-      "Strong interest in rural health, underserved communities, and FQHC primary care",
+      "Strong interest in rural health, under-resourced communities, and FQHC primary care",
       "NHSC Loan Repayment eligible upon residency completion — maximum HPSA score sites"
     ],
   },
@@ -8391,12 +8391,12 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["CCM", "CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Serve as a primary care family physician at Open Door's Crescent City (Del Norte County) clinic, one of the most isolated and underserved communities in California, managing full-scope family medicine panels with tribal, agricultural, and homeless patient populations.",
+    description: "Serve as a primary care family physician at Open Door's Crescent City (Del Norte County) clinic, one of the most isolated and under-resourced communities in California, managing full-scope family medicine panels with tribal, agricultural, and homeless patient populations.",
     requirements: [
       "MD or DO with current California license; Board Certified or Eligible in Family Medicine",
       "NHSC Scholarship or Loan Repayment eligible — Del Norte County HPSA Score qualifies for maximum federal priority",
       "Full-scope family medicine including OB preferred; strong NP/PA team support",
-      "Commitment to rural, tribal, and underserved community health — relocation assistance available"
+      "Commitment to rural, tribal, and under-resourced community health — relocation assistance available"
     ],
   },
   {
@@ -8439,7 +8439,7 @@ export const fqhcJobListingsA = [
     requirements: [
       "LCSW or LMFT with full California licensure required",
       "Experience with anxiety disorders, trauma-informed care, and brief behavioral interventions preferred",
-      "Interest in dental-BH integration, motivational interviewing, and reducing dental fear in underserved populations",
+      "Interest in dental-BH integration, motivational interviewing, and reducing dental fear in under-resourced populations",
       "OCHIN Epic experience preferred; open to working in a non-traditional integrated dental-BH setting"
     ],
   },
@@ -8479,7 +8479,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["CCM", "CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Deliver comprehensive primary care at Open Door's Willow Creek clinic in Trinity County, one of California's most remote and underserved communities, serving Hoopa Valley Tribal, Yurok, and rural mountain populations.",
+    description: "Deliver comprehensive primary care at Open Door's Willow Creek clinic in Trinity County, one of California's most remote and under-resourced communities, serving Hoopa Valley Tribal, Yurok, and rural mountain populations.",
     requirements: [
       "MD, DO, NP (FNP), or PA-C with current California license; Family Medicine preferred",
       "Rural or tribal health experience strongly preferred; solo provider with telehealth specialist support",
@@ -8589,7 +8589,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["340B", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "Provide part-time preventive dental hygiene services at Open Door's Crescent City (Del Norte County) dental clinic, delivering cleanings, X-rays, sealants, and fluoride treatments to Denti-Cal patients in one of California's most underserved dental access areas.",
+    description: "Provide part-time preventive dental hygiene services at Open Door's Crescent City (Del Norte County) dental clinic, delivering cleanings, X-rays, sealants, and fluoride treatments to Denti-Cal patients in one of California's most under-resourced dental access areas.",
     requirements: [
       "California Registered Dental Hygienist (RDH) license required",
       "Part-time schedule (hours negotiable); Denti-Cal billing experience preferred",
@@ -8611,12 +8611,12 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["340B"],
     postedDate: "2026-03-07",
-    description: "Provide chairside dental assisting at Open Door's Crescent City dental clinic, supporting general dentists with restorative procedures, taking X-rays, managing instrument sterilization, and providing patient education to Del Norte County's underserved dental patients.",
+    description: "Provide chairside dental assisting at Open Door's Crescent City dental clinic, supporting general dentists with restorative procedures, taking X-rays, managing instrument sterilization, and providing patient education to Del Norte County's under-resourced dental patients.",
     requirements: [
       "California Registered Dental Assistant (RDA) license required",
       "Dental radiography (radiation safety) certificate required",
       "Experience in a safety-net, FQHC, or high-volume dental clinic preferred",
-      "Willingness to work in Del Norte County — one of California's most rural and underserved communities"
+      "Willingness to work in Del Norte County — one of California's most rural and under-resourced communities"
     ],
   },
   {
@@ -8703,7 +8703,7 @@ export const fqhcJobListingsA = [
     description: "Join Open Door's second cohort of Advanced Practice Clinician Residents, completing an intensive 12-month structured training in rural FQHC primary care with mandatory rotations across all North Coast sites.",
     requirements: [
       "California NP (FNP) or PA-C license required; recent graduates strongly preferred for this residency",
-      "Strong academic record and demonstrated commitment to rural, underserved, or tribal health",
+      "Strong academic record and demonstrated commitment to rural, under-resourced, or tribal health",
       "Completion of all required rotations across Open Door's 10+ North Coast sites",
       "NHSC Loan Repayment eligible upon completion — Open Door residency graduates placed at HPSA-maximum sites"
     ],
@@ -8724,7 +8724,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM", "340B", "Family PACT"],
     postedDate: "2026-03-07",
-    description: "Join NEVHC's primary care team serving one of LA's most underserved communities. Provide comprehensive family medicine to a predominantly Latino patient population in the San Fernando Valley. NHSC Loan Repayment eligible.",
+    description: "Join NEVHC's primary care team serving one of LA's most under-resourced communities. Provide comprehensive family medicine to a predominantly Latino patient population in the San Fernando Valley. NHSC Loan Repayment eligible.",
     requirements: [
       "MD/DO with California medical license; Board Certified or Board Eligible in Family Medicine",
       "Spanish fluency required — 90%+ of patient population is Spanish-speaking",
@@ -9090,7 +9090,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "OCHIN Epic",
     programs: ["Family PACT", "CalAIM", "CHDP"],
     postedDate: "2026-03-07",
-    description: "Full-scope midwifery and women's health services at FHN — prenatal care, deliveries, postpartum care, gynecology, and family planning for Tulare County's underserved women.",
+    description: "Full-scope midwifery and women's health services at FHN — prenatal care, deliveries, postpartum care, gynecology, and family planning for Tulare County's under-resourced women.",
     requirements: [
       "California CNM license and national certification (AMCB) required",
       "Hospital delivery privileges or ability to obtain",
@@ -9899,7 +9899,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "eClinicalWorks",
     programs: ["Family PACT", "CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Women's health and family planning at Eisner Health — prenatal care, gynecology, contraception counseling, STI screening, and Family PACT services for LA's underserved women.",
+    description: "Women's health and family planning at Eisner Health — prenatal care, gynecology, contraception counseling, STI screening, and Family PACT services for LA's under-resourced women.",
     requirements: [
       "California NP license (WHNP or FNP) required",
       "Spanish fluency required",
@@ -10014,7 +10014,7 @@ export const fqhcJobListingsA = [
     ehrSystem: "eClinicalWorks",
     programs: ["Denti-Cal", "340B"],
     postedDate: "2026-03-07",
-    description: "Comprehensive general dentistry at Eisner Health's dental clinic serving LA's underserved communities — restorative, preventive, extractions, and Denti-Cal services.",
+    description: "Comprehensive general dentistry at Eisner Health's dental clinic serving LA's under-resourced communities — restorative, preventive, extractions, and Denti-Cal services.",
     requirements: [
       "DDS or DMD with California license required",
       "Denti-Cal provider experience preferred",

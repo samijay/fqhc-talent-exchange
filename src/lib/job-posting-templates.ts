@@ -184,9 +184,9 @@ export const JOB_POSTING_TEMPLATES: PostingTemplate[] = [
     category: "Outreach & Engagement",
     esCategory: "Alcance y Compromiso",
     summaryTemplate:
-      "We are seeking a passionate Community Health Worker to join our team and provide culturally responsive outreach, health education, and care coordination to underserved communities. This role is critical to our mission of improving health equity through Enhanced Care Management (ECM) and community-based programs.",
+      "We are seeking a passionate Community Health Worker to join our team and provide culturally responsive outreach, health education, and care coordination to under-resourced communities. This role is critical to our mission of improving health equity through Enhanced Care Management (ECM) and community-based programs.",
     esSummaryTemplate:
-      "Buscamos un/a Promotor/a de Salud Comunitaria apasionado/a para unirse a nuestro equipo y proporcionar alcance culturalmente receptivo, educación en salud y coordinación de atención a comunidades desatendidas. Este puesto es fundamental para nuestra misión de mejorar la equidad en salud a través del Manejo de Atención Mejorada (ECM) y programas comunitarios.",
+      "Buscamos un/a Promotor/a de Salud Comunitaria apasionado/a para unirse a nuestro equipo y proporcionar alcance culturalmente receptivo, educación en salud y coordinación de atención a comunidades con acceso limitado a la atención. Este puesto es fundamental para nuestra misión de mejorar la equidad en salud a través del Manejo de Atención Mejorada (ECM) y programas comunitarios.",
     responsibilities: [
       "Conduct community outreach and engagement for ECM/CCM program members",
       "Perform SDOH screenings and connect patients to community resources (housing, food, transportation)",
@@ -543,9 +543,9 @@ export const JOB_POSTING_TEMPLATES: PostingTemplate[] = [
     category: "Behavioral Health",
     esCategory: "Salud Conductual",
     summaryTemplate:
-      "We are seeking a licensed Behavioral Health Specialist to provide integrated behavioral health services within our primary care setting. This role focuses on trauma-informed care, crisis intervention, and supporting whole-person health for underserved populations including individuals with serious mental illness and substance use disorders.",
+      "We are seeking a licensed Behavioral Health Specialist to provide integrated behavioral health services within our primary care setting. This role focuses on trauma-informed care, crisis intervention, and supporting whole-person health for under-resourced populations including individuals with serious mental illness and substance use disorders.",
     esSummaryTemplate:
-      "Buscamos un/a Especialista en Salud Conductual con licencia para proporcionar servicios integrados de salud conductual dentro de nuestro entorno de atención primaria. Este puesto se enfoca en atención informada por trauma, intervención en crisis y apoyo a la salud integral de poblaciones desatendidas incluyendo individuos con enfermedad mental grave y trastornos por uso de sustancias.",
+      "Buscamos un/a Especialista en Salud Conductual con licencia para proporcionar servicios integrados de salud conductual dentro de nuestro entorno de atención primaria. Este puesto se enfoca en atención informada por trauma, intervención en crisis y apoyo a la salud integral de poblaciones con acceso limitado a la atención incluyendo individuos con enfermedad mental grave y trastornos por uso de sustancias.",
     responsibilities: [
       "Provide individual and group therapy for depression, anxiety, PTSD, and substance use disorders",
       "Deliver integrated behavioral health services using warm handoff model",

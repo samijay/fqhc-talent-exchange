@@ -1073,7 +1073,7 @@ export const ROLE_INSIGHTS: Record<string, {
   /* ================================================================ */
   dental_assistant: {
     strengthMessages: {
-      mission: "Your drive to bring quality dental care to underserved communities puts you at the heart of FQHC oral health equity work. FQHCs that integrate dental into primary care see better chronic disease outcomes — and dental assistants who share that mission are essential to making it work.",
+      mission: "Your drive to bring quality dental care to under-resourced communities puts you at the heart of FQHC oral health equity work. FQHCs that integrate dental into primary care see better chronic disease outcomes — and dental assistants who share that mission are essential to making it work.",
       people: "Your ability to ease patient anxiety and build rapport transforms the dental experience for patients who have never had regular dental care. FQHC patients often have high dental fear — your warmth and communication skills are as valuable as any clinical technique.",
       execution: "Your efficiency in chair-side assistance, infection control, and supply management directly determines how many patients a FQHC dental team can serve in a day. High-volume FQHC dental clinics run on this kind of operational excellence.",
       growth: "Your interest in expanding skills — whether radiology, expanded duties, or dental coding — positions you for lead DA roles and higher pay at multi-site FQHCs that reward versatility.",
@@ -1255,7 +1255,7 @@ export const ROLE_INSIGHTS: Record<string, {
   /* ================================================================ */
   dentist: {
     strengthMessages: {
-      mission: "FQHC dentists close the most critical gap in community health — dental is the #1 unmet need in underserved populations. Your commitment to providing full-scope dentistry to patients who have deferred care for years means you're preventing ER visits, catching early signs of diabetes and oral cancer, and restoring function that lets people work, eat, and live without pain.",
+      mission: "FQHC dentists close the most critical gap in community health — dental is the #1 unmet need in under-resourced populations. Your commitment to providing full-scope dentistry to patients who have deferred care for years means you're preventing ER visits, catching early signs of diabetes and oral cancer, and restoring function that lets people work, eat, and live without pain.",
       people: "Your ability to lead a dental team — supervising hygienists, mentoring dental assistants, and coordinating with medical providers — determines how many patients your program can serve. FQHC dental directors value dentists who build strong teams, not just treat individual patients.",
       execution: "Your clinical efficiency in a high-volume FQHC setting — accurate Denti-Cal documentation, appropriate treatment planning within coverage constraints, and minimal claim denials — directly determines whether the dental program is financially sustainable.",
       growth: "Your interest in program development — expanding services, implementing Virtual Dental Home, pursuing Teaching Health Center status, or adopting AI documentation tools — positions you for Dental Director roles at growing FQHC networks.",
@@ -1645,7 +1645,7 @@ export const ROLE_INSIGHTS: Record<string, {
       transition: "Al comenzar en un nuevo FQHC, pasa las primeras dos semanas aprendiendo cada orden permanente en sus protocolos clínicos.",
     },
     nextSteps: {
-      mission: "In your resume, highlight experience with Medi-Cal populations and FQHC or safety-net settings — even if it was a clinic, county health, or urgent care in an underserved area, emphasize the population you served",
+      mission: "In your resume, highlight experience with Medi-Cal populations and FQHC or safety-net settings — even if it was a clinic, county health, or urgent care in an under-resourced area, emphasize the population you served",
       people: "Complete a trauma-informed care training — the UCSF Trauma-Informed Primary Care Institute offers free online modules that are directly applicable to FQHC nursing and increasingly cited in FQHC job postings",
       execution: "Get proficient in one of the major FQHC EHR systems — eClinicalWorks and OCHIN Epic are the most common. If you don't have experience, many community colleges offer basic EHR courses",
       growth: "Enroll in an LVN-to-RN bridge program at a CA community college — many FQHCs offer tuition reimbursement for bridge programs and will prioritize promoting RN-eligible LVNs into senior nursing roles",

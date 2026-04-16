@@ -181,8 +181,8 @@ export const PROVIDER_BENEFITS: LocumBenefit[] = [
     iconName: "Heart",
     title: { en: "Mission-Driven Work", es: "Trabajo con Propósito" },
     description: {
-      en: "Serve underserved communities in California's safety-net clinics. Make a direct impact on health equity.",
-      es: "Sirva a comunidades desatendidas en clínicas de red de seguridad de California. Tenga un impacto directo en la equidad en salud.",
+      en: "Serve under-resourced communities in California's safety-net clinics. Make a direct impact on health equity.",
+      es: "Sirva a comunidades con acceso limitado a la atención en clínicas de red de seguridad de California. Tenga un impacto directo en la equidad en salud.",
     },
     audience: "provider",
   },

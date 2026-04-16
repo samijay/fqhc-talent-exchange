@@ -1772,9 +1772,9 @@ export const ROLE_SPECIFIC_QUESTIONS_A = [
     roleId: "hr_manager",
     domain: "mission",
     scenario:
-      "Your FQHC has an urgent opening for a bilingual Care Coordinator — the panel of 200+ Medi-Cal patients has been without a coordinator for 3 weeks and no-show rates are climbing. A recruiter presents a candidate with solid clinical coordination experience but no community health background, no Spanish fluency, and no experience working with underserved populations. The hiring manager is desperate and wants to extend an offer immediately.",
+      "Your FQHC has an urgent opening for a bilingual Care Coordinator — the panel of 200+ Medi-Cal patients has been without a coordinator for 3 weeks and no-show rates are climbing. A recruiter presents a candidate with solid clinical coordination experience but no community health background, no Spanish fluency, and no experience working with under-resourced populations. The hiring manager is desperate and wants to extend an offer immediately.",
     esScenario:
-      "Tu FQHC tiene una vacante urgente para un Coordinador de Cuidado bilingüe — el panel de más de 200 pacientes de Medi-Cal ha estado sin coordinador por 3 semanas y las tasas de inasistencia están aumentando. Un reclutador presenta un candidato con sólida experiencia en coordinación clínica pero sin experiencia en salud comunitaria, sin fluidez en español, y sin experiencia trabajando con poblaciones desatendidas. El gerente de contratación está desesperado y quiere hacer una oferta inmediatamente.",
+      "Tu FQHC tiene una vacante urgente para un Coordinador de Cuidado biling\u00fce \u2014 el panel de m\u00e1s de 200 pacientes de Medi-Cal ha estado sin coordinador por 3 semanas y las tasas de inasistencia est\u00e1n aumentando. Un reclutador presenta un candidato con s\u00f3lida experiencia en coordinaci\u00f3n cl\u00ednica pero sin experiencia en salud comunitaria, sin fluidez en espa\u00f1ol, y sin experiencia trabajando con poblaciones con acceso limitado a la atenci\u00f3n. El gerente de contrataci\u00f3n est\u00e1 desesperado y quiere hacer una oferta inmediatamente.",
     question: "How do you handle this?",
     esQuestion: "¿Cómo manejas esto?",
     options: [

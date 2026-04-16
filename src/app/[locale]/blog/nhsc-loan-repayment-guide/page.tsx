@@ -52,7 +52,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The National Health Service Corps (NHSC) is a federal program administered by the Health Resources and Services Administration (HRSA) that helps healthcare professionals repay their student loans in exchange for working in underserved communities. The program has been placing providers in high-need areas since 1972, and today it supports more than 18,000 primary care medical, dental, and behavioral health providers across the country — many of them working at Federally Qualified Health Centers. [1][2]",
+          text: "The National Health Service Corps (NHSC) is a federal program administered by the Health Resources and Services Administration (HRSA) that helps healthcare professionals repay their student loans in exchange for working in under-resourced communities. The program has been placing providers in high-need areas since 1972, and today it supports more than 18,000 primary care medical, dental, and behavioral health providers across the country — many of them working at Federally Qualified Health Centers. [1][2]",
         },
         {
           type: "paragraph",
@@ -171,7 +171,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "The good news for California community health workers: the vast majority of the 220 FQHCs in our directory qualify as NHSC-approved sites. FQHCs are, by definition, located in or serving medically underserved areas and populations, which aligns directly with the NHSC's mission of placing providers where they're needed most.",
+          text: "The good news for California community health workers: the vast majority of the 220 FQHCs in our directory qualify as NHSC-approved sites. FQHCs are, by definition, located in or serving communities with limited access to care, which aligns directly with the NHSC's mission of placing providers where they're needed most.",
         },
         {
           type: "paragraph",
@@ -179,7 +179,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "You can check HPSA scores through the HRSA Data Warehouse or the NHSC Site Search tool. When evaluating FQHC job opportunities, consider the HPSA score as a factor alongside salary, benefits, and culture. A site in a rural area or a highly underserved urban neighborhood may have a HPSA score of 18–25, making NHSC approval almost certain, while a site in a less underserved area may score 10–14, making the process more competitive.",
+          text: "You can check HPSA scores through the HRSA Data Warehouse or the NHSC Site Search tool. When evaluating FQHC job opportunities, consider the HPSA score as a factor alongside salary, benefits, and culture. A site in a rural area or a highly under-resourced urban neighborhood may have a HPSA score of 18–25, making NHSC approval almost certain, while a site in a less under-resourced area may score 10–14, making the process more competitive.",
         },
         {
           type: "paragraph",
@@ -197,7 +197,7 @@ const enContent: ArticleContent = {
         {
           type: "list",
           items: [
-            "Choose high-HPSA-score sites for better approval chances. If you're flexible on location, prioritize FQHCs in areas with the highest shortage designations. Rural health centers and those in deeply underserved urban communities tend to have the highest scores — and the highest approval rates for NHSC awards.",
+            "Choose high-HPSA-score sites for better approval chances. If you're flexible on location, prioritize FQHCs in areas with the highest shortage designations. Rural health centers and those in deeply under-resourced urban communities tend to have the highest scores — and the highest approval rates for NHSC awards.",
             "Start the application process before your start date. Don't wait until you've been on the job for six months to begin thinking about NHSC. Ideally, you should verify your site's NHSC approval status during the interview process and begin gathering loan documentation as soon as you accept an offer.",
             "Keep meticulous records of your service dates. The NHSC tracks your service obligation down to the day. Make sure you document your start date, any approved leave, and your hours worked per week. If you take extended leave (such as parental leave or FMLA), understand how it affects your service timeline.",
             "Consider extending for additional loan repayment. After your initial two-year commitment, you can apply for continuation awards that provide additional loan repayment for each extra year of service. Many providers find that staying for 4–6 years at an FQHC allows them to eliminate their entire loan balance.",

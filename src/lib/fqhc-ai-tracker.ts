@@ -987,7 +987,7 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     vendor: "Hippocratic AI",
     partnership: "Homeward Health",
     metrics: [
-      { label: "Target", value: "Rural FQHCs & underserved providers" },
+      { label: "Target", value: "Rural FQHCs & under-resourced providers" },
       { label: "Engagement", value: "85%+ on AI-initiated calls" },
       { label: "Use cases", value: "Chronic disease, care navigation, post-discharge" },
     ],

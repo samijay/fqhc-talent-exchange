@@ -345,7 +345,7 @@ export const MASTERCLASSES: MasterclassModule[] = [
     learningObjectives: [
       { en: "Inventory all Section 330 sub-grant categories and assess eligibility for each", es: "Inventaríe todas las categorías de sub-subvenciones de la Sección 330 y evalúe la elegibilidad para cada una" },
       { en: "Calculate the financial value of NHSC slots (salary offset) and FTCA coverage (malpractice savings)", es: "Calcule el valor financiero de las plazas NHSC (compensación salarial) y cobertura FTCA (ahorros en negligencia)" },
-      { en: "Evaluate New Access Point eligibility for expansion into underserved communities", es: "Evalúe la elegibilidad de Nuevos Puntos de Acceso para expansión a comunidades desatendidas" },
+      { en: "Evaluate New Access Point eligibility for expansion into under-resourced communities", es: "Eval\u00fae la elegibilidad de Nuevos Puntos de Acceso para expansi\u00f3n a comunidades con acceso limitado a la atenci\u00f3n" },
       { en: "Build a multi-year grant calendar with application deadlines and renewal dates", es: "Construya un calendario de subvenciones multianual con fechas límite de solicitud y renovación" },
     ],
     keyTakeaways: [

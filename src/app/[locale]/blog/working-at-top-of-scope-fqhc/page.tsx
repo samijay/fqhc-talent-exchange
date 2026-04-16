@@ -184,7 +184,7 @@ export default async function WorkingAtTopOfScopeFqhcArticle() {
                 <strong>You contribute to team efficiency.</strong> If you&apos;re an MA who can conduct comprehensive rooming, the provider sees more patients and achieves better outcomes. If you&apos;re an RN who can conduct wellness visits and coordinate care, you free up provider time for complexity. FQHCs track efficiency metrics closely, and you&apos;ll directly impact them.
               </li>
               <li>
-                <strong>You improve patient access.</strong> FQHCs exist to serve underserved populations. If you can work at the top of your scope, you help them see more patients and reduce wait times. That&apos;s the FQHC mission.
+                <strong>You improve patient access.</strong> FQHCs exist to serve communities that deserve better resources. If you can work at the top of your scope, you help them see more patients and reduce wait times. That&apos;s the FQHC mission.
               </li>
               <li>
                 <strong>You reduce burnout.</strong> FQHCs are trying to retain good staff. If you work at the top of your scope and aren&apos;t burdened with task creep or being asked to do work beneath your level, you&apos;re more likely to stay. Retention is a major FQHC priority.

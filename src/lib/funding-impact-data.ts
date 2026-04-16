@@ -859,8 +859,8 @@ export const legislationSources: LegislationSource[] = [
           es: "Definición y Misión de Centro de Salud",
         },
         summary: {
-          en: "Defines a 'health center' as an entity serving a medically underserved population by providing required primary care and related services. Includes special populations: migratory/seasonal agricultural workers (§330g), homeless (§330h), and public housing residents (§330i).",
-          es: "Define un 'centro de salud' como una entidad que sirve a una población médicamente desatendida proporcionando atención primaria requerida y servicios relacionados. Incluye poblaciones especiales: trabajadores agrícolas migrantes/estacionales (§330g), personas sin hogar (§330h) y residentes de vivienda pública (§330i).",
+          en: "Defines a 'health center' as an entity serving populations with limited access to care by providing required primary care and related services. Includes special populations: migratory/seasonal agricultural workers (§330g), homeless (§330h), and public housing residents (§330i).",
+          es: "Define un 'centro de salud' como una entidad que sirve a poblaciones con acceso limitado a la atenci\u00f3n proporcionando atenci\u00f3n primaria requerida y servicios relacionados. Incluye poblaciones especiales: trabajadores agr\u00edcolas migrantes/estacionales (\u00a7330g), personas sin hogar (\u00a7330h) y residentes de vivienda p\u00fablica (\u00a7330i).",
         },
         specificLanguage: "\"The term 'health center' means an entity that serves a population that is medically underserved...by providing, either through the staff and supporting resources of the center or through contracts or cooperative arrangements — required primary health care services.\"",
         impact: {
@@ -870,8 +870,8 @@ export const legislationSources: LegislationSource[] = [
       },
     ],
     fqhcImpact: {
-      en: "Section 330 grants fund FQHCs' core mission of serving the underserved. Any cuts to Section 330 funding directly threaten FQHC viability. The Health Center Program Fund ($4B annually) expires and requires periodic Congressional reauthorization.",
-      es: "Las subvenciones de la Sección 330 financian la misión central de los FQHCs de servir a los desatendidos. Cualquier recorte al financiamiento de la Sección 330 amenaza directamente la viabilidad de los FQHCs. El Fondo del Programa de Centros de Salud ($4B anuales) expira y requiere reautorización periódica del Congreso.",
+      en: "Section 330 grants fund FQHCs' core mission of serving communities that deserve better resources. Any cuts to Section 330 funding directly threaten FQHC viability. The Health Center Program Fund ($4B annually) expires and requires periodic Congressional reauthorization.",
+      es: "Las subvenciones de la Secci\u00f3n 330 financian la misi\u00f3n central de los FQHCs de servir a comunidades que merecen mejores recursos. Cualquier recorte al financiamiento de la Secci\u00f3n 330 amenaza directamente la viabilidad de los FQHCs. El Fondo del Programa de Centros de Salud ($4B anuales) expira y requiere reautorizaci\u00f3n peri\u00f3dica del Congreso.",
     },
     tags: ["fqhc", "section-330", "health-centers", "hrsa"],
   },

@@ -490,6 +490,11 @@ The single highest-impact fix for user experience. Currently, "use client" pages
 - [ ] **Staff scheduling optimizer** — model patient demand vs. staff availability, identify coverage gaps
 - [ ] **"The Great Unlocking"** — article series on moving entrenched teams to top-of-scope in cultures resistant to change
 
+### Compliance & Audit Readiness
+- [ ] **HRSA Operational Site Visit (OSV) simulator** — interactive practice walkthrough of all 19 HRSA program requirements, with sample questions, document checklists, and common deficiency flags. Users select their role (CEO, CFO, compliance officer, clinical director) and get a tailored mock audit experience with scoring and gap identification.
+- [ ] **FQHC audit prep toolkit** — covers HRSA OSV, UDS reporting, 340B audits, FTCA deeming, PCMH recertification, and state-level compliance (DHCS site reviews, Medi-Cal managed care audits). Checklists, timelines, and "what auditors actually look for" insider tips.
+- [ ] **Compliance readiness scorecard** — rate your FQHC across key compliance domains (governance, sliding fee, QI/QA, scope of project, credentialing, FTCA, 340B, financial management) with actionable remediation steps for each gap.
+
 ### Strategic Intelligence (Big Bets)
 - [ ] **FQHC M&A tracker** — who's acquiring whom, financial distress signals, consolidation patterns
 - [ ] **Predictive layoff model** — leading indicators (funding cliffs + financial ratios + WARN filings → risk score)

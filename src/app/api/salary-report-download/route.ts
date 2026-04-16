@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
+import { checkRateLimit, getClientIp } from "@/lib/security";
 
 /* ------------------------------------------------------------------ */
 /*  POST /api/salary-report-download                                   */
@@ -6,78 +8,38 @@ import { NextRequest, NextResponse } from "next/server";
 /*  Currently logs to console. Supabase integration later.             */
 /* ------------------------------------------------------------------ */
 
-interface DownloadRequest {
-  name: string;
-  email: string;
-  organization: string;
-}
-
-// Simple in-memory rate limiting (per-IP, 10 requests per hour)
-const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
-const RATE_LIMIT = 10;
-const RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
-  if (!entry || now > entry.resetAt) {
-    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
-    return false;
-  }
-  entry.count++;
-  return entry.count > RATE_LIMIT;
-}
+const DownloadSchema = z.object({
+  name: z.string().min(2, "Name is required (minimum 2 characters)."),
+  email: z.string().email("A valid email address is required."),
+  organization: z.string().min(2, "Organization is required (minimum 2 characters)."),
+});
 
 export async function POST(request: NextRequest) {
   try {
-    const ip =
-      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-      "unknown";
-
-    if (isRateLimited(ip)) {
+    const ip = getClientIp(request);
+    const rl = checkRateLimit(`salary-report:${ip}`, { limit: 10, windowMs: 60 * 60 * 1000 });
+    if (!rl.allowed) {
       return NextResponse.json(
         { error: "Too many requests. Please try again later." },
         { status: 429 }
       );
     }
 
-    const body = (await request.json()) as DownloadRequest;
+    const body: unknown = await request.json();
+    const parsed = DownloadSchema.safeParse(body);
 
-    // Basic validation
-    if (!body.name || typeof body.name !== "string" || body.name.length < 2) {
-      return NextResponse.json(
-        { error: "Name is required (minimum 2 characters)." },
-        { status: 400 }
-      );
+    if (!parsed.success) {
+      const message = parsed.error.issues[0]?.message ?? "Invalid request.";
+      return NextResponse.json({ error: message }, { status: 400 });
     }
 
-    if (
-      !body.email ||
-      typeof body.email !== "string" ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)
-    ) {
-      return NextResponse.json(
-        { error: "A valid email address is required." },
-        { status: 400 }
-      );
-    }
-
-    if (
-      !body.organization ||
-      typeof body.organization !== "string" ||
-      body.organization.length < 2
-    ) {
-      return NextResponse.json(
-        { error: "Organization is required (minimum 2 characters)." },
-        { status: 400 }
-      );
-    }
+    const { name, email, organization } = parsed.data;
 
     // Log the download request (Supabase integration later)
     console.log("[salary-report-download]", {
-      name: body.name,
-      email: body.email,
-      organization: body.organization,
+      name,
+      email,
+      organization,
       timestamp: new Date().toISOString(),
       ip,
     });

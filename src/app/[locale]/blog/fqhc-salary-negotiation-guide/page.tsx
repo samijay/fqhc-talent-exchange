@@ -274,7 +274,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "That is nearly double the base salary. And this calculation does not include intangible benefits like predictable schedules (most FQHCs do not require overnight or weekend shifts), meaningful work with underserved communities, a collaborative team environment, and the professional satisfaction of practicing at or near the top of your scope.",
+          text: "That is nearly double the base salary. And this calculation does not include intangible benefits like predictable schedules (most FQHCs do not require overnight or weekend shifts), meaningful work with under-resourced communities, a collaborative team environment, and the professional satisfaction of practicing at or near the top of your scope.",
         },
         {
           type: "paragraph",

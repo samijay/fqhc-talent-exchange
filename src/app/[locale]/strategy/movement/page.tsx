@@ -57,7 +57,7 @@ const COMMUNITY_COLORS: Record<string, string> = {
   "White (political ally)": "bg-stone-100 text-stone-700 border-stone-200",
   White: "bg-stone-100 text-stone-700 border-stone-200",
   "Rural conservative communities": "bg-orange-100 text-orange-800 border-orange-200",
-  "Urban underserved communities": "bg-indigo-100 text-indigo-800 border-indigo-200",
+  "Urban under-resourced communities": "bg-indigo-100 text-indigo-800 border-indigo-200",
   "Agricultural workers": "bg-lime-100 text-lime-800 border-lime-200",
 };
 

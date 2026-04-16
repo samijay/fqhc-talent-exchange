@@ -245,7 +245,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     term: "NHSC",
     fullName: { en: "National Health Service Corps", es: "Cuerpo Nacional de Servicio de Salud" },
     definition: {
-      en: "A federal loan repayment and scholarship program that helps clinicians pay off student loans in exchange for working at FQHCs and other underserved settings. Popular among physicians and nurses.",
+      en: "A federal loan repayment and scholarship program that helps clinicians pay off student loans in exchange for working at FQHCs and other under-resourced settings. Popular among physicians and nurses.",
       es: "Un programa federal de reembolso de préstamos que ayuda a los clínicos a pagar préstamos estudiantiles a cambio de trabajar en FQHC.",
     },
     category: "program",

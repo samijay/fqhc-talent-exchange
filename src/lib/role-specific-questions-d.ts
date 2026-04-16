@@ -100,9 +100,9 @@ export const ROLE_SPECIFIC_QUESTIONS_D = [
     roleId: "dental_assistant",
     domain: "mission",
     scenario:
-      "Your FQHC is launching a school-based dental sealant program for underserved elementary schools. The Dental Director asks if anyone wants to volunteer for weekend clinics. You already work full-time.",
+      "Your FQHC is launching a school-based dental sealant program for elementary schools in under-resourced communities. The Dental Director asks if anyone wants to volunteer for weekend clinics. You already work full-time.",
     esScenario:
-      "Tu FQHC está lanzando un programa de selladores dentales en escuelas primarias desatendidas. El Director Dental pregunta si alguien quiere ser voluntario para clínicas de fin de semana. Ya trabajas tiempo completo.",
+      "Tu FQHC est\u00e1 lanzando un programa de selladores dentales en escuelas primarias de comunidades con acceso limitado a la atenci\u00f3n. El Director Dental pregunta si alguien quiere ser voluntario para cl\u00ednicas de fin de semana. Ya trabajas tiempo completo.",
     question: "How do you respond?",
     esQuestion: "Cómo respondes?",
     options: [
@@ -1050,16 +1050,16 @@ export const ROLE_SPECIFIC_QUESTIONS_D = [
     roleId: "dental_hygienist",
     domain: "growth",
     scenario:
-      "California has the RDHAP (Registered Dental Hygienist in Alternative Practice) credential that allows independent practice in underserved settings without direct dentist supervision. It requires additional education and 2,000+ hours of clinical experience.",
+      "California has the RDHAP (Registered Dental Hygienist in Alternative Practice) credential that allows independent practice in under-resourced settings without direct dentist supervision. It requires additional education and 2,000+ hours of clinical experience.",
     esScenario:
-      "California tiene la credencial RDHAP (Higienista Dental Registrada en Práctica Alternativa) que permite práctica independiente en entornos desatendidos sin supervisión directa de un dentista. Requiere educación adicional y 2,000+ horas de experiencia clínica.",
+      "California tiene la credencial RDHAP (Higienista Dental Registrada en Pr\u00e1ctica Alternativa) que permite pr\u00e1ctica independiente en entornos con recursos limitados sin supervisi\u00f3n directa de un dentista. Requiere educaci\u00f3n adicional y 2,000+ horas de experiencia cl\u00ednica.",
     question: "How interested are you in pursuing this credential?",
     esQuestion: "Qué tan interesado/a estás en obtener esta credencial?",
     options: [
       {
         id: "rs_dh_g1_a",
-        text: "Very interested — RDHAP would let me bring preventive care directly to schools, nursing homes, and underserved communities where there's no dentist. I'll research programs and start planning the prerequisites",
-        esText: "Muy interesado/a — RDHAP me permitiría llevar atención preventiva directamente a escuelas, hogares de ancianos y comunidades desatendidas donde no hay dentista. Investigaré programas y comenzaré a planificar los prerrequisitos",
+        text: "Very interested — RDHAP would let me bring preventive care directly to schools, nursing homes, and under-resourced communities where there's no dentist. I'll research programs and start planning the prerequisites",
+        esText: "Muy interesado/a \u2014 RDHAP me permitir\u00eda llevar atenci\u00f3n preventiva directamente a escuelas, hogares de ancianos y comunidades con acceso limitado a la atenci\u00f3n donde no hay dentista. Investigar\u00e9 programas y comenzar\u00e9 a planificar los prerrequisitos",
         score: 4,
         behaviorTag: "scope-expanding",
       },

@@ -278,7 +278,7 @@ export default async function WhyFQHCPage() {
               {
                 stat: "90+",
                 label: { en: "FQHCs in California", es: "FQHCs en California" },
-                detail: { en: "Serving millions of patients in underserved communities. Population health management is the future — FQHCs are already doing it.", es: "Atendiendo a millones de pacientes en comunidades desatendidas. La gestión de salud poblacional es el futuro — los FQHCs ya lo están haciendo." },
+                detail: { en: "Serving millions of patients in under-resourced communities. Population health management is the future — FQHCs are already doing it.", es: "Atendiendo a millones de pacientes en comunidades con acceso limitado a la atención. La gestión de salud poblacional es el futuro — los FQHCs ya lo están haciendo." },
               },
               {
                 stat: "70%+",

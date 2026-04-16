@@ -1745,8 +1745,8 @@ export const COMMON_INTEREST_FRAMEWORK: CommonInterestItem[] = [
       es: "Continuidad de Atención y Confianza",
     },
     description: {
-      en: "When staff are retained through fair contracts and working conditions, patients see the same CHW, nurse, or care coordinator visit after visit. This continuity builds the deep trust that makes community health work effective — especially in underserved populations with historical distrust of healthcare systems.",
-      es: "Cuando el personal es retenido mediante contratos justos y condiciones de trabajo, los pacientes ven al mismo promotor, enfermera o coordinador de atención visita tras visita. Esta continuidad construye la confianza profunda que hace efectivo el trabajo de salud comunitaria — especialmente en poblaciones desatendidas con desconfianza histórica del sistema de salud.",
+      en: "When staff are retained through fair contracts and working conditions, patients see the same CHW, nurse, or care coordinator visit after visit. This continuity builds the deep trust that makes community health work effective — especially in under-resourced populations with historical distrust of healthcare systems.",
+      es: "Cuando el personal es retenido mediante contratos justos y condiciones de trabajo, los pacientes ven al mismo promotor, enfermera o coordinador de atención visita tras visita. Esta continuidad construye la confianza profunda que hace efectivo el trabajo de salud comunitaria — especialmente en poblaciones con acceso limitado a la atenci\u00f3n con desconfianza hist\u00f3rica del sistema de salud.",
     },
     examples: [
       { en: "Union contracts that include retention bonuses reduce turnover by 15-25%", es: "Los contratos sindicales que incluyen bonos de retención reducen la rotación en 15-25%" },

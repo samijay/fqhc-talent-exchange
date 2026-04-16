@@ -20,9 +20,9 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
     roleLabel: "Community Health Worker",
     esRoleLabel: "Promotor/a de Salud Comunitaria",
     objectiveTemplate:
-      "Dedicated Community Health Worker with experience serving underserved populations at Federally Qualified Health Centers. Skilled in community outreach, SDOH screenings, and patient navigation for Medi-Cal members.",
+      "Dedicated Community Health Worker with experience serving under-resourced populations at Federally Qualified Health Centers. Skilled in community outreach, SDOH screenings, and patient navigation for Medi-Cal members.",
     esObjectiveTemplate:
-      "Promotor/a de Salud Comunitaria dedicado/a con experiencia sirviendo a poblaciones desatendidas en Centros de Salud Comunitarios Federalmente Calificados. Habilidades en alcance comunitario, evaluaciones SDOH y navegación de pacientes para miembros de Medi-Cal.",
+      "Promotor/a de Salud Comunitaria dedicado/a con experiencia sirviendo a poblaciones con acceso limitado a la atención en Centros de Salud Comunitarios Federalmente Calificados. Habilidades en alcance comunitario, evaluaciones SDOH y navegación de pacientes para miembros de Medi-Cal.",
     bullets: [
       {
         id: "chw-1",
@@ -179,7 +179,7 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
     roleLabel: "Case Manager",
     esRoleLabel: "Administrador/a de Casos",
     objectiveTemplate:
-      "Experienced Case Manager specializing in CalAIM programs, behavioral health integration, and complex care management for underserved populations at Federally Qualified Health Centers.",
+      "Experienced Case Manager specializing in CalAIM programs, behavioral health integration, and complex care management for under-resourced populations at Federally Qualified Health Centers.",
     esObjectiveTemplate:
       "Administrador/a de Casos experimentado/a especializado/a en programas CalAIM, integración de salud conductual y gestión de atención compleja para poblaciones desatendidas en Centros de Salud Comunitarios Federalmente Calificados.",
     bullets: [
@@ -226,7 +226,7 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
     roleLabel: "Behavioral Health Specialist",
     esRoleLabel: "Especialista en Salud Conductual",
     objectiveTemplate:
-      "Licensed behavioral health professional with experience providing integrated care in FQHC settings, specializing in trauma-informed care and crisis intervention for underserved populations.",
+      "Licensed behavioral health professional with experience providing integrated care in FQHC settings, specializing in trauma-informed care and crisis intervention for under-resourced populations.",
     esObjectiveTemplate:
       "Profesional de salud conductual con licencia y experiencia proporcionando atención integrada en entornos FQHC, especializado/a en atención informada por trauma e intervención en crisis para poblaciones desatendidas.",
     bullets: [
@@ -273,7 +273,7 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
     roleLabel: "Registered Nurse (RN)",
     esRoleLabel: "Enfermera/o Registrada/o (RN)",
     objectiveTemplate:
-      "Registered Nurse with experience providing patient-centered care in Federally Qualified Health Centers. Skilled in clinical assessment, chronic disease management, and care coordination for underserved populations.",
+      "Registered Nurse with experience providing patient-centered care in Federally Qualified Health Centers. Skilled in clinical assessment, chronic disease management, and care coordination for under-resourced populations.",
     esObjectiveTemplate:
       "Enfermera/o Registrada/o con experiencia proporcionando atención centrada en el paciente en Centros de Salud Comunitarios Federalmente Calificados. Habilidades en evaluación clínica, manejo de enfermedades crónicas y coordinación de atención para poblaciones desatendidas.",
     bullets: [
@@ -429,7 +429,7 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
     roleLabel: "Physician (MD/DO) — Primary Care",
     esRoleLabel: "Médico (MD/DO) — Atención Primaria",
     objectiveTemplate:
-      "Board-certified primary care physician with experience in FQHC and safety-net medicine. Skilled in panel management, chronic disease care for Medi-Cal populations, FQHC PPS billing, and team-based care including NP/PA supervision. Committed to health equity and culturally responsive medicine for underserved communities.",
+      "Board-certified primary care physician with experience in FQHC and safety-net medicine. Skilled in panel management, chronic disease care for Medi-Cal populations, FQHC PPS billing, and team-based care including NP/PA supervision. Committed to health equity and culturally responsive medicine for under-resourced communities.",
     esObjectiveTemplate:
       "Médico de atención primaria certificado por el consejo con experiencia en FQHC y medicina de red de seguridad. Habilidades en gestión de panel, atención de enfermedades crónicas para poblaciones Medi-Cal, facturación PPS de FQHC y atención basada en equipo incluyendo supervisión de NP/PA.",
     bullets: [
@@ -476,9 +476,9 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
     roleLabel: "Nurse Practitioner (NP / FNP / PMHNP)",
     esRoleLabel: "Enfermero(a) Practicante (NP / FNP / PMHNP)",
     objectiveTemplate:
-      "Family Nurse Practitioner with experience in FQHC primary care, panel management, and chronic disease management for underserved Medi-Cal populations. Skilled in full-scope NP practice under California law, collaborative practice, FQHC PPS billing, and team-based care. NHSC loan repayment eligible.",
+      "Family Nurse Practitioner with experience in FQHC primary care, panel management, and chronic disease management for under-resourced Medi-Cal populations. Skilled in full-scope NP practice under California law, collaborative practice, FQHC PPS billing, and team-based care. NHSC loan repayment eligible.",
     esObjectiveTemplate:
-      "Enfermera Practicante de Familia con experiencia en atención primaria de FQHC, gestión de panel y manejo de enfermedades crónicas para poblaciones Medi-Cal desatendidas. Habilidades en práctica NP de alcance completo bajo la ley de California, práctica colaborativa y facturación PPS de FQHC.",
+      "Enfermera Practicante de Familia con experiencia en atención primaria de FQHC, gestión de panel y manejo de enfermedades crónicas para poblaciones Medi-Cal con acceso limitado a la atención. Habilidades en práctica NP de alcance completo bajo la ley de California, práctica colaborativa y facturación PPS de FQHC.",
     bullets: [
       {
         id: "np-1",
@@ -570,7 +570,7 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
     roleLabel: "Dentist (DMD/DDS) — FQHC / Safety-Net",
     esRoleLabel: "Dentista (DMD/DDS) — FQHC / Red de Seguridad",
     objectiveTemplate:
-      "FQHC dentist with experience in safety-net oral health care for underserved populations. Skilled in Denti-Cal (Medi-Cal dental) billing, full-scope restorative and preventive dentistry, oral-systemic integration with primary care teams, and trauma-informed care for patients with dental avoidance. California dental license, DEA registration, NHSC eligible.",
+      "FQHC dentist with experience in safety-net oral health care for under-resourced populations. Skilled in Denti-Cal (Medi-Cal dental) billing, full-scope restorative and preventive dentistry, oral-systemic integration with primary care teams, and trauma-informed care for patients with dental avoidance. California dental license, DEA registration, NHSC eligible.",
     esObjectiveTemplate:
       "Dentista de FQHC con experiencia en atención de salud oral de red de seguridad para poblaciones desatendidas. Habilidades en facturación Denti-Cal (dental Medi-Cal), odontología restaurativa y preventiva de alcance completo, integración oral-sistémica con equipos de atención primaria y atención informada en trauma.",
     bullets: [
@@ -670,7 +670,7 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
     roleLabel: "Dental Hygienist",
     esRoleLabel: "Higienista Dental",
     objectiveTemplate:
-      "Registered Dental Hygienist with FQHC and community health center experience delivering preventive oral health care to Denti-Cal patients. Skilled in periodontal assessment, scaling and root planing, and oral health education for underserved California communities.",
+      "Registered Dental Hygienist with FQHC and community health center experience delivering preventive oral health care to Denti-Cal patients. Skilled in periodontal assessment, scaling and root planing, and oral health education for under-resourced California communities.",
     esObjectiveTemplate:
       "Higienista Dental Registrado/a con experiencia en FQHC y centros de salud comunitarios brindando atención preventiva de salud oral a pacientes de Denti-Cal. Habilidoso/a en evaluación periodontal, escalonamiento y alisado radicular, y educación en salud oral para comunidades desatendidas de California.",
     bullets: [
@@ -711,7 +711,7 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
     roleLabel: "Pharmacist (PharmD)",
     esRoleLabel: "Farmacéutico/a (PharmD)",
     objectiveTemplate:
-      "Licensed PharmD with experience in FQHC and safety-net pharmacy practice, including 340B program administration and Medi-Cal patient counseling. Committed to medication access equity and evidence-based pharmaceutical care for underserved California communities.",
+      "Licensed PharmD with experience in FQHC and safety-net pharmacy practice, including 340B program administration and Medi-Cal patient counseling. Committed to medication access equity and evidence-based pharmaceutical care for under-resourced California communities.",
     esObjectiveTemplate:
       "PharmD con licencia con experiencia en práctica farmacéutica de FQHC y red de seguridad, incluyendo administración del programa 340B y asesoramiento a pacientes de Medi-Cal. Comprometido/a con la equidad de acceso a medicamentos y la atención farmacéutica basada en evidencia.",
     bullets: [
@@ -752,7 +752,7 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
     roleLabel: "Pharmacy Technician",
     esRoleLabel: "Técnico/a de Farmacia",
     objectiveTemplate:
-      "Certified Pharmacy Technician (CPhT) with experience in high-volume FQHC pharmacy dispensing and 340B program administration. Detail-oriented professional committed to medication accuracy and access for Medi-Cal and underserved patient populations.",
+      "Certified Pharmacy Technician (CPhT) with experience in high-volume FQHC pharmacy dispensing and 340B program administration. Detail-oriented professional committed to medication accuracy and access for Medi-Cal and under-resourced patient populations.",
     esObjectiveTemplate:
       "Técnico/a de Farmacia Certificado/a (CPhT) con experiencia en dispensación de farmacia FQHC de alto volumen y administración del programa 340B. Profesional orientado/a al detalle comprometido/a con la precisión de medicamentos y el acceso para pacientes de Medi-Cal y desatendidos.",
     bullets: [
@@ -840,7 +840,7 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
     roleLabel: "Licensed Vocational Nurse (LVN)",
     esRoleLabel: "Enfermero/a Vocacional Licenciado/a (LVN)",
     objectiveTemplate:
-      "Licensed Vocational Nurse with experience in high-volume FQHC clinical settings, delivering efficient nursing care to Medi-Cal and underserved populations. Skilled in patient rooming, medication administration, and chronic disease support under RN and physician supervision.",
+      "Licensed Vocational Nurse with experience in high-volume FQHC clinical settings, delivering efficient nursing care to Medi-Cal and under-resourced populations. Skilled in patient rooming, medication administration, and chronic disease support under RN and physician supervision.",
     esObjectiveTemplate:
       "Enfermero/a Vocacional Licenciado/a con experiencia en entornos clínicos FQHC de alto volumen, brindando atención de enfermería eficiente a poblaciones de Medi-Cal y desatendidas. Habilidoso/a en ingreso de pacientes, administración de medicamentos y soporte de enfermedades crónicas bajo supervisión de RN y médico.",
     bullets: [
@@ -911,8 +911,8 @@ export const ROLE_TEMPLATES: RoleTemplate[] = [
       },
       {
         id: "pnp-4",
-        text: "Delivered tele-psychiatry services to rural and underserved FQHC satellite sites, extending psychiatric access to patients 60+ miles from nearest in-person psychiatric provider; conducted 20+ tele-psych visits weekly",
-        esText: "Brindó servicios de tele-psiquiatría a sitios satelitales rurales y desatendidos de FQHC, extendiendo el acceso psiquiátrico a pacientes a 60+ millas del proveedor psiquiátrico presencial más cercano; realizó 20+ visitas de tele-psiquiatría semanalmente",
+        text: "Delivered tele-psychiatry services to rural and under-resourced FQHC satellite sites, extending psychiatric access to patients 60+ miles from nearest in-person psychiatric provider; conducted 20+ tele-psych visits weekly",
+        esText: "Brindó servicios de tele-psiquiatría a sitios satelitales rurales y con acceso limitado de FQHC, extendiendo el acceso psiquiátrico a pacientes a 60+ millas del proveedor psiquiátrico presencial más cercano; realizó 20+ visitas de tele-psiquiatría semanalmente",
         keywords: ["tele-psychiatry", "rural mental health", "FQHC satellite", "psychiatric access", "telehealth"],
       },
       {

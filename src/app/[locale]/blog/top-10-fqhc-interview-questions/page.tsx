@@ -65,7 +65,7 @@ const enContent: ArticleContent = {
       ],
     },
     {
-      heading: "2. \"Tell us about your experience working with underserved populations.\"",
+      heading: "2. \"Tell us about your experience working with under-resourced populations.\"",
       content: [
         {
           type: "paragraph",

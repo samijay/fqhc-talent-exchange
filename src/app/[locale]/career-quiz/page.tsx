@@ -188,8 +188,8 @@ const ROLE_PROFILES: RoleProfile[] = [
     roleId: "chw",
     label: { en: "Community Health Worker", es: "Promotor/a de Salud" },
     description: {
-      en: "Connect patients to resources, lead health education workshops, and advocate for underserved communities. The heart of the FQHC mission.",
-      es: "Conecta a los pacientes con recursos, dirige talleres de educacion en salud y aboga por las comunidades desatendidas.",
+      en: "Connect patients to resources, lead health education workshops, and advocate for communities that deserve better resources. The heart of the FQHC mission.",
+      es: "Conecta a los pacientes con recursos, dirige talleres de educacion en salud y aboga por las comunidades que merecen mejores recursos.",
     },
     certifications: ["CHW Certificate (SB 803)", "BLS/CPR"],
     department: "Care Coordination",

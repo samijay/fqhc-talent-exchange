@@ -59,7 +59,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "Because FQHCs receive Section 330 grant funding under the Public Health Service Act and serve as NHSC-approved sites, they can offer loan repayment programs worth tens of thousands of dollars. Because they're 501(c)(3) nonprofits, your employment counts toward Public Service Loan Forgiveness. Because they prioritize workforce retention in underserved areas, many FQHCs offer retirement matching, tuition reimbursement, and schedule flexibility that goes well beyond industry norms. [1][2]",
+          text: "Because FQHCs receive Section 330 grant funding under the Public Health Service Act and serve as NHSC-approved sites, they can offer loan repayment programs worth tens of thousands of dollars. Because they're 501(c)(3) nonprofits, your employment counts toward Public Service Loan Forgiveness. Because they prioritize workforce retention in under-resourced areas, many FQHCs offer retirement matching, tuition reimbursement, and schedule flexibility that goes well beyond industry norms. [1][2]",
         },
         {
           type: "paragraph",
@@ -147,7 +147,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "FQHCs generally offer more paid time off than private practices and many hospital systems. This is partly because FQHCs compete for talent in underserved areas where quality of life is a key retention tool, and partly because nonprofit healthcare organizations tend to have more structured and generous leave policies.",
+          text: "FQHCs generally offer more paid time off than private practices and many hospital systems. This is partly because FQHCs compete for talent in under-resourced areas where quality of life is a key retention tool, and partly because nonprofit healthcare organizations tend to have more structured and generous leave policies.",
         },
         {
           type: "list",

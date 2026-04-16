@@ -306,10 +306,8 @@ export default function Header({ fqhcIndex = [] }: HeaderProps) {
         {
           heading: isEs ? "Marcos y Herramientas" : "Frameworks & Tools",
           items: [
-            { href: "/strategy/guides", label: t("executiveGuides") },
             { href: "/strategy/okrs", label: t("okrTemplates") },
             { href: "/strategy/frameworks", label: t("executionFrameworks") },
-            { href: "/strategy/masterclass", label: t("masterclass") },
             { href: "/strategy/clinic-simulator", label: t("clinicSimulator") },
             { href: "/strategy/revenue-simulator", label: isEs ? "Simulador de Ingresos" : "Revenue Simulator" },
           ],

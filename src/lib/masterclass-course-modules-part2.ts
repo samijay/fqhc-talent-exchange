@@ -699,8 +699,8 @@ const module18FinancialResilience: MasterclassCourseModule = {
         es: "Diversificación de Ingresos No-Medicaid",
       },
       body: {
-        en: "The most resilient FQHCs keep federal dependency below 30%. Get there with: (1) 340B program optimization ($100K-$500K annually), (2) Direct-pay services (STI testing, travel medicine, minor surgery), (3) Grant diversification (foundations, regional funders beyond Section 330), (4) Employer health contracts (on-site clinics), (5) Telehealth to underserved regions (charge commercial rates). None of these replace Medicaid, but each adds 5-15% revenue stability.",
-        es: "Los FQHCs más resilientes mantienen la dependencia federal por debajo del 30%. Llegue allá con: (1) Optimización del programa 340B ($100K-$500K anuales), (2) Servicios de pago directo, (3) Diversificación de subvenciones, (4) Contratos de salud con empleadores, (5) Telesalud a regiones desatendidas.",
+        en: "The most resilient FQHCs keep federal dependency below 30%. Get there with: (1) 340B program optimization ($100K-$500K annually), (2) Direct-pay services (STI testing, travel medicine, minor surgery), (3) Grant diversification (foundations, regional funders beyond Section 330), (4) Employer health contracts (on-site clinics), (5) Telehealth to under-resourced regions (charge commercial rates). None of these replace Medicaid, but each adds 5-15% revenue stability.",
+        es: "Los FQHCs m\u00e1s resilientes mantienen la dependencia federal por debajo del 30%. Llegue all\u00e1 con: (1) Optimizaci\u00f3n del programa 340B ($100K-$500K anuales), (2) Servicios de pago directo, (3) Diversificaci\u00f3n de subvenciones, (4) Contratos de salud con empleadores, (5) Telesalud a regiones con recursos limitados.",
       },
     },
   ],

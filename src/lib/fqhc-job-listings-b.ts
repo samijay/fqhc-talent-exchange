@@ -317,7 +317,7 @@ export const fqhcJobListingsB = [
       "Bachelor's in public health or health education; CHES preferred",
       "Spanish fluency required",
       "Diabetes education experience preferred (CDE/CDCES a plus)",
-      "1+ years community health education in underserved settings"
+      "1+ years community health education in under-resourced settings"
     ],
   },
   {
@@ -1226,7 +1226,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM", "340B"],
     postedDate: "2026-03-07",
-    description: "Join Marin Community Clinics in Novato providing primary care for Marin County's underserved communities — including day laborers, canal district residents, and uninsured immigrants alongside standard primary care patients.",
+    description: "Join Marin Community Clinics in Novato providing primary care for Marin County's under-resourced communities — including day laborers, canal district residents, and uninsured immigrants alongside standard primary care patients.",
     requirements: [
       "MD/DO with California license; Board Certified or Eligible in Family Medicine",
       "Spanish proficiency preferred for significant Latino patient population",
@@ -1249,7 +1249,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM", "Family PACT"],
     postedDate: "2026-03-07",
-    description: "Primary care NP at Marin Community Clinics' San Rafael location — comprehensive family medicine for Marin's diverse underserved population including the Canal district community.",
+    description: "Primary care NP at Marin Community Clinics' San Rafael location — comprehensive family medicine for Marin's diverse under-resourced population including the Canal district community.",
     requirements: [
       "California NP (FNP) required; DEA certificate required",
       "Spanish fluency required for Canal district patient population",
@@ -1272,7 +1272,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["BH Integration", "CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Integrated BH at Marin Community Clinics — brief interventions, warm hand-offs, and culturally responsive care for Marin's underserved communities dealing with depression, anxiety, trauma, and substance use.",
+    description: "Integrated BH at Marin Community Clinics — brief interventions, warm hand-offs, and culturally responsive care for Marin's under-resourced communities dealing with depression, anxiety, trauma, and substance use.",
     requirements: [
       "LCSW, LMFT, or associate-level with supervision provided",
       "Spanish fluency required",
@@ -1318,7 +1318,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "CHW serving Marin's Canal district and underserved communities — connecting patients to Marin Community Clinics services, Medi-Cal enrollment, and social services.",
+    description: "CHW serving Marin's Canal district and under-resourced communities — connecting patients to Marin Community Clinics services, Medi-Cal enrollment, and social services.",
     requirements: [
       "CHW certification or 2+ years outreach",
       "Spanish fluency required",
@@ -1455,7 +1455,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["BH Integration", "CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Integrated BH at Neighborhood Healthcare's San Marcos clinic — brief interventions, warm hand-offs, and care coordination for North County San Diego's underserved communities.",
+    description: "Integrated BH at Neighborhood Healthcare's San Marcos clinic — brief interventions, warm hand-offs, and care coordination for North County San Diego's under-resourced communities.",
     requirements: [
       "LCSW, LMFT, or associate-level with supervision provided",
       "Spanish preferred",
@@ -1840,7 +1840,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM", "340B"],
     postedDate: "2026-03-07",
-    description: "Join Ravenswood Family Health Network in East Palo Alto — a historically underserved enclave surrounded by Silicon Valley's wealth. Comprehensive primary care for a predominantly Latino community with strong bilingual services.",
+    description: "Join Ravenswood Family Health Network in East Palo Alto — a historically under-resourced enclave surrounded by Silicon Valley's wealth. Comprehensive primary care for a predominantly Latino community with strong bilingual services.",
     requirements: [
       "MD/DO with California license; Board Certified or Eligible in Family Medicine",
       "Spanish fluency required — predominantly Spanish-speaking patient population",
@@ -1954,7 +1954,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Staff RN at Ravenswood — triage, chronic disease management, telephone advice, and care coordination for East Palo Alto's underserved community.",
+    description: "Staff RN at Ravenswood — triage, chronic disease management, telephone advice, and care coordination for East Palo Alto's under-resourced community.",
     requirements: [
       "California RN license required",
       "Ambulatory care experience preferred",
@@ -1978,7 +1978,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM", "340B", "Family PACT"],
     postedDate: "2026-03-07",
-    description: "Join Gardner Health Services in San Jose — comprehensive primary care for Silicon Valley's underserved communities including low-income Latino, Vietnamese, and immigrant families. NHSC eligible.",
+    description: "Join Gardner Health Services in San Jose — comprehensive primary care for Silicon Valley's under-resourced communities including low-income Latino, Vietnamese, and immigrant families. NHSC eligible.",
     requirements: [
       "MD/DO with California license; Board Certified or Eligible in Family Medicine",
       "Spanish or Vietnamese proficiency preferred",
@@ -2024,7 +2024,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["CalAIM"],
     postedDate: "2026-03-07",
-    description: "Clinical MA at Gardner Health Services — rooming, vitals, phlebotomy, and OCHIN Epic documentation for San Jose's diverse underserved communities.",
+    description: "Clinical MA at Gardner Health Services — rooming, vitals, phlebotomy, and OCHIN Epic documentation for San Jose's diverse under-resourced communities.",
     requirements: [
       "MA certification required",
       "Spanish or Vietnamese preferred for patient communication",
@@ -2047,7 +2047,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "CHW at Gardner Health connecting South Bay underserved communities — Latino, Vietnamese, and immigrant families — to primary care, Medi-Cal enrollment, and social services.",
+    description: "CHW at Gardner Health connecting South Bay under-resourced communities — Latino, Vietnamese, and immigrant families — to primary care, Medi-Cal enrollment, and social services.",
     requirements: [
       "CHW certification or 2+ years community outreach",
       "Spanish or Vietnamese preferred",
@@ -2091,7 +2091,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Staff RN at Gardner Health — triage, chronic disease management support, care coordination, and nursing protocols for Silicon Valley's underserved communities.",
+    description: "Staff RN at Gardner Health — triage, chronic disease management support, care coordination, and nursing protocols for Silicon Valley's under-resourced communities.",
     requirements: [
       "California RN license required",
       "Ambulatory care experience preferred",
@@ -2414,7 +2414,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Staff RN at TVHC — triage, chronic disease management, care coordination, and nursing protocols for South Alameda County's underserved communities.",
+    description: "Staff RN at TVHC — triage, chronic disease management, care coordination, and nursing protocols for South Alameda County's under-resourced communities.",
     requirements: [
       "California RN license required",
       "Ambulatory care experience preferred",
@@ -2598,7 +2598,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "eClinicalWorks",
     programs: ["ECM", "CalAIM", "Family PACT"],
     postedDate: "2026-03-07",
-    description: "Primary care NP at Elica Health — comprehensive family medicine for Sacramento's diverse underserved communities including Hmong, Latino, African American, and homeless populations.",
+    description: "Primary care NP at Elica Health — comprehensive family medicine for Sacramento's diverse under-resourced communities including Hmong, Latino, African American, and homeless populations.",
     requirements: [
       "California NP (FNP) required; DEA certificate required",
       "Spanish or Hmong/Southeast Asian language preferred",
@@ -2621,7 +2621,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "eClinicalWorks",
     programs: ["BH Integration", "CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Integrated BH at Elica Health — trauma-informed care for Sacramento's diverse underserved communities including refugees, immigrants, and individuals experiencing homelessness.",
+    description: "Integrated BH at Elica Health — trauma-informed care for Sacramento's diverse under-resourced communities including refugees, immigrants, and individuals experiencing homelessness.",
     requirements: [
       "LCSW, LMFT, or associate-level with supervision provided",
       "Spanish, Hmong, or other Sacramento community language preferred",
@@ -2667,7 +2667,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "eClinicalWorks",
     programs: ["ECM", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "ECM CHW for Elica Health — home visits, SDOH navigation, and care coordination for high-need Medi-Cal members across Sacramento's underserved communities.",
+    description: "ECM CHW for Elica Health — home visits, SDOH navigation, and care coordination for high-need Medi-Cal members across Sacramento's under-resourced communities.",
     requirements: [
       "CHW certification or 2+ years community outreach",
       "Spanish, Hmong, or other Sacramento community language preferred",
@@ -2713,7 +2713,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM", "340B"],
     postedDate: "2026-03-07",
-    description: "Join SAC Health System in San Bernardino — a faith-based FQHC serving the Inland Empire's underserved communities with comprehensive family medicine and whole-person care. NHSC Loan Repayment eligible.",
+    description: "Join SAC Health System in San Bernardino — a faith-based FQHC serving the Inland Empire's under-resourced communities with comprehensive family medicine and whole-person care. NHSC Loan Repayment eligible.",
     requirements: [
       "MD/DO with California license; Board Certified or Eligible in Family Medicine",
       "Spanish proficiency preferred for significant Latino patient population",
@@ -2736,7 +2736,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM", "Family PACT"],
     postedDate: "2026-03-07",
-    description: "Primary care NP at SAC Health in San Bernardino — whole-person, faith-inspired primary care for the Inland Empire's diverse underserved communities.",
+    description: "Primary care NP at SAC Health in San Bernardino — whole-person, faith-inspired primary care for the Inland Empire's diverse under-resourced communities.",
     requirements: [
       "California NP (FNP) required; DEA certificate required",
       "Spanish preferred",
@@ -2782,7 +2782,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["CalAIM"],
     postedDate: "2026-03-07",
-    description: "Clinical MA at SAC Health — rooming, vitals, phlebotomy, and OCHIN Epic documentation for the Inland Empire's underserved patient population.",
+    description: "Clinical MA at SAC Health — rooming, vitals, phlebotomy, and OCHIN Epic documentation for the Inland Empire's under-resourced patient population.",
     requirements: [
       "MA certification required",
       "Spanish preferred",
@@ -2805,7 +2805,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "CHW for SAC Health — connecting San Bernardino's underserved communities to primary care, Medi-Cal enrollment, and whole-person support services with a mission-centered approach.",
+    description: "CHW for SAC Health — connecting San Bernardino's under-resourced communities to primary care, Medi-Cal enrollment, and whole-person support services with a mission-centered approach.",
     requirements: [
       "CHW certification or 2+ years community outreach",
       "Spanish fluency required",
@@ -2897,7 +2897,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "eClinicalWorks",
     programs: ["BH Integration", "CalAIM", "ECM"],
     postedDate: "2026-03-07",
-    description: "Integrated BH at QueensCare — trauma-informed, whole-person care for East LA's underserved communities in a compassionate, faith-inspired organizational culture.",
+    description: "Integrated BH at QueensCare — trauma-informed, whole-person care for East LA's under-resourced communities in a compassionate, faith-inspired organizational culture.",
     requirements: [
       "LCSW, LMFT, or associate-level with supervision provided",
       "Spanish fluency required",
@@ -3032,7 +3032,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "eClinicalWorks",
     programs: ["Medi-Cal BH", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "Psychiatric NP at Kedren providing medication management for patients with serious mental illness, depression, anxiety, PTSD, and co-occurring SUD in South LA's underserved communities.",
+    description: "Psychiatric NP at Kedren providing medication management for patients with serious mental illness, depression, anxiety, PTSD, and co-occurring SUD in South LA's under-resourced communities.",
     requirements: [
       "California NP (PMHNP) license required; DEA certificate required",
       "SMI population and community mental health experience required",
@@ -3101,7 +3101,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CalAIM", "340B"],
     postedDate: "2026-03-07",
-    description: "Join Watts Healthcare Corporation — serving one of LA's most historically underserved communities since 1966. Comprehensive family medicine for the Watts and South LA communities with a deep commitment to health equity.",
+    description: "Join Watts Healthcare Corporation — serving one of LA's most historically under-resourced communities since 1966. Comprehensive family medicine for the Watts and South LA communities with a deep commitment to health equity.",
     requirements: [
       "MD/DO with California license; Board Certified or Eligible in Family Medicine",
       "Spanish fluency required for predominantly Latino patient population",
@@ -3147,7 +3147,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["CalAIM"],
     postedDate: "2026-03-07",
-    description: "Clinical MA at Watts Healthcare — rooming, vitals, phlebotomy, and OCHIN Epic documentation for South LA's underserved community.",
+    description: "Clinical MA at Watts Healthcare — rooming, vitals, phlebotomy, and OCHIN Epic documentation for South LA's under-resourced community.",
     requirements: [
       "MA certification required",
       "Spanish fluency required",
@@ -3765,7 +3765,7 @@ export const fqhcJobListingsB = [
       "Spanish fluency required — patient population is predominantly Spanish-speaking",
       "Local anesthesia and nitrous oxide permits preferred",
       "FQHC or safety-net dental experience a plus",
-      "Commitment to serving underserved agricultural communities"
+      "Commitment to serving under-resourced agricultural communities"
     ],
   },
   {
@@ -3855,12 +3855,12 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["Behavioral Health Integration", "CalAIM", "ECM", "Substance Use Disorder"],
     postedDate: "2026-03-07",
-    description: "Psychiatric NP role at Ampla Health's Redding clinic — treating mental health and substance use disorders in a medically underserved rural community. Integrated BH model with primary care colocation.",
+    description: "Psychiatric NP role at Ampla Health's Redding clinic — treating mental health and substance use disorders in a under-resourced rural community. Integrated BH model with primary care colocation.",
     requirements: [
       "PMHNP license in California required",
       "Experience in integrated behavioral health, SUD treatment, or MAT strongly preferred",
       "OCHIN Epic experience helpful; training provided",
-      "Rural health experience or willingness to serve in underserved NorCal communities",
+      "Rural health experience or willingness to serve in under-resourced NorCal communities",
       "NHSC Loan Repayment eligible — HPSA designation"
     ],
   },
@@ -4317,7 +4317,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "Migrant Health", "340B", "Family PACT"],
     postedDate: "2026-03-07",
-    description: "Clinicas de Salud del Pueblo serves Imperial County and Eastern Coachella Valley — California's hottest and most medically underserved region. Primarily agricultural worker patients. Exceptional NHSC loan repayment potential.",
+    description: "Clinicas de Salud del Pueblo serves Imperial County and Eastern Coachella Valley — California's hottest and most under-resourced region. Primarily agricultural worker patients. Exceptional NHSC loan repayment potential.",
     requirements: [
       "MD/DO with California medical license; Board Certified or Eligible in Family Medicine or Internal Medicine",
       "Spanish fluency required — 95%+ of patients are Spanish-speaking agricultural workers and families",
@@ -4341,7 +4341,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "Migrant Health", "Family PACT"],
     postedDate: "2026-03-07",
-    description: "NP opportunity in one of California's most underserved regions — Imperial Valley, serving farmworker and indigenous communities in the desert border region. Full scope of practice. NHSC loan repayment.",
+    description: "NP opportunity in one of California's most under-resourced regions — Imperial Valley, serving farmworker and indigenous communities in the desert border region. Full scope of practice. NHSC loan repayment.",
     requirements: [
       "FNP license in California required",
       "Spanish fluency required; indigenous language (Mixtec or Zapotec) highly valued",
@@ -4365,7 +4365,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["Oral Health Integration", "340B"],
     postedDate: "2026-03-07",
-    description: "RDH role in Imperial Valley — one of CA's most dental-underserved regions. Clinicas serves predominantly farmworker families with significant preventive and restorative dental needs. NHSC eligible.",
+    description: "RDH role in Imperial Valley — one of CA's most dental-under-resourced regions. Clinicas serves predominantly farmworker families with significant preventive and restorative dental needs. NHSC eligible.",
     requirements: [
       "California Registered Dental Hygienist license required",
       "Spanish fluency required",
@@ -4487,7 +4487,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["Behavioral Health Integration", "ECM", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "Integrated BH clinician at Axis Community Health in Livermore. Collocated BH with primary care, brief interventions, panel-based mental health for Tri-Valley's underserved residents.",
+    description: "Integrated BH clinician at Axis Community Health in Livermore. Collocated BH with primary care, brief interventions, panel-based mental health for Tri-Valley's residents with limited access to care.",
     requirements: [
       "LCSW or MFT license in California required (ASW/AMFT with available supervision welcome)",
       "Spanish language skills preferred",
@@ -4561,7 +4561,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "Epic",
     programs: ["ECM", "340B", "Behavioral Health Integration", "Health Care for the Homeless", "Teaching/Residency"],
     postedDate: "2026-03-07",
-    description: "Alameda Health System operates 4 FQHC Wellness Centers in East Oakland, the Fruitvale, San Leandro, and Hayward — embedded in a full public health system with Highland Hospital (Alameda County's only Level 1 Trauma Center). Serving Oakland's most underserved residents. NHSC eligible.",
+    description: "Alameda Health System operates 4 FQHC Wellness Centers in East Oakland, the Fruitvale, San Leandro, and Hayward — embedded in a full public health system with Highland Hospital (Alameda County's only Level 1 Trauma Center). Serving Oakland's most residents with limited access to care. NHSC eligible.",
     requirements: [
       "MD/DO with California medical license; Board Certified in Family Medicine or Internal Medicine",
       "NHSC Loan Repayment eligible — Alameda County HPSA designation",
@@ -4637,7 +4637,7 @@ export const fqhcJobListingsB = [
     requirements: [
       "CHW certification or 2+ years community health outreach experience",
       "Multilingual skills (Spanish, Cantonese, Amharic, or Tigrinya) highly valued — diverse East Oakland community",
-      "Lived experience in East Oakland or similar urban underserved community preferred",
+      "Lived experience in East Oakland or similar urban under-resourced community preferred",
       "Valid CA driver's license",
       "Knowledge of Alameda County social services, Medi-Cal, and housing resources"
     ],
@@ -6643,7 +6643,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "Epic",
     programs: ["BH Integration", "ECM", "SUD Treatment", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "Integrated BH clinician at Santa Clara Valley Health Centers in San Jose. Diverse Silicon Valley underserved population — immigrant tech workers, unhoused, farmworkers, and refugees. Epic-integrated behavioral health.",
+    description: "Integrated BH clinician at Santa Clara Valley Health Centers in San Jose. Diverse Silicon Valley under-resourced population — immigrant tech workers, unhoused, farmworkers, and refugees. Epic-integrated behavioral health.",
     requirements: [
       "LCSW or MFT license in California required",
       "Integrated behavioral health or SUD treatment experience preferred",
@@ -6889,7 +6889,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "NextGen",
     programs: ["ECM", "BH Integration", "340B"],
     postedDate: "2026-03-07",
-    description: "Livingston Community Health serves 18,000+ patients in Merced County's agricultural heartland — Livingston, Merced, Atwater. Predominantly Sikh and Latino farmworker communities in one of CA's most underserved counties. NHSC eligible.",
+    description: "Livingston Community Health serves 18,000+ patients in Merced County's agricultural heartland — Livingston, Merced, Atwater. Predominantly Sikh and Latino farmworker communities in one of CA's most under-resourced counties. NHSC eligible.",
     requirements: [
       "MD/DO with California medical license; Board Certified or Eligible in Family Medicine",
       "Spanish fluency required — significant Spanish-speaking agricultural worker community",
@@ -6937,7 +6937,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "NextGen",
     programs: ["ECM", "CalAIM"],
     postedDate: "2026-03-07",
-    description: "CHW at Livingston Community Health. Field-based outreach in Merced County — connecting farmworker and Sikh agricultural families to primary care and Medi-Cal. Rare opportunity in one of California's most underserved regions.",
+    description: "CHW at Livingston Community Health. Field-based outreach in Merced County — connecting farmworker and Sikh agricultural families to primary care and Medi-Cal. Rare opportunity in one of California's most under-resourced regions.",
     requirements: [
       "CHW certification or 2+ years agricultural community outreach",
       "Spanish fluency required; Punjabi a plus for Sikh farming community",
@@ -7062,7 +7062,7 @@ export const fqhcJobListingsB = [
     description: "PMHNP at Health Alliance NorCal — psychiatric medication management and SUD treatment in rural NorCal. Shasta County has severe mental health and substance use crisis (opioids, methamphetamine) with very limited specialist access.",
     requirements: [
       "PMHNP license in California required",
-      "Rural psychiatric or SUD treatment experience preferred — NorCal is critically underserved",
+      "Rural psychiatric or SUD treatment experience preferred — NorCal is critically under-resourced",
       "NHSC Loan Repayment eligible — rural HPSA designation",
       "Opioid use disorder and MAT/MOUD prescribing experience preferred",
       "Trauma-informed care with disaster-affected and rural communities"
@@ -7282,7 +7282,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "eClinicalWorks",
     programs: ["Dental", "Behavioral Health", "MAT", "Acupuncture", "Optometry", "ECM", "Substance Abuse", "Mobile Health"],
     postedDate: "2026-03-07",
-    description: "Hurtt Family Health Clinic is a faith-based FQHC (Saddleback Church network) serving Orange County's unhoused and underserved populations across 12 sites with extraordinary breadth of services — dental, chiropractic, acupuncture, optometry, MAT, and mobile health. NHSC eligible.",
+    description: "Hurtt Family Health Clinic is a faith-based FQHC (Saddleback Church network) serving Orange County's unhoused and under-resourced populations across 12 sites with extraordinary breadth of services — dental, chiropractic, acupuncture, optometry, MAT, and mobile health. NHSC eligible.",
     requirements: [
       "FNP license in California required",
       "Spanish language skills preferred — significant Spanish-speaking OC patient community",
@@ -7892,7 +7892,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "BH Integration", "Community Supports", "340B"],
     postedDate: "2026-03-07",
-    description: "San Francisco Community Health Center serves 15,000+ patients across 5 SF sites. OCHIN Epic. LGBTQ+-affirming, multilingual primary care for SF's diverse underserved communities. TransHOPE funding lost 2026 — resilient and committed team.",
+    description: "San Francisco Community Health Center serves 15,000+ patients across 5 SF sites. OCHIN Epic. LGBTQ+-affirming, multilingual primary care for SF's diverse under-resourced communities. TransHOPE funding lost 2026 — resilient and committed team.",
     requirements: [
       "FNP license in California required",
       "LGBTQ+-affirming care required",
@@ -7966,7 +7966,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "NextGen",
     programs: ["ECM", "BH Integration", "Community Supports", "Health Care for the Homeless"],
     postedDate: "2026-03-07",
-    description: "LA Christian Health Centers is a faith-based FQHC serving 12,000+ unhoused and underserved patients across 4 LA sites — Downtown LA, Skid Row, Hollywood, and Compton. NHSC eligible. HCH-focused NP role.",
+    description: "LA Christian Health Centers is a faith-based FQHC serving 12,000+ unhoused and patients with limited access to care across 4 LA sites — Downtown LA, Skid Row, Hollywood, and Compton. NHSC eligible. HCH-focused NP role.",
     requirements: [
       "FNP license in California required",
       "HCH, Skid Row, or street medicine experience preferred",
@@ -8039,7 +8039,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "NextGen",
     programs: ["ECM", "BH Integration", "340B"],
     postedDate: "2026-03-07",
-    description: "Hill Country Community Clinic serves 8,000+ patients in one of California's most remote and underserved frontier communities — Round Mountain and Burney in eastern Shasta County. NHSC Loan Repayment — maximum rural HPSA designation. Population devastated by Carr Fire and regional poverty.",
+    description: "Hill Country Community Clinic serves 8,000+ patients in one of California's most remote and under-resourced frontier communities — Round Mountain and Burney in eastern Shasta County. NHSC Loan Repayment — maximum rural HPSA designation. Population devastated by Carr Fire and regional poverty.",
     featured: true,
     featuredNote: "True frontier medicine — Burney/Round Mountain is 40+ miles from Redding. Maximum NHSC loan repayment potential.",
     requirements: [
@@ -8537,13 +8537,13 @@ export const fqhcJobListingsB = [
     ehrSystem: "NextGen",
     programs: ["ECM", "BH Integration"],
     postedDate: "2026-03-07",
-    description: "Full-scope family medicine practice serving 22,000+ patients in southern Humboldt County — one of California's most underserved coastal rural communities. NHSC Loan Repayment eligible. Redwood Community Health Coalition member clinic.",
+    description: "Full-scope family medicine practice serving 22,000+ patients in southern Humboldt County — one of California's most under-resourced coastal rural communities. NHSC Loan Repayment eligible. Redwood Community Health Coalition member clinic.",
     requirements: [
       "MD/DO with current California medical license; Board Certified in Family Medicine",
       "NHSC Loan Repayment eligible — Humboldt County HPSA",
       "Rural health experience valued; full scope of practice including OB preferred",
       "NextGen EHR experience; training provided",
-      "Commitment to underserved rural community health"
+      "Commitment to under-resourced rural community health"
     ],
     featured: true,
     featuredNote: "NHSC Loan Repayment eligible — rural Humboldt County HPSA designation.",
@@ -8617,7 +8617,7 @@ export const fqhcJobListingsB = [
       "HIV/AIDS primary care experience required; AAHIVS certification a plus",
       "Hep C DAA (direct-acting antiviral) treatment experience preferred",
       "Bilingual Spanish highly valued — majority Latino patient population",
-      "NHSC Loan Repayment eligible — underserved LA neighborhood"
+      "NHSC Loan Repayment eligible — under-resourced LA neighborhood"
     ],
   },
   {
@@ -8635,7 +8635,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "Other",
     programs: ["BH Integration", "HIV/AIDS Care"],
     postedDate: "2026-03-07",
-    description: "Bilingual behavioral health counselor integrating mental health support into primary care for North Hollywood's diverse underserved population. HIV-positive patients, substance use, and co-occurring disorders common. Integrated care model with medical team.",
+    description: "Bilingual behavioral health counselor integrating mental health support into primary care for North Hollywood's diverse under-resourced population. HIV-positive patients, substance use, and co-occurring disorders common. Integrated care model with medical team.",
     requirements: [
       "LCSW or MFT license in California required (or registered intern under supervision)",
       "Bilingual Spanish/English required",
@@ -8914,7 +8914,7 @@ export const fqhcJobListingsB = [
       "PCMH model, quality improvement (HEDIS, UDS), and population health management",
       "Bilingual Spanish preferred — 65% of patients at risk of coverage loss",
       "Experience leading clinical teams across multi-site FQHC",
-      "Track record in chronic disease management (diabetes, hypertension, asthma) in underserved populations"
+      "Track record in chronic disease management (diabetes, hypertension, asthma) in under-resourced populations"
     ],
   },
   {
@@ -8988,7 +8988,7 @@ export const fqhcJobListingsB = [
       "Bilingual Spanish required — Boyle Heights is predominantly Spanish-speaking",
       "Chronic disease management experience (diabetes, HTN, asthma) essential",
       "eClinicalWorks EHR experience preferred",
-      "NHSC Loan Repayment eligible — East LA underserved designation"
+      "NHSC Loan Repayment eligible — East LA under-resourced designation"
     ],
   },
   {
@@ -9307,7 +9307,7 @@ export const fqhcJobListingsB = [
       "RDH license in California required",
       "Bilingual Spanish required",
       "Denti-Cal and uninsured/sliding-scale billing experience",
-      "Pediatric and adult preventive care in underserved populations",
+      "Pediatric and adult preventive care in under-resourced populations",
       "Cultural humility with undocumented immigrant patients"
     ],
   },
@@ -9572,7 +9572,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "Care coordinator at Garfield Health Center's SGV clinics — bridging care across 11 sites for Chinese-American, Latino, and other underserved communities in Monterey Park and the San Gabriel Valley.",
+    description: "Care coordinator at Garfield Health Center's SGV clinics — bridging care across 11 sites for Chinese-American, Latino, and other under-resourced communities in Monterey Park and the San Gabriel Valley.",
     requirements: [
       "Medical assistant, CHW, or care coordination background",
       "Multilingual (Cantonese, Mandarin, or Spanish) required for this population",
@@ -9582,7 +9582,7 @@ export const fqhcJobListingsB = [
     ],
   },
 
-  // Gracelight Community Health (Los Angeles, 8 sites, underserved LA community)
+  // Gracelight Community Health (Los Angeles, 8 sites, under-resourced LA community)
   {
     id: "grace-la-001",
     fqhcSlug: "gracelight-community-health",
@@ -9598,7 +9598,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "FNP at Gracelight Community Health serving underserved Los Angeles patients across 8 community health sites. Faith-based mission-driven FQHC. NHSC eligible. Bilingual Spanish valued for diverse LA patient population.",
+    description: "FNP at Gracelight Community Health serving under-resourced Los Angeles patients across 8 community health sites. Faith-based mission-driven FQHC. NHSC eligible. Bilingual Spanish valued for diverse LA patient population.",
     requirements: [
       "FNP license in California required",
       "NHSC Loan Repayment eligible — LA urban HPSA",
@@ -9622,7 +9622,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "BH clinician integrated in primary care at Gracelight Community Health's 8 LA sites. Faith-informed, community-rooted approach to mental health in underserved neighborhoods.",
+    description: "BH clinician integrated in primary care at Gracelight Community Health's 8 LA sites. Faith-informed, community-rooted approach to mental health in under-resourced neighborhoods.",
     requirements: [
       "LCSW or MFT license in California (or registered intern with supervision)",
       "Co-located or integrated BH in primary care experience",
@@ -9802,7 +9802,7 @@ export const fqhcJobListingsB = [
       "Bilingual Spanish required — majority Spanish-speaking farmworker patient population",
       "NHSC Loan Repayment eligible — Monterey County rural HPSA",
       "Occupational health, agricultural worker care, or migrant health experience a significant plus",
-      "Chronic disease (diabetes, hypertension) panel management in underserved settings"
+      "Chronic disease (diabetes, hypertension) panel management in under-resourced settings"
     ],
   },
   {
@@ -10119,7 +10119,7 @@ export const fqhcJobListingsB = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "Bilingual CHW at Stanislaus County FQHC connecting Modesto's underserved agricultural and low-income communities to healthcare and social services. Central Valley outreach with high rates of diabetes and uninsured residents.",
+    description: "Bilingual CHW at Stanislaus County FQHC connecting Modesto's under-resourced agricultural and low-income communities to healthcare and social services. Central Valley outreach with high rates of diabetes and uninsured residents.",
     requirements: [
       "CHW certification or community health navigation experience",
       "Bilingual Spanish required",

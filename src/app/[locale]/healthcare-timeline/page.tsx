@@ -173,8 +173,8 @@ const HEALTHCARE_ERAS: HealthcareEra[] = [
         year: 1946,
         title: { en: "Hill-Burton Act — Hospital Construction", es: "Ley Hill-Burton — Construcción de Hospitales" },
         description: {
-          en: "The Hospital Survey and Construction Act (Hill-Burton) provides federal grants for hospital construction, especially in underserved areas. In exchange for funding, hospitals must provide a 'reasonable volume' of free care. Over 6,800 facilities are built or upgraded.",
-          es: "La Ley de Encuestas y Construcción de Hospitales (Hill-Burton) proporciona subvenciones federales para construcción de hospitales, especialmente en áreas desatendidas.",
+          en: "The Hospital Survey and Construction Act (Hill-Burton) provides federal grants for hospital construction, especially in under-resourced areas. In exchange for funding, hospitals must provide a 'reasonable volume' of free care. Over 6,800 facilities are built or upgraded.",
+          es: "La Ley de Encuestas y Construcción de Hospitales (Hill-Burton) proporciona subvenciones federales para construcción de hospitales, especialmente en áreas con recursos limitados.",
         },
         impact: {
           en: "Dramatically expanded hospital access in rural America. However, it allowed 'separate but equal' facilities in the South until the Civil Rights Act of 1964.",
@@ -278,7 +278,7 @@ const HEALTHCARE_ERAS: HealthcareEra[] = [
         year: 1975,
         title: { en: "Section 330 — FQHC Authorization", es: "Sección 330 — Autorización de FQHCs" },
         description: {
-          en: "Congress codifies the community health center program under Section 330 of the Public Health Service Act, creating the statutory basis for FQHCs. Community health centers are defined as entities serving medically underserved populations, with required primary care services and community board governance.",
+          en: "Congress codifies the community health center program under Section 330 of the Public Health Service Act, creating the statutory basis for FQHCs. Community health centers are defined as entities serving populations with limited access to care, with required primary care services and community board governance.",
           es: "El Congreso codifica el programa de centros de salud comunitaria bajo la Sección 330 de la Ley del Servicio de Salud Pública, creando la base legal para los FQHCs.",
         },
         impact: {
@@ -321,8 +321,8 @@ const HEALTHCARE_ERAS: HealthcareEra[] = [
           es: "El Congreso establece el reembolso basado en costos de Medicaid para FQHCs a través de la Ley de Reconciliación Presupuestaria Ómnibus (OBRA 1989), luego convertido al Sistema de Pago Prospectivo (PPS).",
         },
         impact: {
-          en: "PPS rates ($200-400/visit) are the financial backbone of the FQHC model. Without them, FQHCs cannot sustain comprehensive care for underserved populations. This is what California's 2026 budget threatens to eliminate for undocumented patients.",
-          es: "Las tasas PPS ($200-400/visita) son la columna financiera del modelo FQHC. Sin ellas, los FQHCs no pueden sostener atención integral para poblaciones desatendidas.",
+          en: "PPS rates ($200-400/visit) are the financial backbone of the FQHC model. Without them, FQHCs cannot sustain comprehensive care for under-resourced populations. This is what California's 2026 budget threatens to eliminate for undocumented patients.",
+          es: "Las tasas PPS ($200-400/visita) son la columna financiera del modelo FQHC. Sin ellas, los FQHCs no pueden sostener atenci\u00f3n integral para poblaciones con acceso limitado a la atenci\u00f3n.",
         },
         category: "legislation",
         sources: [

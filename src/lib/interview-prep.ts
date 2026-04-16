@@ -101,7 +101,7 @@ export const INTERVIEW_QUESTIONS: InterviewQuestion[] = [
     strongAnswerExample: "I grew up without health insurance and relied on a community health center for all my care as a teenager. That experience showed me what accessible, dignified care looks like — and what's at stake when it's not available. I've specifically sought out FQHC roles because I want to be part of the system that creates that access, not just participate in healthcare.",
     esStrongAnswerExample: "Crecí sin seguro de salud y dependí de un centro de salud comunitario para toda mi atención de adolescente. Esa experiencia me mostró cómo es la atención accesible y digna, y lo que está en juego cuando no está disponible.",
     redFlags: [
-      "Vague answer about 'helping people' without specific connection to underserved communities",
+      "Vague answer about 'helping people' without specific connection to under-resourced communities",
       "Mentions FQHC as a backup to preferred hospital or private practice role",
       "No awareness of what FQHC stands for or what federally qualified means",
     ],
@@ -1724,7 +1724,7 @@ export const ROLE_INTERVIEW_GUIDES: RoleInterviewGuide[] = [
       "team-multilingual",
     ],
     keyThemes: [
-      { en: "Periodontal disease management in underserved, high-acuity populations", es: "Manejo de la enfermedad periodontal en poblaciones desatendidas de alta agudeza" },
+      { en: "Periodontal disease management in under-resourced, high-acuity populations", es: "Manejo de la enfermedad periodontal en poblaciones con acceso limitado a la atenci\u00f3n de alta agudeza" },
       { en: "Oral-systemic integration — diabetes, pregnancy, cardiovascular, BH", es: "Integración oral-sistémica — diabetes, embarazo, cardiovascular, salud conductual" },
       { en: "Trauma-informed patient education and barrier exploration", es: "Educación del paciente informada en trauma y exploración de barreras" },
       { en: "Alternative Practice Dental Hygienist (APDH) scope in California", es: "Alcance del Higienista Dental de Práctica Alternativa (APDH) en California" },

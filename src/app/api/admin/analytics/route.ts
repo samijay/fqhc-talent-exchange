@@ -34,9 +34,9 @@ export async function GET(request: Request) {
   }
 
   // Auth check — accept either:
-  // (a) Secret key via Authorization header (uses ADMIN_API_SECRET, falls back to NEWSLETTER_SECRET)
+  // (a) Secret key via Authorization header (uses ADMIN_API_SECRET — no fallback)
   // (b) Logged-in Supabase user with admin email
-  const adminSecret = process.env.ADMIN_API_SECRET || process.env.NEWSLETTER_SECRET;
+  const adminSecret = process.env.ADMIN_API_SECRET;
   const authHeader = request.headers.get("authorization") ?? "";
   const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
 

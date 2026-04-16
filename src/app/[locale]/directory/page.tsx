@@ -95,7 +95,7 @@ export default function DirectoryPage() {
           {
             question: "What is a Federally Qualified Health Center (FQHC)?",
             answer:
-              "An FQHC is a community-based healthcare provider that receives federal funding under the Health Center Program to provide primary care services in underserved areas. They serve all patients regardless of ability to pay and offer sliding fee scales based on income.",
+              "An FQHC is a community-based healthcare provider that receives federal funding under the Health Center Program to provide primary care services in under-resourced areas. They serve all patients regardless of ability to pay and offer sliding fee scales based on income.",
           },
           {
             question: "How many FQHCs are in California?",

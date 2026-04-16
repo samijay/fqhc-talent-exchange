@@ -263,8 +263,8 @@ export default function LayoffsPage() {
       />
 
       {/* ─── Stats bar ─── */}
-      <div className="mx-auto max-w-7xl px-4 -mt-8 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-5">
+      <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-5">
           <StatCard
             icon={<Users className="size-5 text-red-600" />}
             value={stats.totalAffected.toLocaleString()}
@@ -585,7 +585,7 @@ function StatCard({
 }) {
   return (
     <div
-      className={`flex flex-col items-center rounded-xl border border-stone-200 bg-white p-4 shadow-sm dark:border-stone-700 dark:bg-stone-800 ${className}`}
+      className={`flex h-full flex-col items-center justify-center rounded-xl border border-stone-200 bg-white p-4 shadow-sm dark:border-stone-700 dark:bg-stone-800 ${className}`}
     >
       {icon}
       <p className="mt-2 text-base font-extrabold text-stone-900 sm:text-2xl leading-tight break-words text-center dark:text-stone-100">

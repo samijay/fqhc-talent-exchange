@@ -68,7 +68,7 @@ export const DOMAIN_DEFINITIONS: DomainDefinition[] = [
     id: "mission",
     name: "Mission & Motivation",
     description:
-      "Purpose, grit, and commitment to serving underserved communities. Predicts retention and long-term success at FQHCs.",
+      "Purpose, grit, and commitment to serving under-resourced communities. Predicts retention and long-term success at FQHCs.",
     icon: "\u{1F3AF}", // target
     color: "teal",
   },

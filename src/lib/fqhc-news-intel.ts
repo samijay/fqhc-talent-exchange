@@ -2512,7 +2512,7 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "Prospect Medical Holdings: Cierres de Instalaciones y Ventas de Activos en el Condado de LA",
     },
     summary: {
-      en: "Private equity-backed Prospect Medical Holdings continues downsizing LA County operations, closing facilities and selling assets. Community health advocates warn that closures in underserved areas push more patients toward FQHCs, increasing demand without corresponding funding increases.",
+      en: "Private equity-backed Prospect Medical Holdings continues downsizing LA County operations, closing facilities and selling assets. Community health advocates warn that closures in under-resourced areas push more patients toward FQHCs, increasing demand without corresponding funding increases.",
       es: "Prospect Medical Holdings, respaldado por capital privado, continúa reduciendo operaciones en el condado de LA, cerrando instalaciones y vendiendo activos. Esto empuja más pacientes hacia FQHCs sin aumentos de financiamiento correspondientes.",
     },
     category: "merger-acquisition",
@@ -2526,7 +2526,7 @@ export const INTEL_ITEMS: IntelItem[] = [
     tags: ["private-equity", "closures", "patient-displacement"],
     keyTakeaways: [
       { en: "Private equity-backed Prospect Medical Holdings closing facilities and selling assets across LA County", es: "Prospect Medical Holdings, respaldado por capital privado, cerrando instalaciones y vendiendo activos en el condado de LA" },
-      { en: "Closures in underserved areas push more patients toward FQHCs without corresponding funding increases", es: "Los cierres en áreas desatendidas empujan más pacientes hacia FQHCs sin aumentos de financiamiento correspondientes" },
+      { en: "Closures in under-resourced areas push more patients toward FQHCs without corresponding funding increases", es: "Los cierres en áreas con recursos limitados empujan más pacientes hacia FQHCs sin aumentos de financiamiento correspondientes" },
       { en: "FQHCs near Prospect facilities should prepare for increased patient volume and acuity", es: "FQHCs cerca de instalaciones de Prospect deben prepararse para mayor volumen y agudeza de pacientes" },
     ],
   },
@@ -4803,8 +4803,8 @@ export const INTEL_ITEMS: IntelItem[] = [
       es: "CHCF: Recortes Federales Amenazan Centros de Enseñanza de Salud y la Formación de Médicos Rurales en California",
     },
     summary: {
-      en: "California Health Care Foundation warns that proposed federal cuts would devastate Teaching Health Center residency programs that train primary care physicians specifically for underserved communities. CA has 23 THC programs producing ~200 residents annually — 55% practice in rural/underserved areas post-graduation. Loss of THC funding would collapse the pipeline at a time when CA already faces a 4,100 primary care physician shortage.",
-      es: "CHCF advierte que los recortes federales devastarían los programas de residencia de Centros de Enseñanza de Salud que forman médicos de atención primaria para comunidades desatendidas. CA tiene 23 programas THC que producen ~200 residentes al año.",
+      en: "California Health Care Foundation warns that proposed federal cuts would devastate Teaching Health Center residency programs that train primary care physicians specifically for under-resourced communities. CA has 23 THC programs producing ~200 residents annually — 55% practice in rural/under-resourced areas post-graduation. Loss of THC funding would collapse the pipeline at a time when CA already faces a 4,100 primary care physician shortage.",
+      es: "CHCF advierte que los recortes federales devastarían los programas de residencia de Centros de Enseñanza de Salud que forman médicos de atención primaria para comunidades con acceso limitado a la atención. CA tiene 23 programas THC que producen ~200 residentes al año.",
     },
     category: "workforce",
     impactLevel: "high",

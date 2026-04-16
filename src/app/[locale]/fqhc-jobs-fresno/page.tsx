@@ -51,7 +51,7 @@ export default function FqhcJobsFresno() {
           <p className="text-xl text-stone-600 leading-relaxed">
             The Central Valley&apos;s FQHCs serve California&apos;s
             agricultural heartland, providing essential healthcare to farming
-            communities, migrant workers, and underserved rural populations.
+            communities, migrant workers, and rural populations with limited access to care.
             With 15+ FQHCs across the region, demand for bilingual community
             health workers and promotoras is among the highest in the state.
           </p>
@@ -71,7 +71,7 @@ export default function FqhcJobsFresno() {
               Joaquin Valley, Family Healthcare Network, Camarena Health, and
               Golden Valley Health Centers. These health centers operate across
               a vast geographic area stretching from Bakersfield to Stockton,
-              serving some of California&apos;s most medically underserved
+              serving some of California&apos;s most under-resourced
               communities.
             </p>
             <p>
@@ -156,7 +156,7 @@ export default function FqhcJobsFresno() {
               <strong>Chronic Disease Management</strong> programs addressing
               diabetes, hypertension, and obesity are expanding rapidly, driven
               by high rates of chronic conditions in the region&apos;s
-              underserved populations. FQHCs need care coordinators and health
+              under-resourced populations. FQHCs need care coordinators and health
               educators with experience in culturally tailored prevention
               programs.
             </p>

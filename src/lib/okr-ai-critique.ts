@@ -153,7 +153,7 @@ export function generateFallbackCritique(
     "pharmacy",
     "medicaid",
     "uninsured",
-    "underserved",
+    "under-resourced",
   ];
   const allText = [objective, ...keyResults].join(" ").toLowerCase();
   const fqhcMatches = fqhcKeywords.filter((kw) => allText.includes(kw));

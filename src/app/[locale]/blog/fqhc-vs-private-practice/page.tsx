@@ -88,7 +88,7 @@ const enContent: ArticleContent = {
         },
         {
           type: "paragraph",
-          text: "The truth is that neither setting is universally \u201Cbetter.\u201D FQHCs are mission-driven organizations that serve underserved communities with federal support. Private practices and hospitals operate on revenue-driven models that prioritize throughput and profitability. Both need talented people. But they attract different kinds of professionals, and understanding the differences will help you find the right fit.",
+          text: "The truth is that neither setting is universally \u201Cbetter.\u201D FQHCs are mission-driven organizations that serve under-resourced communities with federal support. Private practices and hospitals operate on revenue-driven models that prioritize throughput and profitability. Both need talented people. But they attract different kinds of professionals, and understanding the differences will help you find the right fit.",
         },
       ],
     },
@@ -97,7 +97,7 @@ const enContent: ArticleContent = {
       content: [
         {
           type: "paragraph",
-          text: "This is the most fundamental difference. FQHCs exist to serve everyone regardless of ability to pay. They receive federal Section 330 funding specifically to provide care to underserved populations \u2014 Medi-Cal recipients, uninsured individuals, immigrants, farmworkers, people experiencing homelessness, and low-income families. Every patient who walks through the door receives care on a sliding-scale fee basis, and no one is turned away.",
+          text: "This is the most fundamental difference. FQHCs exist to serve everyone regardless of ability to pay. They receive federal Section 330 funding specifically to provide care to communities with limited access to care \u2014 Medi-Cal recipients, uninsured individuals, immigrants, farmworkers, people experiencing homelessness, and low-income families. Every patient who walks through the door receives care on a sliding-scale fee basis, and no one is turned away.",
         },
         {
           type: "paragraph",
@@ -277,7 +277,7 @@ const enContent: ArticleContent = {
   comparisonRows: [
     {
       factor: "Mission",
-      fqhc: "Serve underserved communities regardless of ability to pay",
+      fqhc: "Serve under-resourced communities regardless of ability to pay",
       privatePractice: "Revenue-driven; serve insured and paying patients",
     },
     {

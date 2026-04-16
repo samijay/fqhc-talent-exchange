@@ -2294,8 +2294,8 @@ export const FQHC_GUIDES: FQHCGuide[] = [
             es: "Las visitas solo de audio (teléfono) son reembolsables para pacientes establecidos bajo Medi-Cal — pero requieren documentación de por qué no se usó video",
           },
           {
-            en: "Ensure patient-side technology support: lend tablets, provide WiFi hotspots for underserved patients, and train staff to troubleshoot common issues",
-            es: "Asegure soporte tecnológico del lado del paciente: preste tabletas, proporcione puntos WiFi para pacientes desatendidos y capacite al personal para resolver problemas comunes",
+            en: "Ensure patient-side technology support: lend tablets, provide WiFi hotspots for patients with limited access to technology, and train staff to troubleshoot common issues",
+            es: "Asegure soporte tecnol\u00f3gico del lado del paciente: preste tabletas, proporcione puntos WiFi para pacientes con acceso limitado a la tecnolog\u00eda y capacite al personal para resolver problemas comunes",
           },
           {
             en: "Bandwidth requirements: minimum 1.5 Mbps up/down for reliable video; test all provider locations including home offices",

@@ -77,8 +77,8 @@ export const REGIONAL_MULTIPLIERS: RegionalMultiplier[] = [
     region: "Inland Empire",
     esRegion: "Inland Empire",
     multiplier: 0.95,
-    description: "Riverside & San Bernardino. High demand, underserved communities.",
-    esDescription: "Riverside y San Bernardino. Alta demanda, comunidades desatendidas.",
+    description: "Riverside & San Bernardino. High demand, under-resourced communities.",
+    esDescription: "Riverside y San Bernardino. Alta demanda, comunidades con acceso limitado a la atenci\u00f3n.",
   },
   {
     region: "Central Valley",
@@ -955,8 +955,8 @@ export const CAREER_PATHWAYS: CareerPathway[] = [
     id: "dental",
     name: "Dental & Oral Health",
     esName: "Dental y Salud Oral",
-    description: "From chair-side assisting to leading a multi-site dental program that closes oral health gaps for underserved communities.",
-    esDescription: "De asistencia chairside a liderar un programa dental multi-sitio que cierra las brechas de salud oral para comunidades desatendidas.",
+    description: "From chair-side assisting to leading a multi-site dental program that closes oral health gaps for under-resourced communities.",
+    esDescription: "De asistencia chairside a liderar un programa dental multi-sitio que cierra las brechas de salud oral para comunidades con acceso limitado a la atenci\u00f3n.",
     icon: "Smile",
     color: "cyan",
     levels: [

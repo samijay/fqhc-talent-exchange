@@ -152,7 +152,7 @@ export default function FqhcJobsSanDiego() {
               <strong>Community Supports</strong> programs — including housing
               navigation and medically supportive food — are creating new roles
               that combine social work skills with healthcare delivery,
-              particularly in underserved neighborhoods along the border region.
+              particularly in under-resourced neighborhoods along the border region.
             </p>
           </div>
 

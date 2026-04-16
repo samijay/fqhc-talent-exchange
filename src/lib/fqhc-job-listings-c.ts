@@ -43,7 +43,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "eClinicalWorks",
     programs: ["Community Supports"],
     postedDate: "2026-03-07",
-    description: "Bilingual health educator doing reproductive health community outreach for Planned Parenthood Pacific Southwest — connecting San Diego's underserved communities to contraception, STI prevention, and primary care. School, community, and mobile clinic-based education.",
+    description: "Bilingual health educator doing reproductive health community outreach for Planned Parenthood Pacific Southwest — connecting San Diego's under-resourced communities to contraception, STI prevention, and primary care. School, community, and mobile clinic-based education.",
     requirements: [
       "Bilingual Spanish required",
       "Health education, CHW, or community outreach experience",
@@ -141,7 +141,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Cerner",
     programs: ["BH Integration"],
     postedDate: "2026-03-07",
-    description: "BH clinician integrated in primary care at Loma Linda University Health's community sites. Academic institution support, faith-aligned values, serving IE's 35,000+ underserved patients. Bilingual Spanish preferred.",
+    description: "BH clinician integrated in primary care at Loma Linda University Health's community sites. Academic institution support, faith-aligned values, serving IE's 35,000+ patients with limited access to care. Bilingual Spanish preferred.",
     requirements: [
       "LCSW or MFT license in California",
       "Integrated BH, warm handoff, or FQHC co-location experience",
@@ -290,7 +290,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "athenahealth",
     programs: ["ECM", "Community Supports", "BH Integration"],
     postedDate: "2026-03-07",
-    description: "NP at Desert Healthcare District serving 25,000+ patients in the eastern Coachella Valley — a medically underserved desert region with extreme heat, agricultural workers, and a large LGBTQ+ community. ECM provider. athenahealth. NHSC eligible.",
+    description: "NP at Desert Healthcare District serving 25,000+ patients in the eastern Coachella Valley — a under-resourced desert region with extreme heat, agricultural workers, and a large LGBTQ+ community. ECM provider. athenahealth. NHSC eligible.",
     requirements: [
       "FNP license in California required",
       "NHSC Loan Repayment eligible — Riverside County desert HPSA",
@@ -314,7 +314,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "athenahealth",
     programs: ["ECM", "Community Supports"],
     postedDate: "2026-03-07",
-    description: "ECM care manager at Desert Healthcare District in the Coachella Valley. Navigate complex Medi-Cal members through extreme heat vulnerabilities, agricultural worker health needs, housing instability, and chronic disease in a medically underserved desert region.",
+    description: "ECM care manager at Desert Healthcare District in the Coachella Valley. Navigate complex Medi-Cal members through extreme heat vulnerabilities, agricultural worker health needs, housing instability, and chronic disease in a under-resourced desert region.",
     requirements: [
       "RN, LCSW, or CHW credential; ECM program experience",
       "Bilingual Spanish strongly preferred",
@@ -767,7 +767,7 @@ export const fqhcJobListingsC = [
       "FNP license in California required",
       "Bilingual Spanish required",
       "NHSC Loan Repayment eligible",
-      "Chronic disease and preventive care in underserved populations",
+      "Chronic disease and preventive care in under-resourced populations",
       "FQHC or academic community clinic experience"
     ],
   },
@@ -1192,7 +1192,7 @@ export const fqhcJobListingsC = [
       "Bilingual Tagalog or Spanish strongly preferred",
       "NHSC Loan Repayment eligible",
       "Cultural competency with Filipino-American community including mental health destigmatization",
-      "Chronic disease management in a diverse, underserved SFV population"
+      "Chronic disease management in a diverse, under-resourced SFV population"
     ],
   },
   {
@@ -1236,7 +1236,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "Family physician at San Bernardino County Public Health's FQHC clinics — 7 sites across San Bernardino and Victor Valley. Serving one of California's lowest-income and most medically underserved inland populations. Robust NHSC Loan Repayment eligible.",
+    description: "Family physician at San Bernardino County Public Health's FQHC clinics — 7 sites across San Bernardino and Victor Valley. Serving one of California's lowest-income and most under-resourced inland populations. Robust NHSC Loan Repayment eligible.",
     requirements: [
       "MD/DO Board Certified in Family Medicine or Internal Medicine",
       "NHSC Loan Repayment eligible — San Bernardino County HPSA",
@@ -1543,7 +1543,7 @@ export const fqhcJobListingsC = [
       "Rural mental health, veteran care, or substance use experience",
       "Comfort with isolated desert community practice",
       "Trauma-informed and harm reduction approach",
-      "Interest in serving an underserved, overlooked desert community"
+      "Interest in serving an under-resourced, overlooked desert community"
     ],
   },
 
@@ -1935,7 +1935,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "Bilingual MA at Elevate Health Center's Sun Valley SFV clinics. Essential patient support for Spanish-speaking, underserved families in the San Fernando Valley.",
+    description: "Bilingual MA at Elevate Health Center's Sun Valley SFV clinics. Essential patient support for Spanish-speaking, families with limited access to care in the San Fernando Valley.",
     requirements: [
       "Medical Assistant certification or equivalent",
       "Bilingual Spanish required",
@@ -2369,7 +2369,7 @@ export const fqhcJobListingsC = [
       "Bilingual Spanish required",
       "NHSC Loan Repayment eligible",
       "FQHC or community health center primary care experience",
-      "Chronic disease management for underserved SFV patient population"
+      "Chronic disease management for under-resourced SFV patient population"
     ],
   },
   {
@@ -2652,7 +2652,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "Physician at Benevolence Industries, a Los Angeles FQHC with 10 active sites serving underserved urban communities. Full-scope primary care for Medi-Cal and uninsured patients. Mission-centered culture focused on compassionate community health.",
+    description: "Physician at Benevolence Industries, a Los Angeles FQHC with 10 active sites serving under-resourced urban communities. Full-scope primary care for Medi-Cal and uninsured patients. Mission-centered culture focused on compassionate community health.",
     requirements: [
       "MD/DO with active California license",
       "Board Certified in Family Medicine or Internal Medicine",
@@ -2843,13 +2843,13 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "NP at CARES Community Health, a Sacramento FQHC with 7 active sites. Providing primary care and chronic disease management for underserved Sacramento County populations including Medi-Cal members, unhoused individuals, and refugee communities.",
+    description: "NP at CARES Community Health, a Sacramento FQHC with 7 active sites. Providing primary care and chronic disease management for under-resourced Sacramento County populations including Medi-Cal members, unhoused individuals, and refugee communities.",
     requirements: [
       "Active California NP license and DEA",
       "Family or Adult-Gerontology NP certification",
       "FQHC or community health experience",
       "Chronic disease management: DM, HTN, CHF",
-      "Experience with diverse, underserved patient populations"
+      "Experience with diverse, under-resourced patient populations"
     ],
   },
   {
@@ -2939,7 +2939,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "NP at Community Medicine, an FQHC serving Orange County with 4 active sites based in Paramount. Primary care for underserved OC and Southeast LA populations including uninsured, Medi-Cal, and immigrant communities.",
+    description: "NP at Community Medicine, an FQHC serving Orange County with 4 active sites based in Paramount. Primary care for under-resourced OC and Southeast LA populations including uninsured, Medi-Cal, and immigrant communities.",
     requirements: [
       "Active California NP license and DEA",
       "Family NP certification",
@@ -3042,7 +3042,7 @@ export const fqhcJobListingsC = [
       "Family NP certification",
       "Bilingual Spanish/English required",
       "FQHC or community health center experience",
-      "Chronic disease and preventive care for underserved populations"
+      "Chronic disease and preventive care for under-resourced populations"
     ],
   },
   {
@@ -3066,7 +3066,7 @@ export const fqhcJobListingsC = [
       "Bilingual Spanish/English required",
       "Phlebotomy and vital signs proficiency",
       "EHR or clinical documentation experience",
-      "Patient-centered care for underserved communities"
+      "Patient-centered care for under-resourced communities"
     ],
   },
   {
@@ -3106,7 +3106,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "CHW at Equity Health connecting San Francisco's underserved communities to health and social services across 6 sites. Focus on SDOH navigation, outreach to unhoused and immigrant communities, and linkage to housing, food, and mental health resources.",
+    description: "CHW at Equity Health connecting San Francisco's under-resourced communities to health and social services across 6 sites. Focus on SDOH navigation, outreach to unhoused and immigrant communities, and linkage to housing, food, and mental health resources.",
     requirements: [
       "CA CHW certification preferred (SB 803)",
       "Experience with unhoused, LGBTQ+, or immigrant communities in SF",
@@ -3130,7 +3130,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "Physician at Health Access for All, an LA FQHC with 9 active sites committed to equitable health access for underserved Angelenos. Provide comprehensive primary care to Medi-Cal, uninsured, and medically underserved patients across LA County.",
+    description: "Physician at Health Access for All, an LA FQHC with 9 active sites committed to equitable health access for under-resourced Angelenos. Provide comprehensive primary care to Medi-Cal, uninsured, and under-resourced patients across LA County.",
     requirements: [
       "MD/DO with California medical license",
       "Board Certified in Family Medicine",
@@ -3367,13 +3367,13 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "NP at Livingstone Community Development, an Orange County FQHC based in Stanton serving underserved OC communities. Primary care for Latino and immigrant families, Medi-Cal members, and uninsured patients in central Orange County.",
+    description: "NP at Livingstone Community Development, an Orange County FQHC based in Stanton serving under-resourced OC communities. Primary care for Latino and immigrant families, Medi-Cal members, and uninsured patients in central Orange County.",
     requirements: [
       "Active California NP license and DEA",
       "Family NP certification",
       "Bilingual Spanish/English required",
       "FQHC or community health center experience",
-      "Chronic disease management for OC underserved populations"
+      "Chronic disease management for OC under-resourced populations"
     ],
   },
   {
@@ -3511,7 +3511,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "Physician at North Orange County Regional Health Foundation, an Anaheim FQHC with 6 sites serving central OC's diverse underserved communities. Full-scope primary care for Latino, Vietnamese, Cambodian, and other immigrant families with Medi-Cal or no insurance.",
+    description: "Physician at North Orange County Regional Health Foundation, an Anaheim FQHC with 6 sites serving central OC's diverse under-resourced communities. Full-scope primary care for Latino, Vietnamese, Cambodian, and other immigrant families with Medi-Cal or no insurance.",
     requirements: [
       "MD/DO with California medical license",
       "Board Certified in Family Medicine or Internal Medicine",
@@ -3535,7 +3535,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "Bilingual care coordinator at North Orange County Regional Health Foundation navigating OC's diverse underserved population to health and social services across 6 Anaheim-area sites. Medi-Cal enrollment, specialty referrals, and SDOH navigation for Latino and Asian Pacific Islander communities.",
+    description: "Bilingual care coordinator at North Orange County Regional Health Foundation navigating OC's diverse under-resourced population to health and social services across 6 Anaheim-area sites. Medi-Cal enrollment, specialty referrals, and SDOH navigation for Latino and Asian Pacific Islander communities.",
     requirements: [
       "Bilingual Spanish/English required",
       "Care coordination or patient navigation experience",
@@ -3606,13 +3606,13 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "NP at Peninsula Healthcare Connection, a Santa Clara County FQHC with 1 site serving underserved San Jose residents. Primary care for Medi-Cal and uninsured Silicon Valley workers who cannot access mainstream health systems due to cost or immigration status.",
+    description: "NP at Peninsula Healthcare Connection, a Santa Clara County FQHC with 1 site serving under-resourced San Jose residents. Primary care for Medi-Cal and uninsured Silicon Valley workers who cannot access mainstream health systems due to cost or immigration status.",
     requirements: [
       "Active California NP license and DEA",
       "Family or Adult-Gerontology NP certification",
       "FQHC or safety-net primary care experience",
       "Multilingual skills preferred (Spanish, Vietnamese, Tagalog)",
-      "Chronic disease management for underserved Bay Area populations"
+      "Chronic disease management for under-resourced Bay Area populations"
     ],
   },
   {
@@ -3630,7 +3630,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "CHW at Peninsula Healthcare Connection connecting San Jose's underserved immigrant communities to health and social services. Navigate Medi-Cal enrollment, community resources, and social needs for patients who face language and immigration barriers to care.",
+    description: "CHW at Peninsula Healthcare Connection connecting San Jose's under-resourced immigrant communities to health and social services. Navigate Medi-Cal enrollment, community resources, and social needs for patients who face language and immigration barriers to care.",
     requirements: [
       "CA CHW certification (SB 803) preferred",
       "Bilingual Spanish or Vietnamese preferred",
@@ -3654,7 +3654,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "Physician at Precision Health Center, an LA FQHC with 3 sites providing precision-guided, high-quality primary care to underserved Los Angeles communities. Comprehensive family medicine for Medi-Cal and uninsured patients with a focus on preventive care and evidence-based chronic disease management.",
+    description: "Physician at Precision Health Center, an LA FQHC with 3 sites providing precision-guided, high-quality primary care to under-resourced Los Angeles communities. Comprehensive family medicine for Medi-Cal and uninsured patients with a focus on preventive care and evidence-based chronic disease management.",
     requirements: [
       "MD/DO with California medical license",
       "Board Certified in Family Medicine or Internal Medicine",
@@ -3684,7 +3684,7 @@ export const fqhcJobListingsC = [
       "Bilingual Spanish/English required",
       "Phlebotomy and injection skills",
       "EHR documentation",
-      "Commitment to serving underserved LA communities"
+      "Commitment to serving under-resourced LA communities"
     ],
   },
   {
@@ -3726,7 +3726,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "BH clinician at Saint Youstina in Santa Ana, providing co-located mental health services for OC's diverse underserved populations. Brief interventions, trauma-informed care, and warm handoffs for patients with depression, anxiety, and co-occurring SUD.",
+    description: "BH clinician at Saint Youstina in Santa Ana, providing co-located mental health services for OC's diverse under-resourced populations. Brief interventions, trauma-informed care, and warm handoffs for patients with depression, anxiety, and co-occurring SUD.",
     requirements: [
       "LCSW or LMFT license in California (or associate with supervision)",
       "Bilingual Spanish/English required",
@@ -3822,7 +3822,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "Care coordinator at Serenity Care Health Group navigating Long Beach patients to medical, behavioral health, and social services across 4 sites. Serving diverse, underserved South LA/Long Beach communities with a focus on Medi-Cal member support and SDOH navigation.",
+    description: "Care coordinator at Serenity Care Health Group navigating Long Beach patients to medical, behavioral health, and social services across 4 sites. Serving diverse, under-resourced South LA/Long Beach communities with a focus on Medi-Cal member support and SDOH navigation.",
     requirements: [
       "Bilingual Spanish/English required",
       "Care coordination or patient navigation experience",
@@ -3919,7 +3919,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "MA at Tender Care Community Clinic in Downey supporting clinical operations for SE LA's underserved Medi-Cal patient population. Rooming, vital signs, phlebotomy, and bilingual interpreter support.",
+    description: "MA at Tender Care Community Clinic in Downey supporting clinical operations for SE LA's under-resourced Medi-Cal patient population. Rooming, vital signs, phlebotomy, and bilingual interpreter support.",
     requirements: [
       "Medical Assistant certificate",
       "Bilingual Spanish/English required",
@@ -4013,7 +4013,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "CHW at The Clinic connecting LA's underserved communities to health and social services across 7 sites. Conduct outreach, SDOH screenings, and patient navigation for Medi-Cal members and uninsured LA residents seeking access to preventive and primary care.",
+    description: "CHW at The Clinic connecting LA's under-resourced communities to health and social services across 7 sites. Conduct outreach, SDOH screenings, and patient navigation for Medi-Cal members and uninsured LA residents seeking access to preventive and primary care.",
     requirements: [
       "CA CHW certification (SB 803) preferred",
       "Bilingual Spanish/English required",
@@ -4037,7 +4037,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "eClinicalWorks",
     programs: ["ECM", "BH Integration", "Community Supports"],
     postedDate: "2026-03-07",
-    description: "Physician at The Health and Wellness Centers, an LA FQHC operating on eClinicalWorks with CalAIM ECM, BH Integration, and Community Supports programs. Providing comprehensive primary care to underserved LA communities with fully integrated behavioral health and robust social service navigation.",
+    description: "Physician at The Health and Wellness Centers, an LA FQHC operating on eClinicalWorks with CalAIM ECM, BH Integration, and Community Supports programs. Providing comprehensive primary care to under-resourced LA communities with fully integrated behavioral health and robust social service navigation.",
     requirements: [
       "MD/DO with California medical license",
       "Board Certified in Family Medicine or Internal Medicine",
@@ -4085,7 +4085,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "Other",
     programs: [],
     postedDate: "2026-03-07",
-    description: "Physician at The Roads Foundation, a Compton FQHC with 9 active sites serving one of LA County's most underserved communities. Full-scope primary care for Medi-Cal and uninsured patients in Compton, Watts, and surrounding South LA communities where health disparities reflect decades of systemic disinvestment.",
+    description: "Physician at The Roads Foundation, a Compton FQHC with 9 active sites serving one of LA County's most under-resourced communities. Full-scope primary care for Medi-Cal and uninsured patients in Compton, Watts, and surrounding South LA communities where health disparities reflect decades of systemic disinvestment.",
     requirements: [
       "MD/DO with California medical license",
       "Board Certified in Family Medicine or Internal Medicine",
@@ -4330,7 +4330,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "NextGen",
     programs: ["Primary Care"],
     postedDate: "2026-03-09",
-    description: "Join SCFHC's new Huntington Park clinic opening in 2026. Provide primary care nursing services to the underserved Southeast LA community. Ground-floor opportunity to help build a new clinical team.",
+    description: "Join SCFHC's new Huntington Park clinic opening in 2026. Provide primary care nursing services to communities that deserve better resources Southeast LA community. Ground-floor opportunity to help build a new clinical team.",
     requirements: [
       "Active California RN license",
       "2+ years primary care or community health experience",
@@ -4527,7 +4527,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "BH Integration"],
     postedDate: "2026-03-11",
-    description: "Provide pediatric primary care at Eureka Community Health Center. Physician compensation $234,635–$267,624; Pediatric NP $148,627–$168,554. Rural NHSC-eligible site serving underserved North Coast families.",
+    description: "Provide pediatric primary care at Eureka Community Health Center. Physician compensation $234,635–$267,624; Pediatric NP $148,627–$168,554. Rural NHSC-eligible site serving under-resourced North Coast families.",
     requirements: [
       "MD/DO with completed pediatric residency OR Pediatric Nurse Practitioner certification",
       "Board certified or board eligible in Pediatrics",
@@ -4831,7 +4831,7 @@ export const fqhcJobListingsC = [
       "Board certified psychiatrist (MD/DO)",
       "Current California medical license",
       "DEA certification",
-      "Experience with underserved populations preferred"
+      "Experience with under-resourced populations preferred"
     ],
     languagePreferred: ["Spanish"],
   },
@@ -4894,11 +4894,11 @@ export const fqhcJobListingsC = [
     ehrSystem: "OCHIN Epic",
     programs: [],
     postedDate: "2026-02-25",
-    description: "12-month NP residency at Petaluma Health Center. Structured mentorship, clinical rotations across primary care, behavioral health, and dental integration. Develop FQHC-specific skills in underserved community care.",
+    description: "12-month NP residency at Petaluma Health Center. Structured mentorship, clinical rotations across primary care, behavioral health, and dental integration. Develop FQHC-specific skills in under-resourced community care.",
     requirements: [
       "Current California NP license (new graduate eligible)",
       "Board certified as FNP",
-      "Commitment to community health and underserved populations",
+      "Commitment to community health and under-resourced populations",
       "Willingness to rotate across 2+ PHC sites"
     ],
   },
@@ -4916,12 +4916,12 @@ export const fqhcJobListingsC = [
     ehrSystem: "OCHIN Epic",
     programs: ["Women's Health"],
     postedDate: "2026-02-15",
-    description: "Provide OB/GYN services for PHC's women's health program serving Sonoma County. Prenatal care, deliveries, gynecological procedures, and reproductive health for underserved patients.",
+    description: "Provide OB/GYN services for PHC's women's health program serving Sonoma County. Prenatal care, deliveries, gynecological procedures, and reproductive health for patients with limited access to care.",
     requirements: [
       "Board certified OB/GYN (MD/DO)",
       "Current California medical license",
       "Active hospital privileges or willingness to obtain",
-      "Experience with underserved and Medi-Cal populations preferred"
+      "Experience with under-resourced and Medi-Cal populations preferred"
     ],
     languagePreferred: ["Spanish"],
   },
@@ -5051,7 +5051,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "OCHIN Epic",
     programs: ["Optometry"],
     postedDate: "2026-02-15",
-    description: "Provide comprehensive eye care at PHC's optometry department. Routine exams, diabetic eye screenings, contact lens fittings, and vision care for underserved patients including children and seniors.",
+    description: "Provide comprehensive eye care at PHC's optometry department. Routine exams, diabetic eye screenings, contact lens fittings, and vision care for patients with limited access to care including children and seniors.",
     requirements: [
       "Doctor of Optometry (OD) from accredited program",
       "Current California optometry license",
@@ -5376,7 +5376,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "NextGen",
     programs: ["Dental"],
     postedDate: "2026-02-15",
-    description: "Provide dental hygiene services at MCC's San Rafael and Novato dental clinics. Cleanings, periodontal assessments, patient education, and preventive care for underserved Marin County residents.",
+    description: "Provide dental hygiene services at MCC's San Rafael and Novato dental clinics. Cleanings, periodontal assessments, patient education, and preventive care for under-resourced Marin County residents.",
     requirements: [
       "RDH license from California Dental Board",
       "Current CPR/BLS certification",
@@ -5732,7 +5732,7 @@ export const fqhcJobListingsC = [
       "DDS/DMD from accredited dental school",
       "Current California dental license",
       "Denti-Cal experience preferred",
-      "Interest in serving underserved agricultural communities"
+      "Interest in serving under-resourced agricultural communities"
     ],
   },
   {
@@ -5772,12 +5772,12 @@ export const fqhcJobListingsC = [
     ehrSystem: "NextGen",
     programs: [],
     postedDate: "2025-12-15",
-    description: "Rare FQHC-based hematology/oncology position at United Health Centers in Fresno. Provide cancer care and blood disorder management for the underserved San Joaquin Valley — one of the few FQHCs offering specialty oncology.",
+    description: "Rare FQHC-based hematology/oncology position at United Health Centers in Fresno. Provide cancer care and blood disorder management for communities that deserve better resources San Joaquin Valley — one of the few FQHCs offering specialty oncology.",
     requirements: [
       "Board certified in Hematology/Oncology",
       "Current California medical license",
       "Fellowship training in Hematology-Oncology",
-      "Interest in community-based cancer care for underserved populations"
+      "Interest in community-based cancer care for under-resourced populations"
     ],
     featured: true,
     featuredNote: "Rare FQHC-based oncology position — one of very few FQHCs offering in-house cancer care",
@@ -6130,7 +6130,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "OCHIN Epic",
     programs: ["BH Integration"],
     postedDate: "2026-03-15",
-    description: "Provide per diem dental services at MCC's San Rafael clinic. Deliver comprehensive general dentistry to underserved populations on a flexible schedule.",
+    description: "Provide per diem dental services at MCC's San Rafael clinic. Deliver comprehensive general dentistry to under-resourced populations on a flexible schedule.",
     requirements: [
       "DDS or DMD from an accredited dental school",
       "Current California dental license",
@@ -6359,7 +6359,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "OCHIN Epic",
     programs: ["BH Integration"],
     postedDate: "2026-03-15",
-    description: "Provide temporary dental coverage at MCC's Novato clinic. Deliver comprehensive general dentistry services to underserved patients during staff transition period.",
+    description: "Provide temporary dental coverage at MCC's Novato clinic. Deliver comprehensive general dentistry services to patients with limited access to care during staff transition period.",
     requirements: [
       "DDS or DMD from an accredited dental school",
       "Current California dental license",
@@ -6542,7 +6542,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "CCM"],
     postedDate: "2026-03-15",
-    description: "Provide primary care at MCC's Larkspur clinic location. Manage patient panels, chronic disease care, and preventive health services for Marin County's underserved community.",
+    description: "Provide primary care at MCC's Larkspur clinic location. Manage patient panels, chronic disease care, and preventive health services for Marin County's under-resourced community.",
     requirements: [
       "Board certified in Family or Internal Medicine (MD/DO)",
       "Current California medical license and DEA",
@@ -7212,7 +7212,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "NextGen",
     programs: ["ECM", "CCM"],
     postedDate: "2026-03-15",
-    description: "Provide primary care at UHC's Visalia clinic in Tulare County. Manage patient panels, chronic disease care, and preventive health for the Central Valley's underserved community.",
+    description: "Provide primary care at UHC's Visalia clinic in Tulare County. Manage patient panels, chronic disease care, and preventive health for the Central Valley's under-resourced community.",
     requirements: [
       "Board certified in Family or Internal Medicine (MD/DO)",
       "Current California medical license and DEA",
@@ -7931,12 +7931,12 @@ export const fqhcJobListingsC = [
     ehrSystem: "OCHIN Epic",
     programs: [],
     postedDate: "2026-03-15",
-    description: "Full-time dentist at CHCCC's Nipomo dental clinic. Provide comprehensive oral healthcare to underserved populations including children and agricultural workers. NHSC loan repayment eligible.",
+    description: "Full-time dentist at CHCCC's Nipomo dental clinic. Provide comprehensive oral healthcare to under-resourced populations including children and agricultural workers. NHSC loan repayment eligible.",
     requirements: [
       "DDS or DMD from an accredited dental school",
       "Active California dental license",
       "Community health or public health dentistry experience preferred",
-      "Commitment to serving underserved populations"
+      "Commitment to serving under-resourced populations"
     ],
   },
   {
@@ -8069,7 +8069,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "BH Integration"],
     postedDate: "2026-03-15",
-    description: "Board certified pediatrician for CHCCC's Paso Robles clinic. Provide comprehensive pediatric care including well-child visits, immunizations, developmental screening, and chronic disease management for underserved children.",
+    description: "Board certified pediatrician for CHCCC's Paso Robles clinic. Provide comprehensive pediatric care including well-child visits, immunizations, developmental screening, and chronic disease management for under-resourced children.",
     requirements: [
       "MD/DO with board certification in Pediatrics",
       "Active California medical license",
@@ -8097,7 +8097,7 @@ export const fqhcJobListingsC = [
       "MD/DO with board certification in OB/GYN",
       "Active California medical license",
       "Community health or FQHC OB experience preferred",
-      "Commitment to reproductive healthcare access for underserved populations"
+      "Commitment to reproductive healthcare access for under-resourced populations"
     ],
   },
   {
@@ -8230,7 +8230,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "OCHIN Epic",
     programs: ["ECM", "BH Integration"],
     postedDate: "2026-03-15",
-    description: "Board certified pediatrician for CHCCC's Santa Maria clinic. Provide well-child care, immunizations, developmental screening, and management of pediatric conditions for an underserved Central Coast community.",
+    description: "Board certified pediatrician for CHCCC's Santa Maria clinic. Provide well-child care, immunizations, developmental screening, and management of pediatric conditions for an under-resourced Central Coast community.",
     requirements: [
       "MD/DO with board certification in Pediatrics",
       "Active California medical license",
@@ -8420,7 +8420,7 @@ export const fqhcJobListingsC = [
     ehrSystem: "NextGen",
     programs: ["ECM", "HCH"],
     postedDate: "2026-03-15",
-    description: "Provide comprehensive primary care to medically underserved residents of LA County. 16-24 patients per shift with very light call (NP takes first call). $25K sign-on bonus, NHSC loan repayment up to $50K, relocation up to $10K. 14 Joint Commission-accredited centers.",
+    description: "Provide comprehensive primary care to under-resourced residents of LA County. 16-24 patients per shift with very light call (NP takes first call). $25K sign-on bonus, NHSC loan repayment up to $50K, relocation up to $10K. 14 Joint Commission-accredited centers.",
     requirements: [
       "MD/DO degree required",
       "Board Certified or Board Eligible",
