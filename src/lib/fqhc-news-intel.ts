@@ -5398,6 +5398,27 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgs: [],
     tags: ["sb-1422", "medi-cal", "undocumented", "uis", "durazo", "cpca", "committee-hearing", "pps"],
   },
+  {
+    id: "san-diego-calfresh-medi-cal-eligibility-wave-april-2026",
+    type: "news",
+    category: "legislation",
+    impactLevel: "high",
+    date: "2026-04-01",
+    headline: {
+      en: "San Diego County Activates CalFresh and Medi-Cal Eligibility Restrictions — 400K+ Enrollees Affected",
+      es: "Condado de San Diego Activa Restricciones de Elegibilidad para CalFresh y Medi-Cal — Más de 400K Inscritos Afectados",
+    },
+    summary: {
+      en: "Effective April 1, 2026, lawfully present noncitizens in San Diego County lost CalFresh eligibility, with an 80-hour monthly work requirement for most CalFresh adults starting June 1 and Medi-Cal work requirements taking effect January 2027. The changes affect approximately 400,000 CalFresh enrollees and 800,000+ Medi-Cal members in San Diego, overwhelming FQHCs with eligibility navigation needs as patients seek to maintain coverage.",
+      es: "A partir del 1 de abril de 2026, los no ciudadanos con presencia legal en el Condado de San Diego perdieron la elegibilidad para CalFresh, con un requisito de trabajo de 80 horas mensuales para la mayoría de los adultos comenzando el 1 de junio, y requisitos de trabajo de Medi-Cal efectivos en enero de 2027. Los cambios afectan a aproximadamente 400,000 inscritos en CalFresh y más de 800,000 miembros de Medi-Cal en San Diego.",
+    },
+    sourceUrl: "https://timesofsandiego.com/health/2026/03/16/first-calfresh-medi-cal-eligibility-changes-take-effect-april-1/",
+    sourceOrg: "Times of San Diego",
+    region: "San Diego",
+    affectedOrgSlugs: ["family-health-centers-of-san-diego", "san-ysidro-health", "neighborhood-healthcare", "la-maestra-community-health-centers", "vista-community-clinic"],
+    affectedOrgs: [],
+    tags: ["calfresh", "medi-cal", "work-requirements", "san-diego", "eligibility", "noncitizens", "enrollment", "navigation"],
+  },
 ];
 
 /* ------------------------------------------------------------------ */

@@ -6,7 +6,7 @@ FQHC Talent (https://www.fqhctalent.com) is a strategic intelligence platform fo
 
 The site covers: H.R. 1 Medicaid cuts, CalAIM programs (ECM, Community Supports), FQHC funding policy, the California workforce crisis, AI adoption in community health, FQHC compliance (HRSA, HIPAA, billing), and salary benchmarks across 9 CA regions. All insights cite primary sources (government, NACHC, CPCA, CHCF, KFF).
 
-Key data assets: 214 California FQHCs with resilience scores, 1,600+ job listings across 30+ FQHCs (1,053 static + 555 live API), 230+ intelligence items across 9 categories, 42 AI adoption tracker items with 8 vendor comparisons, 36 advocacy actions tracked, 25 OKR templates with Excel trackers, 22 case studies, 18 masterclass modules, 20 certifications, 13 operational guides, 20 layoff events tracking 3,477+ displaced workers, 62 salary benchmarks across 9 regions, 9 regional intelligence dashboards, 214 per-FQHC strategic reports, and 15 bilingual blog articles. Updated daily via automated intelligence pipeline.
+Key data assets: 214 California FQHCs with resilience scores, 1,600+ job listings across 30+ FQHCs (1,053 static + 555 live API), 231+ intelligence items across 9 categories, 42 AI adoption tracker items with 8 vendor comparisons, 36 advocacy actions tracked, 25 OKR templates with Excel trackers, 22 case studies, 18 masterclass modules, 20 certifications, 13 operational guides, 20 layoff events tracking 3,477+ displaced workers, 62 salary benchmarks across 9 regions, 9 regional intelligence dashboards, 214 per-FQHC strategic reports, and 15 bilingual blog articles. Updated daily via automated intelligence pipeline.
 
 ## Intelligence & Monitoring
 

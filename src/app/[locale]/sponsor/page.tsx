@@ -33,7 +33,7 @@ export default function SponsorPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: Users, label: "FQHC Organizations", value: "214+", sub: "All California FQHCs covered" },
-              { icon: BarChart3, label: "Intel Items Tracked", value: "230+", sub: "Primary sources for every claim" },
+              { icon: BarChart3, label: "Intel Items Tracked", value: "231+", sub: "Primary sources for every claim" },
               { icon: Target, label: "FQHC Jobs Monitored", value: "1,600+", sub: "Across 30+ organizations" },
               { icon: Mail, label: "Weekly Intel Brief", value: "Every Tuesday", sub: "Executive-level policy intelligence" },
             ].map((stat) => (
