@@ -50,7 +50,7 @@ export function useContentReads(contentType?: string) {
       query = query.eq("content_type", contentType);
     }
 
-    void query.then(({ data, error }) => {
+    void query.then(({ data, error }: { data: { content_type: string; content_id: string; status: string; progress: number; last_read_at: string }[] | null; error: { message: string } | null }) => {
       if (error) {
         console.warn("[useContentReads] fetch failed:", error.message);
         setLoading(false);

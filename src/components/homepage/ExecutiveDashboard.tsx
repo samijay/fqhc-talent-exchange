@@ -56,8 +56,8 @@ export function ExecutiveDashboard() {
       .from("user_watchlist")
       .select("watch_type, watch_value")
       .eq("user_id", user.id)
-      .then(({ data: wl, error }) => {
-        if (!error && wl) setWatchlist(wl as WatchlistItem[]);
+      .then(({ data: wl, error }: { data: WatchlistItem[] | null; error: unknown }) => {
+        if (!error && wl) setWatchlist(wl);
       });
     void supabase
       .from("content_reads")
@@ -65,7 +65,7 @@ export function ExecutiveDashboard() {
       .eq("user_id", user.id)
       .order("last_read_at", { ascending: false })
       .limit(5)
-      .then(({ data: reads, error }) => {
+      .then(({ data: reads, error }: { data: { content_type: string; content_id: string; status: string; last_read_at: string }[] | null; error: unknown }) => {
         if (!error && reads) setRecentReads(reads);
       });
   }, [user]);

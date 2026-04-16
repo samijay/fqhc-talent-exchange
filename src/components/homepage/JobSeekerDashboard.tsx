@@ -55,7 +55,7 @@ export function JobSeekerDashboard() {
       .neq("status", "want_to_read")
       .order("last_read_at", { ascending: false })
       .limit(5)
-      .then(({ data: reads, error }) => {
+      .then(({ data: reads, error }: { data: { content_type: string; content_id: string; status: string; last_read_at: string }[] | null; error: unknown }) => {
         if (!error && reads) setRecentReads(reads);
       });
 
@@ -66,7 +66,7 @@ export function JobSeekerDashboard() {
       .eq("user_id", user.id)
       .eq("status", "want_to_read")
       .limit(3)
-      .then(({ data: reads, error }) => {
+      .then(({ data: reads, error }: { data: { content_type: string; content_id: string }[] | null; error: unknown }) => {
         if (!error && reads) setWantToRead(reads);
       });
   }, [user]);

@@ -129,17 +129,20 @@ export async function GET(request: Request) {
     // Weekly signup trends (last 8 weeks) — fetch recent signups and bucket
     (async () => {
       const eightWeeksAgo = new Date(Date.now() - 8 * 7 * 24 * 60 * 60 * 1000).toISOString();
-      const [candidates, subscribers] = await Promise.all([
+      const [candidates, subscribers]: [
+        { created_at: string }[],
+        { subscribed_at: string }[]
+      ] = await Promise.all([
         supabaseAdmin
           .from("candidate_waitlist")
           .select("created_at")
           .gte("created_at", eightWeeksAgo)
-          .then((r) => r.data ?? []),
+          .then((r: { data: unknown }) => (r.data as { created_at: string }[] | null) ?? []),
         supabaseAdmin
           .from("newsletter_subscribers")
           .select("subscribed_at")
           .gte("subscribed_at", eightWeeksAgo)
-          .then((r) => r.data ?? []),
+          .then((r: { data: unknown }) => (r.data as { subscribed_at: string }[] | null) ?? []),
       ]);
       // Bucket by ISO week start (Monday)
       const weeks: Record<string, number> = {};

@@ -52,7 +52,7 @@ const TOOL_PAGES: SearchItem[] = [
   { type: "tool", title: "Newsletter", href: "/newsletter", keywords: "newsletter subscribe email intel brief" },
   { type: "tool", title: "Layoff Tracker", href: "/layoffs", keywords: "layoffs WARN Act displaced workers" },
   { type: "tool", title: "Intel Brief PDF", href: "/intel-brief", keywords: "intel brief PDF download report" },
-  { type: "tool", title: "Demo Dashboard", href: "/demo", keywords: "demo dashboard preview overview" },
+  { type: "tool", title: "Intelligence Dashboard", href: "/intelligence", keywords: "demo dashboard preview overview intel" },
 ];
 
 const STRATEGY_PAGES: SearchItem[] = [
@@ -62,7 +62,7 @@ const STRATEGY_PAGES: SearchItem[] = [
   { type: "strategy", title: "Healthcare Economics", href: "/strategy/economics", keywords: "PPS 340B FMAP reimbursement" },
   { type: "strategy", title: "Execution Frameworks", href: "/strategy/frameworks", keywords: "change management decision" },
   { type: "strategy", title: "Thought Leaders", href: "/strategy/leaders", keywords: "influencers leaders experts" },
-  { type: "strategy", title: "Knowledge Map", href: "/strategy/knowledge-map", keywords: "connections foresight" },
+  { type: "strategy", title: "Learning Pathway", href: "/pathway", keywords: "connections foresight knowledge map learning" },
   { type: "strategy", title: "Funding Impact", href: "/funding-impact", keywords: "HR 1 medicaid cuts funding policy" },
   { type: "strategy", title: "Top-of-Scope", href: "/strategy/scope-of-practice", keywords: "scope practice delegation" },
   { type: "strategy", title: "Cultural Humility", href: "/strategy/cultural-humility", keywords: "CLAS cultural competency diversity" },

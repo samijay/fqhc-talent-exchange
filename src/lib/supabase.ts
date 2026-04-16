@@ -1,7 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { createBrowserClient } from "@supabase/ssr";
 
-// ── Public client (for client-side use only — limited by RLS) ──
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
 
@@ -12,25 +11,40 @@ if (!supabaseUrl || !supabaseAnonKey) {
   );
 }
 
-/** Public Supabase client — use only in client components or non-sensitive reads */
-export const supabase = createClient(
-  supabaseUrl || "",
-  supabaseAnonKey || ""
-);
-
 // ── Auth-aware browser client (uses @supabase/ssr for cookie-based auth) ──
 
-/**
- * Creates an auth-aware Supabase client for use in "use client" components.
- * This handles auth sessions via cookies automatically.
- * Use this instead of the plain `supabase` export when you need auth state.
- */
-export function createAuthClient() {
-  return createBrowserClient(
-    supabaseUrl || "",
-    supabaseAnonKey || ""
-  );
+// Use globalThis so the singleton survives Next.js HMR module re-evaluation in dev.
+// In production there is no HMR so this is equivalent to a plain module-level let.
+type BrowserClient = ReturnType<typeof createBrowserClient>;
+declare global {
+  // eslint-disable-next-line no-var
+  var _supabaseBrowserClient: BrowserClient | undefined;
 }
+
+/**
+ * Returns the auth-aware Supabase client for "use client" components.
+ * Lazily created and cached as a singleton; safe to call from multiple components.
+ * Uses globalThis to survive HMR reloads in development.
+ */
+export function createAuthClient(): BrowserClient {
+  if (!globalThis._supabaseBrowserClient) {
+    globalThis._supabaseBrowserClient = createBrowserClient(
+      supabaseUrl || "",
+      supabaseAnonKey || ""
+    );
+  }
+  return globalThis._supabaseBrowserClient;
+}
+
+// ── Public client ──
+// In the browser: reuse the auth client singleton to avoid two GoTrueClient instances
+// sharing the same storage key (which triggers a Supabase warning).
+// On the server: use the standard createClient (no browser storage involved).
+/** Public Supabase client — use in client components or non-sensitive server reads */
+export const supabase =
+  typeof window !== "undefined"
+    ? createAuthClient()
+    : createClient(supabaseUrl || "", supabaseAnonKey || "");
 
 // ── Server-only admin client (bypasses RLS — NEVER expose to the browser) ──
 

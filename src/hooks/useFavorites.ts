@@ -31,7 +31,7 @@ export function useFavorites(contentType: string) {
       .select("content_id")
       .eq("user_id", user.id)
       .eq("content_type", contentType)
-      .then(({ data }) => {
+      .then(({ data }: { data: { content_id: string }[] | null }) => {
         setFavoriteIds(new Set(data?.map((f) => f.content_id) ?? []));
         setLoading(false);
       });

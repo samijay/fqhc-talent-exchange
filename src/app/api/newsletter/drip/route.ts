@@ -42,11 +42,19 @@ export async function GET(request: Request) {
 
   try {
     // Fetch active subscribers who still have drip steps to receive
-    const { data: subscribers, error } = await supabaseAdmin
+    const { data: subscribersRaw, error } = await supabaseAdmin
       .from("newsletter_subscribers")
       .select("id, email, audience, drip_step, subscribed_at, unsubscribe_token")
       .eq("status", "active")
       .lt("drip_step", 3); // max 3 drip emails (steps 0–2)
+    const subscribers = subscribersRaw as {
+      id: string;
+      email: string;
+      audience: string;
+      drip_step: number;
+      subscribed_at: string;
+      unsubscribe_token: string;
+    }[] | null;
 
     if (error) {
       console.error("[drip] Supabase fetch error:", error.message);

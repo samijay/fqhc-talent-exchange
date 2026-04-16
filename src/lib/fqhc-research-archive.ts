@@ -1154,7 +1154,7 @@ export const RESEARCH_ENTRIES: ResearchEntry[] = [
     level: "foundational",
     description: { en: "NCFH data brief: 2.4M farmworkers in the US, 83% Hispanic/Latino, 30% follow crops across states (migrant). Occupational hazards include heat illness (20 deaths/year), pesticide exposure (10,000-20,000 acute poisonings/year), musculoskeletal injury. Only 20% have health insurance. Section 330g Migrant Health Centers serve 900K farmworkers through 178 grantees.", es: "Datos de NCFH: 2.4M trabajadores agrícolas, 83% hispanos. Riesgos incluyen enfermedad por calor, pesticidas, lesiones. Solo 20% tienen seguro." },
     whyItMatters: { en: "CA produces 50% of US fruits/vegetables. CA Migrant Health FQHCs are the primary healthcare providers for the workers who feed the nation — understanding their unique health needs is essential.", es: "CA produce 50% de frutas/verduras de EE.UU. Los FQHCs de Salud Migrante son los proveedores principales para los trabajadores que alimentan la nación." },
-    sourceUrl: "http://www.ncfh.org/",
+    sourceUrl: "https://www.ncfh.org/",
     tags: ["farmworker", "migrant", "section-330g", "heat-illness", "pesticide", "ncfh"],
   },
 

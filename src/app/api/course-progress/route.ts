@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { supabaseAdmin } from "@/lib/supabase";
-import { checkRateLimit, getClientIp, checkContentLength } from "@/lib/security";
+import { checkRateLimit, getClientIp, checkContentLength, validateOrigin } from "@/lib/security";
 
 const progressSchema = z.object({
   email: z.string().email().max(255),
@@ -100,6 +100,11 @@ export async function POST(request: Request) {
 // GET: Retrieve course progress for an email + course_id
 export async function GET(request: Request) {
   try {
+    // Require same-origin requests to prevent enumeration via external scripts
+    if (!validateOrigin(request)) {
+      return NextResponse.json({ error: "Forbidden." }, { status: 403 });
+    }
+
     const ip = getClientIp(request);
     const { allowed } = checkRateLimit(`progress-read:${ip}`, {
       limit: 20,

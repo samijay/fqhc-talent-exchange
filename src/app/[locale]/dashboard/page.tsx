@@ -130,8 +130,8 @@ export default function DashboardPage() {
       .from("user_watchlist")
       .select("watch_type, watch_value")
       .eq("user_id", user.id)
-      .then(({ data }) => {
-        setWatchlist((data as WatchlistItem[]) ?? []);
+      .then(({ data }: { data: WatchlistItem[] | null }) => {
+        setWatchlist(data ?? []);
         setWatchlistLoading(false);
       });
   }, [user, supabase]);
@@ -144,8 +144,8 @@ export default function DashboardPage() {
       .select("content_type, content_id, created_at")
       .eq("user_id", user.id)
       .order("created_at", { ascending: false })
-      .then(({ data }) => {
-        setFavorites((data as FavoriteItem[]) ?? []);
+      .then(({ data }: { data: FavoriteItem[] | null }) => {
+        setFavorites(data ?? []);
         setFavoritesLoading(false);
       });
   }, [user, supabase]);
@@ -158,7 +158,7 @@ export default function DashboardPage() {
       .select("content_type, content_id, status, progress, last_read_at")
       .eq("user_id", user.id)
       .order("last_read_at", { ascending: false })
-      .then(({ data }) => {
+      .then(({ data }: { data: { content_type: string; content_id: string; status: string; progress: number; last_read_at: string }[] | null }) => {
         setContentReads(data ?? []);
         setLibraryLoading(false);
       });

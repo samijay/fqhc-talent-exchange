@@ -70,6 +70,12 @@ export const rootMetadata = {
       "en": SITE_URL,
       "es": `${SITE_URL}/es`,
     },
+    types: {
+      "application/rss+xml": [
+        { url: "/blog-feed.xml", title: "FQHC Talent Exchange — Blog" },
+        { url: "/intel-feed.xml", title: "FQHC Intel Brief" },
+      ],
+    },
   },
   verification: {
     // Add these once you have accounts set up:
@@ -211,9 +217,9 @@ export const pageMetadata = {
       title: "Platform Demo — FQHC Talent",
       description:
         "See how we connect community health professionals with FQHCs across California.",
-      url: `${SITE_URL}/demo`,
+      url: `${SITE_URL}/intelligence`,
     },
-    alternates: { canonical: `${SITE_URL}/demo` },
+    alternates: { canonical: `${SITE_URL}/intelligence` },
   },
   about: {
     title:
@@ -356,9 +362,9 @@ export const pageMetadata = {
       title: "Strategy Knowledge Map — FQHC Talent",
       description:
         "The master knowledge graph: 6 strategic themes, guided learning paths, and 60+ connections between FQHC strategy content.",
-      url: `${SITE_URL}/strategy/knowledge-map`,
+      url: `${SITE_URL}/pathway`,
     },
-    alternates: { canonical: `${SITE_URL}/strategy/knowledge-map` },
+    alternates: { canonical: `${SITE_URL}/pathway` },
   },
   aiTracker: {
     title: "Which AI Tools Are FQHCs Actually Using? 22 Real Deployments Tracked (2026)",
