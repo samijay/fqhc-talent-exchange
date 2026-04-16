@@ -79,26 +79,26 @@ const nextConfig: NextConfig = {
         destination: "https://www.fqhctalent.com/:path*",
         permanent: true,
       },
-      // Redirect /insights → / (intelligence dashboard is now the homepage)
+      // Redirect /insights → /intelligence
       {
         source: "/insights",
-        destination: "/",
+        destination: "/intelligence",
         permanent: true,
       },
       {
         source: "/:locale/insights",
-        destination: "/:locale",
+        destination: "/:locale/intelligence",
         permanent: true,
       },
-      // Redirect /demo → / (demo page consolidated into homepage)
+      // Redirect /demo → /intelligence
       {
         source: "/demo",
-        destination: "/",
+        destination: "/intelligence",
         permanent: true,
       },
       {
         source: "/:locale/demo",
-        destination: "/:locale",
+        destination: "/:locale/intelligence",
         permanent: true,
       },
       // Redirect /strategy → /strategy/guides (no standalone /strategy page)
