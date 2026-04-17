@@ -5,7 +5,7 @@
 // Last updated: 2026-03-03 (daily update #8)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const AI_TRACKER_LAST_UPDATED = "2026-04-16";
+export const AI_TRACKER_LAST_UPDATED = "2026-04-17";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -1212,6 +1212,55 @@ export const AI_ADOPTION_ITEMS: AIAdoptionItem[] = [
     sourceOrg: "American Hospital Association",
     date: "2026-04-14",
     tags: ["ambient-scribe", "nursing", "dragon-copilot", "documentation", "aha", "rn", "lvn"],
+  },
+  {
+    id: "san-ysidro-health-retinopathy-ai-haip",
+    title: {
+      en: "San Ysidro Health Deploys AI Diabetic Retinopathy Screening — First CA FQHC HAIP Member",
+      es: "San Ysidro Health Despliega Detección de Retinopatía Diabética con IA — Primer FQHC de CA en HAIP",
+    },
+    description: {
+      en: "San Ysidro Health (San Diego) deployed AI-enabled diabetic retinopathy screening as of January 15, 2026 — confirmed via the Health AI Partnership (HAIP) 'AI in Action' practical applications brief. HAIP is the UCSF/Microsoft-led consortium focused on AI deployment in safety-net settings. San Ysidro's retinopathy AI screens high-risk diabetic patients without requiring a specialist visit, enabling earlier detection in an underserved border community where diabetes prevalence is high. San Ysidro serves 100,000+ patients across 36+ sites in San Diego's South Bay. This is the first confirmed HAIP-affiliated AI deployment at a California FQHC.",
+      es: "San Ysidro Health (San Diego) implementó detección de retinopatía diabética con IA a partir del 15 de enero de 2026. HAIP es el consorcio liderado por UCSF/Microsoft para la implementación de IA en entornos de red de seguridad. El AI de retinopatía de San Ysidro detecta la enfermedad sin necesidad de visita al especialista en una comunidad fronteriza con alta prevalencia de diabetes.",
+    },
+    category: "population-health",
+    vendor: "Not disclosed (HAIP consortium deployment)",
+    partnership: "Health AI Partnership (HAIP) — UCSF + Microsoft",
+    metrics: [
+      { label: "Deployment Date", value: "January 15, 2026" },
+      { label: "Patient Base", value: "100,000+ patients" },
+      { label: "Sites", value: "36+ San Diego sites" },
+    ],
+    adoptionStage: "expanding",
+    sourceUrl: "https://healthaipartnership.org/ai-in-action-practical-applications-for-safety-net-providers",
+    sourceOrg: "Health AI Partnership (HAIP)",
+    date: "2026-01-15",
+    tags: ["retinopathy", "diabetes", "population-health", "haip", "san-ysidro", "san-diego", "ucsf", "microsoft", "screening", "san-ysidro-health"],
+    featured: false,
+  },
+  {
+    id: "cair-health-nachc-accelerator-rcm-ai",
+    title: {
+      en: "Cair Health Joins NACHC Accelerator — AI-Powered Revenue Cycle Agent for CHCs",
+      es: "Cair Health se Une al Acelerador de NACHC — Agente de IA para Ciclo de Ingresos en CHCs",
+    },
+    description: {
+      en: "Cair Health — an AI-powered revenue cycle management (RCM) 'agentic OS' — was selected for the 2026 NACHC + ScaleHealth Accelerator cohort. Cair Health automates billing workflows, denial prevention, and prior authorization through AI agents that operate across EHR and payer systems. For FQHCs facing Medi-Cal billing complexity and H.R. 1 revenue pressure, RCM automation is a high-ROI investment: most FQHCs leave 15-30% of revenue on the table through missed charges, coding errors, and unworked denials. The NACHC accelerator provides 9 months of subsidized deployment at community health center partners — making Cair Health an early-mover option for FQHCs looking to recover revenue without hiring additional billing staff.",
+      es: "Cair Health — un 'OS agéntico' de gestión del ciclo de ingresos impulsado por IA — fue seleccionado para la cohorte del Acelerador NACHC + ScaleHealth 2026. Cair Health automatiza flujos de facturación, prevención de denegaciones y preautorizaciones a través de agentes de IA. Para los FQHCs que enfrentan la complejidad de facturación de Medi-Cal y la presión de ingresos de H.R. 1, la automatización de RCM es una inversión de alto ROI.",
+    },
+    category: "revenue-cycle",
+    vendor: "Cair Health",
+    partnership: "NACHC + ScaleHealth 2026 Accelerator",
+    metrics: [
+      { label: "Accelerator Duration", value: "9 months (2026)" },
+      { label: "NACHC Endorsed", value: "Yes (accelerator selection)" },
+    ],
+    adoptionStage: "pilot",
+    sourceUrl: "https://www.nachc.org/nachc-and-scalehealth-announce-2026-accelerator-cohort-to-drive-innovation-in-community-health-centers/",
+    sourceOrg: "NACHC",
+    date: "2026-01-01",
+    tags: ["rcm", "revenue-cycle", "billing", "denial-prevention", "nachc-accelerator", "scalehealth", "agentic-ai"],
+    featured: false,
   },
 ];
 

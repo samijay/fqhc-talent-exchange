@@ -5,23 +5,23 @@ import { X, Sparkles } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
-const DISMISS_KEY = "announcement-dismissed-v15";
+const DISMISS_KEY = "announcement-dismissed-v16";
 
 const BANNER_ITEMS = [
   {
     text: {
-      en: "H.R. 1 passed: federal Medicaid match ends Oct 1 for DACA, asylees & refugees — distinct from undocumented freeze",
-      es: "H.R. 1 aprobada: fondos federales de Medicaid terminan Oct 1 para DACA, asilados y refugiados",
+      en: "LA County DHS faces $662M federal funding decline — 700K residents at risk of losing Medi-Cal by 2027",
+      es: "El Condado de LA enfrenta $662M menos en fondos federales de salud — 700K residentes en riesgo de perder Medi-Cal",
     },
-    linkText: { en: "Intel Dashboard →", es: "Panel de Inteligencia →" },
+    linkText: { en: "Full Analysis →", es: "Análisis Completo →" },
     href: "/" as const,
   },
   {
     text: {
-      en: "FY2027 budget proposes 54% cut to Health Center Program: $6.5B \u2192 $3B",
-      es: "Presupuesto FY2027 propone recorte del 54% al Programa de Centros de Salud: $6.5B \u2192 $3B",
+      en: "SEIU-UHW ballot initiative signature verification deadline TODAY — 90% clinic spending mandate could reshape all CA FQHCs",
+      es: "Verificación de firmas de iniciativa de SEIU-UHW HOY — mandato del 90% podría reformar todos los FQHCs de CA",
     },
-    linkText: { en: "Full Analysis →", es: "Análisis Completo →" },
+    linkText: { en: "Advocacy Tracker →", es: "Rastreador de Defensa →" },
     href: "/" as const,
   },
 ];

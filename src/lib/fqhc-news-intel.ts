@@ -5,7 +5,7 @@
 // Last updated: 2026-03-06 (jobs report day — BLS Employment Situation February 2026)
 
 /** Exported for display on pages — updated by /daily-update pipeline */
-export const INTEL_LAST_UPDATED = "2026-04-16";
+export const INTEL_LAST_UPDATED = "2026-04-17";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -5418,6 +5418,131 @@ export const INTEL_ITEMS: IntelItem[] = [
     affectedOrgSlugs: ["family-health-centers-of-san-diego", "san-ysidro-health", "neighborhood-healthcare", "la-maestra-community-health-centers", "vista-community-clinic"],
     affectedOrgs: [],
     tags: ["calfresh", "medi-cal", "work-requirements", "san-diego", "eligibility", "noncitizens", "enrollment", "navigation"],
+  },
+  {
+    id: "la-county-dhs-662m-federal-decline-fy2027",
+    type: "news" as IntelType,
+    category: "funding" as IntelCategory,
+    impactLevel: "critical" as ImpactLevel,
+    date: "2026-04-14",
+    headline: {
+      en: "LA County DHS Faces $662M Federal Funding Decline in 2026-27 — 700,000 Residents at Risk of Losing Medi-Cal",
+      es: "El Condado de LA Enfrenta una Reducción de $662M en Fondos Federales de Salud en 2026-27 — 700,000 Residentes en Riesgo de Perder Medi-Cal",
+    },
+    summary: {
+      en: "The LA County 2026-27 Recommended Budget ($48.8B total) projects a $662.2M decline in federal support for the Department of Health Services to maintain current service levels. Work requirements effective January 2027 could remove Medi-Cal coverage for 700,000 county residents; an additional 47,000 lawfully present immigrants lose full-scope coverage in FY 2026-27. Acting CEO Joseph Nicchitta: 'LA County is currently in the eye of a hurricane.' DHS cuts will drive uninsured patient volume surges at FQHCs as the county's safety-net capacity shrinks. Public budget hearings begin May 6.",
+      es: "El Presupuesto Recomendado 2026-27 del Condado de LA proyecta una reducción de $662.2M en apoyo federal para el Departamento de Servicios de Salud. Los requisitos de trabajo efectivos en enero de 2027 podrían eliminar la cobertura de Medi-Cal para 700,000 residentes del condado; 47,000 inmigrantes con presencia legal adicional perderán la cobertura completa. CEO en funciones Nicchitta: 'El Condado de LA está actualmente en el ojo de un huracán.'",
+    },
+    sourceUrl: "https://lacounty.gov/2026/04/13/26-27-recommended-budget-press-release/",
+    sourceOrg: "LA County CEO",
+    region: "Los Angeles County",
+    affectedOrgSlugs: ["altamed-health-services", "st-johns-community-health", "clinica-romero", "healthright-360"],
+    affectedOrgs: [],
+    keyTakeaways: [
+      { en: "$662M single-year DHS funding decline — the most specific fiscal figure yet for LA safety-net health services", es: "$662M de reducción de financiamiento DHS en un solo año — la cifra fiscal más específica hasta ahora para los servicios de salud" },
+      { en: "700,000 residents at risk of losing Medi-Cal from work requirements starting January 2027", es: "700,000 residentes en riesgo de perder Medi-Cal por requisitos de trabajo que comienzan en enero de 2027" },
+      { en: "Public budget hearings begin May 6 — advocacy window is open now", es: "Las audiencias públicas presupuestarias comienzan el 6 de mayo — la ventana de defensa está abierta ahora" },
+    ],
+    tags: ["la-county", "dhs", "federal-funding", "medi-cal", "work-requirements", "budget", "662-million", "safety-net"],
+  },
+  {
+    id: "monterey-county-clinics-5-7m-revenue-loss",
+    type: "news" as IntelType,
+    category: "funding" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    date: "2026-04-01",
+    headline: {
+      en: "Monterey County's 12 Clinics Face $5-7M Revenue Loss — Clinica de Salud and Rural Mee Memorial at Specific Risk",
+      es: "Las 12 Clínicas del Condado de Monterey Enfrentan una Pérdida de $5-7M — Clínica de Salud y el Rural Mee Memorial en Riesgo Específico",
+    },
+    summary: {
+      en: "Federal and state Medi-Cal cuts are projected to reduce revenue at the County of Monterey's 12 health clinics by $5-7M (8-11% of their $65M annual budget). Clinica de Salud del Valle de Salinas — serving the agricultural worker and immigrant community of the Salinas Valley — is specifically flagged as at risk. Rural Mee Memorial Hospital in King City is also threatened. 45% of Monterey County residents (195,000 people) are on Medi-Cal; 33,000–45,000 are projected to lose coverage. Dental benefits for undocumented adults end July 2026, directly impacting FQHC dental programs.",
+      es: "Los recortes federales y estatales de Medi-Cal proyectan reducir los ingresos de las 12 clínicas del Condado de Monterey en $5-7M (8-11% de su presupuesto anual de $65M). Clínica de Salud del Valle de Salinas — que atiende a la comunidad de trabajadores agrícolas e inmigrantes del Valle de Salinas — está específicamente señalada en riesgo. El 45% de los residentes del condado (195,000 personas) están en Medi-Cal; se proyecta que 33,000-45,000 perderán cobertura.",
+    },
+    sourceUrl: "https://www.montereycountynow.com/news/local_news/federal-and-state-medi-cal-cuts-are-expected-to-put-a-strain-on-the-county/article_483a163a-fcf4-42eb-8ce4-2632ab2c015b.html",
+    sourceOrg: "Monterey County Now",
+    region: "Central Coast",
+    affectedOrgSlugs: ["clinica-de-salud-del-valle-de-salinas"],
+    affectedOrgs: [],
+    keyTakeaways: [
+      { en: "$5-7M revenue loss = 8-11% of the county clinic system's $65M budget — material operational impact", es: "$5-7M de pérdida de ingresos = 8-11% del presupuesto de $65M del sistema de clínicas del condado" },
+      { en: "Dental benefits for undocumented adults end July 2026 — directly hitting FQHC dental programs in the Salinas Valley", es: "Los beneficios dentales para adultos indocumentados terminan en julio de 2026 — afectando directamente los programas dentales de FQHC" },
+    ],
+    tags: ["monterey", "central-coast", "clinica-de-salud", "mee-memorial", "dental", "funding-loss", "salinas-valley", "agricultural-workers"],
+  },
+  {
+    id: "340b-fourth-circuit-maryland-state-law-vacated",
+    type: "news" as IntelType,
+    category: "compliance" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    date: "2026-04-15",
+    headline: {
+      en: "4th Circuit Rules for Pharma: Maryland's 340B Contract Pharmacy Access Law Vacated — State-Level Protections Weakened",
+      es: "4° Circuito Falla a Favor de Pharma: Ley de Maryland sobre Acceso a Farmacias Contractuales 340B Anulada — Protecciones a Nivel Estatal Debilitadas",
+    },
+    summary: {
+      en: "The U.S. Court of Appeals for the Fourth Circuit vacated the lower court ruling that had upheld Maryland's 340B contract pharmacy access law, siding with AbbVie, Novartis, and AstraZeneca. The ruling weakens the state-law backstop strategy — where states pass their own 340B protections when federal enforcement stalls. A competing 5th Circuit ruling (upholding Mississippi's similar law) creates a circuit split that may push the issue to the Supreme Court. California FQHCs are protected by H.R. 7391 (340B FQHC Protection Act, 35 cosponsors) at the federal level, but this ruling signals pharma is winning in the courts against state-level protections nationally.",
+      es: "El Tribunal de Apelaciones del Cuarto Circuito anuló el fallo de tribunal inferior que había respaldado la ley de Maryland sobre acceso a farmacias contractuales 340B, fallando a favor de AbbVie, Novartis y AstraZeneca. El fallo debilita la estrategia de respaldo de leyes estatales donde los estados aprueban sus propias protecciones 340B. Un fallo del 5° Circuito en conflicto podría llevar el asunto a la Corte Suprema.",
+    },
+    sourceUrl: "https://340breport.com/4th-circuit-again-sides-with-drugmakers-vacates-ruling-upholding-marylands-340b-contract-pharmacy-access-law/",
+    sourceOrg: "340B Report",
+    region: "Federal",
+    affectedOrgSlugs: [],
+    affectedOrgs: [],
+    keyTakeaways: [
+      { en: "State-level 340B protection laws are losing in federal courts — only H.R. 7391 provides a federal fix", es: "Las leyes estatales de protección 340B están perdiendo en los tribunales federales — solo H.R. 7391 proporciona una solución federal" },
+      { en: "4th/5th Circuit split may head to SCOTUS — major uncertainty for FQHCs without in-house pharmacies", es: "La división entre el 4° y 5° Circuito puede llegar a la Corte Suprema — gran incertidumbre para FQHCs sin farmacias propias" },
+    ],
+    tags: ["340b", "contract-pharmacy", "fourth-circuit", "maryland", "manufacturer-restrictions", "scotus-risk", "state-law"],
+  },
+  {
+    id: "hrsa-staffing-crisis-25-percent-loss",
+    type: "news" as IntelType,
+    category: "funding" as IntelCategory,
+    impactLevel: "high" as ImpactLevel,
+    date: "2026-03-15",
+    headline: {
+      en: "HRSA Has Lost ~25% of Staff — Grant Management and FQHC Oversight Capacity Severely Degraded",
+      es: "HRSA Ha Perdido ~25% de su Personal — Capacidad de Gestión de Subvenciones y Supervisión de FQHC Gravemente Degradada",
+    },
+    summary: {
+      en: "HRSA has lost approximately 25% of its workforce since February 2026 through DOGE-directed reductions and voluntary departures, according to KFF Health News. Auditors, grant managers, and field staff overseeing FQHC compliance and site visits are among those lost. The proposed FY2027 budget would eliminate HRSA entirely, consolidating it into a new 'Administration for a Healthy America' with a 54% funding cut ($6.5B → $3B for health centers). FQHCs should not interpret reduced oversight capacity as reduced compliance risk — enforcement actions already in motion continue, and grant payment delays are an emerging operational concern.",
+      es: "HRSA ha perdido aproximadamente el 25% de su personal desde febrero de 2026 mediante reducciones dirigidas por DOGE y salidas voluntarias, según KFF Health News. Auditores, gestores de subvenciones y personal de campo que supervisan el cumplimiento de FQHC y visitas de sitio están entre los perdidos. FQHCs no deben interpretar la reducción de capacidad de supervisión como reducción de riesgo de cumplimiento — las acciones de aplicación ya en curso continúan.",
+    },
+    sourceUrl: "https://kffhealthnews.org/news/article/hrsa-federal-staff-cuts-affect-health-programs-grants/",
+    sourceOrg: "KFF Health News",
+    region: "Federal",
+    affectedOrgSlugs: [],
+    affectedOrgs: [],
+    keyTakeaways: [
+      { en: "25% HRSA staff loss = degraded grant management capacity, potential payment delays, weakened OSV oversight", es: "25% de pérdida de personal de HRSA = capacidad de gestión de subvenciones degradada, posibles retrasos en pagos" },
+      { en: "FY2027 budget proposes eliminating HRSA entirely — Section 330 funding uncertainty is compounding", es: "El presupuesto FY2027 propone eliminar HRSA completamente — la incertidumbre de financiamiento de la Sección 330 se intensifica" },
+    ],
+    tags: ["hrsa", "staffing", "doge", "grant-management", "oversight", "section-330", "fy2027"],
+  },
+  {
+    id: "sutter-allina-26b-merger-northern-ca-signal",
+    type: "news" as IntelType,
+    category: "merger-acquisition" as IntelCategory,
+    impactLevel: "medium" as ImpactLevel,
+    date: "2026-03-01",
+    headline: {
+      en: "Sutter Health + Allina Health Form $26B 39-Hospital System — Competitive Signal for Northern CA FQHCs",
+      es: "Sutter Health + Allina Health Forman Sistema de $26B con 39 Hospitales — Señal Competitiva para FQHCs del Norte de California",
+    },
+    summary: {
+      en: "Sutter Health (Northern CA) and Allina Health (Minnesota) announced a merger to create a $26B, 39-hospital nonprofit system, pending regulatory approval expected by end of 2026. No direct FQHC acquisitions are announced. However, a more consolidated Sutter — which paid $575M and $228M in past antitrust settlements — gaining scale in Sacramento, Bay Area, and San Joaquin Valley markets could increase competitive pressure on FQHCs for provider talent, insurance contracts, and referral networks. SEIU 1021 has raised concerns about worker contracts in the merger.",
+      es: "Sutter Health (Norte de CA) y Allina Health (Minnesota) anunciaron una fusión para crear un sistema sin fines de lucro de $26B con 39 hospitales, pendiente de aprobación regulatoria esperada para finales de 2026. No se anuncian adquisiciones directas de FQHCs. Sin embargo, un Sutter más consolidado en los mercados de Sacramento, Área de la Bahía y Valle de San Joaquín podría aumentar la presión competitiva sobre los FQHCs.",
+    },
+    sourceUrl: "https://www.allinahealth.org/about-us/news-releases/2026/allina-health-announcement",
+    sourceOrg: "Allina Health",
+    region: "Northern California",
+    affectedOrgSlugs: [],
+    affectedOrgs: [],
+    keyTakeaways: [
+      { en: "Sutter's scale in Sacramento and Bay Area grows — watch for increased provider talent competition with FQHCs", es: "La escala de Sutter en Sacramento y el Área de la Bahía crece — vigilar mayor competencia por talento de proveedores con FQHCs" },
+    ],
+    tags: ["sutter", "allina", "merger", "northern-california", "hospital-consolidation", "competitive-landscape", "seiu-1021"],
   },
 ];
 
